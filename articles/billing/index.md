@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Billing — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak interpretować rozliczenia platformy Azure, a także jak monitorować użycie i koszty oraz zarządzać nimi. Samouczki, często zadawane pytania, dokumentacja interfejsu API i inne dokumenty."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

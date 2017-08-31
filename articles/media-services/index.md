@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Media Services — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy w chmurze — zapewnić bezpieczne przesyłanie strumieniowe materiałów wideo w jakości odpowiedniej do emisji na żywo lub na żądanie. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
 ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -210,10 +212,5 @@ Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy 
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Batch — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje równoległe oraz aplikacje do obliczeń o wysokiej wydajności na dużą skalę. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

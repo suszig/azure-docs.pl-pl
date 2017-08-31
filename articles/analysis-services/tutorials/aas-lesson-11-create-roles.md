@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 11 — tworzenie ról | Micros
 description: "Opisuje sposób tworzenia ról w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

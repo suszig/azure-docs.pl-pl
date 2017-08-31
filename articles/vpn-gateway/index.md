@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure VPN Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie konfigurowania bram wirtualnych sieci prywatnych (VPN) do zarządzania ruchem między sieciami wirtualnymi w chmurze i sieciami lokalnymi lub między sieciami wirtualnymi w chmurze."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

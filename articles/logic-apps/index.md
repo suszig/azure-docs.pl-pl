@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Logic Apps — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak opracowywać aplikacje logiki, które automatyzują i upraszczają biznesowe przepływy pracy w środowisku lokalnym i w chmurze. Samouczki, szablony i dokumentacja interfejsu API."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

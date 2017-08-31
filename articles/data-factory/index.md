@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Data Factory — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje na temat używania usługi Data Factory do konfigurowania zautomatyzowanych potoków danych ze źródeł lokalnych oraz ze źródeł w chmurze w celu przenoszenia i przetwarzania danych na potrzeby analiz."
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

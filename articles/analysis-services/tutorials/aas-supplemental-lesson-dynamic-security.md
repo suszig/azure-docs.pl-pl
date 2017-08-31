@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja uzupełniająca — zabezpiecz
 description: "Opisuje sposób korzystania z zabezpieczeń dynamicznych przy użyciu filtrów wierszy w samouczku usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

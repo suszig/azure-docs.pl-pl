@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja uzupełniająca — wiersze sz
 description: "Opisuje sposób tworzenia wyrażenia wierszy szczegółów w samouczku usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

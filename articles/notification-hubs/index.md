@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Notification Hubs — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne za pomocą usługi Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

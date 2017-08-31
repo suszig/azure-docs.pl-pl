@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Data Catalog — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie konfigurowania wykazu danych, który pozwala organizacjom znajdować i interpretować źródła danych oraz korzystać z nich. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

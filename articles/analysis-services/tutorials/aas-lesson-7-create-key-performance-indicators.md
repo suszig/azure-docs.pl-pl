@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 7 — tworzenie kluczowych wsk
 description: "Opisuje sposób tworzenia kluczowych wskaźników wydajności w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

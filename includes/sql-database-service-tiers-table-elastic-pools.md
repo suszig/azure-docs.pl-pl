@@ -1,105 +1,109 @@
 <!--
 Used in:
-sql-database-elastic-pool.md   
-sql-database-resource-limits.md
-sql-database-service-tiers.md  
+sql-database-elastic-pool.md 
 -->
+
  
-### <a name="basic-elastic-pool-limits"></a>Limity podstawowych pul elastycznych
+### <a name="basic-elastic-pool-limits"></a>Basic elastic pool limits
 
-| Rozmiar puli (jednostki eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Maksymalny rozmiar magazynu danych na pulę* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
-| Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Maksymalna liczba współbieżnych logowań na pulę | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba jednostek eDTU na bazę danych | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Maksymalna liczba jednostek eDTU na bazę danych | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
-| Maksymalny rozmiar magazynu danych na bazę danych | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 
+| Included storage per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Max storage choices per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Min eDTUs choices per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Max eDTUs choices per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits"></a>Limity standardowych pul elastycznych
+### <a name="standard-elastic-pool-limits"></a>Standard elastic pool limits
 
-| Rozmiar puli (jednostki eDTU)  | **50** | **100** | **200**** | **300**** | **400**** | **800****| 
+| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800**| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Maksymalny rozmiar magazynu danych na pulę* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
-| Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 100 | 200 | 400 | 600 |  800 | 1600 |
-| Maksymalna liczba współbieżnych logowań na pulę | 100 | 200 | 400 | 600 |  800 | 1600 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba jednostek eDTU na bazę danych** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Maksymalna liczba jednostek eDTU na bazę danych** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| Maksymalny rozmiar magazynu danych na bazę danych | 50 GB | 100 GB | 200 GB | 250 GB | 250 GB | 250 GB |
+| Included storage per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
+| Max storage choices per pool (GB)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
+| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Min eDTUs choices per database** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Max eDTUs choices per database** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Max storage per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued"></a>Limity standardowych pul elastycznych (ciąg dalszy) 
+### <a name="standard-elastic-pool-limits-continued"></a>Standard elastic pool limits (continued) 
 
-| Rozmiar puli (jednostki eDTU)  |  **1200**** | **1600**** | **2000**** | **2500**** | **3000**** |
+| eDTUs per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Maksymalny rozmiar magazynu danych na pulę* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 2,9 TB | 
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
-| Maksymalna liczba baz danych na pulę | 500 | 500 | 500 | 500 | 500 | 
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę |  2400 | 3200 | 4000 | 5000 | 6000 |
-| Maksymalna liczba współbieżnych logowań na pulę |  2400 | 3200 | 4000 | 5000 | 6000 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Minimalna liczba jednostek eDTU na bazę danych** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Maksymalna liczba jednostek eDTU na bazę danych** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
-| Maksymalny rozmiar magazynu danych na bazę danych | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 
+| Included storage per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
+| Max storage choices per pool (GB)* | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
+| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
+| Max concurrent workers (requests) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Max concurrent logins per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs choices per database** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Max eDTUs choices per database** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Max storage choices per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits"></a>Limity pul elastycznych Premium
+### <a name="premium-elastic-pool-limits"></a>Premium elastic pool limits
 
-| Rozmiar puli (jednostki eDTU)  | **125** | **250** | **500** | **1000** | **1500*****| 
+| eDTUs per pool | **125** | **250** | **500** | **1000** | **1500**| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Maksymalny rozmiar magazynu danych na pulę* | 250 GB | 500 GB | 750 GB | 1 TB | 1,5 TB | 
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
-| Maksymalna liczba baz danych na pulę | 50 | 100 | 100 | 100 | 100 |  
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 200 | 400 | 800 | 1600 |  2400 | 
-| Maksymalna liczba współbieżnych logowań na pulę | 200 | 400 | 800 | 1600 |  2400 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Minimalna liczba jednostek eDTU na bazę danych | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000 | 
-| Maksymalna liczba jednostek eDTU na bazę danych | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000 |
-| Maksymalny rozmiar magazynu danych na bazę danych | 250 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Included storage per pool (GB) | 250 | 500 | 750 | 1024 | 1536 | 
+| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
+| Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
+| Max concurrent logins per pool | 200 | 400 | 800 | 1600 | 2400 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued"></a>Limity pul elastycznych Premium (ciąg dalszy) 
+### <a name="premium-elastic-pool-limits-continued"></a>Premium elastic pool limits (continued) 
 
-| Rozmiar puli (jednostki eDTU) | **2000***** | **2500***** | **3000***** | **3500***** | **4000*****|
+| eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Maksymalny rozmiar magazynu danych na pulę* | 2 TB | 2,5 TB | 3 TB | 3,5 TB | 4 TB |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
-| Maksymalna liczba baz danych na pulę | 100 | 100 | 100 | 100 | 100 | 
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę |  3200 | 4000 | 4800 | 5600 | 6400 |
-| Maksymalna liczba współbieżnych logowań na pulę |  3200 | 4000 | 4800 | 5600 | 6400 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Minimalna liczba jednostek eDTU na bazę danych | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 |  0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Maksymalna liczba jednostek eDTU na bazę danych | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Maksymalny rozmiar magazynu danych na bazę danych | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Included storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Max storage choices per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
+| Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
+| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
+| Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Max concurrent logins per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs choices per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max eDTUs choices per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limity elastycznych pul Premium RS
+### <a name="premium-rs-elastic-pool-limits"></a>Premium RS elastic pool limits
 
-| Rozmiar puli (jednostki eDTU)  | **125** | **250** | **500** | **1000** |
+| eDTUs per pool | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Maksymalny rozmiar magazynu danych na pulę* | 250 GB| 500 GB | 750 GB | 750 GB |
-| Maksymalna pojemność magazynu OLTP w pamięci na pulę | 1 GB | 2 GB | 4 GB | 10 GB |
-| Maksymalna liczba baz danych na pulę | 50 | 100 | 100 | 100 |
-| Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 200 | 400 | 800 | 1600 |
-| Maksymalna liczba współbieżnych logowań na pulę | 200 | 400 | 800 | 1600 |
-| Maksymalna liczba współbieżnych sesji na pulę | 30000 | 30000 | 30000 | 30000 |
-| Minimalna liczba jednostek eDTU na bazę danych | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Maksymalna liczba jednostek eDTU na bazę danych | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Maksymalny rozmiar magazynu danych na bazę danych | 250 GB | 500 GB | 500 GB | 500 GB | 
+| Included storage per pool (GB) | 250 | 500 | 750 | 750 |
+| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
+| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 |
+| Max number DBs per pool | 50 | 100 | 100 | 100 |
+| Max concurrent workers (requests) per pool | 200 | 400 | 800 | 1600 |
+| Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
+| Min eDTUs choices per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
+| Max eDTUs choices per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
+| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 > [!IMPORTANT]
->\* Bazy danych w puli współużytkują magazyn w puli, dzięki czemu magazyn danych w elastycznej puli jest ograniczony do mniejszego z pozostałych magazynów puli lub maksymalnego rozmiaru magazynu na bazę danych. 
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 >
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
 >
->\*\* Minimalna/maksymalna liczba jednostek eDTU na bazę danych, rozpoczynając od 200 jednostek eDTU i więcej w publicznej wersji zapoznawczej.
->
->\*\*\* Domyślna maksymalna pojemność magazynu danych na pulę dla pul Premium z co najmniej 500 jednostkami eDTU wynosi 750 GB. Aby uzyskać większy maksymalny rozmiar magazynu danych na pulę Premium dla co najmniej 1000 jednostek eDTU, należy jawnie określić ten rozmiar przy użyciu witryny Azure Portal, programu [PowerShell](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), [interfejsu wiersza polecenia platformy Azure](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli) lub [interfejsu API REST](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api). Pule Premium z ponad 1 TB pamięci są obecnie dostępne w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA2, Zachodnie stany USA, Administracja USA — Virginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. Maksymalna pojemność magazynu na pulę dla wszystkich regionów jest obecnie ograniczona do 750 GB.
+>\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
 >

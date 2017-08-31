@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 8 — tworzenie perspektyw | M
 description: "Opisuje sposób tworzenia perspektyw w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

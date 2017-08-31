@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Data Lake Store — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak skonfigurować zgodne z usługą Hadoop repozytorium usługi Data Lake o ogromnej skali na potrzeby przeprowadzania analiz danych o dowolnym rozmiarze, typie i szybkości wprowadzania, oraz jak nim zarządzać i uzyskiwać do niego dostęp."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

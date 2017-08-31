@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Traffic Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak zarządzać ruchem przychodzącym, aby uzyskać optymalną wydajność aplikacji. W dokumentacji przedstawiono sposób dystrybucji ruchu do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej."
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
+ms.contentlocale: pl-pl
 ms.lasthandoff: 03/17/2017
 
 ---

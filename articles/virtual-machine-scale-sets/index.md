@@ -2,7 +2,7 @@
 title: "Dokumentacja zestawów skalowania maszyn wirtualnych na platformie Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych tworzyć automatycznie skalowane maszyny wirtualne z systemem Windows lub Linux na potrzeby dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/12/2017
 
 ---

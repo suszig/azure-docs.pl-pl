@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 4 — tworzenie relacji | Micr
 description: "Opisuje sposób tworzenia relacji w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

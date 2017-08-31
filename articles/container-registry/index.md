@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Container Registry — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak tworzyć i obsługiwać rejestry kontenerów w celu przechowywania obrazów wdrażania za pomocą zarządzanej usługi rejestru aparatu Docker. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ Dowiedz się, jak przy użyciu usługi Container Registry przechowywać obrazy d
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

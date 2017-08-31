@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ ms.lasthandoff: 05/20/2017
 Oba rodzaje zasad umożliwiają przyznawanie podmiotom usługi Azure Active Directory (użytkownikom i aplikacjom) różnych uprawnień w określonym środowisku. Podmioty (użytkownicy i aplikacje) muszą należeć do aktywnego katalogu (lub „dzierżawy platformy Azure”) skojarzonego z subskrypcją zawierającą środowisko.
 
 Zasady dostępu do zarządzania pozwalają przyznawać uprawnienia związane z konfiguracją środowiska, takie jak
-*    tworzenie i usuwanie środowiska, źródła zdarzeń, zestawy danych referencyjnych i
-*    zarządzanie zasadami dostępu do danych.
+*   tworzenie i usuwanie środowiska, źródła zdarzeń, zestawy danych referencyjnych i
+*   zarządzanie zasadami dostępu do danych.
 
 Zasady dostępu do danych umożliwiają przyznawanie uprawnień do wysyłania zapytań dotyczących danych, manipulowania danymi referencyjnymi w środowisku oraz udostępniania zapisanych zapytań i perspektyw skojarzonych ze środowiskiem.
 
@@ -43,30 +43,30 @@ Dwa rodzaje zasad pozwalają wyraźnie oddzielić dostęp do zarządzania środo
 ## <a name="grant-data-access"></a>Przyznawanie dostępu do danych
 Poniższe kroki przedstawiają procedurę przyznawania dostępu do danych dla nazwy głównej użytkownika:
 
-1.    Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2.    W menu po lewej stronie w witrynie Azure Portal kliknij pozycję „Wszystkie zasoby”.
-3.    Wybierz środowisko usługi Time Series Insights.
+1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2.  W menu po lewej stronie w witrynie Azure Portal kliknij pozycję „Wszystkie zasoby”.
+3.  Wybierz środowisko usługi Time Series Insights.
 
   ![Zarządzanie źródłem usługi Time Series Insights — środowisko](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Wybierz pozycję „Dostęp do płaszczyzny danych” i kliknij przycisk „Dodaj”.
+4.  Wybierz pozycję „Dostęp do płaszczyzny danych” i kliknij przycisk „Dodaj”.
 
   ![Zarządzanie źródłem usługi Time Series Insights — dodawanie](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Kliknij przycisk „Wybierz użytkownika”.
-6.    Wyszukaj użytkownika według adresu e-mail i wybierz go.
-7.    Kliknij pozycję „Wybierz” w bloku „Wybierz użytkownika”.
+5.  Kliknij przycisk „Wybierz użytkownika”.
+6.  Wyszukaj użytkownika według adresu e-mail i wybierz go.
+7.  Kliknij pozycję „Wybierz” w bloku „Wybierz użytkownika”.
 
   ![Zarządzanie źródłem usługi Time Series Insights — wybieranie użytkownika](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Kliknij pozycję „Wybierz rolę”.
-9.    Zaznacz opcję „Współautor”, jeśli chcesz zezwolić użytkownikowi na zmianę danych referencyjnych oraz udostępnianie zapisanych zapytań i perspektyw innym użytkownikom środowiska. W przeciwnym razie zaznacz opcję „Czytelnik”, aby zezwolić użytkownikowi na wysyłanie zapytań dotyczących danych i zapisywanie osobistych zapytań (nie udostępnianych) w środowisku.
-10.    Kliknij przycisk „OK” w bloku „Wybierz rolę”.
+8.  Kliknij pozycję „Wybierz rolę”.
+9.  Zaznacz opcję „Współautor”, jeśli chcesz zezwolić użytkownikowi na zmianę danych referencyjnych oraz udostępnianie zapisanych zapytań i perspektyw innym użytkownikom środowiska. W przeciwnym razie zaznacz opcję „Czytelnik”, aby zezwolić użytkownikowi na wysyłanie zapytań dotyczących danych i zapisywanie osobistych zapytań (nie udostępnianych) w środowisku.
+10. Kliknij przycisk „OK” w bloku „Wybierz rolę”.
 
   ![Zarządzanie źródłem usługi Time Series Insights — wybieranie roli](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Kliknij przycisk „OK” w bloku „Wybierz rolę użytkownika”.
-12.    Powinien zostać wyświetlony następujący ekran:
+11. Kliknij przycisk „OK” w bloku „Wybierz rolę użytkownika”.
+12. Powinien zostać wyświetlony następujący ekran:
 
   ![Zarządzanie źródłem usługi Time Series Insights — wyniki](media/data-access/getstarted-grant-data-access5.png)
 

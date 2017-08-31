@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Resource Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak za pomocą usługi Resource Manager wdrażać zasoby rozwiązań i zarządzać nimi jako grupą oraz jak tworzyć szablony na potrzeby spójnego i powtarzalnego wdrażania zasobów."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

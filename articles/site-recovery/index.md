@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Site Recovery — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak skonfigurować odzyskiwanie po awarii w chmurze i ciągłość działania dla serwerów fizycznych oraz maszyn wirtualnych przez wdrożenie replikacji i zarządzanie nią."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

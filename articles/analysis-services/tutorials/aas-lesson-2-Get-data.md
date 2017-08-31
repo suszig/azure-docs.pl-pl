@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 2 — pobieranie danych | Micr
 description: "Opisuje sposób pobierania i importowania danych w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

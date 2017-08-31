@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 9 — tworzenie hierarchii | M
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

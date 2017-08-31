@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure IoT Hub — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja uzupełniająca — niewyrówn
 description: "Opisuje sposób naprawiania niewyrównanych hierarchii w samouczku usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Automation — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak można zautomatyzować procesy i zarządzanie konfiguracją przy użyciu usługi Automation, aby zaoszczędzić czas i zwiększyć niezawodność typowych zadań administracyjnych."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/19/2017
 
 ---

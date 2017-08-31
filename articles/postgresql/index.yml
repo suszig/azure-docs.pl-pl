@@ -6,14 +6,14 @@ metadata:
   title: Dokumentacja usługi Azure PostgreSQL — samouczki i dokumentacja interfejsu API
   description: Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych w chmurze firmy Microsoft utworzoną dla deweloperów i opartą na aparacie bazy danych PostgreSQL typu open source.
   services: postgresql
-  author: jasonwhowell
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: postgresql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych opartą na aparacie bazy danych Postgres typu open source.  Jest to w pełni zarządzana baza danych oferowana jako usługa, za pomocą której można obsługiwać obciążenia o krytycznym znaczeniu — z przewidywalną wydajnością, zabezpieczeniami, wysoką dostępnością i dynamiczną skalowalnością.  Twórz aplikacje za pomocą usługi Azure Database dla PostgreSQL, korzystając z narzędzi open source i wybranej platformy.  Dowiedz się, jak używać usługi Azure Database dla PostgreSQL, korzystając z przewodników Szybki Start, samouczków i przykładów.'
 sections:

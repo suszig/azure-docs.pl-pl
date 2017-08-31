@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Monitor — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie korzystania z usług monitorowania i diagnostyki do śledzenia wydajności, zapewniania bezpieczeństwa i identyfikowania trendów. Dokumentacja interfejsu API, najlepsze rozwiązania i inne materiały."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

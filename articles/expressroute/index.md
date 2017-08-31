@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure ExpressRoute — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Informacje o sposobie konfigurowania prywatnego połączenia usługi ExpressRoute między usługami chmurowymi firmy Microsoft a infrastrukturą lokalną lub środowiskiem obejmującym kilka lokalizacji oraz zarządzania takim połączeniem."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

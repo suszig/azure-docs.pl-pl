@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure StorSimple — samouczki | Microsoft Docs"
 description: "Dowiedz się, jak używać usługi Azure StorSimple, zintegrowanego rozwiązania, które pozwala zarządzać zadaniami dotyczącymi przesyłania danych między urządzeniami lokalnymi i magazynem w chmurze Azure."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 21f24f387e96ac763419c37eeb16c75eab0bc452
+ms.contentlocale: pl-pl
 ms.lasthandoff: 04/28/2017
 
 ---

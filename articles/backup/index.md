@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Backup — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "W dokumentacji usługi Backup pokazano, jak wykonać kopię zapasową w chmurze. Zapoznaj się z samouczkami i klipami wideo dotyczącymi kopii zapasowych aplikacji, serwerów z systemem Windows i maszyn wirtualnych platformy Azure."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

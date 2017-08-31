@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure CDN — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak za pomocą usługi Content Delivery Network (CDN) dostarczać zawartość z globalnych centrów danych na dowolne urządzenie. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

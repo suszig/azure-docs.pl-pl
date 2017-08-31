@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 3 — oznaczanie jako tabeli d
 description: "Opisuje sposób oznaczania jako tabeli dat w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

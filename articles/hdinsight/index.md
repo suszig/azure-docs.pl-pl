@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure HDInsight — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

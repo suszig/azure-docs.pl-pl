@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 5 — tworzenie kolumn oblicze
 description: "Opisuje sposób tworzenia kolumn obliczeniowych w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

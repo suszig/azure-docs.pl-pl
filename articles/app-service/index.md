@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure App Service — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak za pomocą usługi App Service tworzyć aplikacje sieci Web i aplikacje mobilne dla dowolnej platformy i dowolnego urządzenia, korzystając z samouczków, klipów wideo, dokumentacji interfejsu API oraz innych dokumentów."
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>Dokumentacja usługi App Service
@@ -132,10 +134,5 @@ Dowiedz się, jak za pomocą usługi App Service opracowywać i hostować aplika
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

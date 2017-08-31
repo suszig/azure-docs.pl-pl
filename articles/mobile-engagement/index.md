@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Mobile Engagement — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak uzyskać wgląd w dane dotyczące użycia aplikacji mobilnych i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
 ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -207,10 +209,5 @@ Dowiedz się, jak zwiększyć użycie aplikacji, utrzymanie użytkowników oraz 
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

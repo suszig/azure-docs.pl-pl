@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Redis Cache — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom szybki dostęp do danych. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
 ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentacja usługi Redis Cache
@@ -195,10 +197,5 @@ Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pami�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

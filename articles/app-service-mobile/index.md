@@ -1,12 +1,12 @@
 ---
 title: "Dokumentacja usługi Azure Mobile Apps — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby tworzyć i hostować natywne aplikacje dla systemów iOS, Android lub Windows albo aplikacje międzyplatformowe korzystające z technologii Xamarin lub Cordova."
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

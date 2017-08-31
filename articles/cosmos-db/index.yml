@@ -6,7 +6,7 @@ metadata:
   title: Dokumentacja usługi Azure Cosmos DB — samouczki i dokumentacja interfejsu API
   description: 'Dowiedz się, jak za pomocą usługi Azure Cosmos DB tworzyć rozproszone globalnie wielomodelowe bazy danych. Z samouczków dowiesz się, jak utworzyć i za pomocą zapytań zbadać dokument, klucz/wartość i grafowe bazy danych.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

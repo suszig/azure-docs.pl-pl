@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Dokumentacja usługi Service Bus Relay"
 description: "Dowiedz się, jak usługa Azure Relay działa w chmurze hybrydowej i środowisku lokalnym. Dostępne są instrukcje, samouczki, klipy wideo, dokumentacja interfejsu API i nie tylko."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: pl-pl
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Dokumentacja usługi Service Bus Relay
 Dowiedz się, jak usługa Azure Relay ułatwia tworzenie aplikacji hybrydowych między środowiskiem lokalnym i środowiskiem chmury w korporacyjnym środowisku sieciowym oraz w chmurze publicznej bez konieczności otwierania połączenia przez zaporę i bez wprowadzania niepożądanych zmian do infrastruktury sieci korporacyjnej.

@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 10 — tworzenie partycji | Mi
 description: "Opisuje sposób tworzenia partycji w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

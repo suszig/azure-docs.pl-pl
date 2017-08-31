@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 6 — tworzenie miar | Microso
 description: "Opisuje sposób tworzenia miar w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -1,23 +1,18 @@
-| Zasób | Limit domyślny | Uwaga |
+| Resource | Default limit | Note |
 | --- | --- | --- |
-| Application Gateway |50 na subskrypcję | |
-| Konfiguracja adresu IP frontonu |2 |1 publiczna i 1 prywatna |
-| Porty frontonu |20 | |
-| Pule adresów zaplecza |20 | |
-| Serwery zaplecza na pulę |100 | |
-| Odbiorniki HTTP |20 | |
-| Reguły równoważenia obciążenia HTTP |200 |# odbiorników HTTP * n, n=10 domyślnie |
-| Ustawienia zaplecza HTTP |20 |1 na pulę adresów zaplecza |
-| Wystąpienia na bramę |10 | |
-| Certyfikaty SSL |20 |1 na odbiorniki HTTP |
-| Certyfikaty uwierzytelniania |5 | Maksymalnie 10 |
-| Minimalny limit czasu żądania |1 sekunda | |
-| Maksymalny limit czasu żądania |24 godziny | |
-| Liczba witryn |20 |1 na odbiorniki HTTP |
-| Mapy adresów URL na odbiornik |1 | |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+| Application Gateway |50 per subscription | Maximum 100 |
+| Frontend IP Configurations |2 |1 public and 1 private |
+| Frontend Ports |20 | |
+| Backend Address Pools |20 | |
+| Backend Servers per pool |100 | |
+| HTTP Listeners |20 | |
+| HTTP load balancing rules |200 |# of HTTP Listeners * n, n=10 Default |
+| Backend HTTP settings |20 |1 per Backend Address Pool |
+| Instances per gateway |10 | |
+| SSL certificates |20 |1 per HTTP Listeners |
+| Authentication certificates |5 | Maximum 10 |
+| Request time out min |1 second | |
+| Request time out max |24 hrs | |
+| Number of sites |20 |1 per HTTP Listeners |
+| URL Maps per listener |1 | |
 

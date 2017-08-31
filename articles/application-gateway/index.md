@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Application Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak wdrożyć kontrolera dostarczania aplikacji w chmurze. W dokumentacji pokazano, jak skonfigurować routing na poziomie aplikacji i równoważenie obciążenia dla frontonu sieci Web."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: pl-pl
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczani
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

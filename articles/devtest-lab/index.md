@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure DevTest Labs — samouczki | Microsoft Docs"
 description: "Dowiedz się, jak szybko tworzyć środowiska testowe aplikacji przy użyciu artefaktów z możliwością ponownego użycia. W samouczkach, klipach wideo i innych zasobach pokazano, jak tworzyć i zabezpieczać laboratoria oraz jak nimi zarządzać."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
+ms.contentlocale: pl-pl
 ms.lasthandoff: 05/03/2017
 
 ---

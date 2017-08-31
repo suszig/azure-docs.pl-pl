@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Event Hubs — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak usługa Event Hubs umożliwia pozyskiwanie milionów zdarzeń na sekundę z połączonych aplikacji i urządzeń IoT na wielu platformach."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

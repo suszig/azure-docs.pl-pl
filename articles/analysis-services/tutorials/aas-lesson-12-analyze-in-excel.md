@@ -3,7 +3,7 @@ title: "Samouczek Azure Analysis Services: lekcja 12 — analiza w programie Exc
 description: "Opisuje sposób użycia funkcji analizy w programie Excel w projekcie samouczka usług Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

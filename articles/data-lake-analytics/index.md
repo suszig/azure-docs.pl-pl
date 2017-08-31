@@ -2,8 +2,8 @@
 title: "Dokumentacja usługi Azure Data Lake Analytics — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak przeprowadzać analizy danych big data za pomocą usługi Data Lake Analytics. W samouczkach pokazano, jak uruchomić analizę wsadową, w czasie rzeczywistym i interaktywną, oraz jak pisać zapytania U-SQL."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

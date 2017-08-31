@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Application Insights — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak przy użyciu usługi Application Insights — rozszerzalnego rozwiązania do zarządzania wydajnością aplikacji — wykrywać i diagnozować problemy oraz oceniać ich istotność w aplikacjach sieci Web i w usługach."
 services: application-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
 ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="application-insights-documentation"></a>Dokumentacja usługi Application Insights
@@ -163,10 +165,5 @@ Dowiedz się, jak używać rozwiązania Application Insights, rozszerzalnej usł
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

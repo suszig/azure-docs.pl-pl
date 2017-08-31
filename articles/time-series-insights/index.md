@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Time Series Insights — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak uruchamiać analizę IoT w chmurze za pomocą w pełni zarządzanego przetwarzania zdarzeń. Analizuj w czasie rzeczywistym dane z aplikacji, czujników, urządzeń i innych źródeł."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
+ms.contentlocale: pl-pl
 ms.lasthandoff: 05/03/2017
 
 --- 

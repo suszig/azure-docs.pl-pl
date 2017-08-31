@@ -2,7 +2,7 @@
 title: "Dokumentacja usługi Azure Storage — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: "Dowiedz się, jak korzystać z usługi Azure Storage — obiektów Blob, kolejek, tabel, plików oraz magazynu dyskowego maszyny wirtualnej w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

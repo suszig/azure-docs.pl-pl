@@ -2,7 +2,7 @@
 title: "Dokumentacja zabezpieczeń platformy Azure — samouczki | Microsoft Docs"
 description: "Dowiedz się, jak dostosować opcje zabezpieczeń w usługach platformy Azure w celu spełnienia wymagań dotyczących wdrożeń usług i danych w chmurze."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
