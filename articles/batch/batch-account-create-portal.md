@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e6e27595f625fcb3ffdb0a6bccf75ad2dcc77cb3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
@@ -154,7 +154,7 @@ Zaleca się utworzenie nowego konta usługi Storage do wyłącznego użytku prze
 ![Tworzenie konta magazynu ogólnego przeznaczenia][storage_account]
 
 > [!NOTE]
-> Usługa Azure Batch obsługuje obecnie tylko konta usługi Storage ogólnego przeznaczenia. Ten typ konta opisano w kroku 5 sekcji [Tworzenie konta magazynu] (../storage/storage-create-storage-account.md#create-a-storage-account) w artykule [Informacje o kontach magazynu Azure](../storage/storage-create-storage-account.md).
+> Usługa Azure Batch obsługuje obecnie tylko konta usługi Storage ogólnego przeznaczenia. Ten typ konta opisano w kroku 5 [Tworzenie konta magazynu] (../storage/common/storage-create-storage-account.md#create-a-storage-account) w artykule [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
