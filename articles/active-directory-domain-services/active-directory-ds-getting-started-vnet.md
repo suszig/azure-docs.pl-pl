@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c0d3f90c0f15fbb7aad00fe24c2946738e24ffd8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Tworzenie lub wybieranie sieci wirtualnej dla usługi Azure Active Directory Domain Services
+
+> [!IMPORTANT]
+> Przedstawione w tym artykule środowisko klasycznej witryny Azure Portal, które umożliwia włączanie usług Azure AD Domain Services, zostanie wkrótce usunięte. W przypadku nowych wdrożeń [**zamiast niego użyj nowego środowiska witryny Azure Portal (w wersji zapoznawczej)**](active-directory-ds-getting-started.md).
+>
+
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Zapoznaj się z tematem [Networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md) (Zagadnienia dotyczące sieci w usłudze Azure Active Directory Domain Services).
 
@@ -30,7 +34,7 @@ Zapoznaj się z tematem [Networking considerations for Azure Active Directory Do
 Kolejnym zadaniem konfiguracji jest utworzenie sieci wirtualnej platformy Azure oraz podsieci w tej sieci. Usługi Azure Active Directory Domain Services w tej podsieci możesz włączyć w sieci wirtualnej. Jeśli masz istniejącą sieć wirtualną, której chcesz użyć, możesz pominąć ten krok.
 
 > [!NOTE]
-> Upewnij się, że sieć wirtualna platformy Azure utworzona lub wybrana do użycia z usługami Azure Active Directory Domain Services należy do regionu świadczenia usługi Azure, który jest obsługiwany przez usługi Azure Active Directory Domain Services. Zobacz [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/), aby upewnić się co do regionów świadczenia usługi Azure, w których usługa Azure Active Directory Domain Services jest dostępna.
+> Upewnij się, że sieć wirtualna platformy Azure utworzona lub wybrana do użycia z usługami Azure Active Directory Domain Services należy do regionu świadczenia usługi Azure, który jest obsługiwany przez usługi Azure Active Directory Domain Services. Zobacz [Usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/), aby wyświetlić regiony platformy Azure, w których usługi Azure Active Directory Domain Services są dostępne.
 >
 >Zapamiętaj nazwę sieci wirtualnej, aby podczas włączania usług Azure Active Directory Domain Services w kolejnym kroku konfiguracji wybrać właściwą sieć.
 

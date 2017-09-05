@@ -1,25 +1,31 @@
 
-1. Kliknij pozycję **App Services**, wybierz zaplecze aplikacji mobilnej, kliknij pozycję **Szybki start** > platforma klienta (iOS, Android, Xamarin, Cordova).
+1. Kliknij przycisk **App Services**, wybierz zaplecze funkcji Mobile Apps, wybierz pozycję **Szybki start**, a następnie wybierz platformę klienta (iOS, Android, Xamarin, Cordova).
 
-![Witryna Azure Portal z wyróżnioną pozycją Mobile Apps Quickstart][quickstart]
+    ![Witryna Azure Portal z wyróżnioną pozycją Mobile Apps — szybki start][quickstart]
 
-2. Jeśli nie skonfigurowano połączenia z bazą danych, należy utworzyć jedno połączenie danych.
+2. Jeśli nie skonfigurowano połączenia z bazą danych, utwórz je w następujący sposób:
 
-![Witryna Azure Portal z opcją połączenia aplikacji mobilnej z bazą danych][connect]
+    ![Witryna Azure Portal z opcją połączenia funkcji Mobile Apps z bazą danych][connect]
 
-  * Utwórz nową bazę danych SQL i serwer.
+    a. Utwórz nową bazę danych SQL i serwer.
 
-  ![Witryna Azure Portal z opcją tworzenia nowej bazy danych i serwera aplikacji mobilnej][server]
+    ![Witryna Azure Portal z opcją tworzenia nowej bazy danych i serwera funkcji Mobile Apps][server]
 
-  * Poczekaj na pomyślne utworzenie połączenia danych.
+    b. Poczekaj na pomyślne utworzenie połączenia danych.
 
-  ![Witryna Azure Portal z powiadomieniem o utworzeniu połączenia danych aplikacji mobilnej][notification]
+    ![Powiadomienie witryny Azure Portal o pomyślnym utworzeniu połączenia danych][notification]
 
-  * Połączenie danych musi się powieść.
+    c. Połączenie danych musi się powieść.
 
-  ![Witryna Azure Portal z powiadomieniem o utworzeniu połączenia danych aplikacji mobilnej][already-connection]
+    ![Powiadomienie witryny Azure Portal „Masz już połączenie danych”][already-connection]
 
-3. W obszarze **2. Utwórz tabelę interfejsu API** wybierz dla języka Node.js opcję **Język zaplecza**. Zaakceptuj potwierdzenie i kliknij opcję **Utwórz tabelę TodoItem**. Spowoduje to utworzenie nowej tabeli *TodoItem* w bazie danych. Pamiętaj, że przełączenie istniejącej wewnętrznej bazy danych na Node.js spowoduje zastąpienie całej zawartości! Aby zamiast tego utworzyć zaplecze platformy .NET, [wykonaj następujące instrukcje][instructions].
+3. W obszarze **2. Utwórz tabelę interfejsu API** wybierz dla języka Node.js opcję **Język zaplecza**. 
+ 
+4. Zaakceptuj potwierdzenie i wybierz pozycję **Utwórz tabelę TodoItem**.  
+    Ta akcja spowoduje utworzenie nowej tabeli elementów do wykonania w bazie danych. 
+
+    >[!IMPORTANT]
+    > Przełączenie istniejącego zaplecza na język Node.js spowoduje zastąpienie całej zawartości. Aby w zamian utworzyć zaplecze .NET, zobacz [Work with the .NET back-end server SDK for Mobile Apps (Praca z zestawem SDK serwera zaplecza .NET SDK dla funkcji Mobile Apps)][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

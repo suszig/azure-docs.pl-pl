@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Raport dotyczący ryzykownych logowań w portalu usługi Azure Active Directory
@@ -52,7 +52,7 @@ Jednak poziom szczegółowości raportu zależy od wersji:
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory — wersja Bezpłatna i Podstawowa
 
-Usługa Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę wykrytych ryzykownych logowań dla użytkowników. Raport zdarzeń o podwyższonym ryzyku zawiera następujące informacje:
+Usługa Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę wykrytych ryzykownych logowań dla użytkowników. W tym raporcie znajdują się następujące informacje:
 
 - **Użytkownik** — nazwa użytkownika użyta podczas logowania
 - **IP** — adres IP urządzenia, którego użyto do nawiązania połączenia z usługą Azure Active Directory
@@ -60,7 +60,6 @@ Usługa Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę 
 - **Godzina logowania** — godzina, o której przeprowadzono logowanie
 - **Stan** — stan logowania
 
-Dane raportu można pobrać.
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Na podstawie badania ryzykownego logowania możesz przekazać usłudze Azure Act
 ![Ryzykowne logowania](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Aby uzyskać więcej informacji, zobacz [Ręczne zamykanie zdarzeń o podwyższonym ryzyku](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Ten raport oferuje opcję:
+
+- Wyszukiwania zasobów
+- Pobierania danych raportu
+
+
+![Ryzykowne logowania](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory — wersje Premium
 

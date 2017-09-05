@@ -1,150 +1,116 @@
 ---
-title: "Tworzenie pierwszego wzorca usługi Jenkins na maszynie wirtualnej z systemem Linux (Ubuntu) na platformie Azure"
-description: "Skorzystaj z szablonu rozwiązania umożliwiającego wdrożenie usługi Jenkins."
-services: app-service\web
-documentationcenter: 
+title: Tworzenie serwera Jenkins na platformie Azure
+description: "Zainstaluj usługę Jenkins na maszynie wirtualnej z systemem Linux platformy Azure za pomocą szablonu rozwiązania Jenkins i utwórz przykładową aplikację Java."
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: multiple
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-ms.date: 6/7/2017
+ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Tworzenie pierwszego wzorca usługi Jenkins na maszynie wirtualnej z systemem Linux (Ubuntu) na platformie Azure
+# <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Tworzenie serwera Jenkins na maszynie wirtualnej z systemem Linux platformy Azure przy użyciu witryny Azure Portal
 
-W tym przewodniku Szybki start pokazano, jak zainstalować najnowszą stabilną wersję usługi Jenkins razem z narzędziami i wtyczkami skonfigurowanymi do współdziałania z platformą Azure na maszynie wirtualnej z systemem Linux (Ubuntu 14.04 LTS). Narzędzia te zawierają następujące składniki:
-<ul>
-<li>Narzędzie Git do kontroli źródła</li>
-<li>Wtyczka do obsługi poświadczeń do platformy Azure umożliwiająca nawiązywanie bezpiecznych połączeń</li>
-<li>Wtyczka agentów maszyn wirtualnych platformy Azure umożliwiająca kompilację elastyczną, przeprowadzanie testów oraz ciągłą integrację</li>
-<li>Wtyczka usługi Microsoft Azure Storage do przechowywania artefaktów</li>
-<li>Interfejs wiersza polecenia platformy Azure do wdrażania aplikacji za pomocą skryptów</li>
-</ul>
+W tym przewodniku Szybki start pokazano, jak zainstalować usługę [Jenkins](https://jenkins.io) z narzędziami i wtyczkami skonfigurowanymi do współdziałania z platformą Azure na maszynie wirtualnej z systemem Ubuntu Linux. Po zakończeniu uzyskasz działający na platformie Azure serwer Jenkins umożliwiający skompilowanie przykładowej aplikacji Java z usługi [GitHub](https://github.com).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!div class="checklist"]
-> * Tworzenie bezpłatnego konta platformy Azure.
-> * Tworzenie wzorca usługi Jenkins na maszynie wirtualnej platformy Azure przy użyciu szablonu rozwiązania. 
-> * Przeprowadzanie początkowej konfiguracji usługi Jenkins.
-> * Instalowanie sugerowanych wtyczek.
+* Subskrypcja platformy Azure
+* Dostęp do powłoki SSH w wierszu polecenia na komputerze (takiej jak powłoka Bash lub [PuTTY](http://www.putty.org/))
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Tworzenie maszyny wirtualnej na platformie Azure przez wdrożenie szablonu rozwiązania dla usługi Jenkins
+## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Tworzenie maszyny wirtualnej z usługą Jenkins za pomocą szablonu rozwiązania
 
-Szablony Szybki Start platformy Azure umożliwiają szybkie i niezawodne wdrażanie złożonych technologii na platformie Azure.  Usługa Azure Resource Manager pozwala aprowizować aplikacje za pomocą [deklaratywnych szablonów](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Za pomocą tego samego szablonu możesz wdrażać aplikację na każdym etapie jej cyklu życia.
-
-Aby zapoznać się z opcjami dotyczącymi opłat za korzystanie z tego szablonu, zobacz informacje o [planach i cenniku](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview).
-
-Przejdź do strony [z obrazem usługi Jenkins w portalu Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) i kliknij przycisk **POBIERZ TERAZ**.  
-
-W witrynie Azure Portal kliknij pozycję **Utwórz**.  Szablon ten wymaga użycia usługi Resource Manager, dlatego lista rozwijana modelu szablonu jest wyłączona.
+Otwórz [obraz usługi Jenkins z witryny Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) w przeglądarce internetowej i wybierz pozycję **POBIERZ TERAZ** po lewej stronie. Przejrzyj informacje o cenach i wybierz przycisk **Kontynuuj**, a następnie wybierz pozycję **Utwórz**, aby skonfigurować serwer Jenkins w witrynie Azure Portal. 
    
 ![Okno dialogowe witryny Azure Portal](./media/install-jenkins-solution-template/ap-create.png)
 
-Na karcie **Konfigurowanie ustawień podstawowych**:
+Na karcie **Konfigurowanie ustawień podstawowych** wypełnij następujące pola:
 
 ![Konfigurowanie ustawień podstawowych](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Podaj nazwę wystąpienia usługi Jenkins.
-* Wybierz typ dysku maszyny wirtualnej.  W przypadku obciążeń produkcyjnych wybierz większy rozmiar maszyny wirtualnej. Wybranie dysku SSD zapewnia lepszą wydajność.  Więcej informacji na temat typów dysków platformy Azure jest dostępnych [tutaj](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage).
-* Nazwa użytkownika: musi spełniać wymagania dotyczące długości i nie może zawierać wyrazów zastrzeżonych ani nieobsługiwanych znaków. Takie nazwy, jak „admin”, są niedozwolone.  Więcej informacji o wymaganiach dotyczących nazwy użytkownika i hasła jest dostępnych [tutaj](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq).
-* Typ uwierzytelniania: utwórz wystąpienie zabezpieczone hasłem lub [kluczem publicznym SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Używane hasło musi zawierać trzy z następujących znaków: mała litera, wielka litera, cyfra i znak specjalny.
-* Pozostaw wartość **LTS** jako typ wersji usługi Jenkins.
-* Wybierz subskrypcję.
-* Utwórz grupę zasobów lub użyj istniejącej grupy zasobów, która jest pusta. 
-* Wybierz lokalizację.
+* W polu **Nazwa** użyj wartości **Jenkins**.
+* Wprowadź **nazwę użytkownika**. Nazwa użytkownika musi spełniać [konkretne wymagania](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+* Jako ustawienie **Typ uwierzytelniania** wybierz pozycję **Hasło** i wprowadź hasło. Hasło musi zawierać co najmniej jedną wielką literę, jedną cyfrę i jeden znak specjalny.
+* W polu **Grupa zasobów** użyj wartości **myJenkinsResourceGroup**.
+* Z listy rozwijanej **Lokalizacja** wybierz [region świadczenia usługi Azure](https://azure.microsoft.com/regions/) **Wschodnie stany USA**.
 
-Na karcie **Konfigurowanie opcji dodatkowych**:
+Wybierz przycisk **OK**, aby przejść do karty **Konfigurowanie opcji dodatkowych**. Wprowadź unikatową nazwę domeny do identyfikacji serwera Jenkins i wybierz przycisk **OK**.
 
-![Konfigurowanie opcji dodatkowych](./media/install-jenkins-solution-template/ap-addtional.png)
+![Konfigurowanie opcji dodatkowych](./media/install-jenkins-solution-template/ap-addtional.png)  
 
-* Podaj etykietę nazwy domeny, która jednoznacznie identyfikuje wzorzec usługi Jenkins.
+ Po pomyślnej weryfikacji ponownie wybierz przycisk **OK** na karcie **Podsumowanie**. Na koniec wybierz pozycję **Zakup**, aby utworzyć maszynę wirtualną z usługą Jenkins. Gdy serwer będzie gotowy, otrzymasz powiadomienie w witrynie Azure Portal:   
 
-Kliknij przycisk **OK**, aby przejść do następnego kroku. 
-
-Po pomyślnej weryfikacji kliknij przycisk **OK**, aby pobrać szablon i parametry. 
-
-Następnie wybierz pozycję **Kup**, aby umożliwić aprowizację wszystkich zasobów.
-
-## <a name="setup-ssh-port-forwarding"></a>Konfigurowanie przekierowania portów SSH
-
-Domyślnie wystąpienie usługi Jenkins używa protokołu http i nasłuchuje na porcie 8080. Użytkownicy nie powinni przeprowadzać uwierzytelniania za pośrednictwem niezabezpieczonych protokołów.
-    
-Skonfigurowanie przekierowania portów umożliwia wyświetlenie interfejsu użytkownika usługi Jenkins na maszynie lokalnej.
-
-### <a name="if-you-are-using-windows"></a>Jeśli używasz systemu Windows:
-
-Zainstaluj program PuTTY i uruchom to polecenie, jeśli do zabezpieczenia usługi Jenkins jest używane hasło:
-```
-putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Aby się zalogować, wprowadź hasło.
-
-![Aby się zalogować, wprowadź hasło.](./media/install-jenkins-solution-template/jenkins-pwd.png)
-
-Jeśli używasz protokołu SSH, uruchom następujące polecenie:
-```
-putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-
-### <a name="if-you-are-using-linux-or-mac"></a>Jeśli używasz systemu Linux lub komputera Mac:
-
-Jeśli do zabezpieczenia wzorca usługi Jenkins jest używane hasło, uruchom następujące polecenie:
-```
-ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Aby się zalogować, wprowadź hasło.
-
-Jeśli używasz protokołu SSH, uruchom następujące polecenie:
-```
-ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
+![Powiadomienie o tym, że usługa Jenkins jest gotowa](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
 ## <a name="connect-to-jenkins"></a>Nawiązywanie połączenia z usługą Jenkins
-Po uruchomieniu tunelu przejdź do adresu http://localhost:8080/ na maszynie lokalnej.
 
-Odblokuj pulpit nawigacyjny usługi Jenkins za pomocą początkowego hasła administratora.
+Przejdź do maszyny wirtualnej (na przykład http://jenkins2517454.eastus.cloudapp.azure.com/) w przeglądarce internetowej. Konsola usługi Jenkins nie jest dostępna za pośrednictwem niezabezpieczonych połączeń HTTP, więc na stronie będą podane instrukcje, aby uzyskać dostęp do tej konsoli w sposób bezpieczny z komputera przy użyciu tunelu SSH.
+
+![Odblokowywanie usługi Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+
+Skonfiguruj tunel przy użyciu polecenia `ssh` na stronie z wiersza polecenia, zamieniając pozycję `username` na nazwę użytkownika administratora maszyny wirtualnej wybraną wcześniej podczas konfigurowania maszyny wirtualnej za pomocą szablonu rozwiązania.
+
+```bash
+ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
+```
+
+Po uruchomieniu tunelu przejdź do adresu http://localhost:8080/ na maszynie lokalnej. 
+
+Uzyskaj hasło początkowe, uruchamiając następujące polecenie w wierszu polecenia przy aktywnym połączeniu z maszyną wirtualną z usługą Jenkins za pośrednictwem powłoki SSH.
+
+```bash
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+```
+
+Odblokuj pulpit nawigacyjny usługi Jenkins za pomocą hasła początkowego.
 
 ![Odblokowywanie usługi Jenkins](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-Aby uzyskać token, nawiąż połączenie SSH z maszyną wirtualną i uruchom polecenie `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
-
-![Odblokowywanie usługi Jenkins](./media/install-jenkins-solution-template/jenkins-ssh.png)
-
-Pojawi się monit o zainstalowanie sugerowanych wtyczek.
-
-Następnie utwórz konto administratora dla wzorca usługi Jenkins.
-
-Wystąpienie usługi Jenkins jest teraz gotowe do użycia. Widok tylko do odczytu jest dostępny pod adresem http://\<publiczna nazwa DNS utworzonego wystąpienia\>.
+Na następnej stronie wybierz pozycję **Zainstaluj sugerowane wtyczki**, a następnie utwórz administratora usługi Jenkins, który będzie służyć do uzyskiwania dostępu do pulpitu nawigacyjnego usługi Jenkins.
 
 ![Usługa Jenkins jest gotowa do użycia.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
+Serwer Jenkins jest już gotowy do kompilowania kodu.
+
+## <a name="create-your-first-job"></a>Tworzenie pierwszego zadania
+
+W konsoli usługi Jenkins wybierz pozycję **Utwórz nowe zadania**, nadaj temu elementowi nazwę **mySampleApp** i wybierz pozycję **Projekt dowolny**, a następnie wybierz przycisk **OK**.
+
+![Tworzenie nowego zadania](./media/install-jenkins-solution-template/jenkins-new-job.png) 
+
+Wybierz kartę **Zarządzanie kodem źródłowym**, włącz pozycję **Git** i wprowadź następujący adres URL w polu **Adres URL repozytorium**:`https://github.com/spring-guides/gs-spring-boot.git`
+
+![Definiowanie repozytorium Git](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
+
+Wybierz kartę **Kompilacja**, a następnie wybierz pozycję **Dodaj krok kompilacji**, **Wywołaj skrypt Gradle**. Wybierz pozycję **Użyj otoki Gradle**, a następnie wprowadź wartość `complete` w polu **Lokalizacja otoki** i wartość `build` w polu **Zadania**.
+
+![Kompilowanie przy użyciu otoki Gradle](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
+
+Wybierz pozycję **Zaawansowane**. Następnie wprowadź wartość `complete` w polu **Główny skrypt kompilacji**. Wybierz pozycję **Zapisz**.
+
+![Konfigurowanie ustawień zaawansowanych w kroku dotyczącym kompilacji i otoki Gradle](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
+
+## <a name="build-the-code"></a>Kompilowanie kod
+
+Wybierz pozycję **Kompiluj teraz**, aby skompilować kod i utworzyć pakiet z aplikacją przykładową. Po zakończeniu kompilacji wybierz link **Obszar roboczy** dla projektu.
+
+![Przechodzenie do obszaru roboczego w celu pobrania pliku JAR z kompilacji](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+
+Przejdź do folderu `complete/build/libs` i upewnij się, że znajduje się tam plik `gs-spring-boot-0.1.0.jar`, w celu potwierdzenia, że kompilacja zakończyła się pomyślnie. Serwer Jenkins jest już gotowy i możesz za jego pomocą kompilować własne projekty na platformie Azure.
+
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostały wykonane następujące czynności:
-
-> [!div class="checklist"]
-> * Utworzenie wzorca usługi Jenkins za pomocą szablonu rozwiązania.
-> * Przeprowadzenie początkowej konfiguracji usługi Jenkins.
-> * Zainstalowanie wtyczek.
-
-Użyj poniższego linku, aby dowiedzieć się, jak używać agentów maszyn wirtualnych platformy Azure w celu zapewnienia ciągłej integracji z usługą Jenkins.
-
 > [!div class="nextstepaction"]
-> [Azure VMs as Jenkins agents (Maszyny wirtualne platformy Azure jako agenci usługi Jenkins)](jenkins-azure-vm-agents.md)
+> [Dodawanie maszyn wirtualnych platformy Azure jako agentów usługi Jenkins](jenkins-azure-vm-agents.md)
 

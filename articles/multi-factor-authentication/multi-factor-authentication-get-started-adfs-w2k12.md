@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2017
+ms.date: 08/25/2017
 ms.author: kgremban
+ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2481c18f12d74a90938ffb0353dd000fe73f440
-ms.lasthandoff: 04/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
@@ -34,11 +35,11 @@ Podczas instalowania serwera usługi Azure Multi-Factor Authentication dostępne
 
 Przed rozpoczęciem należy uwzględnić następujące informacje:
 
-* Nie jest konieczne instalowanie serwera Azure Multi-Factor Authentication na serwerze usług AD FS. Należy jednak zainstalować adapter usługi Multi-Factor Authentication dla usług AD FS w systemie Windows Server 2012 R2 lub Windows Server 2016, w którym działa usługa AD FS. Serwer można zainstalować na innym komputerze z obsługiwaną wersją systemu, a instalację adaptera AD FS przeprowadzić na oddzielnym serwerze federacyjnym usług AD FS. Zapoznaj się z poniższymi procedurami, aby dowiedzieć się, jak oddzielnie zainstalować adapter.
+* Nie musisz instalować serwera usługi Azure Multi-Factor Authentication na serwerze usług AD FS. Należy jednak zainstalować adapter usługi Multi-Factor Authentication dla usług AD FS w systemie Windows Server 2012 R2 lub Windows Server 2016, w którym działa usługa AD FS. Serwer można zainstalować na innym komputerze, jeśli przeprowadzisz instalację adaptera AD FS na oddzielnym serwerze federacyjnym usług AD FS. Zapoznaj się z poniższymi procedurami, aby dowiedzieć się, jak oddzielnie zainstalować adapter.
 * Jeśli organizacja używa weryfikacji za pomocą wiadomości tekstowych lub aplikacji mobilnej, ciągi zdefiniowane w ustawieniach firmy zawierają symbol zastępczy <$*application_name*$>. Na serwerze usługi MFA w wersji 7.1 możesz podać nazwę aplikacji, która zastępuje ten symbol zastępczy. W wersji 7.0 i starszych ten symbol zastępczy nie jest automatycznie zastępowany w przypadku korzystania z adaptera usług AD FS. W przypadku starszych wersji usuń symbol zastępczy z odpowiednich ciągów podczas zabezpieczania usług AD FS.
 * Konto używane do logowania musi mieć uprawnienia użytkownika do tworzenia grup zabezpieczeń w usłudze Active Directory.
-* Kreator instalacji adaptera AD FS usługi Multi-Factor Authentication tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w Twoim wystąpieniu usługi Active Directory. Następnie do tej grupy zostaje dodane konto usług AD FS usługi federacyjnej. Sprawdź na kontrolerze domeny, czy grupa PhoneFactor Admins została rzeczywiście utworzona oraz czy konto usług AD FS jest elementem członkowskim tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins w ramach kontrolera domeny.
-* Informacje dotyczące instalowania zestawu SDK usługi sieci Web w portalu użytkownika można znaleźć w temacie [Deploying the user portal for the Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-portal.md) (Wdrażanie portalu użytkownika dla serwera Azure Multi-Factor Authentication).
+* Kreator instalacji adaptera AD FS usługi Multi-Factor Authentication tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w Twoim wystąpieniu usługi Active Directory. Następnie do tej grupy zostaje dodane konto usług AD FS usługi federacyjnej. Sprawdź, czy grupa PhoneFactor Admins została utworzona na kontrolerze domeny oraz czy konto usług AD FS jest elementem członkowskim tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins w ramach kontrolera domeny.
+* Informacje dotyczące instalowania zestawu SDK usługi internetowej w portalu użytkownika można znaleźć w temacie [Deploying the user portal for the Azure Multi-Factor Authentication Server (Wdrażanie portalu użytkownika dla serwera Azure Multi-Factor Authentication)](multi-factor-authentication-get-started-portal.md).
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalowanie serwera Azure Multi-Factor Authentication lokalnie na serwerze usług AD FS
 1. Pobierz serwer Azure Multi-Factor Authentication i zainstaluj go na serwerze usług AD FS. Aby uzyskać informacje dotyczące instalacji, przeczytaj o [wprowadzeniu do serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
@@ -80,7 +81,7 @@ Edytuj plik MultiFactorAuthenticationAdfsAdapter.config, wykonując następując
 
 1. Dla węzła **UseWebServiceSdk** ustaw wartość **true**.  
 2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: *https://contoso.com/&lt;nazwa_certyfikatu&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, gdzie *nazwa_certyfikatu* to nazwa certyfikatu.  
-3. Zmodyfikuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, dodając ciąg *-ConfigurationFilePath &lt;ścieżka&gt;* na końcu polecenia `Register-AdfsAuthenticationProvider`, gdzie *&lt;ścieżka&gt;* jest pełną ścieżką do pliku MultiFactorAuthenticationAdfsAdapter.config.
+3. Zmodyfikuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, dodając ciąg `-ConfigurationFilePath &lt;path&gt;` na końcu polecenia `Register-AdfsAuthenticationProvider`, gdzie *&lt;path&gt;* jest pełną ścieżką do pliku MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurowanie zestawu SDK usługi sieci Web przy użyciu nazwy użytkownika i hasła
 Istnieją dwie opcje konfigurowania zestawu SDK usługi sieci Web. Pierwsza opcja to konfiguracja przy użyciu nazwy użytkownika i hasła, a druga — przy użyciu certyfikatu klienta. Wykonaj następujące kroki, aby skorzystać z pierwszej opcji, lub przejdź dalej, aby skorzystać z drugiej opcji.  

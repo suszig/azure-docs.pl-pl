@@ -3,7 +3,7 @@ title: "Usługa sieci Web aplikacji mobilnej serwera usługi Azure MFA | Microso
 description: "Aplikacja Microsoft Authenticator oferuje dodatkową opcję uwierzytelniania poza pasmem.  Aplikacja umożliwia serwerowi MFA obsługę powiadomień wypychanych dla użytkowników."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
-ms.author: kgremban
-ms.reviewer: yossib
-ms.custom: H1Hack27Feb2017,it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
-ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.date: 08/23/2017
+ms.author: joflore
+ms.reviewer: alexwe
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: bf758d1241f2a56eba4d5c92ace713d6e563df65
 ms.contentlocale: pl-pl
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Włączanie uwierzytelniania aplikacji mobilnych za pomocą serwera usługi Azure Multi-Factor Authentication
@@ -28,12 +28,7 @@ Aplikacja Microsoft Authenticator oferuje dodatkową opcję weryfikacji poza pas
 
 Korzystanie z aplikacji mobilnej w celu weryfikacji dwuetapowej jest preferowane, jeśli zasięg telefonu jest niestabilny. Jeśli używasz aplikacji jako generatora tokenów OATH, nie wymaga ona żadnego połączenia z siecią ani Internetem.
 
-Zainstalowanie portalu użytkowników na serwerze innym niż serwer usługi Azure Multi-Factor Authentication wymaga wykonania następujących kroków:
-
-1. Instalowanie zestawu SDK usługi sieci Web
-2. Instalacja usługi sieci Web aplikacji mobilnej
-3. Skonfigurowanie ustawień aplikacji mobilnej na serwerze usługi Azure Multi-Factor Authentication
-4. Aktywowanie aplikacji Microsoft Authenticator dla użytkowników końcowych
+W zależności od środowiska można wdrożyć internetową usługę aplikacji mobilnych na tym samym serwerze co serwer usługi Azure Multi-Factor Authentication lub na innym serwerze internetowym.
 
 ## <a name="requirements"></a>Wymagania
 
@@ -45,61 +40,68 @@ Aby korzystać z aplikacji Microsoft Authenticator, wymagane jest spełnienie na
 * Wymagane usługi ról obejmują usługę ASP.NET oraz usługę zgodności z metabazą usług IIS 6.
 * Udostępnienie usługi sieci Web aplikacji mobilnej za pośrednictwem publicznego adresu URL.
 * Zabezpieczenie usługi sieci Web aplikacji mobilnej za pomocą certyfikatu SSL.
-* Zainstalowanie zestawu SDK usługi sieci Web usługi Azure Multi-Factor Authentication w usługach IIS w wersji 7.x lub nowszej na tym samym serwerze, na którym zainstalowano serwer usługi Azure Multi-Factor Authentication.
+* Zainstalowanie zestawu SDK usługi sieci Web usługi Azure Multi-Factor Authentication w usługach IIS w wersji 7.x lub nowszej na tym **samym serwerze, na którym zainstalowano serwer usługi Azure Multi-Factor Authentication**
 * Zabezpieczenie zestawu SDK usługi sieci Web usługi Azure Multi-Factor Authentication za pomocą certyfikatu SSL.
 * Zapewnienie możliwości nawiązania połączenia między usługą sieci Web aplikacji mobilnej i zestawem SDK usługi sieci Web usługi Azure Multi-Factor Authentication za pośrednictwem protokołu SSL.
 * Zapewnienie możliwości wykonywania uwierzytelniania usługi sieci Web aplikacji mobilnej w zestawie SDK sieci Web usługi Azure MFA przy użyciu poświadczeń konta usługi, które należy do grupy zabezpieczeń „PhoneFactor Admins”. To konto usługi i ta grupa istnieją w usłudze Active Directory, jeśli serwer usługi Azure Multi-Factor Authentication znajduje się na serwerze przyłączonym do domeny. To konto usługi i ta grupa istnieją lokalnie na serwerze usługi Azure Multi-Factor Authentication, jeśli nie jest on przyłączony do domeny.
 
-
-## <a name="install-the-web-service-sdk"></a>Instalowanie zestawu SDK usługi sieci Web
-Jeśli zestaw SDK usługi sieci Web usługi Azure Multi-Factor Authentication nie został jeszcze zainstalowany na serwerze usługi Azure Multi-Factor Authentication (MFA), przejdź na ten serwer i otwórz okno serwera usługi Azure MFA.
-
-1. Kliknij ikonę zestawu SDK usługi sieci Web.
-2. Kliknij przycisk **Zainstaluj zestaw SDK usługi sieci Web** i wykonaj wyświetlone instrukcje.
-
-Zestaw SDK usługi sieci Web musi zostać zabezpieczony za pomocą certyfikatu SSL. W tym celu wystarczy certyfikat z podpisem własnym. Zaimportuj certyfikat do magazynu „Zaufane główne urzędy certyfikacji” konta komputera lokalnego na serwerze sieci Web portalu użytkowników, dzięki czemu magazyn uzna ten certyfikat za zaufany podczas inicjowania połączenia SSL.
-
-![Konfiguracja](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
-
 ## <a name="install-the-mobile-app-web-service"></a>Instalacja usługi sieci Web aplikacji mobilnej
+
 Przed zainstalowaniem usługi sieci Web aplikacji mobilnej pamiętaj o następujących szczegółach:
 
-* Jeśli portal użytkowników usługi Azure MFA jest już zainstalowany na serwerze dostępnym z Internetu, nazwa użytkownika, hasło i adres URL powiązane z zestawem SDK usługi sieci Web mogą zostać skopiowane z pliku web.config portalu użytkowników.
+* Musisz mieć konto usługi będą częścią grupy „PhoneFactor Admins”. To konto może być takie same, jak konto używane do instalacji portalu użytkowników.
 * Warto otworzyć przeglądarkę sieci Web na dostępnym z Internetu serwerze sieci Web i przejść do adresu URL zestawu SDK usługi sieci Web wprowadzonego w pliku web.config. Jeśli przeglądarka pomyślnie uzyska dostęp do usługi sieci Web, zostanie wyświetlony monit o poświadczenia. Wprowadź nazwę użytkownika i hasło wprowadzone w pliku web.config w dokładnie takiej samej postaci, w jakiej występują w pliku. Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 * Jeśli zwrotny serwer proxy lub zapora znajdują się przed serwerem sieci Web usługi sieci Web aplikacji mobilnej i odpowiadają za odciążanie protokołu SSL, można edytować plik web.config usługi sieci Web aplikacji mobilnej tak, aby usługa sieci Web aplikacji mobilnej mogła korzystać z protokołu http zamiast https. Protokół SSL jest nadal wymagany w celu nawiązania komunikacji między aplikacją mobilną i zaporą/zwrotnym serwerem proxy. Dodaj następujący klucz do sekcji \<appSettings\>:
 
         <add key="SSL_REQUIRED" value="false"/>
 
+### <a name="install-the-web-service-sdk"></a>Instalowanie zestawu SDK usługi sieci Web
+
+W dowolnym scenariuszu, jeśli zestaw SDK usługi internetowej Azure Multi-Factor Authentication **nie** został jeszcze zainstalowany na serwerze usługi Azure Multi-Factor Authentication (MFA), wykonaj poniższe kroki.
+
+1. Otwórz konsolę serwera usługi Multi-Factor Authentication.
+2. Przejdź do **zestawu SDK usługi internetowej** i wybierz pozycję **Zainstaluj zestaw SDK usługi internetowej**.
+3. Ukończ instalację przy użyciu ustawień domyślnych, o ile nie trzeba ich zmienić z dowolnej przyczyny.
+4. Powiąż certyfikat SSL z witryną w usługach IIS.
+
+Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze usług IIS, zobacz artykuł [How to Set Up SSL on IIS (Jak skonfigurować protokół SSL w usługach IIS)](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+
+Zestaw SDK usługi sieci Web musi zostać zabezpieczony za pomocą certyfikatu SSL. W tym celu wystarczy certyfikat z podpisem własnym. Zaimportuj certyfikat do magazynu „Zaufane główne urzędy certyfikacji” konta komputera lokalnego na serwerze internetowym portalu użytkowników, dzięki czemu magazyn uzna ten certyfikat za zaufany podczas inicjowania połączenia SSL.
+
+![Ustawienia konfiguracji serwera usługi MFA — zestaw SDK usługi internetowej](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
+
 ### <a name="install-the-service"></a>Instalowanie usługi
 
-1. Otwórz Eksploratora Windows na serwerze usługi Azure Multi-Factor Authentication i przejdź do folderu, w którym zainstalowano serwer usługi Azure MFA (zazwyczaj C:\Program Files\Azure Multi-Factor Authentication). Wybierz wersję 32- lub 64-bitową pliku instalacyjnego Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup. Skopiuj plik instalacyjny na serwer dostępny z Internetu.
+1. **Na serwerze usługi MFA** przejdź do ścieżki instalacji.
+2. Przejdź do folderu, w którym zainstalowano serwer usługi Azure MFA. Wartość domyślna to **C:\Program Files\Azure Multi-Factor Authentication**.
+3. Zlokalizuj plik instalacyjny **MultiFactorAuthenticationMobileAppWebServiceSetup64**. Jeśli serwer **nie** jest dostępny z Internetu, skopiuj plik instalacyjny na serwer dostępny z Internetu.
+4. Jeśli serwer usługi MFA **nie** jest dostępny z Internetu, przełącz się na **serwer dostępny z Internetu**.
+5. Uruchom plik instalacyjny **MultiFactorAuthenticationMobileAppWebServiceSetup64** jako administrator, w miarę potrzeb zmieniając miejsce instalacji, a następnie, jeśli chcesz, zmień nazwę katalogu wirtualnego na krótką.
+6. Po zakończeniu instalacji przejdź do lokalizacji **C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService** (lub odpowiedniego katalogu określonego na podstawie nazwy katalogu wirtualnego) i dokonaj edycji pliku Web.Config.
 
-2. Na serwerze sieci Web dostępnym z Internetu uruchom plik instalacyjny z uprawnieniami administratora. Otwórz wiersz polecenia jako administrator i przejdź do lokalizacji, do której został skopiowany plik instalacyjny.
+   * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** i zmień wartość **value=""** na **value="DOMAIN\User"**, gdzie DOMAIN\User to konto usługi będące częścią grupy „PhoneFactor Admins”.
+   * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** i zmień wartość **value=""** na **value="Password"**, gdzie Password to hasło konta usługi wprowadzonego w poprzednim wierszu.
+   * Znajdź ustawienie **pfMobile App Web Service_pfwssdk_PfWsSdk** i zmień wartość z **http://localhost:4898/PfWsSdk.asmx** na adres URL zestawu SDK usługi internetowej (przykład: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
+   * Zapisz plik Web.Config i zamknij Notatnik.
 
-3. Uruchom plik instalacyjny Multi-Factor AuthenticationMobileAppWebServiceSetup, w miarę potrzeby zmieniając miejsce instalacji, a następnie zmień nazwę katalogu wirtualnego na krótką, taką jak „PA”.
+   > [!NOTE]
+   > Ponieważ na potrzeby tego połączenia jest używany protokół SSL, do zestawu SDK usługi internetowej musisz odwoływać się za pomocą **w pełni kwalifikowanej nazwy (FQDN)**, a **nie adresu IP**. Certyfikat SSL będzie wystawiony dla nazwy FQDN, a używany adres URL musi być zgodny z nazwą w certyfikacie.
 
-  Zaleca się użycie krótkiej nazwy katalogu wirtualnego, ponieważ użytkownik musi podczas aktywacji wprowadzić adres URL usługi sieci Web aplikacji mobilnej w urządzeniach przenośnych.
+7. Jeśli witryna internetowa, w której została zainstalowana usługa internetowej aplikacji mobilnej, nie została jeszcze powiązana z certyfikatem z podpisem publicznym, zainstaluj certyfikat na serwerze, otwórz Menedżera usług IIS i powiąż certyfikat z witryną internetową.
+8. Otwórz przeglądarkę internetową z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano usługę internetową aplikacji mobilnej (np. https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
-4. Po zakończeniu instalacji pliku Azure Multi-Factor AuthenticationMobileAppWebServiceSetup przejdź do lokalizacji C:\inetpub\wwwroot\PA (lub odpowiedniego katalogu określonego na podstawie nazwy katalogu wirtualnego) i dokonaj edycji pliku web.config.
+## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Skonfigurowanie ustawień aplikacji mobilnej na serwerze usługi Azure Multi-Factor Authentication
 
-5. Znajdź klucze WEB_SERVICE_SDK_AUTHENTICATION_USERNAME i WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD. Jako wartości ustaw nazwę użytkownika i hasło konta usługi należącego do grupy zabezpieczeń PhoneFactor Admins. Może to być to samo konto, które jest używane jako tożsamość portalu użytkowników usługi Multi-Factor Authentication, jeśli zostało ono wcześniej zainstalowane. Wprowadź na końcu wiersza nazwę użytkownika i hasło w cudzysłowie (value=””/>). Użyj kwalifikowanej nazwy użytkownika, np. domena\nazwa_użytkownika lub maszyna\nazwa_użytkownika.  
-
-6. Znajdź ustawienie pfMobile App Web Service_pfwssdk_PfWsSdk. Zmień wartość z *http://localhost:4898/PfWsSdk.asmx* na adres URL zestawu SDK usługi sieci Web uruchomionego na serwerze usługi Azure Multi-Factor Authentication (np. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
-
-  Ponieważ na potrzeby tego połączenia jest używany protokół SSL, do zestawu SDK usługi sieci Web musisz się odwoływać za pomocą nazwy serwera, a nie adresu IP. Certyfikat SSL będzie wystawiony dla nazwy serwera, a używany adres URL musi być zgodny z nazwą w certyfikacie. Nazwa serwera nie może być rozpoznawana jako powiązana z adresem IP z serwera dostępnego z Internetu. Jeśli tak się dzieje, dodaj odpowiedni wpis w pliku hosts na danym serwerze, aby zamapować nazwę serwera usługi Azure Multi-Factor Authentication na jej adres IP. Po dokonaniu zmian zapisz plik web.config.
-
-7. Jeśli witryna sieci Web, na której została zainstalowana usługa sieci Web aplikacji mobilnej nie została jeszcze powiązana z certyfikatem z podpisem publicznym, zainstaluj certyfikat na serwerze, otwórz Menedżera usług IIS i powiąż certyfikat z witryną sieci Web.
-
-8. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano usługę sieci Web aplikacji mobilnej (np. https://www.publicznawitrynasieciweb.com/PA). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
-
-### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Skonfigurowanie ustawień aplikacji mobilnej na serwerze usługi Azure Multi-Factor Authentication
 Po zainstalowaniu usługi sieci Web aplikacji mobilnej należy skonfigurować serwer usługi Azure Multi-Factor Authentication do pracy z portalem.
 
-1. Na serwerze usługi Azure MFA kliknij ikonę portalu użytkowników. Jeśli użytkownicy mogą kontrolować metody ich uwierzytelniania, zaznacz opcję **Aplikacja mobilna** na karcie Ustawienia w obszarze **Zezwalaj użytkownikom na wybór metody**. W przeciwnym razie użytkownicy końcowi będą musieli skontaktować się z działem pomocy technicznej w celu ukończenia procesu aktywacji aplikacji mobilnej.
+1. W konsoli usługi Azure Multi-Factor Authentication kliknij ikonę Portal użytkowników. Jeśli użytkownicy mogą kontrolować metody ich uwierzytelniania, zaznacz opcję **Aplikacja mobilna** na karcie Ustawienia w obszarze **Zezwalaj użytkownikom na wybór metody**. W przeciwnym razie użytkownicy końcowi będą kontaktować się z działem pomocy technicznej w celu ukończenia procesu aktywacji aplikacji mobilnej.
 2. Zaznacz pole **Zezwalaj użytkownikom na uaktywnienie aplikacji mobilnej**.
 3. Zaznacz pole **Zezwalaj na rejestrację użytkownika**.
-4. Kliknij ikonę aplikacji mobilnej.
-5. Wprowadź używany z katalogiem wirtualnym adres URL utworzony podczas instalowania pliku Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. W przeznaczonym do tego celu polu można wprowadzić nazwę konta. Nazwa firmy będzie wyświetlana w aplikacji mobilnej. Jeśli pole pozostanie puste, będzie wyświetlana nazwa dostawcy usługi Multi-Factor Authentication utworzonego w klasycznej witrynie Azure Portal.
+4. Kliknij ikonę **aplikacji mobilnej**.
+5. Wprowadź adres URL używany z katalogiem wirtualnym, który został utworzony podczas instalowania pliku MultiFactorAuthenticationMobileAppWebServiceSetup64 (np.: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) w polu **adresu URL usługi internetowej aplikacji mobilnej**.
+6. W polu **nazwy konta** wprowadź nazwę firmy lub organizacji, aby wyświetlić ją w aplikacji mobilnej dla tego konta.
+   ![Ustawienia aplikacji mobilnej konfiguracji serwera usługi MFA](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 
-<center>![Konfiguracja](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
+## <a name="next-steps"></a>Następne kroki
 
+- [Zaawansowane scenariusze obejmujące usługę Azure Multi-Factor Authentication i sieci VPN innych firm](multi-factor-authentication-advanced-vpn-configurations.md).

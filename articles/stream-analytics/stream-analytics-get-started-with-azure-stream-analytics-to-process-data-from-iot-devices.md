@@ -4,7 +4,7 @@ description: "Używanie tagów czujników IoT i strumieni danych z analizą stru
 keywords: "rozwiązanie iot, wprowadzenie do iot"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 01/24/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: pl-pl
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT
@@ -65,7 +65,7 @@ W celu ułatwienia pracy w tym przewodniku z wprowadzeniem udostępniono przykł
 4. Zaznacz pole wyboru, aby umieścić zadanie na pulpicie nawigacyjnym, a następnie kliknij pozycję **UTWÓRZ**.
    
     ![trwa tworzenie zadania](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. W prawym górnym narożniku okna przeglądarki powinien być widoczny komunikat „Wdrażanie rozpoczęte...” . Wkrótce zostanie on zmieniony na okna ukończenia przedstawione poniżej.
+5. W prawym górnym rogu okna przeglądarki powinien być widoczny komunikat „Wdrażanie rozpoczęte...”. Wkrótce zostanie on zmieniony na okna ukończenia przedstawione poniżej.
    
     ![trwa tworzenie zadania](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -106,12 +106,12 @@ Zauważ, że zapytanie uwzględniające wielkość liter porównuje wartość ci
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Zapytanie: wysyłanie alertów w celu wyzwolenia biznesowego przepływu pracy
 Zwiększmy szczegółowość naszego zapytania. Dla każdego typu czujnika chcemy monitorować średnią temperaturę co 30 sekund i wyświetlać wyniki tylko wtedy, gdy przekracza ona 100 stopni. W tym celu napiszemy poniższe zapytanie, a następnie w celu wyświetlenia wyników klikniemy pozycję **Test**. Zapytanie znajduje się w pliku ThresholdAlerting.txt.
 
-![Zapytanie z filtrowaniem co&30; sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Zapytanie z filtrowaniem co 30 sekund](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Wyniki powinny teraz zawierać tylko 245 wierszy i nazwy czujników, w przypadku których średnia temperatura przekracza 100 stopni. W tym zapytaniu strumień zdarzeń został pogrupowany według wartości **dspl**, czyli nazwy czujnika, i wartości **Okno wirowania** równej 30 sekund. W zapytaniu dotyczącym danych czasowych należy określić sposób przyrastania czasu. Użyliśmy klauzuli **TIMESTAMP BY** i wybraliśmy kolumnę **OUTPUTTIME**, aby skojarzyć czasy ze wszystkimi obliczeniami danych czasowych. Aby uzyskać szczegółowe informacje, przeczytaj w witrynie MSDN artykuły dotyczące [zarządzania czasem](https://msdn.microsoft.com/library/azure/mt582045.aspx) i [funkcji obsługi okien](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Zapytanie: wykrywanie braku zdarzeń
-Jak napisać zapytanie w celu określenia braku zdarzeń wejściowych? Spróbujmy określić, kiedy ostatnio czujnik wysłał dane, a następnie przez kolejną minutę nie wysłał zdarzeń. Zapytanie znajduje się w pliku AbsenseOfEvent.txt.
+Jak napisać zapytanie w celu określenia braku zdarzeń wejściowych? Spróbujmy określić, kiedy ostatnio czujnik wysłał dane, a następnie przez kolejnych 5 sekund nie wysłał zdarzeń. Zapytanie znajduje się w pliku AbsenseOfEvent.txt.
 
 ![Wykrywanie braku zdarzeń](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

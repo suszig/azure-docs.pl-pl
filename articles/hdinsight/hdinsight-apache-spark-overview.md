@@ -15,19 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: acb80aa98cc978a906ccd6e4b4132a439e505bc8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Wprowadzenie do platformy Spark w usłudze HDInsight
 
-Ten artykuł przedstawia wprowadzenie do platformy Spark w usłudze HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Klaster Spark w usłudze HDInsight jest zgodny z usługą Azure Storage (WASB) oraz usługą Azure Data Lake Store, co pozwala na łatwe przetwarzanie istniejących danych przechowywanych na platformie Azure za pośrednictwem klastra Spark.
+Ten artykuł przedstawia wprowadzenie do platformy Spark w usłudze HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Klaster Spark w usłudze HDInsight jest zgodny z usługami Azure Storage (WASB) i Azure Data Lake Store. Dzięki temu istniejące dane przechowywane na platformie Azure można łatwo przetwarzać za pomocą klastra Spark.
 
 Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe platformy Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w usłudze Azure Storage lub Azure Data Lake Store. Zobacz temat [Korzystanie z usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md).
 

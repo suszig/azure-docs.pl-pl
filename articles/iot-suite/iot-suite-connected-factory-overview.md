@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Wprowadzenie do wstępnie skonfigurowanego rozwiązania połączonej fabryki
@@ -53,7 +53,7 @@ Do wykonania kroków tego samouczka jest potrzebna aktywna subskrypcja platformy
 4. Kliknij kafelek, aby wyświetlić szczegóły rozwiązania w prawym okienku.
 
 > [!NOTE]
-> Jeśli podczas wdrażania wstępnie skonfigurowanego rozwiązania pojawią się problemy, zapoznaj się z tematami [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions] i [Często zadawane pytania][lnk-faq]. Jeśli problemy będą się powtarzać, utwórz żądanie pomocy w [portalu][lnk-portal].
+> Jeśli podczas wdrażania wstępnie skonfigurowanego rozwiązania pojawią się problemy, zapoznaj się z tematami [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions] i [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md). Jeśli problemy będą się powtarzać, utwórz żądanie pomocy w [portalu][lnk-portal].
 
 Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie są wyświetlane, a Twoim zdaniem powinny być widoczne? Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).
 
@@ -81,7 +81,7 @@ Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Jest to hierarc
 
 Pulpit nawigacyjny udostępnia następujące informacje:
 
-* Panel **Lista fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu rozwiązania dostępnych jest kilka symulowanych urządzeń. Symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA na każdą linię produkcyjną, które wykonują symulowane zadania i udostępniają dane. Aby uzyskać więcej informacji na temat OPC UA, zobacz [FAQ][lnk-faq].
+* Panel **Lista fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu rozwiązania dostępnych jest kilka symulowanych urządzeń. Symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA na każdą linię produkcyjną, które wykonują symulowane zadania i udostępniają dane. Aby uzyskać więcej informacji na temat OPC UA, zobacz [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md).
 * **Mapę** zawierającą lokalizację każdego urządzenia połączonego z rozwiązaniem. Rozwiązanie może korzystać z interfejsu API usługi Mapy Bing do wykreślania informacji na mapie. Jeśli subskrypcja obejmuje interfejs API usługi Mapy Bing w wersji Enterprise, ta funkcja jest używana automatycznie. W przeciwnym razie zobacz [Często zadawane pytania][lnk-faq], aby dowiedzieć się, jak utworzyć dynamiczną mapę.
 * Panel **Alerty**, na którym są wyświetlane alerty generowane, gdy wartość telemetrii lub ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności przekroczy określony próg.
 * Panel **Ogólna wydajność sprzętu**, na którym są pokazane wartości ogólnej wydajności sprzętu dla całego przedsiębiorstwa lub przeglądanej fabryki/linii produkcyjnej/stacji. Ta wartość jest agregowana od widoku stacji do poziomu przedsiębiorstwa. Dane ogólnej wydajności sprzętu i jej składowe elementy można dokładniej analizować.

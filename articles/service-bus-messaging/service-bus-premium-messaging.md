@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
@@ -47,7 +47,7 @@ W poniższych sekcjach omówiono niektóre różnice między komunikatami w wars
 
 ### <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
-Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium; w rzeczywistości te jednostki są zawsze partycjonowane (i nie można ich wyłączyć). Jednak partycjonowane kolejki i tematy w warstwie Premium nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa i Podstawowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne, aby zwiększyć wydajność. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. 
+Partycjonowane kolejki i tematy są obsługiwane przez komunikaty w warstwie Premium; w rzeczywistości te jednostki są zawsze partycjonowane (i nie można ich wyłączyć). Jednak partycjonowane kolejki i tematy w warstwie Premium nie działają tak samo jak w przypadku komunikatów usługi Service Bus w warstwie Standardowa. Komunikaty w warstwie Premium nie używają bazy danych SQL jako magazynu danych i nie występuje już potencjalne konkurowanie o zasoby typowe dla platformy współdzielonej. W związku z tym partycjonowanie nie jest konieczne, aby zwiększyć wydajność. Ponadto liczba partycji została zmieniona z szesnastu partycji w przypadku komunikatów w warstwie Standardowa do dwóch partycji w warstwie Premium. Istnienie dwóch partycji gwarantuje dostępność i jest to bardziej odpowiednia liczba dla środowiska uruchomieniowego w warstwie Premium. 
 
 W przypadku obsługi komunikatów Premium określenie rozmiaru jednostki przy użyciu atrybutu [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes) spowoduje równomierne rozdzielenie rozmiaru na dwie partycje, w przeciwieństwie do [standardowych partycjonowanych jednostek](service-bus-partitioning.md#standard), w przypadku których łączny rozmiar jest 16 razy większy od określonego. 
 

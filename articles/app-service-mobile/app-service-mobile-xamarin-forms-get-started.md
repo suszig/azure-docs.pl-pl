@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z usługą Mobile Apps za pomocą platformy Xamarin.Forms"
-description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używanie usługi Azure Mobile Apps do tworzenia aplikacji platformy Xamarin.Forms."
+title: "Rozpoczynanie pracy z funkcją Mobile Apps za pomocą platformy Xamarin.Forms"
+description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używanie funkcji Mobile Apps do tworzenia aplikacji platformy Xamarin.Forms"
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -15,151 +15,177 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: cb959867ccfc85993694bd810f08e2f8150b44f3
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Tworzenie aplikacji platformy Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji mobilnej platformy Xamarin.Forms przy użyciu zaplecza Aplikacji mobilnej Azure. Będziesz tworzyć zaplecze nowej aplikacji mobilnej oraz prostą aplikację platformy Xamarin.Forms typu *Lista czynności do wykonania*, która przechowuje dane aplikacji na platformie Azure.
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji mobilnej platformy Xamarin.Forms przy użyciu funkcji Mobile Apps usługi Azure App Service jako zaplecza. Tworzysz nowe zaplecze funkcji Mobile Apps oraz prostą aplikację platformy Xamarin.Forms typu Lista czynności do wykonania, która przechowuje dane aplikacji na platformie Azure.
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Apps dotyczących aplikacji platformy Xamarin.Forms.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych usług Mobile Apps, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio z programem Xamarin. Instrukcje można znaleźć w temacie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin).
-* Komputer Mac z zainstalowanym środowiskiem Xcode v7.0 lub nowszym i rozwiązaniem Xamarin Studio Community. Zobacz tematy [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin) oraz [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Konfigurowanie, instalowanie oraz weryfikacje dla użytkowników komputerów Mac) (MSDN).
+* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych aplikacji mobilnych, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać więcej informacji, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Tworzenie zaplecza nowej Aplikacji mobilnej Azure
-Wykonaj te kroki, aby utworzyć zaplecze nowej Aplikacji mobilnej.
+* Visual Studio z programem Xamarin. Aby uzyskać informacje, zobacz stronę [Set up and install for Visual Studio and Xamarin (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx).
+
+* Komputer Mac z zainstalowanym środowiskiem Xcode v7.0 lub nowszym i rozwiązaniem Xamarin Studio Community. Aby uzyskać informacje, zobacz tematy [Set up and install for Visual Studio and Xamarin (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx) oraz [Set up, install, and verify for Mac users (Konfigurowanie, instalowanie i weryfikowanie dla użytkowników komputerów Mac)](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+
+## <a name="create-a-new-mobile-apps-back-end"></a>Tworzenie nowego zaplecza funkcji Mobile Apps
+
+Aby utworzyć nowe zaplecze funkcji Mobile Apps, wykonaj następujące czynności:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które może być używane przez aplikacje mobilne klientów. Teraz pobierzesz projekt serwera dla prostego zaplecza typu „lista czynności do wykonania” i opublikujesz go na platformie Azure.
+Masz teraz zdefiniowane zaplecze funkcji Mobile Apps, którego mogą używać mobilne aplikacje klienckie. Teraz pobierasz projekt serwera dla prostego zaplecza typu „lista czynności do wykonania” i publikujesz go na platformie Azure.
 
 ## <a name="configure-the-server-project"></a>Konfigurowanie projektu serwera
-Wykonaj poniższe kroki, aby skonfigurować projekt serwera do użycia zaplecza Node.js lub .NET.
+
+Aby skonfigurować projekt serwera do użycia zaplecza Node.js lub .NET, wykonaj następujące czynności:
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinforms-solution"></a>Pobieranie i uruchamianie platformy Xamarin.Forms
-W tym miejscu masz kilka możliwości. Możesz pobrać rozwiązanie na komputer Mac i otworzyć je w środowisku Xamarin Studio lub pobrać rozwiązanie na komputer z systemem Windows i otworzyć je w programie Visual Studio przy użyciu podłączonego do sieci komputera Mac w celu skompilowania aplikacji dla systemu iOS. Jeśli potrzebujesz szczegółowych instrukcji dotyczących scenariuszy konfigurowania rozwiązania Xamarin, zobacz [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin).
 
-Kontynuujmy:
+Możesz pobrać rozwiązanie na dwa sposoby. Pobierz rozwiązanie na komputer Mac i otwórz je w środowisku Xamarin Studio lub pobierz rozwiązanie na komputer z systemem Windows i otwórz je w programie Visual Studio przy użyciu podłączonego do sieci komputera Mac w celu skompilowania aplikacji dla systemu iOS. Aby uzyskać więcej informacji, zobacz stronę [Set up and install Visual Studio and Xamarin (Konfigurowanie i instalowanie programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx).
 
-1. Na komputerze Mac lub na komputerze z systemem Windows otwórz [Azure Portal] w oknie przeglądarki.
-2. W bloku ustawień Aplikacji mobilnej kliknij pozycję **Wprowadzenie** (w obszarze Mobilne) > **Xamarin.Forms**. W kroku 3 kliknij pozycję **Utwórz nową aplikację**, jeśli nie została jeszcze wybrana.  Następnie kliknij przycisk **Pobierz**.
+Na komputerze Mac lub w systemie Windows wykonaj następujące czynności:
 
-   Spowoduje to pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
-3. Wyodrębnij pobrany projekt, a następnie otwórz go w programie Xamarin Studio lub Visual Studio.
+1. Przejdź do witryny [Azure Portal].
 
-   ![][9]
+2. W bloku **Ustawienia** aplikacji mobilnej w obszarze **Mobilne** wybierz pozycję **Wprowadzenie** > **Xamarin.Forms**. W **kroku 3** wybierz pozycję **Utwórz nową aplikację**, a następnie wybierz pozycję **Pobierz**.
 
-   ![][8]
+   Ta akcja spowoduje pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
+
+3. Wyodrębnij pobrany projekt, a następnie otwórz go w programie Xamarin Studio (Mac) lub Visual Studio (Windows).
+
+   ![Projekt wyodrębniony w programie Xamarin Studio][9]
+
+   ![Projekt wyodrębniony w programie Visual Studio][8]
 
 ## <a name="optional-run-the-ios-project"></a>(Opcjonalnie) Uruchamianie projektu iOS
-Ta sekcja dotyczy uruchamiania projektu Xamarin iOS dla urządzeń z systemem iOS. Jeśli nie pracujesz z urządzeniami z systemem iOS, możesz pominąć tę sekcję.
+W tej sekcji uruchamiasz projekt Xamarin iOS dla urządzeń z systemem iOS. Jeśli nie pracujesz z urządzeniami z systemem iOS, możesz pominąć tę sekcję.
 
 #### <a name="in-xamarin-studio"></a>W programie Xamarin Studio
-1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie kliknij pozycję **Ustaw jako projekt startowy**.
-2. W menu **Uruchom** kliknij pozycję **Rozpocznij debugowanie** w celu skompilowania projektu i uruchomienia aplikacji w emulatorze urządzenia iPhone.
+1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
+
+2. W menu **Uruchom** wybierz pozycję **Rozpocznij debugowanie** w celu skompilowania projektu i uruchomienia aplikacji w emulatorze urządzenia iPhone.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
-1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie kliknij pozycję **Ustaw jako projekt startowy**.
-2. W menu **Kompilacja** kliknij pozycję **Configuration Manager**.
-3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** dla projektu iOS.
-4. Naciśnij klawisz **F5**, aby skompilować projekt i uruchomić aplikację w emulatorze urządzenia iPhone.
+1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
+
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
+
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok projektu iOS.
+
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze urządzenia iPhone, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Czasami aktualizacja projektów typu Szybki start do najnowszej wersji może być opóźniona.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie kliknij przycisk **+**.
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
-![][10]
+    ![][10]
 
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
 
-> [!NOTE]
-> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
->
->
+    > [!NOTE]
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+    >
+    >
 
 ## <a name="optional-run-the-android-project"></a>(Opcjonalnie) Uruchamianie projektu systemu Android
-Ta sekcja dotyczy uruchamiania projektu Xamarin (droid) dla urządzeń z systemem Android. Jeśli nie pracujesz z urządzeniami z systemem Android, możesz pominąć tę sekcję.
+W tej sekcji uruchamiasz projekt Xamarin (droid) dla systemu Android. Jeśli nie pracujesz z urządzeniami z systemem Android, możesz pominąć tę sekcję.
 
 #### <a name="in-xamarin-studio"></a>W programie Xamarin Studio
-1. Kliknij prawym przyciskiem myszy projekt Android, a następnie kliknij pozycję **Ustaw jako projekt startowy**.
-2. W menu **Uruchom** kliknij pozycję **Rozpocznij debugowanie** w celu skompilowania projektu i uruchomienia aplikacji w emulatorze systemu Android.
+
+1. Kliknij prawym przyciskiem myszy projekt Android, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
+
+2. W celu skompilowania projektu i uruchomienia aplikacji w emulatorze systemu Android w menu **Uruchom** wybierz pozycję **Rozpocznij debugowanie**.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
-1. Kliknij prawym przyciskiem myszy projekt Android (Droid), a następnie kliknij pozycję **Ustaw jako projekt startowy**.
-2. W menu **Kompilacja** kliknij pozycję **Configuration Manager**.
-3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** dla projektu Android.
-4. Naciśnij klawisz **F5**, aby skompilować projekt i uruchomić aplikację w emulatorze systemu Android.
+
+1. Kliknij prawym przyciskiem myszy projekt Android (Droid), a następnie wybierz pozycję **Ustaw jako projekt startowy**.
+
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
+
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok projektu Android.
+
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze systemu Android, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Czasami aktualizacja projektów typu Szybki start do najnowszej wersji może być opóźniona.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie kliknij przycisk **+**.
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
-![][11]
-
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
-
-> [!NOTE]
-> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
->
->
+    ![][11]
+    
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
+    
+    > [!NOTE]
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+    >
+    >
 
 ## <a name="optional-run-the-windows-project"></a>(Opcjonalnie) Uruchamianie projektu Windows
-Ta sekcja dotyczy uruchamiania projektu Xamarin WinApp dla urządzeń z systemem Windows. Jeśli nie pracujesz z urządzeniami z systemem Windows, możesz pominąć tę sekcję.
+
+W tej sekcji uruchamiasz projekt Xamarin WinApp dla urządzeń z systemem Windows. Jeśli nie pracujesz z urządzeniami z systemem Windows, możesz pominąć tę sekcję.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
-1. Kliknij prawym przyciskiem myszy projekt Windows, a następnie kliknij pozycję **Ustaw jako projekt startowy**.
-2. W menu **Kompilacja** kliknij pozycję **Configuration Manager**.
-3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** dla wybranego projektu Windows.
-4. Naciśnij klawisz **F5**, aby skompilować projekt i uruchomić aplikację w emulatorze systemu Windows.
+
+1. Kliknij prawym przyciskiem myszy dowolny projekt Windows, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
+
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
+
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok wybranego projektu Windows.
+
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze systemu Windows, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Czasami aktualizacja projektów typu Szybki start do najnowszej wersji może być opóźniona.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie kliknij przycisk **+**.
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
-Spowoduje to wysłanie żądania POST do zaplecza nowej aplikacji mobilnej, która jest obsługiwana na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
-
-![][12]
-
-> [!NOTE]
-> Kod uzyskujący dostęp do zaplecza aplikacji mobilnej można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
->
->
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
+    
+    ![][12]
+    
+    > [!NOTE]
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
+    >
+    >
 
 ## <a name="next-steps"></a>Następne kroki
+
 * [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-xamarin-forms-get-started-users.md)  
   Dowiedz się, jak uwierzytelniać użytkowników aplikacji przy użyciu dostawcy tożsamości.
+
 * [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-xamarin-forms-get-started-push.md)  
-  Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze Aplikacji mobilnej na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
+  Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze funkcji Mobile Apps na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
+
 * [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza Aplikacji mobilnej. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacją mobilną &mdash; przeglądanie, dodawanie lub modyfikowanie danych &mdash; nawet w przypadku braku połączenia sieciowego.
-* [Jak używać zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+  Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza funkcji Mobile Apps. Synchronizacja w trybie offline umożliwia wyświetlanie, dodawanie lub modyfikowanie danych aplikacji mobilnej, nawet w przypadku braku połączenia sieciowego.
+
+* [Używanie zarządzanego klienta funkcji Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
   Dowiedz się, jak pracować z zestawem SDK zarządzanego klienta w aplikacji platformy Xamarin.
 
 <!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
+[Get started with Mobile Apps back ends]:#getting-started
+[Create a new Mobile Apps back end]:#create-new-service
+[Next steps]:#next-steps
 
 
 <!-- Images. -->

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fe2d13fd18de28864a4b3f00b0eb2e02c0867616
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,4 +40,5 @@ Korzystając z tej funkcji, klienci mogą określić opcje w ustawieniach HTTP i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak skonfigurować bramę aplikacji z aplikacją internetową jako elementem członkowskim puli zaplecza, odwiedzając stronę [Configure App web apps with Application Gateway (Konfigurowanie aplikacji internetowych za pomocą usługi Application Gateway)](application-gateway-web-app-powershell.md)
+Dowiedz się, jak skonfigurować bramę aplikacji z aplikacją internetową jako elementem członkowskim puli zaplecza, odwiedzając stronę [Configure App Service web apps with Application Gateway (Konfigurowanie aplikacji internetowych usługi App Service za pomocą usługi Application Gateway)](application-gateway-web-app-powershell.md)
+

@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu połączonej fabryki
 
 [Wstępnie skonfigurowane rozwiązanie][lnk-preconfigured-solutions] połączonej fabryki pakietu IoT to implementacja kompleksowego rozwiązania przemysłowego, które:
 
-* Łączy się zarówno z symulowanymi urządzeniami przemysłowymi, na których działają serwery OPC UA na liniach produkcyjnych symulowanej fabryki, jak i z rzeczywistymi urządzeniami serwerów OPC UA. Aby uzyskać więcej informacji na temat OPC UA, zobacz [FAQ][lnk-faq].
+* Łączy się zarówno z symulowanymi urządzeniami przemysłowymi, na których działają serwery OPC UA na liniach produkcyjnych symulowanej fabryki, jak i z rzeczywistymi urządzeniami serwerów OPC UA. Aby uzyskać więcej informacji na temat OPC UA, zobacz [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md).
 * Pokazuje operacyjne kluczowe wskaźniki wydajności oraz ogólną wydajność sprzętu dla tych urządzeń i linii produkcyjnych.
 * Demonstruje, jak aplikacja w chmurze może zostać użyta na potrzeby interakcji z systemami serwerów OPC UA.
 * Umożliwia połączenie własnych urządzeń serwerów OPC UA.
@@ -40,6 +40,8 @@ Ten artykuł przeprowadzi Cię przez niektóre kluczowe elementy rozwiązania po
 * Rozwiązywanie problemów w rozwiązaniu.
 * Planowanie sposobu dostosowywania rozwiązania, aby spełniało Twoje wymagania.
 * Projektowanie własnego rozwiązania IoT korzystającego z usług Azure.
+
+Aby uzyskać więcej informacji, zobacz [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 
@@ -128,6 +130,7 @@ Aplikacja internetowa wdrożona w ramach wstępnie skonfigurowanego rozwiązania
 Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 
 * [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions]
+* [Deploy a gateway on Windows or Linux for the connected factory preconfigured solution (Wdrażanie bramy w systemie Windows lub Linux na potrzeby wstępnie skonfigurowanego rozwiązania połączonej fabryki)](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ Możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

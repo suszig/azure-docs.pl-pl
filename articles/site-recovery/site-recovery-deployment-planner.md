@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planista wdrożenia usługi Azure Site Recovery
@@ -67,7 +67,7 @@ Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. J
 
 | Wymaganie dotyczące serwera | Opis|
 |---|---|
-|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Microsoft Windows Server 2012 R2<br>(w idealnej sytuacji spełniający co najmniej [zalecenia dotyczące rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet Microsoft Visual C++ Redistributable dla programu Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Dostęp do platformy Azure przez Internet z tego serwera</li><li>Konto magazynu Azure</li><li>Dostęp administratora na serwerze</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>Ustawienia poziomu statystyk programu VMware vCenter powinny być na poziomie 2 lub wyższym</li></ul>|
+|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Microsoft Windows Server 2012 R2<br>(w idealnej sytuacji spełniający co najmniej [zalecenia dotyczące rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet Microsoft Visual C++ Redistributable dla programu Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Dostęp do platformy Azure przez Internet z tego serwera</li><li>Konto magazynu Azure</li><li>Dostęp administratora na serwerze</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>Ustawienia poziomu statystyk programu VMware vCenter powinny być na poziomie 2 lub wyższym</li><li>Zezwalaj na port 443: planista wdrożenia usługi ASR używa tego portu do nawiązywania połączenia z serwerem vCenter/hostem ESXi</ul></ul>|
 | Generowanie raportu | Dowolny komputer z systemem Windows lub Windows Server i programem Microsoft Excel 2013 lub nowszym |
 | Uprawnienia użytkowników | Uprawnienia tylko do odczytu dla konta użytkownika używanego do uzyskiwania dostępu do serwera VMware vCenter/hosta VMware vSphere ESXi podczas profilowania |
 
@@ -118,14 +118,18 @@ Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. 
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Aby pobrać wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi i zapisać listę w pliku TXT, uruchom dwa poniższe polecenia.
+4. Może być konieczne uruchomienie poniższego polecenia, jeśli element Connect-VIServer nie został rozpoznany jako nazwa polecenia cmdlet.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Aby pobrać wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi i zapisać listę w pliku TXT, uruchom dwa poniższe polecenia.
 Zamień wartości &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; i &lsaquo;outputfile.txt&rsaquo; na własne wartości.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Otwórz plik wyjściowy w Notatniku, a następnie skopiuj nazwy wszystkich maszyn wirtualnych do profilowania do innego pliku (np. ProfileVMList.txt) tak, aby w każdym wierszu znajdowała się jedna nazwa maszyny wirtualnej. Ten plik jest używany jako źródło danych wejściowych dla parametru *-VMListFile* narzędzia wiersza polecenia.
+6. Otwórz plik wyjściowy w Notatniku, a następnie skopiuj nazwy wszystkich maszyn wirtualnych do profilowania do innego pliku (np. ProfileVMList.txt) tak, aby w każdym wierszu znajdowała się jedna nazwa maszyny wirtualnej. Ten plik jest używany jako źródło danych wejściowych dla parametru *-VMListFile* narzędzia wiersza polecenia.
 
     ![Lista nazw maszyn wirtualnej w planiście wdrożenia](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
