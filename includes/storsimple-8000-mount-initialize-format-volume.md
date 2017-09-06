@@ -1,23 +1,23 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-mount-initialize-and-format-a-volume"></a>To mount, initialize, and format a volume
-1. Start the Microsoft iSCSI initiator.
-2. In the **iSCSI Initiator Properties** window, on the **Discovery** tab, click **Discover Portal**.
-3. In the **Discover Target Portal** dialog box, supply the IP address of your iSCSI-enabled network interface, and then click **OK**. 
-4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. The device status should appear as **Inactive**.
-5. Select the target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator][1]).
-6. On your Windows host, press the Windows Logo key + X, and then click **Run**. 
-7. In the **Run** dialog box, type **Diskmgmt.msc**. Click **OK**, and the **Disk Management** dialog box will appear. The right pane will show the volumes on your host.
-8. In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Aby zainstalować, zainicjować i sformatować wolumin
+1. Uruchom inicjatora iSCSI firmy Microsoft.
+2. W oknie **Właściwości inicjatora iSCSI** na karcie **Odnajdowanie** kliknij pozycję **Odnajdź portal**.
+3. W oknie dialogowym **Odnajdowanie portalu obiektu docelowego** podaj adres IP interfejsu sieci iSCSI, a następnie kliknij przycisk **OK**. 
+4. W oknie **Właściwości inicjatora iSCSI** na karcie **Obiekty docelowe** zlokalizuj wartości **Wykryte obiekty docelowe**. Stan urządzenia powinien zostać wyświetlony jako **Nieaktywne**.
+5. Wybierz urządzenie docelowe, a następnie kliknij pozycję **Połącz**. Po połączeniu urządzenia stan powinien zmienić się na **Połączone**. (Aby uzyskać więcej informacji o korzystaniu z inicjatora iSCSI firmy Microsoft, zobacz artykuł [Installing and Configuring Microsoft iSCSI Initiator][1] [Instalowanie i konfigurowanie inicjatora iSCSI firmy Microsoft]).
+6. Na hoście systemu Windows naciśnij klawisz z logo systemu Windows + X, a następnie kliknij pozycję **Uruchom**. 
+7. W oknie dialogowym **Uruchom** wpisz **Diskmgmt.msc**. Kliknij przycisk **OK**. Zostanie wyświetlone okno **Zarządzanie dyskami**. W prawym okienku zostaną wyświetlone woluminy na hoście.
+8. W oknie **Zarządzanie dyskami** zostaną wyświetlone zainstalowane woluminy (tak jak na poniższym rysunku). Kliknij prawym przyciskiem myszy odnaleziony wolumin (kliknij nazwę dysku), a następnie kliknij pozycję **Online**.
    
-     ![Initialize format volume](./media/storsimple-8000-mount-initialize-format-volume/step7initializeformatvolume.png) 
-9. Right-click the volume (click the disk name) again, and then click **Initialize**.
-10. To format a simple volume, perform the following steps:
+     ![Inicjowanie i formatowanie woluminu](./media/storsimple-8000-mount-initialize-format-volume/step7initializeformatvolume.png) 
+9. Kliknij ponownie prawym przyciskiem myszy wolumin (kliknij nazwę dysku), a następnie kliknij pozycję **Inicjuj**.
+10. Aby sformatować prosty wolumin, wykonaj następujące czynności:
     
-    1. Select the volume, right-click it (click the right area), and click **New Simple Volume**.
-    2. In the New Simple Volume wizard, specify the volume size and drive letter and configure the volume as an NTFS file system.
-    3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
-    4. Perform a quick format.
+    1. Wybierz wolumin, kliknij go prawym przyciskiem myszy (kliknij prawy obszar), a następnie kliknij pozycję **Nowy wolumin prosty**.
+    2. W Kreatorze nowego woluminu prostego określ literę dysku i rozmiar woluminu, a następnie skonfiguruj wolumin w systemie plików NTFS.
+    3. Określ rozmiar jednostki alokacji 64 KB. Ten rozmiar jednostki alokacji dobrze działa z algorytmami deduplikacji używanymi w rozwiązaniu StorSimple.
+    4. Przeprowadź szybkie formatowanie.
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
