@@ -76,7 +76,7 @@ W tym przewodniku Szybki start potrzebne będą adresy IP zarówno węzła głó
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Dane wyjściowe:
