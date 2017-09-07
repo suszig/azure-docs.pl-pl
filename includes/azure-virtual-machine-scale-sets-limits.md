@@ -1,5 +1,6 @@
-| Zasób | Limit maksymalny |
+| Resource | Maximum Limit |
 | --- | --- |
-| Maksymalna liczba maszyn wirtualnych w zestawie skalowania |1000 |
-| Maksymalna liczba zestawów skalowania w regionie |2000 |
+| Maximum number of VMs in a scale set |1000 |
+| Maximum number of VMs based on a custom VM image in a scale set|300 |
+| Maximum number of scale sets in a region |2000 |
 
