@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: pl-pl
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure AD z certyfikatami
@@ -26,10 +26,10 @@ Ten artykuł zawiera opis sposobu użycia interfejsu API raportowania usługi Az
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Zastosowanie interfejsu API raportowania usługi Azure AD 
 Interfejs API raportowania usługi Azure AD wymaga wykonania następujących kroków:
- *    Instalacja wymagań wstępnych
- *    Skonfigurowanie certyfikatu w aplikacji
- *    Pobranie tokenu dostępu
- *    Wykorzystanie tokenu dostępu do wywołania interfejsu API programu Graph
+ *  Instalacja wymagań wstępnych
+ *  Skonfigurowanie certyfikatu w aplikacji
+ *  Pobranie tokenu dostępu
+ *  Wykorzystanie tokenu dostępu do wywołania interfejsu API programu Graph
 
 Aby uzyskać informacje o kodzie źródłowym, zobacz [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Wykorzystanie modułu interfejsu API raportowania). 
 

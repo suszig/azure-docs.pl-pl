@@ -5,7 +5,7 @@ Aplikacja sieci Web udostępnia miejsce na hosting Twojego kodu i zawiera adres 
 W poniższym poleceniu zastąp ciąg *\<nazwa_aplikacji>* unikatową nazwą (prawidłowe znaki to `a-z`, `0-9` i `-`). Jeśli nazwa `<app_name>` nie jest unikatowa, zostanie wyświetlony komunikat o błędzie „Witryna internetowa o nazwie <nazwa_aplikacji> już istnieje”. Domyślnym adresem URL aplikacji sieci Web jest `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
