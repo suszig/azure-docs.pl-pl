@@ -7,8 +7,3 @@
     ![Właściwości inicjatora iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Zapisz ten ciąg.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

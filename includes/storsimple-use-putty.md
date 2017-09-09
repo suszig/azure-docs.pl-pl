@@ -26,8 +26,3 @@
      > 
 7. Kliknij pozycję **Otwórz**, aby rozpocząć sesję szeregową.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
