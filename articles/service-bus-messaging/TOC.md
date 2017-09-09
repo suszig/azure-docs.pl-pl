@@ -52,7 +52,13 @@
 
 ## Zarządzanie
 ### [Biblioteki zarządzania usługi Service Bus](service-bus-management-libraries.md)
-### [Używanie szablonów usługi Azure Resource Manager](service-bus-resource-manager-overview.md)
+### [Korzystanie z szablonów usługi Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Tworzenie przestrzeni nazw](service-bus-resource-manager-namespace.md)
+#### [Tworzenie przestrzeni nazw i kolejki](service-bus-resource-manager-namespace-queue.md)
+#### [Tworzenie przestrzeni nazw z tematem i subskrypcją](service-bus-resource-manager-namespace-topic.md)
+#### [Tworzenie reguły autoryzacji dla przestrzeni nazw i kolejki](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Tworzenie przestrzeni nazw z tematem, subskrypcją i regułą](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Aprowizacja jednostek za pomocą programu PowerShell](service-bus-manage-with-ps.md)
 
 # Dokumentacja
