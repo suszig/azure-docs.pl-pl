@@ -49,7 +49,7 @@
       href: functions-cli-samples.md
 - name: Pojęcia
   items:
-    - name: Zużycie a plany usługi App Service
+    - name: Porównanie planów hostingu
       href: functions-scale.md
     - name: Wyzwalacze i powiązania
       href: functions-triggers-bindings.md

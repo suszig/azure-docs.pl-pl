@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Korzystanie z licencjonowania AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Korzystanie z praw hostingu wielodostępnego dla systemu Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Zabezpieczone maszyny wirtualne
       items:
         - name: Szyfrowanie

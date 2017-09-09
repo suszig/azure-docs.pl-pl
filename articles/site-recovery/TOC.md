@@ -13,7 +13,7 @@
 ## [Obejrzyj wprowadzenie](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Wprowadzenie
-## [Replikowanie maszyn wirtualnych platformy Azure (wersja zapoznawcza)](site-recovery-azure-to-azure.md)
+## [Replikowanie maszyn wirtualnych platformy Azure na platformę Azure (wersja zapoznawcza)](site-recovery-azure-to-azure.md)
 ## [Replikacja maszyn wirtualnych VMware do platformy Azure](vmware-walkthrough-overview.md)
 ### [Krok 1. Przegląd architektury](vmware-walkthrough-architecture.md)
 ### [Krok 2. Przegląd wymagań wstępnych i ograniczeń](vmware-walkthrough-prerequisites.md)

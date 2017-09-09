@@ -40,7 +40,7 @@
 
 ## Integracja z usługami Azure Services
 ### Za pomocą usługi HDInsight
-#### [Przy użyciu portalu](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Korzystanie z portalu](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Przy użyciu programu PowerShell (magazyn domyślny)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 #### [Przy użyciu programu PowerShell (magazyn dodatkowy)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Przy użyciu szablonu platformy Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -57,7 +57,7 @@
 
 ## Zarządzanie
 ### [Uzyskiwanie dostępu do dzienników diagnostycznych](data-lake-store-diagnostic-logs.md)
-### [Planowanie na potrzeby wysokiej dostępności](data-lake-store-troubleshooting-guidance.md)
+### [Planowanie na potrzeby wysokiej dostępności](data-lake-store-disaster-recovery-guidance.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

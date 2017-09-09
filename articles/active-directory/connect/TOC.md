@@ -16,7 +16,7 @@
 ### [Ustawienia niestandardowe](active-directory-aadconnect-get-started-custom.md)
 ### [Uaktualnianie z narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Uaktualnianie z poprzedniej wersji](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Instalowanie przy użyciu istniejącej bazy danych ADSync](active-directory-aadconnect-existing-database.md)
 
 # Instrukcje
 ## Planowanie i projektowanie

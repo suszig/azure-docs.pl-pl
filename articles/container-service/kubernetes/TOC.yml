@@ -33,6 +33,8 @@
   items:
     - name: Zabezpieczanie kontenerów
       href: container-service-security.md
+    - name: Jednostka usługi — usługa Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Rozwiązanie Kubernetes w systemie Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: Skalowanie klastra ACS
       href: container-service-scale.md
+    - name: Równoważenie obciążenia klastra Kubernetes ACS
+      href: container-service-kubernetes-load-balancing.md
     - name: Monitorowanie
       items:
+        - name: Monitorowanie za pomocą usługi OMS
+          href: container-service-kubernetes-oms.md
         - name: Monitorowanie za pomocą usługi Datadog
           href: container-service-kubernetes-datadog.md
         - name: Monitorowanie za pomocą narzędzia Sysdig
@@ -68,7 +74,7 @@
     - name: Interfejs wiersza polecenia platformy Azure 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

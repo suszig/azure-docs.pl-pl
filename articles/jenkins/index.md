@@ -13,14 +13,14 @@ ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Usługa Jenkins na platformie Azure</h1>
+    <h1>Rozwiązanie Jenkins® na platformie Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> Jenkins, popularny serwer automatyzacji typu „open source”, bezproblemowo integruje się z platformą Azure, umożliwiając ciągłą integrację (CI) i ciągłe dostarczanie (CD).  Dowiedz się, jak zainstalować i skonfigurować usługę Jenkins oraz używać niej razem z narzędziami platformy Azure, korzystając z przewodników Szybki start, samouczków i przykładów.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Wtyczka agentów maszyn wirtualnych platformy Azure</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Wtyczka usługi Azure Storage</a><br/>
 <a href="https://jenkins.io">Informacje na temat usługi Jenkins</a><br/>
+<h4>      
+Jenkins® jest zastrzeżonym znakiem towarowym firmy Software in the Public Interest, Inc. [Logo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) jest licencjonowane na warunkach licencji [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) w ramach [projektu Jenkins](https://jenkins.io).</h4>
 </div>
 

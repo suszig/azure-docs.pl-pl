@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: Pojęcia
   items:
+    - name: Regiony i dostępność
+      href: container-instances-region-availability.md
     - name: Relacja z koordynatorami
       href: container-instances-orchestrator-relationship.md
     - name: Grupy kontenerów
