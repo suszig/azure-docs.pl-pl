@@ -59,7 +59,8 @@
 #### [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Przykłady zapytań składni Lucene](search-query-lucene-examples.md)
 #### [Składnia wyrażenia filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Wyszukiwanie niestandardowe
+### Analizatory w usłudze Azure Search
+#### [Omówienie](search-analyzers.md)
 #### [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Stronicowanie wyników](search-pagination-page-layout.md)

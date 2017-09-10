@@ -129,6 +129,8 @@
               href: app-service-linux-ssh-support.md
             - name: Ciągłe wdrażanie
               href: app-service-linux-ci-cd.md
+            - name: Typ wdrożenia — obraz niestandardowy czy wbudowane?
+              href: app-service-linux-choose-deployment-type.md
             - name: Aplikacja sieci Web w systemie Linux — często zadawane pytania
               href: app-service-linux-faq.md
     - name: Wdrażanie na platformie Azure

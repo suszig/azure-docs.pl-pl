@@ -6,11 +6,13 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Skróty klawiaturowe](azure-portal-keyboard-shortcuts.md)
 ## [Obsługiwane przeglądarki i urządzenia](../azure-preview-portal-supported-browsers-devices.md)
+## [Struktura pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards-structure.md)
 # Przewodniki z instrukcjami
 ## Wdrażanie
 ### [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Wdrażanie przy użyciu szablonu usługi Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards.md)
+### [Programowe tworzenie pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards-create-programmatically.md)
 ## Zarządzanie
 ### [Włączanie dużego kontrastu lub zmienianie motywu](azure-portal-change-theme-high-contrast.md)
 ### [Zarządzanie zasobami w portalu](../azure-resource-manager/resource-group-portal.md)

@@ -6,8 +6,8 @@
 ## [Aplikacje zarządzane](managed-application-overview.md)
 
 # Rozpoczęcie pracy
-## [Eksportowanie szablonu](resource-manager-export-template.md)
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
+## [Rozszerzenia kodu VS dla szablonów](resource-manager-vscode-extension.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Przykłady
@@ -20,8 +20,8 @@
 
 # Instrukcje
 ## Tworzenie szablonów
-### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
 ### [Sekcje szablonu](resource-group-authoring-templates.md)
+### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 
+
 ## Wdrażanie
 ### PowerShell
 #### [Wdrażanie szablonu](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Wdrażanie szablonu](resource-group-template-deploy-cli.md)
 #### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-cli-sas-token.md)
 #### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Wdrażanie zasobów](resource-group-template-deploy-portal.md)
+#### [Eksportowanie szablonu](resource-manager-export-template.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
 ### [Wdrażanie krzyżowe w grupach zasobów](resource-manager-cross-resource-group-deployment.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

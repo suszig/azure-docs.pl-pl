@@ -4,6 +4,8 @@
   items:
     - name: Informacje o usłudze Azure Cosmos DB
       href: introduction.md
+    - name: 20 dni porad
+      href: 20-days-of-tips.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -49,8 +51,12 @@
       items:
         - name: DocumentDB
           href: tutorial-develop-documentdb-dotnet.md
-        - name: MongoDB
+        - name: MongoDB z platformą .NET
           href: tutorial-develop-mongodb.md
+        - name: MongoDB z platformą Angular
+          href: tutorial-develop-mongodb-nodejs.md
+        - name: MongoDB z platformą React
+          href: tutorial-develop-mongodb-react.md
         - name: Tabela
           href: tutorial-develop-table-dotnet.md
         - name: Graph
@@ -208,7 +214,19 @@
               href: mongodb-mongochef.md
             - name: Korzystanie z narzędzia Robomongo
               href: mongodb-robomongo.md
-            - name: Samouczki
+            - name: Angular — seria samouczków
+              items:
+                - name: Część 2 — tworzenie aplikacji węzła
+                  href: tutorial-develop-mongodb-nodejs-part2.md
+                - name: Część 3 — dodawanie interfejsu użytkownika Angular
+                  href: tutorial-develop-mongodb-nodejs-part3.md
+                - name: Część 4 — tworzenie bazy danych Cosmos DB
+                  href: tutorial-develop-mongodb-nodejs-part4.md
+                - name: Część 5 — łączenie się z bazą danych Cosmos DB
+                  href: tutorial-develop-mongodb-nodejs-part5.md
+                - name: Część 6 — zapis w aplikacji
+                  href: tutorial-develop-mongodb-nodejs-part6.md
+            - name: Dodatkowe samouczki
               items:
                 - name: Aplikacja konsoli Node.js
                   href: mongodb-samples.md
