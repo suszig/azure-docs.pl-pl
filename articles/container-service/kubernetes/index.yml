@@ -58,4 +58,4 @@ sections:
           - title: Wiersz polecenia
             html: <p><a href="/cli/azure/acs">Interfejs wiersza polecenia platformy Azure</a></p>
           - title: REST
-            html: <p><a href="/rest/api/compute/containerservices">Interfejs API REST</a></p>
+            html: <p><a href="/rest/api/container-services">Interfejs API REST</a></p>
