@@ -37,6 +37,7 @@
 ### [Aplikacje korzystające z kolejek](service-bus-create-queues.md)
 ### [Aplikacje korzystające z tematów/subskrypcji](service-bus-create-topics-subscriptions.md)
 ### [Uwierzytelnianie i autoryzacja](service-bus-authentication-and-authorization.md)
+#### [Migrowanie z usługi ACS do sygnatury dostępu współdzielonego](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures (Uwierzytelnianie za pomocą sygnatur dostępu współdzielonego)](service-bus-sas.md)
 ### [Partycjonowane kolejki i tematy](service-bus-partitioning.md)
 ### [Kolejki utraconych wiadomości](service-bus-dead-letter-queues.md)

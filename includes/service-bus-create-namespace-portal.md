@@ -14,6 +14,7 @@ Aby utworzyć przestrzeń nazw:
 8. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
+Utworzenie nowej przestrzeni nazw spowoduje automatyczne wygenerowanie początkowej reguły sygnatury dostępu współdzielonego ze skojarzoną parą kluczy podstawowego i pomocniczego, która przyznaje pełną kontrolę nad wszystkimi aspektami przestrzeni nazw. Zapoznaj się z artykułem [Uwierzytelnianie i autoryzacja w usłudze Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md), aby dowiedzieć się, jak utworzyć dodatkowe reguły z bardziej ograniczonymi prawami dla zwykłych nadawców i odbiorców. Aby skopiować początkową regułę, wykonaj następujące kroki: 
 
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
 2. W bloku przestrzeni nazw usługi Service Bus kliknij pozycję **Zasady dostępu współdzielonego**.

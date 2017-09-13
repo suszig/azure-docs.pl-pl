@@ -24,6 +24,8 @@ Azure Container Service to usługa platformy Azure z umową SLA, która oferuje 
 
 [Aparat usługi ACS](http://github.com/Azure/acs-engine) to projekt typu open source, który umożliwia użytkownikom zaawansowanym dostosowywanie konfiguracji klastra na dowolnym poziomie. Ta zdolność do zmiany konfiguracji infrastruktury i oprogramowania oznacza, że w przypadku aparatu usługi ACS nie oferujemy umowy SLA. Obsługa odbywa się za pośrednictwem projektu typu open source w usłudze GitHub, a nie przez oficjalne kanały firmy Microsoft. 
 
+Dodatkowe informacje można znaleźć w naszych [zasadach wsparcia dla kontenerów](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Zarządzanie klastrami
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Jak mogę utworzyć klucze SSH dla mojego klastra?

@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja funkcji Web Apps for Containers
+metadata:
+  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
+  title: Dokumentacja funkcji Azure Web App for Containers — samouczki i dokumentacja interfejsu API
+  meta.description: Learn how to use Web Apps for Containers to build and host websites and web applications leveraging Docker.
+  services: app-service
+  author: syntaxc4
+  manager: carolz
+  ms.service: app-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/05/2017
+  ms.author: cfowler
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+            text: .NET Core
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg'
+            text: Node.js
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg'
+            text: PHP
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg'
+            text: Java
+            href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json'
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak wdrażać i monitorować bezpiecznie aplikacje sieci Web za pomocą funkcji Azure Web Apps for Containers i zarządzać nimi'
+      - type: list
+        style: ordered
+        items:
+          - html: Tworzenie aplikacji za pomocą <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">programu .NET Core z usługą Azure SQL DB</a> lub <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">platformy Node.js z usługą MongoDB</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapowanie istniejącej domeny niestandardowej na aplikację</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Powiązywanie istniejącego certyfikatu SSL z aplikacją</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Dodawanie usługi CDN do aplikacji</a>
+  - title: Przykłady
+    items:
+      - type: paragraph
+        text: Znajdowanie skryptów umożliwiających zarządzanie typowymi zadaniami.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+          - html: <a href="/cli/azure/appservice">Interfejs wiersza polecenia platformy Azure 2.0</a>
+  - title: Dokumentacja
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Wiersz polecenia
+            html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
+          - title: Języki
+            html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+          - title: REST
+            html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfejs wiersza polecenia platformy Azure 2.0</a></p>

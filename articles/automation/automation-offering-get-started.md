@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
    - Określ nazwę dla nowego **Obszaru roboczego OMS**.
    - Wybierz **Subskrypcję** do połączenia poprzez wybór subskrypcji z listy rozwijanej, jeśli domyślnie wybrana subskrypcja jest niewłaściwa.
    - W pozycji **Grupa zasobów** możesz utworzyć grupę zasobów lub wybrać istniejącą grupę zasobów.  
-   - Wybierz **lokalizację**.  Obecnie jedynymi dostępnymi lokalizacjami są: **Australia Południowo-Wschodnia**, **Wschodnie stany USA**, **Azja Południowo-Wschodnia**, **Środkowo-zachodnie stany USA** oraz **Europa Zachodnia**.
-   - Wybierz **warstwę cenową**.  Rozwiązanie jest oferowane w dwóch warstwach: bezpłatnej i warstwie na węzeł (OMS).  W warstwie bezpłatnej obowiązuje dzienny limit ilości zbieranych danych, a także limit okresu przechowywania oraz minut czasu wykonywania zadania elementu Runbook.  W warstwie na węzeł (OMS) nie stosuje się dziennego limitu ilości zbieranych danych.  
+   - Wybierz **lokalizację**.  Aby uzyskać dodatkowe informacje, sprawdź, w których [regionach jest dostępna usługa Azure Automation](https://azure.microsoft.com/regions/services/).  Rozwiązania są oferowane w dwóch warstwach: warstwie bezpłatnej i warstwie na węzeł (OMS).  W warstwie bezpłatnej obowiązuje dzienny limit ilości zbieranych danych, a także limit okresu przechowywania oraz minut czasu wykonywania zadania elementu Runbook.  W warstwie na węzeł (OMS) nie stosuje się dziennego limitu ilości zbieranych danych.  
    - Wybierz pozycję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, wymagane będzie również utworzenie konta usługi Automation, które jest skojarzone z nowym wcześniej określonym obszarem roboczym OMS, włącznie z subskrypcją platformy Azure, grupą zasobów i regionem.  Możesz wybrać pozycję **Utwórz konto usługi Automation** i podać następujące dane w bloku **Konto usługi Automation**: 
   - W polu **Nazwa** wprowadź nazwę konta usługi Automation.
 

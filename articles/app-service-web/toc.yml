@@ -4,6 +4,8 @@
   items:
     - name: Informacje o usłudze Web Apps
       href: app-service-web-overview.md
+    - name: Informacje o funkcji Web Apps for Containers
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: Porównanie opcji hostingu
       href: choose-web-site-cloud-service-vm.md
 - name: Przewodniki Szybki start
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1 — PHP z MySQL
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1 — WordPress z MySQL
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1 — Python z PostgreSQL
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1 — Java z MySQL
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2 — Mapowanie domeny niestandardowej
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 — Powiązywanie certyfikatu SSL
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: Konfigurowanie projektu języka PHP
               href: web-sites-php-configure.md
-            - name: Konfigurowanie witryny WordPress z obsługą wielu lokacji
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: Aplikacja Sails.js z bazą danych NOSQL
-              href: app-service-web-nodejs-sails.md
-            - name: Używanie platformy io.js
-              href: web-sites-nodejs-iojs.md
             - name: Debugowanie aplikacji Node.js
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: Aplikacja Java ze środowiskiem IntelliJ
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: Korzystanie z zestawu Azure SDK dla języka Java
-              href: java-create-azure-website-using-java-sdk.md
             - name: Przekazywanie istniejącej aplikacji
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: Aplikacja Django z rozwiązaniem MySQL
-              href: web-sites-python-ptvs-django-mysql.md
         - name: Wysyłanie wiadomości e-mail za pomocą usługi SendGrid
           href: sendgrid-dotnet-how-to-send-email.md
         - name: Konfigurowanie środowiska uruchomieniowego
@@ -111,28 +99,6 @@
           items:
             - name: Używanie ustawień aplikacji
               href: web-sites-configure.md
-        - name: Aplikacja sieci Web w systemie Linux
-          items:
-            - name: Omówienie
-              href: app-service-linux-intro.md
-            - name: Zarządzanie przy użyciu interfejsu wiersza polecenia
-              href: app-service-linux-cli.md
-            - name: Aplikacja sieci Web Ruby w systemie Linux
-              href: app-service-linux-ruby-get-started.md
-            - name: Aplikacja sieci Web Node.js w systemie Linux
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: Aplikacja sieci Web .NET Core w systemie Linux
-              href: app-service-linux-using-dotnetcore.md
-            - name: Niestandardowa aplikacja sieci Web Docker w systemie Linux
-              href: app-service-linux-using-custom-docker-image.md
-            - name: Nawiązywanie połączenia przy użyciu protokołu SSH
-              href: app-service-linux-ssh-support.md
-            - name: Ciągłe wdrażanie
-              href: app-service-linux-ci-cd.md
-            - name: Typ wdrożenia — obraz niestandardowy czy wbudowane?
-              href: app-service-linux-choose-deployment-type.md
-            - name: Aplikacja sieci Web w systemie Linux — często zadawane pytania
-              href: app-service-linux-faq.md
     - name: Wdrażanie na platformie Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: Migrowanie aktywnej domeny
               href: app-service-custom-domain-name-migrate.md
-        - name: Migrowanie z programu IIS
-          href: web-sites-migration-from-iis-server.md
-        - name: Testowanie w produkcji
-          href: app-service-web-test-in-production-get-start.md
-        - name: Dodawanie funkcji do aplikacji sieci Web
-          href: app-service-web-get-started-2.md
         - name: Wdrażanie aplikacji Spring Boot w usłudze Azure Web Apps przy użyciu wtyczki Maven
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: Wdrażanie konteneryzowanej aplikacji Spring Boot przy użyciu wtyczki Maven
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: Nawiązywanie połączenia z bazą danych/zasobami
       items:
-        - name: Nawiązywanie połączenia z danymi lokalnymi
-          href: web-sites-hybrid-connection-get-started.md
         - name: Nawiązywanie połączenia z siecią wirtualną platformy Azure
           href: web-sites-integrate-with-vnet.md
         - name: Nawiązywanie połączenia z siecią wirtualną platformy Azure przy użyciu programu PowerShell
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: Skalowanie w poziomie
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Równoważenie obciążenia za pomocą usługi Traffic Manager
-          href: web-sites-traffic-manager.md
         - name: Uzyskiwanie dużej skali przy użyciu środowisk usługi App Service
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Używanie usługi Azure CDN w celu uzyskania zasięgu globalnego
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Tworzenie pamięci podręcznej Redis Cache
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Zarządzanie stanem sesji dzięki usłudze Azure Redis Cache
-          href: web-sites-dotnet-session-state-caching.md
     - name: Monitorowanie
       items:
         - name: Monitorowanie aplikacji
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: Przywracanie aplikacji z kopii zapasowej
           href: web-sites-restore.md
-        - name: Wykonywanie kopii zapasowej przy użyciu interfejsu API REST
-          href: websites-csm-backup.md
     - name: Zarządzanie zasobami aplikacji
       items:
         - name: Klonowanie aplikacji za pomocą programu PowerShell
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: Przenoszenie zasobów
           href: app-service-move-resources.md
-        - name: Użycie usługi Azure Resource Manager z programem PowerShell
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: Zarządzanie aplikacjami za pomocą usługi Azure Automation
-          href: automation-manage-web-app.md
     - name: Integracja
       items:
         - name: Eksportowanie do usług PowerApps i Microsoft Flow

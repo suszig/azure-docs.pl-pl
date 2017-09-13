@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co to są zestawy skalowania maszyn wirtualnych na platformie Azure?
@@ -123,7 +122,7 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
    W [tym przykładzie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) takiego podejścia usługa [Azure Container Service](https://azure.microsoft.com/services/container-service/) wdraża klaster oparty na zestawach skalowania z koordynatorem kontenera.
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>Wytyczne dotyczące wydajności i skalowania zestawów skalowania
-* Zestaw skalowania obsługuje maksymalnie 1000 maszyn wirtualnych. W przypadku utworzenia i przekazania własnych niestandardowych obrazów maszyn wirtualnych limit wynosi 100. Uwagi dotyczące korzystania z dużych zestawów skalowania znajdziesz w temacie [Praca z dużymi zestawami skalowania maszyn wirtualnych](virtual-machine-scale-sets-placement-groups.md).
+* Zestaw skalowania obsługuje maksymalnie 1000 maszyn wirtualnych. W przypadku utworzenia i przekazania własnych niestandardowych obrazów maszyn wirtualnych limit wynosi 300. Uwagi dotyczące korzystania z dużych zestawów skalowania znajdziesz w temacie [Praca z dużymi zestawami skalowania maszyn wirtualnych](virtual-machine-scale-sets-placement-groups.md).
 * Aby używać zestawów skalowania, nie trzeba wstępnie tworzyć kont magazynu platformy Azure. Zestawy skalowania obsługują usługę Azure Managed Disks, dzięki czemu nie trzeba się martwić o wydajność związaną z liczbą dysków na konto magazynu. Aby uzyskać więcej informacji, zobacz [Zestawy skalowania maszyn wirtualnych i dyski zarządzane](virtual-machine-scale-sets-managed-disks.md).
 * Aby uzyskać krótsze i bardziej przewidywalne czasy aprowizacji maszyny wirtualnej oraz lepszą wydajność operacji we/wy, rozważ użycie magazynu Azure Premium Storage zamiast magazynu Azure Storage.
 * Przydział rdzeni w regionie wdrażania ogranicza liczbę możliwych do utworzenia maszyn wirtualnych. Nawet jeśli obecnie masz wysoki limit rdzeni na użytek usług Azure Cloud Services, może być konieczne skontaktowanie się z działem pomocy technicznej w celu zwiększenia limitu przydziału obliczeniowego. Aby wysłać zapytanie dotyczące limitu przydziału, uruchom następujące polecenie w interfejsie wiersza polecenia platformy Azure: `azure vm list-usage`. Alternatywnie uruchom następujące polecenie programu PowerShell: `Get-AzureRmVMUsage`.
@@ -131,7 +130,7 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Często zadawane pytania dotyczące zestawów skalowania
 **PYTANIE** Ile maszyn wirtualnych może się znajdować w zestawie skalowania?
 
-**ODPOWIEDŹ** Zestaw skalowania może zawierać od 0 do 1000 maszyn wirtualnych opartych na obrazach platformy lub od 0 do 100 maszyn wirtualnych opartych na obrazach niestandardowych. 
+**ODPOWIEDŹ** Zestaw skalowania może zawierać od 0 do 1000 maszyn wirtualnych opartych na obrazach platformy lub od 0 do 300 maszyn wirtualnych opartych na obrazach niestandardowych. 
 
 **PYTANIE** Czy zestawy skalowania obsługują dyski danych?
 

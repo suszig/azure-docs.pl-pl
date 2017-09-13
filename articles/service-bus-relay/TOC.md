@@ -13,6 +13,7 @@
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Uwierzytelnianie i zabezpieczenia](relay-authentication-and-authorization.md)
+#### [Migrowanie z usługi ACS do sygnatury dostępu współdzielonego](relay-migrate-acs-sas.md)
 ### [Protokół połączeń hybrydowych](relay-hybrid-connections-protocol.md)
 ## Programowanie
 ### [Dostępne interfejsy API](relay-api-overview.md)

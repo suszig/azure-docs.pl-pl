@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: rejestrowanie aplikacji
@@ -31,6 +31,8 @@ Aby utworzyć aplikację, która akceptuje tworzenie kont i logowanie użytkowni
 
 Aplikacje utworzone w bloku Azure AD B2C w witrynie Azure Portal muszą być zarządzane z tej samej lokalizacji. Jeśli edytujesz aplikacje B2C przy użyciu programu PowerShell lub innego portalu, stają się one nieobsługiwane i przestają działać w usłudze Azure AD B2C. Szczegóły możesz znaleźć w sekcji [Uszkodzone aplikacje](#faulted-apps). 
 
+W tym artykule są używane przykłady, które pomogą Ci rozpocząć pracę z naszymi przykładami. Więcej informacji o tych przykładach możesz znaleźć w kolejnych artykułach.
+
 ## <a name="navigate-to-b2c-settings"></a>Przechodzenie do ustawień usługi B2C
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny dzierżawy usługi B2C. 
@@ -39,13 +41,13 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administr
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Wybierz następne kroki na podstawie rejestrowanego typu aplikacji:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Wybierz następne kroki na podstawie typu aplikacji
 
 * [Rejestrowanie aplikacji internetowej](#register-a-web-app)
 * [Rejestrowanie internetowego interfejsu API](#register-a-web-api)
 * [Rejestrowanie aplikacji mobilnej lub natywnej](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Rejestrowanie aplikacji internetowej
+### <a name="register-a-web-app"></a>Rejestrowanie aplikacji internetowej
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Jeśli Twoja aplikacja internetowa wywołuje internetowy interfejs API zabezpiec
 
 [Przejdź do **następnych kroków**](#next-steps)
 
-## <a name="register-a-web-api"></a>Rejestrowanie internetowego interfejsu API
+### <a name="register-a-web-api"></a>Rejestrowanie internetowego interfejsu API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Kliknij przycisk **Opublikowane zakresy**, aby w razie potrzeby dodać więcej z
 
 [Przejdź do **następnych kroków**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Rejestrowanie aplikacji mobilnej lub natywnej
+### <a name="register-a-mobile-or-native-app"></a>Rejestrowanie aplikacji mobilnej lub natywnej
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

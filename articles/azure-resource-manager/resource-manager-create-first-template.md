@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Tworzenie i wdrażanie pierwszego szablonu usługi Azure Resource Manager
 W tym temacie szczegółowo omówiono kroki tworzenia pierwszego szablonu usługi Azure Resource Manager. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](resource-group-overview.md). Jeśli masz istniejące zasoby i chcesz uzyskać szablon dla tych zasobów, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
-Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual Studio Code](https://code.visualstudio.com/) to lekki edytor kodu typu open-source dla wielu platform. Zdecydowanie zalecamy używanie programu Visual Studio Code do tworzenia szablonów usługi Resource Manager. W tym temacie założono, że używasz programu VS Code. Jeśli jednak masz inny edytor plików JSON (np. program Visual Studio), możesz użyć tego edytora.
+Aby utworzyć i sprawdzić szablony, potrzebujesz edytora plików JSON. [Visual Studio Code](https://code.visualstudio.com/) to lekki edytor kodu typu open-source dla wielu platform. Zdecydowanie zalecamy używanie programu Visual Studio Code do tworzenia szablonów usługi Resource Manager. W tym artykule założono, że używasz programu VS Code. Jeśli jednak masz inny edytor plików JSON (np. program Visual Studio), możesz użyć tego edytora.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -216,7 +216,7 @@ Zauważ, że nazwa konta magazynu jest teraz ustawiona na dodaną przez Ciebie z
 
 Zapisz plik. 
 
-Po wykonaniu tych kroków z tego artykułu szablon wygląda teraz następująco:
+Twój szablon wygląda teraz następująco:
 
 ```json
 {
@@ -289,6 +289,141 @@ W przypadku usługi Cloud Shell przekaż zmieniony szablon do udziału plików. 
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Korzystanie z autouzupełniania
+
+Do tej pory praca z szablonem składała się tylko z kopiowania i wklejania elementów JSON z tego artykułu. Jednak podczas tworzenia własnych szablonów chcesz znaleźć i określić właściwości i wartości, które są dostępne dla danego typu zasobu. Program VS Code odczytuje schemat dla typu zasobu i sugeruje właściwości oraz wartości. Aby wyświetlić funkcję autouzupełniania, przejdź do elementu właściwości szablonu i dodaj nowy wiersz. Wpisz znak cudzysłowu i zwróć uwagę, że program VS Code natychmiast sugeruje nazwy dostępne w elemencie właściwości.
+
+![Wyświetlanie dostępnych właściwości](./media/resource-manager-create-first-template/show-properties.png)
+
+Wybierz element **encryption**. Wpisz dwukropek (:), a program VS Code zasugeruje dodanie nowego obiektu.
+
+![Dodawanie obiektu](./media/resource-manager-create-first-template/add-object.png)
+
+Naciśnij klawisz Tab lub Enter, aby dodać obiekt.
+
+Ponownie wpisz znak cudzysłowu, a następnie zobacz, że teraz program VS Code sugeruje właściwości, które są dostępne dla elementu encryption.
+
+![Wyświetlanie właściwości elementu encryption](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Wybierz element **services** i kontynuuj dodawanie wartości na podstawie rozszerzeń programu VS Code, dopóki nie uzyskasz tego:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Włączono szyfrowanie obiektów blob dla konta magazynu. Jednak program VS Code wykrył problem. Zauważ, że dla elementu encryption istnieje ostrzeżenie.
+
+![Ostrzeżenie dla elementu encryption](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Aby zobaczyć ostrzeżenie, zatrzymaj wskaźnik myszy nad zieloną linią.
+
+![Brakująca właściwość](./media/resource-manager-create-first-template/missing-property.png)
+
+Zobaczysz, że element encryption wymaga właściwości keySource. Dodaj przecinek po obiekcie services i dodaj właściwość keySource. Program VS Code sugeruje **"Microsoft.Storage"** jako prawidłową wartość. Po zakończeniu element właściwości wygląda następująco:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+Ostateczny szablon wygląda tak:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Wdrażanie zaszyfrowanego magazynu
+
+Ponownie wdróż szablon i podaj nazwę nowego konta magazynu.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+W przypadku usługi Cloud Shell przekaż zmieniony szablon do udziału plików. Zastąp istniejący plik. Następnie użyj poniższego polecenia:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+* Aby uzyskać większą pomoc przy opracowywaniu szablonów, możesz zainstalować rozszerzenie programu VS Code. Aby uzyskać więcej informacji, zobacz [Tworzenie szablonów usługi Azure Resource Manager przy użyciu rozszerzenia programu Visual Studio Code](resource-manager-vscode-extension.md)
 * Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby poznać właściwości konta magazynu, zobacz [dokumentację szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts).
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).

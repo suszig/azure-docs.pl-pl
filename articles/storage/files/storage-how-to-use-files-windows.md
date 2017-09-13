@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Aby móc zainstalować udział plików platformy Azure poza regionem świadczenia usługi Azure, w którym jest on hostowany, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, system operacyjny musi obsługiwać protokół SMB 3.0. 
 
-Udział plików platformy Azure można zainstalować na maszynie z systemem Windows w środowisku lokalnym lub na maszynie wirtualnej platformy Azure, w zależności od wersji systemu operacyjnego. W poniższej tabeli przedstawiono 
+Udziały plików platformy Azure można zainstalować w instalacji systemu Windows działającej na maszynie wirtualnej platformy Azure lub lokalnie. W poniższej tabeli pokazano, które wersje systemów operacyjnych obsługują instalowanie udziałów plików w których środowiskach:
 
-| Wersja systemu Windows        | Wersja protokołu SMB |Instalacja na maszynie wirtualnej platformy Azure|Instalacja w środowisku lokalnym|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Tak                 | Nie                  |
-| Windows Server 2008 R2 | SMB 2.1     | Tak                 | Nie                  |
-| Windows 8              | SMB 3.0     | Tak                 | Tak                 |
-| Windows Server 2012    | SMB 3.0     | Tak                 | Tak                 |
-| Windows Server 2012 R2 | SMB 3.0     | Tak                 | Tak                 |
-| Windows 10             | SMB 3.0     | Tak                 | Tak                 |
+| Wersja systemu Windows        | Wersja protokołu SMB | Możliwa instalacja na maszynie wirtualnej platformy Azure | Możliwa instalacja w środowisku lokalnym |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Tak | Tak |
+| Windows Server 2016    | SMB 3.0     | Tak                   | Tak                  |
+| Windows 8.1            | SMB 3.0     | Tak                   | Tak                  |
+| Windows Server 2012 R2 | SMB 3.0     | Tak                   | Tak                  |
+| Windows Server 2012    | SMB 3.0     | Tak                   | Tak                  |
+| Windows 7              | SMB 2.1     | Tak                   | Nie                   |
+| Windows Server 2008 R2 | SMB 2.1     | Tak                   | Nie                   |
+
+<sup>1</sup>Windows 10 w wersji 1507, 1511, 1607 i 1703
 
 > [!Note]  
 > Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows.

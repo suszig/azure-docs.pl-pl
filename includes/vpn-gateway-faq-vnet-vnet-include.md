@@ -24,6 +24,10 @@ Nie. Sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych 
 
 Nie.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Czy połączenia między sieciami wirtualnymi można używać do łączenia sieci wirtualnych między osobnymi wystąpieniami platformy Azure? 
+
+Nie. Połączenie między sieciami wirtualnymi obsługuje łączenie sieci wirtualnych w tym samym wystąpieniu platformy Azure. Nie można na przykład utworzyć połączenia między publiczną platformą Azure i wystąpieniami platformy Azure dla Chin/Niemiec/instytucji rządowych USA (US Gov). W tych przypadkach należy rozważyć użycie połączenia sieci VPN typu lokacja-lokacja.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Czy połączenia między sieciami wirtualnymi można używać wraz z połączeniami obejmującymi wiele lokacji?
 
 Tak. Połączenie sieci wirtualnej może być używane równocześnie z sieciami VPN obejmującymi wiele lokacji.

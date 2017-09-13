@@ -4,6 +4,8 @@
 
 # Przewodniki Szybki start
 ## [Tworzenie aplikacji .NET](service-fabric-quickstart-dotnet.md)
+## [Wdrażanie aplikacji kontenera systemu Windows](service-fabric-quickstart-containers.md)
+## [Wdrażanie aplikacji kontenera systemu Linux](service-fabric-quickstart-containers-linux.md)
 
 # Samouczki
 ## Wdrażanie aplikacji .NET
