@@ -6,7 +6,7 @@ Aby pobrać nazwy hosta, porty i klucze dostępu przy użyciu witryny Azure Port
 ![Ustawienia pamięci podręcznej Redis](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Pobieranie nazwy hosta, portów i kluczy dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
-Aby pobrać nazwę hosta i porty przy użyciu interfejsu wiersza polecenia platformy Azure CLI w wersji 2.0, możesz wywołać pozycję [az redis show](https://docs.microsoft.com/cli/azure/redis#show), a aby pobrać kluczem, możesz wywołać pozycję [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). Poniższy skrypt wywołuje te dwa polecenia i przesyła nazwę hosta, porty i klucze do konsoli.
+Aby pobrać nazwę hosta i porty przy użyciu interfejsu wiersza polecenia platformy Azure CLI w wersji 2.0, możesz wywołać pozycję [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), a aby pobrać kluczem, możesz wywołać pozycję [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Poniższy skrypt wywołuje te dwa polecenia i przesyła nazwę hosta, porty i klucze do konsoli.
 
 ```azurecli
 #/bin/bash

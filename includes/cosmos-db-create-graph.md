@@ -1,16 +1,17 @@
-Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych grafów. 
+You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
-1. W witrynie Azure Portal w menu nawigacyjnym po lewej kliknij pozycję **Eksplorator danych (wersja zapoznawcza)**. 
-2. W bloku **Eksplorator danych (wersja zapoznawcza)** kliknij pozycję **Nowy graf**, a następnie wypełnij stronę, korzystając z poniższych informacji.
+1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
 
-    ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
 
-    Ustawienie|Sugerowana wartość|Opis
+    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+
+    Setting|Suggested value|Description
     ---|---|---
-    Identyfikator bazy danych|sample-database|Identyfikator nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków `/ \ # ?` ani mieć spacji na końcu.
-    Identyfikator grafu|sample-graph|Identyfikator nowego grafu. W przypadku nazw grafów obowiązują takie same wymagania dotyczące znaków, jak dla identyfikatorów baz danych.
-    Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
-    Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować przepływność, aby zmniejszyć opóźnienie.
-    Klucz partycji|/userid|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór odpowiedniego klucza partycji jest ważny w celu utworzenia wydajnego grafu. Więcej informacji zawiera temat [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Projektowanie pod kątem partycjonowania).
+    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
+    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
+    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. Po wypełnieniu formularza kliknij przycisk **OK**.
+3. After the form is filled out, select **OK**.

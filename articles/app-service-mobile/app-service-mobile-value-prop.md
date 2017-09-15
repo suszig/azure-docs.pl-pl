@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: ac35ff9fe1c5f315c4de08de951f505627ec412b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="getting-started"> </a>Informacje o funkcji Mobile Apps w usłudze Azure App Service
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji o platformie Azure App Service, zobacz temat [Az
 [skalowania automatycznego]: ../app-service-web/web-sites-scale.md
 [środowiska przejściowe]: ../app-service-web/web-sites-staged-publishing.md
 [opcje wdrożenia]: ../app-service-web/web-sites-deploy.md
-[połączenia hybrydowe]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[połączenia hybrydowe]: ../biztalk-services/integration-hybrid-connection-overview.md
 [sieci wirtualnych]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [środowisk usługi App Service]: ../app-service-web/app-service-app-service-environment-intro.md
