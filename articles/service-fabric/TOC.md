@@ -280,7 +280,7 @@
 ### [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md)
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 
-### [Zarządzanie klastrem przy użyciu interfejsu wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
+### [Getting started with Service Fabric CLI (Wprowadzenie do interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)
 ### [Stosowanie poprawek do węzłów klastra](service-fabric-patch-orchestration-application.md)
 
 ### Organizowanie zasobów klastra i zarządzanie nimi

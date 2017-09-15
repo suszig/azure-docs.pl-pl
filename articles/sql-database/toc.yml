@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: Replikacja geograficzna — portal
           href: sql-database-geo-replication-portal.md
-        - name: Replikacja geograficzna — język T-SQL — konfigurowanie
-          href: sql-database-geo-replication-transact-sql.md
-        - name: Replikacja geograficzna — język T-SQL — tryb failover
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Odzyskiwanie pojedynczej tabeli
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Ładowanie i przenoszenie danych
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Skalowanie w poziomie
       items:
         - name: Tworzenie aplikacji podzielonej na fragmenty
