@@ -152,7 +152,7 @@ Kliknięcie przycisku **Zarządzaj** powoduje otwarcie portalu zarządzania kont
 Tożsamość usługi kontroli dostępu jest zestawem poświadczeń, który pozwala aplikacjom lub klientom uwierzytelniać się bezpośrednio za pomocą kontroli dostępu i odebrać token.
 
 > [!IMPORTANT]
-> Usługa BizTalk używa opcji **Właściciel** dla domyślnej tożsamości usługi oraz wartości **Hasło**. Jeśli używasz wartości Klucz symetryczny zamiast wartości Hasło, może wystąpić następujący błąd.<br/><br/>*Nie można nawiązać połączenia z kontem usługi zarządzania Access Control za pomocą podanych poświadczeń*
+> Usługa BizTalk używa opcji **Właściciel** dla domyślnej tożsamości usługi oraz wartości **Hasło**. Jeśli używasz wartości Klucz symetryczny zamiast wartości Hasło, może wystąpić następujący błąd.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 
