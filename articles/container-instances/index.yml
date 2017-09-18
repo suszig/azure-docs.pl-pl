@@ -43,5 +43,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Interfejs wiersza polecenia platformy Azure
+          - title: Wiersz polecenia
             html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-instances">Dokumentacja interfejsu API REST</a></p>
