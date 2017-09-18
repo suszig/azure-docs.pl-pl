@@ -5,6 +5,7 @@
 ## Samouczek dotyczący elementów runbook
 ### [Tworzenie graficznego elementu runbook](automation-first-runbook-graphical.md)
 ### [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
+### [Mój pierwszy element Runbook (Python)](automation-first-runbook-textual-python2.md)
 ### [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
 # Instrukcje
 ## Uwierzytelnianie i zabezpieczenia
@@ -37,7 +38,10 @@
 ### [Przekazywanie obiektu JSON do elementu Runbook usługi Azure Automation](automation-pass-json-string.md)
 ## Hybrydowy proces roboczy elementu Runbook
 ### [Wdrażanie hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md)
+### [Hybrydowy proces roboczy elementu Runbook usługi Azure Automation (Windows)](automation-windows-hrw-install.md)
+### [Hybrydowy proces roboczy elementu Runbook usługi Azure Automation (Linux)](automation-linux-hrw-install.md)
 ### [Uruchamianie elementów Runbook w ramach procesu roboczego](automation-hrw-run-runbooks.md)
+### [Usuwanie hybrydowych procesów roboczych elementu Runbook usługi Azure Automation](automation-remove-hrw.md)
 ## Wdrażanie zarządzania konfiguracją (DSC)
 ### [Konfiguracja żądanego stanu (DSC) — omówienie](automation-dsc-overview.md)
 ### [Rozpoczęcie pracy](automation-dsc-getting-started.md)

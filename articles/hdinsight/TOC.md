@@ -61,10 +61,12 @@
 ## Korzystanie z aplikacji Spark do przetwarzania w pamięci
 ### Wprowadzenie — deweloper platformy Spark
 #### [Tworzenie aplikacji autonomicznej](hdinsight-apache-spark-create-standalone-application.md)
-#### [Zadania zdalne przy użyciu usługi Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Używanie interakcyjnej powłoki Spark](hdinsight-spark-shell.md)
+#### [Zadania zdalne przy użyciu usługi Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Za pomocą usługi Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Tworzenie aplikacji w środowisku Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Tworzenie aplikacji w środowisku IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Co to jest przesyłanie strumieniowe Spark?](hdinsight-spark-streaming-overview.md)
 ### [Zdarzenia przesyłania strumieniowego procesu](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Przewidywanie wydajności systemu HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Przewidywanie wyników inspekcji żywności](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Replikowanie danych oprogramowania Kafka](hdinsight-apache-kafka-mirroring.md)
 ### [Konfigurowanie magazynu i skalowalności usługi Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Konfigurowanie wysokiej dostępności danych](hdinsight-apache-kafka-high-availability.md)
+### [Analizowanie dzienników Kafka](apache-kafka-log-analytics-operations-management.md)
 ### [Używanie z sieciami wirtualnymi](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Używanie z platformą Spark (przesyłanie strumieniowe ze strukturą)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Używanie z platformą Spark (DStream)](hdinsight-apache-spark-with-kafka.md)

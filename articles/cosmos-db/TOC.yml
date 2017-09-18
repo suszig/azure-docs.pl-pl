@@ -358,6 +358,8 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Wypróbuj usługę Azure Cosmos DB bezpłatnie
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Często zadawane pytania

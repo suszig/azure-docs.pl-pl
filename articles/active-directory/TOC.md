@@ -266,34 +266,21 @@
 
 ### [Integrowanie tożsamości lokalnych za pomocą usługi Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Zarządzanie dostępem do platformy Azure](toc.yml)
+
 ## Delegowanie dostępu do zasobów
 ### [Role administratorów](active-directory-assign-admin-roles.md)
 #### [Przypisywanie ról administratora](active-directory-users-assign-role-azure-portal.md)
 ### [Jednostki administracyjne](active-directory-administrative-units-management.md)
-### [Dostęp do zasobów na platformie Azure](active-directory-understanding-resource-access.md)
-### [Kontrola dostępu oparta na rolach](role-based-access-control-what-is.md)
-#### Zarządzanie przypisaniami dostępu
-##### [Według użytkownika](role-based-access-control-manage-assignments.md)
-##### [Według zasobu](role-based-access-control-configure.md)
-#### [Role wbudowane](role-based-access-built-in-roles.md)
-#### [Role niestandardowe](role-based-access-control-custom-roles.md)
-#### [Przypisywanie ról niestandardowych dla użytkowników wewnętrznych i zewnętrznych](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Raportowanie](role-based-access-control-access-change-history-report.md)
-#### Więcej sposobów na zarządzanie rolami
-##### [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
-##### [Program PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Podniesienie poziomu dostępu administratora dzierżawy](role-based-access-control-tenant-admin-access.md)
-#### [Rozwiązywanie problemów](role-based-access-control-troubleshooting.md)
-#### [Operacje dostawcy zasobów](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurowanie okresów istnienia tokenu](active-directory-configurable-token-lifetimes.md)
 
 ## Zabezpieczanie tożsamości
 ### [Dostęp warunkowy](active-directory-conditional-access-azure-portal.md)
+#### [Kontrolki](active-directory-conditional-access-controls.md)
 #### [Wprowadzenie](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)
-#### [Zadania]
+#### Zadania
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na aplikacji](active-directory-conditional-access-mam.md)
 ##### [Konfigurowanie połączeń sieci VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)

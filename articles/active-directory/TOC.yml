@@ -1,0 +1,74 @@
+- name: Dostęp do zasobów na platformie Azure
+  href: active-directory-understanding-resource-access.md
+- name: Kontrola dostępu oparta na rolach
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Zarządzanie przypisaniami dostępu
+      items:
+        - name: Według użytkownika
+          href: role-based-access-control-manage-assignments.md
+        - name: Według zasobu
+          href: role-based-access-control-configure.md
+    - name: Wbudowane role
+      href: role-based-access-built-in-roles.md
+    - name: Role niestandardowe
+      href: role-based-access-control-custom-roles.md
+    - name: Przypisywanie ról niestandardowych dla użytkowników wewnętrznych i zewnętrznych
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Raportowanie
+      href: role-based-access-control-access-change-history-report.md
+    - name: Więcej sposobów na zarządzanie rolami
+      items:
+        - name: Przy użyciu interfejsu wiersza polecenia platformy Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Przy użyciu programu PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Przy użyciu architektury REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Podniesienie poziomu dostępu administratora dzierżawy
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Rozwiązywanie problemów
+      href: role-based-access-control-troubleshooting.md
+    - name: Operacje dostawcy zasobów
+      href: role-based-access-control-resource-provider-operations.md
+- name: Tożsamość usługi zarządzanej
+  href: msi-overview.md
+  items:
+    - name: Konfigurowanie pliku MSI dla maszyny wirtualnej z systemem Windows
+      items:
+        - name: Z witryną Azure Portal
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Z programem PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Z interfejsem wiersza polecenia platformy Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Z szablonem usługi Azure Resource Manager
+          href: msi-qs-configure-template-windows-vm.md
+    - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu pliku MSI
+      items:
+        - name: Z maszyną wirtualną z systemem Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Z maszyną wirtualną z systemem Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Uzyskiwanie dostępu do magazynu platformy Azure przy użyciu pliku MSI
+      items:
+        - name: Z maszyną wirtualną z systemem Windows
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Z maszyną wirtualną z systemem Linux
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Uzyskiwanie dostępu do zasobu spoza usługi Azure AD przy użyciu pliku MSI
+      items:
+        - name: Z maszyną wirtualną z systemem Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Z maszyną wirtualną z systemem Linux
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Przypisywanie dostępu przy użyciu pliku MSI do zasobu platformy Azure
+      items:
+        - name: Z witryną Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Z programem PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Z interfejsem wiersza polecenia platformy Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Znane problemy
+      href: msi-known-issues.md

@@ -49,56 +49,33 @@
       href: cli-samples.md
 - name: Pojęcia
   items:
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Regiony i dostępność
       href: regions-and-availability.md
+    - name: Typy i rozmiary maszyn wirtualnych
+      href: sizes.md
+    - name: Konserwacja i aktualizacje
+      href: maintenance-and-updates.md
     - name: Magazyn
       href: about-disks-and-vhds.md
     - name: Sieć
       href: network-overview.md
-    - name: Zestawy skalowania maszyn wirtualnych
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Kontenery
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: Modele wdrażania
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Szablony maszyn wirtualnych
-          href: template-description.md
-    - name: Agent platformy Azure dla systemu Windows
-      href: agent-user-guide.md
-    - name: Azure Security Center
-      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Odzyskiwanie po awarii
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Planowana konserwacja
-      href: planned-maintenance.md
-    - name: Rozmiary maszyn wirtualnych
-      href: sizes.md
-      items:
-        - name: Zastosowania ogólne
-          href: sizes-general.md
-        - name: Optymalizacja pod kątem obliczeń
-          href: sizes-compute.md
-        - name: Optymalizacja pod kątem pamięci
-          href: sizes-memory.md
-        - name: Optymalizacja pod kątem magazynu
-          href: sizes-storage.md
-        - name: Optymalizacja pod kątem procesora GPU
-          href: sizes-gpu.md
-          items:
-            - name: Sterowniki procesora GPU
-              href: n-series-driver-setup.md
-        - name: Obliczenia o wysokiej wydajności
-          href: sizes-hpc.md
-        - name: Jednostki obliczeniowe platformy Azure (ACU)
-          href: acu.md
-        - name: Wyniki testów porównawczych wystąpień obliczeniowych
-          href: compute-benchmark-scores.md
+    - name: Automatyczne skalowanie aplikacji
+      href: autoscale.md
+    - name: Automatyzacja infrastruktury
+      href: infrastructure-automation.md
+    - name: Zabezpieczenia i zasady
+      href: security-policy.md
+    - name: Monitorowanie
+      href: monitor.md
+    - name: Tworzenie i przywracanie kopii zapasowych
+      href: backup-recovery.md
+    - name: Obliczenia o wysokiej wydajności
+      href: high-performance-computing.md
     - name: Zagadnienia dotyczące wdrażania
       items:
-        - name: Przykład podstawowego wdrożenia
+        - name: Wytyczne dotyczące infrastruktury
           href: infrastructure-example.md
 - name: Przewodniki z instrukcjami
   items:

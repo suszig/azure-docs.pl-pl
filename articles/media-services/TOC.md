@@ -183,7 +183,7 @@
 ### [Dostarczanie przez pobieranie](media-services-deliver-asset-download.md)
 ### [Scenariusz transmisji strumieniowej w trybie failover](media-services-implement-failover.md)
 
-## Używanie
+## Odtwarzanie
 ### [Odtwarzanie multimediów za pomocą istniejących odtwarzaczy](media-services-playback-content-with-existing-players.md)
 ### [Odtwarzanie multimediów za pomocą odtwarzacza Media Player](media-services-develop-video-players.md)
 ### Inne opcje odtwarzania

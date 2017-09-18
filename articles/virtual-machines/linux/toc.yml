@@ -57,60 +57,35 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
-    - name: Dystrybucje zatwierdzone dla platformy Azure
-      href: endorsed-distros.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Regiony i dostępność
       href: regions-and-availability.md
+    - name: Typy i rozmiary maszyn wirtualnych
+      href: sizes.md
+    - name: Dystrybucje zatwierdzone
+      href: endorsed-distros.md
+    - name: Konserwacja i aktualizacje
+      href: maintenance-and-updates.md
     - name: Magazyn
       href: azure-vm-storage-overview.md
     - name: Sieć
-      href: azure-vm-network-overview.md
-    - name: Zestawy skalowania maszyn wirtualnych
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Kontenery
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-        - name: Modele wdrażania
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Szablony maszyn wirtualnych
-          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Agent platformy Azure dla systemu Linux
-      href: agent-user-guide.md
-    - name: Azure Security Center
-      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Odzyskiwanie po awarii
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Planowana konserwacja
-      href: planned-maintenance.md
-    - name: Rozmiary maszyn wirtualnych
-      items:
-        - name: Omówienie rozmiarów maszyn wirtualnych
-          href: sizes.md
-          items:
-            - name: Zastosowania ogólne
-              href: sizes-general.md
-            - name: Optymalizacja pod kątem obliczeń
-              href: sizes-compute.md
-            - name: Optymalizacja pod kątem pamięci
-              href: sizes-memory.md
-            - name: Optymalizacja pod kątem magazynu
-              href: sizes-storage.md
-            - name: Procesory GPU
-              href: sizes-gpu.md
-              items:
-                - name: Sterowniki procesora GPU
-                  href: n-series-driver-setup.md
-            - name: Obliczenia o wysokiej wydajności
-              href: sizes-hpc.md
-        - name: Jednostki obliczeniowe platformy Azure (ACU)
-          href: acu.md
-        - name: Wyniki testów porównawczych wystąpień obliczeniowych
-          href: compute-benchmark-scores.md
+      href: network-overview.md
+    - name: Automatyczne skalowanie aplikacji
+      href: autoscale.md
+    - name: Automatyzacja infrastruktury
+      href: infrastructure-automation.md
+    - name: Zabezpieczenia i zasady
+      href: security-policy.md
+    - name: Monitorowanie
+      href: monitor.md
+    - name: Tworzenie i przywracanie kopii zapasowych
+      href: backup-recovery.md
+    - name: Obliczenia o wysokiej wydajności
+      href: high-performance-computing.md
     - name: Zagadnienia dotyczące wdrażania
       items:
-        - name: Przykład podstawowego wdrożenia
+        - name: Wytyczne dotyczące infrastruktury
           href: infrastructure-example.md
 - name: Przewodniki z instrukcjami
   items:
