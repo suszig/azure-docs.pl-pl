@@ -19,7 +19,7 @@
       href: role-based-access-control-access-change-history-report.md
     - name: Więcej sposobów na zarządzanie rolami
       items:
-        - name: Przy użyciu interfejsu wiersza polecenia platformy Azure
+        - name: Z interfejsem wiersza polecenia platformy Azure
           href: role-based-access-control-manage-access-azure-cli.md
         - name: Przy użyciu programu PowerShell
           href: role-based-access-control-manage-access-powershell.md
@@ -44,6 +44,14 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Z szablonem usługi Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
+    - name: Przypisywanie dostępu przy użyciu pliku MSI do zasobu platformy Azure
+      items:
+        - name: Z witryną Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Z programem PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Z interfejsem wiersza polecenia platformy Azure
+          href: msi-howto-assign-access-cli.md
     - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu pliku MSI
       items:
         - name: Z maszyną wirtualną z systemem Windows
@@ -62,13 +70,5 @@
           href: msi-tutorial-windows-vm-access-nonaad.md
         - name: Z maszyną wirtualną z systemem Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Przypisywanie dostępu przy użyciu pliku MSI do zasobu platformy Azure
-      items:
-        - name: Z witryną Azure Portal
-          href: msi-howto-assign-access-portal.md
-        - name: Z programem PowerShell
-          href: msi-howto-assign-access-powershell.md
-        - name: Z interfejsem wiersza polecenia platformy Azure
-          href: msi-howto-assign-access-cli.md
     - name: Znane problemy
       href: msi-known-issues.md
