@@ -16,6 +16,7 @@
 ## [Zarządzanie serwerem](analysis-services-manage.md)
 ## [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
 ## [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
+## [Monitorowanie metryk serwera](analysis-services-monitor.md)
 ## [Instalowanie i konfigurowanie bramy danych lokalnych](analysis-services-gateway-install.md)
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
