@@ -345,7 +345,7 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie roli 
 <!--Link references-->
 
 [Co to jest usługa w chmurze?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

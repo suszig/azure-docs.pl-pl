@@ -11,8 +11,6 @@
 ### [Dodawanie operacji](api-management-howto-add-operations.md)
 ### [Tworzenie interfejsu API](api-management-howto-create-apis.md)
 ### [Importowanie definicji interfejsu API](api-management-howto-import-api.md)
-### [Rozpoczynanie pracy z poprawkami](api-management-get-started-revise-api.md)
-### [Rozpoczynanie pracy z wersjami](api-management-get-started-publish-versions.md)
 ## Zabezpieczanie zaplecza
 ### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)

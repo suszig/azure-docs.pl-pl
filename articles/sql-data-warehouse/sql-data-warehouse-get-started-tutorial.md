@@ -142,7 +142,6 @@ Obecnie logujesz się jako administrator serwera, dlatego masz uprawnienia do tw
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Podczas wykonywania zapytania w *bazie danych usługi SQL Data Warehouse* utwórz użytkownika bazy danych na podstawie konta logowania utworzonego w celu uzyskania dostępu do bazy danych i wykonywania w niej operacji.
