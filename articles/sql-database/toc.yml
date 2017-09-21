@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Ciągłość działalności biznesowej
       items:
-        - name: Konfigurowanie magazynu — kopie zapasowe
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Replikacja geograficzna — portal
-          href: sql-database-geo-replication-portal.md
-        - name: Odzyskiwanie pojedynczej tabeli
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Ładowanie i przenoszenie danych
-      items:
         - name: Ładowanie danych za pomocą narzędzia BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Ładowanie danych za pomocą usługi ADF

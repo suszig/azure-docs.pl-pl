@@ -1,7 +1,5 @@
 # Omówienie
 ## [Co to jest usługa Mobile Apps?](app-service-mobile-value-prop.md)
-## [Co to jest usługa App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Jak to działa](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Plany usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Wprowadzenie
@@ -14,31 +12,15 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## Tworzenie aplikacji interfejsu API
-### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
-### [Java](../app-service-api/app-service-api-java-api-app.md)
-### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
-### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
-
-## Tworzenie aplikacji sieci Web
-### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)
-### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
-### [Java](../app-service-web/app-service-web-get-started-java.md)
-### [Python](../app-service-web/app-service-web-get-started-python.md)
-### [HTML](../app-service-web/app-service-web-get-started-html.md)
-
 # Instrukcje
 
 ## Planowanie i projektowanie
 ### [Uwierzytelnianie i autoryzacja w usłudze Azure Mobile Apps](app-service-mobile-auth.md)
 ### [Synchronizowanie danych w trybie offline w usłudze Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
-### [Najlepsze rozwiązania dotyczące usługi Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Najlepsze rozwiązania dotyczące usługi Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Szczegóły planów usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Hosting o dużej gęstości](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Używanie zadań WebJob w usłudze Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Środowisko usługi App Service](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Dokumentacja środowiska usługi App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Hosting o dużej gęstości](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Środowisko usługi App Service](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Programowanie
 ### Android
@@ -90,54 +72,42 @@
 #### [Zaplecze środowiska Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [Przechowywanie wersji klienta i serwera](app-service-mobile-client-and-server-versioning.md)
 
-### Zadania w sieci Web
-#### [Co to jest zestaw SDK Zadań WebJob Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Tworzenie zadania WebJob .NET w usłudze Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Używanie usługi Azure Blob Storage z zestawem SDK zadań WebJob](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Jak używać usługi Azure Queue Storage z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Jak używać usługi Azure Service Bus z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Jak używać usługi Azure Table Storage z zestawem SDK usługi WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
 ### Środowisko usługi App Service
-#### [Tworzenie aplikacji sieci Web w środowisku usługi App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Korzystanie z wewnętrznego modułu równoważenia obciążenia](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Tworzenie aplikacji sieci Web w środowisku usługi App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Korzystanie z wewnętrznego modułu równoważenia obciążenia](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Wdrażanie](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Wdrażanie do usługi App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Wdrażanie synchronizacji w chmurze](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Ciągłe wdrażanie](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Środowiska przejściowe](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Lokalne wdrożenie narzędzia Git](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Wdrażanie zadań WebJob za pomocą programu Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Wdrażanie
+### [Wdrażanie synchronizacji w chmurze](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Ciągłe wdrażanie](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Środowiska przejściowe](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Lokalne wdrożenie narzędzia Git](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Wdrożenie usługi Azure Resource Manager](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Skalowanie](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Skalowanie aplikacji w górę](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Środowisko usługi App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Rozproszona geograficznie skala przy użyciu środowisk usługi App Service](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Skalowanie aplikacji w środowisku usługi App Service](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [Skalowanie automatyczne w środowisku usługi App Service](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Skalowanie
+### [Skalowanie aplikacji w górę](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Środowisko usługi App Service](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Rozproszona geograficznie skala przy użyciu środowisk usługi App Service](../app-service/environment/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Skalowanie aplikacji w środowisku usługi App Service](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [Skalowanie automatyczne w środowisku usługi App Service](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Zarządzanie
-### [Konfigurowanie](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Konfigurowanie](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Domeny niestandardowe
-#### [Zakup i konfiguracja domen niestandardowych](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Mapowanie własnej domeny niestandardowej](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Domeny niestandardowe z usługą Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Zakup i konfiguracja domen niestandardowych](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Mapowanie własnej domeny niestandardowej](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Domeny niestandardowe z usługą Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-### [Klonowanie istniejącej aplikacji](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Konfiguracja zaawansowana](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Grupy zasobów](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Zadania WebJob](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uruchamianie zadań w tle za pomocą usługi WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Klonowanie istniejącej aplikacji](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Grupy zasobów](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uruchamianie zadań w tle za pomocą usługi WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-### [Środowisko usługi App Service](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Konfigurowanie](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Ustawienia niestandardowej konfiguracji](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Jak kontrolować ruch przychodzący](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Omówienie architektury sieci](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Szczegóły konfiguracji sieci przy użyciu usługi ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Konfigurowanie](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Ustawienia niestandardowej konfiguracji](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Jak kontrolować ruch przychodzący](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Omówienie architektury sieci](../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Szczegóły konfiguracji sieci przy użyciu usługi ExpressRoute](../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Migracja
 ### [Jak wygląda porównanie usługi App Service z usługą Mobile Services?](app-service-mobile-value-prop-migration-from-mobile-services.md)
@@ -146,54 +116,44 @@
 #### [Zaplecze platformy .NET](app-service-mobile-net-upgrading-from-mobile-services.md)
 #### [Zaplecze środowiska Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
-## [Bezpieczeństwo](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Bezpieczeństwo
 ### [Uwierzytelnianie i autoryzacja](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Uwierzytelnianie za pomocą dostawców tożsamości
-#### [Uwierzytelnianie za pomocą usługi Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-#### [Uwierzytelnianie za pomocą konta Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-#### [Uwierzytelnianie za pomocą konta Google](app-service-mobile-how-to-configure-google-authentication.md)
-#### [Uwierzytelnianie za pomocą konta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-#### [Uwierzytelnianie za pomocą konta Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
-### [Uwierzytelnianie za pomocą lokalnej usługi Active Directory](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uwierzytelnianie za pomocą usługi Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uwierzytelnianie za pomocą konta Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uwierzytelnianie za pomocą konta Google](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uwierzytelnianie za pomocą konta Microsoft](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uwierzytelnianie za pomocą konta Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
-#### [Konfigurowanie wzajemnego uwierzytelniania protokołu TLS ](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Zakup certyfikatu SSL na platformie Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Używanie certyfikatu SSL uzyskanego w innym miejscu](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Konfigurowanie wzajemnego uwierzytelniania protokołu TLS ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Zakup certyfikatu SSL na platformie Azure](../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Używanie certyfikatu SSL uzyskanego w innym miejscu](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### Zabezpieczanie środowiska usługi App Service
-#### [Konfigurowanie zapory aplikacji sieci Web](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Implementowanie warstwowej architektury zabezpieczeń](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Bezpieczne nawiązywanie połączenia z zasobami zaplecza](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Konfigurowanie zapory aplikacji sieci Web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Implementowanie warstwowej architektury zabezpieczeń](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Bezpieczne nawiązywanie połączenia z zasobami zaplecza](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Tworzenie kopii zapasowych
-### [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Przywracanie aplikacji na platformie Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Przywracanie aplikacji na platformie Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Monitorowanie](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Włączanie rejestrowania diagnostycznego ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-## Automatyzacja
-### [Zwinne wytwarzanie oprogramowania](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Wdrożenie usługi Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### PowerShell
-#### [Zautomatyzowane tworzenie kopii zapasowej i przywracanie](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Klonowanie aplikacji](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Powiązanie certyfikatów SSL](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Monitorowanie](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Włączanie rejestrowania diagnostycznego ](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integracja
-### [Jak wysyłać pocztę e-mail przy użyciu usługi SendGrid platformy Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Eksportowanie do usług PowerApps i Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Jak wysyłać pocztę e-mail przy użyciu usługi SendGrid platformy Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Eksportowanie do usług PowerApps i Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Używanie tożsamości usługi zarządzanej](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Rozwiązywanie problemów
 ### Ogólne porady dotyczące rozwiązywania problemów związanych z usługą Mobile Apps
 #### [Zaplecze platformy .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Zaplecze środowiska Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
-### [Włączanie rejestrowania diagnostycznego](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Dzienniki przesyłania strumieniowego i konsola](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Włączanie rejestrowania diagnostycznego](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Rozwiązywanie problemów za pomocą programu Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Dokumentacja
 ## [Zestaw SDK zaplecza oprogramowania .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
@@ -207,9 +167,8 @@
 ## [Repozytoria usługi GitHub](https://github.com/Azure/azure-mobile-apps)
 
 # Zasoby
-## [Najlepsze praktyki związane z usługą App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Najlepsze praktyki związane z usługą App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
-## [Lista zasobów zadań WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 ## [Cennik](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

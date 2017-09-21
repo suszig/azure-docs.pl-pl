@@ -7,16 +7,15 @@
 ## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
 # Rozpoczęcie pracy
-## Azure Portal (wersja zapoznawcza)
-### [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
-### [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
-### [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
-### [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-dns.md)
-### [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
+## [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
+## [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
+## [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
+## [Zadanie 4. Aktualizowanie ustawień DNS dla sieci wirtualnej](active-directory-ds-getting-started-dns.md)
+## [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 
 # Instrukcje
 ## Dołączanie do domeny zarządzanej
-### [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrowanie domeną zarządzaną
