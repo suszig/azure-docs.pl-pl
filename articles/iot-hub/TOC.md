@@ -32,6 +32,7 @@
 ##### [Konfigurowanie urządzenia Intel NUC jako bramy](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Łączenie bramy z usługą IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Używanie bramy do konwersji danych](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Rozwiązywanie problemów](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Rozszerzone scenariusze IoT
 ### [Zarządzanie przesyłaniem komunikatów między chmurą a urządzeniem za pomocą narzędzia iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Przekazywanie plików z urządzeń](iot-hub-csharp-csharp-file-upload.md)
+### [Przekazywanie plików z urządzeń]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Wprowadzenie do zarządzania urządzeniami
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-device-management-getstarted.md)
 ### Korzystanie z właściwości bliźniaczych reprezentacji
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Aktualizowanie oprogramowania układowego urządzenia za pomocą zadań urządzeń
 #### [Zaplecze środowiska Node/urządzenie środowiska Node](iot-hub-node-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-firmware-update.md)

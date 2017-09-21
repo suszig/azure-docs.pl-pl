@@ -27,6 +27,7 @@
 ### [Jeśli masz już usługę Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Zarządzanie programem Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Odnawianie certyfikatów dla usług O365 i Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Aktualizowanie certyfikatu SSL dla farmy usług Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Włączanie zapisywania zwrotnego urządzeń](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opcje logowania użytkowników](active-directory-aadconnect-user-signin.md)
 #### [Bezproblemowe logowanie jednokrotne](active-directory-aadconnect-sso.md)

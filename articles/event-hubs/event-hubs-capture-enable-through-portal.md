@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Aby przechwycić dane do usługi Azure Data Lake Store, należy utworzyć konto 
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Tworzenie konta i folderów usługi Azure Data Lake Store
 
-1. Utwórz konto usługi Data Lake Store, postępując zgodnie z instrukcjami w temacie [Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Utwórz folder na tym koncie, postępując zgodnie z instrukcjami w sekcji [Tworzenie folderów w ramach konta usługi Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. Na stronie konta usługi Data Lake Store kliknij pozycję **Eksplorator danych**.
-4. Kliknij pozycję **Dostęp**.
-5. Kliknij pozycję **Dodaj**.
-6. W polu **Wyszukaj według nazwy lub adresu e-mail** wpisz **Microsoft.EventHubs**, a następnie wybierz tę opcję. 
-7. Zostanie wyświetlona karta **Uprawnienia**. Ustaw uprawnienia, jak pokazano na poniższej ilustracji:
-
-    ![][6]
-
-8. Kliknij przycisk **OK**.
-9. Następnie utwórz folder w folderze głównym przez przejście do folderu docelowego i kliknięcie nazwy folderu.
-10. Kliknij pozycję **Dostęp**.
-11. Kliknij pozycję **Dodaj**.
-12. W polu **Wyszukaj według nazwy lub adresu e-mail** wpisz **Microsoft.EventHubs**, a następnie wybierz tę opcję.
-13. Ponownie zostanie wyświetlona karta **Uprawnienia**. Ustaw uprawnienia, jak pokazano na poniższej ilustracji:
-
-    ![][5]
+1. Utwórz konto usługi Data Lake Store, postępując zgodnie z instrukcjami w temacie [Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Wykonaj instrukcje opisane w sekcji [Przydzielanie uprawnień usłudze Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs), aby utworzyć folder na koncie usługi Data Lake Store, na którym chcesz przechwytywać dane z usługi Event Hubs, i przydzielić uprawnienia usłudze Event Hubs, aby mogła ona zapisywać dane na Twoim koncie usługi Data Lake Store.  
 
 ### <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
@@ -87,12 +71,11 @@ Przechwytywanie można skonfigurować w istniejących centrach zdarzeń, które 
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej na temat funkcji przechwytywania usługi Event Hubs, przeczytaj [omówienie funkcji przechwytywania usługi Event Hubs][capture-overview].
 - Funkcję przechwytywania usługi Event Hubs możesz również skonfigurować za pomocą szablonów usługi Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [Enable Capture using an Azure Resource Manager template (Włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager)](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Rozpoczynanie pracy z usługą Azure Data Lake Store za pośrednictwem witryny Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

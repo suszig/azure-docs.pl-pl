@@ -13,12 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/31/2016
+ms.date: 09/13/2017
 ms.author: dendeli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data
@@ -32,7 +33,7 @@ Korzystając z tego samouczka, dowiesz się, jak dostarczać powiadomienia wypyc
 ## <a name="prerequisites"></a>Wymagania wstępne
 Najpierw upewnij się, że spełniono wszystkie wymagania wstępne dotyczące oprogramowania i usług:
 
-* Program [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) lub nowszy (można również użyć wersji [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)). 
+* Program [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) lub nowszy (można również użyć wersji [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)). 
 * Najnowsza wersja zestawu [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Konto Centrum deweloperów Map Bing](https://www.bingmapsportal.com/) (można utworzyć je bezpłatnie i skojarzyć z kontem Microsoft). 
 
@@ -45,7 +46,7 @@ Po zakończeniu tworzenia projektu uzyskasz dostęp do aplikacji. Teraz skonfigu
 
     http://spatial.virtualearth.net/REST/v1/data/
 
-Należy określić następujące parametry, aby przygotować go do pracy:
+Musisz określić następujące parametry, aby przygotować go do pracy:
 
 * **Identyfikator źródła danych** i **Nazwa źródła danych** — w interfejsie API Map Bing źródła danych zawierają różne metadane w zasobnikach, takie jak lokalizacje i godziny pracy. Możesz uzyskać więcej informacji na ten temat tutaj. 
 * **Nazwa jednostki** — jednostka, która ma być używana jako punkt odniesienia dla powiadomienia. 
@@ -54,11 +55,11 @@ Należy określić następujące parametry, aby przygotować go do pracy:
 Poznajmy szczegółowo sposób konfiguracji poszczególnych elementów wymienionych powyżej.
 
 ## <a name="setting-up-the-data-source"></a>Konfigurowanie źródła danych
-W tym celu można użyć Centrum deweloperów Map Bing. Kliknij pozycję **Źródła danych** na górnym pasku nawigacyjnym i wybierz pozycję **Zarządzaj źródłami danych**.
+Źródło danych można skonfigurować w Centrum deweloperów usługi Mapy Bing. Na górnym pasku nawigacyjnym wybierz pozycję **Źródła danych** > **Zarządzaj źródłami danych**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Jeśli wcześniej nie korzystano z interfejsu API Map Bing, prawdopodobnie nie będą istnieć żadne źródła danych, dlatego możesz utworzyć nowe, klikając pozycję Przekaż dane do źródła danych. Wypełnij wszystkie wymagane pola:
+Jeśli wcześniej nie korzystano z interfejsu API Map Bing, prawdopodobnie nie będą istnieć żadne źródła danych, dlatego możesz utworzyć nowe, wybierając pozycję **Źródła danych** > **Przekaż dane**. Wypełnij wszystkie wymagane pola:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
@@ -72,7 +73,7 @@ Powyższy kod reprezentuje następującą jednostkę:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Po prostu skopiuj i wklej powyższy ciąg do nowego pliku i zapisz go jako **NotificationHubsGeofence.pipe**, a następnie przekaż go do Centrum deweloperów Bing.
+Skopiuj i wklej powyższy ciąg do nowego pliku, zapisz go jako **NotificationHubsGeofence.pipe**, a następnie przekaż go do Centrum deweloperów Bing.
 
 > [!NOTE]
 > Może zostać wyświetlony monit o określenie nowego klucza dla właściwości **Klucz główny**, który różni się od właściwości **Klucz zapytania**. Po prostu utwórz nowy klucz przy użyciu pulpitu nawigacyjnego i odśwież stronę przekazywania źródła danych.
@@ -81,21 +82,21 @@ Po prostu skopiuj i wklej powyższy ciąg do nowego pliku i zapisz go jako **Not
 
 Po przekazaniu pliku danych opublikuj źródło danych. 
 
-Przejdź do obszaru **Zarządzanie źródłami danych**, jak opisano powyżej, znajdź źródło danych na liście i kliknij polecenie **Publikuj** w kolumnie **Akcje**. Po chwili źródło danych powinno zostać wyświetlone na karcie **Opublikowane źródła danych**:
+Przejdź do obszaru **Zarządzanie źródłami danych**, jak opisano powyżej, znajdź źródło danych na liście i wybierz polecenie **Publikuj** w kolumnie **Akcje**. Po chwili źródło danych powinno zostać wyświetlone na karcie **Opublikowane źródła danych**:
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Jeśli klikniesz pozycję **Edytuj** możesz łatwo przeglądać wprowadzone lokalizacje:
+Jeśli wybierzesz pozycję **Edytuj**, możesz łatwo przeglądać wprowadzone lokalizacje:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
 W tym momencie w portalu nie są wyświetlane granice utworzonego wirtualnego ogrodzenia — potrzebne jest jedynie potwierdzenie, że określona lokalizacja znajduje się w odpowiedniej okolicy.
 
-Teraz wszystkie wymagania dotyczące źródła danych zostały spełnione. Aby uzyskać szczegółowe informacje dotyczące adresu URL żądania dla wywołania interfejsu API, w Centrum deweloperów Map Bing kliknij pozycję **Źródła danych** i wybierz pozycję **Informacje o źródle danych**.
+Teraz wszystkie wymagania dotyczące źródła danych zostały spełnione. Aby uzyskać szczegółowe informacje dotyczące adresu URL żądania dla wywołania interfejsu API, w Centrum deweloperów Map Bing wybierz pozycję **Źródła danych** i wybierz pozycję **Informacje o źródle danych**.
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-Interesuje nas tutaj wartość właściwości **Adres URL zapytania**. To jest punkt końcowy, względem którego możemy wykonywać zapytania, aby sprawdzić, czy urządzenie znajduje się obecnie w granicach lokalizacji, czy nie. Aby to sprawdzić, należy wykonać wywołanie GET dla adresu URL zapytania z dołączonymi następującymi parametrami:
+Interesuje nas tutaj wartość właściwości **Adres URL zapytania**. To jest punkt końcowy, względem którego możemy wykonywać zapytania, aby sprawdzić, czy urządzenie znajduje się obecnie w granicach lokalizacji, czy nie. Aby to sprawdzić, wykonujemy wywołanie GET dla adresu URL zapytania z dołączonymi następującymi parametrami:
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
@@ -110,11 +111,11 @@ Ta odpowiedź jest wysyłana tylko wtedy, gdy punkt rzeczywiście znajduje się 
 ## <a name="setting-up-the-uwp-application"></a>Konfigurowanie aplikacji platformy uniwersalnej systemu Windows
 Teraz, gdy źródło danych jest gotowe, możemy rozpocząć pracę nad aplikacją platformy uniwersalnej systemu Windows, którą zainicjowano wcześniej.
 
-Najpierw musimy włączyć usługi lokalizacji dla naszej aplikacji. W tym celu kliknij dwukrotnie plik `Package.appxmanifest` w **Eksploratorze rozwiązań**.
+Najpierw musimy włączyć usługi lokalizacji dla naszej aplikacji. W tym celu otwórz plik `Package.appxmanifest` w **Eksploratorze rozwiązań**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-Na karcie właściwości pakietu, która została otwarta, kliknij pozycję **Możliwości** i wybierz pozycję **Lokalizacja**:
+Na karcie właściwości pakietu, która została otwarta, wybierz pozycję **Możliwości** i zaznacz pozycję **Lokalizacja**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
@@ -215,7 +216,7 @@ Projekt jest już skonfigurowany do wysyłania powiadomień wypychanych do urzą
 
 Aby skonfigurować parametry połączenia, w folderze `Models` otwórz plik `Notifications.cs`. Funkcja `NotificationHubClient.CreateClientFromConnectionString` powinna zawierać informacje o centrum powiadomień uzyskane w witrynie [Azure Portal](https://portal.azure.com) (w bloku **Zasady dostępu** w obszarze **Ustawienia**). Zapisz zaktualizowany plik konfiguracji.
 
-Teraz należy utworzyć model dla wyniku interfejsu API Map Bing. W tym celu najłatwiej kliknąć prawym przyciskiem myszy folder `Models`, a następnie polecenie **Dodaj** > **Klasa**. Nadaj jej nazwę `GeofenceBoundary.cs`. Po zakończeniu skopiuj kod JSON z odpowiedzi interfejsu API omówionej w pierwszej sekcji, a następnie w programie Visual Studio użyj polecenia **Edytuj** > **Wklej specjalne** > **Wklej dane JSON jako klasy**. 
+Teraz należy utworzyć model dla wyniku interfejsu API Map Bing. W tym celu najłatwiej otworzyć folder `Models`, a następnie wybrać polecenie **Dodaj** > **Klasa**. Nadaj jej nazwę `GeofenceBoundary.cs`. Po zakończeniu skopiuj kod JSON z odpowiedzi interfejsu API omówionej w pierwszej sekcji, a następnie w programie Visual Studio użyj polecenia **Edytuj** > **Wklej specjalne** > **Wklej dane JSON jako klasy**. 
 
 W ten sposób upewniamy się, że obiekt zostanie zdeserializowany dokładnie w zamierzony sposób. Wynikowy zestaw klas powinien wyglądać następująco:
 
@@ -337,23 +338,23 @@ Po powrocie do aplikacji platformy uniwersalnej systemu Windows powinno być ter
 > 
 > 
 
-Teraz zarejestrujmy aplikację platformy uniwersalnej systemu Windows na potrzeby powiadomień wypychanych. W programie Visual Studio kliknij pozycję **Projekt** > **Magazyn** > **Skojarz aplikację z magazynem**.
+Teraz zarejestrujmy aplikację platformy uniwersalnej systemu Windows na potrzeby powiadomień wypychanych. W programie Visual Studio wybierz pozycję **Projekt** > **Magazyn** > **Skojarz aplikację z magazynem**.
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
 Po zalogowaniu się do konta dewelopera wybierz istniejącą aplikację lub utwórz nową i skojarz z nią pakiet. 
 
-Przejdź do Centrum deweloperów i otwórz utworzoną wcześniej aplikację. Kliknij pozycję **Usługi** > **Powiadomienia wypychane** > **Witryna usług Live**.
+Przejdź do Centrum deweloperów i otwórz utworzoną wcześniej aplikację. Wybierz pozycję **Usługi** > **Powiadomienia wypychane** > **Witryna usług Live**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-W witrynie zanotuj **Klucz tajny aplikacji** i **Identyfikator SID pakietu**. Obie wartości będą potrzebne w witrynie Azure Portal. Otwórz centrum powiadomień, kliknij pozycję **Ustawienia** > **Usługi powiadomień** > **Windows (WNS)** i wprowadź informacje w wymaganych polach.
+W witrynie zanotuj **Klucz tajny aplikacji** i **Identyfikator SID pakietu**. Obie wartości będą potrzebne w witrynie Azure Portal. Otwórz centrum powiadomień, wybierz pozycję **Ustawienia** > **Usługi powiadomień** > **Windows (WNS)** i wprowadź informacje w wymaganych polach.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
-Kliknij przycisk **Zapisz**.
+Wybierz pozycję **Zapisz**.
 
-Kliknij prawym przyciskiem myszy pozycję **Odwołania** w **Eksploratorze rozwiązań** i wybierz pozycje **Zarządzaj pakietami NuGet**. Musimy dodać odwołanie do **biblioteki zarządzanej usługi Microsoft Azure Service Bus**. Wyszukaj pakiet `WindowsAzure.Messaging.Managed` i dodaj go do projektu.
+Otwórz obszar **Odwołania** w **Eksploratorze rozwiązań** i wybierz pozycję **Zarządzaj pakietami NuGet**. Musimy dodać odwołanie do **biblioteki zarządzanej usługi Microsoft Azure Service Bus**. Wyszukaj pakiet `WindowsAzure.Messaging.Managed` i dodaj go do projektu.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
@@ -390,10 +391,5 @@ Upewniając się, że powiadomienia są dostarczane do odpowiednich uczestników
 W powyższym rozwiązaniu opisano scenariusz, w którym może występować wiele różnych platform, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Aby uzyskać więcej informacji o możliwościach usługi Notification Hubs, odwiedź [portal dokumentacji](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

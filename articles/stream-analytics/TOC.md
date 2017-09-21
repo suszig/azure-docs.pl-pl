@@ -27,7 +27,7 @@
 ### [Tworzenie wyjść](stream-analytics-define-outputs.md)
 ### [Przesyłanie danych wyjściowych do usługi Azure Functions](stream-analytics-functions-redis.md)
 ### [Przesyłanie danych wyjściowych do usługi Data Lake Store](stream-analytics-data-lake-output.md)
-### [Przesyłanie danych wyjściowych do usługi DocumentDB](stream-analytics-documentdb-output.md)
+### [Wyjście do usługi Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Monitorowanie i optymalizowanie
 ### [Dodawanie alertów](stream-analytics-set-up-alerts.md)

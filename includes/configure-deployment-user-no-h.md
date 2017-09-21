@@ -1,4 +1,4 @@
-Utwórz poświadczenia wdrożenia za pomocą polecenia [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+W usłudze Cloud Shell utwórz poświadczenia wdrożenia za pomocą polecenia [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Użytkownik wdrożenia jest wymagany do wdrożenia protokołu FTP i lokalnego narzędzia Git w aplikacji internetowej. Nazwa użytkownika i hasło są określane na poziomie konta. _Różnią się one od poświadczeń subskrypcji platformy Azure._
 

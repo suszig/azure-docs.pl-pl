@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
@@ -148,7 +148,7 @@ Aby skonfigurować zasady **Ustawianie przydziału użycia na subskrypcję**, um
 </quota>
 ```
 
-Podobnie jak zasady **Ustawianie przydziału użycia na subskrypcję**, zasady **Ustawianie przydziału użycia na subskrypcję** umożliwia ustawienie limitów dla interfejsów API i operacji w produkcie. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** z elementu **quota**, jak pokazano w poniższym przykładzie.
+Podobnie jak zasady **Ograniczanie liczby wywołań na subskrypcję**, zasady **Ustawianie przydziału użycia na subskrypcję** umożliwia ustawienie limitów dla interfejsów API i operacji w produkcie. W tym samouczku nie będziemy korzystać z tej możliwości, więc usuń elementy **api** i **operation** z elementu **quota**, jak pokazano w poniższym przykładzie.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

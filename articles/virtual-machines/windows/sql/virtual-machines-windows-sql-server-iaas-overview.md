@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Omówienie programu SQL Server w usłudze Azure Virtual Machines
@@ -27,34 +26,8 @@ W tym temacie opisano opcje uruchamiania programu SQL Server na maszynach wirtua
 
 > [!NOTE]
 > Jeśli znasz już program SQL Server i chcesz tylko zobaczyć, jak wdrożyć maszynę wirtualną programu SQL Server, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Omówienie
-Jeśli jesteś administratorem bazy danych lub projektantem, możesz skorzystać z oferowanych przez maszyny wirtualne platformy Azure możliwości przenoszenia lokalnych obciążeń i aplikacji programu SQL Server do chmury. Następujący film wideo obejmuje omówienie techniczne maszyn wirtualnych serwera SQL Server platformy Azure.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-Flm wideo obejmuje następujące zagadnienia:
-
-| Time | Obszar |
-| --- | --- |
-| 00:21 |Co to są maszyny wirtualne platformy Azure? |
-| 01:45 |Bezpieczeństwo |
-| 02:50 |Łączność |
-| 03:30 |Wydajność i niezawodność magazynu |
-| 05:20 |Rozmiary maszyn wirtualnych |
-| 05:54 |Wysoka dostępność i umowy SLA |
-| 07:30 |Pomoc techniczna w zakresie konfiguracji |
-| 08:00 |Monitorowanie |
-| 08:32 |Pokaz: tworzenie maszyny wirtualnej programu SQL Server 2016 |
-
-> [!NOTE]
-> Film wideo opiera się na programie SQL Server 2016, ale platforma Azure udostępnia obrazy maszyny wirtualnej dla wielu wersji programu SQL Server, w tym dla wersji 2012, 2014 i 2016. 
-> 
-> 
+Jeśli jesteś administratorem bazy danych lub projektantem, możesz skorzystać z oferowanych przez maszyny wirtualne platformy Azure możliwości przenoszenia lokalnych obciążeń i aplikacji programu SQL Server do chmury.
 
 ## <a name="scenarios"></a>Scenariusze
 Istnieje wiele powodów, dla których warto zdecydować się na hosting danych w usłudze Azure. Jeśli aplikacja zostanie przeniesiona na platformę Azure, poprawi się również wydajność przenoszenia danych. Są jednak także inne korzyści. Automatycznie uzyskujesz dostęp do wielu centrów danych, co zapewnia globalną obecność i odzyskiwanie po awarii. Dane są również objęte zaawansowanymi zabezpieczeniami, co wpływa także na ich trwałość.
@@ -126,7 +99,7 @@ Maszyny wirtualne platformy Azure umożliwiają korzystanie z funkcji [Automatyc
 ### <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta
 Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. 
 
-Aby uzyskać więcej informacji, zapoznaj się z poświęconą programowi poprawy jakości obsługi klienta częścią tematu [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) (Akceptacja postanowień licencyjnych). 
+Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachowania poufności informacji programu SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight (wersja zapoznawcza)
@@ -42,7 +42,7 @@ Platforma Kafka oferuje następujące funkcje:
 
 * Integracja z usługą Azure Managed Disks: usługa Managed Disks zapewnia wyższą skalowalność i przepływność dysków używanych przez maszyny wirtualne w klastrze usługi HDInsight.
 
-    Usługa Managed Disks jest włączana domyślnie dla platformy Kafka w usłudze HDInsight. Liczbę dysków używanych w każdym węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Usługa Managed Disks jest domyślnie włączona dla platformy Kafka w usłudze HDInsight. Liczbę dysków w węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Aby uzyskać informacje dotyczące konfigurowania usługi Managed Disks na platformie Kafka w usłudze HDInsight, zobacz artykuł [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Zwiększanie skalowalności platformy Kafka w usłudze HDInsight).
 
@@ -55,6 +55,15 @@ Platforma Kafka oferuje następujące funkcje:
 * **Agregacja**: przetwarzanie strumienia pozwala agregować informacje z różnych strumieni w celu łączenia i centralizowania informacji w formie danych operacyjnych.
 
 * **Przekształcanie**: przetwarzanie strumienia umożliwia łączenie i urozmaicanie danych z wielu tematów wejściowych w formie tematów wyjściowych.
+
+## <a name="architecture"></a>Architektura
+
+![Konfiguracja klastra Kafka](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Ten diagram przedstawia typową konfigurację platformy Kafka korzystającą z grup konsumentów, partycjonowania i replikacji w celu zapewnienia równoległego odczytu zdarzeń przy zachowaniu odporności na uszkodzenia. Usługę Apache ZooKeeper, która zarządza stanem klastra platformy Kafka, zaprojektowano pod kątem obsługi jednoczesnych, odpornych transakcji o małych opóźnieniach. Platforma Kafka przechowuje rekordy w *tematach*. Rekordy są tworzone przez *producentów* i używane przez *odbiorców*. Producenci pobierają rekordy z *brokerów* platformy Kafka. Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest brokerem platformy Kafka. Dla każdego użytkownika jest tworzona jedna partycja, co umożliwia równoległe przetwarzanie danych przesyłanych strumieniowo. Dzięki replikacji zapewniono dystrybucję partycji na węzłach, co gwarantuje ochronę przed awariami węzła (brokera). Partycja wiodąca jest oznaczona symbolem *(L)*. Ruch producenta jest kierowany do partycji wiodącej w każdym węźle przy użyciu stanu zarządzanego przez usługę ZooKeeper.
+
+> [!IMPORTANT]
+> Platforma Kafka nie uwzględnia sprzętu podstawowego (montowanego w stelażu) w centrum danych platformy Azure. Aby zapewnić odpowiednie równoważenie partycji w sprzęcie podstawowym, zobacz [Configure high availability of data (Kafka) (Konfigurowanie wysokiej dostępności danych [platforma Kafka])](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

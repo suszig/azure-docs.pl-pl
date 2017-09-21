@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Wprowadzenie do usługi Azure CDN
@@ -32,8 +33,13 @@ W tym temacie opisano włączanie usługi Azure CDN z tworzeniem nowego profilu 
 Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawiera jeden lub więcej punktów końcowych usługi CDN.  Możesz używać wielu profilów, aby organizować punkty końcowe usługi CDN według domeny internetowej, aplikacji sieci Web lub innych kryteriów.
 
 > [!NOTE]
-> Domyślnie jedna subskrypcja platformy Azure jest ograniczona do ośmiu profilów usługi CDN. Każdy profil CDN jest ograniczony do dziesięciu punktów końcowych usługi CDN.
-> 
+> Subskrypcja platformy Azure ma limity domyślne dla następujących zasobów:
+> - Liczba profilów CDN, które można utworzyć
+> - Liczba punktów końcowych, które można utworzyć w profilu CDN 
+> - Liczba domen niestandardowych, które można zamapować na punkt końcowy
+>
+> Aby dowiedzieć się więcej o limitach subskrypcji usługi CDN, zobacz [Limity CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+>
 > Cennik usługi CDN jest stosowany na poziomie profilu CDN. Jeśli chcesz używać różnych warstw cenowych usługi Azure CDN, musisz mieć wiele profilów CDN.
 > 
 > 
@@ -55,11 +61,11 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
     Zostanie wyświetlony blok **Dodawanie punktu końcowego**.
    
     ![Blok dodawania punktu końcowego][cdn-add-endpoint]
-3. Wprowadź **nazwę** dla tego punktu końcowego usługi CDN.  Ta nazwa będzie używana do uzyskiwania dostępu do buforowanych zasobów w domenie `<endpointname>.azureedge.net`.
+3. Wprowadź **nazwę** dla tego punktu końcowego usługi CDN.  Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w domenie `<endpointname>.azureedge.net`.
 4. Na liście rozwijanej **Typ źródła** wybierz typ źródła.  Wybierz typ **Storage** dla konta usługi Azure Storage, **Usługa w chmurze** dla usługi Azure Cloud Service, **Web App** dla usługi Azure Web App lub **Źródło niestandardowe** dla każdego innego publicznie dostępnego źródła serwera sieci Web (hostowanego na platformie Azure lub gdziekolwiek indziej).
    
     ![Typ źródła usługi CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Na liście rozwijanej **Nazwa hosta źródła** wybierz lub wpisz domenę źródła.  Na liście rozwijanej będą wyświetlane wszystkie dostępne źródła typu określonego w kroku 4.  W przypadku wybrania opcji *Źródło niestandardowe* w polu **Typ źródła**, wpisz domenę źródła niestandardowego.
+5. Na liście rozwijanej **Nazwa hosta źródła** wybierz lub wpisz domenę źródła.  Na liście rozwijanej są wyświetlane wszystkie dostępne źródła typu określonego w kroku 4.  W przypadku wybrania opcji *Źródło niestandardowe* w polu **Typ źródła**, wpisz domenę źródła niestandardowego.
 6. W polu tekstowym **Ścieżka do źródła** wprowadź ścieżkę do zasobów, które chcesz buforować w pamięci podręcznej, lub pozostaw to pole puste, aby umożliwić buforowanie dowolnego zasobu w domenie określonej w kroku 5.
 7. W polu **Nagłówek hosta źródła** wprowadź nagłówek hosta, który usługa CDN ma wysłać z każdym żądaniem, lub pozostaw wartość domyślną.
    
@@ -70,14 +76,16 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 8. W obszarach **Protokół** i **Port źródła** określ protokoły i porty używane do uzyskiwania dostępu do zasobów w źródle.  Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS).
    
    > [!NOTE]
-   > Ustawienie **Port źródła** określa tylko port używany przez punkt końcowy do pobierania informacji ze źródła.  Sam punkt końcowy będzie dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
+   > Ustawienie **Port źródła** określa tylko port używany przez punkt końcowy do pobierania informacji ze źródła.  Sam punkt końcowy jest dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
    > 
    > Punkty końcowe usługi **Azure CDN from Akamai** nie zezwalają na pełny zakres portów TCP dla źródeł.  Lista niedozwolonych portów źródłowych znajduje się w artykule [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Azure CDN from Akamai — dozwolone porty źródłowe).  
    > 
    > Uzyskiwanie dostępu do zawartości usługi CDN przy użyciu protokołu HTTPS podlega następującym ograniczeniom:
    > 
    > * Należy używać certyfikatu SSL dostarczonego przez usługę CDN. Certyfikaty innych firm nie są obsługiwane.
-   > * Należy użyć domeny udostępnionej przez usługę CDN (`<endpointname>.azureedge.net`) w celu uzyskania dostępu do zawartości HTTPS. Obsługa protokołu HTTPS jest niedostępna w przypadku niestandardowych nazw domen (rekordy CNAME), ponieważ usługa CDN obecnie nie obsługuje niestandardowych certyfikatów.
+   > * Obsługa protokołu HTTPS dla domen niestandardowych usługi Azure CDN jest dostępna tylko w przypadku produktów usługi **Azure CDN from Verizon** (Standard i Premium). Nie jest on obsługiwany w usłudze **Azure CDN from Akamai**. Aby uzyskać więcej informacji, zobacz [Włączanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](cdn-custom-ssl.md).
+
+Aby uzyskać dostęp do zawartości HTTPS, użyj domeny udostępnionej przez usługę CDN (`<endpointname>.azureedge.net`). Obsługa protokołu HTTPS jest niedostępna w przypadku niestandardowych nazw domen (rekordy CNAME), ponieważ usługa CDN obecnie nie obsługuje niestandardowych certyfikatów.
    > 
    > 
 9. Kliknij przycisk **Dodaj**, aby utworzyć nowy punkt końcowy.
@@ -103,9 +111,4 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

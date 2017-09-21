@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal
@@ -36,6 +36,9 @@ Portal Azure umożliwia szybkie utworzenie konta usługi Azure Media Services (A
 
 W tym artykule omówiono niektóre typowe pojęcia i pokazano, jak utworzyć konto usługi Media Services za pomocą portalu Azure.
 
+> [!NOTE]
+> Aby uzyskać informacje na temat dostępności funkcji usługi Azure Media Services w różnych regionach, zobacz temat opisujący [dostępność funkcji usługi AMS w centrach danych](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Pojęcia
 Uzyskiwanie dostępu do usługi Media Services wymaga dwóch skojarzonych kont:
 
@@ -43,8 +46,8 @@ Uzyskiwanie dostępu do usługi Media Services wymaga dwóch skojarzonych kont:
   
 * Konto usługi Azure Storage. Konta usługi Storage muszą znajdować się w tym samym regionie geograficznym co konto usługi Media Services. Podczas tworzenia konta usługi Media Services można wybrać istniejące konto magazynu w tym samym regionie lub można utworzyć nowe konto magazynu w tym samym regionie. Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
 
-> [!NOTE]
-> Aby uzyskać informacje na temat dostępności funkcji usługi Azure Media Services w różnych regionach, zobacz temat opisujący [dostępność funkcji usługi AMS w centrach danych](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Usługa Media Services ogranicza konto magazynu podstawowego do konta **Magazyn ogólny** za pomocą tabel i kolejek. Aby uzyskać więcej informacji dotyczących typów magazynu, zobacz [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) (Informacje o kontach usługi Azure Storage).
 
 ## <a name="create-an-ams-account"></a>Tworzenie konta AMS
 W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.

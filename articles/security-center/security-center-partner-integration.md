@@ -1,5 +1,5 @@
 ---
-title: "Integracja z partnerami w usłudze Azure Security Center | Dokumentacja firmy Microsoft"
+title: "Integracja z partnerami i rozwiązaniami w usłudze Azure Security Center | Microsoft Docs"
 description: "Poznaj sposób integracji usługi Azure Security Center z partnerami w celu poprawy ogólnego stanu zabezpieczeń zasobów platformy Azure."
 services: security-center
 documentationcenter: na
@@ -12,22 +12,18 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8cc44da0f61362018d2757da58ca4fb3a9a43764
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Integracja z partnerami w usłudze Azure Security Center
+# <a name="partner-and-solutions-integration-in-azure-security-center"></a>Integracja z partnerami i rozwiązaniami w usłudze Azure Security Center
 
 W tym artykule opisano sposób, w jaki usługa Azure Security Center integruje się z partnerami w celu poprawy ogólnego bezpieczeństwa. Usługa Security Center zapewnia zintegrowane środowisko na platformie Azure i korzysta z portalu Azure Marketplace do certyfikacji partnera i rozliczeń.
-
-> [!NOTE] 
-> Począwszy od czerwca 2017 roku usługa Security Center używa programu Microsoft Monitoring Agent do gromadzenia i przechowywania danych. Aby uzyskać więcej informacji, zobacz artykuł [Migracja platformy usługi Azure Security Center](security-center-platform-migration.md). Informacje przedstawione w tym artykule reprezentują funkcję Security Center po przejściu do programu Microsoft Monitoring Agent.
->
 
 ## <a name="why-deploy-partner-solutions-from-security-center"></a>Dlaczego warto wdrażać rozwiązania partnerskie z usługi Security Center
 
@@ -41,7 +37,7 @@ Cztery główne powody, dla których warto korzystać z integracji z partnerami 
 
 ## <a name="partners-that-integrate-with-security-center"></a>Partnerzy, którzy integrują się z usługą Security Center
 
-Obecnie usługę Security Center można zintegrować z następującymi rozwiązaniami:
+Obecnie natywna integracja rozwiązań partnerskich dostępnych w witrynie Azure Marketplace z usługą Security Center obejmuje następujące elementy:
 
 - Ochrona punktów końcowych ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec i [usługa firmy Microsoft chroniąca przed złośliwym kodem dla usług Azure Cloud Services i maszyn wirtualnych](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
 - Zapora aplikacji sieci Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) i [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
@@ -61,13 +57,57 @@ W zależności od konfiguracji środowiska platformy Azure i zdefiniowanych prze
 
 ## <a name="manage-partner-solutions"></a>Zarządzanie rozwiązaniami partnerskimi
 
-W celu wyświetlenia informacji dotyczących kondycji rozwiązania i wykonywania podstawowych zadań zarządzania po wdrożeniu w bloku **Centrum zabezpieczeń** wybierz opcję **Rozwiązania partnerskie**. Aby uzyskać więcej informacji na temat zarządzania rozwiązaniami partnerskimi w usłudze Security Center, zobacz artykuł [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center).
+W celu wyświetlenia informacji dotyczących kondycji rozwiązania i wykonywania podstawowych zadań zarządzania po wdrożeniu na pulpicie nawigacyjnym **Security Center** wybierz opcję **Rozwiązania partnerskie**.
 
-![Integracja z partnerami](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
+![Integracja rozwiązań partnerskich](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+
+Zawartość wyświetlana po otwarciu obszaru rozwiązań w zakresie bezpieczeństwa może różnić się w zależności od infrastruktury. Jeśli jako przykładu użyjemy poprzedniego rysunku, ta strona będzie mieć trzy sekcje:
+
+- **Rozwiązania połączone**: rozwiązania połączone z usługą Security Center.
+- **Rozwiązania odnalezione**: rozwiązania niepołączone z usługą Security Center. Te rozwiązania możesz połączyć — po wykonaniu tej czynności zostaną one wyświetlone w obszarze rozwiązań połączonych.  Jeśli usługa Security Center nie wykrywa żadnych niepołączonych rozwiązań, ta sekcja jest ukrywana.
+- **Dodaj źródła danych**: źródła danych platformy Azure i inne niż platformy Azure, które można dodać do usługi Security Center.
+
+### <a name="connected-solutions"></a>Rozwiązania połączone
+
+Sekcja **Rozwiązania połączone** zawiera wszystkie rozwiązania w zakresie bezpieczeństwa, które są aktualnie połączone z usługą Security Center. 
+
+![Rozwiązania połączone](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+
+Poszczególne wyświetlane informacje mogą różnić się w zależności od rozwiązania. Na każdym kafelku mogą na przykład zostać wyświetlone następujące dane:
+
+- Ikona firmy partnera.  Jeśli usługa Security Center nie ma ikony firmy, są wyświetlane pierwsze znaki nazwy partnera.
+- Typ rozwiązania.
+- Może zostać wyświetlona nazwa komputera.
+- Stan kondycji.  Jeśli wskaźnik kondycji nie zostanie wysłany, usługa Security Center pokaże datę i godzinę ostatniego odebranego zdarzenia, aby wskazać, czy urządzenie wykonuje raportowanie. Jeśli usługa Security Center nie odbierze wskaźnika kondycji z danego rozwiązania, kafelek rozwiązania nie pojawi się w tej sekcji.
 
 > [!NOTE]
-> Obsługa rozwiązania ochrony punktu końcowego firmy Symantec jest ograniczona do odnajdywania. Nie są dostępne żadne alerty dotyczące kondycji.
->
+> Zobacz: usługa Security Center pokazuje datę i godzinę ostatniego odebranego zdarzenia, aby wskazać, czy urządzenie wykonuje raportowanie. Rozwiązania, które nie wysyłają wskaźnika kondycji, są wyświetlane jako połączone, jeśli w ciągu ostatnich 14 dni został wysłany alert lub zdarzenie.
+>  
+
+Niektóre z tych rozwiązań mogły zostać w pełni zintegrowane na platformie Azure, inne mogą działać w środowisku lokalnym. Ponieważ usługa Security Center obsługuje format [Common Event Format (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), można połączyć ją z rozwiązaniami używającymi formatu CEF, takimi jak Zapora, która obsługuje format CEF. Po dodaniu tego rozwiązania do usługi Security Center Zapora wysyła dzienniki w formacie CEF do usługi Security Center, która obsługuje je w usłudze [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Zapora nie jest zasobem platformy Azure i wysyła zdarzenia, ale nie wskaźnik kondycji.  Jedyną informacją na temat kondycji dostępną w usłudze Security Center jest czas ostatniego wysłania zdarzenia z tego urządzenia.  W przypadku wszystkich zasobów innych niż zasoby platformy Azure usługa Security Center wyświetla w obszarze kafelka datę i godzinę odebrania ostatniego zdarzenia, co oznacza, że zasób inny niż platformy Azure nadal przeprowadza raportowanie.
+
+### <a name="discovered-solutions"></a>Rozwiązania odnalezione
+
+Sekcja **Rozwiązania odnalezione** zawiera wszystkie rozwiązania, które zostały dodane za pośrednictwem platformy Azure, a usługa Security Center sugeruje połączenie z nimi.
+
+![Rozwiązania odnalezione](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+
+Usługę Security Center można zintegrować z wbudowanymi rozwiązaniami platformy Azure, takimi jak usługa [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). Jeśli masz licencję usługi Azure AD Identity Protection, ale nie połączono jej z usługą Security Center, usługa Azure AD Identity Protection zostanie wyświetlona w obszarze **Rozwiązania odnalezione**. Aby zintegrować to rozwiązanie z usługą Security Center, kliknij pozycję **POŁĄCZ** na kafelku **Azure AD Identity Protection**. Zostanie wyświetlona następująca strona:
+
+![Usługa Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
+
+Aby zakończyć proces łączenia usługi Azure AD Identity Protection, musisz wybrać obszar roboczy, w którym są zapisywane dane. Wszystkie dane z usługi Azure AD Identity Protection będą przepływać z regionu obszaru roboczego wybranego w tym kroku.  Konieczne będzie przejście przez selektor obszaru roboczego w celu wybrania obszaru roboczego. Z tego miejsca rozpocznie się przepływ danych.
+
+Aby nawiązać połączenie z usługą Security Center musisz być administratorem globalnym lub administratorem zabezpieczeń.  Przycisk **Połącz** będzie wyłączony, jeśli nie masz uprawnień. W takiej sytuacji pojawi się również komunikat wyjaśniający, dlaczego przycisk został wyłączony.
+
+Alerty usługi Azure AD Identity Protection przechodzą przez potok wykrywania usługi Security Center, co pozwala na pobieranie alertów z usług Security Center i Azure Active Directory Identity Protection. Usługa Security Center scali wszystkie odpowiednie alerty w celu utworzenia [zdarzenia związanego z bezpieczeństwem](https://docs.microsoft.com/azure/security-center/security-center-incident). Opis zdarzenia związanego z bezpieczeństwem będzie zawierać dalsze informacje na temat podejrzanego działania.
+
+### <a name="add-data-sources"></a>Dodawanie źródeł danych
+
+Komputery z platformą Azure i bez niej można dodawać w celu zintegrowania z usługą Security Center.  Dodawanie komputerów bez platformy Azure oznacza, że można dodać komputer lokalny lub urządzenie obsługujące format CEF. 
+
+![Źródła danych](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+
 
 ## <a name="see-also"></a>Zobacz też
 

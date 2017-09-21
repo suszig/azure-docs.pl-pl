@@ -4,6 +4,30 @@
   items:
     - name: Informacje o pakiecie Content Moderator
       href: overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Narzędzie do przeglądu
+      href: quick-start.md
+    - name: Interfejsy API moderowania
+      items:
+        - name: Interfejs API obrazów
+          href: try-image-api.md
+        - name: Interfejs API listy obrazów
+          href: try-image-list-api.md
+        - name: Interfejs API tekstu
+          href: try-text-api.md
+        - name: Interfejs API listy terminów
+          href: try-terms-list-api.md
+    - name: Przegląd interfejsów API
+      items:
+        - name: Zadania
+          href: try-review-api-job.md
+        - name: Przeglądy
+          href: try-review-api-review.md
+        - name: Przepływy
+          href: try-review-api-workflow.md
+- name: Pojęcia
+  items:
     - name: Moderowanie obrazów
       href: image-moderation-api.md
     - name: Moderowanie tekstu
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Przegląd interfejsów API
       href: review-api.md
-- name: Rozpoczęcie pracy
+- name: Przewodniki z instrukcjami
   items:
     - name: Narzędzie do przeglądu
-      href: quick-start.md
-    - name: Wypróbuj interfejsy API moderowania
-      items:
-        - name: Obrazy
-          href: try-image-api.md
-        - name: Listy obrazów
-          href: try-image-list-api.md
-        - name: Tekst
-          href: try-text-api.md
-        - name: Listy terminów
-          href: try-terms-list-api.md
-    - name: Wypróbuj interfejsy API przeglądu
-      items:
-        - name: Zadania
-          href: try-review-api-job.md
-        - name: Przeglądy
-          href: try-review-api-review.md
-        - name: Przepływy
-          href: try-review-api-workflow.md
-- name: Instrukcje
-  items:
-    - name: Używanie narzędzia do przeglądu
       items:
         - name: Człowiek w pętli
           href: Review-Tool-User-Guide/human-in-the-loop.md

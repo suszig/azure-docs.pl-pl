@@ -1,12 +1,17 @@
 # Omówienie
 ## [Przewodnik dla deweloperów](azure-developer-guide.md) 
+### [Co to jest Azure?](azure-developer-guide.md#what-is-azure)
+### [Od czego zacząć?](azure-developer-guide.md#where-do-i-start)
+### [Regiony platformy Azure](azure-developer-guide.md#azure-regions)
+### [Jak zarządzać własnymi aplikacjami i projektami?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Omówienie kont, subskrypcji i rozliczeń](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Omówienie usług platformy Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Omówienie portalu](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Omówienie usług platformy Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Omówienie portalu](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Zestawy SDK i narzędzia](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Szybki start
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Maszyny wirtualne
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Samouczki
 ## Tworzenie i wdrażanie aplikacji internetowej
-### [.NET z bazą danych SQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js z bazą danych Mongo](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [Środowisko PHP z bazą danych MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java z bazą danych MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET z bazą danych SQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js z bazą danych Mongo](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [Środowisko PHP z bazą danych MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java z bazą danych MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Wdrażanie złożonych szablonów maszyn wirtualnych
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Przykłady
 ## Interfejs wiersza polecenia platformy Azure
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Pojęcia
 ## [Rozliczenia i subskrypcje](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Porównania hostingu](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [Co to jest usługa App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Porównania hostingu](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Co to jest usługa App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Maszyny wirtualne
 ### [Maszyny wirtualne z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Maszyny wirtualne z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Omówienie usługi Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Przewodniki z instrukcjami
-## [Planowanie](https://docs.microsoft.com/azure/architecture/guide/)
+## Planowanie
 ### [Architektury aplikacji internetowych](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Architektury maszyn wirtualnych](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Nawiązywanie połączenia z sieciami lokalnymi](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Aplikacje bezserwerowe](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Klaster mikrousług](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Wdrażanie
-### [Aplikacje internetowe i mobilne z kontroli źródła](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Aplikacje internetowe i mobilne z kontroli źródła](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Mikrousługi lokalnie](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Kolejki komunikatów](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Skalowanie
-### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Maszyny wirtualne](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Aplikacje mikrousług](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Bezpieczeństwo
-### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Tworzenie kopii zapasowych
-### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Maszyny wirtualne](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Monitorowanie
-### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Aplikacje internetowe i mobilne](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikrousługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Alerty dotyczące rozliczeń](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Automatyzacja
-### [Programowanie aplikacji internetowych metodą Agile](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Skalowanie maszyny wirtualnej z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Skalowanie maszyny wirtualnej z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

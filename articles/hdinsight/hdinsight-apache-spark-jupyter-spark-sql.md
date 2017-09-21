@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Tworzenie klastra platformy Apache Spark w usłudze Azure HDInsight
 
-W tym artykule omówiono sposób tworzenia klastra platformy Apache Spark w usłudze Azure HDInsight. Aby uzyskać informacje na temat klastra Spark w usłudze HDInsight, zobacz [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-overview.md).
+W tym artykule omówiono sposób tworzenia klastra platformy Apache Spark w usłudze Azure HDInsight, a następnie uruchamiania zapytania Spark SQL na tabeli programu Hive. Aby uzyskać informacje na temat klastra Spark w usłudze HDInsight, zobacz [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Diagram szybkiego startu zawierający opis czynności prowadzących do utworzenia klastra Apache Spark w usłudze Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Szybki start z projektem Spark przy użyciu Apache Spark w usłudze HDInsight. Przedstawione kroki: tworzenie klastra; uruchamianie interakcyjnych zapytań Spark")
 
@@ -58,16 +58,22 @@ W tej sekcji tworzysz klaster HDInsight Spark przy użyciu [szablonu usługi Azu
 
 3. Wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia** i pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij przycisk **Kup**. Zostanie wyświetlony nowy kafelek zatytułowany Submitting deployment for Template deployment (Przesyłanie wdrożenia dla wdrożenia szablonu). Utworzenie klastra trwa około 20 minut.
 
-Problemy podczas tworzenia klastrów usługi HDInsight mogą świadczyć o braku odpowiednich uprawnień. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
+Problemy podczas tworzenia klastrów usługi HDInsight mogą świadczyć o braku odpowiednich uprawnień. Aby uzyskać więcej informacji, zobacz [Wymagania dotyczące kontroli dostępu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 > [!NOTE]
 > W tym artykule opisano tworzenie klastra Spark korzystającego z [obiektów blob usługi Azure Storage jako magazynu klastra](hdinsight-hadoop-use-blob-storage.md). Można również utworzyć klaster platformy Spark korzystający z usługi [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) jako magazynu domyślnego. Aby uzyskać instrukcje, zobacz [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Tworzenie klastra HDInsight z usługą Data Lake Store).
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Uruchomienie zapytania programu Hive za pomocą modułu Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Uruchamianie instrukcji rozwiązania Spark SQL na tabeli programu Hive
 
-Gdy używasz notesu programu Jupyter skonfigurowanego na potrzeby klastra platformy HDInsight Spark, możesz pobrać ustawienie wstępne `sqlContext` służące do uruchamiania zapytań programu Hive przy użyciu modułu Spark SQL. W tej sekcji opisano sposób uruchamiania notesu programu Jupyter, a następnie uruchamiania podstawowego zapytania programu Hive.
+SQL (Structured Query Language) to najczęściej używany język służący do definiowania danych i wykonywania zapytań na tych danych. Twórcy platformy Spark skorzystali z tego dobrze znanego rozwiązania, umożliwiając wykonywanie zapytań szerokiemu gronu analityków, którzy chcą pracować z danymi przechowywanymi w rozproszonym systemie plików Hadoop (HDFS). Możliwości te zapewnia rozwiązanie Spark SQL. Stanowi ono rozszerzenie platformy Apache Spark służące do przetwarzania danych strukturalnych za pomocą dobrze znanej składni języka SQL.
+
+Rozwiązanie Spark SQL obsługuje języki wykonywania zapytań SQL i HiveQL. Jego możliwości obejmują obsługę powiązań w językach Python, Scala i Java. Pozwala ono wykonywać zapytania na danych przechowywanych w wielu lokalizacjach, takich jak zewnętrzne bazy danych, pliki danych strukturalnych (na przykład JSON) i tabele programu Hive.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Uruchamianie instrukcji rozwiązania Spark SQL w klastrze usługi HDInsight
+
+Gdy używasz notesu programu Jupyter skonfigurowanego na potrzeby klastra platformy HDInsight Spark, możesz pobrać ustawienie wstępne `sqlContext` służące do uruchamiania zapytań programu Hive przy użyciu modułu Spark SQL. W tej sekcji omówiono sposób tworzenia notesu programu Jupyter i uruchamiania podstawowego zapytania Spark SQL na istniejącej tabeli programu Hive (**hivesampletable**), dostępnej we wszystkich klastrach usługi HDInsight.
 
 1. Otwórz [portal Azure](https://portal.azure.com/).
 
@@ -87,7 +93,7 @@ Gdy używasz notesu programu Jupyter skonfigurowanego na potrzeby klastra platfo
    >
 3. Utwórz notes. Kliknij opcję **New** (Nowy), a następnie kliknij pozycję **PySpark**.
 
-   ![Tworzenie notesu programu Jupyter w celu uruchomienia interakcyjnego zapytania Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Tworzenie notesu programu Jupyter w celu uruchomienia interakcyjnego zapytania Spark SQL")
+   ![Tworzenie notesu programu Jupyter w celu uruchomienia interakcyjnego zapytania Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Tworzenie notesu programu Jupyter w celu uruchomienia interakcyjnego zapytania Spark SQL")
 
    Zostanie utworzony i otwarty nowy notes o nazwie Untitled (Untitled.pynb).
 
@@ -117,7 +123,7 @@ Gdy używasz notesu programu Jupyter skonfigurowanego na potrzeby klastra platfo
 
 8. Jeśli planujesz wykonać poniższe kroki w późniejszym czasie, pamiętaj, aby usunąć klaster usługi HDInsight utworzony zgodnie z tym artykułem. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Następny krok 
 

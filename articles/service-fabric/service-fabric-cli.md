@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do interfejsu wiersza polecenia usługi Azure Service Fabric (sfctl)"
+title: "Wprowadzenie do interfejsu wiersza polecenia usługi Azure Service Fabric"
 description: "Dowiedz się, jak korzystać z interfejsu wiersza polecenia usługi Azure Service Fabric. Dowiedz się, jak nawiązać połączenie z klastrem i zarządzać aplikacjami."
 services: service-fabric
 author: samedder
@@ -9,44 +9,46 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Wiersz polecenia usługi Azure Service Fabric
+# <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
-Interfejs wiersza polecenia usługi Azure Service Fabric (sfctl) jest narzędziem wiersza polecenia do interakcji z jednostkami usługi Azure Service Fabric i zarządzania nimi. Interfejs sfctl może być używany z klastrami systemu Windows lub Linux. Interfejs sfctl działa na dowolnej platformie, która obsługuje język Python.
+Interfejs wiersza polecenia usługi Azure Service Fabric jest narzędziem wiersza polecenia służącym do interakcji z jednostkami usługi Service Fabric i zarządzania nimi. Interfejs wiersza polecenia usługi Service Fabric może być używany z klastrami systemu Windows lub Linux. Interfejs wiersza polecenia usługi Service Fabric działa na dowolnej platformie, która obsługuje język Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed instalacją upewnij się, że w środowisku zainstalowano zarówno język Python, jak i narzędzie pip. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją szybkiego startu narzędzia pip](https://pip.pypa.io/en/latest/quickstart/) i oficjalną [dokumentacją dotyczącą instalowania języka Python](https://wiki.python.org/moin/BeginnersGuide/Download).
+Przed instalacją upewnij się, że w środowisku zainstalowano zarówno język Python, jak i narzędzie pip. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Szybki start dotyczącą narzędzia pip](https://pip.pypa.io/en/latest/quickstart/) i oficjalną [dokumentacją dotyczącą instalowania języka Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 Choć obsługiwana jest zarówno wersja 2.7, jak i 3.6 języka Python, zaleca się korzystanie z wersji 3.6. W poniższej sekcji pokazano, jak zainstalować wszystkie wstępnie wymagane składniki i interfejs wiersza polecenia.
 
-## <a name="install-pip-python-and-sfctl"></a>Instalowanie narzędzia pip, środowiska python i interfejsu sfctl
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalowanie narzędzia pip, środowiska Python i interfejsu wiersza polecenia usługi Service Fabric
 
-Środowisko python i narzędzie pip można zainstalować na platformie na wiele sposobów. Poniżej pokazano, jak szybko skonfigurować środowisko python 3.6 i narzędzie pip dla najczęściej używanych systemów operacyjnych:
+ Dostępnych jest szereg sposobów instalowania narzędzia pip i środowiska Python na używanej platformie. Poniżej przedstawiono kroki konfiguracji narzędzia pip i środowiska Python 3.6 w najważniejszych systemach operacyjnych.
 
 ### <a name="windows"></a>Windows
 
-W systemach Windows 10, Windows Server 2016 i Windows Server 2012 R2 można skorzystać ze standardowych oficjalnych instrukcji dotyczących instalacji. Instalator środowiska python domyślnie instaluje też narzędzie pip.
+W przypadku systemów Windows 10, Windows Server 2016 i Windows Server 2012 R2 należy postępować zgodnie z oficjalnymi instrukcjami standardowej instalacji. Instalator środowiska Python domyślnie instaluje też narzędzie pip.
 
-- Przejdź do oficjalnej [strony pobierania środowiska python](https://www.python.org/downloads/) i pobierz najnowszą wersję środowiska python 3.6
-- Uruchom instalatora
-- Wybierz opcję w dolnej części monitu (`Add Python 3.6 to PATH`)
-- Wybierz pozycję `Install Now`
-- Ukończ instalację
+1. Przejdź do oficjalnej [strony pobierania środowiska Python](https://www.python.org/downloads/) i pobierz najnowszą wersję środowiska Python 3.6.
 
-Teraz powinno być możliwe otwarcie nowego okna polecenia i pobranie odpowiedniej wersji środowiska python i narzędzia pip:
+2. Uruchom instalatora.
+
+3. W dolnej części monitu wybierz pozycję **Add Python 3.6 to PATH (Dodaj środowisko Python 3.6 do ścieżki)**.
+
+4. Wybierz pozycję **Install Now (Zainstaluj teraz)** i dokończ instalację.
+
+Możesz teraz otworzyć nowe okno polecenia i pobrać odpowiednią wersję środowiska Python i narzędzia pip.
 
 ```bat
 python --version
 pip --version
 ```
 
-Następnie uruchom następujący element, aby zainstalować interfejs wiersza polecenia usługi Service Fabric
+Następnie uruchom następujące polecenie, aby zainstalować interfejs wiersza polecenia usługi Service Fabric:
 
 ```
 pip install sfctl
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-W przypadku systemu Ubuntu 16.04 Desktop można zainstalować środowisko python 3.6 przy użyciu osobistych archiwów pakietów innych firm:
+W przypadku systemu Ubuntu 16.04 Desktop można zainstalować środowisko Python 3.6 przy użyciu osobistych archiwów pakietów innych firm.
 
 W terminalu uruchom następujące polecenia:
 
@@ -66,14 +68,14 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-Aby zainstalować interfejs sfctl tylko dla Twojej instalacji środowiska python 3.6, uruchom następujące polecenie:
+Aby zainstalować interfejs wiersza polecenia usługi Service Fabric tylko dla Twojej instalacji środowiska Python 3.6, uruchom następujące polecenie:
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Te kroki nie mają wpływu na środowisko python 3.5 i 2.7 zainstalowane w systemie. Nie modyfikuj tych instalacji, jeśli nie znasz dobrze systemu Ubuntu.
+Te kroki nie mają wpływu na środowiska Python 3.5 i 2.7 zainstalowane w systemie. Nie modyfikuj tych instalacji, jeśli nie znasz dobrze systemu Ubuntu.
 
 ### <a name="macos"></a>MacOS
 
@@ -83,7 +85,7 @@ W przypadku systemu MacOS zaleca się użycie [menedżera pakietów HomeBrew](ht
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Następnie z poziomu terminala zainstaluj środowisko python 3.6, narzędzie pip i interfejs sfctl
+Następnie z poziomu terminala zainstaluj środowisko Python 3.6, narzędzie pip i interfejs wiersza polecenia usługi Service Fabric za pomocą poniższych poleceń:
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-Te czynności nie powodują zmodyfikowania instalacji środowiska python 2.7 w systemie.
+Te kroki nie powodują zmodyfikowania instalacji środowiska Python 2.7 w systemie.
 
 ## <a name="cli-syntax"></a>Składnia interfejsu wiersza polecenia
 
-Polecenia mają zawsze prefiks `sfctl`. Aby uzyskać ogólne informacje na temat wszystkich poleceń, z których możesz korzystać, użyj polecenia `sfctl -h`. Aby uzyskać pomoc dotyczącą pojedynczego polecenia, użyj polecenia `sfctl <command> -h`.
+Polecenia mają zawsze prefiks `sfctl`. Aby uzyskać ogólne informacje na temat wszystkich dostępnych poleceń, użyj polecenia `sfctl -h`. Aby uzyskać pomoc dotyczącą pojedynczego polecenia, użyj polecenia `sfctl <command> -h`.
 
-Polecenia mają powtarzalną strukturę, w której element docelowy poprzedza zlecenie (akcję):
+Polecenia mają powtarzalną strukturę, w której element docelowy poprzedza zlecenie (akcję).
 
 ```azurecli
 sfctl <object> <action>
@@ -107,7 +109,7 @@ W tym przykładzie `<object>` to element docelowy akcji `<action>`.
 
 ## <a name="select-a-cluster"></a>Wybieranie klastra
 
-Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz nawiązać połączenie. Na przykład uruchom następujące polecenie, aby wybrać klaster o nazwie `testcluster.com` i nawiązać z nim połączenie.
+Przed wykonaniem jakiejkolwiek operacji musisz wybrać klaster, z którym chcesz nawiązać połączenie. Aby na przykład wybrać klaster o nazwie `testcluster.com` i nawiązać z nim połączenie, uruchom następujące polecenie:
 
 > [!WARNING]
 > Nie używaj niezabezpieczonych klastrów usługi Service Fabric w środowisku produkcyjnym.
@@ -118,7 +120,7 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Punkt końcowy klastra musi mieć prefiks `http` lub `https`. Musi on zawierać port bramy HTTP. Port i adres są takie same jak adres URL programu Service Fabric Explorer.
 
-W przypadku klastrów zabezpieczonych certyfikatem możesz określić certyfikat zakodowany w formacie PEM. Certyfikat może być określony jako pojedynczy plik lub certyfikat i para kluczy.
+W przypadku klastrów zabezpieczonych certyfikatem możesz określić certyfikat zakodowany w formacie PEM. Certyfikat można określić jako pojedynczy plik lub jako parę obejmującą certyfikat i klucz.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -128,7 +130,7 @@ Aby uzyskać więcej informacji, zobacz temat [Nawiązywanie połączenia z zabe
 
 ## <a name="basic-operations"></a>Operacje podstawowe
 
-Informacje o połączeniu z klastrem są utrwalane między sesjami interfejsu sfctl. Po wybraniu klastra usługi Service Fabric można uruchomić dowolne polecenie usługi Service Fabric w klastrze.
+Informacje o połączeniu klastra są utrwalane w wielu sesjach interfejsu wiersza polecenia usługi Service Fabric. Po wybraniu klastra usługi Service Fabric można uruchomić dowolne polecenie usługi Service Fabric w klastrze.
 
 Aby na przykład uzyskać informacje o kondycji klastra usługi Service Fabric, uruchom następujące polecenie:
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą protokołu OpenSSL](https://www.openssl.org/docs/).
 
-### <a name="connection-issues"></a>Problemy z połączeniem
+### <a name="connection-problems"></a>Problemy z połączeniem
 
 Niektóre operacje mogą generować następujący komunikat:
 
@@ -185,17 +187,17 @@ Sprawdź, czy punkt końcowy określonego klastra jest dostępny i przeprowadza 
 
 ### <a name="detailed-logs"></a>Szczegółowe dzienniki
 
-Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Dostępna jest globalna flaga `--debug`, która zwiększa szczegółowość plików dzienników.
+Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Globalna flaga `--debug` zwiększa szczegółowość plików dzienników.
 
 ### <a name="command-help-and-syntax"></a>Polecenia — pomoc i składnia
 
-Aby uzyskać pomoc dotyczącą określonego polecenia lub grupy poleceń, użyj flagi `-h`:
+Aby uzyskać pomoc dotyczącą określonego polecenia lub grupy poleceń, użyj flagi `-h`.
 
 ```azurecli
 sfctl application -h
 ```
 
-Inny przykład:
+Oto inny przykład:
 
 ```azurecli
 sfctl application create -h
