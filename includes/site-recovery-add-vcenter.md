@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > W przypadku dodawania serwera VMware vCenter lub hosta VMware vSphere za pomocą konta bez uprawnień administracyjnych na serwerze vCenter lub serwerze hosta upewnij się, że konto ma włączone następujące uprawnienia: Centrum danych, Magazyn danych, Folder, Host, Sieć, Zasób, Maszyna wirtualna i Rozproszony przełącznik vSphere. Ponadto serwer VMware vCenter musi mieć włączone uprawnienie Widoki magazynu.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -212,8 +212,3 @@ Aby uzyskać pełną listę poleceń służących do tworzenia maszyn wirtualnyc
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-

@@ -21,7 +21,6 @@ ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/05/2017
 
-
 ---
 # <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin dla systemu iOS przy użyciu usługi Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

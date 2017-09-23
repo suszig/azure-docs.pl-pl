@@ -20,11 +20,8 @@ ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-cli-20" class="xliff"></a>
-
-# Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą interfejsu wiersza polecenia platformy Azure 2.0
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą interfejsu wiersza polecenia platformy Azure 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -42,25 +39,19 @@ Dowiedz się, jak przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 
 Interfejs wiersza polecenia platformy Azure 2.0 to nowe środowisko wiersza polecenia platformy Azure do zarządzania jej zasobami. Można go używać w systemach macOS, Linux i Windows. Aby uzyskać więcej informacji, zobacz [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview) (Przegląd interfejsu wiersza polecenia platformy Azure 2.0). Aby wyświetlić pełną listę poleceń i składnię, zobacz artykuł [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) (Informacje o interfejsie wiersza polecenia usługi Azure Data Lake Store 2.0).
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Interfejs wiersza polecenia platformy Azure 2.0** — instrukcje znajdują się w artykule [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0).
 
-<a id="authentication" class="xliff"></a>
-
-## Authentication
+## <a name="authentication"></a>Authentication
 
 W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Store, w przypadku której logujesz się jako użytkownik końcowy. Poziom dostępu do konta i systemu plików usługi Data Lake Store jest określany przez poziom dostępu zalogowanego użytkownika. Istnieją jednak inne metody uwierzytelniania w usłudze Data Lake Store: **uwierzytelnianie użytkowników końcowych** i **uwierzytelnianie między usługami**. Aby uzyskać instrukcje i więcej informacji na temat uwierzytelniania, zobacz [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md) lub [Uwierzytelnianie między usługami](data-lake-store-authenticate-using-active-directory.md).
 
 
-<a id="log-in-to-your-azure-subscription" class="xliff"></a>
-
-## Logowanie się do subskrypcji platformy Azure
+## <a name="log-in-to-your-azure-subscription"></a>Logowanie się do subskrypcji platformy Azure
 
 1. Zaloguj się do subskrypcji platformy Azure.
 
@@ -76,9 +67,7 @@ W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Sto
     az account set --subscription <subscription id> 
     ```
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Tworzenie konta usługi Azure Data Lake Store
+## <a name="create-an-azure-data-lake-store-account"></a>Tworzenie konta usługi Azure Data Lake Store
 
 1. Utwórz nową grupę zasobów. W poniższym poleceniu podaj wartości parametrów, których chcesz użyć. Jeśli nazwa lokalizacji zawiera spacje, umieść ją w cudzysłowie. Na przykład „Wschodnie stany USA 2”. 
    
@@ -92,9 +81,7 @@ W tym artykule użyto prostszej metody uwierzytelniania w usłudze Data Lake Sto
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Tworzenie folderów w ramach konta usługi Data Lake Store
+## <a name="create-folders-in-a-data-lake-store-account"></a>Tworzenie folderów w ramach konta usługi Data Lake Store
 
 Na koncie usługi Azure Data Lake Store można tworzyć foldery w celu przechowywania danych i zarządzania nimi. Za pomocą następującego polecenia utwórz folder o nazwie **mojnowyfolder** w katalogu głównym usługi Data Lake Store.
 
@@ -107,9 +94,7 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 > 
 >
 
-<a id="upload-data-to-a-data-lake-store-account" class="xliff"></a>
-
-## Przekazywanie danych do konta usługi Data Lake Store
+## <a name="upload-data-to-a-data-lake-store-account"></a>Przekazywanie danych do konta usługi Data Lake Store
 
 Dane można przekazywać do konta usługi Data Lake Store bezpośrednio do katalogu głównego lub do folderu utworzonego w ramach konta. Poniższe fragmenty kodu przedstawiają sposób przekazywania przykładowych danych do folderu (**mojnowyfolder**), który został utworzony w poprzedniej sekcji.
 
@@ -125,9 +110,7 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-<a id="list-files-in-a-data-lake-store-account" class="xliff"></a>
-
-## Wyświetlanie listy plików w ramach konta usługi Data Lake Store
+## <a name="list-files-in-a-data-lake-store-account"></a>Wyświetlanie listy plików w ramach konta usługi Data Lake Store
 
 Użyj poniższego polecenia, aby wyświetlić listę plików na koncie usługi Data Lake Store.
 
@@ -155,9 +138,7 @@ Dane wyjściowe będą mieć postać podobną do następującej:
         }
     ]
 
-<a id="rename-download-and-delete-data-from-a-data-lake-store-account" class="xliff"></a>
-
-## Zmienianie nazwy, pobieranie i usuwanie danych z konta usługi Data Lake Store 
+## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Zmienianie nazwy, pobieranie i usuwanie danych z konta usługi Data Lake Store 
 
 * **Aby zmienić nazwę pliku**, użyj następującego polecenia:
   
@@ -188,9 +169,7 @@ Dane wyjściowe będą mieć postać podobną do następującej:
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-<a id="work-with-permissions-and-acls-for-a-data-lake-store-account" class="xliff"></a>
-
-## Praca z uprawnieniami i listami kontroli dostępu dla konta usługi Data Lake Store
+## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Praca z uprawnieniami i listami kontroli dostępu dla konta usługi Data Lake Store
 
 W tej sekcji zawarto informacje o sposobie zarządzania listami kontroli dostępu (ACL) i uprawnieniami przy użyciu interfejsu wiersza polecenia platformy Azure 2.0. Szczegółowe omówienie sposobu implementacji list ACL w usłudze Azure Data Lake Store znajduje się w artykule [Kontrola dostępu w usłudze Azure Data Lake Store](data-lake-store-access-control.md).
 
@@ -250,9 +229,7 @@ W tej sekcji zawarto informacje o sposobie zarządzania listami kontroli dostęp
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-<a id="delete-a-data-lake-store-account" class="xliff"></a>
-
-## Usuwanie konta usługi Data Lake Store
+## <a name="delete-a-data-lake-store-account"></a>Usuwanie konta usługi Data Lake Store
 Użyj poniższego polecenia, aby usunąć konto usługi Data Lake Store.
 
 ```azurecli
@@ -261,9 +238,7 @@ az dls account delete --account mydatalakestore
 
 Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
-<a id="next-steps" class="xliff"></a>
-
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Informacje o interfejsie wiersza polecenia usługi Azure Data Lake Store 2.0](https://docs.microsoft.com/cli/azure/dls)
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)

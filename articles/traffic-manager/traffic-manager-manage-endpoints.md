@@ -45,8 +45,8 @@ Można również wyłączyć poszczególne punkty końcowe, które są części�
     5. Dla opcji **Priorytet** wybierz wartość **1**. Spowoduje to kierowanie całego ruchu do tego punktu końcowego, jeśli jest on w dobrej kondycji.
     6. Pozycję **Dodaj jako wyłączone** pozostaw niezaznaczoną.
     7. Kliknij przycisk **OK**.
-6.    Powtórz kroki 4 i 5, aby dodać kolejny punkt końcowy platformy Azure. Dla tego punktu końcowego ustaw opcję **Priorytet** na wartość **2**.
-7.    Po zakończeniu dodawania obu punktów końcowych będą one wyświetlane w bloku **profilu usługi Traffic Manager** ze stanem monitorowania **Online**.
+6.  Powtórz kroki 4 i 5, aby dodać kolejny punkt końcowy platformy Azure. Dla tego punktu końcowego ustaw opcję **Priorytet** na wartość **2**.
+7.  Po zakończeniu dodawania obu punktów końcowych będą one wyświetlane w bloku **profilu usługi Traffic Manager** ze stanem monitorowania **Online**.
 
 > [!NOTE]
 > Po dodaniu lub usunięciu punktu końcowego z profilu za pomocą metody routingu ruchu dla trybu *failover* lista priorytetów pracy w trybie failover może nie być uporządkowana w sposób pożądany. Kolejność na liście priorytetów pracy w trybie failover można dostosować na stronie konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie routingu ruchu dla trybu failover](traffic-manager-configure-failover-routing-method.md).

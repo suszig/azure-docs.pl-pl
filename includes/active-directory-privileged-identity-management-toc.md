@@ -12,8 +12,3 @@
 * [Żądanie usługi MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 * [Korzystanie z dziennika inspekcji](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

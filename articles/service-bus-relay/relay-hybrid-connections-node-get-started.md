@@ -20,7 +20,6 @@ ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Wprowadzenie do połączeń hybrydowych usługi Relay
 

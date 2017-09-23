@@ -20,7 +20,6 @@ ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
 ms.contentlocale: pl-pl
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus
 

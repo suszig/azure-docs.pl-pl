@@ -52,8 +52,8 @@ Usługa Data Lake Store udostępnia dwa tryby zarządzania głównymi kluczami s
 
 Oto dwa tryby zarządzania głównym kluczem szyfrowania:
 
-*    Klucze zarządzane przez usługę
-*    Klucze zarządzane przez klienta
+*   Klucze zarządzane przez usługę
+*   Klucze zarządzane przez klienta
 
 W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +74,8 @@ Poza różnicą dotyczącą sposobu zarządzania głównym kluczem szyfrowania i
 
 Podczas wybierania trybu głównych kluczy szyfrowania należy pamiętać o następujących kwestiach:
 
-*    Podczas aprowizacji konta usługi Data Lake Store można wybrać między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez usługę.
-*    Po aprowizacji konta usługi Data Lake Store nie można zmienić trybu.
+*   Podczas aprowizacji konta usługi Data Lake Store można wybrać między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez usługę.
+*   Po aprowizacji konta usługi Data Lake Store nie można zmienić trybu.
 
 ### <a name="encryption-and-decryption-of-data"></a>Szyfrowanie i odszyfrowywanie danych
 
@@ -92,20 +92,20 @@ Poniższy diagram przedstawia te koncepcje:
 ![Klucze używane do szyfrowania danych](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudoalgorytm stosowany w przypadku odszyfrowywania pliku:
-1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+1.  Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
     - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
-2.    Dotyczy każdego bloku danych w pliku:
+2.  Dotyczy każdego bloku danych w pliku:
     - Odczytaj zaszyfrowany blok danych z magazynu trwałego.
     - Wygeneruj klucz szyfrowania bloków na podstawie klucza szyfrowania danych i zaszyfrowanego bloku danych.
     - Użyj klucza szyfrowania bloków w celu odszyfrowania danych.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudoalgorytm stosowany w przypadku szyfrowania bloku danych:
-1.    Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+1.  Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
     - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
-2.    Wygeneruj unikatowy klucz szyfrowania bloków dla bloku danych na podstawie klucza szyfrowania danych.
-3.    Zaszyfruj blok danych przy użyciu klucza szyfrowania bloków, korzystając z algorytmu AES-256.
-4.    Zapisz zaszyfrowany blok danych w magazynie trwałym.
+2.  Wygeneruj unikatowy klucz szyfrowania bloków dla bloku danych na podstawie klucza szyfrowania danych.
+3.  Zaszyfruj blok danych przy użyciu klucza szyfrowania bloków, korzystając z algorytmu AES-256.
+4.  Zapisz zaszyfrowany blok danych w magazynie trwałym.
 
 > [!NOTE] 
 > Ze względów wydajności klucz szyfrowania danych w formie niezaszyfrowanej jest przez krótki czas buforowany w pamięci, a następnie natychmiast usuwany. Na nośniku trwałym klucz szyfrowania danych jest zawsze przechowywany w postaci zaszyfrowanej przez główny klucz szyfrowania.
@@ -127,15 +127,15 @@ Pamiętaj, że jeśli użyjesz domyślnych opcji szyfrowania, dane będą zawsze
 
     ![Zrzut ekranu usługi Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Wybierz klucz skojarzony z kontem usługi Data Lake Store i utwórz nową wersję tego klucza. Pamiętaj, że usługa Data Lake Store obecnie obsługuje wymianę tylko na nową wersję klucza. Wymiana na inny klucz nie jest obsługiwana.
+3.  Wybierz klucz skojarzony z kontem usługi Data Lake Store i utwórz nową wersję tego klucza. Pamiętaj, że usługa Data Lake Store obecnie obsługuje wymianę tylko na nową wersję klucza. Wymiana na inny klucz nie jest obsługiwana.
 
    ![Zrzut ekranu okna Klucze z wyróżnionym przyciskiem Nowa wersja](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Przejdź do konta magazynu usługi Data Lake Store i wybierz pozycję **Szyfrowanie**.
+4.  Przejdź do konta magazynu usługi Data Lake Store i wybierz pozycję **Szyfrowanie**.
 
     ![Zrzut ekranu okna konta magazynu usługi Data Lake Store z wyróżnioną pozycją Szyfrowanie](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Zostanie wyświetlony komunikat informujący o dostępności nowej wersji klucza. Kliknij pozycję **Wymień klucz**, aby zaktualizować klucz do nowej wersji.
+5.  Zostanie wyświetlony komunikat informujący o dostępności nowej wersji klucza. Kliknij pozycję **Wymień klucz**, aby zaktualizować klucz do nowej wersji.
 
     ![Zrzut ekranu okna usługi Data Lake Store z komunikatem i wyróżnioną pozycją Wymień klucz](./media/data-lake-store-encryption/rotatekey.png)
 

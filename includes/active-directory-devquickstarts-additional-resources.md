@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
 Zachęcamy do uzyskiwania powiadomień o występujących zdarzeniach naruszenia zabezpieczeń poprzez odwiedzanie [strony TechCenter z powiadomieniami firmy Microsoft dotyczącymi bezpieczeństwa technicznego](https://technet.microsoft.com/security/dd252948) i subskrybowanie doradczych alertów zabezpieczeń.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

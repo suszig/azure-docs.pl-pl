@@ -8,8 +8,3 @@
 
     > [!Note]
   > Zanim nazwa konta pojawi się w portalu, może minąć 15 minut lub więcej. Aby wykonać natychmiastową aktualizację, kliknij pozycje **Serwery konfiguracji** > ***nazwa serwera*** > **Odśwież serwer**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

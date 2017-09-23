@@ -24,8 +24,3 @@ Parametry:
 * SkipSpaceCheck. Opcjonalny. Pomiń sprawdzanie miejsca dla pamięci podręcznej.
 * AcceptThirdpartyEULA. Obowiązkowy. Akceptuje umowę licencyjną innej firmy.
 * ShowThirdpartyEULA. Obowiązkowy. Wyświetla umowę licencyjną innej firmy. Jeśli zostanie podany w danych wejściowych, wszystkie inne parametry są ignorowane.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

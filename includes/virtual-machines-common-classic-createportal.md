@@ -25,8 +25,3 @@
 >
 
 ## <a name="to-create-the-virtual-machine"></a>Aby utworzyć maszynę wirtualną
-
-
-<!--HONumber=Feb17_HO3-->
-
-

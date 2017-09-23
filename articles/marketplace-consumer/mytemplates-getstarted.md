@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
+ms.contentlocale: pl-pl
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Rozpoczynanie pracy z szablonami prywatnymi w portalu Azure
@@ -132,10 +133,5 @@ Kliknij pozycję **Wybierz**, a następnie przycisk **OK**. Możesz teraz przegl
 * Aby uzyskać informacje na temat tworzenia szablonów usługi Resource Manager, zobacz artykuł [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md) (Tworzenie szablonów).
 * Aby poznać funkcje, których można użyć w szablonie usługi Resource Manager, zobacz artykuł [Template functions](../azure-resource-manager/resource-group-template-functions.md) (Funkcje szablonu).
 * Aby uzyskać wskazówki dotyczące projektowania szablonów, zobacz artykuł [Best practices for designing Azure Resource Manager templates](../azure-resource-manager/best-practices-resource-manager-design-templates.md) (Najlepsze rozwiązania dotyczące projektowania szablonów usługi Azure Resource Manager).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -34,8 +34,3 @@
 9. Aktualizacja zajmuje kilka godzin. Aby w dowolnym momencie wyświetlić szczegóły zadania, wybierz zadanie aktualizacji i kliknij pozycję **Szczegóły**.
 10. Po zakończeniu zadania przejdź do strony **Konserwacja** i przewiń ją do pozycji **Aktualizacje oprogramowania**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

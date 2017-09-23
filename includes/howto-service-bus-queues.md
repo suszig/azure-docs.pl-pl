@@ -12,8 +12,3 @@ Kolejki usługi Service Bus to technologia ogólnego przeznaczenia, która może
 Korzystanie z kolejek umożliwia łatwiejsze skalowanie aplikacji i pozwala na większą elastyczność architektury.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

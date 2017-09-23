@@ -12,8 +12,3 @@ Pamięć podręczną można wyświetlić i skonfigurować z poziomu bloku **Redi
 
 ![Wszystkie ustawienia pamięci podręcznej Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

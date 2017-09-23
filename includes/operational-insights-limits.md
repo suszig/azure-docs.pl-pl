@@ -28,8 +28,3 @@ Następujące limity dotyczą każdego obszaru roboczego usługi Log Analytics:
 | Interfejs API modułu zbierającego dane | Maksymalny rozmiar pojedynczego wpisu to 30 MB<br>Maksymalny rozmiar wartości pól to 32 KB | Dziel większe woluminy na wiele wpisów<br>Pola dłuższe niż 32 KB są obcinane. |
 | Interfejs API wyszukiwania | 5000 rekordów zwracanych dla danych niezagregowanych<br>500 000 rekordów dla danych zagregowanych | Zagregowane dane to wyszukiwanie obejmujące polecenie `measure`
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-

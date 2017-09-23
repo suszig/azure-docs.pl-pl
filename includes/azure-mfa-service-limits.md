@@ -9,8 +9,3 @@
 | Blokowanie konta użytkownika po **X** kolejnych odmowach ze strony usługi MFA |Nie ustawiono |99 |
 | Resetowanie licznika blokady konta po **X** minutach |Nie ustawiono |9999 |
 | Odblokowanie konta po **X** minutach |Nie ustawiono |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

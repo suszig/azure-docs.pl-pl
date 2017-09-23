@@ -7,8 +7,3 @@ W tym artykule założono, że
 
 > [!TIP]
 > Upewnij się, że możesz połączyć się z portem 443 serwera konfiguracji (działającego lokalnie) z usługi Azure Virtual Network, do której maszyny wirtualne zostały awaryjnie przełączone.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

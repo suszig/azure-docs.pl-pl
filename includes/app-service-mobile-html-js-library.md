@@ -1,11 +1,11 @@
-## <a name="a-namecreate-clientacreate-a-client-connection"></a><a name="create-client"></a>Tworzenie połączenia klienta
+## <a name="create-client"></a>Tworzenie połączenia klienta
 Utwórz połączenie klienta, tworząc obiekt `WindowsAzure.MobileServiceClient`.  Zastąp ciąg `appUrl` adresem URL Twojej aplikacji Mobile App.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>Praca z tabelami
+## <a name="table-reference"></a>Praca z tabelami
 Aby uzyskać dostęp do danych lub je zaktualizować, utwórz odwołanie do tabeli zaplecza. Zastąp ciąg `tableName` nazwą tabeli
 
 ```
@@ -22,7 +22,7 @@ Po utworzeniu odwołania do tabeli możesz kontynuować pracę z tabelą:
 * [Modyfikowanie danych](#modifying)
 * [Usuwanie danych](#deleting)
 
-### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>Instrukcje: odpytywanie odwołania do tabeli
+### <a name="querying"></a>Instrukcje: odpytywanie odwołania do tabeli
 Po utworzeniu odwołania do tabeli możesz przy jego użyciu wysłać zapytanie o dane na serwerze.  Zapytania są tworzone w języku przypominającym LINQ.
 Aby zwrócić wszystkie dane z tabeli, użyj następującego kodu:
 
@@ -56,7 +56,7 @@ Funkcja success jest wywoływana z użyciem wyników.  Nie umieszczaj w funkcji 
 
 Aby dowiedzieć się więcej o składni zapytań, zobacz [dokumentację obiektu Query].
 
-#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>Filtrowanie danych na serwerze
+#### <a name="table-filter"></a>Filtrowanie danych na serwerze
 W przypadku odwołania do tabeli możesz użyć klauzuli `where`:
 
 ```
@@ -79,7 +79,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="a-nametable-pagingapaging-through-data"></a><a name="table-paging"></a>Stronicowanie danych
+#### <a name="table-paging"></a>Stronicowanie danych
 Skorzystaj z metod `take()` i `skip()`.  Na przykład jeśli chcesz podzielić tabelę na rekordy składające się ze 100 wierszy:
 
 ```
@@ -107,7 +107,7 @@ Metoda `.includeTotalCount()` powoduje dodanie pola totalCount do obiektu result
 
 Następnie możesz udostępnić listę stron za pomocą zmiennej pages i przycisków interfejsu użytkownika. Aby załadować nowe rekordy na każdą stronę, użyj metody `loadPage()`.  Zaimplementuj buforowanie, aby przyspieszyć dostęp do już załadowanych rekordów.
 
-#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Instrukcje: zwracanie posortowanych danych
+#### <a name="sorting-data"></a>Instrukcje: zwracanie posortowanych danych
 Użyj metody zapytania `.orderBy()` lub `.orderByDescending()`:
 
 ```
@@ -119,7 +119,7 @@ table
 
 Aby uzyskać informacje o obiekcie Query, zobacz [dokumentację obiektu Query].
 
-### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>Instrukcje: wstawianie danych
+### <a name="inserting"></a>Instrukcje: wstawianie danych
 Utwórz obiekt JavaScript z odpowiednimi danymi i asynchronicznie wywołaj metodę `table.insert()`:
 
 ```javascript
@@ -139,7 +139,7 @@ Pomyślnie wstawiony element zostaje zwrócony z dodatkowymi polami, które są 
 
 Zestaw Azure Mobile Apps Node.js Server SDK obsługuje schemat dynamiczny dla celów deweloperskich.  Schemat dynamiczny umożliwia dodawanie kolumn do tabeli przez podanie ich w operacji wstawiania lub aktualizacji.  Zalecamy wyłączenie schematu dynamicznego przed przeniesieniem aplikacji na etap produkcji.
 
-### <a name="a-namemodifyingahow-to-modify-data"></a><a name="modifying"></a>Instrukcje: modyfikowanie danych
+### <a name="modifying"></a>Instrukcje: modyfikowanie danych
 Podobnie jak w przypadku metody `.insert()` należy utworzyć obiekt aktualizacji, a następnie wywołać metodę `.update()`.  Obiekt aktualizacji musi zawierać identyfikator rekordu do zaktualizowania — identyfikator ten uzyskuje się podczas odczytu rekordu bądź wywoływania metody `.insert()`.
 
 ```javascript
@@ -155,7 +155,7 @@ table
     }, failure);
 ```
 
-### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>Instrukcje: usuwanie danych
+### <a name="deleting"></a>Instrukcje: usuwanie danych
 Aby usunąć rekord, wywołaj metodę `.del()`.  Przekaż identyfikator w odwołaniu do obiektu:
 
 ```
@@ -165,8 +165,3 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
-
-
-<!--HONumber=Feb17_HO1-->
-
-

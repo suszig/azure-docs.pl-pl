@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.contentlocale: pl-pl
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -103,10 +105,5 @@ Przed skonfigurowaniem reguły równoważenia obciążenia należy najpierw skon
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

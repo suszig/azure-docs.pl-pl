@@ -20,7 +20,6 @@ ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
 ms.contentlocale: pl-pl
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co to jest pakiet Operations Management Suite (OMS)?
 Ten artykuł zawiera wprowadzenie do pakietu Operations Management Suite (OMS), łącznie z krótkim omówieniem korzyści biznesowych związanych z korzystaniem z tego pakietu, zawartych w nim usług i rozwiązań do zarządzania oraz ofert obejmujących różne usługi i rozwiązania.  Dołączono linki do szczegółowej dokumentacji dotyczące wdrażania i używania poszczególnych usług oraz rozwiązań.
