@@ -3,7 +3,7 @@ title: "Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Az
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu programu PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
