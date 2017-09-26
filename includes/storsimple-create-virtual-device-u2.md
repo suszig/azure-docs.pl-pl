@@ -21,7 +21,7 @@
       > 
    7. Kliknij znacznik wyboru, aby wskazać, że wiesz, iż dane przechowywane na urządzeniu wirtualnym będą obsługiwane w centrum danych firmy Microsoft. Kiedy używasz tylko urządzenia fizycznego, klucz szyfrowania jest przechowywany z urządzeniem, więc firma Microsoft nie może go odszyfrować. 
       
-       Kiedy używasz urządzenia wirtualnego, zarówno klucz szyfrowania, jak i klucz odszyfrowywania są przechowywane na platformie Microsoft Azure. Aby uzyskać więcej informacji, zobacz temat [Zagadnienia dotyczące zabezpieczeń podczas używania urządzenia wirtualnego](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       Kiedy używasz urządzenia wirtualnego, zarówno klucz szyfrowania, jak i klucz odszyfrowywania są przechowywane na platformie Microsoft Azure. Aby uzyskać więcej informacji, zobacz temat [Zagadnienia dotyczące zabezpieczeń podczas używania urządzenia wirtualnego](../articles/storsimple/storsimple-security.md).
    8. Kliknij ikonę wyboru, aby utworzyć urządzenie wirtualne. Zainicjowanie obsługi urządzenia może zająć około 30 minut.
       
       ![Etap tworzenia urządzenia wirtualnego StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

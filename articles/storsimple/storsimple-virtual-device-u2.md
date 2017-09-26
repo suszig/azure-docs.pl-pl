@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Wdrażanie urządzenia wirtualnego StorSimple oraz zarządzanie nim na platformie Azure
@@ -64,7 +64,7 @@ W poniższej tabeli przedstawiono niektóre podstawowe różnice między wirtual
 | **Klucz szyfrowania danych usługi** |Należy wygenerować ponownie na urządzeniu fizycznym, a następnie zaktualizować urządzenie wirtualne za pomocą nowego klucza. |Nie można ponownie wygenerować z urządzenia wirtualnego. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Wymagania wstępne dotyczące urządzeń wirtualnych
-Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji urządzenia wirtualnego StorSimple. Przed wdrożeniem urządzenia wirtualnego zapoznaj się z [zagadnieniami dotyczącymi zabezpieczeń podczas używania urządzenia wirtualnego](storsimple-security.md#storsimple-virtual-device-security).
+Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji urządzenia wirtualnego StorSimple. Przed wdrożeniem urządzenia wirtualnego zapoznaj się z [zagadnieniami dotyczącymi zabezpieczeń podczas używania urządzenia wirtualnego](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Wymagania systemu Azure
 Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować następujące elementy w środowisku platformy Azure:
