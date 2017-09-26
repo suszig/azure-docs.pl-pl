@@ -32,7 +32,7 @@ ms.lasthandoff: 07/01/2017
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 Dowiedz się, jak przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 utworzyć konto usługi Azure Data Lake Store i wykonywać podstawowe operacje, takie jak tworzenie folderów, przekazywanie i pobieranie plików danych, usuwanie konta itp. Aby uzyskać więcej informacji o usłudze Data Lake Store, zobacz [Omówienie usługi Data Lake Store](data-lake-store-overview.md).
 
