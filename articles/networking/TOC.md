@@ -50,7 +50,7 @@
 
 ## Przykładowe skrypty
 ### [Interfejs wiersza polecenia platformy Azure](cli-samples.md)
-### [PowerShell](powershell-samples.md)
+### [Azure PowerShell](powershell-samples.md)
 
 ## Samouczki
 ### [Równoważenie obciążenia maszyn wirtualnych](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -58,7 +58,7 @@
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network)
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)

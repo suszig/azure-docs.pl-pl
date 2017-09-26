@@ -74,6 +74,7 @@
 
 ## Zabezpieczenia chmury
 ### [Just in time access (Dostęp dokładnie na czas)](security-center-just-in-time.md)
+### [Kontrolki adaptacyjne aplikacji](security-center-adaptive-application.md)
 
 ## Automatyzacja i aranżacja
 ### [Elementy playbook](security-center-playbooks.md)

@@ -26,7 +26,7 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: PowerShell
+    - name: Azure PowerShell
       href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Pojęcia
   items:
@@ -78,9 +78,9 @@
           href: app-service-high-density-hosting.md
 - name: Dokumentacja
   items:
-    - name: Interfejs wiersza polecenia 2.0
+    - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/appservice
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell
     - name: Interfejs API REST
       href: /rest/api/appservice/

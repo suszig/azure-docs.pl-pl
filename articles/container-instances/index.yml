@@ -24,9 +24,13 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/container-instances/media/container-instances.svg
-            text: Tworzenie wystąpienia kontenera
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Interfejs wiersza polecenia platformy Azure
             href: /azure/container-instances/container-instances-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: /azure/container-instances/container-instances-quickstart-portal
   - title: Samouczki krok po kroku
     items:
       - type: paragraph
@@ -44,6 +48,6 @@ sections:
         className: cardsD
         items:
           - title: Wiersz polecenia
-            html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure 2.0</a></p>
+            html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure</a></p>
           - title: REST
             html: <p><a href="/rest/api/container-instances">Dokumentacja interfejsu API REST</a></p>

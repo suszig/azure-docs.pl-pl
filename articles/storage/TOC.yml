@@ -1,3 +1,5 @@
+- name: Dokumentacja usługi Azure Storage
+  href: index.yml
 - name: Omówienie
   items:
     - name: Wprowadzenie

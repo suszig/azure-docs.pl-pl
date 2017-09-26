@@ -25,7 +25,7 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
-## [PowerShell](/powershell/module/azurerm.powerbiembedded)
+## [Azure PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Usługa Azure Resource Manager dla platformy .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Zestaw SDK dla platformy .NET do pobrania](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

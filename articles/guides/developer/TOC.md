@@ -37,7 +37,7 @@
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## PowerShell
+## Azure PowerShell
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Maszyna wirtualna z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Maszyna wirtualna z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
@@ -108,8 +108,8 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Interfejsy wiersza polecenia
-### [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/)
-### [PowerShell](https://docs.microsoft.com/powershell/)
+### [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/)
+### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Rozliczenia](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Zasoby
