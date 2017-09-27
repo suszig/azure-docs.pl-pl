@@ -19,7 +19,7 @@
 ####[Przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md)
  
 ## Zarządzanie
-### [Zarządzanie przy użyciu programu PowerShell](cdn-manage-powershell.md)
+### [Zarządzanie przy użyciu programu Azure PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
 #### [Zawartość usług Web Apps/Cloud Services, ASP.NET lub IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Zawartość usługi Storage Blob](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

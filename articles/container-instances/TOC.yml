@@ -7,8 +7,12 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie wystąpienia kontenera
+    - name: Tworzenie kontenera — interfejs wiersza polecenia
       href: container-instances-quickstart.md
+    - name: Tworzenie kontenera — portal
+      href: container-instances-quickstart-portal.md
+    - name: Tworzenie kontenera — program PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Samouczki
   items:
     - name: Tworzenie i wdrażanie kontenera
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Dokumentacja
   items:
-    - name: Interfejs wiersza polecenia platformy Azure 2.0
+    - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

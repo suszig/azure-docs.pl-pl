@@ -1,19 +1,25 @@
 # [Omówienie](overview.md)
 
-# [Szybki start](quickstart.md)
+# Szybki start
+## [Przewodnik Szybki start po powłoce Bash](quickstart.md)
+## [Przewodnik Szybki start po programie PowerShell](quickstart-powershell.md)
 
 # Pojęcia
-## [Funkcje i narzędzia](features.md)
+## [Funkcje i narzędzia powłoki Bash](features.md)
+## [Funkcje i narzędzia programu PowerShell](features-powershell.md)
 ## [Ograniczenia](limitations.md)
+## [Rozwiązywanie problemów](troubleshooting.md)
 
 # Porady
-## [Magazyn trwały](persisting-shell-storage.md)
+## [Magazyn trwały powłoki Bash](persisting-shell-storage.md)
+## [Magazyn trwały programu PowerShell](persisting-shell-storage-powershell.md)
 ## [Korzystanie z okna](using-the-shell-window.md)
 
 # [Cennik](pricing.md)
 
 # Dokumentacja
-## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure) 
+## [Interfejs wiersza polecenia platformy Azure](/cli/azure)
+## [Azure PowerShell](/powershell/azure)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

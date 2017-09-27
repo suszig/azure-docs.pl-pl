@@ -16,8 +16,8 @@
 #### [Automatyczne — przy użyciu szablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Ręczne — wymagania wstępne](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Ręczne — samouczek](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Moduł równoważenia obciążenia — portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Moduł równoważenia obciążenia — PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Moduł równoważenia obciążenia — witryna Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Moduł równoważenia obciążenia — program Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Wiele regionów](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Wystąpienie klastra trybu failover
 #### [Konfigurowanie](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Wzorce aplikacji](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Sterowniki programu SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

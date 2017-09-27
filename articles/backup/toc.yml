@@ -1,0 +1,229 @@
+- name: Dokumentacja usługi Azure Backup
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest Azure Backup?
+      href: backup-introduction-to-azure-backup.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Tworzenie kopii zapasowej maszyny wirtualnej — portal
+      href: quick-backup-vm-portal.md
+    - name: Tworzenie kopii zapasowej maszyny wirtualnej — program PowerShell
+      href: quick-backup-vm-powershell.md
+    - name: Tworzenie kopii zapasowej maszyny wirtualnej — interfejs wiersza polecenia
+      href: quick-backup-vm-cli.md
+- name: Samouczki
+  items:
+    - name: Tworzenie kopii zapasowej maszyn wirtualnych platformy Azure w dużej skali
+      href: tutorial-backup-vm-at-scale.md
+    - name: Przywracanie dysku
+      href: tutorial-restore-disk.md
+    - name: Przywracanie pojedynczych plików
+      href: tutorial-restore-files.md
+    - name: Tworzenie kopii zapasowych serwera z systemem Windows
+      href: tutorial-backup-windows-server-to-azure.md
+    - name: Przywracanie plików do systemu Windows Server
+      href: tutorial-backup-restore-files-windows-server.md
+- name: Przykłady
+  items:
+    - name: Azure PowerShell
+      href: powershell-backup-samples.md
+- name: Pojęcia
+  items:
+    - name: Często zadawane pytania
+      items:
+        - name: Często zadawane pytania dotyczące magazynu usługi Recovery Services
+          href: backup-azure-backup-faq.md
+        - name: Często zadawane pytania dotyczące kopii zapasowych maszyn wirtualnych platformy Azure
+          href: backup-azure-vm-backup-faq.md
+        - name: Często zadawane pytania dotyczące tworzenia kopii zapasowej plików i folderów przy użyciu agenta usługi Azure Backup
+          href: backup-azure-file-folder-backup-faq.md
+    - name: Kontrola dostępu oparta na rolach
+      href: backup-rbac-rs-vault.md
+    - name: Zabezpieczenia hybrydowych kopii zapasowych
+      href: backup-azure-security-feature.md
+    - name: Konfigurowanie tworzenia kopii zapasowej offline
+      href: backup-azure-backup-import-export.md
+    - name: Zastępowanie biblioteki taśm
+      href: backup-azure-backup-cloud-as-tape.md
+- name: Instrukcje
+  items:
+    - name: Azure Backup Server
+      items:
+        - name: Macierz ochrony usługi Azure Backup Server
+          href: backup-mabs-protection-matrix.md
+        - name: Instalowanie lub uaktualnianie
+          items:
+            - name: Przygotowywanie obciążeń serwera Azure Backup Server w witrynie Azure Portal
+              href: backup-azure-microsoft-azure-backup.md
+            - name: Przygotowywanie obciążeń serwera Azure Backup Server w portalu klasycznym
+              href: backup-azure-microsoft-azure-backup-classic.md
+            - name: Dodawanie magazynu do usługi Azure Backup Server
+              href: backup-mabs-add-storage.md
+            - name: Uaktualnianie usługi Azure Backup Server do wersji 2
+              href: backup-mabs-upgrade-to-v2.md
+            - name: Instalacja nienadzorowana usługi Azure Backup Server
+              href: backup-mabs-unattended-install.md
+        - name: Ochrona obciążeń
+          items:
+            - name: Wykonywanie kopii zapasowej serwera VMware przy użyciu usługi Azure Backup Server
+              href: backup-azure-backup-server-vmware.md
+            - name: Używanie usługi Azure Backup Server do tworzenia kopii zapasowej programu Exchange
+              href: backup-azure-exchange-mabs.md
+            - name: Używanie usługi Azure Backup Server do tworzenia kopii zapasowej farmy programu SharePoint
+              href: backup-azure-backup-sharepoint-mabs.md
+            - name: Używanie usługi Azure Backup Server do tworzenia kopii zapasowej bazy danych SQL
+              href: backup-azure-sql-mabs.md
+            - name: Ochrona stanu systemu i odzyskiwanie systemu od zera
+              href: backup-mabs-system-state-and-bmr.md
+        - name: Odzyskiwanie danych z usługi Azure Backup Server
+          href: backup-azure-alternate-dpm-server.md
+    - name: Maszyny wirtualne platformy Azure
+      items:
+        - name: Przygotowywanie maszyny wirtualnej
+          items:
+            - name: Przygotowywanie maszyn wirtualnych wdrożonych przez usługę Resource Manager
+              href: backup-azure-arm-vms-prepare.md
+            - name: Kopie zapasowe maszyn wirtualnych z systemem Linux spójne z aplikacjami
+              href: backup-azure-linux-app-consistent.md
+            - name: Przygotowywanie maszyn wirtualnych platformy Azure
+              href: backup-azure-vms-prepare.md
+        - name: Planowanie środowiska
+          items:
+            - name: Planowanie infrastruktury kopii zapasowych maszyn wirtualnych
+              href: backup-azure-vms-introduction.md
+        - name: Tworzenie kopii zapasowej maszyn wirtualnych
+          items:
+            - name: Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services
+              href: backup-azure-arm-vms.md
+            - name: Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych
+              href: backup-azure-vms-encryption.md
+            - name: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
+              href: backup-azure-vms.md
+        - name: Monitorowanie maszyn wirtualnych i zarządzanie nimi
+          items:
+            - name: Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal
+              href: backup-azure-manage-vms.md
+            - name: Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal
+              href: backup-azure-monitor-vms.md
+            - name: Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorowanie ich w portalu klasycznym
+              href: backup-azure-manage-vms-classic.md
+        - name: Przywracanie danych z maszyn wirtualnych
+          items:
+            - name: Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure
+              href: backup-azure-restore-files-from-vm.md
+            - name: Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal
+              href: backup-azure-arm-restore-vms.md
+            - name: Przywracanie zaszyfrowanych maszyn wirtualnych
+              href: backup-azure-vms-encryption.md
+            - name: Przywracanie maszyn wirtualnych na platformie Azure
+              href: backup-azure-restore-vms.md
+            - name: Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych
+              href: backup-azure-restore-key-secret.md
+    - name: Konfigurowanie raportów usługi Azure Backup
+      items:
+        - name: Konfigurowanie raportów usługi Azure Backup
+          href: backup-azure-configure-reports.md
+        - name: Model danych dla raportów usługi Azure Backup
+          href: backup-azure-reports-data-model.md
+        - name: Model danych usługi Log Analytics na potrzeby usługi Azure Backup
+          href: backup-azure-log-analytics-data-model.md
+    - name: Data Protection Manager
+      items:
+        - name: Przygotowywanie obciążeń programu DPM w witrynie Azure Portal
+          href: backup-azure-dpm-introduction.md
+        - name: Przygotowywanie obciążeń programu DPM w portalu klasycznym
+          href: backup-azure-dpm-introduction-classic.md
+        - name: Tworzenie kopii zapasowych serwera programu Exchange przy użyciu programu System Center DPM
+          href: backup-azure-backup-exchange-server.md
+        - name: Odzyskiwanie danych na inny serwer programu DPM
+          href: backup-azure-alternate-dpm-server.md
+        - name: Tworzenie kopii zapasowych obciążeń programu SQL Server przy użyciu programu DPM
+          href: backup-azure-backup-sql.md
+        - name: Tworzenie kopii zapasowych farmy programu SharePoint przy użyciu programu DPM
+          href: backup-azure-backup-sharepoint.md
+    - name: Korzystanie z programu Azure PowerShell
+      items:
+        - name: Maszyny wirtualne platformy Azure w witrynie Azure Portal
+          href: backup-azure-vms-automation.md
+        - name: Maszyny wirtualne platformy Azure w portalu klasycznym
+          href: backup-azure-vms-classic-automation.md
+        - name: Program DPM w witrynie Azure Portal
+          href: backup-dpm-automation.md
+        - name: Program DPM w portalu klasycznym
+          href: backup-dpm-automation-classic.md
+        - name: System Windows Server w witrynie Azure Portal
+          href: backup-client-automation.md
+        - name: System Windows Server w portalu klasycznym
+          href: backup-client-automation-classic.md
+    - name: Usługa Azure SQL Database
+      items:
+        - name: Konfigurowanie długoterminowego przechowywania kopii zapasowych
+          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Wyświetlanie kopii zapasowych w magazynie usługi Recovery Services
+          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Przywracanie po długoterminowym przechowywaniu kopii zapasowych
+          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Usuwanie długoterminowych kopii zapasowych usługi Azure SQL
+          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Windows Server
+      items:
+        - name: Tworzenie kopii zapasowych plików i folderów z systemu Windows Server
+          href: backup-configure-vault.md
+        - name: Tworzenie kopii zapasowej stanu systemu Windows Server
+          href: backup-azure-system-state.md
+        - name: Odzyskiwanie plików z platformy Azure do systemu Windows Server
+          href: backup-azure-restore-windows-server.md
+        - name: Przywracanie stanu systemu Windows Server
+          href: backup-azure-restore-system-state.md
+        - name: Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi
+          href: backup-azure-manage-windows-server.md
+        - name: Tworzenie i przywracanie kopii zapasowych przy użyciu portalu klasycznego
+          items:
+            - name: System Windows Server — z zastosowaniem klasycznego modelu wdrażania
+              href: backup-configure-vault-classic.md
+            - name: Zarządzanie magazynami kopii zapasowych przy użyciu klasycznego modelu wdrażania
+              href: backup-azure-manage-windows-server-classic.md
+            - name: Odzyskiwanie plików w systemie Windows Server przy użyciu klasycznego modelu wdrażania
+              href: backup-azure-restore-windows-server-classic.md
+    - name: Magazyn usługi Recovery Services
+      items:
+        - name: Omówienie magazynów usługi Recovery Services
+          href: backup-azure-recovery-services-vault-overview.md
+        - name: Uaktualnienie magazynu usługi Backup do magazynu usługi Recovery Services
+          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Usuwanie magazynu usługi Recovery Services
+          href: backup-azure-delete-vault.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Problemy z tworzeniem kopii zapasowej maszyny wirtualnej platformy Azure w witrynie Azure Portal
+          href: backup-azure-vms-troubleshoot.md
+        - name: Problemy z tworzeniem kopii zapasowej maszyny wirtualnej platformy Azure w portalu klasycznym
+          href: backup-azure-vms-troubleshoot-classic.md
+        - name: 'Niepowodzenie tworzenia kopii zapasowej maszyny wirtualnej platformy Azure: Nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki — Upłynął limit czasu zadania podrzędnego migawki maszyny wirtualnej'
+          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+        - name: Powolne tworzenie kopii zapasowych plików i folderów w usłudze Azure Backup
+          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+        - name: Rozwiązywanie problemów ze składnikiem Azure Backup Server
+          href: backup-azure-mabs-troubleshoot.md
+- name: Dokumentacja
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/backup/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=backup'
+    - name: Filmy wideo
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

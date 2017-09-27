@@ -67,12 +67,17 @@
 ### Integrowanie interfejsów API RESTful
 #### [Weryfikowanie danych wejściowych użytkownika](active-directory-b2c-rest-api-validation-custom.md)
 #### [Uzyskiwanie dodatkowych oświadczeń](active-directory-b2c-rest-api-step-custom.md)
-### Dostosowywanie logowania
+### Przepływy użytkowników
 #### [Konfigurowanie danych wejściowych użytkownika](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Atrybuty niestandardowe](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Dostosowywanie interfejsu użytkownika](active-directory-b2c-ui-customization-custom.md)
 #### [Dostosowywanie tokenów](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Dostosowywanie hasła](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Złożoność hasła](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Zmiana hasła](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Włączanie opcji Nie wylogowuj mnie](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Rozwiązywanie problemów
 #### [Zbieranie dzienników przy użyciu usługi Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Dokumentacja

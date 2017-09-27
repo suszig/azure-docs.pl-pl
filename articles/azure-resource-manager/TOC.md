@@ -12,7 +12,7 @@
 
 # Przykłady
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
 
 ## Interfejs wiersza polecenia platformy Azure
@@ -35,7 +35,7 @@
 
 
 ## Wdrażanie
-### PowerShell
+### Azure PowerShell
 #### [Wdrażanie szablonu](resource-group-template-deploy.md)
 #### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-powershell-sas-token.md)
 #### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Wdrażanie szablonu](resource-group-template-deploy-cli.md)
 #### [Wdrażanie szablonu prywatnego przy użyciu tokenu sygnatury dostępu współdzielonego](resource-manager-cli-sas-token.md)
 #### [Eksportowanie szablonu i ponowne wdrażanie](resource-manager-export-template-cli.md)
-### Portal
+### Azure Portal
 #### [Wdrażanie zasobów](resource-group-template-deploy-portal.md)
 #### [Eksportowanie szablonu](resource-manager-export-template.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
 
 ## Zarządzanie
-### [Program PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfejs wiersza polecenia platformy Azure](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Witryna Azure Portal](resource-group-portal.md)
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Kontrola dostępu
 ### Tworzenie jednostki usługi
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Interfejs wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Interfejs wiersza polecenia platformy Azure 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Witryna Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Przypisywanie zasad za pomocą portalu](resource-manager-policy-portal.md)
+### [Przypisywanie zasad za pomocą witryny Azure Portal](resource-manager-policy-portal.md)
 ### [Przypisywanie zasad za pomocą skryptów](resource-manager-policy-create-assign.md)
 ### Przykłady
 #### [Tagi](resource-manager-policy-tags.md)

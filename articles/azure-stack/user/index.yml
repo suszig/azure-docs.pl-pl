@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja użytkownika usługi Azure Stack
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: Dokumentacja usługi Azure Stack — samouczki i dokumentacja interfejsu API
+  description: 'Dowiedz się, jak używać usługi Azure Stack w wersji Preview w celu udostępniania usług platformy Azure przy użyciu centrum danych. Informacje o funkcjach udostępnianych przy użyciu środowiska weryfikacji koncepcji oraz demonstracja działania tych funkcji.'
+  services: azure-stack
+  author: carolz
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Usługa Azure Stack to platforma chmury hybrydowej, która umożliwia korzystanie z usług platformy Azure z centrum danych Twojej firmy lub dostawcy usługi. Jako deweloper możesz kompilować aplikacje w usłudze Azure Stack. Następnie możesz wdrożyć je w usłudze Azure Stack lub na platformie Azure. Możesz również kompilować prawdziwie hybrydowe aplikacje, które wykorzystują łączność między chmurą usługi Azure Stack i platformą Azure.  Dowiedz się, jak tworzyć zasoby i wdrażać aplikacje, zapoznając się z naszymi przewodnikami Szybki start i samouczkami.'
+sections:
+  - title: Szybki start
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak wdrożyć maszynę wirtualną z systemem Windows w usłudze Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-windows-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-windows-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Interfejs wiersza polecenia
+            href: azure-stack-quick-create-vm-windows-cli.md
+      - type: paragraph
+        text: 'Dowiedz się, jak wdrożyć maszynę wirtualną z systemem Linux w usłudze Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-linux-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-linux-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Interfejs wiersza polecenia
+            href: azure-stack-quick-create-vm-linux-cli.md
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Wdrażanie aplikacji na platformie Azure i w usłudze Azure Stack:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Wdrażanie aplikacji na platformie Azure i w usłudze Azure Stack</a>
+  - title: Dokumentacja
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Wiersz polecenia
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

@@ -33,8 +33,8 @@
 
 ### Szybkie tworzenie maszyny wirtualnej z systemem Windows
 #### [Korzystanie z interfejsu wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Korzystanie z portalu](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Korzystanie z programu PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Korzystanie z witryny Azure Portal](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Korzystanie z programu Azure PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Samouczki na temat maszyny wirtualnej dla systemu Windows
 #### [Tworzenie maszyny wirtualnej i zarządzanie nią](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Tworzenie dysków i zarządzanie nimi](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -51,8 +51,8 @@
 
 ### Szybkie tworzenie maszyny wirtualnej z systemem Linux
 #### [Korzystanie z interfejsu wiersza polecenia platformy Azure](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Korzystanie z portalu](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Korzystanie z programu PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Korzystanie z witryny Azure Portal](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Korzystanie z programu Azure PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Samouczki na temat maszyny wirtualnej dla systemu Linux
 #### [Tworzenie maszyn wirtualnych i zarządzanie nimi](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Tworzenie dysków i zarządzanie nimi](../../virtual-machines/linux/tutorial-manage-disks.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -89,7 +89,7 @@
 
 ## [Sieci wirtualne](azure-operations-guide.md#azure-virtual-network)
 ### [Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Tworzenie sieci wirtualnej przy użyciu programu PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Tworzenie sieci wirtualnej przy użyciu programu Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Tworzenie sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Samouczki dotyczące sieci wirtualnych

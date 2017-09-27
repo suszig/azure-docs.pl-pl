@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja usługi Azure Backup
+metadata:
+  title: Dokumentacja usługi Azure Backup — samouczki i dokumentacja interfejsu API | Microsoft Docs
+  description: 'Usługa Azure Backup umożliwia tworzenie kopii zapasowych danych dla serwerów lokalnych, maszyn wirtualnych, zwirtualizowanych obciążeń, serwera SQL, serwera SharePoint i nie tylko. Dowiedz się, jak tworzyć kopie zapasowe danych i przywracać je, zapoznając się z naszymi przewodnikami Szybki start, samouczkami i przykładami.'
+  services: backup
+  author: czeumault
+  manager: carolz
+  ms.service: backup
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/11/2017
+  ms.author: carolz
+abstract:
+  description: 'Usługa Azure Backup umożliwia tworzenie kopii zapasowych danych dla serwerów lokalnych, maszyn wirtualnych, zwirtualizowanych obciążeń, serwera SQL, serwera SharePoint i nie tylko. Dowiedz się, jak tworzyć kopie zapasowe danych i przywracać je, zapoznając się z naszymi przewodnikami Szybki start, samouczkami i przykładami.'
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak utworzyć kopię zapasową maszyny wirtualną platformy Azure na platformie Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Azure Portal
+            href: quick-backup-vm-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: quick-backup-vm-powershell
+          - image:
+              src: 'https://docs.microsoft.com/media/common/cli.svg'
+            text: Interfejs wiersza polecenia platformy Azure
+            href: quick-backup-vm-cli
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak tworzyć kopie zapasowe i odzyskiwać maszyny wirtualne w obrębie platformy Azure lub z systemu Windows Server.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-backup-vm-at-scale">Tworzenie kopii zapasowych wielu maszyn wirtualnych platformy Azure</a>
+          - html: <a href="tutorial-restore-disk">Przywracanie dysku i tworzenie odzyskanej maszyny wirtualnej</a>
+          - html: <a href="tutorial-restore-files">Przywracanie plików do maszyny wirtualnej na platformie Azure</a>
+          - html: <a href="tutorial-backup-windows-server-to-azure">Tworzenie kopii zapasowych serwera z systemem Windows na platformie Azure</a>
+          - html: <a href="tutorial-backup-restore-files-windows-server">Odzyskiwanie plików z platformy Azure do systemu Windows Server</a>
+  - title: Przykłady
+    items:
+      - type: paragraph
+        text: Poniższe przykłady ułatwiają ochronę danych na platformie Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+  - title: Dokumentacja
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Wiersz polecenia
+            html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
+          - title: Języki
+            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>

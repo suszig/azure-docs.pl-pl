@@ -36,6 +36,7 @@
 #### [Zarządzanie zadaniami](storsimple-virtual-array-manage-jobs.md)
 #### [Zmienianie hasła urządzenia](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurowanie wielościeżkowego wejścia/wyjścia na hoście systemu Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitorowanie przy użyciu alertów](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnozowanie i rozwiązywanie problemów](storsimple-virtual-array-diagnose-problems.md)
 #### [Rejestrowanie żądania pomocy technicznej](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Jakie jest rozwiązanie?](storsimple-overview.md)
 ### [StorSimple — mapa uczenia się](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Zagadnienia związane z zabezpieczeniami](storsimple-8000-security.md)
+### [Często zadawane pytania: przechodzenie do witryny Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Rozpoczęcie pracy
 

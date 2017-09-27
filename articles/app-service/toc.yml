@@ -44,13 +44,11 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4 — Dodawanie usługi CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 — Nawiązywanie połączenia z zasobami lokalnymi
-      href: web-sites-integrate-with-vnet.md
 - name: Przykłady
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: app-service-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: app-service-powershell-samples.md
 - name: Pojęcia
   items:
@@ -78,6 +76,8 @@
           href: web-sites-php-configure.md
         - name: Python
           href: web-sites-python-configure.md
+        - name: Nawiązywanie połączenia z zasobami lokalnymi
+          href: web-sites-integrate-with-vnet.md
     - name: Wdrażanie na platformie Azure
       items:
         - name: Wdrażanie aplikacji
@@ -128,6 +128,8 @@
       items:
         - name: Skalowanie w górę pojemności serwera
           href: web-sites-scale.md
+        - name: Konfigurowanie warstwy PremiumV2
+          href: app-service-configure-premium-tier.md
         - name: Skalowanie w poziomie do wielu wystąpień
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: Monitorowanie aplikacji
@@ -154,9 +156,9 @@
           href: websites-dotnet-deploy-webjobs.md
 - name: Dokumentacja
   items:
-    - name: Interfejs wiersza polecenia 2.0
+    - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/appservice
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell
     - name: Interfejs API REST
       href: /rest/api/appservice/

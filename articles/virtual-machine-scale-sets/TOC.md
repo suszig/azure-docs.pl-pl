@@ -2,7 +2,7 @@
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 
 # Wprowadzenie
-## [Wdrażanie zestawu skalowania w portalu](virtual-machine-scale-sets-portal-create.md)
+## [Wdrażanie zestawu skalowania w witrynie Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ## [Wdrażanie zestawu skalowania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 ## [Wdrażanie automatycznie skalowanej aplikacji przy użyciu szablonu](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -16,10 +16,10 @@
 ### [Korzystanie z obrazu niestandardowego](virtual-machine-scale-sets-mvss-custom-image.md)
 ### [Use guest-based autoscaling with a Linux scale set template (Używanie skalowania automatycznego na podstawie gościa za pomocą szablonu zestawu skalowania systemu Linux)](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
-## Wdrożenie
-### [Tworzenie przy użyciu portalu](virtual-machine-scale-sets-portal-create.md)
+## Wdrażanie
+### [Tworzenie przy użyciu witryny Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Tworzenie przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
+### [Tworzenie przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 ### [Zestaw skalowania z dyskami zarządzanymi](virtual-machine-scale-sets-managed-disks.md)
 ### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Zarządzanie
-### [Zestaw skalowania systemu Windows korzystający z programu PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Zestaw skalowania systemu Windows korzystający z programu Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatyczne skalowanie i zestawy skalowania](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Skalowanie w pionie w zestawie skalowania](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Zestaw skalowania — często zadawane pytania](virtual-machine-scale-sets-faq.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

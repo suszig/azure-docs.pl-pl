@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Wyświetlanie pulpitu nawigacyjnego
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Samouczki
+  items:
+    - name: Moderowanie postów w serwisie Facebook
+      href: facebook-post-moderation.md
 - name: Dokumentacja interfejsu API
   items:
     - name: Wszystkie interfejsy API
@@ -73,6 +77,6 @@
     - name: Zestaw SDK systemu Windows
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Przykłady
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Często zadawane pytania
       href: FAQs.md

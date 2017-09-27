@@ -1,0 +1,29 @@
+- name: Dokumentacja dotycząca rozwiązania Azure Cost Management
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest rozwiązanie Cost Management?
+      href: overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Wyświetlanie danych kosztów
+      href: quick-register-azure-sub.md
+    - name: Wyświetlanie danych kosztów — EA
+      href: quick-register-ea.md
+    - name: Wyświetlanie danych kosztów — CSP
+      href: quick-register-csp.md
+- name: Samouczki
+  items:
+    - name: 1 — Przegląd użycia i kosztów
+      href: tutorial-review-usage.md
+    - name: 2 —Kontrola dostępu do danych
+      href: tutorial-user-access.md
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Dostępność regionalna
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

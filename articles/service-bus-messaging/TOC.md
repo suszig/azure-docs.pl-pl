@@ -60,13 +60,14 @@
 #### [Tworzenie reguły autoryzacji dla przestrzeni nazw i kolejki](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Tworzenie przestrzeni nazw z tematem, subskrypcją i regułą](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Aprowizacja jednostek za pomocą programu PowerShell](service-bus-manage-with-ps.md)
+### [Aprowizacja jednostek za pomocą programu Azure PowerShell](service-bus-manage-with-ps.md)
 
 # Dokumentacja
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Wyjątki](service-bus-messaging-exceptions.md)
 ## [Przydziały](service-bus-quotas.md)

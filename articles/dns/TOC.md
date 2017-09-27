@@ -4,31 +4,34 @@
 ## [Strefy i rekordy DNS](dns-zones-records.md)
 ## [Delegowanie DNS za pomocą systemu DNS platformy Azure](dns-domain-delegation.md)
 ## [Często zadawane pytania na temat systemu DNS](dns-faq.md)
+## [Przy użyciu prywatnych stref DNS](private-dns-overview.md)
 
 # Wprowadzenie
 
 ## Tworzenie rekordu i strefy DNS
-### [Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Witryna Azure Portal](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
-### [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-cli.md)
 
+## Tworzenie prywatnego rekordu i strefy DNS
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegowanie domeny do usługi Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
 
 # Instrukcje
 
 ## Zarządzanie strefami DNS
-### [Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Witryna Azure Portal](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 
 ## Zarządzanie rekordami DNS
-### [Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Witryna Azure Portal](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
+### [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
 
 ## Zarządzanie odwrotnym systemem DNS
 ### [Omówienie](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

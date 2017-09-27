@@ -1,8 +1,10 @@
 # Omówienie
 ## [Co to jest moduł równoważenia obciążenia?](load-balancer-overview.md)
+## [Co to jest usługa Load Balancer w warstwie Standardowa?](load-balancer-standard-overview.md)
 ## [Internetowy moduł równoważenia obciążenia](load-balancer-internet-overview.md)
 ## [Wewnętrzny moduł równoważenia obciążenia](load-balancer-internal-overview.md)
 ## [Opis sond modułu równoważenia obciążenia](load-balancer-custom-probe-overview.md)
+## [Opis portów wysokiej dostępności](load-balancer-ha-ports-overview.md)
 ## [Obsługa usługi Azure Resource Manager](load-balancer-arm.md)
 ## [Obsługa protokołu IPv6](load-balancer-ipv6-overview.md)
 ## [Wiele adresów VIP](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [Tworzenie modułu równoważenia obciążenia połączonego z Internetem przy użyciu protokołu IPv6 (interfejs wiersza polecenia)](load-balancer-ipv6-internet-cli.md)
 ### [Tworzenie modułu równoważenia obciążenia połączonego z Internetem przy użyciu protokołu IPv6 (szablon)](load-balancer-ipv6-internet-template.md)
 
+## [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa](load-balancer-get-started-internet-az-portal.md)
+### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Podstawowa (interfejs wiersza polecenia)](load-balancer-get-started-internet-az-cli.md)
+
 # Instrukcje
 ## [Konfigurowanie limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia](load-balancer-tcp-idle-timeout.md)
 ## [Konfigurowanie trybu dystrybucji dla modułu równoważenia obciążenia](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [Używanie wielu konfiguracji adresu IP — PowerShell](load-balancer-multiple-ip-powershell.md)
 ## [Analiza dzienników dotyczących usługi Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurowanie protokołu DHCPv6 dla maszyn wirtualnych z systemem Linux](load-balancer-ipv6-for-linux.md)
+## [Konfigurowanie portów wysokiej dostępności dla wewnętrznego modułu równoważenia obciążenia](load-balancer-configure-ha-ports.md)
+## [Tworzenie publicznego adresu IP w strefie dostępności](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Tworzenie publicznego adresu IP w strefie dostępności (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Tworzenie publicznego adresu IP w strefie dostępności (interfejs wiersza polecenia)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie problemów z usługą Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure — interfejs wiersza polecenia platformy Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

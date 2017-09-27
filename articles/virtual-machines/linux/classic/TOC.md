@@ -5,7 +5,7 @@
 ## [Często zadawane pytania](faq.md)
 
 # Wprowadzenie
-## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu portalu](createportal.md)
+## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal](createportal.md)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
 ## [Tworzenie kluczy SSH](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Resetowanie haseł lub kluczy systemu Linux, naprawianie kluczy SSH i sprawdzanie dysków](reset-access.md)
 ### [Maintenance (Konserwacja)](planned-maintenance-schedule.md)
 ### [Tworzenie hosta platformy Docker przy użyciu interfejsu wiersza polecenia](cli-use-docker.md)
-### [Tworzenie hosta platformy Docker przy użyciu portalu](portal-use-docker.md)
+### [Tworzenie hosta platformy Docker przy użyciu witryny Azure Portal](portal-use-docker.md)
 ### [Jak używać platformy Docker przy użyciu koordynatora Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Korzystanie z usługi Storage
@@ -67,7 +67,7 @@
 ### [Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów](troubleshoot-recovery-disks-portal.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Tworzenie szablonów usługi Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

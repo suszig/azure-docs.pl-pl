@@ -6,6 +6,10 @@
 ## [Dodawanie pamięci podręcznej w celu podniesienia wydajności](api-management-howto-cache.md)
 ## [Często zadawane pytania](api-management-faq.md)
 # Instrukcje
+## Konfigurowanie usługi APIM
+### [Tworzenie wystąpienia usługi APIM](get-started-create-service-instance.md)
+### [Uaktualnienie i skalowanie](upgrade-and-scale.md)
+### [Konfigurowanie domeny niestandardowej](configure-custom-domain.md)
 ## Tworzenie interfejsów API
 ### [Dodawanie i publikowanie produktu interfejsu API](api-management-howto-add-products.md)
 ### [Dodawanie operacji](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Szybki start](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (oryginalny)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Zasady](api-management-policies.md)

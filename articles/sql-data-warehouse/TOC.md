@@ -8,6 +8,7 @@
 # Wprowadzenie
 
 ## [Samouczek dla początkujących](sql-data-warehouse-get-started-tutorial.md)
+## [Elastyczne zapytanie — samouczek](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
 ## [Zarządzanie](sql-data-warehouse-overview-manage.md)
 
@@ -19,8 +20,8 @@
 
 ### [Omówienie usługi Backup](sql-data-warehouse-backups.md)
 ### [Omówienie przywracania kopii zapasowych](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Program PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Witryna Azure Portal](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Połączenie
@@ -33,8 +34,8 @@
 ### [Parametry połączenia](sql-data-warehouse-connection-strings.md)
 
 ## Przycisk Utwórz
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Program PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Witryna Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Programowanie
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Wizualizacja w usłudze Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Elastyczne zapytanie — z bazą danych SQL i usługą SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Ładowanie
 

@@ -109,23 +109,24 @@
 ### Aktualizowanie oprogramowania układowego urządzenia za pomocą zadań urządzeń
 #### [Zaplecze środowiska Node/urządzenie środowiska Node](iot-hub-node-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-firmware-update.md)
 ### Planowanie i emitowanie zadań
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Zarządzanie
 ### Tworzenie centrum IoT 
-#### [Korzystanie z portalu](iot-hub-create-through-portal.md)
-#### [Korzystanie z programu PowerShell](iot-hub-create-using-powershell.md)
-#### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-create-using-cli.md)
+#### [Korzystanie z witryny Azure Portal](iot-hub-create-through-portal.md)
+#### [Korzystanie z programu Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Korzystanie z interfejsu wiersza polecenia platformy Azure](iot-hub-create-using-cli.md)
 #### [Korzystanie z interfejsu wiersza polecenia](iot-hub-create-using-cli-nodejs.md)
 #### [Korzystanie z interfejsu API REST](iot-hub-rm-rest.md)
-#### [Korzystanie z szablonu programu PowerShell](iot-hub-rm-template-powershell.md)
+#### [Korzystanie z szablonu programu Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Korzystanie z szablonu platformy .NET](iot-hub-rm-template.md)
 ### Konfigurowanie przekazywania plików
-#### [Korzystanie z portalu](iot-hub-configure-file-upload.md)
-#### [Korzystanie z programu PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Korzystanie z interfejsu wiersza polecenia 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Korzystanie z witryny Azure Portal](iot-hub-configure-file-upload.md)
+#### [Korzystanie z programu Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Korzystanie z interfejsu wiersza polecenia platformy Azure](iot-hub-configure-file-upload-cli.md)
 ### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Metryki użycia](iot-hub-metrics.md)
 ### [Monitorowanie operacji](iot-hub-operations-monitoring.md)

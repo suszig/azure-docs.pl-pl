@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automatyzacja
-### [Wdrażanie usługi Notification Hubs i zarządzanie nią przy użyciu programu PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Wdrażanie usługi Notification Hubs i zarządzanie nią przy użyciu programu Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Wysyłanie powiadomień zaplanowanych](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Rozwiązywanie problemów
@@ -61,7 +61,7 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

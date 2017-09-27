@@ -11,16 +11,16 @@
 ### [Zarządzanie uwierzytelnianiem usługi AAD za pomocą portalu](media-services-portal-get-started-with-aad.md)
 ### [Dostęp do interfejsu API za pomocą platformy .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Dostęp do interfejsu API za pomocą architektury REST](media-services-rest-connect-with-aad.md)
-### [Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą interfejsu wiersza polecenia](media-services-cli-create-and-configure-aad-app.md)
+### [Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą interfejsu wiersza polecenia platformy Azure](media-services-cli-create-and-configure-aad-app.md)
 ### [Tworzenie i konfigurowanie aplikacji usługi AAD za pomocą programu PowerShell](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Dostarczanie wideo na żądanie
-### [Portal](media-services-portal-vod-get-started.md)
+### [Witryna Azure Portal](media-services-portal-vod-get-started.md)
 ### [Zestaw SDK platformy .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Transmisja strumieniowa na żywo
-### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [Witryna Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Instrukcje
@@ -29,7 +29,7 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Punkty końcowe przesyłania strumieniowego](media-services-streaming-endpoints-overview.md)
-#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [Witryna Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Magazyn
 #### [Aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu](media-services-roll-storage-access-keys.md)
@@ -38,7 +38,7 @@
 
 ## Przekazywanie zawartości
 ### Przekazywanie plików do konta
-#### [Portal](media-services-portal-upload-files.md)
+#### [Witryna Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Przekazywanie dużych plików za pomocą rozwiązania Aspera](media-services-upload-files-with-aspera.md)
@@ -52,7 +52,7 @@
 #### [Formaty i kodeki narzędzia Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Automatyczne generowanie drabiny szybkości transmisji bitów za pomocą usługi MES](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Kodowanie za pomocą usługi Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
+##### [Witryna Azure Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Zaawansowane kodowanie za pomocą usługi MES](media-services-advanced-encoding-with-mes.md)
@@ -109,7 +109,7 @@
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Transmisja strumieniowa na żywo z użyciem kodera w chmurze](media-services-manage-live-encoder-enabled-channels.md)
-#### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Witryna Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurowanie koderów lokalnych do użycia z koderem w chmurze](media-services-live-encoders-overview.md)
 #### [Koder Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -120,7 +120,7 @@
 ### [Specyfikacja odbierania podzielonej zawartości na żywo w formacie MP4](media-services-fmp4-live-ingest-overview.md)
 
 ## [Ochrona](media-services-content-protection-overview.md)
-### [Konfigurowanie ochrony zawartości w portalu](media-services-portal-protect-content.md)
+### [Konfigurowanie ochrony zawartości w witrynie Azure Portal](media-services-portal-protect-content.md)
 ### [Konfigurowanie klucza niezaszyfrowanego AES-128 dla strumienia](media-services-protect-with-aes128.md)
 ### [Szyfrowanie zawartości za pomocą funkcji szyfrowania magazynu i architektury REST](media-services-rest-storage-encryption.md)
 ### [Omówienie szablonu licencji PlayReady usługi Media Services](media-services-playready-license-template-overview.md)
@@ -140,14 +140,14 @@
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Konfigurowanie zasad autoryzacji klucza zawartości
-#### [Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [Witryna Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Odtwarzanie strumienia HLS z szyfrowaniem AES w przeglądarce Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 ### [Przekazywanie tokenów uwierzytelniania](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analiza](media-services-analytics-overview.md)
-### [Analizowanie multimediów za pomocą portalu](media-services-portal-analyze.md)
+### [Analizowanie multimediów za pomocą witryny Azure Portal](media-services-portal-analyze.md)
 ### [Przetwarzanie za pomocą indeksatora w wersji 2](media-services-process-content-with-indexer2.md)
 ### [Przetwarzanie za pomocą indeksatora](media-services-index-content.md)
 #### [Task preset (Ustawienie wstępne zadania)](indexer-task-preset.md)
@@ -165,10 +165,10 @@
 
 ## Skalowanie
 ### [Przetwarzanie multimediów](media-services-scale-media-processing-overview.md)
-#### [Portal](media-services-portal-scale-media-processing.md)
+#### [Witryna Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Punkty końcowe przesyłania strumieniowego
-#### [Portal](media-services-portal-scale-streaming-endpoints.md)
+#### [Witryna Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Dostarczanie zawartości](media-services-deliver-content-overview.md)
 ### [Dynamiczne tworzenie pakietów](media-services-dynamic-packaging-overview.md)
@@ -177,7 +177,7 @@
 #### [Tworzenie filtrów za pomocą wzorca REST](media-services-rest-dynamic-manifest.md)
 ### [Zasady buforowania usługi CDN w rozszerzeniu usług Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publikowanie zawartości
-#### [Portal](media-services-portal-publish.md)
+#### [Witryna Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Dostarczanie przez pobieranie](media-services-deliver-asset-download.md)
@@ -200,7 +200,7 @@
 ## Monitorowanie
 ### Sprawdzanie postępu zadania
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Portal](media-services-portal-check-job-progress.md)
+#### [Witryna Azure Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Monitorowanie powiadomień dotyczących zadań przy użyciu magazynu kolejek](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Monitorowanie powiadomień dotyczących zadań przy użyciu elementów webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -213,8 +213,8 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [PowerShell (zarządzanie usługami)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (zarządzanie usługami)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 

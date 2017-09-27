@@ -45,6 +45,7 @@
 ## Wdrażanie zarządzania konfiguracją (DSC)
 ### [Konfiguracja żądanego stanu (DSC) — omówienie](automation-dsc-overview.md)
 ### [Rozpoczęcie pracy](automation-dsc-getting-started.md)
+### [Konfigurowanie wymaganego stanu serwerów i zarządzanie odejściem od tego stanu za pomocą usługi Azure Automation](tutorial-configure-servers-desired-state.md)
 ### [Dołączanie maszyn w celu zarządzania](automation-dsc-onboarding.md)
 ### [Kompilowanie konfiguracji DSC](automation-dsc-compile.md)
 ### [Ciągłe wdrażanie za pomocą narzędzia Chocolatey](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook (Wdrażanie szablonu usługi Azure Resource Manager w elemencie runbook programu PowerShell usługi Azure Automation)](automation-deploy-template-runbook.md)
 ## Rozwiązania
-### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
 ### [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)
+#### [Zarządzanie aktualizacjami dla wielu maszyn wirtualnych](manage-update-multi.md)
+#### [Integracja programu SCCM z programem OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)
+### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
+### [Śledzenie zmian w maszynach wirtualnych](automation-vm-change-tracking.md)
+### [Zarządzanie maszyną wirtualną za pomocą kolekcji spisu](automation-vm-inventory.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ## Monitorowanie
 ### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [Rozwiązywanie typowych problemów](automation-troubleshooting-automation-errors.md)
 ### [Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](automation-troubleshooting-hybrid-runbook-worker.md)
 # Dokumentacja
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (klasyczny)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (wersja klasyczna)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/mt163781)

@@ -69,6 +69,8 @@
           href: container-service-deploy-spring-boot-app-on-linux.md
         - name: Wdrażanie aplikacji platformy Spring Boot w klastrze Kubernetes w usłudze Azure Container Service
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
+        - name: Wdrażanie aplikacji Spring Boot przy użyciu wtyczki Maven fabric8
+          href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure 2.0

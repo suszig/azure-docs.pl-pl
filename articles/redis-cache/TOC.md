@@ -24,7 +24,7 @@
 ###[Ochrona pamięci podręcznej przy użyciu sieci wirtualnej](cache-how-to-premium-vnet.md)
 ###[Rozproszenie pamięci podręcznej przez zastosowanie klastrowania](cache-how-to-premium-clustering.md)
 ## Automatyzacja
-###[Wdrażanie i zarządzanie przy użyciu programu PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Wdrażanie i zarządzanie przy użyciu programu Azure PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Wdrażanie i zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure](cli-samples.md)
 ###[Inicjowanie obsługi administracyjnej pamięci podręcznej Redis](cache-redis-cache-arm-provision.md)
 ###[Inicjowanie obsługi administracyjnej aplikacji sieci Web i pamięci podręcznej Redis](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[Dostawca stanu sesji](cache-aspnet-session-state-provider.md)
 ###[Dostawca wyjściowej pamięci podręcznej](cache-aspnet-output-cache-provider.md)
 ## Zarządzanie
-###[Konfigurowanie w portalu](cache-configure.md)
+###[Konfigurowanie w witrynie Azure Portal](cache-configure.md)
 ###[Konfigurowanie replikacji geograficznej](cache-how-to-geo-replication.md)
 ###[Importowanie/eksportowanie danych](cache-how-to-import-export-data.md)
 ###[Ponowne uruchamianie](cache-administration.md#reboot)
 ###[Aktualizacje harmonogramu](cache-administration.md#schedule-updates)
 ## Monitorowanie i rozwiązywanie problemów
-###[Monitorowanie w portalu](cache-how-to-monitor.md)
+###[Monitorowanie w witrynie Azure Portal](cache-how-to-monitor.md)
 ###[Rozwiązywanie problemów z pamięcią podręczną](cache-how-to-troubleshoot.md)
 ###[Ustawianie alertów dla wyjątków](cache-how-to-monitor.md#operations-and-alerts)
 ## Skalowanie
@@ -49,8 +49,8 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Interfejs wiersza polecenia platformy Azure w wersji zapoznawczej](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Klienci Redis](http://redis.io/clients)

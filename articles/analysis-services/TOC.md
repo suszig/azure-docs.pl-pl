@@ -8,7 +8,7 @@
 
 # Rozpoczynanie pracy
 ## [Tworzenie serwera w witrynie Azure Portal](analysis-services-create-server.md)
-## [Tworzenie serwera za pomocą programu PowerShell](analysis-services-create-powershell.md)
+## [Tworzenie serwera za pomocą programu Azure PowerShell](analysis-services-create-powershell.md)
 ## [Wdrażanie modelu z programu Visual Studio](analysis-services-deploy.md)
 ## [Create a model in Azure portal (preview) (Tworzenie modelu w wersji zapoznawczej witryny Azure Portal)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Dokumentacja
-## [Program PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

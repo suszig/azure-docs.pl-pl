@@ -1,0 +1,8 @@
+- name: Funkcje usługi Machine Learning w wersji zapoznawczej
+  href: preview/index.yml
+- name: Machine Learning Studio
+  href: studio/index.md
+- name: Maszyna wirtualna do analizy danych
+  href: data-science-virtual-machine/overview.md
+- name: Zespołowe przetwarzanie danych dla celów naukowych
+  href: team-data-science-process/overview.md

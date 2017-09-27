@@ -7,7 +7,7 @@
 ## [Kontenery](../../virtual-machines-windows-containers.md)
 
 # Rozpoczęcie pracy
-## [Tworzenie maszyny wirtualnej przy użyciu portalu](tutorial.md)
+## [Tworzenie maszyny wirtualnej przy użyciu witryny Azure Portal](tutorial.md)
 ## [Logowanie do maszyny wirtualnej](connect-logon.md)
 ## [Instalowanie programu Azure PowerShell](/powershell/azure/overview)
 ## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Dołączanie wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów](troubleshoot-recovery-disks-portal.md)
 
 # Dokumentacja
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

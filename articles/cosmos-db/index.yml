@@ -75,6 +75,7 @@ sections:
           - html: 'Wykonywanie zapytań o dane za pomocą usługi Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>'
           - html: 'Globalna replikacja bazy danych za pomocą usługi Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>'
           - html: <a href="local-emulator">Lokalne programowanie aplikacji z użyciem emulatora</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Tworzenie wyzwalacza protokołu HTTP przy użyciu powiązania danych wejściowych usługi Azure Cosmos DB</a>
   - title: Przykłady
     items:
       - type: list

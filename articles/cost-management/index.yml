@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja dotycząca rozwiązania Azure Cost Management
+metadata:
+  title: Dokumentacja dotycząca rozwiązania Azure Cost Management — samouczki i dokumentacja interfejsu API | Microsoft Docs
+  description: 'Azure Cost Management firmy Cloudyn to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia korzystanie z platformy Azure i innych zasobów w chmurze. Dowiedz się, jak przeglądać dane użycia i kosztów, aktywnie zarządzać kosztami, prognozować wydatki i optymalizować koszty, zapoznając się z naszymi przewodnikami Szybki start i samouczkami.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Cost Management firmy Cloudyn to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia najwydajniejsze korzystanie z platformy Azure i innych zasobów w chmurze oraz zarządzanie nimi. Dowiedz się, jak przeglądać dane użycia i kosztów, aktywnie zarządzać kosztami, prognozować wydatki i optymalizować koszty, zapoznając się z naszymi przewodnikami Szybki start i samouczkami.'
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak zarejestrować informacje dotyczące subskrypcji lub umowy związanej z platformą Azure przy użyciu rozwiązania Cost Management, a następnie rozpocząć przeglądanie danych kosztów.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Wyświetlanie danych kosztów
+            href: quick-register-azure-sub
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak przeglądać dane użycia i kosztów, aktywnie zarządzać kosztami, prognozować wydatki i optymalizować koszty przy użyciu rozwiązania Cost Management.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Przeglądanie użycia i kosztów w celu wykrycia anomalii i wydajności</a>
+          - html: <a href="tutorial-user-access">Przypisywanie dostępu do danych rozwiązania Cost Management</a>

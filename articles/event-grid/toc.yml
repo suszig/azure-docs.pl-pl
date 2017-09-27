@@ -12,6 +12,8 @@
   items:
     - name: Monitorowanie zmian dotyczących maszyn wirtualnych za pomocą aplikacji logiki
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Zmienianie rozmiaru przekazanych obrazów
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Pojęcia
   items:
     - name: Event Grid — pojęcia

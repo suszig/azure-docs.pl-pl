@@ -16,7 +16,7 @@
 # Instrukcje
 ## Dołączanie do domeny zarządzanej
 ### [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrowanie domeną zarządzaną
 ### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)

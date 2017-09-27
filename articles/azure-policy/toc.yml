@@ -1,0 +1,31 @@
+- name: Omówienie
+  items:
+    - name: Omówienie zasad platformy Azure
+      href: azure-policy-introduction.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Przypisywanie zasad — portal
+      href: assign-policy-definition.md
+    - name: Przypisywanie zasad — program PowerShell
+      href: assign-policy-definition-ps.md
+    - name: Przypisywanie zasad — interfejs wiersza polecenia platformy Azure
+      href: assign-policy-definition-cli.md
+- name: Samouczki
+  items:
+    - name: Tworzenie zasad platformy Azure i zarządzanie nimi
+      href: create-manage-policy.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: 'https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1'
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'

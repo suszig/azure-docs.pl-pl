@@ -5,18 +5,18 @@
 ## [Aplikacje typu „open source” działające z usługą Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Rozpoczęcie pracy
-## [Korzystanie z portalu](data-lake-store-get-started-portal.md)
-## [Korzystanie z programu PowerShell](data-lake-store-get-started-powershell.md)
+## [Korzystanie z witryny Azure Portal](data-lake-store-get-started-portal.md)
+## [Korzystanie z programu Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-get-started-net-sdk.md)
 ## [Korzystanie z zestawu SDK dla języka Java](data-lake-store-get-started-java-sdk.md)
 ## [Korzystanie z interfejsu API REST](data-lake-store-get-started-rest-api.md)
-## [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](data-lake-store-get-started-cli-2.0.md)
+## [Korzystanie z interfejsu wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
 ## [Korzystanie ze środowiska Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Korzystanie z języka Python](data-lake-store-get-started-python.md)
 
 # Instrukcje
 ## Kopiowanie danych
-### [Używanie usługi Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Używanie usługi Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Korzystanie z narzędzia AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Korzystanie z narzędzia DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Korzystanie z narzędzia Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## Integracja z usługami Azure Services
 ### Za pomocą usługi HDInsight
-#### [Korzystanie z portalu](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Przy użyciu programu PowerShell (magazyn domyślny)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Przy użyciu programu PowerShell (magazyn dodatkowy)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Korzystanie z witryny Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Korzystanie z programu Azure PowerShell (magazyn domyślny)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Korzystanie z programu Azure PowerShell (magazyn dodatkowy)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Przy użyciu szablonu platformy Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Uzyskiwanie dostępu z poziomu maszyn wirtualnych w sieci wirtualnej platformy Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Używanie z usługą Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Używanie z usługą Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Używanie z usługą Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Używanie z usługą Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Używanie z usługą Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Używanie z usługą Power BI](data-lake-store-power-bi.md)
 ### [Używanie z usługą Data Catalog](data-lake-store-with-data-catalog.md)
@@ -61,14 +61,14 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (zarządzanie kontem)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (zarządzanie systemem plików)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)

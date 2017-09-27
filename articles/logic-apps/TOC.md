@@ -19,8 +19,19 @@
 ### [Batch process messages (Komunikaty przetwarzania wsadowego)](logic-apps-batch-process-send-receive-messages.md)
 ### [Tworzenie definicji aplikacji logiki](logic-apps-author-definitions.md)
 ### [Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](logic-apps-http-endpoint.md)
-### [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](logic-apps-create-api-app.md)
-### [Wywoływanie niestandardowych interfejsów API dla aplikacji logiki](logic-apps-custom-hosted-api.md)
+### Opracowywanie łączników niestandardowych
+#### [Omówienie łączników niestandardowych](custom-connector-overview.md)
+#### [Tworzenie łączników z interfejsów API sieci Web](custom-connector-build-web-api-app-tutorial.md)
+#### [Bezpieczne łączniki z usługą Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Opisywanie interfejsów API za pomocą narzędzia Postman](custom-connector-api-postman-collection.md)
+#### [Rozszerzanie interfejsu OpenAPI dla łączników niestandardowych](custom-connector-openapi-extensions.md)
+#### [Rejestrowanie łącznika](logic-apps-custom-connector-register.md)
+#### [Certyfikowanie łącznika](custom-connector-submit-certification.md)
+#### [Często zadawane pytania dotyczące łączników niestandardowych](custom-connector-faq.md)
+### Opracowywanie niestandardowych interfejsów API
+#### [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](logic-apps-create-api-app.md)
+#### [Bezpieczne wywołania niestandardowych interfejsów API](logic-apps-custom-api-authentication.md)
+#### [Wdrażanie i wywoływanie niestandardowych interfejsów API](logic-apps-custom-api-host-deploy-call.md)
 ### [Obsługa błędów i wyjątków](logic-apps-exception-handling.md)
 ### [Obsługa typów zawartości](logic-apps-content-type.md)
 ### [Zabezpieczanie aplikacji logiki](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [Schemat śledzenia X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Niestandardowe schematy śledzenia](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Przykłady, scenariusze i przewodniki
-### [Omówienie](logic-apps-examples-and-scenarios.md)
+## [Przykłady, scenariusze i przewodniki](logic-apps-examples-and-scenarios.md)
 ### [Tworzenie społecznościowego pulpitu nawigacyjnego bez użycia serwera](logic-apps-scenario-social-serverless.md)
 ### [Wywoływanie aplikacji logiki za pomocą usługi Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Dodawanie obsługi błędów i wyjątków](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [Język definicji przepływów pracy](logic-apps-workflow-definition-language.md)
 ## [Wyzwalacze i akcje przepływu pracy](logic-apps-workflow-actions-triggers.md)
 ## [Interfejs API REST](/rest/api/logic/)
-## [Program PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Łączniki: tematy szczegółowe
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)
