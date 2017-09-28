@@ -17,15 +17,15 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Omówienie maszyn wirtualnych z systemem Windows na platformie Azure
 
-Usługa Azure Virtual Machines (VM) to jeden z wielu [skalowalnych zasobów obliczeniowych dostępnych na żądanie](../../app-service-web/choose-web-site-cloud-service-vm.md), które są oferowane na platformie Azure. W większości przypadków maszynę wirtualną należy wybrać wtedy, gdy potrzebna jest większa kontrola nad środowiskiem obliczeniowym niż ta, jaką oferują inne opcje. Ten artykuł zawiera informacje o kwestiach, jakie należy rozważyć przed przystąpieniem do tworzenia maszyny wirtualnej. Opisano w nim także tworzenie maszyny wirtualnej i zarządzanie nią.
+Usługa Azure Virtual Machines (VM) to jeden z wielu [skalowalnych zasobów obliczeniowych dostępnych na żądanie](../../app-service/choose-web-site-cloud-service-vm.md), które są oferowane na platformie Azure. W większości przypadków maszynę wirtualną należy wybrać wtedy, gdy potrzebna jest większa kontrola nad środowiskiem obliczeniowym niż ta, jaką oferują inne opcje. Ten artykuł zawiera informacje o kwestiach, jakie należy rozważyć przed przystąpieniem do tworzenia maszyny wirtualnej. Opisano w nim także tworzenie maszyny wirtualnej i zarządzanie nią.
 
 Maszyna wirtualna Azure umożliwia swobodne korzystanie z wirtualizacji bez konieczności kupowania i utrzymywania fizycznego sprzętu potrzebnego do jej działania. Nadal niezbędna jest jednak konserwacja maszyny wirtualnej — konfigurowanie i instalowanie jej oprogramowania, a także instalowanie poprawek tego oprogramowania.
 
@@ -38,7 +38,7 @@ Z maszyn wirtualnych na platformie Azure można korzystać na różne sposoby. P
 Liczbę maszyn wirtualnych używanych przez aplikację można dowolnie i bez ograniczeń zwiększać odpowiednio do potrzeb.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co należy wziąć pod uwagę przed utworzeniem maszyny wirtualnej?
-Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
+Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
 
 * nazwy zasobów aplikacji;
 * lokalizacja, w której są przechowywane zasoby;
@@ -49,7 +49,7 @@ Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wz
 * powiązane zasoby niezbędne do działania maszyny wirtualnej.
 
 ### <a name="naming"></a>Nazewnictwo
-Maszyna wirtualna ma przypisaną do niej [nazwę](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), a także nazwę komputera skonfigurowaną jako element systemu operacyjnego. Nazwa maszyny wirtualnej może zawierać maksymalnie 15 znaków.
+Maszyna wirtualna ma przypisaną do niej [nazwę](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), a także nazwę komputera skonfigurowaną jako element systemu operacyjnego. Nazwa maszyny wirtualnej może zawierać maksymalnie 15 znaków.
 
 Jeśli dysk systemu operacyjnego zostanie utworzony na platformie Azure, nazwa komputera jest taka sama jak nazwa maszyny wirtualnej. Nazwy mogą się różnić w przypadku [przesłania i użycia własnego obrazu](upload-generalized-managed.md), który zawiera skonfigurowany wcześniej system operacyjny, oraz wykorzystania go do utworzenia maszyny wirtualnej. Jeśli zostanie przesłany własny plik obrazu, zalecamy ustawienie takiej samej nazwy dla komputera w systemie operacyjnym i dla maszyny wirtualnej.
 
