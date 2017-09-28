@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: Pojęcia
   items:
+    - name: Zagadnienia dotyczące planowania
+      href: azure-stack-planning-considerations.md
     - name: Obsługa zasad
       href: azure-stack-servicing-policy.md
     - name: Informacje o wersji

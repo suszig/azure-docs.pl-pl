@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: Zmienne systemu
           href: control-flow-system-variables.md
-    - name: Przechowywanie poświadczeń w magazynie kluczy
-      href: store-credentials-in-key-vault.md
+    - name: Bezpieczeństwo
+      items:
+        - name: Zagadnienia związane z zabezpieczeniami podczas przenoszenia danych
+          href: data-movement-security-considerations.md
+        - name: Przechowywanie poświadczeń w usłudze Azure Key Vault
+          href: store-credentials-in-key-vault.md
+        - name: Szyfrowanie poświadczeń dla środowiska Integration Runtime (Self-hosted)
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Korzystanie z platformy .NET
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Korzystanie z usługi Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Zarządzanie środowiskiem Azure SSIS Integration Runtime
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorowanie środowiska Integration Runtime
+          href: monitor-integration-runtime.md
     - name: Tworzenie środowiska Integration Runtime
       items:
         - name: Azure Integration Runtime
           href: create-azure-integration-runtime.md
-        - name: Azure SSIS Integration Runtime
-          href: create-azure-ssis-integration-runtime.md
         - name: Integration Runtime (Self-hosted)
           href: create-self-hosted-integration-runtime.md
+        - name: Azure SSIS Integration Runtime
+          href: create-azure-ssis-integration-runtime.md
+        - name: Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: Dokumentacja
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Zasoby
   items:
+    - name: Często zadawane pytania
+      href: frequently-asked-questions.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Cennik

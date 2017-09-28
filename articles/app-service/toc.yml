@@ -1,4 +1,5 @@
 - name: Dokumentacja usługi App Service
+  href: index.yml
 - name: Omówienie
   items:
     - name: Informacje o usłudze Web Apps
@@ -64,6 +65,8 @@
       href: app-service-hybrid-connections.md
     - name: Integracja z usługą Traffic Manager
       href: web-sites-traffic-manager.md
+    - name: Lokalna pamięć podręczna
+      href: app-service-local-cache-overview.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie aplikacji

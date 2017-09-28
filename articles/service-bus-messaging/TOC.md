@@ -43,6 +43,7 @@
 ### [Kolejki utraconych wiadomości](service-bus-dead-letter-queues.md)
 ### [Przetwarzanie transakcji](service-bus-transactions.md)
 ### [Dzienniki diagnostyczne](service-bus-diagnostic-logs.md)
+### [Implementacja sparowanej przestrzeni nazw](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Omówienie protokołu AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

@@ -24,8 +24,7 @@
 ### Konfigurowanie protokołu LDAP dla domeny zarządzanej
 #### [Task 1: obtain a certificate for secure LDAP (Zadanie 1. Uzyskiwanie certyfikatu na potrzeby protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate (Zadanie 2. Eksportowanie certyfikatu protokołu Secure LDAP)](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure classic portal (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu klasycznej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure portal (preview) (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu wersji zapoznawczej witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Task 3: enable secure LDAP for the managed domain using Azure portal (Zadanie 3. Włączanie protokołu Secure LDAP dla domeny zarządzanej przy użyciu witryny Azure Portal)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Tworzenie jednostki organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrowanie zasadami grupy w domenie zarządzanej](active-directory-ds-admin-guide-administer-group-policy.md)

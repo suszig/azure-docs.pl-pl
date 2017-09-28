@@ -42,7 +42,6 @@
 #### [Wykrywanie i rozwiązywanie problemów z licencją w grupie](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
-#### [Podawanie warunków użytkowania dla użytkowników i aplikacji](active-directory-tou.md)
 #### [Przykłady programu Azure PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 ### [Resetowanie hasła](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Kroki konfigurowania](cloudappdiscovery-get-started.md)
 #### [Tworzenie raportów migawek](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurowanie ciągłego raportowania](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Korzystanie z niestandardowego analizatora dziennika](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Korzystanie z niestandardowego analizatora dziennika](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Aktualizowanie ustawień rejestru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Objaśnienie zabezpieczeń i ochrony prywatności](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### Zadania
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na aplikacji](active-directory-conditional-access-mam.md)
+##### [Podawanie warunków użytkowania dla użytkowników i aplikacji](active-directory-tou.md)
 ##### [Konfigurowanie połączeń sieci VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Konfigurowanie usług SharePoint i Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Korygowanie](active-directory-conditional-access-device-remediation.md)

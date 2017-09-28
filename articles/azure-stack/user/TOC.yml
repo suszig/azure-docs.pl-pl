@@ -116,7 +116,9 @@
 - name: Dokumentacja
   items:
     - name: Azure Stack PowerShell
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Interfejs wiersza polecenia usługi Azure Stack
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

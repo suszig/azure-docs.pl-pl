@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
-    - name: Często zadawane pytania
+    - name: Log Analytics — często zadawane pytania
       href: log-analytics-faq.md
     - name: Użycie danych
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Funkcje dla dostawców usług
       href: log-analytics-service-providers.md
+    - name: Przeszukiwanie dzienników
+      items:
+        - name: Często zadawane pytania dotyczące przeszukiwania dzienników
+          href: log-analytics-log-search-faq.md
+        - name: Wyszukiwanie w dzienniku — omówienie
+          href: log-analytics-log-search-new.md
+        - name: Portale do wyszukiwania w dzienniku
+          href: log-analytics-log-search-portals.md
 - name: Instrukcje
   items:
     - name: Zbieranie danych
@@ -92,15 +100,6 @@
       items:
         - name: Uaktualnianie obszaru roboczego
           href: log-analytics-log-search-upgrade.md
-        - name: Często zadawane pytania
-          href: log-analytics-log-search-faq.md
-        - name: Wyszukiwanie w dzienniku — omówienie
-          href: log-analytics-log-search-new.md
-        - name: Portale do wyszukiwania w dzienniku
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Korzystanie z portalu do wyszukiwania w dzienniku
-              href: log-analytics-log-search-log-search-portal.md
         - name: Przechodzenie ze starszego języka
           href: log-analytics-log-search-transition.md
         - name: Łącznik usługi Flow

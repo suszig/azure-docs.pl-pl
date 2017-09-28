@@ -141,6 +141,8 @@
       items:
         - name: Konfiguracja wykonania
           href: experiment-execution-configuration-reference.md
+        - name: Interfejs API rejestrowania
+          href: reference-logging-api.md
     - name: Zarządzanie modelami
       items:
         - name: Interfejs API zarządzania modelami

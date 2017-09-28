@@ -82,6 +82,8 @@
   items:
     - name: Odzyskiwanie po awarii
       items:
+        - name: Na platformie Azure dla maszyn wirtualnych oprogramowania VMware z obsługą wielodostępu
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Na platformie Azure dla maszyn wirtualnych funkcji Hyper-V
           href: tutorial-hyper-v-to-azure.md
         - name: Na platformie Azure dla serwerów fizycznych

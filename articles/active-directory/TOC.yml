@@ -1,3 +1,5 @@
+- name: Omówienie zarządzania dostępem
+  href: manage-access-to-azure-resources.md
 - name: Dostęp do zasobów na platformie Azure
   href: active-directory-understanding-resource-access.md
 - name: Kontrola dostępu oparta na rolach (RBAC)

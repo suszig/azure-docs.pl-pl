@@ -43,6 +43,7 @@
 ### [Partnerzy](logic-apps-enterprise-integration-partners.md)
 ### [Umowy](logic-apps-enterprise-integration-agreements.md)
 ### [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md)
+### [Wysyłanie komunikatów EDI jako partii](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Przetwarzanie XML](logic-apps-enterprise-integration-xml.md)
 ### [Przetwarzanie plików prostych](logic-apps-enterprise-integration-flatfile.md)
 ### [Walidacja danych XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Tworzenie społecznościowego pulpitu nawigacyjnego bez użycia serwera](logic-apps-scenario-social-serverless.md)
 ### [Wywoływanie aplikacji logiki za pomocą usługi Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Dodawanie obsługi błędów i wyjątków](logic-apps-scenario-error-and-exception-handling.md)
-### [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md)
+### [Przetwarzanie B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Ceny i rozliczanie
 ### [Cennik](https://azure.microsoft.com/pricing/details/logic-apps/)

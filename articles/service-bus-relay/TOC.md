@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Węzeł](relay-hybrid-connections-node-get-started.md)
 ## [Przekaźnik WCF](relay-wcf-dotnet-get-started.md)
+## [Samouczek dotyczący przekaźnika WCF](service-bus-relay-tutorial.md)
+## [Przekaźniki WCF — samouczek dotyczący architektury REST](service-bus-relay-rest-tutorial.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
