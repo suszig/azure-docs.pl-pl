@@ -3,7 +3,7 @@ title: "Omówienie wielodostępnych zapleczy w usłudze Azure Application Gatewa
 description: "Ta strona zawiera omówienie obsługi wielodostępnych zapleczy w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,18 +12,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f02b95a3d6020a77fdfcd096a3c11f5cae5aa49c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Obsługa wielodostępnych zapleczy w usłudze Application Gateway
 
-Usługa Azure Application Gateway obsługuje zestawy skalowania maszyn wirtualnych, interfejsy sieciowe, publiczne/prywatne adresy IP i w pełni kwalifikowane nazwy domeny (FQDN, fully qualified domain name) w ramach swoich pul zaplecza. Domyślnie usługa Application Gateway nie zmienia przychodzącego nagłówka hosta HTTP z klienta i wysyła niezmieniony nagłówek do zaplecza. Istnieje wiele usług, takich jak [Azure Web Apps](../app-service-web/app-service-web-overview.md) i [API Management](../api-management/api-management-key-concepts.md), które są wielodostępne z natury i polegają na konkretnym nagłówku hosta lub rozszerzeniu SNI przy rozpoznawaniu właściwego punktu końcowego. Usługa Application Gateway obecnie umożliwia użytkownikom zastępowanie przychodzącego nagłówka hosta HTTP na podstawie ustawień HTTP zaplecza. Ta funkcja umożliwia obsługę wielodostępnych zapleczy usług Azure Web Apps i API Management. Ta możliwość jest dostępna dla standardowej jednostki SKU i jednostki SKU zapory aplikacji internetowych. Obsługa zaplecza wielodostępnego działa również ze scenariuszami kończenia żądań SSL i kompleksowej usługi SSL.
+Usługa Azure Application Gateway obsługuje zestawy skalowania maszyn wirtualnych, interfejsy sieciowe, publiczne/prywatne adresy IP i w pełni kwalifikowane nazwy domeny (FQDN, fully qualified domain name) w ramach swoich pul zaplecza. Domyślnie usługa Application Gateway nie zmienia przychodzącego nagłówka hosta HTTP z klienta i wysyła niezmieniony nagłówek do zaplecza. Istnieje wiele usług, takich jak [Azure Web Apps](../app-service/app-service-web-overview.md) i [API Management](../api-management/api-management-key-concepts.md), które są wielodostępne z natury i polegają na konkretnym nagłówku hosta lub rozszerzeniu SNI przy rozpoznawaniu właściwego punktu końcowego. Usługa Application Gateway obecnie umożliwia użytkownikom zastępowanie przychodzącego nagłówka hosta HTTP na podstawie ustawień HTTP zaplecza. Ta funkcja umożliwia obsługę wielodostępnych zapleczy usług Azure Web Apps i API Management. Ta możliwość jest dostępna dla standardowej jednostki SKU i jednostki SKU zapory aplikacji internetowych. Obsługa zaplecza wielodostępnego działa również ze scenariuszami kończenia żądań SSL i kompleksowej usługi SSL.
 
 ![Scenariusz aplikacji internetowej](./media/application-gateway-web-app-overview/scenario.png)
 

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
@@ -36,7 +36,7 @@ Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkowni
 Aplikacja korzysta z [przetwarzania kolejkowego](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor zadania związane z tworzeniem miniatur do procesu zaplecza.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Architektura alternatywna: witryny sieci Web i zadania WebJob
-Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w [witrynie Azure w sieci Web](/services/web-sites/) i używanie funkcji [zadań WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) (obecnie w wersji zapoznawczej) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines](../app-service-web/choose-web-site-cloud-service-vm.md).
+Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w [witrynie Azure w sieci Web](/services/web-sites/) i używanie funkcji [zadań WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) (obecnie w wersji zapoznawczej) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure: Witryny sieci Web, Cloud Services i Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Zawartość
 * Jak umożliwić tworzenie aplikacji platformy Azure na komputerze przez zainstalowanie zestawu Azure SDK.

@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorowanie wydajności aplikacji sieci Web platformy Azure
-W witrynie [Azure Portal](https://portal.azure.com) możesz skonfigurować monitorowanie wydajności [aplikacji sieci Web platformy Azure](../app-service-web/app-service-web-overview.md). [Usługa Azure Application Insights](app-insights-overview.md) umożliwia instrumentację aplikacji w celu wysyłania danych telemetrii do usługi Application Insights, gdzie są one przechowywane i analizowane. W usłudze tej można używać wykresów metryki i narzędzi wyszukiwania do ułatwiania diagnozowania problemów, zwiększania wydajności i oceny użycia.
+W witrynie [Azure Portal](https://portal.azure.com) możesz skonfigurować monitorowanie wydajności [aplikacji sieci Web platformy Azure](../app-service/app-service-web-overview.md). [Usługa Azure Application Insights](app-insights-overview.md) umożliwia instrumentację aplikacji w celu wysyłania danych telemetrii do usługi Application Insights, gdzie są one przechowywane i analizowane. W usłudze tej można używać wykresów metryki i narzędzi wyszukiwania do ułatwiania diagnozowania problemów, zwiększania wydajności i oceny użycia.
 
 ## <a name="run-time-or-build-time"></a>W czasie wykonywania lub czasie kompilacji
 Możesz skonfigurować monitorowanie, instrumentując aplikację na jeden z dwóch sposobów:

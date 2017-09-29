@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center (wersja zapoznawcza)
@@ -33,6 +33,9 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają sterowanie tym, które 
 - Unikanie uruchamiania starych i nieobsługiwanych aplikacji.
 - Zapobieganie używaniu określonych programów narzędziowych, które nie są dozwolone w organizacji.
 - Umożliwianie informatykom sterowania dostępem do poufnych danych za pomocą aplikacji.
+
+> [!NOTE]
+> Funkcje adaptacyjnego sterowania aplikacjami są dostępne dla klientów z usługą Azure Security Center w wersji Standard w postaci ograniczonej publicznej wersji zapoznawczej. Wyślij [nam](mailto:ASC_appcontrol@microsoft.com) wiadomość e-mail ze swoim identyfikatorem subskrypcji, aby dołączyć do tej wersji zapoznawczej.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak włączyć funkcje adaptacyjnego sterowania aplikacjami?
 Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu aplikacji, które mogą być uruchamiane w skonfigurowanych grupach zasobów. Ta funkcja jest dostępna tylko dla komputerów z systemem Windows (we wszystkich wersjach, klasycznych lub usługi Azure Resource Manager). Wykonaj poniższe kroki, aby skonfigurować listę dozwolonych aplikacji w usłudze Security Center:
@@ -144,10 +147,6 @@ Usługa Security Center zaleci dodanie aplikacji do listy dozwolonych tylko w pr
 Lista zawiera:
 - **NAZWA**: nazwa subskrypcji i grupy zasobów.
 - **MASZYNY WIRTUALNE**: liczba maszyn wirtualnych w grupie zasobów.
-
-## <a name="preview-registration"></a>Rejestracja w wersji zapoznawczej
-
-Funkcje adaptacyjnego sterowania aplikacjami są dostępne dla klientów z usługą Azure Security Center w wersji Standard w postaci ograniczonej publicznej wersji zapoznawczej. Wyślij [nam](mailto:ASC_appcontrol@microsoft.com) wiadomość e-mail ze swoim identyfikatorem subskrypcji, aby dołączyć do tej wersji zapoznawczej.
 
 ## <a name="see-also"></a>Zobacz też
 W tym dokumencie omówiono korzystanie z funkcji adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center w celu tworzenia listy dozwolonych aplikacji uruchamianych na maszynach wirtualnych platformy Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:

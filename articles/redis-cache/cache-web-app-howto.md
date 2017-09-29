@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: pl-pl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
@@ -71,7 +70,7 @@ Jeśli masz program Visual Studio 2013, możesz [pobrać najnowszy zestaw Azure 
 
     Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Ustawienie domyślnie może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, kliknij przycisk **Zmień uwierzytelnianie** i wybierz pozycję **Bez uwierzytelniania**.
 
-    Jeśli używasz programu Visual Studio 2015, wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Jeśli używasz programu Visual Studio 2015, wyczyść pole wyboru **Hostuj w chmurze**. W kolejnych krokach samouczka wykonasz [aprowizację zasobów platformy Azure](#provision-the-azure-resources) i [opublikujesz aplikację na platformie Azure](#publish-the-application-to-azure) Przykład aprowizacji aplikacji sieci Web usługi App Service z programu Visual Studio przez pozostawienie zaznaczonego pola wyboru **Hostuj w chmurze** opisano w artykule [Wdrażanie aplikacji sieci Web programu ASP.NET w usłudze Azure App Service przy użyciu programu Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Wybieranie szablonu projektu][cache-select-template]
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
@@ -827,7 +826,7 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 * Więcej przykładów dotyczących tworzenia aplikacji sieci Web platformy ASP.NET w usłudze App Service, zobacz [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Tworzenie i wdrażanie aplikacji sieci web ASP.NET w usłudze Azure App Service) w [pokazie](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect witryny [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz).
   * Aby uzyskać więcej materiałów szybkiego startu z w wersji demonstracyjnej witryny HealthClinic.biz, zobacz [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Materiały szybkiego startu narzędzi deweloperskich platformy Azure).
 * Dowiedz się więcej na temat używanego w tym samouczku podejścia [Code first to a new database](https://msdn.microsoft.com/data/jj193542) (Rozwiązanie Code First dla nowej bazy danych) stosowanego w narzędziu Entity Framework.
-* Dowiedz się więcej na temat [aplikacji sieci Web w Usłudze aplikacji Azure](../app-service-web/app-service-web-overview.md).
+* Dowiedz się więcej na temat [aplikacji sieci Web w Usłudze aplikacji Azure](../app-service/app-service-web-overview.md).
 * Poznaj informacje dotyczące [monitorowania](cache-how-to-monitor.md) pamięci podręcznej w witrynie Azure Portal.
 * Poznaj funkcje Premium usługi Azure Redis Cache
   

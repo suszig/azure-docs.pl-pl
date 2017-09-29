@@ -3,7 +3,7 @@ title: "Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu programu 
 description: "Przechowuj dane niestrukturalne w chmurze za pomocą Magazynu obiektów blob Azure."
 services: storage
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 70c7d6a5e1b9aa9a13481893e0baa56538be097c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7a432a22c5c2c2fc5e42cfe000dd34262ba4c85e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET
@@ -401,5 +401,5 @@ Teraz, kiedy znasz już podstawy usługi Blob Storage, skorzystaj z poniższych 
 ### <a name="conceptual-guides"></a>Przewodniki koncepcyjne
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Wprowadzenie do usługi File Storage dla platformy .NET](../files/storage-dotnet-how-to-use-files.md)
-* [Korzystanie z usługi Azure Blob Storage z zestawem SDK WebJobs](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Korzystanie z usługi Azure Blob Storage z zestawem SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
 

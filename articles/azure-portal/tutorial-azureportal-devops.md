@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Samouczek: metodyka DevOps w witrynie Azure Portal
@@ -264,7 +264,7 @@ W tym samouczku przedstawiono niektóre możliwości udostępniane przez platfor
 
 ## <a name="next-steps"></a>Następne kroki
 * Usługa Azure Resource Manager pełni ważną rolę w procesie włączania metodyki DevOps na platformie Azure.  Aby dowiedzieć się więcej, zobacz artykuł [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Aby dowiedzieć się więcej o wdrażaniu w usłudze Azure App Service, zobacz artykuł [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md) (Wdrażanie aplikacji w usłudze Azure App Service).
+* Aby dowiedzieć się więcej o wdrażaniu w usłudze Azure App Service, zobacz artykuł [Deploy your app to Azure App Service](../app-service/app-service-deploy-local-git.md) (Wdrażanie aplikacji w usłudze Azure App Service).
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
