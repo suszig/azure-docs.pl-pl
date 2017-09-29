@@ -1,4 +1,4 @@
-Utwórz [aplikację sieci Web](../articles/app-service-web/app-service-web-overview.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/webapp#create). 
+Za pomocą polecenia [az webapp create](/cli/azure/webapp#create) można utworzyć [aplikację internetową](../articles/app-service/app-service-web-overview.md) w planie usługi App Service `myAppServicePlan` w usłudze Cloud Shell. 
 
 Aplikacja sieci Web udostępnia miejsce na hosting Twojego kodu i zawiera adres URL do wyświetlania wdrożonej aplikacji.
 

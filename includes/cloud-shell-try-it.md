@@ -5,7 +5,7 @@ Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można urucha
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Przycisk uruchamia interaktywną powłokę, której można używać do uruchamiania wszystkich kroków opisanych w tym temacie:
+Ten przycisk uruchamia interaktywną powłokę, której można używać do wykonywania kroków opisanych w tym temacie:
 
 [![Zrzut ekranu przedstawiający okno usługi Cloud Shell w portalu](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

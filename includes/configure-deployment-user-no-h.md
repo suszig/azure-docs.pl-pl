@@ -2,7 +2,7 @@ W usłudze Cloud Shell utwórz poświadczenia wdrożenia za pomocą polecenia [a
 
 Użytkownik wdrożenia jest wymagany do wdrożenia protokołu FTP i lokalnego narzędzia Git w aplikacji internetowej. Nazwa użytkownika i hasło są określane na poziomie konta. _Różnią się one od poświadczeń subskrypcji platformy Azure._
 
-W poniższym poleceniu zastąp ciągi *\<user-name>* i *\<password>* nową nazwą użytkownika i hasłem. Nazwa użytkownika musi być unikatowa. Hasło musi mieć długość co najmniej ośmiu znaków i zawierać dwa z następujących trzech elementów: litery, cyfry, symbole. 
+W poniższym poleceniu zastąp ciągi *\<username>* i *\<password>* nową nazwą użytkownika i hasłem. Nazwa użytkownika musi być unikatowa. Hasło musi mieć długość co najmniej ośmiu znaków i zawierać dwa z następujących trzech elementów: litery, cyfry, symbole. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

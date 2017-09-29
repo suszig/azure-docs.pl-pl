@@ -1,5 +1,5 @@
 
-Utwórz [aplikację API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/appservice/web#create). 
+Polecenie [az webapp create](/cli/azure/appservice/web#create) umożliwia utworzenie aplikacji w planie usługi App Service `myAppServicePlan`. 
 
 Aplikacja sieci Web udostępnia miejsce na hosting Twojego interfejsu API i zawiera adres URL do wyświetlania wdrożonej aplikacji.
 
