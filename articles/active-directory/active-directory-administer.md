@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Zarządzanie swoim katalogiem usługi Azure AD
@@ -59,12 +59,14 @@ Jeśli jeszcze nie masz subskrypcji usługi w chmurze firmy Microsoft, możesz u
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Jak zmienić domyślny katalog dla subskrypcji
 
-1. Zaloguj się do [Centrum konta platformy Azure](https://account.windowsazure.com/Home/Index) przy użyciu konta należącego do administratora konta dla subskrypcji, aby przenieść własność subskrypcji.
+1. Zaloguj się do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) przy użyciu konta należącego do administratora konta dla subskrypcji, aby przenieść własność subskrypcji.
 2. Upewnij się, że użytkownik, który ma być właścicielem subskrypcji, znajduje się w katalogu docelowym.
 3. Kliknij pozycję **Przenieś subskrypcję**.
 4. Określ adresata. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
 5. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności. Jeśli czynności wykonywane przez adresata zakończą się pomyślnie, subskrypcja zostanie przeniesiona. 
 6. Jeśli przenoszenie własności subskrypcji powiedzie się, domyślny katalog subskrypcji zostanie zmieniony na katalog, w którym znajduje się użytkownik.
+
+Aby dowiedzieć się więcej, zobacz [Transfer Azure subscription ownership to another account (Przenoszenie własności subskrypcji platformy Azure na inne konto)](../billing/billing-subscription-transfer.md).
 
 ### <a name="manage-the-default-directory-in-azure"></a>Zarządzanie domyślnym katalogiem na platformie Azure
 Kiedy rejestrujesz się na platformie Azure, domyślny katalog usługi Azure AD jest kojarzony z Twoją subskrypcją. Korzystanie z usługi Azure AD nie wiąże się z żadnymi kosztami, a Twoje katalogi są bezpłatnym zasobem. Istnieją płatne usługi Azure AD, które są licencjonowane osobno i udostępniają dodatkowe funkcje, takie jak oznaczanie marką firmy podczas logowania i samoobsługowe resetowanie hasła. Możesz również utworzyć niestandardową domenę przy użyciu własnej nazwy DNS zamiast domyślnej domeny *.onmicrosoft.com.

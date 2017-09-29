@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
@@ -48,13 +48,14 @@ Usługę Azure AD uzyskujesz bezpłatnie, gdy rejestrujesz się w ramach dowolne
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Aby dodać istniejącą subskrypcję do katalogu usługi Azure AD
 Musisz zalogować się przy użyciu konta, które istnieje w bieżącym katalogu, z którym jest skojarzona subskrypcja, oraz w katalogu, do którego chcesz ją dodać. 
 
-1. Zaloguj się do [Centrum konta platformy Azure](https://account.windowsazure.com/Home/Index) przy użyciu konta należącego do administratora konta dla subskrypcji, której własność chcesz przenieść.
+1. Zaloguj się do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) przy użyciu konta należącego do administratora konta dla subskrypcji, której własność chcesz przenieść.
 2. Upewnij się, że użytkownik, który ma być właścicielem subskrypcji, znajduje się w katalogu docelowym.
 3. Kliknij pozycję **Przenieś subskrypcję**.
 4. Określ adresata. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
 5. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności. Jeśli czynności wykonywane przez adresata zakończą się pomyślnie, subskrypcja zostanie przeniesiona. 
 6. Domyślny katalog subskrypcji zostanie zmieniony na katalog, w którym znajduje się użytkownik.
 
+Aby dowiedzieć się więcej, zobacz [Transfer Azure subscription ownership to another account (Przenoszenie własności subskrypcji platformy Azure na inne konto)](../billing/billing-subscription-transfer.md).
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Sugestie dotyczące zarządzania zarówno subskrypcją, jak i katalogiem
 Role administracyjne dla subskrypcji platformy Azure zarządzają zasobami powiązanymi z subskrypcją platformy Azure. Ta sekcja zawiera wyjaśnienie różnic między administratorami subskrypcji platformy Azure i administratorami katalogu usługi Azure AD. Role administracyjne i inne sugestie dotyczące ich używania do zarządzania własną subskrypcją są opisane w artykule [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md) (Przypisywanie ról administratorów w usłudze Azure Active Directory).

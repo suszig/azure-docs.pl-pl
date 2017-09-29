@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka (wersja zapoznawcza) w usłudze HDInsight
@@ -47,6 +47,9 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
     * **Nazwa użytkownika SSH (Secure Shell)**: nazwa logowania używana podczas uzyskiwania dostępu do klastra za pośrednictwem protokołu SSH. Domyślnie hasło jest takie samo jak hasło logowania klastra.
     * **Grupa zasobów**: grupa zasobów, w której ma zostać utworzony klaster.
     * **Lokalizacja**: region platformy Azure, w którym ma zostać utworzony klaster.
+
+        > [!IMPORTANT]
+        > Aby zapewnić wysoką dostępność danych, zalecamy wybranie lokalizacji (regionu), który zawiera __trzy domeny błędów__. Aby uzyskać więcej informacji, zobacz sekcję [Wysoka dostępność danych](#data-high-availability).
    
  ![Wybieranie subskrypcji](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ Aby utworzyć klaster platformy Kafka w usłudze HDInsight, wykonaj następując
 7. W bloku __Rozmiar klastra__ wybierz przycisk __Dalej__, aby kontynuować.
 
     > [!WARNING]
-    > Aby zapewnić dostępność platformy Kafka w usłudze HDInsight, klaster musi zawierać co najmniej trzy węzły procesu roboczego.
+    > Aby zapewnić dostępność platformy Kafka w usłudze HDInsight, klaster musi zawierać co najmniej trzy węzły procesu roboczego. Aby uzyskać więcej informacji, zobacz sekcję [Wysoka dostępność danych](#data-high-availability).
 
     ![Ustawianie rozmiaru klastra Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > Parametr **liczby dysków na węzeł procesu roboczego** pozwala sterować skalowalnością platformy Kafka w usłudze HDInsight. Aby uzyskać więcej informacji, zobacz [Configure storage and scalability of Kafka on HDInsight (Konfigurowanie magazynu i skalowalności platformy Kafka w usłudze HDInsight)](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > Parametr **liczby dysków na węzeł procesu roboczego** pozwala sterować skalowalnością platformy Kafka w usłudze HDInsight. Platforma Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Kafka używana jest usługa [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Dyski w warstwie Premium są używane przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
 
 8. W bloku __Ustawienia zaawansowane__ wybierz przycisk __Dalej__, aby kontynuować.
 
@@ -340,6 +343,27 @@ Interfejs API przesyłania strumieniowego został dodany do platformy Kafka w we
 
 7. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy, a następnie przywróć zadanie przesyłania strumieniowego z tła na pierwszy plan za pomocą polecenia `fg`. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie.
 
+## <a name="data-high-availability"></a>Wysoka dostępność danych
+
+Każdy region (lokalizacja) świadczenia usługi Azure udostępnia _domeny błędów_. Domena błędów to logiczna grupa bazowego sprzętu w centrum danych platformy Azure. Wszystkie domeny błędów korzystają ze wspólnego źródła zasilania i przełącznika sieciowego. Maszyny wirtualne i dyski zarządzane, które implementują węzły w klastrze usługi HDInsight są rozdzielone między te domeny błędów. Taka architektura ogranicza wpływ potencjalnych awarii sprzętu fizycznego.
+
+Aby uzyskać informacje dotyczące liczby domen błędów w regionie, zobacz dokument [Availability of Linux virtual machines (Dostępność maszyn wirtualnych z systemem Linux)](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+
+> [!IMPORTANT]
+> Zalecamy wybranie regionu świadczenia usługi Azure zawierającego trzy domeny błędów oraz użycie współczynnika replikacji o wartości 3.
+
+Jeśli musisz wybrać region, który zawiera tylko dwie domeny błędów, użyj współczynnika replikacji o wartości 4, aby równomiernie rozłożyć repliki na dwie domeny błędów.
+
+### <a name="kafka-and-fault-domains"></a>Platforma Kafka i domeny błędów
+
+Platforma Kafka nie uwzględnia domen błędów. Utworzone repliki partycji tematów mogą nie zostać prawidłowo rozpowszechnione w celu zapewnienia wysokiej dostępności. Aby zapewnić wysoką dostępność, użyj [narzędzia do ponownego równoważenia partycji platformy Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Narzędzie to należy uruchomić w sesji połączenia SSH z węzłem głównym klastra Kafka.
+
+Aby zapewnić najwyższą dostępność danych na platformie Kafka, należy stosować ponowne równoważenie replik partycji dla tematu w następujących sytuacjach:
+
+* Po utworzeniu nowego tematu lub partycji
+
+* Po przeskalowaniu klastra w górę
+
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 
 W tym dokumencie przedstawiono podstawowe informacje dotyczące pracy z platformą Apache Kafka w usłudze HDInsight. Dowiedz się więcej o pracy z platformą Kafka, korzystając z następujących zasobów:
 
-* [Ensure high availability of your data with Kafka on HDInsight (Zapewnianie wysokiej dostępności danych dzięki platformie Kafka w usłudze HDInsight)](hdinsight-apache-kafka-high-availability.md)
-* [Increase scalability by configuring managed disks with Kafka on HDInsight (Zwiększanie skalowalności przez konfigurowanie dysków zarządzanych przy użyciu platformy Kafka w usłudze HDInsight)](hdinsight-apache-kafka-scalability.md)
-* [Dokumentacja platformy Apache Kafka](http://kafka.apache.org/documentation.html) na stronie kafka.apache.org.
-* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](hdinsight-apache-kafka-mirroring.md)
+* [Analizowanie dzienników Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Kafka clusters (Replikowanie danych między klastrami Kafka)](hdinsight-apache-kafka-mirroring.md)
+* [Use Apache Spark streaming (DStream) with Kafka on HDInsight (Używanie strumieni (DStream) platformy Apache Spark z platformą Kafka w usłudze HDInsight)](hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark Structured Streaming with Kafka on HDInsight (Używanie strumieni ze strukturą platformy Apache Spark z platformą Kafka w usłudze HDInsight)](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Używanie platformy Apache Spark z platformą Kafka w usłudze HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

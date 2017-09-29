@@ -9,15 +9,17 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
 Interfejs wiersza polecenia usługi Azure Service Fabric jest narzędziem wiersza polecenia służącym do interakcji z jednostkami usługi Service Fabric i zarządzania nimi. Interfejs wiersza polecenia usługi Service Fabric może być używany z klastrami systemu Windows lub Linux. Interfejs wiersza polecenia usługi Service Fabric działa na dowolnej platformie, która obsługuje język Python.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 W przypadku systemu Ubuntu 16.04 Desktop można zainstalować środowisko Python 3.6 przy użyciu osobistych archiwów pakietów innych firm.
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 Te kroki nie mają wpływu na środowiska Python 3.5 i 2.7 zainstalowane w systemie. Nie modyfikuj tych instalacji, jeśli nie znasz dobrze systemu Ubuntu.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 Te kroki nie powodują zmodyfikowania instalacji środowiska Python 2.7 w systemie.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Punkt końcowy klastra musi mieć prefiks `http` lub `https`. Musi on zawierać port bramy HTTP. Port i adres są takie same jak adres URL programu Service Fabric Explorer.
 
-W przypadku klastrów zabezpieczonych certyfikatem możesz określić certyfikat zakodowany w formacie PEM. Certyfikat można określić jako pojedynczy plik lub jako parę obejmującą certyfikat i klucz.
+W przypadku klastrów zabezpieczonych certyfikatem możesz określić certyfikat zakodowany w formacie PEM. Certyfikat można określić jako pojedynczy plik lub jako parę obejmującą certyfikat i klucz. W przypadku certyfikatu z podpisem własnym, który nie jest podpisany przez urząd certyfikacji, można użyć opcji `--no-verify`, aby pominąć weryfikację urzędu certyfikacji.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Aby uzyskać więcej informacji, zobacz temat [Nawiązywanie połączenia z zabezpieczonym klastrem usługi Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +200,12 @@ Interfejs wiersza polecenia usługi Service Fabric obsługuje certyfikaty po str
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Podobnie aby przekonwertować plik PEM do pliku PFX, można użyć następującego polecenia (nie wymaga ono podawania hasła):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą protokołu OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Problemy z połączeniem
@@ -202,6 +233,16 @@ Oto inny przykład:
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>Aktualizowanie interfejsu wiersza polecenia usługi Service Fabric 
+
+Aby zaktualizować interfejs wiersza polecenia usługi Service Fabric, uruchom następujące polecenia (element `pip` zastąp elementem `pip3` w zależności od opcji wybranej podczas oryginalnej instalacji):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 
