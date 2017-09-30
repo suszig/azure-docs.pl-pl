@@ -3,7 +3,7 @@ title: "Tworzenie wewnętrznego modułu równoważenia obciążenia — witryna 
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia za pomocą usługi Resource Manager w witrynie Azure Portal"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
 ms.contentlocale: pl-pl
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia w witrynie Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Witryna Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -40,7 +43,7 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Rozpoczęcie tworzenia wewnętrznego modułu równoważenia obciążenia w witrynie Azure Portal
 
-Wykonaj poniższe kroki, aby utworzyć wewnętrzny moduł równoważenia obciążenia w witrynie Azure Portal.
+Wykonaj poniższe czynności, aby utworzyć wewnętrzny moduł równoważenia obciążenia w witrynie Azure Portal.
 
 1. Otwórz przeglądarkę, przejdź do witryny [Azure Portal](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 2. W lewym górnym rogu ekranu kliknij kolejno pozycje **Nowy** > **Sieci** > **Moduł równoważenia obciążenia**.
@@ -63,22 +66,22 @@ Wykonaj poniższe kroki, aby utworzyć wewnętrzny moduł równoważenia obcią�
 ## <a name="configure-load-balancing-rules"></a>Konfigurowanie reguł równoważenia obciążenia
 
 Po utworzeniu modułu równoważenia obciążenia przejdź do zasobu modułu równoważenia obciążenia w celu jego skonfigurowania.
-Przed skonfigurowaniem reguły równoważenia obciążenia należy najpierw skonfigurować pulę adresów zaplecza i sondę.
+Przed skonfigurowaniem reguły równoważenia obciążenia skonfiguruj pulę adresów zaplecza i sondę.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Krok 1. Konfigurowanie puli zaplecza
+### <a name="step-1-configure-a-backend-pool"></a>Krok 1. Konfigurowanie puli zaplecza
 
-1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
 2. W bloku **Ustawienia** kliknij pozycję **Pule zaplecza**.
 3. W bloku **Pule adresów zaplecza** kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie puli zaplecza** wprowadź wartość pola **Nazwa** dla puli zaplecza, a następnie kliknij przycisk **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Krok 2. Konfigurowanie sondy
 
-1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
 2. W bloku **Ustawienia** kliknij pozycję **Sondy**.
 3. W bloku **Sondy** kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie sondy** wprowadź wartość pola **Nazwa** dla sondy.
-5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn sieci Web) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
+5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn internetowych) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
 6. W obszarze **Port** określ port używany podczas uzyskiwania dostępu do sondy.
 7. W obszarze **Ścieżka** (tylko w przypadku sond protokołu HTTP) określ ścieżkę do użycia jako sonda.
 8. W obszarze **Interwał** określ częstotliwość sondowania aplikacji.
@@ -87,14 +90,14 @@ Przed skonfigurowaniem reguły równoważenia obciążenia należy najpierw skon
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Krok 3. Konfigurowanie reguł równoważenia obciążenia
 
-1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj** > **Moduły równoważenia obciążenia**, a następnie kliknij utworzony powyżej moduł równoważenia obciążenia.
+1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
 2. W bloku **Ustawienia** kliknij pozycję **Reguły równoważenia obciążenia**.
 3. W bloku **Reguły równoważenia obciążenia** kliknij pozycję **Dodaj**.
 4. W bloku **Dodaj regułę równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla reguły.
-5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn sieci Web) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
+5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn internetowych) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
 6. W obszarze **Port** określ port, z którym klienci łączą się w module równoważenia obciążenia.
 7. W obszarze **Port zaplecza** określ port do użycia w puli zaplecza (przeważnie port modułu równoważenia obciążenia jest taki sam jak port zaplecza).
-8. W obszarze **Pula zaplecza** wybierz utworzoną powyżej pulę zaplecza.
+8. W obszarze **Pula zaplecza** wybierz utworzoną wcześniej pulę zaplecza.
 9. W obszarze **Trwałość sesji** wybierz sposób obsługi trwałości sesji.
 10. W obszarze **Limit czasu bezczynności (minuty)** określ limit czasu bezczynności.
 11. W obszarze **Zmienny adres IP (bezpośredni zwrot serwera)** kliknij pozycję **Wyłączony** lub **Włączony**.

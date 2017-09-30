@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+Usługa Azure Load Balancer obsługuje dwie warstwy: Podstawowa i Standardowa. W tym artykule omówiono usługę Load Balancer w warstwie Podstawowa. Usługa Load Balancer w warstwie Podstawowa jest ogólnie dostępna, natomiast usługa Load Balancer w warstwie Standardowa jest obecnie dostępna w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat usługi Load Balancer w warstwie Standardowa, zobacz [Omówienie usługi Load Balancer w warstwie Standardowa](https://aka.ms/AzureLoadBalancerStandard).

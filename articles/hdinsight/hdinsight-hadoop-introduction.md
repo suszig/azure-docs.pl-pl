@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: pl-pl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Wprowadzenie do usługi Azure HDInsight, stosu technologii Hadoop oraz klastrów Hadoop
@@ -53,7 +53,7 @@ Dane big data są gromadzone szybciej, w większych ilościach i bardziej różn
 ## <a name="overview"></a>Typy klastrów w usłudze HDInsight
 Usługa HDInsight zawiera określone typy klastrów i oferuje możliwości dostosowywania klastra, takie jak dodawanie składników, narzędzi i języków.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Klastry typu Spark, Kafka, Interactive Hive, HBase, niestandardowe i inne
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Klastry typu Spark, Kafka, zapytań interakcyjnych, HBase, niestandardowe i inne
 W usłudze HDInsight dostępne są następujące typy klastrów:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: korzysta z systemu [HDFS](#hdfs), zarządzania zasobami [YARN](#yarn) i prostego modelu programowania [MapReduce](#mapreduce) do celów równoległego przetwarzania i analizowania danych partii.
@@ -61,7 +61,7 @@ W usłudze HDInsight dostępne są następujące typy klastrów:
 * **[Apache HBase](http://hbase.apache.org/)**: baza danych NoSQL oparta na platformie Hadoop, która zapewnia dostęp losowy i wysoki poziom spójności w przypadku dużych ilości danych z częściową strukturą lub bez struktury — potencjalnie miliardów wierszy pomnożonych przez miliony kolumn. Zobacz temat [Co to jest usługa HBase w usłudze HDInsight?](hdinsight-hbase-overview.md)
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: serwer przeznaczony do hostowania równoległych, rozproszonych procesów języka R oraz zarządzania nimi. Umożliwia on analitykom danych, statystykom i programistom języka R dostęp na żądanie do skalowalnych, rozproszonych metod analizy w usłudze HDInsight. Zobacz temat [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md) (Omówienie serwera R Server w usłudze HDInsight).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: rozproszony system obliczeniowy działający w czasie rzeczywistym do szybkiego przetwarzania dużych strumieni danych. Storm jest oferowany jako zarządzany klaster w usłudze HDInsight. Zobacz temat [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md) (Analizowanie danych czujnika w czasie rzeczywistym przy użyciu platform Storm i Hadoop).
-* **[Apache Interactive Hive (Live Long and Process) w wersji zapoznawczej](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: buforowanie w pamięci umożliwiające interaktywne i szybsze zapytania programu Hive. Zobacz temat [Use Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md) (Używanie oprogramowania Interactive Hive w usłudze HDInsight).
+* **[Zapytanie interakcyjne Apache (Live Long and Process) w wersji zapoznawczej](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: buforowanie w pamięci umożliwiające interaktywne i szybsze zapytania programu Hive. Zobacz temat [Use Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md) (Używanie zapytań interakcyjnych w usłudze HDInsight).
 * **[Apache Kafka](https://kafka.apache.org/)**: platforma typu „open source” służąca do tworzenia potoków danych przesyłanych strumieniowo i aplikacji do obsługi tych danych. Platforma Kafka obejmuje również funkcję kolejki komunikatów, która umożliwia publikowanie i subskrybowanie strumieni danych. Zobacz temat [Introduction to Apache Kafka on HDInsight](hdinsight-apache-kafka-introduction.md) (Wprowadzenie do platformy Apache Kafka w usłudze HDInsight).
 
 Klastry można również skonfigurować za pomocą następujących metod:

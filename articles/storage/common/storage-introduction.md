@@ -3,7 +3,7 @@ title: "Wprowadzenie do usługi Azure Storage | Microsoft Docs"
 description: "Wprowadzenie do usługi Azure Storage — magazynu danych w chmurze firmy Microsoft."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
 Microsoft Azure Storage to zarządzana przez firmę Microsoft usługa w chmurze zapewniająca bezpieczny, trwały, skalowalny i nadmiarowy magazyn o wysokiej dostępności. Firma Microsoft zajmuje się konserwacją oraz rozwiązywaniem krytycznych problemów. 
@@ -37,13 +37,9 @@ W tym artykule omówiono następujące zagadnienia:
 * Transferowanie danych z lub do magazynu
 * Liczne dostępne biblioteki klienta magazynu 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
 
 ## <a name="introducing-the-azure-storage-services"></a>Wprowadzenie do usług Azure Storage
 
@@ -55,7 +51,7 @@ Obiekty blob to pliki podobne do tych, które przechowujesz na komputerze (lub t
 
 Po umieszczeniu plików w usłudze Blob Storage możesz uzyskać do nich dostęp z dowolnego miejsca na świecie przy użyciu adresów URL, interfejsu REST lub jednej z bibliotek klienta zestawu SDK usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym Node.js, Java, PHP, Ruby, Python i .NET. 
 
-Istnieją trzy typy obiektów blob: blokowe obiekty blob, uzupełnialne obiekty blob i stronicowe obiekty blob (używane w przypadku plików VHD).
+Istnieją trzy typy obiektów blob: blokowe obiekty blob, stronicowe obiekty blob (używane w przypadku plików VHD) oraz uzupełnialne obiekty blob.
 
 * Blokowe obiekty blob są używane do przechowywania zwykłych plików o rozmiarze do około 4,7 TB. 
 * Stronicowe obiekty blob są używane do przechowywania plików o dostępie losowym o rozmiarze do 8 TB. Są one stosowane w przypadku plików VHD wspierających maszyny wirtualne.
@@ -63,11 +59,10 @@ Istnieją trzy typy obiektów blob: blokowe obiekty blob, uzupełnialne obiekty 
 
 W przypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do usługi Blob Storage, możesz przesłać zestaw dysków twardych do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Azure Files
+Usługa [Azure Files](../files/storage-files-introduction.md) umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu. 
 
-Usługa Azure Files umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu. 
-
-Jedną z różnic między usługą Azure File Storage i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas. 
+Jedną z różnic między usługą Azure Files i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas. 
 
 Udziałów plików można używać w wielu typowych scenariuszach: 
 
@@ -85,14 +80,13 @@ Usługa Azure Queue jest używana do przechowywania i pobierania komunikatów. K
 
 Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i chcesz utworzyć miniatury dla każdego obrazu. Klient może poczekać, aż utworzysz miniatury podczas przekazywania zdjęcia. Alternatywą jest zastosowanie kolejki. Gdy klient zakończy przekazywanie, zapisz komunikat w kolejce. Następnie funkcja usługi Azure Functions pobierze ten komunikat z kolejki i utworzy miniatury. Każdą część tego przetwarzania można skalować oddzielnie, co daje większą kontrolę podczas dostosowywania.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Magazyn tabel
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-Usługa Azure Table Storage w warstwie Podstawowa jest teraz częścią usługi Cosmos DB. Niemniej usługa Azure Table Storage jest też dostępna w warstwie Premium, która zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko wersji Premium, zobacz [Azure Cosmos DB: interfejs API tabel](https://aka.ms/premiumtables).
+
+Usługa Azure Table Storage w warstwie Podstawowa jest teraz częścią usługi Cosmos DB. Aby zapoznać się z tą dokumentacją, przejdź do artykułu [Omówienie usługi Azure Table Storage](../../cosmos-db/table-storage-overview.md). Niemniej usługa Azure Table Storage jest też dostępna w warstwie Premium, która zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko wersji Premium, zobacz [Azure Cosmos DB: interfejs API tabel](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Przechowywanie na dysku
 
-Zespół odpowiedzialny za usługę Azure Storage jest również odpowiedzialny za usługę Disks obejmującą wszystkie funkcje dysków zarządzanych i niezarządzanych, z których korzystają maszyny wirtualne. Aby uzyskać więcej informacji na temat tych funkcji, zobacz [dokumentację usług Compute](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Usługa Azure Storage obejmuje również wszystkie funkcje dysków zarządzanych i niezarządzanych, z których korzystają maszyny wirtualne. Aby uzyskać więcej informacji na temat tych funkcji, zobacz [dokumentację usług Compute](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typy kont magazynu 
 
@@ -155,7 +149,7 @@ Biblioteki klienta magazynu posiadają metody, które możesz wywołać, aby pro
 
 Zobacz [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
 
-Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrowania, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](storage-security-guide.md).
+Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrowania, zobacz [Azure Storage security guide](storage-security-guide.md) (Przewodnik po zabezpieczeniach usługi Azure Storage).
 
 ## <a name="replication"></a>Replikacja
 
@@ -227,11 +221,9 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Dowiedz się więcej o usłudze File Storage](../storage-files-introduction.md)
 * [Dowiedz się więcej o usłudze Queue Storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Dla administratorów
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>Dla deweloperów .NET
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET](../storage-dotnet-how-to-use-queues.md)
-* [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Dla deweloperów języka Java w systemie Android
 * [Używanie usługi Blob Storage w języku Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Java](../files/storage-java-how-to-use-file-storage.md) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Java)
 * [Używanie usługi Table Storage w języku Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Używanie usługi Queue Storage w języku Java](../storage-java-how-to-use-queue-storage.md)
-* [Używanie usługi File Storage w języku Java](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Dla deweloperów oprogramowania Node.js
 * [Używanie usługi Blob Storage w oprogramowaniu Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Dla deweloperów języka Python
 * [Używanie usługi Blob Storage w języku Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
 * [Używanie usługi Table Storage w języku Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Używanie usługi Queue Storage w języku Python](../storage-python-how-to-use-queue-storage.md)   
-* [Używanie usługi File Storage w języku Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Używanie usługi Queue Storage w języku Python](../storage-python-how-to-use-queue-storage.md)

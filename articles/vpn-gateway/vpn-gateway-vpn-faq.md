@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
@@ -113,9 +113,9 @@ Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
 * Witryna Azure Portal: przejdź do klasycznej sieci wirtualnej > Połączenia sieci VPN > Połączenia sieci VPN typu lokacja-lokacja > Nazwy lokacji lokalnej > Lokacja lokalna > Przestrzeń adresowa klienta. 
 * Witryna klasyczna: dodaj każdy z zakresów, który ma zostać wysłany za pośrednictwem bramy sieci wirtualnej na stronie Sieci w sekcji Sieci lokalne. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Czy można skonfigurować wymuszone tunelowanie?
+### <a name="can-i-configure-force-tunneling"></a>Czy mogę skonfigurować wymuszone tunelowanie?
 
-Tak. Zobacz artykuł [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Konfiguracja wymuszonego tunelowania).
+Tak. Zobacz [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (Konfigurowanie wymuszonego tunelowania).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Czy można wdrożyć własny serwer sieci VPN na platformie Azure i używać go do nawiązywania połączenia z siecią lokalną?
 
@@ -159,9 +159,13 @@ W ramach konfiguracji typu lokacja-lokacja obejmującej wiele lokalizacji obsłu
 
 Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powinny współpracować z bramą, o ile są one zgodne ze standardowymi implementacjami protokołu IPsec stosowanymi w branży. W celu uzyskania pomocy technicznej oraz instrukcji konfiguracji należy skontaktować się z dostawcą oprogramowania.
 
-## <a name="P2S"></a>Połączenia typu punkt-lokacja
+## <a name="P2S"></a>Punkt-lokacja — natywne uwierzytelnianie certyfikatu platformy Azure
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Punkt-lokacja — uwierzytelnianie za pomocą protokołu RADIUS
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Połączenia między sieciami wirtualnymi i połączenia obejmujące wiele lokacji
 

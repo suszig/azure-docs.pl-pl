@@ -1,6 +1,6 @@
 ---
 title: "Jak utworzyć udział plików Azure | Microsoft Docs"
-description: "Jak utworzyć udział plików na platformie Azure w usłudze Azure File Storage przy użyciu portalu Azure, programu PowerShell i interfejsu wiersza polecenia Azure."
+description: "Jak utworzyć udział plików na platformie Azure w usłudze Azure Files przy użyciu witryny Azure Portal, programu PowerShell i interfejsu wiersza polecenia Azure."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b81701e2544ace092f007e5d98b3141e1f7da724
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-a-file-share-in-azure-file-storage"></a>Utwórz udział plików w usłudze Azure File Storage
-Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com/), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Z tego podręcznika dowiesz się:
+# <a name="create-a-file-share-in-azure-files"></a>Tworzenie udziału plików w usłudze Azure Files
+Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Portal](https://portal.azure.com/), poleceń cmdlet programu PowerShell usługi Azure Storage, bibliotek klienckich usługi Azure Storage lub interfejsu API REST usługi Azure Storage. Z tego samouczka dowiesz się:
 * [Jak utworzyć udział plików platformy Azure przy użyciu portalu Azure](#Create file share through the Portal)
 * [Jak utworzyć udział plików platformy Azure przy użyciu programu PowerShell](#Create file share using PowerShell)
 * [Jak utworzyć udział plików platformy Azure przy użyciu interfejsu wiersza polecenia](#create-file-share-using-command-line-interface-cli)
@@ -30,14 +30,14 @@ Udziały plików platformy Azure można tworzyć przy użyciu witryny [Azure Por
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby utworzyć udział plików Azure, można użyć już istniejącego konta magazynu lub [utworzyć nowe konto magazynu Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Aby utworzyć udział plików Azure przy użyciu programu PowerShell, konieczny jest klucz konta i nazwa konta magazynu. Jeśli planujesz użyć programu PowerShell lub interfejsu wiersza polecenia, niezbędny będzie klucz konta magazynu.
 
-## <a name="create-file-share-through-the-portal"></a>Tworzenie udziału plików za pośrednictwem portalu
-1. **Przejdź do bloku Konto magazynu w portalu Azure**:    
+## <a name="create-file-share-through-the-azure-portal"></a>Tworzenie udziału plików za pośrednictwem witryny Azure Portal
+1. **Przejdź do bloku Konto magazynu w witrynie Azure Portal**:    
     ![Blok Konto magazynu](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Kliknij przycisk Dodaj udział pliku**:    
     ![Kliknij przycisk Dodaj udział pliku](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Podaj nazwę i limit przydziału. Obecnie maksymalna wartość przydziału wynosi 5 TB**:    
+3. **Podaj nazwę i limit przydziału. Obecnie maksymalna wartość limitu przydziału wynosi 5 TiB**:    
     ![Podaj nazwę i żądany limit przydziału dla nowego udziału plików](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Wyświetl nowy udział plików**: ![Wyświetl swój nowy udział plików](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -73,7 +73,7 @@ Aby przygotować się do użycia programu Azure PowerShell, pobierz i zainstaluj
     Zobacz artykuły [Install Azure CLI 2.0](/cli/azure/install-az-cli2.md) (Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0) i [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure w wersji 2.0).
 
 2. **Utwórz parametry połączenia z kontem magazynu, w którym chcesz utworzyć udział.**  
-    W poniższym przykładzie zastąp zmienne ```<storage-account>``` i ```<resource_group>``` nazwą konta magazynu i grupą zasobów.
+    W poniższym przykładzie zastąp zmienne ```<storage-account>``` i ```<resource_group>``` nazwą konta magazynu i grupą zasobów:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
@@ -93,7 +93,7 @@ Aby przygotować się do użycia programu Azure PowerShell, pobierz i zainstaluj
 * [Łączenie i instalowanie udziału plików — system Linux](../storage-how-to-use-files-linux.md)
 * [Łączenie i instalowanie udziału plików — system macOS](storage-how-to-use-files-mac.md)
 
-Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
+Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files.
 
 * [Często zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      

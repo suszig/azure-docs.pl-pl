@@ -1,6 +1,6 @@
 ---
 title: "Różnice w usłudze Azure Service Fabric w systemie Linux i Windows | Microsoft Docs"
-description: "Różnice między usługą Azure Service Fabric w wersji zapoznawczej w systemie Linux a usługą Azure Service Fabric w systemie Windows."
+description: "Różnice między usługą Azure Service Fabric w systemie Linux a usługą Azure Service Fabric w systemie Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Różnice między usługą Service Fabric w systemie Linux (wersja zapoznawcza) i w systemie Windows (wersja ogólnie dostępna)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Różnice między usługą Service Fabric w systemach Linux i Windows
 
-Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Gdy usługa Service Fabric w systemie Linux stanie się ogólnie dostępna, zestawy funkcji będą takie same. Różnica między funkcjami będzie się zmniejszać wraz z udostępnianiem kolejnych wersji. Oto różnice między najnowszymi dostępnymi wersjami (to znaczy między wersją 5.6 w systemie Windows i wersją 5.5 w systemie Linux): 
+Pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Po pewnym czasie zestawy funkcji będą działać w obydwu systemach i w każdej nowej wersji ta różnica między funkcjami będzie się zmniejszać. Oto różnice między najnowszymi dostępnymi wersjami (wersją 6.0 w systemie Windows i wersją 6.0 w systemie Linux): 
 
-* Niezawodne kolekcje (i niezawodne usługi stanowe) 
-* Zwrotny serwer proxy 
-* Autonomiczny instalator 
-* Weryfikacja schematu XML dla plików manifestu 
-* Przekierowywanie konsoli 
-* Usługa analizy błędów
-* Narzędzie Docker Compose oraz sterowniki woluminów i rejestrowania dla kontenerów 
-* Nadzór nad zasobami dla kontenerów i usług 
-* Usługa DNS
-* Obsługa usługi Azure Active Directory
-* Polecenia interfejsu wiersza polecenia będące odpowiednikami niektórych poleceń programu PowerShell 
-* Względem klastra z systemem Linux można wykonywać tylko podzbiór poleceń programu PowerShell (więcej informacji na ten temat znajduje się w następnej sekcji).
+* Wszystkie modele programowania są w wersji zapoznawczej (Java/C# — Reliable Actors, Reliable Stateless Services i Reliable Stateful Services)
+* Usługa Envoy (ReverseProxy) jest dostępna w wersji zapoznawczej w systemie Linux
+* Autonomiczny instalator dla systemu Linux nie jest dostępny w systemie Linux
+* Przekierowywanie konsoli (nieobsługiwane w klastrach produkcyjnych w systemie Linux ani Windows)
+* Usługa analizy błędów w systemie Linux
+* Usługa DNS dla usług Service Fabric (usługa DNS jest obsługiwana dla kontenerów w systemie Linux)
+* Odpowiedniki poleceń interfejsu wiersza polecenia dla niektórych poleceń programu PowerShell (lista znajduje się poniżej — większość z nich ma zastosowanie tylko do klastrów autonomicznych)
 
->[!NOTE]
->Przekierowywanie konsoli nie jest obsługiwane w klastrach produkcyjnych, nawet w systemie Windows.
-
-Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi VisualStudio, Powershell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
+Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi Visual Studio, PowerShell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Polecenia cmdlet programu PowerShell, które nie działają względem klastra usługi Service Fabric z systemem Linux
 
@@ -67,7 +59,6 @@ Narzędzia programistyczne używane w systemie Windows różnią się także od 
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

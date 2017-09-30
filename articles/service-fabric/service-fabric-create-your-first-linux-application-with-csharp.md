@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Tworzenie pierwszej aplikacji usługi Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# — Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java — Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# — Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java — Linux (wersja zapoznawcza)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# — Linux (wersja zapoznawcza)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie Linux przy użyciu platform .NET Core i Java. W tym samouczku przedstawiony zostanie sposób kompilowania aplikacji dla systemu Linux i tworzenia usługi przy użyciu platformy C# (.NET Core).
+Usługa Service Fabric udostępnia zestawy SDK do kompilowania usług w systemie Linux przy użyciu platform .NET Core i Java. W tym samouczku przedstawiony zostanie sposób tworzenia aplikacji dla systemu Linux i kompilowania usługi w języku C# w programie .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania systemu Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować jednopunktowe środowisko systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
 
 Trzeba również zainstalować [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Instalowanie i konfigurowanie generatorów dla języka CSharp
-Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletu, które ułatwiają tworzenie aplikacji CSharp usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów Yeoman. Wykonaj poniższe kroki, aby upewnić się, że generator szablonów Yeoman usługi Service Fabric dla języka CSharp działa na Twojej maszynie.
+### <a name="install-and-set-up-the-generators-for-c"></a>Instalowanie i konfigurowanie generatorów dla języka C#
+Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które ułatwiają tworzenie aplikacji usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów narzędzia Yeoman. Wykonaj poniższe kroki, aby skonfigurować generatory szablonów narzędzia Yeoman w usłudze Service Fabric dla języka C#:
+
 1. Zainstaluj środowisko NodeJs i menedżera NPM na swojej maszynie
 
   ```bash
@@ -56,7 +57,7 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletu, które uł
   ```
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
-Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Generator [Yeoman](http://yeoman.io/) dla języka CSharp usługi Service Fabric, który został zainstalowany w ostatnim kroku, ułatwia utworzenie pierwszej usługi i dodawanie kolejnych w przyszłości. Utwórzmy zatem aplikację z jedną usługą za pomocą generatora Yeoman.
+Aplikacja usługi Service Fabric może zawierać jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Generator [Yeoman](http://yeoman.io/) dla języka C# usługi Service Fabric, który został zainstalowany w ostatnim kroku, ułatwia utworzenie pierwszej usługi i dodawanie kolejnych w przyszłości. Utwórzmy zatem aplikację z jedną usługą za pomocą generatora Yeoman.
 
 1. W terminalu wpisz następujące polecenie i rozpocznij tworzenie szkieletu: `yo azuresfcsharp`
 2. Nadaj nazwę aplikacji.
@@ -126,7 +127,6 @@ Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o usłudze Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Service Fabric CLI (Interakcja z klastrami usługi Service Fabric przy użyciu interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)
 * Uzyskaj informacje o [opcjach pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 * [Getting started with Service Fabric CLI (Wprowadzenie do interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)

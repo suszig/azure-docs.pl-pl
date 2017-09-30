@@ -3,7 +3,7 @@ title: "Tworzenie modułu równoważenia obciążenia dostępnego z Internetu �
 description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w trybie klasycznym przy użyciu programu PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
 ms.contentlocale: pl-pl
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Konfiguracja modułu równoważenia obciążenia za pomocą programu PowerShell
 
-Aby skonfigurować moduł równoważenia obciążenia za pomocą programu PowerShell, wykonaj poniższe kroki:
+Aby skonfigurować moduł równoważenia obciążenia za pomocą programu PowerShell, wykonaj następujące czynności:
 
 1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
 2. Po utworzeniu maszyny wirtualnej możesz użyć poleceń cmdlet programu PowerShell, aby dodać moduł równoważenia obciążenia do maszyny wirtualnej w ramach tej samej usługi w chmurze.
@@ -74,5 +74,5 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 Możesz też zapoznać się z artykułem na temat [wprowadzenia do tworzenia wewnętrznego modułu równoważenia obciążenia](load-balancer-get-started-ilb-classic-ps.md) i określić typ [trybu dystrybucji](load-balancer-distribution-mode.md) dotyczącego danego ruchu sieciowego modułu równoważenia obciążenia.
 
-Jeśli zastosowanie wymaga zachowania działających połączeń z serwerami za modułem równoważenia obciążenia, zapoznaj się z informacjami o [ustawieniach limitu czasu bezczynności protokołu TCP modułu równoważenia obciążenia](load-balancer-tcp-idle-timeout.md). Pozwoli to zrozumieć zachowanie bezczynnego połączenia podczas używania usługi Azure Load Balancer.
+Jeśli zastosowanie wymaga zachowania działających połączeń z serwerami za modułem równoważenia obciążenia, zapoznaj się z informacjami o [ustawieniach limitu czasu bezczynności protokołu TCP modułu równoważenia obciążenia](load-balancer-tcp-idle-timeout.md). Pozwala to zrozumieć zachowanie bezczynnego połączenia podczas używania usługi Azure Load Balancer.
 

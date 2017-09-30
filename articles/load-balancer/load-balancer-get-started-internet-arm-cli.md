@@ -3,7 +3,7 @@ title: "Tworzenie modułu równoważenia obciążenia dostępnego z Internetu �
 description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w usłudze Resource Manager za pomocą interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Tworzenie internetowego modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/21/2017
 > * [Program PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +89,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support
     ```
 
    > [!IMPORTANT]
-   > Moduł równoważenia obciążenia będzie używać etykiety domeny publicznego adresu IP jako nazwy FQDN. Różni się to od wdrożenia klasycznego, które wykorzystuje usługę w chmurze jako nazwę FQDN (Fully Qualified Domain Name) modułu równoważenia obciążenia.
+   > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako nazwy FQDN. Różni się to od wdrożenia klasycznego, które wykorzystuje usługę w chmurze jako nazwę FQDN (Fully Qualified Domain Name) modułu równoważenia obciążenia.
    > W tym przykładzie FQDN to *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Tworzenie modułu równoważenia obciążenia

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Istnieją dwa narzędzia interfejsu wiersza polecenia używane podczas interakcji z usługą Service Fabric. [Interfejs wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) służy do zarządzania zasobami platformy Azure, takimi jak klaster usługi Service Fabric hostowany na platformie Azure. Interfejs wiersza polecenia usługi Service Fabric jest używany do bezpośredniego łączenia z klastrem usługi Service Fabric (niezależnie od tego, gdzie jest hostowany) oraz do zarządzania klastrem, aplikacjami i usługami. 

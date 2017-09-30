@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ecfe6dab6e4deaa75d073badcb88d536396fe678
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 70deefe92212742f76e7221a661fd79fd38c4280
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway — informacje
@@ -82,19 +82,19 @@ Ten typ połączenia jest odmianą połączenia typu lokacja-lokacja. W tym przy
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Punkt-lokacja (sieć VPN za pośrednictwem protokołu SSTP)
+## <a name="P2S"></a>Punkt-lokacja (sieć VPN przez protokół IKEv2 lub SSTP)
 
-Brama sieci VPN typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenia sieci VPN typu punkt-lokacja przydają się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, podczas pracy zdalnej z domu lub konferencji. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. 
+Połączenie bramy VPN Gateway typu punkt-lokacja pozwala utworzyć bezpieczne połączenie z siecią wirtualną z indywidualnego komputera klienckiego. Połączenie typu punkt-lokacja jest ustanawiane przez uruchomienie z komputera klienckiego. To rozwiązanie jest przydatne dla osób pracujących zdalnie, które chcą łączyć się z sieciami wirtualnymi platformy Azure z lokalizacji zdalnej, na przykład z domu lub sali konferencyjnej. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną.
 
 W przeciwieństwie do połączeń S2S połączenia P2S nie wymagają lokalnego, publicznego adresu IP ani urządzenia sieci VPN. Połączenia typu punkt-lokacja mogą być używane z połączeniami typu lokacja-lokacja z użyciem tej samej bramy sieci VPN, pod warunkiem że wszystkie wymagania dotyczące konfiguracji dla obu połączeń są zgodne.
 
-Połączenie typu punkt-lokacja używa protokołu SSTP (Secure Socket Tunneling Protocol), który jest protokołem sieci VPN opartym na protokole SSL. Połączenie sieci VPN typu punkt-lokacja jest nawiązywane przez zainicjowanie go z komputera klienckiego.
+>[!NOTE]
+>Uwierzytelnianie usługi RADIUS typu punkt-lokacja i protokół IKEv2 są obecnie dostępne w wersji zapoznawczej.
+>
 
-![Przykład połączenia typu punkt-lokacja w usłudze Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
+Aby uzyskać więcej informacji na temat połączeń punkt-lokacja, zobacz [About Point-to-Site VPN](point-to-site-about.md) (Informacje o sieci VPN typu punkt-lokacja).
 
-### <a name="deployment-models-and-methods-for-point-to-site"></a>Modele wdrażania i metody nawiązywania połączeń typu punkt-lokacja
-
-[!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+![Przykład połączenia typu punkt-lokacja w usłudze Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
 ## <a name="V2V"></a>Połączenia między sieciami wirtualnymi (tunel VPN protokołu IPsec/IKE)
 

@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Instalowanie udziału plików platformy Azure i uzyskiwanie dostępu do udziału w systemie Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemie Windows i Windows Server. W tym artykule przedstawiono trzy różne sposoby instalowania udziału plików platformy Azure w systemie Windows: za pomocą interfejsu użytkownika Eksploratora plików, programu PowerShell oraz wiersza polecenia. 
+[Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemie Windows i Windows Server. W tym artykule przedstawiono trzy różne sposoby instalowania udziału plików platformy Azure w systemie Windows: za pomocą interfejsu użytkownika Eksploratora plików, programu PowerShell oraz wiersza polecenia. 
 
 Aby móc zainstalować udział plików platformy Azure poza regionem świadczenia usługi Azure, w którym jest on hostowany, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, system operacyjny musi obsługiwać protokół SMB 3.0. 
 
@@ -39,7 +39,7 @@ Udziały plików platformy Azure można zainstalować w instalacji systemu Windo
 | Windows 7              | SMB 2.1     | Tak                   | Nie                   |
 | Windows Server 2008 R2 | SMB 2.1     | Tak                   | Nie                   |
 
-<sup>1</sup>Windows 10 w wersji 1507, 1511, 1607 i 1703
+<sup>1</sup>Windows 10 w wersji 1507, 1511, 1607, 1703 i 1709.
 
 > [!Note]  
 > Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows.
@@ -49,7 +49,7 @@ Udziały plików platformy Azure można zainstalować w instalacji systemu Windo
 
 * **Klucz konta magazynu**: Aby zainstalować udział plików platformy Azure, konieczne będzie posiadanie podstawowego (lub dodatkowego) klucza magazynu. Klucze sygnatur dostępu współdzielonego nie są aktualnie obsługiwane na potrzeby instalowania.
 
-* **Otwarty port 445**: Usługa Azure File Storage korzysta z protokołu SMB. Protokół SMB komunikuje się za pośrednictwem portu TCP 445. Upewnij się, że Twoja zapora nie blokuje portów TCP 445 z komputera klienckiego.
+* **Otwarty port 445**: Usługa Azure Files korzysta z protokołu SMB. Protokół SMB komunikuje się za pośrednictwem portu TCP 445. Upewnij się, że Twoja zapora nie blokuje portów TCP 445 z komputera klienckiego.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Instalowanie udziału plików platformy Azure za pomocą Eksploratora plików
 > [!Note]  
@@ -63,7 +63,7 @@ Udziały plików platformy Azure można zainstalować w instalacji systemu Windo
 
 3. **Skopiuj ścieżkę UNC z okienka „Połącz” w witrynie Azure Portal**: szczegółowy opis znajdywania tych informacji można znaleźć [tutaj](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Ścieżka UNC z okienka Połącz usługi Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Ścieżka UNC z okienka Połącz usługi Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Wybierz literę dysku i wprowadź ścieżkę UNC.** 
     
@@ -121,24 +121,24 @@ Udziały plików platformy Azure można zainstalować w instalacji systemu Windo
 >   ```
 
 ## <a name="next-steps"></a>Następne kroki
-Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
+Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files.
 
 * [Często zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Artykuły koncepcyjne i filmy
-* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/) (Azure File Storage: płynnie działający system plików SMB w chmurze dla systemów Windows i Linux)
-* [Jak używać usługi Azure File Storage z systemem Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files: a frictionless cloud SMB file system for Windows and Linux (Azure Files: płynnie działający system plików SMB w chmurze dla systemów Windows i Linux)](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [How to use Azure Files with Linux (Jak używać usługi Azure Files z systemem Linux)](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Narzędzia dostępne dla usługi Azure File Storage
+### <a name="tooling-support-for-azure-files"></a>Narzędzia dostępne dla usługi Azure Files
 * [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Jak używać narzędzia AzCopy z usługą Microsoft Azure Storage)
 * [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Rozwiązywanie problemów z usługą Azure File Storage — Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Rozwiązywanie problemów z usługą Azure File Storage — Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Troubleshooting Azure Files problems - Windows (Rozwiązywanie problemów z usługą Azure Files — Windows)](storage-troubleshoot-windows-file-connection-problems.md)
+* [Troubleshooting Azure Files problems - Linux (Rozwiązywanie problemów z usługą Azure Files — Linux)](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Wpisy na blogach
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/) (Usługa Azure File Storage została udostępniona publicznie)
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Za kulisami usługi Azure File Storage)
+* [Azure Files is now generally available (Usługa Azure Files jest teraz ogólnie dostępna)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure Files (Za kulisami usługi Azure Files)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Wprowadzenie do usługi plików platformy Microsoft Azure)
 * [Migrowanie danych do usługi Pliki Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

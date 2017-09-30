@@ -1,6 +1,6 @@
 ---
-title: "Jak zarządzać usługą Azure File Storage za pomocą programu PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak zarządzać usługą Azure File Storage za pomocą programu PowerShell."
+title: "Jak zarządzać usługą Azure Files za pomocą programu PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak zarządzać usługą Azure Files za pomocą programu PowerShell."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Jak zarządzać usługą Azure File Storage za pomocą programu PowerShell
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>Jak zarządzać usługą Azure Files za pomocą programu PowerShell
 Przy użyciu programu Azure PowerShell można tworzyć udziały plików i zarządzać nimi.
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalowanie poleceń cmdlet programu PowerShell dla usługi Azure Storage
@@ -96,7 +96,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Następne kroki
-Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
+Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files.
 
 * [Często zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      

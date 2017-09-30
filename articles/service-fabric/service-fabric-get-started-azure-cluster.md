@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ Zaloguj się w witrynie Azure Portal pod adresem [http://portal.azure.com](http:
 
     Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz pozycję **Wdrażanie klastra usługi Service Fabric** przypiętą do tablicy **Start**.
 
-### <a name="view-cluster-status"></a>Wyświetlanie stanu klastra
-Po utworzeniu klastra możesz sprawdzić klaster w bloku **Przegląd** w portalu. Możesz teraz wyświetlić szczegóły klastra na pulpicie nawigacyjnym, w tym publiczny punkt końcowy klastra oraz link do narzędzia Service Fabric Explorer.
-
-![Stan klastra][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Wizualizowanie klastra za pomocą narzędzia Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to odpowiednie narzędzie do wizualizowania klastra i zarządzania aplikacjami.  Service Fabric Explorer jest usługą uruchamianą w klastrze.  Dostęp do tej usługi uzyskasz poprzez kliknięcie linku **Service Fabric Explorer** na stronie **Przegląd** klastra w portalu.  Możesz również wprowadzić jej adres bezpośrednio do przeglądarki: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-Pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie kondycji węzła i aplikacji. Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Nawiązywanie połączenia z klastrem przy użyciu programu PowerShell
 Sprawdź, czy klaster działa, nawiązując połączenie przy użyciu programu PowerShell.  Moduł ServiceFabric programu PowerShell jest instalowany przy użyciu [Zestawu SDK usługi Service Fabric](service-fabric-get-started.md).  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.   
 
@@ -112,7 +100,7 @@ Usuń grupę zasobów w witrynie Azure Portal:
     ![Usuwanie grupy zasobów][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Wdrażanie zabezpieczonego klastra przy użyciu modułu Azure Powershell
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Wdrażanie zabezpieczonego klastra systemu Windows przy użyciu programu Azure PowerShell
 1. Pobierz na komputer [moduł Azure Powershell w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 2. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie. 
@@ -161,7 +149,7 @@ Usuń grupę zasobów w witrynie Azure Portal:
     - **ManagementEndpoint** : https://mojklaster.southcentralus.cloudapp.azure.com:19080
     - **ClientConnectionEndpointPort** : 19000
 
-### <a name="install-the-certificate-on-your-local-machine"></a>Instalowanie certyfikatu na maszynie lokalnej
+### <a name="install-the-certificate-on-your-local-machine"></a>Instalowanie certyfikatu na komputerze lokalnym
   
 Aby połączyć się z klastrem, należy zainstalować certyfikat w magazynie osobistym bieżącego użytkownika. 
 
@@ -205,10 +193,6 @@ Uruchom następujące polecenie, aby sprawdzić poprawność połączenia i upew
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publikowanie aplikacji w klastrze z poziomu programu Visual Studio
-
-Teraz po skonfigurowaniu klastra platformy Azure możesz opublikować w nim swoje aplikacje z poziomu programu Visual Studio. W tym celu wykonaj instrukcje zawarte w dokumencie [Publish to an cluster](service-fabric-publish-app-remote-cluster.md) (Publikowanie w klastrze). 
-
 ### <a name="remove-the-cluster"></a>Usuwanie klastra
 Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. 
 
@@ -217,12 +201,62 @@ Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastr
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Wdrażanie zabezpieczonego klastra systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure
+
+1. Zainstaluj [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) na komputerze.
+2. Zaloguj się do platformy Azure i wybierz subskrypcję, w ramach której chcesz utworzyć klaster.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Uruchom polecenie [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), aby utworzyć zabezpieczony klaster.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Łączenie z klastrem
+Uruchom poniższe polecenie interfejsu wiersza polecenia, aby połączyć się z klastrem przy użyciu certyfikatu.  Podczas uwierzytelniania przy użyciu certyfikatu klienta szczegóły certyfikatu muszą być zgodne z certyfikatem wdrożonym w węzłach klastra.  Użyj opcji `--no-verify` w przypadku certyfikatu z podpisem własnym.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Uruchom następujące polecenie, aby sprawdzić poprawność połączenia i upewnić się, że klaster jest w dobrej kondycji.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz po skonfigurowaniu klastra programowania możesz spróbować wykonać następujące czynności:
-* [Tworzenie zabezpieczonego klastra w portalu](service-fabric-cluster-creation-via-portal.md)
-* [Tworzenie klastra na podstawie szablonu](service-fabric-cluster-creation-via-arm.md) 
+* [Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Usuwanie klastra](service-fabric-cluster-delete.md) 
 * [Wdrażanie aplikacji przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
+* [Wdrażanie aplikacji przy użyciu interfejsu wiersza polecenia](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

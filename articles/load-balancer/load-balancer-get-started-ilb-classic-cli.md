@@ -3,7 +3,7 @@ title: "Tworzenie wewnętrznego modułu równoważenia obciążenia — interfej
 description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: pl-pl
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,11 +39,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Tworzenie zestawu wewnętrznego modułu równoważenia obciążenia dla maszyn wirtualnych
 
-Aby utworzyć zestaw wewnętrznego modułu równoważenia obciążenia, a także serwery, które będą przesyłać do niego ruch, wykonaj następujące czynności:
+Aby utworzyć zestaw wewnętrznego modułu równoważenia obciążenia, a także serwery, które przesyłają do niego ruch, wykonaj następujące czynności:
 
 1. Utwórz wystąpienie wewnętrznego równoważenia obciążenia, które będzie punktem końcowym przychodzącego ruchu sieciowego, aby obciążenie było zrównoważone między serwerami w zestawie o zrównoważonym obciążeniu.
-2. Dodaj punkty końcowe odpowiadające maszynom wirtualnym, które będą otrzymywać ruch przychodzący.
-3. Skonfiguruj serwery wysyłające ruch, którego obciążenie ma zostać zrównoważone, aby wysyłały ruch na wirtualny adres IP (VIP) wystąpienia wewnętrznego równoważenia obciążenia.
+2. Dodaj punkty końcowe odpowiadające maszynom wirtualnym, które mogą otrzymywać ruch przychodzący.
+3. Skonfiguruj serwery wysyłające ruch, aby wysyłały ruch na wirtualny adres IP (VIP) wystąpienia wewnętrznego równoważenia obciążenia.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Szczegółowy opis tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia
 
@@ -64,7 +64,7 @@ W tym przewodniku opisano sposób tworzenia wewnętrznego modułu równoważenia
 
 Na potrzeby scenariusza przyjmuje się, że utworzono maszyny wirtualne „DB1” i „DB2” w usłudze w chmurze o nazwie „mytestcloud”. Obie maszyny wirtualne korzystają z sieci wirtualnej o nazwie „testvnet” z podsiecią o nazwie „subnet-1”.
 
-W tym przewodniku opisano sposób tworzenia zestawu wewnętrznego modułu równoważenia obciążenia przy użyciu portu 1433 jako portu publicznego i lokalnego.
+W tym przewodniku opisano sposób tworzenia zestawu wewnętrznego modułu równoważenia obciążenia przy użyciu portu 1433 jako portu prywatnego i lokalnego.
 
 Jest to typowy scenariusz, w którym na zapleczu występują maszyny wirtualne SQL korzystające z wewnętrznego modułu równoważenia obciążenia, aby zagwarantować, że serwery bazy danych nie będą dostępne bezpośrednio przez publiczny adres IP.
 
@@ -93,7 +93,7 @@ Przykładowe dane wyjściowe:
 
 ### <a name="step-2"></a>Krok 2
 
-Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi podczas dodawania pierwszego punktu końcowego. W tym kroku punkt końcowy, maszyna wirtualna i port sondy zostaną skojarzone z zestawem wewnętrznego modułu równoważenia obciążenia.
+Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi podczas dodawania pierwszego punktu końcowego. W tym kroku punkt końcowy, maszyna wirtualna i port sondy można skojarzyć z zestawem wewnętrznego modułu równoważenia obciążenia.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ Sprawdź konfigurację modułu równoważenia obciążenia za pomocą polecenia 
 azure vm show DB1
 ```
 
-Dane wyjściowe to:
+Wynik jest następujący:
 
     azure vm show DB1
     info:    Executing command vm show

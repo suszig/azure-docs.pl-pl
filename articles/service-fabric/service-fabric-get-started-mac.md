@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
@@ -49,7 +49,7 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Ten krok spowoduje pobranie pliku `Vagrantfile` zawierającego konfigurację maszyny wirtualnej wraz z lokalizacją, z której jest pobierana maszyna wirtualna.
+    Ten krok spowoduje pobranie pliku `Vagrantfile` zawierającego konfigurację maszyny wirtualnej wraz z lokalizacją, z której jest pobierana maszyna wirtualna.  Plik wskazuje standardowy obraz systemu Ubuntu. 
 
 2. Przejdź do lokalnego klona repozytorium.
 
@@ -70,9 +70,24 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
     vagrant up
     ```
 
-   W trakcie wykonywania tego kroku zostanie pobrany wstępnie skonfigurowany obraz maszyny, będzie miał miejsce jego rozruch lokalny, a następnie w ramach tego obrazu zostanie przeprowadzona konfiguracja lokalnego klastra usługi Service Fabric. Powinno to potrwać kilka minut. Jeśli konfiguracja zakończy się pomyślnie, jako wynik zostanie wyświetlony komunikat, że klaster jest uruchamiany.
 
-    ![Uruchomienie konfiguracji klastra po aprowizacji maszyny wirtualnej][cluster-setup-script]
+5. Logowanie do maszyny wirtualnej i instalowanie zestawu Service Fabric SDK
+
+    ```bash
+    vagrant ssh
+    ```
+   
+   Zainstaluj zestaw SDK, zgodnie z opisem w sekcji dotyczącej [instalacji zestawu SDK](service-fabric-get-started-linux.md).  Poniższy skrypt jest dostarczany jako udogodnienie dotyczące instalowania środowiska uruchomieniowego usługi Service Fabric i wspólnego zestawu SDK usługi Service Fabric wraz z interfejsem wiersza polecenia sfctl. Podczas uruchamiania skryptu jest przyjmowane założenie, że znasz i akceptujesz warunki licencji wszystkich instalowanych programów.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Uruchamianie klastra usługi Service Fabric
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Jeśli pobieranie maszyny wirtualnej trwa długo, możesz ją pobrać przy użyciu polecenia wget lub curl albo za pośrednictwem przeglądarki, korzystając z linku podanego we właściwości **config.vm.box_url** w pliku `Vagrantfile`. Po pobraniu do środowiska lokalnego edytuj plik `Vagrantfile`, aby wskazać ścieżkę lokalną, do której pobrano obraz. Jeśli na przykład obraz pobrano do katalogu /home/users/test/azureservicefabric.tp8.box, zmień wartość **config.vm.box_url** na tę ścieżkę.
@@ -106,6 +121,10 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
   npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
   ```
 4. Aby skompilować aplikację Java usługi Service Fabric na komputerze Mac, będziesz potrzebować zestawu JDK 1.8 i narzędzia Gradle zainstalowanych na komputerze.
+
+## <a name="set-up-net-core-20-development"></a>Konfigurowanie tworzenia aplikacji w programie .NET Core 2.0
+
+Zainstaluj [zestaw .NET Core 2.0 SDK dla komputerów Mac](https://www.microsoft.com/net/core#macos), aby uruchomić [tworzenie aplikacji usługi Service Fabric w języku C#](service-fabric-create-your-first-linux-application-with-csharp.md). Pakiety dla aplikacji .NET Core 2.0 usługi Service Fabric są hostowane w witrynie NuGet.org, obecnie w wersji zapoznawczej.
 
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalowanie wtyczki usługi Service Fabric dla środowiska Eclipse Neon

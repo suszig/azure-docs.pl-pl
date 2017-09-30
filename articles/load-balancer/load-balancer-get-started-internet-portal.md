@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
 ms.contentlocale: pl-pl
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,11 +31,13 @@ ms.lasthandoff: 01/24/2017
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule opisano model wdrażania usługi Resource Manager. Możesz też zapoznać się z artykułem na temat [tworzenia modułu równoważenia obciążenia dostępnego z Internetu za pośrednictwem wdrożenia klasycznego](load-balancer-get-started-internet-classic-portal.md).
+W tym artykule opisano model wdrażania usługi Resource Manager.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -83,7 +85,7 @@ Więcej informacji o składnikach modułu równoważenia obciążenia tworzonego
     W obszarze Ustawienia modułu równoważenia obciążenia wybierz pozycję Sondy. Następnie kliknij opcję **Dodaj** w górnej części bloku.
 
     Istnieją dwie metody konfiguracji sondy: HTTP lub TCP. W tym przykładzie pokazano konfigurację HTTP, ale konfiguracja TCP przebiega bardzo podobnie.
-    Zaktualizuj niezbędne informacje. Jak wspomniano wcześniej, moduł **myLoadBalancer** będzie równoważyć obciążenie na porcie 80. Wybrana ścieżka to HealthProbe.aspx, interwał wynosi 15 sekund, a próg złej kondycji wynosi 2. Na koniec kliknij przycisk **OK**, aby utworzyć sondę.
+    Zaktualizuj niezbędne informacje. Jak wspomniano wcześniej, moduł **myLoadBalancer** równoważy obciążenie na porcie 80. Wybrana ścieżka to HealthProbe.aspx, interwał wynosi 15 sekund, a próg złej kondycji wynosi 2. Na koniec kliknij przycisk **OK**, aby utworzyć sondę.
 
     Umieść kursor myszy na ikonie „i”, aby dowiedzieć się więcej o poszczególnych ustawieniach oraz o sposobach dostosowywania ich do swoich potrzeb.
 

@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure File Storage | Microsoft Docs"
-description: "Wprowadzenie do usługi Azure File Storage, która zapewnia udziały plików sieciowych w chmurze firmy Microsoft"
+title: "Wprowadzenie do usługi Azure Files | Microsoft Docs"
+description: "Omówienie usługi Azure Files umożliwiającej tworzenie i używanie udziałów plików sieciowych w chmurze z wykorzystaniem standardowego protokołu SMB."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,108 +12,53 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 498af5cffb76e026c9a87127cab238f0f23b668a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="introduction-to-azure-file-storage"></a>Wprowadzenie do usługi Azure File Storage
-
-Usługa Azure File Storage oferuje udziały plików sieciowych w chmurze przy użyciu zgodnych ze standardami branżowymi protokołów [bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Udziały plików platformy Azure mogą być instalowane równolegle przez maszyny wirtualne platformy Azure oraz wdrożenia lokalne z systemem Windows, macOS lub Linux. Konto magazynu ogólnego przeznaczenia umożliwia dostęp do usług Azure File Storage, Azure Blob Storage i Azure Queue Storage.
+# <a name="introduction-to-azure-files"></a>Wprowadzenie do usługi Azure Files
+Usługa Pliki Azure oferuje w pełni zarządzane udziały plików w chmurze, dostępne za pośrednictwem [protokołu Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) będącego standardem branżowym (znanego również jako Common Internet File System, CIFS). Udziały plików platformy Azure można instalować współbieżne według chmurowych lub lokalnych wdrożeń systemów Windows, Linux i macOS. Ponadto udziały plików usługi Azure Files mogą być buforowane na serwerach z systemem Windows za pomocą usługi Azure File Sync (wersja zapoznawcza) w celu szybkiego dostępu blisko miejsca, w którym dane są używane.
 
 ## <a name="videos"></a>Filmy wideo
-| Wprowadzenie do usługi Azure File Storage (27 min) | Samouczek usługi Azure File Storage (5 minut)  |
+| Wstęp do usługi Pliki Azure (27 m) | Usługa Azure Files — samouczek (5 m)  |
 |-|-|
-| [![Zrzut ekranu przedstawiający film wideo Wprowadzenie do usługi Azure File Storage — kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Zrzut ekranu przedstawiający samouczek usługi Azure File Storage — kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Zrzut ekranu filmu wideo Wprowadzenie do usługi Azure Files — kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Zrzut ekranu przedstawiający samouczek usługi Azure Files — kliknij, aby odtworzyć!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
 
-## <a name="why-azure-file-storage-is-useful"></a>Na czym polega przydatność usługi Azure File Storage
-
-Usługa Azure File Storage umożliwia zastąpienie hostowanych lokalnie lub w chmurze serwerów plików działających w systemach Windows Server, Linux lub w oparciu o technologię NAS pozbawionym systemu operacyjnego udziałem plików w chmurze. Zalety usługi Azure File Storage:
-
-* **Dostęp współdzielony** Udziały plików platformy Azure obsługują oparty na standardach branżowych protokół SMB, co oznacza, że można bezproblemowo zastąpić lokalne udziały plików udziałami plików platformy Azure bez obaw o zgodność aplikacji. Możliwość uzyskania dostępu do systemu plików na wielu komputerach i aplikacjach/wystąpieniach jest ważną zaletą usługi Azure File Storage.
-
-* **Pełne zarządzanie** Udziały plików platformy Azure można tworzyć bez konieczności zarządzania sprzętem czy systemem operacyjnym, co oznacza, że nie trzeba stosować poprawek systemu operacyjnego serwera w celu zastosowania krytycznych uaktualnień ochrony ani wymieniać uszkodzonych dysków twardych.
-
-* **Skrypty i narzędzia** Przy użyciu poleceń cmdlet programu PowerShell i interfejsu wiersza polecenia platformy Azure można tworzyć i instalować udziały usługi File Storage oraz zarządzać nimi w ramach administracji aplikacjami platformy Azure. Udziały plików platformy Azure można tworzyć i zarządzać nimi za pomocą witryny [Azure Portal](https://portal.azure.com) i programu [Azure Storage Explorer](https://storageexplorer.com). 
-
-* **Odporność** Usługa Azure File Storage została zbudowana od podstaw w celu zapewnienia nieprzerwanej dostępności. Dzięki zastąpieniu lokalnych udziałów plików usługą Azure File Storage już nigdy nie będziesz musieć usuwać lokalnych awarii zasilania ani rozwiązywać problemów z siecią. 
-
-* **Znajomy sposób programowania** Aplikacje działające na platformie Azure mogą uzyskiwać dostęp do danych udziału za pomocą [interfejsów API We/Wy systemu plików](https://msdn.microsoft.com/library/system.io.file.aspx). Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Oprócz systemowych interfejsów API We/Wy można używać dowolnych bibliotek klienta usługi Azure Storage, takich jak biblioteka dla platformy [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), lub [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/file-service-rest-api).
-
+## <a name="why-azure-files-is-useful"></a>Na czym polega przydatność usługi Azure Files
 Udziałów plików platformy Azure można używać w następujących celach:
 
-* **Zastąpienie lokalnych serwerów plików** Usługi Azure File Storage można użyć w celu całkowitego zastąpienia udziałów plików na tradycyjnych lokalnych serwerach plików lub urządzeniach NAS. W popularnych systemach operacyjnych, takich jak Windows, macOS i Linux, udziały plików platformy Azure można łatwo zainstalować bez względu na to, gdzie się one znajdują.
+* **Zastępowanie lub uzupełnianie lokalnych serwerów plików**:  
+    Usługi Azure Files można użyć w celu całkowitego zastąpienia lub uzupełnienia tradycyjnych lokalnych serwerów plików lub urządzeń NAS. W popularnych systemach operacyjnych, takich jak Windows, macOS i Linux, udziały plików platformy Azure można bezpośrednio zainstalować bez względu na to, gdzie się one znajdują. Udziały plików platformy Azure można również replikować za pomocą usługi Azure File Sync na serwerach z systemem Windows, lokalnie lub w chmurze, w celu zapewnienia wydajnego i rozproszonego buforowania danych, gdziekolwiek są używane.
 
-* **Migrowanie aplikacji metodą „lift and shift”**
+* **Migrowanie aplikacji metodą „lift and shift”**:  
+    Usługa Azure File Storage ułatwia migrowanie do chmury metodą „lift and shift” tych aplikacji, które oczekują udziału plików do przechowywania danych aplikacji lub danych użytkownika. Usługa Azure Files umożliwia zarówno klasyczny scenariusz migracji metodą „lift and shift”, w którym aplikacja i jej dane są przenoszone do platformy Azure, jak i scenariusz hybrydowy migracji „lift and shift”, w którym dane aplikacji są przenoszone do usługi Azure Files, a aplikacja dalej działa lokalnie. 
 
-    Usługa Azure File Storage ułatwia migrowanie do chmury metodą „lift and shift” tych aplikacji, które korzystają z lokalnych udziałów plików w celu współdzielenia danych między częściami aplikacji. Aby wdrożyć to rozwiązanie, każda maszyna wirtualna łączy się z udziałem plików, dzięki czemu może odczytywać i zapisywać pliki podobnie jak w przypadku lokalnego udziału plików.
+* **Uproszczenie projektowania aplikacji w chmurze**:  
+    Usługi Azure Files można także używać na wiele różnych sposobów w celu uproszczenia nowych projektów projektowania aplikacji w chmurze. Na przykład:
+    * **Współdzielone ustawienia aplikacji**:  
+        W typowym wdrożeniu aplikacji rozproszonych pliki konfiguracji znajdują się w centralnej lokalizacji, skąd są dostępne dla wielu wystąpień aplikacji. Wystąpienia aplikacji mogą ładować swoje konfiguracje za pomocą interfejsu API REST plików i ludzie mogą uzyskiwać do nich dostęp w razie potrzeby przez zainstalowanie udziału SMB lokalnie.
 
-* **Uproszczenie projektowania aplikacji w chmurze**
-    
-    Usługi Azure File Storage można używać na kilka różnych sposobów w celu uproszczenia nowych projektów projektowania aplikacji w chmurze.
-    
-    * **Współdzielone ustawienia aplikacji**
-    
-        W typowym wdrożeniu aplikacji rozproszonych pliki konfiguracji znajdują się w centralnej lokalizacji, skąd są dostępne dla wielu różnych maszyn wirtualnych. Takie pliki konfiguracji można teraz przechowywać w udziale plików platformy Azure, skąd mogą być odczytywane przez wszystkie wystąpienia aplikacji. Te ustawienia mogą być także zarządzane za pośrednictwem interfejsu REST, co zapewnia globalny dostęp do plików konfiguracji.
+    * **Udział diagnostyczny**:  
+        Udział plików usługi Azure Files jest wygodnym miejscem do zapisywania dzienników, metryk i zrzutów awaryjnych aplikacji w chmurze. Dzienniki mogą być zapisywane przez wystąpienia aplikacji za pomocą interfejsu API REST pliku, a deweloperzy mogą uzyskiwać do nich dostęp przez zainstalowanie udziału plików na komputerze lokalnym. Zapewnia to dużą elastyczność, ponieważ deweloperzy mogą obsługiwać opracowywanie rozwiązań dla chmury bez konieczności porzucania istniejących narzędzi, które znają i lubią.
 
-    * **Udział diagnostyczny**
-    
-        Udziałów plików platformy Azure można również używać do zapisywania plików diagnostycznych, takich jak dzienniki, metryki i zrzuty awaryjne. Po udostępnieniu udziałów plików za pomocą protokołu SMB i interfejsu REST aplikacje mogą budować różne narzędzia analizy do przetwarzania i analizowania danych diagnostycznych oraz korzystać z tych narzędzi.
+    * **Projektowanie/testowanie/debugowanie**:  
+        Deweloperzy i administratorzy często w swojej pracy z maszynami wirtualnymi w chmurze muszą korzystać z zestawu narzędzi i programów narzędziowych. Kopiowanie tych narzędzi do każdej maszyny wirtualnej może być czasochłonne. Przez zainstalowanie udziału plików usługi Azure Files lokalnie na maszynach wirtualnych, deweloper i administrator mogą szybko uzyskać dostęp do swoich narzędzi bez konieczności kopiowania.
 
-    * **Projektowanie/testowanie/debugowanie**
-
-        Deweloperzy i administratorzy często w swojej pracy z maszynami wirtualnymi w chmurze muszą korzystać z zestawu narzędzi i programów narzędziowych. Instalowanie i rozpowszechnianie tych narzędzi na każdej maszynie wirtualnej, na której są one potrzebne, może być czynnością czasochłonną. Korzystając z usługi Azure File Storage, deweloper lub administrator może zapisać swoje ulubione narzędzia w udziale plików, z którym można nawiązać połączenie z dowolnej maszyny wirtualnej.
-        
-## <a name="how-does-it-work"></a>Jak to działa?
-
-Zarządzanie udziałami plików platformy Azure jest znacznie prostsze niż zarządzanie lokalnymi udziałami plików. Na poniższym diagramie przedstawiono schemat zarządzania usługą Azure File Storage:
-
-![Struktura plików](./media/storage-files-introduction/files-concepts.png)
-
-* **Konto magazynu** Cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać szczegółowe informacje na temat pojemności konta magazynu, zobacz [Cele dotyczące skalowalności i wydajności](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-
-* **Udział** Udział usługi File Storage jest udziałem plików SMB na platformie Azure. Wszystkie pliki i katalogi muszą być tworzone w udziale nadrzędnym. Konto może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików. Maksymalna całkowita objętość udziału plików to 5 TB.
-
-* **Katalog** Opcjonalna hierarchia katalogów.
-
-* **Plik** Plik w udziale. Plik może mieć maksymalnie 1 TB pojemności.
-
-* **Format adresu URL** Adresy URL plików mają następujący format:  
-
-    ```
-    https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
-    ```
+## <a name="key-benefits"></a>Najważniejsze korzyści
+* **Dostęp współdzielony**. Udziały plików platformy Azure obsługują oparty na standardach branżowych protokół SMB, co oznacza, że można bezproblemowo zastąpić lokalne udziały plików udziałami plików platformy Azure bez obaw o zgodność aplikacji. Możliwość udostępnienia systemu plików na wielu komputerach, aplikacjach/wystąpieniach jest znaczącą korzyścią usługi Azure Files dla aplikacji wymagających możliwości pracy w środowisku współdzielonym. 
+* **Pełne zarządzanie**. Udziały plików platformy Azure można tworzyć bez konieczności zarządzania sprzętem czy systemem operacyjnym. Oznacza to, że nie trzeba stosować poprawek systemu operacyjnego serwera w celu zastosowania krytycznych uaktualnień ochrony ani wymieniać uszkodzonych dysków twardych.
+* **Skrypty i narzędzia**. Polecenia cmdlet programu PowerShell oraz interfejs wiersza polecenia platformy Azure umożliwiają tworzenie i instalowanie udziałów usługi Azure Files oraz zarządzanie nimi w ramach administracji aplikacjami platformy Azure. Udziały plików platformy Azure można tworzyć i zarządzać nimi za pomocą witryny Azure Portal i programu Azure Storage Explorer. 
+* **Odporność**. Usługa Azure Files została zbudowana od podstaw w celu zapewnienia nieprzerwanej dostępności. Dzięki zastąpieniu lokalnych udziałów plików usługą Azure Files już nigdy nie będziesz musieć usuwać lokalnych awarii zasilania ani rozwiązywać problemów z siecią. 
+* **Znajomy sposób programowania**. Aplikacje działające na platformie Azure mogą uzyskiwać dostęp do danych udziału za pomocą [interfejsów API We/Wy systemu plików](https://msdn.microsoft.com/library/system.io.file.aspx). Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Oprócz systemowych interfejsów API We/Wy można używać [bibliotek klienckich usługi Azure Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx) lub [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Następne kroki
-
 * [Create Azure File Share](storage-how-to-create-file-share.md) (Tworzenie udziału plików platformy Azure)
 * [Connect and Mount on Windows](storage-how-to-use-files-windows.md) (Nawiązywanie połączenia i instalowanie w systemie Windows)
 * [Connect and Mount on Linux](storage-how-to-use-files-linux.md) (Nawiązywanie połączenia i instalowanie w systemie Linux)
 * [Connect and Mount on macOS](storage-how-to-use-files-mac.md) (Nawiązywanie połączenia i instalowanie w systemie macOS)
-* [Często zadawane pytania](../storage-files-faq.md)
-* [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)   
-* [Rozwiązywanie problemów w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)   
-
-<!-- Rena I would remove any articles from here that are more than a year old. - Robin-->
-### <a name="conceptual-articles-and-videos"></a>Artykuły koncepcyjne i filmy
-* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/) (Azure File Storage: płynnie działający system plików SMB w chmurze dla systemów Windows i Linux)
-
-### <a name="tooling-support-for-azure-file-storage"></a>Narzędzia dostępne dla usługi Azure File Storage
-* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Jak używać narzędzia AzCopy z usługą Microsoft Azure Storage)
-* [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-
-### <a name="blog-posts"></a>Wpisy na blogach
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/) (Usługa Azure File Storage została udostępniona publicznie)
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Za kulisami usługi Azure File Storage)
-* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Wprowadzenie do usługi plików platformy Microsoft Azure)
-* [Migrowanie danych do usługi Pliki Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
-
-### <a name="reference"></a>Dokumentacja
-* [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [Dokumentacja interfejsu API REST usługi plików](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-

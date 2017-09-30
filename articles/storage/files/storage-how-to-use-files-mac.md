@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Instalowanie udziału plików platformy Azure za pomocą protokołu SMB w systemie macOS
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) to usługa firmy Microsoft umożliwiająca tworzenie i używanie udziałów plików sieciowych na platformie Azure zgodnie ze standardami branżowymi. Udziały plików platformy Azure można instalować w systemach macOS Sierra (10.12) i El Capitan (10.11). W tym artykule przedstawiono dwa różne sposoby instalowania udziału plików platformy Azure w systemie macOS — za pomocą interfejsu użytkownika programu Finder i Terminala.
+[Azure Files](storage-files-introduction.md) to usługa firmy Microsoft umożliwiająca tworzenie i używanie udziałów plików sieciowych na platformie Azure zgodnie ze standardami branżowymi. Udziały plików platformy Azure można instalować w systemach macOS Sierra (10.12) i El Capitan (10.11). W tym artykule przedstawiono dwa różne sposoby instalowania udziału plików platformy Azure w systemie macOS — za pomocą interfejsu użytkownika programu Finder i Terminala.
 
 > [!Note]  
 > Przed instalowaniem udziału plików platformy Azure przy użyciu protokołu SMB zaleca się wyłączenie podpisywanie pakietów SMB. Niezastosowanie się do tego zalecenia może spowodować zmniejszenie wydajności podczas uzyskiwania dostępu do udziału plików platformy Azure z systemu macOS. Połączenie SMB będzie szyfrowane, więc nie zostanie obniżone bezpieczeństwo Twojego połączenia. Następujące polecenia wykonane z poziomu terminala spowodują wyłączenie podpisywania pakietów SMB, jak opisano w tym [artykule pomocy technicznej firmy Apple dotyczącym wyłączania podpisywania pakietów SMB](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![Migawka przedstawiająca zainstalowany udział plików platformy Azure](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Magazyn plików Azure.
+Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files.
 
 * [Artykuł pomocy technicznej firmy Apple — Łączenie z funkcją Udostępnianie plików na komputerze Mac](https://support.apple.com/HT204445)
 * [Często zadawane pytania](../storage-files-faq.md)
