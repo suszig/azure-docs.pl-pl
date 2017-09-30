@@ -45,6 +45,8 @@
       items:
         - name: Konfigurowanie celów wykonania
           href: experiment-execution-configuration.md
+        - name: Tworzenie klastra DSVM i HDI Spark
+          href: how-to-create-dsvm-hdi.md
         - name: Szkolenie przy użyciu procesora GPU
           href: how-to-use-gpu.md
     - name: Uzyskiwanie i rozumienie danych

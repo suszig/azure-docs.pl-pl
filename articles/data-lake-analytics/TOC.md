@@ -33,6 +33,7 @@
 
 ## Debugowanie programów w języku U-SQL
 ### [Monitorowanie zadań i rozwiązywanie problemów](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Rozwiązywanie problemów z nietypowym zadaniem cyklicznym](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Debugowanie kodu C# w języku U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Korzystanie z przeglądarki zadań i widoku zadań](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Korzystanie z widoku wykonania na poziomie wierzchołka](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

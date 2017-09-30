@@ -26,9 +26,8 @@
 ### [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (interfejs wiersza polecenia)](load-balancer-get-started-internet-arm-cli.md)
 ### [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (szablon)](load-balancer-get-started-internet-arm-template.md)
 
-## [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (klasyczny portal)](load-balancer-get-started-internet-classic-portal.md)
+## [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (klasyczny program PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (klasyczna chmura)](load-balancer-get-started-internet-classic-cloud.md)
-### [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (klasyczny program PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem (klasyczny interfejs wiersza polecenia)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Tworzenie modułu równoważenia obciążenia połączonego z Internetem przy użyciu protokołu IPv6](load-balancer-ipv6-internet-ps.md)

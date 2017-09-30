@@ -148,13 +148,14 @@
 ### [Rozpoczęcie pracy](active-directory-integrating-applications-getting-started.md)
 ### [Samouczki integracji aplikacji SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Co to jest Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Kroki konfigurowania](cloudappdiscovery-get-started.md)
+#### [Konfigurowanie odnajdywania bez agentów](cloudappdiscovery-get-started.md)
 #### [Tworzenie raportów migawek](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurowanie ciągłego raportowania](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Korzystanie z niestandardowego analizatora dziennika](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Aktualizowanie ustawień rejestru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Objaśnienie zabezpieczeń i ochrony prywatności](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Odnajdywanie oparte na agentach
+##### [Co to jest Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Aktualizowanie ustawień rejestru](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Objaśnienie zabezpieczeń i ochrony prywatności](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Zdalny dostęp do aplikacji za pomocą serwera proxy aplikacji](active-directory-application-proxy-get-started.md)

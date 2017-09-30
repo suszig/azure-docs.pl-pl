@@ -29,6 +29,11 @@
 ### [Przesyłanie danych wyjściowych do usługi Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Wyjście do usługi Cosmos DB](stream-analytics-documentdb-output.md)
 
+## Korzystanie z narzędzi programu Visual Studio
+### [Instalowanie](stream-analytics-tools-for-visual-studio-install.md)
+### [Wprowadzenie](stream-analytics-tools-for-visual-studio.md)
+### [Konfigurowanie potoków ciągłej integracji/ciągłego dostarczania](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## Monitorowanie i optymalizowanie
 ### [Dodawanie alertów](stream-analytics-set-up-alerts.md)
 ### [Monitorowanie zadań](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [Dzienniki diagnostyczne](stream-analytics-job-diagnostic-logs.md)
 
 ## Automatyzacja
-### [Narzędzia dla programu Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Korzystanie z zestawu SDK zarządzania dla platformy .NET](stream-analytics-dotnet-management-sdk.md)
 ### [Obsługa programu Azure PowerShell jednym kliknięciem](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
