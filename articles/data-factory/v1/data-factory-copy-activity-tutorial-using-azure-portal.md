@@ -160,7 +160,7 @@ W analogiczny sposób połączona usługa Azure SQL Database określa parametry 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
 W tym kroku opisano tworzenie zestawu danych o nazwie InputDataset wskazującego na plik obiektów blob (emp.txt) w katalogu głównym kontenera obiektów blob (adftutorial) w usłudze Azure Storage reprezentowany przez połączoną usługę AzureStorageLinkedService. Jeśli nie określisz wartości obiektu fileName lub ją pominiesz, dane ze wszystkich obiektów blob w folderze wejściowym zostaną skopiowane do lokalizacji docelowej. W tym samouczku wartość obiektu fileName jest określona. 
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej**, **Nowy zestaw danych** i **Azure Blob Storage** w menu rozwijanym. 
    
     ![Menu Nowy zestaw danych](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
@@ -217,7 +217,7 @@ W tym kroku opisano tworzenie zestawu danych o nazwie InputDataset wskazującego
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 Połączona usługa Azure SQL Database określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z bazą danych SQL usługi Azure. Wyjściowy zestaw danych tabeli SQL (OutputDataset) tworzony w tym kroku określa tabelę w bazie danych, do której są kopiowane dane z magazynu obiektów blob.
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej**, **Nowy zestaw danych** i **SQL Azure** w menu rozwijanym. 
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON:
 
     ```json   
@@ -266,7 +266,7 @@ W tym kroku opisano tworzenie potoku za pomocą **działania kopiowania**, w kt�
 
 Obecnie harmonogram jest prowadzony przy użyciu wyjściowego zestawu danych. W tym samouczku wyjściowy zestaw danych jest konfigurowany do tworzenia wycinka co godzinę. Potok ma godzinę rozpoczęcia i zakończenia, między którymi następuje jeden dzień różnicy (dokładnie 24 godziny). Potok tworzy więc 24 wycinki wyjściowego zestawu danych. 
 
-1. W **edytorze** fabryki danych kliknij kolejno polecenia ** Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
+1. W **edytorze** fabryki danych kliknij kolejno polecenia  **Więcej** i **Nowy potok**. Możesz również kliknąć prawym przyciskiem myszy opcję **Potoki** w widoku drzewa i kliknąć opcję **Nowy potok**.
 2. Zastąp kod JSON w prawym okienku następującym fragmentem kodu JSON: 
 
     ```json   
