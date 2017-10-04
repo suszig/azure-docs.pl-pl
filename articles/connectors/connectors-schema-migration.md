@@ -39,7 +39,7 @@ Aby zmienić schemat istniejących aplikacji logiki na nowy, wykonaj następują
 ## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Najlepsze rozwiązania w celu przeprowadzania migracji aplikacji logiki do najnowszej wersji schematu:
 * Skopiuj zmigrowany skrypt do nowej aplikacji logiki — nie zastępuj starego skryptu do chwili, gdy zakończysz testy i potwierdzisz, że zmigrowana aplikacja działa zgodnie z oczekiwaniami.
 * Przetestuj aplikację logiki **przed** użyciem jej w środowisku produkcyjnym.
-* Po zakończeniu migracji rozpocznij aktualizowanie aplikacji logiki, aby korzystały z [zarządzanych interfejsów API](apis-list.md), jeżeli jest to możliwe. Na przykład możesz zacząć używać interfejsu DropBox&2; tam, gdzie jest używany interfejs DropBox&1;.
+* Po zakończeniu migracji rozpocznij aktualizowanie aplikacji logiki, aby korzystały z [zarządzanych interfejsów API](apis-list.md), jeżeli jest to możliwe. Na przykład możesz zacząć używać interfejsu DropBox 2 tam, gdzie jest używany interfejs DropBox 1.
 
 ## <a name="whats-next"></a>Co dalej
 * [Dowiedz się, jak ręcznie migrować aplikacje logiki](../logic-apps/logic-apps-schema-2015-08-01.md)
