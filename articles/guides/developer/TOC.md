@@ -1,11 +1,5 @@
 # Omówienie
 ## [Przewodnik dla deweloperów](azure-developer-guide.md) 
-### [Co to jest Azure?](azure-developer-guide.md#what-is-azure)
-### [Od czego zacząć?](azure-developer-guide.md#where-do-i-start)
-### [Regiony platformy Azure](azure-developer-guide.md#azure-regions)
-### [Jak zarządzać własnymi aplikacjami i projektami?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Omówienie kont, subskrypcji i rozliczeń](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Omówienie usług platformy Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Omówienie portalu](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Zestawy SDK i narzędzia](https://docs.microsoft.com/azure/index#pivot=sdkstools)

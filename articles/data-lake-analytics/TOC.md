@@ -9,7 +9,7 @@
 
 # Instrukcje
 
-## Zarządzanie kontami usługi Data Lake Analytics
+## Zarządzanie usługą Data Lake Analytics
 ### [Witryna Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Interfejs wiersza polecenia platformy Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
