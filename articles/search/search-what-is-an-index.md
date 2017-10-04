@@ -45,7 +45,7 @@ W trakcie definiowania schematu musisz określić nazwę, typ i atrybuty każdeg
 | *Edm.Int32* |32-bitowe wartości całkowite. |
 | *Edm.Int64* |64-bitowe wartości całkowite. |
 | *Edm.Double* |Dane liczbowe o podwójnej precyzji. |
-| *Edm.DateTimeOffset* |Wartości daty i godziny przedstawione w formacie OData&4; (np. w formacie `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Wartości daty i godziny przedstawione w formacie OData 4 (np. w formacie `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Punkt przedstawiający lokalizację geograficzną na świecie. |
 
 Dowiedz się więcej na temat [typów danych obsługiwanych przez usługę Azure Search w tym miejscu](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
