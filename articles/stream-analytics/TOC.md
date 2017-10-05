@@ -25,7 +25,6 @@
 ### [Integrowanie funkcji UDF języka JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrowanie interfejsu API REST i usługi Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Tworzenie wyjść](stream-analytics-define-outputs.md)
-### [Przesyłanie danych wyjściowych do usługi Azure Functions](stream-analytics-functions-redis.md)
 ### [Przesyłanie danych wyjściowych do usługi Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Wyjście do usługi Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Monitorowanie zadań](stream-analytics-monitoring.md)
 ### [Programowe monitorowanie zadań](stream-analytics-monitor-jobs.md)
 ### [Monitorowanie zadań w programie PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optymalizacja jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md)
+### [Opis i dostosowywanie jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md)
+### [Wykorzystywanie przetwarzania równoległego zapytań](stream-analytics-parallelization.md)
 ### [Skalowanie w celu zwiększenia przepływności](stream-analytics-scale-jobs.md)
 ### [Skalowanie funkcji usługi Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 

@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 —Kontrola dostępu do danych
       href: tutorial-user-access.md
+    - name: 3 — Prognozowanie wydatków
+      href: tutorial-forecast-spending.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

@@ -1,13 +1,13 @@
-- name: Usługa ACS z rozwiązaniem Kubernetes
+- name: Usługa Kubernetes na platformie Azure
   href: ./index.yml
 - name: Omówienie
   items:
-    - name: Informacje o usłudze Container Service
+    - name: Usługa Kubernetes na platformie Azure
       href: container-service-intro-kubernetes.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Rozwiązanie Kubernetes w systemie Linux
+    - name: Usługa Kubernetes na platformie Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Samouczki
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 — Monitorowanie za pomocą usługi OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Przykłady
-  items:
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: cli-samples.md
 - name: Pojęcia
   items:
-    - name: Zabezpieczanie kontenerów
-      href: container-service-security.md
     - name: Jednostka usługi — usługa Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Przewodniki z instrukcjami
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Interfejs internetowy Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Wdrażanie wykresów rozwiązania Helm
+    - name: Używanie wykresów rozwiązania Helm
       href: container-service-kubernetes-helm.md
-    - name: Jenkins i ACS — Kubernetes
+    - name: Korzystanie z usługi Jenkins z usługą ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Tworzenie wersji roboczych za pomocą usług ACR i ACS
+    - name: Korzystanie z wersji roboczych z usługą ACS
       href: container-service-draft-up.md
-    - name: Łączenie z klastrem ACS
-      href: container-service-connect.md
-    - name: Skalowanie klastra ACS
+    - name: Skalowanie klastra
       href: container-service-scale.md
-    - name: Równoważenie obciążenia klastra Kubernetes ACS
-      href: container-service-kubernetes-load-balancing.md
     - name: Monitorowanie
       items:
         - name: Monitorowanie za pomocą usługi OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Dokumentacja
   items:
-    - name: Interfejs wiersza polecenia platformy Azure 2.0
+    - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

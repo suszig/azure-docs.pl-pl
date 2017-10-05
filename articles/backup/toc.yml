@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Często zadawane pytania dotyczące tworzenia kopii zapasowej plików i folderów przy użyciu agenta usługi Azure Backup
           href: backup-azure-file-folder-backup-faq.md
+        - name: Często zadawane pytania dotyczące automatycznego uaktualniania magazynu kopii zapasowych
+          href: backup-upgrade-backup-vault.md
     - name: Kontrola dostępu oparta na rolach
       href: backup-rbac-rs-vault.md
     - name: Zabezpieczenia hybrydowych kopii zapasowych

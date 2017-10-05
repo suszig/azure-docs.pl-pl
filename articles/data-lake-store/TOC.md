@@ -1,22 +1,18 @@
 # Omówienie
 ## [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md)
 ## [Porównanie usług Azure Data Lake Store i Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Przetwarzanie danych big data za pomocą usługi Azure Data Lake Store](data-lake-store-data-scenarios.md)
-## [Aplikacje typu „open source” działające z usługą Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Usługa Azure Data Lake Store do przetwarzania danych big data](data-lake-store-data-scenarios.md)
+## [Aplikacje typu „open source” współdziałające z usługą Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Rozpoczęcie pracy
-## [Korzystanie z witryny Azure Portal](data-lake-store-get-started-portal.md)
-## [Korzystanie z programu Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-get-started-net-sdk.md)
-## [Korzystanie z zestawu SDK dla języka Java](data-lake-store-get-started-java-sdk.md)
-## [Korzystanie z interfejsu API REST](data-lake-store-get-started-rest-api.md)
-## [Korzystanie z interfejsu wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
-## [Korzystanie ze środowiska Node.js](data-lake-store-manage-use-nodejs.md)
-## [Korzystanie z języka Python](data-lake-store-get-started-python.md)
+## [Korzystanie z portalu](data-lake-store-get-started-portal.md)
+## [Korzystanie z programu PowerShell](data-lake-store-get-started-powershell.md)
+## [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](data-lake-store-get-started-cli-2.0.md)
+
 
 # Instrukcje
-## Kopiowanie danych
-### [Używanie usługi Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+## Ładowanie i przenoszenie danych
+### [Używanie usługi Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Korzystanie z narzędzia AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Korzystanie z narzędzia DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Korzystanie z narzędzia Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -27,12 +23,35 @@
 ### [Omówienie zabezpieczeń](data-lake-store-security-overview.md)
 ### [Kontrola dostępu w usłudze Data Lake Store](data-lake-store-access-control.md)
 ### [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
-### [Uwierzytelnianie między usługami](data-lake-store-authenticate-using-active-directory.md)
-### [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Szyfrowanie](data-lake-store-encryption.md)
+
+## Uwierzytelnianie za pomocą usługi Data Lake Store
+### [Opcje uwierzytelniania](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Korzystanie z języka Java](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Korzystanie z interfejsu API REST](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Korzystanie z języka Python](data-lake-store-end-user-authenticate-python.md)
+### [Uwierzytelnianie między usługami](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Korzystanie z języka Java](data-lake-store-service-to-service-authenticate-java.md)
+#### [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Korzystanie z interfejsu API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Korzystanie z języka Python](data-lake-store-service-to-service-authenticate-python.md)
+
+## Praca z usługą Data Lake Store
+### Operacje zarządzania kontami
+#### [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-get-started-net-sdk.md)
+#### [Korzystanie z interfejsu API REST](data-lake-store-get-started-rest-api.md)
+#### [Korzystanie z języka Python](data-lake-store-get-started-python.md)
+### Operacje systemu plików
+#### [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-data-operations-net-sdk.md)
+#### [Korzystanie z zestawu SDK dla języka Java](data-lake-store-get-started-java-sdk.md)
+#### [Korzystanie z interfejsu API REST](data-lake-store-data-operations-rest-api.md)
+#### [Korzystanie z języka Python](data-lake-store-data-operations-python.md)
 
 ## Wydajność
 ### [Wskazówki dotyczące dostrajania wydajności usługi Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Wskazówki dotyczące dostrajania wydajności w przypadku używania programu PowerShell z usługą Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 ### [Wskazówki dotyczące dostrajania wydajności oprogramowania Spark w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 ### [Wskazówki dotyczące dostrajania wydajności oprogramowania Hive w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
 ### [Wskazówki dotyczące dostrajania wydajności oprogramowania MapReduce w usługach HDInsight i Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)

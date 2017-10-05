@@ -37,11 +37,13 @@
 ### [Obsługa protokołu HTTP/2](cdn-http2.md)
 
 ## Analiza
-### [Analizowanie wzorców użycia](cdn-analyze-usage-patterns.md)
-### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
-### [Wyświetlanie statystyk w czasie rzeczywistym](cdn-real-time-stats.md)
-### [Analizowanie wydajności węzła krawędzi](cdn-edge-performance.md)
-### [Eksportowanie metryk z dziennikami diagnostyki](cdn-log-analysis.md)
+### [Analizowanie wzorców użycia usługi Azure CDN](cdn-log-analysis.md)
+#### [Raporty podstawowe z usługi Verizon](cdn-analyze-usage-patterns.md)
+#### [Dzienniki diagnostyczne platformy Azure](cdn-azure-diagnostic-logs.md)
+### Narzędzia do analizy dla usługi Azure CDN świadczonej przez firmę Verizon
+#### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
+#### [Wyświetlanie statystyk w czasie rzeczywistym](cdn-real-time-stats.md)
+#### [Analizowanie wydajności węzła krawędzi](cdn-edge-performance.md)
 
 ## Programowanie
 ### [.NET](cdn-app-dev-net.md)

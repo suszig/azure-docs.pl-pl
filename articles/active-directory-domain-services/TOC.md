@@ -16,8 +16,9 @@
 # Instrukcje
 ## Dołączanie do domeny zarządzanej
 ### [Dołączanie maszyny wirtualnej z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Dołączanie maszyny wirtualnej z systemem Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Dołączanie maszyny wirtualnej z systemem Windows Server przy użyciu programu PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Serwer Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrowanie domeną zarządzaną
 ### [Administrowanie domeną zarządzaną](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrowanie systemem DNS w domenie zarządzanej](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
 ### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
-### [Enable the preview Azure portal experience (Włączanie środowiska witryny Azure Portal w wersji zapoznawczej)](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors (Rozwiązywanie błędów dotyczących niezgodnych dzierżaw)](active-directory-ds-mismatched-tenant-error.md)
 
 # Dokumentacja

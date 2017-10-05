@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Śledzenie historii uruchomień i metryk modelu
           href: how-to-use-run-history-model-metrics.md
+        - name: Jak znaleźć przebiegi z najlepszą dokładnością i najkrótszym czasem trwania
+          href: how-to-find-best-accuracy-cli.md
         - name: Odczytywanie i zapisywanie plików
           href: how-to-read-write-files.md
         - name: Biblioteka MMLSpark

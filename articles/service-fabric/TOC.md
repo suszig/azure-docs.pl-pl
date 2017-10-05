@@ -26,8 +26,8 @@
 
 ## Tworzenie klastra i zarządzanie nim
 ### 1 — Tworzenie klastra na platformie Azure
-#### [1a — Tworzenie bezpiecznego klastra z systemem Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b — Tworzenie bezpiecznego klastra z systemem Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a — Tworzenie klastra z systemem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b — Tworzenie klastra z systemem Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 — Wdrażanie usług API Management i Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Przykłady
@@ -198,7 +198,6 @@
 ### Tworzenie usługi Reliable Actors
 #### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java w systemie Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java Actor on Linux (Aktor Java w systemie Linux)](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Wysyłanie powiadomień](service-fabric-reliable-actors-events.md)
 #### [Ustawianie czasomierzy i przypomnień](service-fabric-reliable-actors-timers-reminders.md)
