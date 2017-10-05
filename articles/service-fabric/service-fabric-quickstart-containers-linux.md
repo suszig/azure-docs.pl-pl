@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
@@ -64,7 +64,7 @@ Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie 
 >
 
 ### <a name="deploy-the-application-manifests"></a>Wdrażanie manifestów aplikacji 
-Zainstaluj wiersz polecenia usługi Service Fabric (sfctl) w środowisku interfejsu wiersza polecenia
+Zainstaluj [interfejs wiersza polecenia usługi Service Fabric (sfctl)](service-fabric-cli.md) w środowisku interfejsu wiersza polecenia.
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ Użyj udostępnionego skryptu instalacji, aby skopiować definicję aplikacji do
 ./install.sh
 ```
 
-Otwórz przeglądarkę i przejdź do narzędzia Service Fabric Explorer pod adresem http://\<adres_URL_mojego_klastra_usługi_azure_service_fabric>:80 — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Rozwiń węzeł aplikacji, aby sprawdzić, czy istnieje teraz wpis dla typu aplikacji do głosowania i utworzonego wystąpienia.
+Otwórz przeglądarkę i przejdź do narzędzia Service Fabric Explorer pod adresem http://\<adres_URL_mojego_klastra_usługi_azure_service_fabric>:19080/Explorer — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Rozwiń węzeł aplikacji, aby sprawdzić, czy istnieje teraz wpis dla typu aplikacji do głosowania i utworzonego wystąpienia.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Usługa Service Fabric zapewnia, że wystąpienia kontenera są automatycznie pr
 
 Aby przenieść kontener frontonu do trybu failover, wykonaj następujące czynności:
 
-1. Otwórz narzędzie Service Fabric Explorer w klastrze — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Otwórz narzędzie Service Fabric Explorer w klastrze — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Kliknij węzeł **fabric:/Voting/azurevotefront** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID). W widoku drzewa zwróć uwagę na nazwę węzła przedstawiającą węzły, w których obecnie uruchomiono kontener — na przykład `_nodetype_4`
 3. Rozwiń węzeł **Węzły** w widoku drzewa. Kliknij wielokropek (trzy kropki) obok węzła działającego w kontenerze.
 4. Wybierz pozycję **Uruchom ponownie**, aby ponownie uruchomić ten węzeł, i potwierdź akcję ponownego uruchomienia. Ponowne uruchomienie powoduje przeniesienie kontenera do trybu failover w innym węźle klastra.

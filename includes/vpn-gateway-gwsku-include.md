@@ -22,7 +22,7 @@ Nowe jednostki SKU bramy usprawniają zestawy funkcji oferowane w bramach:
 
 | **SKU**| **Funkcje**|
 | ---    | ---         |
-|**Podstawowa**   | **Sieć VPN oparta na trasach**: 10 tuneli z połączeniami typu punkt-lokacja<br><br>**Sieć VPN oparta na zasadach** (IKEv1): 1 tunel, bez połączeń typu punkt-lokacja|
+|**Podstawowa**   | **Sieć VPN oparta na trasach**: 10 tuneli z połączeniami typu punkt-lokacja, bez uwierzytelniania za pomocą protokołu RADIUS, bez protokołu IKEv2<br>**Sieć VPN oparta na zasadach** (IKEv1): 1 tunel, bez połączeń typu punkt-lokacja|
 | **VpnGw1, VpnGw2 i VpnGw3** | **Sieć VPN oparta na trasach**: do 30 tuneli (*), połączenia typu punkt-lokacja, protokół BGP, konfiguracja aktywne-aktywne, niestandardowe zasady protokołu IPsec/IKE, współistnienie usługi ExpressRoute i sieci VPN |
 |        |             |
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 341128e4a1ad6902f6052eb954ffae08e5d78121
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="network-security"></a>Bezpieczeństwo sieci
@@ -129,7 +129,7 @@ Nie można usunąć reguł domyślnych, ale można je przesłonić, tworząc reg
 * **Internet** (model wdrażania przy użyciu usługi Resource Manager) (**INTERNET** — model klasyczny): ten tag określa przestrzeń publicznych adresów IP platformy Azure. Adresy objęte przez ten tag są wymienione w dokumencie [Przestrzeń publicznych adresów IP należąca do Azure](https://www.microsoft.com/download/details.aspx?id=41653), który jest regularnie aktualizowany.
 * **AzureTrafficManager** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa przestrzeń adresów IP dla usługi Azure Traffic Manager.
 * **Storage** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa przestrzeń adresów IP dla usługi Azure Storage. W przypadku określenia wartości *Storage* dozwolony lub blokowany jest ruch do usługi Storage. Jeśli chcesz zezwolić na dostęp do usługi Storage w konkretnym [regionie](https://azure.microsoft.com/regions), możesz określić region. Jeśli na przykład chcesz zezwolić na dostęp do usługi Azure Storage tylko w regionie Wschodnie stany USA, możesz określić *Storage.EastUS* jako tag usługi. Dostępne dodatkowe regionalne tagi usługi: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS, and Storage.WestUS2. Tag reprezentuje usługę, ale nie konkretne wystąpienia usługi. Na przykład tag reprezentuje usługę Azure Storage, ale nie konkretne konto usługi Azure Storage.
-* **Sql** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa prefiksy adresów usług Azure SQL Database i Azure SQL Data Warehouse. Dla tego tagu usługi można określić tylko konkretne regiony. Jeśli na przykład chcesz zezwolić na dostęp do usługi Azure SQL Database tylko w regionie Wschodnie stany USA, możesz określić *Sql.EastUS* jako tag usługi. Tagu Sql nie można określić dla wszystkich regionów platformy Azure, należy określić regiony pojedynczo. Inne dostępne regionalne tagi usługi: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS, and Storage.WestUS2. Tag reprezentuje usługę, ale nie konkretne wystąpienia usługi. Na przykład tag reprezentuje usługę Azure SQL Database, ale nie konkretną bazę danych Azure SQL Database.
+* **Sql** (tylko model wdrażania przy użyciu usługi Resource Manager): ten tag określa prefiksy adresów usług Azure SQL Database i Azure SQL Data Warehouse. Dla tego tagu usługi można określić tylko konkretne regiony. Jeśli na przykład chcesz zezwolić na dostęp do usługi Azure SQL Database tylko w regionie Wschodnie stany USA, możesz określić *Sql.EastUS* jako tag usługi. Tagu Sql nie można określić dla wszystkich regionów platformy Azure, należy określić regiony pojedynczo. Inne dostępne regionalne tagi usługi: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS, and Sql.WestUS2. Tag reprezentuje usługę, ale nie konkretne wystąpienia usługi. Na przykład tag reprezentuje usługę Azure SQL Database, ale nie konkretną bazę danych Azure SQL Database.
 
 > [!WARNING]
 > Tagi usługi AzureTrafficManager, Storage i Sql są dostępne w wersji zapoznawczej. Funkcje w wersji zapoznawczej nie mają takiego samego poziomu dostępności i niezawodności jak funkcje w głównym wydaniu. Tagi usługi dostępne tylko w następujących regionach świadczenia usług Azure: wschodnie stany USA, zachodnie stany USA, zachodnie stany USA 2, środkowo-zachodnie stany USA, Australia Wschodnia, Australia Południowo-Wschodnia i południowe Zjednoczone Królestwo.

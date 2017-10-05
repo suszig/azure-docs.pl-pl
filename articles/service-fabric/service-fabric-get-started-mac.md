@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
@@ -49,7 +49,7 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Ten krok spowoduje pobranie pliku `Vagrantfile` zawierającego konfigurację maszyny wirtualnej wraz z lokalizacją, z której jest pobierana maszyna wirtualna.  Plik wskazuje standardowy obraz systemu Ubuntu. 
+    Te kroki powodują pobranie pliku `Vagrantfile` zawierający konfigurację maszyny wirtualnej wraz z lokalizacją, z której jest pobierana maszyna wirtualna.  Plik wskazuje standardowy obraz systemu Ubuntu.
 
 2. Przejdź do lokalnego klona repozytorium.
 
@@ -76,7 +76,7 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
     ```bash
     vagrant ssh
     ```
-   
+
    Zainstaluj zestaw SDK, zgodnie z opisem w sekcji dotyczącej [instalacji zestawu SDK](service-fabric-get-started-linux.md).  Poniższy skrypt jest dostarczany jako udogodnienie dotyczące instalowania środowiska uruchomieniowego usługi Service Fabric i wspólnego zestawu SDK usługi Service Fabric wraz z interfejsem wiersza polecenia sfctl. Podczas uruchamiania skryptu jest przyjmowane założenie, że znasz i akceptujesz warunki licencji wszystkich instalowanych programów.
 
     ```bash
@@ -97,6 +97,23 @@ Aby utworzyć lokalną maszynę wirtualną zawierającą pięciowęzłowy klaste
 
     ![Narzędzie Service Fabric Explorer wyświetlane z komputera Mac hosta][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Instalowanie niezbędnych artefaktów Java w programie Vagrant w celu używania modelu programowania Java usługi Service Fabric
+
+Aby kompilować usługi Service Fabric przy użyciu platformy Java, upewnij się, że masz zainstalowany zestaw JDK 1.8 wraz z narzędziem Gradle, które jest używane do uruchamiania zadań kompilacji. Poniższy fragment kodu instaluje zestaw Open JDK 1.8 wraz z narzędziem Gradle. Biblioteki Java usługi Service Fabric są ściągane z narzędzia Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric
+
+[Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md) zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Python, dlatego wymaga zainstalowania języka Python i narzędzia pip przed kontynuowaniem pracy przy użyciu następującego polecenia:
+
+```bash
+pip install sfctl
+```
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Tworzenie aplikacji na komputerze Mac przy użyciu narzędzia Yeoman
 Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które ułatwiają tworzenie aplikacji usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów narzędzia Yeoman. Wykonaj poniższe kroki, aby upewnić się, że masz generator szablonów narzędzia Yeoman szablonu usługi Service Fabric działający na Twoim komputerze.
@@ -141,6 +158,7 @@ Usługa Service Fabric udostępnia wtyczkę dla **środowiska IDE Eclipse Neon d
 * [Tworzenie klastra usługi Service Fabric w witrynie Azure Portal](service-fabric-cluster-creation-via-portal.md)
 * [Tworzenie klastra usługi Service Fabric przy użyciu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Informacje o modelu aplikacji usługi Service Fabric](service-fabric-application-model.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md) (Zarządzanie aplikacjami przy użyciu interfejsu wiersza polecenia usługi Service Fabric)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
