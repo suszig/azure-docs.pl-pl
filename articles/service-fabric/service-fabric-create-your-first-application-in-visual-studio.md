@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
 ms.translationtype: HT
 ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442

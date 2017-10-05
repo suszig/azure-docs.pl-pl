@@ -3,7 +3,7 @@ title: "Sprawdzanie poprawności konfiguracji konta usługi Azure Automation | M
 description: "W tym artykule został opisany sposób potwierdzania, że konfiguracja konta usługi Automation jest poprawna."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

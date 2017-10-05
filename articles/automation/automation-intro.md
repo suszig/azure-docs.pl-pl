@@ -3,7 +3,7 @@ title: "Co to jest usługa Azure Automation | Microsoft Docs"
 description: "Dowiedz się, jakie korzyści oferuje usługa Azure Automation, i uzyskaj odpowiedzi na typowe pytania, aby móc rozpocząć tworzenie przy użyciu elementów Runbook i konfiguracji DSC usługi Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "co to jest usługa automation, azure automation, przykłady usługi azure automation"

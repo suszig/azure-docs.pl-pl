@@ -3,7 +3,7 @@ title: "Tworzenie konta Uruchom jako usługi Azure Automation za pomocą program
 description: "W tym artykule opisano sposób uaktualniania swojego konta usługi Automation za pomocą programu PowerShell w celu utworzenia kont Uruchom jako, jeśli ten krok nie został wykonany podczas początkowego tworzenia z portalu."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

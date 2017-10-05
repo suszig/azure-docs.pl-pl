@@ -3,7 +3,7 @@ title: "Tworzenie konta użytkownika usługi Azure AD | Microsoft Docs"
 description: "W tym artykule opisano sposób tworzenia poświadczeń konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania na platformie Azure i klasycznej platformie Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "konto użytkownika usługi Azure Active Directory, azure service management, konto użytkownika usługi Azure AD"

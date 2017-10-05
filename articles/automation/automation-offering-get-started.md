@@ -3,7 +3,7 @@ title: "Rozpoczynanie pracy z usługą Azure Automation | Microsoft Docs"
 description: "Ten artykuł zawiera omówienie usługi Azure Automation oparte na przeglądzie szczegółów projektu i implementacji w ramach przygotowania do dołączenia oferty z platformy Azure Marketplace."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

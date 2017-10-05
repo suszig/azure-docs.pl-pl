@@ -3,7 +3,7 @@ title: "Obsługa błędów w graficznych elementach runbook w usłudze Azure Aut
 description: "W tym artykule został opisany sposób implementacji logiki obsługi błędów w graficznych elementach Runbook w usłudze Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

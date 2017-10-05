@@ -3,7 +3,7 @@ title: "Mój pierwszy element Runbook programu PowerShell w usłudze Azure Autom
 description: W tym samouczku przedstawiono procesy tworzenia, testowania i publikowania prostego elementu Runbook programu PowerShell.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: azure powershell, samouczek skryptu programu powershell, automatyzacja programu powershell

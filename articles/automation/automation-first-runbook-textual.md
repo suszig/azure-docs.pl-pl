@@ -3,7 +3,7 @@ title: "Mój pierwszy element Runbook przepływu pracy programu PowerShell w us�
 description: "Samouczek, który przeprowadzi Cię przez procesy tworzenia, testowania i publikowania prostego tekstowego elementu Runbook przy użyciu przepływu programu PowerShell."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "przepływ pracy programu powershell, przykłady przepływu pracy programu powershell, program powershell przepływu pracy"

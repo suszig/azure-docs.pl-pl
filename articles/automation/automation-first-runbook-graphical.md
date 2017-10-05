@@ -3,7 +3,7 @@ title: "Mój pierwszy graficzny element Runbook w usłudze Azure Automation | Mi
 description: "Samouczek, który przeprowadzi Cię przez procesy tworzenia, testowania i publikowania prostego graficznego elementu Runbook."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: runbook, szablon runbook, automatyzacja runbook, azure runbook
