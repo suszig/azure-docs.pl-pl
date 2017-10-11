@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Web UI](../articles/hdinsight/hdinsight-hadoop-manage-ambari.md)
-> * [REST API](../articles/hdinsight/hdinsight-hadoop-manage-ambari-rest-api.md)
+> * [Interfejs użytkownika sieci Web](../articles/hdinsight/hdinsight-hadoop-manage-ambari.md)
+> * [Interfejs API REST](../articles/hdinsight/hdinsight-hadoop-manage-ambari-rest-api.md)
 > 
 > 
 

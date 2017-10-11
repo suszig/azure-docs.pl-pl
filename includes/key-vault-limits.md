@@ -1,16 +1,16 @@
-Key transactions (Max transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
+Klucz transakcji (transakcji maksymalna dozwolona za 10 sekund na magazynu na region<sup>1</sup>):
 
-|Key type|HSM-Key<br>CREATE Key|HSM-key<br>All other transactions|Software-key<br>CREATE Key|Software-key<br>All other transactions|
+|Typ klucza|Klucz HSM<br>Utwórz klucz|Klucz HSM<br>Wszystkie inne transakcje|Klucz oprogramowania<br>Utwórz klucz|Klucz oprogramowania<br>Wszystkie inne transakcje|
 |:---|---:|---:|---:|---:|
-|RSA 2048-bit|5|1000|10|2000|
-|RSA 3072-bit|5|250|10|500|
-|RSA 4096-bit|5|125|10|250|
+|RSA 2048-bitowego|5|1000|10|2000|
+|RSA 3072-bitowy|5|250|10|500|
+|RSA 4096-bitowego|5|125|10|250|
 |
 
-Secrets, Managed Storage Account Keys, and vault transactions:
-| Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
+Klucze tajne, zarządzane klucze konta magazynu i transakcji magazynu:
+| Typ transakcji | Maksymalna liczba transakcji za 10 sekund dozwolony magazynu na region<sup>1</sup> |
 | --- | --- |
-| All transactions |2000 |
+| Wszystkie transakcje |2000 |
 |
 
-<sup>1</sup> There is a subscription-wide limit for all transaction types, that is 5x per key vault limit. For example, HSM- other transactions per subscription are limited to 5000 transactions in 10 seconds per subscription.
+<sup>1</sup> jest ograniczona do całej subskrypcji, dla wszystkich typów transakcji, które 5 x limitu magazynu kluczy. Na przykład HSM - inne transakcje dla subskrypcji są ograniczone do 5000 transakcji za 10 sekund na subskrypcję.

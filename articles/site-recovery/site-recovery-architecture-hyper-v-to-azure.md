@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Jak działa replikacja funkcji Hyper-V do platformy Azure w usłudze Site Recovery?
 
 
@@ -68,8 +65,7 @@ Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagani
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
 4. To zadanie możesz monitorować na karcie **Zadania**.
-        ![Lista zadań](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Szczegóły zadania Włącz ochronę](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![Lista zadań](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikowanie danych początkowych
 
@@ -126,4 +122,3 @@ Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm pona
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z [macierzą obsługi](site-recovery-support-matrix-to-azure.md)
-

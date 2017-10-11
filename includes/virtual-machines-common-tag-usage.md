@@ -1,20 +1,20 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
-Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+## <a name="viewing-your-tags-in-the-usage-details"></a>Wyświetlanie znaczników w szczegóły użycia
+Tagi dotyczącymi obliczeniowych, sieci i zasobów magazynu w modelu wdrażania usługi Resource Manager zostanie wypełniona w Twoje dane użycia w [portal rozliczeń](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Polecenie **Pobierz szczegóły użycia** Aby wyświetlić szczegóły użycia w ramach subskrypcji.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Szczegóły użycia w portalu Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Wybierz instrukcji rozliczeń i **w wersji 2** Szczegóły obciążenia:
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Szczegóły użycia podglądu w wersji 2 w portalu Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+Z szczegóły użycia można wyświetlić wszystkie tagi w **tagi** kolumny:
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Kolumna znaczników w portalu Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
+Analizując te znaczniki wraz z użycia organizacji będzie można uzyskać nowy wgląd w ich dane dotyczące zużycia.
 

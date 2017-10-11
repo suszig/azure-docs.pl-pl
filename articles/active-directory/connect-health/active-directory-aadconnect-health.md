@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze
 Program Azure Active Directory (Azure AD) Connect Health pomaga monitorować i zdobywać informacje o lokalnej infrastrukturze do obsługi tożsamości oraz usługach synchronizacji. Umożliwia utrzymywanie niezawodnego połączenia z usługami Office 365 i Microsoft Online Services, udostępniając funkcje monitorowania kluczowych składników tożsamości, takich jak serwery usług Active Directory Federation Services (AD FS), serwery programu Azure AD Connect (nazywane także aparatem synchronizacji), kontrolery domeny usługi Active Directory itp. Zapewnia także łatwy dostęp do kluczowych punktów danych dotyczących tych składników, umożliwiając zdobywanie informacji o użyciu i innych istotnych parametrach, co pozwala na świadome podejmowanie decyzji.
@@ -125,4 +124,3 @@ Portal programu Azure AD Connect Health umożliwia wyświetlanie alertów, wynik
 * [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

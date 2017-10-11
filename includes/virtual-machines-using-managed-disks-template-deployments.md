@@ -1,10 +1,10 @@
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Using Managed Disks in Azure Resource Manager Templates
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Za pomocą Managed dysków w szablonach usługi Azure Resource Manager
 
-This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. This will help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
+Ten dokument przeprowadzi Cię przez różnice między zarządzanymi i niezarządzanymi dysków przy użyciu szablonów usługi Azure Resource Manager na umieszczanie maszyn wirtualnych. Umożliwi to aktualizowanie istniejących szablonów, które korzystają z dysków niezarządzanych do zarządzanych dysków. Odwołania, jest używany [101 maszyny wirtualnej — prosty — windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) szablonu jako przewodnika. Widać szablon przy użyciu zarówno [dyskach zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) i przy użyciu poprzedniej wersji [niezarządzanych dysków](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) Jeśli chcesz bezpośrednio porównywać.
 
-## <a name="unmanaged-disks-template-formatting"></a>Unmanaged Disks template formatting
+## <a name="unmanaged-disks-template-formatting"></a>Niezarządzane formatowania szablonu dysków
 
-To begin, we take a look at how unmanaged disks are deployed. When creating unmanaged disks, you need a storage account to hold the VHD files. You can create a new storage account or use one that already exists. This article will show you how to create a new storage account. To accomplish this, you need a storage account resource in the resources block as shown below.
+Aby rozpocząć, firma Microsoft zapoznaj się z informacjami w sposób niezarządzany dyski są wdrażane. Podczas tworzenia dysków niezarządzane, potrzebujesz konta magazynu do przechowywania plików wirtualnego dysku twardego. Możesz utworzyć nowe konto magazynu lub użyć już istniejącego. W tym artykule opisano sposób tworzenia nowego konta magazynu. W tym celu należy zasób konta magazynu w bloku zasobów, jak pokazano poniżej.
 
 ```
 {
@@ -20,7 +20,7 @@ To begin, we take a look at how unmanaged disks are deployed. When creating unma
 }
 ```
 
-Within the virtual machine object, we need a dependency on the storage account to ensure that it's created before the virtual machine. Within the `storageProfile` section, we then specify the full URI of the VHD location, which references the storage account and is needed for the OS disk and any data disks. 
+W obiekcie maszyny wirtualnej potrzebujemy zależności na koncie magazynu, aby upewnić się, że został utworzony przed maszyny wirtualnej. W ramach `storageProfile` sekcji możemy następnie określ pełny identyfikator URI lokalizacji wirtualnego dysku twardego, który odwołuje się do konta magazynu i jest wymagany dla dysku systemu operacyjnego i dysków z danymi. 
 
 ```
 {
@@ -68,18 +68,18 @@ Within the virtual machine object, we need a dependency on the storage account t
 }
 ```
 
-## <a name="managed-disks-template-formatting"></a>Managed disks template formatting
+## <a name="managed-disks-template-formatting"></a>Zarządzane formatowania szablonu dysków
 
-With Azure Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks were first exposed in the `2016-04-30-preview` API version, they are available in all subsequent API versions and are now the default disk type. The following sections walk through the default settings and detail how to further customize your disks.
+W przypadku dysków zarządzanych Azure dysk staje się zasobem najwyższego poziomu i nie wymaga już konto magazynu ma zostać utworzony przez użytkownika. Dysków zarządzanych zostały najpierw udostępnione w `2016-04-30-preview` wersja interfejsu API są dostępne w wszystkie kolejne wersje interfejsu API i są teraz domyślny typ dysku. Poniższe sekcje przeprowadzenie ustawienia domyślne i szczegółów jak dostosować dysków.
 
 > [!NOTE]
-> It is recommended to use an API version later than `2016-04-30-preview` as there were breaking changes between `2016-04-30-preview` and `2017-03-30`.
+> Zalecane jest użycie wersji interfejsu API później niż `2016-04-30-preview` jako wystąpiły zmiany podziału między `2016-04-30-preview` i `2017-03-30`.
 >
 >
 
-### <a name="default-managed-disk-settings"></a>Default managed disk settings
+### <a name="default-managed-disk-settings"></a>Domyślne ustawienia dysków zarządzanych
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2017-03-30` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](../articles/storage/common/storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+Aby utworzyć Maszynę wirtualną z dyskami zarządzanych, już nie musisz utworzyć magazyn kont zasobów i można zaktualizować zasobu maszyny wirtualnej w następujący sposób. W szczególności należy pamiętać, że `apiVersion` odzwierciedla `2017-03-30` i `osDisk` i `dataDisks` nie odnoszą się do określonego identyfikatora URI dysku VHD. W przypadku wdrażania bez określenia dodatkowych właściwości, dysk będzie używać [magazynu Standard-LRS](../articles/storage/common/storage-redundancy.md). Jeśli nazwa nie zostanie określona, zajmuje format `<VMName>_OsDisk_1_<randomstring>` dla dysku systemu operacyjnego i `<VMName>_disk<#>_<randomstring>` dla każdego dysku danych. Domyślnie szyfrowania dysków Azure jest wyłączony; buforowanie jest odczytu/zapisu dla dysku systemu operacyjnego i brak w przypadku dysków z danymi. W poniższym przykładzie mogą pojawić się, że istnieje zależność konta magazynu, mimo że to jest tylko do przechowywania diagnostyki i nie jest wymagany dla magazynu danych na dysku.
 
 ```
 {
@@ -118,9 +118,9 @@ To create a VM with managed disks, you no longer need to create the storage acco
 }
 ```
 
-### <a name="using-a-top-level-managed-disk-resource"></a>Using a top-level managed disk resource
+### <a name="using-a-top-level-managed-disk-resource"></a>Przy użyciu zasobów dysków zarządzanych w najwyższego poziomu
 
-As an alternative to specifying the disk configuration in the virtual machine object, you can create a top-level disk resource and attach it as part of the virtual machine creation. For example, we can create a disk resource as follows to use as a data disk.
+Zamiast określać konfigurację dysków w obiekcie maszyny wirtualnej można tworzenia zasobu dysku najwyższego poziomu i dołącz je jako część tworzenie maszyny wirtualnej. Na przykład możemy utworzyć zasób dysku w następujący sposób, aby użyć jako dysku danych.
 
 ```
 {
@@ -140,7 +140,7 @@ As an alternative to specifying the disk configuration in the virtual machine ob
 }
 ```
 
-Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the managed disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. Note that the `apiVersion` for the VM resource is set to `2017-03-30`. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
+W ramach obiektu maszyny Wirtualnej możemy odwoływać ten obiekt jest dołączony. Określ identyfikator ID zasobu dysku zarządzanego utworzone `managedDisk` właściwość umożliwia dołączanie dysku tworzenia maszyny Wirtualnej. Należy pamiętać, że `apiVersion` dla maszyny Wirtualnej zasobów ma ustawioną wartość `2017-03-30`. Należy również zauważyć, że utworzyliśmy zależność od zasobu dyskowego, aby upewnić się, że pomyślnie utworzono przed utworzeniem maszyny Wirtualnej. 
 
 ```
 {
@@ -183,9 +183,9 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 }
 ```
 
-### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Create managed availability sets with VMs using managed disks
+### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Tworzenie zestawów dostępności zarządzanych maszyn wirtualnych za pomocą dysków zarządzanych
 
-To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2017-03-30`.
+Do tworzenia zarządzanego zestawy dostępności z maszynami wirtualnymi przy użyciu dysków zarządzanych, Dodaj `sku` obiektu dostępności ustawić zasobów i ustawić `name` właściwości `Aligned`. To zapewnia, że dyski dla każdej maszyny Wirtualnej są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Należy również zauważyć, że `apiVersion` dla zestawu dostępności zasobów ma ustawioną wartość `2017-03-30`.
 
 ```
 {
@@ -203,17 +203,17 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
 }
 ```
 
-### <a name="additional-scenarios-and-customizations"></a>Additional scenarios and customizations
+### <a name="additional-scenarios-and-customizations"></a>Dodatkowe scenariusze i dostosowania
 
-To find full information on the REST API specifications, please review the [create a managed disk REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and acceptable values that can be submitted to the API through template deployments. 
+Aby uzyskać pełne informacje dotyczące specyfikacji interfejsu API REST, zapoznaj się z tematem [tworzenie dysków zarządzanych w dokumentacji interfejsu API REST](/rest/api/manageddisks/disks/disks-create-or-update). Dostępne są dodatkowe scenariusze, a także domyślne i dopuszczalne wartości, które można przesłać do interfejsu API za pomocą szablonu wdrożenia. 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Następne kroki
 
-* For full templates that use managed disks visit the following Azure Quickstart Repo links.
-    * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Full list of managed disk templates](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Visit the [Azure Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
-* Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/templates/microsoft.compute/virtualmachines) document.
-* Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/templates/microsoft.compute/disks) document.
+* Pełna szablonów, które zarządzanych dysków można znaleźć w następujących łączy repozytorium Szybki Start Azure.
+    * [Maszyny Wirtualnej systemu Windows z dyskiem zarządzanym](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+    * [Maszyny Wirtualnej systemu Linux z dyskiem zarządzanym](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+    * [Pełną listę szablonów zarządzanych dysku](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* Odwiedź stronę [omówienie dysków zarządzanych Azure](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentu, aby dowiedzieć się więcej o dyskach zarządzanych.
+* Zapoznaj się z dokumentacją odwołanie szablonu, zasobów maszyny wirtualnej po przejściu na stronę [odwołania do szablonu Microsoft.Compute/virtualMachines](/templates/microsoft.compute/virtualmachines) dokumentu.
+* Zapoznaj się z dokumentacją odwołanie szablonu, zasoby dyskowe odwiedzając [odwołania do szablonu Microsoft.Compute/disks](/templates/microsoft.compute/disks) dokumentu.
  

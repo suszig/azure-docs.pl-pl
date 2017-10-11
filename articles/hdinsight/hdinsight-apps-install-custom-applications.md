@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: eec0106ac43796b2a8a05e89d36cbb51fc222f5d
-ms.openlocfilehash: 9c90d46afd5aa8c1daa12c72e59e518bc42f3d0b
-
-
+ms.openlocfilehash: ebec29dea9f5dc1767f47a53d9da03347a51de28
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Instalowanie niestandardowych aplikacji platformy Hadoop w usłudze Azure HDInsight
 
@@ -42,20 +43,20 @@ Aplikacje usługi HDInsight można instalować podczas tworzenia klastra lub w i
 Pliki potrzebne do wdrożenia tej aplikacji (Hue):
 
 * [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): szablon usługi Azure Resource Manager do instalowania aplikacji usługi HDInsight. Aby utworzyć własny szablon usługi Resource Manager, zobacz [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalowanie aplikacji usługi HDInsight).
-* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): akcja skryptu wywoływana przez szablon usługi Resource Manager w celu skonfigurowania węzła krawędzi. 
-* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): plik binarny aplikacji hue wywoływany ze skryptu hui-install_v0.sh. 
-* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): plik binarny aplikacji hue wywoływany ze skryptu hui-install_v0.sh. 
+* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): akcja skryptu wywoływana przez szablon usługi Resource Manager w celu skonfigurowania węzła krawędzi.
+* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): plik binarny aplikacji hue wywoływany ze skryptu hui-install_v0.sh.
+* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): plik binarny aplikacji hue wywoływany ze skryptu hui-install_v0.sh.
 * [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): przykładowa aplikacja sieci Web (Tomcat) wywoływana ze skryptu hui-install_v0.sh.
 
 **Instalowanie aplikacji Hue w istniejącym klastrze usługi HDInsight**
 
-1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w usłudze Azure Portal. 
-   
+1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w usłudze Azure Portal.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     Ten przycisk otwiera szablon usługi Resource Manager w witrynie Azure Portal.  Szablon usługi Resource Manager znajduje się w folderze [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Aby dowiedzieć się, jak napisać ten szablon usługi Resource Manager, zobacz [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalowanie aplikacji usługi HDInsight).
 2. W bloku **Parametry** wprowadź następujące informacje:
-   
+
    * **ClusterName**: wprowadź nazwę klastra, w którym chcesz zainstalować aplikację. Musi to być istniejący klaster.
 3. Kliknij przycisk **OK**, aby zapisać parametry.
 4. W bloku **Wdrożenie niestandardowe** wprowadź wartość opcji **Grupa zasobów**.  Grupa zasobów jest kontenerem, który grupuje klaster, zależne konto magazynu oraz inne zasoby. Wymagane jest użycie tej samej grupy zasobów, która jest używana przez klaster.
@@ -64,14 +65,14 @@ Pliki potrzebne do wdrożenia tej aplikacji (Hue):
 
 **Instalowanie aplikacji Hue podczas tworzenia klastra**
 
-1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w usłudze Azure Portal. 
-   
+1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w usłudze Azure Portal.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     Ten przycisk otwiera szablon usługi Resource Manager w witrynie Azure Portal.  Szablon usługi Resource Manager znajduje się pod adresem [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Aby dowiedzieć się, jak napisać ten szablon usługi Resource Manager, zobacz [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalowanie aplikacji usługi HDInsight).
 2. Postępuj zgodnie z instrukcjami, aby utworzyć klaster i zainstalować aplikację Hue. Aby uzyskać więcej informacji na temat tworzenia klastrów usługi HDInsight, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-Oprócz witryny Azure Portal do wywołania szablonów usługi Resource Manager można również użyć programu [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) oraz [interfejsu wiersza polecenia platformy Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli).
+Oprócz witryny Azure Portal do wywołania szablonów usługi Resource Manager można również użyć programu [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) oraz [interfejsu wiersza polecenia platformy Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-cli).
 
 ## <a name="validate-the-installation"></a>Sprawdzanie poprawności instalacji
 Możesz zobaczyć stan aplikacji w witrynie Azure Portal, aby sprawdzić poprawność instalacji aplikacji. Ponadto możesz sprawdzić, czy wszystkie punkty końcowe HTTP zostały utworzone zgodnie z oczekiwaniami oraz sprawdzić stronę sieci Web, jeśli istnieje:
@@ -83,25 +84,25 @@ Możesz zobaczyć stan aplikacji w witrynie Azure Portal, aby sprawdzić poprawn
 3. Kliknij klaster, w którym zainstalowano aplikację.
 4. W bloku **Ustawienia** kliknij opcję **Aplikacje** w obszarze **Ogólne**. Aplikacja **hue** powinna być widoczna w bloku **Zainstalowane aplikacje**.
 5. Kliknij pozycję **hue** na liście, aby wyświetlić właściwości.  
-6. Kliknij link do strony sieci Web, aby zweryfikować witrynę sieci Web. Otwórz punkt końcowy HTTP w przeglądarce, aby sprawdzić poprawność interfejsu użytkownika sieci Web aplikacji Hue, a następnie otwórz punkt końcowy SSH, korzystając z programu [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) lub innych [klientów SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Kliknij łącze strony sieci Web, aby zweryfikować witrynę sieci Web; Otwórz punkt końcowy HTTP w przeglądarce, aby sprawdzić poprawność interfejsu użytkownika sieci web aplikacji Hue, otwórz punkt końcowy SSH przy użyciu protokołu SSH. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a>Rozwiązywanie problemów z instalacją
-Możesz sprawdzić stan instalacji aplikacji w powiadomieniu portalu (kliknij ikonę dzwonka w górnej części portalu). 
+Możesz sprawdzić stan instalacji aplikacji w powiadomieniu portalu (kliknij ikonę dzwonka w górnej części portalu).
 
 Jeśli instalacja aplikacji nie powiodła się, możesz wyświetlić komunikaty o błędach i informacje debugowania w trzech miejscach:
 
 * Aplikacje usługi HDInsight: ogólne informacje o błędach.
-  
+
     Otwórz klaster w portalu, a następnie kliknij opcję Aplikacje w bloku Ustawienia:
-  
+
     ![błąd instalacji aplikacji usługi hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
 * Akcja skryptu HDInsight: jeśli komunikat o błędzie aplikacji usługi HDInsight wskazuje niepowodzenie akcji skryptu, można znaleźć więcej szczegółów na temat błędu skryptu w okienku akcji skryptu.
-  
+
     Kliknij akcję skryptu w bloku Ustawienia. Historia akcji skryptu zawiera komunikaty o błędach.
-  
+
     ![błąd akcji skryptu aplikacji usługi hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
 * Interfejs użytkownika sieci Web Ambari: jeśli przyczyną niepowodzenia był skrypt instalacji, użyj interfejsu sieci Web Ambari w celu sprawdzenia pełnych dzienników dotyczących skryptów instalacji.
-  
+
     Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## <a name="remove-hdinsight-applications"></a>Usuwanie aplikacji usługi HDInsight
@@ -132,10 +133,3 @@ Przy użyciu interfejsu wiersza polecenia platformy Azure możesz usunąć klast
 * [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md): dowiedz się, jak instalować dodatkowe aplikacje za pomocą akcji skryptu.
 * [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Tworzenie klastrów Hadoop w usłudze HDInsight opartych na systemie Linux przy użyciu szablonów usługi Resource Manager): dowiedz się, jak wywoływać szablony usługi Resource Manager w celu tworzenia klastrów usługi HDInsight.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Używanie pustych węzłów krawędzi w usłudze HDInsight): dowiedz się, jak za pomocą pustego węzła krawędzi uzyskiwać dostęp do klastra usługi HDInsight oraz testować i hostować aplikacje usługi HDInsight.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

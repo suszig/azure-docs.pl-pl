@@ -1,18 +1,18 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port. Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.
+W tym kroku możesz utworzyć regułę zapory można otworzyć port sondy równoważeniem obciążenia punktu końcowego (określone wcześniej 59999) i innej reguły, aby otworzyć port odbiornika grupy dostępności. Ponieważ utworzono punkt końcowy z równoważeniem obciążenia na maszynach wirtualnych, które zawierają repliki grupy dostępności, należy otworzyć port sondy i port odbiornika w odpowiednich maszynach wirtualnych.
 
-1. On VMs that host replicas, start **Windows Firewall with Advanced Security**.
+1. Na maszynach wirtualnych, które obsługują replik, należy uruchomić **Zapora systemu Windows z zabezpieczeniami zaawansowanymi**.
 
-2. Right-click **Inbound Rules**, and then click **New Rule**.
+2. Kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego**, a następnie kliknij przycisk **nową regułę**.
 
-3. On the **Rule Type** page, select **Port**, and then click **Next**.
+3. Na **typ reguły** wybierz pozycję **portu**, a następnie kliknij przycisk **dalej**.
 
-4. On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.
+4. Na **protokoły i porty** wybierz pozycję **TCP**, typ **59999** w **określone porty lokalne** , a następnie kliknij przycisk  **Następny**.
 
-5. On the **Action** page, keep **Allow the connection** selected, and then click **Next**.
+5. Na **akcji** Zachowaj **zezwalały na połączenie** zaznaczone, a następnie kliknij przycisk **dalej**.
 
-6. On the **Profile** page, accept the default settings, and then click **Next**.
+6. Na **profilu** Zaakceptuj ustawienia domyślne, a następnie kliknij pozycję **dalej**.
 
-7. On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.
+7. Na **nazwa** strony w **nazwa** tekst Określ nazwę reguły, takie jak **zawsze na sondowania Port odbiornika**, a następnie kliknij przycisk **Zakończ**.
 
-8. Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.
+8. Powtórz te czynności na port odbiornika grupy dostępności (jak określono w parametrze $EndpointPort skryptu), a następnie określ nazwę odpowiednią regułę, takich jak **zawsze na Port odbiornika**.
 

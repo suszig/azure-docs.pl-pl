@@ -1,21 +1,21 @@
-The job produces a JSON output file that contains metadata about detected and tracked faces. The metadata includes coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
+To zadanie tworzy dane wyjściowe JSON zawierający metadane dotyczące wykrytego i śledzonych kroje. Metadanych zawiera współrzędne wskazującą lokalizację kroje, a także numer identyfikacyjny krój, wskazując śledzenia tej osoby. Numery identyfikatorów krój są podatne na zresetować w sytuacji, gdy czołowego kroju zostanie utracony lub pokrywający się w ramce spowodować, że niektóre osoby pobierania przypisanych wiele identyfikatorów.
 
-The output JSON includes the following attributes:
+Dane wyjściowe JSON zawiera następujące atrybuty:
 
-| Element | Description |
+| Element | Opis |
 | --- | --- |
-| version |This refers to the version of the Video API. |
-| index | (Applies to Azure Media Redactor only) defines the frame index of the current event. |
-| timescale |"Ticks" per second of the video. |
-| offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| framerate |Frames per second of the video. |
-| fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
-| start |The start time of the first event in ‘ticks’. |
-| duration |The length of the fragment, in “ticks”. |
-| interval |The interval of each event entry within the fragment, in “ticks”. |
-| events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
-| id |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
-| x, y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
-| width, height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
-| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
+| Wersja |Odnosi się do wersji interfejsu API wideo. |
+| Indeks | (Dotyczy tylko z usługi Azure Media Redactor) definiuje indeks bieżącego zdarzenia ramki. |
+| skali czasu |"Impulsów" na sekundę wideo. |
+| Przesunięcie |Jest to przesunięcie czasu sygnatur czasowych. W wersji 1.0 interfejsów API, wideo ta będzie zawsze równa 0. W przyszłości scenariusze, które firma Microsoft obsługuje, ta wartość może zmienić. |
+| szybkość klatek |Klatek na sekundę wideo. |
+| fragmenty |Metadane fragmentaryczne jest się w różnych segmentach fragmenty. Każdy fragmentu zawiera rozpoczęcia, czas trwania, liczba interwałów i zdarzenia. |
+| rozpoczynanie |Godzina rozpoczęcia pierwsze zdarzenie parametrem "ticks". |
+| Czas trwania |Długość fragmentu w parametrem "ticks". |
+| Interwał |Interwał każdego wpisu zdarzeń w obrębie fragmentu, w parametrem "ticks". |
+| zdarzenia |Każde zdarzenie zawiera kroje wykryte i śledzone w tym czas trwania. Jest tablicą tablicy zdarzeń. Zewnętrzne tablicy reprezentuje jeden interwał czasu. Wewnętrzny tablicy składa się z 0 lub więcej zdarzeń, które wystąpiły w danym momencie. [] Nawiasu pusty oznacza, że nie wykryto żadnych kroje. |
+| id |Identyfikator krój, który jest śledzona. Ta liczba może spowodować niezamierzoną zmianę, jeśli krój staje się niewykryte. Danej osoby powinny mieć ten sam identyfikator w ogólnej wideo, ale to nie można zagwarantować ze względu na ograniczenia w algorytmie wykrywania (okluzji itp.) |
+| x, y |Lewy górny X i Y współrzędne kroju obwiedni w skali znormalizowane 0,0 do 1,0. <br/>-X i Y współrzędne są względem poziomą zawsze, więc jeśli pionowo wideo (lub dołu, w przypadku systemu iOS), musisz odpowiednio Przestaw współrzędne. |
+| szerokość, wysokość |Szerokość i wysokość powierzchni obwiedni w skali znormalizowane 0,0 do 1,0. |
+| facesDetected |To znajduje się na końcu wyniki JSON i zawiera podsumowanie liczby kroje wykrytych przez algorytm podczas wideo. Ponieważ identyfikatory można zresetować przypadkowo Jeśli krój staje się niewykryte (np. krój wychodzeniu ekranu, wygląda optymalizacji), ta liczba nie zawsze równa true liczba powierzchni wideo. |
 

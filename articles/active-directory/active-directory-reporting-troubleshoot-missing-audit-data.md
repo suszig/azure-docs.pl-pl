@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 47617f8f727027de113a0f503308c8accc58859e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>W dzienniku aktywności usługi Azure Active Directory nie można znaleźć niektórych wykonywanych akcji
 
 
@@ -44,5 +42,4 @@ Poczekaj od 15 minut do godziny i sprawdź, czy akcje pojawią się w dzienniku.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz temat[Azure Active Directory reporting FAQ](active-directory-reporting-faq.md) (Często zadawane pytania dotyczące raportowania usługi Azure Active Directory).
-
 

@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/storage/common/storage-enable-and-view-metrics.md)
+> * [Witryna Azure Portal](../articles/storage/common/storage-enable-and-view-metrics.md)
 > 
 > 
 

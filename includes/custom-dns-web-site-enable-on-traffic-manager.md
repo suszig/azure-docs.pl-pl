@@ -1,30 +1,30 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.
+Po wykonaniu propagacji rekordów dla nazwy domeny należy sprawdzić, czy niestandardową nazwę domeny można uzyskać dostępu do aplikacji sieci web w usłudze Azure App Service za pomocą przeglądarki.
 
 > [!NOTE]
-> It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+> Może upłynąć trochę czasu, zanim Twoje CNAME propagację za pośrednictwem systemu DNS. Można użyć usługi, takie jak <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> Aby weryfikować dostępność CNAME.
 > 
 > 
 
-If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web app. Use the information in [Add or Delete Endpoints](../articles/traffic-manager/traffic-manager-endpoints.md) to add your web app as an endpoint in your Traffic Manager profile.
+Jeśli aplikacja sieci web nie ma jeszcze dodany jako punkt końcowy Menedżera ruchu, możesz to zrobić przed rozpoznawanie nazw działa jako trasy nazwy domeny niestandardowej do usługi Traffic Manager. Menedżer ruchu jest następnie przekierowuje do aplikacji sieci web. Skorzystaj z informacji w [Dodawanie lub usuwanie punktów końcowych](../articles/traffic-manager/traffic-manager-endpoints.md) można dodać aplikację sieci web jako punktu końcowego w profilu usługi Traffic Manager.
 
 > [!NOTE]
-> If your web app is not listed when adding an endpoint, verify that it is configured for **Standard** App Service plan mode. You must use **Standard** mode for your web app in order to work with Traffic Manager.
+> Jeśli aplikacja sieci web nie jest wyświetlana podczas dodawania punktu końcowego, sprawdź, czy jest ono skonfigurowane dla **standardowe** tryb planu usługi aplikacji. Należy użyć **standardowe** tryb dla aplikacji sieci web w celu zapewnienia ich współdziałania z usługą Traffic Manager.
 > 
 > 
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
+1. W przeglądarce otwórz [Azure Portal](https://portal.azure.com).
+2. W **aplikacje sieci Web** kliknij nazwę aplikacji sieci web, wybierz pozycję **ustawienia**, a następnie wybierz **domen niestandardowych**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains** blade, click **Add hostname**.
-4. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
+3. W **domen niestandardowych** bloku, kliknij przycisk **dodać nazwę hosta**.
+4. Użyj **Hostname** pola tekstowe do wprowadzania nazwy domeny usługi Traffic Manager do skojarzenia z tą aplikacją sieci web.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
-5. Click **Validate** to save the domain name configuration.
-6. Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
-7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should now see your app running using your custom domain name. 
+5. Kliknij przycisk **weryfikacji** Aby zapisać konfigurację nazwy domeny.
+6. Po kliknięciu **weryfikacji** Azure będzie rozpocząć wyłączyć weryfikację domeny przepływu pracy. Spowoduje to zaewidencjonowanie własność domeny, a także Hostname Powodzenie dostępności i raportów lub szczegółowe informacje o błędzie z wskazowki porady na temat naprawić błąd.    
+7. Po pomyślnym zweryfikowaniem **dodać nazwę hosta** przycisk staną się aktywne i będzie można przypisać nazwy hosta. Teraz przejdź do niestandardowej nazwy domeny w przeglądarce. Powinna zostać wyświetlona Twojej pracy aplikacji przy użyciu niestandardowej nazwy domeny. 
    
-   Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+   Po zakończeniu konfiguracji niestandardowej nazwy domeny będzie wyświetlane w **nazwy domen** części aplikacji sieci web.
 
-At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.
+W tym momencie można wprowadzić nazwę nazwy domeny usługi Traffic Manager w przeglądarce i zobaczyć, czy go pomyślnie przejście do aplikacji sieci web.
 

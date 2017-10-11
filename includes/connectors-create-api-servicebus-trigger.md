@@ -1,16 +1,16 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Poniżej przedstawiono sposób użycia **usługi Service Bus — po odebraniu wiadomości w kolejce** trigger, aby inicjować przepływ pracy aplikacji logiki, gdy nowy element zostanie wysłana do kolejki usługi Service Bus.  
 
 > [!NOTE]
-> You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+> Pojawi się zalogować za pomocą parametrów połączenia magistrali usług, jeśli nie utworzono jeszcze połączenia magistrali usług.  
 > 
 > 
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-   ![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. The **When a message is received in a queue** dialog box is displayed.  
-   ![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Enter the name of the Service Bus queue you would like the trigger to monitor.   
-   ![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. W polu wyszukiwania w Projektancie aplikacji logiki, wprowadź **usługi magistrali**. Następnie wybierz **usługi Service Bus — po odebraniu wiadomości w kolejce** wyzwalacza.  
+   ![Usługa Service Bus wyzwalacza obraz 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+2. **Po odebraniu wiadomości w kolejce** zostanie wyświetlone okno dialogowe.  
+   ![Usługa Service Bus wyzwalacza obraz 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+3. Wprowadź nazwę kolejki usługi Service Bus ma wyzwalacz do monitorowania.   
+   ![Usługa Service Bus wyzwalacza obrazu 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+W tym momencie została skonfigurowana z wyzwalaczem aplikacji logiki. Po odebraniu nowego elementu w wybranej kolejce wyzwalacza rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy.    
 

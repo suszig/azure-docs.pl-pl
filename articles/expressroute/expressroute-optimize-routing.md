@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.contentlocale: pl-pl
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
@@ -75,4 +74,3 @@ Rozwiązanie jest proste. Ponieważ wiadomo, gdzie znajdują się sieci wirtualn
 > Jeśli korzystasz z kilku obwodów usługi ExpressRoute, możesz również zmieniać routing z sieci wirtualnej do sieci lokalnej, konfigurując wagę połączenia, zamiast stosowania dołączania ścieżki AS, które zostało opisane w drugim scenariuszu. Podczas określania trasy danych w przypadku wszystkich prefiksów waga połączenia ma zawsze pierwszeństwo przed długością ścieżki AS.
 >
 >
-

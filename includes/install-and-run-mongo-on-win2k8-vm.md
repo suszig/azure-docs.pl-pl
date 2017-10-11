@@ -1,27 +1,27 @@
-Follow these steps to install and run MongoDB on a virtual machine running Windows Server.
+Wykonaj następujące kroki, aby zainstalować i uruchomić bazy danych MongoDB na maszynie wirtualnej z systemem Windows Server.
 
 > [!IMPORTANT]
-> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  For more information, see [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> Funkcje zabezpieczeń bazy danych MongoDB, takich jak uwierzytelnianie i powiązanie adresu IP, nie są domyślnie włączone. Funkcje zabezpieczeń powinny być włączone przed wdrożeniem w środowisku produkcyjnym bazy danych MongoDB.  Aby uzyskać więcej informacji, zobacz [zabezpieczeń i uwierzytelniania](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 >
 >
 
-1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu on the virtual machine.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites.
-3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
-4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column. Download, then run the MSI installer.
-5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.4\bin on your machine.
-6. Create MongoDB data and log directories in the data disk (such as drive **F:**) you created in the preceding steps. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
+1. Po nawiązaniu połączenia z maszyną wirtualną przy użyciu pulpitu zdalnego, Otwórz program Internet Explorer z **Start** menu na maszynie wirtualnej.
+2. Wybierz **narzędzia** przycisk w prawym górnym rogu.  W **Opcje internetowe**, wybierz pozycję **zabezpieczeń** , a następnie wybierz **Zaufane witryny** ikonę, a na koniec kliknij **witryny** przycisku. Dodaj *https://\*. mongodb.org* do listy zaufanych witryn.
+3. Przejdź do [pobiera — bazy danych MongoDB](https://www.mongodb.com/download-center#community).
+4. Znajdź **bieżącej wersji stabilnej** z **Community Server**, wybierz najnowszą **64-bitowych** wersji w kolumnie systemu Windows. Pobierz, a następnie uruchom Instalatora MSI.
+5. Bazy danych MongoDB zazwyczaj jest zainstalowany w C:\Program Files\MongoDB. Wyszukaj zmiennych środowiskowych na pulpicie, a następnie dodaj ścieżkę danych binarnych bazy danych MongoDB do zmiennej PATH. Na przykład może znaleźć plików binarnych w C:\Program Files\MongoDB\Server\3.4\bin na tym komputerze.
+6. Tworzenie katalogów danych i dziennika bazy danych MongoDB dysku danych (takich jak dysk **F:**) utworzone w poprzednich krokach. Z **Start**, wybierz pozycję **wiersza polecenia** aby otworzyć okno wiersza polecenia.  Wpisz:
 
         C:\> F:
         F:\> mkdir \MongoData
         F:\> mkdir \MongoLogs
-7. To run the database, run:
+7. Aby uruchomić bazy danych, uruchom polecenie:
 
         F:\> C:
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-    All log messages are directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt stays focused on this task while your MongoDB instance is running.
-8. To start the MongoDB administrative shell, open another command window from **Start** and type the following commands:
+    Wszystkie komunikaty dziennika są kierowane do *F:\MongoLogs\mongolog.log* plików serwera mongod.exe rozpoczęciu i preallocates plików dziennika. Może upłynąć kilka minut dla bazy danych MongoDB do przydzielenia plików dziennika i rozpocząć nasłuchiwania dla połączenia. Wiersz polecenia pozostaje koncentruje się na to zadanie jest uruchomiona wystąpienia bazy danych MongoDB.
+8. Aby uruchomić powłoki administracyjne bazy danych MongoDB, otwiera inne okno polecenia z **Start** i wpisz następujące polecenia:
 
         C:\> cd \my_mongo_dir\bin  
         C:\my_mongo_dir\bin> mongo  
@@ -36,55 +36,55 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
         ...  
         > help  
 
-    The database is created by the insert.
-9. Alternatively, you can install mongod.exe as a service:
+    Baza danych została utworzona przez insert.
+9. Alternatywnie możesz zainstalować mongod.exe jako usługa:
 
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-    A service is installed named MongoDB with a description of "Mongo DB". The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.  The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.  The `--dbpath` option specifies the location of the data directory. For more service-related command-line options, see [Service-related command-line options][MongoWindowsSvcOptions].
+    Zainstalowano usługę o nazwie bazy danych MongoDB z opisem "BD o Mongo". `--logpath` Opcji należy używać, aby określić plik dziennika, ponieważ uruchomiona usługa ma okno polecenia, aby wyświetlić dane wyjściowe.  `--logappend` Opcja określa, czy ponowne uruchomienie usługi powoduje, że dane wyjściowe do dołączenia do istniejącego pliku dziennika.  `--dbpath` Opcji określa lokalizację katalogu danych. Aby bardziej związane z usługą opcji wiersza polecenia, zobacz [opcje wiersza polecenia związane z usługą][MongoWindowsSvcOptions].
 
-    To start the service, run this command:
+    Aby uruchomić usługę, uruchom następujące polecenie:
 
         C:\> net start MongoDB
-10. Now that MongoDB is installed and running, you need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
-11. a) In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+10. Bazy danych MongoDB jest zainstalowana i uruchomiona, należy otworzyć port w Zaporze systemu Windows, więc możesz zdalnie nawiązać połączenie bazy danych MongoDB.  Z **Start** menu, wybierz opcję **narzędzia administracyjne** , a następnie **Zapora systemu Windows z zabezpieczeniami zaawansowanymi**.
+11. () w okienku po lewej stronie wybierz **reguły ruchu przychodzącego**.  W **akcje** okienko po prawej stronie wybierz **nową regułę...** .
 
-    ![Windows Firewall][Image1]
+    ![Zapora systemu Windows][Image1]
 
-    b) In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+    (b) w **Kreatora nowej reguły przychodzącej**, wybierz pozycję **portu** , a następnie kliknij przycisk **dalej**.
 
-    ![Windows Firewall][Image2]
+    ![Zapora systemu Windows][Image2]
 
-    c) Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
+    c) wybierz **TCP** , a następnie **określone porty lokalne**.  Określ port "27017" (domyślny port bazy danych MongoDB nasłuchuje), a następnie kliknij przycisk **dalej**.
 
-    ![Windows Firewall][Image3]
+    ![Zapora systemu Windows][Image3]
 
-    d) Select **Allow the connection** and click **Next**.
+    d) wybierz **zezwalały na połączenie** i kliknij przycisk **dalej**.
 
-    ![Windows Firewall][Image4]
+    ![Zapora systemu Windows][Image4]
 
-    e) Click **Next** again.
+    e) kliknij **dalej** ponownie.
 
-    ![Windows Firewall][Image5]
+    ![Zapora systemu Windows][Image5]
 
-    f) Specify a name for the rule, such as "MongoPort", and click **Finish**.
+    f) określ nazwę reguły, takie jak "MongoPort", a następnie kliknij przycisk **Zakończ**.
 
-    ![Windows Firewall][Image6]
+    ![Zapora systemu Windows][Image6]
 
-12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.
+12. Jeśli punkt końcowy nie skonfigurowała bazy danych mongodb, podczas tworzenia maszyny wirtualnej, możesz to zrobić teraz. Należy zarówno reguły zapory, jak i punktu końcowego, aby mieć możliwość nawiązania połączenia do bazy danych MongoDB.
 
-  In the Azure portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
+  W portalu Azure kliknij **maszyn wirtualnych (klasyczne)**, kliknij nazwę nowej maszyny wirtualnej, a następnie kliknij przycisk **punkty końcowe**.
 
-    ![Endpoints][Image7]
+    ![Punkty końcowe][Image7]
 
-13. Click **Add**.
+13. Kliknij pozycję **Dodaj**.
 
-14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". Opening this port allows MongoDB to be accessed remotely.
+14. Dodawanie punktu końcowego o nazwie "Mongo" protokołu **TCP**, a oba **publicznego** i **prywatnej** porty ustawioną wartość "27017". Otwarcie tego portu umożliwia bazy danych MongoDB ma być dostępna zdalnie.
 
-    ![Endpoints][Image9]
+    ![Punkty końcowe][Image9]
 
 > [!NOTE]
-> The port 27017 is the default port used by MongoDB. You can change this default port by specifying the `--port` parameter when starting the mongod.exe server. Make sure to give the same port number in the firewall and the "Mongo" endpoint in the preceding instructions.
+> Port 27017 jest domyślny port używany przez bazy danych MongoDB. Ten port domyślny można zmienić, określając `--port` parametru podczas uruchamiania serwera mongod.exe. Upewnij się, że ten sam numer portu w zaporze i punktu końcowego "Mongo" w poprzednich instrukcji.
 >
 >
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-ms.contentlocale: pl-pl
-ms.lasthandoff: 02/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>Jak korzystać z pamięci podręcznej Redis Azure za pomocą języka Python
 > [!div class="op_single_selector"]
@@ -62,4 +61,3 @@ Zastąp element `<name>` swoją nazwą pamięci podręcznej i element `key` swoi
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
-

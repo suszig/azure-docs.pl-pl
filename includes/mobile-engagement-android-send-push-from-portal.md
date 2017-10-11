@@ -14,7 +14,7 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji.
 
 1. Przejdź do karty **REACH** (Zasięg) w portalu usługi Mobile Engagement.
@@ -41,9 +41,4 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
 6. Ostatni krok: kliknij opcję **Activate** (Aktywuj), aby aktywować kampanię w celu wysyłania powiadomień wypychanych.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -15,25 +15,25 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/) na http://portal.azure.com/.
+2. Na banerze po lewej stronie kliknij **PRZEGLĄDAJ wszystko**. **Przeglądaj** bloku jest wyświetlany.
+3. Przewiń i kliknij przycisk **serwerów SQL**. **Serwerów SQL** bloku jest wyświetlany.
    
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, click the minimize control on the earlier **Browse** blade.
-5. In the filter text box, start typing the name of your server. Your row is displayed.
-6. Click the row for your server. A blade for your server is displayed.
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+    ![Znaleźć serwera bazy danych SQL Azure w portalu][b21-FindServerInPortal]
+4. Dla wygody, kliknij kontrolkę Minimalizuj we wcześniejszej **Przeglądaj** bloku.
+5. W polu filtru zacznij wpisywać nazwę serwera. Twoje wiersz jest wyświetlany.
+6. Kliknij wiersz dla serwera. Zostanie wyświetlony blok serwera.
+7. W bloku serwera, kliknij przycisk **ustawienia**. **Ustawienia** bloku jest wyświetlany.
+8. Kliknij przycisk **zapory**. **Ustawienia zapory** bloku jest wyświetlany.
    
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-10. Type in the low and high IP address values for the range you want to enable.
+    ![Kliknij przycisk Ustawienia > zapory][b31-SettingsFirewallNavig]
+9. Kliknij przycisk **Dodawanie klienta IP**. W pierwszym polu tekstowym, wpisz nazwę nowej reguły.
+10. Wpisz wartości adresu IP niski i wysoki dla zakresu, który ma zostać włączony.
     
-    * It can be handy to have the low value end with **.0** and the high with **.255**.
+    * Może być przydatny zakończeń niskiej wartości z **.0** i wysoki z **.255**.
     
-    ![Add an IP address range to allow][b41-AddRange]
-11. Click **Save**.
+    ![Dodaj zakres adresów IP, aby umożliwić][b41-AddRange]
+11. Kliknij pozycję **Zapisz**.
 
 <!-- Image references. -->
 

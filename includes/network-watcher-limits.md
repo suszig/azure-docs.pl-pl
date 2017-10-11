@@ -1,6 +1,6 @@
-| Resource | Default limit | Note |
+| Zasób | Limit domyślny | Uwaga |
 | --- | --- | --- |
-| Network Watcher | 1 per region  | |
-| Packet Capture sessions |10 per region |# of sessions only, not saved captures |
+| Network Watcher | 1 na region  | |
+| Sesje przechwytywania pakietów |10 dla regionu |Liczba sesji, nie zapisano przechwytuje |
 
 

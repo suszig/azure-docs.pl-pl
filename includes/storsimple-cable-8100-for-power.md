@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>To cable for power
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
-2. Connect the power cords to each of the PCMs in the primary enclosure.
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+#### <a name="to-cable-for-power"></a>Aby kabel zasilania
+1. Upewnij się, że możliwości zmienia się na każdym zasilania i chłodzenia modułów (PCMs) znajdują się w pozycji OFF.
+2. Połączyć przewodów zasilania do każdej PCMs w obudowie podstawowego.
+3. Dołącz do stojak jednostki dystrybucji zasilania (PDU); przewodów zasilania, jak pokazano na poniższej ilustracji. Upewnij się, że użycie PCMs dwa oddzielne źródłami zasilania.
    
    > [!IMPORTANT]
-   > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+   > Aby zapewnić wysoką dostępność dla systemu, firma Microsoft zaleca ściśle zgodna zasilania okablowania schemat pokazano na poniższym diagramie. 
    > 
    > 
    
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Podłączanie kabli do urządzenia 2U zasilania](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Power cabling on an 8100 device**
+    **Okablowanie na urządzeniu 8100 zasilania**
    
-   | Label | Description |
+   | Etykieta | Opis |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Controller 1 |
-   | 3 |Controller 0 |
+   | 2 |Kontrolera 1 |
+   | 3 |Kontrolera 0 |
    | 4 |PCM 1 |
-   | 5 |PDUs |
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+   | 5 |PDU |
+4. Aby włączyć system, przerzuć przełączniki power na obu PCMs pozycji dalej.
 

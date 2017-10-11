@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Wymagania wstępne
+* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) konta  
 
-Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Zanim użyjesz konto SMTP w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SMTP. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
 
-Here are the steps to authorize your logic app to connect to your SMTP account:  
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SMTP:  
 
-1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
+1. Aby utworzyć połączenie SMTP, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SMTP* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
+2. Jeśli nie utworzono żadnych połączeń SMTP przed będzie zostanie wyświetlony monit o podanie poświadczeń SMTP. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SMTP:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

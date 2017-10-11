@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: pl-pl
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Łączenie produktów dotyczących zabezpieczeń z rozwiązaniem Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS) 
 Ten dokument ułatwia łączenie produktów dotyczących zabezpieczeń z rozwiązaniem Zabezpieczenia i inspekcja w pakiecie OMS. Obsługiwane są następujące źródła:
@@ -64,7 +63,7 @@ Na maszynie agenta zdarzenia muszą być wysyłane z demona dziennika systemu do
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Pobierz plik *security_events.conf* i umieść go w katalogu */etc/opt/microsoft/omsagent/conf/omsagent.d/* na komputerze agenta pakietu OMS.
-4. Wpisz poniższe polecenie, aby ponownie uruchomić demona dziennika systemu:  *Uruchamianie demona syslog-ng:*
+4. Wpisz poniższe polecenie, aby ponownie uruchomić demona syslog: *dla ng syslog, uruchom:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ W tym dokumencie pokazano, jak połączyć rozwiązanie CEF z pakietem OMS. Wię
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
-
 

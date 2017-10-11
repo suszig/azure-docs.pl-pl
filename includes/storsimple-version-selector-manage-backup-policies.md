@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Update 2](../articles/storsimple/storsimple-manage-backup-policies-u2.md)
-> * [Update 1 & earlier](../articles/storsimple/storsimple-manage-backup-policies.md)
+> * [Aktualizacja 2](../articles/storsimple/storsimple-manage-backup-policies-u2.md)
+> * [Aktualizacja 1 & wcześniejszej](../articles/storsimple/storsimple-manage-backup-policies.md)
 > 
 > 
 

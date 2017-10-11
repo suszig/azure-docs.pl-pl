@@ -1,28 +1,28 @@
-**Premium unmanaged virtual machine disks: per account limits**
+**Niezarządzane dyski maszyny wirtualnej w warstwie Premium: limity poszczególnych kont**
 
-| Resource | Default Limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| Total disk capacity per account |35 TB |
-| Total snapshot capacity per account |10 TB |
-| Max bandwidth per account (ingress + egress<sup>1</sup>) |<=50 Gbps |
+| Całkowita pojemność dysku na konto |35 TB |
+| Całkowita pojemność migawki na konto |10 TB |
+| Maksymalna przepustowość na konto (ruch przychodzący i wychodzący<sup>1</sup>) |<= 50 Gb/s |
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>*Ruch przychodzący* odnosi się do wszystkich danych (żądań) wysyłanych na konto magazynu. *Ruch wychodzący* odnosi się do wszystkich danych (żądań) wysyłanych z konta magazynu.
 
-**Premium unmanaged virtual machine disks: per disk limits**
+**Niezarządzane dyski maszyny wirtualnej w warstwie Premium: limity poszczególnych dysków**
 
-| Premium Storage Disk Type | P10 | P20 | P30 | P40 | P50 |
+| Typ dysku magazynu Premium Storage | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
-| Max IOPS per disk |500 |2300 |5000 |7500 |7500 |
-| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
-| Max number of disks per storage account |280 |70 |35 | 17 | 8 |
+| Rozmiar dysku |128 GiB |512 GiB |1024 GiB (1 TB) |GiB 2048 (2 TB)|4095 giB (4 TB)|
+| Maksymalna liczba operacji wejścia/wyjścia na sekundę na dysk |500 |2300 |5000 |7500 |7500 |
+| Maksymalna przepływność na dysk |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
+| Maksymalna liczba dysków na konto magazynu |280 |70 |35 | 17 | 8 |
 
-**Premium unmanaged virtual machine disks: per VM limits**
+**Niezarządzane dyski maszyny wirtualnej w warstwie Premium: limity poszczególnych maszyn wirtualnych**
 
-| Resource | Default Limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| Max IOPS Per VM |80,000 IOPS with GS5 VM<sup>1</sup> |
-| Max throughput per VM |2,000 MB/s with GS5 VM<sup>1</sup> |
+| Maksymalna liczba operacji wejścia/wyjścia na sekundę na maszynę wirtualną |80 000 operacji wejścia/wyjścia na sekundę na maszynie wirtualnej GS5<sup>1</sup> |
+| Maksymalna przepływność na maszynę wirtualną |2000 operacji wejścia/wyjścia na maszynie wirtualnej GS5<sup>1</sup> |
 
-<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes. 
+<sup>1</sup>Limity innych rozmiarów maszyn wirtualnych można znaleźć w temacie [Rozmiar maszyny wirtualnej](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 

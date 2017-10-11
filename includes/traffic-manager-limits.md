@@ -1,7 +1,7 @@
-| Resource | Default limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| Profiles per subscription |100 <sup>1</sup> |
-| Endpoints per profile |200 |
+| Profil dla każdej subskrypcji |100 <sup>1</sup> |
+| Punktów końcowych dla profilu |200 |
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>się z pomocą techniczną, w razie potrzeby można zwiększyć te limity.
 

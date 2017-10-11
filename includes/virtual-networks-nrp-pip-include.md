@@ -1,22 +1,22 @@
-## <a name="public-ip-address"></a>Public IP address
-A public IP address resource provides either a reserved or dynamic Internet facing IP address. Although you can create a public IP address as a stand alone object, you need to associate it to another object to actually use the address. You can associate a public IP address to a load balancer, application  gateway, or a NIC to provide Internet access to those resources.  
+## <a name="public-ip-address"></a>Publiczny adres IP
+Zasób publicznego adresu IP zawiera albo zastrzeżonego lub dynamiczny internetowy adres IP. Mimo że można utworzyć publiczny adres IP, jako autonomiczny obiekt, należy skojarzyć je do innego obiektu użyć adresu. Możesz skojarzyć publicznego adresu IP do modułu równoważenia obciążenia, bramy aplikacji lub karty Sieciowej, aby zapewnić dostęp do Internetu dla tych zasobów.  
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **publicIPAllocationMethod** |Defines if the IP address is *static* or *dynamic*. |static, dynamic |
-| **idleTimeoutInMinutes** |Defines the idle time out, with a default value of 4 minutes. If no more packets for a given session is received within this time, the session is terminated. |any value between 4 and 30 |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **publicIPAllocationMethod** |Określa, czy adres IP jest *statycznych* lub *dynamiczne*. |statyczna, dynamiczne |
+| **idleTimeoutInMinutes** |Określa limit czasu bezczynności, wartość domyślna wynosi 4 minut. Jeśli w tej chwili nie zostanie odebrana nie więcej pakietów dla danej sesji, sesja zostanie zakończona. |dowolna wartość od 4 do 30 |
+| **adres IP** |Adres IP przypisany do obiektu. Jest to właściwość tylko do odczytu. |104.42.233.77 |
 
-### <a name="dns-settings"></a>DNS settings
-Public IP addresses have a child object named **dnsSettings** containing the following properties:
+### <a name="dns-settings"></a>Ustawienia DNS
+Publiczne adresy IP mieć obiektu podrzędnego o nazwie **dnsSettings** zawierającą następujące właściwości:
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **domainNameLabel** |Host named used for name resolution. |www, ftp, vm1 |
-| **fqdn** |Fully qualified name for the public IP. |www.westus.cloudapp.azure.com |
-| **reverseFqdn** |Fully qualified domain name that resolves to the IP address and is registered in DNS as a PTR record. |www.contoso.com. |
+| **domainNameLabel** |Hosta o nazwie używany do rozpoznawania nazw. |WWW, ftp, vm1 |
+| **Nazwa FQDN** |Pełna nazwa publicznego adresu IP. |www.westus.cloudapp.Azure.com |
+| **reverseFqdn** |Pełna nazwa domeny jest rozpoznawana jako adres IP, który jest zarejestrowany w systemie DNS jako rekord PTR. |www.contoso.com. |
 
-Sample public IP address in JSON format:
+Przykładowe publicznego adresu IP w formacie JSON:
 
     {
        "name": "PIP01",
@@ -34,8 +34,8 @@ Sample public IP address in JSON format:
        }
     } 
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [public IP addresses](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
-* Learn about [instance level public IP addresses](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163638.aspx) for public IP addresses.
+### <a name="additional-resources"></a>Dodatkowe zasoby
+* Uzyskaj więcej informacji [publiczne adresy IP](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+* Dowiedz się więcej o [wystąpienie poziomu publiczne adresy IP](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) publicznego adresu IP adresów.
 

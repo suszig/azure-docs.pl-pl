@@ -1,9 +1,9 @@
-| Resource | Default Limit | Maximum Limit |
+| Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
-| [Web/worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
-| [Instance Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per deployment |25 |25 |
-| [Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per deployment |25 |25 |
-| [Internal Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per deployment |25 |25 |
+| [Role sieć Web/proces roboczy na wdrożenie](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
+| [Wystąpienie danych wejściowych punktów końcowych](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) dla wdrożenia |25 |25 |
+| [Wejściowe punkty końcowe](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) dla wdrożenia |25 |25 |
+| [Wewnętrznych punktów końcowych](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) dla wdrożenia |25 |25 |
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
+<sup>1</sup>każdej usługi w chmurze z rolami sieć Web/proces roboczy może mieć dwa wdrożenia, co w środowisku produkcyjnym i jeden dla przemieszczania. Należy również zauważyć, że ten limit odwołuje się do liczby unikatowych ról (Konfiguracja) i nie liczba wystąpień dla każdej roli (skalowanie).
 

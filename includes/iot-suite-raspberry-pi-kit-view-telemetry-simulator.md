@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>Widok telemetrii
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+Pi malina teraz wysyła dane telemetryczne do zdalnego rozwiązanie monitorowania. Można wyświetlić dane telemetryczne na pulpicie nawigacyjnym rozwiązania. Można również wysyłać wiadomości do Twojej Pi malina z poziomu pulpitu nawigacyjnego rozwiązania.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Przejdź do pulpitu nawigacyjnego rozwiązania.
+- Wybierz urządzenie w **urządzenia do widoku** listy rozwijanej.
+- Dane telemetryczne z Pi malina wyświetla na pulpicie nawigacyjnym.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Wyświetl dane telemetryczne z Pi malina][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Act on the device
+## <a name="act-on-the-device"></a>Działania na urządzeniu
 
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
+Na pulpicie nawigacyjnym rozwiązania można wywoływać metod w Twojej Pi malina. Gdy Pi malina łączy się zdalnego rozwiązanie monitorowania, wysyła informacje o metodach obsługiwanych.
 
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
+- Na pulpicie nawigacyjnym rozwiązania kliknij **urządzeń** do odwiedzenia **urządzeń** strony. Wybierz użytkownika malinowe Pi w **listę urządzeń**. Następnie wybierz pozycję **metody**:
 
-    ![List devices in dashboard][img-list-devices]
+    ![Lista urządzeń na pulpicie nawigacyjnym][img-list-devices]
 
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
+- Na **wywołania metody** wybierz pozycję **LightBlink** w **metody** listy rozwijanej.
 
-- Choose **InvokeMethod**. The simulator prints a message in the console on the Raspberry Pi. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
+- Wybierz **InvokeMethod**. Symulator wyświetla komunikat w konsoli za pośrednictwem malina Pi. Aplikacja na Pi malina wysyła potwierdzenie z powrotem do pulpitu nawigacyjnego rozwiązania:
 
-    ![Show method history][img-method-history]
+    ![Pokaż historię — metoda][img-method-history]
 
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
+- Możesz przełączyć LED włączać i wyłączać za pomocą **ChangeLightStatus** metody z **LightStatusValue** ustawioną **1** dla na lub **0** dla off.
 
 > [!WARNING]
-> If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
+> Pozostawienie zdalnego monitorowania działającej na koncie Azure są rozliczane dla przy uruchomieniu. Aby uzyskać więcej informacji na temat zmniejszenie zużycia podczas wykonywania zdalnego rozwiązanie monitorowania, zobacz [Konfigurowanie pakiet IoT Azure wstępnie rozwiązań dla celów demonstracyjnych][lnk-demo-config]. Usuwanie wstępnie skonfigurowane rozwiązanie z konta platformy Azure po zakończeniu korzystania z niego.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

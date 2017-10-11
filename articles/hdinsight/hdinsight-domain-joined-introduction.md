@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
-ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
-
-
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Wprowadzenie do zabezpieczeń usługi Hadoop z przyłączonymi do domeny klastrami usługi HDInsight (wersja zapoznawcza)
 
@@ -27,8 +28,9 @@ Do tej pory usługa Azure HDInsight obsługiwała tylko jednego użytkownika z u
 
 > [!NOTE]
 > Nowe funkcje opisane w tej wersji zapoznawczej są dostępne tylko w klastrach usługi HDInsight opartych na systemie Linux w odniesieniu do obciążenia Hive. Inne obciążenia, takie jak HBase, Spark, Storm i Kafka, zostaną włączone w przyszłych wersjach.
->
->
+
+> [!IMPORTANT]
+> Oozie nie jest włączona w usłudze HDInsight z przyłączonych do domeny.
 
 ## <a name="benefits"></a>Korzyści
 Na zabezpieczenia przedsiębiorstwa składają się cztery wielkie filary — zabezpieczenia brzegowe, uwierzytelnianie, autoryzacja i szyfrowanie.
@@ -48,16 +50,10 @@ Najlepsze rozwiązanie stosowane przez większość przedsiębiorstw polega na t
 Wraz z ochroną zasobów klastra usługi HDInsight przed dostępem ze strony nieautoryzowanych użytkowników oraz zabezpieczaniem danych niezbędna jest inspekcja wszystkich przypadków dostępu do zasobów klastra i danych w celu śledzenia prób nieautoryzowanego lub niezamierzonego dostępu do zasobów. W tej wersji zapoznawczej administrator może wyświetlać i raportować wszystkie przypadki dostępu do zasobów klastra usługi HDInsight i danych. Administrator może także przeglądać i raportować wszystkie zmiany wprowadzane do zasad kontroli dostępu poprzez punkty końcowe obsługiwane przez środowisko Apache Ranger. Przyłączony do domeny klaster usługi HDInsight używa znanego interfejsu użytkownika środowiska Apache Ranger do wyszukiwania dzienników inspekcji. W wewnętrznej bazie danych do przechowywania i wyszukiwania dzienników środowisko Ranger używa rozwiązania [Apache Solr](http://hortonworks.com/apache/solr/).
 
 ### <a name="encryption"></a>Szyfrowanie
-Ochrona danych ma duże znaczenie dla spełniania wymagań organizacyjnych w zakresie zgodności z przepisami i zabezpieczeń, dlatego poza ograniczaniem dostępu do danych przez nieautoryzowanych pracowników powinna uwzględniać również ich szyfrowanie. Oba rodzaje magazynów danych dla klastrów usługi HDInsight, czyli magazyn usługi Azure Storage Blob i magazyn usługi Azure Data Lake, obsługują przezroczyste [szyfrowanie danych](../storage/storage-service-encryption.md) po stronie serwera w odniesieniu do danych magazynowanych. Zabezpieczanie klastrów usługi HDInsight funkcjonuje bezproblemowo przy użyciu funkcji szyfrowania danych magazynowanych po stronie serwera.
+Ochrona danych ma duże znaczenie dla spełniania wymagań organizacyjnych w zakresie zgodności z przepisami i zabezpieczeń, dlatego poza ograniczaniem dostępu do danych przez nieautoryzowanych pracowników powinna uwzględniać również ich szyfrowanie. Oba rodzaje magazynów danych dla klastrów usługi HDInsight, czyli magazyn usługi Azure Storage Blob i magazyn usługi Azure Data Lake, obsługują przezroczyste [szyfrowanie danych](../storage/common/storage-service-encryption.md) po stronie serwera w odniesieniu do danych magazynowanych. Zabezpieczanie klastrów usługi HDInsight funkcjonuje bezproblemowo przy użyciu funkcji szyfrowania danych magazynowanych po stronie serwera.
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).
 * Aby zarządzać przyłączonymi do domeny klastrami usługi HDInsight, zobacz [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight).
 * Aby znaleźć informacje na temat konfigurowania zasad Hive i uruchamiania kwerend Hive, zobacz [Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight](hdinsight-domain-joined-run-hive.md).
-* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+* Do uruchamiania zapytań Hive przy użyciu protokołu SSH w klastrach HDInsight przyłączonych do domeny, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

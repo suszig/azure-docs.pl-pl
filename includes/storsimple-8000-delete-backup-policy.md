@@ -1,18 +1,18 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Aby usunąć zasady tworzenia kopii zapasowych StorSimple
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Przejdź do urządzenia StorSimple i kliknij pozycję **Zasady kopii zapasowych**.
 
-2. In the tabular listing of backup policies, select the policy you want to delete. Right-click and from the context menu, select **Delete**.
+2. W tabelarycznej listę zasad tworzenia kopii zapasowych, wybierz zasady, które chcesz usunąć. Kliknij prawym przyciskiem myszy i wybierz z menu kontekstowego **usunąć**.
 
-    ![Select a backup policy to delete](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
+    ![Wybierz zasady tworzenia kopii zapasowej do usunięcia](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
+3. Pojawi się monit o potwierdzenie. Należy pamiętać, że usunięcie zasad tworzenia kopii zapasowej spowoduje usunięcie wszystkich skojarzonych kopii zapasowych. Kliknij przycisk **tak** do usunięcia.
 
-    ![Confirm delete](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+    ![Potwierdzenie usunięcia](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
-The backup policies list will be updated to display the new list of policies.
+Lista zasad tworzenia kopii zapasowych będzie aktualizowana do wyświetlenia na liście nowych zasad.
 
-![Updated backup policy list](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)
+![Zaktualizowano zasady tworzenia kopii zapasowej listy](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)

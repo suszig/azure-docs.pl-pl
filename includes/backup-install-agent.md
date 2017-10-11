@@ -1,42 +1,42 @@
-## <a name="download-install-and-register-the-azure-backup-agent"></a>Download, install, and register the Azure Backup agent
-After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
+## <a name="download-install-and-register-the-azure-backup-agent"></a>Pobieranie, instalowanie i rejestrowanie agenta usługi Kopia zapasowa Azure
+Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agenta na wszystkich maszynach systemu Windows (Windows Server, klienta systemu Windows, serwer System Center Data Protection Manager lub serwer kopii zapasowej Azure machine), które umożliwia wykonywanie kopii zapasowych danych i aplikacji na platformie Azure.
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **Recovery Services**, then select the backup vault that you want to register with a server. The Quick Start page for that backup vault appears.
+1. Zaloguj się do [portalu zarządzania](https://manage.windowsazure.com/)
+2. Kliknij przycisk **usług odzyskiwania**, następnie wybierz magazyn kopii zapasowych, który ma zostać zarejestrowany na serwerze. Zostanie wyświetlona strona Szybki Start dla tego magazynu kopii zapasowych.
    
-    ![Quick start](./media/backup-install-agent/quickstart.png)
-3. On the Quick Start page, click the **For Windows Server or System Center Data Protection Manager or Windows client** option under **Download Agent**. Click **Save** to copy it to the local machine.
+    ![Szybki start](./media/backup-install-agent/quickstart.png)
+3. Na stronie Szybki Start kliknij **klienta dla systemu Windows Server lub System Center Data Protection Manager lub Windows** opcję w obszarze **Pobierz agenta**. Kliknij przycisk **zapisać** Aby skopiować go na komputerze lokalnym.
    
-    ![Save agent](./media/backup-install-agent/agent.png)
-4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
-5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
-6. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
-7. Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
+    ![Zapisz agenta](./media/backup-install-agent/agent.png)
+4. Po zainstalowaniu agenta kliknij dwukrotnie MARSAgentInstaller.exe do uruchomienia instalacji agenta usługi Kopia zapasowa Azure. Wybierz folder instalacji i folderu pliki tymczasowe wymagane dla agenta. Określona lokalizacja pamięci podręcznej musi mieć wolnego miejsca, czyli co najmniej 5% danych kopii zapasowej.
+5. Jeśli używasz serwera proxy, aby nawiązać połączenie z Internetem, w **konfiguracji serwera Proxy** ekranu, wprowadź szczegóły serwera proxy. Jeśli korzystasz z uwierzytelnionego serwera proxy, wprowadź szczegóły nazwy i hasła użytkownika na tym ekranie.
+6. Agent usługi Kopia zapasowa Azure instaluje program .NET Framework 4.5 i programu Windows PowerShell (Jeśli nie jest dostępna) do ukończenia instalacji.
+7. Po zainstalowaniu agenta kliknij **przejść do rejestracji** przycisk, aby kontynuować przepływ pracy.
    
-   ![Register](./media/backup-install-agent/register.png)
-8. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
+   ![Zarejestruj subskrypcję](./media/backup-install-agent/register.png)
+8. Na ekranie poświadczenia magazynu Wyszukaj i wybierz plik poświadczeń magazynu, który został wcześniej pobrany.
    
-    ![Vault credentials](./media/backup-install-agent/vc.png)
+    ![Poświadczenia magazynu](./media/backup-install-agent/vc.png)
    
-    The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+    Plik poświadczeń magazynu jest prawidłowa tylko dla 48 godzin (po jej pobraniu, z portalu). W przypadku napotkania jakiegokolwiek błędu w tym ekranu (np. "plik poświadczeń magazynu określony limit czasu"), zaloguj się do portalu Azure i ponownie Pobierz plik poświadczeń magazynu.
    
-    Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+    Upewnij się, że plik poświadczeń magazynu jest dostępny w lokalizacji, które są dostępne dla aplikacji Instalatora. Jeśli wystąpią dostępu pokrewne błędy, skopiuj plik poświadczeń magazynu do tymczasowej lokalizacji na tym komputerze i spróbuj ponownie wykonać operację.
    
-    If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks on the **Download vault credential** option in the Azure portal, in quick succession. In this case, only the second vault credential file is valid.
-9. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+    Jeśli wystąpi błąd poświadczeń magazynu nieprawidłowe (np. "udostępniono nieprawidłowe poświadczenia magazynu"), plik jest uszkodzony lub jest nie ma najnowszych poświadczeń skojarzonych z usługą odzyskiwania. Spróbuj ponownie wykonać operację po pobraniu nowego pliku poświadczeń magazynu z portalu. Ten błąd występuje zazwyczaj, gdy użytkownik kliknie **poświadczenia magazynu pobierania** opcji w portalu Azure, szybkie naciśnięcie. W takim przypadku tylko drugi plik poświadczeń magazynu jest nieprawidłowa.
+9. W **ustawienie szyfrowania** ekranu, można wygenerować hasło lub podać hasło (co najmniej 16 znaków). Pamiętaj, aby zapisać hasła w bezpiecznym miejscu.
    
-    ![Encryption](./media/backup-install-agent/encryption.png)
+    ![Szyfrowanie](./media/backup-install-agent/encryption.png)
    
    > [!WARNING]
-   > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+   > W przypadku zgubienia lub zapomnienia hasła; Microsoft nie może pomóc w odzyskaniu danych kopii zapasowej. Hasło szyfrowania jest właścicielem użytkownika końcowego i Microsoft nie ma wgląd w miejscu hasło używane przez użytkownika końcowego. Zapisz plik w bezpiecznym miejscu, ponieważ jest on wymagany podczas operacji odzyskiwania.
    > 
    > 
-10. Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.
-11. When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the **Change Properties** option in the Azure Backup mmc snap in.
+10. Po kliknięciu **Zakończ** przycisk, komputer został pomyślnie zarejestrowany w magazynie i są teraz rozpocząć tworzenie kopii zapasowych Microsoft Azure.
+11. Podczas korzystania z autonomicznej kopia zapasowa Microsoft Azure można zmodyfikować ustawienia określone podczas rejestracji przepływu pracy, klikając **Zmień właściwości** opcji w przystawce mmc usługi Kopia zapasowa Azure w.
     
-    ![Change Properties](./media/backup-install-agent/change.png)
+    ![Zmień właściwości](./media/backup-install-agent/change.png)
     
-    Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
+    Alternatywnie, korzystając z programu Data Protection Manager, można zmodyfikować ustawienia określone podczas rejestracji przepływu pracy, klikając **Konfiguruj** opcję, wybierając **Online** w obszarze **Zarządzania** kartę.
     
-    ![Configure Azure Backup](./media/backup-install-agent/configure.png)
+    ![Konfigurowanie usługi Azure Backup](./media/backup-install-agent/configure.png)
 

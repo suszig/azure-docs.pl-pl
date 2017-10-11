@@ -1,11 +1,11 @@
-The Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] to send pushes, so you will be configuring a notification hub for your mobile app.
+Używa funkcji Mobile Apps w usłudze Azure App Service [usługi Azure Notification Hubs] do wysyłania wypchnięć, więc będą konfigurowane Centrum powiadomień dla aplikacji mobilnej.
 
-1. In the [Azure portal], go to **App Services**, and then click your app back end. Under **Settings**, click **Push**.
-2. Click **Connect** to add a notification hub resource to the app. You can either create a hub or connect to an existing one.
+1. W [portalu Azure], przejdź do **usługi aplikacji**, a następnie kliknij przycisk z zaplecza aplikacji. W obszarze **ustawienia**, kliknij przycisk **Push**.
+2. Kliknij przycisk **Connect** można dodać zasobów Centrum powiadomień do aplikacji. Można utworzyć koncentratora lub nawiązać połączenia z jednego z istniejących.
 
     ![](./media/app-service-mobile-create-notification-hub/configure-hub-flow.png)
 
-Now you have connected a notification hub to your Mobile Apps back-end project. Later you will configure this notification hub to connect to a platform notification system (PNS) to push to devices.
+Teraz połączyły Centrum powiadomień do projektu zaplecza aplikacji mobilnej. Zostanie później skonfigurować tego Centrum powiadomień, aby połączyć się z systemem powiadomień platformy (PNS) do urządzenia.
 
-[Azure portal]: https://portal.azure.com/
-[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[portalu Azure]: https://portal.azure.com/
+[usługi Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/

@@ -1,25 +1,25 @@
-| Resource | Default Limit | Maximum Limit |
+| Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
-| Resources per [resource group](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resource type) |800 |Varies per resource type |
-| Deployments per resource group |800 |800 |
-| Resources per deployment |800 |800 |
-| Management Locks (per unique scope) |20 |20 |
-| Number of Tags (per resource or resource group) |15 |15 |
-| Tag key length |512 |512 |
-| Tag value length |256 |256 |
+| Zasoby na [grupy zasobów](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (na typ zasobu) |800 |Zmienia się na typ zasobu |
+| Wdrożenia dla grupy zasobów |800 |800 |
+| Zasoby dla wdrożenia |800 |800 |
+| Blokady zarządzania (na unikatowy zakres) |20 |20 |
+| Liczba tagów (na zasób lub grupa zasobów) |15 |15 |
+| Długość klucza tagu |512 |512 |
+| Długość wartości tagu |256 |256 |
 
 
-#### <a name="template-limits"></a>Template limits
+#### <a name="template-limits"></a>Limity szablonu
 
-| Value | Default Limit | Maximum Limit |
+| Wartość | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
-| Parameters |256 |256 |
-| Variables |256 |256 |
-| Resources (including copy count) |800 |800 |
-| Outputs |64 |64 |
-| Template expression |24,576 chars |24,576 chars |
-| Resources in exported templates |200 |200 | 
-| Template size |1 MB |1 MB |
-| Parameter file size |64 KB |64 KB |
+| Parametry |256 |256 |
+| Zmienne |256 |256 |
+| Zasoby (w tym liczba kopii) |800 |800 |
+| dane wyjściowe |64 |64 |
+| Wyrażenia szablonu |24 576 znaków |24 576 znaków |
+| Zasoby w wyeksportowanych szablonów |200 |200 | 
+| Rozmiar szablonu |1 MB |1 MB |
+| Rozmiar pliku parametrów |64 KB |64 KB |
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+Niektóre limity szablonu może przekroczyć przy użyciu szablonu zagnieżdżonego. Aby uzyskać więcej informacji, zobacz [przy użyciu szablonów połączonych w przypadku wdrażania zasobów Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Aby zmniejszyć liczbę parametrów, zmiennych lub dane wyjściowe, można połączyć kilka wartości do obiektu. Aby uzyskać więcej informacji, zobacz [obiektów jako parametry](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

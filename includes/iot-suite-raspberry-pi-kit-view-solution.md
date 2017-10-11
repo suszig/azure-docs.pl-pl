@@ -1,38 +1,38 @@
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+## <a name="view-the-solution-dashboard"></a>Wyświetlanie pulpitu nawigacyjnego
 
-The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
+Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Można na przykład wyświetlić dane telemetryczne, Dodaj urządzenia i wywołania metody.
 
-1. When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, choose **Launch** to open your remote monitoring solution portal in a new tab.
+1. Jeśli aprowizacja została ukończona, a na kafelku wstępnie skonfigurowanego rozwiązania jest wyświetlany stan **Gotowe**, wybierz pozycję **Uruchom**, aby otworzyć portal rozwiązania do monitorowania zdalnego na nowej karcie.
 
-    ![Launch the preconfigured solution][img-launch-solution]
+    ![Uruchamianie wstępnie skonfigurowanego rozwiązania][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. You can navigate to other areas of the solution portal using the menu on the left-hand side of the page.
+1. Domyślnie w portalu rozwiązania jest wyświetlany *pulpit nawigacyjny*. Korzystając z menu po lewej stronie, można przejść do innych obszarów portalu rozwiązania.
 
-    ![Remote monitoring preconfigured solution dashboard][img-menu]
+    ![Pulpit nawigacyjny wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego][img-menu]
 
-## <a name="add-a-device"></a>Add a device
+## <a name="add-a-device"></a>Dodawanie urządzenia
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
+Aby urządzenie mogło nawiązać połączenie ze wstępnie skonfigurowanym rozwiązaniem, musi ono zidentyfikować się względem usługi IoT Hub za pomocą prawidłowych poświadczeń. Poświadczenia urządzenia możesz pobrać z pulpitu nawigacyjnego rozwiązania. W dalszej części tego samouczka podasz te poświadczenia urządzenia w Twojej aplikacji klienckiej.
 
-If you haven't already done so, add a custom device to your remote monitoring solution. Complete the following steps in the solution dashboard:
+Jeśli jeszcze tego nie zrobiono, należy dodać niestandardowe urządzenie do zdalnego rozwiązanie monitorowania. Wykonaj następujące czynności na pulpicie nawigacyjnym rozwiązania:
 
-1. In the lower left-hand corner of the dashboard, click **Add a device**.
+1. W lewym dolnym rogu pulpitu nawigacyjnego kliknij pozycję **Dodaj urządzenie**.
 
-   ![Add a device][1]
+   ![Dodawanie urządzenia][1]
 
-1. In the **Custom Device** panel, click **Add new**.
+1. W panelu **Urządzenie niestandardowe** kliknij pozycję **Dodaj nowe**.
 
-   ![Add a custom device][2]
+   ![Dodawanie urządzenia niestandardowego][2]
 
-1. Choose **Let me define my own Device ID**. Enter a Device ID such as **rasppi**, click **Check ID** to verify you haven't already used the name in your solution, and then click **Create** to provision the device.
+1. Wybierz pozycję **Pozwól mi zdefiniować własny identyfikator urządzenia**. Wprowadź identyfikator urządzenia, takie jak **rasppi**, kliknij przycisk **Sprawdź identyfikator** można zweryfikować już nie użyto nazwy rozwiązania, a następnie kliknij przycisk **Utwórz** do obsługi administracyjnej urządzeniu.
 
-   ![Add device ID][3]
+   ![Dodawanie identyfikatora urządzenia][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Raspberry Pi needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Zanotuj poświadczenia urządzenia (**identyfikator urządzenia**, **nazwy hosta Centrum IoT**, i **klucza urządzenia**). Aplikacja kliencka na Pi malina wymaga tych wartości, aby nawiązać połączenie zdalne rozwiązanie monitorowania. Następnie kliknij przycisk **Gotowe**.
 
-    ![View device credentials][4]
+    ![Wyświetlanie poświadczeń urządzenia][4]
 
-1. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
+1. Wybierz urządzenie na liście urządzeń na pulpicie nawigacyjnym rozwiązania. Następnie w panelu **Szczegóły urządzenia** kliknij pozycję **Włącz urządzenie**. Stan Twojego urządzenia to teraz **Uruchomione**. Rozwiązanie do monitorowania zdalnego może teraz odbierać dane telemetryczne z Twojego urządzenia i wywoływać metody na tym urządzeniu.
 
 [img-launch-solution]: media/iot-suite-raspberry-pi-kit-view-solution/launch.png
 [img-menu]: media/iot-suite-raspberry-pi-kit-view-solution/menu.png

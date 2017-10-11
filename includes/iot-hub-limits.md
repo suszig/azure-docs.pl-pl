@@ -1,60 +1,60 @@
-The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+W poniższej tabeli przedstawiono limity skojarzone z różnymi warstwami usług (S1, S2, S3, F1). Aby uzyskać informacje o koszcie każdej *jednostki* w każdej z warstw, zobacz [Cennik usługi IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
+| Zasób | Standardowa S1 | Standardowa S2 | Standardowa S3 | Bezpłatna F1 |
 | --- | --- | --- | --- | --- |
-| Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
-| Maximum units |200 |200 |10 |1 |
+| Komunikaty/dzień |400 000 |6 000 000 |300 000 000 |8000 |
+| Maksymalna liczba jednostek |200 |200 |10 |1 |
 
 > [!NOTE]
-> If you anticipate using more than 200 units with an S1 or S2 or 10 units with an S3 tier hub, contact Microsoft support.
+> Jeśli przewidujesz używanie ponad 200 jednostek z centrum w warstwie S1 lub S2 albo 10 jednostek z centrum w warstwie S3, skontaktuj się z pomocą techniczną firmy Microsoft.
 > 
 > 
 
-The following table lists the limits that apply to IoT Hub resources:
+W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
 
-| Resource | Limit |
+| Zasób | Limit |
 | --- | --- |
-| Maximum paid IoT hubs per Azure subscription |10 |
-| Maximum free IoT hubs per Azure subscription |1 |
-| Maximum number of device identities<br/> returned in a single call |1000 |
-| IoT Hub message maximum retention for device-to-cloud messages |7 days |
-| Maximum size of device-to-cloud message |256 KB |
-| Maximum size of device-to-cloud batch |256 KB |
-| Maximum messages in device-to-cloud batch |500 |
-| Maximum size of cloud-to-device message |64 KB |
-| Maximum TTL for cloud-to-device messages |2 days |
-| Maximum delivery count for cloud-to-device <br/> messages |100 |
-| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
-| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
-| Maximum size of device twin <br/> (tags, reported properties, and desired properties) | 8 KB |
-| Maximum size of device twin string value | 512 bytes |
-| Maximum depth of object in device twin | 5 |
-| Maximum size of direct method payload | 8 KB |
-| Job history maximum retention | 30 days |
-| Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
-| Maximum additional endpoints | 10 (for S1, S2, S3) |
-| Maximum message routing rules | 100 (for S1, S2, S3) |
+| Maksymalna liczba płatnych centrów IoT na subskrypcję platformy Azure |10 |
+| Maksymalna liczba bezpłatnych centrów IoT na subskrypcję platformy Azure |1 |
+| Maksymalna liczba tożsamości urządzeń<br/> zwróconych w pojedynczym wywołaniu |1000 |
+| Maksymalny okres przechowywania komunikatów usługi IoT Hub dla komunikatów przesyłanych z urządzenia do chmury |7 dni |
+| Maksymalny rozmiar komunikatu przesyłanego z urządzenia do chmury |256 KB |
+| Maksymalny rozmiar partii przesyłanej z urządzenia do chmury |256 KB |
+| Maksymalna liczba komunikatów w partii przesyłanej z urządzenia do chmury |500 |
+| Maksymalny rozmiar komunikatu przesyłanego z chmury do urządzenia |64 KB |
+| Maksymalny czas wygaśnięcia komunikatu przesyłanego z chmury do urządzenia |2 dni |
+| Maksymalna liczba dostarczonych komunikatów przesyłanych <br/> z chmury do urządzenia |100 |
+| Maksymalna liczba dostarczonych komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |100 |
+| Maksymalny czas wygaśnięcia komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |2 dni |
+| Maksymalny rozmiar bliźniaczej reprezentacji urządzenia <br/> (tagi, zgłoszone właściwości i żądane właściwości) | 8 KB |
+| Maksymalny rozmiar wartości ciągu bliźniaczej reprezentacji urządzenia | 512 bajtów |
+| Maksymalna głębokość obiektu w bliźniaczej reprezentacji urządzenia | 5 |
+| Maksymalny rozmiar ładunku metody bezpośredniej | 8 KB |
+| Maksymalny okres przechowywania historii zadań | 30 dni |
+| Maksymalna liczba równoczesnych zadań | 10 (warstwa S3), 5 (warstwa S2), 1 (warstwa S1) |
+| Maksymalna liczba dodatkowych punktów końcowych | 10 (warstwy S1, S2 i S3) |
+| Maksymalna liczba reguł rozsyłania komunikatów | 100 (warstwy S1, S2 i S3) |
 
 
 > [!NOTE]
-> If you need more than 10 paid IoT hubs in an Azure subscription, contact Microsoft support.
+> Jeśli potrzebujesz więcej niż 10 płatnych centrów IoT w subskrypcji platformy Azure, skontaktuj się z pomocą techniczną firmy Microsoft.
 
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Maksymalna liczba urządzeń, którymi możesz połączyć się z jednego centrum IoT jest obecnie, 500 000. Jeśli chcesz podwyższyć ten limit, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
-The IoT Hub service throttles requests when the following quotas are exceeded:
+Usługa IoT Hub ogranicza żądania po przekroczeniu następujących limitów przydziału:
 
-| Throttle | Per-hub value |
+| Ograniczenie | Wartość na centrum |
 | --- | --- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export |83.33/sec/unit (5000/min/unit) (for S3) <br/> 1.67/sec/unit (100/min/unit) (for S1 and S2). |
-| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
-| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
-| Cloud-to-device sends | 83.33/sec/unit (5000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S1 and S2). |
-| Cloud-to-device receives |833.33/sec/unit (50000/min/unit) (for S3), 16.67/sec/unit (1000/min/unit) (for S1 and S2). |
-| File upload operations |83.33 file upload notifications/sec/unit (5000/min/unit) (for S3), 1.67 file upload notifications/sec/unit (100/min/unit) (for S1 and S2). <br/> 10000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
-| Direct methods | 3000/sec/unit (for S3), 60/sec/unit (for S2), 20/sec/unit (for S1) |
-| Device twin reads | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
-| Device twin updates | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
-| Jobs operations <br/> (create, update, list, delete) | 83.33/sec/unit (5000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1) |
-| Jobs per-device operation throughput | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
+| Operacje rejestru tożsamości <br/> (tworzenie, przywracanie, wyświetlanie, usuwanie), <br/> import/eksport zbiorczy lub pojedynczy |83.33/sec/Unit (jednostka-5000/min) (dla S3) <br/> 1.67/sec/Unit (jednostka/100/min) (dla S1 i S2). |
+| Połączenia urządzenia |6000/sek/jednostkę (warstwa S3), 120/sek/jednostkę (warstwa S2), 12/sek/jednostkę (warstwa S1). <br/>Minimum 100/sek. |
+| Liczba elementów wysłanych z urządzenia do chmury |6000/sek/jednostkę (warstwa S3), 120/sek/jednostkę (warstwa S2), 12/sek/jednostkę (warstwa S1). <br/>Minimum 100/sek. |
+| Liczba elementów wysłanych z chmury do urządzenia | 83.33/sec/Unit (5000/min/jednostka) (S3) 1.67/sec/unit (jednostka/100/min) (dla S1 i S2). |
+| Liczba odebranych elementów wysłanych z chmury do urządzenia |16.67/sec/unit (50000/min/jednostka) (S3) 833.33/sec/Unit (1000/min/jednostka) (S1 i S2). |
+| Operacje przekazywania plików |Plik 83.33 przekazywania s powiadomienia jednostki 1.67 (5000/min/jednostka) (S3), plik przekazywania powiadomień/s/jednostka (jednostka/100/min) (S1 i S2). <br/> Jednocześnie może istnieć 10 000 identyfikatorów URI sygnatury dostępu współdzielonego dla konta usługi Azure Storage.<br/> Jednocześnie może istnieć 10 identyfikatorów URI sygnatury dostępu współdzielonego. |
+| Metody bezpośrednie | 3000/s/jednostka (S3) 60/s/jednostki (S2), 20/s/jednostka (S1) |
+| Liczba odczytów bliźniaczej reprezentacji urządzenia | 50/sek/jednostkę (warstwa S3), maksymalnie 10/sek lub 1/sek/jednostkę (warstwa S2), 10/sek (warstwa S1) |
+| Liczba aktualizacji bliźniaczej reprezentacji urządzenia | 50/sek/jednostkę (warstwa S3), maksymalnie 10/sek lub 1/sek/jednostkę (warstwa S2), 10/sek (warstwa S1) |
+| Operacje zadań <br/> (tworzenie, aktualizowanie, wyświetlanie, usuwanie) | 83.33/sec/Unit (5000/min/jednostka) (S3) 1.67/sec/unit (jednostka/100/min) (dla S2), 1.67/sec/unit (jednostka/100/min) (dla S1) |
+| Przepływność operacji zadań poszczególnych urządzeń | 50/sek/jednostkę (warstwa S3), maksymalnie 10/sek lub 1/sek/jednostkę (warstwa S2), 10/sek (warstwa S1) |

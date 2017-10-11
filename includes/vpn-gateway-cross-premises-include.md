@@ -1,13 +1,13 @@
-|  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
+|  | **Punkt lokacja** | **Lokacja lokacja** | **ExpressRoute** |
 | --- | --- | --- | --- |
-| **Azure Supported Services** |Cloud Services and Virtual Machines |Cloud Services and Virtual Machines |[Services list](../articles/expressroute/expressroute-faqs.md#supported-services) |
-| **Typical Bandwidths** |Typically < 100 Mbps aggregate |Typically < 1 Gbps aggregate |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocols Supported** |Secure Sockets Tunneling Protocol (SSTP) |IPsec |Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...) |
-| **Routing** |RouteBased (dynamic) |We support PolicyBased (static routing) and RouteBased (dynamic routing VPN) |BGP |
-| **Connection resiliency** |active-passive |active-passive or active-active |active-active |
-| **Typical use case** |Prototyping, dev / test / lab scenarios for cloud services and virtual machines |Dev / test / lab scenarios and small scale production workloads for cloud services and virtual machines |Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
-| **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
-| **Pricing** |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Technical Documentation** |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |
+| **Usługi obsługiwane przez platformę Azure** |Usługi Cloud Services i Virtual Machines |Usługi Cloud Services i Virtual Machines |[Lista usług](../articles/expressroute/expressroute-faqs.md#supported-services) |
+| **Typowe przepustowości** |Zwykle < 100 Mb/s łącznie |Zwykle < 1 GB/s agregacji |50 Mb/s, 100 Mb/s, 200 Mb/s, 500 Mb/s, 1 Gb/s, 2 Gb/s, 5 Gb/s, 10 Gb/s |
+| **Obsługiwane protokoły** |Secure Socket Tunneling Protocol (SSTP) |IPsec |Bezpośrednie połączenie za pośrednictwem sieci VLAN, technologie VPN NSP (MPLS, VPLS itp.) |
+| **Routing** |RouteBased (dynamiczny) |Firma Microsoft obsługuje PolicyBased (routing statyczny) i RouteBased (dynamiczny VPN) |BGP |
+| **Elastyczność połączenia** |aktywne/pasywne |aktywny pasywny "lub" aktywny aktywny |aktywne/aktywne |
+| **Typowy przypadek użycia** |Tworzenie prototypów, scenariusze laboratorium do tworzenia i testowania dla usług w chmurze i maszyn wirtualnych |Scenariusze laboratorium do tworzenia i testowania oraz obciążenia produkcyjne o małej skali dla usług w chmurze i maszyn wirtualnych |Dostęp do wszystkich usług Azure (zatwierdzona lista), obciążenia o znaczeniu krytycznym oraz klasy korporacyjnej, Backup, dane big data, platforma Azure jako lokacja DR |
+| **Umowa SLA** |[Umowa SLA](https://azure.microsoft.com/support/legal/sla/) |[Umowa SLA](https://azure.microsoft.com/support/legal/sla/) |[Umowa SLA](https://azure.microsoft.com/support/legal/sla/) |
+| **Cennik** |[Cennik](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Cennik](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Cennik](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Dokumentacja techniczna** |[Dokumentacja bramy sieci VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Dokumentacja bramy sieci VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Dokumentacja usługi ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **Często zadawane pytania** |[VPN Gateway — często zadawane pytania](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway — często zadawane pytania](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Usługa ExpressRoute — często zadawane pytania](../articles/expressroute/expressroute-faqs.md) |
 

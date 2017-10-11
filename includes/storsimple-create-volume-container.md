@@ -20,8 +20,3 @@
 
 Aby obejrzeć film wideo przedstawiający sposób tworzenia kontenera woluminów w rozwiązaniu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

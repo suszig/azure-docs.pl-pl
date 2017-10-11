@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: df7815ff16ac66531005f3a29550bdb419f3d052
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
 Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure Multi-Factor Authentication, najpierw odinstaluj agenta PhoneFactor i powiązane z nim składniki. Następnie można zainstalować serwer Multi-Factor Authentication i powiązane z nim składniki.
@@ -80,4 +79,3 @@ Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure 
 - [Zainstaluj portal użytkowników](multi-factor-authentication-get-started-portal.md) dla serwera Azure Multi-Factor Authentication.
 
 - [Skonfiguruj uwierzytelnianie systemu Windows](multi-factor-authentication-get-started-server-windows.md) dla aplikacji. 
-

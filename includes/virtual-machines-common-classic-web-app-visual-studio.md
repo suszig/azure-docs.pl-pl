@@ -1,41 +1,41 @@
 
 
-When you create a web application project for Azure, you can provision a virtual machine in Azure. You can then configure the virtual machine with additional software, or use the virtual machine for diagnostic or debugging purposes.
+Po utworzeniu projektu aplikacji sieci web dla platformy Azure można udostępnić maszynę wirtualną na platformie Azure. Następnie można skonfigurować maszynę wirtualną z dodatkowe oprogramowanie lub użyć maszyny wirtualnej do celów diagnostycznych lub debugowania.
 
-To create a virtual machine when you create a web application, follow these steps:
+Aby utworzyć maszynę wirtualną podczas tworzenia aplikacji sieci web, wykonaj następujące kroki:
 
-1. In Visual Studio, click **File** > **New** > **Project** > **Web**, and then choose **ASP.NET Web Application** (under the **Visual C#** or **Visual Basic** nodes).
-2. In the **New ASP.NET Project** dialog box, select the type of web application you want, and in the Azure section of the dialog box (in the lower-right corner), make sure that the **Host in the cloud** check box is selected (this check box is labeled **Create remote resources** in some installations).
+1. W programie Visual Studio, kliknij przycisk **pliku** > **nowy** > **projektu** > **Web**, a następnie wybierz pozycję **Aplikacji sieci Web ASP.NET** (w obszarze **Visual C#** lub **Visual Basic** węzłach).
+2. W **nowy projekt ASP.NET** okno dialogowe, wybierz typ aplikacji sieci web ma i upewnij się, że w sekcji Azure okna dialogowego (w prawym dolnym rogu) **Hostuj w chmurze** jest pole wyboru wybrane (to pole wyboru jest oznaczony **Utwórz zasoby zdalne** w niektórych instalacji).
    
     ![][0]
-3. For this example, in the drop-down list under Microsoft Azure, choose **Virtual Machine (v1)**, and then click the **OK** button.
-4. Sign in to Azure if you're prompted. The **Create Virtual Machine** dialog box appears.
+3. Na przykład w obszarze Microsoft Azure, na liście rozwijanej wybierz **maszyny wirtualnej (wersja 1)**, a następnie kliknij przycisk **OK** przycisku.
+4. Zaloguj się do platformy Azure, jeśli zostanie wyświetlony monit. **Utwórz maszynę wirtualną** zostanie wyświetlone okno dialogowe.
    
     ![][2]
-5. In the **DNS name** box, enter a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
-6. In the **Image** list, choose the image you want to base the virtual machine on. You can choose any of the standard Azure virtual machine images or your image that you've uploaded to Azure.
-7. Leave the **Enable IIS and Web Deploy** check box selected unless you plan to install a different web server. You won't be able to publish from Visual Studio if you disable Web Deploy. You can add IIS and Web Deploy to any of the packaged Windows Server images, including your own custom images.
-8. In the **Size** list, choose the size of the virtual machine.
-9. Specify the sign-in credentials for this virtual machine. Make a note of them, because you'll need them to access the machine through Remote Desktop.
-10. In the **Location** list, choose the region to host the virtual machine.
-11. Click  the **OK** button to start creating the virtual machine. You can follow the progress of the operation in the **Output** window.
+5. W **nazwy DNS** wprowadź nazwę maszyny wirtualnej. Nazwa DNS musi być unikatowa na platformie Azure. Jeśli wprowadzona nazwa jest niedostępna, zostanie wyświetlony czerwony wykrzyknik.
+6. W **obrazu** wybierz obraz, którego chcesz utworzyć maszynę wirtualną na. Można wybrać obrazy standardowe maszyny wirtualnej platformy Azure lub obrazu przekazywanego do platformy Azure.
+7. Pozostaw **Włącz usługi IIS i Web Deploy** pole wyboru jest zaznaczone, jeśli nie chcesz zainstalować serwer innej witryny sieci web. Nie można opublikować w programie Visual Studio po wyłączeniu narzędzia Web Deploy. Usługi IIS i Web Deploy można dodać do żadnych pakietów obrazów systemu Windows Server, w tym obrazów niestandardowych.
+8. W **rozmiar** wybierz rozmiar maszyny wirtualnej.
+9. Określ poświadczenia logowania dla tej maszyny wirtualnej. Zwróć uwagę, ponieważ konieczne będzie ich dostęp do komputera za pośrednictwem pulpitu zdalnego.
+10. W **lokalizacji** wybierz region do hosta maszyny wirtualnej.
+11. Kliknij przycisk **OK** przycisk, aby rozpocząć tworzenie maszyny wirtualnej. Możesz śledzić postęp operacji w **dane wyjściowe** okna.
     
     ![][3]
-12. When the virtual machine is provisioned, published scripts are created in a **PublishScripts** node in your solution. The published script runs and provisions a virtual machine in Azure. The **Output** window shows the status. The script performs the following actions to set up the virtual machine:
+12. Po zainicjowaniu obsługi maszyny wirtualnej, opublikowanych skrypty są tworzone w **PublishScripts** węzła w rozwiązaniu. Opublikowane skrypt jest uruchamiany i przepisy maszynę wirtualną na platformie Azure. **Dane wyjściowe** okno wyświetla stan. Skrypt wykonuje następujące czynności, aby skonfigurować maszynę wirtualną:
     
-    * Creates the virtual machine if it doesn't already exist.
-    * Creates a storage account with a name that begins with `devtest`, but only if there isn't already such a storage account in the specified region.
-    * Creates a cloud service as a container for the virtual machine, and creates a web role for the web application.
-    * Configures Web Deploy on the virtual machine.
-    * Configures IIS and ASP.NET on the virtual machine.
+    * Tworzy maszynę wirtualną, jeśli jeszcze nie istnieje.
+    * Tworzy konto magazynu, którego nazwa zaczyna się od `devtest`, ale tylko wtedy, gdy nie ma już konto magazynu w wybranym regionie.
+    * Tworzy usługi w chmurze jako kontener dla maszyny wirtualnej i tworzy rolę sieci web dla aplikacji sieci web.
+    * Konfiguruje narzędzie Web Deploy na maszynie wirtualnej.
+    * Umożliwia skonfigurowanie usług IIS i platformy ASP.NET na maszynie wirtualnej.
     
     ![][4]
-13. (Optional) You can connect to the new virtual machine. In **Server Explorer**, expand the **Virtual Machines** node, choose the node for the virtual machine you created, and on its shortcut menu, choose **Connect with Remote Desktop**. Alternatively, in **Cloud Explorer** you can choose **Open in Portal** on the shortcut menu and connect to the virtual machine there.
+13. (Opcjonalnie) Można połączyć do nowej maszyny wirtualnej. W **Eksploratora serwera**, rozwiń węzeł **maszyn wirtualnych** węzła, wybieranie węzła dla tworzenia maszyny wirtualnej, a jego menu skrótów, **Połącz przy użyciu pulpitu zdalnego**. Alternatywnie w **Eksplorator chmury** można **Otwórz w portalu** menu skrótów i nawiąż połączenie z maszyną wirtualną.
     
     ![][5]
 
-## <a name="next-steps"></a>Next steps
-If you want to customize the published scripts you created, read more in-depth information at [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx).
+## <a name="next-steps"></a>Następne kroki
+Jeśli chcesz dostosować opublikowanych skryptów tworzenia, odczytu bardziej szczegółowe informacje o [za pomocą skryptów programu PowerShell systemu Windows do opublikowania deweloperów i środowisk testowych](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG

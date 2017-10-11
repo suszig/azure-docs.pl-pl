@@ -9,8 +9,3 @@ Wewnętrzny moduł równoważenia obciążenia jest konfigurowany w sieci wirtua
 * 2 maszyny wirtualne o nazwach DB1 i DB2
 * Punkty końcowe
 * Wewnętrzny moduł równoważenia obciążenia
-
-
-<!--HONumber=Nov16_HO2-->
-
-

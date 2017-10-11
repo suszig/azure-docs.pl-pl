@@ -1,30 +1,30 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
-2. In the lower pane of the management portal, click **New**.
+### <a name="to-sign-up-for-a-blitline-account"></a>Aby utworzyć konto Blitline
+1. Zaloguj się do [portalu zarządzania Azure](https://manage.windowsazure.com/).
+2. W dolnym okienku w portalu zarządzania, kliknij przycisk **nowy**.
    
     ![command-bar-new][command-bar-new]
-3. Click **Store**.
+3. Kliknij przycisk **magazynu**.
    
-    ![blitline-store][blitline-store]
-4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
-5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
-6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+    ![blitline magazynu][blitline-store]
+4. W **wybierz dodatek** okno dialogowe, wybierz opcję **Blitline** i kliknij strzałkę w prawo.
+5. W **spersonalizować dodatek** oknie dialogowym wybierz pozycję **Blitline** planu, aby utworzyć konto.
+6. Wprowadź nazwę identyfikującą Twojej **Blitline** usługi w ustawieniach platformy Azure, lub użyj wartości domyślnej z **Blitline**. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa musi być unikatowa w obrębie subskrybowanych elementów sklepu Azure Store.
    
-    ![store-screen-1][store-screen-1]
-7. Choose a value for the region; for example, West US. 
-8. Click the right arrow.
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
+    ![ekran magazynu-1][store-screen-1]
+7. Wybierz wartość dla tego obszaru; na przykład, zachodnie stany USA. 
+8. Kliknij strzałkę w prawo.
+9. Na **Przejrzyj zakupu** , przejrzyj plan i uzyskać informacje o cenach, a następnie przejrzyj postanowienia prawne. Jeśli akceptujesz postanowienia, kliknij znacznik wyboru. Kliknij przycisk znacznika wyboru, Twoje konto Blitline rozpocznie się proces inicjowania obsługi administracyjnej. 
 
-To use Blitline you need to have your Application ID.
+Aby użyć Blitline trzeba uzyskać identyfikator aplikacji.
 
-### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID
-1. Click **Connection Info**.
+### <a name="to-find-your-blitline-application-id"></a>Aby znaleźć swój identyfikator aplikacji Blitline
+1. Kliknij przycisk **informacje o połączeniu**.
    
-    ![blitline-connection-info-button][blitline-connection-info-button]
-2. In the *Connection info* dialog, you can see your Application ID
+    ![blitline połączenia — informacje o — przycisk][blitline-connection-info-button]
+2. W *informacje o połączeniu* okna dialogowego, zostanie wyświetlony identyfikator aplikacji
    
-    ![blitline-connection-info][blitline-connection-info]
+    ![informacje o połączeniu blitline][blitline-connection-info]
 
 <!--images-->
 

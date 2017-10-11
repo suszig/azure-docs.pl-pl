@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [RSS](https://wikipedia.org/wiki/RSS) account  
+### <a name="prerequisites"></a>Wymagania wstępne
+* [RSS](https://wikipedia.org/wiki/RSS) konta  
 
-Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Zanim użyjesz konta RSS w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem RSS. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
 
-Here are the steps to authorize your Logic app to connect to your RSS account:  
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem RSS:  
 
-1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
-2. Select **Create connection** :  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
+1. Aby utworzyć połączenie danych RSS, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *RSS* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+   ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-1.png)  
+2. Wybierz **utworzyć połączenie** :  
+   ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-2.png)  
+3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+   ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-3.png)  
 

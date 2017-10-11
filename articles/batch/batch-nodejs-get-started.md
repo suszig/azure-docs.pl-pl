@@ -11,14 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
 > [!div class="op_single_selector"]
@@ -363,5 +361,4 @@ W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zada�
 
 - Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
 - Zobacz [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.
-
 

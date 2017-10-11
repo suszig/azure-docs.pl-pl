@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>Co to jest usługa Site Recovery?
 
@@ -79,4 +78,3 @@ Usługa Site Recovery może zarządzać replikacją dla:
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [obsłudze obciążeń](site-recovery-workload.md)
 * Rozpocznij pracę z [replikacją maszyny wirtualnej platformy Azure między regionami](site-recovery-azure-to-azure.md), [replikacją VMware do platformy Azure](vmware-walkthrough-overview.md) lub [replikacją funkcji Hyper-V do platformy Azure](hyper-v-site-walkthrough-overview.md).
-

@@ -1,17 +1,17 @@
 
-## <a name="start-your-powershell-session"></a>Start your PowerShell session
-First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+## <a name="start-your-powershell-session"></a>Uruchamianie sesji programu PowerShell
+Najpierw musisz mieć najnowszej [programu Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) zainstalowana i uruchomiona. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
 > [!NOTE]
-> The examples in this topic use [Azure Resource Manager deployment model](../articles/azure-resource-manager/resource-group-overview.md), so examples use the [Azure Resource Manager cmdlets](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> Przykłady w tym temacie [modelu wdrażania usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), dlatego w przykładach użyto [poleceń cmdlet usługi Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
 > 
 > 
 
-Run the [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+Uruchom [ **Add-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) polecenia cmdlet zostanie wyświetlone logowania na ekranie, aby wprowadzić swoje poświadczenia. Użyj tych samych poświadczeń, których używasz do logowania w witrynie Azure Portal.
 
     Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
+Jeśli masz wiele subskrypcji, użyj [ **Set-AzureRmContext** ](http://msdn.microsoft.com/library/mt619263.aspx) Wybierz subskrypcję, która sesji programu PowerShell należy użyć polecenia cmdlet. Aby sprawdzić, która subskrypcja jest używana w bieżącej sesji programu PowerShell, uruchom polecenie [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). Aby wyświetlić wszystkie subskrypcje, uruchom polecenie [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 

@@ -1,2 +1,2 @@
 >[!NOTE]
->The WebJobs SDK does not yet support .NET Core.
+>Zestaw SDK zadań Webjob nie są jeszcze obsługiwane platformy .NET Core.

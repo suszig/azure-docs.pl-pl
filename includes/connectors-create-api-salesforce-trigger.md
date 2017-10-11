@@ -1,18 +1,18 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+W tym przewodniku będzie Dowiedz się jak używać **Salesforce — po utworzeniu obiektu** trigger, aby inicjować przepływ pracy aplikacji logiki, podczas tworzenia nowego potencjalnego klienta w Salesforce.
 
 > [!NOTE]
-> You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+> Zostanie wyświetlony monit do logowania się do konta usług Salesforce, jeśli nie została jeszcze utworzona *połączenia* do usług Salesforce.  
 > 
 > 
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-   ![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-2. The **When an object is created** control is displayed.  
-   ![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-   ![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-4. That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-   ![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Wprowadź *salesforce* w polu wyszukiwania w Projektancie aplikacji logiki wybiorą **Salesforce — po utworzeniu obiektu** wyzwalacza.  
+   ![Obraz wyzwalacza SalesForce 1](./media/connectors-create-api-salesforce/trigger-1.png)   
+2. **Podczas tworzenia obiektu** formant jest wyświetlany.  
+   ![Wyzwalacz SalesForce — obraz 2](./media/connectors-create-api-salesforce/trigger-2.png)   
+3. Wybierz **typ obiektu** następnie wybierz *prowadzić* z listy obiektów. W tym kroku wskazujesz, tworzysz wyzwalacz, który powiadomi aplikację logiki, zawsze, gdy nowy realizacji jest tworzony w usłudze Salesforce.   
+   ![Obraz wyzwalacza SalesForce 3](./media/connectors-create-api-salesforce/trigger-3.png)   
+4. To już wszystko. Po utworzeniu wyzwalacza. Jednak należy utworzyć co najmniej jedną akcję w celu Uczyń tę aplikację logiki prawidłowe.    
+   ![Obraz wyzwalacza SalesForce 4](./media/connectors-create-api-salesforce/trigger-4.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy, podczas tworzenia nowego elementu w Salesforce.  
 

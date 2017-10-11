@@ -1,8 +1,8 @@
 
-| Resource | Default limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| Zones per subscription |100 <sup>1</sup> |
-| Record sets per zone |5000 <sup>1</sup> |
-| Records per record set |20 |
+| Strefy na subskrypcję |100 <sup>1</sup> |
+| Zestawy rekordów na strefy |5000 <sup>1</sup> |
+| Rejestruje dla danego zestawu rekordów |20 |
 
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup> skontaktuj się z pomocą techniczną platformy Azure w przypadku należy zwiększyć te limity.
