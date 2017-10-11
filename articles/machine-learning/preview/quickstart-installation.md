@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
 ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -27,7 +27,13 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia kont eksperymentowania
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Obecnie aplikację Azure Machine Learning Workbench można zainstalować tylko w następujących systemach operacyjnych: Windows 10, Windows Server 2016 i macOS Sierra.
+Obecnie aplikację klasyczną Azure Machine Learning Workbench można zainstalować tylko w następujących systemach operacyjnych: 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>System macOS High Sierra nie jest jeszcze obsługiwany.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
@@ -118,7 +124,7 @@ Zainstaluj aplikację Azure Machine Learning Workbench na swoim komputerze z sys
 
 5. Aplikacja Azure Machine Learning Workbench jest teraz zainstalowana w następującym katalogu: 
 
-   _/Applications/AmlWorkbench.App_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Uruchamianie aplikacji Azure Machine Learning Workbench, aby zalogować się po raz pierwszy
 1. Kliknij przycisk **Uruchom aplikację Workbench** na ostatnim ekranie instalatora po zakończeniu procesu instalacji. W przypadku zamknięcia instalatora znajdź skrót do aplikacji Azure Machine Learning Workbench na pulpicie lub w menu Start o nazwie **Azure Machine Learning Workbench**, aby uruchomić aplikację.
