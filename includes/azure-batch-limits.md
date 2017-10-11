@@ -1,19 +1,19 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+| **Zasób** | **Limit domyślny** | **Limit maksymalny** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 3 |50 |
-| Dedicated cores per Batch account (Batch service mode)<sup>1</sup> | 20 | N/A<sup>2</sup> |
-| Low-priority cores per Batch account (Batch service mode)<sup>3</sup> | 50 | N/A<sup>4</sup> |
-| Active jobs and job schedules<sup>5</sup> per Batch account | 20 | 5000<sup>6</sup> |
-| Pools per Batch account | 20 | 2500 |
+| Konta usługi Batch na region na subskrypcję | 3 |50 |
+| Rdzeni na konto usługi partia zadań (tryb usługi partii) w wersji dedykowanej<sup>1</sup> | 20 | N/D<sup>2</sup> |
+| Rdzenie niskiego priorytetu na konto usługi partia zadań (tryb usługi partii)<sup>3</sup> | 50 | N/D<sup>4</sup> |
+| Aktywne zadania i harmonogramy zadań<sup>5</sup> na konto usługi partia zadań | 20 | 5000<sup>6</sup> |
+| Pule na konto usługi Batch | 20 | 2500 |
 
-<sup>1</sup> Dedicated core quotas shown are only for accounts with pool allocation mode set to **Batch service**. For accounts with the mode set to **user subscription**, core quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
+<sup>1</sup> przydziały dedykowanych core wyświetlane są tylko dla kont z trybem przydziału puli ustawioną **partii usługi**. Konta z trybem ustawioną **subskrypcji użytkownika**, przydziały core są oparte na przydziału rdzeni maszyn wirtualnych na poziomie regionalnym lub na rodzinę maszyny Wirtualnej w ramach subskrypcji.
 
-<sup>2</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>2</sup> Liczba dedykowanych rdzeni na konto usługi partia zadań można zwiększyć, ale maksymalna liczba jest nieokreślony. Skontaktuj się z pomocą techniczną platformy Azure omówimy zwiększyć opcje.
 
-<sup>3</sup> Low-priority core quotas shown are only for accounts with pool allocation mode set to **Batch service**. Low-priority cores are not available for accounts with pool allocation mode set to **user subscription**.
+<sup>3</sup> przydziały core niskiego priorytetu pokazywane są tylko dla kont z trybem przydziału puli ustawioną **partii usługi**. Rdzenie niskiego priorytetu nie są dostępne dla kont z trybem przydziału puli należy ustawić na **subskrypcji użytkownika**.
 
-<sup>4</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>4</sup> liczba rdzeni niskiego priorytetu w konta usługi partia zadań można zwiększyć, ale maksymalna liczba jest nieokreślony. Skontaktuj się z pomocą techniczną platformy Azure omówimy zwiększyć opcje.
 
-<sup>5</sup> Completed jobs and job schedules are not limited.
+<sup>5</sup> zadania ukończone i harmonogramy zadań nie są ograniczone.
 
-<sup>6</sup> Contact Azure support if you want to request an increase beyond this limit.
+<sup>6</sup> Azure skontaktuj się z pomocy technicznej, aby zażądać zwiększenia przekracza ten limit.

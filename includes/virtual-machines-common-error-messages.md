@@ -1,8 +1,8 @@
 >[!NOTE]
-> You can leave comments on this page for feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
+> Możesz pozostawić komentarze na tej stronie opinii lub za pomocą [Azure opinii](https://feedback.azure.com/forums/216843-virtual-machines) #azerrormessage znacznika.
 
-## <a name="error-response-format"></a>Error Response Format 
-Azure VMs use the following JSON format for error response:
+## <a name="error-response-format"></a>Format odpowiedzi błędu 
+Maszyny wirtualne platformy Azure, użyj następującego formatu JSON dla odpowiedzi komunikat o błędzie:
 
 ```json
 {
@@ -20,175 +20,175 @@ Azure VMs use the following JSON format for error response:
 }
 ```
 
-An error response always includes a status code and an error object. Each error object always contains an error code and a message. If the VM is created with a template, the error object also contains a details section that contains an inner level of error codes and message. Normally, the most inner level of error message is the root failure.
+Odpowiedzi na błąd zawsze zawiera kod stanu i obiektu błędu. Każdy obiekt błąd zawsze zawiera kod błędu i komunikatu. Jeśli maszyna wirtualna została utworzona przy użyciu szablonu, obiekt błędu zawiera także sekcji Szczegóły, która zawiera wewnętrzny poziom nawiasów kody błędów i komunikatów. Najbardziej wewnętrzny poziom komunikat o błędzie jest zazwyczaj awarii głównego.
 
 
-## <a name="common-virtual-machine-management-errors"></a>Common virtual machine management errors
+## <a name="common-virtual-machine-management-errors"></a>Typowe błędy zarządzania maszyny wirtualnej
 
-This section lists the common error messages you may encounter when managing VMs:
+Ta sekcja zawiera typowe komunikaty o błędach, które można napotkać podczas zarządzania maszyn wirtualnych:
 
-|  Error Code  |  Error Message  |  
+|  Kod błędu:  |  Komunikat o błędzie  |  
 |  :------| :-------------|  
-|  AcquireDiskLeaseFailed  |  Failed to acquire lease while creating disk '{0}' using blob with URI {1}. Blob is already in use.  |  
-|  AllocationFailed  |  Allocation failed. Please try reducing the VM size or number of VMs, retry later, or try deploying to a different Availability Set or different Azure location.  |  
-|  AllocationFailed  |  The VM allocation failed due to an internal error. Please retry later or try deploying to a different location.  |
-|  ArtifactNotFound  |  The VM extension with publisher '{0}' and type '{1}' could not be found in location '{2}'.  |
-|  ArtifactNotFound  |  Extension with publisher '{0}', type '{1}', and type handler version '{2}' could not be found in the extension repository.  |
-|  ArtifactVersionNotFound  |  No version found in the artifact repository that satisfies the requested version '{0}'.  |
-|  ArtifactVersionNotFound  |  No version found in the artifact repository that satisfies the requested version '{0}' for VM extension with publisher '{1}' and type '{2}'.  |
-|  AttachDiskWhileBeingDetached  |  Cannot attach data disk '{0}' to VM '{1}' because the disk is currently being detached. Please wait until the disk is completely detached and then try again.  |
-|  BadRequest  |  Aligned' Availability Sets are not yet supported in this region.  |
-|  BadRequest  |  Addition of a VM with managed disks to non-managed Availability Set or addition of a VM with blob based disks to managed Availability Set is not supported. Please create an Availability Set with 'managed' property set in order to add a VM with managed disks to it.  |
-|  BadRequest  |  Managed Disks are not supported in this region.  |
-|  BadRequest  |  Multiple VMExtensions per handler not supported for OS type '{0}'. VMExtension '{1}' with handler '{2}' already added or specified in input.  |
-|  BadRequest  |  Operation '{0}' is not supported on Resource '{1}' with managed disks.  |
-|  CertificateImproperlyFormatted  |  The secret's JSON representation retrieved from {0} has a data field which is not a properly formatted PFX file, or the password provided does not decode the PFX file correctly.  |
-|  CertificateImproperlyFormatted  |  The data retrieved from {0} is not deserializable into JSON.  |
-|  Conflict  |  Disk resizing is allowed only when creating a VM or when the VM is deallocated.  |
-|  ConflictingUserInput  |  Disk '{0}' cannot be attached as the disk is already owned by VM '{1}'.  |
-|  ConflictingUserInput  |  Source and destination resource groups are the same.  |
-|  ConflictingUserInput  |  Source and destination storage accounts for disk {0} are different.  |
-|  ContainerAlreadyOnLease  |  There is already a lease on the storage container holding the blob with URI {0}.  |
-|  CrossSubscriptionMoveWithKeyVaultResources  |  The Move resources request contains KeyVault resources which are referenced by one or more {0}s in the request. This is not supported currently in Cross subscription Move. Please check the error details for the KeyVault resource Ids.  |
-|  DiagnosticsOperationInternalError  |  An internal error occurred while processing diagnostics profile of VM {0}.  |
-|  DiskBlobAlreadyInUseByAnotherDisk  |  Blob {0} is already in use by another disk belonging to VM '{1}'. You can examine the blob metadata for the disk reference information.  |
-|  DiskBlobNotFound  |  Unable to find VHD blob with URI {0} for disk '{1}'.  |
-|  DiskBlobNotFound  |  Unable to find VHD blob with URI {0}.  |
-|  DiskEncryptionKeySecretMissingTags  |  {0} secret doesn't have the {1} tags. Please update the secret version, add the required tags and retry.  |
-|  DiskEncryptionKeySecretUnwrapFailed  |  Unwrap of secret {0} value using key {1} failed.  |
-|  DiskImageNotReady  |  Disk image {0} is in {1} state. Please retry when image is ready.  |
-|  DiskPreparationError  |  One or more errors occurred while preparing VM disks. See disk instance view for details.  |
-|  DiskProcessingError  |  Disk processing halted as the VM has other disks in failed disks.  |
-|  ImageBlobNotFound  |  Unable to find VHD blob with URI {0} for disk '{1}'.  |
-|  ImageBlobNotFound  |  Unable to find VHD blob with URI {0}.  |
-|  IncorrectDiskBlobType  |  Disk blobs can only be of type page blob. Blob {0} for disk '{1}' is of type block blob.  |
-|  IncorrectDiskBlobType  |  Disk blobs can only be of type page blob. Blob {0} is of type '{1}'.  |
-|  IncorrectImageBlobType  |  Disk blobs can only be of type page blob. Blob {0} for disk '{1}' is of type block blob.  |
-|  IncorrectImageBlobType  |  Disk blobs can only be of type page blob. Blob {0} is of type '{1}'.  |
-|  InternalOperationError  |  Could not resolve storage account {0}. Please ensure it was created through the Storage Resource Provider in the same location as the compute resource.  |
-|  InternalOperationError  |  {0} goal seeking tasks failed.  |
-|  InternalOperationError  |  Error occurred in validating the network profile of VM '{0}'.  |
-|  InvalidAccountType  |  The AccountType {0} is invalid.  |
-|  InvalidParameter  |  The value of parameter {0} is invalid.  |
-|  InvalidParameter  |  The Admin password specified is not allowed.  |
-|  InvalidParameter  |  "The supplied password must be between {0}-{1} characters long and must satisfy at least {2} of password complexity requirements from the following: <ol><li> Contains an uppercase character</li><li>Contains a lowercase character</li><li>Contains a numeric digit</li><li>Contains a special character.</li></ol>  |
-|  InvalidParameter  |  The Admin Username specified is not allowed.  |
-|  InvalidParameter  |  Cannot attach an existing OS disk if the VM is created from a platform or user image.  |
-|  InvalidParameter  |  Container name {0} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceeded and followed by an alphanumeric character.  |
-|  InvalidParameter  |  Container name {0} in URL {1} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceeded and followed by an alphanumeric character.  |
-|  InvalidParameter  |  The blob name in URL {0} contains a slash. This is presently not supported for disks.  |
-|  InvalidParameter  |  The URI {0} does not look to be correct blob URI.  |
-|  InvalidParameter  |  A disk named '{0}' already uses the same LUN: {1}.  |
-|  InvalidParameter  |  A disk named '{0}' already exists.  |
-|  InvalidParameter  |  Cannot specify user image overrides for a disk already defined in the specified image reference.  |
-|  InvalidParameter  |  A disk named '{0}' already uses the same VHD URL {1}.  |
-|  InvalidParameter  |  The specified fault domain count {0} must fall in the range {1} to {2}.  |
-|  InvalidParameter  |  The license type {0} is invalid. Valid license types are: Windows_Client or Windows_Server, case sensitive.  |
-|  InvalidParameter  |  Linux host name cannot exceed {0} characters in length or contain the following characters: {1}.  |
-|  InvalidParameter  |  Destination path for Ssh public keys is currently limited to its default value {0}  due to a known issue in Linux provisioning agent.  |
-|  InvalidParameter  |  A disk at LUN {0} already exists.  |
-|  InvalidParameter  |  Subscription {0} of the request must match the subscription {1} contained in the managed disk id.  |
-|  InvalidParameter  |  Custom data in OSProfile must be in Base64 encoding and with a maximum length of {0} characters.  |
-|  InvalidParameter  |  Blob name in URL {0} must end with '{1}' extension.  |
-|  InvalidParameter  |  {0}' is not a valid captured VHD blob name prefix. A valid prefix matches regex '{1}'.  |
-|  InvalidParameter  |  Certificates cannot be added to your VM if the VM agent is not provisioned.  |
-|  InvalidParameter  |  A disk at LUN {0} already exists.  |
-|  InvalidParameter  |  Unable to create the VM because the requested size {0} is not available in the cluster where the availability set is currently allocated. The available sizes are: {1}. Read more on VM resizing strategy at https://aka.ms/azure-resizevm.  |
-|  InvalidParameter  |  The requested VM size {0} is not available in the current region. The sizes available in the current region are: {1}. Find out more on the available VM sizes in each region at https://aka.ms/azure-regions.  |
-|  InvalidParameter  |  The requested VM size {0} is not available in the current region. Find out more on the available VM sizes in each region at https://aka.ms/azure-regions.  |
-|  InvalidParameter  |  Windows admin user name cannot be more than {0} characters long, end with a period(.), or contain the following characters: {1}.  |
-|  InvalidParameter  |  Windows computer name cannot be more than {0} characters long, be entirely numeric, or contain the following characters: {1}.  |
-|  MissingMoveDependentResources  |  The move resources request does not contain all the dependent resources. Please check error details for missing resource ids.  |
-|  MoveResourcesHaveInvalidState  |  The Move Resources request contains VMs which are associated with invalid storage accounts. Please check details for these resource ids and referenced storage account names.  |
-|  MoveResourcesHavePendingOperations  |  The move resources request contains resources for which an operation is pending. Please check details for these resource ids. Retry your operation once the pending operations complete.  |
-|  MoveResourcesNotFound  |  The move resources request contains resources that cannot be found. Please check details for these resource ids.  |
-|  NetworkingInternalOperationError  |  Unknown network allocation error.  |
-|  NetworkingInternalOperationError  |  Unknown network allocation error  |
-|  NetworkingInternalOperationError  |  An internal error occurred in processing network profile of the VM.  |
-|  NotFound  |  The Availability Set {0} cannot be found.  |
-|  NotFound  |  Source Virtual Machine '{0}' specified in the request does not exist in this Azure location.  |
-|  NotFound  |  Tenant with id {0} not found.  |
-|  NotFound  |  The Image {0} cannot be found.  |
-|  NotSupported  |  The license type is {0}, but the image blob {1} is not from on-premises.  |
-|  OperationNotAllowed  |  Availability Set {0} cannot be deleted. Before deleting an Availability Set please ensure that it does not contain any VM.  |
-|  OperationNotAllowed  |  Changing availability set SKU from 'Aligned' to 'Classic' is not allowed.  |
-|  OperationNotAllowed  |  Cannot modify extensions in the VM when the VM is not running.  |
-|  OperationNotAllowed  |  The Capture action is only supported on a Virtual Machine with blob based disks. Please use the 'Image' resource APIs to create an Image from a managed Virtual Machine.  |
-|  OperationNotAllowed  |  The resource {0} cannot be created from Image {1} until Image has been successfully created.  |
-|  OperationNotAllowed  |  Updates to encryptionSettings is not allowed when VM is allocated, Please retry after VM is deallocated  |
-|  OperationNotAllowed  |  Addition of a managed disk to a VM with blob based disks is not supported.  |
-|  OperationNotAllowed  |  The maximum number of data disks allowed to be attached to a VM of this size is {0}.  |
-|  OperationNotAllowed  |  Addition of a blob based disk to VM with managed disks is not supported.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on Image '{1}' since the Image is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete).  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is generalized.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed as Restore point collection '{1}' is marked for deletion.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM extension '{1}' since it is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete).  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed since the Virtual Machines '{1}' are being provisioned using the Image '{2}'.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed since the Virtual Machine ScaleSet '{1}' is currently using the Image '{2}'.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete).  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is either deallocated or marked to be deallocated.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is running. Please power off explicitly in case you shut down the VM from inside the guest operating system.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is not deallocated.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since VM has extension '{2}' in failed state.  |
-|  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since another operation is in progress.  |
-|  OperationNotAllowed  |  The operation '{0}' requires the Virtual Machine '{1}' to be Generalized.  |
-|  OperationNotAllowed  |  The operation requires the VM to be running (or set to run).  |
-|  OperationNotAllowed  |  Disk with size {0}GB, which is smaller than the size {1}GB of corresponding disk in Image, is not allowed.  |
-|  OperationNotAllowed  |  VM Scale Set extensions of handler '{0}' can be added only at the time of VM Scale Set creation.  |
-|  OperationNotAllowed  |  VM Scale Set extensions of handler '{0}' can be deleted only at the time of VM Scale Set deletion.  |
-|  OperationNotAllowed  |  VM '{0}' is already using managed disks.  |
-|  OperationNotAllowed  |  VM '{0}' belongs to 'Classic' availability set '{1}'. Please update the availability set to use 'Aligned' SKU and then retry the Conversion.  |
-|  OperationNotAllowed  |  VM created from Image cannot have blob based disks. All disks have to be managed disks.  |
-|  OperationNotAllowed  |  Capture operation cannot be completed because the VM is not generalized.  |
-|  OperationNotAllowed  |  Management operations on VM '{0}' are disallowed because VM disks are being converted to managed disks.  |
-|  OperationNotAllowed  |  An ongoing operation is changing power state of Virtual Machine {0} to {1}. Please perform operation {2} after some time.  |
-|  OperationNotAllowed  |  Unable to add or update the VM. The requested VM size {0} may not be available in the existing allocation unit. Read more on VM resizing strategy at https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Unable to resize the VM because the requested size {0} is not available in the cluster where the availability set is currently allocated. The available sizes are: {1}. Read more on VM resizing strategy at https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Unable to resize the VM because the requested size {0} is not available in the cluster where the VM is currently allocated. To resize your VM to {1} please deallocate (this is Stop operation in the Azure portal) and try the resize operation again. Read more on VM resizing strategy at https://aka.ms/azure-resizevm.  |
-|  OSProvisioningClientError  |  OS Provisioning failed for VM '{0}' because the guest OS is currently being provisioned.  |
-|  OSProvisioningClientError  |  OS provisioning for VM '{0}' failed. Error details: {1} Make sure the image has been properly prepared (generalized). <ul><li>Instructions for Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  SSH host key generation failed. Error details: {0}. To resolve this issue verify if Linux agent is set up properly. <ul><li>You can check the instructions at : https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
-|  OSProvisioningClientError  |  Username specified for the VM is invalid for this Linux distribution. Error details: {0}.  |
-|  OSProvisioningInternalError  |  OS Provisioning failed for VM '{0}' due to an internal error.  |
-|  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. The VM may still finish provisioning successfully. Please check provisioning state later.  |
-|  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. The VM may still finish provisioning successfully. Please check provisioning state later. Also, make sure the image has been properly prepared (generalized).   <ul><li>Instructions for Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructions for Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. However, the VM guest agent was detected running. This suggests the guest OS has not been properly prepared to be used as a VM image (with CreateOption=FromImage). To resolve this issue, either use the VHD as is with CreateOption=Attach or prepare it properly for use as an image:   <ul><li>Instructions for Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructions for Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OverConstrainedAllocationRequest  |  The required VM size is not currently available in the selected location.  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  Resource cannot be updated at this time due to ongoing platform update. Please try again later.  |
-|  StorageAccountLimitation  |  Storage account '{0}' does not support page blobs which are required to create disks.  |
-|  StorageAccountLimitation  |  Storage account '{0}' has exceeded its allocated quota.  |
-|  StorageAccountLocationMismatch  |  Could not resolve storage account {0}. Please ensure it was created through the Storage Resource Provider in the same location as the compute resource.  |
-|  StorageAccountNotFound  |  Storage account {0} not found. Ensure storage account is not deleted and belongs to the same Azure location as the VM.  |
-|  StorageAccountNotRecognized  |  Please use a storage account managed by Storage Resource Provider. Use of {0} is not supported.  |
-|  StorageAccountOperationInternalError  |  Internal error occurred while accessing storage account {0}.  |
-|  StorageAccountSubscriptionMismatch  |  Storage account {0} doesn't belong to subscription {1}.  |
-|  StorageAccountTooBusy  |  Storage account '{0}' is too busy currently. Consider using another account.  |
-|  StorageAccountTypeNotSupported  |  Disk {0} uses {1} which is a Blob storage account. Please retry with General purpose storage account.  |
-|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  |
-|  SubscriptionNotAuthorizedForImage  |  The subscription is not authorized.  |
-|  TargetDiskBlobAlreadyExists  |  Blob {0} already exists. Please provide a different blob URI to create a new blank data disk '{1}'.  |
-|  TargetDiskBlobAlreadyExists  |  Capture operation cannot continue because target image blob {0} already exists and the flag to overwrite VHD blobs is not set. Either delete the blob or set the flag to overwrite VHD blobs and retry.  |
-|  TargetDiskBlobAlreadyExists  |  Capture operation cannot continue because target image blob {0} has an active lease on it.   |
-|  TargetDiskBlobAlreadyExists  |  Blob {0} already exists. Please provide a different blob URI as target for disk '{1}'.  |
-|  TooManyVMRedeploymentRequests  |  Too many redeployment requests have been received for VM '{0}' or the VMs in the same availabilityset with this VM. Please retry later.  |
-|  VHDSizeInvalid  |  The specified disk size value of {0} for disk '{1}' with blob {2} is invalid. Disk size must be between {3} and {4}.  |
-|  VMAgentStatusCommunicationError  |  VM '{0}' has not reported status for VM agent or extensions. Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.  |
-|  VMArtifactRepositoryInternalError  |  An error occurred while communicating with the artifact repository to retrieve VM artifact details.  |
-|  VMArtifactRepositoryInternalError  |  An internal error occurred while retrieving the VM artifact data from the artifact repository.  |
-|  VMExtensionHandlerNonTransientError  |  Handler '{0}' has reported failure for VM Extension '{1}' with terminal error code '{2}' and error message: '{3}'  |
-|  VMExtensionManagementInternalError  |  Internal error occurred while processing VM extension '{0}'.  |
-|  VMExtensionManagementInternalError  |  Multiple errors occured while preparing the VM extensions. See VM extension instance view for details.  |
-|  VMExtensionProvisioningError  |  VM has reported a failure when processing extension '{0}'. Error message: "{1}".  |
-|  VMExtensionProvisioningError  |  Multiple VM extensions failed to be provisioned on the VM. Please see the VM extension instance view for details.  |
-|  VMExtensionProvisioningTimeout  |  Provisioning of VM extension '{0}' has timed out. Extension installation may be taking too long, or extension status could not be obtained.  |
-|  VMMarketplaceInvalidInput  |  Creating a virtual machine from a non Marketplace image does not need Plan information, please remove the Plan information in the request. OS disk name is {0}.  |
-|  VMMarketplaceInvalidInput  |  The purchase information does not match. Unable to deploy from the Marketplace image. OS disk name is {0}.  |
-|  VMMarketplaceInvalidInput  |  Creating a virtual machine from Marketplace image requires Plan information in the request. OS disk name is {0}.  |
-|  VMNotFound  |  The VM '{0}' cannot be found.  |
-|  VMRedeploymentFailed  |  VM '{0}' redeployment failed due to an internal error. Please retry later.  |
-|  VMRedeploymentTimedOut  |  Redeployment of VM '{0}' didn't finish in the allotted time. It might finish successfully in sometime. Else, you can retry the request.  |
-|  VMStartTimedOut  |  VM '{0}' did not start in the allotted time. The VM may still start successfully. Please check the power state later.  |
+|  AcquireDiskLeaseFailed  |  Nie można ustanowić dzierżawy podczas tworzenia dysku "{0}" za pomocą obiektu blob z identyfikatorem URI {1}. Obiekt blob jest już używana.  |  
+|  AllocationFailed  |  Alokacja nie powiodła się. Zmniejsz rozmiar maszyny Wirtualnej lub liczbę maszyn wirtualnych, spróbuj ponownie później lub spróbuj przeprowadzić wdrożenie w innym zestawie dostępności lub innej lokalizacji platformy Azure.  |  
+|  AllocationFailed  |  Alokacja maszyny Wirtualnej nie powiodła się z powodu błędu wewnętrznego. Spróbuj ponownie później lub spróbuj wdrożenia w innej lokalizacji.  |
+|  ArtifactNotFound  |  Nie można odnaleźć rozszerzenia maszyny Wirtualnej o wydawcy "{0}" i typie "{1}" w lokalizacji "{2}".  |
+|  ArtifactNotFound  |  Rozszerzenie o wydawcy "{0}", wpisz "{1}" i nie można odnaleźć wersji programu obsługi typu "{2}" w repozytorium rozszerzeń.  |
+|  ArtifactVersionNotFound  |  W repozytorium artefaktów nie znaleziono wersji odpowiadającej żądanej wersji „{0}”.  |
+|  ArtifactVersionNotFound  |  Wersja nie znaleziono w repozytorium artefaktów, która spełnia żądanej wersji "{0}" dla rozszerzenia maszyny Wirtualnej o wydawcy "{1}" i wpisz "{2}".  |
+|  AttachDiskWhileBeingDetached  |  Nie można dołączyć dysku danych "{0}" do maszyny Wirtualnej "{1}", ponieważ dysk jest aktualnie odłączona. Poczekaj, aż dysk zostanie całkowicie odłączony, a następnie spróbuj ponownie.  |
+|  Element BadRequest  |  Wyrównane "zestawów dostępności nie są jeszcze obsługiwane w tym regionie.  |
+|  Element BadRequest  |  Dodawanie maszyny wirtualnej z dyskami zarządzanych do niezarządzanych zestawu dostępności lub dodanie z dyskami na podstawie obiektu blob do zarządzanych zestawu dostępności maszyny wirtualnej nie jest obsługiwane. Utwórz zbiór dostępności z właściwością "zarządzany" ustawiona, aby dodać maszyny Wirtualnej z dyskami zarządzanych do niego.  |
+|  Element BadRequest  |  Dyski zarządzane nie są obsługiwane w tym regionie.  |
+|  Element BadRequest  |  Wiele Vmextension na program obsługi nie jest obsługiwane w systemie operacyjnym typu "{0}". VMExtension "{1}" z programem obsługi "{2}" już dodany lub określony w danych wejściowych.  |
+|  Element BadRequest  |  Operacja "{0}" nie jest obsługiwana dla zasobu "{1}" w przypadku dysków zarządzanych.  |
+|  CertificateImproperlyFormatted  |  Reprezentacja JSON klucza tajnego uzyskana z {0} ma pole danych, które nie jest poprawnie sformatowanym plikiem PFX, albo podane hasło nie dekoduje prawidłowo pliku PFX.  |
+|  CertificateImproperlyFormatted  |  Danych uzyskanych z {0} nie da się rozszeregować na format JSON.  |
+|  Konflikt  |  Zmiana rozmiaru dysku jest dozwolona tylko podczas tworzenia maszyny wirtualnej lub po cofnięciu jej przydziału.  |
+|  ConflictingUserInput  |  Nie można dołączyć dysku "{0}", ponieważ dysk jest już przypisany do maszyny Wirtualnej "{1}".  |
+|  ConflictingUserInput  |  Źródłowa grupa zasobów jest taka sama jak docelowa.  |
+|  ConflictingUserInput  |  Konta magazynu źródłowego i docelowego dla dysku {0} są różne.  |
+|  ContainerAlreadyOnLease  |  Istnieje już dzierżawa na kontenerze magazynu przechowującym obiekt blob z identyfikatorem URI {0}.  |
+|  CrossSubscriptionMoveWithKeyVaultResources  |  Żądanie przeniesienia zasobów zawiera zasoby KeyVault przywoływane przez co najmniej jeden {0} s w żądaniu. Nie jest to obsługiwane obecnie między subskrypcjami przenoszenia. Sprawdź, czy szczegóły błędu dla identyfikatorów zasobów KeyVault.  |
+|  DiagnosticsOperationInternalError  |  Wystąpił błąd wewnętrzny podczas przetwarzania profilu diagnostyki maszyny wirtualnej {0}.  |
+|  DiskBlobAlreadyInUseByAnotherDisk  |  {0} obiektu blob jest już używany przez inny dysk należący do maszyny Wirtualnej "{1}". Możesz zbadać metadane obiektu blob, aby uzyskać informacje na dysku.  |
+|  DiskBlobNotFound  |  Nie można znaleźć obiektu blob dysku VHD z identyfikatora URI {0} dla dysku "{1}".  |
+|  DiskBlobNotFound  |  Nie można znaleźć obiektu blob dysku VHD z identyfikatorem URI {0}.  |
+|  DiskEncryptionKeySecretMissingTags  |  klucz tajny {0} nie ma tagów {1}. Zaktualizuj wersję klucza tajnego, Dodaj wymagane tagi i spróbuj ponownie.  |
+|  DiskEncryptionKeySecretUnwrapFailed  |  Dekodowanie wartości tajny {0} przy użyciu klucza {1} nie powiodło się.  |
+|  DiskImageNotReady  |  {0} obrazu dysku jest w stanie {1}. Spróbuj ponownie, gdy obraz będzie gotowy.  |
+|  DiskPreparationError  |  Wystąpił co najmniej jeden błąd podczas przygotowywania dysków maszyny Wirtualnej. Zobacz widok wystąpienia dysku, aby uzyskać szczegółowe informacje.  |
+|  DiskProcessingError  |  Dysk przetwarzanie zostało zatrzymane, jako maszyna wirtualna ma inne dyski w przypadku dysków nie powiodło się.  |
+|  ImageBlobNotFound  |  Nie można znaleźć obiektu blob dysku VHD z identyfikatora URI {0} dla dysku "{1}".  |
+|  ImageBlobNotFound  |  Nie można znaleźć obiektu blob dysku VHD z identyfikatorem URI {0}.  |
+|  IncorrectDiskBlobType  |  Obiekty BLOB dysków może być tylko typu stronicowych obiektów blob. {0} obiektu blob dla dysku "{1}" ma typ blokowy obiekt blob.  |
+|  IncorrectDiskBlobType  |  Obiekty BLOB dysków może być tylko typu stronicowych obiektów blob. {0} obiektu blob jest typu "{1}".  |
+|  IncorrectImageBlobType  |  Obiekty BLOB dysków może być tylko typu stronicowych obiektów blob. {0} obiektu blob dla dysku "{1}" ma typ blokowy obiekt blob.  |
+|  IncorrectImageBlobType  |  Obiekty BLOB dysków może być tylko typu stronicowych obiektów blob. {0} obiektu blob jest typu "{1}".  |
+|  InternalOperationError  |  Nie można rozpoznać konto magazynu {0}. Upewnij się, że został on utworzony za pośrednictwem dostawcy zasobów magazynu w tej samej lokalizacji co zasób obliczeniowy.  |
+|  InternalOperationError  |  zadania poszukiwania celu {0} nie powiodło się.  |
+|  InternalOperationError  |  Wystąpił błąd podczas sprawdzania poprawności profilu sieciowego maszyny wirtualnej „{0}”.  |
+|  InvalidAccountType  |  Dla konta {0} jest nieprawidłowy.  |
+|  InvalidParameter  |  Wartość parametru {0} jest nieprawidłowa.  |
+|  InvalidParameter  |  Określone hasło administratora jest niedozwolone.  |
+|  InvalidParameter  |  "Podane hasło musi należeć do zakresu od {0}-{1\} \ znaków i musi spełniać co najmniej {2} wymagania dotyczące złożoności hasła z następujących czynności: <ol><li> Zawiera wielką literę</li><li>Zawiera małą literę</li><li>Zawiera cyfrę</li><li>Zawiera znaki specjalne.</li></ol>  |
+|  InvalidParameter  |  Określona nazwa użytkownika administratora jest niedozwolona.  |
+|  InvalidParameter  |  Nie można podłączyć istniejącego dysku z systemem operacyjnym, jeśli maszyna wirtualna jest utworzona z obrazu użytkownika lub platformy.  |
+|  InvalidParameter  |  Nazwa kontenera {0} jest nieprawidłowy. Nazwy kontenerów muszą być 3 do 63 znaków długości i mogą zawierać tylko małe znaki alfanumeryczne i łączniki. Łącznik musi być poprzedzone i następuje znak alfanumeryczny.  |
+|  InvalidParameter  |  Nazwa kontenera {0} w {1} adres URL jest nieprawidłowy. Nazwy kontenerów muszą być 3 do 63 znaków długości i mogą zawierać tylko małe znaki alfanumeryczne i łączniki. Łącznik musi być poprzedzone i następuje znak alfanumeryczny.  |
+|  InvalidParameter  |  Nazwa obiektu blob w {0} adres URL zawiera ukośnik. Jest to obecnie nieobsługiwane w przypadku dysków.  |
+|  InvalidParameter  |  Identyfikator URI {0} nie wygląda na prawidłowy identyfikator URI obiektu blob.  |
+|  InvalidParameter  |  Dysk o nazwie "{0}" już używa tego samego numeru LUN: {1}.  |
+|  InvalidParameter  |  Dysk o nazwie "{0}" już istnieje.  |
+|  InvalidParameter  |  Nie można określić elementów przesłaniających obraz użytkownika dla dysku, który zdefiniowano w określonym odwołaniu do obrazu.  |
+|  InvalidParameter  |  Dysk o nazwie "{0}" już używa tej samej {1} adres URL dysku VHD.  |
+|  InvalidParameter  |  Liczba błędów określonej domeny {0} musi należeć {1} zakres do {2}.  |
+|  InvalidParameter  |  Typ licencji {0} jest nieprawidłowy. Prawidłowy typ licencji są: Windows_Client lub Windows_Server, z uwzględnieniem wielkości liter.  |
+|  InvalidParameter  |  Nazwa hosta systemu Linux nie może przekraczać {0} znaków ani zawierać następujących znaków: {1}.  |
+|  InvalidParameter  |  Ścieżka docelowa kluczy publicznych SSH jest obecnie ograniczona do wartości domyślnej {0} ze względu na znany problem z agentem inicjowania obsługi administracyjnej systemu Linux.  |
+|  InvalidParameter  |  Dysk pod numerem LUN {0} już istnieje.  |
+|  InvalidParameter  |  {0} subskrypcji żądania musi odpowiadać {1} subskrypcji zawarte w identyfikatorze dysku zarządzanego.  |
+|  InvalidParameter  |  Niestandardowe dane w profilu OSProfile muszą korzystać z szyfrowania Base64, a liczba ich znaków nie może przekraczać {0}.  |
+|  InvalidParameter  |  Nazwa obiektu blob w {0} adres URL musi mieć rozszerzenie "{1}".  |
+|  InvalidParameter  |  {0} "nie jest prawidłowy prefiks nazwy przechwyconego obiektu blob dysku VHD. Prawidłowy prefiks zgodny z wyrażeniem regularnym "{1}".  |
+|  InvalidParameter  |  Jeśli obsługa administracyjna agenta maszyny wirtualnej nie została zainicjowana, nie można dodać certyfikatów do maszyny wirtualnej.  |
+|  InvalidParameter  |  Dysk pod numerem LUN {0} już istnieje.  |
+|  InvalidParameter  |  Nie można utworzyć maszyny Wirtualnej, ponieważ żądany rozmiar {0} nie jest dostępne w klastrze, w którym zestawu dostępności jest aktualnie przydzielone. Są dostępne rozmiary: {1}. Przeczytaj więcej VM na zmianę rozmiaru strategii w https://aka.ms/azure-resizevm.  |
+|  InvalidParameter  |  Żądana {0} rozmiar maszyny Wirtualnej nie jest dostępny w bieżącym obszarze. Dostępne rozmiary bieżącego obszaru są: {1}. Dowiedz się więcej informacji na temat dostępnych rozmiarów maszyn wirtualnych w każdym regionie na https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Żądana {0} rozmiar maszyny Wirtualnej nie jest dostępny w bieżącym obszarze. Dowiedz się więcej informacji na temat dostępnych rozmiarów maszyn wirtualnych w każdym regionie na https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Nazwa użytkownika administratora systemu Windows nie może być większa niż {0} znaków długie, kończyć się kropką (.) ani zawierać następujących znaków: {1}.  |
+|  InvalidParameter  |  Nazwa komputera systemu Windows nie może być większa niż liczba znaków {0} długie, być całkowicie numeryczna ani zawierać następujących znaków: {1}.  |
+|  MissingMoveDependentResources  |  Żądanie przeniesienia zasobów zawiera zasoby zależne. Sprawdź szczegóły błędów dotyczących brakujących identyfikatorów zasobów.  |
+|  MoveResourcesHaveInvalidState  |  Żądanie przeniesienia zasobów zawiera maszyny wirtualne, które są skojarzone z kontami magazynu nieprawidłowy. Sprawdź, czy szczegółowe informacje dotyczące tych identyfikatorów zasobów i nazwy konta magazynu do którego istnieje odwołanie.  |
+|  MoveResourcesHavePendingOperations  |  Żądanie przeniesienia zasobów zawiera zasoby, dla których operacja oczekuje. Sprawdź szczegóły identyfikatorów tych zasobów. Ponów operację po zakończeniu operacji oczekujących.  |
+|  MoveResourcesNotFound  |  Żądanie przeniesienia zasobów zawiera zasoby, których nie można znaleźć. Sprawdź szczegóły identyfikatorów tych zasobów.  |
+|  NetworkingInternalOperationError  |  Nieznany błąd alokacji sieci.  |
+|  NetworkingInternalOperationError  |  Nieznany błąd alokacji sieci  |
+|  NetworkingInternalOperationError  |  Wystąpił błąd podczas przetwarzania profilu sieciowego maszyny wirtualnej.  |
+|  notFound  |  Nie można znaleźć zestawu danych o dostępności {0}.  |
+|  notFound  |  Źródłowej maszyny wirtualnej "{0}" określony w żądaniu nie istnieje w tej lokalizacji platformy Azure.  |
+|  notFound  |  Nie znaleziono dzierżawy o identyfikatorze {0}.  |
+|  notFound  |  Nie można odnaleźć obrazu {0}.  |
+|  NotSupported  |  Typ licencji to {0}, ale {1} obiektu blob obrazu nie jest obiektem lokalnym.  |
+|  OperationNotAllowed  |  Nie można usunąć zestawu dostępności {0}. Przed usunięciem zestawu danych o dostępności upewnij się, że nie zawiera żadnej maszyny Wirtualnej.  |
+|  OperationNotAllowed  |  Zmiana zestawu dostępności jednostki SKU z 'Wyrównany' do 'Klasycznym' jest niedozwolona.  |
+|  OperationNotAllowed  |  Nie można modyfikować rozszerzeń w maszynie wirtualnej, kiedy maszyna wirtualna nie działa.  |
+|  OperationNotAllowed  |  Akcji przechwytywania jest obsługiwana tylko na maszynie wirtualnej z dyskami na podstawie obiektu blob. Użyj zasobu "Image" interfejsy API do utworzenia obrazu z zarządzanego maszyny wirtualnej.  |
+|  OperationNotAllowed  |  Nie można utworzyć zasobu {0} z obrazu {1}, dopóki obraz został utworzony pomyślnie.  |
+|  OperationNotAllowed  |  Nie można aktualizować elementu encryptionSettings po przydzieleniu maszyny wirtualnej. Spróbuj ponownie po cofnięciu przydziału maszyny wirtualnej.  |
+|  OperationNotAllowed  |  Dodanie zarządzanego dysku do maszyny wirtualnej z dyskami opartymi na obiektach blob nie jest obsługiwane.  |
+|  OperationNotAllowed  |  Maksymalna liczba dysków danych może zostać dołączony do tego rozmiaru maszyny Wirtualnej to {0}.  |
+|  OperationNotAllowed  |  Dodanie dysku opartego na obiektach blob do maszyny wirtualnej z zarządzanymi dyskami nie jest obsługiwane.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona w obrazie "{1}", ponieważ obraz jest oznaczony do usunięcia. Można tylko spróbuj ponownie wykonać operację usuwania (lub poczekaj, aż trwającej co do ukończenia).  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ uogólniona maszyna wirtualna.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona jako kolekcja punktu przywracania "{1}" jest oznaczona do usunięcia.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na rozszerzenia maszyny Wirtualnej "{1}", ponieważ jest ona oznaczona do usunięcia. Można tylko spróbuj ponownie wykonać operację usuwania (lub poczekaj, aż trwającej co do ukończenia).  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona, ponieważ trwa przydzielania maszyny wirtualnej "{1}" przy użyciu obrazu "{2}".  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona, ponieważ aktualnie używa obrazu "{2}" ScaleSet maszyny wirtualnej "{1}".  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ maszyna wirtualna została oznaczona do usunięcia. Można tylko spróbuj ponownie wykonać operację usuwania (lub poczekaj, aż trwającej co do ukończenia).  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ maszyna wirtualna jest alokację lub oznaczone do cofnięcia alokacji.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ maszyna wirtualna jest uruchomiona. Określ zasilania poza jawnie w przypadku zamykania maszyny Wirtualnej z wewnątrz systemu operacyjnego gościa.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ nie cofnięciu przydziału maszyny Wirtualnej.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ maszyna wirtualna ma rozszerzenie "{2}" w stanie niepowodzenia.  |
+|  OperationNotAllowed  |  Operacja "{0}" nie jest dozwolona na maszynie Wirtualnej "{1}", ponieważ inna operacja jest w toku.  |
+|  OperationNotAllowed  |  Operacja "{0}" wymaga maszynę wirtualną "{1}", aby być uogólniony.  |
+|  OperationNotAllowed  |  Operacja wymaga uruchomienia maszyny wirtualnej (lub ustawienia jej w celu uruchomienia).  |
+|  OperationNotAllowed  |  Dysk o rozmiarze {0} GB, który jest mniejszy niż rozmiar {1}GB odpowiedniego dysku w obrazie, jest niedozwolone.  |
+|  OperationNotAllowed  |  Rozszerzenia zestawu skali maszyny wirtualnej programu obsługi „{0}” można dodać tylko w momencie tworzenia zestawu skali maszyny wirtualnej.  |
+|  OperationNotAllowed  |  Rozszerzenia zestawu skali maszyny wirtualnej programu obsługi „{0}” można usunąć tylko w momencie usuwania zestawu skali maszyny wirtualnej.  |
+|  OperationNotAllowed  |  Maszyny Wirtualnej "{0}" jest już używa dysków zarządzanych.  |
+|  OperationNotAllowed  |  Maszyny Wirtualnej "{0}" należy do zestawu dostępności "Klasycznym" "{1}". Zaktualizuj wartość "wyrównany' SKU, a następnie ponów próbę wykonania konwersji dostępności.  |
+|  OperationNotAllowed  |  Utworzony na podstawie obrazu maszyny Wirtualnej nie może mieć obiektu blob na podstawie dysków. Wszystkie dyski muszą być dysków zarządzanych.  |
+|  OperationNotAllowed  |  Nie można ukończyć operacji przechwytywania, ponieważ to nie jest uogólniona maszyna wirtualna.  |
+|  OperationNotAllowed  |  Operacje zarządzania na maszynie Wirtualnej "{0}" są niedozwolone, ponieważ konwersji dysków maszyny Wirtualnej do zarządzanych dysków.  |
+|  OperationNotAllowed  |  Wykonywana operacja zmienia stan zasilania maszyny wirtualnej {0} do {1}. Przeprowadź {2} operację po pewnym czasie.  |
+|  OperationNotAllowed  |  Nie można dodać lub zaktualizować maszyny Wirtualnej. Żądana {0} rozmiar maszyny Wirtualnej nie może być dostępna w istniejącej jednostki alokacji. Przeczytaj więcej VM na zmianę rozmiaru strategii w https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Można zmienić rozmiaru maszyny Wirtualnej, ponieważ żądany rozmiar {0} nie jest dostępne w klastrze, w którym zestawu dostępności aktualnego przydziału. Są dostępne rozmiary: {1}. Przeczytaj więcej VM na zmianę rozmiaru strategii w https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Nie można zmienić rozmiar maszyny Wirtualnej, ponieważ żądany rozmiar {0} nie jest dostępna w klastrze, w którym aktualnego przydziału maszyny Wirtualnej. Aby zmienić rozmiar należy Cofnij Przydział maszyny Wirtualnej do {1} (jest to operacja zatrzymania w portalu Azure), a następnie spróbuj ponownie wykonać operację zmiany rozmiaru. Przeczytaj więcej VM na zmianę rozmiaru strategii w https://aka.ms/azure-resizevm.  |
+|  OSProvisioningClientError  |  Wystąpił błąd aprowizowania systemu operacyjnego dla maszyny wirtualnej „{0}”, ponieważ system operacyjny gościa jest aktualnie aprowizowany.  |
+|  OSProvisioningClientError  |  Inicjowania obsługi systemu operacyjnego dla maszyny Wirtualnej "{0}" nie powiodło się. Szczegóły błędu: {1} upewnij się, że obraz został poprawnie przygotowany (uogólniony). <ul><li>Instrukcje dla systemu Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Generowanie klucza SSH hosta nie powiodło się. Szczegóły błędu: {0}. Aby rozwiązać ten problem Sprawdź, czy agenta systemu Linux jest poprawnie skonfigurowana. <ul><li>Możesz sprawdzić instrukcjami znajdującymi się na: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  Nazwa użytkownika dla maszyny Wirtualnej jest nieprawidłowy dla tej dystrybucji systemu Linux. Szczegóły błędu: {0}.  |
+|  OSProvisioningInternalError  |  Niepowodzenie inicjowania obsługi systemu operacyjnego na maszynie wirtualnej „{0}” z powodu błędu wewnętrznego.  |
+|  OSProvisioningTimedOut  |  Inicjowania obsługi systemu operacyjnego dla maszyny Wirtualnej "{0}" nie została ukończona w wyznaczonym czasie. Maszyna wirtualna może nadal pomyślnie zakończyć inicjowanie obsługi. Sprawdź później stan inicjowania obsługi administracyjnej.  |
+|  OSProvisioningTimedOut  |  Inicjowania obsługi systemu operacyjnego dla maszyny Wirtualnej "{0}" nie została ukończona w wyznaczonym czasie. Maszyna wirtualna może nadal pomyślnie zakończyć inicjowanie obsługi. Sprawdź później stan inicjowania obsługi administracyjnej. Sprawdź także, czy obraz został poprawnie przygotowany (uogólniony).   <ul><li>Instrukcje dla systemu Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrukcje dla systemu Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Inicjowania obsługi systemu operacyjnego dla maszyny Wirtualnej "{0}" nie została ukończona w wyznaczonym czasie. Agent gościa maszyny Wirtualnej Wykryto jednak uruchomiona. Sugeruje to system operacyjny gościa nie został poprawnie przygotowany do użycia jako obraz maszyny Wirtualnej (CreateOption = FromImage). Aby rozwiązać ten problem, użyj wirtualnego dysku twardego, ponieważ jest z CreateOption = Attach lub prawidłowo przygotowania go do użycia jako obraz:   <ul><li>Instrukcje dla systemu Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrukcje dla systemu Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OverConstrainedAllocationRequest  |  Wymagany rozmiar maszyny wirtualnej nie jest obecnie dostępny w wybranej lokalizacji.  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  Nie można zaktualizować zasobu w tej chwili z powodu trwającej platformy aktualizacji. Spróbuj ponownie później.  |
+|  StorageAccountLimitation  |  Konto magazynu „{0}” nie obsługuje stronicowych obiektów blob, które są wymagane do tworzenia dysków.  |
+|  StorageAccountLimitation  |  Konto magazynu „{0}” przekroczyło limit przydziału.  |
+|  StorageAccountLocationMismatch  |  Nie można rozpoznać konto magazynu {0}. Upewnij się, że został on utworzony za pośrednictwem dostawcy zasobów magazynu w tej samej lokalizacji co zasób obliczeniowy.  |
+|  StorageAccountNotFound  |  Nie można odnaleźć konta magazynu {0}. Upewnij się, konto magazynu nie zostanie usunięta i należy do tej samej lokalizacji platformy Azure co maszyna wirtualna.  |
+|  StorageAccountNotRecognized  |  Użyj konta magazynu zarządzanego przez dostawcę zasobów magazynu. Użycie {0} nie jest obsługiwane.  |
+|  StorageAccountOperationInternalError  |  Podczas dostępu do konta magazynu {0} wystąpił błąd wewnętrzny.  |
+|  StorageAccountSubscriptionMismatch  |  Konto magazynu {0} nie należy do subskrypcji {1}.  |
+|  StorageAccountTooBusy  |  Konto magazynu "{0}" jest obecnie zbyt zajęty. Należy wziąć pod uwagę przy użyciu innego konta.  |
+|  StorageAccountTypeNotSupported  |  {0} dysku używa {1}, który jest konto magazynu obiektów Blob. Spróbuj ponownie z konta magazynu ogólnego przeznaczenia.  |
+|  StorageAccountTypeNotSupported  |  Konto magazynu {0} jest typu {1}. Funkcja diagnostyki rozruchu obsługuje typy kont magazynu {2}.  |
+|  SubscriptionNotAuthorizedForImage  |  Subskrypcja nie została autoryzowana.  |
+|  TargetDiskBlobAlreadyExists  |  Obiekt blob {0} już istnieje. Podaj inny identyfikator URI do utworzenia nowego dysku danych puste "{1}" obiektu blob.  |
+|  TargetDiskBlobAlreadyExists  |  Przechwytywanie nie można kontynuować operacji, ponieważ docelowy obrazu obiektu blob {0} już istnieje i nie ustawiono flagę, aby zastępować obiekty BLOB dysków VHD. Usuń obiekt blob, albo Ustaw flagę, aby zastępować obiekty BLOB dysków VHD, a następnie spróbuj ponownie.  |
+|  TargetDiskBlobAlreadyExists  |  Nie można kontynuować operacji przechwytywania, ponieważ obiekt blob obrazu docelowego {0} ma aktywną dzierżawę.   |
+|  TargetDiskBlobAlreadyExists  |  Obiekt blob {0} już istnieje. Podaj inny identyfikator URI obiektu blob jako cel dysku "{1}".  |
+|  TooManyVMRedeploymentRequests  |  Zbyt dużą liczbę żądań odbieranych na maszynie Wirtualnej "{0}" lub maszyn wirtualnych w tym samym zestawie dostępności o tej maszyny Wirtualnej. Spróbuj ponownie później.  |
+|  VHDSizeInvalid  |  Wartość rozmiaru dysku {0} dla dysku "{1}" z {2} obiektu blob jest nieprawidłowy. Rozmiar dysku musi należeć do zakresu od {3} i {4}.  |
+|  VMAgentStatusCommunicationError  |  Maszyny Wirtualnej "{0}" nie zgłosiła stanu agenta maszyny Wirtualnej lub rozszerzenia. Sprawdź, czy maszyna wirtualna ma działającego agenta maszyny Wirtualnej i może nawiązywać wychodzące połączenia z magazynem platformy Azure.  |
+|  VMArtifactRepositoryInternalError  |  Podczas komunikacji z repozytorium artefaktów w celu pobrania szczegółów artefaktu maszyny wirtualnej wystąpił błąd.  |
+|  VMArtifactRepositoryInternalError  |  Wystąpił błąd wewnętrzny podczas pobierania danych artefaktu maszyny wirtualnej z repozytorium artefaktów.  |
+|  VMExtensionHandlerNonTransientError  |  Program obsługi "{0}" zgłosiła błąd dla rozszerzenia maszyny Wirtualnej "{1}" z kodem błędu terminala "{2}" i komunikatem o błędzie: "{3}"  |
+|  VMExtensionManagementInternalError  |  Podczas przetwarzania rozszerzenia maszyny wirtualnej „{0}” wystąpił błąd wewnętrzny.  |
+|  VMExtensionManagementInternalError  |  Wystąpiło wiele błędów podczas przygotowywania rozszerzeń maszyny Wirtualnej. Zobacz widok wystąpienia rozszerzenia maszyny Wirtualnej, aby uzyskać szczegółowe informacje.  |
+|  VMExtensionProvisioningError  |  Maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia "{0}". Komunikat o błędzie: "{1}".  |
+|  VMExtensionProvisioningError  |  Wiele rozszerzeń maszyny Wirtualnej nie może być inicjowana na Maszynie wirtualnej. Zobacz widok wystąpienia rozszerzenia maszyny Wirtualnej, aby uzyskać szczegółowe informacje.  |
+|  VMExtensionProvisioningTimeout  |  Inicjowanie obsługi rozszerzenia maszyny Wirtualnej "{0}" został przekroczony. Instalacja rozszerzenia może trwać zbyt długo lub nie można uzyskać stanu rozszerzenia.  |
+|  VMMarketplaceInvalidInput  |  Tworzenie maszyny wirtualnej z obrazu niepochodzącego z witryny Marketplace nie wymaga informacji o planie, Usuń informacji o planie w żądaniu. Nazwa dysku systemu operacyjnego to {0}.  |
+|  VMMarketplaceInvalidInput  |  Informacje o zakupie nie jest zgodna. Nie można wdrożyć z obrazu witryny Marketplace. Nazwa dysku systemu operacyjnego to {0}.  |
+|  VMMarketplaceInvalidInput  |  Tworzenie maszyny wirtualnej z obrazu witryny Marketplace wymaga informacji o planie w żądaniu. Nazwa dysku systemu operacyjnego to {0}.  |
+|  VMNotFound  |  Nie można odnaleźć maszyny Wirtualnej "{0}".  |
+|  VMRedeploymentFailed  |  Ponowne wdrożenie maszyny Wirtualnej "{0}" nie powiodło się z powodu błędu wewnętrznego. Spróbuj ponownie później.  |
+|  VMRedeploymentTimedOut  |  Ponowne wdrożenie maszyny Wirtualnej "{0}" nie zostało zakończone w przydzielonym czasie. Go może zakończyła się pomyślnie w pewnym czasie. W przeciwnym wypadku można ponowić żądanie.  |
+|  VMStartTimedOut  |  Nie można uruchomić maszyny Wirtualnej "{0}" w przydzielonym czasie. Maszyna wirtualna nadal może uruchomić się pomyślnie. Sprawdź później stan zasilania.  |
 
 
-## <a name="next-steps"></a>Next steps
-If you need more help, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+## <a name="next-steps"></a>Następne kroki
+Jeśli potrzebujesz więcej pomocy, skontaktuj się ekspertów platformy Azure na [fora MSDN Azure i przepełnienie stosu](https://azure.microsoft.com/support/forums/). Alternatywnie można pliku zdarzenia pomocy technicznej platformy Azure. Przejdź do [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz **uzyskać obsługuje**.

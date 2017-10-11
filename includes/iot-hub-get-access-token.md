@@ -1,9 +1,7 @@
-<a id="obtain-an-azure-resource-manager-token" class="xliff"></a>
+## <a name="obtain-an-azure-resource-manager-token"></a>Uzyskaj token usługi Azure Resource Manager
+Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania, które należy wykonać na zasobów przy użyciu usługi Azure Resource Manager. Tu przykładzie jest używane uwierzytelnianie hasła, aby inne podejścia, zobacz [żądań uwierzytelniania usługi Azure Resource Manager][lnk-authenticate-arm].
 
-## Obtain an Azure Resource Manager token
-Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
-
-1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
+1. Dodaj następujący kod do **Main** metody w pliku Program.cs do pobrania tokenu z usługi Azure AD przy użyciu identyfikatora aplikacji i hasła.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,14 +16,14 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
       return;
     }
     ```
-2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
+2. Utwórz **element ResourceManagementClient** obiekt, który używa tokenu, dodając następujący kod na końcu **Main** metody:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Create, or obtain a reference to, the resource group you are using:
+3. Utwórz lub uzyskać odwołania do grupy zasobów, którego używasz:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

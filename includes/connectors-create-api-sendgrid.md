@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SendGrid](https://www.SendGrid.com/) account 
+### <a name="prerequisites"></a>Wymagania wstępne
+* A [SendGrid](https://www.SendGrid.com/) konta 
 
-Before you can use your SendGrid account in a Logic app, you must authorize the Logic app to connect to your SendGrid account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Zanim użyjesz swojego konta włączenie w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SendGrid. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
 
-Here are the steps to authorize your Logic app to connect to your SendGrid account:
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SendGrid:
 
-1. To create a connection to SendGrid, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SendGrid* in the search box. Select the trigger or action you'll like to use:  
-   ![SendGrid step 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. If you haven't created any connections to SendGrid before, you'll get prompted to provide your SendGrid credentials. These credentials will be used to authorize your Logic app to connect to, and access your SendGrid account's data:  
-   ![SendGrid step 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![SendGrid step 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
+1. Aby utworzyć połączenie SendGrid, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SendGrid* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+   ![SendGrid krok 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
+2. Jeśli nie utworzono żadnych połączeń SendGrid przed będzie zostanie wyświetlony monit o podanie poświadczeń SendGrid. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SendGrid:  
+   ![SendGrid krok 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
+3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+   ![SendGrid krok 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 

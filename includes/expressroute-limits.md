@@ -1,27 +1,27 @@
-#### <a name="expressroute-limits"></a>ExpressRoute Limits
-The following limits apply to ExpressRoute resources per subscription.
+#### <a name="expressroute-limits"></a>Limity usługi ExpressRoute
+Następujące ograniczenia mają zastosowanie do zasobów usługi ExpressRoute dla subskrypcji.
 
-| Resource | Default Limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| ExpressRoute circuits per subscription |10 |
-| ExpressRoute circuits per region per subscription for ARM |10 |
-| Maximum number of routes for Azure private peering with ExpressRoute standard |4,000 |
-| Maximum number of routes for Azure private peering with ExpressRoute premium add-on |10,000 |
-| Maximum number of routes for Azure public peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure public peering with ExpressRoute premium add-on |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
-| Number of virtual network links allowed per ExpressRoute circuit |see table below |
+| Obwody usługi ExpressRoute dla subskrypcji |10 |
+| Obwody usługi ExpressRoute, na region na subskrypcję dla ARM |10 |
+| Maksymalna liczba tras dla prywatnej komunikacji równorzędnej platformy Azure z normą ExpressRoute |4,000 |
+| Maksymalna liczba tras dla prywatnej komunikacji równorzędnej platformy Azure z dodatkiem premium usługi ExpressRoute |10 000 |
+| Maksymalna liczba tras dla publicznej komunikacji równorzędnej platformy Azure z normą ExpressRoute |200 |
+| Maksymalna liczba tras dla publicznej komunikacji równorzędnej platformy Azure z dodatkiem premium usługi ExpressRoute |200 |
+| Maksymalna liczba tras dla komunikacji równorzędnej firmy Microsoft Azure ze standardowym ExpressRoute |200 |
+| Maksymalna liczba tras dla komunikacji równorzędnej z dodatkiem premium usługi Microsoft Azure |200 |
+| Liczba dozwolonych dla jednej obwodu ExpressRoute łączy sieci wirtualnej |W poniższej tabeli w temacie |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Number of Virtual Networks per ExpressRoute circuit
-| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Liczba sieci wirtualnych na obwodu usługi expressroute
+| **Rozmiar obwodu** | **Liczba łączy sieci wirtualnej dla standardowej** | **Liczba łączy sieci wirtualnej z dodatkiem — wersja Premium** |
 | --- | --- | --- |
-| 50 Mbps |10 |20 |
-| 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
-| 500 Mbps |10 |40 |
-| 1 Gbps |10 |50 |
-| 2 Gbps |10 |60 |
-| 5 Gbps |10 |75 |
-| 10 Gbps |10 |100 |
+| 50 Mb/s |10 |20 |
+| 100 Mb/s |10 |25 |
+| 200 Mb/s |10 |25 |
+| 500 Mb/s |10 |40 |
+| 1 Gb/s |10 |50 |
+| 2 Gb/s |10 |60 |
+| 5 Gb/s |10 |75 |
+| 10 Gb/s |10 |100 |
 

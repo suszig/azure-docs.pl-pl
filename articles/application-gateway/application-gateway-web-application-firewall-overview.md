@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Zapora aplikacji sieci Web
 
 Zapora aplikacji sieci Web (WAF) to funkcja usługi Application Gateway, która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki i lukami w zabezpieczeniach. 
@@ -173,5 +171,4 @@ Zapora aplikacji sieci Web zacznie być rozliczana 2017-05-05. Do tego czasu bę
 ## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji na temat możliwości oferowanych przez zaporę aplikacji sieci Web można znaleźć w artykule [How to configure web application firewall on Application Gateway](application-gateway-web-application-firewall-portal.md) (Jak skonfigurować zaporę aplikacji sieci Web w usłudze Application Gateway).
-
 

@@ -10,8 +10,3 @@ Usługa Azure Backup ma dwa typy magazynów — magazyn kopii zapasowych i magaz
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

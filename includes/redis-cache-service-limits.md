@@ -1,14 +1,14 @@
-| Resource | Limit |
+| Zasób | Limit |
 | --- | --- |
-| Cache size |530 GB |
-| Databases |64 |
-| Max connected clients |40,000 |
-| Redis Cache replicas (for high availability) |1 |
-| Shards in a premium cache with clustering |10 |
+| Rozmiar pamięci podręcznej |530 GB |
+| Bazy danych |64 |
+| Maksymalna liczba podłączonych klientów |40,000 |
+| Redis replik pamięci podręcznej (w celu zapewnienia wysokiej dostępności) |1 |
+| Odłamków w pamięci podręcznej premium z klastra |10 |
 
-Azure Redis Cache limits and sizes are different for each pricing tier. To see the pricing tiers and their associated sizes, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+Pamięć podręczna Redis Azure ogranicza i rozmiary są różne dla każdej warstwy cenowej. Aby wyświetlić warstwy cenowe i ich skojarzonych rozmiarów, zobacz [cennik usługi Azure Redis pamięci podręcznej](https://azure.microsoft.com/pricing/details/cache/).
 
-For more information on Azure Redis Cache configuration limits, see [Default Redis server configuration](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Aby uzyskać więcej informacji na ograniczenia konfiguracji pamięci podręcznej Redis Azure, zobacz [Redis domyślna konfiguracja serwera](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Ponieważ konfiguracji i zarządzania wystąpienia pamięci podręcznej Redis Azure jest wykonywana przez firmę Microsoft, nie wszystkie polecenia Redis są obsługiwane w pamięci podręcznej Redis Azure. Aby uzyskać więcej informacji, zobacz [polecenia nie są obsługiwane w pamięci podręcznej Redis Azure Redis](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 

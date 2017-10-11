@@ -1,13 +1,13 @@
-Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 2012, you must verify that the hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is installed on each of the on-premises servers or Azure VMs that are part of the cluster. Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.
+Następnie wszystkie serwery w klastrze korzystający z systemu Windows Server 2008 R2 lub Windows Server 2012, należy sprawdzić, czy poprawka [KB2854082](http://support.microsoft.com/kb/2854082) jest instalowane na każdym z serwerów lokalnych lub maszynach wirtualnych platformy Azure, które są częścią klastra. Dowolnego serwera lub maszyny Wirtualnej w klastrze, ale nie znajduje się w grupie dostępności powinien również zawierać po zainstalowaniu tej poprawki.
 
-In the remote desktop session for each of the cluster nodes, download [KB2854082](http://support.microsoft.com/kb/2854082) to a local directory. Then, install the hotfix on each cluster node sequentially. If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.
+W sesji pulpitu zdalnego dla każdego z węzłów klastra, Pobierz [KB2854082](http://support.microsoft.com/kb/2854082) do katalogu lokalnego. Następnie należy zainstalować poprawkę w każdym węźle klastra po kolei. Jeśli usługa klastrowania jest obecnie uruchomiona w węźle klastra, ponownym uruchomieniu serwera po zakończeniu instalacji.
 
 > [!WARNING]
-> Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and it might cause your cluster to go offline. To maintain the high availability of your cluster during installation, make sure that:
+> Zatrzymanie usługi klastrowania lub ponowne uruchomienie serwera wpływa na kondycję kworum klastra i grupy dostępności, co może spowodować z klastrem w celu przejścia do trybu offline. Aby zachować wysoką dostępność klastra podczas instalacji, upewnij się, że:
 > 
-> * The cluster is in optimal quorum health. 
-> * Before you install the hotfix on any node, all cluster nodes are online.
-> * Before you install the hotfix on any other node in the cluster, allow the hotfix installation to run to completion on one node, including fully restarting the server.
+> * Klaster jest użytkowany kondycji optymalne kworum. 
+> * Przed zainstalowaniem poprawki w każdym węźle, wszystkie węzły klastra są w trybie online.
+> * Przed zainstalowaniem poprawki na jednym z węzłów w klastrze, Zezwalaj na instalację poprawek do uruchomienia do ukończenia na jednym węźle, w tym pełni ponowne uruchomienie serwera.
 > 
 > 
 

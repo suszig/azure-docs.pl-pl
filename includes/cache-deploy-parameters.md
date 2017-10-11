@@ -1,6 +1,6 @@
 
 ### <a name="cacheskuname"></a>cacheSKUName
-The pricing tier of the new Azure Redis Cache.
+Warstwa cenowa nowej pamięci podręcznej Redis Azure.
 
     "cacheSKUName": {
       "type": "string",
@@ -14,11 +14,11 @@ The pricing tier of the new Azure Redis Cache.
       }
     },
 
-The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
-Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
+Szablon definiuje wartości, które są dozwolone dla tego parametru (Basic lub Standard), a następnie przypisuje wartość domyślną (Basic), jeśli nie określono wartości. Basic zapewnia jeden węzeł o różnych rozmiarach dostępne w górę do 53 GB.
+Standard udostępnia dwa węzły podstawowego/repliki o różnych rozmiarach dostępne w górę do umowy SLA 53 GB i 99,9%.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
-The family for the sku.
+Rodzina dla jednostki sku.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -33,7 +33,7 @@ The family for the sku.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-The size of the new Azure Redis Cache instance. 
+Rozmiar nowego wystąpienia pamięci podręcznej Redis Azure. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -53,5 +53,5 @@ The size of the new Azure Redis Cache instance.
     }
 
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (1) if no value is specified. Those numbers correspond to following cache sizes: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Szablon definiuje wartości, które są dozwolone dla tego parametru (0, 1, 2, 3, 4, 5 lub 6) i przypisuje wartość domyślną (1) Jeśli nie określono wartości. Te numery odpowiadają następujących rozmiarów pamięci podręcznej: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

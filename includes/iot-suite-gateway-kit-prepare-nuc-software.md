@@ -1,48 +1,48 @@
-## <a name="build-iot-edge"></a>Build IoT Edge
+## <a name="build-iot-edge"></a>Tworzenie krawędzi IoT
 
-This tutorial uses custom IoT Edge modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the IoT Edge modules from custom source code. The following sections describe how to install IoT Edge and build the custom IoT Edge module.
+Ten samouczek używa niestandardowe moduły krawędzi IoT do komunikowania się ze zdalnym wstępnie skonfigurowane rozwiązanie monitorowania. W związku z tym jest potrzebne do tworzenia krawędzi IoT modułów z kodu źródła niestandardowego. W poniższych sekcjach opisano sposób instalowania krawędzi IoT i utworzenie niestandardowego modułu krawędzi IoT.
 
-### <a name="install-iot-edge"></a>Install IoT Edge
+### <a name="install-iot-edge"></a>Zainstaluj krawędzi IoT
 
-The following steps describe how to install the pre-compiled IoT Edge software on the Intel NUC:
+W poniższych krokach opisano sposób instalowania oprogramowania wstępnie skompilowanym krawędzi IoT na Intel NUC:
 
-1. Configure the required smart package repositories by running the following commands on the Intel NUC:
+1. Skonfiguruj repozytoria wymagany pakiet inteligentne, uruchamiając następujące polecenia na Intel NUC:
 
     ```bash
     smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
     smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
     ```
 
-    Enter `y` when the command prompts you to **Include this channel?**.
+    Wprowadź `y` gdy pojawi się monit o polecenie **obejmują ten kanał?**.
 
-1. Update the smart package manager by running the following command:
+1. Aktualizacja Menedżera pakietów inteligentne, uruchamiając następujące polecenie:
 
     ```bash
     smart update
     ```
 
-1. Install the Azure IoT Edge package by running the following command:
+1. Zainstaluj pakiet Azure IoT krawędzi, uruchamiając następujące polecenie:
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
 
-1. Verify the installation by running the "Hello world" sample. This sample writes a hello world message to the log.txT file every five seconds. The following commands run the "Hello world" sample:
+1. Weryfikowanie instalacji przez uruchomienie przykładu "Hello world". W tym przykładzie zapisuje wiadomość hello world pliku log.txT co pięć sekund. Poniższe polecenia są uruchamiane przykładu "Hello world":
 
     ```bash
     cd /usr/share/azureiotgatewaysdk/samples/hello_world/
     ./hello_world hello_world.json
     ```
 
-    Ignore any **invalid argument** messages when you stop the sample.
+    Ignoruj wszystkie **nieprawidłowy argument** wiadomości po zatrzymaniu próbki.
 
-    Use the following command to view the contents of the log file:
+    Aby wyświetlić zawartość pliku dziennika, użyj następującego polecenia:
 
     ```bash
     cat log.txt | more
     ```
 
-### <a name="troubleshooting"></a>Troubleshooting
+### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-If you receive the error "No package provides util-linux-dev", try rebooting the Intel NUC.
+Jeśli zostanie wyświetlony błąd "nie zawiera util-linux deweloperów", spróbuj wykonać ponowny rozruch Intel NUC.

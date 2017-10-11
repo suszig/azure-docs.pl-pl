@@ -1,5 +1,5 @@
 ---
-title: "Uwierzytelnianie i autoryzacja w usłudze SQL Database | Microsoft Docs"
+title: "Identyfikatory logowania i użytkownicy bazy danych SQL platformy Azure | Microsoft Docs"
 description: "Więcej informacji na temat zarządzania zabezpieczeniami bazy danych SQL, w szczególności o zarządzaniu zabezpieczeniami dostępu i logowania za pomocą konta głównego poziomu serwera."
 keywords: "zabezpieczenia bazy danych sql, zarządzanie zabezpieczeniami bazy danych, zabezpieczenia logowania, zabezpieczenia bazy danych, dostęp do bazy danych"
 services: sql-database
@@ -10,18 +10,18 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
-ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
-
-
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Kontrolowanie i udzielanie dostępu do bazy danych
 
@@ -29,6 +29,12 @@ Po skonfigurowaniu reguł zapory można łączyć się z bazą danych SQL Databa
 
 >  [!NOTE]  
 >  Ten temat dotyczy serwera Azure SQL oraz baz danych zarówno usługi SQL Database, jak i SQL Data Warehouse utworzonych na serwerze Azure SQL. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database. 
+>
+
+> [!TIP]
+> Samouczek, zobacz [zabezpieczenia bazy danych SQL Azure](sql-database-security-tutorial.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Konta z uprawnieniami administracyjnymi bez ograniczeń
 Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratora dla używanego serwera SQL, otwórz witrynę Azure Portal i przejdź do właściwości serwera SQL.
@@ -50,10 +56,8 @@ Konta **Administrator serwera** i **Administrator usługi Azure AD** mają nast�
 - Te konta mogą dodawać członków do ról `dbmanager` i `loginmanager` oraz usuwać ich z nich.
 - Te konta mogą wyświetlać tabelę systemową `sys.sql_logins`.
 
-
-
 ### <a name="configuring-the-firewall"></a>Konfigurowanie zapory
-W przypadku skonfigurowania zapory na poziomie serwera za pomocą pojedynczego adresu IP lub zakresu adresów konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się z bazą danych master i wszystkimi bazami danych użytkowników. Początkowo zaporę na poziomie serwera można skonfigurować za pomocą [witryny Azure Portal](sql-database-configure-firewall-settings.md), programu [PowerShell](sql-database-configure-firewall-settings-powershell.md) lub [interfejsu API REST](sql-database-configure-firewall-settings-rest.md). Po nawiązaniu połączenia można również skonfigurować dodatkowe reguły zapory na poziomie serwera za pomocą [języka Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+W przypadku skonfigurowania zapory na poziomie serwera za pomocą pojedynczego adresu IP lub zakresu adresów konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się z bazą danych master i wszystkimi bazami danych użytkowników. Początkowo zaporę na poziomie serwera można skonfigurować za pomocą [witryny Azure Portal](sql-database-get-started-portal.md), programu [PowerShell](sql-database-get-started-powershell.md) lub [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Po nawiązaniu połączenia można również skonfigurować dodatkowe reguły zapory na poziomie serwera za pomocą [języka Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Ścieżka dostępu administratora
 Po poprawnym skonfigurowaniu zapory na poziomie serwera konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się przy użyciu narzędzi klienckich, takich jak SQL Server Management Studio lub SQL Server Data Tools. Tylko najnowsze narzędzia oferują wszystkie funkcje i możliwości. Na poniższym diagramie przedstawiono typową konfigurację dla tych dwóch kont administracyjnych.
@@ -63,7 +67,7 @@ Po poprawnym skonfigurowaniu zapory na poziomie serwera konta **Administrator se
 Używając otwartego portu w zaporze na poziomie serwera, administratorzy mogą połączyć się z dowolną bazą danych SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Łączenie się z bazą danych przy użyciu programu SQL Server Management Studio
-Aby zapoznać się z omówieniem tworzenia serwera, bazy danych i reguł zapory na poziomie serwera oraz używania programu SQL Server Management Studio do odpytywania bazy danych, zobacz [Wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio](sql-database-get-started.md).
+Aby zapoznać się z omówieniem tworzenia serwera, bazy danych i reguł zapory na poziomie serwera oraz używania programu SQL Server Management Studio do odpytywania bazy danych, zobacz [Wprowadzenie do serwerów, baz danych i reguł zapory usługi Azure SQL Database przy użyciu witryny Azure Portal i programu SQL Server Management Studio](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > Zalecane jest używanie najnowszej wersji programu Management Studio, aby zachować synchronizację z aktualizacjami platformy Microsoft Azure i usługi SQL Database. [Zaktualizuj program SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -73,7 +77,7 @@ Aby zapoznać się z omówieniem tworzenia serwera, bazy danych i reguł zapory 
 Oprócz ról administracyjnych na poziomie serwera omówionych wcześniej usługa SQL Database zawiera dwie ograniczone role administracyjne w bazie danych master, do których można dodać konta użytkowników, aby udzielić im uprawnień do tworzenia baz danych lub zarządzania identyfikatorami logowania.
 
 ### <a name="database-creators"></a>Kreatory bazy danych
-Jedna z tych ról administracyjnych to rola **dbmanager**. Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych `master` i dodać go do roli bazy danych **dbmanager**. Użytkownik może być użytkownikiem zawartej bazy danych lub użytkownikiem opartym na identyfikatorze logowania programu SQL Server w bazie danych master.
+Jedna z tych ról administracyjnych to rola **dbmanager**. Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych `master` i dodać go do roli bazy danych **dbmanager**. Aby utworzyć bazę danych, użytkownik musi być użytkownikiem bazującym na identyfikatorze logowania do serwera SQL Server w bazie danych master lub użytkownikiem zawartej bazy danych bazującym na użytkowniku usługi Azure Active Directory.
 
 1. Połącz się z bazą danych master przy użyciu konta administratora.
 2. Krok opcjonalny: Utwórz nazwę logowania do uwierzytelniania w programie SQL Server przy użyciu instrukcji [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Przykładowa instrukcja:
@@ -185,14 +189,6 @@ Podczas zarządzania nazwami logowania i użytkownikami w usłudze SQL Database 
 
 - Aby dowiedzieć się więcej o regułach zapory, zobacz artykuł dotyczący [zapory usługi Azure SQL Database](sql-database-firewall-configure.md).
 - Aby zobaczyć przegląd wszystkich funkcji zabezpieczeń usługi SQL Database, zobacz [omówienie zabezpieczeń usługi SQL](sql-database-security-overview.md).
-- Samouczek znajduje się w artykule [Rozpocznij pracę z usługą SQL Database](sql-database-control-access-sql-authentication-get-started.md)
+- Samouczek, zobacz [zabezpieczenia bazy danych SQL Azure](sql-database-security-tutorial.md).
 - Aby uzyskać informacje o widokach i procedurach składowanych, zobacz artykuł dotyczący [tworzenia widoków i procedur składowanych](https://msdn.microsoft.com/library/ms365311.aspx)
 - Aby uzyskać informacje o udzielaniu dostępu do obiektu bazy danych, zobacz artykuł dotyczący [udzielania dostępu do obiektu bazy danych](https://msdn.microsoft.com/library/ms365327.aspx)
-- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania programu SQL Server, zobacz [Samouczek usługi SQL Database: uwierzytelnianie programu SQL Server, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-sql-authentication-get-started.md).
-- Aby zapoznać się z samouczkiem dotyczącym korzystania z uwierzytelniania usługi Azure Active Directory, zobacz [Samouczek usługi SQL Database: uwierzytelnianie usługi AAD, dane logowania i konta użytkowników, role bazy danych, uprawnienia, reguły zapory na poziomie serwera oraz reguły zapory na poziomie bazy danych](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -20,8 +20,3 @@
 
 Aby obejrzeć film wideo przedstawiający sposób pobierania klucza rejestracji usługi, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

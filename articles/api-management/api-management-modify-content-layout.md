@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ecae1da20551d8372331124b07c4aca2e15f55bb
 ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.contentlocale: pl-pl
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modyfikowanie zawartości i układu stron w portalu deweloperów w usłudze Azure API Management
 Istnieją trzy podstawowe sposoby dostosowywania portalu deweloperów w usłudze Azure API Management:
@@ -87,4 +86,3 @@ Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej porta
 [api-management-management-console]: ./media/api-management-modify-content-layout/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-modify-content-layout/api-management-widgets-header.png
 [api-management-customization-manage-content]: ./media/api-management-modify-content-layout/api-management-customization-manage-content.png
-

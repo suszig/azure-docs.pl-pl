@@ -1,4 +1,4 @@
-The following top issues may help resolve your issue. To start troubleshooting, review these steps:
+Następujące Najważniejsze problemy mogą pomóc w rozwiązaniu problemu. Zacząć Rozwiązywanie problemów, przejrzyj następujące kroki:
 
-- [The cluster cannot support the requested VM size](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [Klaster nie może obsługiwać żądany rozmiar maszyny Wirtualnej](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Klaster nie ma wolnego zasobów](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

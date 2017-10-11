@@ -1,34 +1,34 @@
 ## <a name="virtual-network"></a>Virtual Network
-Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+Zasoby sieci (VNET) i podsieci wirtualne pomoc w określeniu granicy zabezpieczeń dla obciążeń działających na platformie Azure. Kolekcja przestrzeni adresów, zdefiniowany jako bloków CIDR charakteryzuje się sieci wirtualnej. 
 
 > [!NOTE]
-> Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+> Administratorzy sieci znają notacji CIDR. Jeśli nie znasz CIDR, [Dowiedz się więcej o](http://whatismyipaddress.com/cidr).
 > 
 > 
 
-![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
+![Sieć wirtualną z wieloma podsieciami](./media/resource-groups-networking/Figure4.png)
 
-VNets contain the following properties.
+Sieci wirtualne obejmują następujące właściwości.
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **addressSpace** |Collection of address prefixes that make up the VNet in CIDR notation |192.168.0.0/16 |
-| **subnets** |Collection of subnets that make up the VNet |see [subnets](#Subnets) below. |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **Element addressSpace** |Kolekcja prefiksów adresów, które tworzą sieci wirtualnej w notacji CIDR |192.168.0.0/16 |
+| **podsieci** |Kolekcja podsieci, które tworzą sieci wirtualnej |zobacz [podsieci](#Subnets) poniżej. |
+| **adres IP** |Adres IP przypisany do obiektu. Jest to właściwość tylko do odczytu. |104.42.233.77 |
 
-### <a name="subnets"></a>Subnets
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+### <a name="subnets"></a>Podsieci
+Podsieć jest zasobem podrzędnych sieci wirtualnej i pomaga zdefiniować segmenty przestrzeni adresów w obrębie blok CIDR, przy użyciu prefiksów adresów IP. Karty sieciowe mogą być dodawane do podsieci lub podłączone do maszyn wirtualnych, zapewniają łączność dla różnych obciążeń.
 
-Subnets contain the following properties. 
+Podsieci obejmują następujące właściwości. 
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](#Route-table) |
-| **ipConfigurations** |Collection of IP configruation objects used by NICs connected to the subnet |see [UDR](#Route-table) |
+| **addressPrefix** |Prefiks pojedynczy adres, który tworzą podsieci w notacji CIDR |192.168.1.0/24 |
+| **grupy networkSecurityGroup** |Grupa NSG stosowana do podsieci |zobacz [grupy NSG](#Network-Security-Group) |
+| **Stan** |Tabela tras stosowane do podsieci |zobacz [przez](#Route-table) |
+| **elementy Ipconfiguration** |Kolekcja obiektów configruation IP używane przez karty sieciowe podłączone do podsieci |zobacz [przez](#Route-table) |
 
-Sample VNet in JSON format:
+Przykład sieci wirtualnej w formacie JSON:
 
     {
         "name": "TestVNet",
@@ -72,8 +72,8 @@ Sample VNet in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
+### <a name="additional-resources"></a>Dodatkowe zasoby
+* Uzyskaj więcej informacji [sieci wirtualnej](../articles/virtual-network/virtual-networks-overview.md).
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) dla sieci wirtualnych.
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) podsieci.
 

@@ -1,19 +1,19 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Office 365](https://office365.com) account  
+#### <a name="prerequisites"></a>Wymagania wstępne
+* Konto platformy Azure; można utworzyć [bezpłatne konto](https://azure.microsoft.com/free)
+* [Usługi Office 365](https://office365.com) konta  
 
-Before using your Office 365 account in a logic app, authorize the logic app to connect to your Office 365 account. You can do this easily within your logic app on the Azure portal.  
+Przed rozpoczęciem korzystania z konta usługi Office 365 w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem usługi Office 365. Można to zrobić łatwo w aplikacjach logiki w portalu Azure.  
 
-Authorize your logic app to connect to your Office 365 account using the following steps:
+Zezwolić aplikacji logiki do nawiązania połączenia konta usługi Office 365, wykonując następujące czynności:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "office 365" in the search box. Select one of the triggers or actions:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemail.png)  
-2. If you haven't previously created any connections to Office 365, you are prompted to sign in using your Office 365 credentials:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-signin.png)  
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
+1. Tworzenie aplikacji logiki. W Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na rozwijanej liście, a następnie wprowadź "office 365" w polu wyszukiwania. Wybierz jedną z akcji lub wyzwalaczy:  
+    ![Krok tworzenia połączenia usługi Office 365](./media/connectors-create-api-office365-outlook/office365-sendemail.png)  
+2. Jeśli nie utworzono jeszcze wszystkie połączenia z usługą Office 365, zostanie wyświetlony monit o Zaloguj się przy użyciu poświadczeń konta usługi Office 365:  
+    ![Krok tworzenia połączenia usługi Office 365](./media/connectors-create-api-office365-outlook/office365-signin.png)  
+3. Wybierz **Zaloguj**, a następnie wprowadź nazwę użytkownika i hasło. Wybierz **Zaloguj**:  
+    ![Krok tworzenia połączenia usługi Office 365](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
    
-    These credentials are used to authorize your logic app to connect to, and access your Office 365 account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:   
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
+    Te poświadczenia są używane do autoryzacji aplikację logiki, aby połączyć się i uzyskać dostęp do konta usługi Office 365. 
+4. Należy zauważyć, że utworzono połączenie. Teraz kontynuować pozostałe kroki w aplikacji logiki:   
+    ![Krok tworzenia połączenia usługi Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 

@@ -1,229 +1,229 @@
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security architecture
-When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
+# <a name="internet-of-things-security-architecture"></a>Architektura zabezpieczeń Internetu rzeczy
+Podczas projektowania systemu, ważne jest zrozumienie potencjalnych zagrożeń dla tego systemu, a Dodaj odpowiednie zabezpieczenia w związku z tym system został zaprojektowany i zaprojektowana. Jest szczególnie ważne projektowania produktu od początku z myślą o bezpieczeństwie Opis ułatwia sposób atakujący może być w stanie naruszyć bezpieczeństwo systemu, upewnij się, że odpowiednie środki zaradcze znajdują się w miejscu od początku. 
 
-## <a name="security-starts-with-a-threat-model"></a>Security starts with a threat model
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+## <a name="security-starts-with-a-threat-model"></a>Zabezpieczenia rozpoczyna się od modelu zagrożeń
+Firma Microsoft długo został użyty modeli zagrożenie dla swoich produktów i wprowadził procesu publicznie dostępnych modelowania zagrożeń firmy. Doświadczenie firmy pokazuje, że modelowania ma nieoczekiwany korzyści po zrozumienia bezpośrednim jakie zagrożenia są najbardziej dotyczące. Na przykład tworzy również ścieżek Otwórz omówienie osobom spoza zespół deweloperów, co może prowadzić do nowe pomysły i ulepszenia produktu.
 
-The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
+Celem modelowanie zagrożeń jest zrozumienie, jak osoba atakująca może być może naruszyć bezpieczeństwo systemu i upewnij się, że są stosowane odpowiednie środki zaradcze. Wymusza modelowania zagrożeń zespół projektowy wziąć pod uwagę czynniki, ponieważ system został zaprojektowany, a nie po system jest wdrażana. Ten fakt jest bardzo ważny, ponieważ modernizacji zabezpieczenia różnych urządzeń w polu jest praktyce, błąd podatnych na błędy i pozostawi klientów na ryzyko.
 
-Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling will inform and drive testing of your Internet of Things (IoT) solution.
+Wiele zespołów deweloperów czy znakomity zadanie przechwytywania wymagania funkcjonalne dla systemu, które korzystać klienci. Jednak identyfikowanie-oczywisty sposób czy ktoś może niewłaściwym użyciem systemu jest trudniejsze. Modelowanie zagrożeń może pomóc zrozumieć, co może zrobić osoba atakująca zespoły deweloperów i dlaczego. Modelowanie zagrożeń jest procesem strukturalnego, który tworzy decyzji projektowych Omówienie zabezpieczeń w systemie, a także zmiany do projektu, który zgłosił wzdłuż sposób zabezpieczenia wpływ. Gdy modelu zagrożeń jest po prostu dokumentu, tej dokumentacji reprezentuje również idealny w celu zapewnienia ciągłości wiedzy, przechowywania wnioski uzyskane i pomocy nowego zespołu dołączyć szybko. Na koniec wyniku modelowanie zagrożeń jest umożliwienie należy rozważyć inne aspekty zabezpieczeń, takich jak zobowiązań zabezpieczeń, jakie chcesz zapewnić klientom. Tych zobowiązań w połączeniu z modelowanie zagrożeń będzie informuje i dysków testowania rozwiązania Internetu rzeczy (IoT).
 
-### <a name="when-to-threat-model"></a>When to threat model
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
+### <a name="when-to-threat-model"></a>Kiedy zagrożenia modelu
+[Modelowanie zagrożeń](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) oferuje największa wartość, jeśli jest włączona w fazie projektowania. Podczas projektowania, masz największą elastyczność, aby wprowadzić zmiany w celu wyeliminowania zagrożenia. Eliminowanie zagrożeń zgodnie z projektem jest rezultat. Jest znacznie prostsze niż dodawanie środki zaradcze, ich testowania i zapewnienia są zawsze aktualne, a ponadto takie eliminacji nie zawsze jest możliwe. Staje się przeszkodę w celu wyeliminowania zagrożenia produktu staje się bardziej dojrzałe i z kolei ostatecznie wymaga więcej pracy co znacznie trudniejsze wady i zalety niż zagrożeń na wczesnym etapie modelowania do tworzenia.
 
-### <a name="what-to-threat-model"></a>What to threat model
-You should thread model the solution as a whole and also focus in the following areas:
+### <a name="what-to-threat-model"></a>Co należy modelu zagrożeń
+Należy wątku modelu rozwiązania jako całość i również skupić się w następujących obszarach:
 
-* The security and privacy features
-* The features whose failures are security relevant
-* The features that touch a trust boundary 
+* Funkcje zabezpieczeń i prywatności
+* Funkcje, których błędy są istotne zabezpieczeń
+* Funkcje, które touch granicy zaufania 
 
-### <a name="who-threat-models"></a>Who threat models
-Threat modeling is a process like any other.  It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
+### <a name="who-threat-models"></a>Kto zagrożenia modele
+Modelowanie zagrożeń jest procesem, jak każdy inny.  Jest dobrym pomysłem jest traktować dokument modelu zagrożeń, podobnie jak inne składnik rozwiązania i sprawdzić jego poprawność. Wiele zespołów deweloperów czy znakomity zadanie przechwytywania wymagania funkcjonalne dla systemu, które korzystać klienci. Jednak identyfikowanie-oczywisty sposób czy ktoś może niewłaściwym użyciem systemu jest trudniejsze. Modelowanie zagrożeń może pomóc zrozumieć, co może zrobić osoba atakująca zespoły deweloperów i dlaczego.
 
-### <a name="how-to-threat-model"></a>How to threat model
-The threat modeling process is composed of four steps; the steps are:
+### <a name="how-to-threat-model"></a>Jak modelu zagrożeń
+To zagrożenie, proces modelowania składa się z czterech kroków; dostępne są następujące kroki:
 
-* Model the application
-* Enumerate Threats
-* Mitigate threats
-* Validate the mitigations
+* Model aplikacji
+* Wyliczanie zagrożeń
+* Zmniejszenie zagrożeń związanych
+* Sprawdź poprawność środki zaradcze
 
-#### <a name="the-process-steps"></a>The process steps
-Three rules of thumb to keep in mind when building a threat model:
+#### <a name="the-process-steps"></a>Kroki procesu
+Trzy zasady przyjąć należy wziąć pod uwagę podczas tworzenia modelu zagrożeń:
 
-1. Create a diagram out of reference architecture. 
-2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving.  This helps ensure that you deep-dive in the right places.
-3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it!  Don’t feel you need to follow these steps slavishly.  
+1. Tworzenie diagramu poza architektura referencyjna struktury. 
+2. Uruchom najpierw szerokości. Zapoznaj się z omówieniem i zrozumieć system jako całość, przed rozpoczęciem pracy bezpośrednich.  Pomaga to zapewnić, że należy szczegółowo w odpowiednich miejscach.
+3. Dysk procesu, niech procesu dysk należy. Jeśli znaleźć problemu w fazie modelowania i aby eksplorować go, przejdź na jej!  Nie możesz się slavishly wykonaj następujące kroki.  
 
-#### <a name="threats"></a>Threats
-The four core elements of a threat model are:
+#### <a name="threats"></a>Zagrożenia
+Są cztery podstawowe elementy modelu zagrożeń:
 
-* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
-* Data stores (anywhere data is stored, such as a configuration file or database)
-* Data flow (where data moves between other elements in the application)
-* External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
+* Procesy (usługi sieci web, usług Win32 * nix demonów itp. Należy pamiętać, że niektóre jednostki złożonych (na przykład pole bram i czujników) można być usunięte zgodnie z procesem po techniczne Przechodzenie do szczegółów w następujących obszarach nie jest możliwe.
+* Dane przechowywane (tam, gdzie dane są przechowywane, takich jak plik konfiguracji lub bazy danych)
+* Przepływ danych (gdzie dane są przenoszone między innymi elementami w aplikacji)
+* Podmioty zewnętrzne (wszystkie elementy, które wchodzi w interakcję z systemem, ale nie jest pod kontrolą aplikacji, przykłady obejmują użytkowników oraz urządzeń źródła danych)
 
-All elements in the architectural diagram are subject to various threats; we will use the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+Wszystkie elementy na diagramie architektury podlegają różne zagrożenia; używamy skrót klawiszowy krok. Odczyt [modelowania zagrożeń ponownie, krok](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) Aby dowiedzieć się więcej o elementach krok.
 
-Different elements of the application diagram are subject to certain STRIDE threats:
+Różne elementy na diagramie aplikacji mogą ulec niektórych zagrożeń krok:
 
-* Processes are subject to STRIDE
-* Data flows are subject to TID
-* Data stores are subject to TID, and sometimes R, if the data stores are log files.
-* External entities are subject to SRD
+* Procesy podlegają krok
+* Przepływy danych podlegają TID
+* Magazyny danych podlegają TID i czasami R, jeśli pliki dziennika w magazynie danych.
+* Jednostek zewnętrznych podlegają SRD
 
-## <a name="security-in-iot"></a>Security in IoT
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+## <a name="security-in-iot"></a>Zabezpieczenia w IoT
+Połączonych urządzeń specjalnych dokonano znaczących potencjalnych obszarów powierzchni interakcji i wzorce interakcji, które należy rozważyć zapewniające strukturę zabezpieczanie cyfrowego dostępu do tych urządzeń. Termin "cyfrowego dostępu" jest używany tutaj do odróżnienia od wszystkich operacji wykonywanych za pośrednictwem urządzeń bezpośrednio interakcji gdzie zabezpieczenia dostępu jest zapewniana za pomocą sterowania dostępem fizycznym. Na przykład wprowadzenie urządzenia do miejsca z blokadą na drzwi. Gdy nie można odmówić dostępu fizycznej przy użyciu oprogramowania i sprzętu, mogą środki w celu uniemożliwić fizyczny dostęp od początku do systemu zakłóceń. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
+Jak możemy zapoznać się z wzorców interakcji, zajmiemy "kontroli urządzeń" i "dane urządzenie" o tym samym poziomie uwagi. "Urządzenie control" mogą być klasyfikowane jako żadnych informacji, który został dostarczony do urządzenia przez stronę w celu zmiany lub mające wpływ na jego zachowanie w kierunku jej stan lub stanu jego środowiska. "Urządzenie danych" mogą być klasyfikowane jako wszystkie informacje, które urządzenia emituje do innych firm dotyczące stanu i obserwowanych stanu jego środowiska.
 
-In order to optimize security best practices, it is recommended that a typical IoT architecture be divided into several component/zones as part of the threat modeling exercise. These zones are described fully throughout this section and include:
+Aby zoptymalizować najlepszych rozwiązań dotyczących zabezpieczeń, zaleca się, że typowy architektury IoT podzielić na kilku składników/stref jako część zagrożeń modelowania wykonywania. Te strefy są całkowicie opisane w tej sekcji i obejmują:
 
-* Device,
-* Field Gateway,
-* Cloud gateways, and
-* Services.
+* Urządzenie,
+* Brama pola
+* Bramy, w chmurze i
+* Usługi.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Strefy są szerokie sposób posegmentować rozwiązania; każdej strefy ma często wymagania danych i uwierzytelniania i autoryzacji. Strefy można służyć do uszkodzenia izolacji i ograniczyć wpływ niski zaufania strefy na wyższe zaufania strefy.
 
-Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
+Każdej strefy są rozdzielone przez granicę zaufania, który jest rejestrowany jako linia kropkowana red na poniższym diagramie. Reprezentuje przejście informacje o i danych z jednego źródła do innego. Podczas tego przejścia danych może podlegać Spoofing, Tampering, Repudiation, ujawnienie informacji, odmowa usługi i podniesienie uprawnień (krok).
 
-![IoT Security Zones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
+![Strefy zabezpieczeń IoT](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
-The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
+Składniki przedstawione w obrębie każdej granicy również są poddawane krok, włączenie pełnego 360 widoku rozwiązania modelowania zagrożeń. W poniższych rozdziałach rozwinięcia wszystkich składników i zagadnienia dotyczące zabezpieczeń określone i rozwiązań, które powinny znajdować się w miejscu.
 
-The sections that follows will discuss standard components typically found in these zones.
+W poniższych sekcjach następuje przedstawimy standardowymi elementami, które zwykle znajdują się w tych strefach.
 
-### <a name="the-device-zone"></a>The Device Zone
-The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
+### <a name="the-device-zone"></a>Strefy urządzenia
+Środowisko urządzenia jest natychmiastowe fizycznego miejsca wokół urządzenia w przypadku, gdy fizycznego dostępu i/lub "sieci lokalnej" peer-to-peer cyfrowego dostępu do urządzenia jest możliwe. "Sieci lokalnej" zakłada się, że sieci, która jest odrębny i odizolowanego od — ale potencjalnie mostkowania do — publicznego Internetu i zawiera wszystkie urządzenia bezprzewodowego radia technologie, które umożliwia komunikację peer-to-peer urządzeń. Robi *nie* obejmują innych technologii wirtualizacji sieci tworzenie wrażenie sieci lokalnej i również nie zawiera operator publiczny sieci, które wymagają żadne dwa urządzenia komunikują się za pośrednictwem sieci publicznej miejsce ich wprowadź relacji komunikacji peer-to-peer.
 
-### <a name="the-field-gateway-zone"></a>The Field Gateway Zone
-Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
+### <a name="the-field-gateway-zone"></a>Pole strefy bramy
+Brama pole jest urządzeń/urządzenia lub niektóre oprogramowania komputera ogólnego przeznaczenia serwera, który działa jako czynnik komunikacji oraz w razie potrzeby jako system kontroli urządzeń i centrum przetwarzania danych urządzenia. Strefa bramy pola obejmuje brama pola i wszystkie urządzenia, które są dołączone do niego. Jak nazwa wskazuje, bram pola działania urządzenia poza dedykowanych przetwarzania danych, są zwykle lokalizacja powiązana potencjalnie podlegają fizycznych nieautoryzowanego dostępu i będzie ograniczona operacyjne nadmiarowości. Aby powiedzieć, że brama pole jest często przedmiotu jedna touch i przeszkadzają a jest jego funkcji. 
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+Bramy pola różni się od routera sam ruch, że posiada ona aktywną rolę w zarządzaniu dostępu i przepływem informacji, co oznacza, że jest to aplikacja rozwiązany jednostki i połączenie sieciowe lub sesję terminalu. Urządzenie NAT lub zaporą, natomiast nie kwalifikuje się jako pole bramy, ponieważ nie są jawne połączenie lub terminale sesji, ale raczej połączeń trasy (lub blok) lub wprowadzane za pośrednictwem ich sesji. Brama pole ma dwa różne obszary powierzchni. Jeden skierowany urządzeń, które są dołączone do niego i reprezentuje wewnątrz strefy, a druga skierowany wszystkich podmiotów zewnętrznych i krawędzi strefy.   
 
-### <a name="the-cloud-gateway-zone"></a>The cloud gateway zone
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+### <a name="the-cloud-gateway-zone"></a>Strefy bramy chmury
+Brama chmury to system, który umożliwia zdalnej komunikacji z i do urządzeń lub bram pola z wielu różnych lokacji w sieci publicznej przestrzeni, zwykle kierunku kontroli opartej na chmurze i systemu analizy danych, Federacji takich systemów. W niektórych przypadkach brama chmury mogą natychmiast ułatwienia dostępu na urządzeniach specjalnych z terminali, np. tabletów i telefonów. W kontekście omówione w tym miejscu "chmura" jest przeznaczona do odwoływania się do systemu dedykowanych przetwarzania danych, który nie jest powiązany z tej samej lokacji co podłączone urządzenia lub pola bramy. Również w strefie chmury środki operacyjne zapobiec docelowe dostęp fizyczny i nie jest zawsze widoczne dla infrastruktury "w chmurze publicznej".  
 
-A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
+Brama chmury potencjalnie mogą być mapowane do nakładki wirtualizacji sieci, aby zabezpieczyć bramy chmury oraz wszystkie jego podłączonych urządzeń i bram pole od innego ruchu sieciowego. Brama chmury jest ani system kontroli urządzeń ani przetwarzania lub magazynu dla danych urządzenia. Interfejs te urządzenia bramy chmury. Strefa bramy chmury obejmuje bramy chmury wraz ze wszystkich bram pola i bezpośrednio lub pośrednio dołączone do niego urządzenia. Krawędź strefy jest różne powierzchni gdzie wszystkich podmiotów zewnętrznych komunikują się za pośrednictwem.
 
-### <a name="the-services-zone"></a>The services zone
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+### <a name="the-services-zone"></a>Strefa usługi
+"Usługa" jest zdefiniowany dla tego kontekstu jako części oprogramowania lub moduł, który jest relacje z urządzeniami za pośrednictwem bramy pola lub chmury do zbierania danych i analizy, a także polecenia i kontroli.  Usługi są mediatorów. One działać w ramach ich tożsamości bramy i innych podsystemów, przechowywania i analizowania danych, autonomicznie wydawania poleceń na urządzeniach na podstawie wgląd w danych lub harmonogramy ujawnienie informacji i kontrolowanie możliwości do autoryzowanych użytkowników końcowych.
 
-### <a name="information-devices-vs-special-purpose-devices"></a>Information-devices vs. special-purpose devices
-PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
+### <a name="information-devices-vs-special-purpose-devices"></a>Urządzenia informacyjne a specjalnych urządzeń
+Komputery, telefony i tablety to przede wszystkim interakcyjne informacji urządzenia. Telefony i tablety jawnie są zoptymalizowane wokół maksymalizacja baterii istnienia. One najlepiej wyłączyć częściowo, gdy nie jest od razu interakcji z osoby lub gdy nie dostarcza usługi, takie jak odtwarzanie muzyki lub skierowanie ich właściciela w określonej lokalizacji. Z punktu widzenia systemy te urządzenia technologii informacji głównie działają jako serwery proxy do osób. Są one "osób siłowniki" sugerowanie "osób czujniki" zbieranie danych wejściowych i akcje. 
 
-Special-purpose devices, from simple temperature sensors to complex factory production lines with thousands of components inside them, are different. These devices are much more scoped in purpose and even if they provide some user interface, they are largely scoped to interfacing with or be integrated into assets in the physical world. They measure and report environmental circumstances, turn valves, control servos, sound alarms, switch lights, and do many other tasks. They help to do work for which an information device is either too generic, too expensive, too big, or too brittle. The concrete purpose immediately dictates their technical design as well the available monetary budget for their production and scheduled lifetime operation. The combination of these two key factors constrains the available operational energy budget, physical footprint, and thus available storage, compute, and security capabilities.  
+Urządzenia specjalnych z czujnikami temperatury proste do wierszy produkcyjnego złożonych fabryki z tysiącami elementów zawartych w nich, są różne. W celu bardziej ograniczone tych urządzeń i nawet wtedy, gdy udostępniają część interfejsu użytkownika znacznym stopniu dostosowanych do powiązania z lub można zintegrować zasoby w świecie rzeczywistym. One mierzyć i raportu okoliczności środowiska, Włącz zawory, kontroli servos, dźwiękowej alarmy, przełącznika świateł i wykonywać inne zadania. Do pracy pomagają, dla których urządzenie informacji jest zbyt ogólne, zbyt drogie, za duży lub zbyt łamliwa. Konkretnego celu natychmiast nakazują ich projektu technicznego jako również dostępnego budżetu pieniężnego ich produkcji i okres istnienia zaplanowanych operacji. Kombinacja tych dwóch kluczowych czynników ogranicza dostępne operacyjne budżetu energii, fizycznego miejsca i w związku z tym dostępny magazyn, zasobów obliczeniowych i funkcje zabezpieczeń.  
 
-If something “goes wrong” with automated or remote controllable devices, for example, physical defects or control logic defects to willful unauthorized intrusion and manipulation. The production lots may be destroyed, buildings may be looted or burned down, and people may be injured or even die. This is, of course, a whole different class of damage than someone maxing out a stolen credit card's limit. The security bar for devices that make things move, and also for sensor data that eventually results in commands that cause things to move, must be higher than in any e-commerce or banking scenario. 
+Jeśli coś "umieszczane niewłaściwy" Automatyczna lub z zdalnego urządzenia kontrolowane, na przykład wad fizycznego lub logicznego sterowania wady willful próby uzyskania nieautoryzowanego dostępu i manipulowania nimi. Niszczone mogą partie produkcji, budynki może looted lub kiedyś w dół i osób może być struktury poszkodowanej lub nawet. Jest to oczywiście całego inną klasę uszkodzenia niż ktoś maxing się limit kradzieży karty kredytowej. Poziom zabezpieczeń dla urządzeń, które należy przenieść elementy, a także do danych czujnika, który ostatecznie powoduje poleceń, które powodują rzeczy, które należy przenieść, musi być wyższy niż w handlu elektronicznego lub scenariusz bankowości. 
 
-### <a name="device-control-and-device-data-interactions"></a>Device control and device data interactions
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+### <a name="device-control-and-device-data-interactions"></a>Kontroli urządzeń i ich interakcje danych urządzenia
+Połączonych urządzeń specjalnych dokonano znaczących potencjalnych obszarów powierzchni interakcji i wzorce interakcji, które należy rozważyć zapewniające strukturę zabezpieczanie cyfrowego dostępu do tych urządzeń. Termin "cyfrowego dostępu" jest używany tutaj do odróżnienia od wszystkich operacji wykonywanych za pośrednictwem urządzeń bezpośrednio interakcji gdzie zabezpieczenia dostępu jest zapewniana za pomocą sterowania dostępem fizycznym. Na przykład wprowadzenie urządzenia do miejsca z blokadą na drzwi. Gdy nie można odmówić dostępu fizycznej przy użyciu oprogramowania i sprzętu, mogą środki w celu uniemożliwić fizyczny dostęp od początku do systemu zakłóceń. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
+Jak możemy zapoznać się z wzorców interakcji, zajmiemy "kontroli urządzeń" i "dane urządzenie" o tym samym poziomie uwagi podczas modelowania zagrożeń. "Urządzenie control" mogą być klasyfikowane jako żadnych informacji, który został dostarczony do urządzenia przez stronę w celu zmiany lub mające wpływ na jego zachowanie w kierunku jej stan lub stanu jego środowiska. "Urządzenie danych" mogą być klasyfikowane jako wszystkie informacje, które urządzenia emituje do innych firm dotyczące stanu i obserwowanych stanu jego środowiska. 
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling the Azure IoT reference architecture
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Zagrożenia modelowania architektura referencyjna Azure IoT
+Firma Microsoft używa framework opisanych powyżej na zagrożenia modelowania dla Azure IoT. W poniższej sekcji w związku z tym używamy konkretny przykład architektura referencyjna IoT platformy Azure aby zademonstrować sposób pomyśleć o zagrożeń modelowania dla IoT i eliminowania zagrożeń zidentyfikowane. W tym przypadku określiliśmy cztery główne obszary fokus:
 
-* Devices and Data Sources,
-* Data Transport,
-* Device and Event Processing, and
-* Presentation
+* Urządzenia i źródeł danych
+* Transport danych
+* Urządzenia i przetwarzania zdarzeń i
+* Prezentacji
 
-![Threat Modeling for Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
+![Zagrożenia modelowania dla Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
 
-The diagram below provides a simplified view of Microsoft’s IoT Architecture using a Data Flow Diagram model that is used by the Microsoft Threat Modeling Tool:
+Na poniższym diagramie oferuje uproszczony widok architektury IoT firmy Microsoft, za pomocą modelu Diagram przepływu danych, który jest używany przez narzędzie modelowania zagrożeń firmy Microsoft:
 
-![Threat Modeling for Azure IoT using MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Zagrożenia modelowania dla Azure IoT przy użyciu narzędzia do modelowania zagrożeń MS](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-It is important to note that the architecture separates the device and gateway capabilities. This allows the user to leverage gateway devices that are more secure: they are capable of communicating with the cloud gateway using secure protocols, which typically requires greater processing overhead that a native device  - such as a thermostat - could provide on its own. In the Azure services zone, we assume that the Cloud Gateway is represented by the Azure IoT Hub service.
+Należy pamiętać, że architektura oddziela możliwości urządzenia i bramy. Umożliwia użytkownikowi korzystać z urządzenia bramy, które są bardziej bezpieczne: mogą komunikować się z bramy chmury przy użyciu protokołów bezpieczny, co zwykle wymaga większej przetwarzania natywnego urządzenie — takie jak termostacie — można zapewnić na jego własnej. W strefie usługi Azure przyjęto założenie, że brama chmury jest reprezentowany przez usługę Azure IoT Hub.
 
-### <a name="device-and-data-sourcesdata-transport"></a>Device and data sources/data transport
-This section explores the architecture outlined above through the lens of threat modeling and gives an overview of how we are addressing some of the inherent concerns. We will focus on the core elements of a threat model:
+### <a name="device-and-data-sourcesdata-transport"></a>Transport źródeł/danych urządzenia i danych
+W tej sekcji Eksploruje architektura opisanych powyżej przez obiektyw modelowanie zagrożeń i powinien zawierać omówienie jak możemy są związane z adresowaniem niektóre problemy związane. Firma Microsoft koncentruje się na podstawowych składników modelu zagrożeń:
 
-* Processes (those under our control and external items)
-* Communication (also called data flows)
-* Storage (also called data stores)
+* Procesy (zawarte w naszym kontroli i elementów zewnętrznych)
+* Komunikacja (nazywanych również przepływów danych)
+* Magazyn (nazywanych również magazyny danych)
 
-#### <a name="processes"></a>Processes
-In each of the categories outlined in the Azure IoT architecture, we try to mitigate a number of different threats across the different stages data/information exists in: process, communication, and storage. Below we give an overview of the most common ones for the “process” category, followed by an overview of how these could be best mitigated: 
+#### <a name="processes"></a>Procesy
+W każdej kategorii, opisane w architekturze Azure IoT spróbujemy ograniczyć liczbę różnych zagrożeń na różnych etapach informacje o i danych istnieje w: proces, komunikację i magazynu. Poniżej możemy podać omówienie najbardziej typowe dla kategorii "proces", następuje przegląd jak te mogą być najlepiej skorygowane: 
 
-**Spoofing (S)**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Fałszowanie zawartości (S)**: osoba atakująca może wyodrębnić materiał kluczy kryptograficznych z urządzenia, albo na poziomie oprogramowania lub sprzętu, a następnie podjęto dostępu do sieci z innego urządzenia fizyczne lub wirtualne z tożsamością urządzenia materiału klucza z. Dobrym ilustracja to zdalnego sterowania, który można włączyć wszystkie TV i które są prankster popularne narzędzia.
 
-**Denial of Service (D)**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Odmowa usługi (D)**: urządzenie może być renderowana niezdolne do funkcjonowania lub komunikacji przez zakłócać częstotliwości lub wycinanie przewodów. Na przykład aparatu nadzoru, który miał jego zasilania lub połączenia sieciowego celowo wycinane ani zgłaszać danych, w ogóle.
 
-**Tampering (T)**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program. For example, an attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Manipulowanie (T)**: osoba atakująca może częściowo lub całkowicie zastąpić oprogramowania działającego na urządzeniu, potencjalnie stosowanie zastąpionego oprogramowania wykorzystać oryginalnego tożsamości urządzenia, jeśli materiału klucza lub funkcji kryptograficznych, zawierający klucza materiałów były dostępne do nielegalnego program. Na przykład osoba atakująca może wykorzystać wyodrębnionego materiału klucza przechwycenia i Pomiń danych z urządzenia w ścieżce komunikacji i zamień ją na wartość false dane, które są uwierzytelniani kradzieży materiału klucza.
 
-**Information Disclosure (I)**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties. For example, an attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Ujawnienie informacji, (I)**: Jeśli urządzenie działa manipulować oprogramowania, takie oprogramowanie manipulować może potencjalnie wycieku danych do osoby nieupoważnione. Na przykład osoba atakująca może wykorzystać wyodrębnionego materiału klucza iniekcję się do ścieżki komunikacji między urządzenia i brama kontrolera lub pola lub brama chmury do Lewarek poza informacji.
 
-**Elevation of Privilege (E)**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Podniesienie uprawnień (E)**: urządzenie, które wykonuje określoną funkcję można wymusić, aby zrobić coś innego. Na przykład zawór zaprogramowane w taki sposób, aby otworzyć połowie można zamiarem otworzyć całej procedury.
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Składnik** | **Zagrożenia** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do we know we are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device for example by making it very hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are we sure, that device has not tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it will allow the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
-| Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (cert based, PSK, Claim based,..) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+| Urządzenie |S |Przypisywanie tożsamości na urządzeniu i uwierzytelniania urządzenia |Zastępując urządzenia lub częścią urządzenia inne urządzenie. Jak wiemy, że firma Microsoft mówimy na odpowiednim urządzeniu? |Uwierzytelniania urządzenia, za pomocą zabezpieczeń TLS (Transport Layer) lub protokołu IPSec. Infrastruktura powinna obsługiwać przy użyciu klucza wstępnego (PSK) na tych urządzeniach, które nie może obsłużyć pełnej asymetrycznego kryptografii. Wykorzystanie usługi Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| TRID |Na przykład zastosować na urządzeniu mechanizmów tamperproof czyniąc ją bardzo trudne do niemożliwe do wyodrębnienia kluczy i innych materiałów kryptograficznych z urządzenia. |Ryzyko jest, jeśli ktoś jest manipulowanie nimi urządzenia (zakłócenia fizycznych). W jaki sposób możemy pewności, czy urządzenie nie zmodyfikowany. |Optymalne ograniczenie jest TPM możliwości module (TPM), która umożliwia przechowywanie kluczy w specjalne obwody w układzie, z którego nie można odczytać klawiszy, ale można używać tylko dla operacji kryptograficznych, które używają klucza, ale nigdy nie ujawniają klucz. Szyfrowanie pamięci urządzenia. Zarządzanie kluczami dla urządzenia. Podpisywanie kodu. | |
+| E |Zapewniający kontrolę dostępu do urządzenia. Schemat autoryzacji. |Jeśli urządzenie zezwala poszczególnych czynności do wykonania oparte na polecenia ze źródła zewnętrznego lub nawet złamany czujników, umożliwi ataku w celu wykonania operacji nie dostępne. |Po autoryzacji schematu dla urządzenia | |
+| Pole bramy |S |Uwierzytelnianie bramy pola do bramy chmury (certyfikat na podstawie, PSK, oświadczenia na podstawie,...). |Jeśli ktoś może spreparować pola bramy, następnie go może być wyświetlany jako dowolnego urządzenia. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Te same klucza magazynu i zaświadczania dotyczy urządzeń, na ogół — najlepszy jest użyć modułu TPM. Rozszerzenie 6LowPAN dla protokołu IPSec do obsługi bezprzewodowej sieci czujnik (WSN). |
+| TRID |Ochrona bramy pola przed naruszeniem (module TPM)? |Fałszowanie atakami wymuszać planowania bramy chmury, które rozmawia pola bramy może spowodować ujawnienie informacji i modyfikowaniu danych |Pamięć szyfrowania, modułu TPM firmy, uwierzytelniania. | |
+| E |Mechanizmu kontroli dostępu dla pola bramy | | | |
 
-Here are some examples of threats in this category:
+Poniżej przedstawiono przykładowe zagrożenia w tej kategorii:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+Fałszowanie: Osoba atakująca może wyodrębnić materiał kluczy kryptograficznych z urządzenia, albo w oprogramowania lub sprzętu poziomu, a następnie dostępu do sieci z innego urządzenia fizyczne lub wirtualne z tożsamością urządzenia materiału klucza jest zajęta z.
 
-**Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Odmowa usługi**: urządzenie może być renderowana niezdolne do funkcjonowania lub komunikacji przez zakłócać częstotliwości lub wycinanie przewodów. Na przykład aparatu nadzoru, który miał jego zasilania lub połączenia sieciowego celowo wycinane ani zgłaszać danych, w ogóle.
 
-**Tampering**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Manipulowanie**: osoba atakująca może częściowo lub całkowicie zastąpić oprogramowania działającego na urządzeniu, potencjalnie stosowanie zastąpionego oprogramowania wykorzystać oryginalnego tożsamości urządzenia, jeśli materiału klucza lub funkcji kryptograficznych, zawierający klucza materiałów były dostępne do nielegalnego program.
 
-**Tampering**: A surveillance camera that’s showing a visible-spectrum picture of an empty hallway could be aimed at a photograph of such a hallway. A smoke or fire sensor could be reporting someone holding a lighter under it. In either case, the device may be technically fully trustworthy towards the system, but it will report manipulated information.
+**Manipulowanie**: fotografia takie korytarz może mieć na celu kamery nadzoru, który jest wyświetlany obraz widoczne spektrum korytarz pusty. Czujnik dymu lub fire może być raportowania ktoś zawierający jaśniejszego w nim. W obu przypadkach urządzenie może być technicznie pełni zaufanego do systemu, ale będzie zgłaszać manipulować informacji.
 
-**Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Manipulowanie**: osoba atakująca może wykorzystać wyodrębnionego materiału klucza przechwycenia i Pomiń danych z urządzenia w ścieżce komunikacji i zamień ją na wartość false dane, które są uwierzytelniani kradzieży materiału klucza.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Manipulowanie**: osoba atakująca może częściowo lub całkowicie zastąpić oprogramowania działającego na urządzeniu, potencjalnie stosowanie zastąpionego oprogramowania wykorzystać oryginalnego tożsamości urządzenia, jeśli materiału klucza lub funkcji kryptograficznych, zawierający klucza materiałów były dostępne do nielegalnego program.
 
-**Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
+**Ujawnienie informacji**: Jeśli urządzenie działa manipulować oprogramowania, takie oprogramowanie manipulować może potencjalnie wycieku danych do osoby nieupoważnione.
 
-**Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Ujawnienie informacji**: osoba atakująca może wykorzystać wyodrębnionego materiału klucza iniekcję się do ścieżki komunikacji między bramy urządzenia i kontrolera lub pola lub brama chmury do Lewarek poza informacji.
 
-**Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
+**Odmowa usługi**: wyłączone lub włączone w trybie, gdy komunikacja nie jest możliwe (która jest zamierzone, w wielu maszyn przemysłowych) urządzenia.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+**Manipulowanie**: urządzenie można tak skonfigurować, aby w stan nieznany system kontroli (poza odwzorowania znane parametry) i w związku z tym świadczenia dane, które mogą zostać błędnie zinterpretowane
 
-**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Podniesienie uprawnień**: urządzenie, które wykonuje określoną funkcję można wymusić, aby zrobić coś innego. Na przykład zawór zaprogramowane w taki sposób, aby otworzyć połowie można zamiarem otworzyć całej procedury.
 
-**Denial of Service**: The device can be turned into a state where communication is not possible.
+**Odmowa usługi**: urządzenie można włączyć w stanie, w których komunikacja nie jest możliwe.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
+**Manipulowanie**: urządzenie można tak skonfigurować, aby w stan nieznany system kontroli (poza odwzorowania znane parametry) i w związku z tym świadczenia dane, które mogą zostać błędnie zinterpretowane.
 
-**Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls) an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Fałszowanie/Tampering/Repudiation**: Jeśli nie jest zabezpieczone (która jest rzadko w przypadku klienta zdalnego sterowania) atakujący można manipulować anonimowo stan urządzenia. Dobrym ilustracja to zdalnego sterowania, który można włączyć wszystkie TV i które są prankster popularne narzędzia.
 
-#### <a name="communication"></a>Communication
-Threats around communication path between devices, devices and field gateways and device and cloud gateway. The table below has some guidance around open sockets on the device/VPN:
+#### <a name="communication"></a>Komunikacja
+Zagrożenia ścieżkę komunikacji między urządzeniami, urządzeń i bram pola i bramy urządzenia i w chmurze. W poniższej tabeli ma wskazówek wokół otwarte gniazda na urządzeniu lub sieć VPN:
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Składnik** | **Zagrożenia** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
-| Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, we need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, we need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
-| Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
-| Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
+| Centrum IoT urządzenia |TID |(D) TLS (PSK/RSA) do szyfrowania ruchu |Podsłuchiwaniu lub konfliktu komunikacji między urządzeniem i bramy |Zabezpieczenia na poziomie protokołu. Z protokoły niestandardowe należy dowiedzieć się, jak chronić je. W większości przypadków komunikacja odbywa się z urządzenia z Centrum IoT (urządzenie inicjuje połączenie). |
+| Urządzenie urządzenie |TID |(D) (PSK/RSA) do szyfrowania ruchu TLS. |Odczytywanie danych przesyłanych między urządzeniami. Manipulowanie danymi. Przeciążanie urządzenia o nowe połączenia |Zabezpieczenia na poziomie protokołu (MQTT/AMQP/HTTP/CoAP. Z protokoły niestandardowe należy dowiedzieć się, jak chronić je. Środki zaradcze na zagrożenie DoS jest elementu równorzędnego urządzeń za pośrednictwem bramy chmury lub pola i niech act tylko jako klientów do sieci. Komunikację równorzędną może spowodować bezpośrednie połączenie między komputerami równorzędnymi po o została przeprowadzana przez bramę |
+| Urządzenie zewnętrznej jednostki |TID |Silne parowanie zewnętrznej jednostki do urządzenia |Podsłuchiwaniu połączenie z urządzeniem. Konfliktu komunikacji z urządzeniem |Bezpiecznie parowanie zewnętrznej jednostki do LE NFC/Bluetooth urządzenia. Kontrolowanie panelu operacyjny urządzenia (fizycznych) |
+| Brama chmury bramy pola |TID |(PSK/RSA) do szyfrowania ruchu TLS. |Podsłuchiwaniu lub konfliktu komunikacji między urządzeniem i bramy |Zabezpieczenia na poziomie protokołu (MQTT/AMQP/HTTP/CoAP). Z protokoły niestandardowe należy dowiedzieć się, jak chronić je. |
+| Urządzenia bramy chmury |TID |(PSK/RSA) do szyfrowania ruchu TLS. |Podsłuchiwaniu lub konfliktu komunikacji między urządzeniem i bramy |Zabezpieczenia na poziomie protokołu (MQTT/AMQP/HTTP/CoAP). Z protokoły niestandardowe należy dowiedzieć się, jak chronić je. |
 
-Here are some examples of threats in this category:
+Poniżej przedstawiono przykładowe zagrożenia w tej kategorii:
 
-**Denial of Service**: Constrained devices are generally under DoS threat when they actively listen for inbound connections or unsolicited datagrams on a network, because an attacker can open many connections in parallel and not service them or service them very slowly, or the device can be flooded with unsolicited traffic. In both cases, the device can effectively be rendered inoperable on the network.
+**Odmowa usługi**: ograniczonego urządzeń są zwykle zagrożona DoS podczas ich aktywnie nasłuchiwać połączeń przychodzących lub niechciane datagramy w sieci, ponieważ atakujący może otwierać wiele połączeń równolegle i nie ich usługi lub ich bardzo wolno usługi lub urządzenie może zostać przeciążony niepożądanego ruchu. W obu przypadkach urządzenia mogą skutecznie przestać działać w sieci.
 
-**Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they will grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
+**Fałszowania, ujawnienia informacji**: ograniczone i urządzenia specjalnych często mają zabezpieczeń co dla wszystkich urządzeń, takich jak hasła lub numeru PIN ochrony lub całkowicie opierają się na ufające sieci, co oznacza, gdy urządzenie jest w tej samej sieci, a sieci często tylko jest chroniony przez klucz współużytkowany przyznać dostęp do informacji. Oznacza to, że gdy przekazywanych wspólny klucz tajny dla urządzenia lub sieci jest możliwość sterowania urządzeniem lub obserwować dane wysyłanego z urządzenia.  
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Fałszowanie**: osoba atakująca może przechwycić lub częściowo zastąpić emisji i sfałszowanie inicjatorem (man w środku)
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**Manipulowanie**: osoba atakująca może przechwycić lub częściowo zastąpić emisji i wysłać fałszywe informacje 
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Ujawnienie informacji:** osoba atakująca może podsłuchiwać emisji i uzyskiwanie informacji bez autoryzacji **"odmowa usługi":** osoba atakująca może zablokowania emisji sygnału i odmowy dystrybucji informacji
 
-#### <a name="storage"></a>Storage
-Every device and field gateway has some form of storage (temporary for queuing the data, operating system (OS) image storage).
+#### <a name="storage"></a>Magazyn
+Co brama urządzenia i pole ma jakiegoś magazynu (tymczasowy dla usługi kolejkowania wiadomości danych, magazynu obrazu systemu operacyjnego (OS)).
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Składnik** | **Zagrożenia** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
-| Device storage |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data. Tampering with queued or cached command control data. Tampering with configuration or firmware update packages while cached or queued locally can lead to OS and/or system components being compromised |Encryption, message authentication code (MAC) or digital signature. Where possible, strong access control through resource access control lists (ACLs) or permissions. |
-| Device OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
-| Field Gateway storage (queuing the data) |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised |BitLocker |
-| Field Gateway OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
+| Urządzenia magazynu |TRID |Szyfrowanie magazynu, podpisywania dzienniki |Odczytywanie danych z magazynu (dane osobowe dane), manipulowanie danymi telemetrii. Manipulowanie Zakolejkowane lub polecenia kontroli danych w pamięci podręcznej. Wprowadzanie zmian w konfiguracji lub oprogramowania układowego pakietów aktualizacji w pamięci podręcznej lub lokalnie w kolejce może prowadzić do składników systemu operacyjnego i/lub system naruszenia bezpieczeństwa |Szyfrowanie, kod uwierzytelniania wiadomości (MAC) lub podpisu cyfrowego. Gdzie kontroli dostępu możliwości, silne za pośrednictwem dostęp do zasobów kontroli list (kontroli dostępu ACL) lub uprawnienia. |
+| Obraz systemu operacyjnego urządzenia |TRID | |Manipulowanie systemu operacyjnego / zastępowania składników systemu operacyjnego |Tylko do odczytu partycji systemu operacyjnego, podpisany obrazu systemu operacyjnego, szyfrowania |
+| Magazyn bramy pola (kolejkowania danych) |TRID |Szyfrowanie magazynu, podpisywania dzienniki |Odczytywanie danych z magazynu (dane osobowe dane), manipulowanie danymi telemetrii ingerencji w kolejce lub polecenia kontroli danych w pamięci podręcznej. Wprowadzanie zmian w konfiguracji lub oprogramowania układowego pakietów aktualizacji (przeznaczonych dla urządzenia lub pola bramy) podczas buforowane lub lokalnie w kolejce może prowadzić do składników systemu operacyjnego i/lub system naruszenia bezpieczeństwa |Funkcja BitLocker |
+| Obraz systemu operacyjnego bramy pola |TRID | |Manipulowanie systemu operacyjnego / zastępowania składników systemu operacyjnego |Tylko do odczytu partycji systemu operacyjnego, podpisany obrazu systemu operacyjnego, szyfrowania |
 
-### <a name="device-and-event-processingcloud-gateway-zone"></a>Device and event processing/cloud gateway zone
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure.  A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+### <a name="device-and-event-processingcloud-gateway-zone"></a>Urządzenia i zdarzenia strefy bramy przetwarzania/w chmurze
+Brama chmury to system, który umożliwia zdalnej komunikacji z i do urządzeń lub bram pola z wielu różnych lokacji w sieci publicznej przestrzeni, zwykle kierunku kontroli opartej na chmurze i systemu analizy danych, Federacji takich systemów. W niektórych przypadkach brama chmury mogą natychmiast ułatwienia dostępu na urządzeniach specjalnych z terminali, np. tabletów i telefonów. W kontekście omówione w tym miejscu "chmura" jest przeznaczona do odwoływania się do systemu dedykowanych przetwarzania danych, który nie jest powiązany z tej samej lokacji co podłączone urządzenia lub pola bramy, i gdy środki operacyjne zapobiec docelowe fizyczny dostęp, ale nie jest niezbędne do infrastruktury "w chmurze publicznej".  Brama chmury potencjalnie mogą być mapowane do nakładki wirtualizacji sieci, aby zabezpieczyć bramy chmury oraz wszystkie jego podłączonych urządzeń i bram pole od innego ruchu sieciowego. Brama chmury jest ani system kontroli urządzeń ani przetwarzania lub magazynu dla danych urządzenia. Interfejs te urządzenia bramy chmury. Strefa bramy chmury obejmuje bramy chmury wraz ze wszystkich bram pola i bezpośrednio lub pośrednio dołączone do niego urządzenia.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
+Brama chmury jest głównie niestandardowych wbudowanych oprogramowanie jako usługa z punktami końcowymi narażonych, z którymi się łączyć pola bramy i urządzeń. Jako takie muszą być zaprojektowane z myślą o bezpieczeństwie. Wykonaj [SDL](http://www.microsoft.com/sdl) proces projektowania i tworzenia tej usługi. 
 
-#### <a name="services-zone"></a>Services zone
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+#### <a name="services-zone"></a>Strefa usługi
+System kontroli (lub kontrolera) jest rozwiązaniem oprogramowania, które z urządzeniem, lub brama pola lub brama chmury na potrzeby kontrolowania jednego lub wielu urządzeń i/lub do zbierania i/lub przechowywania i/lub analizować dane urządzenie prezentacji lub celów kolejnych kontroli. Systemów kontroli są jednostkami tylko w zakresie tej dyskusji, która może ułatwić natychmiast interakcji z użytkownikami. Wyjątkiem są pośredniego fizycznych powierzchni na urządzeniach, takich jak przełącznik, który umożliwia użytkownikowi wyłączyć urządzenie lub zmienić inne właściwości i dla którego nie ma odpowiednika funkcjonalności, które mogą uzyskiwać cyfrowo. 
 
-Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Pośredni fizycznych powierzchni są gdzie dowolny rodzaj logiki regulujące ogranicza funkcji powierzchni fizycznych tak, aby zdalnie można zainicjować odpowiedniki lub można uniknąć konfliktów wejściowego przy użyciu zdalnego danych wejściowych — takich intermediated powierzchni koncepcyjnie są dołączone do system kontroli lokalnego, który korzysta z funkcji podstawowych innym systemom zdalnego sterowania, jaki urządzenie może zostać dołączony do równolegle. Górny zagrożeń dotyczących chmury obliczeniowej, może być odczytany przy [chmury zabezpieczeń Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) strony.
 
-## <a name="additional-resources"></a>Additional resources
-Refer to the following articles for additional information:
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Zobacz następujące artykuły, aby uzyskać dodatkowe informacje:
 
-* [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-* [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
+* [Narzędzie modelowania zagrożeń SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+* [Architektura referencyjna IoT Azure firmy Microsoft](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 

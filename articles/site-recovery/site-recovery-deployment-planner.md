@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planista wdrożenia usługi Azure Site Recovery
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
@@ -612,4 +611,3 @@ Planista wdrożenia usługi Azure Site Recovery w publicznej wersji zapoznawczej
 * Narzędzie działa tylko w przypadku replikacji z oprogramowania VMware na platformę Azure. Nie działa w przypadku wdrożeń funkcji Hyper-V na platformie Azure. W przypadku wdrożeń funkcji Hyper-V na platformie Azure użyj [narzędzia planisty wydajności funkcji Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * Operacja GetThroughput nie jest obsługiwana w regionach świadczenia usługi Microsoft Azure Administracja USA i Chiny.
 * Narzędzie nie może profilować maszyn wirtualnych, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi. W tej wersji narzędzie pomija profilowanie w przypadku zduplikowanych nazw lub adresów IP w parametrze VMListFile. Obejście polega na profilowaniu maszyn wirtualnych przy użyciu hosta ESXi zamiast serwera vCenter. Musisz uruchomić jedno wystąpienie każdego hosta ESXi.
-

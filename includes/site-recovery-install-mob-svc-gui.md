@@ -1,15 +1,15 @@
-1. Copy the installation to the server, and then open the installer.
-2. On the **Installation Option** blade, select **Install Mobility Service**.
+1. Skopiuj instalacji na serwerze, a następnie otwórz Instalator.
+2. Na **opcji instalacji** bloku, wybierz opcję **zainstalować usługi mobilności**.
 
-    ![Mobility Service Install Option Page ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Select the install location  and click **Install** to being the installation procedure.
+    ![Strona opcji instalacji usługi mobilności ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. Wybierz lokalizację instalacji i kliknij przycisk **zainstalować** obecności procedury instalacji.
 
-    ![Mobility Service Install Location Page ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. You can use **Installation Progress** page to monitor the installer's progress.
-    ![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+    ![Strona lokalizacji instalacji usługi mobilności ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. Można użyć **postęp instalacji** stronę, aby monitorować postęp w Instalatorze.
+    ![Postęp instalacji usługi mobilności](./media/site-recovery-install-mob-svc-gui/mobility3.png)
 
-5. Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.
-    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+5. Po zakończeniu instalacji kliknij przycisk **przejść do konfiguracji** przycisk, aby zarejestrować usługi mobilności z serwerem konfiguracji.
+    ![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility4.png)
 
-6. Click on the **Register** button to complete the registration.
-    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+6. Polecenie **zarejestrować** przycisk, aby ukończyć rejestrację.
+    ![Usługa mobilności zarejestrować strony](./media/site-recovery-install-mob-svc-gui/mobility5.png)

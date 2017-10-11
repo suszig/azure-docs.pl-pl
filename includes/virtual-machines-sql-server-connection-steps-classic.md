@@ -1,23 +1,23 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Określanie nazwy DNS maszyny wirtualnej
+Aby połączyć się z aparatem bazy danych programu SQL Server z innego komputera, musisz znać nazwy systemu nazw domen (DNS, Domain Name System) maszyny wirtualnej. (Jest to nazwa, używanych przez internet na identyfikację maszyny wirtualnej. Możesz użyć adresu IP, ale adres IP mogą ulec zmianie, gdy Azure przenosi zasoby nadmiarowość lub konserwacji. Nazwa DNS będzie stabilny, ponieważ mogą zostać przekierowane do nowego adresu IP).  
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
-2. Select your SQL VM.
-3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+1. W portalu Azure (lub w poprzednim kroku), wybierz **maszyn wirtualnych (klasyczne)**.
+2. Wybierz maszynę Wirtualną programu SQL.
+3. Na **maszyny wirtualnej** bloku, kopiowania **nazwy DNS** dla maszyny wirtualnej.
    
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![Nazwa DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Nawiązywanie połączenia z aparatem bazy danych z innego komputera
+1. Na komputerze podłączonym do Internetu Otwórz program SQL Server Management Studio.
+2. W **Połącz z serwerem** lub **nawiązywanie połączenia z aparatem bazy danych** okna dialogowego, **nazwy serwera** wprowadź nazwę DNS maszyny wirtualnej (określoną w poprzednim zadaniu) i numeru portu publicznego punktu końcowego w formacie *DNSName, numer_portu* takich jak **mysqlvm.cloudapp.net,57500**.
    
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![Połącz przy użyciu narzędzia SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
+    Jeśli nie pamiętasz numeru portu publicznego punktu końcowego została wcześniej utworzona, można znaleźć w **punkty końcowe** obszar **maszyny wirtualnej** bloku.
    
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a login that you created in an earlier task.
-5. In the **Password** box, type the password of the login that you create in an earlier task.
-6. Click **Connect**.
+    ![Port publiczny](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. W polu **Authentication** (Uwierzytelnianie) wybierz opcję **SQL Server Authentication** (Uwierzytelnianie programu SQL Server).
+4. W **logowania** wpisz nazwę logowania, utworzony w starszej zadań.
+5. W **hasło** wpisz hasło logowania, utworzone w wcześniejszych zadań.
+6. Kliknij przycisk **Połącz**.
 

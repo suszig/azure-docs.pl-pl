@@ -1,6 +1,6 @@
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+W przypadku działania kopiowania, gdy źródłem jest typu **FileSystemSource**, w sekcji typeProperties dostępne są następujące właściwości:
 
-| Property | Description | Allowed values | Required |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+| Cykliczne |Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu. |Wartość true, False (ustawienie domyślne) |Nie |
 

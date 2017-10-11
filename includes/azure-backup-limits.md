@@ -1,12 +1,12 @@
-The following limits apply to Azure Backup.
+Następujące ograniczenia mają zastosowanie do usługi Kopia zapasowa Azure.
 
-| Limit Identifier | Default Limit |
+| Identyfikator limit | Limit domyślny |
 | --- | --- |
-| Number of servers/machines that can be registered against each vault |50 for Windows Server/Client/SCDPM <br/> 200 for IaaS VMs |
-| Size of a data source for data stored in Azure vault storage |54400 GB max<sup>1</sup> |
-| Number of backup vaults that can be created in each Azure subscription |25(Backup vaults) <br/> 25 Recovery Services vault per region |
-| Number of times backup can be scheduled per day |3 per day for Windows Server/Client <br/> 2 per day for SCDPM <br/> Once a day for IaaS VMs |
-| Data disks attached to an Azure virtual machine for backup |16 |
+| Liczba serwerów/maszyny, które mogą być rejestrowane przed każdym magazynu |50 dla systemu Windows Server/klienta/SCDPM <br/> 200 dla maszyn wirtualnych IaaS |
+| Rozmiar źródła danych dla danych przechowywanych w magazynie usługi Azure storage |Maksymalna liczba 54400 GB<sup>1</sup> |
+| Liczba magazynów kopii zapasowych, które mogą zostać utworzone w każdej subskrypcji platformy Azure |25 (magazyny kopii zapasowych) <br/> Magazyn usług odzyskiwania 25 i na region |
+| Liczba kopii zapasowej mogą być planowane na dzień |3 dziennie dla systemu Windows Server/Client <br/> 2 dziennie SCDPM <br/> Raz dziennie dla maszyn wirtualnych IaaS |
+| Dyskach danych dołączonych do maszyny wirtualnej platformy Azure do utworzenia kopii zapasowej |16 |
 
-* <sup>1</sup>The 54400 GB limit does not apply to IaaS VM backup.
+* <sup>1</sup>limitu 54400 GB nie ma zastosowania do kopii zapasowej maszyny Wirtualnej IaaS.
 

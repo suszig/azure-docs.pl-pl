@@ -1,10 +1,10 @@
-| Resource | Maximum Limit |
+| Zasób | Limit maksymalny |
 | --- | --- |
-| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |
-| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |
-| Max number of modules that can be imported every 30 seconds per Automation Account |5 |
-| Max size of a Module |100 MB |
-| Job Run Time - Free tier |500 minutes per subscription per calendar month |
-| Max amount of memory given to a job |400 MB |
-| Max number of network sockets allowed per job |1000 |
+| Maksymalna liczba nowe zadania, które można przesłać co 30 sekund na konto automatyzacji (z systemem innym niż harmonogram zadań) |100 |
+| Maksymalna liczba jednoczesnych uruchomionych zadań na tym samym wystąpieniu czas na konto automatyzacji (z systemem innym niż harmonogram zadań) |200 |
+| Maksymalna liczba modułów, które można importować co 30 sekund na konto automatyzacji |5 |
+| Maksymalny rozmiar modułu |100 MB |
+| Czas uruchomienia zadania — warstwa bezpłatna |500 minut na subskrypcję na miesiąc kalendarzowy |
+| Maksymalna ilość pamięci do zadania |400 MB |
+| Maksymalna liczba dozwolonych dla jednego zadania gniazda sieci |1000 |
 

@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Wymagania wstępne
+* [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) konta  
 
-Before you can use your SFTP account in a logic app, you must authorize the logic app to connect to your SFTP account. Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Przed użyciem protokołu SFTP konta w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SFTP. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
 
-Here are the steps to authorize your logic app to connect to your SFTP account:  
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem protokołu SFTP:  
 
-1. To create a connection to SFTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SFTP* in the search box. Select the **SFTP - When a file is added or modified** trigger:  
-   ![SFTP online connection image 1](./media/connectors-create-api-sftp/sftp-1.png)  
-2. If you haven't created any connections to SFTP before, you'll get prompted to provide your SFTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SFTP account's data:  
-   ![SFTP online connection image 2](./media/connectors-create-api-sftp/sftp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:   
-   ![SFTP online connection image 3](./media/connectors-create-api-sftp/sftp-3.png) 
+1. Aby utworzyć połączenie z użyciem protokołu SFTP, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SFTP* w polu wyszukiwania. Wybierz **SFTP - podczas dodawania lub modyfikowania pliku** wyzwalacz:  
+   ![Obraz połączenia w trybie online SFTP 1](./media/connectors-create-api-sftp/sftp-1.png)  
+2. Jeśli nie utworzono wszystkie połączenia z użyciem protokołu SFTP przed będzie zostanie wyświetlony monit o podanie poświadczeń SFTP. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta protokołu SFTP:  
+   ![Obraz połączenia w trybie online SFTP 2](./media/connectors-create-api-sftp/sftp-2.png)  
+3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:   
+   ![Obraz połączenia w trybie online SFTP 3](./media/connectors-create-api-sftp/sftp-3.png) 
 

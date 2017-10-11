@@ -1,21 +1,21 @@
-1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then click **Publish**. 
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. Wybierz pozycję **Utwórz nowe**, a następnie kliknij pozycję **Opublikuj**. 
 
-    ![Publish create new function app](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
+    ![Publikowanie utworzonej aplikacji funkcji](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
 
-2. If you haven't already connected Visual Studio to your Azure account, click **Add an account...**.  
+2. Jeśli program Visual Studio nie został jeszcze połączony z kontem platformy Azure, kliknij pozycję **Dodaj konto...**.  
 
-3. In the **Create App Service** dialog, use the **Hosting** settings as specified in the following table: 
+3. W oknie dialogowym **Tworzenie usługi App Service** użyj ustawień **Hosting** określonych w poniższej tabeli: 
 
-    ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Lokalne środowisko uruchomieniowe platformy Azure](./media/functions-vstools-publish/functions-vstools-publish.png)
 
-    | Setting      | Suggested value  | Description                                |
+    | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
-    | **Subscription** | Choose your subscription | The Azure subscription to use. |
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. |
-    | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** when you create a new plan.  |
-    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Globally unique name | Use an existing storage account or create a new one.   |
+    | **Nazwa aplikacji** | Nazwa unikatowa w skali globalnej | Unikatowa nazwa identyfikująca nową aplikację funkcji. |
+    | **Subskrypcja** | Wybierz subskrypcję | Subskrypcja platformy Azure, która ma być używana. |
+    | **[Grupa zasobów](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nazwa grupy zasobów, w której ma zostać utworzona aplikacja funkcji. |
+    | **[Plan usługi App Service](../articles/azure-functions/functions-scale.md)** | Plan Zużycie | Upewnij się, że podczas tworzenia nowego planu w obszarze **Rozmiar** wybrano opcję **Zużycie**.  |
+    | **[Konto magazynu](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Nazwa unikatowa w skali globalnej | Użyj istniejącego konta magazynu lub utwórz nowe konto.   |
 
-4. Click **Create** to create a function app in Azure with these settings. After the provisioning is complete, make a note of the **Site URL** value, which is the address of your function app in Azure. 
+4. Kliknij pozycję **Utwórz**, aby utworzyć aplikację funkcji na platformie Azure przy użyciu tych ustawień. Po ukończeniu inicjowania obsługi administracyjnej zanotuj wartość **Adres URL witryny**, która jest adresem aplikacji funkcji na platformie Azure. 
 
-    ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Lokalne środowisko uruchomieniowe platformy Azure](./media/functions-vstools-publish/functions-vstools-publish-profile.png)

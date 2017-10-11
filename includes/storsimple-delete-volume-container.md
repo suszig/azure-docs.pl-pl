@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### <a name="to-delete-a-volume-container"></a>To delete a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Select the volume container you want to delete.
-3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
+#### <a name="to-delete-a-volume-container"></a>Aby usunąć kontener woluminów
+1. Na **urządzeń** , wybierz urządzenie, kliknij go dwukrotnie, a następnie kliknij przycisk **kontenery woluminów** kartę.
+2. Wybierz kontener woluminów, które chcesz usunąć.
+3. Jeśli kontener woluminów ma skojarzone woluminów, mogą zostać usunięte. Kliknij przycisk **usunąć** w dolnej części strony, aby usunąć ten kontener. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. Spowoduje to usunięcie kontenera woluminów.
 
-If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
+Jeśli kontener woluminów ma skojarzone woluminy, najpierw musisz wykonać tych woluminów w trybie offline, wykonując kroki opisane w [Przełącz do trybu offline wolumin](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Po woluminy są w trybie offline, można je usunąć. Gdy kontener woluminów ma skojarzone woluminów, należy usunąć kontener woluminów zgodnie z powyższym opisem.
 

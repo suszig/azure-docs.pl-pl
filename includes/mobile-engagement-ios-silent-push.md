@@ -24,8 +24,3 @@
    
    * Włącz funkcję **Push Notifications** (Powiadomienia wypychane), wybierając kolejno opcje Targets (Obiekty docelowe ) > Your Target Name (Nazwa obiektu docelowego) > Capabilities (Funkcje).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [GitHub](http://GitHub.com) account 
+### <a name="prerequisites"></a>Wymagania wstępne
+* A [GitHub](http://GitHub.com) konta 
 
-Before you can use your GitHub account in a Logic app, you must authorize the Logic app to connect to your GitHub account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Zanim użyjesz konto GitHub w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem usługi GitHub. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
 
-Here are the steps to authorize your Logic app to connect to your GitHub account:
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem usługi GitHub:
 
-1. To create a connection to GitHub, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GitHub* in the search box. Select the trigger or action you'll like to use:  
+1. Aby utworzyć połączenie do usługi GitHub, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *GitHub* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
    ![](./media/connectors-create-api-github/github-1.png)
-2. If you haven't created any connections to GitHub before, you'll get prompted to provide your GitHub credentials. These credentials will be used to authorize your Logic app to connect to, and access your GitHub account's data:  
+2. Jeśli nie utworzono wszystkie połączenia z usługi GitHub przed będzie zostanie wyświetlony monit o podanie poświadczeń użytkownika usługi GitHub. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych na koncie usługi GitHub:  
    ![](./media/connectors-create-api-github/github-2.png)
-3. Provide your GitHub user name and password to authorize your Logic app:  
+3. Podaj nazwę użytkownika usługi GitHub i hasło, aby zezwolić aplikacji logiki:  
    ![](./media/connectors-create-api-github/github-3.png)   
-4. Confirm your intentions:  
+4. Potwierdzenie zamiaru:  
    ![](./media/connectors-create-api-github/github-4.png)   
-5. Notice the connection has been created in the portal. You can now proceed with creating your Logic app and using GitHub in it:   
+5. Należy zauważyć, że utworzono połączenie w portalu. Można teraz kontynuować tworzenie aplikacji logiki i korzystanie z usługi GitHub w niej:   
    ![](./media/connectors-create-api-github/github-5.png)   
 

@@ -1,29 +1,29 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Identyfikator limitu | Limit | Komentarze |
 | --- | --- | --- |
-| Maximum number of storage account credentials |64 | |
-| Maximum number of volume containers |64 | |
-| Maximum number of volumes |255 | |
-| Maximum number of schedules per bandwidth template |168 |A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices |64 TB for 8100 and 8600 |8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure |30 TB for 8010 <br></br> 64 TB for 8020 |8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices |9 TB for 8100 <br></br> 24 TB for 8600 |8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections |512 | |
-| Maximum number of iSCSI connections from initiators |512 | |
-| Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
-| Maximum number of backups retained per backup policy |64 | |
-| Maximum number of schedules per backup policy |10 | |
-| Maximum number of snapshots of any type that can be retained per volume |256 |This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device |10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone |16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul> |
-| Restore and clone recover time for tiered volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete. |
-| Restore recover time for locally pinned volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress. |
-| Thin-restore availability |Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* |920/720 MB/s with a single 10GbE network interface |Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* |120/250 MB/s | |
-| Maximum client read/write throughput (when served from the cloud tier)* |11/41 MB/s |Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Maksymalna liczba poświadczeń konta magazynu |64 | |
+| Maksymalna liczba kontenery woluminów |64 | |
+| Maksymalna liczba woluminów |255 | |
+| Maksymalna liczba harmonogramów na szablon przepustowości |168 |Harmonogram dla każdej godziny, każdego dnia tygodnia (24 * 7). |
+| Maksymalny rozmiar woluminu warstwowego na fizycznych urządzeniach |64 TB 8100 i 8600 |8100 i 8600 są urządzenia fizyczne. |
+| Maksymalny rozmiar woluminu warstwowego na urządzenia wirtualne na platformie Azure |30 TB dla 8010 <br></br> 64 TB dla urządzenia 8020 |urządzenia 8010 i 8020 są urządzeń wirtualnych na platformie Azure używających magazynu w warstwie standardowa i Premium Storage odpowiednio. |
+| Maksymalny rozmiar woluminu przypiętego lokalnie na fizycznych urządzeniach |9 TB dla 8100 <br></br> 24 TB dla 8600 |8100 i 8600 są urządzenia fizyczne. |
+| Maksymalna liczba połączeń iSCSI |512 | |
+| Maksymalna liczba połączeń iSCSI z inicjatorów |512 | |
+| Maksymalna liczba rekordów kontroli dostępu na urządzeniu |64 | |
+| Maksymalna liczba woluminów na zasad tworzenia kopii zapasowej |24 | |
+| Maksymalna liczba kopii zapasowych przechowywane dla poszczególnych zasad tworzenia kopii zapasowej |64 | |
+| Maksymalna liczba harmonogramy dla poszczególnych zasad tworzenia kopii zapasowej |10 | |
+| Maksymalna liczba migawek dowolnego typu, które mogą być przechowywane na każdym woluminie |256 |Dotyczy to również migawki lokalne i migawki w chmurze. |
+| Maksymalna liczba migawek, które mogą być obecne w dowolnym urządzeniu |10 000 | |
+| Maksymalna liczba woluminów, które mogą być przetwarzane równolegle do tworzenia kopii zapasowych, przywracania lub klonowania |16 |<ul><li>Jeśli istnieje więcej niż 16 woluminów, będą przetwarzane sekwencyjnie jako udostępnienie gniazda przetwarzania.</li><li>Nowe kopie zapasowe sklonowany lub przywrócony wolumin warstwowy może nastąpić dopiero po zakończeniu operacji. Jednak na lokalnym woluminie, kopie zapasowe są dozwolone po wolumin jest w trybie online.</li></ul> |
+| Przywracanie i klonowanie czas Odzyskaj woluminy warstwowe |< 2 minuty |<ul><li>Wolumin ma zostać udostępnione w ciągu 2 minut operacji przywracania lub klonowania, niezależnie od rozmiaru woluminu.</li><li>Wydajność woluminu początkowo może przebiegać wolniej niż zwykle, ponieważ znajduje się w chmurze większość danych i metadanych. Wydajność może zwiększyć jako przepływów danych z chmury do urządzenia StorSimple.</li><li>Łączny czas pobierania metadanych zależy od rozmiaru woluminu przydzielone. Urządzenie w tle w wysokości 5 minut na TB danych przydzielonego woluminu automatycznie wejścia metadanych. Ta stawka może zależeć od przepustowości połączenia z Internetem w chmurze.</li><li>Przywracanie lub Operacja klonowania została ukończona, gdy wszystkie metadane jest na urządzeniu.</li><li>Nie można wykonać operacji tworzenia kopii zapasowej do przywrócenia lub pełni zakończeniu operacji klonowania. |
+| Przywracanie odzyskać czas dla woluminów przypiętych lokalnie |< 2 minuty |<ul><li>Wolumin ma zostać udostępnione w ciągu 2 minut operacji przywracania, niezależnie od rozmiaru woluminu.</li><li>Wydajność woluminu początkowo może przebiegać wolniej niż zwykle, ponieważ znajduje się w chmurze większość danych i metadanych. Wydajność może zwiększyć jako przepływów danych z chmury do urządzenia StorSimple.</li><li>Łączny czas pobierania metadanych zależy od rozmiaru woluminu przydzielone. Urządzenie w tle w wysokości 5 minut na TB danych przydzielonego woluminu automatycznie wejścia metadanych. Ta stawka może zależeć od przepustowości połączenia z Internetem w chmurze.</li><li>W odróżnieniu od woluminów warstwowych, w przypadku woluminów przypiętych lokalnie danych woluminu jest również pobierane lokalnie na urządzeniu. Operacja przywracania została zakończona, po wprowadzeniu wszystkich danych woluminu na urządzeniu.</li><li>Operacje przywracania może trwać długo i łączny czas do zakończenia operacji przywracania zależy od rozmiaru alokowanego woluminu lokalnego, przepustowości połączenia z Internetem i istniejące dane na urządzeniu. Operacje tworzenia kopii zapasowej woluminu przypiętego lokalnie są dozwolone w trakcie operacji przywracania jest w toku. |
+| Dostępność elastycznej przywracania |Ostatni trybu failover | |
+| Przepływność odczytu/zapisu maksymalną klienta (jeśli są udostępniane przez warstwę dysków SSD) * |920/720 MB/s z jednym 10 GbE interfejsu sieciowego |Maksymalnie 2 x z wielościeżkowego wejścia/wyjścia i dwa interfejsy sieciowe. |
+| Przepływność odczytu/zapisu maksymalną klienta (jeśli są udostępniane przez warstwę HDD) * |120/250 MB/s | |
+| Przepływność odczytu/zapisu maksymalną klienta (jeśli jest obsługiwana w ramach warstwy chmury) * |11/41 MB/s |Przepływność odczytu zależy od klientów generowania i utrzymywania wystarczające głębokość kolejki operacji We/Wy. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Maksymalna przepustowość na typ operacji We/Wy zmierzono z scenariusze 100 procent zapisu i odczytu 100 procent. Aktualna przepływność może być niższa i zależy od operacji We/Wy mieszać i warunki sieciowe.
 

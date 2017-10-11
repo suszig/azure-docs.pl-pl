@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
-1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](../articles/storsimple/storsimple-update-device.md#step1).
-2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Aby zainstalować regularne poprawek za pomocą środowiska Windows PowerShell dla urządzenia StorSimple
+1. Łączenie z konsolą szeregową urządzenia. Aby uzyskać więcej informacji, zobacz [krok 1: łączenie z konsolą szeregową](../articles/storsimple/storsimple-update-device.md#step1).
+2. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się przy użyciu pełnego dostępu**. Wpisz hasło. Domyślne hasło jest **Password1**.
+3. W wierszu polecenia wpisz:
    
     ```
     Start-HcsHotfix
@@ -11,9 +11,9 @@
    
     > [!IMPORTANT]
     >
-    > This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-    > You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+    > To polecenie dotyczy tylko regularne poprawki. Uruchom to polecenie na tylko jeden kontroler, ale zostaną zaktualizowane obu kontrolerów.
+    > Tryb failover kontrolera mogą pojawić się podczas procesu aktualizacji; jednak tryb failover nie wpłynie na dostępność systemu lub operacji.
 
-4. When prompted, supply the path to the network shared folder that contains the hotfix files.
-5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. Po wyświetleniu monitu podaj ścieżkę do udostępnionego folderu sieciowego, który zawiera pliki poprawek.
+5. Pojawi się monit o potwierdzenie. Typ **Y** kontynuować instalacji poprawki.
 

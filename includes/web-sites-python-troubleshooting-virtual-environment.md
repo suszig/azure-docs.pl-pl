@@ -18,8 +18,3 @@ Ten wariant wykorzystuje fakt, że skrypt wdrożenia spowoduje usunięcie folder
 ### <a name="option-3-customize-deployment-script"></a>Opcja 3: dostosowywanie skryptu wdrożenia
 Jeśli skrypt wdrożenia został dostosowany, można zmienić kod w pliku deploy.cmd, aby wymusić usunięcie folderu env.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -1,5 +1,5 @@
 
-| Resource | Limit |
+| Zasób | Limit |
 | --- | --- |
-| Autoscale Settings |100 per region per subscription |
-| Metric Alerts |100 active alert rules per subscription |
+| Ustawienia skalowania automatycznego |100 na region na subskrypcję |
+| Alerty metryki |100 aktywnych reguł alertów na subskrypcję |

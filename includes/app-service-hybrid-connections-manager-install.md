@@ -1,22 +1,22 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. W **połączeń hybrydowych** bloku, kliknij połączenie hybrydowe właśnie utworzony, kliknięcie **konfiguracji odbiornika**.
    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
+    ![Kliknij przycisk Ustawienia odbiornika](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+2. **Właściwości połączenia hybrydowe** zostanie otwarty blok. W obszarze **Menedżera połączeń hybrydowych lokalnymi**, wybierz **pobrać i skonfigurować ręcznie**, Zapisz pobrany pakiet HybridConnectionManager.msi i skopiuj parametry połączenia bramy.
    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. From an administrator command prompt, type the following command to start the installer:
+    ![Kliknij tutaj, aby zainstalować](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Z wiersza polecenia administratora wpisz następujące polecenie, aby uruchomić Instalatora:
    
         start HybridConnectionManager.msi
-4. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-5. Paste the hybrid connection string that you copied earlier and click **OK**. 
+4. Po uruchomieniu Instalatora, kliknij przycisk **nie teraz**, następnie przejdź do folderu %ProgramFiles%\Microsoft\HybridConnectionManager, uruchom HCMConfigWizard.exe i kliknij przycisk **tak** w **konta użytkownika Formant** okna dialogowego.
+5. Wklej parametry połączenia hybrydowe, które wcześniej zostały skopiowane, a następnie kliknij przycisk **OK**. 
    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. When the install completes, click **Close**.
+    ![Instalowanie](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+6. Po zakończeniu instalacji kliknij przycisk **Zamknij**.
    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+    ![Kliknij przycisk Zamknij](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    Na **połączeń hybrydowych** bloku **stan** zawiera obecnie kolumnę **połączony**. 
    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+    ![Stan połączenia](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

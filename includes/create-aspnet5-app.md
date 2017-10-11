@@ -1,6 +1,6 @@
-1. From the Visual Studio menu, select **File > New > Project**.
-2. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
-3. Select **ASP.NET Core Web Application (.NET Core)**.
-4. Give your new application a name (or take the default) and select **OK**.
-5. Under **ASP.NET Core 1.1 Templates**, select **Web Application** and select **OK**.
+1. Wybierz z menu programu Visual Studio **Plik > Nowy > Projekt**.
+2. W obszarze **szablony** sekcji **nowy projekt** okno dialogowe, wybierz opcję **Visual C# > sieci Web**.
+3. Wybierz **aplikacji sieci Web platformy ASP.NET Core (.NET Core)**.
+4. Nadaj nazwę nowej aplikacji (lub podjąć domyślny) i wybierz **OK**.
+5. W obszarze **platformy ASP.NET Core 1.1 szablony**, wybierz pozycję **aplikacji sieci Web** i wybierz **OK**.
 

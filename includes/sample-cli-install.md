@@ -1,5 +1,5 @@
 
 
-To run this sample, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
+Aby uruchomić ten przykład, upewnij się, zainstalowano najnowsze [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Aby rozpocząć, uruchom `az login` można utworzyć połączenia z platformą Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../articles/virtual-machines/windows/cli-options.md).
+W tym przykładzie działanie powłoki Bash. Aby wyświetlić opcje uruchamiania skryptów wiersza polecenia platformy Azure na kliencie systemu Windows, zobacz [działający w systemie Windows Azure CLI](../articles/virtual-machines/windows/cli-options.md).

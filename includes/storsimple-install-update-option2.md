@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### <a name="to-install-update-12-from-the-azure-classic-portal"></a>To install Update 1.2 from the Azure classic portal
-1. In the Azure classic portal, go to the **Devices** page and select your device.
-2. Navigate to **Devices** > **Configure**.
-3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned.
-4. Disable the network interface that has an assigned gateway and save the modified configuration. Note the network interface settings are retained and so when you re-enable this network interface later, the portal will revert to the original settings.
-5. You can now [use the Azure classic portal to install Update 1.2](#install-update-12-via-the-azure-classic-portal). Follow the instructions starting from step 3 of this procedure. After you have installed all the updates, you can re-enable the network interface that you disabled.
+#### <a name="to-install-update-12-from-the-azure-classic-portal"></a>Aby zainstalować aktualizację 1.2 z klasycznego portalu Azure
+1. W klasycznym portalu Azure, przejdź do **urządzeń** i wybrać opcję urządzenia.
+2. Przejdź do **urządzeń** > **skonfigurować**.
+3. W obszarze **interfejsów sieciowych**, najpierw należy sprawdzić, czy co najmniej jeden interfejs sieciowy, który ma włączoną obsługę interfejsu iSCSI. Następnie odszukaj interfejsu sieciowego (inne niż dane 0), który ma przypisane bramę.
+4. Wyłącz interfejs sieciowy, który ma przypisane bramę i zapisać konfigurację zmodyfikowane. Zanotuj ustawienia interfejsu sieciowego są zachowywane i dlatego po ponownym włączeniu ten interfejs sieciowy później, portalu zostaną przywrócone ustawienia.
+5. Możesz teraz [klasycznego portalu Azure należy zainstalować aktualizację 1.2](#install-update-12-via-the-azure-classic-portal). Postępuj zgodnie z instrukcjami, zaczynając od kroku 3 tej procedury. Po zainstalowaniu wszystkich aktualizacji, można ponownie włączyć interfejsu sieciowego, które zostały wyłączone.
 

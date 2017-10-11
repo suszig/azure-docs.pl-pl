@@ -1,65 +1,65 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines][Manage the availability of virtual machines].
+Zbiór dostępności pomaga zachować maszyn wirtualnych dostępnych w trakcie przestoju, takich jak podczas konserwacji. Wprowadzenie do dwóch lub więcej podobnie skonfigurowane maszyny wirtualne w zestawie dostępności tworzy nadmiarowość potrzebne do zapewnienia dostępności aplikacji lub usług, które są wykonywane na komputerze wirtualnym. Aby uzyskać szczegółowe informacje dotyczące sposobu działania, zobacz [Zarządzaj dostępnością maszyn wirtualnych][Manage the availability of virtual machines].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services].
+Jest najlepszym rozwiązaniem będzie używać zestawów dostępności i równoważenia obciążenia punktów końcowych do zapewnienia, że aplikacja jest zawsze dostępny i działa wydajnie. Aby uzyskać więcej informacji o punktach końcowych z równoważeniem obciążenia, zobacz [równoważenia obciążenia dla usług infrastruktury platformy Azure][Load balancing for Azure infrastructure services].
 
-You can add classic virtual machines into an availability set by using one of two options:
+Klasyczne maszyny wirtualne można dodać do zestawu przy użyciu jednej z dwóch opcji dostępności:
 
-* [Option 1: Create a virtual machine and an availability set at the same time][Option 1: Create a virtual machine and an availability set at the same time]. Then, add new virtual machines to the set when you create those virtual machines.
-* [Option 2: Add an existing virtual machine to an availability set][Option 2: Add an existing virtual machine to an availability set].
+* [Opcja 1: Tworzenie maszyny wirtualnej i dostępności na tym samym czasie][Option 1: Create a virtual machine and an availability set at the same time]. Następnie należy dodać nowych maszyn wirtualnych w zestawie, podczas tworzenia tych maszyn wirtualnych.
+* [Opcja 2: Dodaj istniejącą maszynę wirtualną do zestawu dostępności][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
-> In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+> W klasycznym modelu maszyn wirtualnych, które chcesz umieścić w tym samym zestawie dostępności muszą należeć do tej samej usługi w chmurze.
 > 
 > 
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time
-You can use either the Azure portal or Azure PowerShell commands to do this.
+## <a id="createset"></a>— Opcja 1: tworzenie maszyny wirtualnej i dostępności na tym samym czasie
+W tym celu można użyć portalu Azure lub poleceń programu PowerShell systemu Azure.
 
-To use the Azure portal:
+Aby korzystać z portalu Azure:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
+1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. W menu centralnym kliknij **+ nowy**, a następnie kliknij przycisk **maszyny wirtualnej**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
-3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
-4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+3. Wybierz obraz maszyny wirtualnej Marketplace, którego chcesz użyć. Można utworzyć maszyny wirtualnej systemu Linux lub Windows.
+4. Dla wybranej maszyny wirtualnej, sprawdź, czy model wdrażania jest ustawiony na **klasycznego** , a następnie kliknij przycisk **Utwórz**
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
-5. Enter a virtual machine name, user name and password (for Windows machines) or SSH public key (for Linux machines). 
-6. Choose the VM size and then click **Select** to continue.
-7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+5. Wprowadź nazwę maszyny wirtualnej, nazwę użytkownika i hasło (dla komputerów z systemem Windows) lub klucz publiczny SSH (w przypadku maszyn z systemem Linux). 
+6. Wybierz rozmiar maszyny Wirtualnej, a następnie kliknij przycisk **wybierz** aby kontynuować.
+7. Wybierz **konfiguracji opcjonalnej > zestawu dostępności**, i wybierz zestawu dostępności chcesz dodać maszyny wirtualnej.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
-8. Review your configuration settings. When you're done, click **Create**.
-9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+8. Przejrzyj ustawienia konfiguracji. Gdy wszystko będzie gotowe, kliknij przycisk **Utwórz**.
+9. Podczas gdy platforma Azure tworzy maszynę wirtualną, możesz śledzić postępy w obszarze **maszyn wirtualnych** w menu centralnym.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Aby użyć poleceń programu Azure PowerShell do tworzenia maszyny wirtualnej platformy Azure i dodaj go do zestawu dostępności nowych lub istniejących, zobacz [użycia programu Azure PowerShell do tworzenia i wstępnie skonfigurować maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
-In the Azure portal, you can add existing classic virtual machines to an existing availability set or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+## <a id="addmachine"></a>Opcja 2: Dodaj istniejącą maszynę wirtualną do zestawu dostępności
+W portalu Azure można dodać istniejącego klasycznych maszyn wirtualnych do istniejących dostępności ustawić lub Utwórz nową dla nich. (Należy pamiętać, że maszyny wirtualne w tym samym zestawie dostępności muszą należeć do tej samej usługi w chmurze). Te kroki są prawie takie same. Przy użyciu programu Azure PowerShell można dodać maszyny wirtualnej do istniejącego zestawu dostępności.
 
-1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines (classic)**.
+1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do [portalu Azure](https://portal.azure.com).
+2. W menu centralnym kliknij **maszyn wirtualnych (klasyczne)**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
-3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.
-4. Choose **Availability set** from the virtual machine **Settings**.
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+3. Z listy maszyn wirtualnych wybierz nazwę maszyny wirtualnej, który chcesz dodać do zestawu.
+4. Wybierz **zestawu dostępności** z maszyny wirtualnej **ustawienia**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
-5. Select the availability set you wish to add the virtual machine to. The virtual machine must belong to the same cloud service as the availability set.
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+5. Wybierz zestaw dostępności, które chcesz dodać do maszyny wirtualnej. Maszyna wirtualna musi należeć do tej samej usługi w chmurze jako zestawu dostępności.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Click **Save**.
+    ![Tekst alternatywny obrazu](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+6. Kliknij pozycję **Zapisz**.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Użycie poleceń programu Azure PowerShell, otwórz sesję programu PowerShell Azure poziomie administratora i uruchom następujące polecenie. Dla symboli zastępczych (takich jak &lt;VmCloudServiceName&gt;), Zastąp wszystko w obrębie oferty, w tym < i > znaków o poprawne nazwy.
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
-> The virtual machine might have to be restarted to finish adding it to the availability set.
+> Maszyna wirtualna może dysponować ponownego uruchomienia, aby zakończyć dodawanie go do zestawu dostępności.
 > 
 > 
 

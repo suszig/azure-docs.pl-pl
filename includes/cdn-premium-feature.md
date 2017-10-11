@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> This is a feature of **Azure CDN Premium from Verizon**, and is not available with **Azure CDN Standard** products.  For a comparison of CDN features, see [Azure CDN Overview](../articles/cdn/cdn-overview.md#azure-cdn-features). 
+> Jest to funkcja **Azure CDN Premium from Verizon**i nie jest dostępny z **Azure CDN Standard** produktów.  Porównanie funkcji CDN, zobacz [Omówienie usługi Azure CDN](../articles/cdn/cdn-overview.md#azure-cdn-features). 
 > 
 > 
 

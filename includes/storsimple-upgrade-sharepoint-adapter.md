@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
+### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uaktualnienie programu SharePoint 2010 do programu SharePoint 2013, a następnie zainstaluj kartę StorSomple dla programu SharePoint
 > [!IMPORTANT]
-> Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+> Wszystkie pliki, które wcześniej zostały przeniesione do magazynu zewnętrznego za pośrednictwem SPZ nie będą dostępne dopiero po zakończeniu uaktualniania i ponownego włączenia funkcji SPZ. Aby ograniczyć wpływ użytkownika, należy wykonać wszelkie uaktualnienia lub ponownej instalacji w oknie zaplanowanej konserwacji.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
-2. Install and configure the new SharePoint 2013 farm. 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to [Overview of the upgrade process to SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Aby uaktualnić program SharePoint 2010 do programu SharePoint 2013, a następnie zainstaluj kartę
+1. W farmie programu SharePoint 2010 należy pamiętać, externalized obiektów blob i zawartości baz danych, dla których włączono SPZ ścieżki magazynu obiektów BLOB. 
+2. Instalowanie i konfigurowanie nowej farmy programu SharePoint 2013. 
+3. Przenoszenie baz danych, aplikacji i kolekcji witryn z farmy programu SharePoint 2010 do nowej farmy programu SharePoint 2013. Aby uzyskać instrukcje, przejdź do [Omówienie procesu uaktualniania do programu SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+4. Zainstaluj StorSimple dla programu SharePoint w nowej farmie serwerów. Przejdź do [zainstalować StorSimple Adapter dla programu SharePoint](#install-the-storsimple-adapter-for-sharepoint) procedury.
+5. Korzystając z informacji zanotowaną w kroku 1, Włącz SPZ dla tego samego zestawu baz danych zawartości i podaj ścieżkę tego samego magazynu obiektów BLOB, używanego w instalacji programu SharePoint 2010. Przejdź do [skonfigurować SPZ](#configure-rbs) procedury. Po wykonaniu tego kroku pliki wcześniej externalized powinien być dostępny w nowej farmie serwerów. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade the StorSimple Adapter for SharePoint
+### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Uaktualnienie karty StorSimple dla programu SharePoint
 > [!IMPORTANT]
-> You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+> Należy zaplanować tego uaktualnienia wystąpić w trakcie okna zaplanowanej konserwacji z następujących powodów:
 > 
-> * Previously externalized content will not be available until the adapter is reinstalled.
-> * Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. You can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint to migrate the content. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Wcześniej externalized zawartość nie będzie dostępne, dopóki nie zostanie ponownie zainstalowana karta.
+> * Wszelkie zawartość przesłana do lokacji, po odinstalować poprzednią wersję karty StorSimple dla programu SharePoint, ale przed zainstalowaniem nowej wersji, będą przechowywane w bazie danych zawartości. Należy przenieść tej zawartości na urządzeniu StorSimple, po zainstalowaniu nowej karty. Można użyć programu Microsoft` RBS Migrate()` dołączone do programu SharePoint, aby przenieść zawartość polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji, zobacz [migrowania zawartości do lub wychodzący SPZ](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>To upgrade the StorSimple Adapter for SharePoint
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>Aby uaktualnić karty StorSimple dla programu SharePoint
+1. Odinstaluj poprzednią wersję karty StorSimple dla programu SharePoint.
    
    > [!NOTE]
-   > This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+   > SPZ zostanie automatycznie wyłączony w bazach danych zawartości. Jednak pozostanie istniejące obiekty BLOB na urządzeniu StorSimple. Ponieważ SPZ jest wyłączona i nie zostały poddane migracji obiektów blob do bazy danych zawartości, wszystkie żądania dla tych obiektów blob nie powiedzie się. 
    > 
    > 
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. Zainstaluj nową kartę StorSimple dla programu SharePoint. Nowa karta będzie automatycznie rozpoznawać baz danych zawartości, które wcześniej były włączone lub wyłączone SPZ i użyje poprzednie ustawienia.
 

@@ -1,12 +1,12 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcji parametrów zawierająca wszystkie wartości parametrów.
+Należy zdefiniować parametr dla tych wartości, które będą się różnić na podstawie projektu, który jest wdrażany lub opartych na środowisku, które wdrażasz. Definiuje parametry dla wartości, które będą zawsze taki sam. Każda wartość parametru jest używany w szablonie do definiowania zasobów, które są wdrożone. 
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+Określając parametry, użyj **allowedValues** pola, aby określić, które wartości użytkownika można podać podczas wdrażania. Użyj **defaultValue** pola, aby przypisać wartości do parametru, jeśli wartość nie zostanie podana podczas wdrażania.
 
-We will describe each parameter in the template.
+Firma Microsoft będzie opisywać każdego parametru w szablonie.
 
 ### <a name="logicappname"></a>logicAppName
-The name of the logic app to create.
+Nazwa aplikacji logiki do utworzenia.
 
     "logicAppName": {
         "type": "string"

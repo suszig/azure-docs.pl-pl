@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight | Microsoft Docs"
+title: "Konfigurowanie zasad Hive w usłudze HDInsight przyłączonych do domeny - Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się..."
 services: hdinsight
 documentationcenter: 
@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
-
-
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight (wersja zapoznawcza)
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger dla usługi Hive. Korzystając z tego artykułu, utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do tabeli hivesampletable. Tabela hivesampletable jest dołączana do klastrów usługi HDInsight. Po skonfigurowaniu zasad łączysz się z tabelami usługi Hive w usłudze HDInsight przy użyciu sterownika ODBC i programu Excel.
@@ -90,7 +91,7 @@ Instrukcje można znaleźć w sekcji [Create Hive ODBC data source](hdinsight-co
     Hive Server Type (Typ serwera Hive)|Wybierz wartość <strong>Hive Server 2</strong>.
     Mechanism (Mechanizm)|Wybierz wartość <strong>Azure HDInsight Service</strong> (Usługa Azure HDInsight).
     HTTP Path (Ścieżka HTTP)|Pozostaw to pole puste.
-    User Name (Nazwa użytkownika)|Wprowadź wartość hiveuser1@contoso158.onmicrosoft.com.. Jeśli nazwa domeny jest inna, zaktualizuj ją.
+    Nazwa użytkownika|Wprowadź hiveuser1@contoso158.onmicrosoft.com. Zaktualizuj nazwę domeny, jeśli jest inny.
     Hasło|Wprowadź hasło użytkownika hiveuser1.
     </table>
 
@@ -139,13 +140,7 @@ Aby przetestować drugie zasady (read-hivesampletable-devicemake) utworzone w po
 ## <a name="next-steps"></a>Następne kroki
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).
 * Aby zarządzać przyłączonymi do domeny klastrami usługi HDInsight, zobacz [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight).
-* Aby uruchamiać zapytania usługi Hive przy użyciu protokołu SSH w przyłączonych do domeny klastrach usługi HDInsight, zobacz [Używanie protokołu SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Do uruchamiania zapytań Hive przy użyciu protokołu SSH w klastrach HDInsight przyłączonych do domeny, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Aby połączyć się z usługą Hive za pomocą interfejsu JDBC usługi Hive, zobacz [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) (Łączenie z usługą Hive w usłudze Azure HDInsight przy użyciu sterownika JDBC usługi Hive).
 * Aby połączyć program Excel z usługą Hadoop przy użyciu interfejsu ODBC usługi Hive, zobacz [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md) (Łączenie programu Excel z usługą Hadoop przy użyciu sterownika Microsoft Hive ODBC).
 * Aby połączyć program Excel z usługą Hadoop przy użyciu dodatku Power Query, zobacz [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) (Łączenie programu Excel z usługą Hadoop przy użyciu dodatku Power Query).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

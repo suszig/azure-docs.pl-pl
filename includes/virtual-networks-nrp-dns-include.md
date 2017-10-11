@@ -1,28 +1,28 @@
-## <a name="azure-dns"></a>Azure DNS
-Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
+## <a name="azure-dns"></a>System DNS platformy Azure
+Usługa DNS platformy Azure to Usługa hostingu domen DNS, rozpoznawania nazw przy użyciu infrastruktury Microsoft Azure.
 
-| Property | Description | Sample Value |
+| Właściwość | Opis | Przykładowa wartość |
 | --- | --- | --- |
-| **DNSzones** |Domain zone information to host DNS records of a particular domain |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
+| **DNSzones** |Informacji o strefie domeny do rekordów hosta DNS dla określonej domeny |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com " |
 
-### <a name="dns-record-sets"></a>DNS record sets
-DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+### <a name="dns-record-sets"></a>Zestawy rekordów DNS
+Strefy DNS mieć obiektu podrzędnego o nazwie zestaw rekordów. Zestawy rekordów jest kolekcją rekordów hosta przez typ strefy DNS. Typy rekordów są A, AAAA, CNAME, MX, NS, SOA, SRV i TXT.
 
-| Property | Description | Sample value |
+| Właściwość | Opis | Wartość przykładowa |
 | --- | --- | --- |
-| A |IPv4 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| AAAA |IPv6 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME |canonical name record type <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
-| MX |mail record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
-| NS |name server record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
-| SOA |Start of Authority record type <sup>2</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
-| SRV |service record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+| A |Typ rekordu IPv4 |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA |Typ rekordu IPv6 |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME |Nazwa kanoniczna typu rekordu <sup>1</sup> |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX |Typ rekordu poczty |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
+| NS |Typ rekordu nazwy serwera |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA |Początek typ rekordu urząd <sup>2</sup> |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV |Typ rekordu usługi |/Subscriptions/{GUID}/.../Providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> only allows one value per record set.
+<sup>1</sup> zezwala na tylko jedną wartość na zestawie rekordów.
 
-<sup>2</sup> only allows one record type SOA per DNS zone. 
+<sup>2</sup> zezwala na tylko jeden typ rekordów SOA dla stref DNS. 
 
-Sample of DNS zone in Json format:
+Przykład strefy DNS w formacie Json:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -77,8 +77,8 @@ Sample of DNS zone in Json format:
           ]
     }
 
-## <a name="additional-resources"></a>Additional resources
-Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Odczyt [dokumentacja interfejsu API REST dla stref DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) Aby uzyskać więcej informacji.
 
-Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.
+Odczyt [dokumentacja interfejsu API REST dla zestawów rekordów DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) Aby uzyskać więcej informacji.
 

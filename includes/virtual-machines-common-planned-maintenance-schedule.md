@@ -1,55 +1,55 @@
 
 
-## <a name="multi-and-single-instance-vms"></a>Multi and Single Instance VMs
-Many customers running on Azure count it critical that they can schedule when their VMs undergo planned maintenance due to the downtime--about 15 minutes--that occurs during maintenance. You can use availability sets to help control when provisioned VMs receive planned maintenance.
+## <a name="multi-and-single-instance-vms"></a>Obsługa wielu i jednego wystąpienia maszyny wirtualne
+Wielu klientów systemem Azure liczba go krytycznych, czy można zaplanować podczas ich maszyny wirtualne przechodzą zaplanowanej konserwacji z powodu przestoju — około 15 minut — występuje podczas konserwacji. Zestawy dostępności można użyć ułatwiające kontrolę podczas zaplanowanej konserwacji odbierania elastycznie maszyn wirtualnych.
 
-There are two possible configurations for VMs running on Azure. VMs are either configured as multi-instance or single-instance. If VMs are in an availability set, then they are configured as multi-instance. Note, even single VMs can be deployed in an availability set, so that they are treated as multi-instance. If VMs are NOT in an availability set, then they are configured as single-instance.  For details on availability sets, see [Manage the Availability of your Windows Virtual Machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the Availability of your Linux Virtual Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Istnieją dwie możliwe konfiguracje dla maszyn wirtualnych działających na platformie Azure. Maszyny wirtualne albo są skonfigurowane jako jednym czy wielu wystąpieniach. W przypadku maszyn wirtualnych w zestawie dostępności, następnie są skonfigurowane z opcją wielu wystąpień. Należy pamiętać, nawet pojedynczy maszyn wirtualnych można wdrożyć w zestawie dostępności, dzięki czemu są one traktowane jako mająca wiele wystąpień. Jeśli maszyny wirtualne nie są dostępne w zestawie dostępności, następnie są skonfigurowane z opcją jednego wystąpienia.  Aby uzyskać szczegółowe informacje na zestawów dostępności, zobacz [Zarządzaj dostępnością maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [Zarządzaj dostępnością maszyn wirtualnych z systemem Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. See [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on planned maintenance for Azure VMs.
+Aktualizacje zaplanowanej konserwacji do maszyn wirtualnych z jednego wystąpienia i wielu wystąpień nastąpić oddzielnie. Ponowne skonfigurowanie maszyn wirtualnych można jednego wystąpienia (jeśli są one wielu wystąpień) lub wielu wystąpień (jeśli są one jednego wystąpienia), można kontrolować, po ich maszyn wirtualnych komunikatu zaplanowanej konserwacji. Zobacz [zaplanowanej konserwacji dla maszyn wirtualnych systemu Linux Azure](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [zaplanowanej konserwacji dla maszyn wirtualnych Azure Windows](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) szczegółowe informacje o zaplanowanej konserwacji dla maszyn wirtualnych platformy Azure.
 
-## <a name="for-multi-instance-configuration"></a>For Multi-instance Configuration
-You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+## <a name="for-multi-instance-configuration"></a>Mająca wiele wystąpień konfiguracji
+Można wybrać podczas zaplanowanej konserwacji ma wpływ na maszyn wirtualnych wdrożonych w konfiguracji zestawu dostępności przez usunięcie tych maszyn wirtualnych z zestawów dostępności.
 
-1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal.
+1. Zostanie wysłana wiadomość e-mail do Ciebie siedmiu dni przed zaplanowanej konserwacji do maszyn wirtualnych w konfiguracji wielu wystąpień. Identyfikatory subskrypcji oraz nazwy odpowiednich maszyn wirtualnych w wielu wystąpieniach znajdują się w treści wiadomości e-mail.
+2. Podczas tych siedem dni można wybrać podczas swoich wystąpień są aktualizowane przez usunięcie wielu wystąpień maszyn wirtualnych w tym regionie z ich zestawu dostępności. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako maszyna wirtualna jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji do innego hosta fizycznego, który nie jest przeznaczone do obsługi.
+3. Należy usunąć maszynę Wirtualną z jego zestawem dostępności w portalu Azure.
 
-   1. In the portal, select the VM to remove from the Availability Set.  
+   1. W portalu wybierz maszynę Wirtualną, aby usunąć z zestawu dostępności.  
 
-   2. Under **settings**, click **Availability set**.
+   2. W obszarze **ustawienia**, kliknij przycisk **zestawu dostępności**.
 
-      ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+      ![Wybór zestawu dostępności](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. In the availability set dropdown menu, select “Not part of an availability set.”
+   3. W zestawie dostępności menu rozwijane, wybierz opcję "Nie jest częścią zestawu dostępności."
 
-      ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
+      ![Usuń ze zbioru](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+   4. U góry, kliknij przycisk **zapisać**. Kliknij przycisk **tak** potwierdzić, że ta akcja ponownego uruchomienia maszyny Wirtualnej.
 
    >[!TIP]
-   >You can reconfigure the VM to multi-instance later by selecting one of the listed availability sets.
+   >Do wielu wystąpień maszyny Wirtualnej można zmienić później, wybierając jedną z zestawów dostępności wymienionych.
 
-4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
-5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+4. Usuwane z zestawów dostępności maszyn wirtualnych zostaną przeniesione do jednego wystąpienia hostów i nie są aktualizowane podczas zaplanowanej konserwacji do konfiguracji ustawić dostępności.
+5. Po zakończeniu aktualizacji do maszyn wirtualnych dostępności Ustaw (zgodnie z harmonogramem opisane w oryginalnej wiadomości e-mail), należy dodać maszyn wirtualnych do ich zestawów dostępności. Staje się częścią zestawu dostępności jako występująca ponownie konfiguruje maszyn wirtualnych i powoduje ponowne uruchomienie komputera. Zwykle po wykonaniu wszystkich aktualizacji wielu wystąpień w całego środowiska Azure następuje konserwacji jednego wystąpienia.
 
-Removing a VM from an availability set can also be achieved using Azure PowerShell:
+Usuwanie maszyny Wirtualnej z zestawu dostępności może być również uzyskany przy użyciu programu Azure PowerShell:
 
 ```
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## <a name="for-single-instance-configuration"></a>For Single-instance Configuration
-You can select the time planned maintenance impacts you VMs in a Single-instance configuration by adding these VMs into availability sets.
+## <a name="for-single-instance-configuration"></a>Dla jednego wystąpienia konfiguracji
+Można wybrać podczas zaplanowanej konserwacji ma wpływ na możesz maszyn wirtualnych w konfiguracji jednego wystąpienia przez dodanie tych maszyn wirtualnych do zestawów dostępności.
 
-Step-by-step
+Krok po kroku
 
-1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
-4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
-5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
+1. Zostanie wysłana wiadomość e-mail do Ciebie siedmiu dni przed zaplanowanej konserwacji do maszyn wirtualnych w konfiguracji jednego wystąpienia. Identyfikatory subskrypcji oraz nazwy odpowiednich maszyn wirtualnych w jednym wystąpieniu znajdują się w treści wiadomości e-mail.
+2. Podczas tych siedem dni można wybrać podczas rozruchu wystąpienia przez dodanie jednego wystąpienia maszyn wirtualnych do zestawem dostępności w tym samym regionie. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako maszyna wirtualna jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji do innego hosta fizycznego, który nie jest przeznaczone do obsługi.
+3. Wykonaj instrukcje tutaj, aby dodać istniejące maszyny wirtualne do zestawów dostępności za pomocą portalu Azure i programu Azure PowerShell. (Zobacz przykład programu Azure PowerShell, który obejmuje następujące kroki).
+4. Gdy te maszyny wirtualne są konfigurowane jako mająca wiele wystąpień, do maszyn wirtualnych z jednego wystąpienia są wyłączone z zaplanowanej konserwacji.
+5. Po zakończeniu aktualizacji wirtualna jednego wystąpienia (zgodnie z harmonogramem w oryginalnej wiadomości e-mail), można powrócić do jednego wystąpienia maszyn wirtualnych i przez usunięcie maszyn wirtualnych z ich zestawów dostępności.
 
-Adding a VM to an availability set also can be achieved using Azure PowerShell:
+Dodawanie maszyny Wirtualnej do także zestaw danych o dostępności można osiągnąć za pomocą programu Azure PowerShell:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

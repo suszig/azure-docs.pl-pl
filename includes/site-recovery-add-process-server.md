@@ -34,8 +34,3 @@
 9. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj**. Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu.
 
      ![Dodawanie serwera przetwarzania 7](./media/site-recovery-add-process-server/ps-page-8.png)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

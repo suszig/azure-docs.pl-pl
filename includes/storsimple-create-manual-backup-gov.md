@@ -1,18 +1,18 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-create-a-manual-backup"></a>To create a manual backup
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+#### <a name="to-create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
+1. Na stronie **Urządzenia** przejdź do karty **Zasady tworzenia kopii zapasowych**. Zawiera ona listę wszystkich zasad tworzenia kopii zapasowych w formie tabeli, w tym zasad dla woluminu, którego kopię zapasową chcesz utworzyć.
+2. Wybierz zasady, klikając w odpowiednim miejscu (z wyjątkiem pierwszej kolumny). W dolnej części strony kliknij opcję **Pobierz kopię zapasową**. Przycisk rozwinie się i zostaną wyświetlone opcje tworzenia kopii zapasowych: migawka lokalna i migawka w chmurze. 
+3. Po wybraniu opcji zostanie wyświetlony monit o potwierdzenie. Kliknij przycisk **Yes** (Tak). 
    
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![Tworzenie ręcznych kopia zapasowa 1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
    
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+    Spowoduje to uruchomienie zadania tworzenia migawki. Po pomyślnym utworzeniu zadania zostanie wyświetlone powiadomienie u dołu strony.
+4. Aby monitorować zadanie, kliknij opcję **Wyświetl zadanie** w obszarze powiadomień (w dolnej części strony). 
    
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
-5. After the backup job is finished, go to the **Backup catalog** tab.
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+    ![Tworzenie ręcznych kopia zapasowa 2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+5. Po zakończeniu zadania tworzenia kopii zapasowej przejdź do karty **Katalog kopii zapasowej**.
+6. Ustaw wybory filtrów do odpowiedniego urządzenia, odpowiednich zasad tworzenia kopii zapasowej i odpowiedniego zakresu czasu. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) kliknij ikonę znacznika wyboru.
    
-   The backup should appear in the list of backup sets that is displayed in the catalog.
+   Kopia zapasowa powinna pojawić się na liście zestawów kopii zapasowych, która jest wyświetlana w katalogu.
 

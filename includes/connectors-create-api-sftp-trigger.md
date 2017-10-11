@@ -1,18 +1,18 @@
-Let's add a trigger.
+Dodajmy wyzwalacza.
 
-1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
-   ![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
-2. The **When a file is added or modified** control opens up  
-   ![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
-3. Select the **...** located on the right side of the control. This opens the folder picker control  
-   ![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
-4. Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
-   ![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
+1. Wprowadź *sftp* w polu wyszukiwania w Projektancie aplikacji logiki wybiorą **SFTP - podczas dodawania lub modyfikowania pliku** wyzwalacza   
+   ![Obraz wyzwalacza SFTP 1](./media/connectors-create-api-sftp/trigger-1.png)  
+2. **Podczas dodawania lub modyfikowania pliku** otwiera formantu  
+   ![Wyzwalacz SFTP — obraz 2](./media/connectors-create-api-sftp/trigger-2.png)  
+3. Wybierz **...**  znajdujący się po prawej stronie formantu. Spowoduje to otwarcie formant wyboru folderu  
+   ![Obraz wyzwalacza SFTP 3](./media/connectors-create-api-sftp/action-1.png)  
+4. Wybierz **SFTP** do folderu głównego jako folder do monitorowania nowe lub zmodyfikowane pliki. Powiadomienie folderu głównego jest teraz wyświetlany w **folderu** formantu.  
+   ![Obraz wyzwalacza SFTP 4](./media/connectors-create-api-sftp/action-2.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
+W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy zmodyfikowanie lub utworzony w folderze SFTP określonego pliku. 
 
 > [!NOTE]
-> For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+> Dla aplikacji logiki działała musi ona zawierać przynajmniej jeden wyzwalacz i jedną akcję. Wykonaj kroki opisane w następnej sekcji, aby dodać akcję.  
 > 
 > 
 

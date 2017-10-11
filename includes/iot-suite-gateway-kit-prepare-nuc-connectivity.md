@@ -1,28 +1,28 @@
-## <a name="prepare-your-intel-nuc"></a>Prepare your Intel NUC
+## <a name="prepare-your-intel-nuc"></a>Przygotowanie programu Intel NUC
 
-To complete the hardware setup, you need to:
+Aby ukończyć instalację na sprzęt, musisz:
 
-- Connect your Intel NUC to the power supply included in the kit.
-- Connect your Intel NUC to your network using an Ethernet cable.
+- Twoje NUC Intel nawiązać połączenia z zasilacz zawarte w zestawie.
+- Twoje NUC Intel nawiązać połączenia z siecią za pośrednictwem kabla Ethernet.
 
-You have now completed the hardware setup of your Intel NUC gateway device.
+Ukończono konfigurację sprzętu urządzenie bramy Intel NUC.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Zaloguj się i uzyskać dostęp terminala
 
-You have two options to access a terminal environment on your Intel NUC:
+Dostępne są dwie opcje środowisku terminala dla Twojej firmy Intel NUC dostępu do:
 
-- If you have a keyboard and monitor connected to your Intel NUC, you can access the shell directly. The default credentials are username **root** and password **root**.
+- Jeśli masz klawiatury i monitora podłączone do sieci NUC firmy Intel, możesz uzyskać dostęp powłoki bezpośrednio. Poświadczenia domyślne są username **głównego** i hasło **głównego**.
 
-- Access the shell on your Intel NUC using SSH from your desktop machine.
+- Dostęp do powłoki na Twojej NUC Intel przy użyciu protokołu SSH z komputera stacjonarnego.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Zaloguj się przy użyciu protokołu SSH
 
-To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to your Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
+Aby zalogować się przy użyciu protokołu SSH, należy adres IP Twojego NUC Intel. Jeśli masz klawiatury i monitora podłączone do sieci NUC firmy Intel, użyj `ifconfig` polecenie, aby znaleźć adres IP. Można również nawiązać router w taki sposób, aby wyświetlić listę adresów urządzeń w sieci.
 
-Sign in with username **root** and password **root**.
+Zaloguj się przy użyciu nazwy użytkownika **głównego** i hasło **głównego**.
 
-#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optional: Share a folder on your Intel NUC
+#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Opcjonalnie: Udostępnianie folderu w Twojej NUC Intel
 
-Optionally, you may want to share a folder on your Intel NUC with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Intel NUC instead of using `nano` or `vi`.
+Opcjonalnie można udostępnić folder w sieci NUC Intel środowisko pulpitu. Udostępnianie folderu pozwala na użycie w edytorze tekstów pulpitu preferowanych (takich jak [Visual Studio Code](https://code.visualstudio.com/) lub [Sublime tekst](http://www.sublimetext.com/)) do edycji plików w sieci NUC Intel zamiast `nano` lub `vi`.
 
-To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use the SFTP server on the Intel NUC with an SFTP client on your desktop machine.
+Aby udostępnić folder z systemem Windows, należy skonfigurować serwer Samba na Intel NUC. Alternatywnie można użyć serwera SFTP na NUC Intel za pomocą protokołu SFTP klienta na komputerze pulpitu.

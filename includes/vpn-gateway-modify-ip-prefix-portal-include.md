@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
+### <a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
 
-#### <a name="to-add-additional-address-prefixes"></a>To add additional address prefixes:
+#### <a name="to-add-additional-address-prefixes"></a>Aby dodać dodatkowe prefiksy adresów:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space in the *Add additional address range* box.
-3. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Dodawanie przestrzeni adresów IP w *Dodaj dodatkowy zakres adresów* pole.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="to-remove-address-prefixes"></a>To remove address prefixes:
+#### <a name="to-remove-address-prefixes"></a>Aby usunąć prefiksy adresów:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **'...'** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Kliknij przycisk **"..."** na wiersz zawierający prefiks chcesz usunąć.
+3. Kliknij przycisk **Usuń**.
+4. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
 
-If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
+Jeśli istnieje już połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania prefiksów adresów IP nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
 
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Usuń połączenie.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for each connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **połączenia**.
+2. Kliknij przycisk **...**  wiersza dla każdego połączenia, następnie kliknij przycisk **usunąć**.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modify the address prefixes.
+#### <a name="2-modify-the-address-prefixes"></a>2. Zmodyfikuj prefiksy adresów.
 
-To add additional address prefixes:
+Aby dodać dodatkowe prefiksy adresów:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space.
-3. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Dodawanie przestrzeni adresów IP.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-To remove address prefixes:
+Aby usunąć prefiksy adresów:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Kliknij przycisk **...**  na wiersz zawierający prefiks do usunięcia.
+3. Kliknij przycisk **Usuń**.
+4. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Utwórz ponownie połączenie.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Przejdź do bramy sieci wirtualnej sieci wirtualnej. (Nie bramy sieci lokalnej.)
+2. W bramie sieci wirtualnej w **ustawienia** kliknij **połączenia**.
+3. Kliknij przycisk **+ Dodaj** otworzyć **Dodaj połączenie** bloku.
+4. Utwórz ponownie połączenie.
+5. Kliknij przycisk **OK** do utworzenia połączenia.

@@ -1,7 +1,7 @@
 
-1. Open the project in Android Studio.
+1. Otwórz projekt w programie Android Studio.
 
-2. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:
+2. W **Eksplorator projektów** w programie Android Studio Otwórz plik ToDoActivity.java i dodaj następujące instrukcje importu:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,7 +13,7 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. Add the following method to the **ToDoActivity** class:
+3. Dodaj następującą metodę do **ToDoActivity** klasy:
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
@@ -43,18 +43,18 @@
             }
         }
 
-    This code creates a method to handle the Google authentication process. A dialog displays the ID of the authenticated user. You can only proceed on a successful authentication.
+    Ten kod tworzy metodę, aby obsługiwać ten proces uwierzytelniania Google. Okno dialogowe wyświetla identyfikator uwierzytelnionego użytkownika. Można kontynuować tylko na pomyślne uwierzytelnienie.
 
     > [!NOTE]
-    > If you are using an identity provider other than Google, change the value passed to the **login** method to one of the following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
+    > Jeśli używasz dostawcy tożsamości innych niż Google, zmień wartość przekazana do **logowania** metodę na jedną z następujących wartości: _MicrosoftAccount_, _Facebook_, _Twitter_, lub _windowsazureactivedirectory_.
 
-4. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+4. W **onCreate** metody, Dodaj następujący wiersz kodu po kodzie tworzącym `MobileServiceClient` obiektu.
 
         authenticate();
 
-    This call starts the authentication process.
+    Tego wywołania spowoduje uruchomienie procesu uwierzytelniania.
 
-5. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method:
+5. Przenieś pozostałych kod po `authenticate();` w **onCreate** nową metodę **createTable** metody:
 
         private void createTable() {
 
@@ -72,7 +72,7 @@
             refreshItemsFromTable();
         }
 
-6. To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:
+6. Aby zapewnić przekierowania działa zgodnie z oczekiwaniami, Dodaj poniższy fragment _RedirectUrlActivity_ do _AndroidManifest.xml_:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. Add redirectUriScheme to _build.gradle_ of your Android application.
+7. Dodaj redirectUriScheme do _build.gradle_ aplikacji systemu Android.
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+8. Dodaj com.android.support:customtabs:23.0.1 do zależności w Twojej build.gradle:
 
-      dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
+      zależności {/ /... "com.android.support:customtabs:23.0.1" Kompiluj}
 
-9. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+9. Z **Uruchom** menu, kliknij przycisk **uruchamianie aplikacji** do Uruchom aplikację i zaloguj się przy użyciu dostawcy tożsamości wybrany.
 
 > [!WARNING]
-> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
+> Schemat adresu URL wymieniony jest rozróżniana wielkość liter.  Upewnij się, że wszystkie wystąpienia `{url_scheme_of_you_app}` wielkością liter.
 
-When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
+Jeśli pomyślnie zalogowano aplikacji powinny być uruchamiane bez błędów, a można wysłać zapytania do usługi zaplecza i aktualizowanie danych.

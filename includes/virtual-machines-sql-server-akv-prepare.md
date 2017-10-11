@@ -1,34 +1,34 @@
-## <a name="prepare-for-akv-integration"></a>Prepare for AKV Integration
-To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
+## <a name="prepare-for-akv-integration"></a>Przygotowanie do Integracja
+Integracja magazynu kluczy Azure umożliwia skonfigurowanie maszyną Wirtualną programu SQL Server, istnieje kilka wymagań wstępnych: 
 
-1. [Install Azure Powershell](#install-azure-powershell)
-2. [Create an Azure Active Directory](#create-an-azure-active-directory)
-3. [Create a key vault](#create-a-key-vault)
+1. [Instalowanie programu Azure Powershell](#install-azure-powershell)
+2. [Tworzenie usługi Azure Active Directory](#create-an-azure-active-directory)
+3. [Tworzenie magazynu kluczy](#create-a-key-vault)
 
-The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
+W poniższych sekcjach opisano te warunki wstępne i informacje, które należy zebrać później uruchomić polecenia cmdlet programu PowerShell.
 
-### <a name="install-azure-powershell"></a>Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+### <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
+Upewnij się, że zainstalowano najnowszy zestaw SDK usługi Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### <a name="create-an-azure-active-directory"></a>Create an Azure Active Directory
-First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
+### <a name="create-an-azure-active-directory"></a>Tworzenie usługi Azure Active Directory
+Najpierw musisz mieć [usługi Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) w ramach subskrypcji. Między wiele korzyści dzięki temu można udzielić uprawnienia do magazynu kluczy dla niektórych użytkowników i aplikacje.
 
-Next, register an application with AAD. This will give you a Service Principal account that has access to your key vault which your VM will need. In the Azure Key Vault article, you can find these steps in the [Register an application with Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) section, or you can see the steps with screen shots in the **Get an identity for the application section** of [this blog post](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Before completing these steps, note that you need to collect the following information during this registration that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+Następnie należy zarejestrować aplikację przy użyciu usługi AAD. Zapewni to konto nazwy głównej usługi, które ma dostęp do magazynu kluczy, które będą potrzebne maszyny Wirtualnej. W artykule usługi Azure Key Vault możesz znaleźć następujące kroki w [zarejestrować aplikację w usłudze Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) sekcji, lub można zobaczyć kroki z zrzuty ekranu w **uzyskać tożsamości dla sekcji aplikacji**  z [ten wpis w blogu](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Przed wykonaniem tych kroków, należy pamiętać, że należy zebrać następujące informacje w tej rejestracji, który będzie później potrzebny po włączeniu integracji magazynu kluczy Azure na maszynie Wirtualnej SQL.
 
-* After the application is added, find the **CLIENT ID**  on the **CONFIGURE** tab. 
-    ![Azure Active Directory Client ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Po dodaniu aplikacji Znajdź **identyfikator klienta** na **Konfiguruj** kartę. 
+    ![Identyfikator klienta usługi Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
-    The client ID is assigned later to the **$spName** (Service Principal name) parameter in the PowerShell script to enable Azure Key Vault Integration. 
-* Also, during these steps when you create your key, copy the secret for your key as is shown in the following screenshot. This key secret is assigned later to the **$spSecret** (Service Principal secret) parameter in the PowerShell script.  
-    ![Azure Active Directory Secret](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
-* You must authorize this new client ID to have the following access permissions: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign**, and **verify**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. For more information see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
+    Identyfikator klienta jest przypisany później do **$spName** parametr (nazwę główną usługi) w skrypt programu PowerShell, aby włączyć integracji magazynu kluczy Azure. 
+* Ponadto podczas tych czynności podczas tworzenia klucza, skopiować klucza tajnego klucza pokazany na poniższym zrzucie ekranu. Przypisano później do tego klucza klucz tajny **$spSecret** parametr (klucz tajny nazwy głównej usługi) w skrypcie programu PowerShell.  
+    ![Klucz tajny usługi Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+* Musisz autoryzować tego nowego Identyfikatora klienta, są następujące uprawnienia dostępu: **szyfrowania**, **odszyfrować**, **wrapKey**, **unwrapKey**, **znak**, i **Sprawdź**. Jest to zrobić za pomocą [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [zezwolić aplikacji na używanie klucza lub klucza tajnego](../articles/key-vault/key-vault-get-started.md#authorize).
 
-### <a name="create-a-key-vault"></a>Create a key vault
-In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) topic. Before completing these steps, note that there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
+Aby można było używać usługi Azure Key Vault do przechowywania kluczy, który będzie używany do szyfrowania maszyny Wirtualnej, potrzebujesz dostępu do magazynu kluczy. Jeśli magazynu kluczy nie zostały już skonfigurowane, utwórz go, wykonując kroki opisane w [wprowadzenie do korzystania z usługi Azure Key Vault](../articles/key-vault/key-vault-get-started.md) tematu. Przed wykonaniem tych kroków, należy pamiętać, że jest pewne informacje, które należy zebrać podczas tego — konfiguracja który będzie później potrzebny po włączeniu integracji magazynu kluczy Azure na maszynie Wirtualnej SQL.
 
-When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
+Po wyświetleniu okna Tworzenie krok magazynu kluczy, należy pamiętać, zwracana **vaultUri** właściwość, która jest adres URL magazynu kluczy. W przykładzie przedstawionym w tym kroku przedstawiony poniżej, nazwa magazynu kluczy jest ContosoKeyVault w związku z tym adresem URL magazynu kluczy będzie https://contosokeyvault.vault.azure.net/.
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
+Adres URL magazynu kluczy jest przypisany później do **$akvURL** parametru w skrypt programu PowerShell, aby włączyć integracji magazynu kluczy Azure.
 
