@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Jak uzyskać dzierżawę usługi Azure Active Directory
 W usłudze Azure Active Directory (Azure AD) [dzierżawa](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) reprezentuje organizację.  Jest to dedykowane wystąpienie usługi Azure AD, którą organizacja otrzymuje i której zostaje właścicielem po zarejestrowaniu się w usłudze w chmurze firmy Microsoft, takiej jak platforma Azure, usługa Microsoft Intune czy usługa Office 365.  Każda dzierżawa usługi Azure AD jest unikatowa i oddzielona od innych dzierżaw usługi Azure AD.  
@@ -65,4 +64,3 @@ Jeśli konto organizacyjne zostało wcześniej zarejestrowane w celu uzyskania s
 Jeśli wszystkie powyższe informacje są dla Ciebie mało zrozumiałe, nie przejmuj się.  Po prostu odwiedź stronę [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization), aby zarejestrować się na platformie Azure jako nowa organizacja.  Po wykonaniu procesu będziesz dysponować własną dzierżawą usługi Azure AD wraz z nazwą domeny wybraną podczas rejestracji.  W witrynie [Azure Portal](https://portal.azure.com) możesz odnaleźć dzierżawę, przechodząc do obszaru „Azure Active Directory” w panelu nawigacyjnym po lewej stronie.
 
 Podczas procesu rejestracji na platformie Azure wymagane jest podanie danych karty kredytowej.  Możesz to zrobić bez obaw — nie będą naliczane opłaty ani za publikowanie aplikacji w usłudze Azure AD, ani za tworzenie nowych dzierżaw.
-

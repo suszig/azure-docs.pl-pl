@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: pl-pl
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informacje na temat architektury usługi Azure Active Directory
 Usługa Azure Active Directory (Azure AD) umożliwia bezpieczne zarządzanie dostępem do usług i zasobów platformy Azure dla użytkowników. W ramach usługi Azure AD można skorzystać z pełnego zestawu możliwości zarządzania tożsamościami. Aby uzyskać więcej informacji na temat funkcji usługi Azure AD, zobacz [Co to jest usługa Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
@@ -56,15 +55,15 @@ Wszystkie operacje *odczytu* z katalogu są obsługiwane przez *repliki pomocnic
 
 Skalowalność to możliwość rozszerzania działania usługi w związku z rosnącymi wymaganiami dotyczącymi wydajności. Skalowalność zapisu jest osiągana przez partycjonowanie danych. Skalowalność odczytu uzyskuje się przez replikację danych z jednej partycji do wielu replik pomocniczych rozproszonych na całym świecie.
 
-Żądania z katalogu aplikacji są zazwyczaj kierowane do centrum danych, które jest im fizycznie najbliższe. Zapisy są w sposób niewidoczny dla użytkownika przekierowywane do repliki podstawowej w celu zapewnienia spójności odczytu i zapisu. Repliki pomocnicze znacznie rozszerzają skalę partycji, ponieważ katalogi zazwyczaj przez większość czasu obsługują operacje odczytu.
+Żądania z aplikacji katalogów są zazwyczaj kierowane do centrum danych, które jest im fizycznie najbliższe. Zapisy są w sposób niewidoczny dla użytkownika przekierowywane do repliki podstawowej w celu zapewnienia spójności odczytu i zapisu. Repliki pomocnicze znacznie rozszerzają skalę partycji, ponieważ katalogi zazwyczaj przez większość czasu obsługują operacje odczytu.
 
-Katalogi aplikacji nawiązują połączenie z najbliższymi centrami danych. Powoduje to zwiększenie wydajności, co umożliwia przeprowadzenie skalowania w poziomie. Ponieważ partycje katalogów mogą mieć wiele replik pomocniczych, repliki pomocnicze można umieścić bliżej klientów katalogu. Tylko wewnętrzne składniki usługi katalogu przeprowadzające wiele operacji odczytu bezpośrednio komunikują się z aktywną repliką podstawową.
+Aplikacje katalogów nawiązują połączenie z najbliższymi centrami danych. Powoduje to zwiększenie wydajności, co umożliwia przeprowadzenie skalowania w poziomie. Ponieważ partycje katalogów mogą mieć wiele replik pomocniczych, repliki pomocnicze można umieścić bliżej klientów katalogu. Tylko wewnętrzne składniki usługi katalogu przeprowadzające wiele operacji odczytu bezpośrednio komunikują się z aktywną repliką podstawową.
 
 ### <a name="continuous-availability"></a>Ciągła dostępność
 
 Dostępność (lub czas dostępności) definiuje możliwość wykonywania przez system nieprzerwanej pracy. Kluczem do wysokiej dostępności usługi Azure AD jest możliwość szybkiego przełączania ruchu między wiele rozproszonych geograficznie centrów danych. Każde centrum danych jest niezależne, co umożliwia wystąpienie nieskorelowanych trybów awarii.
 
-Projekt partycji usługi Azure AD jest uproszczony w porównaniu do firmowego projektu usługi AD, który ma kluczowe znaczenie dla skalowania systemu w górę. Zaadoptowaliśmy projekt pojedynczego elementu głównego, który obejmuje starannie zorganizowany i deterministyczny proces pracy w trybie failover repliki podstawowej.
+Projekt partycji usługi Azure AD jest uproszczony w porównaniu do organizacyjnego projektu usługi AD, co ma kluczowe znaczenie dla skalowania systemu w górę. Zaadoptowaliśmy projekt pojedynczego elementu głównego, który obejmuje starannie zorganizowany i deterministyczny proces pracy w trybie failover repliki podstawowej.
 
 **Odporność na uszkodzenia**
 
@@ -84,7 +83,7 @@ Repliki usługi Azure AD są przechowywane w centrach danych znajdujących się 
 
 Działania usługi Azure AD względem centrów danych mają następujące cechy:
 
- * Uwierzytelnianie, usługa Graph i inne usługi AD znajdują się za usługą bramy. Brama zarządza równoważeniem obciążenia tych usług. Automatycznie przejdzie ona w tryb failover, jeśli za pomocą transakcyjnych sond kondycji wykryte zostaną serwery w złej kondycji. Na podstawie danych z tych sond kondycji brama dynamicznie kieruje ruchem do centrów danych będących w dobrej kondycji.
+ * Uwierzytelnianie, usługa Graph i inne usługi AD znajdują się za usługą bramy. Brama zarządza równoważeniem obciążenia tych usług. Automatycznie przejdzie ona w tryb failover, jeśli za pomocą transakcyjnych sond kondycji wykryte zostaną serwery w złej kondycji. Na podstawie danych z tych sond kondycji brama dynamicznie kieruje ruch do centrów danych będących w dobrej kondycji.
  * Na potrzeby operacji *odczytu* katalog posiada repliki pomocnicze i odpowiednie usługi frontonu w ramach konfiguracji aktywne-aktywne działające w wielu centrach danych. W razie awarii całego centrum danych ruch zostanie automatycznie skierowany do innego centrum danych.
  *  Na potrzeby operacji *zapisu* katalog spowoduje przejście w tryb failover repliki podstawowej (głównej) w centrach danych za pośrednictwem planowanych (nowa replika podstawowa jest synchronizowana ze starą repliką podstawową) lub awaryjnych procedur przejścia w tryb failover. Trwałość danych jest zapewniana przez replikowanie każdego zatwierdzenia do co najmniej dwóch centrów danych.
 
@@ -104,7 +103,7 @@ Operacje zapisu aplikacji wykonywane za pomocą interfejsu API programu Graph us
 
 Katalog implementuje usuwanie elastyczne zamiast usuwania całkowitego w celu umożliwienia użytkownikom i dzierżawcom łatwego odzyskiwania w razie wykonania przypadkowego usunięcia przez klienta. Jeśli administrator dzierżawy przypadkowo usunie użytkowników, może on łatwo cofnąć tę operację i przywrócić usuniętych użytkowników. 
 
-Usługa Azure AD implementuje codzienne tworzenie kopii zapasowych wszystkich danych i w związku z tym umożliwia skuteczne przywrócenie danych w przypadku wykonania jakichkolwiek logicznych operacji usuwania lub uszkodzenia danych. Nasze warstwy danych korzystają z kodu służącego do korygowanie kodów, dzięki czemu możliwe jest wykonanie sprawdzenia w poszukiwaniu błędów i automatyczne naprawienie określonych rodzajów błędów na dysku.
+Usługa Azure AD implementuje codzienne tworzenie kopii zapasowych wszystkich danych i w związku z tym umożliwia autorytatywne przywrócenie danych w przypadku wykonania jakichkolwiek logicznych operacji usuwania lub uszkodzenia danych. Nasze warstwy danych korzystają z kodu służącego do korygowania błędów, dzięki czemu możliwe jest wykonanie sprawdzenia w poszukiwaniu błędów i automatyczne naprawienie określonych rodzajów błędów na dysku.
 
 **Metryki i monitory**
 
@@ -118,5 +117,4 @@ Stosujemy kontrole operacyjne, takie jak uwierzytelnianie wieloskładnikowe (MFA
 
 ## <a name="next-steps"></a>Następne kroki
 [Przewodnik dewelopera usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

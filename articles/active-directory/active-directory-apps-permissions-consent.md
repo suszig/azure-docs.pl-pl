@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplikacje, uprawnienia i zgody w usłudze Azure Active Directory
 W ramach usługi Azure Active Directory można dodać aplikacje do katalogu.  Aplikacje mogą się różnić w zależności od typu.  Aby wyświetlić aplikacje w portalu klasycznym, wybierz katalog, a następnie wybierz aplikacje.
 
@@ -220,5 +218,4 @@ W przypadku aplikacji FabrikamMail wygląda to następująco:
 (Element **ClientId** to identyfikator obiektu nazwy głównej usługi aplikacji FabrikamMail, który właśnie został utworzony, element **PrincipalId** to identyfikator obiektu użytkownika, który wyraził zgodę, element **ResourceId** to identyfikator obiektu nazwy głównej usługi aplikacji Exchange, a element Scope to uprawnienia w aplikacji Exchange, na które wyrażono zgodę).
 
 Jeśli użytkownicy nie mogą wyrazić zgody, zostanie wyświetlony ekran informujący, że uprawnienia są wymagane.
-
 

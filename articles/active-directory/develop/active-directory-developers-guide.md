@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Usługa Azure Active Directory dla deweloperów
 Azure Active Directory to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom bezpieczne logowanie każdego użytkownika mającego konto służbowe bazujące na technologii Microsoft.  W tej dokumentacji pokazano, jak dodać obsługę usługi Azure AD do swojej aplikacji, używając standardowych w branży protokołów uwierzytelniania: OAuth i OpenID Connect.
@@ -73,4 +72,3 @@ To są najlepsze miejsca, aby uzyskać pomoc w programowaniu dla usługi Azure A
 
 > [!NOTE]
 > Jeśli musisz logować konta osobiste Microsoft, warto rozważyć skorzystanie z [punktu końcowego usługi Azure AD v2.0](active-directory-appmodel-v2-overview.md).  Punkt końcowy usługi Azure AD v2.0 stanowi ujednolicenie kont osobistych i kont służbowych Microsoft (z usługi Azure AD) do postaci jednego systemu uwierzytelniania.
-

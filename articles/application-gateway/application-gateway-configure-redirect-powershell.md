@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>Konfigurowanie przekierowania dla usługi Application Gateway przy użyciu programu PowerShell
 
 Usługa Application Gateway obsługuje możliwość przekierowywania ruchu sieciowego na podstawie zdefiniowanej konfiguracji. Aby uzyskać więcej ogólnych informacji o przekierowywaniu, zobacz [Application Gateway redirect overview](application-gateway-redirect-overview.md) (Przekierowywanie w usłudze Application Gateway — omówienie). W tym artykule zawarto przykłady przekierowania protokołu HTTP na HTTPS, przekierowań opartych na ścieżkach, przekierowań obejmujących wiele lokacji i przekierowań do lokacji zewnętrznych.

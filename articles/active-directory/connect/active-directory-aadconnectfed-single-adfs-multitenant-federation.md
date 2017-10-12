@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: pl-pl
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usługi AD FS
 
 Pojedyncza farma usługi AD FS o wysokiej dostępności może federować wiele lasów, jeśli istnieje między nimi dwukierunkowa relacja zaufania. Te lasy mogą, ale nie muszą, odpowiadać tej samej usłudze Azure Active Directory. Ten artykuł zawiera instrukcje dotyczące konfigurowania federacji między pojedynczym wdrożeniem usługi AD FS i co najmniej dwoma lasami synchronizującymi dane z różnymi usługami Azure AD.
@@ -66,4 +64,3 @@ Powyższa operacja spowoduje sfederowanie domeny fabrikam.com z tą samą usług
 
 ## <a name="next-steps"></a>Następne kroki
 [Łączenie usługi Active Directory z usługą Azure Active Directory](active-directory-aadconnect.md)
-

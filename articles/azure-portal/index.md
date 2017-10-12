@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: carolz
+ms.openlocfilehash: 9b4352dbbec053ccc4a681886d86582adddf132c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: d9145591f768f2d5a8e55f28b0764b31e2ee452b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-portal-documentation"></a>Dokumentacja witryny Azure Portal
 Poznaj funkcje, za pomocą których możesz wdrażać zasoby w witrynie Azure Portal. W samouczkach, dokumentacji interfejsu API i pozostałych dokumentach przedstawiono informacje na temat wdrażania i monitorowania zasobów platformy Azure oraz zarządzania nimi.
-

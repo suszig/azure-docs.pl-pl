@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integracja programu System Center Configuration Manager z zarządzaniem aktualizacjami pakietu OMS [wersja zapoznawcza]
 
 Klienci, którzy zainwestowali w program System Center Configuration Manager do zarządzania komputerami, serwerami i urządzeniami przenośnymi polegają również na ich sile i dojrzałości w zarządzania aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).  
@@ -56,5 +54,4 @@ Po zakończeniu wdrażania aktualizacji za pomocą rozwiązania pakietu OMS doce
 Do zarządzania aktualizacjami maszyn wirtualnych z systemem Windows Server, które są klientami programu Configuration Manager, należy skonfigurować zasady klienta, aby wyłączyć funkcję zarządzania aktualizacjami oprogramowania dla wszystkich klientów zarządzanych przez to rozwiązanie.  Domyślnie ustawienia klienta dotyczą wszystkich urządzeń w hierarchii.  Aby uzyskać więcej informacji na temat tego ustawienia, zasad i sposobu ich konfigurowania, przejrzyj artykuł [Jak skonfigurować ustawienia klienta w programie System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Po wprowadzeniu tej zmiany konfiguracji utwórz nowe wdrożenie, postępując zgodnie z krokami opisanymi w temacie [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) (Tworzenie wdrożenia aktualizacji), i wybierz z listy rozwijanej odpowiednią kolekcję programu Configuration Manager reprezentowaną jako grupa komputerów pakietu OMS. 
-
 
