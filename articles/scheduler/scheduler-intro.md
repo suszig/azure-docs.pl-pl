@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.contentlocale: pl-pl
-ms.lasthandoff: 12/07/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Co to jest usługa Azure Scheduler?
 Usługa Azure Scheduler umożliwia opisywanie w sposób deklaratywny akcji do wykonania w chmurze. Usługa następnie planuje i uruchamia te akcje automatycznie.  Usługa Scheduler korzysta w tym celu z witryny [Azure Portal](scheduler-get-started-portal.md), kodu, [interfejsu API REST](https://msdn.microsoft.com/library/mt629143.aspx) lub programu Azure PowerShell.
@@ -53,5 +52,4 @@ Usługa Scheduler umożliwia programowe tworzenie, aktualizowanie, usuwanie i wy
  [Limity, wartości domyślne i kody błędów usługi Azure Scheduler](scheduler-limits-defaults-errors.md)
 
  [Uwierzytelnianie połączeń wychodzących usługi Azure Scheduler](scheduler-outbound-authentication.md)
-
 

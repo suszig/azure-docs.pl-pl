@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
 ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>Co to jest usługa Azure Data Catalog?
 Usługa Azure Data Catalog to w pełni zarządzana usługa w chmurze, której użytkownicy mogą odnajdować potrzebne im źródła danych i zrozumieć użycie znalezionych przez nich źródeł danych. Jednocześnie usługa Data Catalog pomaga organizacjom w osiąganiu większych zysków z ich istniejących inwestycji. 

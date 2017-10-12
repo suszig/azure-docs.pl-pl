@@ -192,7 +192,7 @@
           href: monitor-integration-runtime.md
     - name: Tworzenie środowiska Integration Runtime
       items:
-        - name: Azure Integration Runtime
+        - name: Środowisko uruchomieniowe integracji Azure
           href: create-azure-integration-runtime.md
         - name: Integration Runtime (Self-hosted)
           href: create-self-hosted-integration-runtime.md

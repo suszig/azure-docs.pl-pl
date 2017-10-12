@@ -63,8 +63,3 @@
        
         Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez magistralę usług do komunikacji między usługą i urządzeniem w usłudze StorSimple Manager.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

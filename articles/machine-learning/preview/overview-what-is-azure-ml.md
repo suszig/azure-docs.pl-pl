@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
 Usługa Azure Machine Learning to zintegrowane, kompleksowe rozwiązanie do nauki o danych i przeprowadzania zaawansowanych analiz. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -179,7 +177,7 @@ Serwer Microsoft Machine Learning umożliwia:
 - Masowe rozpowszechnianie szkoleń opracowanych za pomocą języków R i Python w klastrach usługi Hadoop lub Spark
 
 ### <a name="data-science-virtual-machine"></a>Maszyna wirtualna do analizy danych
-[Maszyna wirtualna do analizy danych](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) to niestandardowy obraz maszyny wirtualnej znajdujący się w chmurze Microsoft Azure, przeznaczony do wykonywania analiz danych. Zawiera ona wiele wstępnie zainstalowanych i skonfigurowanych, popularnych narzędzi do analizy danych, które pozwalają szybko rozpocząć tworzenie inteligentnych, zaawansowanych aplikacji analitycznych. Jest dostępna w systemach Windows Server i Linux. Oferujemy wersje maszyny wirtualnej dla systemów Windows Server 2016 i Windows Server 2012. Wersje dla systemu Linux są dostępne w systemie Ubuntu 16.04 LTS i w dystrybucjach OpenLogic 7.2 CentOS. 
+[Maszyna wirtualna do analizy danych](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) to niestandardowy obraz maszyny wirtualnej znajdujący się w chmurze Microsoft Azure, przeznaczony do wykonywania analiz danych. Zawiera ona wiele wstępnie zainstalowanych i skonfigurowanych, popularnych narzędzi do analizy danych, które pozwalają szybko rozpocząć tworzenie inteligentnych, zaawansowanych aplikacji analitycznych. Jest dostępna w systemach Windows Server i Linux. Oferujemy wersje maszyny wirtualnej dla systemów Windows Server 2016 i Windows Server 2012. Wersje dla systemu Linux są dostępne w systemie Ubuntu 16.04 LTS i w dystrybucjach OpenLogic 7.2 CentOS. 
 
 Maszyna wirtualna do analizy danych pozwala uruchamiać lub hostować zadania w jednym węźle. Można również jej użyć, gdy trzeba zdalnie skalować w górę przetwarzanie na jednej maszynie. Zarówno usługa Eksperymentowanie w usłudze Azure Machine Learning, jak i usługa Zarządzanie modelami w usłudze Azure Machine Learning obsługują maszynę wirtualną do analizy danych jako obiekt docelowy. 
 
@@ -219,4 +217,3 @@ Usług Microsoft Cognitive Services można używać do opracowywania aplikacji p
 
 ## <a name="next-steps"></a>Następne kroki
 * [Install and create Azure Machine Learning (Instalowanie i tworzenie kont usługi Azure Machine Learning)](quickstart-installation.md)
-

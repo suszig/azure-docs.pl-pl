@@ -9,8 +9,3 @@ W tej sekcji opisano sposób łączenia aplikacji z zapleczem usługi Mobile Eng
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

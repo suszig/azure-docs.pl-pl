@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
-ms.contentlocale: pl-pl
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 5a159ed0ba38899b21212518d41ff995895904ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Tworzenie nowego środowiska usługi Time Series Insights w witrynie Azure Portal
 
 Środowisko usługi Time Series Insights jest zasobem platformy Azure, który umożliwia pozyskiwanie i magazynowanie danych. Klienci mogą aprowizować środowiska z uwzględnieniem wymaganej wydajności za pośrednictwem witryny Azure Portal.
@@ -56,4 +54,3 @@ Aby utworzyć środowisko, wykonaj następujące kroki:
 * [Definiowanie zasad dostępu do danych](time-series-insights-data-access.md) umożliwiających uzyskiwanie dostępu do środowiska w [Portalu usługi Time Series Insights](https://insights.timeseries.azure.com)
 * [Tworzenie źródła zdarzeń](time-series-insights-add-event-source.md)
 * [Wysyłanie zdarzeń](time-series-insights-send-events.md) do źródła zdarzeń
-

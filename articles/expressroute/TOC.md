@@ -35,6 +35,7 @@
 ## Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
 ### [Witryna Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Interfejs wiersza polecenia platformy Azure](how-to-routefilter-cli.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
@@ -45,7 +46,7 @@
 ### [Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze](../best-practices-network-security.md)
 ### [Optymalizowanie routingu](expressroute-optimize-routing.md)
 ### [Routing asymetryczny](expressroute-asymmetric-routing.md)
-### [Translator adresów sieciowych dla usługi ExpressRoute](expressroute-routing-nat.md)
+### [Translator adresów sieciowych dla usługi ExpressRoute](expressroute-nat.md)
 
 ## Rozwiązywanie problemów
 ### [Weryfikowanie połączenia usługi ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Wykonywanie operacji w usłudze Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Azure Blob Storage to usługa do przechowywania dużych ilości danych obiektów niestrukturalnych, takich jak dane tekstowe lub binarne, do których można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. W tym samouczku opisano podstawowe operacje w usłudze Azure Blob Storage, takie jak przekazywanie, pobieranie i usuwanie obiektów blob. Omawiane kwestie:
@@ -283,4 +281,3 @@ Następujące zasoby zawierają dodatkowe informacje na temat korzystania z inte
   * [Dokumentacja poleceń interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/)
 * Microsoft Azure Storage Explorer
   * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) jest bezpłatną, autonomiczną aplikacją oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi przechowywanymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
-

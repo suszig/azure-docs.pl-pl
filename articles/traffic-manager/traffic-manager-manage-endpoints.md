@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych
 
 Funkcja Web Apps w usłudze Azure App Service udostępnia już routing ruchu w trybie failover i działania okrężnego dla witryn sieci Web w centrum danych niezależnie od trybu witryny sieci Web. Korzystając z usługi Azure Traffic Manager, można określić routing ruchu w trybie failover i działania okrężnego dla witryn sieci Web i usług w chmurze w różnych centrach danych. Pierwszym krokiem niezbędnym do obsługi tej funkcjonalności jest dodanie punktu końcowego usługi w chmurze lub witryny sieci Web do usługi Traffic Manager.
@@ -85,5 +83,4 @@ Można również wyłączyć poszczególne punkty końcowe, które są części�
 * [Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Zagadnienia dotyczące wydajności usługi Traffic Manager](traffic-manager-performance-considerations.md)
 * [Operacje w usłudze Traffic Manager (dokumentacja interfejsu API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

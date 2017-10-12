@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migrowanie na platformę Azure za pomocą usługi Site Recovery
 
@@ -83,4 +81,3 @@ Możesz zmigrować wystąpienia usługi AWS na maszyny wirtualne platformy Azure
 - [Migrowanie wystąpień usługi AWS na platformę Azure](site-recovery-migrate-aws-to-azure.md)
 - [Przygotuj migrowane maszyny do włączenia replikacji](site-recovery-azure-to-azure-after-migration.md) do innego regionu na potrzeby odzyskiwania po awarii.
 - Zacznij chronić obciążenia, [replikując maszyny wirtualne platformy Azure.](site-recovery-azure-to-azure.md)
-

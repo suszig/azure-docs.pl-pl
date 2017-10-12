@@ -19,6 +19,7 @@
 # Instrukcje
 
 ## Zasady zabezpieczeń
+### [Omówienie](security-center-policies-overview.md)
 ### [Zbieranie danych](security-center-enable-data-collection.md)
 ### [Zasady zabezpieczeń](security-center-policies.md)
 ### [Powiadomienia e-mail](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Zainstaluj punkt końcowy](security-center-install-endpoint-protection.md)
 #### [Uruchom ponownie po zaktualizowaniu systemu](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Koryguj luki w zabezpieczeniach systemu operacyjnego](security-center-remediate-os-vulnerabilities.md)
-#### [Rozwiązywanie alertów dotyczących kondycji punktu końcowego](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Aktualizacja wersji systemu operacyjnego](security-center-update-os-version.md)
 #### [Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorowanie kondycji zabezpieczeń](security-center-monitoring.md)

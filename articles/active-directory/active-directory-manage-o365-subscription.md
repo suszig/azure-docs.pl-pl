@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Zarządzanie katalogiem dla subskrypcji usługi Office 365 na platformie Azure
 W tym artykule opisano sposób zarządzania katalogiem, który został utworzony dla subskrypcji usługi Office 365, przy użyciu klasycznego portalu Azure. Aby zalogować się do klasycznego portalu Azure, musisz być administratorem usługi albo współadministratorem subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, już dziś możesz zarejestrować się w celu uzyskania [bezpłatnej 30-dniowej wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/) i za pomocą tego łącza w ciągu 5 minut wdrożyć swoje pierwsze rozwiązanie w chmurze. Aby zalogować się do usługi Office 365, użyj konta służbowego lub szkolnego.
@@ -34,8 +34,8 @@ Jeśli masz już subskrypcję platformy Azure, proces zarządzania dodatkowym ka
 
 | Subskrypcja | Office 365 | Azure |
 | --- | --- | --- |
-|   Nazwa wyświetlana |Contoso |Domyślny katalog Azure Active Directory (Azure AD) |
-|   Nazwa domeny |contoso.com |jnowakhotmail.onmicrosoft.com |
+|   Nazwa wyświetlana | Contoso | Domyślny katalog Azure Active Directory (Azure AD) |
+|   Nazwa domeny | contoso.com | jnowakhotmail.onmicrosoft.com |
 
 Chce zarządzać tożsamościami użytkowników w katalogu firmy Contoso, gdy jest zalogowany przy użyciu swojego konta Microsoft Azure, tak aby mógł włączać funkcje usługi Azure AD, takie jak uwierzytelnianie wieloskładnikowe. Poniższy diagram ułatwia zilustrowanie tego procesu.
 
@@ -70,4 +70,3 @@ Teraz załóżmy, że Anna Kowalska musi administrować witrynami sieci Web i za
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat relacji między subskrypcjami i katalogami, zobacz [Jak subskrypcja jest skojarzona z katalogiem](active-directory-how-subscriptions-associated-directory.md).
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Kopiowanie przykładowych eksperymentów w celu tworzenia nowych eksperymentów uczenia maszynowego
 Naucz się, jak zacząć od przykładowych eksperymentów z witryny [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), zamiast tworzyć eksperymenty uczenia maszynowego od zera. Używając przykładów, możesz zbudować własne rozwiązanie uczenia maszynowego.
@@ -69,4 +68,3 @@ W obszarze roboczym programu Machine Learning Studio zostanie utworzony nowy eks
 * [Importowanie danych z różnych źródeł](import-data.md)
 * [Samouczek szybkiego startu dotyczący języka R w usłudze Machine Learning](r-quickstart.md)
 * [Wdrażanie usługi sieci Web Machine Learning](publish-a-machine-learning-web-service.md)
-

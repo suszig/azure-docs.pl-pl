@@ -11,7 +11,7 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Wysyłanie powiadomienia do aplikacji
+## <a id="send"></a>Wysyłanie powiadomienia do aplikacji
 Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji:
 
 1. Przejdź do karty **Reach** (Zasięg) w portalu usługi Mobile Engagement.
@@ -39,9 +39,4 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
 8. Jeśli masz urządzenie Apple Watch sparowane z danym urządzeniem z systemem iOS, powiadomienie zostanie wyświetlone na urządzeniu Apple Watch:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

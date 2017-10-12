@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: maxluk
+ms.openlocfilehash: 9d66931e1c855788163d92f0c3f34f55c44615dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Wprowadzenie do platformy Spark w usłudze HDInsight
 
@@ -133,4 +132,3 @@ Rozpocznij od utworzenia klastra Spark w usłudze HDInsight. Zobacz temat [Wprow
 * [Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Śledzenie i debugowanie zadań uruchamianych w klastrze Apache Spark w usłudze HDInsight](hdinsight-apache-spark-job-debugging.md)
 * [Znane problemy dotyczące platformy Apache Spark w usłudze Azure HDInsight](hdinsight-apache-spark-known-issues.md).
-

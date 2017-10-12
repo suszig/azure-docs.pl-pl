@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e764936afda8bd498f97a8dc3426136815c18a5a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 01/13/2017
-
+ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Korzystanie z usługi Azure Media Services i witryny Azure Portal do prowadzenia transmisji strumieniowych na żywo ze strumieniami o różnych szybkościach transmisji bitów
 > [!div class="op_single_selector"]
@@ -87,7 +86,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
     ![Tworzenie kanału](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Kliknij pozycję **Ustawienia**.
    
-   1. Wybierz typ kanału **Kodowanie na żywo**. Ten typ określa, że chcesz utworzyć kanał obsługujący kodowanie na żywo. Oznacza to, że przychodzący strumień o pojedynczej szybkości transmisji bitów jest wysyłany do kanału i kodowany do strumienia o wielokrotnej szybkości transmisji bitów przy użyciu określonych ustawień kodera na żywo. Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów.](media-services-manage-live-encoder-enabled-channels.md). Kliknij przycisk OK.
+   1. Wybierz typ kanału **Kodowanie na żywo**. Ten typ określa, że chcesz utworzyć kanał obsługujący kodowanie na żywo. Oznacza to, że przychodzący strumień o pojedynczej szybkości transmisji bitów jest wysyłany do kanału i kodowany do strumienia o wielokrotnej szybkości transmisji bitów przy użyciu określonych ustawień kodera na żywo. Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md). Kliknij przycisk OK.
    2. Określ nazwę kanału.
    3. Kliknij przycisk OK w dolnej części ekranu.
 5. Wybierz kartę **Pozyskiwanie**.
@@ -118,7 +117,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 
 Po utworzeniu kanału można go kliknąć i wybrać pozycję **Ustawienia**, aby wyświetlić konfiguracje kanału. 
 
-Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów.](media-services-manage-live-encoder-enabled-channels.md).
+Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z usługi Azure Media Services do prowadzenia transmisji strumieniowych na żywo ze strumieniami o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="get-ingest-urls"></a>Pobieranie adresów URL pozyskiwania
 Po utworzeniu kanału można pobrać adresy URL pozyskiwania, które należy udostępnić koderowi na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
@@ -204,5 +203,4 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

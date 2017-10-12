@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.contentlocale: pl-pl
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="media-services-documentation"></a>Dokumentacja usługi Media Services
 
 Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy w chmurze — zapewnić przesyłanie strumieniowe materiałów wideo w jakości odpowiedniej do emisji. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób zapewnienia bezpiecznej transmisji strumieniowej materiałów wideo lub audio na żywo lub na żądanie, którą można skalować na potrzeby milionów użytkowników.
@@ -212,5 +210,4 @@ Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy 
         </div>
     </li>
 </ul>
-
 

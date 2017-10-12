@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: e36baddffd634cb7d601d09ccebaf40b27798c7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="active-directory-b2c-documentation"></a>Dokumentacja usługi Active Directory B2C
 
 Dowiedz się, jak skonfigurować kompleksowe rozwiązanie do zarządzania tożsamościami klientów w chmurze i zarządzać nim za pomocą usługi Active Directory B2C. W samouczkach, dokumentacji i innych dokumentach pokazano, jak chronić aplikacje sieci Web i aplikacje mobilne dla klientów za pomocą bezpiecznego logowania.
@@ -188,5 +186,4 @@ Dowiedz się, jak skonfigurować kompleksowe rozwiązanie do zarządzania tożsa
         </a>
     </li>
 </ul>
-
 

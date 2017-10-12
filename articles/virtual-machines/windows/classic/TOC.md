@@ -1,5 +1,5 @@
 # Omówienie
-## [Informacje o maszynach wirtualnych](../../virtual-machines-windows-about.md)
+## [Informacje o maszynach wirtualnych](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Dyski i wirtualne dyski twarde](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Sieci wirtualne](../../../virtual-network/virtual-networks-overview.md)
 ## [Często zadawane pytania](faq.md)

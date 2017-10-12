@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Przekazywanie i pobieranie danych obrazu w chmurze</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Wyzwalanie usługi Azure Functions w celu przetwarzania obiektów blob</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Wyzwalanie usługi Azure Functions w celu przetwarzania obiektów blob</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Zabezpieczanie danych aplikacji</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorowanie i rozwiązywanie problemów dotyczących magazynu</a>
   - title: Przykłady

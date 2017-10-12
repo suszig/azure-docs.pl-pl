@@ -111,6 +111,8 @@
       items:
         - name: Azure Portal
           href: howto-server-parameters.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: howto-configure-server-parameters-using-cli.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Zasoby
   items:
+    - name: Szablony wdrażania
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Cennik

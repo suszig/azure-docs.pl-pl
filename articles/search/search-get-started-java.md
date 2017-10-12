@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.contentlocale: pl-pl
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Wprowadzenie do usługi Azure Search w języku Java
 > [!div class="op_single_selector"]
@@ -110,7 +109,7 @@ Wszystkie kolejne modyfikacje plików i instrukcje uruchamiania będą wykonywan
 7. Kliknij przycisk **Zakończ**.
 8. Wybierz pozycję **Okna** > **Preferencje** > **Java** > **Zainstalowane środowiska JRE** > **Dodaj**.
 9. W obszarze **Dodawanie środowiska JRE** wybierz opcję **Standardowa maszyna VM**.
-10. Kliknij przycisk **Dalej**
+10. Kliknij przycisk **Dalej**.
 11. W obszarze Katalog główny środowiska JRE sekcji Definicja środowiska JRE kliknij pozycję **Katalog**.
 12. Przejdź do katalogu **Program Files** > **Java** i wybierz zestaw JDK, który został wcześniej zainstalowany. Należy wybrać zestaw JDK jako środowisko JRE.
 13. W obszarze Zainstalowane środowiska JRE wybierz pozycję **JDK**. Twoje ustawienia powinny być podobne do tych na poniższym zrzucie ekranu.
@@ -180,4 +179,3 @@ Dopiero zaczynasz korzystać z usługi Azure Search? Zalecamy wypróbować inne 
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

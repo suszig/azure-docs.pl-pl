@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
 Sekcja Integracja katalogu serwera usługi Azure MFA umożliwia przeprowadzenie integracji z usługą Active Directory lub innym katalogiem LDAP. Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników.
@@ -139,4 +138,3 @@ Przyciski Przenieś w górę i Przenieś w dół umożliwiają administratorowi 
 Można skonfigurować dodatkowe serwery Multi-Factor Auth, które będą pełnić rolę zapasowych serwerów proxy LDAP wykorzystywanych do uwierzytelniania RADIUS lub uwierzytelniania w usługach IIS. Konfiguracja synchronizacji jest współdzielona przez wszystkich agentów. Usługę Multi-Factor Auth Server można jednak uruchomić tylko na jednym z tych agentów. Na tej karcie można wybrać serwer usługi Multi-Factor Auth, dla którego ma zostać włączona synchronizacja.
 
 ![Serwery usługi Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

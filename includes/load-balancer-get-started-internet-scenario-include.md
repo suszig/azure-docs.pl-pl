@@ -5,8 +5,3 @@ W tym scenariuszu zostaną wykonane następujące zadania:
 * Utworzenie sond kondycji.
 
 ![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

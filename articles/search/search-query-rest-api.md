@@ -13,14 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
 >
@@ -165,4 +163,3 @@ Po pomyślnym wykonaniu zapytania kod stanu przyjmie wartość `200 OK`, a wynik
 ```
 
 Aby dowiedzieć się więcej, przejdź do sekcji „Response” (Odpowiedź) w artykule [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Wyszukiwanie dokumentów). Aby uzyskać więcej informacji o innych kodach stanów HTTP, które mogą być zwracane w przypadku niepowodzenia, zobacz [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) (Usługa Azure Search — kody stanów HTTP).
-

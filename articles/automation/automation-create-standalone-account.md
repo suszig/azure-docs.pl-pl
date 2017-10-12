@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 W tym temacie przedstawiono sposób tworzenia konta usługi Automation w witrynie Azure Portal, jeśli chcesz ocenić i dowiedzieć się o usłudze Azure Automation bez uwzględniania dodatkowych rozwiązań do zarządzania lub integracji z usługą OMS Log Analytics w celu zapewnienia zaawansowanego monitorowania zadań elementów Runbook.  W dowolnym momencie w przyszłości możesz dodać te rozwiązania do zarządzania lub zintegrować je z usługą Log Analytics.  Konto usługi Automation umożliwia uwierzytelnianie elementów Runbook zarządzających zasobami w usłudze Azure Resource Manager albo w klasycznym wdrożeniu platformy Azure.
 
@@ -92,4 +90,3 @@ Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jak
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby rozpocząć pracę z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).
 * Aby rozpocząć pracę z elementami Runbook programu Python2, zobacz [Mój pierwszy element Runbook programu Python2](automation-first-runbook-textual-python2.md).
-

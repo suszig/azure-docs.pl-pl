@@ -1,4 +1,4 @@
---- 
+---
 title: "Rozpoczynanie pracy z usługą Azure Automation | Microsoft Docs"
 description: "Ten artykuł zawiera omówienie usługi Azure Automation oparte na przeglądzie szczegółów projektu i implementacji w ramach przygotowania do dołączenia oferty z platformy Azure Marketplace."
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Rozpoczynanie pracy z usługą Azure Automation
 
 Ten przewodnik Wprowadzenie opisuje podstawowe pojęcia związane z wdrażaniem usługi Azure Automation. Jeśli usługa Automation na platformie Azure nie była wcześniej używana lub masz doświadczenie z oprogramowaniem do automatyzacji przepływu pracy, takim jak System Center Orchestrator, ten przewodnik ułatwi Ci zrozumienie procedur przygotowywania i dołączania usługi Automation.  Po zakończeniu będzie można rozpocząć tworzenie elementów runbook w celu zaspokojenia potrzeb związanych z automatyzacją procesów. 
@@ -191,6 +189,5 @@ Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów runbook, pra
 ## <a name="next-steps"></a>Następne kroki
 * Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).
 * Przed rozpoczęciem tworzenia elementów runbook należy najpierw poznać obsługiwane [typy elementów runbook usługi Automation](automation-runbook-types.md) oraz powiązane zagadnienia.
-
 
 

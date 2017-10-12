@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Krok 1. Przegląd architektury
 
 
@@ -63,8 +60,7 @@ Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagani
 1. Po włączeniu ochrony dla maszyny wirtualnej funkcji Hyper-V, w witrynie Azure Portal lub środowisku lokalnym, zostanie uruchomione zadanie **Włącz ochronę**.
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
-4. To zadanie możesz monitorować na karcie **Zadania**.
-        ![Lista zadań](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. To zadanie możesz monitorować na karcie **Zadania**.      ![Lista zadań](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikowanie danych początkowych
 
@@ -121,4 +117,3 @@ Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm pona
 ## <a name="next-steps"></a>Następne kroki
 
 Przejdź do: [Krok 2: Przejrzyj wymagania wstępne dotyczące wdrażania](vmm-to-azure-walkthrough-prerequisites.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Samodzielnie realizowany pokaz pakietu Operations Management Suite (OMS) — mapa usługi
 Jest to pokaz realizowany samodzielnie, który demonstruje użycie [rozwiązania mapy usługi](operations-management-suite-service-map.md) w pakiecie Operations Management Suite (OMS) w celu zidentyfikowania i zdiagnozowania symulowanego problemu w aplikacji sieci Web.  Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami.  Konsoliduje ona również dane zebrane przez inne usługi pakietu OMS, aby pomóc w analizowaniu wydajności oraz identyfikowaniu problemów.  Skorzystasz także z funkcji [przeszukiwania dzienników w usłudze Log Analytics](../log-analytics/log-analytics-log-searches.md), aby przejść do szczegółów zebranych danych w celu zidentyfikowania głównego problemu.
 
@@ -69,7 +67,7 @@ Dostaliśmy informację, że problem rozpoczął się o godz. 4:00, więc zobacz
 
 ### <a name="5-view-alert"></a>5. Wyświetl alert
 
-Teraz widzimy, że dla zależności **acmetomcat** jest wyświetlany alert, więc to jest nasz potencjalny problem.  Kliknij ikonę alertu serwera **acmetomcat**, aby wyświetlić jego szczegóły.  Widzimy, że mamy krytyczne wykorzystanie procesora CPU i możemy rozwinąć informacje, aby uzyskać więcej szczegółów.  Prawdopodobnie to jest właśnie przyczyna niskiej wydajności. 
+Teraz widzimy, że dla zależności **acmetomcat** jest wyświetlany alert, więc to jest nasz potencjalny problem.  Kliknij ikonę alertu serwera **acmetomcat**, aby wyświetlić jego szczegóły.  Widzimy, że mamy krytyczne wykorzystanie procesora CPU, i możemy rozwinąć informacje, aby uzyskać więcej szczegółów.  Prawdopodobnie to jest właśnie przyczyna niskiej wydajności. 
 
 ![Alerty](./media/operations-management-suite-walkthrough-servicemap/alert.png)
 
@@ -105,7 +103,7 @@ Zobaczmy, czy uda nam się uzyskać więcej szczegółów na temat kolekcji dany
 
 To zapytanie zwraca listę 5 procesów najbardziej obciążających procesor serwera **acmetomcat**.  Możesz sprawdzić zapytanie w celu wstępnego zapoznania się z językiem zapytań używanym do przeszukiwania dzienników.  Jeśli interesują Cię procesy na innych komputerach, możesz zmodyfikować zapytanie, aby pobrać te informacje.
 
-W tym przypadku widać, że proces tworzenia kopii zapasowej stale używa około 60% procesora CPU serwera aplikacji.  Jest dość oczywiste, że ten nowy proces jest odpowiedzialny za problem z wydajnością.  Naszym rozwiązaniem byłoby usunięcie tego nowego oprogramowania do tworzenia kopii zapasowych z serwera aplikacji.  Moglibyśmy wykorzystać konfigurację żądanego stanu (DSC, Desired State Configuration) zarządzaną przez usługę Azure Automation w celu zdefiniowania zasad, które zapewnią, że ten proces nigdy nie będzie uruchamiany w systemach krytycznych.
+W tym przypadku widać, że proces tworzenia kopii zapasowej stale używa około 60% procesora CPU serwera aplikacji.  Jest dość oczywiste, że ten nowy proces jest odpowiedzialny za problem z wydajnością.  Naszym rozwiązaniem byłoby usunięcie tego nowego oprogramowania do tworzenia kopii zapasowych z serwera aplikacji.  Moglibyśmy wykorzystać funkcję Desired State Configuration (DSC) zarządzaną przez usługę Azure Automation w celu zdefiniowania zasad, które zapewnią, że ten proces nigdy nie będzie uruchamiany w systemach krytycznych.
 
 
 ## <a name="summary-points"></a>Punkty podsumowujące

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>Architektura usługi Service Bus
 W tym artykule opisano architekturę przetwarzania komunikatów usługi Azure Service Bus.
@@ -48,6 +47,5 @@ Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z nast
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Rozwiązanie do obsługi komunikatów kolejek korzystające z funkcji kolejek usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
-
 
 

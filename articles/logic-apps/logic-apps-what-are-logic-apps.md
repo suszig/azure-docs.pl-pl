@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Co to jest Logic Apps?
 Usługa Logic Apps umożliwia uproszczenie i wdrażanie skalowalnych integracji i przepływów pracy w chmurze. Udostępnia ona wizualnego projektanta pozwalającego na modelowanie i automatyzację procesu w postaci serii kroków znanych jako przepływ pracy.  Istnieje [wiele łączników](../connectors/apis-list.md) dla rozwiązań w chmurze i lokalnych, które umożliwiają szybką integrację usług i protokołów.  Aplikacja logiki rozpoczyna się od wyzwalacza (na przykład „Gdy konto zostanie dodane do oprogramowania Dynamics CRM”), po uruchomieniu którego można użyć wielu połączeń akcji, konwersji i logiki warunkowej.
@@ -78,4 +77,3 @@ Poniżej przedstawiono niektóre z kluczowych elementów składających się na 
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

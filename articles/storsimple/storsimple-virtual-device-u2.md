@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Wdrażanie urządzenia wirtualnego StorSimple oraz zarządzanie nim na platformie Azure
 ## <a name="overview"></a>Omówienie
@@ -236,4 +235,3 @@ Jeśli podczas tworzenia urządzenia wirtualnego nie ma łączności z Internete
 ## <a name="next-steps"></a>Następne kroki
 * Informacje na temat [używania usługi StorSimple Manager do zarządzania urządzeniem wirtualnym](storsimple-manager-service-administration.md).
 * Zapoznanie się ze sposobem [przywracania woluminu StorSimple z zestawu kopii zapasowych](storsimple-restore-from-backup-set.md).
-

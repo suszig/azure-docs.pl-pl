@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-documentation"></a>Dokumentacja usługi IoT Hub 
 
 Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty ułatwiające wdrażanie niezawodnej komunikacji dwukierunkowej między urządzeniami IoT a zapleczem rozwiązania. 
@@ -168,4 +166,3 @@ Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Inter
         </div>
     </li>
 </ul>
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizowanie użycia danych w usłudze Log Analytics
 Usługa Log Analytics zawiera informacje na temat ilości zebranych danych, komputerów, z których zostały one wysyłane, oraz typów danych.  Pulpit nawigacyjny **Użycie usługi Log Analytics** pozwala na sprawdzenie ilości danych wysyłanych do usługi Log Analytics. Na pulpicie nawigacyjnym prezentowana jest ilość danych zebranych przez każde rozwiązanie i ilość danych wysyłanych przez komputery.
@@ -173,4 +172,3 @@ Użyj funkcji [określania celu rozwiązania](../operations-management-suite/ope
 * Zmień [konfigurację licznika wydajności](log-analytics-data-sources-performance-counters.md)
 * Zmień [konfigurację dziennika zdarzeń](log-analytics-data-sources-windows-events.md)
 * Zmień [konfigurację dziennika systemu](log-analytics-data-sources-syslog.md)
-

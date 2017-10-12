@@ -30,8 +30,3 @@
 
 Aby obejrzeć film wideo, na którym przestawiono tworzenie woluminu StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
