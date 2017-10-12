@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1778a4af004afd45464e37e198d78b4f0977c1c4
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -623,5 +622,4 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
-
 

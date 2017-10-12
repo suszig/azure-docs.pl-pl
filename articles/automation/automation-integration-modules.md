@@ -1,9 +1,9 @@
---- 
+---
 title: "Tworzenie modułu integracji usługi Azure Automation | Microsoft Docs"
 description: "Samouczek, który przeprowadzi Cię przez proces tworzenia, testowania i przykładowego użycia modułów integracji w usłudze Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: ea2ad80f348c80856c525218aad45a8fcf47bcb8
-ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
-
+ms.openlocfilehash: 061a9856ef4a9bc4f569b812a061fad98b044f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-integration-modules"></a>Moduły integracji usługi Azure Automation
 Program PowerShell to podstawowa technologia używana w usłudze Azure Automation. Ponieważ usługa Azure Automation jest zbudowana w oparciu o program PowerShell, moduły tego programu stanowią podstawę możliwości rozszerzania usługi Azure Automation. W tym artykule przedstawimy szczegółowe informacje na temat używania w usłudze Azure Automation modułów programu PowerShell określanych jako „moduły integracji” oraz najlepsze rozwiązania w zakresie takiego tworzenia modułów programu PowerShell, aby mogły one działać jako moduły integracji w usłudze Azure Automation. 
 
@@ -211,10 +211,4 @@ Mimo że moduły integracji są zasadniczo modułami programu PowerShell, istnie
 
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).
 * Aby dowiedzieć się więcej na temat tworzenia modułów programu PowerShell, zobacz artykuł [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Pisanie modułu programu Windows PowerShell).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Wprowadzenie do zestawu SDK usługi Batch dla języka Python
 
@@ -716,4 +715,3 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania usługi Batch na
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Poświadczenia usługi Batch w portalu"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Poświadczenia usługi Storage w portalu"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Przepływ pracy rozwiązania w usłudze Batch (diagram minimalny)"
-

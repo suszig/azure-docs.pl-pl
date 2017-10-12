@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
+ms.openlocfilehash: 4b9f8c618a69c4c157dafeb7f726aae24efad428
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Ręczne konfigurowanie aplikacji Application Insights dla aplikacji platformy .NET
 
@@ -149,5 +148,4 @@ Zobacz [ten punkt rozwiązywania problemów](app-insights-asp-net-troubleshoot-n
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dodaj więcej danych telemetrycznych](app-insights-asp-net-more.md), aby uzyskać pełny obraz swojej aplikacji.
-
 

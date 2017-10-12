@@ -14,14 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
 
 W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi Event Hubs z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.

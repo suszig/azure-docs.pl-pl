@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Konfigurowanie usługi IoT Hub Device Provisioning Service (wersja zapoznawcza) w witrynie Azure Portal
 
 W tych krokach pokazano, jak w portalu skonfigurować zasoby platformy Azure w chmurze na potrzeby aprowizowania posiadanych urządzeń. Obejmuje to utworzenie centrum IoT, utworzenie nowej usługi IoT Hub Device Provisioning Service i powiązanie obu usług ze sobą. 
@@ -84,4 +82,3 @@ W tym przewodniku Szybki start zostały wdrożone centrum IoT i wystąpienie us�
 
 > [!div class="nextstepaction"]
 > [Przewodnik Szybki start z tworzeniem symulowanego urządzenia](./quick-create-simulated-device.md)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-overview"></a>Omówienie usługi Azure Resource Manager
 Infrastruktura aplikacji zwykle obejmuje wiele składników — może to być maszyna wirtualna, konto magazynu i sieć wirtualna albo aplikacja sieci Web, baza danych, serwer bazy danych i usługi zewnętrzne. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Dlatego najlepiej wdrażać i monitorować je oraz zarządzać nimi grupowo. Usługa Azure Resource Manager umożliwia pracę z zasobami tworzącymi rozwiązanie w formie grupy. Wszystkie zasoby danego rozwiązania można wdrożyć, zaktualizować lub usunąć w ramach jednej skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia funkcje zabezpieczeń, inspekcji i tagowania ułatwiające zarządzanie zasobami po wdrożeniu. 

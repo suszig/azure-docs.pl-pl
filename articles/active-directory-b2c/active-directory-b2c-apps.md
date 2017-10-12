@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Usługa Azure Active Directory B2C: typy aplikacji
 Usługa Azure Active Directory (Azure AD) B2C obsługuje uwierzytelnianie w wielu nowoczesnych architekturach aplikacji. Wszystkie one są oparte na standardowych protokołach branżowych [OAuth 2.0](active-directory-b2c-reference-protocols.md) lub [OpenID Connect](active-directory-b2c-reference-protocols.md). W tym dokumencie krótko opisano typy aplikacji, które można tworzyć, niezależnie od preferowanego języka lub platformy. Ułatwia on także zrozumienie ogólnych scenariuszy przed [rozpoczęciem tworzenia aplikacji](active-directory-b2c-overview.md#get-started).
@@ -132,4 +131,3 @@ Ten przepływ nie jest obecnie obsługiwany w usłudze Azure AD B2C. Te aplikacj
 Wiele architektur obejmuje interfejs API sieci Web, który musi wywołać inny podrzędny interfejs API sieci Web, przy czym oba interfejsy są zabezpieczane przez usługę Azure AD B2C. Ten scenariusz jest często spotykany w klientach natywnych, którzy mają zaplecza interfejsu API sieci Web. Następnie następuje wywołanie usługi online firmy Microsoft, np. interfejsu API Azure AD Graph.
 
 Ten scenariusz obejmujący łańcuch interfejsów API sieci Web może być obsługiwany przy użyciu przyznania poświadczeń elementu nośnego OAuth 2.0 JWT, określanego również jako przepływ „w imieniu”.  Jednak przepływ „w imieniu” nie jest obecnie wdrażany w usłudze Azure AD B2C.
-

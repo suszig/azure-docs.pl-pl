@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
 ms.openlocfilehash: 3ca0e9d905e23e25b57b46454399ad12e2890d52
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Tworzenie kopii zapasowej maszyny wirtualnej za pomocą programu PowerShell
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia lub skryptów. Możesz chronić swoje dane, tworząc kopie zapasowe w regularnych odstępach czasu. Usługa Azure Backup tworzy punkty odzyskiwania, które można przechowywać w geograficznie nadmiarowych magazynach odzyskiwania. Ten artykuł szczegółowo opisuje sposób tworzenia kopii zapasowej maszyny wirtualnej za pomocą modułu Azure PowerShell. Te czynności można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure](quick-backup-vm-cli.md) lub [witryny Azure Portal](quick-backup-vm-portal.md).
 

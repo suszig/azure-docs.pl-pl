@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.

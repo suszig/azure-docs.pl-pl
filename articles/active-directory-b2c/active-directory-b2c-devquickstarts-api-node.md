@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: pl-pl
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Usługa Azure AD B2C: zabezpieczanie interfejsu API sieci Web przy użyciu środowiska Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfej
 Aby pracować z tą próbką, należy:
 
 1. Zarejestrować aplikację w usłudze Azure AD.
-2. Skonfigurować aplikację do korzystania z wtyczki `azure-ad-passport` oprogramowania Passport.
+2. Skonfigurować aplikację do korzystania z wtyczki `passport-azure-ad` oprogramowania Passport.
 3. Skonfigurować aplikację klienta do wywołania interfejsu API sieci Web listy zadań do wykonania.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Tworzenie katalogu usługi Azure AD B2C
@@ -762,4 +760,3 @@ Udało Ci się wdrożyć interfejs API REST przy użyciu modułu Restify i strat
 Możesz teraz przejść do bardziej zaawansowanych tematów, takich jak:
 
 [Podłączanie do interfejsu API sieci Web przy użyciu systemu iOS z usługą B2C](active-directory-b2c-devquickstarts-ios.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Ochrona interfejsu API za pomocą ograniczania liczby wywołań przy użyciu usługi Azure API Management
 W tym przewodniku przedstawiono, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu zasad ograniczania liczby wywołań i przydziałów za pomocą usługi Azure API Management.
@@ -326,4 +325,3 @@ Jeśli obowiązuje zasada ograniczania liczby wywołań do 10 na minutę, kolejn
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej. 
 
@@ -727,7 +725,6 @@ Przejdź do następującego samouczka, aby dowiedzieć się więcej o przekszta�
 
 > [!div class="nextstepaction"]
 >[Przekształcanie danych przy użyciu klastra Spark w chmurze](tutorial-transform-data-spark-powershell.md)
-
 
 
 

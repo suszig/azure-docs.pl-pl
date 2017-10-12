@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
+ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
 
@@ -102,4 +101,3 @@ Fragment reguły PathBasedRouting:
 ## <a name="next-steps"></a>Następne kroki
 
 Po zapoznaniu się z informacjami na temat routingu zawartości opartego na adresach URL skorzystaj z informacji dotyczących [tworzenia bramy aplikacji przy użyciu routingu opartego na adresach URL](application-gateway-create-url-route-portal.md), aby utworzyć bramę aplikacji za pomocą reguł routingu adresów URL.
-

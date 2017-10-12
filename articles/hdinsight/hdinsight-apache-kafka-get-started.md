@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka (wersja zapoznawcza) w usłudze HDInsight
 
@@ -382,4 +381,3 @@ W tym dokumencie przedstawiono podstawowe informacje dotyczące pracy z platform
 * [Use Apache Spark Structured Streaming with Kafka on HDInsight (Używanie strumieni ze strukturą platformy Apache Spark z platformą Kafka w usłudze HDInsight)](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
-

@@ -16,12 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: usługa połączona programu Visual Studio (wersja zapoznawcza)
 
@@ -124,5 +123,4 @@ Teraz, gdy masz już działające usługi połączone z Twoim kontem usługi Azu
 * [Azure Cosmos DB: rozpoczęcie pracy z interfejsem API usługi DocumentDB — samouczek](documentdb-get-started.md).
 * Czy chcesz wykonać testowanie wydajności i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
 * Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
-
 

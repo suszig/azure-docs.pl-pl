@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8d4d574dee4b993d8a464482b244e1f63ade8a57
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,4 +129,3 @@ Wykonaj instrukcje krok po kroku w następujących samouczkach, aby dowiedzieć 
 | [Przenoszenie danych między dwoma magazynami danych w chmurze](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |W tym samouczku utworzysz fabrykę danych z potokiem, który **przenosi dane** z magazynu obiektów blob do bazy danych SQL. |
 | [Przekształcanie danych przy użyciu klastra Hadoop](data-factory-build-your-first-pipeline.md) |W tym samouczku utworzysz pierwszą fabrykę danych platformy Azure przy użyciu potoku danych, który **przetwarza dane**, uruchamiając skrypt Hive w klastrze Azure HDInsight (Hadoop). |
 | [Przenoszenie danych między lokalnym magazynem danych i magazynem danych w chmurze przy użyciu bramy zarządzania danymi](data-factory-move-data-between-onprem-and-cloud.md) |W tym samouczku utworzysz fabrykę danych z potokiem, który **przenosi dane** z **lokalnej** bazy danych programu SQL Server do obiektu blob platformy Azure. W ramach tego przewodnika zainstalujesz i skonfigurujesz bramę zarządzania danymi na tym komputerze. |
-

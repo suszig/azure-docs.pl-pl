@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-nat-requirements"></a>Wymagania dotyczące translatora adresów sieciowych w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, należy skonfigurować translatory adresów sieciowych oraz zarządzać nimi. Niektórzy dostawcy połączenia oferują konfigurowanie translatora adresów sieciowych oraz zarządzanie nim jako usługę zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej. 
@@ -75,5 +74,4 @@ Nie ma żadnych ograniczeń w zakresie długości prefiksu IP translatora adres�
   * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-classic.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-classic.md)
   * [Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-classic.md)
-
 
