@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visual-studio-code-tools-for-ai"></a>Narzędzia Visual Studio Code dla sztucznej inteligencji
 Narzędzia Visual Studio Code dla sztucznej inteligencji to rozszerzenie programistyczne do tworzenia, testowania i wdrażania rozwiązań uczenia głębokiego / sztucznej inteligencji. Obejmuje ono bezproblemową integrację z usługą Azure Machine Learning. Szczególnie dotyczy to widoku historii uruchamiania zawierającej szczegółowe dane o wydajności poprzednich cykli uczenia i metryki niestandardowe. Oferuje ono przykładowy widok eksploratora pozwalający na przeglądanie i uruchamianie nowego projektu za pomocą [zestawu narzędzi Microsoft Cognitive Toolkit (wcześniej znanego jako CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) i innych platform uczenia głębokiego. Ponadto zapewnia ono eksploratora dla celów obliczeń, który umożliwia przesyłanie zadań uczenia modeli w zdalnych środowiskach, takich jak usługi Azure Virtual Machines lub serwery systemu Linux z procesorem GPU. 
  
@@ -83,4 +81,3 @@ Aby zagłębić się w wyniki zadania, kliknij u góry **identyfikator zadania**
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [How to configure Azure Machine Learning to work with an IDE (Konfigurowanie usługi Azure Machine Learning do współpracy ze środowiskiem IDE)](./how-to-configure-your-IDE.md)
-

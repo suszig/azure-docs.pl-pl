@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-key-vault"></a>Zabezpieczanie własnego magazynu kluczy
 Usługa Azure Key Vault to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne (takie jak certyfikaty, parametry połączenia, hasła) dla aplikacji w chmurze. Ponieważ te dane są poufne i mają krytyczne znaczenie dla prowadzonej działalności, wskazane jest zabezpieczenie dostępu do własnego magazynu kluczy, tak aby tylko autoryzowane aplikacje i użytkownicy mogli uzyskiwać do niego dostęp. Ten artykuł zawiera omówienie modelu dostępu do magazynu kluczy, wyjaśnia uwierzytelnianie i autoryzację oraz na przykładzie opisuje sposób zabezpieczania dostępu do magazynu kluczy dla aplikacji w chmurze.

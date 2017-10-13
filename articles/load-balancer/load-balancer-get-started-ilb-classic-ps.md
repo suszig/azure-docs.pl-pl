@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
-ms.contentlocale: pl-pl
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 85fd757bdd6dd9906a23977b760f01bb1f85bf77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia (klasycznego) przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
@@ -191,5 +189,4 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia przy użyciu koligacji źródłowych adresów IP)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)
-
 

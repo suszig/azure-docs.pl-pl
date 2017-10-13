@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migracja platformy usługi Azure Security Center
 
@@ -78,5 +77,4 @@ W połączeniu z migracją platform wprowadzamy pewne dodatkowe drobne aktualiza
 - Zbieranie danych będzie wymagane i automatycznie włączone dla klientów w warstwie cenowej Standardowa.
 - Usługa Azure Security Center rozpocznie odnajdywanie rozwiązań chroniących przed złośliwym kodem, które nie zostały wdrożone za pomocą rozszerzeń platformy Azure. Najpierw dostępne będzie odnajdywanie programów Endpoint Protection i Defender firmy Symantec dla systemu Windows 2016.
 - Zasady zapobiegania i powiadomienia można konfigurować tylko na poziomie *Subskrypcja*, ale cennik nadal można ustawić na poziomie *Grupa zasobów*.
-
 

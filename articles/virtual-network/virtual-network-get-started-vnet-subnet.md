@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Tworzenie pierwszej sieci wirtualnej
 
 Dowiedz się, jak utworzyć sieć wirtualną z dwiema podsieciami, utworzyć dwie maszyny wirtualne i podłączyć każdą maszynę wirtualną do jednej podsieci, jak pokazano na poniższej ilustracji:
@@ -253,4 +251,3 @@ W tym ćwiczeniu utworzono sieć wirtualną i dwie maszyny wirtualne. Maszyny wi
 - [Interfejsy sieciowe](virtual-network-network-interface.md)
 - [Sieciowe grupy zabezpieczeń](virtual-networks-nsg.md)
 - [Maszyny wirtualne](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

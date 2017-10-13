@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/03/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Azure Media Services za pomocą witryny Azure Portal
 > [!div class="op_single_selector"]
@@ -91,5 +90,4 @@ Jeśli planujesz uzyskiwać dostęp do interfejsu API usługi AMS programowo, zo
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem iOS
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ Dla tego samouczka wymagane są następujące elementy:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
+## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
 ### <a name="import-the-unity-package"></a>Importowanie pakietu Unity
 1. Pobierz [pakiet Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk) i zapisz go na komputerze lokalnym. 
 2. Wybierz pozycję **Assets -> Import Package -> Custom Package** (Zasoby -> Importuj pakiet -> Pakiet niestandardowy), a następnie wybierz pakiet, który został pobrany w kroku powyżej. 
@@ -94,10 +94,10 @@ Dla tego samouczka wymagane są następujące elementy:
     ![][75]
 9. Teraz uruchom aplikację w edytorze XCode, dzięki czemu pakiet zostanie wdrożony na podłączonym urządzeniu i na telefonie będzie widoczna Twoja gra na platformie Unity. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
+## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
+## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 Usługa Mobile Engagement umożliwia wchodzenie w interakcję z użytkownikami i modułem REACH przy użyciu powiadomień wypychanych i komunikatów w aplikacji w kontekście kampanii. Ten moduł w portalu Mobile Engagement ma nazwę REACH.
 Nie ma konieczności dodatkowego konfigurowania aplikacji w celu otrzymywania powiadomień — została ona już skonfigurowana.
 
@@ -116,9 +116,3 @@ Nie ma konieczności dodatkowego konfigurowania aplikacji w celu otrzymywania po
 [73]: ./media/mobile-engagement-unity-ios-get-started/73.png
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

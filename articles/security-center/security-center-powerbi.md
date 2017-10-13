@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Uzyskiwanie szczegółowych informacji z Centrum zabezpieczeń Azure za pomocą usługi Power BI
 [Pulpit nawigacyjny usługi Power BI](http://aka.ms/azure-security-center-power-bi) w Centrum zabezpieczeń Azure umożliwia wizualizację, analizowanie i filtrowanie zaleceń oraz alertów zabezpieczeń z dowolnego miejsca — także z urządzenia przenośnego. Pulpit nawigacyjny usługi Power BI służy do wyświetlania trendów i wzorców ataków. Można wyświetlać alerty zabezpieczeń według zasobu lub adresu IP źródła oraz nierozwiązane zagrożenia bezpieczeństwa według zasobu lub wieku.
@@ -120,4 +119,3 @@ W tym dokumencie omówiono korzystanie z usługi Power BI w Centrum zabezpiecze�
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure
-

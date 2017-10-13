@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dołączone dyski danych
 [Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/) platformy Azure obsługują teraz maszyny wirtualne z dołączonymi dyskami danych. Dla zestawów skalowania utworzonych przy użyciu usługi Azure Managed Disks można zdefiniować dyski danych w profilu magazynu. Wcześniej jedynymi opcjami bezpośrednio dołączonego magazynu dostępnymi dla maszyn wirtualnych w zestawach skalowania były dysk systemu operacyjnego oraz dyski tymczasowe.
@@ -128,6 +127,5 @@ Obsługa usługi Azure Managed Disks i dołączonych dysków danych w zestawach 
 We wstępnej implementacji obsługi dysków dołączonych dla zestawów skalowania nie można dołączać ani odłączać dysków danych w przypadku pojedynczych maszyn wirtualnych należących do zestawu skalowania.
 
 W witrynie Azure Portal obsługa dołączonych dysków danych w zestawach skalowania jest wstępnie ograniczona. W zależności od wymagań można zarządzać dyskami dołączonymi przy użyciu szablonów platformy Azure, interfejsu wiersza polecenia, programu PowerShell, zestawów SDK oraz interfejsu API REST.
-
 
 

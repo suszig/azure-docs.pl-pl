@@ -17,10 +17,10 @@ ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
 ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Przypisywanie użytkownikom licencji usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility
 Jeśli zakupiono licencję usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility Suite, nie trzeba tworzyć dostawcy usługi Multi-Factor Authentication. Po przypisaniu licencji użytkownikom będzie można umożliwić im korzystanie z usługi MFA.

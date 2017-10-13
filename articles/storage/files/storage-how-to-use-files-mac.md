@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Instalowanie udziału plików platformy Azure za pomocą protokołu SMB w systemie macOS
 [Azure Files](storage-files-introduction.md) to usługa firmy Microsoft umożliwiająca tworzenie i używanie udziałów plików sieciowych na platformie Azure zgodnie ze standardami branżowymi. Udziały plików platformy Azure można instalować w systemach macOS Sierra (10.12) i El Capitan (10.11). W tym artykule przedstawiono dwa różne sposoby instalowania udziału plików platformy Azure w systemie macOS — za pomocą interfejsu użytkownika programu Finder i Terminala.
 

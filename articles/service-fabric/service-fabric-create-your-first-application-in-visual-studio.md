@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: f93298e6483fd8c9dfda835964aeebd1a430af69
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Tworzenie pierwszej aplikacji niezawodnych usług stanowych w usłudze Service Fabric w języku C#
 
 Dowiedz się, jak wdrożyć pierwszą aplikację usługi Service Fabric dla platformy .NET w systemie Windows w ciągu kilku minut. Po zakończeniu będziesz mieć lokalny klaster z uruchomioną aplikacją niezawodnej usługi.
@@ -148,4 +146,3 @@ Dowiedz się więcej o [niezawodnych usługach](service-fabric-reliable-services
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
-
