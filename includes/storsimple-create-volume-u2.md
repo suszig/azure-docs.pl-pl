@@ -39,8 +39,3 @@
       ![Dodawanie woluminu](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Po ustawieniu filtrów ![ikona znacznika wyboru](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
