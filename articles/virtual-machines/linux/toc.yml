@@ -247,6 +247,7 @@
             - name: Instalowanie sterowników procesora GPU NVIDIA
               href: n-series-driver-setup.md
     - name: Zarządzanie magazynem
+      href: about-disks-and-vhds.md
       items:
         - name: Dowiedz się więcej o usłudze Managed Disks
           href: managed-disks-overview.md
