@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Jak utworzyć parę publicznych i prywatnych kluczy SSH dla maszyn wirtualnych z systemem Linux i używać ich
 Para kluczy Secure Shell (SSH) umożliwia tworzenie na platformie Azure maszyn wirtualnych, które używają kluczy SSH do uwierzytelniania, eliminując konieczność logowania przy użyciu haseł. W tym artykule przedstawiono sposób szybkiego generowania i używania pary plików prywatnych i publicznych kluczy RSA protokołu SSH w wersji 2 dla maszyn wirtualnych z systemem Linux. Aby uzyskać bardziej szczegółowe instrukcje i dodatkowe przykłady, zobacz [szczegółowe instrukcje dotyczące tworzenia par kluczy SSH i certyfikatów](create-ssh-keys-detailed.md).
 
@@ -59,4 +57,3 @@ Maszyny wirtualne korzystające z pary kluczy SSH możesz tworzyć za pomocą wi
 * [Tworzenie bezpiecznej maszyny wirtualnej systemu Linux przy użyciu witryny Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tworzenie bezpiecznej maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tworzenie bezpiecznej maszyny wirtualnej systemu Linux przy użyciu szablonu platformy Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

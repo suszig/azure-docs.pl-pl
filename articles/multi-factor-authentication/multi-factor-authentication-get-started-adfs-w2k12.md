@@ -15,12 +15,11 @@ ms.date: 08/25/2017
 ms.author: kgremban
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
 Jeśli korzystasz z usług federacyjnych Active Directory (AD FS) i chcesz zabezpieczyć zasoby chmurowe lub lokalne, możesz skonfigurować serwer Azure Multi-Factor Authentication do pracy z usługami AD FS. Ta konfiguracja wyzwala weryfikację dwuetapową dla punktów końcowych o wysokiej wartości.
@@ -145,4 +144,3 @@ Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby u
 
 ## <a name="related-topics"></a>Powiązane tematy
 Aby uzyskać pomoc przy rozwiązywaniu problemów, zobacz [Azure Multi-Factor Authentication — często zadawane pytania](multi-factor-authentication-faq.md)
-

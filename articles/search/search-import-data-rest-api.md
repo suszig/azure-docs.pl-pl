@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Przekazywanie danych do usługi Azure Search przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ Aby uzyskać więcej informacji na temat akcji dla dokumentów oraz odpowiedzi o
 
 ## <a name="next-steps"></a>Następne kroki
 Po wypełnieniu indeksu usługi Azure Search możesz rozpocząć wykonywanie zapytań w celu wyszukania dokumentów. Aby uzyskać szczegóły, zobacz [Query Your Azure Search Index](search-query-overview.md) (Tworzenie zapytań względem indeksu usługi Azure Search).
-

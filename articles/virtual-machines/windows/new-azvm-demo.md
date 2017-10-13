@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c303235ead2af7cfaa368a5b5f00567ae44cfb86
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą polecenia New-AzVM (w wersji zapoznawczej) usługi Cloud Shell. 
 
 Polecenie cmdlet New-AzVM (w wersji zapoznawczej) pozwala łatwo utworzyć nową maszynę wirtualną przy użyciu programu PowerShell. Ten przewodnik zawiera szczegółowe informacje dotyczące tworzenia na platformie Azure nowej maszyny wirtualnej z systemem Windows Server 2016 za pomocą programu PowerShell w usłudze Azure Cloud Shell udostępniającej wstępnie zainstalowane polecenie cmdlet New-AzVM. Po ukończeniu wdrożenia nawiążemy połączenie z serwerem za pomocą protokołu RDP.  
@@ -83,4 +81,3 @@ W tym temacie wdrożyliśmy prostą maszynę wirtualną przy użyciu polecenia N
 
 > [!div class="nextstepaction"]
 > [Samouczki dla maszyny wirtualnej platformy Azure z systemem Windows](./tutorial-manage-vm.md)
-

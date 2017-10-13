@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
 > [!div class="op_single_selector"]
@@ -707,7 +706,7 @@ Aby hostować aplikację na platformie Azure, musisz najpierw aprowizować usłu
 
 Aby wdrożyć te usługi w wybranej nowej lub istniejącej grupie zasobów, kliknij następujący przycisk **Wdróż na platformie Azure**.
 
-[![Wdróż na platformie Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 Ten przycisk **Wdróż na platformie Azure** używa szablonu [Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) (Szybki start Azure) opisanego w artykule [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) (Tworzenie aplikacji sieci Web z usługą Redis Cache i usługą SQL Database) w celu aprowizacji tych usług oraz ustawienia parametrów połączenia dla usługi SQL Database i ustawienia aplikacji dla parametrów połączenia usługi Azure Redis Cache.
 
@@ -867,5 +866,4 @@ Po wybraniu lub utworzeniu pamięci podręcznej do użycia przejdź do pamięci 
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

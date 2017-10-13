@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure przy użyciu usługi Site Recovery w witrynie Azure Portal
 > [!div class="op_single_selector"]

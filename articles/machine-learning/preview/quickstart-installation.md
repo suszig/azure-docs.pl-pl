@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Tworzenie kont usługi Azure Machine Learning w wersji zapoznawczej i instalowanie aplikacji Azure Machine Learning Workbench
 Usługa Azure Machine Learning stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do zaawansowanych analiz przeznaczone dla profesjonalnych analityków. Będą oni korzystać z tego rozwiązania w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
@@ -190,4 +188,3 @@ Aby uzyskać więcej informacji na temat tego przepływu pracy oraz o sposobie w
 
 > [!div class="nextstepaction"]
 > [Samouczek Klasyfikowanie irysów](tutorial-classifying-iris-part-1.md)
-

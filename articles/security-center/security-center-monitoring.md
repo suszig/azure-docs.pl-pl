@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: yurid
+ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 4752199803f1fab04608e6a8618e3294e85fb38a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure
 Informacje zawarte w tym artykule ułatwiają korzystanie z funkcji monitorowania w usłudze Azure Security Center w celu monitorowania zgodności z zasadami.
@@ -32,7 +31,7 @@ Po włączeniu [zasad zabezpieczeń](security-center-policies.md) dla zasobów s
 
 Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
 
-W sekcji **Zapobieganie** można monitorować stan zabezpieczeń zasobów. W poniższym przykładzie widać, że na kafelkach poszczególnych zasobów (Obliczenia, Sieć, Magazyn i dane oraz Aplikacja) jest wyświetlana łączna liczba zidentyfikowanych problemów.
+W sekcji **Zapobieganie** można monitorować stan zabezpieczeń zasobów. W poniższym przykładzie widać, że na kafelkach poszczególnych zasobów (Compute, Sieć, Storage i dane oraz Aplikacja) jest wyświetlana łączna liczba zidentyfikowanych problemów.
 
 ![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
@@ -176,7 +175,7 @@ W tym widoku topologii pierwszy poziom obejmuje pozycje [sieci wirtualne](../vir
 
 W dolnej części tego bloku znajdują się zalecenia dotyczące tej maszyny wirtualnej, co jest podobne do powyższego opisu. Kliknij zalecenie, aby dowiedzieć się więcej i ewentualnie zastosować odpowiednie środki kontroli lub konfigurację zabezpieczeń.
 
-### <a name="monitor-storage--data"></a>Monitorowanie magazynu i danych
+### <a name="monitor-storage--data"></a>Monitorowanie usługi Storage i danych
 
 Po kliknięciu pozycji **Magazyn i dane** w sekcji **Zapobieganie** zostanie otwarty blok **Zasoby danych** z zaleceniami dotyczącymi usług SQL i Storage. Przedstawia on także [zalecenia](security-center-sql-service-recommendations.md) dotyczące ogólnej kondycji bazy danych. Aby uzyskać więcej informacji dotyczących szyfrowania magazynu, przeczytaj artykuł [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Włączanie szyfrowania dla konta usługi Azure Storage w usłudze Azure Security Center).
 
@@ -222,4 +221,3 @@ W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłu
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-

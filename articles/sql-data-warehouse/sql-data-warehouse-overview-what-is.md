@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Co to jest Azure SQL Data Warehouse?
 Azure SQL Data Warehouse to oparta na chmurze i skalowalna w poziomie relacyjna baza danych masowego przetwarzania równoległego (MPP, Massively Parallel Processing), która może przetwarzać ogromne ilości danych. 
@@ -154,4 +153,3 @@ Teraz, gdy masz już podstawową wiedzę na temat usługi SQL Data Warehouse, mo
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Umowy dotyczące poziomu usług]: https://azure.microsoft.com/en-us/support/legal/sla/
-
