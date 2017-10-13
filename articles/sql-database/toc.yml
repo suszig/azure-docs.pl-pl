@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Zdarzenia rozszerzone
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Poziomy zgodności
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Monitorowanie w pamięci
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skalowanie w poziomie
@@ -266,6 +264,12 @@
         - name: Reguły sieci wirtualnej — program PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Ciągłość działalności biznesowej
+      items:
+        - name: Konfigurowanie magazynu — kopie zapasowe
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Replikacja geograficzna — portal
+          href: sql-database-geo-replication-portal.md
+    - name: Ładowanie i przenoszenie danych
       items:
         - name: Ładowanie danych za pomocą narzędzia BCP
           href: sql-database-load-from-csv-with-bcp.md

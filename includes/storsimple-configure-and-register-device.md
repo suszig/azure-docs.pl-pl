@@ -74,8 +74,3 @@ Jeśli urządzenie zostało pomyślnie zarejestrowane i nie przeszło do trybu o
 
 Aby obejrzeć film przedstawiający konfigurowanie i rejestrowanie urządzenia za pośrednictwem programu Windows PowerShell dla usługi StorSimple, kliknij [tutaj](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

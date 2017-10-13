@@ -18,8 +18,3 @@
    
    Kopia zapasowa powinna pojawić się na liście zestawów kopii zapasowych, która jest wyświetlana w katalogu.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

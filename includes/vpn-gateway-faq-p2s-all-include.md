@@ -48,10 +48,6 @@ Trudno jest utrzymać dokładną przepływność tuneli VPN. Protokoły IPsec i 
 
 Nie. Możesz używać wyłącznie natywnego klienta sieci VPN w systemie Windows dla protokołu SSTP i natywnego klienta sieci VPN na komputerach Mac dla protokołu IKEv2. Zapoznaj się z listą obsługiwanych systemów operacyjnych klienta.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>Czy mogę uzyskać dostęp do Internetu, gdy mam połączenie przez sieć VPN typu punkt-lokacja?
-
-Tak. Możesz uzyskać dostęp do Internetu przy połączeniu przez sieć VPN typu punkt-lokacja.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Czy platforma Azure obsługuje sieć VPN z protokołem IKEv2 w systemie Windows?
 
 Użytkownicy mogą łączyć się z platformą Azure za pomocą wbudowanego klienta VPN systemu Windows, który obsługuje protokół IKEv2. Połączenia z użyciem protokołu IKEv2 z urządzenia z systemem Windows nie będą jednak działać w następującym scenariuszu:

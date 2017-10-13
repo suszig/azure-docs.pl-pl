@@ -14,8 +14,3 @@
       ![Dodaj konto magazynu](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Nowo utworzone konto magazynu zostanie wyświetlone na stronie **Konfigurowanie** w obszarze **Konto magazynu**. Kliknij przycisk **Zapisz**, aby zapisać nowo utworzone konto magazynu. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
