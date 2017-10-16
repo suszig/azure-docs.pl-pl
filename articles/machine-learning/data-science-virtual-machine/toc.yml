@@ -1,6 +1,7 @@
 - name: Dokumentacja maszyn wirtualnych do analizy danych
   items: null
 - name: Omówienie
+  expanded: true
   items:
     - name: Co to jest maszyna wirtualna do analizy danych?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Używanie maszyny wirtualnej do uczenia głębokiego
       href: use-deep-learning-dsvm.md
 - name: Dokumentacja
+  expanded: true
   items:
+    - name: Odnajdywanie maszyny wirtualnej do analizy danych
+      href: dsvm-tools-overview.md
     - name: Platformy sztucznej inteligencji i uczenia głębokiego
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Narzędzia ML i nauki o danych

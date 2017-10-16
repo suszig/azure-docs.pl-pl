@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Zasoby
   items:
+    - name: Wideo na temat rozwiązania Cost Management
+      href: ref-videos.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Cennik

@@ -11,11 +11,17 @@
 ## [Rozwiązanie Jenkins i interfejs wiersza polecenia platformy Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
 # Przewodniki z instrukcjami
 ## [Zabezpieczanie usługi Jenkins na platformie Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
+## [Wdrażanie do usługi App Service](deploy-jenkins-app-service-plugin.md)
 ## [Publikowanie artefaktów w usłudze Azure Storage](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)
 ## [Korzystanie z usługi Jenkins z programem VSTS](https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins)
 # Zasoby
+## Wtyczki
+### [Wtyczka usługi App Service](https://plugins.jenkins.io/azure-app-service)
+### [Wtyczka agentów kontenera platformy Azure](https://plugins.jenkins.io/azure-container-agents)
+### [Wtyczka poświadczeń platformy Azure](https://plugins.jenkins.io/azure-credentials)
+### [Wtyczka funkcji platformy Azure](https://plugins.jenkins.io/azure-function)
+### [Wtyczka usługi Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
+### [Wtyczka agentów maszyn wirtualnych platformy Azure](https://plugins.jenkins.io/azure-vm-agents)
+### [Wtyczka usługi kontenera](https://plugins.jenkins.io/azure-acs)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
-## [Wtyczka usługi App Service](https://plugins.jenkins.io/azure-app-service)
-## [Wtyczka usługi Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
-## [Wtyczka agentów maszyn wirtualnych platformy Azure](https://plugins.jenkins.io/azure-vm-agents)
 ## [Strona główna usługi Jenkins](https://jenkins.io/)

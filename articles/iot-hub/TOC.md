@@ -114,6 +114,7 @@
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Zarządzanie
 ### Tworzenie centrum IoT 
 #### [Korzystanie z witryny Azure Portal](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Korzystanie z witryny Azure Portal](iot-hub-configure-file-upload.md)
 #### [Korzystanie z programu Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Korzystanie z interfejsu wiersza polecenia platformy Azure](iot-hub-configure-file-upload-cli.md)
-### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
+### [Monitorowanie z diagnostyką](iot-hub-monitor-resource-health.md)
+#### [Migrowanie to ustawień diagnostyki](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Monitorowanie operacji](iot-hub-operations-monitoring.md)
 ### [Metryki użycia](iot-hub-metrics.md)
-### [Monitorowanie operacji](iot-hub-operations-monitoring.md)
+### [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
 ### [Konfigurowanie filtrowania adresów IP](iot-hub-ip-filtering.md)
+
 ## Bezpieczeństwo
 ### [Zabezpieczenia od podstaw](iot-hub-security-ground-up.md)
 ### [Najlepsze rozwiązania dotyczące zabezpieczeń](iot-hub-security-best-practices.md)
 ### [Architektura zabezpieczeń](iot-hub-security-architecture.md)
 ### [Zabezpieczanie wdrożenia IoT](iot-hub-security-deployment.md)
+### Zabezpieczanie przy użyciu certyfikatów X.509 urzędu certyfikacji
+#### [Przegląd zabezpieczeń certyfikatu X.509 urzędu certyfikacji](iot-hub-x509ca-overview.md)
+##### [Pojęcia dotyczące zabezpieczeń certyfikatu X.509 urzędu certyfikacji](iot-hub-x509ca-concept.md)
+#### [Rozpoczynanie pracy z zabezpieczeniami certyfikatów X.509 urzędu certyfikacji](iot-hub-security-x509-get-started.md)
+##### [Tworzenie certyfikatów — PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Omówienie](iot-hub-iot-edge-overview.md)
 ### Rozpoczęcie pracy

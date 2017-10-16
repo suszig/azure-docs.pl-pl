@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
+ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Dokumentacja dotycząca komunikatów usługi Service Bus
 Usługa komunikatów umożliwia niezawodne dostarczanie informacji jako mechanizm komunikacji obsługiwany przez brokera lub mechanizm komunikacji innej firmy.
@@ -89,7 +88,7 @@ Usługa komunikatów umożliwia niezawodne dostarczanie informacji jako mechaniz
                 <div class="card">
                     <div class="cardText">
                         <h3>Wiersz polecenia</h3>
-                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicebus">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -121,5 +120,19 @@ Usługa komunikatów umożliwia niezawodne dostarczanie informacji jako mechaniz
             </div>
         </div>
     </li>
+     <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>INNE</h3>
+                        <p><a href="service-bus-messaging-exceptions.md">Wyjątki</a></p>
+                        <p><a href="service-bus-quotas.md">Przydziały</a></p>
+                        <p><a href="service-bus-messaging-sql-filter.md">Składnia elementu SQLFilter</a></p>
+                        <p><a href="service-bus-messaging-sql-rule-action.md">Składnia elementu SQLRuleAction</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-

@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portal klasyczny (model klasyczny)](vpn-gateway-site-to-site-create.md)
 
 ## Konfigurowanie połączeń typu punkt-lokacja — natywne uwierzytelnianie certyfikatu platformy Azure
 ### Konfigurowanie sieci VPN typu P2S
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Konfigurowanie protokołu BGP dla bramy sieci VPN
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Interfejs wiersza polecenia platformy Azure](bgp-how-to-cli.md)
 ## Konfigurowanie wymuszonego tunelowania
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (wersja klasyczna)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Problem z połączeniem punkt-lokacja](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Połączenie lokacja-lokacja jest sporadycznie rozłączane](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Nie można nawiązać połączenia lokacja-lokacja](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problemy z koligacją sesji bramy Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Dokumentacja
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

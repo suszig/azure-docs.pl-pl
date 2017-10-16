@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Korzystanie z uogólnionego obrazu
           href: create-vm-generalized-managed.md
-        - name: Korzystanie z wyspecjalizowanego obrazu
+        - name: Korzystanie z wyspecjalizowanego dysku
           href: create-vm-specialized.md
         - name: Przechwytywanie maszyny wirtualnej do obrazu
           href: capture-image-resource.md

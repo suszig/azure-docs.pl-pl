@@ -7,6 +7,8 @@
 ## [Instalowanie platformy SAP HANA](hana-installation.md)
 ## [Wysoka dostępność i odzyskiwanie po awarii](hana-overview-high-availability-disaster-recovery.md)
 ## [Rozwiązywanie problemów i monitorowanie](troubleshooting-monitoring.md)
+## Instrukcje
+### [Konfiguracja wysokiej dostępności za pomocą metody STONITH](ha-setup-with-stonith.md)
 # Oprogramowanie SAP HANA na maszynach wirtualnych platformy Azure
 ## [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
 ## [Rozwiązanie S/4 HANA lub BW/4 HANA SAP CAL — podręcznik wdrażania](cal-s4h.md)

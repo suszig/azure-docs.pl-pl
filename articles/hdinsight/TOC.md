@@ -88,7 +88,6 @@
 ### [ScaleR i SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Korzystanie z bazy danych HBase
 ### [Korzystanie z oprogramowania Phoenix i SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analizowanie tweetów w czasie rzeczywistym](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Tworzenie klastrów w sieci wirtualnej](hdinsight-hbase-provision-vnet.md)
 ### [Konfigurowanie replikacji bazy danych HBase](hdinsight-hbase-replication.md)
 ### [Tworzenie aplikacji w języku Java](hdinsight-hbase-build-java-maven-linux.md)
@@ -100,7 +99,7 @@
 #### [Opracowywanie topologii opartych na języku Java za pomocą narzędzia Maven](hdinsight-storm-develop-java-topology.md)
 #### [Opracowywanie topologii języka C# za pomocą narzędzi usługi Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Przetwarzanie zdarzeń za pomocą topologii języka C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
-#### [Przetwarzanie zdarzeń za pomocą topologii języka Java](hdinsight-storm-develop-java-event-hub-topology.md)
+#### [Przetwarzanie zdarzeń za pomocą topologii języka Java](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 #### [Analizowanie danych z czujników w czasie rzeczywistym](hdinsight-storm-sensor-data-analysis.md)
 #### [Korelowanie zdarzeń w czasie](hdinsight-storm-correlation-topology.md)
 #### [Opracowywanie topologii przy użyciu języka Python](hdinsight-storm-develop-python-topology.md)

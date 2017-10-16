@@ -28,6 +28,7 @@
 ### [Ustawianie zasad i harmonogramów](devtest-lab-set-lab-policy.md)
 ### [Konfigurowanie zarządzania kosztami](devtest-lab-configure-cost-management.md)
 ### [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Włączanie licencjonowanego obrazu](devtest-lab-enable-licensed-images.md)
 ### [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md)
 
 ## [Wybieranie niestandardowego obrazu lub formuły](devtest-lab-comparing-vm-base-image-types.md)

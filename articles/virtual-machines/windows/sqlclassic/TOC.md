@@ -1,5 +1,5 @@
 # Omówienie
-## [Co to jest program SQL Server na maszynach wirtualnych platformy Azure?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [Maszyny wirtualne z programem SQL Server i systemem Windows](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [Często zadawane pytania](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 

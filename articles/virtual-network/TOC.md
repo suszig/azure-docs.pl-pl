@@ -24,22 +24,25 @@
 ## Wdrażanie
 ### [Sieci wirtualne](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-vnet-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-networks-create-vnet-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-networks-create-vnet-cli-nodejs.md)
 #### [Szablon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupy zabezpieczeń sieci
 #### [Witryna Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-nsg-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-networks-create-nsg-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-networks-create-nsg-cli-nodejs.md)
 #### [Szablon](virtual-networks-create-nsg-arm-template.md)
 #### [Grupy zabezpieczeń aplikacji](create-network-security-group-preview.md)
 #### Wdrożenie klasyczne
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-nsg-classic-cli.md)
+##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Trasy definiowane przez użytkownika
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-create-udr-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [Szablon](virtual-network-create-udr-arm-template.md)
 #### Wdrożenie klasyczne
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -62,7 +65,8 @@
 #### Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP
 ##### [Witryna Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
 ##### [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 ##### Wdrożenie klasyczne
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -78,7 +82,10 @@
 
 #### Tworzenie maszyny wirtualnej z wieloma interfejsami sieciowymi
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Interfejs wiersza polecenia platformy Azure 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Interfejs wiersza polecenia platformy Azure 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Szablon](virtual-network-deploy-multinic-arm-template.md)
+
 ##### Wdrożenie klasyczne
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-multinic-classic-cli.md)
@@ -86,7 +93,8 @@
 #### Tworzenie maszyny wirtualnej z wieloma adresami IP
 ##### [Witryna Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Interfejs wiersza polecenia platformy Azure](virtual-network-multiple-ip-addresses-cli.md)
+##### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-multiple-ip-addresses-cli.md)
+##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
 ##### [Szablon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Tworzenie maszyny wirtualnej z wydajniejszą siecią](virtual-network-create-vm-accelerated-networking.md)
@@ -102,9 +110,11 @@
 #### [Zabezpieczanie sieci przy użyciu urządzeń wirtualnych](virtual-network-scenario-udr-gw-nva.md)
 #### [Strefa DMZ między platformą Azure i Internetem](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Zabezpieczenia usługi w chmurze i sieci](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Prosta strefa DMZ z sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-asm.md)
-##### [Strefa DMZ z zaporą i sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-fw-asm.md)
-##### [Strefa DMZ z zaporą, routingiem zdefiniowanym przez użytkownika i sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-fw-udr-asm.md)
+##### [Tworzenie strefy DMZ z sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg.md)
+##### [Tworzenie strefy DMZ z sieciowymi grupami zabezpieczeń (wersja klasyczna)](virtual-networks-dmz-nsg-asm.md)
+##### [Tworzenie strefy DMZ z zaporą i sieciowymi grupami zabezpieczeń (wersja klasyczna)](virtual-networks-dmz-nsg-fw-asm.md)
+##### [Strefa DMZ z zaporą, routingiem zdefiniowanym przez użytkownika i sieciowymi grupami zabezpieczeń (wersja klasyczna)](virtual-networks-dmz-nsg-fw-udr-asm.md)
+
 ##### [Przykładowa aplikacja](virtual-networks-sample-app.md)
 
 ### Wdrożenie klasyczne
@@ -112,13 +122,22 @@
 ##### [Witryna Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [Interfejs wiersza polecenia platformy Azure](virtual-networks-create-vnet-classic-cli.md)
+#### [Określanie ustawień usługi DNS w pliku konfiguracji sieci wirtualnej](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+#### [Określanie ustawień usługi DNS w pliku konfiguracji usługi](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
 ## Konfigurowanie
 ### Maszyny wirtualne
 #### [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md)
 #### [Rozpoznawanie nazw dla maszyn wirtualnych i usług w chmurze](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Używanie dynamicznej usługi DNS do rejestrowania nazw hostów na własnym serwerze DNS](virtual-networks-name-resolution-ddns.md)
 #### [Optymalizowanie przepływności sieci](virtual-network-optimize-network-bandwidth.md)
 #### [Wyświetlanie i modyfikowanie nazw hostów](virtual-networks-viewing-and-modifying-hostnames.md)
+#### Wdrożenie klasyczne
+##### Statyczne adresy IP
+###### [PowerShell](virtual-networks-reserved-private-ip.md)
+###### [Interfejs wiersza polecenia](virtual-networks-static-private-ip-cli-nodejs.md)
+##### [Publiczny adres IP na poziomie wystąpienia](virtual-networks-instance-level-public-ip.md)
+
 ### Wdrożenie klasyczne
 #### Listy kontroli dostępu
 ##### [Witryna Azure Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +153,9 @@
 ### Grupy zabezpieczeń sieci
 #### [Witryna Azure Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Interfejs wiersza polecenia platformy Azure](virtual-network-manage-nsg-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-manage-nsg-arm-cli.md)
+#### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+
 #### [Dzienniki](virtual-network-nsg-manage-log.md)
 ### Interfejsy sieciowe
 #### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
@@ -183,3 +204,4 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Dostawca zasobów sieciowych](resource-groups-networking.md)

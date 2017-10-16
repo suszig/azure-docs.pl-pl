@@ -7,6 +7,7 @@
 ## [Często zadawane pytania](active-directory-faq.md)
 
 # Rozpoczęcie pracy
+## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
 ## [Configure company branding (Konfigurowanie oznaczenia marką firmy)](customize-branding.md)
