@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Tworzenie szablonów usługi Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Szablony społeczności](https://azure.microsoft.com/documentation/templates)
-## [Architektura REST — usługa Compute](/rest/api/compute)
-## [Architektura REST — sieć](/rest/api)
-## [Architektura REST — usługa Storage](/rest/api/storageservices)
+## [Architektura REST — usługa Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Architektura REST — sieć](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Architektura REST — usługa Storage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Zasoby
