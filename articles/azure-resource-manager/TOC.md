@@ -58,13 +58,13 @@
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
+### [Organizowanie subskrypcji przy użyciu grup zarządzania](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Przykłady nadzoru](resource-manager-subscription-examples.md)
 
 ## Kontrola dostępu
 ### Tworzenie jednostki usługi
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Interfejs wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Interfejs wiersza polecenia platformy Azure 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Witryna Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)

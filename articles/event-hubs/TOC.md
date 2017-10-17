@@ -22,6 +22,7 @@
 
 # Instrukcje
 ## Planowanie i projektowanie
+### [Geograficzne odzyskiwanie po awarii i replikacja geograficzna](event-hubs-geo-dr.md)
 ### [Usługa Event Hubs w wersji dedykowanej](event-hubs-dedicated-overview.md)
 ### [Omówienie modelu uwierzytelniania i zabezpieczeń](event-hubs-authentication-and-security-model-overview.md)
 ### [Dostępność i spójność](event-hubs-availability-and-consistency.md)

@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Wykonywanie próbnego odzyskiwania
           href: sql-database-disaster-recovery-drills.md
-    - name: Ładowanie i przenoszenie danych
+    - name: Migracja do bazy danych SQL
       items:
         - name: Migracja bazy danych programu SQL Server
           href: sql-database-cloud-migrate.md
         - name: Zmiany języka T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Zarządzanie bazą danych po migracji
+          href: sql-database-manage-after-migration.md
+    - name: Ładowanie i przenoszenie danych
+      items:
         - name: Kopiowanie bazy danych
           href: sql-database-copy.md
         - name: Importowanie bazy danych

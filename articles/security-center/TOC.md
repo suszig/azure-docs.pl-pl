@@ -13,15 +13,13 @@
 ## [Planowanie i operacje](security-center-planning-and-operations-guide.md)
 ## [Uprawnienia](security-center-permissions.md)
 ## [Obsługiwane platformy](security-center-os-coverage.md)
-## [Integracja z partnerami](security-center-partner-integration.md)
 ## [Często zadawane pytania](security-center-faq.md)
 
 # Instrukcje
-
-## Zasady zabezpieczeń
-### [Omówienie](security-center-policies-overview.md)
+## [Zasady zabezpieczeń](security-center-policies-overview.md)
 ### [Zbieranie danych](security-center-enable-data-collection.md)
 ### [Zasady zabezpieczeń](security-center-policies.md)
+### [Zasady zabezpieczeń korzystające z zasad platformy Azure](security-center-azure-policy.md)
 ### [Powiadomienia e-mail](security-center-provide-security-contact-details.md)
 ### [Warstwa cenowa](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Wyszukiwanie](security-center-search.md)
 
 ## Zapobieganie
+### [Rozwiązania zabezpieczeń](security-center-partner-integration.md)
+#### [Monitorowanie rozwiązań połączonych](security-center-partner-solutions.md)
+#### [Łączenie z rozwiązaniem Microsoft ATA](security-center-ata-integration.md)
+#### [Łączenie z usługą Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Zalecenia dotyczące implementowania zabezpieczeń](security-center-recommendations.md)
 ### [Zalecenia dotyczące aplikacji](security-center-application-recommendations.md)
 #### [Dodawanie zapory aplikacji sieci Web](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Aktualizacja wersji systemu operacyjnego](security-center-update-os-version.md)
 #### [Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorowanie kondycji zabezpieczeń](security-center-monitoring.md)
-### [Monitorowanie rozwiązań partnerów](security-center-partner-solutions.md)
 ### [Tożsamość i dostęp](security-center-identity-access.md)
 
 ## Wykrywanie i odpowiadanie

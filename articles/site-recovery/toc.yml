@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Architektura Hyper-V–lokacja dodatkowa
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Tabela obsługi replikacji Azure–Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–Azure
       href: site-recovery-support-matrix-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–lokacja dodatkowa

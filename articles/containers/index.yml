@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure for Containers
+metadata:
+  document_id: null
+  title: 'Azure for Containers — samouczki, dokumentacja interfejsu API'
+  description: 'Zacznij programować aplikacje na platformie Azure przy użyciu zasobów przedstawionych poniżej. Znajdziesz wśród nich doskonałe poradniki Szybki start, samouczki i narzędzia dla kontenerów.'
+  keywords: 'Azure, Containers, Docker, API, Kubernetes'
+  author: bketelsen
+  ms.author: brketels
+  manager: listonb
+  ms.date: 09/14/2017
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+    - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+  - items:
+      - type: markdown
+        text: |
+          Zacznij programować aplikacje na platformie Azure przy użyciu zasobów przedstawionych poniżej. Znajdziesz wśród nich doskonałe samouczki i narzędzia dla kontenerów.
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            html: <p>Tworzenie aplikacji konteneryzowanych za pomocą usługi Azure Container Instances</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
+            title: Wprowadzenie
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples'
+            html: <p>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Container Service</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_code-samples.svg'
+            title: Przykłady kodu
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak używać kontenerów za pomocą usług platformy Azure.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            title: Tworzenie aplikacji konteneryzowanych za pomocą usługi Azure Container Instances
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
+            title: Tworzenie klastra Kubernetes dla kontenerów systemu Linux
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
+            title: Wdrażanie klastra Docker Swarm
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: Wdrażanie klastra DC/OS
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
+            title: Tworzenie aplikacji konteneryzowanych za pomocą usługi Azure Web Apps for Containers
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+  - title: Bezpłatne szkolenie wideo firmy Pluralsight dla platformy Azure i kontenerów
+    items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+            title: Usługa Microsoft Azure Virtual Machines — wprowadzenie
+  - title: Przykłady
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Wprowadzenie do usługi App Service — zarządzanie aplikacją internetową systemu Linux za pomocą rejestru kontenerów — w języku Java</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Przykłady kontenera usługi Service Fabric</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Wdrażanie kontenera Docker w klastrze platformy Azure i łączenie się z nim</a>'
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak korzystać z kontenerów platformy Azure'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Tworzenie obrazów kontenera z poziomu aplikacji</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Przekazywanie obrazów kontenera do usługi Azure Container Registry</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Wdrażanie klastra Kubernetes w usłudze Azure Container Service</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Uruchamianie obrazów kontenera w rozwiązaniu Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Skalowanie aplikacji i infrastruktury rozwiązania Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aktualizowanie aplikacji uruchomionej w rozwiązaniu Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorowanie rozwiązania Kubernetes za pomocą pakietu OMS</a>'

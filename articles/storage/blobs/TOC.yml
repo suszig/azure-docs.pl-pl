@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4 — Monitorowanie i rozwiązywanie problemów dotyczących magazynu
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Przeszukiwanie danych bez struktury w magazynie w chmurze
+      href: storage-unstructured-search.md
 - name: Przykłady
   items:
     - name: Azure PowerShell

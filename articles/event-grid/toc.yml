@@ -6,8 +6,12 @@
       href: overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie i kierowanie zdarzeń niestandardowych
+    - name: Tworzenie zdarzenia niestandardowego — wiersz polecenia platformy Azure
       href: custom-event-quickstart.md
+    - name: Tworzenie zdarzenia niestandardowego — program Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Tworzenie zdarzenia niestandardowego — witryna Azure Portal
+      href: custom-event-quickstart-portal.md
 - name: Samouczki
   items:
     - name: Monitorowanie zmian dotyczących maszyn wirtualnych za pomocą aplikacji logiki

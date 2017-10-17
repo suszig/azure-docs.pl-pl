@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurowanie pliku MSI dla maszyny wirtualnej platformy Azure
       items:
-        - name: Z witryną Azure Portal
+        - name: Korzystanie z witryny Azure Portal
           href: msi-qs-configure-portal-windows-vm.md
-        - name: Z programem PowerShell
+        - name: Korzystanie z programu PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Z interfejsem wiersza polecenia platformy Azure
+        - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Z szablonem usługi Azure Resource Manager
+        - name: Korzystanie z szablonu usługi Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
-        - name: Z zestawem Azure SDK
+        - name: Korzystanie z zestawu Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Przypisywanie dostępu przy użyciu pliku MSI do zasobu platformy Azure
+    - name: Udzielanie maszynie wirtualnej dostępu tożsamości usługi zarządzanej do usługi Resource Manager
       items:
-        - name: Z witryną Azure Portal
+        - name: Korzystanie z witryny Azure Portal
           href: msi-howto-assign-access-portal.md
-        - name: Z programem PowerShell
+        - name: Korzystanie z programu PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: Z interfejsem wiersza polecenia platformy Azure
+        - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
           href: msi-howto-assign-access-cli.md
-    - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu pliku MSI
+    - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu tożsamości usługi zarządzanej
       items:
-        - name: Z maszyną wirtualną z systemem Windows
+        - name: Z maszyny wirtualnej z systemem Windows
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Z maszyną wirtualną z systemem Linux
+        - name: Z maszyny wirtualnej z systemem Linux
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Uzyskiwanie dostępu do magazynu platformy Azure przy użyciu pliku MSI
+    - name: Uzyskiwanie dostępu do serwera SQL platformy Azure przy użyciu tożsamości usługi zarządzanej
       items:
-        - name: Z maszyną wirtualną z systemem Windows
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Uzyskiwanie dostępu do magazynu platformy Azure przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows przy użyciu klucza dostępu
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Z maszyną wirtualną z systemem Linux
+        - name: Z maszyny wirtualnej z systemem Windows przy użyciu sygnatury dostępu współdzielonego
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Z maszyny wirtualnej z systemem Linux przy użyciu klucza dostępu
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Uzyskiwanie dostępu do zasobu spoza usługi Azure AD przy użyciu pliku MSI
+        - name: Z maszyny wirtualnej z systemem Linux przy użyciu sygnatury dostępu współdzielonego
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Uzyskiwanie dostępu do usługi Azure Key Vault przy użyciu tożsamości usługi zarządzanej
       items:
-        - name: Z maszyną wirtualną z systemem Windows
+        - name: Z maszyny wirtualnej z systemem Windows
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Z maszyną wirtualną z systemem Linux
+        - name: Z maszyny wirtualnej z systemem Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Często zadawane pytania i znane problemy
       href: msi-known-issues.md

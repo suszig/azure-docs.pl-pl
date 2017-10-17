@@ -44,6 +44,7 @@
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu Azure PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
+#### [Dokumentacja produktów i planów usług w usłudze Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 ### [Resetowanie hasła](active-directory-users-reset-password-azure-portal.md)
 ### [Zarządzanie informacjami o pracy użytkownika](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
 #### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
 #### [Przykłady programu Azure PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
+#### [Dokumentacja produktów i planów usług w usłudze Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Ustawianie wygasania grup usługi Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Wyświetlanie wszystkich grup](active-directory-groups-view-azure-portal.md)
 ### [Włączanie dedykowanych grup](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Zadania
 #### [Konfigurowanie urządzeń z systemem Windows 10 zarejestrowanych w usłudze Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurowanie urządzeń przyłączonych do usługi Azure AD](device-management-azuread-joined-devices-setup.md)
-#### [Konfigurowanie urządzeń przyłączonych do hybrydowej usługi Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Konfigurowanie urządzeń przyłączonych do hybrydowej usługi Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Wdrażanie lokalnie](active-directory-device-registration-on-premises-setup.md)
 #### [Przyłączanie do usługi Azure AD podczas pierwszego uruchomienia systemu Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Rozwiązywanie problemów
@@ -204,6 +206,7 @@
 #### [Zarządzanie aprowizacją konta użytkownika](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Zarządzanie logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-sso.md)
 #### [Zaawansowane podpisywanie certyfikatów dla aplikacji SAML](active-directory-enterprise-apps-advance-certificate-options.md)
+####[Ukrywanie środowiska użytkownika w usłudze Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
 #### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)

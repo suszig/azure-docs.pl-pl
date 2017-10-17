@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Pojęcia
+  items:
+    - name: Jednostki SKU rejestru kontenerów
+      href: container-registry-skus.md
+    - name: Replikacja geograficzna (wersja zapoznawcza)
+      href: container-registry-geo-replication.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wypychanie i ściąganie obrazu
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Zasoby
   items:
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Harmonogram działania
+      href: 'https://aka.ms/acr/roadmap'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Dostępność w danym regionie
