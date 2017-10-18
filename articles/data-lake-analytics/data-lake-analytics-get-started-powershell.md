@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/16/2017
+
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Wprowadzenie do pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -99,7 +100,7 @@ OUTPUT @a
 Prześlij skrypt.
 
 ```
-$job = Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
 Możesz również zapisać skrypt jako plik i przesłać go za pomocą następującego polecenia:
@@ -107,14 +108,14 @@ Możesz również zapisać skrypt jako plik i przesłać go za pomocą następuj
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
 
 Uzyskaj stan określonego zadania. Używaj tego polecenia cmdlet, dopóki zadanie nie zostanie wykonane.
 
 ```
-$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Zamiast wielokrotnie wykonywać polecenie Get-AdlAnalyticsJob do momentu zakończenia zadania, możesz użyć polecenia cmdlet Wait-AdlJob.
@@ -126,10 +127,11 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Pobierz plik wyjściowy.
 
 ```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
+Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Zobacz też
 * Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
 * Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).
+
