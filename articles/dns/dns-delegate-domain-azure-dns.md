@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: pl-pl
+ms.lasthandoff: 06/16/2017
+
 ---
+
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 
 Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Aby zapytania DNS dla domeny miały dostęp do usługi Azure DNS, należy delegować domenę do usługi Azure DNS z domeny nadrzędnej. Należy pamiętać, że usługa Azure DNS nie jest rejestratorem domen. W tym artykule wyjaśniono, jak delegować domenę do usługi Azure DNS.
@@ -85,7 +87,7 @@ Metadata          :
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 ```azurecli
-az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
+az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
 Odpowiedzią jest poniższy przykład.
@@ -306,3 +308,4 @@ Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące cz
 [Zarządzanie strefami DNS](dns-operations-dnszones.md)
 
 [Zarządzanie rekordami DNS](dns-operations-recordsets.md)
+
