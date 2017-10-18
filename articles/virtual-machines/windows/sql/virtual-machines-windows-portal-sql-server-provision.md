@@ -1,6 +1,6 @@
 ---
-title: Aprowizowanie maszyny wirtualnej programu SQL Server | Microsoft Docs
-description: "Utwórz maszynę wirtualną programu SQL Server i połącz się z nią na platformie Azure przy użyciu portalu. W tym samouczku wykorzystano tryb usługi Resource Manager."
+title: Tworzenie maszyny wirtualnej z programem SQL Server 2017 i systemem Windows na platformie Azure | Microsoft Docs
+description: "W tym samouczku pokazano sposób tworzenia maszyny wirtualnej z programem SQL Server 2017 i systemem Windows na platformie Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server i systemem Windows w witrynie Azure Portal
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-Ten kompleksowy samouczek pokazuje, jak używać witryny Azure Portal do aprowizowania maszyny wirtualnej z programem SQL Server.
-
-Kilka obrazów w galerii maszyn wirtualnych Azure zawiera program Microsoft SQL Server. Za pomocą kilku kliknięć możesz wybrać jeden z obrazów maszyn wirtualnych SQL z galerii i aprowizować go w środowisku Azure.
+W tym samouczku szybkiego startu użyjesz witryny Azure Portal do utworzenia maszyny wirtualnej z systemem Windows i zainstalowanym programem SQL Server.
 
 W tym samouczku zostaną wykonane następujące czynności:
 
-* [Wybieranie obrazu maszyny wirtualnej SQL z galerii](#select-a-sql-vm-image-from-the-gallery)
-* [Konfigurowanie i tworzenie maszyny wirtualnej](#configure-the-vm)
-* [Otwieranie maszyny wirtualnej przy użyciu pulpitu zdalnego](#open-the-vm-with-remote-desktop)
-* [Zdalne ustanawianie połączenia z programem SQL Server](#connect-to-sql-server-remotely)
+* [Wybieranie obrazu maszyny wirtualnej SQL z galerii](#select)
+* [Konfigurowanie i tworzenie maszyny wirtualnej](#configure)
+* [Otwieranie maszyny wirtualnej przy użyciu pulpitu zdalnego](#remotedesktop)
+* [Zdalne ustanawianie połączenia z programem SQL Server](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Wybieranie obrazu maszyny wirtualnej SQL z galerii
+## <a id="select"></a> Wybieranie obrazu maszyny wirtualnej SQL z galerii
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
 
    > [!NOTE]
    > Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy okno **Nowe**.
+1. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy okno **Nowe**.
 
-3. W oknie **Nowe** kliknij grupę **Obliczenia**, a następnie kliknij pozycję **Zobacz wszystko**.
+1. W oknie **Nowe** kliknij grupę **Obliczenia**, a następnie kliknij pozycję **Zobacz wszystko**.
 
    ![Nowe okno Obliczenia](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. W polu wyszukiwania wpisz **SQL Server**, a następnie naciśnij klawisz ENTER.
+1. W polu wyszukiwania wpisz ciąg **SQL Server 2017**, a następnie naciśnij klawisz Enter.
 
-5. Następnie kliknij ikonę **Filtr** i jako wydawcę wybierz **Microsoft**. Kliknij przycisk **Gotowe** w oknie filtru, aby filtrować wyniki do obrazów programu SQL Server opublikowanych przez firmę Microsoft.
+1. Następnie kliknij ikonę **Filtr**.
+
+1. W oknach filtru zaznacz podkategorię **Z systemem Windows** i wydawcę **Microsoft**. Następnie kliknij przycisk **Gotowe**, aby przefiltrować wyniki i wyświetlić tylko opublikowane przez firmę Microsoft obrazy systemu Windows z programem SQL Server.
 
    ![Okno Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Przejrzyj dostępne obrazy programu SQL Server. Każdy obraz identyfikuje wersję programu SQL Server i system operacyjny.
+1. Przejrzyj dostępne obrazy programu SQL Server. Każdy obraz identyfikuje wersję programu SQL Server i system operacyjny.
 
-6. Wybierz obraz o nazwie **Free License: SQL Server 2016 SP1 Developer on Windows Server 2016** (Bezpłatna licencja: program SQL Server 2016 SP1 Developer w systemie Windows Server 2016).
+1. Wybierz obraz o nazwie **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016 (Bezpłatna licencja programu SQL Server: SQL Server 2017 Developer w systemie Windows Server 2016)**.
 
    > [!TIP]
    > W tym samouczku jest używana wersja Developer — w pełni funkcjonalna wersja programu SQL Server, bezpłatna w przypadku zastosowań obejmujących tworzenie i testowanie. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Możesz jednak wybrać dowolny z obrazów do wykorzystania w tym samouczku.
@@ -70,13 +69,13 @@ W tym samouczku zostaną wykonane następujące czynności:
    >
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
-7. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona. Wdrażanie przy użyciu usługi Resource Manager jest zalecanym modelem wdrożenia dla nowych maszyn wirtualnych. 
+1. W obszarze **Wybierz model wdrożenia** sprawdź, czy pozycja **Resource Manager** została zaznaczona. Wdrażanie przy użyciu usługi Resource Manager jest zalecanym modelem wdrożenia dla nowych maszyn wirtualnych. 
 
-8. Kliknij przycisk **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie maszyny wirtualnej SQL przy użyciu usługi Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Konfigurowanie maszyny wirtualnej
+## <a id="configure"></a> Konfigurowanie maszyny wirtualnej
 Do konfigurowania maszyny wirtualnej programu SQL Server służy pięć okien.
 
 | Krok | Opis |
@@ -156,7 +155,7 @@ W oknie **Ustawienia programu SQL Server** skonfiguruj określone ustawienia i o
 | [Automatyczne stosowanie poprawek](#automated-patching) |
 | [Automatyczne kopie zapasowe](#automated-backup) |
 | [Integracja z usługą Azure Key Vault](#azure-key-vault-integration) |
-| [Usługi języka R](#r-services) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Łączność
 
@@ -257,14 +256,11 @@ Poniższa tabela zawiera listę parametrów wymaganych do skonfigurowania integr
 
 Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md) (Konfigurowanie integracji usługi Azure Key Vault dla programu SQL Server na maszynach wirtualnych Azure).
 
-### <a name="r-services"></a>Usługi języka R
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-Można włączyć [usługi języka R programu SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2016. Kliknij pozycję **Włącz** w oknie **Ustawienia programu SQL Server**.
+Dostępna jest opcja włączenia usług [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Umożliwia to korzystanie z zaawansowanych funkcji analizy za pomocą programu SQL Server 2017. Kliknij pozycję **Włącz** w oknie **Ustawienia programu SQL Server**.
 
-> [!NOTE]
-> Dla programu SQL Server 2016 Developer Edition ta opcja jest niepoprawnie wyłączona przez portal. Dla wersji Developer Edition należy ręcznie włączyć usługi języka R po utworzeniu maszyny wirtualnej.
-
-![Włączanie usług języka R programu SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Włączanie usług SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 Po zakończeniu konfigurowania tych ustawień programu SQL Server kliknij pozycję **OK**.
 
@@ -275,9 +271,9 @@ W oknie **Podsumowanie** przejrzyj podsumowanie i kliknij pozycję **Zakup**, ab
 Możesz monitorować wdrożenie z poziomu witryny Azure Portal. Przycisk **Powiadomienia** w górnej części ekranu służy do wyświetlania podstawowych informacji dotyczących stanu wdrożenia.
 
 > [!NOTE]
-> Aby podać przykład czasu wymaganego do przeprowadzenia wdrożenia, wdrożono maszynę wirtualną SQL dla regionu Wschodnie stany USA z ustawieniami domyślnymi. Przeprowadzenie tego wdrożenia testowego trwało łącznie 26 minut. Wdrażanie może jednak trwać krócej lub dłużej zależnie od regionu i wybranych ustawień.
+> Aby podać przykład czasu wymaganego do przeprowadzenia wdrożenia, wdrożono maszynę wirtualną SQL dla regionu Wschodnie stany USA z ustawieniami domyślnymi. Przeprowadzenie tego wdrożenia testowego trwało około 12 minut. Wdrażanie może jednak trwać krócej lub dłużej zależnie od regionu i wybranych ustawień.
 
-## <a name="open-the-vm-with-remote-desktop"></a>Otwieranie maszyny wirtualnej przy użyciu pulpitu zdalnego
+## <a id="remotedesktop"></a> Otwieranie maszyny wirtualnej przy użyciu Pulpitu zdalnego
 
 Wykonaj następujące kroki, aby ustanowić połączenie z maszyną wirtualną programu SQL Server przy użyciu pulpitu zdalnego:
 
@@ -291,11 +287,11 @@ Korzystając z dostępu do maszyny, możesz bezpośrednio zmienić ustawienia ma
 
 Podczas aprowizacji nowej maszyny wirtualnej z programem SQL Server platforma Azure nie włącza automatycznie protokołu TCP/IP dla wersji Developer i Express programu SQL Server. W poniższych krokach omówiono, jak ręcznie włączyć protokół TCP/IP w celu zdalnego nawiązania połączenia przy użyciu adresu IP.
 
-W poniższych krokach włączono protokół TCP/IP dla wersji Developer i Express programu SQL Server przy użyciu **Menedżera konfiguracji programu SQL Server.**.
+W poniższych krokach włączono protokół TCP/IP dla wersji Developer i Express programu SQL Server przy użyciu **Menedżera konfiguracji programu SQL Server**.
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>Zdalne ustanawianie połączenia z programem SQL Server
+## <a id="connect"></a> Zdalne ustanawianie połączenia z programem SQL Server
 
 W tym samouczku wybrano opcję dostępu **Publiczne** dla maszyny wirtualnej i opcję **Uwierzytelnianie programu SQL Server**. Te ustawienia powodują automatyczne skonfigurowanie maszyny wirtualnej do zezwalania na połączenia z programem SQL Server z dowolnego klienta za pośrednictwem Internetu (zakładając, że ma on poprawny identyfikator logowania SQL).
 
