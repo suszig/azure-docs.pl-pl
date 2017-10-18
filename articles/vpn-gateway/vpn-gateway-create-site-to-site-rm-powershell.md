@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 318fd6191127d5e84b8851441977fe40f204fad1
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN typu lokacja-lokacja przy użyciu programu PowerShell
 
@@ -250,3 +250,5 @@ Jeśli prefiksy adresów IP, które mają być kierowane do lokalizacji lokalnej
 
 *  Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
+* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu lokacja-lokacja za pomocą szablonu usługi Resource Manager, zobacz [Create a Site-to-Site VPN Connection (Tworzenie połączenia sieci VPN typu lokacja-lokacja)](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu sieć wirtualna-sieć wirtualna za pomocą szablonu usługi Resource Manager, zobacz [Deploy HBase geo replication (Wdrażanie replikacji geograficznej bazy danych HBase)](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

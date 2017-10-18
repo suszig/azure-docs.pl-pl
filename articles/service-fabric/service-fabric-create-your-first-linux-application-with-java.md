@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: ryanwi
+ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Tworzenie pierwszej aplikacji Java z interfejsem Reliable Actors usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ Ten przewodnik Szybki start pomaga w ciągu kilku minut utworzyć pierwszą apli
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem zainstaluj zestaw SDK usługi Service Fabric oraz interfejs wiersza polecenia usługi Service Fabric i skonfiguruj klaster projektowy w [środowisku projektowym w systemie Linux](service-fabric-get-started-linux.md). Jeśli używasz systemu Mac OS X, możesz [skonfigurować środowisko deweloperskie systemu Linux na maszynie wirtualnej za pomocą narzędzia Vagrant](service-fabric-get-started-mac.md).
 
-Trzeba również zainstalować [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md).
+Zainstaluj także [interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md).
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Instalowanie i konfigurowanie generatorów dla języka Java
 Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletu, które ułatwiają tworzenie aplikacji Java usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów Yeoman. Wykonaj poniższe kroki, aby upewnić się, że generator szablonów Yeoman usługi Service Fabric dla języka Java działa na Twojej maszynie.
@@ -49,11 +48,28 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletu, które uł
   ```bash
   sudo npm install -g yo
   ```
-3. Zainstaluj generator aplikacji Java Yeo usługi Service Fabric z poziomu menedżera NPM
+3. Zainstaluj generator aplikacji Java Yeoman usługi Service Fabric z poziomu menedżera NPM
 
   ```bash
   sudo npm install -g generator-azuresfjava
   ```
+
+## <a name="basic-concepts"></a>Podstawowe pojęcia
+Aby rozpocząć pracę z elementami Reliable Actors, musisz tylko poznać kilka podstawowych pojęć:
+
+* **Usługa aktora**. Elementy Reliable Actors są spakowane w usługach Reliable Services, które można wdrożyć w infrastrukturze usługi Service Fabric. Wystąpienia aktora są aktywowane w nazwanym wystąpieniu usługi.
+* **Rejestracja aktora**. Podobnie jak w przypadku usług Reliable Services, usługę Reliable Actor należy zarejestrować w środowisku uruchomieniowym usługi Service Fabric. Ponadto typ aktora należy zarejestrować w środowisku uruchomieniowym aktora.
+* **Interfejs aktora**. Interfejs aktora służy do definiowania jednoznacznie określonego interfejsu publicznego aktora. W terminologii modelu usługi Reliable Actor interfejs aktora definiuje typy komunikatów, które może zrozumieć i przetworzyć aktor. Interfejs aktora jest używany przez innych aktorów i aplikacje klienckie do „wysyłania” (asynchronicznie) komunikatów do aktora. W usługi Reliable Actors można zaimplementować wiele interfejsów.
+* **Klasa ActorProxy**. Klasa ActorProxy jest używana przez aplikacje klienckie do wywołania metod ujawnianych za pośrednictwem interfejsu aktora. Klasa ActorProxy udostępnia dwie ważne funkcje:
+  
+  * Rozpoznawanie nazw: jest w stanie zlokalizować aktora w klastrze (znaleźć węzeł klastra, w którym jest on hostowany).
+  * Obsługa błędów: może ponawiać próby wywołania metody i ponownie rozpoznawać lokalizację aktora, na przykład po wystąpieniu błędu, który wymaga przeniesienia aktora do innego węzła w klastrze.
+
+Warto wspomnieć o następujących regułach odnoszących się do interfejsów aktora:
+
+* Metod interfejsu aktora nie można przeciążyć.
+* Metody interfejsu aktora nie mogą zawierać parametrów out, ref ani parametrów opcjonalnych.
+* Interfejsy ogólne nie są obsługiwane.
 
 ## <a name="create-the-application"></a>Tworzenie aplikacji
 Aplikacja usługi Service Fabric zawiera jedną lub więcej usług, a każda z nich pełni określoną rolę w dostarczaniu funkcjonalności aplikacji. Generator, który został zainstalowany w ostatniej sekcji, ułatwia utworzenie pierwszej usługi i dodawanie kolejnych w przyszłości.  Możesz też tworzyć, kompilować i wdrażać aplikacje Java usługi Service Fabric przy użyciu wtyczki dla środowiska Eclipse. Zobacz [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java za pomocą środowiska Eclipse). Na potrzeby tego przewodnika Szybki start użyj narzędzia Yeoman, aby utworzyć aplikację z jedną usługą, w której jest przechowywana i pobierana wartość licznika.
@@ -62,6 +78,118 @@ Aplikacja usługi Service Fabric zawiera jedną lub więcej usług, a każda z n
 2. Nadaj nazwę aplikacji.
 3. Wybierz typ pierwszej usługi i nadaj jej nazwę. Na potrzeby tego samouczka wybierz usługę Reliable Actor Service. Aby uzyskać więcej informacji o pozostałych typach usług, zobacz [Service Fabric programming model overview](service-fabric-choose-framework.md) (Omówienie modelu programowania usługi Service Fabric).
    ![Generator Yeoman usługi Service Fabric dla platformy Java][sf-yeoman]
+
+Jeśli aplikacja otrzyma nazwę „HelloWorldActorApplication”, a aktor — „HelloWorldActor”, zostanie utworzony następujący szkielet:
+
+```bash
+HelloWorldActorApplication/
+├── build.gradle
+├── HelloWorldActor
+│   ├── build.gradle
+│   ├── settings.gradle
+│   └── src
+│       └── reliableactor
+│           ├── HelloWorldActorHost.java
+│           └── HelloWorldActorImpl.java
+├── HelloWorldActorApplication
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldActorPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   ├── _readme.txt
+│       │   └── Settings.xml
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
+├── HelloWorldActorInterface
+│   ├── build.gradle
+│   └── src
+│       └── reliableactor
+│           └── HelloWorldActor.java
+├── HelloWorldActorTestClient
+│   ├── build.gradle
+│   ├── settings.gradle
+│   ├── src
+│   │   └── reliableactor
+│   │       └── test
+│   │           └── HelloWorldActorTestClient.java
+│   └── testclient.sh
+├── install.sh
+├── settings.gradle
+└── uninstall.sh
+```
+## <a name="reliable-actors-basic-building-blocks"></a>Podstawowe bloki konstrukcyjne usługi Reliable Actors
+Podstawowe pojęcia opisane powyżej można przełożyć na podstawowe bloki konstrukcyjne usługi Reliable Actor.
+
+### <a name="actor-interface"></a>Interfejs aktora
+Zawiera definicję interfejsu aktora. Ten interfejs definiuje kontrakt aktora udostępniany implementacji aktora i klientom wywołującym aktora, dlatego zazwyczaj warto zdefiniować go w miejscu, które jest oddzielone od implementacji aktora i może zostać udostępnione wielu innym usługom lub aplikacjom klienckim.
+
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
+
+```java
+public interface HelloWorldActor extends Actor {
+    @Readonly   
+    CompletableFuture<Integer> getCountAsync();
+
+    CompletableFuture<?> setCountAsync(int count);
+}
+```
+
+### <a name="actor-service"></a>Usługa aktora
+Zawiera implementację aktora i kod rejestracji aktora. Klasa aktora implementuje interfejs aktora. Jest to miejsce, gdzie aktor wykonuje swoją pracę.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
+
+```java
+@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
+    protected CompletableFuture<?> onActivateAsync() {
+        logger.log(Level.INFO, "onActivateAsync");
+
+        return this.stateManager().tryAddStateAsync("count", 0);
+    }
+
+    @Override
+    public CompletableFuture<Integer> getCountAsync() {
+        logger.log(Level.INFO, "Getting current count value");
+        return this.stateManager().getStateAsync("count");
+    }
+
+    @Override
+    public CompletableFuture<?> setCountAsync(int count) {
+        logger.log(Level.INFO, "Setting current count value {0}", count);
+        return this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+    }
+}
+```
+
+### <a name="actor-registration"></a>Rejestracja aktora
+Usługę aktora należy zarejestrować za pomocą typu usługi w środowisku uruchomieniowym usługi Service Fabric. Aby usługa aktora uruchamiała wystąpienia aktora, w usłudze aktora należy również zarejestrować typ aktora. Metoda rejestracji `ActorRuntime` wykonuje tę pracę dla aktorów.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
+
+```java
+public class HelloWorldActorHost {
+
+    public static void main(String[] args) throws Exception {
+
+        try {
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
+
+            Thread.sleep(Long.MAX_VALUE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+}
+```
 
 ## <a name="build-the-application"></a>Kompilowanie aplikacji
 Szablony generatora Yeoman usługi Service Fabric obejmują skrypt kompilacji dla narzędzia [Gradle](https://gradle.org/), którego można użyć do skompilowania aplikacji z poziomu terminalu.
@@ -229,4 +357,3 @@ Ostatnio przenieśliśmy biblioteki Java usługi Service Fabric z zestawu SDK Ja
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-

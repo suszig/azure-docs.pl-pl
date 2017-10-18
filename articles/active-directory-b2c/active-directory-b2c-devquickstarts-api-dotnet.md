@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: tworzenie interfejsu API sieci Web platformy .NET
 
@@ -40,7 +39,7 @@ Następnie musisz utworzyć aplikację interfejsu API sieci Web w katalogu usłu
 * Uwzględnij **aplikację sieci Web** lub **interfejs API sieci Web** w aplikacji.
 * Użyj **identyfikatora URI przekierowania** `https://localhost:44332/` dla aplikacji sieci Web. Jest to domyślna lokalizacja klienta aplikacji sieci Web dla tego przykładu kodu.
 * Skopiuj **Identyfikator aplikacji** przypisany do aplikacji. Będzie on potrzebny później.
-* Wprowadź identyfikator aplikacji do **identyfikatora URI aplikacji**.
+* Wprowadź identyfikator aplikacji do **identyfikatora URI aplikacji**. Skopiuj cały **identyfikator URI aplikacji**. Będzie on potrzebny później.
 * Dodaj uprawnienia za pomocą menu **Opublikowane zakresy**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ Nasz przykład został skonfigurowany do używania zasad i identyfikatora klient
     * `ida:SignUpSignInPolicyId` nazwą zasady tworzenia konta/logowania
     * `ida:EditProfilePolicyId` nazwą zasady edycji profilu
     * `ida:ResetPasswordPolicyId` nazwą zasady resetowania hasła
+    * `api:ApiIdentifier` identyfikatorem URI aplikacji
 
 
 ## <a name="secure-the-api"></a>Zabezpieczanie interfejsu API
@@ -212,4 +212,3 @@ Na koniec skompiluj i uruchom oba projekty: `TaskWebApp` i `TaskService`. Utwór
 ## <a name="edit-your-policies"></a>Edytowanie zasad
 
 Po zabezpieczeniu interfejsu API za pomocą usługi Azure AD B2C możesz eksperymentować z zasadą tworzenia konta/logowania i sprawdzać skutki (lub ich brak) powiązane z interfejsem API. Możesz manipulować oświadczeniami aplikacji w zasadach i zmieniać informacje o użytkowniku dostępne w interfejsie API sieci Web. Wszystkie dodane oświadczenia będą dostępne dla interfejsu API sieci Web w architekturze MVC programu .NET w obiekcie `ClaimsPrincipal`, zgodnie z opisem we wcześniejszej części tego artykułu.
-

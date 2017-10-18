@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -73,10 +72,18 @@ Do prywatnej komunikacji równorzędnej można używać publicznych lub prywatny
 ### <a name="public-peering"></a>Publiczna komunikacja równorzędna
 Ścieżka publicznej komunikacji równorzędnej Azure umożliwia łączenie ze wszystkimi usługami obsługiwanymi na platformie Azure za pośrednictwem ich publicznych adresów IP. Dotyczy to usług wymienionych w temacie [ExpessRoute FAQ](expressroute-faqs.md) (ExpessRoute — często zadawane pytania) i wszystkich usług obsługiwanych przez niezależnych dostawców oprogramowania na platformie Microsoft Azure. Połączenie z usługami Microsoft Azure w publicznej komunikacji równorzędnej jest zawsze inicjowane z sieci użytkownika do sieci Microsoft. W odniesieniu do ruchu skierowanego do sieci firmy Microsoft należy użyć publicznych adresów IP.
 
+> [!IMPORTANT]
+> Wszystkie usługi PaaS platformy Azure są również dostępne za pośrednictwem komunikacji równorzędnej firmy Microsoft. Zalecamy utworzenie komunikacji równorzędnej firmy Microsoft i nawiązanie połączenia z usługami PaaS platformy Azure za pośrednictwem komunikacji równorzędnej firmy Microsoft.  
+>   
+
+
+Prywatny numer systemu autonomicznego jest dozwolony w publicznej komunikacji równorzędnej.
+
 ### <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365 takie jak Exchange Online, SharePoint Online, Skype dla firm i Dynamics 365. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług w chmurze firmy Microsoft musi uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft.
+Ścieżki komunikacji równorzędnej firmy Microsoft umożliwiają podłączenie do wszystkich usług firmy Microsoft w chmurze hostowanych na publicznych adresach IP. Lista obejmuje usługi Office 365, Dynamics 365 i Microsoft Azure PaaS. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług firmy Microsoft w chmurze musi używać prawidłowych publicznych adresów IPv4/IPv6, zanim wejdzie do sieci firmy Microsoft.
 
 Zadbaj o to, aby adres IP i numer AS zostały zarejestrowane na Ciebie w jednym z następujących rejestrów:
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ Zadbaj o to, aby adres IP i numer AS zostały zarejestrowane na Ciebie w jednym 
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Jeśli Twoje prefiksy i numer systemu autonomicznego nie są przypisane do Ciebie w powyższych rejestrach, musisz otworzyć sprawę pomocy technicznej w celu ręcznej weryfikacji Twoich prefiksów i numeru systemy autonomicznego. Pomoc techniczna będzie wymagać dokumentacji, takiej jak upoważnienie potwierdzające zezwolenie na korzystanie z zasobów.
+
+Prywatny numer systemu autonomicznego jest dozwolony dla komunikacji równorzędnej firmy Microsoft, ale będzie również wymagał ręcznej weryfikacji.
 
 > [!IMPORTANT]
 > Publiczne adresy IP anonsowane w sieci firmy Microsoft za pośrednictwem usługi ExpressRoute nie mogą być anonsowane w Internecie. Mogłoby to spowodować przerwanie łączności z innymi usługami firmy Microsoft. Używane przez serwery w sieci użytkownika publiczne adresy IP, które komunikują się z punktami końcowymi usługi O365 w środowisku firmy Microsoft, mogą być jednak anonsowane za pośrednictwem usługi ExpressRoute. 
@@ -134,39 +145,40 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | **Region platformy Microsoft Azure** | **Wartość społeczności BGP** |
 | --- | --- |
 | **Ameryka Północna** | |
-| Wschodnie stany USA |12076:51004 |
-| Wschodnie stany USA 2 |12076:51005 |
-| Zachodnie stany USA |12076:51006 |
-| Zachodnie stany USA 2 |12076:51026 |
-| Środkowo-zachodnie stany USA |12076:51027 |
-| Środkowo-północne stany USA |12076:51007 |
-| Środkowo-południowe stany USA |12076:51008 |
-| Środkowe stany USA |12076:51009 |
-| Kanada Środkowa |12076:51020 |
-| Kanada Wschodnia |12076:51021 |
+| Wschodnie stany USA | 12076:51004 |
+| Wschodnie stany USA 2 | 12076:51005 |
+| Zachodnie stany USA | 12076:51006 |
+| Zachodnie stany USA 2 | 12076:51026 |
+| Środkowo-zachodnie stany USA | 12076:51027 |
+| Środkowo-północne stany USA | 12076:51007 |
+| Środkowo-południowe stany USA | 12076:51008 |
+| Środkowe stany USA | 12076:51009 |
+| Kanada Środkowa | 12076:51020 |
+| Kanada Wschodnia | 12076:51021 |
 | **Ameryka Południowa** | |
-| Brazylia Południowa |12076:51014 |
+| Brazylia Południowa | 12076:51014 |
 | **Europa** | |
-| Europa Północna |12076:51003 |
-| Europa Zachodnia |12076:51002 |
+| Europa Północna | 12076:51003 |
+| Europa Zachodnia | 12076:51002 |
 | Południowe Zjednoczone Królestwo | 12076:51024 |
 | Zachodnie Zjednoczone Królestwo | 12076:51025 |
 | **Azja i Pacyfik** | |
-| Azja Wschodnia |12076:51010 |
-| Azja Południowo-Wschodnia |12076:51011 |
+| Azja Wschodnia | 12076:51010 |
+| Azja Południowo-Wschodnia | 12076:51011 |
 | **Japonia** | |
-| Japonia Wschodnia |12076:51012 |
-| Japonia Zachodnia |12076:51013 |
+| Japonia Wschodnia | 12076:51012 |
+| Japonia Zachodnia | 12076:51013 |
 | **Australia** | |
-| Australia Wschodnia |12076:51015 |
-| Australia Południowo-Wschodnia |12076:51016 |
+| Australia Wschodnia | 12076:51015 |
+| Australia Południowo-Wschodnia | 12076:51016 |
 | **Indie** | |
-| Indie Południowe |12076:51019 |
-| Indie Zachodnie |12076:51018 |
-| Indie Środkowe |12076:51017 |
+| Indie Południowe | 12076:51019 |
+| Indie Zachodnie | 12076:51018 |
+| Indie Środkowe | 12076:51017 |
 | **Korea** | |
-| Korea Południowa |12076:51028 |
-| Korea Środkowa |12076:51029 |
+| Korea Południowa | 12076:51028 |
+| Korea Środkowa | 12076:51029 |
+
 
 Wszystkie trasy anonsowane przez firmę Microsoft zostaną oznaczone odpowiednią wartością społeczności. 
 
@@ -179,11 +191,11 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 | **Usługa** | **Wartość społeczności BGP** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype dla firm Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Inne usługi online Office 365 |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype dla firm Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Inne usługi online Office 365 | 12076:5100 |
 
 > [!NOTE]
 > Firma Microsoft nie uznaje żadnych wartości społeczności BGP ustawionych na trasach anonsowanych do firmy Microsoft.
@@ -218,5 +230,4 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
   * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) (Tworzenie obwodu usługi ExpressRoute dla klasycznego modelu wdrażania) lub [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md) (Tworzenie i modyfikowanie obwodu usługi ExpressRoute za pomocą usługi Azure Resource Manager)
   * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) (Konfigurowanie routingu dla klasycznego modelu wdrażania) lub [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md) (Konfigurowanie routingu dla modelu wdrażania usługi Resource Manager)
   * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Łączenie klasycznej sieci wirtualnej z obwodem usługi ExpressRoute) lub [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnej usługi Resource Manager z obwodem usługi ExpressRoute)
-
 

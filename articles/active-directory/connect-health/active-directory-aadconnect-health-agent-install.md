@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 W tym dokumencie opisano instalowanie i konfigurowanie agentów programu Azure AD Connect Health. Agentów możesz pobrać [tutaj](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -37,7 +36,19 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 | Inspekcja połączenia SSL dla ruchu wychodzącego jest filtrowana lub wyłączona | Rejestracja agenta lub operacje przekazywania danych mogą zakończyć się niepowodzeniem, jeśli w warstwie sieciowej jest aktywny proces zakończenia lub inspekcji połączenia SSL dla ruchu wychodzącego. |
 | Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.</br></br><li>Port TCP 443</li><li>Port TCP 5671</li> |
 | Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https://sts.contoso.com</li> |
+| Upewnij się, że zainstalowano program PowerShell w wersji 4.0 lub nowszej | <li>System Windows Server 2008 R2 jest dostarczany z programem PowerShell w wersji 2.0, która jest niewystarczająca dla agenta.  Zaktualizuj program PowerShell zgodnie z opisem w poniższej sekcji dotyczącej [instalacji agenta na serwerach z systemem Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>System Windows Server 2012 jest dostarczany z programem PowerShell w wersji 3.0, która jest niewystarczająca dla agenta.  [Zaktualizuj](http://www.microsoft.com/en-us/download/details.aspx?id=40855) platformę Windows Management Framework.</li><li>System Windows Server 2012 R2 i jego nowsze wersje są dostarczane z wystarczająco nową wersją programu PowerShell.</li>|
 |Wyłącz standard FIPS|Standard FIPS nie jest obsługiwany przez agentów programu Azure AD Connect Health.|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Pobieranie i instalowanie agenta programu Azure AD Connect Health
+* Sprawdź, czy [wymagania programu Azure AD Connect Health zostały spełnione](active-directory-aadconnect-health-agent-install.md#requirements).
+* Wprowadzenie do korzystania z programu Azure AD Connect Health dla usług AD FS
+    * [Pobierz agenta programu Azure AD Connect Health dla usług AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Zobacz instrukcje instalacji](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+* Wprowadzenie do korzystania z programu Azure AD Connect Health do celów synchronizacji
+    * [Pobierz i zainstaluj najnowszą wersję programu Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). Agent kondycji do celów synchronizacji zostanie zainstalowany w ramach instalacji programu Azure AD Connect (w wersji 1.0.9125.0 lub nowszej).
+* Wprowadzenie do korzystania z programu Azure AD Connect Health dla usług AD DS
+    * [Pobierz agenta programu Azure AD Connect Health dla usług AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Zobacz instrukcje instalacji](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalowanie agenta programu Azure AD Connect Health Agent dla usług AD FS
 Aby rozpocząć instalowanie agenta, kliknij dwukrotnie pobrany plik exe. Na pierwszym ekranie kliknij przycisk Instaluj.
@@ -89,11 +100,11 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2008 R2
 1. Kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Zasady zabezpieczeń lokalnych**.
-2. Przejdź do folderu **Ustawienia zabezpieczeń\Zasady lokalne\Zarządzanie prawami użytkownika**, a następnie kliknij dwukrotnie pozycję Generuj inspekcje zabezpieczeń.
+2. Przejdź do folderu **Ustawienia zabezpieczeń\Zasady lokalne\Przypisywanie praw użytkownika**, a następnie kliknij dwukrotnie pozycję **Generuj inspekcje zabezpieczeń**.
 3. Na karcie **Ustawianie zabezpieczeń lokalnych** sprawdź, czy jest wymienione konto usługi AD FS 2.0. Jeśli go nie ma, kliknij pozycję **Dodaj użytkownika lub grupę** i dodaj je do listy, a następnie kliknij przycisk **OK**.
 4. Aby włączyć inspekcję, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Zamknij okno Zasady zabezpieczeń lokalnych, a następnie otwórz przystawkę Zarządzanie. Aby otworzyć przystawkę Zarządzanie, kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję Zarządzanie usługą AD FS 2.0.
-6. W okienku Akcje kliknij pozycję Edytuj właściwości usługi federacyjnej.
+5. Zamknij okno **Zasady zabezpieczeń lokalnych**, a następnie otwórz przystawkę **Zarządzanie usługami AD FS**. Aby otworzyć przystawkę Zarządzanie usługami AD FS, kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Zarządzanie usługami AD FS 2.0**.
+6. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
 7. W oknie dialogowym **Właściwości usługi federacyjnej** kliknij kartę **Zdarzenia**.
 8. Zaznacz pola wyboru **Inspekcje zakończone sukcesem** i **Inspekcje zakończone niepowodzeniem**.
 9. Kliknij przycisk **OK**.
@@ -303,4 +314,3 @@ Aby wyświetlić szczegółowe dzienniki, możesz użyć w poleceniu flagi -Show
 * [Używanie programu Azure AD Connect Health z usługami AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](active-directory-aadconnect-health-faq.md)
 * [Historia wersji programu Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

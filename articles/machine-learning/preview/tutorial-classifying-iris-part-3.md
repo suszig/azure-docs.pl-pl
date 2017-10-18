@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
+ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 28d74eb9da4210f59758b90ae88ce5a5eb62621a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
@@ -36,8 +34,12 @@ Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. W tej czę�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ukończ najpierw dwie pierwsze części z tej serii samouczków:
-- Najpierw zapoznaj się z [samouczkiem dotyczącym przygotowywania danych](tutorial-classifying-iris-part-1.md), aby utworzyć zasoby usługi Azure Machine Learning i zainstalować aplikację Azure Machine Learning Workbench.
-- Następnie zapoznaj się z [samouczkiem dotyczącym budowania modelu](tutorial-classifying-iris-part-2.md), aby utworzyć model regresji logistycznej w usłudze Azure Machine Learning.
+
+1. Zapoznaj się z [samouczkiem dotyczącym przygotowywania danych](tutorial-classifying-iris-part-1.md), aby utworzyć zasoby usługi Azure Machine Learning i zainstalować aplikację Azure Machine Learning Workbench.
+
+2. Zapoznaj się z [samouczkiem dotyczącym budowania modelu](tutorial-classifying-iris-part-2.md), aby utworzyć model regresji logistycznej w usłudze Azure Machine Learning.
+
+3. Aparat platformy Docker musisz zainstalować i uruchomić lokalnie. Alternatywnie możesz przeprowadzić wdrożenie w klastrze usługi Azure Container Service na platformie Azure.
 
 ## <a name="download-the-model-pickle-file"></a>Pobieranie pliku modelu utworzonego w pakiecie pickle
 W poprzedniej części samouczka skrypt **iris_sklearn.py** został uruchomiony lokalnie w aplikacji Azure Machine Learning Workbench. Ta akcja spowodowała zserializowanie modelu regresji logistycznej przy użyciu popularnego pakietu **[pickle](https://docs.python.org/2/library/pickle.html)** do serializacji obiektów w języku Python. 
@@ -334,5 +336,4 @@ Udało Ci się pomyślnie uruchomić skrypt szkolenia w różnych środowiskach 
 Możesz teraz zająć się zaawansowanym przygotowywaniem danych:
 > [!div class="nextstepaction"]
 > [Zaawansowane przygotowywanie danych](tutorial-bikeshare-dataprep.md)
-
 

@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>Co to jest usługa Event Hubs?
 
-Azure Event Hubs to wysoce skalowalna platforma do pobierania zdarzeń i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Dzięki udostępnieniu [możliwości publikowania/subskrybowania](https://msdn.microsoft.com/library/aa560414.aspx) z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data.
+Azure Event Hubs to wysoce skalowalna platforma do pobierania zdarzeń i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Dzięki udostępnieniu [możliwości publikowania/subskrybowania](/biztalk/core/publish-and-subscribe-architecture) z niskim opóźnieniem i na bardzo dużą skalę usługa Event Hubs służy jako „wjazd” dla danych big data.
 
 ## <a name="why-use-event-hubs"></a>Dlaczego warto korzystać z usługi Event Hubs?
 
@@ -68,5 +67,4 @@ Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z nastę
 * [Przykładowe aplikacje korzystające z usługi Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

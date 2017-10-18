@@ -3,7 +3,7 @@ title: "Kontrola dostępu oparta na rolach w usłudze Azure Automation | Microso
 description: "Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Ten artykuł zawiera opis sposobu konfigurowania funkcji RBAC w usłudze Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "automation rbac, kontrola dostępu oparta na rolach, azure rbac"
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Kontrola dostępu oparta na rolach w usłudze Azure Automation
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
-Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Przy użyciu funkcji [RBAC](../active-directory/role-based-access-control-configure.md) można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom, grupom i aplikacjom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Prawo dostępu oparte na rolach może zostać przydzielone użytkownikom za pomocą portalu Azure, narzędzia wiersza polecenia platformy Azure lub interfejsów API zarządzania platformy Azure.
+Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Przy użyciu funkcji [RBAC](../active-directory/role-based-access-control-configure.md) można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom, grupom i aplikacjom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Prawo dostępu oparte na rolach może zostać przydzielone użytkownikom za pomocą witryny Azure Portal, narzędzi wiersza polecenia platformy Azure lub interfejsów API zarządzania platformy Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>Funkcja RBAC w ramach kont automatyzacji
 W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie użytkownikom, grupom i aplikacjom odpowiednich ról RBAC w zakresie konta usługi. Poniżej przedstawiono wbudowane role obsługiwane przez konto automatyzacji:  
@@ -33,7 +33,7 @@ W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie u
 | Właściciel |Rola Właściciel umożliwia dostęp do wszystkich zasobów i akcji w ramach konta usługi Automation, w tym zapewnienie innym użytkownikom, grupom i aplikacjom dostępu do zarządzania kontem tej usługi. |
 | Współautor |Rola Współautor umożliwia zarządzanie wszystkim, z wyjątkiem modyfikowania uprawnień dostępu innych użytkowników do konta usługi Automation. |
 | Czytelnik |Rola Czytelnik służy do wyświetlania wszystkich zasobów w ramach konta usługi Automation, ale nie pozwala na wprowadzanie żadnych zmian. |
-| Operator usługi |Rola Operator usługi umożliwia wykonywanie zadań operacyjnych, takich jak uruchamianie, zatrzymywanie, wstrzymywanie, wznawianie i planowanie zadań. Ta rola jest przydatna, jeśli zasoby konta usługi Automation, takie jak zasoby poświadczeń i inne elementy Runbook, mają być chronione przed możliwością wyświetlenia lub modyfikowania, ale członkowie organizacji mają mieć możliwość wykonywania tych elementów Runbook. |
+| Operator usługi |Rola Operator usługi Automation umożliwia wykonywanie zadań operacyjnych, takich jak uruchamianie, zatrzymywanie, wstrzymywanie, wznawianie i planowanie zadań. Ta rola jest przydatna, jeśli zasoby konta usługi Automation, takie jak zasoby poświadczeń i inne elementy Runbook, mają być chronione przed możliwością wyświetlenia lub modyfikowania, ale członkowie organizacji mają mieć możliwość wykonywania tych elementów Runbook. |
 | Administrator dostępu użytkowników |Rola Administrator dostępu użytkowników umożliwia zarządzanie dostępem użytkowników do kont usługi Azure Automation. |
 
 > [!NOTE]
@@ -41,7 +41,7 @@ W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie u
 > 
 > 
 
-Ten artykuł przeprowadza przez kolejne kroki sposobu konfigurowania funkcji RBAC w usłudze Azure Automation. Na początek zostaną omówione poszczególne uprawnienia przyznawane rolom Współautor, Czytelnik, Operator usługi i Administrator dostępu użytkowników, aby umożliwić ich dobre zrozumienie przed faktycznym nadaniem uprawnień do konta usługi Automation.  Zrobienie tego nieświadomie mogłoby mieć niezamierzone lub niepożądane konsekwencje.     
+Ten artykuł przeprowadza przez kolejne kroki sposobu konfigurowania funkcji RBAC w usłudze Azure Automation. Na początek zostaną omówione poszczególne uprawnienia przyznawane rolom Współautor, Czytelnik, Operator usługi Automation i Administrator dostępu użytkowników, aby umożliwić ich dobre zrozumienie przed faktycznym nadaniem uprawnień do konta usługi Automation.  Zrobienie tego nieświadomie mogłoby mieć niezamierzone lub niepożądane konsekwencje.     
 
 ## <a name="contributor-role-permissions"></a>Uprawnienia roli Współautor
 W poniższej tabeli przedstawiono konkretne akcje, które mogą być wykonywane przez rolę Współautor w usłudze Automation.
@@ -127,35 +127,35 @@ W poniższej tabeli przedstawiono konkretne akcje, które mogą być wykonywane 
 | Element webhook usługi Automation |![Status zielony](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Konfigurowanie funkcji RBAC dla konta usługi Automation za pomocą portalu Azure
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/) i otwórz konto usługi Automation z bloku Konta usługi Automation.  
-2. Kliknij przycisk **Dostęp** w prawym górnym rogu. Spowoduje to otwarcie bloku **Użytkownicy**, w którym można dodawać nowych użytkowników, grupy i aplikacje do zarządzania kontem usługi Automation oraz wyświetlić istniejące role, które można skonfigurować dla konta usługi.  
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) i otwórz swoje konto usługi Automation ze strony Konta usługi Automation.  
+2. Kliknij przycisk **Dostęp** w prawym górnym rogu. Spowoduje to otwarcie strony **Użytkownicy**, na której możesz dodawać nowych użytkowników, grupy i aplikacje do zarządzania kontem usługi Automation oraz wyświetlić istniejące role, które można skonfigurować dla konta usługi.  
    
    ![Przycisk Dostęp](media/automation-role-based-access-control/automation-01-access-button.png)  
 
 > [!NOTE]
-> Opcja **Administratorzy subskrypcji** już istnieje jako domyślny użytkownik. Grupa Administratorzy subskrypcji usługi Active Directory obejmuje administratorów i współadministratorów usługi dla subskrypcji platformy Azure. Administrator usługi jest właścicielem subskrypcji platformy Azure i jej zasobów i ma rolę właściciela dziedziczoną również dla kont usługi Automation. Oznacza to, że dostęp jest **dziedziczony** dla **administratorów i współadministratorów usługi ** subskrypcji i **przypisany** wszystkim innym użytkownikom. Kliknij opcję **Administratorzy subskrypcji**, aby wyświetlić więcej szczegółów na temat ich uprawnień.  
+> Opcja **Administratorzy subskrypcji** już istnieje jako domyślny użytkownik. Grupa Administratorzy subskrypcji usługi Active Directory obejmuje administratorów i współadministratorów usługi dla subskrypcji platformy Azure. Administrator usługi jest właścicielem subskrypcji platformy Azure i jej zasobów i ma rolę właściciela dziedziczoną również dla kont usługi Automation. Oznacza to, że dostęp jest **dziedziczony** dla **administratorów i współadministratorów usługi** subskrypcji i **przypisany** wszystkim innym użytkownikom. Kliknij opcję **Administratorzy subskrypcji**, aby wyświetlić więcej szczegółów na temat ich uprawnień.  
 > 
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Dodawanie nowego użytkownika i przypisywanie roli
-1. W bloku Użytkownicy kliknij przycisk **Dodaj**, aby otworzyć **blok Dodaj dostęp**, w którym można dodać użytkownika, grupę lub aplikację i przypisywać im rolę.  
+1. Na stronie Użytkownicy kliknij przycisk **Dodaj**, aby otworzyć stronę **Dodawanie dostępu**, na której możesz dodać użytkownika, grupę lub aplikację i przypisać im rolę.  
    
    ![Dodawanie użytkownika](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Wybierz rolę z listy dostępnych ról. W artykule została wybrana rola **Czytelnik**, ale można wybrać dowolną z dostępnych wbudowanych ról obsługiwanych przez konto usługi Automation lub dowolną rolę niestandardową, która mogła zostać zdefiniowana.  
    
    ![Wybór roli](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Kliknij przycisk **Dodaj użytkowników**, aby otworzyć blok **Dodaj użytkowników**. Po dodaniu wszystkich użytkowników, grup lub aplikacji do zarządzania subskrypcją ich pozycje zostaną umieszczone na liście i można będzie je wybierać, aby dodać dostęp. Jeśli nie ma żadnych użytkowników na liście lub nie znajduje się na niej konkretny użytkownik, kliknij przycisk **Zaproś**, aby otworzyć blok **Zaproś gościa**, w którym można zaprosić użytkownika z poprawnym adresem e-mail konta Microsoft, takim jak Outlook.com, OneDrive lub Xbox Live ID. Po wprowadzeniu adresu e-mail użytkownika kliknij przycisk **Wybierz**, aby dodać użytkownika, a następnie kliknij przycisk **OK**. 
+3. Kliknij przycisk **Dodaj użytkowników**, aby otworzyć stronę **Dodawanie użytkowników**. Po dodaniu wszystkich użytkowników, grup lub aplikacji do zarządzania subskrypcją ich pozycje zostaną umieszczone na liście i można będzie je wybierać, aby dodać dostęp. Jeśli nie ma żadnych użytkowników na liście lub nie znajduje się na niej konkretny użytkownik, kliknij przycisk **Zaproś**, aby otworzyć stronę **Zapraszanie gościa**, na której można zaprosić użytkownika z poprawnym adresem e-mail konta Microsoft, takim jak Outlook.com, OneDrive lub Xbox Live ID. Po wprowadzeniu adresu e-mail użytkownika kliknij przycisk **Wybierz**, aby dodać użytkownika, a następnie kliknij przycisk **OK**. 
    
    ![Dodawanie użytkowników](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   Użytkownik dodany do bloku **Użytkownicy** powinien zostać wyświetlony z przypisaną rolą **Czytelnik**.  
+   Użytkownik dodany do strony **Użytkownicy** powinien zostać wyświetlony z przypisaną rolą **Czytelnik**.  
    
    ![Wyświetlanie użytkowników](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   Można także przypisać rolę użytkownikowi w bloku **Role**. 
-4. Kliknij przycisk **Role** z bloku Użytkownicy, aby otworzyć **blok Role**. W tym bloku można wyświetlić nazwę roli oraz liczbę użytkowników i grup przypisanych do tej roli.
+   Możesz także przypisać rolę użytkownikowi na stronie **Role**. 
+4. Kliknij przycisk **Role** na stronie Użytkownicy, aby otworzyć stronę **Role**. Na tej stronie możesz wyświetlić nazwę roli oraz liczbę użytkowników i grup przypisanych do tej roli.
    
-    ![Przypisywanie roli w bloku użytkowników](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![Przypisywanie roli na stronie użytkowników](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Funkcję kontroli dostępu opartej na rolach można ustawić tylko na poziomie konta usługi Automation, a nie z poziomu jakiegokolwiek zasobu poniżej konta usługi.
@@ -169,8 +169,8 @@ W poniższej tabeli przedstawiono konkretne akcje, które mogą być wykonywane 
 ### <a name="remove-a-user"></a>Usuwanie użytkownika
 Można usunąć uprawnienia dostępu dla użytkownika, który nie zarządza kontem usługi Automation lub nie pracuje już w organizacji. Poniżej przedstawiono kroki prowadzące do usunięcia użytkownika: 
 
-1. W bloku **Użytkownicy** wybierz przypisanie roli, które chcesz usunąć.
-2. Kliknij przycisk **Usuń** w bloku szczegółów przypisania.
+1. Na stronie **Użytkownicy** wybierz przypisanie roli, którą chcesz usunąć.
+2. Kliknij przycisk **Usuń** w okienku szczegółów przypisania.
 3. Kliknij przycisk **Tak**, aby potwierdzić usunięcie. 
    
    ![Usuwanie użytkowników](media/automation-role-based-access-control/automation-08-remove-users.png)  
@@ -181,7 +181,7 @@ Gdy użytkownik przypisany do roli loguje się do swojego konta usługi Automati
 ![Katalog domyślny](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
 ### <a name="user-experience-for-automation-operator-role"></a>Środowisko użytkownika dla roli operatora usługi
-Gdy użytkownik przypisany do roli operatora usługi przegląda konto usługi Automation, do którego jest przypisany, może wyświetlić jedynie listę elementów Runbook, zadań elementów Runbook i harmonogramów utworzonych w ramach konta usługi Automation, ale nie może wyświetlić ich definicji. Może uruchamiać, zatrzymywać, wstrzymywać, wznawiać lub planować zadania elementu Runbook. Nie ma dostępu do innych zasobów usługi Automation, takich jak konfiguracje, grupy hybrydowych procesów roboczych ani węzły DSC.  
+Gdy użytkownik przypisany do roli operatora usługi przegląda konto usługi Automation, do którego jest przypisany, może wyświetlić jedynie listę elementów Runbook, zadań elementów Runbook i harmonogramów utworzonych w ramach konta usługi Automation, ale nie może wyświetlić ich definicji. Może uruchamiać, zatrzymywać, wstrzymywać, wznawiać lub planować zadania elementu runbook. Nie ma dostępu do innych zasobów usługi Automation, takich jak konfiguracje, grupy hybrydowych procesów roboczych ani węzły DSC.  
 
 ![Brak dostępu do zasobów](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
@@ -229,10 +229,4 @@ W powyższych przykładach **identyfikator logowania**, **identyfikator subskryp
 * Więcej informacji dotyczących różnych sposobów konfigurowania funkcji RBAC w usłudze Azure Automation można znaleźć w artykule [Manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md) (Zarządzanie funkcją RBAC przy użyciu programu Azure PowerShell).
 * Szczegółowe informacje dotyczące różnych sposobów uruchamiania elementu Runbook można znaleźć w artykule [Uruchamianie elementu Runbook](automation-starting-a-runbook.md).
 * Informacje dotyczące różnych typów elementów Runbook można znaleźć w artykule [Azure Automation runbook types](automation-runbook-types.md) (Typy elementów Runbook w usłudze Azure Automation)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

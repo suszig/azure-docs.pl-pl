@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
 Ten dokument ułatwia korzystanie z funkcji oceny linii bazowej w [rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS)](operations-management-suite-overview.md) w celu zapewnienia bezpieczeństwa monitorowanych zasobów.
@@ -40,7 +39,7 @@ Możliwe typy reguł to:
 > 
 
 ## <a name="security-baseline-assessment"></a>Ocena linii bazowej zabezpieczeń
-Korzystając z pulpitu nawigacyjnego, można przeglądać bieżące oceny linii bazowej zabezpieczeń dla wszystkich komputerów, które są monitorowane przy użyciu rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS.  Aby przejść do pulpitu nawigacyjnego oceny linii bazowej zabezpieczeń, wykonaj te kroki:
+Korzystając z pulpitu nawigacyjnego, można przeglądać bieżące oceny linii bazowej zabezpieczeń dla wszystkich komputerów, które są monitorowane przy użyciu rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS. Aby przejść do pulpitu nawigacyjnego oceny linii bazowej zabezpieczeń, wykonaj te kroki:
 
 1. Na głównym pulpicie nawigacyjnym **pakietu Microsoft Operations Management Suite** kliknij kafelek **Zabezpieczenia i inspekcja**.
 2. Na pulpicie nawigacyjnym **Zabezpieczenia i inspekcja** kliknij przycisk **Ocena bazowa** w obszarze **Domeny zabezpieczeń**. Pojawi się pulpit nawigacyjny **Ocena linii bazowej zabezpieczeń**, jak pokazano na poniższej ilustracji:
@@ -85,5 +84,4 @@ Ten dokument przedstawia informacje na temat oceny linii bazowej w rozwiązaniu 
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
-
 

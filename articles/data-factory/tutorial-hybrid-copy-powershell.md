@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopiowanie danych między środowiskiem lokalnym i chmurą
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej. 
 
@@ -218,12 +216,12 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
         "name": "SqlServerLinkedService"
     }
    ```
-2. Do szyfrowania poufnych danych z ładunku w formacie JSON we własnym lokalnym środowisku Integration Runtime można uruchomić polecenie **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** i przekazać powyższy ładunek w formacie JSON. To szyfrowanie zapewnia szyfrowanie poświadczeń za pomocą interfejsu API ochrony danych (DPAPI) i zapisanie ich lokalnie we własnym węźle środowiska Integration Runtime. Ładunek danych wyjściowych może zostać przekierowany do innego pliku JSON (w tym przypadku „encryptedLinkedService.json”), który zawiera zaszyfrowane poświadczenia. 
+2. Do szyfrowania poufnych danych z ładunku w formacie JSON we własnym lokalnym środowisku Integration Runtime można uruchomić polecenie **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** i przekazać powyższy ładunek w formacie JSON. To szyfrowanie zapewnia szyfrowanie poświadczeń za pomocą interfejsu API ochrony danych (DPAPI) i zapisanie ich lokalnie we własnym węźle środowiska Integration Runtime. Ładunek danych wyjściowych może zostać przekierowany do innego pliku JSON (w tym przypadku „encryptedLinkedService.json”), który zawiera zaszyfrowane poświadczenia. 
 
     Zastąp zmienną **&lt;integration runtime name>&gt;** nazwą Twojego środowiska Integration Runtime przed uruchomieniem polecenia.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Uruchom następujące polecenie przy użyciu pliku JSON z poprzedniego kroku, aby utworzyć usługę **SqlServerLinkedService**:

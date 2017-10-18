@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Pojęcia i terminologia dotyczące usługi Scheduler oraz hierarchia jednostek
 ## <a name="scheduler-entity-hierarchy"></a>Hierarchia jednostek w ramach usługi Scheduler
@@ -176,7 +176,7 @@ Na wypadek niepowodzenia zadania usługi Scheduler można zdefiniować zasady po
 
 Aby ustawić zasady ponawiania, można określić dwa dodatkowe ustawienia: interwał ponawiania (**retryInterval**) i liczbę ponowień (**retryCount**).
 
-Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp czasu dzielący kolejne próby. Jego wartość domyślna to 30 sekund. Minimalna wartość, jaką można skonfigurować, wynosi 15 sekund, a wartość maksymalna — 18 miesięcy. W przypadku zadań z bezpłatnej kolekcji zadań minimalna wartość możliwa do skonfigurowania to 1 godzina.  Ta wartość jest definiowana w formacie ISO 8601. Wartość liczby ponowień określa się z użyciem obiektu **retryCount**, którego wartość określa liczbę ponownych prób wykonania zadania. Wartość domyślna obiektu to 4, natomiast wartość maksymalna to 20\. Oba obiekty **retryInterval****retryCount** są opcjonalne. Jeśli dla obiektu **retryType** wybrana zostanie opcja **fixed** i żadne wartości nie zostaną wyraźnie wskazane, obu obiektom zostaje przypisana wartość domyślna.
+Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp czasu dzielący kolejne próby. Jego wartość domyślna to 30 sekund. Minimalna wartość, jaką można skonfigurować, wynosi 15 sekund, a wartość maksymalna — 18 miesięcy. W przypadku zadań z bezpłatnej kolekcji zadań minimalna wartość możliwa do skonfigurowania to 1 godzina.  Ta wartość jest definiowana w formacie ISO 8601. Wartość liczby ponowień określa się z użyciem obiektu **retryCount**, którego wartość określa liczbę ponownych prób wykonania zadania. Jego wartość domyślna to 4, a wartość maksymalna to 20. Zarówno obiekt **retryInterval**, jak i **retryCount** są opcjonalne. Jeśli dla obiektu **retryType** wybrana zostanie opcja **fixed** i żadne wartości nie zostaną wyraźnie wskazane, obu obiektom zostaje przypisana wartość domyślna.
 
 ## <a name="see-also"></a>Zobacz też
  [Co to jest usługa Scheduler?](scheduler-intro.md)
@@ -196,10 +196,4 @@ Interwał ponawiania określony z użyciem obiektu **retryInterval** to odstęp 
  [Limity, wartości domyślne i kody błędów usługi Azure Scheduler](scheduler-limits-defaults-errors.md)
 
  [Uwierzytelnianie połączeń wychodzących usługi Azure Scheduler](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

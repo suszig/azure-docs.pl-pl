@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
+ms.openlocfilehash: 975a86c1f9d9692f6eadd232177f33cbbbeeff2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: d6463c57bdd33434e9f94cfae3b25bac5f6df739
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-1-prepare-data"></a>Klasyfikowanie irysów, część 1: przygotowanie danych
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
@@ -30,11 +28,14 @@ Niniejszy samouczek jest pierwszą częścią trzyczęściowej serii. W tym samo
 
 W celu uproszczenia w tym samouczku wykorzystywany jest ponadczasowy [zbiór danych na temat irysów](https://en.wikipedia.org/wiki/Iris_flower_data_set). Zrzuty ekranu dotyczą systemu Windows, ale działanie na komputerach z systemem operacyjnym macOS jest niemal identyczne.
 
-## <a name="launch-azure-machine-learning-workbench"></a>Uruchamianie aplikacji Azure Machine Learning Workbench
-Postępuj zgodnie z instrukcjami przewodnika [Install and create Quickstart (Instalowanie i tworzenie — szybki start)](quickstart-installation.md), aby zainstalować aplikację Azure Machine Learning Workbench. Ta instalacja obejmuje również interfejs wiersza polecenia. Uruchom aplikację usługi Azure Machine Learning Workbench i w razie potrzeby zaloguj się.
+## <a name="prerequisites"></a>Wymagania wstępne
+- Tworzenie konta Eksperymentowanie w usłudze Azure Machine Learning
+- Instalowanie aplikacji Azure Machine Learning Workbench
 
-## <a name="create-a-new-project"></a>Tworzenie nowego projektu
-1. W okienku **PROJEKTY** kliknij ikonę **+**, aby utworzyć **nowy projekt**.
+Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowanie i tworzenie](quickstart-installation.md), aby zainstalować aplikację Azure Machine Learning Workbench. Ta instalacja obejmuje również interfejs wiersza polecenia.
+
+## <a name="create-a-new-project-in-azure-ml-workbench"></a>Tworzenie nowego projektu w aplikacji Azure ML Workbench
+1. Uruchom aplikację usługi Azure Machine Learning Workbench i w razie potrzeby zaloguj się. W okienku **PROJEKTY** kliknij ikonę **+**, aby utworzyć **nowy projekt**.
 
    ![nowy obszar roboczy](media/tutorial-classifying-iris/new_ws.png)
 
@@ -149,4 +150,3 @@ Po zapoznaniu się z pierwszą z trzech części samouczka wiesz już, jak używ
 Możesz teraz przejść do następnej części serii, w której będziesz kompilować model uczenia maszynowego.
 > [!div class="nextstepaction"]
 > [Kompilowanie modelu](tutorial-classifying-iris-part-2.md)
-

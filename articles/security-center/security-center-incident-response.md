@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
-ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Używanie usługi Azure Security Center do reagowania na zdarzenia
 Wiele organizacji uczy się reagowania na zdarzenia zabezpieczeń dopiero wtedy, gdy zostaną celem ataku. Aby zmniejszyć koszty i straty, ważne jest dysponowanie planem reagowania na takie zdarzenia jeszcze przed wystąpieniem ataku. Usługi Azure Security Center można używać na różnych etapach reagowania na zdarzenia.
@@ -84,7 +83,7 @@ Magda zalogowała się w witrynie Azure Portal i otworzyła konsolę usługi Sec
    > Na potrzeby tego scenariusza Magda zamierza przeprowadzić ocenę alertu dotyczącego złośliwego działania SQL, jak widać na poprzednim rysunku.
    >
    >
-2. Kliknij alert **Złośliwe działanie SQL** i przejrzyj zaatakowane zasoby w bloku **Złośliwe działanie SQL**:  ![Szczegóły zdarzenia](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Kliknij alert **Złośliwe działanie SQL** i przejrzyj zaatakowane zasoby w bloku **Złośliwe działanie SQL**: ![Szczegóły zdarzenia](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     W tym bloku Magda może zanotować zaatakowane zasoby, liczbę ataków i czas ich wykrycia.
 3. Kliknij pozycję **Zaatakowany zasób**, aby uzyskać więcej informacji na temat ataku.
@@ -101,4 +100,3 @@ Zespół reagowania na zdarzenia może również korzystać z możliwości usłu
 
 ## <a name="conclusion"></a>Podsumowanie
 Stworzenie zespołu przed wystąpieniem ataku jest bardzo istotne dla organizacji i pozytywnie wpływa na sposób reagowania na zdarzenia dotyczące bezpieczeństwa. Odpowiednie narzędzia do monitorowania zasobów mogą ułatwić zespołowi podjęcie właściwych kroków w celu usunięcia skutków zdarzenia zabezpieczeń. [Funkcje wykrywania](security-center-detection-capabilities.md) usługi Security Center mogą pomóc zespołowi IT szybko reagować na zdarzenia zabezpieczeń i rozwiązywać problemy dotyczące bezpieczeństwa.
-

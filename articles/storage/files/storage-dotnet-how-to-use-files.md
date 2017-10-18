@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET 
 > [!NOTE]
 > W tym artykule przedstawiono sposób zarządzania usługą Azure Files za pomocą kodu platformy .NET. Aby dowiedzieć się więcej na temat usługi Azure Files, zobacz artykuł [Wprowadzenie do usługi Azure Files](storage-files-introduction.md).
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Informacje o tym samouczku
-W tym samouczku przedstawiono podstawy korzystania z platformy .NET do tworzenia aplikacji lub usług, które korzystają z usługi Azure Files do przechowywania danych plików. W tym samouczku utworzymy prostą aplikację konsolową i pokażemy, jak wykonywać podstawowe działania za pomocą platformy .NET i usługi Azure Files:
+W tym samouczku przedstawiono podstawy korzystania z platformy .NET do tworzenia aplikacji lub usług, które korzystają z usługi Azure Files do przechowywania danych plików. W tym samouczku tworzymy prostą aplikację konsolową i pokazujemy, jak wykonywać podstawowe działania za pomocą platformy .NET i usługi Azure Files:
 
 * Pobieranie zawartości pliku
 * Ustawienie limitu przydziału (maksymalnego rozmiaru) udziału plików.
@@ -138,7 +136,7 @@ if (share.Exists())
 Aby zobaczyć dane wyjściowe, uruchom aplikację konsolową.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Ustawianie maksymalnego rozmiaru udziału plików
-Począwszy od wersji 5.x biblioteki klienta usługi Azure Storage, można ustawić limit przydziału (lub maksymalny rozmiar) udziału plików w gigabajtach. Można również sprawdzić, ile danych jest obecnie przechowywanych w udziale.
+Od wersji 5.x biblioteki klienta usługi Azure Storage można ustawić limit przydziału (lub maksymalny rozmiar) udziału plików w gigabajtach. Można również sprawdzić, ile danych jest obecnie przechowywanych w udziale.
 
 Ustawiając limit przydziału dla udziału, można ograniczyć całkowity rozmiar plików przechowywanych w udziale. Jeśli całkowity rozmiar plików w udziale przekroczy ustawiony limit przydziału, klienci nie będą mogli zwiększyć rozmiaru istniejących plików ani tworzyć nowych plików (chyba że pliki będą puste).
 
@@ -326,6 +324,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 W ten sam sposób można skopiować obiekt blob do pliku. Jeśli obiekt źródłowy jest obiektem blob, utwórz sygnaturę dostępu współdzielonego w celu uwierzytelniania dostępu do tego obiektu blob podczas operacji kopiowania.
+
+## <a name="share-snapshots-preview"></a>Migawki udziałów (wersja zapoznawcza)
+Od wersji 8.5 biblioteki klienta usługi Azure Storage można tworzyć migawki udziałów (wersja zapoznawcza). Można również wyświetlać listę migawek udziałów oraz je przeglądać i usuwać. Migawki udziałów są przeznaczone tylko do odczytu, nie można w ich obrębie wykonywać żadnych operacji zapisu.
+
+**Tworzenie migawek udziałów**
+
+W poniższym przykładzie przedstawiono sposób tworzenia migawki udziału plików.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Wyświetlanie listy migawek udziałów**
+
+W poniższym przykładzie przedstawiono sposób wyświetlania listy migawek udziałów w udziale.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Przeglądanie plików i katalogów w obrębie migawek udziałów**
+
+W poniższym przykładzie przedstawiono sposób przeglądania plików i katalogów w ramach migawek udziałów.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Wyświetlanie listy udziałów i udziałów migawek oraz przywracanie udziałów plików lub plików z migawek udziałów** 
+
+Po utworzeniu migawki udziału plików można w przyszłości odzyskiwać poszczególne pliki lub cały udział plików. 
+
+Aby przywrócić plik z migawki udziału plików, można utworzyć zapytanie o migawki udziałów w udziale plików. Następnie można pobrać plik, który należy do danej migawki udziału i użyć tej wersji do bezpośredniego odczytywania i porównywania albo do przywracania.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Usuwanie migawek udziałów**
+
+W poniższym przykładzie przedstawiono sposób usuwania migawki udziału plików.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
 
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Rozwiązywanie problemów z usługą Azure Files przy użyciu metryk
 Funkcja analizy usługi Azure Storage obsługuje teraz metryki na potrzeby usługi Azure Files. Dane metryk umożliwiają śledzenie żądań i diagnozowanie problemów.

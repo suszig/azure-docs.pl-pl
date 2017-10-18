@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lekcja 2. Pobieranie danych
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 W tej lekcji skorzystasz z funkcji pobierania danych programu SSDT w celu połączenia się z przykładową bazą danych AdventureWorksDW2014, wybrania danych, wyświetlenia ich podglądu i odfiltrowania, a następnie zaimportowania danych do obszaru roboczego modelu.  
   
 Funkcja pobierania danych umożliwia importowanie danych z wielu różnych źródeł, takich jak: baza danych SQL Azure, Oracle, Sybase, kanał informacyjny OData, Teradata, pliki itp. Można również wykonywać kwerendy danych przy użyciu wyrażeń formuły Power Query M.
+
+> [!NOTE]
+> Zadania i obrazy w tym samouczku pokazują łączenie z bazą danych AdventureWorksDW2014 na serwerze lokalnym. W niektórych przypadkach baza danych AdventureWorksDW2014 na platformie Azure może być inna.
   
 Szacowany czas trwania lekcji: **10 minut**  
   
@@ -71,13 +72,19 @@ Tabele w przykładowej bazie AdventureWorksDW2014 zawierają dane, których nie 
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Filtrowanie danych tabeli przed zaimportowaniem  
   
-1.  W edytorze zapytań wybierz tabelę **DimCustomer**. Zostanie wyświetlony widok tabeli DimCustomer w źródle danych (przykładowej bazie danych AdventureWorksDWQ2014 ). 
+1.  W edytorze zapytań wybierz tabelę **DimCustomer**. Zostanie wyświetlony widok tabeli DimCustomer w źródle danych (przykładowej bazie danych AdventureWorksDW2014). 
   
 2.  Korzystając z funkcji wyboru wielokrotnego (Ctrl + kliknięcie), wybierz pozycje **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, kliknij je prawym przyciskiem myszy, a następnie kliknij pozycję **Usuń kolumny**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Importowanie tych kolumn nie jest wymagane, ponieważ zawarte w nich wartości nie mają znaczenia dla analizy sprzedaży w Internecie. Dzięki wyeliminowaniu zbędnych kolumn model jest mniejszy i wydajniejszy.  
+
+    > [!TIP]
+    > Jeśli popełnisz błąd, możesz utworzyć kopię zapasową, usuwając krok w pozycji **ZASTOSOWANE KROKI**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Odfiltruj pozostałe tabele, usuwając następujące kolumny w każdej tabeli:  
     
@@ -85,7 +92,7 @@ Tabele w przykładowej bazie AdventureWorksDW2014 zawierają dane, których nie 
     
       |Kolumna|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Tabele w przykładowej bazie AdventureWorksDW2014 zawierają dane, których nie 
   
     **FactInternetSales**
   
-      |Kolumna|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Brak usuniętych kolumn.
   
 ## <a name="Import"></a>Importowanie wybranych tabel i kolumn danych  
 Po wyświetleniu podglądu i odfiltrowaniu zbędnych danych możesz zaimportować pozostałe dane. Kreator importuje dane tabeli oraz relacje między tabelami. W modelu zostają utworzone nowe tabele i kolumny, natomiast odfiltrowane dane nie są importowane.  
@@ -160,4 +163,3 @@ Projekt modelu należy regularnie zapisywać.
 
   
   
-

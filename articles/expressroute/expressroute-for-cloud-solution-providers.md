@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.contentlocale: pl-pl
-ms.lasthandoff: 12/07/2016
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
 Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko inicjować obsługę nowych usług i rozwiązań dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. Usługa ExpressRoute jest prywatnym łączem komunikacyjnym o dużej szybkości do usług w ramach platformy Azure. 
@@ -135,8 +134,6 @@ Usługa dostawcy rozwiązań w chmurze zapewnia sposób na zwiększenie wartośc
 
 Dodatkowe informacje można znaleźć, używając następujących linków:
 
-[Microsoft Cloud Solution Provider program](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview) (Program dostawcy rozwiązań w chmurze Microsoft).  
+[Azure Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider) (Program dostawcy rozwiązań w chmurze dla platformy Azure).  
 [Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch) (Przygotowanie do transakcji w roli dostawcy rozwiązań w chmurze).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources) (Zasoby dostawcy rozwiązań w chmurze Microsoft).
-
-

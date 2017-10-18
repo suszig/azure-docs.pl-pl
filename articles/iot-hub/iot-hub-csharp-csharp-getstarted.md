@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Podłączanie urządzenia do usługi IoT Hub za pomocą środowiska .NET
 
@@ -200,7 +200,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsolowej .NET, kt�
     Console.ReadLine();
     ```
 
-    Domyślnie metoda **Utwórz** w aplikacji .NET Framework tworzy wystąpienie **DeviceClient**, które używa protokołu AMQP do komunikowania się z usługą IoT Hub. Aby skorzystać z protokołu MQTT lub HTTP, użyj zastępowania metody **Create**, która pozwala na określenie protokołu. Platforma uniwersalna systemu Windows oraz klienci PCL domyślnie używają protokołu HTTP. Jeśli używasz protokołu HTTP, dodaj również do projektu pakiet NuGet **Microsoft.AspNet.WebApi.Client**, aby dołączyć przestrzeń nazw **System.Net.Http.Formatting**.
+    Domyślnie metoda **Utwórz** w aplikacji .NET Framework tworzy wystąpienie **DeviceClient**, które używa protokołu AMQP do komunikowania się z usługą IoT Hub. Aby skorzystać z protokołu MQTT lub HTTPS, użyj zastępowania metody **Create** pozwalającego na określenie protokołu. Platforma uniwersalna systemu Windows oraz klienci PCL domyślnie używają protokołu HTTPS. Jeśli używasz protokołu HTTPS, dodaj również do projektu pakiet NuGet **Microsoft.AspNet.WebApi.Client**, aby dołączyć przestrzeń nazw **System.Net.Http.Formatting**.
 
 Ten samouczek zawiera instrukcje tworzenia aplikacji urządzenia w usłudze IoT Hub. Możesz również użyć rozszerzenia programu Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service], aby dodać niezbędny kod do aplikacji urządzenia.
 

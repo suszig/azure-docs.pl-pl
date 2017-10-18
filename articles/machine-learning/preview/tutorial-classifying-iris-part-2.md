@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Klasyfikowanie irysów, część 2: budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
 
@@ -38,6 +36,10 @@ W celu uproszczenia w tym samouczku wykorzystywany jest ponadczasowy [zbiór dan
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ukończ najpierw pierwszą część z tej serii samouczka. Przed rozpoczęciem niniejszego samouczka najpierw prześledź [samouczek dotyczący przygotowywania danych](tutorial-classifying-iris-part-1.md), aby utworzyć zasoby usługi Azure Machine Learning i zainstalować aplikację Azure Machine Learning Workbench.
+
+Opcjonalnie możesz eksperymentować, uruchamiając skrypty dla lokalnego kontenera platformy Docker. Aby to zrobić, potrzebny będzie aparat platformy Docker (wystarczy wersja Community Edition) zainstalowany i uruchomiony lokalnie na maszynie z systemem Windows lub macOS. Przeczytaj więcej na temat [instrukcji dotyczących instalacji platformy Docker](https://docs.docker.com/engine/installation/).
+
+Jeśli chcesz poeksperymentować z wysyłką skryptu uruchamianego w kontenerze platformy Docker na zdalnej maszynie wirtualnej platformy Azure lub w klastrze usługi HDInsight Spark, możesz wykonać [instrukcje, aby utworzyć maszynę wirtualną nauki o danych platformy Azure lub klaster usługi HDI](how-to-create-dsvm-hdi.md) .
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Przeglądanie pliku iris_sklearn.py i plików konfiguracji
 1. Uruchom aplikację **Azure Machine Learning Workbench** i otwórz projekt **myIris**, który został utworzony w poprzedniej części tej serii samouczka.
@@ -102,7 +104,7 @@ Przygotujmy się do uruchomienia skryptu **iris_sklearn.py** po raz pierwszy. Te
 
 8. Kliknij wyraz **Ukończono** w tekście stanu zadania w panelu Zadania. Zostanie otwarte okno podręczne, w którym widoczny będzie tekst wyjścia standardowego (stdout) działającego skryptu. Aby zamknąć tekst stdout, kliknij przycisk **X** w prawym górnym rogu okna podręcznego.
 
-9. W tym samym stanie zadania w panelu Zadania kliknij niebieski tekst **iris_sklearn.py [1]** tuż nad stanem **Zakończono** i czasem uruchomienia. Zostanie otwarta strona **Właściwości uruchomienia**, w której widoczne będą właściwości uruchomienia, pliki **Dane wyjściowe**, **Wizualizacje** oraz **Dzienniki** z danego uruchomienia. 
+9. W tym samym stanie zadania w panelu Zadania kliknij niebieski tekst **iris_sklearn.py [n]** (_n_ to numer przebiegu) tuż nad stanem **Zakończono** i czasem uruchomienia. Zostanie otwarta strona **Właściwości uruchomienia**, w której widoczne będą właściwości uruchomienia, pliki **Dane wyjściowe**, **Wizualizacje** oraz **Dzienniki** z danego uruchomienia. 
 
    Gdy uruchomienie zostanie zakończone, pojawi się okno podręczne z następującymi wynikami:
 
@@ -367,4 +369,3 @@ Możesz teraz przejść do trzeciej części tej serii. Utworzyliśmy model regr
 
 > [!div class="nextstepaction"]
 > [Wdrażanie modelu](tutorial-classifying-iris-part-3.md)
-

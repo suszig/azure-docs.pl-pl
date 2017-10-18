@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Jak korzystać z usługi Azure Files w witrynie Azure Portal
 Witryna [Azure Portal](https://portal.azure.com) udostępnia interfejs użytkownika umożliwiający zarządzanie usługą Azure Files. Za pomocą przeglądarki internetowej można wykonywać następujące czynności:
 
@@ -66,7 +64,7 @@ Witryna [Azure Portal](https://portal.azure.com) udostępnia interfejs użytkown
 -  Kliknij przycisk **Połącz**, aby wyświetlić wiersz polecenia umożliwiający zainstalowanie udziału plików z systemu Windows lub Linux. Użytkownicy systemu Linux mogą także zapoznać się z artykułem [How to use Azure Files with Linux (Jak używać usługi Azure Files z systemem Linux)](../storage-how-to-use-files-linux.md), aby uzyskać więcej instrukcji instalowania dla innych dystrybucji systemu Linux.
 
     ![Zrzut ekranu pokazujący sposób instalacji udziału plików](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Polecenia instalowania udziału plików w systemie Windows lub Linux można skopiować i uruchomić na maszynie wirtualnej platformy Azure lub komputerze lokalnym.
+-  Polecenia instalowania udziału plików w systemie Windows lub Linux możesz skopiować i uruchomić na swojej maszynie wirtualnej platformy Azure lub maszynie lokalnej.
 
     ![Zrzut ekranu pokazujący polecenia instalacji dla systemu Windows i Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 

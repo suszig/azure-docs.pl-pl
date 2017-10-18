@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Aby kompilować usługi Service Fabric przy użyciu platformy Java, upewnij się
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric (sfctl) na komputerze Mac
 
-[Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md) zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami i aplikacjami. Jest on oparty na języku Python, dlatego wymaga zainstalowania języka Python i narzędzia pip przed kontynuowaniem pracy przy użyciu następującego polecenia:
+Postępuj zgodnie z instrukcjami w temacie [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md#cli-mac), aby zainstalować interfejs wiersza polecenia usługi Service Fabric (`sfctl`) na komputerze Mac.
+Interfejs wiersza polecenia zawiera polecenia służące do interakcji z jednostkami usługi Service Fabric, w tym klastrami, aplikacjami i usługami.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Tworzenie aplikacji na komputerze Mac przy użyciu narzędzia Yeoman
 
-## <a name="create-application-on-mac-using-yeoman"></a>Tworzenie aplikacji na komputerze Mac przy użyciu narzędzia Yeoman
 Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które ułatwiają tworzenie aplikacji usługi Service Fabric z poziomu terminalu przy użyciu generatora szablonów narzędzia Yeoman. Wykonaj poniższe kroki, aby upewnić się, że masz generator szablonów narzędzia Yeoman szablonu usługi Service Fabric działający na Twoim komputerze.
 
 1. Na komputerze Mac musi być zainstalowane środowisko Node.js i narzędzie NPM. Jeśli jeszcze nie zostało to zrobione, możesz zainstalować środowisko Node.js i narzędzie NPM przy użyciu programu Homebrew, uruchamiając poniższe polecenie. Aby sprawdzić wersje środowiska Node.js i narzędzia NPM zainstalowane na komputerze Mac, możesz użyć opcji ``-v``.
@@ -165,4 +162,3 @@ Usługa Service Fabric udostępnia wtyczkę dla **środowiska IDE Eclipse Neon d
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

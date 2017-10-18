@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrowanie katalogów lokalnych z usługą Azure Active Directory
 Program Azure AD Connect umożliwia integrowanie katalogów lokalnych z usługą Azure Active Directory. Dzięki temu użytkownicy mogą posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD. W tym temacie przedstawiono kroki związane z planowaniem, wdrażaniem i obsługą. Zawiera on zbiór linków do tematów związanych z tym obszarem.
@@ -127,6 +126,15 @@ Model konfiguracji synchronizacji jest nazywany [aprowizacją deklaratywną](act
 |Zmienianie konfiguracji domyślnej | [Najlepsze rozwiązania dotyczące zmieniania konfiguracji domyślnej](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Konfigurowanie funkcji federacyjnych
+
+Program Azure AD Connect udostępnia pewne funkcje, które upraszczają sfederowanie z usługą Azure AD za pomocą usług AD FS i zarządzanie relacjami zaufania federacji. Program Azure AD Connect obsługuje usługi AD FS w systemie Windows Server 2012 R2 lub nowszym.
+
+[Aktualizuj certyfikat SSL farmy usług AD FS](active-directory-aadconnectfed-ssl-update.md), nawet jeśli nie używasz programu Azure AD Connect do zarządzania relacjami zaufania federacji.
+
+[Dodaj serwer usług AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) do farmy, aby rozwinąć farmę zgodnie z potrzebami.
+
+[Napraw zaufanie](active-directory-aadconnect-federation-management.md#repairthetrust) przy użyciu usługi Azure AD za pomocą kilku prostych kliknięć.
+
 Usługi AD FS można skonfigurować pod kątem obsługi [wielu domen](active-directory-aadconnect-multiple-domains.md). Możesz na przykład mieć wiele domen najwyższego poziomu, których musisz użyć na potrzeby federacji.
 
 Jeśli serwer usług AD FS nie został skonfigurowany tak, aby automatycznie aktualizował certyfikaty z usługi Azure AD, lub jeśli korzystasz z rozwiązania innego niż AD FS, otrzymasz powiadomienie o konieczności [zaktualizowania certyfikatów](active-directory-aadconnect-o365-certs.md).
@@ -157,5 +165,4 @@ Prezentacja z konferencji Ignite 2015 dotycząca rozszerzania katalogów lokalny
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

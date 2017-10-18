@@ -12,32 +12,30 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/28/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 52e421a62fa24a56a077bc030e03c0fed34305fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Przewodnik planowania i obsługi usługi Azure Security Center
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury, których organizacje planują wdrożenie usługa Azure Security Center.
 
->[!NOTE] 
->Począwszy od początku czerwca 2017 roku, usługa Security Center będzie używać programu Microsoft Monitoring Agent do gromadzenia i przechowywania danych. Aby dowiedzieć się więcej, zobacz [Migracja platformy usługi Azure Security Center](security-center-platform-migration.md). Informacje przedstawione w tym artykule reprezentują funkcję Security Center po przejściu do programu Microsoft Monitoring Agent.
->
-
+    
 ## <a name="planning-guide"></a>Przewodnik planowania
 Ten przewodnik obejmuje zestaw kroków i zadań, które można wykonać, aby zoptymalizować korzystanie z usługi Security Center w zależności od wymagań dotyczących zabezpieczeń oraz modelu zarządzania chmurą w organizacji. Aby w pełni wykorzystać zalety usługi Security Center, trzeba zrozumieć, w jak różny sposób będą używać usługi poszczególne osoby i zespoły w organizacji, gdyż umożliwi to spełnienie wymagań związanych z bezpieczeństwem programowania i obsługi, monitorowaniem, zarządzaniem i reagowaniem na zdarzenia. Kluczowe obszary, które należy wziąć pod uwagę podczas planowania korzystania z usługi Security Center:
 
 * Role zabezpieczeń i kontrola dostępu
 * Zasady zabezpieczeń i zalecenia w tym zakresie
 * Zbieranie i przechowywanie danych
+* Bieżące zasoby spoza platformy Azure
 * Bieżące monitorowanie zabezpieczeń
 * Reagowanie na zdarzenia
 
 W następnej sekcji dowiesz się, jak utworzyć plan dla każdego z tych obszarów i zastosować te zalecenia w zależności od wymagań.
+
 
 > [!NOTE]
 > Artykuł [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) (Centrum zabezpieczeń Azure — często zadawane pytania) zawiera listę często zadawanych pytań, która również może być przydatna w fazie projektowania i planowania.
@@ -50,7 +48,7 @@ W zależności od rozmiaru i struktury organizacji wiele osób oraz zespołów m
 
 Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Na przykład:
 
-**Jan (właściciel obciążenia chmury)**
+**Jan (właściciel obciążenia)**
 
 * Zarządza obciążeniem chmury i powiązanymi zasobami
 * Odpowiada za zaimplementowanie i utrzymanie ochrony zgodnie z zasadami zabezpieczeń firmy
@@ -79,7 +77,7 @@ Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązkó
 
 Usługa Security Center używa [kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md) udostępniającej [wbudowane role](../active-directory/role-based-access-built-in-roles.md), które można przypisać do użytkowników, grup i usług na platformie Azure. Gdy użytkownik otwiera usługę Security Center, widzi tylko informacje dotyczące zasobów, do których ma dostęp. Oznacza to, że użytkownik ma przypisaną rolę właściciela, współautora lub czytelnika subskrypcji albo grupy zasobów, do której należy zasób. Oprócz tych ról istnieją dwie określone role usługi Security Center:
 
-- **Czytelnik zabezpieczeń**: użytkownik, który należy do tej roli, ma możliwość wyświetlania praw do usługi Security Center, co obejmuje zalecenia, alerty, zasady i kondycję, ale nie ma możliwości wprowadzania zmian.
+- **Czytelnik zabezpieczeń**: użytkownik, który należy do tej roli, może wyświetlać tylko konfiguracje usługi Security Center, co obejmuje zalecenia, alerty, zasady i kondycję, ale nie może wprowadzać zmian.
 - **Administrator zabezpieczeń**: użytkownik ma takie same uprawnienia, jak w przypadku roli Czytelnik zabezpieczeń, ale ma również możliwość aktualizowania zasad zabezpieczeń oraz odrzucania zaleceń i alertów.
 
 Opisane powyżej role usługi Security Center nie mają dostępu do innych obszarów usług platformy Azure, takich jak magazyn, sieć internetowa i aplikacje mobilne oraz Internet rzeczy.  
@@ -91,7 +89,7 @@ Opisane powyżej role usługi Security Center nie mają dostępu do innych obsza
 
 W przypadku osób opisanych na poprzednim diagramie będzie potrzebna następująca kontrola dostępu oparta na rolach:
 
-**Jan (właściciel obciążenia chmury)**
+**Jan (właściciel obciążenia)**
 
 * Właściciel/Współautor grupy zasobów
 
@@ -112,8 +110,8 @@ W przypadku osób opisanych na poprzednim diagramie będzie potrzebna następuj�
 
 Niektóre inne istotne informacje, które należy wziąć pod uwagę:
 
-* Tylko właściciele lub współautorzy subskrypcji i administratorzy zabezpieczeń mogą edytować zasady zabezpieczeń
-* Tylko właściciele i współautorzy subskrypcji i grupy zasobów mogą stosować zalecenia dotyczące zabezpieczeń zasobu
+* Tylko właściciele lub współautorzy subskrypcji i administratorzy zabezpieczeń mogą edytować zasady zabezpieczeń.
+* Tylko właściciele i współautorzy subskrypcji i grupy zasobów mogą stosować zalecenia dotyczące zabezpieczeń zasobu.
 
 Podczas planowania kontroli dostępu przy użyciu kontroli dostępu opartej na rolach dla usługi Security Center musisz wiedzieć, kto w Twojej organizacji będzie korzystał z usługi. Ponadto musisz wiedzieć, jakiego rodzaju zadania będą wykonywały te osoby, a następnie odpowiednio skonfigurować kontrolę dostępu opartą na rolach.
 
@@ -123,28 +121,28 @@ Podczas planowania kontroli dostępu przy użyciu kontroli dostępu opartej na r
 > 
 
 ## <a name="security-policies-and-recommendations"></a>Zasady zabezpieczeń i zalecenia w tym zakresie
-Zasady zabezpieczeń określają zestaw mechanizmów kontrolnych, które są zalecane dla zasobów w określonej subskrypcji. W usłudze Security Center możesz zdefiniować zasady zgodnie z wymaganiami w zakresie zabezpieczeń firmy oraz typem aplikacji lub stopniem poufności danych.
+Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń oraz pomagają zapewnić zgodność z wymaganiami dotyczącymi zabezpieczeń określonymi przez firmę lub przepisy. W usłudze Security Center możesz zdefiniować zasady dla swoich subskrypcji platformy Azure, które mogą być dopasowane do typu obciążenia oraz poufności danych.
 
-Zasady włączone na poziomie subskrypcji są automatycznie propagowane wśród wszystkich grup zasobów w ramach subskrypcji, jak pokazano na poniższym diagramie:
-
-![Zasady zabezpieczeń](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-newUI.png)
+Zasady usługi Security Center zawierają następujące składniki:
+- [Zbieranie danych](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): ustawienia agenta aprowizacji i zbierania danych.
+- [Zasady zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-policies): usługa [Azure Policy](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction), która określa, które kontrolki są monitorowane i zalecane przez usługę Security Center, lub używa usługi Azure Policy do tworzenia nowych definicji, definiowania dodatkowych zasad i przypisywania zasad w grupach zarządzania.
+- [Wiadomości e-mail z powiadomieniami](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): ustawienia kontaktów i powiadomień dotyczących zabezpieczeń.
+- [Warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing): wybór wersji bezpłatnej lub ceny standardowej, który określa, które funkcje usługi Security Center są dostępne dla zasobów w zakresie (można określić dla subskrypcji, grupy zasobów i obszarów roboczych).
 
 > [!NOTE]
-> Jeśli musisz sprawdzić, które zasady zostały zmienione, możesz użyć [Dzienników inspekcji Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/10/audit-logs-for-azure-events/). Zmiany zasad są zawsze rejestrowane w Dziennikach inspekcji Azure.
-> 
-> 
+> Określenie kontaktu dotyczącego zabezpieczeń, za pomocą którego platforma Azure może się skontaktować z odpowiednią osobą w Twojej organizacji, jeśli wystąpi incydent zabezpieczeń. Aby uzyskać więcej informacji na temat sposobu włączania tego zalecenia, przeczytaj [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
 
-### <a name="security-recommendations"></a>Zalecenia dotyczące zabezpieczeń
-Przed skonfigurowaniem zasad zabezpieczeń przejrzyj poszczególne [zalecenia dotyczące zabezpieczeń](security-center-recommendations.md) i określ, czy te zasady są właściwe dla różnych subskrypcji i grup zasobów. Ważne jest również, aby zrozumieć, jakie działania powinny zostać podjęte w celu wypełnienia [zaleceń dotyczących zabezpieczeń](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations), oraz kto w organizacji będzie odpowiedzialny za monitorowanie pod kątem nowych zaleceń i podejmowanie wymaganych działań.
+### <a name="security-policies-definitions-and-recommendations"></a>Definicje i zalecenia dotyczące zasad zabezpieczeń
+Usługa Security Center automatycznie tworzy domyślne zasady zabezpieczeń dla każdej Twojej subskrypcji platformy Azure. Możesz edytować zasady w usłudze Security Center lub użyć usługi Azure Policy do utworzenia nowych definicji, zdefiniowania dodatkowych zasad i przypisania zasad w grupach zarządzania (które mogą reprezentować całą organizację, jednostki biznesowe w niej itp.) oraz monitorowania zgodności z tymi zasadami w tych zakresach.
 
-Usługa Security Center zaleci podanie szczegółowych informacji dotyczących kontaktu zabezpieczeń dla Twojej subskrypcji platformy Azure. Te informacje będą używane przez firmę Microsoft do kontaktowania się z Tobą, gdy centrum Microsoft Security Response Center (MSRC) wykryje, że osoby nieupoważnione lub działające niezgodnie z prawem uzyskały dostęp do Twoich danych klienta. Aby uzyskać więcej informacji na temat sposobu włączania tego zalecenia, przeczytaj [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
+Przed skonfigurowaniem zasad zabezpieczeń przejrzyj poszczególne [zalecenia dotyczące zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-recommendations) i określ, czy te zasady są właściwe dla różnych subskrypcji i grup zasobów. Ważne jest również, aby zrozumieć, jakie działania powinny zostać podjęte w celu wypełnienia zaleceń dotyczących zabezpieczeń oraz kto w organizacji będzie odpowiedzialny za monitorowanie pod kątem nowych zaleceń i podejmowanie wymaganych działań.
 
 ## <a name="data-collection-and-storage"></a>Zbieranie i przechowywanie danych
-Do zbierania danych zabezpieczeń z maszyn wirtualnych usługa Azure Security Center korzysta z programu Microsoft Monitoring Agent — jest to ten sam agent, który jest używany przez pakiet Operations Management Suite i usługę Log Analytics. Dane zbierane z tego agenta będą przechowywane w obszarach roboczych usługi Log Analytics.
+Do zbierania danych zabezpieczeń z maszyn wirtualnych usługa Azure Security Center korzysta z programu Microsoft Monitoring Agent — jest to ten sam agent, który jest używany przez pakiet Operations Management Suite i usługę Log Analytics. [Dane zbierane](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) z tego agenta będą przechowywane w obszarach roboczych usługi Log Analytics.
 
 ### <a name="agent"></a>Agent
 
-Po włączeniu funkcji zbierania danych w zasadach zabezpieczeń program Microsoft Monitoring Agent (dla systemu [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) lub [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) zostanie automatycznie zainstalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure. Program ten będzie również automatycznie instalowany na nowych maszynach wirtualnych.  Jeśli na maszynie wirtualnej jest już zainstalowany program Microsoft Monitoring Agent, usługa Azure Security Center będzie korzystać z zainstalowanego agenta. Proces agenta został tak zaprojektowany, aby był nieinwazyjny i miał minimalny wpływ na wydajność maszyny wirtualnej.
+Po włączeniu automatycznej aprowizacji w zasadach zabezpieczeń program Microsoft Monitoring Agent (dla systemu [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) lub [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) zostanie automatycznie zainstalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure. Program ten będzie również automatycznie instalowany na wszystkich nowych maszynach wirtualnych. Jeśli na maszynie wirtualnej lub komputerze jest już zainstalowany program Microsoft Monitoring Agent, usługa Azure Security Center będzie korzystać z zainstalowanego agenta. Proces agenta został tak zaprojektowany, aby był nieinwazyjny i miał minimalny wpływ na wydajność maszyny wirtualnej.
 
 Program Microsoft Monitoring Agent dla systemu Windows wymaga użycia portu TCP 443. Przeczytaj [artykuł na temat rozwiązywania problemów](security-center-troubleshooting-guide.md), aby uzyskać więcej informacji.
 
@@ -156,6 +154,8 @@ Jeśli w dowolnym momencie chcesz wyłączyć funkcję zbierania danych, możesz
 
 ### <a name="workspace"></a>Obszar roboczy
 
+Obszar roboczy to zasób platformy Azure, który służy jako kontener dla danych. Ty i inni członkowie organizacji możecie używać wielu obszarów roboczych, aby zarządzać różnymi zestawami danych zebranymi z całej infrastruktury IT lub jej części.
+
 Dane zbierane z programu Microsoft Monitoring Agent (w imieniu usługi Security Center) będą przechowywane w istniejących obszarach roboczych usługi Log Analytics skojarzonych z subskrypcją platformy Azure lub w nowych obszarach roboczych, uwzględniając lokalizację geograficzną maszyny wirtualnej. 
 
 W witrynie Azure Portal można wyświetlić listę swoich obszarów roboczych usługi Log Analytics, w tym wszystkich utworzonych przez usługę Azure Security Center. W przypadku nowych obszarów roboczych zostanie utworzona powiązana grupa zasobów. W obu przypadkach stosowana będzie następująca konwencja nazewnictwa: 
@@ -163,18 +163,22 @@ W witrynie Azure Portal można wyświetlić listę swoich obszarów roboczych us
 * Obszar roboczy: *DefaultWorkspace-[identyfikator-subskrypcji]-[lokalizacja-geograficzna]*
 * Grupa zasobów: *DefaultResouceGroup-[lokalizacja-geograficzna]*
 
-W przypadku obszarów roboczych utworzonych przez usługę Azure Security Center dane są przechowywane przez 30 dni. W przypadku istniejących obszarów roboczych przechowywanie zależy od warstwy cenowej obszaru roboczego.
+W przypadku obszarów roboczych utworzonych przez usługę Azure Security Center dane są przechowywane przez 30 dni. W przypadku istniejących obszarów przechowywanie zależy od warstwy cenowej obszaru roboczego. Jeśli chcesz, możesz również użyć istniejącego obszaru roboczego.
 
 > [!NOTE]
 > Firma Microsoft zobowiązuje się chronić poufność i bezpieczeństwo tych danych. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi. Aby uzyskać więcej informacji na temat obsługi danych i poufności, należy przeczytać artykuł [Azure Security Center — bezpieczeństwo danych](security-center-data-security.md).
 > 
 
+## <a name="onboarding-non-azure-resources"></a>Dołączanie zasobów innych niż platformy Azure
+
+Usługa Security Center może monitorować stan bezpieczeństwa komputerów nienależących do platformy Azure, ale musisz najpierw dołączyć te zasoby. Przeczytaj artykuł [Onboarding to Azure Security Center Standard for enhanced security (Dołączanie do standardowej usługi Azure Security Center w celu poprawy zabezpieczeń)](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers), aby uzyskać więcej informacji na temat sposobu dołączania zasobów nienależących do platformy Azure.
+
 ## <a name="ongoing-security-monitoring"></a>Bieżące monitorowanie zabezpieczeń
 Po wstępnej konfiguracji i zastosowaniu zaleceń usługi Security Center następny krok polega na uwzględnieniu procesów operacyjnych usługi Security Center.
 
-Aby uzyskać dostęp do usługi Security Center za pomocą witryny Azure Portal, kliknij przycisk **Przeglądaj** i wpisz **Security Center** w polu **Filtruj**. Widoki, które uzyskuje użytkownik, są oparte na zastosowanych filtrach. Poniższy przykład przedstawia środowisko, w którym należy rozwiązać wiele problemów:
+Omówienie usługi Security Center zapewnia spójny widok zabezpieczeń dla wszystkich podłączonych przez Ciebie zasobów należących do platformy Azure i nienależących do niej. W poniższym przykładzie pokazano środowisko zawierające wiele problemów do rozwiązania:
 
-![pulpit nawigacyjny](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig6.png)
+![pulpit nawigacyjny](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
 
 > [!NOTE]
 > Usługa Security Center nie zakłóca zwykłych procedur operacyjnych, pasywnie monitoruje wdrożenia i zapewnia zalecenia na podstawie włączonych zasad zabezpieczeń.
@@ -185,10 +189,7 @@ Po wykonaniu wszystkich zaleceń sekcja **Zapobieganie** powinna być zielona dl
 
 Sekcja **Wykrywanie** jest bardziej reaktywna. Zawiera ona alerty dotyczące problemów, które występują teraz lub wystąpiły w przeszłości, wykrytych przez kontrolki usługi Security Center i systemy innych firm. W kafelku Alerty są wyświetlane wykresy słupkowe zawierające liczbę alertów wykrywania zagrożeń zidentyfikowanych w poszczególnych dniach oraz przedstawiające ich rozkład według różnych kategorii ważności (niskiej, średniej, wysokiej). Więcej informacji na temat alertów zabezpieczeń znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md).
 
-> [!NOTE]
-> W celu wizualizacji danych usługi Security Center można też skorzystać z usługi Microsoft Power BI. Przeczytaj artykuł [Get insights from Azure Security Center data with Power BI](security-center-powerbi.md) (Uzyskiwanie szczegółowych informacji na podstawie danych z Centrum zabezpieczeń Azure za pomocą usługi Power BI).
-> 
-> 
+Zaplanuj odwiedzenie opcji [analizy zagrożeń](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) jako część codziennych operacji zabezpieczeń. Możesz tam zidentyfikować zagrożenia bezpieczeństwa środowiska, takie jak ustalenie, czy dany komputer jest częścią botnetu.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitorowanie nowych lub zmodyfikowanych zasobów
 Większość środowisk Azure jest dynamiczna. Systematycznie tworzone są nowe zasoby i usuwane stare, zmieniają się konfiguracje itd. Usługa Security Center pomaga zagwarantować widoczność stanu zabezpieczeń nowych zasobów.
@@ -209,6 +210,13 @@ Warto również regularnie monitorować stan istniejących zasobów, aby móc id
 1. Panel **Zapobieganie** zapewnia szybki dostęp do kluczowych zasobów. Opcja ta służy do monitorowania zasobów Obliczenia, Sieci, Magazyn i dane oraz Aplikacje.
 2. Panel **Zalecenia** umożliwia przeglądanie zaleceń usługi Security Center. Podczas ciągłego monitorowania może się okazać, że zalecenia nie są wydawane codziennie, co jest zrozumiałe, biorąc pod uwagę, że wszystkie zalecenia zostały zastosowane podczas wstępnej konfiguracji usługi Security Center. Z tego powodu nowe informacje w tej sekcji mogą nie występować codziennie i trzeba uzyskiwać do nich dostęp w zależności od potrzeb.
 3. Na panelu **Wykrywanie** zmiany mogą pojawiać się bardzo często lub bardzo rzadko. Zawsze czytaj alerty zabezpieczeń i podejmuj działania na podstawie zaleceń usługi Security Center.
+
+### <a name="hardening-access-and-applications"></a>Wzmacnianie ochrony dostępu i aplikacji
+
+W ramach operacji zabezpieczeń należy również zastosować środki zapobiegawcze w celu ograniczenia dostępu do maszyn wirtualnych i kontroli aplikacji, które są uruchomione na maszynach wirtualnych. Blokując ruch przychodzący na maszyny wirtualne platformy Azure, zmniejszasz narażenie na ataki, jednocześnie zapewniając łatwy dostęp do nawiązywania połączenia z maszynami wirtualnymi w razie potrzeby. Użyj funkcji dostępu [Just in time do maszyny wirtualnej](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) w celu wzmocnienia ochrony dostępu do swoich maszyn wirtualnych. 
+
+Możesz użyć funkcji [adaptacyjnego sterowania aplikacjami](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application), które ułatwiają sterowanie tym, które aplikacje mogą być uruchamiane na maszynach wirtualnych na platformie Azure, co pozwala między innymi wzmocnić ochronę tych maszyn przed złośliwym oprogramowaniem. Usługa Security Center analizuje procesy uruchomione na maszynie wirtualnej przy użyciu uczenia maszynowego i za pomocą tej analizy ułatwia zastosowanie listy reguł elementów dozwolonych.
+
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 Usługa Security Center wykrywa zagrożenia i powiadamia o nich, gdy tylko wystąpią. Firmy powinny śledzić pojawianie się nowych alertów zabezpieczeń i w razie potrzeby podejmować działania w celu zbadania ataku lub usunięcia jego skutków. Aby uzyskać więcej informacji na temat sposobu działania funkcji wykrywania zagrożeń usługi Security Center, przeczytaj [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md).
@@ -233,7 +241,11 @@ W poniższym przykładzie pokazano podejrzane działanie w protokole RDP:
 
 ![Podejrzane działania](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Jak widać, blok ten zawiera godzinę, o której nastąpił atak, nazwę hosta źródłowego, docelową maszynę wirtualną oraz poszczególne kroki zaleceń. W niektórych sytuacjach pola informacji źródłowych ataku mogą być puste. Więcej informacji na temat działania tego typu znajduje się w artykule [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Brakujące informacje źródłowe w alertach Centrum zabezpieczeń Azure).
+Ta strona pokazuje szczegóły dotyczące godziny, o której nastąpił atak, nazwy hosta źródłowego, docelowej maszyny wirtualnej oraz poszczególnych kroków zaleceń. W niektórych sytuacjach pola informacji źródłowych ataku mogą być puste. Więcej informacji na temat działania tego typu znajduje się w artykule [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Brakujące informacje źródłowe w alertach Centrum zabezpieczeń Azure).
+
+Na tej stronie możesz również uruchomić [dochodzenie](https://docs.microsoft.com/azure/security-center/security-center-investigation), aby lepiej zrozumieć oś czasu ataku, sposób przeprowadzenia ataku, które systemy zostały potencjalnie naruszone, które poświadczenia zostały użyte i zobaczyć graficzną reprezentację całego łańcucha ataku.
+
+Po zidentyfikowaniu systemu z naruszonymi zabezpieczeniami możesz uruchomić elementy [playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks) zabezpieczeń, które zostały utworzone wcześniej. Element playbook zabezpieczeń to kolekcja procedur, które mogą być wykonywane w usłudze Security Center po wyzwoleniu określonego elementu playbook z poziomu wybranego alertu.
 
 Na filmie [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak wykorzystać usługę Azure Security Center i pakiet Microsoft Operations Management Suite do reagowania na zdarzenia) możesz obejrzeć kilka prezentacji, które pomogą Ci zrozumieć, jak możesz wykorzystać usługę Security Center na każdym z tych etapów.
 
@@ -242,7 +254,7 @@ Na filmie [How to Leverage the Azure Security Center & Microsoft Operations Mana
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 W tym dokumencie omówiono, jak zaplanować wykorzystanie usługi Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md)
@@ -250,5 +262,4 @@ W tym dokumencie omówiono, jak zaplanować wykorzystanie usługi Security Cente
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-
 

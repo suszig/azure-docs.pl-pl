@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: 951b8e1dfc86d8fc73cf8d6f596558b73169169c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -89,7 +88,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Nowy Jork** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport (Walia)** |Dane nowej generacji |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. — IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paryż** |Colt, Interxion, Equinix, Orange |
+| **Paryż** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Miasto Quebec** | Megaport |
 | **San Antonio** |Megaport |
 | **Sao Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
@@ -150,7 +149,7 @@ Jeśli dostawca połączenia nie został wymieniony w poprzednich sekcjach, moż
 ## <a name="c1partners"></a>Łączność za pośrednictwem dodatkowych dostawców usług
 | **Lokalizacja** | **Exchange** | **Dostawcy połączeń** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
+| **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
@@ -185,4 +184,3 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa lokalizacji"
-

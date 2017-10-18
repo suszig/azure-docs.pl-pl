@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Wykonywanie minimalnej konfiguracji urządzenia StorSimple
 
@@ -21,7 +21,7 @@
 
             ![Interfejsy sieciowe minimalnej konfiguracji urządzenia StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Stałe adresy IP kontrolera są używane do obsługi aktualizacji urządzenia. W związku z tym stałe adresy IP muszą być routowalne i mieć możliwość łączenia z Internetem. Możesz sprawdzić, czy stałe adresy IP kontrolera są routowalne, używając polecenia cmdlet [Test-HcsmConnection][Test]. W poniższym przykładzie przedstawiono stałe adresy IP kontrolera, które są kierowane do Internetu i mogą uzyskać dostęp do serwerów usługi Microsoft Update.
+            Stałe adresy IP kontrolera są używane do obsługi aktualizacji urządzenia i odzyskiwania pamięci. W związku z tym stałe adresy IP muszą być routowalne i mieć możliwość łączenia z Internetem. Możesz sprawdzić, czy stałe adresy IP kontrolera są routowalne, używając polecenia cmdlet [Test-HcsmConnection][Test]. W poniższym przykładzie przedstawiono stałe adresy IP kontrolera, które są kierowane do Internetu i mogą uzyskać dostęp do serwerów usługi Microsoft Update.
 
             ![Polecenie Test-HcsmConnection pokazujące rutowalne adresy IP](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

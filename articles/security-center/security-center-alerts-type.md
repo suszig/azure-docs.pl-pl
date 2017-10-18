@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informacje o alertach zabezpieczeń w usłudze Azure Security Center
 Ten artykuł ułatwia zapoznanie się z różnymi typami alertów zabezpieczeń i powiązanych szczegółowych informacji dostępnych w usłudze Azure Security Center. Więcej informacji na temat zarządzania alertami i zdarzeniami znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+Aby skonfigurować wykrywanie zaawansowane, przeprowadź uaktualnienie usługi Azure Security Center do wersji Standard. Dostępna jest bezpłatna 60-dniowa wersja próbna. W celu uaktualnienia wybierz pozycję **Warstwa cenowa** w obszarze [Zasady zabezpieczeń](security-center-policies.md). Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Aby skonfigurować wykrywanie zaawansowane, przeprowadź uaktualnienie usługi Azure Security Center do wersji Standard. Dostępna jest bezpłatna 60-dniowa wersja próbna. W celu uaktualnienia wybierz pozycję **Warstwa cenowa** w obszarze [Zasady zabezpieczeń](security-center-policies.md). Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Usługa Security Center została wydana w ograniczonej wersji zapoznawczej z nowym zestawem funkcji wykrywania, które wykorzystują rekordy inspekcji, czyli wspólną platformę inspekcji, do wykrywania złośliwych zachowań na maszynach z systemem Linux. Wyślij [nam](mailto:ASC_linuxdetections@microsoft.com) wiadomość e-mail ze swoim identyfikatorem subskrypcji, aby dołączyć do tej wersji zapoznawczej.
 
 ## <a name="what-type-of-alerts-are-available"></a>Jakie typy alertów są dostępne?
 Usługa Azure Security Center używa różnych [funkcji wykrywania](security-center-detection-capabilities.md), aby ostrzec klientów przed potencjalnymi atakami wymierzonymi w ich środowiska. Te alerty zawierają cenne informacje dotyczące przyczyny ich wyzwolenia, zasobów, których dotyczy atak, i źródła ataku. Informacje zawarte w alercie różnią się w zależności od typu analizy użytej do wykrycia zagrożenia. Zdarzenia mogą również zawierać dodatkowe informacje kontekstowe przydatne podczas badania zagrożenia.  Ten artykuł zawiera informacje na temat następujących typów alertów:
@@ -44,7 +44,7 @@ Usługa Azure Security Center może użyć analizy behawioralnej w celu identyfi
 >
 
 ### <a name="crash-analysis"></a>Analiza awarii
-Analiza awaryjnego zrzutu pamięci jest metodą używaną do wykrywania zaawansowanego złośliwego oprogramowania, które jest w stanie ominąć tradycyjne rozwiązania w zakresie zabezpieczeń. Różne rodzaje złośliwego oprogramowania próbują zmniejszyć prawdopodobieństwo wykrycia przez programy antywirusowe, rezygnując z zapisu na dysku lub szyfrując składniki oprogramowania zapisywane na dysku. Dzięki temu złośliwe oprogramowanie jest trudne do wykrycia przy użyciu tradycyjnych metod ochrony. Złośliwe oprogramowanie może jednak zostać wykryte za pomocą analizy pamięci, ponieważ aby mogło działać, musi zostawić ślady w pamięci maszyny.
+Analiza awaryjnego zrzutu pamięci jest metodą używaną do wykrywania zaawansowanego złośliwego oprogramowania, które jest w stanie ominąć tradycyjne rozwiązania w zakresie zabezpieczeń. Różne rodzaje złośliwego oprogramowania próbują zmniejszyć prawdopodobieństwo wykrycia przez programy antywirusowe, rezygnując z zapisu na dysku lub szyfrując składniki oprogramowania zapisywane na dysku. Ta technika sprawia, że złośliwe oprogramowanie jest trudne do wykrycia przy użyciu tradycyjnych metod ochrony. Złośliwe oprogramowanie może jednak zostać wykryte za pomocą analizy pamięci, ponieważ aby mogło działać, musi zostawić ślady w pamięci maszyny.
 
 Jeśli wystąpi awaria oprogramowania, zrzut awaryjny przechwytuje część pamięci w chwili pojawienia się awarii. Awaria może być spowodowana przez złośliwe oprogramowanie, powszechnie stosowane aplikacje lub problemy z systemem. Dzięki analizie pamięci w zrzucie awaryjnym usługa Security Center może wykryć metody, jakie zostały użyte w celu wykorzystania luk obecnych w oprogramowaniu, uzyskania dostępu do poufnych danych i dyskretnego pozostania na zainfekowanym komputerze. Jest to realizowane przy minimalnym wpływie na wydajność hostów, ponieważ analiza jest wykonywana przez zaplecze usługi Security Center.
 
@@ -121,7 +121,7 @@ Oto przykład tego typu alertu:
 
 ![Alert o wykonaniu podejrzanego procesu](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Wiele zapytań do kont domeny
+### <a name="multiple-domains-accounts-queried"></a>Wiele zapytań do kont domeny
 Usługa Security Center może wykryć wielokrotne próby zapytań do kont domeny usługi Active Directory, które są zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki wysyłania zapytań do domeny w celu identyfikacji użytkowników, kont administratorów domeny, komputerów, które są kontrolerami domeny, oraz potencjalnych relacji zaufania z innymi domenami.
 
 Oto przykład tego typu alertu:
@@ -188,7 +188,7 @@ Urządzenia sieciowe mogą być wykrywane i profilowane w podobny sposób jak in
 
 ![Alert o podejrzanym ruchu wychodzącym](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Ten alert zawiera informacje, które umożliwiają identyfikację zasobu użytego do zainicjowania ataku. Dostępne są również informacje pozwalające wskazać zagrożoną maszynę, czas wykrycia oraz użyty protokół i port. Ten blok zawiera także listę środków zaradczych, które można zastosować, aby zminimalizować problem.
+Ten alert zawiera informacje, które umożliwiają identyfikację zasobu użytego do zainicjowania ataku. Dostępne są również informacje pozwalające wskazać zagrożoną maszynę, czas wykrycia oraz użyty protokół i port. Ta strona zawiera także listę środków zaradczych, które można zastosować, aby zminimalizować problem.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Komunikacja sieciowa ze złośliwą maszyną
 Wykorzystując źródła analizy zagrożeń firmy Microsoft, usługa Azure Security Center może wykryć zagrożone maszyny, które komunikują się ze złośliwym adresem IP — w wielu przypadkach centrum poleceń i kontroli. W tym przypadku usługa Security Center wykryła, że komunikacja odbywała się przy użyciu złośliwego oprogramowania Pony Loader (znanego także jako [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -253,4 +253,3 @@ W tym artykule opisano różne typy alertów zabezpieczeń w usłudze Security C
 * [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
-

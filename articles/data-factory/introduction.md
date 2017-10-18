@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ Po umieszczeniu danych w centralnym magazynie danych w chmurze zebrane dane nale
 Teraz, gdy dane pierwotne zostały już przekształcone w formę gotową dla działań biznesowych, należy załadować je do magazynu Azure Data Warehouse, bazy danych Azure SQL, bazy danych Azure CosmosDB lub dowolnego aparatu analizy, z którego mogą korzystać użytkownicy biznesowi przy użyciu swoich narzędzi do analizy biznesowej.
 
 ### <a name="monitor"></a>Monitorowanie
-Po pomyślnym utworzeniu i wdrożeniu potoku integracji danych, zapewniającego wartość biznesową danym przetworzonym, warto jest monitorować zaplanowane działania i potoki pod kątem współczynników powodzenia i niepowodzenia. Usługa Azure Data Factory dysponuje wbudowaną obsługą monitorowania potoków przy użyciu narzędzi Azure Monitor, API, PowerShell, OMS i paneli kondycji w witrynie Azure Portal.
+Po pomyślnym utworzeniu i wdrożeniu potoku integracji danych, zapewniającego wartość biznesową danym przetworzonym, warto jest monitorować zaplanowane działania i potoki pod kątem współczynników powodzenia i niepowodzenia. Usługa Azure Data Factory dysponuje wbudowaną obsługą monitorowania potoków przy użyciu narzędzi Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS) i paneli kondycji w witrynie Azure Portal.
 
 ## <a name="whats-different-in-version-2"></a>Czym się różni wersja 2?
 Usługa Azure Data Factory w wersji 2 opiera się na oryginalnej usłudze przenoszenia i przekształcania danych Azure Data Factory, obsługując jednocześnie większy zestaw scenariuszy integracji danych w chmurze. Usługa Azure Data Factory w wersji 2 oferuje następujące możliwości:
@@ -98,17 +97,21 @@ Więcej informacji znajduje się w [samouczku dotyczącym przepływów sterowani
 Jeśli chcesz przenieść obciążenia SSIS, możesz utworzyć fabrykę danych w wersji 2 i zainicjować usługę Azure-SSIS Integration Runtime (IR). Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych Azure (węzłów), których przeznaczeniem jest uruchamianie pakietów SSIS w chmurze. Instrukcje krok po kroku znajdują się w samouczku [wdrażania pakietów SSIS na platformie Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>Rozbudowane zestawy SDK dla wielu platform
+### <a name="sdks"></a>Zestawy SDK
 Jeśli jesteś użytkownikiem zaawansowanym i szukasz interfejsu programowego, wersja 2 oferuje bogaty pakiet zestawów SDK, które umożliwiają tworzenie i monitorowanie potoków oraz zarządzanie nimi przy użyciu ulubionego środowiska IDE.
 
-- Zestaw SDK .NET
-- PowerShell
-- Zestaw SDK dla języka Python
+- .NET SDK — zestaw .NET SDK został zaktualizowany do wersji 2. 
+- PowerShell — polecenia cmdlet programu PowerShell zostały zaktualizowane do wersji 2. Polecenia cmdlet w wersji 2 mają w nazwie **DataFactoryV2**. Na przykład: Get-AzureRmDataFactoryV2. 
+- Python SDK — ten zestaw SDK jest nowym składnikiem w wersji 2.
+- REST API — interfejs API REST został zaktualizowany w wersji 2.  
 
-Do tworzenia fabryk danych można użyć również interfejsów API REST. 
+Zestawy SDK, które zostały zaktualizowane w wersji 2, nie są zgodne wstecz z klientami w wersji 1. 
+
+### <a name="monitoring"></a>Monitorowanie
+Obecnie wersja 2 obsługuje monitorowanie fabryk danych przy użyciu samych zestawów SDK. Portal nie obsługuje jeszcze monitorowania fabryk danych w wersji 2. 
 
 ## <a name="load-the-data-into-a-lake"></a>Ładowanie danych do usługi data lake
-Usługa Data Factory nadal oferuje ponad 30 łączników umożliwiających ładowanie danych ze środowisk hybrydowych i heterogenicznych na platformę Azure.  [Przewodnik dotyczący wydajności i dostosowywania](copy-activity-performance.md) zawiera najnowsze wyniki dotyczące wydajności pochodzące z testów wewnętrznych oraz wskazówki dotyczące dostosowywania. Ponadto niedawno wprowadziliśmy funkcje wysokiej dostępności i skalowalności w hostowanym autonomicznie środowisku Integration Runtime instalowanym w środowisku sieci prywatnej. Umożliwia to spełnienie wymagań dużych klientów korporacyjnych warstwy 1 odnośnie do lepszej dostępności i skalowalności.
+Usługa Data Factory oferuje ponad 30 łączników umożliwiających ładowanie danych ze środowisk hybrydowych i heterogenicznych na platformę Azure.  [Przewodnik dotyczący wydajności i dostosowywania](copy-activity-performance.md) zawiera najnowsze wyniki dotyczące wydajności pochodzące z testów wewnętrznych oraz wskazówki dotyczące dostosowywania. Ponadto niedawno wprowadziliśmy funkcje wysokiej dostępności i skalowalności w hostowanym autonomicznie środowisku Integration Runtime instalowanym w środowisku sieci prywatnej. Umożliwia to spełnienie wymagań dużych klientów korporacyjnych warstwy 1 odnośnie do lepszej dostępności i skalowalności.
 
 ## <a name="top-level-concepts-in-version-2"></a>Koncepcje najwyższego poziomu w wersji 2
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Usługa Azure Data Factory składa się z czterech kluczowych składników. Ich współdziałanie pozwala udostępnić platformę umożliwiającą tworzenie opartych na danych przepływów pracy wraz z etapami służącymi do przenoszenia i przekształcania danych.
@@ -150,7 +153,7 @@ Organizacja działań potoku, która obejmuje działania połączone w sekwencj�
 Aby uzyskać więcej informacji o pojęciach związanych z usługą Data Factory, zobacz następujące artykuły:
 
 - [Dataset and linked services (Zestaw danych i połączone usługi)](concepts-datasets-linked-services.md)
-- [Pipelines and activities (Potoki i działania)](concepts-pipelines-activities.md)
+- [Potoki i działania](concepts-pipelines-activities.md)
 - [Integration Runtime (Produkt Integration Runtime)](concepts-integration-runtime.md)
 
 ## <a name="supported-regions"></a>Obsługiwane regiony:
@@ -165,4 +168,3 @@ Załóżmy na przykład, że środowiska obliczeniowe, takie jak klaster usługi
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak utworzyć fabrykę danych, wykonując instrukcje krok po kroku zamieszczone w przewodnikach Szybki start dotyczących [programu PowerShell](quickstart-create-data-factory-powershell.md), [platformy .NET](quickstart-create-data-factory-dot-net.md), [języka Python](quickstart-create-data-factory-python.md), [interfejsu API REST](quickstart-create-data-factory-rest-api.md) i witryny Azure Portal. 
-

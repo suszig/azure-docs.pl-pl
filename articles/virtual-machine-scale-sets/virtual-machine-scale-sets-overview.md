@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co to są zestawy skalowania maszyn wirtualnych na platformie Azure?
 Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nim. Wszystkie maszyny wirtualne są skonfigurowane tak samo, dzięki czemu zestawy skalowania umożliwiają prawdziwe automatyczne skalowanie i nie jest wymagana wstępna aprowizacja maszyn wirtualnych. Ułatwia to tworzenie usług w dużej skali nakierowane na duże wystąpienia obliczeniowe, dane big data i obciążenia konteneryzowane.
@@ -34,7 +33,12 @@ Aby dowiedzieć się więcej o zestawach skalowania, obejrzyj te klipy wideo:
 * [Zestawy skalowania maszyn wirtualnych według Guya Bowermana](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Tworzenie zestawów skalowania i zarządzanie nimi
-Zestaw skalowania można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję **nowy** i wpisując na pasku wyszukiwania hasło **skalowania**. Na liście wyników wyszukiwania pojawi się pozycja **zestaw skalowania maszyn wirtualnych**. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. W portalu dostępne są również opcje umożliwiające konfigurację podstawowych reguł automatycznego skalowania na podstawie użycia procesora CPU.
+Zestaw skalowania można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję **nowy** i wpisując na pasku wyszukiwania hasło **skalowania**. Na liście wyników wyszukiwania pojawi się pozycja **zestaw skalowania maszyn wirtualnych**. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. W portalu dostępne są również opcje umożliwiające konfigurację podstawowych reguł automatycznego skalowania na podstawie użycia procesora CPU. 
+
+Zestawy skalowania można wdrożyć w [strefie dostępności](../availability-zones/az-overview.md).
+
+> [!NOTE]
+> Obecnie zestawy skalowania maszyn wirtualnych obsługują tylko wdrażanie w pojedynczej strefie dostępności. Wdrożenie w wielu strefach będzie obsługiwane w przyszłości.
 
 Zestawy skalowania można definiować i wdrażać za pomocą szablonów JSON oraz [interfejsów API REST](https://msdn.microsoft.com/library/mt589023.aspx) — podobnie jak poszczególne maszyny wirtualne w ramach usługi Azure Resource Manager. Można zatem użyć dowolnej standardowej metody wdrażania za pomocą usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -167,4 +171,3 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 **ODPOWIEDŹ** Tak. Zestaw skalowania to niejawny zestaw dostępności z 5 domenami błędów i 5 domenami aktualizacji. Zestawy skalowania składające się z ponad 100 maszyn wirtualnych obejmują wiele *grup umieszczania*, które są równoważne wielu zestawom dostępności. Aby uzyskać więcej informacji na temat grup umieszczania, zobacz [Praca z dużymi zestawami skalowania maszyn wirtualnych](virtual-machine-scale-sets-placement-groups.md). Zestaw dostępności maszyn wirtualnych może znajdować się w tej samej sieci wirtualnej co zestaw skalowania maszyn wirtualnych. Typowa konfiguracja polega na umieszczeniu maszyn wirtualnych węzła kontrolnego (często wymagających unikatowej konfiguracji) w zestawie dostępności, a węzłów danych w zestawie skalowania.
 
 Więcej odpowiedzi na pytania dotyczące zestawów skalowania można znaleźć w artykule [Zestawy skalowania maszyn wirtualnych platformy Azure — często zadawane pytania](virtual-machine-scale-sets-faq.md).
-

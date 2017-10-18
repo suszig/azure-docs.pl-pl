@@ -13,12 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: spelluru
+ms.openlocfilehash: 85777e2a4d1dea5d148a543acd068f8aa1a2335c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: c9a825897d631d3030355e179490c861f4b8cefa
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Wdrażanie pakietów usług SQL Server Integration Services na platformie Azure
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej. 
@@ -42,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Uruchom program **Windows PowerShell ISE** przy użyciu uprawnień administracyjnych. 
 
 ## <a name="create-variables"></a>Tworzenie zmiennych
-Skopiuj i wklej poniższy skrypt. Określ wartości zmiennych. 
+Skopiuj i wklej poniższy skrypt. Określ wartości zmiennych. Aby zapoznać się z listą obsługiwanych **warstw cenowych** dla usługi Azure SQL Database, zobacz [SQL Database resource limits (Limity zasobów usługi SQL Database)](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -68,8 +67,9 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
-$SSISDBPricingTier = "<pricing tier of your Azure SQL server>" 
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
 
 ## <a name="validate-the-connection-to-database"></a>Weryfikowanie połączenia z bazą danych
@@ -182,6 +182,7 @@ Skrypt programu PowerShell w tej sekcji konfiguruje wystąpienie środowiska Azu
 > [!NOTE]
 > Skrypt łączy się z usługą Azure SQL Database w celu przygotowania bazy danych wykazu usług SSIS (SSISDB). Skrypt konfiguruje również uprawnienia i ustawienia Twojej sieci wirtualnej, jeśli zostanie określona, i dołącza nowe wystąpienie środowiska Azure SSIS Integration Runtime do sieci wirtualnej.
 
+Aby zapoznać się z listą obsługiwanych **warstw cenowych** dla usługi Azure SQL Database, zobacz [SQL Database resource limits (Limity zasobów usługi SQL Database)](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -207,8 +208,9 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
-$SSISDBPricingTier = "<Pricing tier of your Azure SQL server>"
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
@@ -284,4 +286,3 @@ Przejdź do następującego samouczka, aby dowiedzieć się więcej o kopiowaniu
 
 > [!div class="nextstepaction"]
 >[Kopiowanie danych w chmurze](tutorial-copy-data-dot-net.md)
-

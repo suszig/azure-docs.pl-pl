@@ -12,25 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą interfejsu wiersza polecenia platformy Azure 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Zestaw SDK platformy .NET](data-lake-store-get-started-net-sdk.md)
-> * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
-> * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
 > 
 
@@ -239,11 +233,7 @@ az dls account delete --account mydatalakestore
 Po wyświetleniu monitu wpisz **Y**, aby usunąć konto.
 
 ## <a name="next-steps"></a>Następne kroki
-
-* [Informacje o interfejsie wiersza polecenia usługi Azure Data Lake Store 2.0](https://docs.microsoft.com/cli/azure/dls)
+* [Używanie usługi Azure Data Lake Store w zastosowaniach wymagających danych big data](data-lake-store-data-scenarios.md) 
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-[azure-command-line-tools]: ../xplat-cli-install.md
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: rejestrowanie aplikacji
 
@@ -50,6 +49,8 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administr
 ### <a name="register-a-web-app"></a>Rejestrowanie aplikacji internetowej
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>Tworzenie klucza tajnego klienta aplikacji internetowej
 
 Jeśli Twoja aplikacja internetowa wywołuje internetowy interfejs API zabezpieczony przez usługę Azure AD B2C, wykonaj następujące kroki:
    1. Utwórz wpis tajny aplikacji, przechodząc do bloku **Klucze** i klikając przycisk **Wygeneruj klucz**. Zanotuj wartość pola **Klucz aplikacji**. Użyj tej wartości jako wpisu tajnego aplikacji w kodzie Twojej aplikacji.

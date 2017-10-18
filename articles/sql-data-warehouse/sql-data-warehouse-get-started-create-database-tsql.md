@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: pl-pl
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Tworzenie bazy danych w usłudze SQL Data Warehouse przy użyciu języka Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ W tym artykule przedstawiono, jak utworzyć bazę danych w usłudze SQL Data War
 Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
 * **Konto platformy Azure**: aby utworzyć konto, odwiedź witrynę [Bezpłatna wersja próbna platformy Azure][Azure Free Trial] lub [Środki na korzystanie z systemu Azure w ramach usługi MSDN][MSDN Azure Credits].
-* **Serwer Azure SQL**: aby uzyskać więcej informacji, zobacz [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] lub [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu programu PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Serwer Azure SQL**: aby uzyskać więcej szczegółowych informacji, zobacz [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal][Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu witryny Azure Portal] lub [Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu programu PowerShell][Tworzenie serwera logicznego usługi Azure SQL Database przy użyciu programu PowerShell].
 * **Grupa zasobów**: użyj tej samej grupy zasobów, z której korzysta serwer Azure SQL, lub zobacz, [jak utworzyć grupę zasobów][how to create a resource group].
 * **Środowisko do wykonywania poleceń języka T-SQL**: do wykonywania poleceń języka T-SQL możesz użyć programu [Visual Studio][Installing Visual Studio and SSDT], narzędzia [sqlcmd][sqlcmd] lub [programu SSMS][SSMS].
 
@@ -89,4 +87,3 @@ Po zakończeniu aprowizacji bazy danych usługi SQL Data Warehouse możesz przep
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

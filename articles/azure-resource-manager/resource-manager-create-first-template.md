@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Tworzenie i wdrażanie pierwszego szablonu usługi Azure Resource Manager
 W tym temacie szczegółowo omówiono kroki tworzenia pierwszego szablonu usługi Azure Resource Manager. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](resource-group-overview.md). Jeśli masz istniejące zasoby i chcesz uzyskać szablon dla tych zasobów, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Wszystko jest teraz gotowe do wdrożenia tego szablonu. Użyjesz programu PowerS
 
 Po zakończeniu wdrażania Twoje konto magazynu będzie istnieć w grupie zasobów.
 
-## <a name="deploy-template-from-cloud-shell"></a>Wdrażanie szablonu za pomocą usługi Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure w celu wdrożenia szablonu możesz użyć usługi [Cloud Shell](../cloud-shell/overview.md). Jednak musisz najpierw załadować swój szablon do udziału plików dla usługi Cloud Shell. Jeśli nie używasz usługi Cloud Shell, zobacz [Overview of Azure Cloud Shell (Omówienie usługi Azure Cloud Shell)](../cloud-shell/overview.md), aby uzyskać informacje o jej konfigurowaniu.
+Dla wiersza polecenia platformy Azure użyj następujących poleceń:
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Wybierz swoją grupę zasobów usługi Cloud Shell. Wzorzec nazwy to `cloud-shell-storage-<region>`.
+Program PowerShell jest obecnie dostępny w usłudze Cloud Shell jako wersja zapoznawcza. Dla programu PowerShell użyj następujących poleceń:
 
-   ![Wybieranie grupy zasobów](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Wybierz konto magazynu dla usługi Cloud Shell.
-
-   ![Wybieranie konta magazynu](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Wybierz pozycję **Pliki**.
-
-   ![Wybieranie pozycji Pliki](./media/resource-manager-create-first-template/select-files.png)
-
-5. Wybierz udział plików dla usługi Cloud Shell. Wzorzec nazwy to `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Wybieranie udziału plików](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Wybierz pozycję **Dodaj katalog**.
-
-   ![Dodawanie katalogu](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Nadaj mu nazwę **templates** i wybierz przycisk **OK**.
-
-   ![Nadawanie nazwy katalogowi](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Wybierz swój nowy katalog.
-
-   ![Wybieranie katalogu](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Wybierz pozycję **Przekaż**.
-
-   ![Wybieranie pozycji Przekaż](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Znajdź i przekaż swój szablon.
-
-   ![Przekazywanie pliku](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Otwórz wiersz polecenia.
-
-   ![Otwieranie usługi Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Wprowadź następujące polecenia w usłudze Cloud Shell:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Po zakończeniu wdrażania Twoje konto magazynu będzie istnieć w grupie zasobów.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Aby uzyskać więcej informacji o strukturze szablonu, zobacz [Tworzenie szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby poznać właściwości konta magazynu, zobacz [dokumentację szablonu kont magazynu](/azure/templates/microsoft.storage/storageaccounts).
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
-

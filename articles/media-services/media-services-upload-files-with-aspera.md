@@ -1,6 +1,6 @@
 ---
 title: "Przekazywanie plików na konto usługi Azure Media Services za pomocą rozwiązania Aspera | Microsoft Docs"
-description: "Ten samouczek przedstawia kroki przekazywania plików do konta magazynu, który jest skojarzony z kontem usługi Media Services przy użyciu ** Aspera serwera na żądanie ** usługi na platformie Azure."
+description: "Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto magazynu skojarzone z kontem usługi Media Services za pomocą usługi **Aspera Server On Demand** na platformie Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
 ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Przekazywanie plików na konto usługi Media Services przy użyciu usługi Aspera Server On Demand na platformie Azure
 

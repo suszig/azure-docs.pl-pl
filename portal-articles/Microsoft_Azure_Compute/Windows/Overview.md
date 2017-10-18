@@ -1,6 +1,6 @@
 ---
-title: "Omówienie maszyn wirtualnych z systemem Windows | Dokumentacja firmy Microsoft"
-description: "Pomoc zawartość omówienie maszyn wirtualnych systemu Windows w portalu Azure"
+title: "Omówienie maszyn wirtualnych z systemem Windows | Microsoft Docs"
+description: "Zawartość pomocy dla omówienia maszyn wirtualnych z systemem Windows w witrynie Azure Portal"
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
 
@@ -28,7 +28,7 @@ Dowiedz się, jak wdrożyć serwer sieci Web usług IIS na maszynie wirtualnej z
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
 
-Informacje o sposobie wdrażania, zarządzania i monitorowania maszyn wirtualnych systemu Windows Azure.
+Dowiedz się, jak wdrażać i monitorować maszyny wirtualne z systemem Windows na platformie Azure i zarządzać nimi.
 
 - [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Tworzenie dysków maszyn wirtualnych i zarządzanie nimi](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -58,5 +58,5 @@ Wdrażanie pierwszej aplikacji na platformie Azure.
 
 ## <a name="more"></a>Więcej
 
-- [Odwiedź stronę dokumentacji, aby dowiedzieć się więcej](/azure/virtual-machines/windows/index)
-- [Więcej informacji na temat wszystkich usług Azure](https://aka.ms/j3wr7y)
+- [Aby uzyskać więcej informacji, zobacz dokumentację](/azure/virtual-machines/windows/index)
+- [Informacje o wszystkich usługach platformy Azure](https://aka.ms/j3wr7y)

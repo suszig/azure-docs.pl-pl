@@ -3,7 +3,7 @@ title: "Rozwiązanie do zarządzania aktualizacjami w usłudze OMS | Dokumentacj
 description: "Ten artykuł pomaga zrozumieć, jak używać tego rozwiązania do zarządzania aktualizacjami komputerów z systemami Windows i Linux."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
 
 ![Symbol Zarządzanie aktualizacjami](./media/oms-solution-update-management/update-management-symbol.png)
 
 Rozwiązanie Update Management w usłudze OMS umożliwia zarządzanie aktualizacjami zabezpieczeń systemu operacyjnego na komputerach z systemami Windows i Linux wdrożonych na platformie Azure, w środowiskach lokalnych lub w środowiskach chmury innych dostawców.  Umożliwia ono szybką ocenę stanu dostępnych aktualizacji na wszystkich komputerach agentów oraz zarządzanie procesem instalacji wymaganych aktualizacji serwerów.
+
+## <a name="update-management-in-azure-automation"></a>Zarządzanie aktualizacjami w usłudze Azure Automation
+
+Możesz włączyć zarządzanie aktualizacjami dla maszyn wirtualnych bezpośrednio z poziomu konta usługi [Azure Automation](../automation/automation-offering-get-started.md).
+Aby dowiedzieć się, jak włączyć zarządzanie aktualizacjami dla maszyn wirtualnych z poziomu konta usługi Automation, zobacz [Zarządzanie aktualizacjami dla wielu maszyn wirtualnych](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Omówienie rozwiązania
@@ -307,11 +311,17 @@ Poniższa tabela zawiera przykładowe wyszukiwania w dzienniku dotyczące rekord
 | Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista wszystkich pakietów, dla których jest dostępna aktualizacja o znaczeniu krytycznym lub dotycząca luki w zabezpieczeniach | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Lista wdrożeń aktualizacji, które zmodyfikowały komputery | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Komputery, które zostały zaktualizowane w ramach tego przebiegu aktualizacji (zastąp wartość nazwą własnego wdrożenia aktualizacji) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Listę wszystkich komputerów z systemem Ubuntu, dla których są dostępne dowolne aktualizacje | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Listę wszystkich komputerów z systemem Ubuntu, dla których są dostępne dowolne aktualizacje |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Integracja z programem System Center Configuration Manager
+
+Klienci, którzy zainwestowali w program System Center Configuration Manager do zarządzania komputerami, serwerami i urządzeniami przenośnymi, polegają również na jego sile i dojrzałości w zarządzania aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).
+
+Aby dowiedzieć się, jak zintegrować rozwiązanie do zarządzania aktualizacjami pakietu OMS z programem System Center Configuration Manager, zobacz [Integracja programu System Center Configuration Manager z zarządzaniem aktualizacjami pakietu OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Ta sekcja zawiera informacje ułatwiające rozwiązywanie problemów z rozwiązaniem Zarządzanie aktualizacjami.  
+Ta sekcja zawiera informacje ułatwiające rozwiązywanie problemów z rozwiązaniem Zarządzanie aktualizacjami.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Jak mogę rozwiązywać problemy przy dołączaniu?
 Jeśli wystąpią problemy podczas próby dołączenia rozwiązania lub maszyny wirtualnej, sprawdź dziennik zdarzeń **Application and Services Log\Operations Manager** pod kątem zdarzeń mających identyfikator zdarzenia 4502 i komunikat zdarzenia zawierający ciąg **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  W poniższej tabeli wymieniono określone komunikaty o błędach i możliwe rozwiązanie dla każdego z nich.  
@@ -333,4 +343,3 @@ Aby uzyskać więcej informacji, zobacz [Automation runbook output and messages]
 * Korzystanie z wyszukiwania w dzienniku usługi [Log Analytics](../log-analytics/log-analytics-log-searches.md) w celu wyświetlania szczegółowych danych aktualizacji.
 * [Tworzenie własnych pulpitów nawigacyjnych](../log-analytics/log-analytics-dashboards.md) przedstawiających zgodność aktualizacji na zarządzanych komputerach.
 * [Tworzenie alertów](../log-analytics/log-analytics-alerts.md) po wykryciu braku aktualizacji krytycznych na komputerach lub komputera z wyłączonymi aktualizacjami automatycznymi.  
-

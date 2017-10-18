@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorowanie wydajności aplikacji sieci Web platformy Azure
 W witrynie [Azure Portal](https://portal.azure.com) możesz skonfigurować monitorowanie wydajności [aplikacji sieci Web platformy Azure](../app-service/app-service-web-overview.md). [Usługa Azure Application Insights](app-insights-overview.md) umożliwia instrumentację aplikacji w celu wysyłania danych telemetrii do usługi Application Insights, gdzie są one przechowywane i analizowane. W usłudze tej można używać wykresów metryki i narzędzi wyszukiwania do ułatwiania diagnozowania problemów, zwiększania wydajności i oceny użycia.
@@ -50,7 +49,7 @@ Jeśli już masz uruchomioną aplikację sieci Web na platformie Azure, otrzymuj
     
     Wartość:`true`
    * **Zapisz** ustawienia i **ponownie uruchom** aplikację.
-3. **Monitoruj aplikację**.  [Eksploruj dane](#explore-the-data).
+3. **Monitoruj aplikację**.  [Eksplorowanie danych](#explore-the-data).
 
 W razie potrzeby możesz później utworzyć aplikację za pomocą usługi Application Insights.
 
@@ -120,5 +119,4 @@ Aby skorzystać z bardziej zaawansowanego wyszukiwania w ramach telemetrii, uży
 * [Odbieraj powiadomienia o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) zawsze, gdy wystąpią zdarzenia operacyjne lub metryki przekroczą próg.
 * Użyj pozycji [Usługa Application Insights dla aplikacji JavaScript i stron sieci Web](app-insights-javascript.md), aby pobrać telemetrię klienta z przeglądarek, w których odwiedzono stronę sieci Web.
 * [Konfiguruj testy sieci Web dostępności](app-insights-monitor-web-app-availability.md), aby otrzymywać alerty, gdy witryna nie działa.
-
 

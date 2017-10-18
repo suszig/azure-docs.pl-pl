@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: pl-pl
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Sposób nawiązywania połączenia z maszyną wirtualną platformy Azure z systemem Windows oraz logowania się do niej
 Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego z poziomu pulpitu systemu Windows. Najpierw nawiążesz połączenie z maszyną wirtualną, a następnie zalogujesz się.
@@ -29,9 +28,9 @@ W przypadku próby nawiązania połączenia z maszyną wirtualną z systemem Win
 
 ## <a name="connect-to-the-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu Centrum kliknij pozycję **Virtual Machines**.
+2. W lewym menu kliknij pozycję **Virtual Machines**.
 3. Wybierz maszynę wirtualną z listy.
-4. W bloku maszyny wirtualnej kliknij pozycję **Połącz**.
+4. Na stronie maszyny wirtualnej kliknij pozycję **Połącz**.
    
     ![Zrzut ekranu witryny Azure Portal pokazujący sposób nawiązywania połączenia z maszyną wirtualną.](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ W przypadku próby nawiązania połączenia z maszyną wirtualną z systemem Win
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli podczas próby połączenia wystąpiły problemy, zobacz [Troubleshoot Remote Desktop connections](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z połączeniami pulpitu zdalnego). W tym artykule przedstawiono sposób diagnozowania i rozwiązywania typowych problemów.
-
 

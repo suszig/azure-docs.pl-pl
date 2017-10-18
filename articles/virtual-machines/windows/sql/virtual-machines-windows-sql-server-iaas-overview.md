@@ -1,6 +1,6 @@
 ---
-title: "Omówienie programu SQL Server w usłudze Azure Virtual Machines | Microsoft Docs"
-description: "Dowiedz się, jak uruchomić pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure. Pobierz bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server i powiązanej zawartości."
+title: "Omówienie programu SQL Server na maszynach wirtualnych platformy Azure z systemem Windows | Microsoft Docs"
+description: "Dowiedz się, jak uruchamiać pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure z systemem Windows. Pobierz bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server i powiązanej zawartości."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -12,20 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/12/2017
+ms.date: 10/02/2017
 ms.author: jroth
+ms.openlocfilehash: b10c995fdd8e241d354c62537a0600b393795c1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Omówienie programu SQL Server w usłudze Azure Virtual Machines
-W tym temacie opisano opcje uruchamiania programu SQL Server na maszynach wirtualnych Azure oraz zamieszczono [linki do obrazów portalu](#option-1-create-a-sql-vm-with-per-minute-licensing) i przegląd [typowych zadań](#manage-your-sql-vm).
+# <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Windows)
+
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+> * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
+W tym temacie opisano opcje uruchamiania programu SQL Server na maszynach wirtualnych Azure z systemem Windows oraz zamieszczono [linki do obrazów portalu](#option-1-create-a-sql-vm-with-per-minute-licensing) i przegląd [typowych zadań](#manage-your-sql-vm).
 
 > [!NOTE]
-> Jeśli znasz już program SQL Server i chcesz tylko zobaczyć, jak wdrożyć maszynę wirtualną programu SQL Server, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w witrynie Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+> Jeśli znasz już program SQL Server i chcesz tylko zobaczyć, jak wdrożyć maszynę wirtualną z programem SQL Server i systemem Windows, zobacz [Provision a Windows SQL Server VM in the Azure (Aprowizowanie maszyny wirtualnej z programem SQL Server i systemem Windows na platformie Azure)](virtual-machines-windows-portal-sql-server-provision.md). Jeśli natomiast chcesz utworzyć maszynę wirtualną z systemem Linux i programem SQL Server, zobacz [Provision a Linux SQL Server VM in Azure (Aprowizowanie maszyny wirtualnej z programem SQL Server i systemem Linux na platformie Azure)](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 Jeśli jesteś administratorem bazy danych lub projektantem, możesz skorzystać z oferowanych przez maszyny wirtualne platformy Azure możliwości przenoszenia lokalnych obciążeń i aplikacji programu SQL Server do chmury.
 
@@ -50,11 +54,13 @@ Poniższa tabela zawiera macierz najnowszych obrazów programu SQL Server w gale
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
 
-Oprócz tej listy dostępne są inne kombinacje wersji programu SQL Server i systemów operacyjnych. Znajdź inne obrazy za pomocą funkcji wyszukiwania w portalu Marketplace w witrynie Azure Portal. 
+> [!NOTE]
+> Aby wyświetlić dostępne obrazy maszyn wirtualnych z programem SQL Server dla systemu Linux, zobacz [Overview of SQL Server on Azure Virtual Machines (Linux) (Omówienie programu SQL Server na maszynach wirtualnych platformy Azure — system Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
 ## <a id="BYOL"></a>Opcja 2. Tworzenie maszyny wirtualnej SQL przy użyciu istniejącej licencji
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server. Aby użyć własnej licencji, skorzystaj z macierzy wersji i wydań programu SQL Server oraz systemów operacyjnych. W portalu takie nazwy obrazów mają prefiks **{BYOL}**.
@@ -106,4 +112,3 @@ Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachow
 Jeśli masz pytania dotyczące cen, zobacz temat [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server) i [stronę z cennikiem platformy Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Wybierz docelową wersję programu SQL Server z listy **System operacyjny/oprogramowanie**. Następnie wyświetl ceny dla maszyn wirtualnych o różnych rozmiarach.
 
 Masz więcej pytań? Najpierw zobacz [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md) (Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines). Możesz też dodać pytania lub komentarze na końcu dowolnego tematu dotyczącego maszyn wirtualnych z programem SQL, aby porozmawiać z przedstawicielem firmy Microsoft i społecznością.
-

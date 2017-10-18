@@ -13,18 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Wirtualne grodzenie powiadomień wypychanych przy użyciu usług Azure Notification Hubs i Bing Spatial Data
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
 > 
 
@@ -123,7 +122,7 @@ Po zadeklarowaniu możliwości korzystania z lokalizacji utwórz nowy folder w r
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-Klasa `LocationHelper` jest obecnie dosyć prosta — umożliwia jedynie uzyskiwanie lokalizacji użytkownika przy użyciu interfejsu API systemu:
+Klasa `LocationHelper` jest obecnie dosyć prosta — pozwala jedynie na uzyskiwanie lokalizacji użytkownika przy użyciu interfejsu API systemu:
 
     using System;
     using System.Threading.Tasks;
@@ -179,7 +178,7 @@ Implementacja programu obsługi zdarzeń wygląda następująco:
         }
     }
 
-Zwróć uwagę, że program obsługi został zadeklarowany jako asynchroniczny, ponieważ metoda `GetCurrentLocation` obsługuje instrukcję await, dlatego wymaga wykonywania w kontekście asynchronicznym. Ponadto w pewnych okolicznościach możemy uzyskać lokalizację o wartości null (np. usługi lokalizacji zostały wyłączone lub aplikacji odmówiono uprawnień do uzyskiwania dostępu do lokalizacji), dlatego musimy upewnić się, że zapewniona jest prawidłowa obsługa przy użyciu sprawdzania wartości null.
+Zwróć uwagę, że program obsługi został zadeklarowany jako asynchroniczny, ponieważ metoda `GetCurrentLocation` obsługuje instrukcję await, dlatego wymaga wykonywania w kontekście asynchronicznym. Ponadto w pewnych okolicznościach możemy uzyskać lokalizację o wartości null (na przykład usługi lokalizacji zostały wyłączone lub aplikacji odmówiono uprawnień do uzyskiwania dostępu do lokalizacji), dlatego musimy upewnić się, że zapewniona jest prawidłowa obsługa przy użyciu sprawdzania wartości null.
 
 Uruchom aplikację. Zezwól na dostęp do lokalizacji:
 
@@ -381,7 +380,7 @@ Ponieważ nie są używane rzeczywiste współrzędne (które mogą obecnie znaj
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Co dalej?
+## <a name="next-steps"></a>Następne kroki
 Istnieje kilka kroków, których wykonanie może być konieczne, oprócz przedstawionych powyżej, aby upewnić się, że rozwiązanie jest gotowe do zastosowania w środowisku produkcyjnym.
 
 Najpierw należy upewnić się, że wirtualne ogrodzenia są dynamiczne. To wymaga dodatkowej pracy z interfejsem API Bing w celu umożliwienia przekazywania nowych granic w ramach istniejącego źródła danych. Aby uzyskać więcej informacji na ten temat, zapoznaj się z [dokumentacją interfejsu API usług Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
@@ -391,5 +390,4 @@ Upewniając się, że powiadomienia są dostarczane do odpowiednich uczestników
 W powyższym rozwiązaniu opisano scenariusz, w którym może występować wiele różnych platform, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Aby uzyskać więcej informacji o możliwościach usługi Notification Hubs, odwiedź [portal dokumentacji](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
 

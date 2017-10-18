@@ -3,7 +3,7 @@ title: "Ochrona aplikacji internetowych za pomocą usługi Azure Application Gat
 description: "Ten artykuł zawiera wskazówki dotyczące sposobu konfigurowania aplikacji internetowych jako hostów zaplecza w istniejącej lub nowej bramie aplikacji."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,15 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: f00ad4c3f2cf08461d0258aa31fcedd7045934d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04b6efbfeccc6df006978d06dd8020495708550e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Konfigurowanie usługi App Service Web Apps za pomocą usługi Application Gateway 
 
 Brama aplikacji umożliwia korzystanie z aplikacji internetowej platformy Azure lub innej usługi wielodostępnej jako elementu członkowskiego puli zaplecza. W tym artykule przedstawiono sposób konfigurowania aplikacji internetowej platformy Azure za pomocą usługi Application Gateway. W pierwszym przykładzie pokazano, jak skonfigurować istniejącą bramę aplikacji w celu używania aplikacji internetowej jako elementu członkowskiego puli zaplecza. Drugi przykład pokazuje, jak utworzyć nową bramę aplikacji z aplikacją internetową jako elementem członkowskim puli zaplecza.
@@ -49,7 +47,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendFqdns $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -99,7 +97,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool with the hostname of the web app
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendIPAddresses $webapp.HostNames
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendFqdns $webapp.HostNames
 
 # Define the status codes to match for the probe
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -162,4 +160,3 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak skonfigurować przekierowanie, odwiedzając stronę [Konfigurowanie przekierowania dla usługi Application Gateway przy użyciu programu PowerShell](application-gateway-configure-redirect-powershell.md).
-

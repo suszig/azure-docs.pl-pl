@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Lista łączników
 > [!TIP]
@@ -46,7 +45,7 @@ Za pomocą tych łączników tysiące aplikacji w milionach wykonań pomyślnie 
 | [![Ikona interfejsu API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Za pomocą tego łącznika możesz zautomatyzować dowolne zadania konta magazynu. Obsługuje operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD). | [![Ikona interfejsu API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Umożliwia tworzenie funkcji, które uruchamiają niestandardowe fragmenty języka C# lub node.js, a następnie użycie tych funkcji w aplikacjach logiki.  |
 | [![Ikona interfejsu API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | To jest jeden z najpopularniejszych łączników. Zawiera wyzwalacze oraz akcje ułatwiające automatyzowanie przepływów pracy z klientami i nie tylko. | [![Ikona interfejsu API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Publikuj zdarzenia i korzystaj z nich w centrum zdarzeń. Na przykład można pobierać dane wyjściowe z aplikacji logiki przy użyciu usługi Event Hubs, a następnie wysyłać je do dostawcy analiz w czasie rzeczywistym. |
 | [![Ikona interfejsu API][FTPicon]<br/>**FTP**][FTPdoc] | Jeśli serwer FTP jest dostępny z Internetu, można zautomatyzować przepływy pracy do pracy z plikami i folderami. <br/><br/>Protokół SFTP jest również dostępny za pomocą łącznika SFTP. | [![Ikona interfejsu API][HTTPicon]<br/>**HTTP**][httpdoc] | Używaj aplikacji logiki do komunikowania się z dowolnym punktem końcowym za pośrednictwem protokołu HTTP. |
-| [![Ikona interfejsu API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Wiele wyzwalaczy oraz mnóstwo akcji umożliwiających korzystanie z poczty e-mail i zdarzeń usługi Office 365 w ramach przepływów pracy. <br/><br/>Ten łącznik zawiera akcję *wiadomość e-mail zatwierdzenia* umożliwiającą zatwierdzanie żądań urlopów, raportów wydatków i tak dalej. <br/><br/>Obsługa użytkowników usługi Office 365 jest również dostępna za pośrednictwem łącznika Office 365 Users.| [![Ikona interfejsu API][HTTP-Requesticon]<br/>**Request / Response**][HTTP-Requestdoc] | Ten łącznik udostępnia adres URL HTTPS. Kiedy aplikacja logiki odbiera żądanie tego adresu URL, uruchamia się aplikacja logiki. |
+| [![Ikona interfejsu API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Wiele wyzwalaczy oraz mnóstwo akcji umożliwiających korzystanie z poczty e-mail i zdarzeń usługi Office 365 w ramach przepływów pracy. <br/><br/>Ten łącznik zawiera akcję *wiadomość e-mail zatwierdzenia* umożliwiającą zatwierdzanie żądań urlopów, raportów wydatków i tak dalej. <br/><br/>Obsługa użytkowników usługi Office 365 jest również dostępna za pośrednictwem łącznika Office 365 Users.| [![Ikona interfejsu API][HTTP-Requesticon]<br/>**Żądanie/odpowiedź**][HTTP-Requestdoc] | Ten łącznik udostępnia adres URL HTTPS. Kiedy aplikacja logiki odbiera żądanie tego adresu URL, uruchamia się aplikacja logiki. |
 | [![Ikona interfejsu API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Łatwo loguj się przy użyciu konta usług Salesforce, aby uzyskać dostęp do obiektów, takich jak potencjalni klienci i inne. |  [![Ikona interfejsu API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Najpopularniejszy łącznik dla aplikacji logiki. Zawiera wyzwalacze i akcje umożliwiające asynchroniczne przesyłanie komunikatów oraz publikowanie/subskrypcję w kolejkach, subskrypcje i tematy. |
 |  [![Ikona interfejsu API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Jeśli korzystasz z programu SharePoint i możesz uzyskać korzyści z automatyzacji, zalecamy przyjrzenie się temu łącznikowi. Można go używać z lokalnym programem SharePoint i usługą SharePoint Online. | [![Ikona interfejsu API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Jeden z najczęściej używanych łączników. Umożliwia nawiązywanie połączeń z lokalnym programem SQL Server i usługą Azure SQL Database. | 
 | [![Ikona interfejsu API][Twittericon]<br/>**Twitter**][Twitterdoc] | Pozwala łatwo logować się za pomocą konta w serwisie Twitter i umożliwia uruchamianie przepływu pracy po opublikowaniu nowego tweeta. Następnie można zapisywać te tweety w bazie danych SQL lub na liście programu SharePoint. | | | 
@@ -58,8 +57,8 @@ Pakiet integracyjny dla przedsiębiorstw (EIP) zawiera łączniki, które są do
 |  |  |  |  |
 | --- | --- | --- | --- |
 | [![Ikona interfejsu API][as2icon]<br/>**Dekodowanie</br> AS2**][as2decode] | [![Ikona interfejsu API][as2icon]<br/>**Kodowanie</br> AS2**][as2encode] | [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br> EDIFACT**][EDIFACTdecode] | [![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br> EDIFACT**][EDIFACTencode] |
-[![Ikona interfejsu API][flatfileicon]<br/>**Kodowanie</br> plików prostych**][flatfiledoc] | [![Ikona interfejsu API][flatfiledecodeicon]<br/>**Dekodowanie</br> plików prostych**][flatfiledecodedoc] | [![Ikona interfejsu API][integrationaccounticon]<br/>**Konto<br/>integracji**][integrationaccountdoc] | [![Ikona interfejsu API][xmltransformicon]<br/>**Przekształcanie<br/>kodu XML**][xmltransformdoc] |
-| [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br> X12**][x12decode] | [![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br> X12**][x12encode] | [![Ikona interfejsu API][xmlvalidateicon]<br/>**Walidacja<br/>XML**][xmlvalidatedoc] | |
+[![Ikona interfejsu API][flatfileicon]<br/>**Kodowanie</br> pliku prostego**][flatfiledoc] | [![Ikona interfejsu API][flatfiledecodeicon]<br/>**Dekodowanie</br> pliku prostego**][flatfiledecodedoc] | [![Ikona interfejsu API][integrationaccounticon]<br/>**Konto<br/>integracji**][integrationaccountdoc] | [![Ikona interfejsu API][xmltransformicon]<br/>**Przekształcenie<br/>XML**][xmltransformdoc] |
+| [![Ikona interfejsu API][x12icon]<br/>**Dekodowanie</br> X12**][x12decode] | [![Ikona interfejsu API][x12icon]<br/>**Kodowanie</br> X12**][x12encode] | [![Ikona interfejsu API][xmlvalidateicon]<br/>**Walidacja <br/>XML**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Łączniki dla przedsiębiorstw
 
@@ -315,4 +314,3 @@ Czy pominęliśmy jakiś temat dotyczący łączników albo jakieś informacje, 
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
-

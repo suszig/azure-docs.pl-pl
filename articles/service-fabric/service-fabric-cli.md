@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
@@ -25,11 +24,28 @@ Interfejs wiersza polecenia usługi Azure Service Fabric jest narzędziem wiersz
 
 Przed instalacją upewnij się, że w środowisku zainstalowano zarówno język Python, jak i narzędzie pip. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Szybki start dotyczącą narzędzia pip](https://pip.pypa.io/en/latest/quickstart/) i oficjalną [dokumentacją dotyczącą instalowania języka Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Choć obsługiwana jest zarówno wersja 2.7, jak i 3.6 języka Python, zaleca się korzystanie z wersji 3.6. W poniższej sekcji pokazano, jak zainstalować wszystkie wstępnie wymagane składniki i interfejs wiersza polecenia.
+Interfejs wiersza polecenia obsługuje język Python w wersji 2.7, 3.5 i 3,6. Zalecana wersja to Python 3.6, ponieważ wkrótce zakończy się okres świadczenia pomocy technicznej dla języka Python 2.7.
+
+### <a name="service-fabric-target-runtime"></a>Docelowe środowisko uruchomieniowe usługi Service Fabric
+
+Interfejs wiersza polecenia usługi Service Fabric jest przeznaczony do obsługi najnowszej wersji środowiska uruchomieniowego zestawu Service Fabric SDK. Skorzystaj z poniższej tabeli, aby określić, którą wersję interfejsu wiersza polecenia zainstalować:
+
+| Wersja interfejsu wiersza polecenia   | Obsługiwana wersja środowiska uruchomieniowego |
+|---------------|---------------------------|
+| Najnowsza (~=2)  | Najnowsza (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+Opcjonalnie można określić docelową wersję interfejsu wiersza polecenia do zainstalowania, dodając do polecenia `pip install` sufiks z wersją `==<version>`. Na przykład składnia dla wersji 1.1.0 będzie następująca:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+W razie potrzeby zastąp następujące polecenie `pip install` przy użyciu polecenia opisanego powyżej.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalowanie narzędzia pip, środowiska Python i interfejsu wiersza polecenia usługi Service Fabric
 
- Dostępnych jest szereg sposobów instalowania narzędzia pip i środowiska Python na używanej platformie. Poniżej przedstawiono kroki konfiguracji narzędzia pip i środowiska Python 3.6 w najważniejszych systemach operacyjnych.
+Dostępnych jest szereg sposobów instalowania narzędzia pip i środowiska Python na używanej platformie. Poniżej przedstawiono kroki konfiguracji narzędzia pip i środowiska Python 3 w najważniejszych systemach operacyjnych.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 Następnie uruchom następujące polecenie, aby zainstalować interfejs wiersza polecenia usługi Service Fabric:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Podsystem Ubuntu i Windows dla systemu Linux
+
+Aby zainstalować interfejs wiersza polecenia usługi Service Fabric, uruchom następujące polecenie:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-W przypadku systemu Ubuntu 16.04 Desktop można zainstalować środowisko Python 3.6 przy użyciu osobistych archiwów pakietów innych firm.
-
-W terminalu uruchom następujące polecenia:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Aby zainstalować interfejs wiersza polecenia usługi Service Fabric tylko dla Twojej instalacji środowiska Python 3.6, uruchom następujące polecenie:
+Następnie możesz przetestować instalację przy użyciu następującego polecenia:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
+Jeśli zostanie wyświetlony komunikat o błędzie wskazujący na to, że nie znaleziono polecenia, taki jak:
+
+`sfctl: command not found`
+
+Upewnij się, że element `~/.local/bin` jest dostępny w lokalizacji `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Te kroki nie mają wpływu na środowiska Python 3.5 i 2.7 zainstalowane w systemie. Nie modyfikuj tych instalacji, jeśli nie znasz dobrze systemu Ubuntu.
+W przypadku niepowodzenia instalacji w podsystemie systemu Windows dla systemu Linux z powodu nieprawidłowych uprawnień folderu być może trzeba będzie spróbować ponownie z podwyższonym poziomem uprawnień:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 W przypadku systemu MacOS zaleca się użycie [menedżera pakietów HomeBrew](https://brew.sh). Zainstaluj program HomeBrew, jeśli jeszcze go nie zainstalowano. W tym celu uruchom następujące polecenie:
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-Jeśli pojawi się komunikat o błędzie z informacją o nieznalezieniu interfejsu `sfctl`, uruchom następujące polecenia:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-Te kroki nie powodują zmodyfikowania instalacji środowiska Python 2.7 w systemie.
 
 ## <a name="cli-syntax"></a>Składnia interfejsu wiersza polecenia
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Aby zaktualizować interfejs wiersza polecenia usługi Service Fabric, uruchom następujące polecenia (element `pip` zastąp elementem `pip3` w zależności od opcji wybranej podczas oryginalnej instalacji):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Deploy an application with the Azure Service Fabric CLI (Wdrażanie aplikacji przy użyciu interfejsu wiersza polecenia usługi Azure Service Fabric)](service-fabric-application-lifecycle-sfctl.md)
 * [Wprowadzenie do usługi Service Fabric w systemie Linux](service-fabric-get-started-linux.md)
-

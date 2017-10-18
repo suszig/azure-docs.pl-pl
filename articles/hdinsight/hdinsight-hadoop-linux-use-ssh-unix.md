@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Hadoop) przy użyciu protokołu SSH
 
@@ -45,6 +44,11 @@ Usługa HDInsight może używać systemu Linux (Ubuntu) jako systemu operacyjneg
 > Jeśli klaster zawiera węzeł krawędzi, zalecamy, aby __zawsze łączyć się z węzłem krawędzi__ przy użyciu protokołu SSH. Węzły główne hostują usługi o krytycznym znaczeniu dla kondycji usługi Hadoop. W węźle krawędzi działają tylko obciążenia umieszczone przez użytkownika.
 >
 > Więcej informacji dotyczących używania węzłów krawędzi można znaleźć w temacie [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight).
+
+> [!TIP]
+> Po pierwszym połączeniu z usługą HDInsight Twój klient SSH może wyświetlić ostrzeżenie, że nie można ustalić autentyczności hosta. Po wyświetleniu monitu wybierz opcję „tak”, aby dodać hosta do listy zaufanych serwerów klienta SSH.
+>
+> Jeśli wcześniej miało miejsce połączenie z serwerem o takiej samej nazwie, może pojawić się ostrzeżenie, że przechowywany klucz hosta nie odpowiada kluczowi hosta serwera. Klient SSH może w takim przypadku odmówić połączenia się z klastrem. W dokumentacji klienta SSH można znaleźć informacje, jak usunąć istniejący wpis dla nazwy serwera.
 
 ## <a name="ssh-clients"></a>Klienci SSH
 

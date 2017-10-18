@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lekcja 7. Tworzenie kluczowych wskaźników wydajności
 
@@ -49,7 +48,7 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
 
     Ta miara służy jako miara podstawowa kluczowego wskaźnika wydajności.  
   
-4.  Kliknij prawym przyciskiem myszy pozycje **InternetCurrentQuarterSalesPerformance** > **Utwórz wskaźnik KPI**.   
+4.  W siatce miar kliknij prawym przyciskiem myszy pozycje **InternetCurrentQuarterSalesPerformance** > **Utwórz wskaźnik KPI**.   
   
 5.  W oknie dialogowym Kluczowy wskaźnik wydajności (KPI) w obszarze **Docelowa** wybierz opcję **Wartość bezwzględna**, a następnie wpisz wartość **1,1**.  
   
@@ -88,4 +87,3 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
 [Lekcja 8. Tworzenie perspektyw](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

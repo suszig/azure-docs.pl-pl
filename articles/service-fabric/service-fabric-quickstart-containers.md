@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Wdrażanie aplikacji kontenera dla systemu Windows w usłudze Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
 
@@ -51,7 +49,7 @@ Wybierz pozycję **Aplikacja usługi Service Fabric**, nadaj jej nazwę „MyFir
 
 Z listy **szablonów usług** wybierz pozycję **Kontener**.
 
-W polu **Nazwa obrazu** wprowadź wartość „nanoserver/iis” ([podstawowy obraz serwera Nano Server systemu Windows Server 2016 i usług IIS](https://hub.docker.com/r/nanoserver/iis/)). 
+W polu **Nazwa obrazu** wprowadź wartość „microsoft/iis:nanoserver”, [podstawowy obraz serwera Nano Server systemu Windows Server i usług IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Nazwij usługę „MyContainerService”, a następnie kliknij przycisk **OK**.
 
@@ -68,6 +66,7 @@ Skonfiguruj mapowanie portów kontenera typu port do hosta, określając zasady 
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Kliknij prawym przyciskiem myszy pozycję **MyFirstContainer** w Eksploratorze r
 
 ![Okno dialogowe Publikowanie](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Wpisz punkt końcowy połączenia klastra w polu **Punkt końcowy połączenia**, a następnie kliknij przycisk **Publikuj**. Podczas rejestracji dla klastra testowego punkt końcowy połączenia jest udostępniany w przeglądarce — na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Wpisz punkt końcowy połączenia klastra w polu **Punkt końcowy połączenia**. Podczas rejestracji dla klastra testowego punkt końcowy połączenia jest udostępniany w przeglądarce — na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Kliknij pozycję **Publikuj**, aby wdrożyć aplikację.
 
 Otwórz przeglądarkę i przejdź pod adres http://winh1x87d1d.westus.cloudapp.azure.com:80. Powinna zostać wyświetlona domyślna strona internetowa usługi IIS: ![domyślna strona internetowa usług IIS][iis-default]
 
@@ -120,7 +119,7 @@ Zamieszczono tutaj kompletne manifesty usługi i aplikacji używane w tym przewo
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

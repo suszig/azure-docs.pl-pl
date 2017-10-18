@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Lekcja 4. Tworzenie relacji
 
@@ -34,7 +33,10 @@ Szacowany czas trwania lekcji: **10 minut**
 Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć lekcję poprzednią: [Lekcja 3. Oznaczanie jako tabeli dat](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Przegląd istniejących relacji i dodawanie nowych  
-Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem tabel z bazy danych AdventureWorksDW2014. Ogólnie rzecz biorąc, podczas importowania danych ze źródła relacyjnego istniejące relacje są importowane automatycznie wraz z danymi. Jednak przed przystąpieniem do tworzenia modelu należy sprawdzić, czy relacje między tabelami zostały utworzone prawidłowo. W tym samouczku zostaną dodane trzy nowe relacje.  
+Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem tabel z bazy danych AdventureWorksDW2014. Ogólnie rzecz biorąc, podczas importowania danych ze źródła relacyjnego istniejące relacje są importowane automatycznie wraz z danymi. Aby pobrać dane w celu automatycznego utworzenia relacji w modelu danych, musi istnieć relacja między tabelami w źródle danych.
+
+Przed przystąpieniem do tworzenia modelu należy sprawdzić, czy relacje między tabelami zostały utworzone prawidłowo. W tym samouczku zostaną również dodane trzy nowe relacje.  
+
   
 #### <a name="to-review-existing-relationships"></a>Aby przejrzeć istniejące relacje:  
   
@@ -44,7 +46,10 @@ Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Dołącz jak najwięcej tabel, używając formantów minimapy w prawym dolnym rogu projektanta modeli. Można również kliknąć i przeciągnąć tabele do innych lokalizacji, zbliżając je do siebie lub umieszczając w określonej kolejności. Przenoszenie tabel nie ma wpływu na relacje istniejące już między tabelami. Jeśli chcesz wyświetlić wszystkie kolumny w określonej tabeli, kliknij i przeciągnij krawędź tabeli, aby powiększyć ją lub zmniejszyć.  
+    > [!NOTE]
+    > Jeśli nie widzisz żadnych relacji między tabelami, prawdopodobnie oznacza to, że nie ma żadnych relacji między tymi tabelami w źródle danych.
+
+    Dołącz jak najwięcej tabel, używając formantów minimapy w prawym dolnym rogu projektanta modeli. Można również kliknąć i przeciągnąć tabele do innych lokalizacji, zbliżając je do siebie lub umieszczając w określonej kolejności. Przenoszenie tabel nie ma wpływu na relacje między tabelami. Jeśli chcesz wyświetlić wszystkie kolumny w określonej tabeli, kliknij i przeciągnij krawędź tabeli, aby powiększyć ją lub zmniejszyć.  
   
 2.  Kliknij ciągłą linię między tabelami **DimCustomer** a **DimGeography**. Linia ciągła między tymi dwiema tabelami pokazuje, że relacja jest aktywna, co oznacza, że jest używana domyślnie podczas obliczania formuł języka DAX.  
   
@@ -63,7 +68,7 @@ Podczas importowania danych przy użyciu narzędzia Pobierz dane uzyskano siedem
     |Tak|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Tak|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Jeśli brakuje dowolnej z tych relacji, sprawdź, czy model zawiera następujące tabele: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory i FactInternetSales. W przypadku tabel pochodzących z tego samego połączenia źródła danych, które zostały zaimportowane w różnym czasie, relacje między takimi tabelami nie są tworzone i należy utworzyć je ręcznie.  
+    Jeśli brakuje dowolnej z tych relacji, sprawdź, czy model zawiera następujące tabele: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory i FactInternetSales. W przypadku tabel pochodzących z tego samego połączenia źródła danych, które zostały zaimportowane w różnym czasie, relacje między takimi tabelami nie są tworzone i należy utworzyć je ręcznie. Jeśli relacje nie są wyświetlane, oznacza to, że nie ma żadnych relacji w źródle danych. Możesz je utworzyć ręcznie w modelu danych.
 
 ### <a name="take-a-closer-look"></a>Przyjrzyjmy się temu bliżej
 W widoku diagramu zwróć uwagę na strzałkę, gwiazdkę i liczbę w wierszach, które wskazują relacje między tabelami.
@@ -102,4 +107,3 @@ W niektórych przypadkach może być konieczne utworzenie dodatkowych relacji mi
   
   
   
-

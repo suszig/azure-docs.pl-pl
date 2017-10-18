@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Zarządzanie pierwszym interfejsem API w usłudze Azure API Management
 ## <a name="overview"> </a>Omówienie
@@ -71,7 +71,7 @@ W polu **Nazwa** podaj unikatową nazwę domeny podrzędnej do użycia jako adre
 
 W polach **Subskrypcja**, **Grupa zasobów** i **Lokalizacja** wybierz wartości odpowiadające wystąpieniu usługi.
 
-Wprowadź wartość **Contoso Ltd.** w polu **Nazwa organizacji**, a następnie wprowadź adres e-mail w polu **Adres e-mail administratora**.
+Wprowadź ciąg **Contoso Ltd.** w polu **Nazwa organizacji**, a następnie wprowadź adres e-mail w polu **Adres e-mail administratora**.
 
 > [!NOTE]
 > Ten adres e-mail służy do wysyłania powiadomienia z systemu usługi API Management. Aby uzyskać więcej informacji, zobacz [How to configure notifications and email templates in Azure API Management][How to configure notifications and email templates in Azure API Management] (Jak skonfigurować powiadomienia i szablony wiadomości e-mail w usłudze Azure API Management).
@@ -254,9 +254,3 @@ Sekcja **Analiza** zawiera cztery karty:
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

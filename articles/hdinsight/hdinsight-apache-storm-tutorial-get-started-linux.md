@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Wprowadzenie do platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter
 
@@ -44,7 +43,7 @@ Apache Storm to skalowalny, odporny na błędy, rozproszony system obliczeniowy 
 
 Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następujące czynności:
 
-1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **+ NOWY** i pozycję **Zbieranie danych i analiza**, a następnie pozycję **HDInsight**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **+ NOWY** i pozycję **Dane i analiza**, a następnie pozycję **HDInsight**.
 
     ![Tworzenie klastra usługi HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
     * **Grupa zasobów**: grupa zasobów, w której ma zostać utworzony klaster.
     * **Lokalizacja**: region platformy Azure, w którym ma zostać utworzony klaster.
 
-    ![Wybieranie subskrypcji](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Wybieranie subskrypcji](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Wybierz pozycję **Typ klastra**, a następnie ustaw następujące wartości w bloku **Konfiguracja klastra**:
 
@@ -69,7 +68,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
     * **Warstwa klastra**: Standardowa
 
-    Zapisz ustawienia przy użyciu przycisku **Wybierz**.
+   Zapisz ustawienia przy użyciu przycisku **Wybierz**.
 
     ![Wybieranie typu klastra](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -79,7 +78,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
     ![Konfigurowanie ustawień konta magazynu dla usługi HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. W bloku **Podsumowanie** przejrzyj konfigurację klastra. Zmień niepoprawne ustawienia przy użyciu linków __Edytuj__. Utwórz klaster przy użyciu przycisku __Utwórz__.
+6. W bloku **Podsumowanie** przejrzyj konfigurację klastra. Zmień niepoprawne ustawienia przy użyciu linków __Edytuj__. Wreszcie utwórz klaster przy użyciu przycisku __Utwórz__.
 
     ![Podsumowanie konfiguracji klastra](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -92,7 +91,11 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Jeśli do zabezpieczenia konta użytkownika SSH użyto hasła, zostanie wyświetlony monit o jego wprowadzenie. Jeśli używasz klucza publicznego, może być konieczne użycie parametru `-i` w celu wskazania zgodnego klucza prywatnego. Na przykład `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > Twój klient SSH może informować, że nie można ustalić autentyczności hosta. Jeśli tak się stanie, wprowadź wartość `yes`, aby kontynuować.
+
+    > [!NOTE]
+    > Jeśli do zabezpieczenia konta użytkownika SSH użyto hasła, zostanie wyświetlony monit o jego wprowadzenie. Jeśli używasz klucza publicznego, może być konieczne użycie parametru `-i` w celu wskazania zgodnego klucza prywatnego. Na przykład `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -118,7 +121,7 @@ Interfejs użytkownika platformy Storm udostępnia interfejs sieci Web do pracy 
 
 Wykonaj następujące kroki, aby monitorować topologię za pomocą interfejsu użytkownika platformy Storm:
 
-1. Aby wyświetlić interfejs użytkownika platformy Storm, otwórz stronę o adresie https://CLUSTERNAME.azurehdinsight.net/stormui w przeglądarce sieci Web. Zastąp ciąg **CLUSTERNAME** nazwą klastra.
+1. Aby wyświetlić interfejs użytkownika platformy Storm, otwórz w przeglądarce internetowej adres `https://CLUSTERNAME.azurehdinsight.net/stormui`. Zastąp ciąg **CLUSTERNAME** nazwą klastra.
 
     > [!NOTE]
     > Jeśli zostanie wyświetlony monit o podanie nazwy użytkownika i hasła, wprowadź nazwę administratora klastra (admin) i hasło użyte podczas tworzenia klastra.
@@ -210,4 +213,3 @@ Aby uzyskać przykładowe topologie, które mogą być używane z narzędziem St
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

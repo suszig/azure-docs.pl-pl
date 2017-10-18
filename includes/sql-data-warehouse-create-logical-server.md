@@ -9,7 +9,7 @@
   
 3. Kliknij pozycję **Utwórz**, aby otworzyć nowy blok SQL Server (serwer logiczny).
 
-   <kbd>![Otwórz blok serwera logicznego](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![blok serwera logicznego](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
+   <kbd> ![otwieranie bloku serwera logicznego](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![blok serwera logicznego](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. W polu tekstowym nazwy serwera w bloku SQL Server (serwer logiczny) podaj prawidłową nazwę nowego serwera logicznego. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     

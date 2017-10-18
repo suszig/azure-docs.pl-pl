@@ -3,7 +3,7 @@ title: "Zarządzanie kontem usługi Azure Automation | Microsoft Docs"
 description: "W tym artykule opisano sposób zarządzania konfiguracją konta usługi Automation obejmującą np. odnawianie certyfikatów, usuwanie i błędną konfigurację."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.contentlocale: pl-pl
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Zarządzanie kontem usługi Azure Automation
 W pewnym momencie przed wygaśnięciem ważności konta usługi Automation należy odnowić certyfikat. Jeśli uważasz, że bezpieczeństwo konta Uruchom jako zostało naruszone, możesz je usunąć i utworzyć ponownie. W tej sekcji opisano kroki umożliwiające wykonanie tych operacji.
 
@@ -29,18 +27,19 @@ W pewnym momencie przed wygaśnięciem ważności konta usługi Automation nale�
 Certyfikat z podpisem własnym utworzony dla konta Uruchom jako wygasa rok od daty utworzenia. Można go odnowić w dowolnym momencie przed wygaśnięciem jego ważności. Po odnowieniu bieżący ważny certyfikat zostanie zachowany w celu zapewnienia, że ta zmiana nie wpłynie negatywnie na żadne umieszczone w kolejce lub aktywnie działające elementy runbook, które uwierzytelniają się przy użyciu konta Uruchom jako. Certyfikat pozostanie ważny aż do daty wygaśnięcia.
 
 > [!NOTE]
-> Jeśli konto Uruchom jako usługi Automation skonfigurowano do użycia certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, w przypadku użycia tej opcji certyfikat przedsiębiorstwa zostanie zastąpiony certyfikatem z podpisem własnym.
+> Jeśli konto Uruchom jako usługi Automation skonfigurowano do użycia certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, w przypadku użycia tej opcji certyfikat przedsiębiorstwa jest zastępowany certyfikatem z podpisem własnym.
 
 Aby odnowić certyfikat, wykonaj następujące czynności:
 
 1. W witrynie Azure Portal otwórz konto usługi Automation.
 
-2. W bloku **Konto usługi Automation** w okienku **Właściwości konta** w obszarze **Ustawienia konta** wybierz pozycję **Konta Uruchom jako**.
+2. Na stronie **Konto usługi Automation** 
+3. w okienku **Właściwości konta** w obszarze **Ustawienia konta** wybierz pozycję **Konta Uruchom jako**.
 
     ![Okienko właściwości konta usługi Automation](media/automation-manage-account/automation-account-properties-pane.png)
-3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, dla którego chcesz odnowić certyfikat.
+3. Na stronie właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, dla którego chcesz odnowić certyfikat.
 
-4. W bloku **Właściwości** wybranego konta kliknij pozycję **Odnów certyfikat**.
+4. W okienku **Właściwości** wybranego konta kliknij pozycję **Odnów certyfikat**.
 
     ![Odnawianie certyfikatu konta Uruchom jako](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -51,15 +50,15 @@ W tej sekcji opisano sposób usuwania i ponownego tworzenia konta Uruchom jako l
 
 1. W witrynie Azure Portal otwórz konto usługi Automation.
 
-2. W bloku **Konto usługi Automation** w okienku właściwości konta wybierz pozycję **Konta Uruchom jako**.
+2. Na stronie **Konto usługi Automation** wybierz pozycję **Konta Uruchom jako**.
 
-3. W bloku właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, które chcesz usunąć. Następnie w bloku **Właściwości** wybranego konta kliknij pozycję **Usuń**.
+3. Na stronie właściwości **Konta Uruchom jako** wybierz konto Uruchom jako albo klasyczne konto Uruchom jako, które chcesz usunąć. Następnie w okienku **Właściwości** wybranego konta kliknij pozycję **Usuń**.
 
  ![Usuwanie konta Uruchom jako](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. W trakcie usuwania konta postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
 
-5. Po usunięciu konta możesz je ponownie utworzyć w bloku właściwości **Konta Uruchom jako**, wybierając opcję tworzenia **Konto Uruchom jako platformy Azure**.
+5. Po usunięciu konta możesz je ponownie utworzyć na stronie właściwości **Konta Uruchom jako**, wybierając opcję tworzenia **Konto Uruchom jako platformy Azure**.
 
  ![Ponowne tworzenie konta Uruchom jako usługi Automation](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -71,7 +70,7 @@ Niektóre elementy konfiguracji niezbędne do poprawnego działania konta Urucho
 * Konto Uruchom jako zostało usunięte z roli współautora
 * Nazwa główna usługi lub aplikacji w usłudze Azure AD
 
-W poprzednim i innych przypadkach błędnej konfiguracji konto usługi Automation wykrywa te zmiany i wyświetla stan *Niekompletne* w bloku właściwości **Konta Uruchom jako** dla konta.
+W poprzednim i innych przypadkach błędnej konfiguracji konto usługi Automation wykrywa te zmiany i wyświetla stan *Niekompletne* w okienku właściwości **Konta Uruchom jako** dla konta.
 
 ![Stan Niekompletne dla konfiguracji konta Uruchom jako](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 
