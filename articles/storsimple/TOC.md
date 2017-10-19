@@ -101,6 +101,7 @@
 ##### [Zarządzanie kontenerami woluminów](storsimple-8000-manage-volume-containers.md)
 ##### [Zarządzanie woluminami — bieżące](storsimple-8000-manage-volumes-u2.md)
 ###### [Często zadawane pytania: Lokalnie przypięte woluminy](storsimple-8000-local-volume-faq.md)
+##### [Kontrola dostępu oparta na rolach](storsimple-8000-role-based-access-control.md)
 ##### [Zarządzanie rekordami ACR](storsimple-8000-manage-acrs.md)
 ##### [Zarządzanie szablonami przepustowości](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Wyświetlanie zadań i zarządzanie nimi](storsimple-8000-manage-jobs-u2.md)
@@ -118,6 +119,7 @@
 ##### [Konfigurowanie serwera proxy sieci Web](storsimple-8000-configure-web-proxy.md)
 ##### [Modyfikowanie ustawień DATA 0](storsimple-8000-modify-data-0.md)
 
+#### [Za pomocą przykładowych skryptów programu Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [Korzystanie z programu StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -187,7 +189,7 @@
 #### [Wydanie — ogólne udostępnienie](storsimple-july-2014-release-notes.md)
 
 ## Dokumentacja
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [Interfejs API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 # Seria StorSimple 8000 (portal klasyczny)
