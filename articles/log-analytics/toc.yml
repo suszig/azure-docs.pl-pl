@@ -9,6 +9,8 @@
   items:
     - name: Zbieranie — maszyny wirtualne platformy Azure
       href: log-analytics-quick-collect-azurevm.md
+    - name: Zbieranie — komputer z systemem Linux
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Samouczki
   items:
     - name: 1 — Analizowanie danych
@@ -53,6 +55,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Zasoby platformy Azure
               href: log-analytics-azure-storage.md
+            - name: Dane diagnostyczne lub dziennika z usługi Azure Storage
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Configuration Manager
@@ -92,6 +96,8 @@
           items:
             - name: Wyrażenia regularne
               href: log-analytics-log-searches-regex.md
+            - name: Wyszukiwania między obszarami roboczymi
+              href: log-analytics-cross-workspace-search.md
         - name: Podejmowanie akcji z poziomu wyników wyszukiwania
           href: log-analytics-log-search-takeaction.md
         - name: Grupy komputerów
@@ -229,6 +235,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Dokumentacja kafelka Projektanta widoków
+      href: log-analytics-view-designer-tiles.md
+    - name: Dokumentacja części wizualizacji Projektanta widoków
+      href: log-analytics-view-designer-parts.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure
