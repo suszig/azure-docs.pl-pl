@@ -13,14 +13,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/27/2017
+
 ---
+
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Tworzenie fabryki danych i potoku przy użyciu języka Python
-Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej. 
+Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
 
 Ten samouczek Szybki start opisuje sposób używania języka Python w celu utworzenia usługi Azure Data Factory. Potok w tej usłudze Data Factory kopiuje dane z jednego folderu do innego folderu w usłudze Azure Blob Storage.
 
@@ -28,22 +30,22 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn **źródła** i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Zapisz następujące wartości, których użyjesz w kolejnych krokach: **identyfikator aplikacji**, **klucz uwierzytelniania** i **identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”, wykonując instrukcje przedstawione w tym samym artykule. 
+* **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn **źródła** i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Zapisz następujące wartości, których użyjesz w kolejnych krokach: **identyfikator aplikacji**, **klucz uwierzytelniania** i **identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”, wykonując instrukcje przedstawione w tym samym artykule.
 
 ### <a name="create-and-upload-an-input-file"></a>Tworzenie i przekazywanie pliku wejściowego
 
 1. Uruchom program Notatnik. Skopiuj poniższy tekst i zapisz go na dysku jako plik **input.txt**.
-    
+
     ```
     John|Doe
     Jane|Doe
     ```
-2.  Użyj narzędzi, takich jak [Eksplorator usługi Azure Storage](http://storageexplorer.com/), aby utworzyć kontener **adfv2tutorial** i folder **input** w kontenerze. Następnie przekaż plik **input.txt** do folderu **input**. 
+2.  Użyj narzędzi, takich jak [Eksplorator usługi Azure Storage](http://storageexplorer.com/), aby utworzyć kontener **adfv2tutorial** i folder **input** w kontenerze. Następnie przekaż plik **input.txt** do folderu **input**.
 
 ## <a name="install-the-python-package"></a>Instalacja pakietu języka Python
-1. Otwórz terminal lub wiersz polecenia z uprawnieniami administratora.  
-2. Najpierw zainstaluj pakiet języka Python dla zasobów zarządzania platformy Azure: 
+1. Otwórz terminal lub wiersz polecenia z uprawnieniami administratora. 
+2. Najpierw zainstaluj pakiet języka Python dla zasobów zarządzania platformy Azure:
 
     ```
     pip install azure-mgmt-resource
@@ -59,7 +61,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="create-a-data-factory-client"></a>Tworzenie klienta fabryki danych
 
 1. Utwórz plik o nazwie **datafactory.py**. Dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
-    
+
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
     from azure.mgmt.resource import ResourceManagementClient
@@ -68,7 +70,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     from datetime import datetime, timedelta
     import time
     ```
-2. Dodaj następujące funkcje, które drukują informacje. 
+2. Dodaj następujące funkcje, które drukują informacje.
 
     ```python
     def print_item(group):
@@ -81,14 +83,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
             print("\tTags: {}".format(group.tags))
         if hasattr(group, 'properties'):
             print_properties(group.properties)
-    
+
     def print_properties(props):
         """Print a ResourceGroup properties instance."""
         if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
             print("\tProperties:")
             print("\t\tProvisioning State: {}".format(props.provisioning_state))
         print("\n\n")
-    
+
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
@@ -98,8 +100,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
             print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
         else:
-            print("\tErrors: {}".format(activity_run.error['message'])) 
-  
+            print("\tErrors: {}".format(activity_run.error['message']))
+
     ```
 3. Dodaj do metody **Main** poniższy kod, który tworzy wystąpienie klasy DataFactoryManagementClient. Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku. Ustaw zmienną **subscription_id** na identyfikator swojej subskrypcji platformy Azure.
 
@@ -108,25 +110,25 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
         # Azure subscription ID
         subscription_id = '<Specify your Azure Subscription ID>'
-        
+
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
         rg_name = 'ADFTutorialResourceGroup'
-    
-        # The data factory name. It must be globally unique. 
+
+        # The data factory name. It must be globally unique.
         df_name = '<Specify a name for the data factory. It must be globally unique>'
-    
+
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
-    
+
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}    
     ```
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-Dodaj do metody **Main** poniższy kod, który tworzy **fabrykę danych**. Jeśli grupa zasobów już istnieje, dodaj komentarz do pierwszej instrukcji `create_or_update`. 
+Dodaj do metody **Main** poniższy kod, który tworzy **fabrykę danych**. Jeśli grupa zasobów już istnieje, dodaj komentarz do pierwszej instrukcji `create_or_update`.
 
 ```python
     # create the resource group
@@ -146,13 +148,13 @@ Dodaj do metody **Main** poniższy kod, który tworzy **fabrykę danych**. Jeśl
 
 Dodaj do metody **Main** poniższy kod, który tworzy **połączoną usługę Azure Storage**.
 
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym samouczku Szybki start musisz utworzyć tylko jedną połączoną usługę Azure Storage zarówno jako źródło kopii, jak i ujście magazynu o nazwie „AzureStorageLinkedService” w przykładzie. Zastąp wartości `<storageaccountname>` i `<storageaccountkey>` nazwą i kluczem konta usługi Azure Storage. 
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym samouczku Szybki start musisz utworzyć tylko jedną połączoną usługę Azure Storage zarówno jako źródło kopii, jak i ujście magazynu o nazwie „AzureStorageLinkedService” w przykładzie. Zastąp wartości `<storageaccountname>` i `<storageaccountkey>` nazwą i kluczem konta usługi Azure Storage.
 
 ```python
     # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account. 
+    # IMPORTANT: specify the name and key of your Azure Storage account.
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -163,7 +165,7 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
 W tej sekcji utworzysz zestaw danych źródła i ujścia.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Tworzenie zestawu danych źródłowego obiektu blob platformy Azure
-Dodaj do metody Main poniższy kod, który tworzy zestaw danych obiektu blob platformy Azure. Aby uzyskać informacje o właściwościach zestawu danych obiektu blob platformy Azure, zobacz artykuł dotyczący [łącznika obiektu blob platformy Azure](connector-azure-blob-storage.md#dataset-properties). 
+Dodaj do metody Main poniższy kod, który tworzy zestaw danych obiektu blob platformy Azure. Aby uzyskać informacje o właściwościach zestawu danych obiektu blob platformy Azure, zobacz artykuł dotyczący [łącznika obiektu blob platformy Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie blob platformy Azure. Ten zestaw danych obiektu blob odwołuje się do połączonej usługi Azure Storage utworzonej w poprzednim kroku.
 
@@ -179,7 +181,7 @@ Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie b
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Tworzenie zestawu danych obiektu blob platformy Azure ujścia
-Dodaj do metody Main poniższy kod, który tworzy zestaw danych obiektu blob platformy Azure. Aby uzyskać informacje o właściwościach zestawu danych obiektu blob platformy Azure, zobacz artykuł dotyczący [łącznika obiektu blob platformy Azure](connector-azure-blob-storage.md#dataset-properties). 
+Dodaj do metody Main poniższy kod, który tworzy zestaw danych obiektu blob platformy Azure. Aby uzyskać informacje o właściwościach zestawu danych obiektu blob platformy Azure, zobacz artykuł dotyczący [łącznika obiektu blob platformy Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie blob platformy Azure. Ten zestaw danych obiektu blob odwołuje się do połączonej usługi Azure Storage utworzonej w poprzednim kroku.
 
@@ -197,14 +199,14 @@ Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie b
 Dodaj do metody **Main** poniższy kod, który tworzy **potok z działaniem kopiowania**.
 
 ```python
-    # Create a copy activity 
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
-    
+
     #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
@@ -238,7 +240,7 @@ Aby monitorować uruchomienie potoku, dodaj do metody **Main** następujący kod
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-Teraz dodaj poniższą instrukcję w celu wywołania metody **Main** po uruchomieniu programu: 
+Teraz dodaj poniższą instrukcję w celu wywołania metody **Main** po uruchomieniu programu:
 
 ```python
 # Start the main method
@@ -246,7 +248,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Pełny skrypt
-Oto pełny kod języka Python: 
+Oto pełny kod języka Python:
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -294,7 +296,7 @@ def main():
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
     rg_name = '<Azure resource group name>'
 
-    # The data factory name. It must be globally unique. 
+    # The data factory name. It must be globally unique.
     df_name = '<Your data factory name>'        
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -380,7 +382,7 @@ Skompiluj i uruchom aplikację, a następnie zweryfikuj wykonywanie potoku.
 
 Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Poczekaj na wyświetlenie szczegółów uruchomienia działania kopiowania z rozmiarem odczytanych/zapisanych danych. Następnie sprawdź przy użyciu narzędzi, takich jak [eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), czy obiekty blob zostały skopiowane do lokalizacji „outputBlobPath” z lokalizacji „inputBlobPath”, jak określono w zmiennych.
 
-Oto przykładowe dane wyjściowe: 
+Oto przykładowe dane wyjściowe:
 
 ```json
 Name: <data factory name>
@@ -391,34 +393,35 @@ Tags: {}
 Name: storageLinkedService
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/linkedservices/storageLinkedService
 
-Name: ds_in 
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in  
+Name: ds_in
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in
 
-Name: ds_out    
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out 
+Name: ds_out
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out
 
-Name: copyPipeline  
+Name: copyPipeline
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelines/copyPipeline
 
 Pipeline run status: Succeeded
 Datetime with no tzinfo will be considered UTC.
-Datetime with no tzinfo will be considered UTC. 
+Datetime with no tzinfo will be considered UTC.
 
-Activity run details    
+Activity run details
 
-Activity run status: Succeeded  
-Number of bytes read: 18    
-Number of bytes written: 18 
+Activity run status: Succeeded
+Number of bytes read: 18
+Number of bytes written: 18
 Copy duration: 4
 ```
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Aby usunąć fabrykę danych, dodaj następujący kod do programu: 
+Aby usunąć fabrykę danych, dodaj następujący kod do programu:
 
-```csharp
+```python
 adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage. Zapoznaj się z [samouczkami](tutorial-copy-data-dot-net.md), aby dowiedzieć się więcej o korzystaniu z usługi Data Factory w dalszych scenariuszach. 
+Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage. Zapoznaj się z [samouczkami](tutorial-copy-data-dot-net.md), aby dowiedzieć się więcej o korzystaniu z usługi Data Factory w dalszych scenariuszach.
+
