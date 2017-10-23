@@ -1,6 +1,6 @@
 # Omówienie
 ## [Maszyny wirtualne z programem SQL Server i systemem Linux](sql-server-linux-virtual-machines-overview.md)
-## [Cennik](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Cennik](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
 ## [Często zadawane pytania](sql-server-linux-faq.md)
 
 # Wprowadzenie

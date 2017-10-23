@@ -40,6 +40,7 @@
 ##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Trasy definiowane przez użytkownika
+#### [Witryna Azure Portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-create-udr-arm-cli.md)
 #### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-create-udr-arm-cli-nodejs.md)

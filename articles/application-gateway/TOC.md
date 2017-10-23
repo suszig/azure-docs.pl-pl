@@ -59,6 +59,7 @@
 ## Rozwiązywanie problemów
 ### [Rozwiązywanie problemów z błędami w usłudze Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Rejestrowanie i metryki diagnostyki](application-gateway-diagnostics.md)
+### [Problemy z koligacją sesji bramy Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Dokumentacja
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/application-gateway)

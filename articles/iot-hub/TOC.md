@@ -109,6 +109,7 @@
 ### Aktualizowanie oprogramowania układowego urządzenia za pomocą zadań urządzeń
 #### [Zaplecze środowiska Node/urządzenie środowiska Node](iot-hub-node-node-firmware-update.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Zaplecze środowiska .NET/urządzenie środowiska .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Zaplecze środowiska Java/urządzenie środowiska Java](iot-hub-java-java-firmware-update.md)
 ### Planowanie i emitowanie zadań
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-schedule-jobs.md)

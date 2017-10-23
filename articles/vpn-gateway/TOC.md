@@ -81,7 +81,6 @@
 ### [Problem z połączeniem punkt-lokacja](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Połączenie lokacja-lokacja jest sporadycznie rozłączane](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Nie można nawiązać połączenia lokacja-lokacja](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Problemy z koligacją sesji bramy Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Dokumentacja
