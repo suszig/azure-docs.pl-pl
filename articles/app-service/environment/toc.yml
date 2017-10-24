@@ -34,6 +34,8 @@
   items:
     - name: Korzystanie ze środowiska ASE
       href: using-an-ase.md
+    - name: Integracja z usługą Application Gateway
+      href: integrate-with-application-gateway.md
     - name: Tworzenie środowiska ASE na podstawie szablonu
       href: create-from-template.md
 - name: Dokumentacja

@@ -1,3 +1,5 @@
+- name: Dokumentacja usługi Azure Storage
+  href: /azure/storage/
 - name: Omówienie
   items:
     - name: Wprowadzenie
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Praca z obiektami blob — .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Praca z obiektami blob — Python
+      href: storage-quickstart-blobs-python.md
 - name: Samouczki
   items:
     - name: Przekazywanie i przetwarzanie obrazu
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 — Monitorowanie i rozwiązywanie problemów dotyczących magazynu
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Projektowanie na potrzeby wysokiej dostępności w magazynie w chmurze
+      items:
+        - name: Uzyskiwanie wysokiej dostępności aplikacji
+          href: storage-create-geo-redundant-storage.md
+        - name: Symulowanie awarii magazynu RA-GRS
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Przeszukiwanie danych bez struktury w magazynie w chmurze
       href: storage-unstructured-search.md
 - name: Przykłady

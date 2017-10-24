@@ -20,9 +20,25 @@
 ## [Rozwiązanie SAP IDES na platformie Windows/SQL Server SAP CAL — podręcznik wdrażania](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Oprogramowanie SAP NetWeaver na maszynach wirtualnych platformy Azure z systemem Linux](suse-quickstart.md)
 ## [Planowanie i implementowanie oprogramowania SAP NetWeaver na platformie Azure](planning-guide.md)
-## [Wysoka dostępność w systemie Windows](high-availability-guide.md)
-## [Wysoka dostępność w systemie SUSE Linux](high-availability-guide-suse.md)
-## [Konfiguracje z wieloma identyfikatorami SID](high-availability-multi-sid.md)
+## Wysoka dostępność w systemach Windows i Linux
+### [Omówienie](sap-high-availability-guide-start.md)
+### Architektura wysokiej dostępności
+#### [Architektura i scenariusze wysokiej dostępności](sap-high-availability-architecture-scenarios.md)
+#### [Architektura i scenariusze wyższej dostępności](sap-higher-availability-architecture-scenarios.md)
+#### [Wysoka dostępność w systemie Windows z udostępnionym dyskiem na potrzeby wystąpienia (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [Wysoka dostępność w systemie Windows z udziałem plików SOFS na potrzeby wystąpienia (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
+#### [Wysoka dostępność w systemie SUSE Linux na potrzeby wystąpienia (A)SCS](high-availability-guide-suse.md)
+### Przygotowywanie infrastruktury platformy Azure
+#### [System Windows z udostępnionym dyskiem na potrzeby wystąpienia (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [System Windows z udziałem plików SOFS na potrzeby wystąpienia (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [System SUSE Linux z systemem plików NFS na potrzeby wystąpienia (A)SCS](high-availability-guide-suse.md)
+### Instalacja programu SAP
+#### [System Windows z udostępnionym dyskiem na potrzeby wystąpienia (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [System Windows z udziałem plików SOFS na potrzeby wystąpienia (A)SCS](sap-high-availability-installation-wsfc-file-share.md)
+#### [System SUSE Linux z systemem plików NFS na potrzeby wystąpienia (A)SCS](high-availability-guide-suse.md)
+### SAP — wiele identyfikatorów SID
+#### [System Windows z udostępnionym dyskiem na potrzeby wystąpienia (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [System Windows z udziałem plików SOFS na potrzeby wystąpienia (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Podręcznik wdrażania](deployment-guide.md)
 ## [Podręcznik wdrażania systemu DBMS](dbms-guide.md)
 ## [Odzyskiwanie po awarii oprogramowania SAP za pomocą usługi Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)

@@ -20,6 +20,7 @@
 ### [Równoczesne zadania w węzłach](batch-parallel-node-tasks.md)
 ### [Liczba zadań według stanu](batch-get-task-counts.md)
 ### [Tworzenie puli za pomocą niestandardowego obrazu](batch-custom-images.md)
+### [Tworzenie puli w sieci wirtualnej](batch-virtual-network.md)
 ### [Wydajne zapytania dotyczące list](batch-efficient-list-queries.md)
 ### [Zadania związane z przygotowywaniem i kończeniem prac](batch-job-prep-release.md)
 ### [Węzły obliczeniowe z systemem Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Zmienne środowiskowe węzła obliczeniowego usługi Azure Batch](batch-compute-node-environment-variables.md)
 
 # Powiązane
+## [Usługa Batch — sztuczna inteligencja](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Przetwarzanie danych za pomocą usług Batch i Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Rozwiązania usługi Batch i HPC w chmurze Azure](batch-hpc-solutions.md)

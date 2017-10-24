@@ -37,7 +37,7 @@
 ## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
 ## [Wdrażanie bramy dla połączonej fabryki](iot-suite-connected-factory-gateway-deployment.md)
 ## [Dostosowywanie połączonej fabryki](iot-suite-connected-factory-customize.md)
-
+## [Korzystanie z wydawcy OPC na potrzeby połączonej fabryki](iot-suite-connected-factory-publisher.md)
 # Dokumentacja
 ## [Architektura zabezpieczeń](iot-security-architecture.md)
 ## [Najlepsze rozwiązania dotyczące zabezpieczeń](iot-security-best-practices.md)

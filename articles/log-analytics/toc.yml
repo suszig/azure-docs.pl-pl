@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Zbieranie — komputer z systemem Linux
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Zbieranie — komputer z systemem Windows
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Samouczki
   items:
     - name: 1 — Analizowanie danych
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
+    - name: Uaktualnianie obszaru roboczego
+      href: log-analytics-log-search-upgrade.md
     - name: Log Analytics — często zadawane pytania
       href: log-analytics-faq.md
     - name: Użycie danych
@@ -35,11 +39,11 @@
       href: log-analytics-service-providers.md
     - name: Przeszukiwanie dzienników
       items:
-        - name: Często zadawane pytania dotyczące przeszukiwania dzienników
-          href: log-analytics-log-search-faq.md
         - name: Wyszukiwanie w dzienniku — omówienie
           href: log-analytics-log-search-new.md
-        - name: Portale do wyszukiwania w dzienniku
+        - name: Często zadawane pytania dotyczące przeszukiwania dzienników
+          href: log-analytics-log-search-faq.md
+        - name: Portale do przeszukiwania dzienników
           href: log-analytics-log-search-portals.md
 - name: Instrukcje
   items:
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Zapytania o dane
       items:
+        - name: Dokumentacja języka
+          href: 'https://docs.loganalytics.io'
+        - name: Przechodzenie ze starszego języka
+          href: log-analytics-log-search-transition.md
+        - name: Wyszukiwania między obszarami roboczymi
+          href: log-analytics-cross-workspace-search.md
+        - name: Podejmowanie akcji z poziomu wyników wyszukiwania
+          href: log-analytics-log-search-takeaction.md
+        - name: Korzystanie z grup komputerów
+          href: log-analytics-computer-groups.md
+        - name: Łącznik usługi Flow
+          href: log-analytics-flow-tutorial.md
+    - name: Przeszukiwanie starszych dzienników
+      items:
         - name: Wyszukiwanie w dzienniku — omówienie
           href: log-analytics-log-searches.md
         - name: Dokumentacja wyszukiwania
@@ -96,26 +114,18 @@
           items:
             - name: Wyrażenia regularne
               href: log-analytics-log-searches-regex.md
-            - name: Wyszukiwania między obszarami roboczymi
-              href: log-analytics-cross-workspace-search.md
-        - name: Podejmowanie akcji z poziomu wyników wyszukiwania
-          href: log-analytics-log-search-takeaction.md
-        - name: Grupy komputerów
-          href: log-analytics-computer-groups.md
-    - name: Nowe wyszukiwanie w dzienniku
-      items:
-        - name: Uaktualnianie obszaru roboczego
-          href: log-analytics-log-search-upgrade.md
-        - name: Przechodzenie ze starszego języka
-          href: log-analytics-log-search-transition.md
-        - name: Łącznik usługi Flow
-          href: log-analytics-flow-tutorial.md
     - name: Analizowanie danych
       items:
         - name: Pulpity nawigacyjne
           href: log-analytics-dashboards.md
         - name: Projektant widoków
-          href: log-analytics-view-designer.md
+          items:
+            - name: Omówienie
+              href: log-analytics-view-designer.md
+            - name: Dokumentacja dotycząca kafelków
+              href: log-analytics-view-designer-tiles.md
+            - name: Dokumentacja części wizualizacji
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Tworzenie alertów
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Dokumentacja
   items:
+    - name: Dokumentacja języka
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Dokumentacja kafelka Projektanta widoków
-      href: log-analytics-view-designer-tiles.md
-    - name: Dokumentacja części wizualizacji Projektanta widoków
-      href: log-analytics-view-designer-parts.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

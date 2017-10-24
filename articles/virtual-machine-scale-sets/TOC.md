@@ -21,19 +21,20 @@
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Tworzenie przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 ### [Zestaw skalowania z dyskami zarządzanymi](virtual-machine-scale-sets-managed-disks.md)
-### [Zestaw skalowania systemu Linux z funkcją automatycznego skalowania](virtual-machine-scale-sets-linux-autoscale.md)
-### [Zestaw skalowania systemu Windows z funkcją automatycznego skalowania](virtual-machine-scale-sets-windows-autoscale.md)
+### [Automatyczne skalowanie zestawu skalowania](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Korzystanie z witryny Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Korzystanie z programu Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplikacje w zestawach skalowania](virtual-machine-scale-sets-deploy-app.md)
 ### [Korzystanie z dysków danych z zestawami skalowania](virtual-machine-scale-sets-attached-disks.md)
 ### [Praca z dużymi zestawami skalowania](virtual-machine-scale-sets-placement-groups.md)
 ### [Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Zarządzanie
-### [Zestaw skalowania systemu Windows korzystający z programu Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Automatyczne skalowanie i zestawy skalowania](virtual-machine-scale-sets-autoscale-overview.md)
-### [Zaawansowane automatyczne skalowanie](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Typowe zadania zarządzania
+#### [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Korzystanie z programu Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Skalowanie w pionie w zestawie skalowania](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Uaktualnienia dla zestawów skalowania](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Korzystanie z DSC i zestawy skalowania](virtual-machine-scale-sets-dsc.md)

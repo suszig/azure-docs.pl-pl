@@ -34,6 +34,7 @@
 #### [Dzienniki diagnostyczne](event-hubs-diagnostic-logs.md)
 ### [Przewodnik dotyczący protokołu AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Zarządzanie
+### [Monitorowanie usługi Event Hubs przy użyciu funkcji monitorowania platformy Azure](event-hubs-metrics-azure-monitor.md)
 ### [Biblioteki zarządzania usługi Event Hubs](event-hubs-management-libraries.md)
 ### Przechwytywanie
 #### [Usługa Event Hubs Capture](event-hubs-capture-overview.md)

@@ -95,6 +95,7 @@
 ## [Program MVP dotyczący zabezpieczeń platformy Azure](azure-security-mvp.md)
 ## [Doradztwo z zakresu cyberbezpieczeństwa](azure-security-cyber-services.md)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+## [Zalecenia dotyczące zabezpieczeń dla obrazów z witryny Azure Marketplace](security-recommendations-azure-marketplace-images.md)
 ## Scenariusze
 ### [Zarządzanie danymi osobowymi na platformie Azure](manage-personal-data-azure.md)
 ### [Wykrywanie, identyfikowanie i klasyfikowanie danych osobowych na platformie Azure](how-to-discover-classify-personal-data-azure.md)

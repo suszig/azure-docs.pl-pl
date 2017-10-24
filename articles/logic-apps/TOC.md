@@ -5,8 +5,8 @@
 
 # Rozpoczęcie pracy
 ## [Tworzenie pierwszej aplikacji logiki](logic-apps-create-a-logic-app.md)
-## [Szablony aplikacji logiki](logic-apps-use-logic-app-templates.md)
-## [Tworzenie aplikacji logiki przy użyciu szablonów](logic-apps-arm-provision.md)
+## [Tworzenie aplikacji logiki przy użyciu szablonów](logic-apps-create-logic-apps-from-templates.md)
+## [Tworzenie aplikacji logiki z szablonów usługi Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Przenoszenie aplikacji MABS do aplikacji logiki](logic-apps-move-from-mabs.md)
 
 # Instrukcje

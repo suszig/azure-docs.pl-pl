@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
-### [Mapowanie domeny niestandardowej do sieci CDN](cdn-map-content-to-custom-domain.md)
+### [Dodawanie domeny niestandardowej do punktu końcowego usługi CDN](cdn-map-content-to-custom-domain.md)
 ### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ## Optymalizowanie zawartości
 ### [Omówienie optymalizacji](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Analiza
 ### [Analizowanie wzorców użycia usługi Azure CDN](cdn-log-analysis.md)
 #### [Raporty podstawowe z usługi Verizon](cdn-analyze-usage-patterns.md)
+#### [Raporty niestandardowe z usługi Verizon](cdn-verizon-custom-reports.md)
 #### [Dzienniki diagnostyczne platformy Azure](cdn-azure-diagnostic-logs.md)
 ### Narzędzia do analizy dla usługi Azure CDN świadczonej przez firmę Verizon
 #### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
