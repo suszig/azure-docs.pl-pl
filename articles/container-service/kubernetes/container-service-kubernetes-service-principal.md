@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
+ms.contentlocale: pl-pl
+ms.lasthandoff: 09/25/2017
+
 ---
+
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurowanie jednostki usługi Azure AD dla klastra Kubernetes w usłudze Azure Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 W usłudze Azure Container Service klaster Kubernetes wymaga [jednostki usługi Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) do współpracy z interfejsami API platformy Azure. Nazwa główna usługi jest potrzebna do dynamicznego zarządzania zasobami, takimi jak [trasy zdefiniowane przez użytkownika](../../virtual-network/virtual-networks-udr-overview.md) i narzędzie [Azure Load Balancer dla warstwy 4](../../load-balancer/load-balancer-overview.md).
 
