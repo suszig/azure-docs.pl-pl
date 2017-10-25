@@ -80,7 +80,7 @@ sections:
           - title: Języki
             html: '<p><a href="https://docs.loganalytics.io/">Analiza</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">Interfejs API dostępu do danych</a></p>'
           - title: Model danych
-            html: <p><a href="application-insights-data-model-request-telemetry">Żądanie</a></p><p><a href="application-insights-data-model-dependency-telemetry">Zależność</a></p><p><a href="application-insights-data-model-exception-telemetry">Wyjątek</a></p><p><a href="application-insights-data-model-trace-telemetry">Ślad</a></p><p><a href="application-insights-data-model-event-telemetry">Zdarzenie</a></p><p><a href="application-insights-data-model-metric-telemetry">Metryka</a></p><p><a href="application-insights-data-model-context">Kontakt</a></p>
+            html: <p><a href="application-insights-data-model-request-telemetry">Żądanie</a></p><p><a href="application-insights-data-model-dependency-telemetry">Zależność</a></p><p><a href="application-insights-data-model-exception-telemetry">Wyjątek</a></p><p><a href="application-insights-data-model-trace-telemetry">Ślad</a></p><p><a href="application-insights-data-model-event-telemetry">Zdarzenie</a></p><p><a href="application-insights-data-model-metric-telemetry">Metryka</a></p><p><a href="application-insights-data-model-context">Kontekst</a></p>
           - title: Korelacja telemetrii
             html: <p><a href="application-insights-correlation">Korelacja telemetrii</a></p>
           - title: Przykłady kodu
