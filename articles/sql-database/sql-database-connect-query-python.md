@@ -10,17 +10,16 @@ ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: n
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/08/2017
 ms.author: carlrab
+ms.openlocfilehash: fd5bd63dd614d666cc7b21bdd3b7483df5508e96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: afffcb9a4938bf97626f182bb4f4d099d807d411
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Korzystanie z języka Python do wykonywania zapytań w bazie danych Azure SQL
 
@@ -93,5 +92,4 @@ while row:
 - [Projektowanie pierwszej bazy danych SQL na platformie Azure](sql-database-design-first-database.md)
 - [Sterowniki Microsoft Python dla platformy SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Centrum deweloperów języka Python](https://azure.microsoft.com/develop/python/?v=17.23h)
-
 

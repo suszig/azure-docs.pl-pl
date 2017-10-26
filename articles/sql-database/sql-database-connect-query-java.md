@@ -12,15 +12,14 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 264a9e8f109ff77d8fbd81f01ba40d21aebea538
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Korzystanie z języka Java do wykonywania zapytań w bazie danych Azure SQL
 
@@ -161,5 +160,4 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 - [Projektowanie pierwszej bazy danych SQL na platformie Azure](sql-database-design-first-database.md)
 - [Sterownik JDBC firmy Microsoft dla programu SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Zgłaszanie problemów/zadawanie pytań](https://github.com/microsoft/mssql-jdbc/issues)
-
 
