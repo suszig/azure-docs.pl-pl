@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopiowanie danych między środowiskiem lokalnym i chmurą
-Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej. 
+Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
 
-W tym samouczku użyjesz programu Azure PowerShell, aby utworzyć potok fabryki danych, który kopiuje dane z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage. Utworzysz i użyjesz własnego środowiska Integration Runtime (IR) usługi Azure Data Factory, co umożliwi integrację lokalnych magazynów danych oraz magazynów danych w chmurze.  Aby dowiedzieć się więcej o zastosowaniu innych narzędzi/zestawów SDK do tworzenia fabryki danych, zapoznaj się z samouczkami [Szybki start](quickstart-create-data-factory-dot-net.md). 
+W tym samouczku użyjesz programu Azure PowerShell, aby utworzyć potok fabryki danych, który kopiuje dane z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage. Utworzysz i użyjesz własnego środowiska Integration Runtime (IR) usługi Azure Data Factory, co umożliwi integrację lokalnych magazynów danych oraz magazynów danych w chmurze.  Aby dowiedzieć się więcej o zastosowaniu innych narzędzi/zestawów SDK do tworzenia fabryki danych, zapoznaj się z samouczkami [Szybki start](quickstart-create-data-factory-dot-net.md).
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **SQL Server**. Użyj lokalnej bazy danych programu SQL Server jako **źródła** magazynu danych w tym samouczku. 
+* **SQL Server**. Użyj lokalnej bazy danych programu SQL Server jako **źródła** magazynu danych w tym samouczku.
 * **Konto usługi Azure Storage**. Użyj usługi Azure Blob Storage jako miejsca **docelowego/ujścia** magazynu danych w tym samouczku. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Zainstalowanie programu **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Oto przykładowe dane wyjściowe: 
+   Oto przykładowe dane wyjściowe:
 
    ```json
    {
@@ -144,19 +144,19 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
    }
    ```
 
-4. [Pobierz](https://www.microsoft.com/download/details.aspx?id=39717) własne środowisko Integration Runtime na komputer lokalny z systemem Windows, a następnie użyj klucza uwierzytelniania uzyskanego w poprzednim kroku, aby ręcznie zarejestrować własne środowisko Integration Runtime. 
+4. [Pobierz](https://www.microsoft.com/download/details.aspx?id=39717) własne środowisko Integration Runtime na komputer lokalny z systemem Windows, a następnie użyj klucza uwierzytelniania uzyskanego w poprzednim kroku, aby ręcznie zarejestrować własne środowisko Integration Runtime.
 
    ![Rejestrowanie środowiska Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Gdy własne środowisko Integration Runtime zostanie pomyślnie zarejestrowane, zostanie wyświetlony następujący komunikat: 
+   Gdy własne środowisko Integration Runtime zostanie pomyślnie zarejestrowane, zostanie wyświetlony następujący komunikat:
 
    ![Pomyślnie zarejestrowano](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Gdy węzeł zostanie połączony z usługą w chmurze, zostanie wyświetlona następująca strona: 
-    
+   Gdy węzeł zostanie połączony z usługą w chmurze, zostanie wyświetlona następująca strona:
+
    ![Węzeł jest połączony](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Tworzenie połączonych usług 
+## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Tworzenie połączonej usługi Azure Storage (obiektu docelowego/ujścia)
 
@@ -167,7 +167,7 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Tworzenie i szyfrowanie połączonej usługi SQL Server (źródło)
 
-1. Utwórz plik JSON o nazwie **SqlServerLinkedService.json** w folderze **C:\ADFv2Tutorial** o następującej zawartości: Zastąp zmienne **&lt;servername >**, **&lt;databasename>**, **&lt;username>**, **&lt;servername >** i **&lt;password>** wartościami Twojego programu SQL Server przed zapisaniem pliku. Zastąp zmienną **&lt;integration** **runtime** **name>** nazwą Twojego środowiska Integration Runtime. 
+1. Utwórz plik JSON o nazwie **SqlServerLinkedService.json** w folderze **C:\ADFv2Tutorial** o następującej zawartości: Zastąp zmienne **&lt;servername >**, **&lt;databasename>**, **&lt;username>**, **&lt;servername >** i **&lt;password>** wartościami Twojego programu SQL Server przed zapisaniem pliku. Zastąp zmienną **&lt;integration** **runtime** **name>** nazwą Twojego środowiska Integration Runtime.
 
     ```json
     {
@@ -216,7 +216,7 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
         "name": "SqlServerLinkedService"
     }
    ```
-2. Do szyfrowania poufnych danych z ładunku w formacie JSON we własnym lokalnym środowisku Integration Runtime można uruchomić polecenie **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** i przekazać powyższy ładunek w formacie JSON. To szyfrowanie zapewnia szyfrowanie poświadczeń za pomocą interfejsu API ochrony danych (DPAPI) i zapisanie ich lokalnie we własnym węźle środowiska Integration Runtime. Ładunek danych wyjściowych może zostać przekierowany do innego pliku JSON (w tym przypadku „encryptedLinkedService.json”), który zawiera zaszyfrowane poświadczenia. 
+2. Do szyfrowania poufnych danych z ładunku w formacie JSON we własnym lokalnym środowisku Integration Runtime można uruchomić polecenie **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** i przekazać powyższy ładunek w formacie JSON. To szyfrowanie zapewnia szyfrowanie poświadczeń za pomocą interfejsu API ochrony danych (DPAPI) i zapisanie ich lokalnie we własnym węźle środowiska Integration Runtime. Ładunek danych wyjściowych może zostać przekierowany do innego pliku JSON (w tym przypadku „encryptedLinkedService.json”), który zawiera zaszyfrowane poświadczenia.
 
     Zastąp zmienną **&lt;integration runtime name>&gt;** nazwą Twojego środowiska Integration Runtime przed uruchomieniem polecenia.
 
@@ -227,7 +227,7 @@ W tej sekcji możesz utworzyć własne środowisko Integration Runtime i skojarz
 3. Uruchom następujące polecenie przy użyciu pliku JSON z poprzedniego kroku, aby utworzyć usługę **SqlServerLinkedService**:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Tworzenie zestawu danych ujścia usługi Azure Blob Storage
 
-1. Utwórz plik JSON o nazwie **AzureBlobDataset.json** w folderze **C:\ADFv2Tutorial** o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **AzureBlobDataset.json** w folderze **C:\ADFv2Tutorial** o następującej zawartości:
 
     > [!IMPORTANT]
     > W tym przykładzie kodu założono, że masz kontener o nazwie **adftutorial** w usłudze Azure Blob Storage.
@@ -436,7 +436,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
             $result
             break
         }
-    } 
+    }
     ```
 
     Oto dane wyjściowe przykładowego uruchomienia:
@@ -449,7 +449,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 4. Połącz się z ujściem Twojej usługi Azure Blob Storage i upewnij się, że dane zostały właściwie skopiowane z bazy danych Azure SQL.
 
 ## <a name="next-steps"></a>Następne kroki
-Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage. W tym samouczku omówiono: 
+Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.

@@ -13,14 +13,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
+ms.openlocfilehash: ea82b680213b72582667b2be15c0c2719ad7ff78
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/20/2017
 ---
-
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Tworzenie fabryki danych i potoku przy użyciu języka Python
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
 
@@ -424,4 +422,3 @@ adf_client.data_factories.delete(rg_name, df_name)
 
 ## <a name="next-steps"></a>Następne kroki
 Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage. Zapoznaj się z [samouczkami](tutorial-copy-data-dot-net.md), aby dowiedzieć się więcej o korzystaniu z usługi Data Factory w dalszych scenariuszach.
-

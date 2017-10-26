@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Kody błędów w raportach działań związanych z logowaniem w portalu usługi Azure Active Directory
 
@@ -101,5 +100,4 @@ W poniższej sekcji przedstawiono kompletne omówienie wszystkich możliwych bł
 ## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji można znaleźć w temacie [Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-
 

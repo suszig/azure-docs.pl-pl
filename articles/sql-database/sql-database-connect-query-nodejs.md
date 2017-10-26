@@ -12,15 +12,14 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: d2765d4606bf6f926def15788ab23efd2a000ad4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Korzystanie z narzędzia Node.js do wykonywania zapytań w bazie danych Azure SQL
 
@@ -145,6 +144,5 @@ Otwórz wiersz polecenia i utwórz folder o nazwie *sqltest*. Przejdź do utworz
 - Dowiedz się, jak [zaprojektować pierwszą bazę danych Azure SQL przy użyciu narzędzia SSMS](sql-database-design-first-database.md) lub [zaprojektować pierwszą bazę danych Azure SQL przy użyciu platformy .NET](sql-database-design-first-database-csharp.md).
 - Dowiedz się, jak [nawiązywać połączenia i wykonywać zapytania za pomocą programu SSMS](sql-database-connect-query-ssms.md).
 - Dowiedz się, jak [nawiązywać połączenia i tworzyć zapytania przy użyciu narzędzia Visual Studio Code](sql-database-connect-query-vscode.md).
-
 
 
