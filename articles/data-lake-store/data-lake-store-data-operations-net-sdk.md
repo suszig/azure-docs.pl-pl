@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: f525bd81ebbc27a4730bdced5c8778b6f2ac69b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operacje systemu plików w usłudze Azure Data Lake Store przy użyciu zestawu SDK platformy .NET
 > [!div class="op_single_selector"]
@@ -65,13 +65,17 @@ Aby uzyskać instrukcje na temat sposobu wykonywania operacji zarządzania konte
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Zadeklaruj zmienne w pokazany poniżej sposób i podaj wartości dla symboli zastępczych. Upewnij się również, że podana tutaj ścieżka lokalna i nazwa pliku istnieją na komputerze.
 
@@ -111,7 +115,7 @@ Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób
 Poniższy fragment kodu tworzy konto usługi Data Lake Store i obiekty systemu plików klienta, które są używane do wysyłania żądań do usługi.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
 
 ## <a name="create-a-directory"></a>Tworzenie katalogu
 Dodaj następującą metodę do swojej klasy. Ten fragment kodu przedstawia metodę `CreateDirectory()`, której możesz użyć do tworzenia katalogu w ramach konta usługi Data Lake Store.
