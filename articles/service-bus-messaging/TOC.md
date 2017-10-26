@@ -63,6 +63,7 @@
 #### [Przetwarzanie transakcji](service-bus-transactions.md)
 #### [Implementacja sparowanej przestrzeni nazw](service-bus-paired-namespaces.md)
 ## Zarządzanie
+### [Monitorowanie usługi Service Bus przy użyciu funkcji monitorowania platformy Azure](service-bus-metrics-azure-monitor.md)
 ### [Biblioteki zarządzania usługi Service Bus](service-bus-management-libraries.md)
 ### [Dzienniki diagnostyczne](service-bus-diagnostic-logs.md)
 ### [Wstrzymywanie i ponowne aktywowanie jednostek obsługi komunikatów](entity-suspend.md)

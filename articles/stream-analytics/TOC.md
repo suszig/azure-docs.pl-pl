@@ -20,6 +20,7 @@
 ### [Przykładowe dane wejściowe](stream-analytics-sample-data-input.md)
 ### [Typowe wzorce zapytań](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funkcje okien](stream-analytics-window-functions.md)
+
 ### [Korzystanie z danych referencyjnych](stream-analytics-use-reference-data.md)
 ### [Zapytania testowe](stream-analytics-test-query.md)
 ### [Integrowanie funkcji UDF języka JavaScript](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [Diagram zadania i metryki](stream-analytics-job-diagram-with-metrics.md)
 ### [Debugowanie instrukcji SELECT INTO](stream-analytics-select-into.md)
 ### [Obsługa kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md)
+### [Zagadnienia do rozważenia dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md)
 ### [Limity czytnika centrum zdarzeń](stream-analytics-event-hub-consumer-groups.md)
 ### [Dzienniki diagnostyczne](stream-analytics-job-diagnostic-logs.md)
 

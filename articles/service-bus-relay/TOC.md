@@ -20,7 +20,9 @@
 ## Programowanie
 ### [Dostępne interfejsy API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
-#### [Węzeł](relay-hybrid-connections-node-ws-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Zarządzanie
+### [Monitorowanie usługi Azure Relay przy użyciu funkcji monitorowania platformy Azure](relay-metrics-azure-monitor.md)
 
 # Dokumentacja
 ## .NET

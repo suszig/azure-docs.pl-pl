@@ -5,6 +5,8 @@
 ## [Wybieranie rozwiązania tożsamości hybrydowej](choose-hybrid-identity-solution.md)
 ## [Kojarzenie subskrypcji usługi Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Często zadawane pytania](active-directory-faq.md)
+## [Co nowego](whats-new.md)
+
 
 # Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)
 #### Zadania
+##### [Migrowanie zasad klasycznych](active-directory-conditional-access-migration.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na aplikacji](active-directory-conditional-access-mam.md)
 ##### [Podawanie warunków użytkowania dla użytkowników i aplikacji](active-directory-tou.md)

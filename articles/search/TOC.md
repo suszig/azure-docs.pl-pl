@@ -1,6 +1,8 @@
-# Omówienie
+# [Omówienie](search-what-is-azure-search.md)
 ## [Co to jest usługa Azure Search?](search-what-is-azure-search.md)
+
 # Wprowadzenie
+
 ## [Wybieranie jednostki SKU](search-sku-tier.md)
 ## [Tworzenie usługi](search-create-service-portal.md)
 ## [Tworzenie indeksu](search-what-is-an-index.md)
@@ -15,18 +17,22 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Samouczki
+
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [Synonimy .NET — wersja zapoznawcza](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
+## [Wyszukiwanie danych z częściową strukturą](search-semi-structured-data.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # Instrukcje
+
 ## Planowanie i projektowanie
 ### [Limity usługi](search-limits-quotas-capacity.md)
 ### [Skalowalność usługi](search-capacity-planning.md)
 ### [Wzorce projektowe aplikacji wielodostępnych](search-modeling-multitenant-saas-applications.md)
-
 ## Programowanie
 ### [Wersje interfejsu API](search-api-versions.md)
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
@@ -34,11 +40,10 @@
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
 ### [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Zarządzanie
 ### Administrowanie usługą Azure Search
 #### [Witryna Azure Portal](search-manage.md)
-#### Program [Azure PowerShell](search-manage-powershell.md) platformy Azure
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Monitorowanie użycia i statystyk](search-monitor-usage.md)
 ### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
 ### [Wydajność i optymalizacja](search-performance-optimization.md)
@@ -57,18 +62,23 @@
 ### Budowa zapytania
 #### [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Przykłady zapytań składni Lucene](search-query-lucene-examples.md)
-#### [Składnia wyrażenia filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Przykładowe zapytania Lucene](search-query-lucene-examples.md)
 ### Analizatory w usłudze Azure Search
 #### [Omówienie](search-analyzers.md)
 #### [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filtry w usłudze Azure Search
+#### [Omówienie](search-filters.md)
+#### [Filtry aspektów](search-filters-facets.md)
+#### [Filtry języków](search-filters-language.md)
+#### [Dostosowanie do zabezpieczeń](search-security-trimming-for-azure-search.md)
+#### [Dokumentacja składni wyrażenia](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Stronicowanie wyników](search-pagination-page-layout.md)
 ### [Ocenianie](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Sugestie](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Nawigacja aspektowa](search-faceted-navigation.md)
 ### [Synonimy — wersja zapoznawcza](search-synonyms.md)
-### [Filtry zabezpieczeń](search-security-trimming-for-azure-search.md)
+
 # Dokumentacja
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
@@ -80,7 +90,6 @@
 
 # Zasoby
 
-## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Często zadawane pytania](search-faq-frequently-asked-questions.md)
 ## [Cennik](https://azure.microsoft.com/pricing/details/search/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
@@ -97,7 +106,7 @@
 ### [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Dane relacyjne modelu](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [[blog: Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [blog: Kategoryzowanie wielopoziomowe](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
 
 

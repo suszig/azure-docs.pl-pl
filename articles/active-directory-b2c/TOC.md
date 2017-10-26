@@ -80,16 +80,15 @@
 #### [Dynamiczne dostosowywanie interfejsu użytkownika](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Dostosowywanie tokenów](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Złożoność hasła](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Zmiana hasła](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Włączanie opcji Nie wylogowuj mnie](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Rozwiązywanie problemów
 #### [Zbieranie dzienników przy użyciu usługi Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Dokumentacja
 ### [Informacje o wersji](active-directory-b2c-developer-notes-custom.md)
+### [Dostawcy sesji logowania jednokrotnego](active-directory-b2c-reference-sso-custom.md)
 ### [Definicja struktury zaufania](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Słownik

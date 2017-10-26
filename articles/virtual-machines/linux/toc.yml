@@ -222,11 +222,25 @@
             - name: Wdrażanie pierwszej aplikacji
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: Omówienie platformy OpenShift
+              href: openshift-get-started.md
+            - name: Wymagania wstępne platformy OpenShift
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Container Platform
+              href: openshift-container-platform.md
+            - name: Zadania po wdrożeniu platformy OpenShift
+              href: openshift-post-deployment.md
+            - name: Rozwiązywanie problemów z wdrożeniami
+              href: openshift-troubleshooting.md
         - name: Rozwiązania SAP na platformie Azure
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: Filtr pakietów systemu FreeBSD
           href: freebsd-pf-nat.md
         - name: Bazy danych
@@ -247,7 +261,6 @@
             - name: Instalowanie sterowników procesora GPU NVIDIA
               href: n-series-driver-setup.md
     - name: Zarządzanie magazynem
-      href: about-disks-and-vhds.md
       items:
         - name: Dowiedz się więcej o usłudze Managed Disks
           href: managed-disks-overview.md

@@ -14,7 +14,7 @@
 # Przewodniki z instrukcjami
 ## Korzystanie z maszyn wirtualnych w laboratorium
 ### [Tworzenie maszyn wirtualnych](devtest-lab-add-vm.md)
-### [Tworzenie maszyn wirtualnych, które można zajmować](devtest-lab-add-claimable-vm.md)
+### [Tworzenie możliwych do przejęcia maszyn wirtualnych i zarządzanie nimi](devtest-lab-add-claimable-vm.md)
 ### [Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](devtest-lab-vmcli.md)
 ### [Ponowne uruchamianie maszyny wirtualnej](devtest-lab-restart-vm.md)
 

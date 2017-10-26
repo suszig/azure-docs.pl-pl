@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: 'Azure Functions to bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą. Za pomocą usługi Azure Functions można uruchamiać skrypty lub fragmenty kodu w reakcji na różne zdarzenia. Dowiedz się, jak używać usługi Azure Functions, korzystając z przewodników Szybki Start, samouczków i przykładów.'
+  description: 'Azure Functions to <a href="https://azure.microsoft.com/overview/serverless-computing/">bezserwerowa</a> usługa obliczeniowa, która umożliwia uruchamianie kodu na żądanie bez konieczności jawnego przydzielania infrastruktury ani zarządzania tą infrastrukturą. Za pomocą usługi Azure Functions można uruchamiać skrypty lub fragmenty kodu w reakcji na różne zdarzenia. Dowiedz się, jak używać usługi Azure Functions, korzystając z przewodników Szybki Start, samouczków i przykładów.'
   aside:
     image:
       alt: null

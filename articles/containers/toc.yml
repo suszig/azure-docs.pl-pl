@@ -1,24 +1,14 @@
-- name: Kontenery na platformie Azure
+- name: Azure for Containers
   href: index.yml
   items:
-    - name: Container Service (ACS)
-      href: 'https://docs.microsoft.com/en-us/azure/container-service/'
+    - name: Container Service (AKS)
+      href: 'https://docs.microsoft.com/en-us/azure/aks/'
       expanded: true
       items:
-        - name: Kubernetes
-          href: 'https://docs.microsoft.com/azure/container-service/kubernetes/'
-          items:
-            - name: Przegląd — wprowadzenie do usługi Azure Container Service dla rozwiązania Kubernetes
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes'
-            - name: Szybki start — wdrażanie klastra Kubernetes dla kontenerów systemu Linux
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-        - name: Docker Swarm i DC/OS
-          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/'
-          items:
-            - name: Szybki start — wdrażanie klastra Docker Swarm
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            - name: Szybki start — wdrażanie klastra DC/OS
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+        - name: Wprowadzenie do usługi AKS
+          href: ../aks/intro-kubernetes.md
+        - name: Wdrażanie klastra AKS
+          href: ../aks/kubernetes-walkthrough.md
     - name: Container Instances (ACI)
       href: 'https://docs.microsoft.com/en-us/azure/container-instances/'
       items:
@@ -49,7 +39,7 @@
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication'
             - name: Używanie elementów webhook rekordów ACR
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook'
-    - name: Web Apps for Containers
+    - name: Web App for Containers
       href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro'
       items:
         - name: Używanie niestandardowego obrazu Docker dla usługi Azure Web App for Containers
@@ -67,26 +57,11 @@
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
             - name: Korzystanie z narzędzia Docker Compose
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Maszyny wirtualne (system Linux)
-      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview'
-      items:
-        - name: Tworzenie i uruchamianie obciążeń kontenerów na platformie Azure
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers'
-        - name: Instrukcje
-          items:
-            - name: Tworzenie hosta platformy Docker
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
-            - name: Korzystanie z narzędzia Docker Machine
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
-            - name: Korzystanie z narzędzia Docker Compose
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Maszyny wirtualne (system Windows)
+    - name: Kontenery systemu Windows
       href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview'
       items:
         - name: Szybki start — kontenery systemu Windows w systemie Windows Server
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
-        - name: Maszyny wirtualne i kontenery na platformie Azure
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers'
         - name: Informacje o kontenerach systemu Windows
           href: 'https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index'
     - name: Dokumentacja
@@ -97,7 +72,7 @@
           href: 'https://docs.microsoft.com/en-us/cli/azure/acs'
         - name: Azure Container Registry (az acr)
           href: 'https://docs.microsoft.com/en-us/cli/azure/acr'
-        - name: Azure Web Apps for Containers (az appservice)
+        - name: Web App for Containers (az appservice)
           href: 'https://docs.microsoft.com/en-us/cli/azure/appservice'
         - name: Azure App Service Web App (az webapp)
           href: 'https://docs.microsoft.com/en-us/cli/azure/webapp'
