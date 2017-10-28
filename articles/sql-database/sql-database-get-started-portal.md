@@ -1,6 +1,6 @@
 ---
 title: 'Witryna Azure Portal: tworzenie bazy danych SQL | Microsoft Docs'
-description: "Dowiedz się, jak utworzyć serwer logiczny, regułę zapory na poziomie serwera i bazy danych usługi SQL Database w witrynie Azure Portal. Dowiedz się również, jak wykonywać zapytania do bazy danych Azure SQL Database za pomocą witryny Azure Portal."
+description: "Utwórz serwer logiczny, regułę zapory na poziomie serwera i bazę danych usługi SQL Database w witrynie Azure Portal, a następnie wykonuj w niej zapytania."
 keywords: "samouczek usługi sql database, tworzenie bazy danych sql"
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/30/2017
+ms.topic: quickstart
+ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: a97ff8cbd05eb3cd94b557b4dbeb63634a94ccf8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Tworzenia bazy danych SQL platformy Azure w witrynie Azure Portal
 
@@ -41,7 +40,7 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **SQL Database**.
+2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Nowy** w obszarze **SQL Database** wybierz pozycję **Utwórz**.
 
    ![tworzenie bazy danych 1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -77,17 +76,33 @@ Wykonaj te kroki, aby utworzyć bazę danych SQL zawierającą przykładowe dane
 
 5. Po wypełnieniu formularza kliknij pozycję **Wybierz**.
 
-6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. Użyj suwaka, aby wybrać pozycję **20 DTU** i **250** GB pamięci masowej. Aby uzyskać więcej informacji o jednostkach DTU, zobacz [Co to jest jednostka DTU?](sql-database-what-is-a-dtu.md).
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU i ilość miejsca do magazynowania. Przejrzyj opcje liczby jednostek DTU i miejsca do magazynowania dostępne dla poszczególnych warstw usługi. 
+
+   > [!IMPORTANT]
+   > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* W warstwie Premium magazyn o rozmiarze ponad 1 TB jest obecnie dostępny w następujących regionach: Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
+
+7. Na potrzeby tego samouczka Szybki start wybierz warstwę usługi **Standardowa**, a następnie wybierz za pomocą suwaka **100 jednostek DTU (S3)** i **400** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Po wybraniu liczby jednostek DTU kliknij przycisk **Zastosuj**.  
+8. Zaakceptuj warunki wersji zapoznawczej, aby użyć opcji **dodatkowego magazynu**. 
 
-8. Teraz po uzupełnieniu formularza SQL Database kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
+   > [!IMPORTANT]
+   > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* W warstwie Premium magazyn o rozmiarze ponad 1 TB jest obecnie dostępny w następujących regionach: Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
 
-9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+9. Po wybraniu warstwy serwera, liczby jednostek DTU i ilości miejsca do magazynowania kliknij przycisk **Zastosuj**.  
 
-   ![powiadomienie](./media/sql-database-get-started-portal/notification.png)
+10. Teraz po uzupełnieniu formularza SQL Database kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Aprowizacja zajmuje kilka minut. 
+
+11. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+    
+     ![powiadomienie](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
@@ -97,25 +112,21 @@ Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia ze
 > Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli nastąpi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433.
 >
 
-1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170313.database.windows.net**) i opcje dalszej konfiguracji. Skopiuj tę w pełni kwalifikowaną nazwę serwera do użycia w przyszłości.
+1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver-20170824.database.windows.net**) i opcje dalszej konfiguracji. 
 
-   > [!IMPORTANT]
-   > Ta w pełni kwalifikowana nazwa serwera będzie potrzebna do nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start.
-   > 
+2. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start. 
 
-   ![nazwa serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![nazwa serwera](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
+3. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
    ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
+4. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-4. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
+5. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
 
-   ![ustawianie reguły zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
+6. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 
 Teraz można połączyć się z serwerem usługi SQL Database i jego bazami danych przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
 
@@ -127,19 +138,19 @@ Teraz można połączyć się z serwerem usługi SQL Database i jego bazami dany
 
 Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbudowanego narzędzia do obsługi zapytań w witrynie Azure Portal, aby potwierdzić, że możesz nawiązać połączenie z bazą danych i wysłać zapytanie dotyczące danych. 
 
-1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi. Zostanie otwarta strona **Narzędzia**.
+1. Na stronie SQL Database dla konkretnej bazy danych kliknij pozycję **Narzędzia** na pasku narzędzi, a następnie kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**.
 
    ![menu narzędzi](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Kliknij pozycję **Edytor zapytań (wersja zapoznawcza)**, kliknij pole wyboru **Warunki dotyczące wersji zapoznawczej**, a następnie kliknij przycisk **OK**. Zostanie otwarta strona Edytor zapytań.
+2. Kliknij pole wyboru **Warunki dotyczące wersji zapoznawczej**, a następnie kliknij przycisk **OK**. Zostanie otwarta strona Edytor zapytań.
 
-3. Kliknij pozycję **Zaloguj**, a następnie po wyświetleniu monitu wybierz pozycję **Uwierzytelnianie programu SQL Server** i podaj utworzony wcześniej identyfikator oraz hasło logowania administratora serwera.
+3. Kliknij pozycję **Zaloguj**, przejrzyj informacje logowania, a następnie kliknij przycisk **OK**, aby zalogować się przy użyciu funkcji uwierzytelniania programu SQL Server, korzystając z utworzonych wcześniej nazwy logowania i hasła administratora serwera.
 
    ![logowanie](./media/sql-database-get-started-portal/login.png) 
 
 4. Kliknij przycisk **OK**, aby się zalogować.
 
-5. Po uwierzytelnieniu w okienku edytora zapytań wpisz następujące zapytanie.
+5. Po uwierzytelnieniu się jako **administrator systemu** w okienku edytora zapytań wpisz poniższe zapytanie.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -152,11 +163,11 @@ Teraz, po utworzeniu przykładowej bazy danych na platformie Azure, użyjemy wbu
 
    ![wyniki edytora zapytań](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Zamknij stronę **Edytor zapytań** i stronę **Narzędzia**.
+7. Zamknij stronę **Edytor zapytań**, kliknij przycisk **OK**, aby odrzucić niezapisane zmiany, a następnie zamknij stronę **Narzędzia**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie potrzebujesz tych zasobów w innym przewodniku szybkiego startu lub samouczku (zobacz [Następne kroki](#next-steps)), możesz je usunąć, wykonując następujące czynności:
+Zapisz te zasoby, jeśli chcesz przejść do sekcji [Następne kroki](#next-steps) i dowiedzieć się, jak połączyć bazę danych i wykonywać w niej zapytania przy użyciu różnych metod. Jeśli jednak chcesz usunąć zasoby utworzone w tym przewodniku Szybki start, wykonaj poniższe czynności. 
 
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**. 
@@ -174,4 +185,3 @@ Teraz, gdy już masz bazę danych, możesz nawiązać z nią połączenie i uruc
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-
