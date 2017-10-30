@@ -139,6 +139,7 @@
     - name: Programowanie
       items:
         - name: Interfejs API usługi DocumentDB
+          href: documentdb-index.md
           items:
             - name: Zasoby
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Wycofywanie wersji S1, S2, S3'
                   href: performance-levels.md
         - name: Interfejs API usługi MongoDB
+          href: mongodb-index.md
           items:
             - name: Łączenie ze swoim kontem MongoDB
               href: connect-mongodb-account.md
