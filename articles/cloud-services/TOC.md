@@ -116,7 +116,7 @@
 ## [Schemat XML .cscfg](schema-cscfg-file.md)
 ### [Role — schemat](schema-cscfg-role.md)
 ### [NetworkConfiguration — schemat](schema-cscfg-networkconfiguration.md)
-## [REST](https://msdn.microsoft.com/library/azure/ee460812)
+## [REST](/rest/api/compute/cloudservices/)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=compute)
