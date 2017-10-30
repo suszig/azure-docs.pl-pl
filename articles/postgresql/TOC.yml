@@ -99,7 +99,7 @@
       items:
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-server-parameters-using-cli.md
-    - name: Dzienniki serwera dostępowego
+    - name: Dzienniki dostępu serwera
       items:
         - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md

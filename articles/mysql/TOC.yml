@@ -105,6 +105,8 @@
       items:
         - name: Azure Portal
           href: howto-restore-server-portal.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: howto-restore-server-cli.md
     - name: Łączenie aplikacji
       items:
         - name: Parametry połączeń

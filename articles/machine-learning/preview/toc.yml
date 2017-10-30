@@ -44,7 +44,7 @@
     - name: Konfigurowanie środowiska obliczeniowego
       items:
         - name: Konfigurowanie eksperymentowania
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: Tworzenie klastra DSVM i HDI Spark
           href: how-to-create-dsvm-hdi.md
         - name: Szkolenie przy użyciu procesora GPU
@@ -147,7 +147,7 @@
     - name: Eksperymentowanie
       items:
         - name: Konfiguracja usługi eksperymentowania
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: Interfejs API rejestrowania
           href: reference-logging-api.md
     - name: Zarządzanie modelami
@@ -175,7 +175,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Cennik
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
