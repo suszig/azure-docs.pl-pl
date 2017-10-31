@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie pierwszego automatycznego przepływu pracy między systemami a usługami w chmurze — Azure Logic Apps | Microsoft Docs"
-description: "Automatyzacja procesów biznesowych i przepływów pracy na potrzeby scenariuszy integracji systemów i usługi Enterprise Application Integration (EAI) przez tworzenie i uruchamianie aplikacji logiki"
+title: "Automatyzowanie przepływów pracy między systemami i usługami w chmurze — Azure Logic Apps | Microsoft Docs"
+description: "Tworzenie aplikacji logiki w celu zautomatyzowania przepływów pracy na potrzeby scenariuszy integracji systemów i usługi Enterprise Application Integration (EAI)"
 author: ecfan
 manager: anneta
 editor: 
@@ -13,221 +13,243 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: d62255ba6e3d5bdfbd792a47f3a92d4c88876742
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="create-your-first-logic-app-for-automating-workflows-and-processes-through-the-azure-portal"></a>Tworzenie pierwszej aplikacji logiki w celu automatyzacji przepływów pracy i procesów za pośrednictwem witryny Azure Portal
+# <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>Automatyzowanie pierwszego przepływu pracy do przetwarzania danych za pomocą aplikacji logiki
 
-Bez pisania kodu możesz zintegrować systemy i usługi, tworząc i uruchamiając automatyczne przepływy pracy za pomocą usługi [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). Aby pokazać, jak łatwo możesz zautomatyzować zadania za pomocą przepływu pracy, w tym samouczku zostanie utworzona podstawowa aplikacja logiki, która sprawdza źródło danych RSS pod kątem nowej zawartości w witrynie internetowej i wysyła wiadomość e-mail dla każdego nowego elementu w źródle danych. 
+Aby szybciej zintegrować systemy i usługi w organizacji, możesz zautomatyzować przepływy pracy i procesy biznesowe za pomocą usługi [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). W tym przewodniku Szybki start pokazano, jak łatwo można utworzyć i uruchomić zautomatyzowany przepływ pracy, tworząc aplikację logiki. Przykładowa aplikacja demonstruje, jak zautomatyzować przepływ pracy sprawdzający źródło danych RSS pod kątem nowych elementów i wysyłający wiadomość e-mail dla każdego z elementów.
 
-![Omówienie — przykład pierwszej aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
+Ta przykładowa aplikacja logiki wysyła wiadomość e-mail taką jak w tym przykładzie:
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+![Wysyłanie wiadomości e-mail dla nowego elementu źródła danych RSS](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+A oto przepływ pracy wysokiego poziomu w tworzonej aplikacji logiki:
+
+![Omówienie — przykład aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-simple-overview.png)
+
+W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenia pustej aplikacji logiki.
-> * Dodawania wyzwalacza uruchamiającego Twoją aplikację logiki, gdy zostanie opublikowany element źródła danych RSS.
-> * Dodawania akcji wysyłania wiadomości e-mail ze szczegółowymi informacjami o elemencie źródła danych RSS.
-> * Uruchamiania i testowania aplikacji logiki.
+> * Dodaj wyzwalacz, który będzie uruchamiać przepływ pracy po pojawieniu się nowego elementu w źródle danych RSS.
+> * Dodaj akcję wysyłania wiadomości e-mail z informacjami o elemencie źródła danych RSS.
+> * Uruchom przepływ pracy aplikacji logiki.
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [rozpocząć pracę z bezpłatnym kontem platformy Azure](https://azure.microsoft.com/free/). W przeciwnym razie możesz [skorzystać z subskrypcji z płatnością zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/pricing/purchase-options/).
-
-* Konto e-mail od [dowolnego dostawcy poczty e-mail obsługiwanego przez usługę Azure Logic Apps](../connectors/apis-list.md) do wysyłania powiadomień. Na przykład możesz użyć usługi Office 365 Outlook, usługi Outlook.com, usługi Gmail lub innego obsługiwanego dostawcy. W tym samouczku jest używana usługa Office 365 Outlook.
+* Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez usługę Azure Logic Apps do wysyłania powiadomień. Na przykład możesz użyć usługi Office 365 Outlook, Outlook.com lub Gmail. Inne obsługiwane łączniki poczty e-mail znajdziesz [na liście łączników](https://docs.microsoft.com/connectors/). Ten przewodnik Szybki start korzysta z usługi Office 365 Outlook.
 
   > [!TIP]
   > Jeśli masz osobiste [konto Microsoft](https://account.microsoft.com/account), masz także konto usługi Outlook.com. W przeciwnym razie, jeśli masz służbowe konto platformy Azure, masz konto usługi Office 365 Outlook.
 
-* Link do źródła danych RSS witryny internetowej. W tym przykładzie użyto [źródła danych RSS z najciekawszymi wiadomościami z witryny internetowej CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
+* Link do kanału informacyjnego RSS witryny sieci Web. W tym przykładzie użyto [źródła danych RSS z najciekawszymi wiadomościami z witryny internetowej Reuters](http://feeds.reuters.com/reuters/topNews): `http://feeds.reuters.com/reuters/topNews`
 
-## <a name="1-create-a-blank-logic-app"></a>1. Tworzenie pustej aplikacji logiki 
+Ten przewodnik Szybki start nie wymaga pisania kodu, ale usługa Logic Apps obsługuje inne scenariusze z kodem, na przykład uruchamianie własnego kodu z aplikacji logiki za pomocą usługi [Azure Functions](../azure-functions/functions-overview.md).
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Azure Portal").
+## <a name="create-a-blank-logic-app"></a>Tworzenie pustej aplikacji logiki 
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
 2. Z głównego menu platformy Azure wybierz kolejno pozycje **Nowy** > **Integracja dla przedsiębiorstw** > **Aplikacja logiki**.
 
-   ![Azure Portal, Nowy, Integracja w przedsiębiorstwie, Aplikacja logiki](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
+   ![Azure Portal, Nowy, Integracja w przedsiębiorstwie, Aplikacja logiki](./media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-3. Utwórz własną aplikację logiki z ustawieniami określonymi w tabeli.
+3. Utwórz własną aplikację logiki z ustawieniami podanymi w tabeli pod tą ilustracją:
 
    ![Podawanie szczegółów aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    | Ustawienie | Sugerowana wartość | Opis | 
    | ------- | --------------- | ----------- | 
    | **Nazwa** | *Twoja nazwa aplikacji logiki* | Podaj unikatową nazwę aplikacji logiki. | 
-   | **Subskrypcja** | *Twoja subskrypcja platformy Azure* | Wybierz subskrypcję platformy Azure, której chcesz użyć. | 
-   | **Grupa zasobów** | *Twoja grupa zasobów platformy Azure* | Utwórz lub wybierz grupę zasobów platformy Azure, która ułatwi organizowanie powiązanych zasobów platformy Azure i zarządzanie nimi. | 
-   | **Lokalizacja** | *Twój region świadczenia usługi Azure* | Wybierz region centrum danych do wdrażania swojej aplikacji logiki. | 
+   | **Subskrypcja** | *nazwa_Twojej_susbkrypcji_Azure* | Wybierz subskrypcję platformy Azure, której chcesz użyć. | 
+   | **Grupa zasobów** | *nazwa_Twojej_grupy_zasobów_Azure* | Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) dla tej aplikacji logiki i zorganizuj wszystkie zasoby skojarzone z tą aplikacją. | 
+   | **Lokalizacja** | *region_Twojego_centrum_danych_Azure* | Wybierz region centrum danych do wdrożenia swojej aplikacji logiki, na przykład Zachodnie stany USA. | 
+   | **Log Analytics** | Wyłączone | Włącz rejestrowania diagnostyczne dla aplikacji logiki, ale dla tego przewodnika Szybki start zostaw ustawienie **Wyłączone**. | 
    |||| 
 
-4. Gdy wszystko będzie gotowe, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie pozycję **Utwórz**.
+4. Gdy wszystko będzie gotowe, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**. Dzięki temu aplikacja logiki automatycznie pojawi się na pulpicie nawigacyjnym platformy Azure i zostanie otwarta po wdrożeniu. Wybierz pozycję **Utwórz**.
 
-   Teraz został utworzony zasób platformy Azure dla Twojej aplikacji logiki. 
-   Po wdrożeniu Twojej aplikacji logiki na platformie Azure projektant aplikacji usługi Logic Apps pokaże szablony dla typowych wzorców, więc możesz szybciej rozpocząć pracę.
+   > [!NOTE]
+   > Jeśli nie chcesz przypinać aplikacji logiki, to aby można było kontynuować, musisz ją ręcznie znaleźć i otworzyć po wdrożeniu.
 
-   > [!NOTE] 
-   > Gdy wybierzesz pozycję **Przypnij do pulpitu nawigacyjnego**, Twoja aplikacja logiki pojawi się na pulpicie nawigacyjnym platformy Azure po wdrożeniu i automatycznie otworzy się w projektancie aplikacji usługi Logic Apps. Jeśli jej nie wybierzesz, możesz ręcznie znaleźć i otworzyć swoją aplikację logiki.
+   Gdy platforma Azure wdroży aplikację logiki, zostanie otwarty Projektant aplikacji usługi Logic Apps wyświetlający stronę z wprowadzającym wideo. 
+   Pod wideo znajdziesz szablony typowych wzorców aplikacji logiki. 
+   W tym przewodniku Szybki start aplikacja logiki zostanie utworzona od zera. 
 
-5. Na razie w obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**, aby rozpocząć tworzenie swojej aplikacji logiki od podstaw.
+5. Przewiń ekran za wprowadzające wideo i typowe wyzwalacze. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**.
 
-   ![Wybieranie szablonu aplikacji logiki](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
+   ![Wybieranie szablonu pustej aplikacji logiki](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
-   Projektant aplikacji logiki wyświetla teraz dostępne [*łączniki*](../connectors/apis-list.md) i ich [*wyzwalacze*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), których używasz do uruchamiania przepływu pracy aplikacji logiki.
+   Projektant aplikacji logiki wyświetli dostępne łączniki i ich wyzwalacze, które służą do uruchamiania przepływów pracy aplikacji logiki.
 
    ![Wyzwalacze aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-triggers.png)
 
-## <a name="2-add-a-trigger-for-starting-the-workflow"></a>2. Dodawanie wyzwalacza do uruchamiania przepływu pracy
+## <a name="add-a-trigger-to-detect-new-items"></a>Dodawanie wyzwalacza do wykrywania nowych elementów
 
-Każda aplikacja logiki musi rozpoczynać się od [*wyzwalacza*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Wyzwalacz jest aktywowany po wystąpieniu określonego zdarzenia lub gdy nowe dane spełnią ustawiony warunek. Następnie aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki do uruchamiania Twojego przepływu pracy. Po każdym wyzwoleniu wyzwalacza aparat tworzy inne, oddzielne wystąpienie, które uruchamia przepływ pracy Twojej aplikacji logiki.
+Każdy przepływ pracy aplikacji logiki jest uruchamiany przez [wyzwalacz](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Wyzwalacz jest aktywowany po wystąpieniu określonego zdarzenia lub gdy nowe dane spełnią ustawiony warunek. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki uruchamiającej i wykonującej przepływ pracy.
 
-1. W polu wyszukiwania wpisz „rss” jako filtr. Wybierz następujący wyzwalacz: **RSS — Gdy element kanału informacyjnego jest publikowany** 
+1. W polu wyszukiwania jako filtr wprowadź „rss”. Wybierz następujący wyzwalacz: **RSS — Gdy element kanału informacyjnego jest publikowany** 
 
    ![Wybieranie wyzwalacza: „RSS — Gdy element kanału informacyjnego jest publikowany”](./media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-2. Podaj link źródła danych RSS witryny internetowej, które chcesz śledzić, na przykład `http://rss.cnn.com/rss/cnn_topstories.rss`. Ustaw odstęp czasu i częstotliwość cyklu. W tym przykładzie ustaw właściwości tak, aby codziennie sprawdzać źródło danych. 
+2. Podaj link do źródła danych RSS, które chcesz monitorować, na przykład `http://feeds.reuters.com/reuters/topNews`. Ustaw odstęp czasu i częstotliwość cyklu. W tym przykładzie źródło danych jest sprawdzane co pięć minut.
 
-   ![Konfigurowanie źródła danych RSS, częstotliwości i interwału dla wyzwalacza](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+   ![Konfigurowanie kanału informacyjnego RSS, częstotliwości i interwału dla wyzwalacza](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-3. Zapisz swoją pracę. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
-Aby zwinąć i ukryć szczegóły wyzwalacza, wybierz pasek tytułu tego wyzwalacza.
+   Usługa Logic Apps utworzy połączenie ze źródłem danych RSS.
+
+   > [!TIP]
+   > Aby uprościć widok w projektancie, możesz zwinąć i ukryć szczegóły kształtu — wystarczy kliknąć wewnątrz paska tytułu kształtu.
+
+3. Zapisz pracę. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**. 
 
    ![Zapisywanie aplikacji logiki](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-   Twoja aplikacja logiki teraz działa, ale nie robi nic innego oprócz sprawdzania nowych elementów w źródle danych RSS do chwili dodania akcji do przepływu pracy. 
+   Twoja aplikacja logiki jest już aktywna, ale nie robi niczego poza sprawdzaniem źródła danych RSS. Dodajmy akcję reagującą na aktywowanie wyzwalacza.
 
-## <a name="3-add-an-action-that-responds-to-the-trigger"></a>3. Dodawanie akcji reagującej na wyzwalacz
+## <a name="add-an-action-to-send-email"></a>Dodawanie akcji wysyłającej wiadomość e-mail
 
-Teraz dodaj [*akcję*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), która jest zadaniem wykonywanym przez przepływ pracy Twojej aplikacji logiki. W tym przykładzie dodaj akcję, która wysyła wiadomość e-mail, gdy pojawi się nowy element w źródle danych RSS.
+Teraz, po utworzeniu wyzwalacza, dodaj [akcję](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) wysyłającą wiadomość e-mail po pojawieniu się nowego elementu w źródle danych RSS. Przepływ pracy wykonuje tę akcję po aktywowaniu wyzwalacza.
 
 1. W projektancie aplikacji logiki, w obszarze wyzwalacza, wybierz pozycje **+ Nowy krok** > **Dodaj akcję**.
 
    ![Dodawanie akcji](./media/logic-apps-create-a-logic-app/add-new-action.png)
 
-   Projektant wyświetli [dostępne łączniki](../connectors/apis-list.md), aby umożliwić wybranie akcji, która ma zostać wykonana w momencie uruchomienia wyzwalacza.
+   Projektant pokazuje akcje, które aplikacja logiki może wykonać po aktywowaniu wyzwalacza.
 
    ![Wybieranie z listy akcji](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-2. W polu wyszukiwania wprowadź „wyślij wiadomość e-mail” jako filtr. W oparciu o Twojego dostawcę poczty e-mail znajdź i wybierz zgodny łącznik. Następnie wybierz akcję „Wyślij wiadomość e-mail” dla Twojego łącznika. Na przykład: 
+2. W polu wyszukiwania wprowadź „wyślij wiadomość e-mail” jako filtr. Znajdź i wybierz łącznik poczty e-mail, którego chcesz użyć. Następnie wybierz akcję „Wyślij wiadomość e-mail” dla tego łącznika. Na przykład: 
 
-   * Dla konta służbowego platformy Azure wybierz łącznik usługi Office 365 Outlook. 
-   * Dla osobistych kont Microsoft wybierz łącznik usługi Outlook.com. 
-   * Dla kont usługi Gmail wybierz łącznik usługi Gmail. 
+   * Dla kont służbowych platformy Azure wybierz pozycję Office 365 Outlook. 
+   * Dla osobistych kont Microsoft wybierz pozycję Outlook.com. 
+   * Dla kont usługi Gmail wybierz pozycję Gmail. 
 
-   Będziemy kontynuować z użyciem łącznika usługi Office 365 Outlook. 
-   Jeśli używasz innego dostawcy, kroki pozostają takie same, ale Twój interfejs użytkownika może wyglądać inaczej. 
+   Ten przewodnik Szybki start korzysta z usługi Office 365 Outlook. 
+   Jeśli używasz innego dostawcy poczty e-mail, kroki pozostają takie same, ale Twój interfejs użytkownika może wyglądać inaczej. 
 
    ![Wybieranie akcji: „Office 365 Outlook — Wyślij wiadomość e-mail”](./media/logic-apps-create-a-logic-app/actions.png)
 
 3. Gdy zostanie wyświetlony monit o podanie poświadczeń, zaloguj się przy użyciu nazwy użytkownika i hasła swojego konta e-mail. 
 
-4. Podaj szczegóły określone w tabeli, a następnie wybierz pola, które chcesz włączyć do wiadomości e-mail.
+   Usługa Logic Apps utworzy połączenie z kontem e-mail.
 
-   | Do | Kroki | 
-   | -- | ----- | 
-   | Wybierz pola dostępne dla Twojego przepływu pracy. | Kliknij wewnątrz pola edycji tak, aby została otwarta lista **Zawartość dynamiczna**, lub wybierz pozycję **Dodaj zawartość dynamiczną**. | 
-   | Wyświetl inne dostępne pola. | Z listy **Zawartość dynamiczna** wybierz pozycję **Zobacz więcej** dla każdej sekcji.  | 
-   | Dodaj puste wiersze w polu edycji. | Naciśnij klawisze Shift + Enter. | 
-   | Zamknij listę **Zawartość dynamiczna**. | Ponownie wybierz pozycję **Dodaj zawartość dynamiczną**. | 
-   ||| 
+4. Teraz określ dane, które chcesz uwzględnić w wiadomości e-mail. 
 
-   ![Wybieranie danych, które mają być uwzględnione w wiadomości e-mail](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
+   1. W polu **Do** wprowadź adres e-mail adresata. 
+   Do celów testowych możesz użyć własnego adresu e-mail.
 
-   | Ustawienie | Sugerowana wartość | Opis | 
-   | ------- | --------------- | ----------- | 
-   | **Do** | *adres e-mail adresata* | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. | 
-   | **Temat** | Nowy wpis CNN: **Tytuł źródła danych** | Wprowadź zawartość w polu tematu wiadomości e-mail. <p>W tym samouczku wprowadź sugerowany tekst, a następnie wybierz pole wyzwalacza **Tytuł źródła danych**, które wyświetla tytuł elementu źródła danych. | 
-   | **Treść** | Tytuł: **Tytuł źródła danych** <p>Data opublikowania: **Podstawowy link źródła danych** <p>Link: **Link podstawowego źródła danych** | Wprowadź zawartość w polu treści wiadomości e-mail. <p>W tym samouczku wprowadź sugerowany tekst, a następnie wybierz następujące pola wyzwalacza: <p>- **Tytuł źródła danych**, które ponownie wyświetla tytuł elementu źródła danych </br>- **Data opublikowania źródła danych**, które wyświetla datę i godzinę opublikowania elementu </br>- **Link podstawowego źródła danych**, które wyświetla adres URL elementu źródła danych | 
-   |||| 
+   2. W polu **Temat** wprowadź temat wiadomości e-mail. 
+   Dla tego przykładu możesz wprowadzić „New RSS item:”, tak jak pokazano:
 
-   > [!NOTE] 
-   > Jeśli wybierzesz pole przechowujące tablicę, projektant automatycznie dodaje pętlę „Dla każdego” wokół akcji, która odwołuje się do tablicy. W ten sposób Twoja aplikacja logiki wykonuje tę akcję dla każdego elementu tablicy.
+      ![Wprowadzanie tematu wiadomości e-mail](./media/logic-apps-create-a-logic-app/logic-app-add-subject.png)
 
-5. Gdy wszystko będzie gotowe, zapisz zmiany. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+      Po kliknięciu wewnątrz pola edycji zostanie otwarta **lista Dodaj zawartość dynamiczną**, z której można wybrać dostępne pola danych do uwzględnienia w akcji. 
+      Jeśli lista zawartości dynamicznej nie zostanie otwarta, pod odpowiednim polem edycji wybierz pozycję **Dodaj zawartość dynamiczną**.
+
+   3. Z listy **Dodaj zawartość dynamiczną** wybierz pozycję **Tytuł źródła danych**, która obejmuje tytuł elementu w wiadomości e-mail.
+
+      ![Wprowadzanie tematu wiadomości e-mail](./media/logic-apps-create-a-logic-app/logic-app-select-field.png)
+
+      Gdy wszystko będzie gotowe, temat wiadomości e-mail będzie wyglądać następująco:
+
+      ![Dodany tytuł źródła danych](./media/logic-apps-create-a-logic-app/added-feed-title.png)
+
+      > [!NOTE] 
+      > Jeśli wybierzesz pole zawierające tablicę, taką jak **categories-item**, projektant automatycznie dodaje pętlę „For each” wokół akcji, która odwołuje się do tego pola. Dzięki temu Twoja aplikacja logiki może wykonać tę akcję dla każdego elementu tablicy. 
+      > 
+      > Aby usunąć pętlę, wybierz wielokropek (**...** ) na pasku tytułu pętli, a następnie wybierz pozycję **Usuń**.
+
+   4. W polu **Treść** wprowadź treść wiadomości e-mail. 
+   Dla tego przykładu wprowadź następujący tekst i wybierz te pola:
+
+      ![Dodawanie treści wiadomości e-mail](./media/logic-apps-create-a-logic-app/logic-app-complete.png)
+
+      | Pole | Opis | 
+      | ----- | ----------- | 
+      | **Tytuł źródła danych** | Pokazuje tytuł elementu. | 
+      | **Data opublikowania kanału informacyjnego** | Pokazuje datę i godzinę opublikowania elementu. | 
+      | **Link podstawowego źródła danych** | Pokazuje adres URL elementu. | 
+      ||| 
+
+      > [!TIP]
+      > Aby dodać puste wiersze w polu edycji, naciśnij klawisze Shift + Enter. 
+      
+5. Zapisz pracę. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
    ![Ukończona aplikacja logiki](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
-   Aby teraz przetestować Twoją aplikację logiki, przejdź do następnej sekcji.
+## <a name="run-your-logic-app-workflow"></a>Uruchamianie przepływu pracy aplikacji logiki.
 
-## <a name="4-run-and-test-your-workflow"></a>4. Uruchamianie i testowanie aplikacji logiki
+Aby ręcznie uruchomić swoją aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom**. Zamiast tego możesz też poczekać na uruchomienie aplikacji logiki zgodnie ze skonfigurowanym harmonogramem.
 
-1. Aby ręcznie uruchomić swoją aplikację logiki w celu przetestowania, na pasku narzędzi projektanta wybierz pozycję **Uruchom**. Możesz też zezwolić aplikacji logiki na sprawdzanie określonego źródła danych RSS na podstawie skonfigurowanego przez siebie harmonogramu.
+![Uruchamianie aplikacji logiki](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
 
-   ![Uruchamianie aplikacji logiki](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
+Jeśli źródło danych RSS będzie zawierać nowe elementy, aplikacja logiki wyśle wiadomość e-mail dla każdego nowego elementu. Oto przykładowa wiadomość e-mail w usłudze Outlook wysłana przez tę aplikację logiki:
 
-   Jeśli Twoja aplikacja logiki znajdzie nowe elementy, wyśle wiadomość e-mail zawierającą wybrane przez Ciebie dane, na przykład:
+![Wysyłanie wiadomości e-mail dla nowego elementu źródła danych RSS](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
 
-   ![Wysyłanie wiadomości e-mail dla nowego elementu źródła danych RSS](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+Jeśli źródło danych nie będzie zawierać żadnych nowych elementów, aplikacja logiki pominie krok wysyłania wiadomości e-mail i przeczeka kolejny odstęp czasu przed ponownym sprawdzeniem. 
 
-   Jeśli Twoja aplikacja logiki nie odnajdzie żadnych nowych elementów, aplikacja logiki pomija akcję, która wysyła wiadomość e-mail, i czeka na następny odstęp czasu przed ponownym sprawdzeniem. 
+> [!TIP]
+> Jeśli nie dostaniesz żadnych wiadomości e-mail, sprawdź folder wiadomości-śmieci. W przeciwnym razie, jeśli nie masz pewności, czy aplikacja logiki została poprawnie uruchomiona, zobacz [Troubleshoot your logic app (Rozwiązywania problemów z aplikacją logiki)](../logic-apps/logic-apps-diagnosing-failures.md).
 
-2. Aby sprawdzać historię wyzwalania i uruchamiania Twojej aplikacji logiki, w menu aplikacji logiki wybierz pozycję **Przegląd**.
-Aby wyświetlić więcej szczegółów na temat uruchomienia, wybierz wiersz dla tego uruchomienia.
-
-   ![Monitorowanie i wyświetlanie historii wyzwalania oraz uruchamiania aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
-
-   > [!TIP]
-   > Jeśli nie widzisz danych, których oczekujesz, spróbuj wybrać pozycję **Odśwież** na pasku narzędzi.
-
-   Bez względu na to, czy uruchomienie zakończyło się powodzeniem, czy też niepowodzeniem, widok szczegółów uruchomienia przedstawia kroki, które się udały lub nie udały. 
-
-   ![Wyświetlanie szczegółów uruchomienia aplikacji logiki](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
-
-   Aby dowiedzieć się więcej na temat stanu swojej aplikacji logiki, historii uruchamiania i historii wyzwalania lub aby zdiagnozować aplikację logiki, zobacz [Rozwiązywanie problemów z aplikacją logiki](../logic-apps/logic-apps-diagnosing-failures.md).
-
-3. Aby wyświetlić dane wejściowe i wyjściowe dla każdego kroku, rozwiń krok, który chcesz przejrzeć. Te informacje ułatwiają diagnozowanie i debugowanie problemów w aplikacji logiki. Na przykład:
-
-   ![Wyświetlanie szczegółów kroku](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
-
-   Aby uzyskać więcej informacji, zobacz [Monitorowanie aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md).
-
-Gratulacje, udało Ci się teraz utworzyć i uruchomić swoją pierwszą podstawową aplikację logiki. Ten przykład pokazuje, jak łatwo możesz tworzyć przepływy pracy automatyzujące procesy integrowania systemów i usług — a wszystko to bez konieczności pisania kodu.
-
-> [!NOTE]
-> Aplikacja logiki będzie działać do momentu jej wyłączenia. Aby tymczasowo wyłączyć swoją aplikację, należy przejść do następnej sekcji.
+Gratulacje, udało Ci się utworzyć i uruchomić swoją pierwszą aplikację logiki. W tym przewodniku Szybki start pokazano, jak łatwo i szybko można tworzyć zautomatyzowane przepływy pracy do integrowania systemów i usług.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Ten samouczek używa zasobów i wykonuje akcje, które mogą spowodować naliczenie opłat w ramach Twojej subskrypcji platformy Azure. Gdy ukończysz pracę z samouczkiem i testowanie, upewnij się, że zostały wyłączone lub usunięte wszelkie zasoby, dla których nie chcesz naliczenia opłat.
+Aplikacja logiki będzie nadal działać i potencjalnie powodować naliczanie opłat w ramach subskrypcji platformy Azure, dopóki nie zostanie wyłączona lub usunięta. Dodatkowo połączenia utworzone dla aplikacji logiki pozostają, nawet gdy aplikacja logiki zostanie usunięta. 
 
-Możesz zapobiec uruchamianiu aplikacji logiki i wysyłaniu przez nią wiadomości e-mail bez usuwania aplikacji. W menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi wybierz pozycję **Wyłącz**.
+Gdy ukończysz pracę, upewnij się, że zostały wyłączone lub usunięte wszelkie zasoby, za które nie chcesz ponosić opłat i których nie chcesz zachować. Aby usunąć wszystkie zasoby utworzone dla tego przewodnika Szybki start, usuń grupę zasobów platformy Azure, która została utworzona dla tej aplikacji logiki. 
 
-![Wyłączanie aplikacji logiki](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+### <a name="delete-resource-group"></a>Usuwanie grupy zasobów
 
-## <a name="faq"></a>Często zadawane pytania
+Jeśli nie chcesz zachować niczego związanego z aplikacją logiki, usuń grupę zasobów utworzoną dla tego przewodnika Szybki start i wszystkie powiązane zasoby. Dowiedz się więcej o tym, [jak zarządzać grupami zasobów platformy Azure](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-**P:** Jakie inne możliwości oferuje moja aplikacja logiki? </br>
-**O:** Istnieją inne zadania, które możesz wykonać, na przykład edycja, wyświetlanie definicji JSON, przeglądanie dziennika aktywności lub usuwanie własnej aplikacji logiki.
+1. Z menu Azure wybierz pozycję **Grupy zasobów**.
 
-Aby znaleźć inne zadania zarządzania aplikacją logiki, przejrzyj te polecenia w menu aplikacji logiki:
+2. Wybierz grupę zasobów, którą chcesz usunąć. Z menu grupy zasobów wybierz pozycję **Przegląd**, jeśli jeszcze nie została wybrana. 
 
-| Zadanie | Kroki | 
-| ---- | ----- | 
-| Wyświetlenie stanu aplikacji, historii uruchomień i wyzwalania oraz informacji ogólnych | Wybierz pozycję **Przegląd**. | 
-| Edytowanie aplikacji | Wybierz pozycję **Projektant aplikacji logiki**. | 
-| Wyświetlenie definicji kodu JSON przepływu pracy aplikacji | Wybierz pozycję **Widok kodu aplikacji logiki**. | 
-| Wyświetlenie operacji wykonywanych względem aplikacji logiki | Wybierz pozycję **Dziennik aktywności**. | 
-| Wyświetlenie wcześniejszych wersji aplikacji logiki | Wybierz pozycję **Wersje**. | 
-| Tymczasowe wyłączenie aplikacji | Wybierz pozycję **Przegląd**, a następnie na pasku narzędzi wybierz pozycję **Wyłącz**. | 
-| Usunięcie aplikacji | Wybierz pozycję **Przegląd**, a następnie na pasku narzędzi wybierz pozycję **Usuń**. Wprowadź nazwę aplikacji logiki, a następnie wybierz pozycję **Usuń**. | 
-||| 
+3. Przejrzyj wszystkie zasoby w grupie, którą chcesz usunąć. Gdy skończysz, wybierz pozycję **Usuń grupę zasobów** na pasku narzędzi grupy zasobów.
+
+### <a name="turn-off-logic-app"></a>Wyłączanie aplikacji logiki
+
+Aby zatrzymać aplikację logiki bez usuwania swojej pracy, wyłącz ją. 
+
+W menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi wybierz pozycję **Wyłącz**.
+
+  ![Wyłączanie aplikacji logiki](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > Jeśli nie widzisz menu aplikacji logiki, spróbuj wrócić do pulpitu nawigacyjnego platformy Azure i ponownie otworzyć aplikację logiki.
+
+### <a name="delete-logic-app"></a>Usuwanie aplikacji logiki
+
+Możesz usunąć samą aplikację logiki, zachowując wszystkie inne powiązane zasoby, takie jak utworzone połączenia.
+
+1. Z menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi wybierz pozycję **Usuń**. 
+
+   ![Usuwanie aplikacji logiki](./media/logic-apps-create-a-logic-app/delete-logic-app.png)
+
+   > [!TIP]
+   > Jeśli nie widzisz menu aplikacji logiki, spróbuj wrócić do pulpitu nawigacyjnego platformy Azure i ponownie otworzyć aplikację logiki.
+
+2. Potwierdź, że chcesz usunąć aplikację logiki, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania dotyczące usługi Azure Logic Apps, odwiedź stronę [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Czy chcesz pomóc ulepszyć usługę Azure Logic Apps i łączniki? Zagłosuj lub prześlij pomysły do [witryny usługi Azure Logic Apps User Voice](http://aka.ms/logicapps-wish).
+* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie aplikacji logiki za pomocą programu Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
-* [Dodawanie warunków i uruchamianie przepływów pracy](../logic-apps/logic-apps-use-logic-app-features.md)
-*   [Szablony aplikacji logiki](../logic-apps/logic-apps-use-logic-app-templates.md)
-* [Tworzenie aplikacji logiki z szablonów usługi Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md)
-* [Pomiar użycia usługi Logic Apps](../logic-apps/logic-apps-pricing.md) 
-* [Ceny usługi Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps)
+> [!div class="nextstepaction"]
+> [Tworzenie przepływów pracy aplikacji logiki na podstawie wbudowanych szablonów](../logic-apps/logic-apps-create-logic-apps-from-templates.md)

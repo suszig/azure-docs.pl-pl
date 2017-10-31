@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Tworzenie zapytań względem indeksu usługi Azure Search
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ Najlepszym sposobem na zrozumienie różnic w składni jest przesłanie zapytań
 
 + Użyj [Eksploratora wyszukiwania](search-explorer.md) w witrynie Azure Portal. Jeśli wdrożysz [przykładowy indeks](search-get-started-portal.md), będziesz w stanie wykonywać zapytania o indeks w ciągu minut, używając narzędzi w portalu.
 
-+ Użyj narzędzia [Fiddler](search-fiddler.md) lub Chrome Postman do przesyłania zapytań do indeksu przekazanego do usługi wyszukiwania. Oba narzędzia obsługują wywołania REST do punktu końcowego HTTP. 
++ Użyj narzędzia Telerik Fiddler lub Chrome Postman do przesyłania zapytań do indeksu przekazanego do usługi wyszukiwania. Oba narzędzia obsługują wywołania REST do punktu końcowego HTTP. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -151,7 +151,10 @@ W przypadku utworzenia innych reguł aplikacji, określających inne grupy zabez
  
 Aby dowiedzieć się więcej o limitach podczas tworzenia grup zabezpieczeń aplikacji i określania ich w regułach zabezpieczeń, zobacz [limity platformy Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Grupy zabezpieczeń aplikacji są dostępne w wersji zapoznawczej. Przed rozpoczęciem korzystania z grup zabezpieczeń aplikacji musisz się zarejestrować, aby ich używać, wykonując kroki od 1 do 5 w sekcji [Tworzenie grupy zabezpieczeń sieci z użyciem grup zabezpieczeń aplikacji](create-network-security-group-preview.md#powershell). Przeczytaj również temat [Funkcje w wersji zapoznawczej](#preview-features), aby uzyskać ważne informacje. W wersji zapoznawczej grupy zabezpieczeń aplikacji są ograniczone do zakresu sieci wirtualnej. Sieci wirtualne skomunikowane równorzędnie za pomocą odwołań krzyżowych do grup zabezpieczeń aplikacji w grupie zabezpieczeń sieci nie są stosowane. 
+Grupy zabezpieczeń aplikacji są dostępne w wersji zapoznawczej. Przed rozpoczęciem korzystania z grup zabezpieczeń aplikacji musisz się zarejestrować, aby ich używać, wykonując kroki od 1 do 5 w sekcji [Tworzenie grupy zabezpieczeń sieci z użyciem grup zabezpieczeń aplikacji](create-network-security-group-preview.md#powershell). Przeczytaj również temat [Funkcje w wersji zapoznawczej](#preview-features), aby uzyskać ważne informacje. Grupy zabezpieczeń aplikacji mają następujące ograniczenia:
+
+-   Wszystkie interfejsy sieciowe w ramach grupy zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Interfejsy sieciowe z różnych sieci wirtualnych nie mogą być dodawane do tej samej grupy zabezpieczeń aplikacji. Sieć wirtualna, która zawiera pierwszy interfejs sieciowy przypisany do grupy zabezpieczeń aplikacji, definiuje sieć wirtualną, w której muszą istnieć wszystkie później przypisywane interfejsy sieciowe.
+- Jeśli określisz grupy zabezpieczeń aplikacji jako źródło i miejsce docelowe w regule zabezpieczeń, interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Na przykład jeśli grupa ASG1 zawiera interfejsy sieciowe z sieci VNet1, a grupa ASG2 zawiera interfejsy sieciowe z sieci VNet2, nie można przypisać grupy ASG1 jako źródła i grupy ASG2 jako miejsca docelowego w regule — wszystkie interfejsy sieciowe muszą istnieć w sieci VNet1. 
 
 Funkcje w wersji zapoznawczej nie mają takiego samego poziomu dostępności i niezawodności jak funkcje w głównym wydaniu. Przed rozpoczęciem korzystania z grup zabezpieczeń aplikacji najpierw musisz się zarejestrować, aby ich używać. Funkcje te są dostępne tylko w następujących regionach: zachodnio-środkowe stany USA.
 

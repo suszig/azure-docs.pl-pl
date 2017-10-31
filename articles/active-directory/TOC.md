@@ -208,7 +208,7 @@
 #### [Zarządzanie aprowizacją konta użytkownika](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Zarządzanie logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-sso.md)
 #### [Zaawansowane podpisywanie certyfikatów dla aplikacji SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-####[Ukrywanie środowiska użytkownika w usłudze Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
+#### [Ukrywanie aplikacji innych firm w środowisku użytkownika](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
 #### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -193,6 +193,9 @@ Po zakończeniu konfiguracji ustaw zmienne środowiskowe wymagane do obsługi op
    ```
 
 Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
+
+>[!NOTE]
+>Można ponownie użyć konta i środowiska usługi Model Management w przypadku kolejnych wdrożeń usług internetowych. Nie trzeba tworzyć ich dla każdej usługi internetowej. Z kontem lub środowiskiem można skojarzyć wiele usług internetowych.
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Tworzenie usługi internetowej czasu rzeczywistego przy użyciu jednego polecenia
 1. Użyj poniższego polecenia, aby utworzyć usługę internetową czasu rzeczywistego:

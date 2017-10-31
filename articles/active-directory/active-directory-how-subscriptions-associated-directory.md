@@ -1,6 +1,6 @@
 ---
-title: "Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory | Microsoft Docs"
-description: "Logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory."
+title: "Jak dodać istniejącą subskrypcję platformy Azure do katalogu usługi Azure AD | Microsoft Docs"
+description: "Jak dodać istniejącą subskrypcję do katalogu usługi Azure AD"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,37 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
+ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
-W tym artykule opisano relację między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD) oraz sposób dodawania istniejącej subskrypcji do katalogu usługi Azure AD.
-
-## <a name="your-azure-subscriptions-relationship-to-azure-ad"></a>Relacja subskrypcji platformy Azure i usługi Azure AD
-Twoja subskrypcja platformy Azure ma relację zaufania z usługą Azure AD, co oznacza, że subskrypcja ufa katalogowi podczas uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale każda subskrypcja może ufać tylko jednemu katalogowi. 
+# <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Jak dodać subskrypcję platformy Azure do katalogu usługi Azure Active Directory
+W tym artykule opisano relację między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD) oraz sposób dodawania istniejącej subskrypcji do katalogu usługi Azure AD. Twoja subskrypcja platformy Azure ma relację zaufania z usługą Azure AD, co oznacza, że subskrypcja ufa katalogowi podczas uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale każda subskrypcja może ufać tylko jednemu katalogowi. 
 
 Relacja zaufania między subskrypcją a katalogiem różni się od relacji z innymi zasobami na platformie Azure (witrynami internetowymi, bazami danych itd.). Jeśli subskrypcja wygaśnie, dostęp do innych zasobów skojarzonych z tą subskrypcją również nie będzie możliwy. Katalog usługi Azure AD pozostanie jednak na platformie Azure i będzie można skojarzyć z nim inną subskrypcję oraz zarządzać katalogiem przy użyciu nowej subskrypcji.
 
-![diagram przedstawiający sposób skojarzenia subskrypcji](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
-
 Wszyscy użytkownicy mają jeden katalog macierzysty, który ich uwierzytelnia, ale mogą również być gośćmi w innych katalogach. W usłudze Azure AD możesz zobaczyć katalogi, w których Twoje konto użytkownika jest elementem członkowskim lub gościem.
-
-## <a name="azure-ad-and-cloud-service-subscriptions"></a>Usługa Azure AD i subskrypcje usług w chmurze
-Usługa Azure AD zapewnia podstawowe możliwości zarządzania katalogiem i tożsamościami, na których bazuje większość usług w chmurze firmy Microsoft, w tym:
-
-* Azure
-* Usługa Microsoft Office 365
-* Usługa Microsoft Dynamics CRM Online
-* Microsoft Intune
-
-Usługę Azure AD uzyskujesz bezpłatnie, gdy rejestrujesz się w ramach dowolnej z tych usług firmy Microsoft w chmurze. Jeśli chcesz dodać dodatkową subskrypcję platformy Azure do katalogu usługi Azure AD, musisz zalogować się za pomocą konta Microsoft. W przypadku logowania się do platformy Azure przy użyciu konta służbowego nie możesz dodać subskrypcji platformy Azure do istniejącego katalogu, ponieważ Twojego konta służbowego nie można uwierzytelnić bezpośrednio przez platformę Azure. 
 
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Aby dodać istniejącą subskrypcję do katalogu usługi Azure AD
 Musisz zalogować się przy użyciu konta, które istnieje w bieżącym katalogu, z którym jest skojarzona subskrypcja, oraz w katalogu, do którego chcesz ją dodać. 
@@ -54,20 +39,7 @@ Musisz zalogować się przy użyciu konta, które istnieje w bieżącym katalogu
 5. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności. Jeśli czynności wykonywane przez adresata zakończą się pomyślnie, subskrypcja zostanie przeniesiona. 
 6. Domyślny katalog subskrypcji zostanie zmieniony na katalog, w którym znajduje się użytkownik.
 
-Aby dowiedzieć się więcej, zobacz [Transfer Azure subscription ownership to another account (Przenoszenie własności subskrypcji platformy Azure na inne konto)](../billing/billing-subscription-transfer.md).
-
-## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Sugestie dotyczące zarządzania zarówno subskrypcją, jak i katalogiem
-Role administracyjne dla subskrypcji platformy Azure zarządzają zasobami powiązanymi z subskrypcją platformy Azure. Ta sekcja zawiera wyjaśnienie różnic między administratorami subskrypcji platformy Azure i administratorami katalogu usługi Azure AD. Role administracyjne i inne sugestie dotyczące ich używania do zarządzania własną subskrypcją są opisane w artykule [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md) (Przypisywanie ról administratorów w usłudze Azure Active Directory).
-
-Domyślnie po utworzeniu konta do użytkownika jest przypisywana rola administratora usługi. Jeśli inni użytkownicy potrzebują logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz dodać ich jako współadministratorów. 
-
-Usługa Azure AD ma inny zestaw ról administracyjnych na potrzeby zarządzania katalogiem i funkcjami dotyczącymi tożsamości. Na przykład administrator globalny katalogu może dodać użytkowników i grupy do katalogu lub wymusić stosowanie uwierzytelniania wieloskładnikowego przez użytkowników. Do użytkownika, który utworzył katalog, jest przypisywana rola administratora globalnego. Może on przypisać role administracyjne do innych użytkowników. Role administracyjne usługi Azure AD są również używane przez inne usługi, takie jak Microsoft Intune i Office 365. 
-
-Administratorzy subskrypcji platformy Azure i administratorzy katalogu usługi Azure AD to dwie oddzielne role. 
-* Administratorzy subskrypcji platformy Azure mogą zarządzać zasobami na platformie Azure i mogą używać usługi Azure AD w witrynie Azure Portal (ponieważ sama witryna Azure Portal jest zasobem platformy Azure). 
-* Administratorzy katalogu mogą zarządzać właściwościami w katalogu usługi Azure AD.
-
-Osoba może pełnić obie te role, lecz nie jest to wymagane. Administrator globalny katalogu nie musi być administratorem usługi ani współadministratorem subskrypcji platformy Azure lub odwrotnie. Nie będąc administratorem subskrypcji, użytkownik może zalogować się do witryny Azure Portal, ale nie może zarządzać katalogami dla tej subskrypcji w portalu. Ten użytkownik może jednak zarządzać katalogami przy użyciu innych narzędzi, takich jak program Azure AD PowerShell lub Centrum administracyjne usługi Office 365.
+Aby uzyskać więcej informacji, zobacz [Transfer Azure subscription ownership to another account (Przenoszenie własności subskrypcji platformy Azure na inne konto)](../billing/billing-subscription-transfer.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej o zmianie administratorów subskrypcji platformy Azure, zobacz [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) (Przenoszenie własności subskrypcji platformy Azure na inne konto)

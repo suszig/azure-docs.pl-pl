@@ -3,7 +3,7 @@ title: "Dodawanie użytkowników z innych katalogów lub firm partnerskich w us�
 description: "Wyjaśnia, jak dodać użytkowników lub zmienić informacje o użytkowniku w usłudze Azure Active Directory, w tym gości i użytkowników zewnętrznych."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -16,11 +16,12 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
+ms.contentlocale: pl-pl
+ms.lasthandoff: 07/26/2017
+
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Dodawanie użytkowników z innych katalogów lub firm partnerskich w usłudze Azure Active Directory
 
@@ -79,3 +80,4 @@ Jeśli użytkownik zostanie usunięty z katalogu macierzystego lub anuluje swoje
 * [Administrowanie usługą Azure AD](active-directory-administer.md)
 * [Zarządzanie hasłami w usłudze Azure AD](active-directory-manage-passwords.md)
 * [Zarządzanie grupami w usłudze Azure AD](active-directory-manage-groups.md)
+
