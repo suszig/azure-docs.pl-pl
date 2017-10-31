@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
@@ -75,7 +75,7 @@ Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](ba
 Można uruchomić wiele obciążeń usługi Batch na jednym koncie usługi Batch lub rozdzielić obciążenia pomiędzy konta tej usługi znajdujące się w jednej subskrypcji, ale różnych regionach świadczenia usługi Azure.
 
 > [!NOTE]
-> Podczas tworzenia konta usługi Batch zazwyczaj należy wybrać domyślny tryb **usługi Batch**, w którym pule są przydzielane w tle w subskrypcjach zarządzanych przez platformę Azure. W alternatywnym trybie **subskrypcji użytkownika**, który nie jest już zalecany, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli.
+> Podczas tworzenia konta usługi Batch zazwyczaj należy wybrać domyślny tryb **usługi Batch**, w którym pule są przydzielane w tle w subskrypcjach zarządzanych przez platformę Azure. W alternatywnym trybie **subskrypcji użytkownika**, który nie jest już zalecany, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Aby utworzyć konto usługi Batch w trybie subskrypcji użytkownika, musisz również powiązać konto z usługą Azure Key Vault.
 >
 
 
@@ -129,7 +129,7 @@ Podczas tworzenia puli usługi Batch można określić konfigurację maszyny wir
 
 - **Konfiguracja maszyny wirtualnej**, która określa, że pula składa się z maszyn wirtualnych platformy Azure. Te maszyny wirtualne można tworzyć na podstawie obrazów systemu Windows albo Linux. 
 
-    Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch).
+    Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch). Możesz opcjonalnie dołączyć co najmniej jeden pusty dysk danych do puli maszyn wirtualnych utworzonej z obrazów witryny Marketplace lub uwzględnić dyski danych w niestandardowych obrazach używanych do tworzenia maszyn wirtualnych.
 
 - **Konfiguracja maszyny wirtualnej**, która określa, że pula składa się z węzłów usługi Azure Cloud Services. Usługi Cloud Services oferują *tylko* węzły obliczeniowe systemu Windows.
 
@@ -148,9 +148,11 @@ Aby użyć obrazu niestandardowego, musisz go przygotować, korzystając z funkc
 
 Aby uzyskać szczegółowe wymagania i procedury, zobacz [Use a custom image to create a pool of virtual machines (Używanie obrazu niestandardowego do tworzenia puli maszyn wirtualnych)](batch-custom-images.md).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Obsługa kontenerów w pulach maszyn wirtualnych
 
+Podczas tworzenia puli konfiguracji maszyny wirtualnej za pomocą interfejsów API usługi Batch możesz skonfigurować pulę do uruchamiania zadań w kontenerach platformy Docker. Obecnie musisz utworzyć pulę przy użyciu systemu Windows Server 2016 Datacenter z obrazem kontenerów z witryny Azure Marketplace lub podać niestandardowy obraz maszyny wirtualnej obejmujący platformę Docker Community Edition i wszystkie wymagane sterowniki. Ustawienia puli muszą zawierać [konfigurację kontenera](/rest/api/batchservice/pool/add#definitions_containerconfiguration), która kopiuje obrazy kontenera do maszyn wirtualnych po utworzeniu puli. Zadania uruchamiane na puli mogą następnie odwoływać się do obrazów kontenera i opcji uruchamiania kontenera.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Typ węzła obliczeniowego i docelowa liczba węzłów
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ węzła obliczeniowego i docelowa liczba węzłów
 
 Podczas tworzenia puli można określić pożądane typy węzłów obliczeniowych i docelową liczbę każdego z nich. Istnieją dwa typy węzłów obliczeniowych:
 
@@ -258,6 +260,7 @@ Podczas tworzenia zadania podrzędnego można określić:
 * **Zmienne środowiskowe** wymagane w aplikacji. Więcej informacji znajduje się w sekcji [Ustawienia środowiska dla zadań podrzędnych](#environment-settings-for-tasks).
 * **Ograniczenia**, zgodnie z którymi powinno działać zadanie podrzędne. Na przykład ograniczenia obejmują maksymalny czas działania zadania podrzędnego, maksymalna liczba prób ponownego wykonania zadania podrzędnego zakończonego niepowodzeniem i maksymalny czas przechowywania plików w katalogu roboczym zadania podrzędnego.
 * **Pakiety aplikacji** do wdrożenia w obrębie węzła obliczeniowego, w których zgodnie z harmonogramem będzie uruchamiane zadanie podrzędne. [Pakiety aplikacji](#application-packages) umożliwiają uproszczone wdrażanie aplikacji uruchamianych w ramach zadań podrzędnych oraz zarządzanie ich wersjami. Pakiety aplikacji na poziomie zadania podrzędnego są szczególnie użyteczne w środowiskach z udostępnioną pulą, w których różne zadania są uruchamiane w jednej puli, a pula nie jest usuwana po ukończeniu zadania. Jeśli liczba zadań podrzędnych w zadaniu jest mniejsza niż liczba węzłów w puli, pakiety aplikacji zadania podrzędnego mogą minimalizować ilość transferowanych danych, ponieważ aplikacja jest wdrażana tylko dla węzłów, w których odbywa się uruchamianie zadań podrzędnych.
+* Odwołanie do **obrazu kontenera** w usłudze Docker Hub lub prywatny rejestr i dodatkowe ustawienia do tworzenia kontenera platformy Docker, w którym zadanie jest uruchamiane w węźle. Te informacje musisz podać tylko wtedy, gdy pula została skonfigurowana za pomocą konfiguracji kontenera.
 
 Oprócz zadań podrzędnych zdefiniowanych do wykonywania obliczeń w węźle w usłudze Batch dostępne są również następujące specjalne zadania podrzędne:
 
@@ -386,39 +389,12 @@ W przypadku zmiennego, ale ciągłego obciążenia zwykle jest stosowane rozwią
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguracja sieci wirtualnej i zapory 
 
-Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej ](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby dowiedzieć się więcej na temat tworzenia sieci wirtualnej z podsieciami, zobacz [Tworzenie sieci wirtualnej platformy Azure z podsieciami](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej ](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).  
 
-Wymagania dotyczące sieci wirtualnej:
+### <a name="vnet-requirements"></a>Wymagania dotyczące sieci wirtualnej
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* Sieć wirtualna musi znajdować się w tym samym **regionie** i **subskrypcji** platformy Azure, co konto usługi Azure Batch.
-
-* Dla pul utworzonych za pomocą konfiguracji maszyny wirtualnej obsługiwane są tylko sieci wirtualne oparte na usłudze Azure Resource Manager (ARM). Dla pul utworzonych za pomocą konfiguracji usługi w chmurze są obsługiwane zarówno sieci wirtualne oparte na usłudze ARM, jak i klasyczne sieci wirtualne. 
-
-* Aby użyć sieci opartej na usłudze ARM, interfejs API klienta usługi Batch musi korzystać z [uwierzytelniania usługi Azure Active Directory](batch-aad-auth.md). Aby użyć klasycznej sieci wirtualnej, jednostka usługi „MicrosoftAzureBatch” musi mieć rolę „Współautora klasycznej maszyny wirtualnej” z kontrolą dostępu opartą na rolach (RBAC) dla określonej sieci wirtualnej. 
-
-* Określona podsieć powinna mieć wystarczającą liczbę wolnych **adresów IP**, aby uwzględnić łączną liczbę węzłów docelowych, czyli sumę właściwości `targetDedicatedNodes` i `targetLowPriorityNodes` puli. Jeśli podsieć nie ma wystarczającej liczby wolnych adresów IP, usługa Batch częściowo przydzieli węzły obliczeniowe w puli, a następnie zwróci błąd dotyczący zmiany rozmiaru.
-
-* Określona podsieć musi zezwalać na komunikację z usługą Batch, aby umożliwiać planowanie zadań w węzłach obliczeniowych. Jeśli komunikacja z węzłami obliczeniowymi zostanie odrzucona przez **sieciową grupę zabezpieczeń** skojarzoną z siecią wirtualną, usługa Batch ustawia stan węzłów obliczeniowych na **nienadające się do użytku**.
-
-* Jeśli określona sieć wirtualna ma skojarzone **sieciowe grupy zabezpieczeń** i/lub **zaporę**, należy włączyć kilka zarezerwowanych portów systemu na potrzeby komunikacji przychodzącej:
-
-- W przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej włącz porty 29876 i 29877 oraz port 22 dla systemu Linux i port 3389 dla systemu Windows. 
-- W przypadku pul utworzonych za pomocą konfiguracji usługi w chmurze włącz porty 10100, 20100 i 30100. 
-- Włącz połączenia wychodzące do usługi Azure Storage w porcie 443. Upewnij się również, że punkt końcowy usługi Azure Storage może zostać rozpoznany przez dowolne niestandardowe serwery DNS, które obsługują sieć wirtualną. W szczególności rozpoznawalny powinien być adres URL formularza `<account>.table.core.windows.net`.
-
-    W poniższej tabeli opisano porty dla ruchu przychodzącego, które należy włączyć w przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej:
-
-    |    Porty docelowe    |    Źródłowy adres IP      |    Czy usługa Batch dodaje sieciowe grupy zabezpieczeń?    |    Wymagane do korzystania z maszyny wirtualnej?    |    Akcja użytkownika   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>W przypadku pul utworzonych za pomocą konfiguracji maszyny wirtualnej: 29876, 29877</li><li>W przypadku pul utworzonych za pomocą konfiguracji usługi w chmurze: 10100, 20100, 30100</li></ul>         |    Tylko adresy IP roli usługi Batch |    Tak. Usługa Batch dodaje sieciowe grupy zabezpieczeń na poziomie interfejsów sieciowych (kart sieciowych) dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń zezwalają tylko na ruch z adresów IP roli usługi Batch. Nawet jeśli otworzysz te porty dla całego Internetu, ruch zostanie zablokowany na poziomie karty sieciowej. |    Tak  |  Nie musisz określać sieciowej grupy zabezpieczeń, ponieważ usługa Batch zezwala tylko na adresy IP usługi Batch. <br /><br /> Jeśli jednak określisz sieciową grupę zabezpieczeń, upewnij się, że te porty zostały otwarte na potrzeby ruchu przychodzącego. <br /><br /> Jeśli wybierzesz * jako źródłowy adres IP w sieciowej grupie zabezpieczeń, usługa Batch również doda sieciowe grupy zabezpieczeń na poziomie kart sieciowych dołączonych do maszyn wirtualnych. |
-    |    3389, 22               |    Maszyny użytkownika używane dla celów debugowania, dzięki czemu można uzyskiwać zdalny dostęp do maszyny wirtualnej.    |    Nie                                    |    Nie                     |    Dodaj sieciowe grupy zabezpieczeń, jeśli chcesz zezwolić na zdalny dostęp (RDP/SSH) do maszyny wirtualnej.   |                 
-
-    W poniższej tabeli opisano port ruchu wychodzącego, który należy włączyć, aby zezwolić na dostęp do usługi Azure Storage:
-
-    |    Porty ruchu wychodzącego    |    Element docelowy    |    Czy usługa Batch dodaje sieciowe grupy zabezpieczeń?    |    Wymagane do korzystania z maszyny wirtualnej?    |    Akcja użytkownika    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    Nie    |    Tak    |    Jeśli dodasz sieciowe grupy zabezpieczeń, sprawdź, czy ten port został otwarty na potrzeby ruchu wychodzącego.    |
-
+Aby uzyskać więcej informacji na temat konfigurowania puli usługi Batch w sieci wirtualnej, zobacz [Create a pool of virtual machines with your virtual network (Tworzenie puli maszyn wirtualnych za pomocą sieci wirtualnej)](batch-virtual-network.md).
 
 ## <a name="scaling-compute-resources"></a>Skalowanie zasobów obliczeniowych
 [Skalowanie automatyczne](batch-automatic-scaling.md) pozwala na to, by usługa Batch dynamicznie dostosowywała liczbę węzłów obliczeniowych w puli zgodnie z bieżącym obciążeniem i użyciem zasobów w ramach scenariusza obliczeniowego. Dzięki temu można zmniejszyć całkowity koszt działania aplikacji przy użyciu tylko potrzebnych zasobów, zwalniając te zbędne.
@@ -525,11 +501,7 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 * Zapoznaj się ze szczegółowym opisem przykładowej aplikacji usługi Batch w temacie [Wprowadzenie do biblioteki usługi Azure Batch dla środowiska .NET](batch-dotnet-get-started.md). Udostępniono również samouczek w [wersji dla języka Python](batch-python-tutorial.md), który umożliwia uruchamianie obciążenia w węzłach obliczeniowych systemu Linux.
-* Pobierz i skompiluj przykładowy projekt programu [Batch Explorer][github_batchexplorer] do użycia podczas tworzenia rozwiązań usługi Batch. Za pomocą programu Batch Explorer można wykonywać m.in. następujące czynności:
-
-  * Monitorowanie pul i zadań w ramach konta usługi Batch i manipulowanie nimi
-  * Pobieranie `stdout.txt`, `stderr.txt` i innych plików z węzłów
-  * Tworzenie użytkowników w węzłach i pobieranie plików RDP do logowania zdalnego
+* Pobierz i zainstaluj narzędzie [BatchLabs][batch_labs], aby używać go podczas opracowywania rozwiązań usługi Batch. Użyj narzędzia BatchLabs do tworzenia, debugowania i monitorowania aplikacji usługi Azure Batch. 
 * Dowiedz się, jak [tworzyć pule węzłów obliczeniowych systemu Linux](batch-linux-nodes.md).
 * Odwiedź witrynę [forum usługi Azure Batch][batch_forum] w witrynie MSDN. Forum to dobre miejsce do zadawania pytań — bez względu na to, czy dopiero uczysz się obsługi usługi Batch, czy też jesteś już ekspertem.
 
@@ -541,7 +513,7 @@ W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplika
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

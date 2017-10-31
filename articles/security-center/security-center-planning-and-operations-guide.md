@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 52e421a62fa24a56a077bc030e03c0fed34305fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Przewodnik planowania i obsługi usługi Azure Security Center
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury, których organizacje planują wdrożenie usługa Azure Security Center.
@@ -130,7 +130,7 @@ Zasady usługi Security Center zawierają następujące składniki:
 - [Warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing): wybór wersji bezpłatnej lub ceny standardowej, który określa, które funkcje usługi Security Center są dostępne dla zasobów w zakresie (można określić dla subskrypcji, grupy zasobów i obszarów roboczych).
 
 > [!NOTE]
-> Określenie kontaktu dotyczącego zabezpieczeń, za pomocą którego platforma Azure może się skontaktować z odpowiednią osobą w Twojej organizacji, jeśli wystąpi incydent zabezpieczeń. Aby uzyskać więcej informacji na temat sposobu włączania tego zalecenia, przeczytaj [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
+> Określenie kontaktu dotyczącego zabezpieczeń, za pomocą którego zespół platformy Azure może się skontaktować z odpowiednią osobą w Twojej organizacji, jeśli wystąpi incydent związany z zabezpieczeniami. Aby uzyskać więcej informacji na temat sposobu włączania tego zalecenia, przeczytaj [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Definicje i zalecenia dotyczące zasad zabezpieczeń
 Usługa Security Center automatycznie tworzy domyślne zasady zabezpieczeń dla każdej Twojej subskrypcji platformy Azure. Możesz edytować zasady w usłudze Security Center lub użyć usługi Azure Policy do utworzenia nowych definicji, zdefiniowania dodatkowych zasad i przypisania zasad w grupach zarządzania (które mogą reprezentować całą organizację, jednostki biznesowe w niej itp.) oraz monitorowania zgodności z tymi zasadami w tych zakresach.

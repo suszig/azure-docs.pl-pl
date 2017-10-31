@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Wdrażanie klastra Docker CE
 
@@ -48,7 +48,7 @@ Dane wyjściowe:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -176,7 +176,7 @@ W tym przewodniku Szybki start wcześniej utworzone obrazy kontenera zostały u�
 
 W tym przewodniku Szybki start wdrożono klaster Docker Swarm oraz wdrożono w nim aplikację obsługującą wiele kontenerów.
 
-Aby dowiedzieć się więcej na temat integracji klastra Docker Swarm z programem Visual Studio Team Services, przejdź do części „Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS”.
+Aby dowiedzieć się więcej na temat integracji klastra Docker Swarm z usługą Visual Studio Team Services, przejdź do części „Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS”.
 
 > [!div class="nextstepaction"]
 > [Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS](./container-service-docker-swarm-setup-ci-cd.md)

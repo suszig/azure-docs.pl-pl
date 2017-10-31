@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/04/2017
+ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 2a175aed40b9775d9a4de6877eb3467b43819568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2c5fbb574f0388af62186047afedfb45f0881a0
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-media-services-overview"></a>Omówienie usługi Azure Media Services 
 
@@ -58,6 +58,10 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 * Istniejące narzędzia:
     * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
+
+## <a name="code-samples"></a>Przykłady kodu
+
+Wiele przykładów kodu możesz znaleźć w galerii **Przykłady kodu platformy Azure**: [Przykłady kodu usługi Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts-and-overview"></a>Pojęcia i omówienie
 Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).

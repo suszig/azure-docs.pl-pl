@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co to są zestawy skalowania maszyn wirtualnych na platformie Azure?
 Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nim. Wszystkie maszyny wirtualne są skonfigurowane tak samo, dzięki czemu zestawy skalowania umożliwiają prawdziwe automatyczne skalowanie i nie jest wymagana wstępna aprowizacja maszyn wirtualnych. Ułatwia to tworzenie usług w dużej skali nakierowane na duże wystąpienia obliczeniowe, dane big data i obciążenia konteneryzowane.
@@ -33,7 +33,7 @@ Aby dowiedzieć się więcej o zestawach skalowania, obejrzyj te klipy wideo:
 * [Zestawy skalowania maszyn wirtualnych według Guya Bowermana](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Tworzenie zestawów skalowania i zarządzanie nimi
-Zestaw skalowania można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję **nowy** i wpisując na pasku wyszukiwania hasło **skalowania**. Na liście wyników wyszukiwania pojawi się pozycja **zestaw skalowania maszyn wirtualnych**. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. W portalu dostępne są również opcje umożliwiające konfigurację podstawowych reguł automatycznego skalowania na podstawie użycia procesora CPU. 
+Zestaw skalowania można utworzyć w witrynie [Azure Portal](https://portal.azure.com), wybierając pozycję **nowy** i wpisując na pasku wyszukiwania hasło **skalowania**. Na liście wyników wyszukiwania pojawi się pozycja **zestaw skalowania maszyn wirtualnych**. Z tego miejsca można wypełnić wymagane pola w celu dostosowania i wdrożenia zestawu skalowania. W portalu dostępne są również opcje umożliwiające konfigurację podstawowych reguł automatycznego skalowania na podstawie użycia procesora CPU. Do zarządzania zestawem skalowania możesz użyć witryny Azure Portal, [poleceń cmdlet programu Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) lub interfejsu wiersza polecenia platformy Azure 2.0.
 
 Zestawy skalowania można wdrożyć w [strefie dostępności](../availability-zones/az-overview.md).
 
@@ -46,8 +46,23 @@ Zestaw przykładowych szablonów dla zestawów skalowania maszyn wirtualnych zna
 
 W przykładach szablonów w przewodniku Szybki start przycisk „Wdróż na platformie Azure” w pliku Readme dla każdego szablonu odsyła do funkcji wdrażania w portalu. Aby wdrożyć zestaw skalowania, kliknij ten przycisk, a następnie wypełnij wymagane parametry w portalu. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Skalowanie zestawu skalowania do wewnątrz i na zewnątrz
-Pojemność zestawu skalowania można zmienić w witrynie Azure Portal, klikając sekcję **Skalowanie** w obszarze **Ustawienia**. 
+
+## <a name="autoscale"></a>Automatyczne skalowanie
+Aby zachować spójną wydajność aplikacji, możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych w zestawie skalowania. Ta możliwość automatycznego skalowania zmniejsza nakład pracy na zarządzanie monitorowaniem i dostrajaniem Twojego zestawu skalowania w miarę, jak z czasem klient żąda zmian. Możesz zdefiniować reguły na podstawie metryki wydajności, odpowiedzi aplikacji lub ustalonego harmonogramu, a Twój zestaw skalowania automatycznie zmieni skalę odpowiednio do potrzeb.
+
+Dla podstawowych reguł automatycznego skalowania możesz użyć metryki wydajności opartej na hoście, takiej jak użycie procesora CPU lub operacje We/Wy dysku. Te metryki oparte na hoście są dostępne od razu po zainstalowaniu i nie trzeba instalować ani konfigurować żadnych dodatkowych agentów. Reguły automatycznego skalowania, które korzystają z metryk opartych na hoście, można utworzyć za pomocą jednego z następujących narzędzi:
+
+- [Witryna Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Interfejs wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Aby użyć bardziej szczegółowych metryk wydajności, możesz zainstalować i skonfigurować rozszerzenie diagnostyki platformy Azure na wystąpieniach maszyn wirtualnych w Twoim zestawie skalowania. Rozszerzenie diagnostyki platformy Azure umożliwia zbieranie dodatkowych metryk wydajności, takich jak zużycie pamięci, z wewnątrz każdego wystąpienia maszyny wirtualnej. Te metryki wydajności są przesyłane strumieniowo do konta magazynu platformy Azure, a użytkownik tworzy reguły automatycznego skalowania, aby wykorzystać te dane. Aby uzyskać więcej informacji, zobacz artykuły o tym, jak włączyć rozszerzenie diagnostyki platformy Azure na [maszynie wirtualnej z systemem Linux](../virtual-machines/linux/diagnostic-extension.md) lub [maszynie wirtualnej z systemem Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Do monitorowania samej wydajności aplikacji możesz zainstalować i skonfigurować mały pakiet instrumentacji w swojej aplikacji w celu uzyskania szczegółowych informacji o aplikacji. Następnie można przesłać strumieniowo szczegółowe metryki wydajności dotyczące czasu odpowiedzi aplikacji lub liczby sesji z powrotem ze swojej aplikacji. Możesz następnie utworzyć reguły automatycznego skalowania ze zdefiniowanymi progami dla samej wydajności na poziomie aplikacji. Aby uzyskać więcej informacji o usłudze Application Insights, zobacz [Co to jest usługa Application Insights](../application-insights/app-insights-overview.md).
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Ręczne skalowanie zestawu skalowania na zewnątrz i do wewnątrz
+Pojemność zestawu skalowania można ręcznie zmienić w witrynie Azure Portal, klikając sekcję **Skalowanie** w obszarze **Ustawienia**. 
 
 Aby zmienić pojemność zestawu skalowania w wierszu polecenia, użyj polecenia **scale** w [interfejsie wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli). Aby na przykład ustawić zestaw skalowania na pojemność 10 maszyn wirtualnych, użyj polecenia:
 
@@ -67,26 +82,6 @@ Aby zwiększyć lub zmniejszyć liczbę maszyn wirtualnych w zestawie skalowania
 
 W przypadku ponownego wdrażania szablonu usługi Azure Resource Manager w celu zmiany pojemności można zdefiniować dużo mniejszy szablon obejmujący jedynie pakiet właściwości **SKU** ze zaktualizowaną pojemnością. [Oto przykład](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Automatyczne skalowanie
-
-Jeśli zestaw skalowania utworzono w witrynie Azure Portal, można go opcjonalnie skonfigurować przy użyciu ustawień automatycznego skalowania. Umożliwi to zwiększanie lub zmniejszanie liczby maszyn wirtualnych na podstawie średniego użycia procesora CPU. 
-
-Wiele szablonów zestawów skalowania w repozytorium [Szablony szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates) definiuje ustawienia automatycznego skalowania. Ustawienia automatycznego skalowania można także dodać do istniejącego zestawu skalowania. Ten przykładowy skrypt programu Azure PowerShell dodaje automatyczne skalowanie na podstawie użycia procesora CPU do zestawu skalowania:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-Listę prawidłowych metryk skalowania można znaleźć w artykule [Metryki obsługiwane z usługą Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) pod nagłówkiem „Microsoft.Compute/virtualMachineScaleSets”. Dostępne są również bardziej zaawansowane opcje automatycznego skalowania, w tym automatyczne skalowanie na podstawie harmonogramu oraz integracja z systemami alertów przy użyciu elementów webhook.
 
 ## <a name="monitoring-your-scale-set"></a>Monitorowanie zestawu skalowania
 W witrynie [Azure Portal](https://portal.azure.com) znajduje się lista zestawów skalowania oraz ich właściwości. Witryna obsługuje również operacje zarządzania. Operacje zarządzania można wykonywać zarówno na zestawach skalowania, jak i na poszczególnych maszynach wirtualnych w zestawie skalowania. Witryna zawiera także dostosowywalny wykres użycia zasobów. 

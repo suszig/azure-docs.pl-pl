@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
-ms.openlocfilehash: 9752a75dc20ec7f92b87ddb50ed74208982bd92e
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 5ca26e7fc6230140ee424e35a8d174613a4a93f4
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/27/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -352,7 +352,7 @@ ms.lasthandoff: 10/24/2017
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>Magazyn danych SQL</p>
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -503,6 +503,12 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/germany/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
                                                 <p>Azure (Niemcy)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/china/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>21Vianet: Microsoft Azure — Chiny</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -880,7 +886,7 @@ ms.lasthandoff: 10/24/2017
                                         <li>
                                             <a href="/en-us/azure/sql-data-warehouse/">
                                                 <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>Magazyn danych SQL</p>
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1210,6 +1216,12 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/managed-applications">
+                                                <img src="media/index/i_managed-application.svg" alt="" />
+                                                <p>Aplikacje zarządzane</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2188,7 +2200,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Magazyn danych SQL</h3>
+                                                    <h3>SQL Data Warehouse</h3>
                                                     <p>Elastyczny magazyn danych jako usługa oferująca funkcje klasy korporacyjnej</p>
                                                 </div>
                                             </div>
@@ -2402,7 +2414,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Magazyn danych SQL</h3>
+                                                    <h3>SQL Data Warehouse</h3>
                                                     <p>Elastyczny magazyn danych jako usługa oferująca funkcje klasy korporacyjnej</p>
                                                 </div>
                                             </div>
@@ -3629,18 +3641,18 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/">
+                                <a href="/azure/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
-                                                    <p>Wdrażanie zasobów platformy Azure i zarządzanie nimi</p>
+                                                    <h3>Aplikacje zarządzane</h3>
+                                                    <p>Zarządzanie wdrożonymi rozwiązaniami dla klientów</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3725,6 +3737,25 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure (Niemcy)</h3>
                                                     <p>Tworzenie i hostowanie aplikacji zgodnych z niemieckimi przepisami oraz najważniejszymi międzynarodowymi standardami z dodatkową kontrolą przez zarządcę danych</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/china/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-germany.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>21Vianet: Microsoft Azure — Chiny</h3>
+                                                    <p>Kompilowanie i hostowanie aplikacji zgodnie z zasadami i przepisami dotyczącymi obsługi danych określonymi przez rząd w Chinach</p>
                                                 </div>
                                             </div>
                                         </div>

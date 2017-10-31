@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Wprowadzenie do usługi Azure CDN
-W tym temacie opisano włączanie usługi Azure CDN z tworzeniem nowego profilu i punktu końcowego usługi CDN.
+W tym artykule opisano włączanie usługi Azure CDN z tworzeniem nowego profilu i punktu końcowego usługi CDN.
 
 > [!IMPORTANT]
-> Wprowadzenie do sposobu działania usługi Azure CDN oraz lista funkcji zostały przedstawione w artykule [Omówienie usługi CDN](cdn-overview.md).
+> Wprowadzenie do usługi CDN i listę funkcji można znaleźć na stronie [Omówienie usługi CDN](cdn-overview.md).
 > 
 > 
 
@@ -64,7 +64,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
 4. Na liście rozwijanej **Typ źródła** wybierz typ źródła.  Wybierz typ **Storage** dla konta usługi Azure Storage, **Usługa w chmurze** dla usługi Azure Cloud Service, **Web App** dla usługi Azure Web App lub **Źródło niestandardowe** dla każdego innego publicznie dostępnego źródła serwera sieci Web (hostowanego na platformie Azure lub gdziekolwiek indziej).
    
     ![Typ źródła usługi CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Na liście rozwijanej **Nazwa hosta źródła** wybierz lub wpisz domenę źródła.  Na liście rozwijanej są wyświetlane wszystkie dostępne źródła typu określonego w kroku 4.  W przypadku wybrania opcji *Źródło niestandardowe* w polu **Typ źródła**, wpisz domenę źródła niestandardowego.
+5. Na liście rozwijanej **Nazwa hosta źródła** wybierz lub wpisz domenę źródła.  Na liście rozwijanej są wyświetlane wszystkie dostępne źródła typu określonego w kroku 4.  W przypadku wybrania pozycji *Źródło niestandardowe* w polu **Typ źródła** wprowadź domenę źródła niestandardowego.
 6. W polu tekstowym **Ścieżka do źródła** wprowadź ścieżkę do zasobów, które chcesz buforować w pamięci podręcznej, lub pozostaw to pole puste, aby umożliwić buforowanie dowolnego zasobu w domenie określonej w kroku 5.
 7. W polu **Nagłówek hosta źródła** wprowadź nagłówek hosta, który usługa CDN ma wysłać z każdym żądaniem, lub pozostaw wartość domyślną.
    
@@ -72,7 +72,7 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
    > Niektóre typy źródeł, takie jak usługi Azure Storage i Web Apps, wymagają, aby nagłówek hosta był zgodny z domeną źródła. Pozostaw wartość domyślną, chyba że masz źródło, które wymaga nagłówka hosta innego niż jego domena.
    > 
    > 
-8. W obszarach **Protokół** i **Port źródła** określ protokoły i porty używane do uzyskiwania dostępu do zasobów w źródle.  Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS).
+8. W obszarach **Protokół** i **Port źródła** określ protokoły i porty używane do uzyskiwania dostępu do zasobów w źródle. Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS). Aby uzyskać dostęp do zawartości HTTPS, użyj domeny udostępnionej przez usługę CDN (`<endpointname>.azureedge.net`). 
    
    > [!NOTE]
    > Ustawienie **Port źródła** określa tylko port używany przez punkt końcowy do pobierania informacji ze źródła.  Sam punkt końcowy jest dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
@@ -82,20 +82,18 @@ Profil CDN jest kolekcją punktów końcowych usługi CDN.  Każdy profil zawier
    > Uzyskiwanie dostępu do zawartości usługi CDN przy użyciu protokołu HTTPS podlega następującym ograniczeniom:
    > 
    > * Należy używać certyfikatu SSL dostarczonego przez usługę CDN. Certyfikaty innych firm nie są obsługiwane.
-   > * Obsługa protokołu HTTPS dla domen niestandardowych usługi Azure CDN jest dostępna tylko w przypadku produktów usługi **Azure CDN from Verizon** (Standard i Premium). Nie jest on obsługiwany w usłudze **Azure CDN from Akamai**. Aby uzyskać więcej informacji, zobacz [Włączanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](cdn-custom-ssl.md).
-
-Aby uzyskać dostęp do zawartości HTTPS, użyj domeny udostępnionej przez usługę CDN (`<endpointname>.azureedge.net`). Obsługa protokołu HTTPS jest niedostępna w przypadku niestandardowych nazw domen (rekordy CNAME), ponieważ usługa CDN obecnie nie obsługuje niestandardowych certyfikatów.
-   > 
-   > 
+   > * Obsługa protokołu HTTPS dla domen niestandardowych usługi Azure CDN jest dostępna tylko w przypadku produktów usługi **Azure CDN from Verizon** (Standard i Premium). Nie jest on obsługiwany w produktach **Azure CDN from Akamai**. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](cdn-custom-ssl.md).
+  
 9. Kliknij przycisk **Dodaj**, aby utworzyć nowy punkt końcowy.
-10. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych dla profilu. Widok listy zawiera adres URL służący do uzyskiwania dostępu do zawartości buforowanej (w pamięci podręcznej), a także domeny źródła.
+   
+   Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych dla profilu.
     
-    ![Punkt końcowy usługi CDN][cdn-endpoint-success]
+   ![Punkt końcowy usługi CDN][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > Punkt końcowy nie będzie natychmiast dostępny do użycia, ponieważ propagacja rejestracji w usłudze CDN zajmuje trochę czasu.  W przypadku profilów usługi <b>Azure CDN from Akamai</b> propagacja zwykle zostanie ukończona w ciągu minuty.  W przypadku profilów usługi <b>Azure CDN from Verizon</b> propagacja zwykle zostanie ukończona w ciągu 90 minut, ale niekiedy może to zająć więcej czasu.
+   > [!IMPORTANT]
+   > Punkt końcowy nie będzie natychmiast dostępny do użycia, ponieważ propagacja rejestracji zajmuje trochę czasu.  W przypadku profili usługi <b>Azure CDN from Akamai</b> propagacja zwykle trwa do minuty. W przypadku profili usługi <b>Azure CDN from Verizon</b> propagacja zwykle trwa do 90 minut, ale niekiedy może to zająć więcej czasu.
     > 
-    > Użytkownicy, którzy spróbują użyć nazwy domeny usługi CDN przed zakończeniem propagacji konfiguracji punktu końcowego do lokalizacji POP otrzymają kody odpowiedzi HTTP 404.  Jeśli od czasu utworzenia punktu końcowego minęło kilka godzin, a nadal otrzymujesz odpowiedzi 404, zapoznaj się z artykułem [Rozwiązywanie problemów z punktami końcowymi usługi CDN zwracającymi stany 404](cdn-troubleshoot-endpoint.md).
+    > Użytkownicy, którzy spróbują użyć nazwy domeny usługi CDN przed zakończeniem propagacji konfiguracji punktu końcowego do lokalizacji POP mogą otrzymać kody odpowiedzi HTTP 404.  Jeśli od czasu utworzenia punktu końcowego minęło kilka godzin, a nadal otrzymujesz odpowiedzi 404, zapoznaj się z artykułem [Rozwiązywanie problemów z punktami końcowymi usługi CDN zwracającymi stany 404](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

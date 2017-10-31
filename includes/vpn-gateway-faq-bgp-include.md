@@ -1,5 +1,5 @@
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Czy protokół BGP jest obsługiwany na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
-Nie, protokół BGP jest obsługiwany przez **standardową** i **wysokowydajną** bramę sieci VPN. **Podstawowa** jednostka SKU nie jest obsługiwana.
+Nie. Protokół BGP jest obsługiwany na bramach sieci VPN **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** i **HighPerformance** na platformie Azure. **Podstawowa** jednostka SKU nie jest obsługiwana.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Czy można użyć protokołu BGP z bramą sieci VPN platformy Azure opartej na zasadach?
 Nie, protokół BGP jest obsługiwany tylko przez bramy sieci VPN opartych na trasach.

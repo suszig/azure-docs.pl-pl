@@ -45,8 +45,10 @@
           href: log-analytics-log-search-faq.md
         - name: Portale do przeszukiwania dzienników
           href: log-analytics-log-search-portals.md
-- name: Instrukcje
+- name: Przewodniki z instrukcjami
   items:
+    - name: Tworzenie obszaru roboczego usługi Log Analytics
+      href: log-analytics-quick-create-workspace.md
     - name: Zbieranie danych
       items:
         - name: Połączone źródła
@@ -154,7 +156,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Activity Log Analytics
           href: log-analytics-activity.md
-        - name: Ocena usługi AD
+        - name: Sprawdzanie kondycji usługi AD
           href: log-analytics-ad-assessment.md
         - name: Stan replikacji usługi AD
           href: log-analytics-ad-replication-status.md
@@ -197,7 +199,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Ocena oprogramowania SCOM
+        - name: Sprawdzanie kondycji oprogramowania SCOM
           href: log-analytics-scom-assessment.md
         - name: Inspekcja zabezpieczeń
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -208,7 +210,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: Mapa usługi
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Ocena serwera SQL
+        - name: Sprawdzanie kondycji bazy danych SQL
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md

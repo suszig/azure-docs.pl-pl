@@ -1,3 +1,5 @@
+Te często zadawane pytania dotyczą połączeń punkt-lokacja wykorzystujących klasyczny model wdrażania.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?
 
 Obsługiwane są następujące systemy operacyjne klientów:
