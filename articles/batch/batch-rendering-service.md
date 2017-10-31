@@ -1,5 +1,5 @@
 ---
-title: "Korzystanie z usługi Azure Batch Rendering w celu renderowania w chmurze | Microsoft Docs"
+title: "Usługa Azure Batch Rendering — renderowanie w skali chmury | Microsoft Docs"
 description: "Renderuj zadania na maszynach wirtualnych platformy Azure bezpośrednio z programu Maya z opłatami za użycie."
 services: batch
 author: v-dotren
@@ -8,17 +8,17 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Wprowadzenie do usługi Batch Rendering
 
 Usługa Azure Batch Rendering oferuje możliwości renderowania w skali chmury z opłatami za użycie. Usługa Batch Rendering obsługuje planowanie i kolejkowanie zadań, zarządzanie niepowodzeniami i ponawianiem prób oraz automatyczne skalowanie zadań renderowania. Usługa Batch Rendering obsługuje programy [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) i [V-Ray](https://www.chaosgroup.com/vray/maya). Wtyczka usługi Batch dla programu Maya 2017 ułatwia rozpoczęcie zadania renderowania na platformie Azure bezpośrednio z pulpitu.
 
-Za pomocą programu Maya i 3ds Max możesz uruchamiać zadania przy użyciu aplikacji klasycznej [Batch Labs](https://github.com/Azure/BatchLabs) lub [szablonów interfejsu wiersza polecenia usługi Batch](batch-cli-templates.md). Przy użyciu interfejsu wiersza polecenia usługi Azure Batch możesz uruchomić zadania usługi Batch bez pisania kodu. Zamiast tego możesz użyć plików szablonów do tworzenia pul, zadań i zadań podrzędnych usługi Batch. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików)](batch-cli-templates.md).
+Za pomocą programów Maya i 3ds Max możesz uruchamiać zadania przy użyciu aplikacji klasycznej [Batch Labs](https://github.com/Azure/BatchLabs) lub [szablonów interfejsu wiersza polecenia usługi Batch](batch-cli-templates.md). Przy użyciu interfejsu wiersza polecenia usługi Azure Batch możesz uruchomić zadania usługi Batch bez pisania kodu. Zamiast tego możesz użyć plików szablonów do tworzenia pul, zadań i zadań podrzędnych usługi Batch. Więcej informacji można znaleźć w temacie [Use Azure Batch CLI Templates and File Transfer (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików)](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Obsługiwane aplikacje
@@ -39,6 +39,7 @@ Aby użyć usługi Batch Rendering, wymagane są następujące elementy:
 - [Konto platformy Azure](https://azure.microsoft.com/free/).
 - **Konto usługi Azure Batch.** Aby uzyskać wskazówki dotyczące tworzenia konta usługi Batch w witrynie Azure Portal, zobacz [Tworzenie konta usługi Batch w witrynie Azure Portal](batch-account-create-portal.md).
 - **Konto usługi Azure Storage.** Zasoby używane w ramach zadania renderowania są przechowywane w usłudze Azure Storage. Konto magazynu możesz utworzyć automatycznie podczas konfigurowania konta usługi Batch. Możesz także użyć istniejącego konta magazynu. Więcej informacji na temat kont magazynu można znaleźć w temacie [Jak utworzyć lub usunąć konto magazynu oraz zarządzać nim w witrynie Azure Portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- **BatchLabs** (opcjonalnie). [BatchLabs](https://azure.github.io/BatchLabs) to bezpłatne, bogate w funkcje, autonomiczne narzędzie klienta pomagające tworzyć, debugować i monitorować aplikacje usługi Azure Batch. Chociaż użycie usługi Rendering nie jest wymagane, jest to przydatna opcja w przypadku wdrażania i debugowania rozwiązań usługi Batch.
 
 Aby użyć wtyczki usługi Batch dla programu Maya, wymagane są następujące elementy:
 
@@ -59,7 +60,7 @@ Aby uzyskać więcej informacji o pulach i węzłach obliczeniowych usługi Batc
 
 **Zadanie** usługi Batch to zbiór zadań podrzędnych uruchamianych w węzłach obliczeniowych w puli. Po przesłaniu zadania renderowania usługa Batch dzieli zadanie na wiele zadań podrzędnych i dystrybuuje je do węzłów obliczeniowych w puli w celu uruchomienia.
 
-Za pomocą witryny [Azure Portal](https://ms.portal.azure.com/) możesz monitorować zadania i diagnozować zadania podrzędne zakończone niepowodzeniem przez pobieranie dzienników aplikacji oraz zdalne łączenie się z poszczególnymi maszynami wirtualnymi przy użyciu protokołu RDP lub SSH. Możesz również zarządzać, monitorować i debugować za pomocą [klienta aplikacji Batch Labs](https://github.com/Azure/BatchLabs).
+Za pomocą witryny [Azure Portal](https://ms.portal.azure.com/) możesz monitorować zadania i diagnozować zadania podrzędne zakończone niepowodzeniem przez pobieranie dzienników aplikacji oraz zdalne łączenie się z poszczególnymi maszynami wirtualnymi przy użyciu protokołu RDP lub SSH. Możesz również zarządzać, monitorować i debugować za pomocą [narzędzia BatchLabs](https://azure.github.io/BatchLabs).
 
 Aby uzyskać więcej informacji o zadaniach usługi Batch, zobacz sekcję [Zadanie](batch-api-basics.md#job) w temacie [Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch](batch-api-basics.md).
 
@@ -69,9 +70,9 @@ Do renderowania zadania może być potrzebne wiele aplikacji, na przykład poł�
 
 ### <a name="pre-configured-vm-images"></a>Wstępnie skonfigurowane obrazy maszyn wirtualnych
 
-Platforma Azure udostępnia obrazy systemu Windows i Linux dla każdej oddzielnej wersji wstępnie zainstalowanych i gotowych do użycia aplikacji Maya, 3ds Max, Arnold i V-Ray. Możesz wybrać te obrazy w witrynie [Azure Portal](https://portal.azure.com), wtyczce Maya lub aplikacji [Batch Labs](https://github.com/Azure/BatchLabs) podczas tworzenia puli.
+Platforma Azure udostępnia obrazy systemu Windows i Linux dla każdej oddzielnej wersji wstępnie zainstalowanych i gotowych do użycia aplikacji Maya, 3ds Max, Arnold i V-Ray. Możesz wybrać te obrazy w witrynie [Azure Portal](https://portal.azure.com), wtyczce Maya lub aplikacji [BatchLabs](https://azure.github.io/BatchLabs) podczas tworzenia puli.
 
-W witrynie Azure Portal i w aplikacji Batch Labs możesz w następujący sposób zainstalować jeden z obrazów maszyn wirtualnych ze wstępnie zainstalowanymi aplikacjami: w sekcji Pule swojego konta usługi Batch wybierz pozycję **Nowy**, a następnie w obszarze **Dodaj pulę** wybierz pozycję **Grafika i renderowanie (Linux/Windows)** na liście rozwijanej **Typ obrazu**:
+W witrynie Azure Portal i w aplikacji BatchLabs możesz w następujący sposób zainstalować jeden z obrazów maszyn wirtualnych ze wstępnie zainstalowanymi aplikacjami: w sekcji Pule swojego konta usługi Batch wybierz pozycję **Nowy**, a następnie w obszarze **Dodaj pulę** wybierz pozycję **Grafika i renderowanie (Linux/Windows)** na liście rozwijanej **Typ obrazu**:
 
 ![Wybieranie typu obrazu dla konta usługi Batch](./media/batch-rendering-service/add-pool.png)
 
@@ -101,17 +102,17 @@ W zależności od używanej aplikacji 3D istnieją różne opcje przesyłania za
 W aplikacji Maya możesz użyć:
 
 - [Wtyczki usługi Batch dla aplikacji Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- Aplikacji klasycznej [Batch Labs](https://github.com/Azure/BatchLabs)
+- Aplikacji klasycznej [BatchLabs](https://azure.github.io/BatchLabs)
 - [Interfejsu wiersza polecenia szablonów usługi Batch](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 W aplikacji 3ds Max możesz użyć:
 
-- Aplikacji klasycznej [Batch Labs](https://github.com/Azure/BatchLabs) (zobacz sekcję dotyczącą [danych aplikacji Batch Labs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax), aby uzyskać wskazówki dotyczące używania szablonów aplikacji 3ds Max Batch Labs)
+- Aplikacji klasycznej [BatchLabs](https://azure.github.io/BatchLabs) (zobacz sekcję dotyczącą [danych aplikacji BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax), aby uzyskać wskazówki dotyczące używania szablonów aplikacji 3ds Max BatchLabs)
 - [Interfejsu wiersza polecenia szablonów usługi Batch](batch-cli-templates.md)
 
-Szablony 3ds Max Batch Labs umożliwiają renderowanie scen aplikacji VRay i Arnold przy użyciu usługi renderowania usługi Azure Batch. Istnieją dwie odmiany szablonu dla aplikacji VRay i Arnold: jeden dla standardowych scen i jeden dla bardziej złożonych scen, które wymagają pliku ścieżki aplikacji 3ds Max do zasobów i tekstur (plik mxp). Aby uzyskać więcej informacji o szablonach aplikacji 3ds Max Batch Labs, zobacz repozytorium [Dane aplikacji Batch Labs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) w usłudze GitHub.
+Szablony 3ds Max Batch Labs umożliwiają renderowanie scen aplikacji VRay i Arnold przy użyciu usługi renderowania usługi Azure Batch. Istnieją dwie odmiany szablonu dla aplikacji VRay i Arnold: jeden dla standardowych scen i jeden dla bardziej złożonych scen, które wymagają pliku ścieżki aplikacji 3ds Max do zasobów i tekstur (plik mxp). Aby uzyskać więcej informacji o szablonach aplikacji 3ds Max Batch Labs, zobacz repozytorium [Dane aplikacji BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) w usłudze GitHub.
 
 Ponadto możesz użyć [zestawu SDK języka Python usługi Batch](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial), aby zintegrować usługę renderowania z istniejącym potokiem.
 

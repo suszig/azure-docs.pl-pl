@@ -1,0 +1,88 @@
+- name: Aplikacje zarządzane na platformie Azure
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o aplikacjach zarządzanych
+      href: overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie aplikacji zarządzanych za pomocą interfejsu wiersza polecenia platformy Azure
+      href: managed-apps-quickstart-cli.md
+- name: Samouczki
+  items:
+    - name: Tworzenie aplikacji w katalogu usług
+      href: publish-service-catalog-app.md
+    - name: Tworzenie aplikacji w witrynie Marketplace
+      href: publish-marketplace-app.md
+- name: Przykłady
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+    - name: Rozwiązania aplikacji zarządzanych
+      href: sample-projects.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Definiowanie interfejsu użytkownika
+      href: create-uidefinition-overview.md
+    - name: Aktualizowanie zarządzanych zasobów
+      href: update-managed-resources.md
+    - name: Publikowanie aplikacji w katalogu usług — portal
+      href: publish-portal.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Funkcje interfejsu użytkownika
+      href: create-uidefinition-functions.md
+    - name: Elementy interfejsu użytkownika
+      href: create-uidefinition-elements.md
+      items:
+        - name: Wspólne
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Sekcja
+              href: microsoft-common-section.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Wystąpienia obliczeniowe
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Sieć
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Magazyn
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

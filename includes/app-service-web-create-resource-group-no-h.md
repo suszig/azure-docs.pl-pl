@@ -8,4 +8,4 @@ Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup*
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-Zasadniczo grupy zasobów i zasoby są tworzone w pobliskim regionie. Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi Azure Web Apps, uruchom polecenie `az appservice list-locations`. 
+Zasadniczo grupy zasobów i zasoby są tworzone w pobliskim regionie. Aby wyświetlić wszystkie obsługiwane lokalizacje dla planów usługi App Service, uruchom polecenie `az appservice list-locations`.

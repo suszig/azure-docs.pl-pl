@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
-## <a name="introduction"></a>Wprowadzenie
+
 Tworzenie aplikacji dla platformy Microsoft Azure przy użyciu programu Visual Studio oraz bezpłatnego zestawu Azure SDK dla platformy .NET jest proste. Ten samouczek przeprowadzi Cię przez etapy tworzenia aplikacji, która używa wielu zasobów platformy Azure działających w środowisku lokalnym.
 
 Dowiesz się:
@@ -68,7 +68,7 @@ Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne na
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
-Następnym krokiem jest utworzenie przestrzeni nazw usługi i uzyskanie klucza sygnatury dostępu współdzielonego. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Następnym krokiem jest utworzenie *przestrzeni nazw* i uzyskanie dla niej [klucza sygnatury dostępu współdzielonego](service-bus-sas.md). Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja nazwy przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
 2. W pozycji **Zainstalowane szablony** w obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Usługa w chmurze Azure**. Nazwij projekt **MultiTierApp**. Następnie kliknij przycisk **OK**.
    
    ![][9]
-3. Wśród ról platformy **.NET Framework 4.5** kliknij dwukrotnie pozycję **Role sieci Web ASP.NET**.
+3. W okienku **Role** kliknij dwukrotnie pozycję **Role sieci Web ASP.NET**.
    
    ![][10]
 4. Zatrzymaj kursor nad pozycją **WebRole1** w polu **Rozwiązania dla usług w chmurze Azure**, kliknij ikonę ołówka i zmień nazwę roli sieci Web na **FrontendWebRole**. Następnie kliknij przycisk **OK**. (Upewnij się, że wpisana nazwa to „Frontend”, pisana przez małe „e”, a nie „FrontEnd”.)
@@ -92,12 +92,12 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
 5. W oknie dialogowym **Nowy projekt ASP.NET** na liście **Wybierz szablon** kliknij pozycję **MVC**.
    
    ![][12]
-6. W tym samym oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **Zmień uwierzytelnianie**. W oknie dialogowym **Zmienianie uwierzytelniania** kliknij pozycję **Bez uwierzytelniania**, a następnie kliknij przycisk **OK**. W tym samouczku wdrożysz aplikację, która nie wymaga logowania użytkownika.
+6. W tym samym oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **Zmień uwierzytelnianie**. W oknie dialogowym **Zmienianie uwierzytelniania** upewnij się, że pole wyboru **Bez uwierzytelniania** jest zaznaczone, a następnie kliknij przycisk **OK**. W tym samouczku wdrożysz aplikację, która nie wymaga logowania użytkownika.
    
     ![][16]
 7. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**, aby utworzyć projekt.
 8. W **Eksploratorze rozwiązań** w projekcie **FrontendWebRole** kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
-9. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Wybierz pakiet **WindowsAzure.ServiceBus**, kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
+9. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg **WindowsAzure.ServiceBus**. Wybierz pakiet **WindowsAzure.ServiceBus**, kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
    
    ![][13]
    
@@ -182,12 +182,12 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
 5. Teraz utwórz widok dla metody `Submit()`, która została utworzona wcześniej. Kliknij prawym przyciskiem myszy w obrębie metody `Submit()` (przeciążenie metody `Submit()`, która nie przyjmuje żadnych parametrów), a następnie wybierz pozycję **Dodaj widok**.
    
    ![][14]
-6. Zostanie wyświetlone okno dialogowe tworzenia widoku. Na liście **Szablony** wybierz pozycję **Utwórz**. Na liście **Klasa modelu** wybierz klasę **OnlineOrder**.
+6. Zostanie wyświetlone okno dialogowe tworzenia widoku. Na liście **Szablony** wybierz pozycję **Utwórz**. Z listy **Klasa modelu** wybierz klasę **OnlineOrder**.
    
    ![][15]
 7. Kliknij pozycję **Dodaj**.
 8. Teraz zmień nazwę wyświetlaną aplikacji. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Shared\\_Layout.cshtml**, aby otworzyć go w edytorze programu Visual Studio.
-9. Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **LITWARE'S Products**.
+9. Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **Northwind Traders Products**.
 10. Usuń linki **Home**, **About** oraz **Contact**. Usuń wyróżniony kod:
     
     ![][28]
@@ -361,9 +361,9 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  
 
-* [Dokumentacja usługi Azure Service Bus][sbdocs]  
+* [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Rozpoczynanie korzystania z kolejek usługi Service Bus][sbacomqhowto]
 * [Service Bus service page][sbacom] (Strona usługi Service Bus)  
-* [Jak używać kolejek usługi Service Bus][sbacomqhowto]  
 
 Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:  
 
@@ -390,7 +390,6 @@ Aby dowiedzieć się więcej na temat wielowarstwowych scenariuszy, zobacz:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

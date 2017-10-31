@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus
 
@@ -48,7 +48,7 @@ Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już 
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Tworzenie tematu przy użyciu witryny Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal][azure-portal].
-2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług**).
+2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług** lub pozycję **Wszystkie zasoby**).
 3. Kliknij przestrzeń nazw, w której chcesz utworzyć temat. Zostanie wyświetlony blok Przegląd przestrzeni nazw:
    
     ![Tworzenie tematu][createtopic1]

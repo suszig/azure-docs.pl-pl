@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure
 [Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Niniejszy przewodnik Szybki start pomaga w utworzeniu klastra o pięciu węzłach, z systemem Windows lub Linux, za pośrednictwem środowiska [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) lub witryny [Azure Portal](http://portal.azure.com) w ciągu kilku minut.  
@@ -33,7 +33,7 @@ Zaloguj się w witrynie Azure Portal pod adresem [http://portal.azure.com](http:
 ### <a name="create-the-cluster"></a>Tworzenie klastra
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
-2. Wybierz pozycję **Compute** w bloku **Nowy**, a następnie wybierz opcję **Klaster usługi Service Fabric** w bloku **Compute**.
+2. Wyszukaj pozycję **Service Fabric** i wybierz ze zwróconych wyników pozycję **Klaster usługi Service Fabric** w obszarze **Klaster usługi Service Fabric**.  Kliknij przycisk **Utwórz**.
 3. Uzupełnij formularz **Podstawy** usługi Service Fabric. W sekcji **System operacyjny** wybierz wersję systemu Windows lub Linux, którego chcesz używać w węzłach klastra. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
 
     ![Dane wyjściowe instalacji klastra][cluster-setup-basics]
@@ -98,83 +98,83 @@ Usuń grupę zasobów w witrynie Azure Portal:
     ![Usuwanie grupy zasobów][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Wdrażanie zabezpieczonego klastra systemu Windows przy użyciu programu Azure PowerShell
+## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 1. Pobierz na komputer [moduł Azure Powershell w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-2. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie. 
-    
-    ```powershell
-
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    Powinny pojawić się dane wyjściowe podobne do następujących.
-
-    ![ps-list][ps-list]
-
-3. Zaloguj się do platformy Azure i wybierz subskrypcję, dla której chcesz utworzyć klaster.
+2. Uruchom polecenie cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster), aby utworzyć klaster usługi Service Fabric z 5 węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-OS*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami. 
 
     ```powershell
+    #Provide the subscription Id
+    $subscriptionId = 'yourSubscriptionId'
 
-    Login-AzureRmAccount
-
-    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
-    ```
-
-4. Uruchom następujące polecenie, aby utworzyć teraz zabezpieczony klaster. Pamiętaj o dostosowaniu parametrów. 
-
-    ```powershell
+    # Certificate variables.
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-    $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
-    $clusterloc="SouthCentralUS"
-    $subname="$RGname.$clusterloc.cloudapp.azure.com"
     $certfolder="c:\mycertificates\"
-    $clustersize=1 # can take values 1, 3-99
 
-    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    # Variables for VM admin.
+    $adminuser="vmadmin"
+    $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+    # Variables for common values
+    $clusterloc="SouthCentralUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=5 
+
+    # Set the context to the subscription ID where the cluster will be created
+    Login-AzureRmAccount
+    Get-AzureRmSubscription
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+    # Create the Service Fabric cluster.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Wykonanie tego polecenia może potrwać od 10 do 30 minut. Na koniec powinny zostać wyświetlone dane wyjściowe podobne do następujących. Dane wyjściowe zawierają informacje dotyczące certyfikatu, usługi KeyVault, do której został przekazany certyfikat, i folderu lokalnego, do którego został skopiowany. 
+    Wykonanie tego polecenia może potrwać od 10 do 30 minut. Na koniec powinny zostać wyświetlone dane wyjściowe podobne do następujących. Dane wyjściowe zawierają informacje dotyczące certyfikatu, usługi KeyVault, do której został przekazany certyfikat, i folderu lokalnego, do którego został skopiowany.     
 
-    ![ps-out][ps-out]
+3. Skopiuj wszystkie dane wyjściowe i zapisz je w pliku tekstowym do przyszłego użycia. Zanotuj następujące informacje z danych wyjściowych. 
 
-5. Skopiuj wszystkie dane wyjściowe i zapisz je w pliku tekstowym do przyszłego użycia. Zanotuj następujące informacje z danych wyjściowych. 
-
-    - **CertificateSavedLocalPath** : c:\mojecertyfikaty\mojklaster20170504141137.pfx
-    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-    - **ManagementEndpoint** : https://mojklaster.southcentralus.cloudapp.azure.com:19080
-    - **ClientConnectionEndpointPort** : 19000
+    - CertificateSavedLocalPath
+    - CertificateThumbprint
+    - ManagementEndpoint
+    - ClientConnectionEndpointPort
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Instalowanie certyfikatu na komputerze lokalnym
   
 Aby połączyć się z klastrem, należy zainstalować certyfikat w magazynie osobistym bieżącego użytkownika. 
 
-Uruchom następujące polecenie programu PowerShell.
+Uruchom następujące polecenie:
 
 ```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
-        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+        -FilePath C:\mycertificates\<certificatename>.pfx `
+        -Password $certpwd
 ```
 
 Teraz możesz przystąpić do nawiązywania połączenia z zabezpieczonym klastrem.
 
 ### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem 
 
-Uruchom następujące polecenie programu PowerShell w celu nawiązania połączenia z zabezpieczonym klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem, który został użyty do skonfigurowania klastra. 
+Uruchom polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster), aby nawiązać połączenie z bezpiecznym klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem, który został użyty do skonfigurowania klastra. 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -X509Credential -ServerCertThumbprint <CertificateThumbprint> `
+          -FindType FindByThumbprint -FindValue <CertificateThumbprint> `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-
-W poniższym przykładzie pokazano uzupełnione parametry: 
+Poniżej pokazano przykładowe parametry: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
@@ -195,11 +195,10 @@ Get-ServiceFabricClusterHealth
 Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. 
 
 ```powershell
-
-Remove-AzureRmResourceGroup -Name $RGname -Force
-
+$groupname="mysfclustergroup"
+Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
-## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Wdrażanie zabezpieczonego klastra systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) na komputerze.
 2. Zaloguj się do platformy Azure i wybierz subskrypcję, w ramach której chcesz utworzyć klaster.
@@ -207,7 +206,7 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
    az login
    az account set --subscription <GUID>
    ```
-3. Uruchom polecenie [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), aby utworzyć zabezpieczony klaster.
+3. Uruchom polecenie [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), aby utworzyć klaster usługi Service Fabric z 5 węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-os*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami.
 
     ```azurecli
     #!/bin/bash
@@ -260,6 +259,14 @@ ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
 ```
 
+### <a name="remove-the-cluster"></a>Usuwanie klastra
+Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. 
+
+```azurecli
+ResourceGroupName = "aztestclustergroup"
+az group delete --name $ResourceGroupName
+```
+
 ## <a name="next-steps"></a>Następne kroki
 Teraz po skonfigurowaniu klastra programowania możesz spróbować wykonać następujące czynności:
 * [Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
@@ -273,5 +280,3 @@ Teraz po skonfigurowaniu klastra programowania możesz spróbować wykonać nast
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG

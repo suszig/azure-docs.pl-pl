@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -58,15 +58,15 @@ Proces jest prosty: nadawca wysyła komunikat do kolejki usługi Service Bus, a 
 
 Każdy komunikat ma dwie części: zbiór właściwości, z których każda jest parą klucz/wartość, oraz ładunek komunikatu. Ładunkiem mogą być dane binarne, tekstowe, a nawet plik XML. Sposób ich używania zależy od tego, co aplikacja próbuje zrobić. Na przykład aplikacja wysyłająca komunikat o ostatniej sprzedaży może dołączać właściwości **Seller="Ava"** i **Amount=10000**. Treść komunikatu może zawierać zeskanowany obraz podpisanej umowy sprzedaży lub, jeśli nie istnieje, pozostać pusta.
 
-Odbiornik może odczytywać komunikaty z kolejki usługi Service Bus na dwa różne sposoby. Pierwsza opcja o nazwie *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* usuwa komunikat z kolejki i natychmiast go kasuje. Jest to proste, ale jeśli odbiornik ulegnie awarii przed zakończeniem przetwarzania komunikatu, komunikat zostanie utracony. Ponieważ został usunięty z kolejki, żaden inny odbiornik nie może już uzyskać do niego dostępu. 
+Odbiornik może odczytywać komunikaty z kolejki usługi Service Bus na dwa różne sposoby. Pierwsza opcja o nazwie *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)* otrzymuje komunikat z kolejki i natychmiast go usuwa. Jest to proste, ale jeśli odbiornik ulegnie awarii przed zakończeniem przetwarzania komunikatu, komunikat zostanie utracony. Ponieważ został usunięty z kolejki, żaden inny odbiornik nie może już uzyskać do niego dostępu. 
 
-Druga opcja, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, ma pomóc w rozwiązaniu tego problemu. Podobnie jak w przypadku opcji **ReceiveAndDelete**, odczyt za pomocą opcji **PeekLock** usuwa komunikat z kolejki. Nie powoduje jednak skasowania (faktycznego usunięcia) komunikatu. Zamiast tego blokuje komunikat, ukrywając go przed innymi odbiornikami, a następnie czeka na jedno z trzech zdarzeń:
+Druga opcja, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, ma pomóc w rozwiązaniu tego problemu. Podobnie jak w przypadku opcji **ReceiveAndDelete**, odczyt za pomocą opcji **PeekLock** usuwa komunikat z kolejki. Nie powoduje jednak skasowania (faktycznego usunięcia) komunikatu. Zamiast tego blokuje komunikat, ukrywając go przed innymi odbiornikami, a następnie czeka na jedno z trzech zdarzeń:
 
-* Jeśli odbiornik pomyślnie przetworzy komunikat, wywołuje metodę [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), a kolejka usuwa komunikat. 
-* Jeśli odbiornik zadecyduje, że nie może przetworzyć komunikatu, wywołuje metodę [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Kolejka następnie usuwa blokadę z komunikatu i umożliwia dostęp do niego innym odbiornikom.
+* Jeśli odbiornik pomyślnie przetworzy komunikat, wywołuje metodę [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync), a kolejka usuwa komunikat. 
+* Jeśli odbiornik zadecyduje, że nie może przetworzyć komunikatu, wywołuje metodę [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). Kolejka następnie usuwa blokadę z komunikatu i umożliwia dostęp do niego innym odbiornikom.
 * Jeśli odbiornik nie wywoła żadnej z tych metod w skonfigurowanym czasie (domyślnie 60 sekund), kolejka zakłada, że wystąpił błąd odbiornika. W takim przypadku zachowuje się tak, jak gdyby odbiornik wywołał metodę **Abandon**, udostępniając komunikat innym odbiornikom.
 
-Zauważ, że w tej sytuacji może się zdarzyć, że ten sam komunikat zostanie dostarczony dwukrotnie, być może do dwóch różnych odbiorników. Aplikacje korzystające z kolejek usługi Service Bus muszą być przygotowane na to zdarzenie. Aby ułatwić wykrywanie duplikatów, każdy komunikat ma unikatową wartość właściwości [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId), która domyślnie pozostaje taka sama niezależnie od tego, ile razy komunikat został odczytany z kolejki. 
+Zauważ, że w tej sytuacji może się zdarzyć, że ten sam komunikat zostanie dostarczony dwukrotnie, być może do dwóch różnych odbiorników. Aplikacje korzystające z kolejek usługi Service Bus muszą być przygotowane na to zdarzenie. Aby ułatwić wykrywanie duplikatów, każdy komunikat ma unikatową wartość właściwości [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId), która domyślnie pozostaje taka sama niezależnie od tego, ile razy komunikat został odczytany z kolejki. 
 
 Kolejki są przydatne w kilku sytuacjach. Umożliwiają one aplikacjom komunikowanie się nawet wtedy, gdy nie są uruchomione w tym samym czasie, co jest szczególnie przydatne w przypadku aplikacji wsadowych i aplikacji mobilnych. Kolejka z wieloma odbiornikami zapewnia również automatyczne równoważenie obciążenia, ponieważ wysłane wiadomości są rozkładane między te odbiorniki.
 
@@ -84,7 +84,7 @@ Pomimo swojej przydatności, kolejki nie zawsze są odpowiednim rozwiązaniem. C
 * Subskrybent 2 odbiera komunikaty, które zawierają właściwość *Seller="Ruby"* i/lub zawierają właściwość *Amount* o wartości większej niż 100 000. Być może Ruby jest kierownikiem ds. sprzedaży, więc chce widzieć własną sprzedaż i wszystkie duże transakcje sprzedaży niezależnie od tego, kto ich dokonuje.
 * Subskrybent 3 ustawił filtr na wartość *True*, co oznacza, że odbiera wszystkie komunikaty. Ta aplikacja może być na przykład odpowiedzialna za utrzymanie dziennika inspekcji i w związku z tym musi widzieć wszystkie komunikaty.
 
-Podobnie jak w przypadku kolejek, subskrybenci tematu mogą odczytywać komunikaty przy użyciu metody [ReceiveAndDelete lub PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). W przeciwieństwie do kolejek pojedynczy komunikat wysłany do tematu może zostać odebrany w ramach wielu subskrypcji. Takie podejście, często nazywane *publikowaniem i subskrybowaniem* (lub *publikowaniem/subskrypcją*), jest przydatne, gdy wiele aplikacji jest zainteresowanych tymi samymi komunikatami. Dzięki zdefiniowaniu właściwego filtru każdy subskrybent może korzystać tylko z tej części strumienia komunikatów, którą chce wyświetlać.
+Podobnie jak w przypadku kolejek, subskrybenci tematu mogą odczytywać komunikaty przy użyciu metody [ReceiveAndDelete lub PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). W przeciwieństwie do kolejek pojedynczy komunikat wysłany do tematu może zostać odebrany w ramach wielu subskrypcji. Takie podejście, często nazywane *publikowaniem i subskrybowaniem* (lub *publikowaniem/subskrypcją*), jest przydatne, gdy wiele aplikacji jest zainteresowanych tymi samymi komunikatami. Dzięki zdefiniowaniu właściwego filtru każdy subskrybent może korzystać tylko z tej części strumienia komunikatów, którą chce wyświetlać.
 
 ## <a name="relays"></a>Przekaźniki
 

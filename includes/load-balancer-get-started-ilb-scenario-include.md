@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scenariusz
+## <a name="configuration-scenario"></a>Scenariusz konfiguracji
 
-Tworzenie wewnętrznego modułu równoważenia obciążenia zgodnie z poniższym scenariuszem
+W tym scenariuszu tworzymy wewnętrzny moduł równoważenia obciążenia w sieci wirtualnej, co zostało pokazane na poniższej ilustracji:
 
-![OPIS ILUSTRACJI](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scenariusz wewnętrznego modułu równoważenia obciążenia](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Wewnętrzny moduł równoważenia obciążenia jest konfigurowany w sieci wirtualnej
+Konfiguracja w naszym scenariuszu jest następująca:
 
-* 2 maszyny wirtualne o nazwach DB1 i DB2
-* Punkty końcowe
+* Dwie maszyny wirtualne o nazwach **DB1** i **DB2**
+* Punkty końcowe dla wewnętrznego modułu równoważenia obciążenia
 * Wewnętrzny moduł równoważenia obciążenia

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Wprowadzenie do serwera Azure Multi-Factor Authentication
 
@@ -89,26 +89,42 @@ Jeśli nie używasz funkcji potwierdzania zdarzeń i użytkownicy nie korzystaj�
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Pobieranie serwera Azure Multi-Factor Authentication
+## <a name="download-the-mfa-server---public-preview"></a>Pobieranie serwera MFA w publicznej wersji zapoznawczej
+
+Aby pobrać serwer Azure Multi-Factor Authentication z witryny Azure Portal, wykonaj następujące czynności:
+
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
+2. Wybierz kolejno pozycje **Active Directory**  >  **Multi-Factor Authentication**.
+3. Wybierz pozycję **Ustawienia serwera**.
+4. Wybierz pozycję **Pobierz** i postępuj zgodnie z instrukcjami wyświetlanymi na stronie pobierania, aby zapisać instalator. 
+
+   ![Pobieranie serwera usługi MFA](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Nie zamykaj tej strony, ponieważ będziemy odwoływać się do niej po uruchomieniu instalatora.
+
+
+## <a name="download-the-mfa-server"></a>Pobieranie serwera MFA
+
+Aby pobrać serwer Azure Multi-Factor Authentication z portalu pfweb, wykonaj następujące czynności:
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
 2. W obszarze po lewej stronie wybierz pozycję **Active Directory**
-3. Kliknij pozycję **Użytkownicy i grupy**
-4. Kliknij pozycję **Wszyscy użytkownicy**
-5. Kliknij pozycję **Multi-Factor Authentication**
+3. Wybierz pozycję **Użytkownicy i grupy**
+4. Wybierz pozycję **Wszyscy użytkownicy**
+5. Wybierz pozycję **Multi-Factor Authentication**
 6. W obszarze **uwierzytelniania wieloskładnikowego** wybierz pozycję **ustawienia usługi**
 
    ![Strona Ustawienia usługi](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. Na stronie ustawień usługi, w dolnej części ekranu, kliknij opcję **Przejdź do portalu**. Zostanie otwarta nowa strona.
-7. Kliknij pozycję **Pliki do pobrania**.
+7. Wybierz pozycję **Pliki do pobrania**.
 8. Kliknij link **Pobierz** link i zapisz instalator.
 
    ![Pobieranie serwera usługi MFA](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Nie zamykaj tej strony, ponieważ będziemy odwoływać się do niej po uruchomieniu instalatora.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Instalowanie i konfigurowanie serwera usługi Azure Multi-Factor Authentication
+## <a name="install-and-configure-the-mfa-server"></a>Instalowanie i konfigurowanie serwera MFA
 
 Po pobraniu serwera możesz go zainstalować i skonfigurować. Sprawdź, czy serwer, na którym zamierzasz go zainstalować, spełnia wymagania podane w sekcji dotyczącej planowania.
 

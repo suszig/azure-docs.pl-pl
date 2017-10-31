@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
 
 ### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **Microsoft Azure Service Bus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **WindowsAzure.ServiceBus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
    
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
@@ -115,7 +115,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
         }
     }
     ```
-3. Uruchom program i sprawdź witrynę Azure Portal: kliknij nazwę swojej kolejki w bloku **Przegląd** przestrzeni nazw. Zostanie wyświetlony blok **Podstawowe elementy** kolejki. Zauważ, że wartość **Liczba aktywnych komunikatów** powinna teraz wynosić 1. Przy każdym uruchomieniu aplikacji nadawcy bez pobierania komunikatów ta wartość zwiększa się o 1. Należy również pamiętać, że bieżący rozmiar kolejki rośnie za każdym razem, gdy aplikacja dodaje komunikat do kolejki.
+3. Uruchom program i sprawdź witrynę Azure Portal: kliknij nazwę swojej kolejki w oknie **Przegląd** przestrzeni nazw. Zostanie wyświetlone okno **Podstawowe elementy** kolejki. Zauważ, że wartość **Liczba aktywnych komunikatów** powinna teraz wynosić 1. Przy każdym uruchomieniu aplikacji nadawcy bez pobierania komunikatów ta wartość zwiększa się o 1. Należy również pamiętać, że bieżący rozmiar kolejki rośnie za każdym razem, gdy aplikacja dodaje komunikat do kolejki.
    
       ![Rozmiar komunikatu][queue-message]
 
@@ -178,7 +178,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
    
     ![Długość kolejki][queue-message-receive]
 
-Gratulacje! Utworzono kolejkę, wysłano komunikat i odebrano komunikat.
+Gratulacje! Utworzono kolejkę, wysłano do niej komunikat i odebrano z niej komunikat.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -189,4 +189,4 @@ Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://gi
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Przyznawanie dostępu do danych w środowisku usługi Time Series Insights przy użyciu witryny Azure Portal
 
@@ -42,12 +42,13 @@ Dwa rodzaje zasad pozwalają wyraźnie oddzielić dostęp do zarządzania środo
 Poniższe kroki przedstawiają procedurę przyznawania dostępu do danych dla nazwy głównej użytkownika:
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2.  W menu po lewej stronie w witrynie Azure Portal kliknij pozycję „Wszystkie zasoby”.
-3.  Wybierz środowisko usługi Time Series Insights.
+2.  W oknie wyszukiwania wpisz „Time Series”.
+3.  Kliknij opcję środowiska usługi Time Series.
+4.  Wybierz środowisko usługi Time Series Insights z listy.
 
   ![Zarządzanie źródłem usługi Time Series Insights — środowisko](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Wybierz pozycję „Dostęp do płaszczyzny danych” i kliknij przycisk „Dodaj”.
+4.  Wybierz opcję „Zasady dostępu do danych”, a następnie kliknij przycisk „Dodaj”.
 
   ![Zarządzanie źródłem usługi Time Series Insights — dodawanie](media/data-access/getstarted-grant-data-access2.png)
 
