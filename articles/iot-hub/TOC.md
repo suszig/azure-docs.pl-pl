@@ -86,6 +86,7 @@
 ### Przekazywanie plików z urządzeń
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń
 #### [Zaplecze środowiska Node.js/urządzenie środowiska Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Zaplecze środowiska .NET/urządzenie środowiska Node.js](iot-hub-csharp-node-twin-getstarted.md)

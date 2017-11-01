@@ -19,6 +19,7 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
     - name: Azure PowerShell
+      href: powershell-samples.md
     - name: Rozwiązania aplikacji zarządzanych
       href: sample-projects.md
 - name: Przewodniki z instrukcjami
