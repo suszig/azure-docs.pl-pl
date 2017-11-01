@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Samouczki
   items:
-    - name: Replikacja geograficzna
+    - name: Replikacja geograficzna (wersja zapoznawcza)
       items:
         - name: 1 — Przygotowanie rejestru kontenerów
           href: container-registry-tutorial-prepare-registry.md
