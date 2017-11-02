@@ -35,9 +35,9 @@
 ### [Łączenie dzierżawy usługi Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Płatność za subskrypcje przy użyciu faktury](billing-how-to-pay-by-invoice.md)
 ## Rozwiązywanie problemów
-### [Problemy dotyczące rejestrowania](billing-troubleshoot-azure-sign-up-issues.md)
-### [Odrzucona karta](billing-credit-card-fails-during-azure-sign-up.md)
-### [Problemy dotyczące logowania](billing-cannot-login-subscription.md)
+### [Problemy dotyczące rejestrowania](https://support.microsoft.com/en-us/help/4042959)
+### [Odrzucona karta](https://support.microsoft.com/en-us/help/4042960)
+### [Problemy dotyczące logowania](https://support.microsoft.com/en-us/help/4042961)
 ### [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](billing-no-subscriptions-found.md)
 ### [Wyłączony widok kosztów przedsiębiorstwa](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
