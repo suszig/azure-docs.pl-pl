@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
+# <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory
+ 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Wersja 1 — ogólnie dostępna](v1/data-factory-introduction.md)
 > * [Wersja 2 — wersja zapoznawcza](introduction.md)
@@ -41,7 +42,7 @@ Ponadto umożliwiają publikowanie danych wyjściowych w magazynach danych, np. 
 ![Widok najwyższego poziomu usługi Data Factory](media/introduction/big-picture.png)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [Wprowadzenie do usługi Data Factory w wersji 1](v1/data-factory-introduction.md).
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [Introduction to Data Factory version 1](v1/data-factory-introduction.md) (Wprowadzenie do usługi Data Factory w wersji 1).
 
 ## <a name="how-does-it-work"></a>Jak to działa?
 Potoki (oparte na danych przepływy pracy) w usłudze Azure Data Factory zwykle wykonują następujące cztery kroki:
@@ -174,7 +175,7 @@ Aby uzyskać więcej informacji o pojęciach związanych z usługą Data Factory
 
 Obecnie fabryki danych można tworzyć w regionach Wschodnie stany USA oraz Wschodnie stany USA 2. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych.
 
-Sama usługa Fabryka danych Azure nie przechowuje żadnych danych. Usługa umożliwia tworzenie opartych na danych przepływów pracy do aranżowania przenoszenia danych między obsługiwanymi magazynami danych oraz przetwarzania danych przy użyciu usług obliczeniowych w innych regionach lub w środowisku lokalnym. Umożliwia także monitorowanie przepływów pracy i zarządzanie nimi przy użyciu zarówno mechanizmów programowych, jak i interfejsu użytkownika.
+Sama usługa Azure Data Factory nie przechowuje żadnych danych. Usługa umożliwia tworzenie opartych na danych przepływów pracy do aranżowania przenoszenia danych między obsługiwanymi magazynami danych oraz przetwarzania danych przy użyciu usług obliczeniowych w innych regionach lub w środowisku lokalnym. Umożliwia także monitorowanie przepływów pracy i zarządzanie nimi przy użyciu zarówno mechanizmów programowych, jak i interfejsu użytkownika.
 
 Chociaż usługa Data Factory jest dostępna tylko w regionach Wschodnie stany USA i Wschodnie stany USA 2, to usługa zapewniająca przenoszenie danych w usłudze Data Factory jest dostępna globalnie w kilku regionach. Jeśli magazyn danych znajduje się za zaporą, dane są przenoszone przez bramę zarządzania danymi zainstalowaną w środowisku lokalnym.
 

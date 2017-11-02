@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
 
@@ -44,7 +44,7 @@ Dostępne są dwa modele urządzenia StorSimple w chmurze: standardowy — 8010 
 | **Maksymalna pojemność** |30 TB |64 TB |
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci)| Standard_DS3 (4 rdzenie, 14 GB pamięci)|
 | **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony świadczenia usługi Azure obsługujące usługę Premium Storage i maszyny wirtualne DS3 platformy Azure<br></br>Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**. |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/common/storage-premium-storage.md) |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../virtual-machines/windows/premium-storage.md) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Scenariusze tworzenia i testowania w chmurze <br></br>Obciążenia o małych opóźnieniach i większej wydajności<br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *Poprzednia nazwa: 1100*.
@@ -93,7 +93,7 @@ Przed aprowizowaniem urządzenia w chmurze wykonaj następujące czynności przy
 Przed utworzeniem urządzenia w chmurze przeprowadź następujące aktualizacje usługi Menedżer urządzeń StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-8000-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia w chmurze.
-* Użyj [konta magazynu](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym działa urządzenie w chmurze. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. W urządzeniu w chmurze można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/common/storage-create-storage-account.md) lub [konta Premium Storage](../storage/common/storage-premium-storage.md)
+* Użyj [konta magazynu](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym działa urządzenie w chmurze. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. W urządzeniu w chmurze można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/common/storage-create-storage-account.md) lub [konta Premium Storage](../virtual-machines/windows/premium-storage.md)
 * Do utworzenia urządzenia w chmurze użyj innego konta magazynu niż używane do obsługi danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:
