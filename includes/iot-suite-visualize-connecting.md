@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Wyświetlanie danych telemetrycznych z urządzeń na pulpicie nawigacyjnym
-Pulpit nawigacyjny w rozwiązaniu do monitorowania zdalnego umożliwia wyświetlenie danych telemetrycznych wysyłanych z Twoich urządzeń do usługi IoT Hub.
+## <a name="view-device-telemetry"></a>Wyświetlanie danych telemetrycznych z urządzenia
 
-1. W przeglądarce powróć do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego i kliknij pozycję **Urządzenia** w lewym panelu, aby przejść do **listy urządzeń**.
-2. Na **liście urządzeń** powinien być widoczny stan urządzenia **Uruchomione**. W przeciwnym razie kliknij pozycję **Włącz urządzenie** w panelu **Szczegóły urządzenia**.
-   
-    ![Wyświetlanie stanu urządzenia][18]
-3. Kliknij pozycję **Pulpit nawigacyjny**, aby powrócić do pulpitu nawigacyjnego, a następnie wybierz swoje urządzenie z listy rozwijanej **Urządzenie do wyświetlenia**, aby wyświetlić z niego dane telemetryczne. Dane telemetryczne z przykładowej aplikacji to 50 jednostek temperatury wewnętrznej, 55 — temperatury zewnętrznej i 50 — wilgotności.
-   
-    ![Wyświetlanie danych telemetrycznych z urządzenia][img-telemetry]
+Można wyświetlić dane telemetryczne, wysyłane z urządzenia **urządzeń** strony w rozwiązaniu.
 
-## <a name="invoke-a-method-on-your-device"></a>Wywoływanie metody na urządzeniu
-Pulpit nawigacyjny w rozwiązaniu do monitorowania zdalnego umożliwia wywoływanie metod na urządzaniach za pomocą usługi IoT Hub. W rozwiązaniu do monitorowania zdalnego możesz na przykład wywołać metodę symulacji ponownego uruchomienia urządzenia.
+1. Wybierz urządzenie, którego inicjowana na liście urządzeń na **urządzeń** strony. Panel wyświetla informacje o urządzeniu, włącznie z wykresu telemetrii urządzenia:
 
-1. Na pulpicie nawigacyjnym rozwiązania do monitorowania zdalnego kliknij pozycję **Urządzenia** w lewym panelu, aby przejść do **listy urządzeń**.
-2. Kliknij pozycję **Identyfikator urządzenia** dla swojego urządzenia na **liście urządzeń**.
-3. W panelu **Szczegóły urządzenia** kliknij pozycję **Metody**.
-   
-    ![Metody urządzenia][13]
-4. Na liście rozwijanej **Metoda** wybierz metodę **InitiateFirmwareUpdate** (inicjowanie aktualizacji oprogramowania układowego), a następnie w polu **FWPACKAGEURI** (identyfikator URI pakietu oprogramowania układowego) wprowadź zastępczy adres URL. Kliknij pozycję **Wywołaj metodę**, aby wywołać metodę na urządzeniu.
-   
-    ![Wywoływanie metody urządzenia][14]
-   
+    ![Szczegóły urządzenia](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Gdy urządzenie obsłuży metodę, zostanie wyświetlony komunikat w konsoli uruchamiania kodu urządzenia. Wyniki metody zostaną dodane do historii w portalu rozwiązania:
+1. Wybierz **wykorzystania** Aby zmienić sposób wyświetlania danych telemetrii:
 
-    ![Wyświetlanie historii metod][img-method-history]
+    ![Widok wykorzystania telemetrii](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Aby wyświetlić informacje diagnostyczne o urządzeniu, przewiń w dół do **diagnostyki**:
+
+    ![Wyświetlanie urządzeń diagnostyki](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Działania na urządzeniu
+
+Aby wywołać metody na urządzeniach, należy użyć **urządzeń** strony w zdalnym rozwiązanie monitorowania. Na przykład w przypadku zdalnego rozwiązanie monitorowania **Chłodnica** zaimplementować urządzeń **ponowny rozruch** metody.
+
+1. Wybierz **urządzeń** można przejść do **urządzeń** strony w rozwiązaniu.
+
+1. Wybierz urządzenie, którego inicjowana na liście urządzeń na **urządzeń** strony:
+
+    ![Wybierz urządzenia fizycznego](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Aby wyświetlić listę metod można wywołać na urządzeniu, wybierz **harmonogram**. Aby zaplanować metody do uruchamiania na wielu urządzeniach, można wybrać wiele urządzeń na liście. **Harmonogram** panelu przedstawiono typy metody wspólne dla wszystkich wybranych urządzeń.
+
+1. Wybierz **ponowny rozruch**, ustaw nazwę zadania **RebootPhysicalChiller**i wybierz polecenie **Zastosuj**:
+
+    ![Harmonogram ponownego uruchomienia](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. W konsoli uruchamiania kodu urządzenia metody obsługując urządzenia zostanie wyświetlony komunikat.
+
+> [!NOTE]
+> Aby śledzić stan zadania w rozwiązaniu, wybierz **widoku**.
 
 ## <a name="next-steps"></a>Następne kroki
-W artykule [Dostosowywanie wstępnie skonfigurowanych rozwiązań][lnk-customize] opisano niektóre sposoby pozwalające rozszerzyć ten przykład. Możliwe rozszerzenia obejmują użycie rzeczywistych czujników i implementację dodatkowych poleceń.
 
-Więcej informacji na temat [uprawnień podano w witrynie azureiotsuite.com][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Artykuł [dostosować zdalnego wstępnie skonfigurowane rozwiązanie monitorowania](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) opisano kilka metod, aby dostosować wstępnie skonfigurowane rozwiązanie.

@@ -1,5 +1,5 @@
 # Omówienie
-## [Co to jest usługa Stream Analytics?](stream-analytics-introduction.md)
+## [Co to jest Stream Analytics?](stream-analytics-introduction.md)
 ## [Porównanie usługi Storm i Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Rozpoczęcie pracy
@@ -24,6 +24,7 @@
 ### [Korzystanie z danych referencyjnych](stream-analytics-use-reference-data.md)
 ### [Zapytania testowe](stream-analytics-test-query.md)
 ### [Integrowanie funkcji UDF języka JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Integrowanie agregatów UDA języka JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrowanie interfejsu API REST i usługi Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Tworzenie wyjść](stream-analytics-define-outputs.md)
 ### [Przesyłanie danych wyjściowych do usługi Data Lake Store](stream-analytics-data-lake-output.md)

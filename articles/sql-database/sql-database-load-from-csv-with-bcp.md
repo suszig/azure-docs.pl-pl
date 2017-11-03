@@ -1,5 +1,5 @@
 ---
-title: "Ładowanie danych z pliku CSV do usługi Azure SQL Database (bcp) | Microsoft Docs"
+title: "Ładowanie danych z pliku CSV do bazy danych SQL Azure (bcp) | Dokumentacja firmy Microsoft"
 description: "Dane niewielkich rozmiarów można importować do usługi Azure SQL Database za pomocą narzędzia bcp."
 services: sql-database
 documentationcenter: NA
@@ -8,25 +8,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
-
-
+ms.openlocfilehash: 2f00a740b3cc59c4e7b3b378c06cfa8cb05e8380
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Ładowanie danych z pliku CSV do usługi Azure SQL Data Warehouse (pliki proste)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Ładowanie danych z pliku CSV do usługi Azure SQL Database (pliki proste)
 Dane z pliku CSV można importować do usługi Azure SQL Database za pomocą narzędzia wiersza polecenia bcp.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 ### <a name="prerequisites"></a>Wymagania wstępne
-Do wykonania kroków opisanych w tym samouczku potrzebne są:
+Aby wykonać kroki opisane w tym artykule, należy:
 
 * Serwer logiczny i baza danych usługi Azure SQL Database
 * Zainstalowane narzędzie wiersza polecenia bcp
@@ -75,20 +75,20 @@ Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku 
 
 (Opcjonalnie) Aby wyeksportować własne dane z bazy danych programu SQL Server, otwórz wiersz polecenia i uruchom następujące polecenie. Zastąp parametry TableName, ServerName, DatabaseName, Username i Password odpowiednimi informacjami.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Ładowanie danych
 Aby załadować dane, otwórz wiersz polecenia i uruchom następujące polecenie, zastępując najpierw wartości parametrów nazwą serwera, nazwą bazy danych, nazwą użytkownika i hasłem.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Użyj tego polecenia, aby sprawdzić, czy dane zostały załadowane poprawnie:
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
@@ -118,9 +118,3 @@ Aby przeprowadzić migrację bazy danych programu SQL Server, zobacz [SQL Server
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.workload: Active
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co to jest usługa Azure SQL Database? 
 
@@ -85,16 +84,20 @@ Umowa dotycząca poziomu usług [(SLA)](http://azure.microsoft.com/support/legal
 
 Usługa SQL Database udostępnia wbudowane narzędzie analizy, które pomaga znacznie zmniejszyć koszty działania baz danych i zarządzania nimi oraz zmaksymalizować wydajność i zabezpieczenia aplikacji. Nieprzerwanie obsługując miliony obciążeń klientów, usługa SQL Database zbiera i przetwarza ogromne ilości danych telemetrycznych, w pełni przestrzegając przy tym zasad ochrony prywatności klientów. Rozmaite algorytmy stale analizują dane telemetryczne, dzięki czemu usługa może zdobywać wiedzę i dostosować się do Twojej aplikacji. Dzięki tej analizie usługa funkcjonuje ze zwiększoną wydajnością wynikającą z uwzględnienia zaleceń dostosowanych do określonego obciążenia. 
 
-### <a name="automatic-performance-tuning"></a>Automatyczne dostosowywanie wydajności
+### <a name="automatic-performance-monitoring-and-tuning"></a>Dostosowywanie i monitorowanie wydajności automatyczne
 
-Usługa SQL Database udostępnia szczegółowy wgląd w zapytania, których monitorowanie jest wymagane. Usługa SQL Database uzyskuje informacje o wzorcach Twoich baz danych i umożliwia dostosowanie schematu bazy danych do obciążenia. Usługa SQL Database udostępnia zalecenia dotyczące dostrajania wydajności za pomocą narzędzia [SQL Database Advisor](sql-database-advisor.md), pozwalającego na przeglądanie i zastosowanie działań dostrajających. Jednak nieprzerwane monitorowanie bazy danych jest trudnym i żmudnym zadaniem, szczególnie w przypadku pracy z wieloma bazami danych. Wydajne zarządzanie olbrzymią liczbą baz danych może być niemożliwe, nawet przy zastosowaniu wszystkich dostępnych narzędzi i raportów udostępnianych przez usługę SQL Database i witrynę Azure Portal. Zamiast ręcznego monitorowania i dostrajania bazy danych można rozważyć delegowanie niektórych działań monitorowania i dostrajania do usługi SQL Database przy użyciu funkcji automatycznego dostrajania. Usługa SQL Database automatycznie stosuje zalecenia, testy i sprawdza każdą z akcji dostrajania, upewniając się, że następuje poprawa wydajności. W ten sposób usługa SQL Database automatycznie dostosowuje się do obciążenia w kontrolowany i bezpieczny sposób. Automatyczne dostrajanie oznacza, że wydajność bazy danych jest dokładnie monitorowana i porównywana przed i po wykonaniu każdej akcji dostrajania. W przypadku, gdy wydajność nie uległa poprawie, akcja dostrajania zostanie wycofana.
+Usługa SQL Database udostępnia szczegółowy wgląd w zapytania, których monitorowanie jest wymagane. Usługa SQL Database uzyskuje informacje o wzorcach Twoich baz danych i umożliwia dostosowanie schematu bazy danych do obciążenia. Baza danych SQL oferuje [zalecenia dotyczące dostrajania wydajności](sql-database-advisor.md), gdzie można przeglądać dostrajania akcje i zastosować je. 
+
+Jednak nieprzerwane monitorowanie bazy danych jest trudnym i żmudnym zadaniem, szczególnie w przypadku pracy z wieloma bazami danych. [Inteligentnego Insights](sql-database-intelligent-insights.md) nie tego zadania można automatycznie monitorowanie wydajności bazy danych SQL na dużą skalę i informujące problemów spadek wydajności, określa głównej przyczyny problemu i zapewnia lepszą wydajność zalecenia, gdy jest to możliwe.
+
+Wydajne zarządzanie olbrzymią liczbą baz danych może być niemożliwe, nawet przy zastosowaniu wszystkich dostępnych narzędzi i raportów udostępnianych przez usługę SQL Database i witrynę Azure Portal. Zamiast monitorowania i dostrajania bazę danych ręcznie, warto rozważyć delegowanie niektóre monitorowania i dostrajania akcje do bazy danych SQL za pomocą [automatycznego dostrajania](sql-database-automatic-tuning.md). Usługa SQL Database automatycznie stosuje zalecenia, testy i sprawdza każdą z akcji dostrajania, upewniając się, że następuje poprawa wydajności. W ten sposób usługa SQL Database automatycznie dostosowuje się do obciążenia w kontrolowany i bezpieczny sposób. Automatyczne dostrajanie oznacza, że wydajność bazy danych jest dokładnie monitorowana i porównywana przed i po wykonaniu każdej akcji dostrajania. W przypadku, gdy wydajność nie uległa poprawie, akcja dostrajania zostanie wycofana.
 
 Dzisiaj wielu naszych partnerów uruchamiających [wielodostępne aplikacje SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md) korzystające z usługi SQL Database korzysta z automatycznego dostrajania wydajności, mając pewność, że ich aplikacje zawsze działają ze stabilną i przewidywalną wydajnością. Z ich punktu widzenia ta funkcja znacznie zmniejsza ryzyko wystąpienia w środku nocy zdarzenia związanego z wydajnością. Ponadto ponieważ niektórzy ich klienci używają także programu SQL Server, stosują oni te same zalecenia indeksowania podane przez usługę SQL Database w odniesieniu do klientów korzystających z programu SQL Server.
 
-W usłudze SQL Database dostępne są dwa aspekty automatycznego dostrajania:
+Istnieją dwa automatycznego dostrajania zagadnienia [dostępnych w bazie danych SQL](sql-database-automatic-tuning.md):
 
-- **[Automatyczne zarządzanie indeksami](sql-database-automatic-tuning.md#automatic-index-management)**: identyfikuje indeksy, które powinny zostać dodane w bazie danych, i indeksy, które powinny zostać z niej usunięte.
-- **[Automatyczna korekta planu](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: identyfikuje plany, które mogą sprawiać problemy i rozwiązuje problemy z wydajnością planów SQL (dostępne już wkrótce w programie SQL Server 2017).
+- **Zarządzanie indeksami automatyczne**: identyfikuje indeksów, które mają zostać dodane w bazie danych i indeksów, które powinny zostać usunięte.
+- **Automatyczne plan korekty**: identyfikuje planów powodować problemy i rozwiązuje problemy z wydajnością programu SQL (wkrótce, już dostępne w 2017 serwera SQL).
 
 ### <a name="adaptive-query-processing"></a>Adaptacyjne przetwarzanie zapytań
 
@@ -114,7 +117,7 @@ Usługa SQL Database oferuje szeroką gamę [wbudowanych funkcji zabezpieczeń i
 
 ### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
 
-Funkcja [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) usługi SQL Database pomaga chronić przed zagrożeniem powodowanym przez złośliwe działania, wykonując w czasie rzeczywistym szyfrowanie i odszyfrowywanie bazy danych, skojarzonych kopii zapasowych i plików dziennika transakcji w stanie spoczynku bez konieczności wprowadzania zmian w aplikacji. Począwszy od maja 2017 roku wszystkie nowo utworzone bazy danych SQL na platformie Azure są automatycznie chronione za pomocą funkcji przezroczystego szyfrowania danych (TDE, Transparent Data Encryption). Funkcja TDE jest sprawdzoną w SQL technologią szyfrowania danych w spoczynku, która przez wiele standardów zgodności jest wymagana do ochrony przed kradzieżą nośników magazynowania. Klienci mogą w bezpieczny i spełniający kryteria zgodności sposób zarządzać kluczami szyfrowania funkcji TDE i innymi wpisami tajnymi za pomocą usługi Azure Key Vault.
+Funkcja [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) usługi SQL Database pomaga chronić przed zagrożeniem powodowanym przez złośliwe działania, wykonując w czasie rzeczywistym szyfrowanie i odszyfrowywanie bazy danych, skojarzonych kopii zapasowych i plików dziennika transakcji w stanie spoczynku bez konieczności wprowadzania zmian w aplikacji. Począwszy od maja 2017 roku wszystkie nowo utworzone bazy danych SQL na platformie Azure są automatycznie chronione za pomocą funkcji przezroczystego szyfrowania danych (TDE, Transparent Data Encryption). Funkcja TDE jest sprawdzoną w SQL technologią szyfrowania danych w spoczynku, która przez wiele standardów zgodności jest wymagana do ochrony przed kradzieżą nośników magazynowania. Klienci mogą w bezpieczny i spełniający kryteria zgodności sposób zarządzać kluczami szyfrowania funkcji TDE i innymi wpisami tajnymi za pomocą usługi Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Szyfrowanie danych w ruchu
 
@@ -147,6 +150,14 @@ Dzięki usłudze SQL Database tworzenie i konserwowanie aplikacji jest łatwiejs
 
 Usługa SQL Database obsługuje tworzenie aplikacji za pomocą narzędzi Python, Java, Node.js, PHP, Ruby i .NET w systemach MacOS, Linux i Windows. Usługa SQL Database obsługuje te same [biblioteki połączeń](sql-database-libraries.md) co program SQL Server.
 
+## <a name="engage-with-the-sql-server-engineering-team"></a>Kontakt z zespołem inżynierów programu SQL Server
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): zadawaj pytania dotyczące administrowania bazami danych
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): zadawaj pytania dotyczące opracowywania zawartości
+- [Fora MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): zadawaj pytania techniczne
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): zgłaszaj usterki i wysyłaj prośby dotyczące funkcji
+- [Reddit](https://www.reddit.com/r/SQLServer/): omówienie programu SQL Server
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznać się z [cennikiem](https://azure.microsoft.com/pricing/details/sql-database/) zawierającym porównania i kalkulatory kosztów dla pojedynczej bazy danych i pul elastycznych.
@@ -160,4 +171,3 @@ Usługa SQL Database obsługuje tworzenie aplikacji za pomocą narzędzi Python,
 - Aby uzyskać zestaw przykładów interfejsu wiersza polecenia platformy Azure i programu PowerShell, zobacz:
   - [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi SQL Database](sql-database-cli-samples.md)
   - [Przykłady programu Azure PowerShell dla usługi SQL Database](sql-database-powershell-samples.md)
-

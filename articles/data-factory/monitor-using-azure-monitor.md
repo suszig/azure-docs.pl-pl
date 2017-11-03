@@ -1,0 +1,402 @@
+---
+title: Monitorowanie fabryki danych Azure monitorze | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak używać Azure Monitor do monitorowania potoki fabryki danych przez włączenie dzienników diagnostycznych z informacjami z fabryki danych Azure."
+services: data-factory
+documentationcenter: 
+author: sharonlo101
+manager: jhubbard
+editor: spelluru
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2017
+ms.author: shlo
+ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 11/01/2017
+---
+# <a name="monitor-data-factories-using-azure-monitor"></a>Monitorowanie za pomocą monitora Azure fabryki danych  
+Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowanie zawiera danych, aby upewnić się, że aplikacja pozostaje w górę i działa w dobrej kondycji. Pomaga również umożliwia stave potencjalne problemy i rozwiązywanie problemów w przeszłości te. Ponadto można użyć danych monitorowania w celu uzyskania szczegółowych informacji o aplikacji. Wiedzy może pomóc zwiększyć wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
+
+Azure Monitor udostępnia na podstawowym poziomie infrastruktury metryki i dzienniki dla większości usług platformy Microsoft Azure. Aby uzyskać więcej informacji, zobacz [omówienie monitorowania](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure dzienników diagnostycznych są dzienniki emitowane przez zasób, które zawierają rozbudowane, często dane dotyczące operacji tego zasobu. Fabryka danych danych wyjściowych dzienników diagnostycznych w monitorze Azure. 
+
+> [!NOTE]
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [monitorowanie i zarządzanie nimi potoków w fabryce danych version1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+
+* Zapisywanie ich **konta magazynu** inspekcji inspekcji lub ręcznie. Można określić czas przechowywania (w dniach) przy użyciu ustawień diagnostycznych.
+* Do strumienia **usługi Event Hubs** dla wprowadzanie przez usługi innej firmy lub rozwiązania analizy niestandardowych, takich jak usługi Power BI.
+* Analizuj je za pomocą **analizy dzienników Operations Management Suite (OMS)**
+
+Możesz użyć magazynu konta lub zdarzenia koncentratora przestrzeni nazw, która nie znajduje się w tej samej subskrypcji co zasób, który jest emitowanie dzienników. Użytkownik, który konfiguruje ustawienie musi mieć prawa dostępu na podstawie ról (RBAC) dostępu do obu subskrypcji.
+
+## <a name="set-up-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych
+
+### <a name="diagnostic-settings"></a>Ustawienia diagnostyki
+Dzienniki diagnostyczne dla zasobów obliczeniowych nie są skonfigurowane przy użyciu ustawień diagnostycznych. Ustawienia diagnostyki w formancie zasobów:
+
+* W przypadku dzienników diagnostycznych wysyłania (konto magazynu, centra zdarzeń i/lub analizy dzienników OMS).
+* Kategorie dziennika, które są wysyłane.
+* Jak długo każdej kategorii dziennika powinny zostać zachowane na koncie magazynu
+* Przechowywanie 0 oznacza, że dzienniki są przechowywane w nieskończoność. W przeciwnym razie wartość może być dowolną liczbę dni od 1 do 2147483647.
+* Jeśli zasady przechowywania są skonfigurowane, ale przechowywanie dzienniki na koncie magazynu jest wyłączone (na przykład tylko usługi Event Hubs lub OMS są zaznaczone opcje), zasad przechowywania nie mają żadnego skutku.
+* Zasady przechowywania są zastosowane na dni, więc pod koniec dnia (UTC), dzienniki od dnia, która jest teraz poza przechowywania zasad są usuwane. Na przykład jeśli masz zasady przechowywania jeden dzień na początku dnia dzisiaj dzienniki na wczoraj zanim dzień zostaną usunięte.
+
+### <a name="enable-diagnostic-logs-via-rest-apis"></a>Włączanie dzienników diagnostycznych za pośrednictwem interfejsów API REST
+
+Utwórz lub zaktualizuj ustawienia diagnostyki w interfejsu API REST Monitor Azure
+
+**Żądanie**
+```
+PUT
+https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+```
+
+**Nagłówki**
+* Zastąp `{api-version}` z `2016-09-01`.
+* Zastąp `{resource-id}` o identyfikatorze zasobu zasobu, dla którego chcesz edytować ustawienia diagnostyki. Aby uzyskać więcej informacji [używanie grup zasobów do zarządzania zasobami Azure](../azure-resource-manager/resource-group-portal.md).
+* Ustaw `Content-Type` nagłówka do `application/json`.
+* Ustaw nagłówek autoryzacji do tokenu web JSON, którą można uzyskać z usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [uwierzytelniania żądań](../active-directory/develop/active-directory-authentication-scenarios.md).
+
+**Treść**
+```json
+{
+    "properties": {
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "metrics": [
+        ],
+        "logs": [
+                {
+                    "category": "PipelineRuns",
+                    "enabled": true,
+                    "retentionPolicy": {
+                        "enabled": false,
+                        "days": 0
+                    }
+                },
+                {
+                    "category": "TriggerRuns",
+                    "enabled": true,
+                    "retentionPolicy": {
+                        "enabled": false,
+                        "days": 0
+                    }
+                },
+                {
+                    "category": "ActivityRuns",
+                    "enabled": true,
+                    "retentionPolicy": {
+                        "enabled": false,
+                        "days": 0
+                    }
+                }
+            ]
+    },
+    "location": ""
+} 
+```
+
+| Właściwość | Typ | Opis |
+| --- | --- | --- |
+| StorageAccountId |Ciąg | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne |
+| serviceBusRuleId |Ciąg | Identyfikator reguły magistrali usługi z przestrzeń nazw magistrali usług, w którym chcesz mieć centra zdarzeń utworzonych dla przesyłania strumieniowego dzienników diagnostycznych. Reguła identyfikator jest w formacie: "{identyfikator zasobu magistrali usługi} /authorizationrules/ {nazwa klucza}".|
+| WorkspaceId | Typ złożony | Tablica ziarno czasu metryki i ich zasad przechowywania. Obecnie ta właściwość jest pusta. |
+|metrics| Wartości parametrów potoku Uruchom do przekazania do wywoływanej potoku| Obiekt JSON mapowania nazw parametrów do wartości argumentów | 
+| dzienniki| Typ złożony| Nazwa kategorii dzienników diagnostycznych dla typu zasobu. Aby uzyskać listę kategorii dzienników diagnostycznych dla zasobu, należy najpierw wykonać operację pobierania ustawień diagnostycznych. |
+| category| Ciąg| Tablica kategorii dzienników i ich zasady przechowywania |
+| Ziarnem czasu | Ciąg | Poziom szczegółowości metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Musi być PT1M (jednej minuty)|
+| włączone| Wartość logiczna | Określa, czy kolekcja tej kategorii Metryka lub dziennika jest włączona dla tego zasobu|
+| retentionPolicy| Typ złożony| Opis zasad przechowywania dla kategorii Metryka lub dziennika. Używany tylko opcji konta magazynu.|
+| dni korzystania z| int| Liczba dni przechowywania metryki lub dzienniki. Wartość 0 zachowuje dzienniki w nieskończoność. Używany tylko opcji konta magazynu. |
+
+**Odpowiedź**
+
+200 OK
+
+
+```json
+{
+    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "type": null,
+    "name": "service",
+    "location": null,
+    "kind": null,
+    "tags": null,
+    "properties": {
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "eventHubAuthorizationRuleId": null,
+        "eventHubName": null,
+        "metrics": [],
+        "logs": [
+            {
+                "category": "PipelineRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "TriggerRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "ActivityRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            }
+        ]
+    },
+    "identity": null
+}
+```
+
+Pobieranie informacji na temat ustawienia diagnostyki w interfejsu API REST Monitor Azure
+
+**Żądanie**
+```
+GET
+https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+```
+
+**Nagłówki**
+* Zastąp `{api-version}` z `2016-09-01`.
+* Zastąp `{resource-id}` o identyfikatorze zasobu zasobu, dla którego chcesz edytować ustawienia diagnostyki. Aby uzyskać więcej informacji o używanie grup zasobów do zarządzania zasobami platformy Azure.
+* Ustaw `Content-Type` nagłówka do `application/json`.
+* Ustaw nagłówek autoryzacji żetonu Web JSON uzyskanej od usługi Azure Active Directory. Aby uzyskać więcej informacji zobacz Authenticating żądania.
+
+**Odpowiedź**
+
+200 OK
+
+```json
+{
+    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "type": null,
+    "name": "service",
+    "location": null,
+    "kind": null,
+    "tags": null,
+    "properties": {
+        "storageAccountId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
+        "serviceBusRuleId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/0ee78edb-a0ad-456c-a0a2-901bf542c102/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
+        "eventHubAuthorizationRuleId": null,
+        "eventHubName": null,
+        "metrics": [],
+        "logs": [
+            {
+                "category": "PipelineRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "TriggerRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "ActivityRuns",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            }
+        ]
+    },
+    "identity": null
+}
+```
+Aby dowiedzieć się więcej tutaj] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+
+## <a name="schema-of-logs--events"></a>Schemat dzienniki & zdarzenia
+
+### <a name="activity-run-logs-attributes"></a>Atrybuty dzienniki wykonywania działań
+
+```json
+{  
+   "Level": "",
+   "correlationId":"",
+   "time":"",
+   "activityRunId":"",
+   "pipelineRunId":"",
+   "resourceId":"",
+   "category":"ActivityRuns",
+   "level":"Informational",
+   "operationName":"",
+   "pipelineName":"",
+   "activityName":"",
+   "start":"",
+   "end":"",
+   "properties:" 
+       {
+          "Input": "{
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "BlobSink"
+              }
+           }",
+          "Output": "{"dataRead":121,"dataWritten":121,"copyDuration":5,
+               "throughput":0.0236328132,"errors":[]}",
+          "Error": "{
+              "errorCode": "null",
+              "message": "null",
+              "failureType": "null",
+              "target": "CopyBlobtoBlob"
+        }
+    }
+}
+```
+
+| Właściwość | Typ | Opis | Przykład |
+| --- | --- | --- | --- |
+| Poziom |Ciąg | Poziom dziennika diagnostycznego. Poziom 4 jest zawsze w przypadku uruchamiania dzienniki działania. | `4`  |
+| correlationId |Ciąg | Unikatowy identyfikator określonego żądania end-to-end śledzić | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Ciąg | Czas zdarzenia w zakres czasu, w formacie UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| Ciąg| Identyfikator uruchamiania działania | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|pipelineRunId| Ciąg| Identyfikator procesu, uruchom | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Ciąg | Identyfikator skojarzonego zasobu dla zasobu fabryki danych | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Ciąg | Kategoria dzienników diagnostycznych. Ustaw tę właściwość na "Uruchomień" | `ActivityRuns` |
+|poziom| Ciąg | Poziom dziennika diagnostycznego. Ustaw tę właściwość na "Informacyjny" | `Informational` |
+|operationName| Ciąg |Nazwa działania o stanie. Jeśli stan jest pulsu start, jest `MyActivity -`. Jeśli stan jest pulsu zakończenia, jest `MyActivity - Succeeded` ze stanem końcowym | `MyActivity - Succeeded` |
+|pipelineName| Ciąg | Nazwa potoku | `MyPipeline` |
+|activityName| Ciąg | Nazwa działania | `MyActivity` |
+|rozpoczynanie| Ciąg | Początek działania Uruchom w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
+|Koniec| Ciąg | Uruchom kończy działanie w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
+
+
+### <a name="pipeline-run-logs-attributes"></a>Dzienniki wykonywania atrybutów w potoku
+
+```json
+{  
+   "Level": "",
+   "correlationId":"",
+   "time":"",
+   "runId":"",
+   "resourceId":"",
+   "category":"PipelineRuns",
+   "level":"Informational",
+   "operationName":"",
+   "pipelineName":"",
+   "start":"",
+   "end":"",
+   "status":"",
+   "properties": 
+    {
+      "Parameters": {
+        "<parameter1Name>": "<parameter1Value>"
+      },
+      "SystemParameters": {
+        "ExecutionStart": "",
+        "TriggerId": "",
+        "SubscriptionId": ""
+      }
+    }
+}
+```
+
+| Właściwość | Typ | Opis | Przykład |
+| --- | --- | --- | --- |
+| Poziom |Ciąg | Poziom dziennika diagnostycznego. Poziom 4 jest tak w przypadku uruchamiania dzienniki działania. | `4`  |
+| correlationId |Ciąg | Unikatowy identyfikator określonego żądania end-to-end śledzić | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Ciąg | Czas zdarzenia w zakres czasu, w formacie UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|przebiegu| Ciąg| Identyfikator procesu, uruchom | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Ciąg | Identyfikator skojarzonego zasobu dla zasobu fabryki danych | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Ciąg | Kategoria dzienników diagnostycznych. Ustaw tę właściwość na "PipelineRuns" | `PipelineRuns` |
+|poziom| Ciąg | Poziom dziennika diagnostycznego. Ustaw tę właściwość na "Informacyjny" | `Informational` |
+|operationName| Ciąg |Nazwa potoku o stanie. "Potoku - zakończyło się pomyślnie" z stan końcowy po zakończeniu potoku uruchamiania| `MyPipeline - Succeeded` |
+|pipelineName| Ciąg | Nazwa potoku | `MyPipeline` |
+|rozpoczynanie| Ciąg | Początek działania Uruchom w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
+|Koniec| Ciąg | Uruchamia zakończenia działania w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
+|status| Ciąg | Stan końcowy potoku uruchamiania (powodzenie lub niepowodzenie) | `Succeeded`|
+
+
+### <a name="trigger-run-logs-attributes"></a>Wykonywania wyzwalacza logowania atrybutów
+
+```json
+{ 
+   "Level": "",
+   "correlationId":"",
+   "time":"",
+   "triggerId":"",
+   "resourceId":"",
+   "category":"TriggerRuns",
+   "level":"Informational",
+   "operationName":"",
+   "triggerName":"",
+   "triggerType":"",
+   "triggerEvent":"",
+   "start":"",
+   "status":"",
+   "properties":
+   {
+      "Parameters": {
+        "TriggerTime": "",
+       "ScheduleTime": ""
+      },
+      "SystemParameters": {}
+    }
+} 
+
+```
+
+| Właściwość | Typ | Opis | Przykład |
+| --- | --- | --- | --- |
+| Poziom |Ciąg | Poziom dziennika diagnostycznego. Ustaw poziom 4 dla działania uruchamiania dzienników. | `4`  |
+| correlationId |Ciąg | Unikatowy identyfikator określonego żądania end-to-end śledzić | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Ciąg | Czas zdarzenia w zakres czasu, w formacie UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|Identyfikator_wyzwalacza| Ciąg| Identyfikator wyzwalacz uruchomienia | `08587023010602533858661257311` |
+|resourceId| Ciąg | Identyfikator skojarzonego zasobu dla zasobu fabryki danych | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Ciąg | Kategoria dzienników diagnostycznych. Ustaw tę właściwość na "PipelineRuns" | `PipelineRuns` |
+|poziom| Ciąg | Poziom dziennika diagnostycznego. Ustaw tę właściwość na "Informacyjny" | `Informational` |
+|operationName| Ciąg |Nazwa wyzwalacza z stan końcowy określa, czy pomyślnie uruchomił. "MyTrigger - powiodło się" Jeśli pulsu zakończyło się pomyślnie| `MyTrigger - Succeeded` |
+|Nazwa_wyzwalacza| Ciąg | Nazwa wyzwalacza | `MyTrigger` |
+|triggerType| Ciąg | Typ wyzwalacza (Ręczne wyzwalacza lub wyzwalacza harmonogram) | `ScheduleTrigger` |
+|triggerEvent| Ciąg | Zdarzenia wyzwalacza | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|rozpoczynanie| Ciąg | Początek uruchomić wyzwalacz w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
+|status| Ciąg | Stan końcowy czy wyzwalacz pomyślnie uruchamiany (powodzenie lub niepowodzenie) | `Succeeded`|
+
+### <a name="metrics"></a>Metryki
+
+Azure Monitor umożliwia korzystanie z telemetrię, aby uzyskać wgląd w wydajności i kondycji obciążeń na platformie Azure. Typ najważniejszych danych telemetrycznych platformy Azure jest metryki (nazywanych również liczniki wydajności) emitowane przez zasoby najbardziej platformy Azure. Azure Monitor udostępnia kilka sposobów konfigurowania i korzystać z tych metryk do monitorowania i rozwiązywania problemów.
+
+ADFV2 emituje następujące metryki
+
+| **Metryka**           | **Nazwa wyświetlana metryki**         | **Jednostki** | **Typ agregacji** | **Opis**                                       |
+|----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
+| PipelineSucceededRun | Pomyślnie metryki uruchamia potoku | Licznik    | Łącznie                | Całkowita liczba potoków uruchamia zakończyło się pomyślnie w ciągu minuty okna |
+| PipelineFailedRuns   | Nie powiodło się metryki uruchamia potoku    | Licznik    | Łącznie                | Całkowita liczba potoków uruchamia nie powiodło się w ciągu minuty okna    |
+| ActiviySucceededRuns | Pomyślnie metryki uruchomień działania | Licznik    | Łącznie                | Całkowita liczba działanie jest uruchomione pomyślnie w ciągu minuty okna  |
+| ActivityFailedRuns   | Nie powiodło się metryki uruchomień działania    | Licznik    | Łącznie                | Całkowita liczba odbywa się działanie nie powiodło się w ciągu minuty okna     |
+| TriggerSucceededRuns | Pomyślnie metryki uruchamia wyzwalacz  | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia zakończyło się pomyślnie w ciągu minuty okna   |
+| TriggerFailedRuns    | Nie powiodło się wyzwalacz uruchamia metryk     | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia nie powiodło się w ciągu minuty okna      |
+
+Aby uzyskać dostęp do metryk, postępuj zgodnie z instrukcjami w artykule - https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="next-steps"></a>Następne kroki
+Zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki, uruchamiając. 

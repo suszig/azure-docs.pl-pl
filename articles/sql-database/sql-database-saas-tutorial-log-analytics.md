@@ -1,32 +1,30 @@
 ---
 title: "Używanie programu Log Analytics dla aplikacji SQL Database z wieloma dzierżawami | Microsoft Docs"
-description: "Konfigurowanie i używanie programu Log Analytics (OMS) dla przykładowej aplikacji Wingtip Tickets (WTP) usługi Azure SQL Database"
+description: "Konfiguracja i analiza dzienników (OMS) za pomocą wielodostępnych aplikacji SaaS bazy danych SQL Azure"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 43d46e6a31ee05add33da59348a1d180c4078f97
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wtp-sample-saas-app"></a>Konfigurowanie i używanie programu Log Analytics (OMS) dla przykładowej aplikacji SaaS o nazwie WTP
+# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Konfiguracja i analiza dzienników (OMS) za pomocą wielodostępnych aplikacji SaaS bazy danych SQL Azure
 
-W tym samouczku nauczysz się konfigurować i używać aplikację *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* wraz z aplikacją WTP w celu monitorowania elastycznych pul i baz danych. Ten samouczek nawiązuje do [samouczka zarządzania i monitorowania wydajności](sql-database-saas-tutorial-performance-monitoring.md) i pokazuje, jak używać aplikacji *Log Analytics* do rozszerzania, monitorowania i zgłaszania alertów w witrynie Azure Portal. Program Log Analytics jest szczególnie przydatny w przypadku monitorowania i alertów na dużą skalę, ponieważ obsługuje setki pul i setki tysięcy baz danych. Udostępnia również jedno rozwiązanie do monitorowania, w którym można zintegrować monitorowanie różnych aplikacji i usług Azure w wielu subskrypcjach Azure.
+W tym samouczku, konfigurowania i używania *analizy dzienników ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* monitorowania pule elastyczne i baz danych. W tym samouczku opiera się na [Samouczek zarządzania i monitorowania wydajności](sql-database-saas-tutorial-performance-monitoring.md). Przedstawiono użycie *analizy dzienników* można rozszerzyć monitorowanie i alerty w portalu Azure. Analiza dzienników nadaje się do monitorowania oraz alertów na dużą skalę, ponieważ obsługuje on setki pul i setkami tysięcy baz danych. Udostępnia również jedno rozwiązanie do monitorowania, w którym można zintegrować monitorowanie różnych aplikacji i usług Azure w wielu subskrypcjach Azure.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -36,7 +34,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Wdrożona jest aplikacja WTP. Aby wdrożyć tę aplikację w czasie krótszym niż pięć minut, zobacz [Wdrażanie i korzystanie z aplikacji SaaS o nazwie WTP](sql-database-saas-tutorial.md)
+* Aplikacja Wingtip SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](sql-database-saas-tutorial.md)
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 W [samouczku monitorowania i zarządzania wydajnością](sql-database-saas-tutorial-performance-monitoring.md) znajdziesz omówienie wzorców i scenariuszy SaaS oraz ich wpływu na wymagania dotyczące monitorowania.
@@ -45,19 +43,19 @@ W [samouczku monitorowania i zarządzania wydajnością](sql-database-saas-tutor
 
 W usłudze SQL Database funkcje monitorowania i zgłaszania alertów są dostępne na poziomie baz danych i pul. Wbudowane funkcje monitorowania i zgłaszania alertów są zależne od zasobów i sprawdzają się w przypadku niewielkiej ich liczby. Są jednak mniej przydatne do monitorowania dużych instalacji lub w przypadku zapewniania centralnego widoku wielu zasobów i subskrypcji.
 
-Programu Log Analytics można używać w scenariuszach dotyczących dużych ilości danych. Jest to osobna usługa Azure dostarczająca narzędzia analityczne do przetwarzania utworzonych dzienników diagnostycznych i danych telemetrycznych zebranych w obszarze roboczym usługi Log Analytics, który może gromadzić dane telemetryczne z wielu usług i służyć do tworzenia zapytań i ustawiania alertów. Program Log Analytics udostępnia wbudowany język zapytań oraz narzędzia do wizualizacji danych, umożliwiając analizę danych operacyjnych oraz ich wizualizację. Rozwiązanie SQL Analytics zawiera kilka wstępnie zdefiniowanych zapytań i widoków monitorowania i zgłaszania alertów w elastycznych pulach i bazach danych oraz umożliwia dodawanie własnych zapytań ad hoc i zapisywanie ich w razie potrzeby. Usługa OMS udostępnia także projektanta widoków niestandardowych.
+Programu Log Analytics można używać w scenariuszach dotyczących dużych ilości danych. Jest to osobna usługa Azure dostarczająca narzędzia analityczne do przetwarzania utworzonych dzienników diagnostycznych i danych telemetrycznych zebranych w obszarze roboczym usługi Log Analytics, który może gromadzić dane telemetryczne z wielu usług i służyć do tworzenia zapytań i ustawiania alertów. Program Log Analytics udostępnia wbudowany język zapytań oraz narzędzia do wizualizacji danych, umożliwiając analizę danych operacyjnych oraz ich wizualizację. Rozwiązania analizy SQL zawiera kilka wstępnie zdefiniowanych puli elastycznej i bazy danych monitorowania oraz alertów, widoków i kwerend i umożliwia dodawanie zapytań ad hoc i zapisać je w razie potrzeby. Usługa OMS udostępnia także projektanta widoków niestandardowych.
 
 Obszary robocze programu Log Analytics i rozwiązania analityczne można otwierać zarówno w witrynie Azure Portal, jak i w usłudze OMS. Witryna Azure Portal jest nowszym rodzajem punktu dostępu, ale w niektórych obszarach pozostaje w tyle za portalem usługi OMS.
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>Uruchomienie generatora obciążenia w celu utworzenia danych przeznaczonych do analizy
+### <a name="create-data-by-starting-the-load-generator"></a>Utwórz dane przez uruchomienie generatora obciążenia 
 
 1. Otwórz moduł **Demo-PerformanceMonitoringAndManagement.ps1** w programie **PowerShell ISE**. Nie zamykaj tego skryptu, jeśli w czasie pracy z samouczkiem chcesz uruchomić kilka scenariuszy generowania obciążenia.
-1. Jeśli masz mniej niż pięć dzierżaw, zaaprowizuj grupę dzierżaw, aby przeprowadzić monitorowanie w ciekawszym kontekście:
+1. Jeśli masz mniej niż pięć dzierżaw udostępniania partii dzierżawcy, aby zapewnić bardziej interesujące monitorowania kontekstu:
    1. Ustaw zmienną **$DemoScenario = 1,** **Provision a batch of tenants** (Aprowizacja partii dzierżaw).
-   1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
+   1. Aby uruchomić skrypt, naciśnij klawisz **F5**.
 
-1. Ustaw zmienną **$DemoScenario** = 2, **Generate normal intensity load (approx 40 DTU)** (Generowanie obciążenia o normalnym natężeniu (ok. 40 jednostek DTU)).
-1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
+1. Ustaw **$DemoScenario** = 2, **Generuj normalnym natężeniu obciążenia (szacunkowa 40 DTU)**.
+1. Aby uruchomić skrypt, naciśnij klawisz **F5**.
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
@@ -65,18 +63,18 @@ Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalowanie i konfigurowanie programu Log Analytics i rozwiązania Azure SQL Analytics
 
-Program Log Analytics jest oddzielną usługą, którą należy skonfigurować. Program Log Analytics gromadzi dane dziennika oraz dane telemetryczne i metryki w obszarze roboczym. Obszar roboczy jest zasobem, podobnie jak inne zasoby na platformie Azure, i musi zostać utworzony. Obszar roboczy nie musi zostać utworzony w tej samej grupie zasobów co monitorowana przez niego aplikacja, ale takie rozwiązanie jest często najwygodniejsze. W przypadku aplikacji WTP dzięki temu rozwiązaniu obszar roboczy może zostać łatwo usunięty razem z aplikacją przez zwykłe usunięcie grupy zasobów.
+Program Log Analytics jest oddzielną usługą, którą należy skonfigurować. Program Log Analytics gromadzi dane dziennika oraz dane telemetryczne i metryki w obszarze roboczym. Obszar roboczy jest zasobem, podobnie jak inne zasoby na platformie Azure, i musi zostać utworzony. Obszar roboczy nie musi zostać utworzony w tej samej grupie zasobów co monitorowana przez niego aplikacja, ale takie rozwiązanie jest często najwygodniejsze. W przypadku aplikacji Wingtip SaaS umożliwia obszar roboczy, aby łatwo usunąć z aplikacji przez usunięcie grupy zasobów.
 
 1. Otwórz moduł ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* w programie **PowerShell ISE**.
-1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
+1. Aby uruchomić skrypt, naciśnij klawisz **F5**.
 
-W tym momencie powinno być możliwe otwarcie programu Log Analytics w witrynie Azure Portal (lub w portalu usługi OMS). Zebranie danych telemetrycznych w obszarze roboczym programu Log Analytics i ich wyświetlenie potrwa kilka minut. Im dłużej system będzie zbierał dane, tym bardziej interesujące będą wyniki. Teraz możesz zrobić sobie przerwę — upewnij się tylko, że generator obciążenia nadal działa!
+W tym momencie powinno być możliwe Otwórz Log Analytics w portalu Azure (lub portalu OMS). Trwa kilka minut, aż telemetrii mają być zbierane w obszarze roboczym analizy dzienników i stają się widoczne. Już pozostanie system zbierania danych jest bardziej interesującego środowisko. Teraz możesz zrobić sobie przerwę — upewnij się tylko, że generator obciążenia nadal działa!
 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Używanie programu Log Analytics i rozwiązania SQL Analytics do monitorowana pul i baz danych
 
 
-W tym ćwiczeniu otwórz program Log Analytics i portal usługi OMS w celu przyjrzenia się danym telemetrycznym zbieranym dla baz i pul aplikacji WTP.
+W tym ćwiczeniu Otwórz analizy dzienników i portalu OMS, aby przyjrzeć się telemetrii zbierana dla baz danych i pul.
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i otwórz program Log Analytics, klikając przycisk Więcej usług, a następnie wyszukując program Log Analytics:
 
@@ -134,7 +132,6 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dodatkowe samouczki nawiązujące do początkowego wdrożenia aplikacji Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Dodatkowe samouczki, które zależą od momentu pierwszego wdrożenia aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Program Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
-

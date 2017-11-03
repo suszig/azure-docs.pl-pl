@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
-ms.workload: data-management
+ms.custom: DBs & servers
+ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Wybieranie opcji programu SQL Server w chmurze: usługa Azure SQL Database (PaaS) lub program SQL Server na maszynach wirtualnych Azure (IaaS)
 Platforma Azure ma dwie opcje do obsługi obciążeń programu SQL Server na platformie Microsoft Azure:
@@ -64,13 +63,12 @@ Poniższa tabela zawiera podsumowanie głównych cech usługi SQL Database i pro
 | --- | --- | --- |
 |  |Nowe aplikacje zaprojektowane dla chmury, które mają ograniczenia czasowe w zakresie projektowania i marketingu. |Istniejące aplikacje, które wymagają szybkiej migracji do chmury przy minimalnych zmianach. Scenariusze szybkiego tworzenia i testowania, gdy nie chcesz kupować lokalnego nieprodukcyjnego sprzętu dla programu SQL Server. |
 |  | Zespoły, które wymagają wbudowanej wysokiej dostępności, odzyskiwania po awarii i uaktualniania bazy danych. |Zespoły, które mogą konfigurować wysoką dostępność, odzyskiwanie po awarii i poprawki dla programu SQL Server oraz zarządzać nimi. Niektóre dostępne funkcje automatyczne znacznie to upraszczają. | |
-|  | Zespoły, które nie chcą zarządzać podstawowymi ustawieniami systemu operacyjnego i konfiguracji. |Jeśli potrzebne jest dostosowane środowisko z pełnymi prawami administracyjnymi. | |
-|  | Bazy danych o rozmiarze do 1 TB lub większe bazy danych, które mogą być [partycjonowane poziomo lub pionowo](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) przy użyciu wzorca skalowalnego w poziomie. |Wystąpienia programu SQL Server z maksymalnie 64 TB przestrzeni dyskowej. Wystąpienie może obsługiwać dowolną liczbę baz danych zależnie od potrzeb. | |
-|  | [Tworzenie aplikacji typu oprogramowanie jako usługa (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrowanie i tworzenie aplikacji dla przedsiębiorstw i aplikacji hybrydowych. | |
+|  | Zespoły, które nie chcą zarządzać podstawowymi ustawieniami systemu operacyjnego i konfiguracji. |Potrzebne jest dostosowane środowisko z pełnymi prawami administracyjnymi. | |
+|  | Baz danych do 4 TB lub większych baz danych, które mogą być [poziomo czy pionowo podzielona na partycje](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) przy użyciu wzorca skalowalnego w poziomie. |Wystąpienia programu SQL Server z maksymalnie 64 TB przestrzeni dyskowej. Wystąpienie może obsługiwać dowolną liczbę baz danych zależnie od potrzeb. | |
 |  | | |
 | **Zasoby:** |Nie chcesz używać zasobów IT do konfiguracji podstawowej infrastruktury i zarządzania nią, ale chcesz skupić się na warstwie aplikacji. |Masz niektóre zasoby informatyczne do konfiguracji i zarządzania. Niektóre dostępne funkcje automatyczne znacznie to upraszczają. |
 | **Całkowity koszt posiadania:** |Eliminuje koszty sprzętu i ogranicza koszty administracyjne. |Eliminuje koszty sprzętu. |
-| **Ciągłość działalności biznesowej:** |Oprócz możliwości infrastruktury w zakresie wbudowanej odporności na uszkodzenia usługa Azure SQL Database zapewnia takie funkcje jak [automatyczne kopie zapasowe](sql-database-automated-backups.md), [przywracanie do punktu w czasie](sql-database-recovery-using-backups.md#point-in-time-restore), [przywracanie geograficzne](sql-database-recovery-using-backups.md#geo-restore) i [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md), aby zwiększyć ciągłość prowadzenia działalności biznesowej. Więcej informacji znajduje się w temacie [Omówienie ciągłości działalności biznesowej usługi SQL Database](sql-database-business-continuity.md). |Program SQL Server na maszynach wirtualnych platformy Azure umożliwia skonfigurowanie rozwiązania wysokiej dostępności i odzyskiwania po awarii w zależności od określonych potrzeb bazy danych. Można mieć zatem system w znacznym stopniu zoptymalizowany dla aplikacji. Jeśli wystąpi taka potrzeba, tryb failover można przetestować i uruchomić samodzielnie. Więcej informacji znajduje się w temacie [Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server w usłudze Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Ciągłość działalności biznesowej:** |Oprócz możliwości infrastruktury z wbudowanych usterek uszkodzenia bazy danych SQL Azure udostępnia funkcje, takie jak [automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md), [w momencie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore), [geograficzne](sql-database-recovery-using-backups.md#geo-restore), i [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md) Aby zwiększyć ciągłość prowadzenia działalności biznesowej. Więcej informacji znajduje się w temacie [Omówienie ciągłości działalności biznesowej usługi SQL Database](sql-database-business-continuity.md). |Program SQL Server na maszynach wirtualnych platformy Azure umożliwia skonfigurowanie rozwiązania wysokiej dostępności i odzyskiwania po awarii w zależności od określonych potrzeb bazy danych. Można mieć zatem system w znacznym stopniu zoptymalizowany dla aplikacji. Jeśli wystąpi taka potrzeba, tryb failover można przetestować i uruchomić samodzielnie. Więcej informacji znajduje się w temacie [Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server w usłudze Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Chmura hybrydowa:** |Aplikacja lokalna może uzyskiwać dostęp do danych w usłudze Azure SQL Database. |Program SQL Server na maszynach wirtualnych platformy Azure może obejmować aplikacje, które działają częściowo w chmurze i częściowo lokalnie. Można na przykład rozszerzyć sieć lokalną i domenę usługi Active Directory do chmury za pośrednictwem usługi [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Ponadto można przechowywać lokalne pliki danych w usłudze Azure Storage przy użyciu [plików danych programu SQL Server na platformie Azure](http://msdn.microsoft.com/library/dn385720.aspx). Więcej informacji znajduje się w temacie [Wprowadzenie do chmury hybrydowej programu SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Obsługuje [replikację transakcyjną programu SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) jako subskrybent replikowanych danych. |W pełni obsługuje [replikację transakcyjną programu SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [grupy dostępności AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), usługi integracji i wysyłanie dzienników do replikacji danych. Ponadto w pełni obsługiwane są tradycyjne kopie zapasowe programu SQL Server. | |
 |  | | |
@@ -139,12 +137,11 @@ Wybierz usługę **Azure SQL Database**, jeśli:
 
 Wybierz rozwiązanie **SQL Server na maszynach wirtualnych Azure**, jeśli:
 
-* Masz istniejące aplikacje lokalne, które chcesz zmigrować lub rozszerzyć w chmurze, bądź chcesz tworzyć aplikacje dla przedsiębiorstw o rozmiarze większym niż 1 TB. To podejście pozwala korzystać z zalet 100% zgodności, dużej pojemności bazy danych, pełnej kontroli nad programem SQL Server i systemem Windows oraz bezpiecznego tunelowania do środowiska lokalnego. To podejście minimalizuje koszty tworzenia i modyfikowania istniejących aplikacji.
+* Masz istniejące aplikacje lokalne, które chcesz przeprowadzić migrację lub rozszerzyć do chmury, lub jeśli chcesz tworzyć aplikacje przedsiębiorstwa większych niż 4 TB. To podejście pozwala korzystać z zalet 100% zgodności, dużej pojemności bazy danych, pełnej kontroli nad programem SQL Server i systemem Windows oraz bezpiecznego tunelowania do środowiska lokalnego. To podejście minimalizuje koszty tworzenia i modyfikowania istniejących aplikacji.
 * Masz istniejące zasoby IT i możesz ostatecznie samodzielnie zarządzać poprawkami, kopiami zapasowymi i wysoką dostępnością bazy danych. Należy zauważyć, że niektóre funkcje automatyczne umożliwiają znaczne uproszczenie tych operacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby rozpocząć pracę z usługą SQL Database, zobacz [Your first Azure SQL Database](sql-database-get-started-portal.md) (Twoja pierwsza baza danych Azure SQL Database).
 * Zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Aby rozpocząć pracę z programem SQL Server na maszynach wirtualnych platformy Azure, zobacz temat [Aprowizowanie maszyny wirtualnej programu SQL Server w Portalu Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-
 

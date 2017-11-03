@@ -9,6 +9,7 @@
 ## [Rozwiązywanie problemów i monitorowanie](troubleshooting-monitoring.md)
 ## Instrukcje
 ### [Konfiguracja wysokiej dostępności za pomocą metody STONITH](ha-setup-with-stonith.md)
+### [Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II](os-backup-type-ii-skus.md)
 # Oprogramowanie SAP HANA na maszynach wirtualnych platformy Azure
 ## [Platforma SAP HANA z pojedynczym wystąpieniem](hana-get-started.md)
 ## [Rozwiązanie S/4 HANA lub BW/4 HANA SAP CAL — podręcznik wdrażania](cal-s4h.md)

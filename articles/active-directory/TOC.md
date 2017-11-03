@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -112,24 +112,23 @@
 #### [Przykłady logowania](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Używanie certyfikatów](active-directory-reporting-api-with-certificates.md)
 
-## [Zarządzanie hasłami](active-directory-passwords-overview.md)
+## Zarządzanie hasłami
+### [Omówienie haseł](active-directory-passwords-overview.md)
 ### Dokumenty użytkowników
 #### [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
 #### [Najlepsze rozwiązania w zakresie haseł](active-directory-secure-passwords.md)
 #### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
-### [Wdrażanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-best-practices.md)
+### [Samoobsługowe resetowanie haseł — zobacz, jak to działa](active-directory-passwords-how-it-works.md)
+### [Podręcznik wdrażania samoobsługowego resetowania haseł](active-directory-passwords-best-practices.md)
+### [Zasady samoobsługowego resetowania haseł](active-directory-passwords-policy.md)
+### [Dostosowywanie samoobsługowego resetowania haseł](active-directory-passwords-customize.md)
+### [Wymagania dotyczące danych związane z samoobsługowym resetowaniem haseł](active-directory-passwords-data.md)
+### [Raportowanie samoobsługowego resetowania haseł](active-directory-passwords-reporting.md)
 ### Administratorzy IT: resetowanie haseł
 #### [Witryna Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klasyczna witryna Azure Portal](active-directory-create-users-reset-password.md)
-### [Omówienie zasad samoobsługowego resetowania haseł](active-directory-passwords-policy.md)
-### [Objaśnienie resetowania haseł](active-directory-passwords-how-it-works.md)
-### [Dostosowywanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-customize.md)
-### [Dane używane przez funkcję samoobsługowego resetowania haseł](active-directory-passwords-data.md)
-### [Raportowanie dotyczące samoobsługowego resetowania haseł](active-directory-passwords-reporting.md)
-### [Program Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
 ### [Zapisywanie zwrotne haseł](active-directory-passwords-writeback.md)
-### [Synchronizacja skrótów haseł](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Rozwiązywanie problemów](active-directory-passwords-troubleshoot.md)
 ### [Często zadawane pytania](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Korygowanie](active-directory-conditional-access-device-remediation.md)
 #### [Dokumentacja techniczna](active-directory-conditional-access-technical-reference.md)
 #### [Często zadawane pytania](active-directory-conditional-faqs.md)
-#### [Portal klasyczny](active-directory-conditional-access.md)
-##### [Wprowadzenie](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Uwierzytelnianie bez hasła](active-directory-azureadjoin-passport.md)
