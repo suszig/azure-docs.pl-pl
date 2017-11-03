@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informacje o kontach magazynu Azure
 
@@ -79,7 +79,7 @@ Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swo
 
 5. Wybierz typ konta magazynu: **Ogólnego przeznaczenia** lub **Blob Storage**. **Ogólnego przeznaczenia** jest wartością domyślną.
    
-    Jeśli wybrano typ **Ogólnego przeznaczenia**, określ warstwę wydajności: **Standardowe** lub **Premium**. Wartość domyślna to **Standardowe**. Szczegółowe informacje dotyczące kont magazynu (warstwy Standardowa i Premium) znajdują się w tematach [Wprowadzenie do usługi Microsoft Azure Storage](storage-introduction.md) i [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
+    Jeśli wybrano typ **Ogólnego przeznaczenia**, określ warstwę wydajności: **Standardowe** lub **Premium**. Wartość domyślna to **Standardowe**. Szczegółowe informacje dotyczące kont magazynu (warstwy Standardowa i Premium) znajdują się w tematach [Wprowadzenie do usługi Microsoft Azure Storage](storage-introduction.md) i [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
    
     Jeśli wybrano usługę **Blob Storage**, określ warstwę dostępu: **Gorąca** lub **Chłodna**. Wartość domyślna to **Gorąca**. Zobacz temat [Azure Blob Storage: Cool and Hot tiers](../blobs/storage-blob-storage-tiers.md) (Azure Blob Storage: warstwy Chłodna i Gorąca), aby uzyskać więcej szczegółów.
 6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **GRS**, **RA-GRS** lub **ZRS**. Wartość domyślna to **RA-GRS**. Aby uzyskać więcej szczegółów na temat opcji replikacji usługi Azure Storage, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).

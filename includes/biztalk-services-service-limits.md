@@ -1,12 +1,12 @@
-| RESOURCE | FREE (PREVIEW) | DEVELOPER | BASIC | STANDARD | PREMIUM |
+| ZASOBÓW | (WERSJA ZAPOZNAWCZA) W WARSTWIE BEZPŁATNA | DEWELOPER | PODSTAWOWA | STANDARDOWA | PREMIUM |
 | --- | --- | --- | --- | --- | --- |
-| Scale out |N/A |N/A |Yes, in increments of 1 Basic Unit |Yes, in increments of 1 Standard Unit |Yes, in increments of 1 Premium Unit |
-| Scale Limit |N/A |N/A |Up to 8 units |Up to 8 units |Up to 8 units |
-| EAI Bridges per Unit |N/A |25 |25 |125 |500 |
-| EDI Agreements per Unit |N/A |10 |50 |250 |1000 |
-| Hybrid Connections per Unit |5 |5 |10 |50 |100 |
-| Hybrid Connection Data Transfer (GBs) per Unit |5 |5 |50 |250 |500 |
-| Number of connections using BizTalk Adapter Service per Unit |N/A |1 |2 |5 |25 |
-| Archiving |N/A |Available |N/A |N/A |Available |
-| High Availability |N/A |N/A |Available |Available |Available |
+| Skalowanie w poziomie |Nie dotyczy |Nie dotyczy |Tak, z przyrostem równym 1 jednostka Basic |Tak, z przyrostem równym 1 jednostka Standard |Tak, z przyrostem równym 1 jednostka Premium |
+| Limit skalowania |Nie dotyczy |Nie dotyczy |Maksymalnie 8 jednostek |Maksymalnie 8 jednostek |Maksymalnie 8 jednostek |
+| Mostki integracji EAI na jednostkę |Nie dotyczy |25 |25 |125 |500 |
+| Umowy integracji EDI na jednostkę |Nie dotyczy |10 |50 |250 |1000 |
+| Połączenia hybrydowe na jednostkę |5 |5 |10 |50 |100 |
+| Transfer danych poprzez połączenie hybrydowe (GB) na jednostkę |5 |5 |50 |250 |500 |
+| Liczba połączeń przy użyciu usługi karty BizTalk na jednostkę |Nie dotyczy |1 |2 |5 |25 |
+| Archiwizacja |Nie dotyczy |Dostępna |Nie dotyczy |Nie dotyczy |Dostępna |
+| Wysoka dostępność |Nie dotyczy |Nie dotyczy |Dostępna |Dostępna |Dostępna |
 
