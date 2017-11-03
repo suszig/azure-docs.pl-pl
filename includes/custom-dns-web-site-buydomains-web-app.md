@@ -1,28 +1,28 @@
-If you want a domain, you can buy domains on [Azure Management Portal](https://portal.azure.com) directly. Use the following steps to buy domain names and assign to your web app.
+Jeśli chcesz domeny, możesz kupić domen na [portalu zarządzania Azure](https://portal.azure.com) bezpośrednio. Wykonaj następujące kroki, aby kupić nazw domen i przypisać do aplikacji sieci web.
 
-1. In your browser, open the [Azure Management Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+1. W przeglądarce otwórz [portalu zarządzania Azure](https://portal.azure.com).
+2. W **aplikacje sieci Web** kliknij nazwę aplikacji sieci web, wybierz pozycję **ustawienia**, a następnie wybierz **domen niestandardowych i SSL**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains and SSL** blade, click **Buy domains**.
+3. W **domen niestandardowych i SSL** bloku, kliknij przycisk **kupić domen**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-1.png)
-4. In the **Buy Domains** blade, use the text box to enter the domain name you want to buy. The suggested available domains will be shown just blow the text box. Select what domain you want to buy.
+4. W **kupić domen** bloku, użyj pola tekstowego, aby wprowadzić nazwę domeny, które chcesz kupić. Sugerowane dostępnych domen będą wyświetlane tylko nam wszystkim zdmuchnąć pola tekstowego. Wybierz domenę, które chcesz kupić.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
-5. Click the **Contact Information** and fill the domain's contact information form.
+5. Kliknij przycisk **informacje kontaktowe** i wypełnij formularz informacji kontaktowych w domenie.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-3.png)
-6. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**.
+6. Kliknij przycisk **wybierz** na **kupić domen** bloku, następnie zobacz informacje o zakupie na **potwierdzenia zakupu** bloku. Zaakceptuj postanowienia prawne i kliknięcie **kupić**, Twoje zamówienie zostanie przesłane, i można monitorować proces zakupu na **powiadomienia**.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
-7. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade.
+7. Jeśli możesz pomyślnie uporządkowane domeny, można zarządzać domeny i przypisać do aplikacji sieci web. Kliknij przycisk **"..."** po prawej stronie domeny. Następnie możesz **anulować zakup** lub **domeny Zarządzaj**. Kliknij przycisk **domeny Zarządzaj**, następnie firma Microsoft może powiązać **poddomeny** do aplikacji sieci web na **domeny Zarządzaj** bloku.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
    
-    Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+    Po zakończeniu konfiguracji niestandardowej nazwy domeny będzie wyświetlane w **powiązań z nazwami hostów** części aplikacji sieci web.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+W tym momencie można wprowadzić nazwę domeny niestandardowej w przeglądarce i zobaczyć, czy go pomyślnie przejście do aplikacji sieci web.
 

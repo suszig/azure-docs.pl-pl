@@ -1,64 +1,64 @@
-You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/application-insights/app-insights-overview.md) and [Log Analytics](../articles/log-analytics/log-analytics-overview.md).
+Można wykorzystać wiele okazji do monitorowania maszyn wirtualnych przez zbierania, wyświetlanie i analizowanie danych diagnostycznych i danych logowania. Przeprowadzenie proste [monitorowania](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) maszyny wirtualnej, można użyć ekran Przegląd dla maszyny Wirtualnej w portalu Azure. Można użyć [rozszerzenia](../articles/virtual-machines/windows/extensions-features.md) Aby skonfigurować diagnostykę na maszynach wirtualnych, aby zbierać dodatkowe dane metryki. Można również użyć bardziej zaawansowane opcje monitorowania, takich jak [usługi Application Insights](../articles/application-insights/app-insights-overview.md) i [analizy dzienników](../articles/log-analytics/log-analytics-overview.md).
 
-## <a name="diagnostics-and-metrics"></a>Diagnostics and metrics 
+## <a name="diagnostics-and-metrics"></a>Diagnostyka i metryki 
 
-You can set up and monitor the collection of [diagnostics data](https://docs.microsoft.com/cli/azure/vm/diagnostics) using [metrics](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) in the Azure portal, the Azure CLI, Azure PowerShell, and programming Applications Programming Interfaces (APIs). For example, you can:
+Można skonfigurować i monitorować zbiorem [dane diagnostyczne](https://docs.microsoft.com/cli/azure/vm/diagnostics) przy użyciu [metryki](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) w portalu Azure, interfejsu wiersza polecenia Azure, programu Azure PowerShell i programowania programowania interfejsów aplikacji (API). Można na przykład:
 
-- **Observe basic metrics for the VM.** On the Overview screen of the Azure portal, the basic metrics shown include CPU usage, network usage, total of disk bytes, and disk operations per second.
+- **Obserwować podstawowe metryki dla maszyny Wirtualnej.** Na ekranie informacje w portalu Azure podstawowe metryki wyświetlane obejmują użycie procesora CPU, użycia sieci, łączna liczba bajtów na dysku i operacji dysku na sekundę.
 
-- **Enable the collection of boot diagnostics and view it using the Azure portal.** When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a VM gets into a non-bootable state. You can easily enable boot diagnostics when you create a VM by clicking **Enabled** for Boot Diagnostics under the Monitoring section of the Settings screen.
+- **Włącz zbieranie diagnostyki rozruchu i wyświetl ją za pomocą portalu Azure.** Podczas przełączania własny obraz na platformie Azure albo jeden z obrazów platformy nawet rozruch, może istnieć wiele przyczyn, dlaczego pobiera Maszynę wirtualną do stanu rozruchowego. Można łatwo włączyć diagnostyki rozruchu podczas tworzenia maszyny Wirtualnej, klikając **włączone** dla diagnostyki rozruchu w sekcji monitorowanie ustawień ekranu.
 
-    As VMs boot, the boot diagnostic agent captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a VM from command-line tools. Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. If you enable boot diagnostics in the Azure portal, a storage account is automatically created for you.
+    Jak rozruchu maszyn wirtualnych, agenta diagnostyki rozruchu przechwytuje dane wyjściowe rozruchu i zapisuje go w magazynie Azure. Te dane mogą służyć do rozwiązywania problemów rozruchu maszyny Wirtualnej. Diagnostyki rozruchu nie są automatycznie włączone po utworzeniu maszyny Wirtualnej z narzędzi wiersza polecenia. Przed włączeniem diagnostyki rozruchu, konta magazynu musi być utworzony do przechowywania dzienników rozruchu. Jeśli włączysz diagnostyki rozruchu w portalu Azure, konta magazynu są tworzone automatycznie.
 
-    If you didn’t enable boot diagnostics when the VM was created, you can always enable it later by using [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics), or an [Azure Resource Manager template](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Jeśli nie włączysz diagnostyki rozruchu podczas tworzenia maszyny Wirtualnej, można zawsze włączyć ją później za pomocą [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics), lub [szablonu usługi Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
-- **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings screen to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect additional disk, CPU, and memory data.
+- **Włącz opcję zbierania danych diagnostycznych systemu operacyjnego gościa.** Podczas tworzenia maszyny Wirtualnej, możesz mieć możliwość na ekranie ustawienia, aby włączyć diagnostykę systemu operacyjnego gościa. Po włączeniu zbierania danych diagnostycznych [IaaSDiagnostics rozszerzenia dla systemu Linux](../articles/virtual-machines/linux/diagnostic-extension.md) lub [IaaSDiagnostics rozszerzenia dla systemu Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) zostanie dodany do maszyny Wirtualnej, dzięki czemu można zbierać dodatkowe dane na dysku, procesora CPU i pamięci.
 
-    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure logs to store the data and set up alerts to let you know when performance isn't quite right.
+    Za pomocą danych diagnostycznych zebranych, można skonfigurować funkcję skalowania automatycznego dla maszyn wirtualnych. Można także skonfigurować dzienniki, aby przechowywać dane i Konfigurowanie alertów, aby użytkownik wiedział, gdy wydajność nie ma jeszcze prawo.
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>Alerty
 
-You can create [alerts](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), or the [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Można utworzyć [alerty](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) oparciu metryki wydajności zależnych. Przykładami problemów, które użytkownik może otrzymywać alerty o średnie użycie Procesora przekroczy określony próg lub wolnego miejsca na dysku spada poniżej pewnego. Alerty można skonfigurować w [portalu Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)za pomocą [programu Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), lub [interfejsu wiersza polecenia Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
-[Azure Service Health](../articles/service-health/service-health-overview.md) provides personalized guidance and support when issues in Azure services affect you, and helps you prepare for upcoming planned maintenance. Azure Service Health alerts you and your teams using targeted and flexible notifications.
+[Kondycja usługi Azure](../articles/service-health/service-health-overview.md) zapewnia spersonalizowane wskazówki i pomocy technicznej, gdy dotyczy problemów dotyczących usług platformy Azure i pomaga przygotować się na nadchodzące zaplanowanej konserwacji. Kondycja usługi Azure alerty możesz i zespołów przy użyciu docelowych i elastyczne powiadomienia.
 
 ## <a name="azure-resource-health"></a>Azure Resource Health
 
-[Azure Resource health](../articles/service-health/resource-health-overview.md) helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
+[Kondycja zasobów Azure](../articles/service-health/resource-health-overview.md) ułatwia diagnozowanie i uzyskać pomoc techniczną, gdy Azure problem ma wpływ na zasoby. Informuje o bieżącej i wcześniejszej kondycji zasobów oraz pomaga uniknąć problemów. Usługa Resource Health oferuje pomoc techniczną w przypadku problemów z usługą platformy Azure.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Dzienniki
 
-The [Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can click Activity Log in the Azure portal to view the log for your VM.
+[Dziennika aktywności platformy Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. Dziennik zawiera szereg danych z usługi Azure Resource Manager danych operacyjnych do aktualizacji na zdarzenia kondycji usługi. Możesz kliknąć dziennik aktywności w portalu Azure, aby wyświetlić dziennik dla maszyny Wirtualnej.
 
-Some of the things you can do with the activity log include:
+Oto niektóre czynności, które można zrobić za pomocą dziennika aktywności:
 
-- Create an [alert on an Activity Log event](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-- [Stream it to an Event Hub](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-- Analyze it in PowerBI using the [PowerBI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Save it to a storage account](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
+- Utwórz [alert dotyczący zdarzenia dziennika aktywności](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+- [Strumienia go do Centrum zdarzeń](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) dla wprowadzanie przez usługi innej firmy lub rozwiązania analizy niestandardowych, takich jak usługi Power BI.
+- Przeanalizuj go za pomocą usługi Power BI [pakiet zawartości usługi Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+- [Zapisz go na konto magazynu](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) inspekcji archiwizacji lub ręcznie. Można określić czas przechowywania (w dniach) przy użyciu profilu dziennika.
 
-You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
+Można również dostęp do danych dziennika aktywności, za pomocą [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/monitor), lub [interfejsów API REST Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Diagnostic Logs](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by your VM that provide rich, frequent data about its operation. Diagnostic logs differ from the activity log by providing insight about operations that were performed within the VM.
+[Azure dzienników diagnostycznych](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) są dzienniki emitowane przez maszyny Wirtualnej, które zawierają rozbudowane, często dane dotyczące jego działania. Dzienniki diagnostyczne różnią się od dziennik aktywności, zapewniając wgląd w działania wykonywane w ramach maszyny Wirtualnej.
 
-Some of the things you can do with diagnostics logs include:
+Czynności, które można wykonywać za pomocą dzienników diagnostycznych, należą:
 
-- [Save them to a storage account](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using Resource Diagnostic Settings.
-- [Stream them to Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-- Analyze them with [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- [Zapisz je na konto magazynu](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) inspekcji inspekcji lub ręcznie. Można określić czas przechowywania (w dniach) przy użyciu ustawień diagnostycznych zasobu.
+- [Strumienia je do usługi Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) dla wprowadzanie przez usługi innej firmy lub rozwiązania analizy niestandardowych, takich jak usługi Power BI.
+- Analizuj je za pomocą [analizy dzienników OMS](../articles/log-analytics/log-analytics-azure-storage.md).
 
-## <a name="advanced-monitoring"></a>Advanced monitoring
+## <a name="advanced-monitoring"></a>Zaawansowane monitorowanie
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. You can install an extension on a [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) that installs the OMS agent, and enrolls the VM into an existing OMS workspace.
+- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) zapewnia możliwości korygowania monitorowania, alertów i alertów w chmurze i lokalnych zasobów. Rozszerzenie można zainstalować na [maszyny Wirtualnej systemu Linux](../articles/virtual-machines/linux/extensions-oms.md) lub [maszyny Wirtualnej systemu Windows](../articles/virtual-machines/windows/extensions-oms.md) instaluje agenta pakietu OMS i rejestruje maszyny Wirtualnej w istniejącym obszarem roboczym pakietu OMS.
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) is a service in OMS that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
+- [Zaloguj się Analytics](../articles/log-analytics/log-analytics-overview.md) jest usługą OMS, który monitoruje chmurze i lokalnych środowiskach utrzymywać ich dostępności i wydajności. Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł.
 
-    For Windows and Linux VMs, the recommended method for collecting logs and metrics is by installing the Log Analytics agent. The easiest way to install the Log Analytics agent on a VM is through the [Log Analytics VM Extension](../articles/log-analytics/log-analytics-azure-vm-extension.md). Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
+    Dla systemów Windows i maszyn wirtualnych systemu Linux zbierania dzienników i metryki zaleca przez zainstalowanie agenta analizy dzienników. Najprostszym sposobem zainstalowania agenta analizy dzienników na maszynie Wirtualnej jest za pośrednictwem [rozszerzenia maszyny Wirtualnej analizy dziennika](../articles/log-analytics/log-analytics-azure-vm-extension.md). Przy użyciu rozszerzenia upraszcza proces instalacji i automatycznie konfiguruje agenta do wysyłania danych do obszaru roboczego analizy dzienników, który określisz. Agent jest również uaktualniana automatycznie, sprawdzeniu, czy masz najnowsze funkcje i poprawki.
 
-- [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) enables you to monitor your VM and its associated resources as they relate to the network that they are in. You can install the Network Watcher Agent extension on a [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md).
+- [Monitor sieci](../articles/network-watcher/network-watcher-monitoring-overview.md) umożliwia monitorowanie maszyny Wirtualnej i jej skojarzonych zasobów w odniesieniu do sieci, w których są one. Można zainstalować rozszerzenia sieci obserwatorów agenta na [maszyny Wirtualnej systemu Linux](../articles/virtual-machines/linux/extensions-nwa.md) lub [maszyny Wirtualnej systemu Windows](../articles/virtual-machines/windows/extensions-nwa.md).
 
-## <a name="next-steps"></a>Next steps
-- Walk through the steps in [Monitor a Windows Virtual Machine with Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) or [Monitor a Linux Virtual Machine with the Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
-- Learn more about the best practices around [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
+## <a name="next-steps"></a>Następne kroki
+- Wykonać kroki w [umożliwia monitorowanie maszyny wirtualnej systemu Windows przy użyciu programu Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) lub [monitorowanie maszyny wirtualnej systemu Linux z wiersza polecenia platformy Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).
+- Dowiedz się więcej o najlepszych rozwiązaniach wokół [monitorowania i diagnostyki](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

@@ -6,10 +6,12 @@
 | Wolne miejsce na dysku (pamięć podręczna serwera przetwarzania) | 600 GB
 | Wolne miejsce na dysku (dysk przechowywania) | 600 GB|
 | **Oprogramowanie** | |
-| Wersja systemu operacyjnego | Windows Server 2012 R2 |
+| Wersja systemu operacyjnego | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Ustawienia regionalne systemu operacyjnego | Angielski (en-us)|
 | Wersja programu VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Role systemu Windows Server | Nie należy włączać następujących ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+| Zasady grupy| Następujące zasady grupy nie powinna być włączona na serwerze <br> -Uniemożliwić dostęp do wiersza polecenia <br> -Uniemożliwić dostęp do narzędzia do edycji rejestru <br> — Logika zaufania dla załączników plików <br> -Włącz wykonywanie skryptu <br> **Uwaga:** można znaleźć więcej informacji na temat tych zasad grupy [tutaj](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
+| Konfiguracja Service(IIS) informacji Internet | -Brak istniejącego domyślnej witryny sieci Web <br> -Włącz [uwierzytelnianie anonimowe](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Włącz [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) ustawienie  <br> -Brak istniejącego websit/aplikacja nie powinna nasłuchu na porcie 443<br>|
 | **Sieć** | |
 | Typ karty interfejsu sieciowego | VMXNET3 |
 | Typ adresu IP | Statyczny |

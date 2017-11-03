@@ -34,7 +34,7 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: Web App for Containers
+        - name: Usługa App Service w systemie Linux
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
         - name: Środowiska usługi App Service
@@ -61,6 +61,9 @@
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
+    - name: Zarządzanie kosztami
+      tocHref: /azure/cost-management/
+      topicHref: /azure/cost-management/
     - name: Funkcje
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
@@ -91,6 +94,9 @@
     - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
+    - name: Wsadowe AI
+      tocHref: /azure/batch-ai/
+      topicHref: /azure/batch-ai/
     - name: Rozliczenia
       tocHref: /azure/billing/
       topicHref: /azure/billing/
@@ -116,6 +122,9 @@
         - name: Wyszukiwanie w sieci Web (Bing)
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
+        - name: Mowa
+          tocHref: /azure/cognitive-services/Speech/
+          topicHref: /azure/cognitive-services/Speech/
         - name: Przetwarzanie obrazów
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -143,6 +152,9 @@
     - name: Container Instances
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
+    - name: AKS
+      tocHref: /azure/aks/
+      topicHref: /azure/aks/
     - name: Container Service
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
@@ -311,7 +323,7 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: Magazyn danych SQL
+    - name: SQL Data Warehouse
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
     - name: SQL Database

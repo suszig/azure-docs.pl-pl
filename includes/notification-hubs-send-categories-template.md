@@ -1,28 +1,28 @@
 
-In this section, you send breaking news as tagged template notifications from a .NET console app.
+W tej sekcji możesz wysyłanie najważniejszych wiadomości oznakowany szablonu powiadomienia z aplikacji konsoli .NET.
 
-If you are using the Mobile Apps feature of Microsoft Azure App Service, refer to the [Add push notifications for Mobile Apps] tutorial, and select your platform at the top.
+Jeśli używasz funkcji Mobile Apps usługi Microsoft Azure App Service, zapoznaj się [Dodawanie powiadomień wypychanych do aplikacji mobilnej] samouczka i wybierz platformy u góry.
 
-If you want to use Java or PHP, refer to [How to use Notification Hubs from Java or PHP]. You can send notifications from any back end by using the [Notification Hubs REST interface].
+Jeśli chcesz użyć Java lub PHP, zapoznaj się [jak używać usługi Notification Hubs w języku Java lub PHP]. Możesz wysłać powiadomienia z dowolnego zaplecza za pomocą [interfejsu REST centra powiadomień].
 
-If you created the console app for sending notifications when you completed [Get started with Notification Hubs], skip steps 1-3.
+Jeśli utworzono aplikacji konsoli do wysyłania powiadomień po wykonaniu [Rozpoczynanie pracy z usługą Notification Hubs], powtórz kroki 1 – 3.
 
-1. In Visual Studio, create a new Visual C# console application:
+1. W programie Visual Studio utwórz nową aplikację konsoli języka Visual C#:
    
-      ![The Console Application link][13]
+      ![Łącze aplikacji konsoli][13]
 
-2. On the Visual Studio main menu, select **Tools** > **Library Package Manager** > **Package Manager Console** and then, in the console window, enter the following string:
+2. W menu głównym programu Visual Studio wybierz **narzędzia** > **Menedżer pakietów biblioteki** > **Konsola Menedżera pakietów** , a następnie w konsoli programu okno, wprowadź następujący ciąg:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-3. Select **Enter**.  
-    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package].
+3. Wybierz **wprowadź**.  
+    Ta akcja spowoduje dodanie odwołania do zestawu SDK usługi Azure Notification Hubs z użyciem [pakietu NuGet Microsoft.Azure.Notification Hubs].
 
-4. Open the Program.cs file, and add the following `using` statement:
+4. Otwórz plik Program.cs i dodaj następującą `using` instrukcji:
    
         using Microsoft.Azure.NotificationHubs;
 
-5. In the `Program` class, add the following method, or replace it if it already exists:
+5. W `Program` klasy, dodaj następującą metodę lub zastąp ją, jeśli już istnieje:
    
         private static async void SendTemplateNotificationAsync()
         {
@@ -48,23 +48,23 @@ If you created the console app for sending notifications when you completed [Get
             }
          }
    
-    This code sends a template notification for each of the six tags in the string array. The use of tags ensures that devices receive notifications only for the registered categories.
+    Ten kod wysyła powiadomienie szablonu dla każdej z sześciu tagów w tablicy ciągów. Tagi zapewnia urządzenia powiadomienia tylko w przypadku zarejestrowanych kategorii.
 
-5. In the preceding code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* from the dashboard of your notification hub.
+5. W powyższym kodzie Zamień `<hub name>` i `<connection string with full access>` symbole zastępcze nazwą Centrum powiadomień i parametry połączenia dla *DefaultFullSharedAccessSignature* na pulpicie nawigacyjnym Centrum powiadomień.
 
-6. In the **Main** method, add the following lines:
+6. W metodzie **Main** dodaj następujące wiersze:
    
          SendTemplateNotificationAsync();
          Console.ReadLine();
 
-7. Build the console app.
+7. Tworzenie aplikacji konsoli.
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
-[How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.Notification Hubs NuGet package]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Rozpoczynanie pracy z usługą Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[interfejsu REST centra powiadomień]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Dodawanie powiadomień wypychanych do aplikacji mobilnej]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[jak używać usługi Notification Hubs w języku Java lub PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
+[pakietu NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

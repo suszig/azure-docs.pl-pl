@@ -1,44 +1,44 @@
 <!--author=alkohli last changed: 08/04/17-->
 
-#### <a name="to-install-an-update-from-the-azure-portal"></a>To install an update from the Azure portal
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Aby zainstalować aktualizację z witryny Azure Portal
 
-1. On the StorSimple service page, select your device.
+1. Na stronie usługi StorSimple wybierz swoje urządzenie.
 
-    ![Select device](./media/storsimple-8000-install-update5-via-portal/update1.png)
+    ![Wybierz urządzenie](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. Navigate to **Device settings** > **Device updates**.
+2. Przejdź do **ustawienia urządzenia** > **aktualizacji urządzenia**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update2.png)
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
+2. Pojawi się powiadomienie, jeśli są dostępne nowe aktualizacje. Alternatywnie w **aktualizacji urządzenia** bloku, kliknij przycisk **Wyszukaj aktualizacje**. Zostanie utworzone zadanie skanowania dostępnych aktualizacji. Otrzymasz powiadomienie, gdy zadanie zostanie pomyślnie ukończone.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
+3. Przed zastosowaniem aktualizacji na urządzeniu zalecamy przejrzenie informacji o wersji. Aby zastosować aktualizacje, kliknij przycisk **instalowania aktualizacji**. W **potwierdzić regularnie** bloku Przeglądanie wymagań wstępnych, aby zakończyć przed zastosowaniem aktualizacji. Zaznacz pole wyboru, aby wskazać, że można przystąpić do aktualizacji urządzenia, a następnie kliknij przycisk **zainstalować**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
-6. A set of prerequisite checks starts. These checks include:
+6. Zostanie rozpoczęty zestaw testów wymagań wstępnych. Testy te obejmują:
    
-   * **Controller health checks** to verify that both the device controllers are healthy and online.
-   * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
-   * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
+   * **Testy kondycji kontrolera** w celu sprawdzenia, czy oba kontrolery urządzeń są w dobrej kondycji i w trybie online.
+   * **Testy kondycji składnika sprzętowego** w celu sprawdzenia, czy wszystkie składniki sprzętowe Twojego urządzenia StorSimple są w dobrej kondycji.
+   * **Testy interfejsu DATA 0** w celu sprawdzenia, czy interfejs DATA 0 jest włączony na Twoim urządzeniu. Jeśli ten interfejs nie jest włączony, należy go włączyć i ponowić próbę.
 
-    The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    Aktualizacja jest pobierane i instalowane tylko wtedy, gdy wszystkie testy zostały wykonane pomyślnie. Zobaczysz powiadomienie o trwających testach. W przypadku awarii prechecks, następnie należy otrzymają przyczyny niepowodzenia. Rozwiązania tych problemów, a następnie spróbuj ponownie wykonać operację. Jeśli nie będziesz w stanie samodzielnie rozwiązać tych problemów, konieczne może być skontaktowanie się z pomocą techniczną firmy Microsoft.
 
-7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
+7. Po pomyślnym ukończeniu prechecks jest utworzone zadanie aktualizacji. Otrzymasz powiadomienie o pomyślnym utworzeniu zadania aktualizacji.
    
-    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update6.png)
+    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update6.png)
    
-    The update is then applied on your device.
+    Następnie aktualizacja jest stosowania do Twojego urządzenia.
 
-9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+9. Aktualizacja zajmuje kilka godzin. Aby w dowolnym momencie wyświetlić szczegóły zadania, wybierz zadanie aktualizacji i kliknij pozycję **Szczegóły**.
 
-    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
+     Można również monitorować postęp zadania aktualizacji z **ustawienia urządzenia > zadań**. Na **zadania** bloku można wyświetlić postęp aktualizacji.
 
-     ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
-10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
+10. Po zakończeniu zadania, przejdź do **ustawienia urządzenia > aktualizacji urządzenia**. Teraz należy uaktualnić wersji oprogramowania.
 

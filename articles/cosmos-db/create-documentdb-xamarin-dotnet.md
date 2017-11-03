@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: Budowanie aplikacji sieci Web za pomocą oprogramowania .NET, Xamarin i uwierzytelniania serwisu Facebook
 
@@ -34,6 +32,7 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -108,7 +107,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 4. Otwórz projekt Xamarin i przejdź do pliku TodoItemManager.cs. Podaj wartości dla właściwości accountURL, collectionId i databaseId, a także dla właściwości resourceTokenBrokerURL będącej podstawowym adresem URL HTTPS witryny sieci Web brokera tokenu zasobów.
 
-5. Ukończ samouczek [Jak skonfigurować aplikację App Service, aby używała logowania do usługi Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md), aby skonfigurować uwierzytelnianie serwisu Facebook i witrynę sieci Web ResourceTokenBroker.
+5. Ukończ samouczek [Jak skonfigurować aplikację App Service, aby używała logowania do usługi Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md), aby skonfigurować uwierzytelnianie serwisu Facebook i witrynę sieci Web ResourceTokenBroker.
 
     Uruchom aplikację platformy Xamarin.
 
@@ -129,4 +128,3 @@ W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)
-

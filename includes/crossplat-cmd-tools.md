@@ -59,7 +59,7 @@ Następnie zaimportuj plik `.publishsettings`, uruchamiając następujące polec
 
     azure account import {path to .publishsettings file}
 
-Wszystkie informacje zapisane przez polecenie <code>import</code> możesz usunąć za pomocą polecenia <code>account clear</code>:
+Możesz usunąć wszystkich danych przechowywanych przez <code>import</code> polecenia przy użyciu <code>account clear</code> polecenia:
 
     azure account clear
 

@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 — Ciągła integracja/ciągłe dostarczanie w usłudze Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
+    - name: 13 — Instalowanie stosu \.NET SQL\IIS
+      href: tutorial-iis-sql.md
+    - name: 14 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
       href: tutorial-secure-web-server.md
 - name: Przykłady
   items:
@@ -55,6 +57,27 @@
       href: regions-and-availability.md
     - name: Typy i rozmiary maszyn wirtualnych
       href: sizes.md
+      items:
+        - name: Zastosowania ogólne
+          href: sizes-general.md
+          items:
+            - name: Seria B z możliwością zwiększania wydajności
+              href: b-series-burstable.md
+        - name: Optymalizacja pod kątem obliczeń
+          href: sizes-compute.md
+        - name: Optymalizacja pod kątem pamięci
+          href: sizes-memory.md
+        - name: Optymalizacja pod kątem magazynu
+          href: sizes-storage.md
+        - name: Optymalizacja pod kątem procesora GPU
+          href: sizes-gpu.md
+          items:
+            - name: Konfigurowanie sterowników procesora GPU
+              href: n-series-driver-setup.md
+        - name: Obliczenia o wysokiej wydajności
+          href: sizes-hpc.md
+        - name: Jednostki obliczeniowe platformy Azure (ACU)
+          href: sizes-general.md
     - name: Konserwacja i aktualizacje
       href: maintenance-and-updates.md
     - name: Magazyn

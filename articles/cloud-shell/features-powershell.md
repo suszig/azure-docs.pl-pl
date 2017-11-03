@@ -1,0 +1,114 @@
+---
+title: "PowerShell w funkcjach powłoki chmury Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+description: "Omówienie funkcji programu PowerShell w powłoce chmury Azure"
+services: Azure
+documentationcenter: 
+author: maertendMSFT
+manager: timlt
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: azure
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2017
+ms.author: damaerte
+ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/27/2017
+---
+# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure
+
+[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+
+> [!TIP]
+> Funkcje i narzędzia dla [Bash](features.md) jest również dostępna.
+
+PowerShell w chmurze powłoki jest uruchamiana `Windows Server 2016`.
+
+## <a name="features"></a>Funkcje
+
+### <a name="secure-automatic-authentication"></a>Bezpieczne uwierzytelnianie automatyczne
+
+PowerShell w chmurze powłoki bezpiecznie i automatycznie służy do uwierzytelniania dostępu do konta dla programu Azure PowerShell.
+
+### <a name="files-persistence-across-sessions"></a>Pliki trwałości między sesjami
+
+Aby zachować pliki między sesjami, powłoki chmury przeprowadzi Cię przez dołączenie udziału plików na platformę Azure przy pierwszym uruchomieniu.
+Po ukończeniu powłoki chmury będą automatycznie dołączać magazynu (zainstalowany jako `$home\clouddrive`) dla wszystkich przyszłych sesji.
+Ponieważ każde żądanie dla powłoki chmury jest przydzielanie tymczasowa maszyna pliki poza Twojej `$home\clouddrive` i stan maszyny nie są zachowywane między sesjami.
+
+[Dowiedz się więcej na temat dołączania udziały plików platformy Azure do chmury powłoki.](persisting-shell-storage-powershell.md)
+
+### <a name="azure-drive-azure"></a>Dysku platformy Azure (Azure:)
+
+Środowiska PowerShell w chmurze powłoki rozpoczyna się w stacji Azure (`Azure:`).
+Dysków Azure umożliwia łatwe odnajdowanie i nawigacja zasobów platformy Azure, takich jak obliczeniowych, sieci, itp. magazyn podobny do nawigacji systemu plików.
+Można nadal używać znanych [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) nimi zarządzać.
+Wszelkie zmiany wprowadzone do zasobów platformy Azure, albo bezpośrednio w portalu Azure lub za pomocą poleceń cmdlet programu PowerShell systemu Azure, są natychmiast odzwierciedlone w dysku platformy Azure.
+
+![](media/features-powershell/azure-drive.png)
+
+#### <a name="contextual-awareness"></a>Rozpoznawanie kontekstowe
+
+- **Określania zakresu grupy zasobów**: gdy w ramach grupy zasobów ścieżki na dysku platformy Azure (`Azure:`), nazwa grupy zasobów jest automatycznie przekazywane do polecenia cmdlet programu Azure PowerShell.
+
+    ![](media/features-powershell/resource-group-autocomplete.png)
+
+- **Get-AzureRmCommand**: to polecenie cmdlet zwraca listę poleceń zastosowania w kontekście lokalizacji, w obszarze dysk Azure (`Azure:`). Na przykład tylko polecenia związane z magazynowaniem będzie wyświetlana, gdy użytkownik jest w obszarze`Azure:\<subscription name>\StorageAccounts`
+
+    ![](media/features-powershell/get-azurermcommand.png)
+
+### <a name="rich-powershell-script-editing"></a>Edytowanie skryptu PowerShell RTF
+
+Jeśli używasz VIM do edycji plików programu PowerShell (`.ps1,.psm1,.psd1`), automatycznie pobrać wyróżnianie składni i obsługę funkcji IntelliSense.
+Obsługę funkcji IntelliSense jest implementowany za pośrednictwem vim wtyczkę, która współdziała z lokalnego wystąpienia programu [edytora programu PowerShell usługi](https://github.com/PowerShell/PowerShellEditorServices).
+
+> [!TIP]
+> Użyj `TAB` uzyskanie zakończenia (IntelliSense) na nazwy poleceń, nazwy parametrów i wartości parametrów (jeśli dotyczy).
+
+![](media/features-powershell/powershell-editing-vim.png)
+
+### <a name="extensible-model"></a>Rozszerzonego modelu
+
+Przy użyciu [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget), można łatwo zainstalować (i zaktualizować) niestandardowe moduły i skrypty z [galerii programu PowerShell](https://www.powershellgallery.com).
+Po zakończeniu instalacji moduły automatycznie są zachowywane między sesjami powłoki chmury.
+
+> [!TIP]
+> Moduły instalowane przez użytkowników są zapisywane w `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folderu. Łącze symboliczne do ten folder jest tworzony w folderze dokumenty użytkownika (`$home\Documents\WindowsPowerShell`).
+
+![](media/features-powershell/powershellget-module.png)
+
+### <a name="management-of-guest-vms"></a>Zarządzanie maszynami wirtualnymi gościa
+
+Za pomocą dwóch poleceń wbudowanych - `Enter-AzureRmVM` i `Invoke-AzureRmVMCommand`, można zdalnie zarządzać maszynach wirtualnych platformy Azure.
+Te polecenia są wbudowane obsługę zdalną środowiska PowerShell i wymaga połączenia programu PowerShell z maszyn wirtualnych platformy Azure.
+
+## <a name="tools"></a>Narzędzia
+
+|**Kategoria**    |**Nazwa**                                 |
+|----------------|-----------------------------------------|
+|Narzędzia platformy Azure     |[Program Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Azure CLI (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Edytory tekstów    |VIM<br> nano                             |
+|Menedżer pakietów |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
+|Kontrola źródła  |git                                      |
+|Bazy danych       |[Moduł SqlServer](https://www.powershellgallery.com/packages/SqlServer)<br> [Narzędzia sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
+|Narzędzia do testowania      |Pester                                   |
+
+## <a name="language-support"></a>Obsługa języków
+
+|**Język**|**Wersja**|
+|------------|-----------|
+|.NET        |4.6        |
+|Node.js     |6.10       |
+|PowerShell  |5.1 i [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|Python      |2.7        |
+
+## <a name="next-steps"></a>Następne kroki
+
+[Szybki Start przy użyciu programu PowerShell w chmurze powłoki](quickstart-powershell.md)
+
+[Więcej informacji na temat programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Istnieją dwa moduły programu PowerShell służy do interakcji z sieci szkieletowej usług. [Program Azure PowerShell](/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) służy do zarządzania zasobami Azure, takich jak klaster sieci szkieletowej usług hostowanymi na platformie Azure. [Zestaw SDK sieci szkieletowej usług Azure](../articles/service-fabric/service-fabric-get-started.md) służy do bezpośredniego Połącz się z klastrem usługi sieć szkieletowa (niezależnie od tego, gdzie jest hostowana) i zarządzanie, klaster, aplikacji i usług. 

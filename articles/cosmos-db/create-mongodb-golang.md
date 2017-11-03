@@ -6,28 +6,29 @@ author: Durgaprasad-Budhwani
 manager: jhubbard
 editor: mimig1
 ms.service: cosmos-db
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Tworzenie aplikacji konsolowej interfejsu API usługi MongoDB przy użyciu języka Golang i witryny Azure Portal
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów.
 
-Ten przewodnik Szybki start wyjaśnia, jak użyć istniejącej aplikacji [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) napisanej w języku [Golang](https://golang.org/) i połączyć ją z bazą danych usługi Azure Cosmos DB obsługującą połączenia klientów MongoDB.
+Ten przewodnik Szybki start wyjaśnia, jak użyć istniejącej aplikacji [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) napisanej w języku [Golang](https://golang.org/) i połączyć ją z bazą danych usługi Azure Cosmos DB obsługującą połączenia klientów MongoDB.
 
 Innymi słowy, aplikacja w języku Golang wie jedynie, że łączy się z bazą danych przy użyciu interfejsów API bazy danych MongoDB. Aplikacja nie wie, że dane są przechowywane w bazie danych usługi Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free). 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - Język [Go](https://golang.org/dl/) i podstawowa wiedza o języku [Go](https://golang.org/).
 - Środowisko IDE — [Gogland](https://www.jetbrains.com/go/) firmy Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) firmy Microsoft lub [Atom](https://atom.io/). W tym samouczku używam środowiska Goglang.
 
@@ -244,4 +245,3 @@ W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure
 
 > [!div class="nextstepaction"]
 > [Importuj dane do usługi Azure Cosmos DB na potrzeby interfejsu API usługi MongoDB](mongodb-migrate.md)
-

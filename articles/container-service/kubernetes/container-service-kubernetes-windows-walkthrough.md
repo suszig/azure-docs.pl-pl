@@ -10,21 +10,21 @@ keywords:
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Wdrażanie klastra Kubernetes dla kontenerów systemu Windows
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku zawarto szczegółowe informacje dotyczące korzystania z interfejsu wiersza polecenia platformy Azure w celu wdrożenia klastra [Kubernetes](https://kubernetes.io/docs/home/) w [usłudze Azure Container Service](../container-service-intro.md). Po wdrożeniu klastra nawiążesz z nim połączenie za pomocą narzędzia wiersza polecenia `kubectl` usługi Kubernetes i wdrożysz swój pierwszy kontener systemu Windows.
 
@@ -110,7 +110,7 @@ Kontener platformy Docker można uruchomić wewnątrz *zasobnika* rozwiązania K
 
 W tym podstawowym przykładzie użyto pliku JSON do określenia kontenera usług Microsoft Internet Information Server (IIS), a następnie utworzono zasobnik przy użyciu polecenia `kubctl apply`. 
 
-Utwórz plik lokalny o nazwie `iis.json` i skopiuj poniższy tekst. Ten plik nakazuje rozwiązaniu Kubernetes uruchomienie usług IIS w systemie Windows Server 2016 Nano Server przy użyciu obrazu publicznego kontenera z witryny [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). Kontener korzysta z portu 80, ale początkowo jest dostępny tylko w ramach sieci klastra.
+Utwórz plik lokalny o nazwie `iis.json` i skopiuj poniższy tekst. Ten plik nakazuje rozwiązaniu Kubernetes uruchomienie usług IIS w systemie Windows Server 2016 Nano Server przy użyciu obrazu publicznego kontenera z witryny [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Kontener korzysta z portu 80, ale początkowo jest dostępny tylko w ramach sieci klastra.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Utwórz plik lokalny o nazwie `iis.json` i skopiuj poniższy tekst. Ten plik nak
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Aby udostępnić zasobnik światu z publicznym adresem IP, wpisz następujące p
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-To polecenie spowoduje utworzenie przez rozwiązanie Kubernetes usługi i [reguły usługi Azure Load Balancer](container-service-kubernetes-load-balancing.md) z publicznym adresem IP usługi. 
+To polecenie Kubernetes tworzy usługi i reguły modułu równoważenia obciążenia Azure z publicznym adresem IP dla usługi. 
 
 Uruchom poniższe polecenie, aby wyświetlić stan usługi.
 
@@ -203,4 +203,3 @@ W tym przewodniku Szybki start wdrożono klaster Kubernetes, nawiązano połącz
 
 > [!div class="nextstepaction"]
 > [Zarządzanie klastrem Kubernetes usługi ASC](container-service-tutorial-kubernetes-prepare-app.md)
-

@@ -1,18 +1,18 @@
-In this step, you test the availability group listener by using a client application that's running on the same network.
+W tym kroku należy przetestować odbiornika grupy dostępności za pomocą aplikacji klienckiej, która działa w tej samej sieci.
 
-Client connectivity has the following requirements:
+Połączenie klienta ma następujące wymagania:
 
-* Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the Always On availability replicas.
-* If the Always On replicas are in different subnets, clients must specify *MultisubnetFailover=True* in the connection string. This condition results in parallel connection attempts to replicas in the various subnets. This scenario includes a cross-region Always On availability group deployment.
+* Połączenia klientów do odbiornika musi pochodzić z maszyny, które znajdują się w innej usługi chmury niż obsługującego replik dostępności AlwaysOn.
+* Jeśli replik zawsze na znajdują się w różnych podsieciach, klienci muszą określić *MultisubnetFailover = True* w parametrach połączenia. Ten warunek wynikiem próby połączenia równoległych replik w różnych podsieciach. Taki scenariusz obejmuje między region zawsze na dostępność grupy wdrożenia.
 
-One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
+Przykładem jest nawiązać odbiornika z jednej z maszyn wirtualnych w tej samej sieci wirtualnej platformy Azure (ale nie jeden, który jest hostem repliki). Prosty sposób, aby wykonać ten test jest spróbuj nawiązać odbiornika grupy dostępności programu SQL Server Management Studio. Inny prosty metodą jest uruchomienie [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)w następujący sposób:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
+> Jeśli wartość EndpointPort jest *1433*, nie trzeba określić je w wywołaniu. Poprzednie wywołanie przyjęto założenie, że komputer kliencki jest dołączony do tej samej domeny i że wywołującego ma przyznane uprawnienia w bazie danych przy użyciu uwierzytelniania systemu Windows.
 > 
 > 
 
-When you test the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+Podczas testowania odbiornika należy przełączyć grupy dostępności, aby upewnić się, że klienci mogą łączyć się odbiornika w tryb failover.
 

@@ -1,20 +1,20 @@
 
-By default, APIs in a Mobile Apps back end can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
+Domyślnie interfejsy API w zaplecze aplikacji mobilnej można wywołać anonimowo. Następnie należy ograniczyć dostęp tylko do uwierzytelnionych klientów.  
 
-* **Node.js back end (via the Azure portal)** :  
+* **Ponownie node.js zakończenia (za pośrednictwem portalu Azure)** :  
 
-    In your Mobile Apps settings, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and then click **Save**.
-* **.NET back end (C#)**:  
+    W ustawieniach aplikacji mobilnej kliknij **łatwe tabele** i wybierz tabelę. Kliknij przycisk **zmienić uprawnienia**, wybierz pozycję **uwierzytelniony dostęp tylko** wszystkie uprawnienia, a następnie kliknij przycisk **zapisać**.
+* **.NET zaplecza (C#)**:  
 
-    In the server project, navigate to **Controllers** > **TodoItemController.cs**. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. Republish the server project.
+    W projekcie serwer, przejdź do **kontrolerów** > **TodoItemController.cs**. Dodaj `[Authorize]` atrybutu **TodoItemController** klasy, w następujący sposób. Ograniczyć dostęp tylko do określonych metod, można również zastosować tego atrybutu tylko do tych metod, zamiast klasy. Ponownie opublikować projekt serwera.
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-* **Node.js backend (via Node.js code)** :  
+* **Zaplecza node.js (za pośrednictwem kodu Node.js)** :  
 
-    To require authentication for table access, add the following line to the Node.js server script:
+    Aby wymagać uwierzytelniania dla dostępu do tabel, Dodaj następujący wiersz do skryptu serwera Node.js:
 
         table.access = 'authenticated';
 
-    For more details, see [How to: Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). To learn how to download the quickstart code project from your site, see [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    Aby uzyskać więcej informacji, zobacz [porady: Wymagaj uwierzytelniania dostępu do tabel](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Aby dowiedzieć się, jak pobrać szybkiego startu projektu kodu z lokacji, zobacz [porady: pobieranie projekt kodu szybkiego startu zaplecza Node.js przy użyciu narzędzia Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

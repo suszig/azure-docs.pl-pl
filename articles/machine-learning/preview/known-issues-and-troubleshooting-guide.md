@@ -1,0 +1,191 @@
+---
+title: "Znane problemy i przewodnik rozwiązywania problemów | Dokumentacja firmy Microsoft"
+description: "Listę znanych problemów i przewodnik dotyczący rozwiązywania problemów"
+services: machine-learning
+author: svankam
+ms.author: svankam
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.topic: article
+ms.date: 09/20/2017
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/23/2017
+---
+# <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
+Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
+
+> [!IMPORTANT]
+> Podczas komunikowania się z zespołem pomocy technicznej, należy mieć numer kompilacji. Numer kompilacji aplikacji można sprawdzić, klikając **pomocy** menu. Kliknięcie numer kompilacji kopiuje go do Schowka. Możesz wkleić go do wiadomości e-mail lub fora, aby zgłosić problemy pomocy technicznej.
+
+![Sprawdź numer wersji](media/known-issues-and-troubleshooting-guide/buildno.png)
+
+## <a name="machine-learning-msdn-forum"></a>MSDN Forum uczenia maszynowego
+Mamy Forum MSDN ogłaszania pytania. Zespół pracujący nad produktem aktywnie monitoruje forum. Forum adres URL jest [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+
+## <a name="gather-diagnostics-information"></a>Zbierz informacje diagnostyczne
+Czasami może być przydatne, jeśli można podać informacje diagnostyczne, podczas pytania o pomoc. Oto miejsca zamieszkania pliki dziennika:
+
+### <a name="installer"></a>Instalator
+Jeśli napotkasz problem podczas instalacji, w tym miejscu są pliki dziennika Instalatora:
+
+```
+# Windows:
+%TEMP%\amlinstaller\logs\*
+
+# macOS:
+/tmp/amlinstaller/logs/*
+```
+Możesz zip się zawartość tych katalogów i Wyślij do nas, diagnostyki.
+
+### <a name="workbench-desktop-app"></a>Aplikacja klasyczna Workbench
+Jeśli pulpit Workbench ulegnie awarii, można znaleźć tutaj plików dziennika:
+```
+# Windows
+%APPDATA%\AmlWorkbench
+
+# macOS
+~/Library/Application Support/AmlWorkbench
+``` 
+Możesz zip się zawartość tych katalogów i Wyślij do nas, diagnostyki.
+
+### <a name="experiment-execution"></a>Wykonanie eksperymentu
+Jeśli konkretnego skryptu zakończy się niepowodzeniem podczas przesyłania z aplikacji komputerowej, spróbuj ponownie przesłać go przy użyciu interfejsu wiersza polecenia `az ml experiment submit` polecenia. To powinien zapewnić pełny komunikat o błędzie w formacie JSON, a przede wszystkim zawiera **identyfikator operacji** wartość. Wyślij nam w tym pliku JSON **identyfikator operacji** i firma Microsoft może pomóc w diagnozowaniu. 
+
+Jeśli pomyślnie przesyłanie konkretnego skryptu, ale kończy się niepowodzeniem podczas wykonywania, należy wydrukować **Uruchom identyfikator** do identyfikowania z określonym programem. Można spakować odpowiednich plików dziennika przy użyciu następującego polecenia:
+
+```azurecli
+# Create a ZIP file that contains all the diagnostics information
+$ az ml experiment diagnostics -r <run_id> -t <target_name>
+```
+
+`az ml experiment diagnostics` Polecenie generuje `diagnostics.zip` pliku w folderze głównym projektu. Pakiet ZIP zawiera folder cały projekt w stanie, w czasie, który została wykonana, oraz informacje o rejestrowaniu. Należy usunąć poufne informacje, których nie chcesz, aby uwzględnić przed wysłaniem nam pliku diagnostyki.
+
+## <a name="send-us-a-frown-or-a-smile"></a>Wyślij niezadowolenie (lub zadowolenie)
+
+Podczas pracy w konsoli usługi Azure ML Workbench można również wysłać nam niezadowolenie (lub zadowolenie), klikając ikonę krój uśmiech w lewym dolnym rogu powłoka aplikacji. Możesz opcjonalnie zawierają Twój adres e-mail (tak, aby firma Microsoft może zająć się), i/lub zrzut ekranu bieżącego stanu. 
+
+## <a name="known-service-limits"></a>Limity znanej usługi
+- Maksymalny dozwolony rozmiar folderu projektu: 25 MB.
+    >[!NOTE]
+    >To ograniczenie nie dotyczy `.git`, `docs` i `outputs` folderów. Te nazwy folderów jest rozróżniana wielkość liter. Jeśli pracujesz z dużymi plikami, zapoznaj się [wprowadzeniem trwałych zmian i transakcji z dużymi plikami](how-to-read-write-files.md).
+
+- Maksymalny dozwolony czas wykonywania eksperymentów: 7 dni
+- Maksymalny rozmiar pliku śledzonych w `outputs` folder po Uruchom: 512 MB
+  - Oznacza to, czy skrypt tworzy plik przekracza 512 MB w folderze dane wyjściowe, go nie są zbierane istnieje. Jeśli pracujesz z dużymi plikami, zapoznaj się [wprowadzeniem trwałych zmian i transakcji z dużymi plikami](how-to-read-write-files.md).
+
+- Klucze SSH nie są obsługiwane podczas nawiązywania połączenia zdalnego komputera lub klastra Spark za pomocą protokołu SSH. Tryb tylko do nazwy użytkownika i hasła jest obecnie obsługiwane.
+
+- Transformacje klastrowania tekstu nie są obsługiwane na komputerach Mac.
+
+- Biblioteka RevoScalePy jest obsługiwana tylko w systemach Windows i Linux (w kontenerach Docker). Nie jest obsługiwana na macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Nazwa pliku zbyt długo w systemie Windows
+Jeśli używa się Workbench w systemie Windows, można napotkać w domyślny limit długości nazwy maksymalną pliku 260 znaków, które można powierzchni jako nieco błąd błąd "system nie może odnaleźć określonej ścieżki". Można zmodyfikować ustawienie klucza rejestru, aby umożliwić znacznie dłużej nazwa ścieżki pliku. Przegląd [w tym artykule](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) Aby uzyskać więcej informacji na temat ustawiania _MAX_PATH_ klucza rejestru.
+
+## <a name="docker-error-read-connection-refused"></a>Błąd docker "do odczytu: połączenie zostało odrzucone"
+Podczas wykonywania przed lokalnego kontenera Docker, czasami może pojawić następujący błąd: 
+```
+Get https://registry-1.docker.io/v2/: 
+dial tcp: 
+lookup registry-1.docker.io on [::1]:53: read udp [::1]:49385->[::1]:53: 
+read: connection refused
+```
+
+Możesz go rozwiązać, zmieniając Docker serwer DNS z `automatic` do wartości stałej z `8.8.8.8`.
+
+## <a name="remove-vm-execution-error-no-tty-present"></a>Usuń błąd wykonywania maszyny Wirtualnej "nie istnieje tty"
+Podczas wykonywania przed kontener Docker na zdalnym komputerze systemu Linux, może wystąpić następujący komunikat o błędzie:
+```
+sudo: no tty present and no askpass program specified.
+``` 
+Może to się zdarzyć, jeśli używasz portalu Azure do zmiany hasła głównego maszyny Wirtualnej systemu Ubuntu Linux. 
+
+Azure Machine Learning Workbench wymaga dostępu sudoers bez hasła do uruchamiania na hostach zdalnych. Najprostszym sposobem, aby to zrobić, jest użycie _visudo_ do edycji następującego pliku (pliku może utworzyć Jeśli istnieje):
+
+```
+$ sudo visudo -f /etc/sudoers
+```
+
+>[!IMPORTANT]
+>Ważne jest, aby edytować plik z _visudo_ i nie innego polecenia. _visudo_ automatycznie sprawdza wszystkie pliki konfiguracji sudo, składni i nie można utworzyć pliku sudoers poprawna składniowo może zablokować użytkownikowi dostęp sudo.
+
+Wstaw następujący wiersz na końcu pliku:
+
+```
+username ALL=(ALL) NOPASSWD:ALL
+```
+
+Gdzie _username_ jest nazwa usługi Azure Machine Learning Workbench będzie używać do logowania do zdalnego hosta.
+
+Wiersz musi być umieszczony po #includedir "/ etc/sudoers.d", w przeciwnym razie mogą zostać zastąpione przez inną regułę.
+
+Jeśli masz bardziej złożonych konfiguracji sudo, może zajść potrzeba sudo na dokumentacji Ubuntu dostępna tutaj: https://help.ubuntu.com/community/Sudoers
+
+Błąd powyżej również może się zdarzyć, jeśli nie używasz maszyny Wirtualnej systemu Linux Ubuntu na platformie Azure jako element docelowy wykonywania. Obsługiwany jest tylko maszynę Wirtualną z systemem Ubuntu Linux dla wykonania zdalnego. 
+
+## <a name="vm-disk-is-full"></a>Maszyna wirtualna dysk jest pełny
+Domyślnie podczas tworzenia nowej maszyny Wirtualnej systemu Linux na platformie Azure, możesz uzyskać 30 GB dysku systemu operacyjnego. Aparatem platformy docker domyślnie używa tego samego dysku ściąganie dół obrazów i uruchomionych kontenerów. To zapełnić dysk systemu operacyjnego i zostanie wyświetlona "Maszyny Wirtualnej dysk jest pełny" błąd, gdy nastąpi.
+
+Aby usunąć wszystkie obrazy Docker, które nie są już używane jest poprawka szybkie. Polecenie Docker jest właśnie tę. (Oczywiście trzeba SSH do maszyny Wirtualnej w celu wykonania polecenia Docker z powłoki bash.)
+
+```
+$ docker system prune -a
+```
+
+Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod kątem używania dysku danych do przechowywania obrazów. Oto [sposób dodawania dysku danych](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Następnie możesz [zmiany, w którym Docker są przechowywane obrazy](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+
+Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+
+## <a name="sharing-c-drive-on-windows"></a>Udostępnianie dysku C w systemie Windows
+Jeśli wykonujesz kompilację w kontenerze Docker lokalnego w systemie Windows ustawienia `sharedVolumes` do `true` w `docker.compute` plików w obszarze `aml_config` może poprawić wydajność wykonywania. To wymaga jednak udostępnić dysk C w _Docker — narzędzie Windows_. Jeśli nie jest możliwe udostępnić dysk C, spróbuj następujących wskazówek:
+
+* Sprawdź udostępnianie na dysku C za pomocą Eksploratora plików
+* Otwórz ustawienia karty sieciowej i odinstalowywanie i ponowna instalacja "Udostępnianie plików i drukarek w sieciach Microsoft Networks" dla vEthernet
+* Otwórz ustawienia docker i udostępniać dysk C z ustawień docker
+* Zmiany hasła systemu Windows mają wpływ na udostępnianie. Otwórz okno Eksploratora plików, ponownie dysk C i wprowadź nowe hasło.
+* Może również wystąpić problem zapory, podczas próby udostępnienia dysku C z Docker. To [przepełnienie stosu post](http://stackoverflow.com/questions/42203488/settings-to-windows-firewall-to-allow-docker-for-windows-to-share-drive/43904051) mogą być pomocne.
+* Podczas udostępniania dysku C przy użyciu poświadczeń domeny, udostępniania mogą przestać działać w sieciach, w których kontroler domeny nie jest dostępny (na przykład sieci domowej, publicznej sieci Wi-Fi itp.). Aby uzyskać więcej informacji, zobacz [ten wpis](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
+
+Można także uniknąć problem z udostępnianiem, w małych wydajności, kosztów, ustawiając `sharedVolumne` do `false` w `docker.compute` pliku.
+
+## <a name="some-useful-docker-commands"></a>Niektóre przydatne polecenia Docker
+
+Oto niektóre przydatne polecenia Docker:
+
+```sh
+# display all running containers
+$ docker ps
+
+# dislplay all containers (running or stopped)
+$ docke ps -a
+
+# display all images
+$ docker images
+
+# show Docker logs of a container
+$ docker logs <container_id>
+
+# create a new container and launch into a bash shell
+$ docker run <image_id> /bin/bash
+
+# launch into a bash shell on a running container
+$ docker exec -it <container_id> /bin/bash
+
+# stop an running container
+$ docker stop <container_id>
+
+# delete a container
+$ docker rm <container_id>
+
+# delete an image
+$ docker rmi <image_id>
+
+# delete all unussed Docker images 
+$ docker system prune -a
+
+```

@@ -1,11 +1,11 @@
-The following table lists the requirements for PolicyBased and RouteBased VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, PolicyBased VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+Poniższej tabeli wymieniono wymagania dla bram PolicyBased i RouteBased sieci VPN. Ta tabela ma zastosowanie w obu modelach wdrażania — przy użyciu usługi Resource Manager i klasycznym. W przypadku modelu klasycznego bramy sieci VPN PolicyBased są takie same, jak bramy statyczne, a bramy oparte na trasach są takie same, jak bramy dynamiczne.
 
-|  | **PolicyBased Basic VPN Gateway** | **RouteBased Basic VPN Gateway** | **RouteBased Standard VPN Gateway** | **RouteBased High Performance VPN Gateway** |
+|  | **PolicyBased Basic bramy sieci VPN** | **RouteBased Basic bramy sieci VPN** | **RouteBased Standard bramy sieci VPN** | **Brama sieci VPN RouteBased wysokiej wydajności** |
 | --- | --- | --- | --- | --- |
-| **Site-to-Site connectivity   (S2S)** |PolicyBased VPN configuration |RouteBased VPN configuration |RouteBased VPN configuration |RouteBased VPN configuration |
-| **Point-to-Site connectivity (P2S**) |Not supported |Supported (Can coexist with S2S) |Supported (Can coexist with S2S) |Supported (Can coexist with S2S) |
-| **Authentication method** |Pre-shared key |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections** |1 |10 |10 |30 |
-| **Maximum number of P2S connections** |Not supported |128 |128 |128 |
-| **Active routing support (BGP)** |Not supported |Not supported |Supported |Supported |
+| **Połączenie lokacja-lokacja (S2S)** |Konfiguracja sieci VPN PolicyBased |Konfiguracja sieci VPN z siecią typu RouteBased |Konfiguracja sieci VPN z siecią typu RouteBased |Konfiguracja sieci VPN z siecią typu RouteBased |
+| **Łączność typu „punkt do lokacji” (Point-to-Site, P2S**) |Nieobsługiwane |Obsługiwane (może współistnieć z S2S) |Obsługiwane (może współistnieć z S2S) |Obsługiwane (może współistnieć z S2S) |
+| **Metoda uwierzytelniania** |Klucz wstępny |Klucz wstępny dla połączeń S2S, certyfikaty dla łączności P2S |Klucz wstępny dla połączeń S2S, certyfikaty dla łączności P2S |Klucz wstępny dla połączeń S2S, certyfikaty dla łączności P2S |
+| **Maksymalna liczba połączeń S2S** |1 |10 |10 |30 |
+| **Maksymalna liczba połączeń P2S** |Nieobsługiwane |128 |128 |128 |
+| **Aktywna Obsługa routingu (BGP)** |Nieobsługiwane |Nieobsługiwane |Obsługiwane |Obsługiwane |
 

@@ -1,30 +1,29 @@
 ---
-title: "Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB"
+title: "Przechowywania danych niestrukturalnych przy użyciu bazy danych Azure rozwiązania Cosmos i funkcje | Dokumentacja firmy Microsoft"
 description: "Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB"
 services: functions
 documentationcenter: functions
-author: rachelappel
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, przetwarzanie zdarzeń, Cosmos DB, obliczanie dynamiczne, architektura bez serwera"
 ms.assetid: 
 ms.service: functions
 ms.devlang: csharp
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
-ms.author: rachelap, glenga
+ms.date: 09/19/2017
+ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Przechowywania danych niestrukturalnych przy użyciu usługi Azure Functions i bazy danych Azure rozwiązania Cosmos
 
 Usługa [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to doskonały sposób przechowywania danych bez struktury i danych JSON. Dzięki połączeniu usług Azure Functions i Cosmos DB przechowywanie danych staje się szybkie i proste oraz wymaga znacznie krótszego kodu niż w przypadku przechowywania danych w relacyjnej bazie danych.
 
@@ -54,10 +53,10 @@ W celu ukończenia tego samouczka:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nazwa parametru dokumentu** | taskDocument | Nazwa, która odwołuje się do obiektu Cosmos DB w kodzie. |
     | **Nazwa bazy danych** | taskDatabase | Nazwa bazy danych do zapisywania dokumentów. |
-    | **Nazwa kolekcji** | TaskCollection | Nazwa kolekcji baz danych Cosmos DB. |
+    | **Nazwa kolekcji** | TaskCollection | Nazwa kolekcji bazy danych. |
     | **W przypadku wartości true tworzy bazę danych i kolekcję usługi Cosmos DB** | Zaznaczone | Kolekcja jeszcze nie istnieje, więc należy ją utworzyć. |
 
-4. Wybierz pozycję **Nowe** obok etykiety **Połączenie dokumentu usługi Cosmos DB** i wybierz pozycję **+ Utwórz nowe**. 
+4. Wybierz **nowy** obok **połączenie dokumentu Azure DB rozwiązania Cosmos** etykiety, a następnie wybierz **+ Utwórz nowy**. 
 
 5. Użyj ustawień **Nowe konto** określonych w tabeli: 
 
@@ -65,13 +64,13 @@ W celu ukończenia tego samouczka:
 
     | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Identyfikator** | Nazwa bazy danych | Unikatowy identyfikator bazy danych Cosmos DB  |
+    | **Identyfikator** | Nazwa bazy danych | Unikatowy identyfikator dla bazy danych Azure DB rozwiązania Cosmos  |
     | **Interfejs API** | SQL (DocumentDB) | Wybierz interfejs API bazy danych dokumentów.  |
     | **Subskrypcja** | Subskrypcja platformy Azure | Subskrypcja platformy Azure  |
     | **Grupa zasobów** | myResourceGroup |  Użyj istniejącej grupy zasobów zawierającej aplikację funkcji. |
     | **Lokalizacja**  | WestEurope | Wybierz lokalizację znajdującą się w pobliżu aplikacji funkcji lub innych aplikacji, które korzystają z przechowywanych dokumentów.  |
 
-6. Kliknij przycisk **OK**, aby utworzyć bazę danych. Tworzenie bazy danych może potrwać kilka minut. Po utworzeniu bazy danych parametry połączenia bazy danych są przechowywane jako ustawienie aplikacji funkcji. Nazwa tego ustawienia aplikacji jest wstawiana w pozycji **Połączenie konta usługi Cosmos DB**. 
+6. Kliknij przycisk **OK**, aby utworzyć bazę danych. Tworzenie bazy danych może potrwać kilka minut. Po utworzeniu bazy danych parametry połączenia bazy danych są przechowywane jako ustawienie aplikacji funkcji. Nazwa tego ustawienia aplikacji jest wstawiana **połączenia konta bazy danych Azure rozwiązania Cosmos**. 
  
 8. Po ustawieniu parametrów połączenia wybierz pozycję **Zapisz**, aby utworzyć powiązanie.
 
@@ -129,11 +128,13 @@ Ten przykładowy kod odczytuje ciągi zapytań żądania HTTP i przypisuje je do
 
     ![Wyszukiwanie usługi Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Wybierz utworzoną bazę danych, a następnie wybierz pozycję **Eksplorator danych**. Rozwiń węzły **Kolekcje**, wybierz nowy dokument i upewnij się, że zawiera on wartości ciągu zapytania wraz z pewnymi dodatkowymi metadanymi. 
+2. Wybierz konto bazy danych rozwiązania Cosmos platformy Azure, a następnie wybierz **Eksploratora danych**. 
+
+3. Rozwiń węzły **Kolekcje**, wybierz nowy dokument i upewnij się, że zawiera on wartości ciągu zapytania wraz z pewnymi dodatkowymi metadanymi. 
 
     ![Sprawdzanie wpisu w bazie danych Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Powiązanie zostało pomyślnie dodane do wyzwalacza HTTP, który zapisuje dane bez struktury w bazie danych Cosmos DB.
+Powiązanie zostały pomyślnie dodane do Twój wyzwalacz HTTP, która przechowuje dane bez struktury w usłudze Azure DB rozwiązania Cosmos.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
@@ -142,4 +143,3 @@ Powiązanie zostało pomyślnie dodane do wyzwalacza HTTP, który zapisuje dane 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 Aby uzyskać więcej informacji na temat tworzenia powiązań z bazą danych usługi Cosmos DB, zobacz temat [Powiązania bazy danych usługi Cosmos DB w usłudze Azure Functions](functions-bindings-documentdb.md).
-

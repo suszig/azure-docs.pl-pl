@@ -1,17 +1,17 @@
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
+Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych grafów. 
 
-1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
+1. W portalu Azure, w menu po lewej stronie, wybierz **Eksploratora danych (wersja zapoznawcza)**.
 
-2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
+2. W obszarze **Eksploratora danych (wersja zapoznawcza)**, wybierz pozycję **nowy wykres**. Następnie wypełnij strony, korzystając z następujących informacji:
 
-    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
-    Setting|Suggested value|Description
+    Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
-    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
-    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Identyfikator bazy danych|sample-database|Identyfikator nowej bazy danych. Nazwy bazy danych musi należeć do zakresu od 1 do 255 znaków i nie może zawierać `/ \ # ?` lub spacji.
+    Identyfikator grafu|sample-graph|Identyfikator nowego grafu. Wykres nazwy mają te same wymagania znak jako identyfikatorów w bazie danych.
+    Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
+    Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować przepływność, aby zmniejszyć opóźnienie.
+    Klucz partycji|/FirstName|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybranie klucza partycji poprawne jest ważne podczas tworzenia wykresu wydajności. Aby uzyskać więcej informacji, zobacz [projektowania partycjonowania](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. After the form is filled out, select **OK**.
+3. Po wypełnić formularza wybierz **OK**.

@@ -1,18 +1,18 @@
-| Resource | Default Limit | Maximum Limit |
+| Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
-| Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10,000 |
-| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |200 |200 |
-| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription<sup>2</sup> |200 |250 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |20 |200 |
-| [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
-| SQL Database servers per subscription |6 |150 |
-| DNS servers per subscription |9 |100 |
-| Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |400 |400 |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
-| Alert rules per subscription |250 |250 |
+| Rdzenie na [subskrypcji](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10 000 |
+| [Współadministratorzy](../articles/billing-add-change-azure-subscription-administrator.md) na subskrypcję |200 |200 |
+| [Konta magazynu](../articles/storage/common/storage-create-storage-account.md) na subskrypcję<sup>2</sup> |200 |250 |
+| [Usługi w chmurze](../articles/cloud-services/cloud-services-choose-me.md) na subskrypcję |20 |200 |
+| [Sieci lokalne](http://msdn.microsoft.com/library/jj157100.aspx) na subskrypcję |10 |500 |
+| Serwery bazy danych SQL dla subskrypcji |6 |150 |
+| Serwery DNS dla subskrypcji |9 |100 |
+| Zastrzeżonych adresów IP dla subskrypcji |20 |100 |
+| Certyfikaty usługi hostowanej na subskrypcję |400 |400 |
+| [Grupy koligacji](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) na subskrypcję |256 |256 |
 
-<sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>dodatkowe mała liczba wystąpienia jako jednego rdzenia się do limitu core pomimo przy użyciu częściowego core.
+
+<sup>2</sup>Obejmuje konta magazynu warstwy Standardowa i Premium. Jeśli potrzebujesz więcej niż 200 kont magazynu, wyślij żądanie za pośrednictwem [Pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage przejrzy Twój przypadek biznesowy i może zatwierdzić do 250 kont magazynu. 
 

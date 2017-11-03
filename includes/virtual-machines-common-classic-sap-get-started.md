@@ -1,37 +1,37 @@
 
-## <a name="planning-and-implementation"></a>Planning and Implementation
-Title: SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide
+## <a name="planning-and-implementation"></a>Planowanie i implementacja
+Nazwa: SAP NetWeaver na maszynach wirtualnych Azure — planowanie i przewodnik wdrażania
 
-Summary: This is the paper to start with if you are thinking about running SAP NetWeaver in Azure Virtual Machines. This planning and implementation guide will help you evaluate whether an existing or planned SAP NetWeaver-based system can be deployed to an Azure Virtual Machines environment. It covers multiple SAP NetWeaver deployment scenarios, and includes SAP configurations that are specific to Azure. The paper lists and describes all the necessary configuration information you’ll need on the SAP/Azure side to run a hybrid SAP landscape. Measures you can take to ensure high availability of SAP NetWeaver-based systems on IaaS are also covered.
+Podsumowanie: Jest to podstawowy dokument, od którego należy zacząć, jeśli myślisz o uruchamianiu oprogramowania SAP NetWeaver w usłudze Azure Virtual Machines. Ten podręcznik planowania i implementacji pomoże Ci ocenić, czy istniejący lub planowany system korzystający z oprogramowania SAP NetWeaver można wdrożyć w środowisku usługi Azure Virtual Machines. Obejmuje on wiele scenariuszy wdrażania oprogramowania SAP NetWeaver i zawiera konfiguracje rozwiązań SAP specyficzne dla platformy Azure. W dokumencie wymieniono i opisano wszystkie niezbędne informacje dotyczące konfiguracji wymaganej po stronie SAP/Azure do uruchomienia hybrydowego środowiska SAP. Omówiono również działania, które można podjąć w celu zapewnienia wysokiej dostępności systemów opartych na oprogramowaniu SAP NetWeaver działających na platformie IaaS.
 
-Updated: August 2015
+Zaktualizowano: Sierpień 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397963)
+[Pobierz teraz ten przewodnik](http://go.microsoft.com/fwlink/?LinkId=397963)
 
-## <a name="deployment"></a>Deployment
-Title: SAP NetWeaver on Azure Virtual Machines – Deployment Guide
+## <a name="deployment"></a>Wdrożenie
+Nazwa: SAP NetWeaver na maszynach wirtualnych Azure — przewodnik wdrażania
 
-Summary: This document provides procedural guidance for deploying SAP NetWeaver software to virtual machines in Azure. This paper focuses on three specific deployment scenarios, with an emphasis on enabling the Azure Monitoring Extensions for SAP, including troubleshooting recommendations for the Azure Monitoring Extensions for SAP. This paper assumes that you’ve read the planning and implementation guide.
+Podsumowanie: Ten dokument zawiera wskazówki proceduralne dotyczące wdrażania oprogramowania SAP NetWeaver na maszynach wirtualnych na platformie Azure. Dokument koncentruje się na trzech konkretnych scenariuszach wdrażania, z naciskiem na włączanie rozszerzeń monitorowania platformy Azure dla oprogramowania SAP, w tym zalecenia dotyczące rozwiązywania problemów dotyczących rozszerzeń monitorowania platformy Azure dla oprogramowania SAP. W tym dokumencie przyjęto założenie, że użytkownik przeczytał podręcznik planowania i implementacji.
 
-Updated: September 2015
+Zaktualizowano: Wrzesień 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397964)
+[Pobierz teraz ten przewodnik](http://go.microsoft.com/fwlink/?LinkId=397964)
 
-## <a name="sap-dbms-on-azure"></a>SAP DBMS on Azure
-Title: SAP DBMS in Azure Deployment Guide
+## <a name="sap-dbms-on-azure"></a>System DBMS SAP na platformie Azure
+Nazwa: DBMS SAP w przewodniku wdrażania platformy Azure
 
-Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE, Oracle, SAP MaxDB and IBM DB2 for Linux, Unix and Windows. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
+Podsumowanie: W tym dokumencie opisano zagadnienia dotyczące planowania i wdrażania systemów DBMS, które powinny być uruchamiane w połączeniu z oprogramowaniem SAP. W pierwszej części wymieniono i przedstawiono zagadnienia ogólne. Kolejne części dokumentu dotyczą wdrożeń różnych systemów DBMS na platformie Azure obsługiwanych przez oprogramowanie SAP. Inny system DBMS przedstawione są programu SQL Server, SAP ASE, Oracle, SAP MaxDB i IBM DB2 dla systemu Linux, Unix i systemu Windows. W tych konkretnych częściach zostały omówione zagadnienia, które należy uwzględnić w przypadku uruchamiania systemów SAP na platformie Azure w połączeniu z tymi systemami DBMS. Tematy takie jak metody tworzenia kopii zapasowej i zapewniania wysokiej dostępności obsługiwane przez różne systemy DBMS na platformie Azure są przedstawione do użycia z aplikacjami SAP.
 
-Updated: December 2015
+Zaktualizowano: Grudnia 2015 r.
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
+[Pobierz teraz ten przewodnik](http://go.microsoft.com/fwlink/?LinkId=397965)
 
-## <a name="sap-netweaver-on-azure"></a>SAP NetWeaver on Azure
-Title: SAP NetWeaver - Building an Azure based Disaster Recovery Solution
+## <a name="sap-netweaver-on-azure"></a>SAP NetWeaver na platformie Azure
+Nazwa: SAP NetWeaver — tworzenie platformy Azure na podstawie rozwiązanie odzyskiwania po awarii
 
-Summary:This document provides a step-by-step guidance for building an Azure based Disaster Recovery solution for SAP NetWeaver. The solution described assumes that the SAP landscape is running virtualized on-premises based on Hyper-V. In the first part of the document Azure Site Recovery (ASR) services are introduced in its components. The second part of the document describes specifics for SAP NetWeaver based landscapes. Possibilities of using ASR with SAP NetWeaver application instances and SAP Central Services are discussed and described. A focus of the second part is leveraging ASR for SAP Central Services which are protected with windows Server Failover Cluster configurations.
+Podsumowanie: ten dokument zawiera wskazówki krok po kroku dla platformy Azure do tworzenia opartych na rozwiązanie odzyskiwania po awarii dla programu SAP NetWeaver. Opisanego rozwiązania przyjęto założenie, że pozioma SAP działa zwirtualizowanych lokalne w funkcji Hyper-V. W pierwszej części dokumentu odzyskiwania lokacji Azure (ASR) usług są wprowadzane w jego składniki. Drugiej części dokumentu opisano charakterystyki dla krajobrazów SAP NetWeaver na podstawie. Możliwości przy użyciu funkcji automatycznego odzyskiwania systemu SAP NetWeaver wystąpień aplikacji i usług centralnej SAP są omówione i opisem. Fokus drugiej części ASR polega na wykorzystaniu usług centralnej SAP, które są chronione przy użyciu konfiguracji klastra trybu Failover z systemem windows.
 
-Updated: September 2015
+Zaktualizowano: Wrzesień 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkID=521971)
+[Pobierz teraz ten przewodnik](http://go.microsoft.com/fwlink/?LinkID=521971)
 

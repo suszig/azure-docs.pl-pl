@@ -1,16 +1,16 @@
-## <a name="scenario"></a>Scenario
-To better illustrate how to create NSGs, this document will use the scenario below.
+## <a name="scenario"></a>Scenariusz
+Aby lepiej zilustrować tworzenie grup NSG, ten dokument użyje scenariusz poniżej.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![Scenariusz sieci wirtualnych](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+W tym scenariuszu utworzysz grupy NSG dla każdej podsieci w **TestVNet** sieci wirtualnej, zgodnie z opisem poniżej: 
 
-* **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:    
-  * **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-  * **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-* **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:    
-  * **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-  * **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+* **Grupa NSG frontonu**. Fronton będzie dotyczyć NSG *frontonu* podsieci i zawiera dwie reguły:    
+  * **Reguła RDP**. Ta reguła zezwala na ruch RDP do *frontonu* podsieci.
+  * **Reguła sieci Web**. Ta reguła umożliwia ruch HTTP do *frontonu* podsieci.
+* **Grupa NSG zaplecza**. Wewnętrzna grupa NSG zostaną zastosowane do *zaplecza* podsieci i zawiera dwie reguły:    
+  * **Reguła SQL**. Ta reguła zezwala na ruch SQL tylko z *frontonu* podsieci.
+  * **Reguła sieci Web**. Ta reguła nie zezwala na wszystkie internet powiązany ruch z *zaplecza* podsieci.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+Kombinacja tych reguł tworzenie scenariusza przypominającej DMZ, gdzie podsieci zaplecza może odbierać ruchu przychodzącego dla serwera SQL z podsieci frontonu i nie ma dostępu do Internetu, gdy podsieci frontonu komunikacji z Internetem i otrzymywać przychodzące żądania HTTP tylko.
 

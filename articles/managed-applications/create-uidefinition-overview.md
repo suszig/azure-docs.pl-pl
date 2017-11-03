@@ -1,0 +1,72 @@
+---
+title: "Zrozumienie Tworzenie interfejsu użytkownika definicji dla platformy Azure zarządzanych aplikacji | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób tworzenia definicji interfejsu użytkownika dla aplikacji Azure"
+services: managed-applications
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+ms.service: managed-applications
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/26/2017
+ms.author: tomfitz
+ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/27/2017
+---
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Tworzenie interfejsu użytkownika portalu Azure w aplikacji zarządzanej
+Tym dokumencie przedstawiono podstawowe koncepcje createUiDefinition.json pliku. Azure portal używa tego pliku do generowania interfejsu użytkownika do tworzenia zarządzanej aplikacji.
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+   "handler": "Microsoft.Compute.MultiVm",
+   "version": "0.1.2-preview",
+   "parameters": {
+      "basics": [ ],
+      "steps": [ ],
+      "outputs": { }
+   }
+}
+```
+
+CreateUiDefinition zawsze zawiera trzy właściwości: 
+
+* Program obsługi
+* Wersja
+* parameters
+
+Dla zarządzanych aplikacji obsługi powinna zawsze być `Microsoft.Compute.MultiVm`, a najnowszą obsługiwaną wersję `0.1.2-preview`.
+
+Schemat właściwości parametrów zależy od kombinacja określona Obsługa i wersji. Dla zarządzanych aplikacji są obsługiwane właściwości `basics`, `steps`, i `outputs`. Zawiera właściwości podstawy i kroki _elementy_ — takich jak pola tekstowe i listę rozwijaną - mają być wyświetlane w portalu Azure. Właściwość wyniki służy do mapowania wartości określonych elementów danych wyjściowych do parametrów szablonu wdrożenia usługi Azure Resource Manager.
+
+W tym `$schema` jest zalecane, ale opcjonalne. Jeśli określona wartość `version` musi być zgodna z wersją w `$schema` identyfikatora URI.
+
+## <a name="basics"></a>Podstawy
+Krok podstawy zawsze jest to pierwszy etap kreatora generowane, gdy plik zostanie przetworzony portalu Azure. Oprócz wyświetlania elementów określonych w `basics`, portalu injects elementy użytkownicy wybiorą subskrypcji, grupy zasobów i lokalizacji dla wdrożenia. Ogólnie rzecz biorąc elementy, które kwerendy parametry dla całego wdrożenia, takie jak nazwa klastra lub administratora poświadczeń, należy go w tym kroku.
+
+Jeśli element zachowanie zależy od subskrypcji, grupy zasobów lub lokalizacji użytkownika, tego elementu nie można użyć w podstawy. Na przykład **Microsoft.Compute.SizeSelector** jest zależny od subskrypcji i lokalizacji, aby określić listę dostępnych rozmiarów użytkownika. W związku z tym **Microsoft.Compute.SizeSelector** można używać tylko w krokach. Ogólnie rzecz biorąc, tylko elementy w **Microsoft.Common** przestrzeni nazw mogą być używane w podstawy. Mimo że niektóre elementy w innych przestrzeniach nazw (takich jak **Microsoft.Compute.Credentials**) które nie są zależne od kontekstu użytkownika, nadal jest dozwolone.
+
+## <a name="steps"></a>Kroki
+Właściwość czynności może zawierać zero lub więcej dodatkowych czynności w celu wyświetlenia po podstawy, z których każdy zawiera jeden lub więcej elementów. Rozważ dodanie czynności na roli lub warstwy aplikacji wdrażany. Na przykład dodać krok dla danych wejściowych dla węzłów głównych i krok dla węzłów procesu roboczego w klastrze.
+
+## <a name="outputs"></a>dane wyjściowe
+Azure portal używa `outputs` właściwości, aby zamapować elementy z `basics` i `steps` parametrów szablonu wdrażania Menedżera zasobów Azure. Klucze tego słownika są nazwy parametrów szablonu, a wartości to właściwości obiektów danych wyjściowych z elementów.
+
+## <a name="functions"></a>Funkcje
+Podobnie jak szablonu funkcji w usłudze Azure Resource Manager (zarówno w składni i funkcji), CreateUiDefinition zapewnia funkcje do pracy z elementów danych wejściowych i wyjściowych, jak również funkcje, takie jak warunkowe instrukcje.
+
+## <a name="next-steps"></a>Następne kroki
+Sam plik createUiDefinition.json ma prosty schematu. Rzeczywistą liczbę pochodzi z wszystkie obsługiwane elementy i funkcje. Te elementy są opisane bardziej szczegółowo na:
+
+- [Elementy](create-uidefinition-elements.md)
+- [Funkcje](create-uidefinition-functions.md)
+
+Bieżącego schematu JSON dla createUiDefinition jest dostępnych tutaj: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+
+Nowszych wersji będą dostępne w tej samej lokalizacji. Zastąp `0.1.2-preview` część adresu URL i `version` wartość o identyfikatorze wersji mają być używane. Identyfikatory aktualnie obsługiwana wersja to `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, i `0.1.2-preview`.

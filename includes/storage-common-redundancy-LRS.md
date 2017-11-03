@@ -1,11 +1,11 @@
-Locally redundant storage (LRS) replicates your data three times within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit.
+Magazyn lokalnie nadmiarowy (LRS) są replikowane trzy razy w ciągu jednostki skalowania magazynu, który znajduje się w centrum danych w regionie, w którym utworzono konto magazynu. Żądanie zapisu pomyślnie zwraca tylko wtedy, gdy został zapisany do wszystkie trzech repliki. Te trzy repliki każdego znajdują się w oddzielnych błędów domen i domen uaktualnienia w jeden numer jednostki skalowania.
 
-A storage scale unit is a collection of racks of storage nodes. A fault domain (FD) is a group of nodes that represent a physical unit of failure and can be considered as nodes belonging to the same physical rack. An upgrade domain (UD) is a group of nodes that are upgraded together during the process of a service upgrade (rollout). The three replicas are spread across UDs and FDs within one storage scale unit to ensure that data is available even if hardware failure impacts a single rack or when nodes are upgraded during a rollout.
+Jednostki skalowania magazynu to zbiór stojakami węzłów magazynu. Domeny błędów (FD) to grupa węzłów, które reprezentują fizyczną jednostkę awarii i mogą być uważane za węzłach należących do tej samej fizycznej stojaku. Domeny uaktualnienia (UD) to grupa węzłów, które są ze sobą uaktualniony podczas procesu uaktualniania usługi (wdrażanie). Trzy repliki są rozkładane między UDs i FDs w jedną jednostkę skalowania magazynu, aby upewnić się, czy dane są dostępne, nawet w przypadku awarii sprzętu ma wpływ na jednym stojaku lub po uaktualnieniu węzłów podczas wdrażania.
 
-LRS is the lowest cost option and offers least durability compared to other options. In the event of a datacenter level disaster (fire, flooding etc.) all three replicas might be lost or unrecoverable. To mitigate this risk, Geo Redundant Storage (GRS) is recommended for most applications.
+Magazyn LRS jest opcją najniższy koszt i oferuje co najmniej trwałości w porównaniu do innych opcji. W przypadku awarii poziomu Centrum danych (fire zalewania itp.) wszystkie trzy repliki może być utracone lub ich nieodwracalnej utraty. Aby zmniejszyć to zagrożenie, z magazynu geograficznie nadmiarowego magazynu (GRS) jest zalecane dla większości aplikacji.
 
-Locally redundant storage may still be desirable in certain scenarios:
+Magazyn lokalnie nadmiarowy nadal może być wskazane w niektórych scenariuszach:
 
-* Provides highest maximum bandwidth of Azure Storage replication options.
-* If your application stores data that can be easily reconstructed, you may opt for LRS.
-* Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. For more information on region pairs, see [Azure regions](https://azure.microsoft.com/regions/).
+* Zapewnia najwyższy maksymalna przepustowość opcji replikacji magazynu Azure.
+* Jeśli aplikacja przechowuje dane, które można łatwo odtworzyć, można wybrać opcję LRS.
+* Niektóre aplikacje są ograniczone do replikowanie danych tylko w obrębie kraju ze względu na wymagania ładu danych. Region sparowanego może być w innym kraju. Aby uzyskać więcej informacji na pary regionu, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/).
