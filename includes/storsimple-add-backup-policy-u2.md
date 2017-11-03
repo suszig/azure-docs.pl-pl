@@ -22,8 +22,3 @@
 
 Nowo dodane zasady będą wyświetlane w widoku tabelarycznym na stronie **Zasady kopii zapasowych**.
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

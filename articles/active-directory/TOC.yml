@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
           href: msi-howto-assign-access-cli.md
+    - name: Uzyskiwanie dostępu do usługi Azure Data Lake Store przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Z maszyny wirtualnej z systemem Linux
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu tożsamości usługi zarządzanej
       items:
         - name: Z maszyny wirtualnej z systemem Windows

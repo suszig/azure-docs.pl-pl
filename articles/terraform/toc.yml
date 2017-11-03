@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Aprowizowanie zestawu skalowania maszyn wirtualnych przy użyciu infrastruktury
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Aprowizowanie zestawu skalowania maszyn wirtualnych na podstawie niestandardowego obrazu usługi Packer
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Pojęcia
   items:
     - name: Integracja z usługą Cloud Shell

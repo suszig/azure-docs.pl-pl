@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Odzyskiwanie po awarii dla obciążeń
       href: site-recovery-workload.md
+    - name: Migrowanie za pomocą usługi Azure Site Recovery
+      href: site-recovery-migrate-to-azure.md
     - name: Sieć Azure–Azure (wersja zapoznawcza)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Łączność maszyn wirtualnych po przejściu w tryb failover na platformie Azure
@@ -104,9 +106,9 @@
         - name: Narzędzie Planista wdrażania na potrzeby replikacji oprogramowania VMware do platformy Azure
           href: site-recovery-deployment-planner.md
         - name: Planowanie wydajności na potrzeby replikacji funkcji Hyper-V do platformy Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Narzędzie Planista wydajności na potrzeby replikacji funkcji Hyper-V do platformy Azure
           href: site-recovery-capacity-planner.md
+        - name: Narzędzie Planista wydajności na potrzeby replikacji funkcji Hyper-V do platformy Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: Skalowanie serwerów przetwarzania do wewnątrz na potrzeby replikacji oprogramowania VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Testy skalowania wydajności na potrzeby replikacji funkcji Hyper-V między lokacjami lokalnymi
@@ -181,7 +183,9 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: Migrate (Migracja)
       items:
-        - name: Replikowanie migrowanych maszyn do innych regionów świadczenia usługi Azure
+        - name: Migrowanie maszyn wirtualnych platformy Azure do innego regionu świadczenia usługi Azure
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: Replikowanie maszyn do innych regionów świadczenia usługi Azure po migracji
           href: site-recovery-azure-to-azure-after-migration.md
     - name: Obciążenia
       items:

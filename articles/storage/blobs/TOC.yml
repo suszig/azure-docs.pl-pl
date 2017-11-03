@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Praca z obiektami blob — .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Praca z obiektami blob — Java
+      href: storage-quickstart-blobs-java.md
     - name: Praca z obiektami blob — Python
       href: storage-quickstart-blobs-python.md
 - name: Samouczki

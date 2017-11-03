@@ -1,122 +1,108 @@
 ---
-title: "Aprowizacja nowych dzierżaw w aplikacji z wieloma dzierżawami przy użyciu usługi Azure SQL Database | Microsoft Docs"
-description: "Aprowizowanie nowych dzierżaw i rejestrowanie ich w wykazie w przykładowej aplikacji SaaS o nazwie Wingtip Tickets (WTP) przy użyciu usługi SQL Database"
+title: "Udostępnianie nowej dzierżawy w aplikacji wielodostępnych, który używa usługi Azure SQL Database | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie obsługi administracyjnej i w katalogu nowych dzierżaw w wielodostępnych aplikacji SaaS bazy danych SQL Azure"
 keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/12/2017
-
-
+ms.topic: article
+ms.date: 08/11/2017
+ms.author: sstein
+ms.openlocfilehash: eda330a7202de8a325d645b37a0d05ef8df8985b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Aprowizowanie nowych dzierżaw i rejestrowanie ich w wykazie
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak udostępnić katalogu nowi dzierżawcy i zarejestruj je w katalogu
 
-W tym samouczku omówimy aprowizowanie nowych dzierżaw w aplikacji SaaS o nazwie Wingtip Ticket Platform (WTP). Utworzymy dzierżawy, bazy danych dzierżaw oraz zarejestrujemy dzierżawy w wykazie. *Wykaz* to baza danych, która utrzymuje mapowanie między wieloma dzierżawami aplikacji SaaS i ich danymi. Udostępnione tu skrypty pozwolą zapoznać się z używanymi wzorcami aprowizacji i rejestrowania w wykazie oraz dowiedzieć się, jak przebiega implementacja rejestrowania nowych dzierżaw w wykazie. Wykaz odgrywa ważną rolę w kierowaniu żądań aplikacji do właściwych baz danych.
+W tym samouczku informacje o wzorce SaaS udostępniania i katalogu i jak są implementowane w aplikacji Wingtip SaaS. Tworzenie i zainicjować nowe dzierżawy bazy danych oraz zarejestrować je w katalogu dzierżawy aplikacji. Katalog jest bazy danych, która przechowuje mapowanie między wiele dzierżaw aplikacji SaaS i ich danych. Katalog odgrywa ważną rolę w kierowanie żądań aplikacji z poprawną bazą danych.  
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 
-> * Aprowizowanie pojedynczej nowej dzierżawy
+> * Udostępnianie jednej nowej dzierżawy, tym krokowe to implementowania
 > * Aprowizowanie partii dodatkowych dzierżaw
-> * Szczegóły aprowizacji nowych dzierżaw i rejestrowania ich w wykazie
 
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Wdrożona jest aplikacja WTP. Aby wdrożyć tę aplikację w czasie krótszym niż pięć minut, zobacz [Wdrażanie i korzystanie z aplikacji SaaS o nazwie WTP](sql-database-saas-tutorial.md)
+* Aplikacja Wingtip SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](sql-database-saas-tutorial.md)
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Wprowadzenie do wzorca wykazu SaaS
 
-W przypadku aplikacji SaaS z wieloma dzierżawami opartej o bazę danych należy wiedzieć, gdzie są przechowywane informacje dla każdej dzierżawy. We wzorcu wykazu SaaS baza danych wykazu służy do przechowywania mapowania między dzierżawami i lokalizacjami przechowywania ich danych. Aplikacja WTP wykorzystuje architekturę bazy danych z pojedynczą dzierżawą, ale podstawowy wzorzec przechowywania mapowania dzierżawy na bazę danych w wykazie jest stosowany zarówno w przypadku bazy z wieloma dzierżawami, jak i z jedną dzierżawą.
+W kopii bazy danych wielodostępnych aplikacji SaaS należy wiedzieć, w którym przechowywane są informacje dla każdego dzierżawcy. We wzorcu katalogu SaaS katalogu bazy danych służy do przechowywania mapowanie między każdego dzierżawcy i gdzie są przechowywane ich dane. Aplikacja Wingtip SaaS używa pojedynczego dzierżawcy na Architektura bazy danych, ale podstawowy wzorzec przechowywania mapowania dzierżawcy w bazie danych w katalogu ma zastosowanie, czy ma być używana w wielu dzierżawców lub pojedynczej dzierżawy bazy danych.
 
-Każda dzierżawa ma przypisany klucz, który wyróżnia jej dane w wykazie. W przypadku aplikacji WTP klucz jest tworzony na podstawie funkcji skrótu nazwy dzierżawy. Ten wzorzec umożliwia użycie części adresu URL będącej nazwą dzierżawy do konstruowania klucza i uzyskania połączenia z określoną dzierżawą. Użycie innych schematów opartych o identyfikator nie wpływa na ogólny wzorzec.
+Poszczególni dzierżawcy jest przypisany klucz identyfikujący je w katalogu i która jest mapowana na lokalizację odpowiednie bazy danych. W aplikacji Wingtip SaaS klucz został utworzony z skrót nazwy dzierżawcy. Dzięki temu dzierżawcy część adresu URL aplikacji ma być używany do utworzenia klucza. Można użyć innych systemów klucza dzierżawy.  
 
-Wykaz aplikacji WTP został zaimplementowany przy użyciu technologii zarządzania fragmentami w znajdującej się w bibliotece [EDCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md). Biblioteka EDCL jest odpowiedzialna za tworzenie i zarządzanie opartym na bazie danych _wykazem_, w którym jest obsługiwane _dzielenie map na fragmenty_. Wykaz zawiera mapowanie pomiędzy kluczami (dzierżawami) i ich bazami danych (fragmentami).
+Katalog umożliwia nazwę lub lokalizację bazy danych zostanie zmieniony z minimalnym wpływem na aplikację.  W modelu wielodostępnym bazy danych to również bierze pod uwagę "przenoszenia" dzierżawa między bazami danych.  Katalog można również wskazać, czy dzierżawcy lub baza danych jest w trybie offline z powodu konserwacji lub innych działań. Jest to przedstawione w [Przywracanie pojedynczej dzierżawy samouczek](sql-database-saas-tutorial-restore-single-tenant.md).
+
+Ponadto katalog, który jest włączone zarządzanie bazy danych dla aplikacji SaaS, można przechowywać dodatkowe dzierżawy lub metadanych bazy danych, takich jak wersji bazy danych, lub warstwy wersji schematu, plan usługi lub umów SLA oferowane dzierżawców i innych informacji, które umożliwia Zarządzanie aplikacjami, dział obsługi klienta lub procesów opracowywania oprogramowania.  
+
+Poza aplikacji SaaS katalogu można włączyć narzędzi bazy danych.  W przykładowym Wingtip SaaS umożliwia programowi zapytania między dzierżawy, przedstawione w katalogu [samouczek analizy ad hoc](sql-database-saas-tutorial-adhoc-analytics.md). Zarządzanie zadaniami między bazami danych jest przedstawione w [Zarządzanie schematami](sql-database-saas-tutorial-schema-management.md) i [dzierżawy analytics](sql-database-saas-tutorial-tenant-analytics.md) samouczki. 
+
+W aplikacji Wingtip SaaS katalogu jest implementowane za pomocą funkcji do zarządzania niezależnego fragmentu [elastycznej bazy danych klienta biblioteki (EDCL)](sql-database-elastic-database-client-library.md). EDCL włącza aplikację do tworzenia, zarządzania i użyć mapy niezależnych kopii bazy danych. Mapy niezależnego fragmentu zawiera listę odłamków (bazy danych) i mapowanie między kluczy (dzierżawcami) i baz danych.  Funkcje EDCL można z aplikacji i skryptów programu PowerShell podczas inicjowania obsługi można utworzyć wpisów w mapie niezależnego fragmentu dzierżawy i z aplikacji do wydajnie nawiązania połączenia z poprawną bazą danych. EDCL buforuje informacje o połączeniu, aby zminimalizować ruch związany z bazą danych katalogu i przyspieszenie działania aplikacji.  
 
 > [!IMPORTANT]
 > Dane mapowania są dostępne w bazie danych wykazu, ale *nie należy ich edytować*. Dane mapowania można edytować wyłącznie za pomocą interfejsu API biblioteki klienckiej Elastic Database. Bezpośrednie manipulowanie danymi mapowania wiąże się z ryzykiem uszkodzenia wykazu i dlatego nie jest obsługiwane.
 
-Aplikacja SaaS o nazwie Wingtip aprowizuje nowe dzierżawy, kopiując *wzorcową* bazę danych.
+
+## <a name="introduction-to-the-saas-provisioning-pattern"></a>Wprowadzenie do wzorca SaaS inicjowania obsługi administracyjnej.
+
+Podczas przechodzenia do nowego dzierżawcy w aplikacji SaaS, która używa modelu bazy danych z pojedynczej dzierżawy nową bazę danych dzierżawcy należy udostępnić.  Muszą być tworzone w odpowiedniej lokalizacji i warstwy usług, zainicjować przy użyciu odpowiedniego schematu i danych referencyjnych, a następnie rejestrowane w katalogu w kluczu odpowiedniego dzierżawcy.  
+
+Różne podejścia może służyć do bazy danych inicjowania obsługi, które mogą obejmować wykonywanie skryptów SQL, wdrażanie pliku bacpac lub kopiowania bazy danych "złotego" szablonu.  
+
+Metoda inicjowania obsługi administracyjnej, używanego musi comprehended w strategii zarządzania ogólny schemat, który musi zapewnić, że nowe bazy danych są udostępniane z najnowszą schematu.  Jest to przedstawione w [Samouczek zarządzania schematu](sql-database-saas-tutorial-schema-management.md).  
+
+Wingtip SaaS aplikacji przepisy nowi dzierżawcy przez skopiowanie złotego bazy danych o nazwie basetenantdb, wdrożony na serwerze wykazu.  Inicjowania obsługi administracyjnej może być zintegrowane z aplikacji w ramach obsługi rejestracji i/lub obsługiwane w trybie offline za pomocą skryptów. W tym samouczku może zapoznać się inicjowanie obsługi przy użyciu programu PowerShell. Skrypty inicjowania obsługi administracyjnej skopiuj basetenantdb, aby utworzyć nową bazę danych dzierżawy w puli elastycznej, a następnie go zainicjować z użyciem informacji specyficznych dla dzierżawy i zarejestrować ją w katalogu niezależnych mapy.  W przykładowej aplikacji, baz danych są podane nazwy na podstawie nazwy dzierżawy, ale nie jest krytyczną częścią wzorzec — katalogu umożliwiają dowolną nazwę można przypisać do bazy danych. + 
+
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
-
-## <a name="provision-a-new-tenant"></a>Aprowizacja nowej dzierżawy
-
-Jeśli podczas pracy z pierwszym samouczkiem aplikacji WTP utworzono już dzierżawę, można przejść do następnej sekcji: [Aprowizowanie partii dzierżaw](#provision-a-batch-of-tenants).
-
-Uruchom skrypt *Demo-ProvisionAndCatalog*, aby szybko utworzyć dzierżawę i zarejestrować ją w wykazie:
-
-1. Otwórz moduł **Demo-ProvisionAndCatalog.ps1** w programie PowerShell ISE i ustaw następujące wartości:
-   * **$TenantName** = nazwa nowego miejsca (na przykład *Bushwillow Blues*). 
-   * **$VenueType** = jeden ze wstępnie zdefiniowanych typów miejsca: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = 1, pozostaw tę wartość ustawioną na _1_, **Provision a single tenant** (Aprowizacja jednej dzierżawy).
-
-1. Naciśnij klawisz **F5** i uruchom skrypt.
-
-Po ukończeniu działania skryptu nowa dzierżawa zostanie zaaprowizowana, a w przeglądarce otworzy się aplikacja *Events*:
-
-![Nowa dzierżawa](./media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
-
-
-## <a name="provision-a-batch-of-tenants"></a>Aprowizowanie partii dzierżaw
-
-Tematem tego ćwiczenia jest aprowizowanie partii dodatkowych dzierżaw. Zaleca się, aby to ćwiczenie ukończyć przed ukończeniem pozostałych samouczków dotyczących aplikacji WTP.
-
-1. Otwórz moduł ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* w programie *PowerShell ISE* i ustaw następującą wartość:
-   * **$DemoScenario** = **3**, ustaw wartość **3**, **Provision a batch of tenants** (Aprowizacja partii dzierżaw).
-1. Naciśnij klawisz **F5** i uruchom skrypt.
-
-Skrypt wdroży partię dodatkowych dzierżaw. Używa [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md), który kontroluje partię i następnie deleguje aprowizację każdej bazy danych do dołączonego szablonu. Ten sposób użycia szablonów umożliwia aplikacji Azure Resource Manager pełnienie roli brokera w procesie aprowizacji przy użyciu skryptu. Szablony próbują równolegle zaaprowizować bazy danych, a jeśli to konieczne, obsługują ponowne próby aprowizacji, optymalizując cały proces. Skrypt jest idempotentny, więc po jego przerwaniu należy uruchomić go ponownie.
-
-### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Sprawdzanie pomyślnego wdrożenia partii dzierżaw
-
-* Otwórz serwer *tenants1* w witrynie [Azure Portal](https://portal.azure.com) i kliknij przycisk **Bazy danych SQL**:
-
-   ![lista baz danych](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
+Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki, aby pobrać skrypty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Szczegółowy przewodnik po aprowizacji i wykazie
 
-Dla lepszego zrozumienia sposobu implementacji inicjowania obsługi nowej dzierżawy przez aplikację Wingtip uruchom ponownie skrypt *Demo-ProvisionAndCatalog* i zaaprowizuj kolejną dzierżawę. Tym razem dodaj punkt przerwania i przejdź przez przepływ pracy:
+Aby zrozumieć, jak aplikacja Wingtip implementuje nowej dzierżawy inicjowania obsługi, Dodaj punkt przerwania i krok przez przepływ pracy podczas inicjowania obsługi administracyjnej dzierżawcy:
 
-1. Otwórz moduł ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ i ustaw dla nowej dzierżawy następujące wartości, które nie istnieją w bieżącym wykazie:
-   * **$TenantName** = ustaw nową nazwę (na przykład *Hackberry Hitters*).
-   * **$VenueType** = użyj jednego ze wstępnie zdefiniowanych typów miejsca (na przykład *judo*).
-   * **$DemoScenario** = 1, ustaw na **1** **Provision a single tenant** (Aprowizacja jednej dzierżawy).
+1. Otwórz... \\Modułów uczenia\\ProvisionAndCatalog\\_ProvisionAndCatalog.ps1 pokaz_ i ustaw następujące parametry:
+   * **$TenantName** = nazwa nowego miejsca (na przykład *Bushwillow Blues*).
+   * **$VenueType** = jeden z typów wstępnie zdefiniowanych miejscową: *niebieskie*, classicalmusic, tańca, jazz, judo, motorracing uniwersalne, opera, rockmusic, nożną.
+   * **$DemoScenario** = **1**, ustawioną **1** do *udostępnić pojedynczej dzierżawy*.
 
-1. Dodaj punkt przerwania, umieszczając kursor w dowolnym miejscu w wierszu *New-Tenant `* i naciśnij klawisz **F9**.
+1. Dodawanie punktu przerwania w dowolnym ustawiając kursor na wiersz 48, informujący: *nowej dzierżawy "*i naciśnij klawisz **F9**.
 
    ![punkt przerwania](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Naciśnij klawisz **F5**, aby uruchomić skrypt. Po osiągnięciu punktu przerwania naciśnij klawisz **F11**, aby wejść do funkcji. Śledź wykonywanie skryptu, używając klawiszy **F10** i **F11**, odpowiednio do pomijania lub do wchodzenia do wywoływanych funkcji. [Porady dotyczące pracy ze skryptami PowerShell i ich debugowania](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Aby uruchomić skrypt naciśnij **F5**.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Szczegółowe badanie implementacji aprowizacji i wykazu poprzez krokowe wykonywanie skryptu
+1. Po zatrzymaniu wykonywania skryptu na punkt przerwania, naciśnij klawisz **F11** do kroku do kodu.
 
-Skrypt aprowizuje nowe dzierżawy i rejestruje je w wykazie, wykonując następujące czynności:
+   ![punkt przerwania](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Śledzenie wykonywanie skryptu za pomocą **debugowania** menu Opcje - **F10** i **F11** do kroku przez lub do funkcji o nazwie. Aby uzyskać więcej informacji na temat debugowania skryptów programu PowerShell, zobacz [porady dotyczące pracy z i debugowania skryptów programu PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+Poniżej przedstawiono nie kroki do wykonania w sposób jawny, lecz wyjaśnienie przepływu pracy, które można wykonywać krokowo podczas debugowania skryptu:
 
 1. **Zaimportuj moduł SubscriptionManagement.psm1**, który zawiera funkcje logowania się w usłudze Azure i wybierania używanej subskrypcji platformy Azure.
 1. **Zaimportuj moduł CatalogAndDatabaseManagement.psm1**, który tworzy warstwę abstrakcji wykazu i dzierżawy nad funkcjami [zarządzania fragmentami](sql-database-elastic-scale-shard-map-management.md). Jest to ważny moduł, który hermetyzuje znaczną część wzorca wykazu, i z tego powodu jest wart poznania.
-1. **Uzyskaj szczegółowe informacje o konfiguracji**. Wejdź do funkcji _Get-Configuration_ (używając klawisza **F11**) i zobacz, jak określono konfigurację aplikacji. W tym miejscu są zdefiniowane nazwy zasobów i innych wartości aplikacji. Nie zmieniaj żadnej z nich, dopóki nie zapoznasz się ze skryptami.
-1. **Pobierz obiekt wykazu**. Wejdź do funkcji *Get-Catalog* aby zobaczyć, jak przebiega inicjowanie wykazu za pomocą funkcji zarządzania fragmentami, które są importowane z modułu **AzureShardManagement.psm1**. Wykaz składa się z następujących obiektów:
+1. **Uzyskaj szczegółowe informacje o konfiguracji**. Wkrocz Get-konfiguracji (z F11) i zobacz, jak określono w konfiguracji aplikacji. W tym miejscu są zdefiniowane nazwy zasobów i innych wartości aplikacji. Nie zmieniaj żadnej z nich, dopóki nie zapoznasz się ze skryptami.
+1. **Pobierz obiekt wykazu**. Krok do katalogu Get, która Redaguj i zwraca obiekt katalogu, który jest używany w skrypcie wyższego poziomu.  Ta funkcja korzysta z funkcji zarządzania niezależnego fragmentu, które są importowane z **AzureShardManagement.psm1**. Obiekt katalogu składa się z następujących czynności:
    * Obiekt $catalogServerFullyQualifiedName jest konstruowany przy użyciu standardowego rdzenia uzupełnionego o nazwę użytkownika: _catalog-\<Użytkownik\>.database.windows.net_.
    * Obiekt $catalogDatabaseName jest pobierany z konfiguracji: *tenantcatalog*.
    * Obiekt $shardMapManager jest inicjowany z bazy danych wykazu.
@@ -124,45 +110,51 @@ Skrypt aprowizuje nowe dzierżawy i rejestruje je w wykazie, wykonując następu
    Obiekt wykazu jest tworzony i zwracany oraz używany w skrypcie wyższego poziomu.
 1. **Oblicz nowy klucz dzierżawy**. Funkcja skrótu służy do tworzenia klucza dzierżawy na podstawie nazwy dzierżawy.
 1. **Sprawdź, czy klucz dzierżawy już istnieje**. Wykaz jest sprawdzany w celu zapewnienia, że klucz jest dostępny.
-1. **Aprowizacja bazy danych jest wykonywana przy użyciu obiektu New-TenantDatabase.** Użyj klawisza **F11**, aby wejść do funkcji i zobaczyć, jak jest przeprowadzana aprowizacja bazy danych przy użyciu szablonu usługi Resource Manager.
-    
-Nazwa bazy danych jest tworzona na podstawie nazwy dzierżawy, aby było jasne, który fragment należy do której dzierżawy. (Można bez problemów użyć innych strategii tworzenia nazw baz danych).
+1. **Aprowizacja bazy danych jest wykonywana przy użyciu obiektu New-TenantDatabase.** Użyj **F11** do środka i zobacz, jak baza danych jest udostępnione za pomocą [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Szablon usługi Resource Manager jest używany do **tworzenia bazy danych poprzez kopiowanie *wzorcowej* bazy danych** (baseTenantDB) na serwer wykazu.  Alternatywną metodą może być utworzenie pustej bazy danych i następnie zainicjowanie jej przez import obiektu bacpac.
+Nazwa bazy danych jest tworzona na podstawie nazwy dzierżawy, aby było jasne, który fragment należy do której dzierżawy. (Inne strategie nazewnictwa bazy danych może być wykorzystane.) + Szablonem usługi Resource Manager służy do tworzenia dzierżawy bazy danych przez skopiowanie złotego bazy danych (baseTenantDB) na serwerze wykazu. Informacje o innym podejściu można utworzyć pustej bazy danych i zainicjować go przez zaimportowanie pliku bacpac lub wykonać skryptu inicjowania z dobrze znanej lokalizacji.  
 
-Szablon usługi Resource Manager znajduje się w folderze …\\Learning Modules\\Common\\: *tenantdatabasecopytemplate.json*
+Szablon usługi Resource Manager znajduje się w folderze Modules\Common\ ...\Learning: *tenantdatabasecopytemplate.json*
 
-Po utworzeniu bazy danych dzierżawy jest ona dalej inicjowana przy użyciu nazwy miejsca (dzierżawa) i typu miejsca. Można również stosować inne metody inicjowania.
+Po utworzeniu bazy danych dzierżawy jest następnie dalsze **zainicjować o nazwie miejscową (dzierżawcy) i typie miejscową**. Można również stosować inne metody inicjowania.
 
-Baza danych dzierżawy jest zarejestrowana w wykazie przy użyciu funkcji *Add-TenantDatabaseToCatalog* i klucza dzierżawy. Użyj klawisza **F11**, aby wejść do funkcji:
+**Dzierżawy baza danych jest zarejestrowana w katalogu** z *TenantDatabaseToCatalog Dodaj* przy użyciu klucza dzierżawy. Użyj klawisza **F11**, aby wejść do funkcji:
 
 * Baza danych wykazu jest dodawana do mapy fragmentów (listy znanych baz danych).
 * Tworzone jest mapowanie łączące wartość klucza z fragmentem.
-* Dodawane są dodatkowe metadane dotyczące dzierżawy (nazwa miejsca).
+* Dodatkowe metadane (właściwość name) o dzierżawcy jest dodawane do tabeli dzierżaw w katalogu.  Tabela dzierżawcy nie jest częścią schematu ShardManagement i nie jest instalowany przez EDCL.  W tej tabeli przedstawiono, jak baza danych katalogu można rozszerzyć do obsługi dodatkowe dane specyficzne dla aplikacji.   
 
-Po ukończeniu aprowizacji wykonywanie powraca do początkowego skryptu *Demo-ProvisionAndCatalog* i w przeglądarce zostaje otwarta strona **zdarzeń** dotycząca nowej dzierżawy:
 
-   ![zdarzenia](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant2.png)
+Po ukończeniu inicjowania obsługi administracyjnej, wykonanie zwraca oryginalnej *ProvisionAndCatalog pokaz* skryptu, co spowoduje otwarcie **zdarzenia** strony dla nowej dzierżawy w przeglądarce:
+
+   ![zdarzenia](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
+
+
+## <a name="provision-a-batch-of-tenants"></a>Zainicjuj obsługę partii dzierżawcy
+
+Tego ćwiczenia inicjuje partii 17 dzierżaw. Zaleca się, że przed rozpoczęciem samouczków Wingtip SaaS, więc ma więcej niż kilka baz danych do pracy z obsługi administracyjnej tej partii dzierżaw.
+
+1. Otwórz... \\Modułów uczenia\\ProvisionAndCatalog\\*ProvisionAndCatalog.ps1 pokaz* w *PowerShell ISE* i zmienić *$ DemoScenario* parametr 3:
+   * **$DemoScenario** = **3**, zmień **3** do *udostępnić partii dzierżaw*.
+1. Naciśnij klawisz **F5** i uruchom skrypt.
+
+Skrypt wdroży partię dodatkowych dzierżaw. Używa [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md), który kontroluje partię i następnie deleguje aprowizację każdej bazy danych do dołączonego szablonu. Ten sposób użycia szablonów umożliwia aplikacji Azure Resource Manager pełnienie roli brokera w procesie aprowizacji przy użyciu skryptu. Szablony próbują równolegle zaaprowizować bazy danych, a jeśli to konieczne, obsługują ponowne próby aprowizacji, optymalizując cały proces. Skrypt jest idempotentności więc jeśli nie powiedzie się lub zatrzymuje jakiejkolwiek przyczyny, uruchom go ponownie.
+
+### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Sprawdzanie pomyślnego wdrożenia partii dzierżaw
+
+* Otwórz *tenants1* serwer, przechodząc do listy serwerów w [portalu Azure](https://portal.azure.com), kliknij przycisk **baz danych**i sprawdź partii 17 dodatkowych baz danych są dostępne w Lista:
+
+   ![lista baz danych](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
+
 
 
 ## <a name="other-provisioning-patterns"></a>Inne wzorce aprowizacji
 
 Inne wzorce aprowizacji, których nie uwzględniono w tym samouczku, obejmują:
 
-**Wstępne aprowizowanie baz danych.** Ten wzorzec wykorzystuje fakt, że bazy danych w elastycznej puli nie wprowadzają dodatkowych kosztów (rozliczenia dotyczą elastycznej puli, a nie baz danych), oraz że bezczynna baza danych nie korzysta z żadnych zasobów. Wstępne aprowizowanie baz danych w puli, a następnie przydzielanie ich w razie potrzeby, może znacznie skrócić czas wdrożenia dzierżawy. Liczbę wstępnie aprowizowanych baz danych można dostosować do własnych potrzeb, aby zachować bufor odpowiedni dla oczekiwanego wskaźnika aprowizacji.
+**Wstępne aprowizowanie baz danych.** Wzorzec wstępnego inicjowania obsługi administracyjnej wykorzystuje fakt, że bazy danych w puli elastycznej nie należy dodawać z żadnymi dodatkowymi kosztami. Rozliczenia jest przeznaczony dla puli elastycznej nie baz danych, i baz danych w stanie bezczynności korzystać z żadnych zasobów. Wstępne inicjowanie obsługi baz danych w puli i przydzielanie je w razie potrzeby, można znacznie zmniejszyć czasu dołączenia do dzierżawy. Liczbę wstępnie aprowizowanych baz danych można dostosować do własnych potrzeb, aby zachować bufor odpowiedni dla oczekiwanego wskaźnika aprowizacji.
 
-**Automatyczne aprowizowanie.** W tym wzorcu dedykowana usługa aprowizacji automatycznie (w razie potrzeby) aprowizuje serwery, pule i bazy danych. Obejmuje to także wstępne aprowizowanie baz danych w elastycznej puli, jeśli zachodzi taka konieczność. W przypadku wycofania i usunięcia baz danych luki w elastycznych pulach mogą zostać uzupełnione przez usługę aprowizacji, jeśli zachodzi taka potrzeba. Taka usługa może być prosta lub złożona (np. aprowizacja w wielu regionach) i może doprowadzić do automatycznego skonfigurowania replikacji geograficznej, jeśli taka strategia jest używana przy odzyskiwaniu po awarii. Za pomocą wzorca automatycznej aprowizacji aplikacja klienta lub skrypt mogą umieścić w kolejce żądanie aprowizacji, które zostanie przetworzone przez usługę aprowizacji, a następnie mogą sondować usługę w celu wykrycia ukończenia zadania. Jeśli używana jest wstępna aprowizacja, żądania mogą zostać szybko obsłużone przez usługę zarządzającą aprowizacją zastępczej bazy danych uruchomioną w tle.
-
-
-## <a name="stopping-wingtip-saas-application-related-billing"></a>Zatrzymywanie rozliczeń dotyczących aplikacji SaaS o nazwie Wingtip
-
-Jeśli nie zamierzasz korzystać z następnych samouczków, zalecamy usunięcie wszystkich zasobów w celu wstrzymania rozliczeń. Usuń grupę zasobów, w której była wdrożona aplikacja WTP — spowoduje to także usunięcie wszystkich jej zasobów.
-
-* Przejdź do grupy zasobów aplikacji w portalu i usuń ją, aby zatrzymać wszystkie rozliczenia powiązane z tym wdrożeniem aplikacji WTP.
-
-## <a name="tips"></a>Porady
-
-* Biblioteka EDCL udostępnia także ważne funkcje, które umożliwiają aplikacjom klienta nawiązywania połączenia z wykazem i wykonywanie na nim operacji. Biblioteki EDCL można użyć do uzyskania połączenia ADO.NET dla danej wartości klucza, umożliwiając aplikacji połączenie się z odpowiednią bazą danych. Informacje o połączeniu są przechowywane przez klienta, dzięki czemu jest zminimalizowany ruch do bazy danych wykazu, a aplikacja działa szybciej.
+**Automatyczne aprowizowanie.** We wzorcu automatycznego inicjowania obsługi administracyjnej dedykowanego inicjowania obsługi usługi służy do serwerów, pul i baz danych automatycznie w razie potrzeby udostępnić — tym wstępnego inicjowania obsługi administracyjnej baz danych w pule elastyczne, w razie potrzeby. W przypadku wycofania i usunięcia baz danych luki w elastycznych pulach mogą zostać uzupełnione przez usługę aprowizacji, jeśli zachodzi taka potrzeba. Takie usługi może być prostymi lub złożonymi — na przykład obsługa inicjowania obsługi administracyjnej na wielu różnych obszarach geograficznych i można skonfigurować replikację geograficzną automatycznie Jeśli tej strategii jest używana dla odzyskiwania po awarii. Za pomocą wzorca automatycznej aprowizacji aplikacja klienta lub skrypt mogą umieścić w kolejce żądanie aprowizacji, które zostanie przetworzone przez usługę aprowizacji, a następnie mogą sondować usługę w celu wykrycia ukończenia zadania. Jeśli używana jest wstępna aprowizacja, żądania mogą zostać szybko obsłużone przez usługę zarządzającą aprowizacją zastępczej bazy danych uruchomioną w tle.
 
 
 
@@ -174,13 +166,12 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 > * Aprowizowanie pojedynczej nowej dzierżawy
 > * Aprowizowanie partii dodatkowych dzierżaw
-> * Szczegóły aprowizacji nowych dzierżaw i rejestrowania ich w wykazie
+> * Krok do szczegółów udostępnianie dzierżaw i rejestrowania ich do katalogu
 
-[Samouczek monitorowania wydajności](sql-database-saas-tutorial-performance-monitoring.md)
+Spróbuj [samouczek monitorowania wydajności](sql-database-saas-tutorial-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dodatkowe samouczki nawiązujące do początkowego wdrożenia aplikacji Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Dodatkowe [samouczków, z którymi aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteka kliencka Elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Sposób debugowania skryptów w programie Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
-

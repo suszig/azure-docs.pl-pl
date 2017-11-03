@@ -1,6 +1,9 @@
 # [Omówienie](active-directory-b2c-overview.md)
 
 # Rozpoczęcie pracy
+## [Testowanie aplikacji internetowej usługi Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Testowanie aplikacji klasycznej usługi Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Testowanie aplikacji jednostronicowej usługi Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Tworzenie katalogu usługi Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Rejestrowanie aplikacji](active-directory-b2c-app-registration.md)
 ## [Wbudowane zasady](active-directory-b2c-reference-policies.md)
