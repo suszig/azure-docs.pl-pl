@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: Typy i rozmiary maszyn wirtualnych
       href: sizes.md
+      items:
+        - name: Zastosowania ogólne
+          href: sizes-general.md
+          items:
+            - name: Seria B z możliwością zwiększania wydajności
+              href: b-series-burstable.md
+        - name: Optymalizacja pod kątem obliczeń
+          href: sizes-compute.md
+        - name: Optymalizacja pod kątem pamięci
+          href: sizes-memory.md
+        - name: Optymalizacja pod kątem magazynu
+          href: sizes-storage.md
+        - name: Optymalizacja pod kątem procesora GPU
+          href: sizes-gpu.md
+          items:
+            - name: Konfigurowanie sterowników procesora GPU
+              href: n-series-driver-setup.md
+        - name: Obliczenia o wysokiej wydajności
+          href: sizes-hpc.md
+        - name: Jednostki obliczeniowe platformy Azure (ACU)
+          href: sizes-general.md
     - name: Dystrybucje zatwierdzone
       href: endorsed-distros.md
     - name: Konserwacja i aktualizacje

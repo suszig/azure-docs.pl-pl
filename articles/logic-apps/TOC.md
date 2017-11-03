@@ -25,7 +25,8 @@
 #### [Bezpieczne łączniki z usługą Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Opisywanie interfejsów API za pomocą narzędzia Postman](custom-connector-api-postman-collection.md)
 #### [Rozszerzanie interfejsu OpenAPI dla łączników niestandardowych](custom-connector-openapi-extensions.md)
-#### [Rejestrowanie łącznika](logic-apps-custom-connector-register.md)
+#### [Tworzenie i rejestrowanie łącznika interfejsu OpenAPI](logic-apps-custom-connector-register.md)
+#### [Tworzenie i rejestrowanie łącznika protokołu SOAP](logic-apps-soap-connector-create-register.md)
 #### [Certyfikowanie łącznika](custom-connector-submit-certification.md)
 #### [Często zadawane pytania dotyczące łączników niestandardowych](custom-connector-faq.md)
 ### Opracowywanie niestandardowych interfejsów API

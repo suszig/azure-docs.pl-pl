@@ -1,27 +1,27 @@
-## <a name="create-a-device-identity"></a>Create a device identity
+## <a name="create-a-device-identity"></a>Tworzenie tożsamości urządzenia
 
-In this section, you use the [Azure portal][lnk-azure-portal] to create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. The **Device Explorer** in the portal helps you generate a unique device ID and key that your device can use to identify itself when it connects to IoT Hub. Device IDs are case sensitive.
+W tej sekcji użyjesz [portalu Azure] [ lnk-azure-portal] do tworzenia tożsamości urządzenia w rejestrze tożsamości w Centrum IoT. Urządzenie nie może połączyć się z centrum IoT, jeśli nie ma wpisu w rejestrze tożsamości. Więcej informacji znajduje się w sekcji „Identity registry” (Rejestr tożsamości) artykułu [IoT Hub Developer Guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera). **Explorer urządzenia** w portalu pomaga Wygeneruj Unikatowy identyfikator urządzenia i klucz urządzenia służy do identyfikacji podczas łączenia się z Centrum IoT. W identyfikatorach urządzeń jest uwzględniana wielkość liter.
 
-1. Make sure you are signed in to the [Azure portal][lnk-azure-portal].
+1. Upewnij się, że użytkownik jest zalogowany do [portalu Azure][lnk-azure-portal].
 
-1. In the Jumpbar, click **All resources** and find your IoT hub resource.
+1. Na pasku przechodzenia kliknij **wszystkie zasoby** i Znajdź zasobu Centrum IoT.
 
-    ![Navigate to your Iot hub][img-find-iothub]
+    ![Przejdź do Centrum Iot][img-find-iothub]
 
-1. When your IoT hub resource is opened, click the **Device Explorer** tool, and then click **Add** at the top. Provide the name for your new device, such as **myDeviceId**, and click **Save**.
+1. Po otwarciu zasobu Centrum IoT kliknij **Explorer urządzenia** narzędzia, a następnie kliknij przycisk **Dodaj** u góry. Podaj nazwę dla nowego urządzenia, na przykład **myDeviceId**i kliknij przycisk **zapisać**.
 
-    ![Create device identity in portal][img-create-device]
+    ![Tworzenie tożsamości urządzenia w portalu][img-create-device]
 
-   This creates a new device identity for your IoT hub.
+   Spowoduje to utworzenie nowej tożsamości urządzenia Centrum IoT.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**. 
+1. W **Explorer urządzenia**na listę urządzeń, kliknij urządzenie nowo utworzona i zanotuj **ciąg połączenia---klucz podstawowy**. 
 
-    ![Device connection string][img-connection-string]
+    ![Ciąg połączenia urządzenia][img-connection-string]
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+> Rejestr tożsamości usługi IoT Hub przechowuje tożsamości urządzenia tylko po to, aby umożliwić bezpieczny dostęp do centrum IoT. Przechowuje identyfikatory urządzeń i klucze, które będą używane jako poświadczenia zabezpieczeń, oraz flagę włączone/wyłączone, która umożliwia wyłączenie dostępu do poszczególnych urządzeń. Jeśli aplikacja wymaga przechowywania innych metadanych dla określonego urządzenia, powinna korzystać z magazynu określonego dla aplikacji. Więcej informacji znajduje się w temacie [IoT Hub Developer Guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera).
 
 <!-- Images. -->
 [img-find-iothub]: ./media/iot-hub-get-started-create-device-identity-portal/find-iothub.png

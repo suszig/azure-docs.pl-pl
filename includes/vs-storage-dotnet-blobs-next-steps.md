@@ -1,10 +1,10 @@
 
-Now that you've learned the basics of Azure Blob storage, follow these links to learn about more complex storage tasks.
+Teraz, kiedy znasz już podstawy magazynu obiektów Blob platformy Azure, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
-* View the Blob service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
-  * To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Przejrzyj dokumentację referencyjną usługi obiektów Blob w [biblioteki klienta magazynu Azure dla platformy .NET](http://go.microsoft.com/fwlink/?LinkID=390731) odwołania, aby uzyskać szczegółowe informacje o dostępnych interfejsach API.
+* Aby dowiedzieć się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage, zapoznaj się [co to jest zestaw SDK zadań Webjob Azure](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
+  * Aby pracować z tabel magazynu Azure, zobacz [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
+  * Aby pracować z kolejki magazynu Azure, [Rozpoczynanie pracy z magazynem kolejek Azure przy użyciu platformy .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
+  * Aby przechowywać dane relacyjne, zobacz [Połącz z bazą danych SQL przy użyciu programu .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

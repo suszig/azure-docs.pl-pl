@@ -1,5 +1,5 @@
 > [!NOTE]
-> **Custom policies are in public preview.**
+> **Niestandardowe zasady znajdują się w publicznej wersji zapoznawczej.**
 
-> [Custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend that you use Azure Active Directory B2C [built-in policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Built-in policies are easier to set up for your configuration. You can use built-in and custom policies in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
+> [Zasady niestandardowe](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) są przeznaczone dla specjalistów tożsamości, którzy dotyczyć złożonych scenariuszy. W przypadku większości scenariuszy zalecane jest użycie usługi Azure Active Directory B2C [wbudowane zasady](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Wbudowane zasady są łatwiejsze do skonfigurowania dla danej konfiguracji. W tej samej dzierżawy usługi Azure Active Directory B2C, można użyć wbudowanych i niestandardowych zasad. Aby dowiedzieć się więcej, zobacz [Omówienie zasad niestandardowych](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
 

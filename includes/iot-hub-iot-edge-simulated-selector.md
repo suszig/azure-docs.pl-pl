@@ -2,84 +2,84 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows you how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+Ten przewodnik [symulowane urządzenie chmury Przekaż przykładowe] przedstawiono sposób użycia [Azure IoT krawędzi] [ lnk-sdk] do wysyłania danych telemetrycznych urządzenia do chmury do Centrum IoT z symulowanego urządzenia .
 
-This walkthrough covers:
+Przewodnik składa się z następujących elementów:
 
-* **Architecture**: architectural information about the [Simulated Device Cloud Upload sample].
-* **Build and run**: the steps required to build and run the sample.
+* **Architektura**: architektury informacji na temat [symulowane urządzenie chmury Przekaż przykładowe].
+* **Kompilowanie i uruchamianie**: czynności wymagane do skompilowania i uruchomienia przykładu.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architektura
 
-The [Simulated Device Cloud Upload sample] shows how to create a gateway that sends telemetry from simulated devices to an IoT hub. A device may not be able to connect directly to IoT Hub because the device:
+[symulowane urządzenie chmury Przekaż przykładowe] przedstawiono sposób tworzenia bramy, która wysyła dane telemetryczne z symulowanego urządzenia do Centrum IoT. Urządzenie może nie móc połączyć się bezpośrednio z Centrum IoT, ponieważ urządzenie:
 
-* Does not use a communications protocol understood by IoT Hub.
-* Is not smart enough to remember the identity assigned to it by IoT Hub.
+* Nie używa protokołu komunikacji rozpoznawany przez Centrum IoT.
+* Nie jest inteligentne do zapamiętania tożsamość przypisana przez Centrum IoT.
 
-An IoT Edge gateway can solve these problems in the following ways:
+Brama brzegowa IoT umożliwia rozwiązanie tych problemów w następujący sposób:
 
-* The gateway understands the protocol used by the device, receives device-to-cloud telemetry from the device, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
+* Brama rozumie protokół używany przez urządzenie odbiera telemetrię urządzenia do chmury z urządzenia i przesyła dalej wiadomości do Centrum IoT przy użyciu protokołu rozpoznawany przez Centrum IoT.
 
-* The gateway maps IoT Hub identities to devices and acts as a proxy when a device sends messages to IoT Hub.
+* Brama mapuje tożsamości Centrum IoT na urządzeniach i działa jako serwer proxy, gdy urządzenie wysyła komunikaty do Centrum IoT.
 
-The following diagram shows the main components of the sample, including the IoT Edge modules:
+Na poniższym diagramie przedstawiono główne składniki próbki, łącznie z modułów krawędzi IoT:
 
-![Diagram - simulated device message goes through gateway to IoT Hub][1]
+![Diagram — komunikat symulowane urządzenie przechodzi przez bramę do Centrum IoT][1]
 
-This sample contains three modules that make up the gateway:
-1. Protocol ingestion module
-1. MAC &lt;-&gt; IoT Hub ID module
-1. IoT Hub communication module
+Ten przykład zawiera trzy moduły, wchodzące w skład bramy:
+1. Moduł pozyskiwania protokołu
+1. Adres MAC &lt;-&gt; moduł identyfikatora usługi IoT Hub
+1. Moduł komunikacyjny usługi IoT Hub
 
-The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
+Moduły nie przekazują komunikatów bezpośrednio między sobą. Moduły publikowania komunikatów wewnętrzny brokera, która dostarcza wiadomości do innych modułów przy użyciu mechanizmu subskrypcji. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure IoT krawędzi][lnk-gw-getstarted].
 
-![Diagram - gateway modules communicate with broker][2]
+![Diagram — moduły bramy komunikować się z brokera][2]
 
-### <a name="protocol-ingestion-module"></a>Protocol ingestion module
+### <a name="protocol-ingestion-module"></a>Moduł pozyskiwania protokołu
 
-The protocol ingestion module is the starting point for process of taking data from devices, through the gateway, and into the cloud. 
+Moduł wprowadzanie protokołu jest punkt początkowy dla procesu pobieranie danych z urządzeń, za pośrednictwem bramy i w chmurze. 
 
-In the sample, this module:
+W przykładzie ten moduł:
 
-1. Creates simulated temperature data. If you use physical devices, the module reads data from those physical devices.
-1. Creates a message.
-1. Places the simulated temperature data into the message content.
-1. Adds a property with a fake MAC address to the message.
-1. Makes the message available to the next module in the chain.
+1. Tworzy symulowane temperatury danych. Jeśli używasz urządzenia fizyczne moduł odczytuje dane z tych urządzeń fizycznych.
+1. Tworzy komunikat.
+1. Umieszczenie danych symulowane temperatury w treści wiadomości.
+1. Dodaje właściwość fałszywy adres MAC do wiadomości.
+1. Udostępnia komunikat do następnego modułu w łańcuchu.
 
-The protocol ingestion module is **simulated_device.c** in the source code.
+Moduł wprowadzanie protokołu **simulated_device.c** w kodzie źródłowym.
 
-### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+### <a name="mac-lt-gt-iot-hub-id-module"></a>Adres MAC &lt;-&gt; moduł identyfikatora usługi IoT Hub
 
-The MAC &lt;-&gt; IoT Hub ID module works as a translator. This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, your devices may have unique serial numbers or the telemetry data may include a unique embedded device name.
+MAC &lt; - &gt; modułu identyfikator Centrum IoT działa jako translator. W tym przykładzie adres MAC jest używany jako unikatowy identyfikator urządzenia i jest korelowany z tożsamością urządzenia usługi IoT Hub. Możesz jednak napisać swój własny moduł, który będzie używał innego unikatowego identyfikatora. Na przykład urządzenia może mieć unikatowe numery seryjne lub dane telemetryczne mogą obejmować nazwę unikatową urządzenia osadzonego.
 
-In the sample, this module:
+W przykładzie ten moduł:
 
-1. Scans for messages that have a MAC address property.
-1. If there is a MAC address, adds another property with an IoT Hub device key to the message. 
-1. Makes the message available to the next module in the chain.
+1. Skanowanie w poszukiwaniu komunikatów, których właściwość adres MAC.
+1. W przypadku adresu MAC, dodaje innej właściwości przy użyciu klucza urządzenia IoT Hub do wiadomości. 
+1. Udostępnia komunikat do następnego modułu w łańcuchu.
 
-The developer sets up a mapping between MAC addresses and IoT Hub identities to associate the simulated devices with IoT Hub device identities. The developer adds the mapping manually as part of the module configuration.
+Deweloper konfiguruje mapowanie między tożsamości Centrum IoT i adresów MAC do skojarzenia symulowanego urządzenia z Centrum IoT tożsamości urządzenia. Deweloper ręcznie dodaje mapowania w ramach konfiguracji modułu.
 
-The MAC &lt;-&gt; IoT Hub ID module is **identitymap.c** in the source code. 
+MAC &lt; - &gt; moduł identyfikator Centrum IoT to **identitymap.c** w kodzie źródłowym. 
 
-### <a name="iot-hub-communication-module"></a>IoT Hub communication module
+### <a name="iot-hub-communication-module"></a>Moduł komunikacyjny usługi IoT Hub
 
-The IoT Hub communication module opens a single HTTP connection from the gateway to the IoT Hub. HTTP is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
+Moduł komunikacji Centrum IoT otwiera pojedynczego połączenia HTTPS z bramy z Centrum IoT. HTTPS jest jednym z trzech protokołów rozpoznawany przez Centrum IoT. Ten moduł uniemożliwia konieczności otwierania połączenia dla każdego urządzenia przez Multipleksowanie połączenia ze wszystkich urządzeń za pośrednictwem jednego połączenia. Takie podejście umożliwia pojedyncza brama do łączenia wielu urządzeń. 
 
-In the sample, this module:
+W przykładzie ten moduł:
 
-1. Takes messages with an IoT Hub device key property that was assigned by the previous module. 
-1. Sends the message content to IoT Hub using the HTTP protocol. 
+1. Pobiera komunikaty z Centrum IoT urządzenia właściwości klucza, która została przypisana w poprzednim module. 
+1. Wysyła zawartość komunikatu do Centrum IoT przy użyciu protokołu HTTPS. 
 
-The IoT Hub communication module is **iothub.c** in the source code.
+Moduł komunikacji Centrum IoT to **iothub.c** w kodzie źródłowym.
 
-## <a name="before-you-get-started"></a>Before you get started
+## <a name="before-you-get-started"></a>Przed rozpoczęciem
 
-Before you get started, you must:
+Przed rozpoczęciem pracy należy:
 
-* [Create an IoT hub][lnk-create-hub] in your Azure subscription. You need the name of your hub for this sample walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add two devices to your IoT hub and make a note of their IDs and device keys. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tools to add devices to the IoT hub and retrieve their keys.
+* [Tworzenie Centrum IoT] [ lnk-create-hub] w Twojej subskrypcji platformy Azure. Nazwa Centrum jest konieczne w ramach tego przewodnika próbki. Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.
+* Dodaj dwa urządzenia do Centrum IoT i zanotuj ich identyfikatorów i klucze urządzenia. Można użyć [explorer urządzenia] [ lnk-device-explorer] lub [explorer Centrum iothub] [ lnk-iothub-explorer] narzędzi, aby dodać urządzenia do Centrum IoT i pobieranie ich kluczy.
 
 
 <!-- Images -->
@@ -87,7 +87,7 @@ Before you get started, you must:
 [2]: media/iot-hub-iot-edge-simulated-selector/image2.png
 
 <!-- Links -->
-[Simulated Device Cloud Upload sample]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+[symulowane urządzenie chmury Przekaż przykładowe]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

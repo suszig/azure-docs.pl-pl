@@ -1,14 +1,14 @@
-* PDF
-* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+* PLIK PDF
+* Microsoft Office formaty: DOCX/DOC, XLSX/XLS, PPTX/PPT MSG (wiadomości e-mail programu Outlook)  
 * HTML
 * XML
 * ZIP
 * EML
 * RTF
-* Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
-* JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md) preview feature)
+* Pliki w formacie zwykłego tekstu (Zobacz też [Indeksowanie Zwykły tekst](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* JSON (zobacz [obiektów blob JSON indeksowania](../articles/search/search-howto-index-json-blobs.md))
+* CSV (zobacz [CSV indeksowanie obiektów blob](../articles/search/search-howto-index-csv-blobs.md) funkcja w wersji zapoznawczej)
 
 > [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Obsługa tablice CSV i JSON jest obecnie w wersji zapoznawczej. Te formaty są dostępne wyłącznie przy użyciu wersji **2016-09-01-Preview** z interfejsu API REST lub wersji 2.x — wersja zapoznawcza zestawu .NET SDK. Należy pamiętać, Podgląd interfejsy API są przeznaczone do testowania i ocenie, a nie powinna być używana w środowisku produkcyjnym.
 >

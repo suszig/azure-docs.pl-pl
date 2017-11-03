@@ -1,8 +1,8 @@
 
 
-1. On your Mac, launch **Keychain Access**. On the left navigation bar, under **Category**, open **My Certificates**. Find the SSL certificate you downloaded in the previous section, and disclose its contents. Select only the certificate (do not select the private key), and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
-2. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name. Go to **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (depending on whether your client SSL certificate from earlier is production or sandbox). Save any changes.
+1. Na komputerze Mac Uruchom **dostęp łańcucha kluczy**. Na pasku nawigacyjnym po lewej stronie w obszarze **kategorii**, otwórz **moje certyfikaty**. Znajdź certyfikat SSL, który został pobrany w poprzedniej sekcji, a ujawnić jego zawartość. Wybierz tylko certyfikat (nie zaznaczaj klucz prywatny), a [wyeksportować go](https://support.apple.com/kb/PH20122?locale=en_US).
+2. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **Przeglądaj wszystko** > **usługi aplikacji**i kliknij przycisk z zaplecza aplikacji mobilnej. W obszarze **ustawienia**, kliknij przycisk **aplikacji usługi wypychania**, a następnie kliknij nazwę Centrum powiadomień. Przejdź do **usługi powiadomień wypychanych firmy Apple** > **Przekaż certyfikat**. Przekaż plik .p12, wybierając poprawny **tryb** (w zależności od tego, czy certyfikat SSL klienta od wcześniej to środowisko produkcyjne lub piaskownicy). Zapisz zmiany.
 
-Your service is now configured to work with push notifications on iOS.
+Usługa jest teraz skonfigurowane do pracy z powiadomień wypychanych w systemie iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png

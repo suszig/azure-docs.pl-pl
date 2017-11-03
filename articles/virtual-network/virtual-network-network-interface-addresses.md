@@ -1,0 +1,205 @@
+---
+title: Skonfiguruj adresy IP dla interfejsu sieci platformy Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak dodawanie, zmienianie i usuwanie prywatnych i publicznych adresów IP dla karty sieciowej."
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-network
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/24/2017
+ms.author: jdial
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
+---
+# <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie lub usuwanie adresów IP dla interfejsu sieci platformy Azure
+
+Dowiedz się, jak dodawanie, zmienianie i usuwanie prywatnych i publicznych adresów IP dla karty sieciowej. Prywatne adresy IP przypisane do interfejsu sieciowego umożliwiają maszynie wirtualnej do komunikowania się z innymi zasobami w sieci wirtualnej platformy Azure i sieci połączonych. Prywatny adres IP umożliwia także komunikacji wychodzącej z Internetem przy użyciu adresu IP nieprzewidywalne. A [publicznego adresu IP](virtual-network-public-ip-address.md) przypisany do interfejsu umożliwia przychodzącej komunikacji sieciowej do maszyny wirtualnej z Internetu. Adres umożliwia także komunikacji wychodzącej z maszyny wirtualnej z Internetem przy użyciu wartości prognozowanych adresu IP. Aby uzyskać więcej informacji, zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Jeśli użytkownik należy do tworzenia, zmienić lub usunąć interfejsu sieciowego, przeczytaj [Zarządzanie interfejsu sieciowego](virtual-network-network-interface.md) artykułu. Jeśli trzeba dodać interfejsów sieciowych lub usunąć interfejsów sieciowych z maszyny wirtualnej, przeczytaj [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) artykułu. 
+
+
+## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+Przed wykonaniem kolejnych kroków w dowolnej części tego artykułu, należy wykonać następujące zadania:
+
+- Przegląd [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu, aby dowiedzieć się więcej na temat limitów dla publicznych i prywatnych adresów IP.
+- Zaloguj się do platformy Azure [portal](https://portal.azure.com), Azure interfejsu wiersza polecenia (CLI) lub Azure PowerShell przy użyciu konta platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
+- Jeśli za pomocą poleceń programu PowerShell do wykonywania zadań w tym artykule [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję apletów poleceń programu Azure PowerShell zainstalowane. Aby uzyskać pomoc dotyczącą poleceń programu PowerShell, wraz z przykładami, wpisz `get-help <command> -full`.
+- Jeśli za pomocą poleceń Azure interfejsu wiersza polecenia (CLI) do wykonywania zadań w tym artykule [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję interfejsu wiersza polecenia Azure zainstalowane. Aby uzyskać pomoc dotyczącą poleceń interfejsu wiersza polecenia, wpisz `az <command> --help`. Zamiast instalowania interfejsu wiersza polecenia i jego wymagania wstępne, można użyć powłoki chmury Azure. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Aby użyć powłoki chmury, kliknij przycisk powłoki chmury **> _** przycisk w górnej części [portal](https://portal.azure.com).
+
+## <a name="add-ip-addresses"></a>Dodaj adresy IP
+
+Można dodać jako wiele [prywatnej](#private) i [publicznego](#public) [IPv4](#ipv4) adresy odpowiednio do interfejsu sieciowego, w ramach limitów na liście [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu. Nie można użyć portalu, aby dodać adres IPv6 do istniejącego interfejsu sieciowego (chociaż portalu umożliwia dodawanie prywatnego adresu IPv6 karty sieciowej, podczas tworzenia interfejsu sieciowego). Można użyć programu PowerShell lub interfejsu wiersza polecenia do dodania do jednego prywatnego adresu IPv6 [dodatkowej konfiguracji IP](#secondary) (o ile istnieją żadnych istniejących dodatkowej konfiguracji IP) dla istniejącego interfejsu sieciowego, który nie jest dołączony do maszyny wirtualnej. Nie można użyć dowolnego narzędzia można dodać publiczny adres IPv6 do interfejsu sieciowego. Zobacz [IPv6](#ipv6) szczegółowe informacje o przy użyciu adresów IPv6. 
+
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
+2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
+3. W **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk ma zostać dodany adres IPv4 dla interfejsu sieciowego.
+4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
+5. Kliknij przycisk **+ Dodaj** w otwartym bloku dla konfiguracji adresów IP.
+6. Podaj następujące informacje, a następnie kliknij przycisk **OK** zamknąć **konfiguracji IP dodać** bloku:
+
+    |Ustawienie|Wymagana?|Szczegóły|
+    |---|---|---|
+    |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego|
+    |Typ|Tak|Ponieważ dodajesz konfiguracji IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [głównej](#primary) jest jedyną opcją konfiguracji adresów IP, **dodatkowej**.|
+    |Metoda przypisywania adresu prywatnego adresu IP|Tak|[**Dynamiczne** ](#dynamic) adresy można zmienić, jeśli maszyna wirtualna zostanie ponownie uruchomiony po przejściu w stan zatrzymania (cofnięciu przydziału). Azure przypisuje adres z przestrzeni adresowej podsieci jest połączony interfejs sieci. [**Statyczne** ](#static) adresy nie są zwalniane aż do usunięcia interfejsu sieciowego. Określ adres IP z zakresu przestrzeni adresów podsieci, który nie jest obecnie używany przez inną konfigurację adresu IP.|
+    |Publiczny adres IP|Nie|**Wyłączone:** zasobu bez publicznego adresu IP jest obecnie skojarzony z konfiguracją protokołu IP. **Włączone:** wybierz istniejący adres IPv4 publicznego adresu IP lub Utwórz nową. Aby dowiedzieć się, jak utworzyć publicznego adresu IP, przeczytaj [publicznego adresu IP, adresy](virtual-network-public-ip-address.md#create-a-public-ip-address) artykułu.|
+7. Ręcznie Dodaj dodatkowej prywatnych adresów IP do systemu operacyjnego maszyny wirtualnej, wykonując instrukcje [przypisać wiele adresów IP do maszyny wirtualnej systemów operacyjnych](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed ręcznie dodać adresy IP do systemu operacyjnego maszyny wirtualnej. Nie dodawaj żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
+
+**Polecenia**
+
+|Narzędzie|Polecenie|
+|---|---|
+|Interfejs wiersza polecenia|[Tworzenie kart sieciowych az ip-config](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[Dodaj AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+
+## <a name="change-ip-address-settings"></a>Zmień ustawienia adresu IP
+
+Może zmienić metodę przypisanie adresu IPv4 zmień statyczny adres IPv4, lub zmień publiczny adres IP przypisany do interfejsu sieciowego. Jeśli chcesz zmienić prywatny adres IPv4 dodatkowej konfiguracji adresu IP skojarzonego z dodatkowy interfejs sieciowy na maszynie wirtualnej (Dowiedz się więcej o [interfejsów sieciowych podstawowych i pomocniczych](virtual-network-network-interface-vm.md#about)), umieść maszynę wirtualną do (cofnięciu przydziału) zatrzymana przed wykonaniem poniższych kroków: 
+
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
+2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
+3. W **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk chcesz przejrzeć lub zmienić ustawienia adresu IP dla interfejsu sieciowego.
+4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
+5. Kliknij pozycję konfiguracji IP, który chcesz zmodyfikować na liście w bloku, który zostanie otwarty w przypadku konfiguracji adresu IP.
+6. Zmień ustawienia, zgodnie z potrzebami, korzystając z informacji o ustawieniach w kroku 6 [Dodaj konfigurację IP](#create-ip-config) sekcji tego artykułu. Kliknij przycisk **zapisać** zamknąć bloku do konfiguracji protokołu IP, można zmienić.
+
+>[!NOTE]
+>Podstawowy interfejs sieciowy ma wielu konfiguracji adresów IP, można zmienić prywatnego adresu IP w konfiguracji podstawowego adresu IP należy ręcznie ponownie przypisać głównych i dodatkowych adresów IP do interfejsu sieciowego w systemie Windows (nie wymaga Linux) . Aby ręcznie przypisywać adresy IP do karty sieciowej w systemie operacyjnym, przeczytaj [przypisać wiele adresów IP maszynom wirtualnym](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed ręcznie dodać adresy IP do systemu operacyjnego maszyny wirtualnej. Nie dodawaj żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
+
+**Polecenia**
+
+|Narzędzie|Polecenie|
+|---|---|
+|Interfejs wiersza polecenia|[Aktualizacja konfiguracji adresu ip karty sieciowej sieci az](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|PowerShell|[Zestaw AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+
+## <a name="remove-ip-addresses"></a>Usuń adresy IP
+
+Możesz usunąć [prywatnej](#private) i [publicznego](#public) adresów IP z karty sieciowej, ale interfejs sieciowy musi zawsze mieć przypisane do niego co najmniej jeden prywatny adres IPv4.
+
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
+2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
+3. W **interfejsy sieciowe** wyświetlonym bloku, kliknij interfejsu sieciowego, aby usunąć IP adresów z.
+4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
+5. Kliknij prawym przyciskiem myszy [dodatkowej](#secondary) konfiguracji protokołu IP (nie można usunąć [głównej](#primary) konfiguracji) chcesz usunąć, kliknij przycisk **usunąć**, następnie kliknij przycisk **tak** aby potwierdzić usunięcie. Konfiguracja gdyby publicznego zasobu adres IP skojarzony zasobu jest oddzielona od konfiguracji IP, ale zasób nie zostanie usunięta.
+6. Zamknij **konfiguracje adresów IP** bloku.
+
+**Polecenia**
+
+|Narzędzie|Polecenie|
+|---|---|
+|Interfejs wiersza polecenia|[Usuwanie konfiguracji adresu ip karty sieciowej sieci az](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|PowerShell|[Usuń AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+
+## <a name="ip-configurations"></a>Konfiguracje adresów IP
+
+[Prywatne](#private) i (opcjonalnie) [publicznego](#public) adresy IP są przypisywane do co najmniej jednej konfiguracji IP przypisane do karty sieciowej. Istnieją dwa typy konfiguracji adresu IP:
+
+### <a name="primary"></a>Podstawowy
+
+Każdy interfejs sieciowy jest przypisany jedną podstawową konfigurację protokołu IP. Podstawową konfigurację protokołu IP:
+
+- Ma [prywatnej](#private) [IPv4](#ipv4) adres przypisany do niej. Nie można przydzielić prywatnej [IPv6](#ipv6) adres podstawową konfigurację protokołu IP.
+- Może być również [publicznego](#public) przypisane do niej adres IPv4. Nie można przypisać publiczny adres IPv6 do podstawowej lub dodatkowej konfiguracji adresu IP. Jednak możesz przypisać publiczny adres IPv6 do modułu równoważenia obciążenia Azure, które można równoważenia obciążenia ruchu maszyny wirtualnej prywatny adres IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
+
+### <a name="secondary"></a>Pomocniczy
+
+Oprócz konfiguracji podstawowego adresu IP karty sieciowej może być zero lub więcej dodatkowej konfiguracji IP przypisanych do niego. Dodatkowej konfiguracji adresu IP:
+
+- Musi mieć prywatny adres IPv4 lub IPv6 przypisany do niej. Jeśli adres IPv6, interfejsu sieciowego może mieć tylko jedną konfigurację adresu IP dodatkowej. Jeśli adres IPv4, interfejsu sieciowego może mieć wielu dodatkowej konfiguracji IP przypisane do niej. Aby dowiedzieć się więcej na temat liczby prywatnych i publicznych adresów IPv4 można przypisać do interfejsu sieciowego, zobacz [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.  
+- Może również mieć publiczny adres IPv4 przypisane, jeśli protokół IPv4 jest prywatny adres IP. Prywatny adres IP w przypadku protokołu IPv6, nie można przypisać publiczny adres IPv4 lub IPv6 z konfiguracją protokołu IP. Przypisywanie wielu adresów IP do interfejsu sieciowego jest takie jak przydatne w scenariuszach:
+    - Hostowanie wielu witryn sieci Web lub usług z różnymi adresami IP i certyfikatami SSL na jednym serwerze.
+    - Maszyna wirtualna, służąc jako urządzenie wirtualne sieci, takie jak Zapora lub Usługa równoważenia obciążenia.
+    - Możliwość dodawania żadnego prywatne adresy IPv4 dla wszystkich interfejsów sieciowych do puli zaplecza modułu równoważenia obciążenia Azure. W przeszłości tylko podstawowy adres IPv4 dla interfejsu sieci podstawowej można można dodać do puli zaplecza. Aby dowiedzieć się więcej na temat sposobu równoważenia obciążenia wielu konfiguracji IPv4, zobacz [wielu konfiguracji adresów IP Równoważenie obciążenia](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. 
+    - Możliwość ładowania równoważenie jeden adres IPv6 przypisany do interfejsu sieciowego. Aby dowiedzieć się więcej na temat zrównoważeniu prywatny adres IPv6, zobacz [adresy IPv6 równoważenia obciążenia](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu.
+
+
+## <a name="address-types"></a>Typy adresów
+
+Następujące adresy IP można przypisać [konfiguracji IP](#ip-configurations):
+
+### <a name="private"></a>Prywatne
+
+Prywatne [IPv4](#ipv4) adresy umożliwiają maszynie wirtualnej do komunikowania się z innych zasobów w sieci wirtualnej lub innych połączonych sieci. Maszyny wirtualnej nie może być przekazywane ruchu przychodzącego, ani można maszyny wirtualnej komunikowania się wychodzące z prywatnej [IPv6](#ipv6) adres, z jednym wyjątkiem. Maszyny wirtualnej mogą komunikować się z usługą równoważenia obciążenia Azure przy użyciu adresu IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
+
+Domyślnie serwery Azure DHCP przypisać prywatny adres IPv4 dla [podstawową konfigurację protokołu IP](#primary) interfejsu sieciowego do interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. O ile to konieczne, należy nigdy nie ręcznie ustawić adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. 
+
+> [!WARNING]
+> Jeśli adres IPv4 jest ustawiony jako podstawowy adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej kiedykolwiek różni się od prywatny adres IPv4, przypisane do podstawowej konfiguracji IP podstawowy interfejs sieciowy dołączonego do maszyny wirtualnej w obrębie platformy Azure możesz utracić łączność z maszyną wirtualną.
+
+Istnieją scenariusze, w których konieczne jest ręczne ustawienie adresu IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. Na przykład należy ręcznie ustawić głównych i dodatkowych adresów IP w systemie operacyjnym Windows podczas dodawania wielu adresów IP do maszyny wirtualnej platformy Azure. Dla maszyny wirtualnej systemu Linux może tylko należy ręcznie ustawić dodatkowych adresów IP. Zobacz [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](virtual-network-multiple-ip-addresses-portal.md#os-config) szczegółowe informacje. W przypadku ręcznie ustawienia adresu IP w ramach systemu operacyjnego, zalecane jest zawsze przypisz adresy z konfiguracją protokołu IP dla karty sieciowej, za pomocą metody przydziału statyczne (zamiast dynamicznych). Przypisanie adresu za pomocą metody statycznej zapewnia adres nie ulega zmianie w obrębie platformy Azure. Jeśli trzeba zmienić adres przypisany do konfiguracji adresu IP, jest zalecane możesz:
+
+1. Aby zapewnić, że maszyna wirtualna jest uzyskiwania adresu z serwerów Azure DHCP, Zmień przypisanie adresów IP protokołu DHCP w systemie operacyjnym i uruchom ponownie maszynę wirtualną.
+2. Zatrzymaj (deallocate) maszyny wirtualnej.
+3. Zmienianie adresu IP dla konfiguracji IP w obrębie platformy Azure.
+4. Uruchamia maszynę wirtualną.
+5. [Ręczne konfigurowanie](virtual-network-multiple-ip-addresses-portal.md#os-config) dodatkowych adresów IP w ramach systemu operacyjnego (a także podstawowego adresu IP w systemie Windows) do dopasowania, ustaw w obrębie platformy Azure.
+ 
+Poprzednie kroki, prywatnego adresu IP przypisanego do interfejsu sieciowego w systemie Azure i w systemie operacyjnym maszyny wirtualnej, wykonując pozostają takie same. Aby śledzić maszyn wirtualnych w ramach subskrypcji ręcznie ustawionych adresów IP w ramach systemu operacyjnego, należy rozważyć dodanie Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) do maszyn wirtualnych. Można na przykład "przypisywanie adresów IP: statyczny", na przykład. W ten sposób maszyn wirtualnych można łatwo znaleźć w ramach subskrypcji ręcznie ustawionych adres IP w ramach systemu operacyjnego.
+
+Oprócz włączenia maszyny wirtualnej do komunikowania się z innych zasobów w ramach tego samego lub połączonych sieci wirtualnych, prywatnego adresu IP umożliwia także maszyny wirtualnej do komunikowania się ruch wychodzący do Internetu. Połączenia wychodzące są źródłowego adresu sieciowego przetłumaczony przez platformę Azure nieprzewidywalne publicznego adresu IP. Aby dowiedzieć się więcej na temat usługi Azure wychodzące połączenie z Internetem, przeczytaj [Azure wychodzące połączenie z Internetem](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. Użytkownik nie może komunikować się przychodzących prywatny adres IP maszyny wirtualnej z Internetu.
+
+### <a name="public"></a>Publiczne
+
+Publiczne adresy IP Włącz połączenia przychodzącego na maszynę wirtualną z Internetu. Połączenia wychodzące z Internetem użyć przewidywalną adresu IP. Zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) szczegółowe informacje. Może przypisać publicznego adresu IP do konfiguracji adresu IP, ale nie są wymagane. Jeśli nie przypisuj do publicznego adresu IP do maszyny wirtualnej, może nadal się komunikować wychodzące z Internetem przy użyciu prywatnego adresu IP. Aby dowiedzieć się więcej na temat publiczne adresy IP, przeczytaj [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
+
+Istnieją ograniczenia liczby prywatnych i publicznych adresów IP, które można przypisać do interfejsu sieciowego. Aby uzyskać więcej informacji, przeczytaj [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.
+
+> [!NOTE]
+> Azure tłumaczy prywatnego adresu IP maszyny wirtualnej do publicznego adresu IP. W związku z tym system operacyjny nie rozpoznaje wszystkie publiczne adresy IP przypisane do, więc nie trzeba kiedykolwiek ręcznie przypisać publicznego adresu IP w ramach systemu operacyjnego.
+
+## <a name="assignment-methods"></a>Metody przydziału
+
+Publiczne i prywatne adresy IP są przypisywane, przy użyciu następujących metod przypisania:
+
+### <a name="dynamic"></a>Dynamiczny
+
+Prywatne IPv4 i IPv6 (opcjonalnie) adresy są przypisywane domyślnie. Jeśli maszyna wirtualna jest umieszczona w stanie zatrzymania (cofnięciu przydziału), a następnie uruchomiona, można zmienić adresów dynamicznych. Jeśli nie chcesz adresy IPv4, aby zmienić czas życia maszyny wirtualnej, należy przypisać adresy przy użyciu metody statycznej. Można przypisać tylko prywatnego adresu IPv6 przy użyciu metody dynamicznej przypisania. Nie można przypisać publiczny adres IPv6 do konfiguracji adresu IP za pomocą jednej z metod.
+
+### <a name="static"></a>Statyczny
+
+Adresy przypisywane przy użyciu metody statycznej nie należy zmieniać dopóki maszyna wirtualna zostanie usunięta. Ręczne przypisywanie statycznych IPv4 prywatny adres do konfiguracji adresu IP z obszaru adresów podsieci interfejsu sieciowego jest. (Opcjonalnie) można przypisać publicznych lub prywatnych statyczny adres IPv4 do konfiguracji adresu IP. Nie można przypisać statycznego adresu IPv6 publicznych lub prywatnych do konfiguracji adresu IP. Aby dowiedzieć się więcej na temat sposobu Azure przypisuje statyczne publiczne adresy IPv4, zobacz [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
+
+## <a name="ip-address-versions"></a>Wersji adresu IP
+
+Podczas przypisywania adresów, można określić następujące wersje:
+
+### <a name="ipv4"></a>IPv4
+
+Każdy interfejs sieciowy musi mieć jeden [głównej](#primary) konfiguracji adresów IP z przypisanym [prywatnej](#private) [IPv4](#ipv4) adres. Można dodać jeden lub więcej [dodatkowej](#secondary) konfiguracje adresów IP, każdy mieć IPv4 prywatnych i (opcjonalnie) IPv4 [publicznego](#public) adresu IP.
+
+### <a name="ipv6"></a>Protokół IPv6
+
+Można przypisać prywatnego zero lub jeden [IPv6](#ipv6) adres do jednej dodatkowej konfiguracji IP interfejsu sieciowego. Interfejs sieciowy nie może mieć żadnych istniejących dodatkowej konfiguracji adresu IP. Nie można dodać konfiguracji IP przy użyciu adresu IPv6 przy użyciu portalu. Użyj programu PowerShell lub interfejsu wiersza polecenia, aby dodać konfigurację protokołu IP za pomocą prywatnego adresu IPv6 do istniejącego interfejsu sieciowego. Nie można dołączyć interfejsu sieciowego do istniejącej maszyny Wirtualnej.
+
+> [!NOTE]
+> Chociaż można utworzyć interfejs sieciowy z adresów IPv6 za pomocą portalu, nie można dodać istniejącego interfejsu sieciowego do nowej lub istniejącej maszyny wirtualnej za pomocą portalu. Użyj programu PowerShell lub 2.0 interfejsu wiersza polecenia platformy Azure można utworzyć za pomocą prywatnego adresu IPv6 karty sieciowej, a następnie dołączyć interfejsu sieciowego, podczas tworzenia maszyny wirtualnej. Nie można dołączyć karty sieciowej, za pomocą prywatnego adresu IPv6 przypisany do istniejącej maszyny wirtualnej. Nie można dodać prywatny adres IPv6 do konfiguracji adresu IP dla interfejsu sieciowego, wszystkie dołączony do maszyny wirtualnej przy użyciu dowolnego narzędzia (portal, interfejsu wiersza polecenia lub środowiska PowerShell).
+
+Nie można przypisać publiczny adres IPv6 do podstawowej lub dodatkowej konfiguracji adresu IP.
+
+## <a name="skus"></a>Jednostki SKU
+
+Publiczny adres IP jest tworzony z SKU planu basic lub standard.  Aby uzyskać więcej informacji na temat różnic SKU zobacz [Zarządzanie publiczne adresy IP](virtual-network-public-ip-address.md).
+
+> [!NOTE]
+> Po przypisaniu standardowego publicznego adresu IP jednostki SKU do interfejsu sieciowego maszyny wirtualnej musisz jawnie zezwolić na ruch do miejsca przeznaczenia przy użyciu [sieciowej grupy zabezpieczeń](security-overview.md#network-security-groups). Próba komunikacji z zasobem będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia sieciowej grupy zabezpieczeń, a następnie jawnego zezwolenia na żądany ruch.
+
+## <a name="next-steps"></a>Następne kroki
+Aby utworzyć maszynę wirtualną za pomocą różnych konfiguracji adresu IP, przeczytaj następujące artykuły:
+
+|Zadanie|Narzędzie|
+|---|---|
+|Tworzenie maszyny wirtualnej z wieloma kartami sieciowymi|[Interfejs wiersza polecenia](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [środowiska PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Tworzenie jednej maszyny Wirtualnej karty Sieciowej z wielu adresów IPv4|[Interfejs wiersza polecenia](virtual-network-multiple-ip-addresses-cli.md), [środowiska PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Tworzenie jednej maszyny Wirtualnej karty Sieciowej za pomocą prywatnego adresu IPv6 (za równoważenia obciążenia Azure)|[Interfejs wiersza polecenia](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [szablonu usługi Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

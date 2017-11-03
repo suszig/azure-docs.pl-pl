@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Aby usunąć prefiksy adresów:
 
 1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
-2. Kliknij przycisk **"..."** na wiersz zawierający prefiks chcesz usunąć.
+2. Kliknij przycisk **"..."** na wiersz zawierający prefiks do usunięcia.
 3. Kliknij przycisk **Usuń**.
 4. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 

@@ -1,9 +1,9 @@
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.
+Chociaż korzystanie z tras systemowych automatycznie umożliwia ruch sieciowy we wdrożeniu, istnieją przypadki, w których użytkownik chce sterować przekazywaniem pakietów przez urządzenia wirtualne. Można to zrobić, tworząc trasy definiowane przez użytkownika, które wskazują kolejny krok na drodze pakietu do określonej podsieci, aby zamiast tego przeszły do urządzeń wirtualnych, i włączając funkcję przesyłania dalej IP dla maszyny wirtualnej uruchomionej jako urządzenie wirtualne.
 
-Some of the cases where virtual appliances can be used include:
+Oto niektóre przypadków, w których można używać urządzeń wirtualnych:
 
-* Monitoring traffic with an intrusion detection system (IDS)
-* Controlling traffic with a firewall
+* Monitorowanie ruchu przy użyciu systemu wykrywania nieautoryzowanego dostępu (ID)
+* Kontrolowanie ruchu z zaporą
 
-For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).
+Aby uzyskać więcej informacji na temat przekazywania przez i adres IP, odwiedź stronę [trasy zdefiniowane przez użytkownika i przesyłania dalej protokołu IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 

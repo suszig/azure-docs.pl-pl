@@ -53,9 +53,9 @@ Po rozwiązaniu wszystkich problemów i usunięciu błędów odinstaluj i odłą
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Tworzenie maszyny wirtualnej na podstawie oryginalnego dysku twardego
 
-Aby utworzyć maszynę wirtualną na podstawie oryginalnego dysku twardego, użyj [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
+Aby utworzyć Maszynę wirtualną z oryginalny wirtualny dysk twardy, użyj [portalu Azure](https://portal.azure.com).
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W dolnej części portalu wybierz pozycje **Nowy** > **Obliczeniowe** > **Maszyna wirtualna** > **Z galerii**.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+2. W lewym górnym rogu portalu, wybierz opcję **nowy** > **obliczeniowe** > **maszyny wirtualnej** > **z galerii**.
 3. W sekcji **Wybieranie obrazu** wybierz pozycję **Moje dyski**, a następnie wybierz oryginalny wirtualny dysk twardy. Sprawdź informacje o lokalizacji. Jest to region, w którym maszyna wirtualna musi zostać wdrożona. Kliknij przycisk Dalej.
 4. W sekcji **Konfiguracja maszyny wirtualnej** wpisz nazwę maszyny wirtualnej i wybierz rozmiar maszyny wirtualnej.

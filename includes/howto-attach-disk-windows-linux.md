@@ -1,59 +1,59 @@
 
 
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-Attaching an empty disk is a simple way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
+## <a name="attach-an-empty-disk"></a>Dołączanie pustego dysku
+Dołączanie pusty dysk jest prosty sposób, aby dodać dysk danych, ponieważ Azure utworzy plik VHD i zapisuje go na koncie magazynu.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate VM.
+1. Kliknij przycisk **maszyn wirtualnych (klasyczne)**, a następnie wybierz odpowiednią maszynę Wirtualną.
 
-2. In the Settings menu, click **Disks**.
+2. W menu Ustawienia kliknij **dysków**.
 
-   ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
+   ![Dołącz nowy pusty dysk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. On the command bar, click **Attach new**.  
-    The **Attach new disk** dialog box appears.
+3. Na pasku poleceń, kliknij przycisk **Dołącz nowy**.  
+    **Dołączanie nowego dysku** zostanie wyświetlone okno dialogowe.
 
-    ![Attach a new disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
+    ![Dołączanie nowego dysku](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Fill in the following information:
-    - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
-    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
-    - Select the **Size (GB)** of the data disk.
-    - For **Host caching**, choose none or Read Only.
-    - Click OK to finish.
+    Wypełnij następujące informacje:
+    - W **nazwę pliku**, zaakceptuj nazwę domyślną lub wpisz inną pliku VHD. Dysk z danymi korzysta z użyciem nazwy wygenerowanej automatycznie, nawet wtedy, gdy wpisz inną nazwę dla pliku VHD.
+    - Wybierz **typu** dysku danych. Wszystkie maszyny wirtualne obsługuje dyski standardowe. Wiele maszyn wirtualnych również obsługuje dysków premium.
+    - Wybierz **rozmiar (GB)** dysku danych.
+    - Aby uzyskać **buforowanie hosta**, wybierz Brak lub tylko do odczytu.
+    - Kliknij przycisk OK, aby zakończyć.
 
-4. After the data disk is created and attached, it's listed in the disks section of the VM.
+4. Po utworzeniu i dołączyć dysku danych, znajduje się w sekcji dysków maszyny wirtualnej.
 
-   ![New and empty data disk successfully attached](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
+   ![Pomyślnie dołączono dysk danych nowy i puste](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used.
+> Po dodaniu dysku danych, należy zalogować się do maszyny Wirtualnej i Zainicjuj dysk, dzięki czemu można go używać.
 
-## <a name="how-to-attach-an-existing-disk"></a>How to: Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
+## <a name="how-to-attach-an-existing-disk"></a>Porady: dołączanie istniejącego dysku
+Dołączanie istniejącego dysku wymaga pliku vhd dostępnego na koncie magazynu. Użyj [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) polecenia cmdlet można przekazać pliku VHD na koncie magazynu. Po utworzeniu i przekazać plik VHD, aby podłączyć go do maszyny Wirtualnej.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate virtual machine.
+1. Kliknij przycisk **maszyn wirtualnych (klasyczne)**, a następnie wybierz odpowiednią maszynę wirtualną.
 
-2. In the Settings menu, click **Disks**.
+2. W menu Ustawienia kliknij **dysków**.
 
-3. On the command bar, click **Attach existing**.
+3. Na pasku poleceń, kliknij przycisk **Attach istniejących**.
 
-    ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
+    ![Dołączanie dysku danych](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
+4. Kliknij przycisk **lokalizacji**. Wyświetlanie kont magazynu dostępne. Następnie wybierz konto magazynu odpowiednie spośród wymienionych.
 
-    ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
+    ![Podaj konto magazynu dysku](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-5. A **Storage account** holds one or more containers that contain disk drives (vhds). Select the appropriate container from those listed.
+5. A **konta magazynu** zawiera jeden lub więcej kontenerów, które zawierają dyski (VHD). Wybierz odpowiedniego kontenera z wymienionych.
 
-    ![Provide container of virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+    ![Podaj kontenera systemu windows wirtualnych maszyn](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. The **vhds** panel lists the disk drives held in the container. Click one of the disks, and then click Select.
+6. **Wirtualne dyski twarde** panelu zawiera listę dysków w kontenerze. Kliknij jeden z dysków, a następnie kliknij przycisk Wybierz.
 
-    ![Provide disk image for virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+    ![Przewidują obrazu dysku wirtualnego windows maszyny](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 
-7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
+7. **Dołączyć istniejącego dysku** panelu wyświetla się ponownie z lokalizacji konta magazynu, kontenera i wybrany dysk twardy (vhd) do dodania do maszyny wirtualnej.
 
-  Set **Host caching** to none or Read only, then click OK.
+  Ustaw **buforowanie hosta** None lub odczytu, kliknij przycisk OK.
 
-    ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)
+    ![Pomyślnie dołączono dysk danych](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

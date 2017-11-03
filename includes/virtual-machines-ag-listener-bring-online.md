@@ -1,27 +1,27 @@
-1. In Failover Cluster Manager, expand **Roles**, and then highlight your availability group.  
+1. W Menedżerze klastra trybu Failover rozwiń **ról**, a następnie zaznacz tej grupy dostępności.  
 
-2. On the **Resources** tab, right-click the listener name, and then click **Properties**.
+2. Na **zasobów** , kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij **właściwości**.
 
-3. Click the **Dependencies** tab. If multiple resources are listed, verify that the IP addresses have OR, not AND, dependencies.  
+3. Kliknij przycisk **zależności** kartę. Jeśli wiele zasobów nie są wyświetlane, sprawdź, czy adresy IP są lub nie oraz zależności.  
 
-4. Click **OK**.
+4. Kliknij przycisk **OK**.
 
-5. Right-click the listener name, and then click **Bring Online**.
+5. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij przycisk **przejdź do trybu Online**.
 
-6. After the listener is online, on the **Resources** tab, right-click the availability group, and then click **Properties**.
+6. Po odbiornika jest w trybie online na **zasobów** , kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij **właściwości**.
    
-    ![Configure the availability group resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![Skonfiguruj zasób grupy dostępności](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Create a dependency on the listener name resource (not the IP address resources name), and then click **OK**.
+7. Zależność od zasobu Nazwa odbiornika (nie IP address zasobów nazwę), a następnie kliknij polecenie **OK**.
    
-    ![Add dependency on the listener name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Dodaj zależności na nazwę odbiornika](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Start SQL Server Management Studio, and then connect to the primary replica.
+8. Uruchom program SQL Server Management Studio i Połącz z repliką podstawową.
 
-9. Go to **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
-    The listener name that you created in Failover Cluster Manager should be displayed.
+9. Przejdź do **AlwaysOn wysokiej dostępności** > **grup dostępności** > **\<AvailabilityGroupName\>**   >  **Odbiorniki grupy dostępności**.  
+    Powinna być wyświetlana nazwa odbiornika utworzonego w Menedżerze klastra trybu Failover.
 
-10. Right-click the listener name, and then click **Properties**.
+10. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij przycisk **właściwości**.
 
-11. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort that you used earlier (in this tutorial, 1433 was the default), and then click **OK**.
+11. W **portu** polu Określ numer portu dla odbiornika grupy dostępności, używając $EndpointPort używanego wcześniej (w tym samouczku 1433 jest wartość domyślna), a następnie kliknij przycisk **OK**.
 

@@ -1,11 +1,11 @@
-You can verify that your connection succeeded by using the 'Get-AzureVNetConnection' cmdlet.
+Aby sprawdzić, czy połączenie powiodło się, za pomocą polecenia cmdlet "Get-AzureVNetConnection".
 
-1. Use the following cmdlet example, configuring the values to match your own. The name of the virtual network must be in quotes if it contains spaces.
+1. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Nazwa sieci wirtualnej musi być w cudzysłowie, jeśli zawiera spacje.
 
   ```powershell
   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
   ```
-2. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
+2. Po zakończeniu działania polecenia cmdlet sprawdź wartości. W poniższym przykładzie stan łączności jest pokazywana jako "Połączony" i można zobaczyć Bajty przychodzące i wychodzące.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

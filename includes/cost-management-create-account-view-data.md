@@ -31,3 +31,5 @@ Na poniższej ilustracji przedstawiono koszty zasobów platformy Azure poniesion
 Kliknij prawym przyciskiem myszy typ zasobu i wybierz pozycję **Jednostki kosztów**, aby wyświetlić jednostki kosztów i usługi, które korzystały z zasobu. W tym przykładzie użycie usług maszyn wirtualnych i procesów roboczych w metodologii DevOps wyniosło 486,60 USD i 435,71 USD. Łączny koszt dla obu usług wyniósł 922 USD.
 
 ![jednostki kosztów i usługi](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Aby obejrzeć film samouczka o wyświetlaniu chmury rozliczeń danych, zobacz [analizowanie chmury rozliczeń danych za pomocą usługi Azure Management koszt przez Cloudyn](https://youtu.be/G0pvI3iLH-Y).

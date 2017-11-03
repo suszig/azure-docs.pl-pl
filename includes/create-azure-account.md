@@ -1,7 +1,7 @@
-1. Open a web browser and browse to [http://www.windowsazure.com][].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
+1. Otwórz przeglądarkę sieci web i przejdź do [] [http://www.windowsazure.com].
+2. Aby rozpocząć bezpłatne konto, kliknij przycisk **bezpłatnej wersji próbnej** w prawym górnym rogu, a następnie postępuj zgodnie z instrukcjami. Potrzebujesz numer karty kredytowej i numer telefonu komórkowego potwierdzenie tożsamości, ale opłaty nie będą naliczane.
    
-   ![Azure Web Site][0]
+   ![Witryna sieci Web platformy Azure][0]
 
 [0]: ./media/create-azure-account/freetrialonwindowsazurehomepage.png
 

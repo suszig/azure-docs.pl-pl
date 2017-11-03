@@ -6,20 +6,18 @@ author: mswutao
 ms.author: wuta
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: hero-article
-ms.date: 07/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka PHP
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](http://php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym artykule założono, że wiesz już, jak programować za pomocą języka PHP, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](http://php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że znasz programowanie za pomocą języka PHP i że jesteś nowym użytkownikiem pracy z bazą danych Azure dla programu MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -27,19 +25,19 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Instalowanie języka PHP
-Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview), która zawiera język PHP.
+Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową](../app-service/app-service-web-overview.md), która zawiera język PHP.
 
 ### <a name="macos"></a>MacOS
-- Pobierz [język PHP w wersji 7.1.4](http://php.net/downloads.php).
-- Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](http://php.net/manual/install.macosx.php) w celu przeprowadzenia dalszej konfiguracji.
+- Pobierz [PHP 7.1.4 wersji](http://php.net/downloads.php).
+- Instalowanie języka PHP i zapoznaj się z [ręcznego PHP](http://php.net/manual/install.macosx.php) dalszej konfiguracji.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Pobierz [bezpieczny, niestanowiący zagrożenia język PHP w wersji 7.1.4 (x64)](http://php.net/downloads.php).
-- Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](http://php.net/manual/install.unix.php) w celu przeprowadzenia dalszej konfiguracji.
+- Pobierz [PHP 7.1.4 wersji niestanowiącego bezpieczne (x64)](http://php.net/downloads.php).
+- Instalowanie języka PHP i zapoznaj się z [ręcznego PHP](http://php.net/manual/install.unix.php) dalszej konfiguracji.
 
 ### <a name="windows"></a>Windows
-- Pobierz [bezpieczny, niestanowiący zagrożenia język PHP w wersji 7.1.4 (x64)](http://windows.php.net/download#php-7.1).
-- Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](http://php.net/manual/install.windows.php) w celu przeprowadzenia dalszej konfiguracji.
+- Pobierz [PHP 7.1.4 wersji niestanowiącego bezpieczne (x64)](http://windows.php.net/download#php-7.1).
+- Instalowanie języka PHP i zapoznaj się z [ręcznego PHP](http://php.net/manual/install.windows.php) dalszej konfiguracji.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
@@ -47,14 +45,14 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usług
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. W lewym okienku kliknij pozycję **Wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **myserver4demo**).
 3. Kliknij nazwę serwera.
-4. Wybierz stronę **Właściwości** serwera. Zanotuj wartości **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
+4. Wybierz serwer **właściwości** strony, a następnie zanotuj **nazwy serwera** i **nazwę logowania administratora serwera**.
  ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-php/1_server-properties-name-login.png)
-5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
+5. Jeśli użytkownik zapomni swoje informacje logowania serwera, przejdź do **omówienie** strony, aby wyświetlić nazwę logowania administratora serwera, a w razie potrzeby zresetowania hasła.
 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
-Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL. 
+Poniższy kod umożliwia łączenie i tworzenie tabeli za pomocą **CREATE TABLE** instrukcji SQL. 
 
-Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod wywołuje metody [mysqli_init](http://php.net/manual/mysqli.init.php) i [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) w celu połączenia z systemem MySQL. Następnie wywołuje on metodę [mysqli_query](http://php.net/manual/mysqli.query.php) w celu uruchomienia zapytania. W kolejnym kroku kod wywołuje metodę [mysqli_close](http://php.net/manual/mysqli.close.php) w celu zamknięcia połączenia.
+Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod wywołuje metody [mysqli_init](http://php.net/manual/mysqli.init.php) i [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) nawiązać połączenia z programem MySQL. Następnie wywołuje on metodę [mysqli_query](http://php.net/manual/mysqli.query.php) w celu uruchomienia zapytania. W kolejnym kroku kod wywołuje metodę [mysqli_close](http://php.net/manual/mysqli.close.php) w celu zamknięcia połączenia.
 
 Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnymi wartościami. 
 
@@ -91,9 +89,9 @@ mysqli_close($conn);
 ```
 
 ## <a name="insert-data"></a>Wstawianie danych
-Użyj poniższego kodu, aby nawiązać połączenie i wstawić dane za pomocą instrukcji **INSERT** języka SQL.
+Poniższy kod umożliwia łączenie i wstawianie danych za pomocą **Wstaw** instrukcji SQL.
 
-Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji insert, a następnie tworzy powiązania parametrów dla każdej wstawionej wartości kolumny za pomocą metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję, używając metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php), a następnie zamyka instrukcję przy użyciu metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji insert, a następnie tworzy powiązania parametrów dla każdej wstawionej wartości kolumny za pomocą metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję przy użyciu metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) , a następnie zamyka instrukcji za pomocą metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnymi wartościami. 
 
@@ -128,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Odczyt danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL.  Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_query](http://php.net/manual/mysqli.query.php) w celu wykonania zapytania SQL, a metody [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) — w celu pobrania wynikowych wierszy.
+Użyć poniższego kodu do łączenia i odczytywanie danych przy użyciu **wybierz** instrukcji SQL.  Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_query](http://php.net/manual/mysqli.query.php) wykonać zapytania sql oraz metodę [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) można pobrać zwrócone wiersze.
 
 Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnymi wartościami. 
 
@@ -159,9 +157,9 @@ mysqli_close($conn);
 ```
 
 ## <a name="update-data"></a>Aktualizowanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i zaktualizować dane za pomocą instrukcji **UPDATE** języka SQL.
+Użyć poniższego kodu do łączenia i aktualizowanie danych za pomocą **aktualizacji** instrukcji SQL.
 
-Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji update, a następnie tworzy powiązania parametrów dla każdej zaktualizowanej wartości kolumny za pomocą metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję, używając metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php), a następnie zamyka instrukcję przy użyciu metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji update, a następnie tworzy powiązania parametrów dla każdej zaktualizowanej wartości kolumny za pomocą metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję przy użyciu metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) , a następnie zamyka instrukcji za pomocą metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnymi wartościami. 
 
@@ -197,9 +195,9 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Usuwanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. 
+Użyć poniższego kodu do łączenia i odczytywanie danych przy użyciu **usunąć** instrukcji SQL. 
 
-Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji delete, a następnie tworzy powiązania parametrów dla klauzuli where w instrukcji przy użyciu metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję, używając metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php), a następnie zamyka instrukcję przy użyciu metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
+Kod używa klasy **rozszerzenia MySQL Improved** (mysqli) uwzględnionej w języku PHP. Kod używa metody [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) w celu utworzenia przygotowanej instrukcji delete, a następnie tworzy powiązania parametrów dla klauzuli where w instrukcji przy użyciu metody [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Kod uruchamia instrukcję przy użyciu metody [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) , a następnie zamyka instrukcji za pomocą metody [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
 Zastąp parametry hosta, nazwy użytkownika, hasła i nazwy bazy danych własnymi wartościami. 
 
@@ -233,5 +231,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Kompilowanie aplikacji internetowej języka PHP i MySQL na platformie Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
-
+> [Kompilowanie aplikacji internetowej języka PHP i MySQL na platformie Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)

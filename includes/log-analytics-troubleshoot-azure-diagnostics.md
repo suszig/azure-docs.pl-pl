@@ -1,24 +1,24 @@
-### <a name="troubleshoot-azure-diagnostics"></a>Troubleshoot Azure Diagnostics
+### <a name="troubleshoot-azure-diagnostics"></a>Rozwiązywanie problemów z funkcją Diagnostyka Azure
 
-If you receive the following error message, the Microsoft.insights resource provider is not registered:
+Jeśli zostanie wyświetlony następujący komunikat o błędzie, dostawca zasobów Microsoft.insights nie jest zarejestrowany:
 
 `Failed to update diagnostics for 'resource'. {"code":"Forbidden","message":"Please register the subscription 'subscription id' with Microsoft.Insights."}`
 
-To register the resource provider, perform the following steps in the Azure portal:
+Aby zarejestrować tego dostawcę zasobów, wykonaj następujące czynności w witrynie Azure Portal:
 
-1.  In the navigation pane on the left, click *Subscriptions*
-2.  Select the subscription identified in the error message
-3.  Click *Resource Providers*
-4.  Find the *Microsoft.insights* provider
-5.  Click the *Register* link
+1.  W okienku nawigacji po lewej stronie kliknij pozycję *Subskrypcje*
+2.  Wybierz subskrypcję określoną w komunikacie o błędzie
+3.  Kliknij pozycję *Dostawcy zasobów*
+4.  Odszukaj dostawcę *Microsoft.insights*
+5.  Kliknij link *Zarejestruj*
 
-![Register microsoft.insights resource provider](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
+![Rejestrowanie dostawcy zasobów microsoft.insights](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
-Once the *Microsoft.insights* resource provider is registered, retry configuring diagnostics.
+Po zarejestrowaniu dostawcy zasobów *Microsoft.insights* spróbuj ponownie skonfigurować diagnostykę.
 
 
-In PowerShell, if you receive the following error message, you need to update your version of PowerShell:
+W programie PowerShell Jeśli zostanie wyświetlony następujący komunikat o błędzie, należy zaktualizować używanej wersji programu PowerShell:
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Update your version of PowerShell to the November 2016 (v2.3.0), or later, release using the instructions in the [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) article.
+Zaktualizuj swoją wersję programu PowerShell do listopada 2016 (v2.3.0) lub nowszych wersji przy użyciu instrukcji w [wprowadzenie do poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) artykułu.

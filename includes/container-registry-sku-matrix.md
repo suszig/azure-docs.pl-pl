@@ -1,0 +1,5 @@
+| SKU | Opis |
+|---|---|
+| Podstawowa | Punkt wejścia optymalizacji kosztów dla deweloperów poznawania rejestru kontenera platformy Azure. Rejestry organizacji IANA podstawowa mają te same możliwości programowe jako standardowa i Premium (integracji uwierzytelniania usługi Azure Active Directory, usuwanie obrazów i punkty zaczepienia sieci web), istnieją jednak ograniczenia rozmiaru i użycia. |
+| Standardowa | Standardowa rejestru oferuje te same możliwości jako podstawowy, ale z limitami zasobów pamięci masowej i przepływność obrazu. Rejestry organizacji IANA standardowe powinien zaspokoić potrzeby większości scenariuszy produkcji. |
+| Premium | Rejestry organizacji IANA Premium mają wyższe limity na ograniczenia, takie jak magazyn i jednoczesnych operacji, łącznie z ulepszonych funkcji magazynu do obsługi dużych scenariuszy. Oprócz wyższej przepustowości obrazu Premium dodaje funkcje, takie jak replikacja geograficzna, do zarządzania pojedynczego rejestru w wielu regionach, obsługa rejestru Zamknij sieci, do każdego wdrożenia. |

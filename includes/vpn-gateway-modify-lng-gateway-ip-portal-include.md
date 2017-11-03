@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection
+### <a name="gwipnoconnection"></a>Aby zmodyfikować adres IP bramy sieci lokalnej — Brak połączenia bramy
 
-Use the example to modify a local network gateway that does not have a gateway connection. When modifying this value, you can also modify the address prefixes at the same time.
+Użyj przykładu, aby zmodyfikować bramę sieci lokalnej bez połączenia bramy. Podczas modyfikowania tej wartości możesz również zmodyfikować prefiksy adresów.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. In the **IP address** box, modify the IP address.
-3. Click **Save** to save the settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. W **adres IP** zmodyfikuj adres IP.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-### <a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection
+### <a name="gwipwithconnection"></a>Aby zmodyfikować sieci lokalnej bramy adresu IP bramy - istniejące połączenie z bramą
 
-To modify a local network gateway that has a connection, you need to first remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
+Aby zmodyfikować bramy sieci lokalnej, która ma połączenie, należy najpierw usunąć połączenie. Po usunięciu połączenia możesz zmodyfikować adres IP bramy i ponownie utworzyć nowe połączenie. Jednocześnie możesz również zmodyfikować prefiksy adresów. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania adresu IP bramy nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
  
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Usuń połączenie.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for the connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **połączenia**.
+2. Kliknij przycisk **...**  w wierszu dla połączenia, następnie kliknij przycisk **usunąć**.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="2-modify-the-ip-address"></a>2. Modify the IP address.
+#### <a name="2-modify-the-ip-address"></a>2. Zmodyfikuj adres IP.
 
-You can also modify the address prefixes at the same time.
+Jednocześnie możesz również zmodyfikować prefiksy adresów.
 
-1. In the **IP address** box, modify the IP address.
-2. Click **Save** to save the settings.
+1. W **adres IP** zmodyfikuj adres IP.
+2. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Utwórz ponownie połączenie.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Przejdź do bramy sieci wirtualnej sieci wirtualnej. (Nie bramy sieci lokalnej.)
+2. W bramie sieci wirtualnej w **ustawienia** kliknij **połączenia**.
+3. Kliknij przycisk **+ Dodaj** otworzyć **Dodaj połączenie** bloku.
+4. Utwórz ponownie połączenie.
+5. Kliknij przycisk **OK** do utworzenia połączenia.

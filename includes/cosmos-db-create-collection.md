@@ -1,18 +1,23 @@
 Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych i kolekcję. 
 
-1. W witrynie Azure Portal w menu nawigacyjnym po lewej kliknij pozycję **Eksplorator danych (wersja zapoznawcza)**. 
+1. Kliknij przycisk **Eksploratora danych** > **nowej kolekcji**. 
+    
+    **Dodaj kolekcji** obszar jest wyświetlany po prawej, konieczne może być przewiń w prawo, aby go wyświetlić.
 
-2. W bloku **Eksplorator danych (wersja zapoznawcza)** kliknij pozycję **Nowa kolekcja**, a następnie podaj następujące informacje:
+    ![Eksplorator danych, Dodaj kolekcji bloku portalu Azure](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-    ![Blok Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+2. W **dodać kolekcji** wprowadź ustawienia dla nowej kolekcji.
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Identyfikator bazy danych|Zadania|Nazwa nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków /, \\, #, ? ani mieć spacji na końcu.
-    Identyfikator kolekcji|Items|Nazwa nowej kolekcji. W przypadku nazw kolekcji obowiązują takie same wymagania dotyczące znaków, jak dla identyfikatorów baz danych.
-    Pojemność magazynu| Stała (10 GB)|Użyj wartości domyślnej. Ta wartość to pojemność magazynu bazy danych.
-    Przepływność|400 RU|Użyj wartości domyślnej. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.
-    Klucz partycji|/category|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór odpowiedniego klucza partycji jest ważny w celu utworzenia wydajnej kolekcji. Więcej informacji zawiera temat [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Projektowanie pod kątem partycjonowania).    
-3. Po wypełnieniu formularza kliknij pozycję **OK**.
+    Identyfikator bazy danych|Zadania|Wprowadź *zadania* jako nazwę nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków /, \\, #, ? ani mieć spacji na końcu.
+    Identyfikator kolekcji|Items|Wprowadź *elementów* jako nazwę nowej kolekcji. Kolekcja identyfikatorów mają te same wymagania znak nazwy bazy danych.
+    Pojemność magazynu| Stała (10 GB)|Zmień wartość na **stałe (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
+    Przepływność|400 RU|Zmień przepływność 400 jednostek żądań na sekundę (RU/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.
+    Klucz partycji|/category|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór odpowiedniego klucza partycji jest ważny w celu utworzenia wydajnej kolekcji. Więcej informacji zawiera temat [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Projektowanie pod kątem partycjonowania).
 
-W Eksploratorze danych zostanie wyświetlona nowa baza danych i kolekcja. 
+    Kliknij przycisk **OK**.
+
+    Eksplorator danych wyświetla nową bazę danych i kolekcji.
+
+    ![Eksplorator danych, wyświetlanie nowej bazy danych i kolekcji w portalu Azure](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)

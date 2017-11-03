@@ -1,46 +1,46 @@
-The Azure CLI 2.0 allows you to create and manage your Azure resources on macOS, Linux, and Windows. This article details some of the most common commands to create and manage virtual machines (VMs).
+Azure CLI 2.0 umożliwia tworzenie i zarządzanie zasobami Azure na macOS, Linux i Windows. W tym artykule szczegółowo niektóre z najczęściej używanych poleceń, aby utworzyć i zarządzać maszynach wirtualnych (VM).
 
-This article requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+W tym artykule wymaga wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Można również użyć [powłoki chmury](/azure/cloud-shell/quickstart) z przeglądarki.
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
-For more detailed help with specific command line switches and options, you can use the online command help and options by typing `az <command> <subcommand> --help`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Podstawowe polecenia usługi Azure Resource Manager w interfejsie wiersza polecenia platformy Azure
+Bardziej szczegółowe pomocy z przełącznikami określonego wiersza polecenia i opcjami, wpisując można użyć Pomocy online polecenia i opcje `az <command> <subcommand> --help`.
 
-### <a name="create-vms"></a>Create VMs
-| Task | Azure CLI commands |
+### <a name="create-vms"></a>Tworzenie maszyn wirtualnych
+| Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
-| Create a resource group | `az group create --name myResourceGroup --location eastus` |
-| Create a Linux VM | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
-| Create a Windows VM | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+| Tworzenie grupy zasobów | `az group create --name myResourceGroup --location eastus` |
+| Tworzenie maszyny wirtualnej z systemem Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
+| Tworzenie maszyny wirtualnej z systemem Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
-### <a name="manage-vm-state"></a>Manage VM state
-| Task | Azure CLI commands |
+### <a name="manage-vm-state"></a>Zarządzanie stanem maszyny Wirtualnej
+| Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
-| Start a VM | `az vm start --resource-group myResourceGroup --name myVM` |
-| Stop a VM | `az vm stop --resource-group myResourceGroup --name myVM` |
-| Deallocate a VM | `az vm deallocate --resource-group myResourceGroup --name myVM` |
-| Restart a VM | `az vm restart --resource-group myResourceGroup --name myVM` |
-| Redeploy a VM | `az vm redeploy --resource-group myResourceGroup --name myVM` |
-| Delete a VM | `az vm delete --resource-group myResourceGroup --name myVM` |
+| Uruchamianie maszyny wirtualnej | `az vm start --resource-group myResourceGroup --name myVM` |
+| Zatrzymywanie maszyny wirtualnej | `az vm stop --resource-group myResourceGroup --name myVM` |
+| Cofanie przydziału maszyny wirtualnej | `az vm deallocate --resource-group myResourceGroup --name myVM` |
+| Ponowne uruchamianie maszyny wirtualnej | `az vm restart --resource-group myResourceGroup --name myVM` |
+| Ponowne wdrażanie maszyny wirtualnej | `az vm redeploy --resource-group myResourceGroup --name myVM` |
+| Usuwanie maszyny wirtualnej | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-### <a name="get-vm-info"></a>Get VM info
-| Task | Azure CLI commands |
+### <a name="get-vm-info"></a>Pobierz informacje dotyczące maszyny Wirtualnej
+| Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
-| List VMs | `az vm list` |
-| Get information about a VM | `az vm show --resource-group myResourceGroup --name myVM` |
-| Get usage of VM resources | `az vm list-usage --location eastus` |
-| Get all available VM sizes | `az vm list-sizes --location eastus` |
+| Wyświetlanie listy maszyn wirtualnych | `az vm list` |
+| Uzyskiwanie informacji o maszynie wirtualnej | `az vm show --resource-group myResourceGroup --name myVM` |
+| Używanie zasobów maszyny wirtualnej | `az vm list-usage --location eastus` |
+| Pobieranie wszystkich rozmiarów maszyn wirtualnych | `az vm list-sizes --location eastus` |
 
-## <a name="disks-and-images"></a>Disks and images
-| Task | Azure CLI commands |
+## <a name="disks-and-images"></a>Dyski i obrazów
+| Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |
 | --- | --- |
-| Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
-| Remove a data disk from a VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
-| Resize a disk | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
-| Snapshot a disk | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
-| Create image of a VM | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
-| Create VM from image | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+| Dodawanie dysku danych do maszyny wirtualnej | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Usuwanie dysku danych z maszyny wirtualnej | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
+| Zmienianie rozmiaru dysku | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
+| Tworzenie migawki dysku | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| Tworzenie obrazu maszyny wirtualnej | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
+| Tworzenie maszyny Wirtualnej z obrazu | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
-## <a name="next-steps"></a>Next steps
-For additional examples of the CLI commands, see the [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) tutorial.
+## <a name="next-steps"></a>Następne kroki
+Aby uzyskać dodatkowe przykłady poleceń interfejsu wiersza polecenia, zobacz [tworzenie i zarządzanie maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md) samouczka.
 

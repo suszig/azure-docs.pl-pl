@@ -1,2 +1,2 @@
 > [!NOTE]
-> Before you start this tutorial, [set up your device](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). In the article, you set up your Azure IoT device and IoT hub, and you deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+> Przed rozpoczęciem tego samouczka [skonfigurować urządzenie](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). W artykule należy skonfigurować urządzenie Azure IoT i Centrum IoT i wdrażanie przykładowej aplikacji do uruchomienia na urządzeniu. Aplikacja wysyła dane czujników zebranych do Centrum IoT.

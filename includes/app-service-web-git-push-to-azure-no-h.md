@@ -1,4 +1,4 @@
-W lokalnym oknie terminala dodaj zdalną platformę Azure do lokalnego repozytorium Git.
+W lokalnym oknie terminala dodaj zdalną platformę Azure do lokalnego repozytorium Git. To Azure zdalnego został utworzony w [utworzenia aplikacji sieci web](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

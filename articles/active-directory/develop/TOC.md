@@ -108,5 +108,6 @@
 #### [Poświadczenia certyfikatu](active-directory-certificate-credentials.md)
 ### [Zakresy](active-directory-v2-scopes.md)
 # Zasoby
+## [Uzyskiwanie pomocy](active-directory-develop-help-support.md)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)

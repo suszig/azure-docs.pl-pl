@@ -1,20 +1,20 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes direct methods in more detail and offers guidance about when to use direct methods rather than cloud-to-device messages or desired properties.
+Centrum IoT Azure jest w pełni zarządzaną usługę, która zapewnia niezawodne i bezpieczną komunikację dwukierunkową między milionów urządzeń i rozwiązanie zaplecza. Samouczki poprzedniego ([Rozpoczynanie pracy z Centrum IoT] i [wysyłać chmury do urządzenia z Centrum IoT]) ilustrują podstawowych funkcji obsługi komunikatów z Centrum IoT urządzenia do chmury i chmury do urządzenia. Centrum IoT daje również możliwość wywołania metod nietrwałe na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania protokołu HTTPS w tym pomyślnie lub niepowodzeniem natychmiast (po limitu określonego przez użytkownika) użytkownikowi należy znać stan wywołania. [Wywoływanie metody bezpośrednio na urządzeniu] [ lnk-devguide-methods] opisano metody bezpośredniego bardziej szczegółowo i zawiera wskazówki, kiedy używać bezpośrednich metody zamiast wiadomości chmury do urządzenia lub odpowiednie właściwości.
 
-This tutorial shows you how to:
+Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Use the Azure portal to create an IoT hub and create a device identity in your IoT hub.
-* Create a simulated device app that has a direct method which can be called by the cloud.
-* Create a console app that calls a direct method in the simulated device app through your IoT hub.
+* Użyj portalu Azure do tworzenia Centrum IoT i tworzenia tożsamości urządzenia w Centrum IoT.
+* Tworzenie aplikacji symulowane urządzenie, który ma metoda bezpośrednia, który może być wywoływany przez chmurę.
+* Tworzenie aplikacji konsoli, która wywołuje metodę bezpośrednio w aplikacji symulowane urządzenie za pomocą Centrum IoT.
 
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-[Send Cloud-to-Device messages with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
-[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
+[wysyłać chmury do urządzenia z Centrum IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
+[Rozpoczynanie pracy z Centrum IoT]: ../articles/iot-hub/iot-hub-node-node-getstarted.md

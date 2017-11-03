@@ -1,20 +1,20 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [GoogleDrive](https://www.google.com/drive/) account  
+### <a name="prerequisites"></a>Wymagania wstępne
+* A [umożliwia](https://www.google.com/drive/) konta  
 
-Before you can use your GoogleDrive account in a Logic app, you must authorize the Logic app to connect to your GoogleDrive account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Zanim użyjesz Twoje konto umożliwia w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem umożliwia. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
 
-Here are the steps to authorize your Logic app to connect to your GoogleDrive account:  
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem umożliwia:  
 
-1. To create a connection to GoogleDrive, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GoogleDrive* in the search box. Select the trigger or action you'll like to use:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-1.png)  
-2. If you haven't created any connections to GoogleDrive before, you'll get prompted to provide your GoogleDrive credentials. These credentials will be used to authorize your Logic app to connect to, and access your GoogleDrive account's data:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-2.png)  
-3. Provide your GoogleDrive email address:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-3.png)  
-4. Provide your GoogleDrive password to authorize your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-4.png)
-5. Allow the connection to GoogleDrive  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-6.png)  
+1. Aby utworzyć połączenie umożliwia, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *umożliwia* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-1.png)  
+2. Jeśli nie utworzono żadnych połączeń umożliwia przed będzie zostanie wyświetlony monit o podanie poświadczeń umożliwia. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych Twoje konto umożliwia:  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-2.png)  
+3. Podaj adres e-mail umożliwia:  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-3.png)  
+4. Podaj hasło umożliwia Autoryzuj aplikację logiki:  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-4.png)
+5. Zezwalaj na połączenie umożliwia  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-5.png)  
+6. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+   ![Umożliwia utworzenie połączenia — krok](./media/connectors-create-api-googledrive/googledrive-6.png)  
 

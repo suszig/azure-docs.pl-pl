@@ -1,5 +1,5 @@
-## <a name="issue-custom-image-provisioning-errors"></a>Issue: Custom image; provisioning errors
-Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
+## <a name="issue-custom-image-provisioning-errors"></a>Problem: Niestandardowego obrazu. błędy inicjowania obsługi administracyjnej
+Błędy inicjowania obsługi administracyjnej wystąpić jeśli przekazywanie lub przechwytywania uogólniony obraz maszyny Wirtualnej jako wyspecjalizowane obrazu maszyny Wirtualnej lub na odwrót. Pierwsza spowoduje błąd limitu czasu inicjowania obsługi administracyjnej i drugie spowoduje błąd inicjowania obsługi administracyjnej. Aby wdrożyć niestandardowy obraz bez błędów, pamiętaj, że typ obrazu nie zmieniają się podczas procesu przechwytywania.
 
-The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+W poniższej tabeli przedstawiono możliwe kombinacje ogólnych i specjalnych obrazów, typ błędu, które można napotkać i co należy zrobić, aby naprawić błędy.
 

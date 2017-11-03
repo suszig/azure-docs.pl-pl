@@ -5,18 +5,18 @@ W tej części wyjaśniono, jak rozwiązać ten problem.
 ### <a name="request-wheels"></a>Żądanie plików w formacie Wheel
 Jeśli instalacja pakietu wymaga kompilatora, możesz spróbować skontaktować się z właścicielem pakietu i zażądać udostępnienia go jako plików w formacie Wheel.
 
-Od momentu opublikowania kompilatora [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7] kompilowanie pakietów korzystających z kodu natywnego języka Python 2.7 stało się łatwiejsze.
+Z ostatnich dostępności [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], jest teraz łatwiejsze tworzenie pakietów korzystających kodu natywnego dla języka Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Tworzenie plików w formacie Wheel (wymaga systemu Windows)
 Uwaga: Korzystając z tej opcji, należy się upewnić, że pakiet jest kompilowany w środowisku Python odpowiadającym platformie/architekturze/wersji używanym w aplikacji sieci Web w usłudze Azure App Service (Windows/32-bitowy/2.7 lub 3.4).
 
 Jeśli pakiet nie instaluje się z powodu braku kompilatora, można zainstalować kompilator na komputerze lokalnym i skompilować pakiet w formacie Wheel, który następnie zostanie dołączony do repozytorium.
 
-Użytkownicy systemów Mac/Linux: jeśli nie masz dostępu do komputera z systemem Windows, zobacz temat [Tworzenie maszyny wirtualnej w systemie Windows][Tworzenie maszyny wirtualnej w systemie Windows] zawierający opis sposobu tworzenia maszyny wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
+Użytkownicy systemów Mac/Linux: Jeśli nie masz dostępu do komputera z systemem Windows, temacie [tworzenie maszyny wirtualnej systemem Windows] [ Create a Virtual Machine Running Windows] sposób tworzenia maszyny Wirtualnej na platformie Azure.  W zależności od potrzeb można wykorzystać ją przy tworzeniu plików w formacie Wheel, dodać je do repozytorium, po czym usunąć maszynę wirtualną. 
 
-W przypadku języka Python 2.7 można zainstalować oprogramowanie [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
+For Python 2.7 można zainstalować [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-W przypadku języka Python 3.4 można zainstalować oprogramowanie [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
+W przypadku języka Python 3.4 można zainstalować [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Aby utworzyć pliki w formacie Wheel, będzie potrzebny pakiet Wheel:
 
@@ -59,11 +59,6 @@ W przypadku dołączenia środowiska wirtualnego do repozytorium można zapobiec
 
 Zaleca się usunięcie z aplikacji istniejącego środowiska wirtualnego w celu zapobieżenia pozostawieniu plików z okresu, kiedy środowisko wirtualne było zarządzane automatycznie.
 
-[Tworzenie maszyny wirtualnej w systemie Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-
-<!--HONumber=Nov16_HO2-->
-
-

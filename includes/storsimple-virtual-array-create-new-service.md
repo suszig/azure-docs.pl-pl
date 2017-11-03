@@ -1,35 +1,35 @@
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 
-1.  Using your Microsoft account credentials, log on to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, log in at: <https://portal.azure.us/>
+1.  Za pomocą poświadczeń konta Microsoft zaloguj się do witryny Azure Portal pod tym adresem URL: <https://portal.azure.com/>. Jeśli wdrażane urządzenia w portalu dla instytucji rządowych, zaloguj się w: <https://portal.azure.us/>
 
-2.  In the Azure portal, click **+ New** &gt; **Storage** &gt; **StorSimple Virtual Series**.
+2.  W portalu Azure kliknij **+ nowy** &gt; **magazynu** &gt; **serii wirtualnego StorSimple**.
 
-    ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
+    ![Tworzenie nowej usługi](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
-3.  In the **StorSimple Device Manager** blade that opens up, do the following:
+3.  W **Menedżera urządzeń StorSimple** otwartym bloku, wykonaj następujące czynności:
 
-    1.  Supply a unique **Resource name** for your service. The resource name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+    1.  Podaj **unikatową nazwę zasobu** dla swojej usługi. Nazwa zasobu jest przyjazna nazwa, która może służyć do identyfikowania usługi. Nazwa może zawierać od 2 do 50 znaków, które mogą być literami, cyframi i łącznikami. Nazwa musi zaczynać i kończyć się literą lub cyfrą.
 
-    2.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
+    2.  Wybierz opcję **Subskrypcja** z listy rozwijanej. Subskrypcja jest połączona z kontem rozliczeniowym. To pole nie jest widoczne, jeśli istnieje tylko jedna subskrypcja.
 
-    3.  For **Resource group**, select an existing or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  Aby uzyskać **grupy zasobów**, wybierz istniejącą lub Utwórz nową grupę. Aby uzyskać więcej informacji, zobacz [Grupy zasobów na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4.  Supply a **Location** for your service. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about which services are available in which region. In general, choose a **Location** closest to the geographical region where you want to deploy your device. You may also want to factor in the following:
+    4.  Wypełnij pole **Lokalizacja** dla usługi. Zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services) Aby uzyskać więcej informacji o tym, które usługi są dostępne w danym regionie. Ogólnie rzecz biorąc, wybierz **lokalizacji** najbliżej regionu geograficznego, w której chcesz wdrożyć urządzenie. Możesz także użyć następujących składników:
 
-        -   If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+        -   Jeśli masz istniejące obciążenia na platformie Azure, które również zamierzasz wdrożyć na urządzeniu StorSimple, zalecane jest użycie tego centrum danych.
 
-        -   Your StorSimple Device Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure portal and follow the steps in [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Magazyn Menedżera urządzeń StorSimple i Azure może być w dwóch różnych lokalizacjach. W takim przypadku należy utworzyć konta usługi Menedżer urządzeń StorSimple i usługi Azure Storage oddzielnie. Aby utworzyć konto usługi Azure Storage, przejdź do usługi Azure Storage w witrynie Azure Portal i postępuj zgodnie z instrukcjami w temacie [Tworzenie konta usługi Azure Storage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). Po utworzeniu konta dodaj je do usługi Menedżer urządzeń StorSimple, wykonując czynności w temacie [Configure a new storage account for the service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) (Konfigurowanie nowego konta magazynu dla usługi).
 
-        -   If deploying the virtual device in the Government Portal, the StorSimple Device Manager service is available in US Iowa and US Virginia locations.
+        -   Jeśli wdrażane urządzenia wirtualnego w portalu dla instytucji rządowych, usługi Menedżer StorSimple urządzenia jest dostępny w lokalizacjach nam Iowa i Virginia NAS.
 
-    5.  Select **Create a new Azure storage account** to automatically create a storage account with the service. Specify a **Storage account name**. If you need your data in a different location, uncheck this box.
+    5.  Wybierz **Utwórz nowe konto magazynu Azure** do automatycznego tworzenia konta magazynu z usługą. Określ **nazwy konta magazynu**. Jeśli potrzebujesz danych w innej lokalizacji, usuń zaznaczenie tego pola.
 
-    6.  Check **Pin to dashboard** if you want a quick link to this service on your dashboard.
+    6.  Zaznacz pole **Przypnij do pulpitu nawigacyjnego**, jeśli chcesz szybko łączyć się z tą usługą na pulpicie nawigacyjnym.
 
-    7.  Click **Create** to create the StorSimple Device Manager.
+    7.  Kliknij pozycję **Utwórz**, aby utworzyć usługę Menedżer urządzeń StorSimple.
 
-        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Tworzenie nowej usługi](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
-You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+Nastąpi przekierowanie do **usługi** strony docelowej. Tworzenie usługi potrwa kilka minut. Po pomyślnym utworzeniu usługi użytkownik zostanie odpowiednio powiadomiony i stan usługi zmieni się na **Aktywny**.
 
 
