@@ -1,28 +1,53 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each other's workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support.
+Fabryka danych jest usługą wielodostępne, która ma następujące domyślne limity mające na celu upewnij się, że subskrypcjami klientów są chronione przez obciążeń. Wiele granic można łatwo wygenerowany dla Twojej subskrypcji do maksymalnego limitu za pośrednictwem pracowników pomocy technicznej.
 
-| **Resource** | **Default Limit** | **Maximum Limit** |
+### <a name="version-2"></a>Wersja 2
+
+| Zasób | Limit domyślny | Limit maksymalny | 
+| -------- | ------------- | ------------- | 
+| fabryki danych w subskrypcji platformy Azure | 50 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| potoki w fabryce danych | 2500 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| zestawy danych w fabryce danych | 2500 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Wyzwalacze w ramach fabryki danych | 2500 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Połączonych usług w fabryce danych | 2500 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Programy obsługi integracji w fabryce danych <sup>4</sup> | 2500 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Potok współbieżnych jest uruchamiane na potoku | 20 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Maksymalna liczba działań na potoku | 20 | 30 |
+| Maksymalna liczba parametrów na potoku | 20 | 30 |
+| bajtów dla każdego obiektu dla potoku obiektów <sup>1</sup> | 200 KB | 200 KB |
+| Liczba bajtów na obiekt zestawu danych i obiektów powiązanych z <sup>1</sup> | 100 KB | 2000 KB |
+| Jednostki przepływu danych w chmurze <sup>3</sup> | 32 | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Liczba uruchomień działania potoku ponownych prób | 1 day(timeout) | 1 dzień (limit czasu) |
+| Zapis wywołań interfejsu API | 2500/godz.<br/><br/> Ten limit jest narzucone przez usługi Azure Resource Manager, nie fabryki danych Azure. | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Wywołania API odczytu | 12 500/godz.<br/><br/> Ten limit jest narzucone przez usługi Azure Resource Manager, nie fabryki danych Azure. | [Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+
+
+### <a name="version-1"></a>Wersja 1
+
+| **Zasób** | **Limit domyślny** | **Limit maksymalny** |
 | --- | --- | --- |
-| data factories in an Azure subscription |50 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines within a data factory |2500 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| datasets within a data factory |5000 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| concurrent slices per dataset |10 |10 |
-| bytes per object for pipeline objects <sup>1</sup> |200 KB |200 KB |
-| bytes per object for dataset and linked service objects <sup>1</sup> |100 KB |2000 KB |
-| HDInsight on-demand cluster cores within a subscription <sup>2</sup> |60 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Cloud data movement unit <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Retry count for pipeline activity runs |1000 |MaxInt (32 bit) |
+| fabryki danych w subskrypcji platformy Azure |50 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| potoki w fabryce danych |2500 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| zestawy danych w fabryce danych |5000 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Współbieżne wycinki dla zestawu danych |10 |10 |
+| bajtów dla każdego obiektu dla potoku obiektów <sup>1</sup> |200 KB |200 KB |
+| Liczba bajtów na obiekt zestawu danych i obiektów powiązanych z <sup>1</sup> |100 KB |2000 KB |
+| Rdzeni na żądanie klastra usługi HDInsight w ramach subskrypcji <sup>2</sup> |60 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Jednostki przepływu danych w chmurze <sup>3</sup> |32 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Liczba uruchomień działania potoku ponownych prób |1000 |MaxInt (32-bitowe) |
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup> potoku, zestawu danych i obiektów powiązanych z reprezentują logiczne grupowanie obciążenie. Limity dla tych obiektów nie odnoszą się do ilości danych, można przenieść i przetwarzania w usłudze fabryka danych Azure. Fabryka danych zaprojektowano w celu skalowania, umożliwiając obsługę petabajtów danych.
 
-<sup>2</sup> On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup> rdzeni na żądanie usługi HDInsight są przydzielane poza subskrypcji, która zawiera fabryki danych. W związku z tym powyżej limitu jest fabryki danych wymuszone limit podstawowych rdzeni HDInsight na żądanie i różni się od limit rdzeni skojarzone z subskrypcją platformy Azure.
 
-<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
+<sup>3</sup> jednostki przepływu danych w chmurze (DMU) jest używany w operacji kopiowania w chmurze z chmurą. Stanowi ona miarę, która odzwierciedla wydajność (kombinacja Procesora, pamięci i alokacji zasobów w sieci) w pojedynczą jednostkę w fabryce danych. Wyższej przepustowości kopii można osiągnąć za pomocą więcej DMUs w niektórych scenariuszach. Zapoznaj się [jednostki przepływu danych w chmurze](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) sekcji Szczegóły.
 
-| **Resource** | **Default lower limit** | **Minimum limit** |
+<sup>4</sup> integrację środowiska uruchomieniowego (IR) jest używany przez fabryki danych Azure do zapewniają następujące możliwości integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej: przenoszenie danych, wysyłki działań do obliczenia usług, Wykonanie pakietów SSIS. Aby uzyskać więcej informacji, zobacz [Omówienie środowiska uruchomieniowego integracji](../articles/data-factory/concepts-integration-runtime.md).
+
+| **Zasób** | **Dolny limit domyślny** | **Minimalny limit** |
 | --- | --- | --- |
-| Scheduling interval |15 minutes |15 minutes |
-| Interval between retry attempts |1 second |1 second |
-| Retry timeout value |1 second |1 second |
+| Interwał harmonogramu |15 minut |15 minut |
+| Interwał między ponownymi próbami |1 sekunda |1 sekunda |
+| Spróbuj ponownie wartość limitu czasu |1 sekunda |1 sekunda |
 
-### <a name="web-service-call-limits"></a>Web service call limits
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-subscription-service-limits.md#resource-group-limits).
+#### <a name="web-service-call-limits"></a>Ograniczenia wywołania usługi sieci Web
+Usługa Azure Resource Manager ma limity dla interfejsu API. Istnieje możliwość wywołania interfejsu API z szybkością w [ogranicza interfejsu API usługi Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).

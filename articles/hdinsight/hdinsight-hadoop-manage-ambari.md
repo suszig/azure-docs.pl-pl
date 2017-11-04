@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari
 
@@ -151,7 +151,7 @@ Wybranie dowolnego z tych łączy otwiera nową kartę w przeglądarce, która w
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari użytkowników, grup i uprawnień
 
-Praca z użytkownikami, grupami i uprawnienia są obsługiwane w przypadku korzystania z [przyłączony do domeny](hdinsight-domain-joined-introduction.md) klastra usługi HDInsight. Uzyskać przy użyciu interfejsu użytkownika narzędzia Ambari zarządzania w klastrze przyłączonych do domeny, zobacz [zarządzania klastrami HDInsight przyłączonych do domeny](hdinsight-domain-joined-introduction.md).
+Praca z użytkownikami, grupami i uprawnienia są obsługiwane w przypadku korzystania z [przyłączony do domeny](./domain-joined/apache-domain-joined-introduction.md) klastra usługi HDInsight. Uzyskać przy użyciu interfejsu użytkownika narzędzia Ambari zarządzania w klastrze przyłączonych do domeny, zobacz [zarządzania klastrami HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
 > Nie należy zmieniać hasła strażnika Ambari (hdinsightwatchdog) w klastrze usługi HDInsight opartej na systemie Linux. Zmiana hasła dzieli możliwość akcje skryptu lub operacji skalowania z klastrem.
@@ -236,7 +236,7 @@ Widoki Ambari umożliwiają deweloperom Podłącz elementy interfejsu użytkowni
 
 * Yarn menedżera kolejek: menedżera kolejek udostępnia prosty interfejs do wyświetlanie i modyfikowanie YARN kolejek.
 
-* Widok hive: Hive View umożliwia uruchamianie zapytań Hive bezpośrednio z przeglądarki sieci web. Można zapisać zapytania, wyniki, Zapisz wyniki do magazynu klastra lub pobrać wyniki do systemu lokalnego. Aby uzyskać więcej informacji na korzystanie z widoków Hive, zobacz [Użyj widoki Hive z usługą HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Widok hive: Hive View umożliwia uruchamianie zapytań Hive bezpośrednio z przeglądarki sieci web. Można zapisać zapytania, wyniki, Zapisz wyniki do magazynu klastra lub pobrać wyniki do systemu lokalnego. Aby uzyskać więcej informacji na korzystanie z widoków Hive, zobacz [Użyj widoki Hive z usługą HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 * Widok tez: Widok Tez umożliwia do lepszego zrozumienia i zoptymalizować zadania. Można wyświetlać informacje w sposób Tez zadania są wykonywane, i jakie zasoby są używane.
 

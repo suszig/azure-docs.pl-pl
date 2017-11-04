@@ -54,7 +54,7 @@ Nie. Maszyn wirtualnych w zestawie dostępności muszą używać wszystkich zarz
 
 **Jest domyślną opcją w portalu Azure zarządzane dyski?**
 
-Aktualnie nie ale stanie się domyślnie w przyszłości.
+Tak. 
 
 **Można utworzyć pusty dysk zarządzany?**
 

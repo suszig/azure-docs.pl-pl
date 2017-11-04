@@ -1,6 +1,6 @@
 ---
-title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
-description: Use a sample app to work with Azure Stack Key Vault
+title: Zezwalaj aplikacjom na pobieranie kluczy tajnych magazyn kluczy Azure stosu | Dokumentacja firmy Microsoft
+description: "Użyj przykładowej aplikacji do pracy z magazynem kluczy Azure stosu"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Przykładowa aplikacja korzystająca z kluczy i kluczy tajnych przechowywane w magazynie kluczy
 
-# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Sample application that uses keys and secrets stored in a key vault
+W tym artykule zostanie przedstawiony zostanie sposób uruchamiania aplikacji przykładowej (HelloKeyVault), która pobiera kluczy i kluczy tajnych z magazynu kluczy Azure stosu.
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+## <a name="prerequisites"></a>Wymagania wstępne 
 
-## <a name="prerequisites"></a>Prerequisites 
+Uruchom następujące wymagania wstępne, albo z [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), lub z systemem Windows klienta zewnętrznych w przypadku [połączone za pośrednictwem sieci VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* Zainstaluj [modułów programu Azure PowerShell platformy Azure zgodnego stosu](azure-stack-powershell-install.md).  
+* Pobierz [narzędzia niezbędne do pracy z stosu Azure](azure-stack-powershell-download.md). 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="create-and-get-the-key-vault-and-application-settings"></a>Tworzenie i uzyskać magazyn kluczy i ustawienia aplikacji
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Create and get the key vault and application settings
-
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+Najpierw należy utworzyć magazyn kluczy Azure stosu i zarejestrować aplikację w usłudze Azure Active Directory (Azure AD). Można utworzyć ani zarejestrować magazynów kluczy za pomocą portalu Azure lub programu PowerShell. W tym artykule opisano sposób programu PowerShell do wykonywania zadań. Domyślnie ten skrypt programu PowerShell tworzy nową aplikację w usłudze Active Directory. Jednak umożliwia także jeden z istniejących aplikacji. Pamiętaj podać wartość parametru `aadTenantName` i `applicationPassword` zmiennych. Jeśli nie określisz wartości `applicationPassword` zmiennej, ten skrypt generuje losowe hasło. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -126,28 +124,27 @@ Write-Host
 
 ``` 
 
-The following screenshot shows the output of the previous script:
+Poniższy zrzut ekranu przedstawia dane wyjściowe poprzedniego skryptu:
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Konfiguracja aplikacji](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
+Zanotuj **VaultUrl**, **AuthClientId**, i **AuthClientSecret** zwróconych przez skrypt poprzedniej wartości. Te wartości są używane do uruchamiania aplikacji HelloKeyVault.
 
-## <a name="download-and-run-the-sample-application"></a>Download and run the sample application
+## <a name="download-and-run-the-sample-application"></a>Pobieranie i uruchamianie przykładowej aplikacji
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Pobierz przykładowe magazynu kluczy z platformy Azure [przykłady klienta usługi Key Vault](https://www.microsoft.com/en-us/download/details.aspx?id=45343) strony. Wyodrębnij zawartość pliku ZIP na deweloperskiej stacji roboczej. Istnieją dwa przykłady znajdujących się w folderze próbek. Używamy próbki HellpKeyVault w tym temacie. Przejdź do **Microsoft.Azure.KeyVault.Samples** > **przykłady** > **HelloKeyVault** folderu i otworzyć aplikację HelloKeyVault w programie Visual Studio. 
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+Otwórz plik HelloKeyVault\App.config i Zastąp wartości <appSettings> element z **VaultUrl**, **AuthClientId**, i **AuthClientSecret** wartości zwrócony przez poprzednie skryptu. Należy zauważyć, domyślnie App.config zawiera symbol zastępczy *AuthCertThumbprint*, ale użyj *AuthClientSecret* zamiast tego. Po zastąpić jej ustawienia, ponownie skompiluj rozwiązanie i uruchom aplikację.
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+![Ustawienia aplikacji](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+Aplikacja loguje się do usługi Azure AD, a następnie używa token uwierzytelniania do magazynu kluczy Azure stosu. Aplikacja wykonuje operacje, takie jak tworzenie, szyfrowania, zawijać i usuwanie kluczy i kluczy tajnych magazynu kluczy. Można również przekazać określone parametry takie jak *szyfrowania* i *odszyfrować* do aplikacji, co czyni się upewnić, że aplikacja wykonuje tylko operacje względem magazynu. 
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+## <a name="next-steps"></a>Następne kroki
+[Wdrażanie maszyny wirtualnej z hasłem usługi Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Wdrożenie maszyny Wirtualnej przy użyciu certyfikatu usługi Key Vault](azure-stack-kv-push-secret-into-vm.md)
 
 
 

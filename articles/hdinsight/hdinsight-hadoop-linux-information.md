@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -39,9 +39,9 @@ Wiele z tych kroków w tym dokumencie, użyj następujących narzędzi, które m
 
 ## <a name="users"></a>Użytkownicy
 
-O ile [przyłączonych do domeny](hdinsight-domain-joined-introduction.md), należy rozważyć HDInsight **pojedynczego użytkownika** systemu. Utworzono pojedynczego konto użytkownika SSH z klastrem, z poziomu uprawnień administratora. Można utworzyć dodatkowych kont SSH, ale mają także dostęp administratora do klastra.
+O ile [przyłączonych do domeny](./domain-joined/apache-domain-joined-introduction.md), należy rozważyć HDInsight **pojedynczego użytkownika** systemu. Utworzono pojedynczego konto użytkownika SSH z klastrem, z poziomu uprawnień administratora. Można utworzyć dodatkowych kont SSH, ale mają także dostęp administratora do klastra.
 
-Domeny w usłudze HDInsight obsługuje wielu użytkowników i bardziej szczegółowe ustawienia uprawnień i ról. Aby uzyskać więcej informacji, zobacz [przyłączonych do domeny zarządzania w usłudze hdinsight](hdinsight-domain-joined-manage.md).
+Domeny w usłudze HDInsight obsługuje wielu użytkowników i bardziej szczegółowe ustawienia uprawnień i ról. Aby uzyskać więcej informacji, zobacz [przyłączonych do domeny zarządzania w usłudze hdinsight](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="domain-names"></a>Nazwy domen
 
@@ -277,6 +277,6 @@ Aby użyć innej wersji składnika, Przekaż wersji, należy go i użyć go w za
 ## <a name="next-steps"></a>Następne kroki
 
 * [Migracja z usługi HDInsight opartej na systemie Windows do opartych na systemie Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
-* [Korzystanie z języka Pig z usługą HDInsight](hdinsight-use-pig.md)
-* [Korzystanie z zadań MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
+* [Korzystanie z programu Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)
+* [Korzystanie z języka Pig z usługą HDInsight](hadoop/hdinsight-use-pig.md)
+* [Korzystanie z zadań MapReduce z usługą HDInsight](hadoop/hdinsight-use-mapreduce.md)

@@ -134,6 +134,8 @@
       items:
         - name: Archiwum
           href: monitoring-archive-diagnostic-logs.md
+        - name: Wysyłanie do usługi Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Przesyłanie strumieniowe do usługi Event Hubs
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Włączanie ustawień diagnostycznych przy użyciu szablonów usługi Resource Manager

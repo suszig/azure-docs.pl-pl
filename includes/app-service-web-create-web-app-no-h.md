@@ -11,6 +11,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -19,24 +20,17 @@ Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy A
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
+
+Zostanie utworzona pusta aplikacja sieci web platformy, z włączonym wdrażaniem git.
+
+> [!NOTE]
+> Adres URL zdalnego Git jest wyświetlany w `deploymentLocalGitUrl` właściwości w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
+>
 
 Przejdź do witryny, aby zobaczyć nowo utworzoną aplikację sieci Web.
 

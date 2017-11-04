@@ -1,0 +1,290 @@
+---
+title: "Powiązania dla funkcji trwałe - Azure"
+description: "Jak używać wyzwalaczy i powiązań dla rozszerzenia Functons trwałe dla usługi Azure Functions."
+services: functions
+author: cgillum
+manager: cfowler
+editor: 
+tags: 
+keywords: 
+ms.service: functions
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 09/29/2017
+ms.author: azfuncdf
+ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/18/2017
+---
+# <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla funkcji trwałe (funkcje platformy Azure)
+
+[Trwałe funkcje](durable-functions-overview.md) rozszerzenia wprowadza dwa nowe powiązania wyzwalacza kontrolujących wykonywania funkcji programu orchestrator i działania. Podaj powiązania wyjściowego, który działa jako klient funkcji trwałe środowiska uruchomieniowego.
+
+## <a name="orchestration-triggers"></a>Wyzwalacze aranżacji
+
+Wyzwalacz orchestration umożliwia tworzenie funkcji trwałe programu orchestrator. Wyzwalacz obsługuje uruchamianie nowych wystąpień funkcji programu orchestrator i wznawianie istniejących wystąpień funkcji programu orchestrator, oczekujących "" zadania.
+
+Korzystając z programu Visual Studio tools dla usługi Azure Functions, wyzwalacz orchestration jest konfigurowana przy użyciu [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) atrybut platformy .NET.
+
+Podczas pisania funkcje programu orchestrator w językach skryptów (na przykład w portalu Azure), wyzwalacz orchestration jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicę *function.json* pliku:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "orchestration": "<Optional - name of the orchestration>",
+    "version": "<Optional - version label of this orchestrator function>",
+    "type": "orchestrationTrigger",
+    "direction": "in"
+}
+```
+
+* `orchestration`to nazwa orchestration. Jest to wartość, której klienci muszą używać chcąc Uruchom nowe wystąpienia tej funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
+* `version`jest etykietę wersji orchestration. Klienci, którzy uruchomić nowe wystąpienie klasy aranżacji musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji o wersji, zobacz [Versioning](durable-functions-versioning.md).
+
+> [!NOTE]
+> Ustawienie wartości `orchestration` lub `version` właściwości nie jest zalecane w tej chwili.
+
+Wewnętrznie tego powiązania wyzwalacza sonduje serii kolejek w domyślne konto magazynu dla funkcji aplikacji. Te kolejki są szczegóły implementacji wewnętrzny rozszerzenia, dlatego nie są one jawnie skonfigurowane we właściwościach powiązania.
+
+### <a name="trigger-behavior"></a>Zachowanie wyzwalacza
+
+Poniżej przedstawiono niektóre uwagi dotyczące wyzwalacza orchestration:
+
+* **Wątkowość jednym** -wątku pojedynczego dyspozytora jest używany dla wszystkich wykonywania funkcji programu orchestrator w wystąpieniu jednego hosta. Z tego powodu jest należy się upewnić, że kod funkcji programu orchestrator jest wydajne i nie wykonać żadnych operacji We/Wy. Jest również należy się upewnić, że ten wątek wykonać pracę async z wyjątkiem podczas oczekiwania na trwałe funkcji specyficznych dla typów zadań.
+* **Obsługa komunikatów poising** — nie obsługuje Trująca wiadomość w wyzwalaczy aranżacji.
+* **Komunikat widoczność** -usuniętej i zachowane niewidoczne dla można skonfigurować czas trwania aranżacji wyzwalacza komunikatów. Widoczność te komunikaty są odnawiane automatycznie tak długo, jak funkcja aplikacji jest uruchomiony i działa prawidłowo.
+* **Wartości zwracane** -zwrócić wartości do formatu JSON i utrwalone w tabeli historii aranżacji w magazynie tabel platformy Azure. Może być badana te wartości zwracanych przez klienta aranżacji powiązanie, w dalszej części.
+
+> [!WARNING]
+> Funkcje programu orchestrator nigdy nie należy użyć żadnych danych wejściowych lub wyjściowych powiązań innych niż orchestration wyzwolenia powiązania. W ten sposób może spowodować problemy z rozszerzeniem trwałe zadania, ponieważ te powiązania nie może przestrzegać wątkowość jednym i reguł we/wy.
+
+### <a name="trigger-usage"></a>Użycie wyzwalacza
+
+Wyzwalacz aranżacji powiązanie obsługuje danych wejściowych i danych wyjściowych. Poniżej przedstawiono niektóre czynności, aby wiedzieć o dane wejściowe i wyjściowe obsługi:
+
+* **dane wejściowe** -funkcji aranżacji obsługują tylko [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) jako parametr typu. Dane wejściowe deserializacji bezpośrednio w sygnaturze funkcji nie są obsługiwane. Należy użyć kodu [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metodę, aby pobrać dane wejściowe funkcji programu orchestrator. Te dane wejściowe muszą być typów możliwych do serializacji JSON.
+* **generuje** -wyzwalacze aranżacji obsługują wartości danych wyjściowych, a także dane wejściowe. Zwracana wartość funkcji jest używana do przypisywania wartości wyjściowych i musi być możliwy do serializacji JSON. Jeśli funkcja zwraca `Task` lub `void`, `null` wartość zostanie zapisany jako dane wyjściowe.
+
+> [!NOTE]
+> Wyzwalacze aranżacji są obsługiwane tylko w języku C# w tej chwili.
+
+### <a name="trigger-sample"></a>Przykładowe wyzwalacza
+
+Poniżej przedstawiono przykład jak może wyglądać najprostszym funkcja orchestrator "Hello World" C#:
+
+```csharp
+[FunctionName("HelloWorld")]
+public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string name = context.GetInput<string>();
+    return $"Hello {name}!";
+}
+```
+
+Większość funkcji programu orchestrator wywołania innych funkcji, dlatego poniżej przedstawiono przykład "Hello World", który demonstruje sposób wywołania funkcji:
+
+```csharp
+[FunctionName("HelloWorld")]
+public static async Task<string> Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string name = await context.GetInput<string>();
+    string result = await context.CallActivityAsync<string>("SayHello", name);
+    return result;
+}
+```
+
+## <a name="activity-triggers"></a>Wyzwalacze działania
+
+Wyzwalacz działania umożliwia tworzenie funkcji wywoływanych przez funkcje programu orchestrator.
+
+Jeśli używasz programu Visual Studio, wyzwalacz działania jest konfigurowana przy użyciu [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atrybut platformy .NET. 
+
+Jeśli używasz portalu Azure do tworzenia aplikacji, wyzwalacz działania jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicę *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "activity": "<Optional - name of the activity>",
+    "version": "<Optional - version label of this activity function>",
+    "type": "activityTrigger",
+    "direction": "in"
+}
+```
+
+* `activity`to nazwa działania. Jest to wartość, która umożliwia wywołanie tej funkcji działania funkcji programu orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, używany jest nazwa funkcji.
+* `version`jest wersja etykietę działania. Funkcje programu orchestrator, które wywołują działania musi zawierać dopasowania etykiety wersji. Ta właściwość jest opcjonalna. Jeśli nie określono pusty ciąg jest używany. Aby uzyskać więcej informacji, zobacz [Versioning](durable-functions-versioning.md).
+
+> [!NOTE]
+> Ustawienie wartości `activity` lub `version` właściwości nie jest zalecane w tej chwili.
+
+Wewnętrznie tego powiązania wyzwalacza sonduje kolejkę w domyślne konto magazynu dla funkcji aplikacji. Kolejka jest szczegółów wewnętrznej implementacji rozszerzenia, dlatego nie jest jawnie skonfigurowany we właściwościach powiązania.
+
+### <a name="trigger-behavior"></a>Zachowanie wyzwalacza
+
+Poniżej przedstawiono niektóre uwagi dotyczące działania wyzwalacza:
+
+* **Wątkowość** — w odróżnieniu od wyzwalacza aranżacji wyzwalaczy działania nie mają zastosowanie jakiekolwiek ograniczenia wokół wątkowość lub we/wy. Mogą one traktowane jak regularne funkcji.
+* **Obsługa komunikatów poising** — nie obsługuje Trująca wiadomość w wyzwalaczy działania.
+* **Komunikat widoczność** -usuniętej i zachowane niewidoczne dla można skonfigurować czas trwania działania wyzwalacza komunikatów. Widoczność te komunikaty są odnawiane automatycznie tak długo, jak funkcja aplikacji jest uruchomiony i działa prawidłowo.
+* **Wartości zwracane** -zwrócić wartości do formatu JSON i utrwalone w tabeli historii aranżacji w magazynie tabel platformy Azure.
+
+> [!WARNING]
+> Wewnętrznej bazy danych magazynu dla funkcji działania jest szczegółów implementacji i kod użytkownika nie może mieć interakcji z tych jednostek magazynu bezpośrednio.
+
+### <a name="trigger-usage"></a>Użycie wyzwalacza
+
+Wyzwalacz działania powiązanie obsługuje danych wejściowych i danych wyjściowych, podobnie jak wyzwalacza aranżacji. Poniżej przedstawiono niektóre czynności, aby wiedzieć o dane wejściowe i wyjściowe obsługi:
+
+* **dane wejściowe** — funkcje działania natywnie używają [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) jako parametr typu. Możesz też funkcję działania mogą być deklarowane z dowolnego typu parametru, który jest możliwy do serializacji JSON. Jeśli używasz `DurableActivityContext`, można wywołać [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) do pobrania i deserializacji działania funkcji danych wejściowych.
+* **generuje** -wyzwalacze działania obsługują wartości danych wyjściowych, a także dane wejściowe. Zwracana wartość funkcji jest używana do przypisywania wartości wyjściowych i musi być możliwy do serializacji JSON. Jeśli funkcja zwraca `Task` lub `void`, `null` wartość zostanie zapisany jako dane wyjściowe.
+* **metadane** -działania funkcji można powiązać z `string instanceId` parametru można pobrać Identyfikatora wystąpienia aranżacji nadrzędnej.
+
+> [!NOTE]
+> Wyzwalacze działania nie są obecnie obsługiwane w przypadku funkcji Node.js.
+
+### <a name="trigger-sample"></a>Przykładowe wyzwalacza
+
+Poniżej przedstawiono przykład prostego funkcja działania "Hello World" C# przykładową:
+
+```csharp
+[FunctionName("SayHello")]
+public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+{
+    string name = helloContext.GetInput<string>();
+    return $"Hello {name}!";
+}
+```
+
+Domyślny typ parametru dla `ActivityTriggerAttribute` powiązanie to `DurableActivityContext`. Jednak również obsługa powiązanie bezpośrednio z JSON serializeable typy (w tym typy pierwotne), można uprościć taką samą funkcję, jako wyzwalacze działania są następujące:
+
+```csharp
+[FunctionName("SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+## <a name="orchestration-client"></a>Klient aranżacji
+
+Powiązanie klienta orchestration umożliwia pisanie funkcji, które interakcję z funkcjami programu orchestrator. Na przykład może działać w wystąpieniach aranżacji w sposób followng:
+* Uruchom je.
+* Wyślij zapytanie do ich stan.
+* Je zakończyć.
+* Wysyłanie zdarzeń do nich podczas korzystania z nich.
+
+Jeśli używasz programu Visual Studio, można powiązać aranżacji klienta za pomocą [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) atrybut platformy .NET.
+
+Jeśli używasz języków skryptów (np. *csx* plików) do tworzenia aplikacji, wyzwalacz orchestration jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicy function.json:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "taskHub": "<Optional - name of the task hub>",
+    "connectionName": "<Optional - name of the connection string app setting>",
+    "type": "orchestrationClient",
+    "direction": "out"
+}
+```
+
+* `taskHub`-Używane w sytuacji, gdy wiele aplikacji funkcji Udostępnianie tego samego konta magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, wartością domyślną z `host.json` jest używany. Ta wartość musi odpowiadać wartości przez funkcje programu orchestrator docelowej.
+* `connectionName`-Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu. Konto magazynu reprezentowany przez ten ciąg połączenia musi być taka sama, używany przez funkcje programu orchestrator docelowej. Jeśli nie określono domyślnego ciągu połączenia dla aplikacji funkcja jest używana.
+
+> [!NOTE]
+> W większości przypadków zaleca się, Pomiń te właściwości oraz polegać na zachowanie domyślne.
+
+### <a name="client-usage"></a>Użycie klientów
+
+W języku C# funkcji, należy zwykle powiązać `DurableOrchestrationClient`, które zapewnia pełny dostęp do wszystkich klientów obsługiwanych przez funkcje trwałe interfejsów API. Interfejsy API w obiekcie klienta obejmują:
+
+* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
+* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
+* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
+* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
+
+Alternatywnie można powiązać `IAsyncCollector<T>` gdzie `T` jest [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) lub `JObject`.
+
+Zobacz [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) dokumentacji interfejsu API, aby uzyskać więcej informacji na temat tych operacji.
+
+### <a name="client-sample-visual-studio-development"></a>Przykładowe klienta (Programowanie w Visual Studio)
+
+Oto przykład wyzwalane kolejki funkcję, która rozpoczyna się aranżacji "HelloWorld".
+
+```csharp
+[FunctionName("QueueStart")]
+public static Task Run(
+    [QueueTrigger("durable-function-trigger")] string input,
+    [OrchestrationClient] DurableOrchestrationClient starter)
+{
+    // Orchestration input comes from the queue message content.
+    return starter.StartNewAsync("HelloWorld", input);
+}
+```
+
+### <a name="client-sample-not-visual-studio"></a>Przykładowe klienta (nie Visual Studio)
+
+Jeśli nie używasz programu Visual Studio do tworzenia aplikacji, można utworzyć następującego pliku function.json. W tym przykładzie przedstawiono sposób konfigurowania funkcji wyzwalane kolejki, które używa klienta aranżacji trwałego powiązania:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+} 
+```
+
+Poniżej przedstawiono przykłady specyficzne dla języka, które Uruchom nowe wystąpienia funkcji programu orchestrator.
+
+#### <a name="c-sample"></a>Przykład C#
+
+Poniższy przykład przedstawia sposób użycia klienta aranżacji trwałe powiązanie, aby uruchomić nowe wystąpienie funkcji z funkcją skryptu C#:
+
+```csharp
+#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
+
+public static Task<string> Run(string input, DurableOrchestrationClient starter)
+{
+    return starter.StartNewAsync("HelloWorld", input);
+}
+```
+
+#### <a name="nodejs-sample"></a>Przykładu środowiska node.js
+
+Poniższy przykład przedstawia sposób użycia klienta aranżacji trwałe powiązanie, aby uruchomić nowe wystąpienie funkcji z funkcją Node.js:
+
+```js
+module.exports = function (context, input) {
+    var id = generateSomeUniqueId();
+    context.bindings.starter = [{
+        FunctionName: "HelloWorld",
+        Input: input,
+        InstanceId: id
+    }];
+
+    context.done(null, id);
+};
+```
+
+Więcej informacji na temat uruchamiania wystąpień znajdują się w [wystąpienie zarządzania](durable-functions-instance-management.md).
+
+## <a name="next-steps"></a>Następne kroki
+
+> [!div class="nextstepaction"]
+> [Więcej informacji na temat zachowania punkty kontrolne i powtórzeń](durable-functions-checkpointing-and-replay.md)
+

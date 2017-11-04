@@ -41,6 +41,7 @@
 ## Konfigurowanie routera dla usługi ExpressRoute
 ### [Konfigurowanie routera](expressroute-config-samples-routing.md)
 ### [Przykłady konfiguracji routera pod kątem translatora adresów sieciowych](expressroute-config-samples-nat.md)
+## [Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute](how-to-npm.md)
 
 ## Najlepsze rozwiązania
 ### [Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze](../best-practices-network-security.md)

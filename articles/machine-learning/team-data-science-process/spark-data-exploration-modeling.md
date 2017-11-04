@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e9c7ae58825d640a33c7d76eb5016faeb3de2849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 59f1e4c5bf1c1a3ea4af42872246b5230d4c6d24
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -136,7 +136,7 @@ Jądro PySpark zawiera kilka wstępnie zdefiniowanych "poleceń magicznych", kt�
 * **%% lokalnego** Określa, że kod w kolejnych wierszy jest wykonywana lokalnie. Kod musi być prawidłowy kod języka Python.
 * **%% sql -o <variable name>**  wykonuje zapytanie Hive względem element sqlContext. Jeśli parametr -o zostanie przekazany, wynik kwerendy jest utrwalona w %% lokalny kontekst Python jako Pandas DataFrame.
 
-Dla więcej informacji na temat jądra notesów Jupyter i wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Dla więcej informacji na temat jądra notesów Jupyter i wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Wprowadzanie danych z obiektu blob publiczny
 Pierwszym krokiem w procesie nauki danych jest pozyskiwanie danych do analizy ze źródeł gdzie jest znajduje się w środowisku eksploracji i modelowanie danych. Środowisko jest Spark, w tym przewodniku. Ta sekcja zawiera kod, aby wykonać szereg zadań:

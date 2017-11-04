@@ -4,7 +4,7 @@ description: "Dowiedz się, jak służące do lub wychodzący przy użyciu DStre
 keywords: "przykład kafka, dozorcy kafka, spark, przesyłanie strumieniowe kafka, przesyłania strumieniowego przykład kafka spark"
 services: hdinsight
 documentationcenter: 
-author: Blackmist
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: larryfr
-ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: maxluk
+ms.openlocfilehash: 6608363f90b61fe60f26d3f9fafd77b1e2232838
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Apache Spark przesyłania strumieniowego (DStream) przykład: Kafka (wersja zapoznawcza) w usłudze HDInsight
 
@@ -97,7 +97,7 @@ Ponieważ kroki opisane w tym dokumencie utworzyć obu klastrów w tej samej gru
 
 W tym przykładzie przedstawiono sposób użycia platformy Spark do odczytu i zapisu do Kafka. Aby dowiedzieć się, inne metody pracy z Kafka, użyj następujących łączy:
 
-* [Wprowadzenie do Apache Kafka w usłudze HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](hdinsight-apache-kafka-mirroring.md)
+* [Wprowadzenie do Apache Kafka w usłudze HDInsight](kafka/apache-kafka-get-started.md)
+* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](kafka/apache-kafka-mirroring.md)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
 

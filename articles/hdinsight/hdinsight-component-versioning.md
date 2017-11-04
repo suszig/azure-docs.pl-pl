@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie są składniki platformy Hadoop i wersje dostępne w usłudze HDInsight?
 
@@ -174,7 +174,7 @@ Usługa Azure HDInsight zapewnia oferty danych big data chmury w dwóch różnyc
 
 | Funkcja HDInsight Premium | Opis |
 | --- | --- |
-| Klastry HDInsight przyłączonych do domeny |Klastry usługi HDInsight należy przyłączyć do domeny usługi Azure Active Directory (Azure AD) dla zabezpieczeń na poziomie przedsiębiorstwa. W HDInsight Premium można skonfigurować listę pracowników w przedsiębiorstwie, który może uwierzytelniać za pośrednictwem usługi Azure AD do logowania się do klastra usługi HDInsight. Administratorzy przedsiębiorstwa można skonfigurować kontroli dostępu opartej na rolach zabezpieczeń Hive za pomocą [zakres Apache](http://hortonworks.com/apache/ranger/) i ograniczyć dostęp do danych do użycia tylko tyle potrzebne. Na koniec administrator może inspekcji dane używane przez pracowników i zmiany dostęp zasad kontroli, a tym samym osiągnięcie wysoki stopień ładu ich zasobów firmy. Aby uzyskać więcej informacji, zobacz [skonfigurować przyłączonych do domeny w usłudze hdinsight](hdinsight-domain-joined-configure.md). |
+| Klastry HDInsight przyłączonych do domeny |Klastry usługi HDInsight należy przyłączyć do domeny usługi Azure Active Directory (Azure AD) dla zabezpieczeń na poziomie przedsiębiorstwa. W HDInsight Premium można skonfigurować listę pracowników w przedsiębiorstwie, który może uwierzytelniać za pośrednictwem usługi Azure AD do logowania się do klastra usługi HDInsight. Administratorzy przedsiębiorstwa można skonfigurować kontroli dostępu opartej na rolach zabezpieczeń Hive za pomocą [zakres Apache](http://hortonworks.com/apache/ranger/) i ograniczyć dostęp do danych do użycia tylko tyle potrzebne. Na koniec administrator może inspekcji dane używane przez pracowników i zmiany dostęp zasad kontroli, a tym samym osiągnięcie wysoki stopień ładu ich zasobów firmy. Aby uzyskać więcej informacji, zobacz [skonfigurować przyłączonych do domeny w usłudze hdinsight](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Typy klastrów, które są obsługiwane w HDInsight Premium
 W poniższej tabeli wymieniono typy klastrów, które są obsługiwane w HDInsight Premium.

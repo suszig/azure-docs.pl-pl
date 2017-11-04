@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorowanie i rozwiązywanie problemów z ochroną maszyn wirtualnych i serwerów fizycznych
 Ten przewodnik monitorowania i rozwiązywania problemów pomaga śledzić kondycję replikacji i rozwiązywanie problemów z techniki dla usługi Azure Site Recovery.
@@ -55,7 +55,7 @@ Szczegóły błędu pomoże Ci identyfikować możliwa przyczyna i zalecenia dot
 
 ![Powoduje wyświetlenie okna dialogowego szczegóły błędu dla określonego zadania](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-W poprzednim przykładzie jest prawdopodobnie powodować niepowodzenie konfiguracji ochrony inną operację, która jest w toku. Rozwiąż problem, na podstawie zalecenia, a następnie kliknij przycisk **RESART** zainicjować ponownie wykonać operację.
+W poprzednim przykładzie jest prawdopodobnie powodować niepowodzenie konfiguracji ochrony inną operację, która jest w toku. Rozwiąż problem, na podstawie zalecenia, a następnie kliknij przycisk **ponowne URUCHOMIENIE** zainicjować ponownie wykonać operację.
 
 ![Przycisk Uruchom ponownie na karcie zadania](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 009cc7941dc5d60153f1ab27adb9b86866b9a3f2
-ms.contentlocale: pl-pl
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 20dbc4bbe66ec311afcc238b25a6c1f6f6a40829
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka PHP
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [PHP](http://php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym artykule założono, że wiesz już, jak programować za pomocą języka PHP, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [PHP](http://php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. Kroki opisane w tym artykule założono, że znasz tworzenie przy użyciu języka PHP i są nowe do pracy z bazą danych Azure dla PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -28,7 +26,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Instalowanie języka PHP
-Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview), która zawiera język PHP.
+Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową](../app-service/app-service-web-overview.md), która zawiera język PHP.
 
 ### <a name="windows"></a>Windows
 - Pobierz [bezpieczny, niestanowiący zagrożenia język PHP w wersji 7.1.4 (x64)](http://windows.php.net/download#php-7.1).
@@ -223,4 +221,3 @@ Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartośc
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
-

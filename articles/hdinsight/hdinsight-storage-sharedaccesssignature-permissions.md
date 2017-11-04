@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Użyj sygnatury dostępu współdzielonego magazynu Azure, aby ograniczyć dostęp do danych w usłudze HDInsight
 
 HDInsight ma pełny dostęp do danych na kontach magazynu Azure skojarzony z klastrem. Sygnatury dostępu współdzielonego w kontenerze obiektów blob służy do ograniczania dostępu do danych. Na przykład, aby zapewnić dostęp tylko do odczytu do danych. Udostępniony sygnatur dostępu (SAS) to funkcja kontami magazynu Azure, która umożliwia ograniczenie dostępu do danych. Na przykład zapewniając dostęp do danych tylko do odczytu.
 
 > [!IMPORTANT]
-> Jako rozwiązanie przy użyciu Apache zakres należy rozważyć użycie HDInsight przyłączonych do domeny. Aby uzyskać więcej informacji, zobacz [HDInsight przyłączonych do domeny skonfiguruj](hdinsight-domain-joined-configure.md) dokumentu.
+> Jako rozwiązanie przy użyciu Apache zakres należy rozważyć użycie HDInsight przyłączonych do domeny. Aby uzyskać więcej informacji, zobacz [HDInsight przyłączonych do domeny skonfiguruj](./domain-joined/apache-domain-joined-configure.md) dokumentu.
 
 > [!WARNING]
 > HDInsight musi mieć pełny dostęp do magazynu domyślnego dla klastra.
@@ -304,8 +304,8 @@ Po nawiązaniu połączenia z klastrem, wykonaj następujące kroki, aby sprawdz
 
 Teraz, kiedy znasz jak dodać magazyn ograniczonego dostępu do klastra usługi HDInsight, Dowiedz się inne sposoby pracy z danymi w klastrze:
 
-* [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
-* [Korzystanie z języka Pig z usługą HDInsight](hdinsight-use-pig.md)
-* [Korzystać z usługi MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
+* [Korzystanie z programu Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)
+* [Korzystanie z języka Pig z usługą HDInsight](hadoop/hdinsight-use-pig.md)
+* [Korzystać z usługi MapReduce z usługą HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

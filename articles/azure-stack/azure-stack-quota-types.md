@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: "Typy przydziału w stosie Azure | Dokumentacja firmy Microsoft"
+description: "Przejrzyj typy różnych przydziału dostępne dla usług i zasobów w stosie Azure."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Typy przydziału w stosie Azure
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
+
+[Przydziały](azure-stack-plan-offer-quota-overview.md#plans) definiowania ograniczeń dotyczących zasobów, które subskrypcji użytkownika można udostępnić lub korzystać. Na przykład limit przydziału może zezwolić użytkownikowi na tworzenie maszyn wirtualnych do pięciu. Każdy zasób może mieć własną typy przydziałów.
+
+## <a name="compute-quota-types"></a>Obliczenia bazy danych typów przydziałów
+| **Typ** | **Wartość domyślna** | **Opis** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Maksymalna liczba maszyn wirtualnych | 20 | Maksymalna liczba maszyn wirtualnych, które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba rdzeni maszyny wirtualnej | 50 | Maksymalna liczba rdzeni, które subskrypcji można utworzyć w tej lokalizacji (na przykład maszyna wirtualna A3 ma cztery rdzenie). |
+| Maksymalna liczba zestawów dostępności | 10 | Maksymalna liczba zestawów dostępności, które mogą zostać utworzone w tej lokalizacji. |
+| Ustawia maksymalną liczbę skalowania maszyny wirtualnej | 20 | Maksymalna liczba zestawy skalowania maszyn wirtualnych, które mogą zostać utworzone w tej lokalizacji. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> Obliczeń przydziały nie są wymuszane w tej wersji technical preview.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Typy przydział magazynowania
+| **Element** | **Wartość domyślna** | **Opis** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Maksymalna pojemność (GB) |500 |Pojemność pamięci masowej, które mogą być używane w ramach subskrypcji w tej lokalizacji. |
+| Całkowita liczba kont magazynu |20 |Maksymalna liczba kont magazynu, które subskrypcji można utworzyć w tej lokalizacji. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Typy przydziałów sieci
+| **Element** | **Wartość domyślna** | **Opis** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Maksymalna liczba publicznych adresów IP |50 |Maksymalna liczba publicznych adresów IP, które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba sieci wirtualnych |50 |Maksymalna liczba sieci wirtualnych, które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba bram sieci wirtualnej |1 |Maksymalna liczba bram sieci wirtualnej (bramy sieci VPN), które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba połączeń sieciowych |2 |Maksymalna liczba połączeń sieciowych (point-to-point lub site-to-site), które subskrypcji można utworzyć przez wszystkie bramy sieci wirtualnej w tej lokalizacji. |
+| Maksymalna liczba modułów równoważenia obciążenia |50 |Maksymalna liczba modułów równoważenia obciążenia, które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba kart sieciowych |100 |Maksymalna liczba interfejsów sieciowych, które subskrypcji można utworzyć w tej lokalizacji. |
+| Maksymalna liczba sieciowych grup zabezpieczeń |50 |Maksymalna liczba grup zabezpieczeń sieci, które subskrypcji można utworzyć w tej lokalizacji. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Wyświetl istniejący przydziału
+1. Kliknij przycisk **więcej usług** > **dostawców zasobów**.
+2. Wybierz usługę z przydziałem, który chcesz wyświetlić.
+3. Kliknij przycisk **przydziały**i wybierz limit przydziału, który chcesz wyświetlić.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Następne kroki
+[Dowiedz się więcej o planach, ofertami i przydziałów.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Tworzenie przydziałów podczas tworzenia planu.](azure-stack-create-plan.md)

@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Skalowanie węzłów agenta w klastrze usługi Container Service
 Po [wdrożeniu klastra usługi Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md) być może trzeba będzie zmienić liczbę węzłów agenta. Możesz na przykład potrzebować więcej agentów, aby uruchamiać więcej wystąpień lub aplikacji kontenera. 
 
 Możesz zmienić liczbę węzłów agenta w klastrze DC/OS, Docker Swarm lub Kubernetes za pomocą witryny Azure Portal lub interfejsu wiersza polecenia platformy Azure w wersji 2.0. 

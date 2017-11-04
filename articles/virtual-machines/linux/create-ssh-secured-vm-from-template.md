@@ -1,84 +1,68 @@
 ---
-title: "Tworzenie maszyny wirtualnej z systemem Linux przy użyciu szablonu platformy Azure | Microsoft Docs"
-description: "Tworzenie maszyny wirtualnej systemu Linux na platformie Azure przy użyciu szablonu usługi Azure Resource Manager."
+title: "Utworzyć Maszynę wirtualną systemu Linux na platformie Azure na podstawie szablonu | Dokumentacja firmy Microsoft"
+description: "Sposób użycia 2.0 interfejsu wiersza polecenia Azure, aby utworzyć Maszynę wirtualną systemu Linux na podstawie szablonu usługi Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
-tags: azure-service-management,azure-resource-manager
+tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: hero-article
-ms.date: 10/24/2016
-ms.author: v-livech
+ms.topic: article
+ms.date: 09/26/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: c268d87faf45d3ea02154b46903a73478a2a1f2f
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-create-a-linux-vm-using-an-azure-resource-manager-template"></a>Informacje dotyczące sposobu tworzenia maszyny wirtualnej z systemem Linux przy użyciu szablonu usługi Azure Resource Manager
-W tym artykule przedstawiono szybki sposób wdrożenia maszyny wirtualnej systemu Linux na platformie Azure przy użyciu szablonu Azure.  Wykonanie czynności opisanych w tym artykule wymaga:
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Tworzenie maszyny wirtualnej systemu Linux przy użyciu szablonów usługi Azure Resource Manager
+W tym artykule przedstawiono szybki sposób wdrożenia maszyny wirtualnej systemu Linux (VM) do szablonów usługi Azure Resource Manager i 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
-* konta platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/));
-* dostępu do [interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md) (po zalogowaniu przy użyciu `azure login`).
-* Interfejs wiersza polecenia platformy Azure *musi działać w* trybie usługi Azure Resource Manager`azure config mode arm`.
 
-Szybkie wdrożenie szablonu maszyny wirtualnej z systemem Linux jest możliwe również przy użyciu witryny [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="templates-overview"></a>Przegląd szablonów
+Szablony usługi Azure Resource Manager są plikami JSON, definiujące infrastrukturze i konfiguracji rozwiązania Azure. Dzięki szablonowi można wielokrotnie wdrażać rozwiązanie w całym jego cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. Aby dowiedzieć się więcej o formacie szablonu i sposobu tworzenia, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Aby wyświetlić składnię JSON dla typów zasobów, zobacz [Define resources in Azure Resource Manager templates](/azure/templates/) (Definiowanie zasobów w szablonach usługi Azure Resource Manager).
 
-## <a name="quick-command-summary"></a>Szybkie polecenia — podsumowanie
-```azurecli
-azure group create \
-    -n myResourceGroup \
-    -l westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
-```
 
-## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
-Szablony umożliwiają tworzenie maszyn wirtualnych na platformie Azure przy użyciu ustawień, które można dostosować podczas uruchomienia, np. nazw użytkowników i nazw hostów. W tym artykule szablon platformy Azure został użyty do utworzenia maszyny wirtualnej z systemem Ubuntu oraz grupy zabezpieczeń sieci z otwartym portem 22 dla usługi SSH.
-
-Szablony programu Azure Resource Manager są plikami JSON, za pomocą których można wykonywać proste, jednorazowe zadania, takie jak uruchamianie maszyny wirtualnej z systemem Ubuntu przedstawione w tym artykule.  Szablony platformy Azure mogą być również używane do tworzenia złożonych konfiguracji całych środowisk na platformie Azure, takich jak stos wdrażania do testowania, programowania lub produkcji.
-
-## <a name="create-the-linux-vm"></a>Tworzenie maszyny wirtualnej systemu Linux
-Poniższy przykład kodu pokazuje sposób wywoływania polecenia `azure group create` w celu jednoczesnego utworzenia grupy zasobów i wdrożenia maszyny wirtualnej systemu Linux zabezpieczonej przez protokół SSH za pomocą [szablonu usługi Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Należy pamiętać, że w tym przykładzie trzeba użyć nazw, które będą unikatowe w danym środowisku. Ten przykład wykorzystuje `myResourceGroup` jako nazwę grupy zasobów oraz `myVM` jako nazwę maszyny wirtualnej.
+## <a name="create-resource-group"></a>Tworzenie grupy zasobów
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej. Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupVM* w *eastus* regionu:
 
 ```azurecli
-azure group create \
-    --name myResourceGroup \
-    --location westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+az group create --name myResourceGroup --location eastus
 ```
 
-Dane wyjściowe powinny wyglądać podobnie do następującego bloku:
+## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
+Poniższy przykład tworzy Maszynę wirtualną z [tego szablonu usługi Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create). Podaj wartość własny klucz publiczny SSH, takie jak zawartość *~/.ssh/id_rsa.pub*. Jeśli musisz utworzyć parę kluczy SSH, zobacz [sposobu tworzenia i używania parę kluczy SSH dla maszyn wirtualnych systemu Linux na platformie Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Creating resource group myResourceGroup
-info:    Created resource group myResourceGroup
-info:    Supply values for the following parameters
-sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+az group deployment create --resource-group myResourceGroup \
+  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-W tym przykładzie wdrożono maszynę wirtualną przy użyciu parametru `--template-uri`.  Możesz również pobrać bądź utworzyć szablon lokalnie i przekazać go przy użyciu parametru `--template-file` ze ścieżką do pliku szablonu jako argumentem. Interfejs wiersza polecenia platformy Azure monituje o parametry wymagane przez szablon.
+W tym przykładzie wybrano szablon przechowywany w serwisie GitHub. Można również pobrać lub utworzyć szablon i określ ścieżkę lokalną o takiej samej `--template-file` parametru.
+
+Aby SSH do maszyny Wirtualnej, należy uzyskać publiczny adres IP z [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#show):
+
+```azurecli
+az network public-ip show \
+    --resource-group myResourceGroup \
+    --name sshPublicIP \
+    --query [ipAddress] \
+    --output tsv
+```
+
+Można następnie SSH do maszyny Wirtualnej, jak zwykle. Podaj własny publiczny adres IP z poprzedniego polecenia:
+
+```bash
+ssh azureuser@<ipAddress>
+```
 
 ## <a name="next-steps"></a>Następne kroki
-Przeszukaj [galerię szablonów](https://azure.microsoft.com/documentation/templates/), aby odkryć kolejne platformy aplikacji do wdrożenia.
-
-
+W tym przykładzie utworzono podstawowej maszyny Wirtualnej systemu Linux. Aby uzyskać więcej szablonów Menedżera zasobów, które obejmują struktur aplikacji lub utworzyć bardziej złożonych środowiskach, przejdź [galerię szablonów Szybki Start Azure](https://azure.microsoft.com/documentation/templates/).

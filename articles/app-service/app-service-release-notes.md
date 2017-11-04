@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a422b02623a18ac6a1eef460bbada681672e69f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Informacje o wersji zestawu Azure SDK dla platformy .NET 2.5.1
 Ten dokument zawiera informacje o wersji zestawu Azure SDK dla wersji .NET 2.5.1. 
@@ -33,18 +33,18 @@ Poniżej przedstawiono nowe funkcje i aktualizacje w zestawie Azure SDK dla plat
   * Zamiast tego węzła usługi aplikacji Azure, zawiera obsługę zasobów na podstawie grupy grupowanie Azure API Apps, Mobile Apps i aplikacje sieci Web została zastąpiona węzła witryn sieci Web w Eksploratorze serwera.
   * Pomoc techniczna platformy Azure Mobile Apps (wersja zapoznawcza) został dodany, aby klienci mogą tworzyć nowe projekty Mobile Apps, Dodaj kontrolery Mobile Apps, publikowanie projektów i zdalne debugowanie aplikacji.
   * Dodaj > gestu klienta aplikacji interfejsu API Azure obsługuje teraz lokalne pliki JSON programu Swagger, więc interfejsu API sieci Web deweloperzy mogą używać NuGets innych firm, takich jak pakiet Swashbuckle do generowania Swagger lub tworzyć go ręcznie. Dzięki temu klient deweloperzy mogą używać funkcji generowania kodu do pracy z dowolnego punktu końcowego struktury Swagger w projektów C#. 
-  * Aplikacji sieci Web i publikowania okien dialogowych aplikacji interfejsu API zostały rozszerzone wsparcie koncepcji Azure Portal grupowanie zasobów, a wybór/tworzenia grup zasobów platformy Azure i plany usługi App Service są reprezentowane w nowej aplikacji sieci Web i aplikacji interfejsu API dialogowym inicjowania obsługi administracyjnej. 
+  * Aplikacja sieci Web i aplikacji interfejsu API publikowania okien dialogowych zostały rozszerzone do obsługi portalu Azure pojęcie grupowanie zasobów i wyboru/tworzenia grup zasobów platformy Azure i plany usługi App Service są reprezentowane w nowej aplikacji sieci Web i aplikacji interfejsu API dialogowym inicjowania obsługi administracyjnej. 
   * Węzły w Eksploratorze serwera aplikacji interfejsu API platformy Azure zawierają łącza do link bezpośredni do aplikacji interfejsu API w portalu Azure, a także inne funkcje, takie jak dzienników przesyłania strumieniowego i debugowanie zdalne.
     
     Znane problemy i bieżących ograniczeń w .NET SDK usługi Azure 2.5.1 [to](app-service-release-notes.md#known_issues_2_5_1) poniższej sekcji.
 * Nowe features\scenarios związane z **narzędzi HDInsight Tools** w programie Visual Studio są włączone w tej wersji. 
   
   * Lokalna Weryfikacja skryptów hive. Kliknij przycisk Sprawdź poprawność skryptu na pasku narzędzi, aby zobaczyć, czy występują błędy skryptu. 
-  * Ulepszone debugowanie zadań Hive. Można teraz debugowania zadań Hive, uzyskując dostęp do dzienników Yarn w programie Visual Studio. Jeśli aplikacja ma problemy z wydajnością, analizowania dzienników YARN będzie dostarczające przydatnych informacji...
+  * Ulepszone debugowanie zadań Hive. Można teraz debugowania zadań Hive, uzyskując dostęp do dzienników Yarn w programie Visual Studio. Jeśli aplikacja ma problemy z wydajnością, analizowanie dzienników YARN dostarczające przydatnych informacji...
   * (W publicznej wersji zapoznawczej) IntelliSense i autouzupełniania — słowo kluczowe obsługę Hive. Aby ułatwić tworzenie skryptów Hive, narzędzia HDInsight Tools for Visual Studio dodane, IntelliSense i autouzupełniania — słowo kluczowe obsługę Hive.
   * Obsługa platformy STORM. Narzędzia HDInsight Tools for Visual Studio umożliwia teraz tworzenie Storm topologies/elementach Spout/elementów Bolt w języku C#. Można przesłać rozwinięte topologii do klastra Storm i wyświetlić stan spout/bolt/topologii. Dzienniki systemu i dzienniki klienta umożliwia rozwiązywanie problemów z Storm topologies/elementów Bolt/elementach Spout. Umożliwia także istniejące zasoby JAVA w Storm w usłudze HDInsight.
     
-    Aby uzyskać więcej informacji, zobacz [rozpocząć korzystanie z narzędzi Hadoop w HDInsight dla programu Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    Aby uzyskać więcej informacji, zobacz [rozpocząć korzystanie z narzędzi Hadoop w HDInsight dla programu Visual Studio](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Zestaw Azure SDK dla platformy .NET 2.5.1 znane problemy i ograniczenia
 * Aplikacje interfejsu API platformy Azure jest widoczny jako cel wdrożenia dla aplikacji mobilnych. Aplikacje sieci Web powinna być tylko lokalizacja docelowa Mobile Apps do późniejszych wersji. 
@@ -54,10 +54,10 @@ Poniżej przedstawiono nowe funkcje i aktualizacje w zestawie Azure SDK dla plat
 * Jeśli w aplikacji sieci Web lub aplikacji interfejsu API inicjowania obsługi administracyjnej (np. Przekroczono limit przydziału błędy lub zduplikowaną nazwę bramy aplikacji interfejsu API Azure), jest zgłaszany wyjątek, błędy Pokaż nieprzetworzone tekst JSON. 
 * Problemy sporadyczne tworzenia projektu, gdy zaznaczone jest pole w czasie tworzenia projektu usługi Application Insights.
 * Czasami wygenerowanego kodu klienta aplikacji interfejsu API Azure brakuje przestrzeni nazw, potrzebują dołączanych ręcznie (lub automatycznie importowane przy użyciu programu Visual Studio wskaźników) kodu do kompilacji. 
-* Projekty aplikacji mobilnej powinien zostać opublikowany, do aplikacji sieci web, ale należy wybrać utworzone jako aplikacja mobilna, w portalu Azure, ponieważ projekt aplikacji mobilnej wymaga bazy danych lokacji. 
+* Projekty aplikacji mobilnej powinien zostać opublikowany, do aplikacji sieci web, ale należy wybrać utworzony jako aplikacja mobilna, w portalu Azure, ponieważ projekt aplikacji mobilnej wymaga bazy danych lokacji. 
 * Termin "usługi mobilnej" zamiast "aplikacje mobilne" używa strony początkowej dla aplikacji mobilnych 
 * Tworzenie projektu aplikacji mobilnej może potrwać kilka minut do utworzenia. 
-* W aplikacji interfejsu API inicjowania obsługi administracyjnej (w niektórych przypadkach) wystąpił błąd wróci z interfejsu API Azure odbicia, że uprawnienia nie można ustawić poprawnie, natomiast w aplikacji interfejsu API został prawidłowo zainicjowany i jest gotowy do użycia. Możesz ręcznie ustawić uprawnienia przy użyciu portalu Azure.
+* W aplikacji interfejsu API inicjowania obsługi administracyjnej (w niektórych przypadkach) wystąpił błąd wróci z interfejsu API Azure odbicia, że uprawnienia nie można ustawić poprawnie, natomiast w aplikacji interfejsu API został prawidłowo zainicjowany i jest gotowy do użycia. Możesz ręcznie ustawić uprawnienia za pomocą portalu Azure.
 * Usługa Application Insights nie jest obsługiwana na szablony aplikacji interfejsu API i aplikacji mobilnej.
 * Projekty aplikacji interfejsu API nie można używać w połączeniu z projektami usługi w chmurze.
 * Szablony projektu aplikacji interfejsu API są dostępne tylko w języku C#.

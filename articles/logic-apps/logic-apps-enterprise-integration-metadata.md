@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Zarządzanie artefaktu metadanych w konta integracji dla usługi logic apps
 
-Można zdefiniować niestandardowych metadanych dla artefaktów na kontach integracji i pobrać metadane w czasie wykonywania dla aplikacji logiki. Na przykład można określić metadanych artefaktów, takich jak partnerów, umów, schematów i map — wszystkie sklepu metadanych za pomocą pary klucz wartość. Obecnie usługa artefaktów nie można utworzyć metadanych za pośrednictwem interfejsu użytkownika, ale interfejsów API REST umożliwia utworzenie metadanych. Aby dodać metadanych podczas tworzenia lub wybierz partnera, umowy lub schematu w portalu Azure, wybierz **edycji w formacie JSON**. Do pobierania metadanych artefaktów w aplikacjach logiki, służy funkcja wyszukiwania artefaktu konta integracji.
+Można zdefiniować niestandardowych metadanych dla artefaktów na kontach integracji i pobrać metadane w czasie wykonywania dla aplikacji logiki. Na przykład można określić metadanych artefaktów, takich jak partnerów, umów, schematów i map — wszystkie sklepu metadanych za pomocą pary klucz wartość. Obecnie usługa artefaktów nie można utworzyć metadanych za pośrednictwem interfejsu użytkownika, ale interfejsów API REST umożliwia utworzenie metadanych. Aby dodać metadanych podczas tworzenia lub wybierz partnera, umowy lub schematu w portalu Azure, wybierz **Edytuj**. Do pobierania metadanych artefaktów w aplikacjach logiki, służy funkcja wyszukiwania artefaktu konta integracji.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Dodaj metadane do artefaktów na kontach integracji
 
@@ -31,7 +31,7 @@ Można zdefiniować niestandardowych metadanych dla artefaktów na kontach integ
 
 2. Na przykład dodać artefaktów do konta integracji, [partnera](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [umowy](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), lub [schematu](logic-apps-enterprise-integration-schemas.md).
 
-3.  Wybierz artefakt, wybierz **edycji w formacie JSON**i wprowadź szczegóły metadanych.
+3.  Wybierz artefakt, wybierz **Edytuj**, a następnie wprowadź szczegóły metadanych.
 
     ![Wprowadź metadanych](media/logic-apps-enterprise-integration-metadata/image1.png)
 

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1176e6ac33db5b9428a323c3a6271818807afc72
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdź i diagnozowanie problemów z wydajnością z usługą Azure Application Insights
 
@@ -35,7 +35,7 @@ W celu ukończenia tego samouczka:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
 - Wdrażanie aplikacji .NET na platformie Azure i [włączyć zestaw SDK usługi Application Insights](app-insights-asp-net.md).
-- [Włącz profilera usługi Application Insights](app-insights-profiler.md#enable-the-profiler) dla aplikacji.
+- [Włącz profilera usługi Application Insights](app-insights-profiler.md#installation) dla aplikacji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).

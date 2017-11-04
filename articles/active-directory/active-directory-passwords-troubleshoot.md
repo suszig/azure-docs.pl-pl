@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Jak rozwiązywać problemy z samoobsługowego resetowania hasła
 
@@ -102,6 +102,7 @@ Najlepszym rozwiązaniem w przypadku problemów z zapisywaniem zwrotnym haseł d
 | Kod | Nazwa/wiadomości | Opis |
 | --- | --- | --- |
 | 6329 | PORĘCZENIE: MMS(4924) 0x80230619 — "ograniczenie zabezpiecza hasła przed zmianami do bieżącej określony". | To zdarzenie występuje, gdy usługa zapisywania zwrotnego haseł próbuje ustawić hasło dla użytkownika katalogu lokalnego, który nie spełnia okres ważności hasła, historii, złożoności lub filtrowania wymagania domeny. <br> <br> Jeśli ma minimalny okres ważności hasła i niedawno zmieniono hasło w danym przedziale czasu nie jest możliwe do zmiany hasła ponownie, dopóki nie osiągnie określony wiek w domenie. Do celów testowych, minimalnym wieku powinna być równa 0. <br> <br> Jeśli zostały włączone wymagania historii haseł, a następnie należy wybrać hasło, które nie było używane w ostatnim czasie N, gdzie N jest ustawienie historii haseł. Jeśli wybierzesz hasła, który został użyty w N czas, następnie zostanie wyświetlony błąd w tym przypadku. Do celów testowych, Historia powinna być równa 0. <br> <br> Jeśli masz wymagania dotyczące złożoności hasła wszystkich z nich są wymuszane podczas próby zmiany lub resetowania hasła. <br> <br> Jeśli mają włączone filtry hasła, a użytkownik wybierze hasło nie spełnia kryteriów filtrowania, a następnie resetowania lub zmiany operacja zakończy się niepowodzeniem. |
+| 6329 | MMS(3040): admaexport.cpp(2837): serwer nie zawiera formantu zasad haseł LDAP. | Ten problem występuje, gdy formant LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) nie jest włączony na kontrolerach domeny. Aby użyć funkcji zapisywania zwrotnego haseł, należy włączyć formantu. Aby to zrobić, kontrolery domeny musi być w systemie Windows Server 2008 (z najnowszą SP) lub nowszym. Jeśli Twoje kontrolery domeny są 2008 (pre-R2), a następnie należy również zastosować poprawkę [KB2386717](http://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Instalator aparatu synchronizacji zwrócił błąd hr = 80230402, wiadomość = próba pobrania obiektu nie powiodło się, ponieważ istnieją zduplikowane wpisy z tej samej kotwicy | To zdarzenie występuje, gdy ten sam identyfikator użytkownika jest włączona w wielu domenach. Na przykład jeśli trwa synchronizacja lasów kont/zasobów i mają ten sam identyfikator użytkownika obecne i włączona w każdym, ten błąd może wystąpić. <br> <br> Ten błąd może również wystąpić, jeśli korzystasz z atrybutem zakotwiczenia nieunikatowy (na przykład alias lub nazwy UPN) i dwa użytkownicy wspólnie korzystają z tego samego atrybutu zakotwiczenia. <br> <br> Aby rozwiązać ten problem, upewnij się, że nie ma żadnych zduplikowanych użytkowników w obrębie domeny i korzystasz z atrybutem zakotwiczenia unikatowy dla każdego użytkownika. |
 
 ### <a name="source-of-event-is-passwordresetservice"></a>Źródło zdarzenia jest PasswordResetService

@@ -1,35 +1,35 @@
-1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
+1. Skopiuj Instalatora na folder lokalny (na przykład /tmp) na serwerze, który chcesz chronić. W terminalu uruchom następujące polecenia:
   ```
   cd /tmp
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
-2. To install Mobility Service, run the following command:
+2. Aby zainstalować usługi mobilności, uruchom następujące polecenie:
 
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Once installation is complete, the Mobility Service needs to get registered to the configuration server. Run the following command to register the Mobility Service with Configuration server.
+3. Po zakończeniu instalacji usługi mobilności musi zarejestrować się na serwerze konfiguracji. Uruchom następujące polecenie, aby zarejestrować serwer konfiguracji usługi mobilności.
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Mobility Service installer command-line
+#### <a name="mobility-service-installer-command-line"></a>Instalator usługi mobilności wiersza polecenia
 
 ```
 Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|Parameter|Type|Description|Possible values|
+|Parametr|Typ|Opis|Możliwe wartości|
 |-|-|-|-|
-|-r |Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
-|-v|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|-q|Optional|Specifies to run installer in silent mode| N/A|
+|-r |Obowiązkowy|Określa, czy należy zainstalować usługi mobilności (MS) lub MasterTarget(MT) powinna zostać zainstalowana.|MS </br> MT|
+|-d |Optional (Opcjonalność)|Lokalizacja, w którym zostanie zainstalowana usługa mobilności|/usr/local/ASR|
+|-v|Obowiązkowy|Określa platformę, na którym zainstalowano pobierania usługi mobilności </br> </br>- **VMware** : Użyj tej wartości, jeśli instalujesz usługi mobilności na maszynie Wirtualnej uruchomionych na *VMware vSphere hostach ESXi*, *hosty funkcji Hyper-V* i *Phsyical serwerów* </br> - **Azure** : Użyj tej wartości, jeśli instalujesz agenta na maszynie Wirtualnej Azure IaaS| VMware </br> Azure|
+|-q|Optional (Opcjonalność)|Określa, aby uruchomić Instalatora w trybie dyskretnym| Nie dotyczy|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Mobility Service configuration command-line
+#### <a name="mobility-service-configuration-command-line"></a>Konfiguracja usługi mobilności wiersza polecenia
 
 ```
 Usage:
@@ -37,7 +37,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|Parameter|Type|Description|Possible values|
+|Parametr|Typ|Opis|Możliwe wartości|
 |-|-|-|-|
-|-i |Mandatory|IP of the Configuration Server|Any valid IP Address|
-|-P |Mandatory|Full file path the file where the connection passphrase is saved|Any valid folder|
+|-i |Obowiązkowy|Adres IP serwera konfiguracji|Dowolny prawidłowy adres IP|
+|-P |Obowiązkowy|Pełna ścieżka pliku, w której jest zapisywany hasło połączenia|Nieprawidłowa folderu|

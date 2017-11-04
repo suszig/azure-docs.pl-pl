@@ -15,8 +15,7 @@ Najpierw musisz mieć [usługi Azure Active Directory](https://azure.microsoft.c
 
 Następnie należy zarejestrować aplikację przy użyciu usługi AAD. Zapewni to konto nazwy głównej usługi, które ma dostęp do magazynu kluczy, które będą potrzebne maszyny Wirtualnej. W artykule usługi Azure Key Vault możesz znaleźć następujące kroki w [zarejestrować aplikację w usłudze Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) sekcji, lub można zobaczyć kroki z zrzuty ekranu w **uzyskać tożsamości dla sekcji aplikacji**  z [ten wpis w blogu](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Przed wykonaniem tych kroków, należy pamiętać, że należy zebrać następujące informacje w tej rejestracji, który będzie później potrzebny po włączeniu integracji magazynu kluczy Azure na maszynie Wirtualnej SQL.
 
-* Po dodaniu aplikacji Znajdź **identyfikator klienta** na **Konfiguruj** kartę. 
-    ![Identyfikator klienta usługi Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Po dodaniu aplikacji Znajdź **identyfikator klienta** na **Konfiguruj** kartę.   ![Identyfikator klienta usługi Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     Identyfikator klienta jest przypisany później do **$spName** parametr (nazwę główną usługi) w skrypt programu PowerShell, aby włączyć integracji magazynu kluczy Azure. 
 * Ponadto podczas tych czynności podczas tworzenia klucza, skopiować klucza tajnego klucza pokazany na poniższym zrzucie ekranu. Przypisano później do tego klucza klucz tajny **$spSecret** parametr (klucz tajny nazwy głównej usługi) w skrypcie programu PowerShell.  

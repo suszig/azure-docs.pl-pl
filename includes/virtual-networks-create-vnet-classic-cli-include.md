@@ -1,12 +1,12 @@
-## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>How to create a classic VNet using Azure CLI
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Tworzenie klasycznej sieci wirtualnej przy użyciu wiersza polecenia platformy Azure
+Interfejsu wiersza polecenia platformy Azure można użyć do zarządzania zasobami Azure z poziomu wiersza polecenia dowolnego komputera z systemem Windows, Linux lub OS X. Aby utworzyć sieć wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. The list shown after the output explains the parameters used.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../articles/cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom polecenie **azure network vnet create**, aby utworzyć sieć wirtualną i podsieć, jak pokazano poniżej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
    
             azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
    
-    Expected output:
+    Oczekiwane dane wyjściowe:
    
             info:    Executing command network vnet create
             + Looking up network configuration
@@ -14,18 +14,18 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             + Setting network configuration
             info:    network vnet create command OK
    
-   * **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-   * **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-   * **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-   * **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-   * **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-   * **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-   * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
+   * **--vnet**. Nazwa sieci wirtualnej, która zostanie utworzona. W naszym scenariuszu jest to *TestVNet*
+   * **-e (lub--przestrzeni adresowej)**. Przestrzeń adresowa sieci wirtualnej. W naszym scenariuszu *192.168.0.0*
+   * **-i (lub - cidr)**. Maska sieci w formacie CIDR. W naszym scenariuszu *16*.
+   * **-n (lub--nazwy podsieci**). Nazwa pierwszej podsieci. W naszym scenariuszu jest to *FrontEnd*.
+   * **-p (lub--podsieci start-ip)**. Początkowy adres IP dla podsieci lub przestrzeni adresowej podsieci. W naszym scenariuszu *192.168.1.0*.
+   * **-r (lub--podsieci cidr)**. Maska sieci w formacie CIDR podsieci. W naszym scenariuszu *24*.
+   * **-l (lub --location)**. Region platformy Azure, w którym zostanie utworzona sieć wirtualna. W naszym scenariuszu *środkowe stany USA*.
+3. Uruchom polecenie **azure network vnet subnet create**, aby utworzyć podsieć, jak pokazano poniżej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
    
-    Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
    
             info:    Executing command network vnet subnet create
             + Looking up network configuration
@@ -37,14 +37,14 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             data:    Address prefix                  : 192.168.2.0/24
             info:    network vnet subnet create command OK
    
-   * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-   * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-   * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+   * **-t (lub--vnet-name**. Nazwa sieci wirtualnej, w której zostanie utworzona podsieć. W naszym scenariuszu jest to *TestVNet*.
+   * **-n (lub --name)**. Nazwa nowej podsieci. W naszym scenariuszu *zaplecza*.
+   * **-a (lub --address-prefix)**. Blok CIDR podsieci. Cztery naszym scenariuszu *192.168.2.0/24*.
+4. Uruchom polecenie **azure network vnet show**, aby wyświetlić właściwości nowej sieci wirtualnej, jak pokazano poniżej.
    
             azure network vnet show
    
-    Here is the expected output for the command above:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
    
             info:    Executing command network vnet show
             Virtual network name: TestVNet

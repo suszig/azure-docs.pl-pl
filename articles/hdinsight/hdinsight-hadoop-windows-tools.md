@@ -10,11 +10,11 @@ ms.date: 05/17/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: e4f231c1f9b903d6cc7f2b062b30d2a072be8493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Praca w ekosystemie Hadoop w usłudze HDInsight z komputera z systemem Windows
 
@@ -28,7 +28,7 @@ Program Azure PowerShell jest środowisko obsługi skryptów, który służy do 
 Przykłady zadania, które można wykonać przy użyciu programu PowerShell:
 
 * [Tworzenie klastrów za pomocą programu PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Uruchamianie zapytań Hive przy użyciu programu PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+* [Uruchamianie zapytań Hive przy użyciu programu PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
 * [Zarządzanie klastrami przy użyciu programu PowerShell](hdinsight-administer-use-powershell.md)
 
 Wykonaj kroki, aby [Instalowanie i konfigurowanie programu Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) można pobrać najnowszą wersję. Jeśli masz skrypty wymagające modyfikacji w celu użycia nowych poleceń cmdlet dla usługi Azure Resource Manager, zobacz [Migrowanie do narzędzi programistycznych opartych na usłudze Azure Resource Manager dla klastrów usługi HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -38,17 +38,17 @@ Poniższe narzędzia ma interfejsu użytkownika, który jest uruchamiany w przeg
 * **[Powłoka chmury Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  jest interaktywny, wiersza polecenia powłoki, uruchomioną w przeglądarce, a za pomocą portalu Azure.
 * **[Interfejs sieci Web Ambari](hdinsight-hadoop-manage-ambari.md)**  jest zarządzania i monitorowania narzędzia dostępne w portalu Azure, który może służyć do zarządzania różnych rodzajów zadań, takich jak:
     * [Ambari za pomocą interfejsu API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Widok hive narzędzia Ambari](hdinsight-hadoop-use-hive-ambari-view.md)
+    * [Widok hive narzędzia Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Widok tez w Ambari](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Narzędzia Data Lake (Hadoop) dla programu Visual Studio
 Data Lake Tools dla programu Visual Studio umożliwia wdrażanie i zarządzanie topologiami Storm. Narzędzia Data Lake Tools instaluje zestaw SDK SCP.NET, co pozwala na tworzenie topologii Storm C# w programie Visual Studio.
 
-Przed przejściem do poniższych przykładach [zainstalować i spróbować narzędzi Data Lake Tools dla programu Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md). 
+Przed przejściem do poniższych przykładach [zainstalować i spróbować narzędzi Data Lake Tools dla programu Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
 
 Przykłady zadań, które można zrobić za pomocą programu Visual Studio i narzędzi Data Lake Tools dla programu Visual Studio:
-* [Wdrażanie i zarządzanie topologiami Storm w programie Visual Studio](hdinsight-storm-deploy-monitor-topology-linux.md)
-* [Tworzenie topologii C# dla Storm przy użyciu programu Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md). Bity obejmują szablony przykład topologii Storm, które możesz nawiązać połączenie bazy danych, takie jak bazy danych Azure rozwiązania Cosmos i bazy danych SQL.
+* [Wdrażanie i zarządzanie topologiami Storm w programie Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Tworzenie topologii C# dla Storm przy użyciu programu Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). Bity obejmują szablony przykład topologii Storm, które możesz nawiązać połączenie bazy danych, takie jak bazy danych Azure rozwiązania Cosmos i bazy danych SQL.
 
 ## <a name="visual-studio-and-the-net-sdk"></a>Program Visual Studio i zestawu .NET SDK 
 
@@ -56,8 +56,8 @@ Visual Studio przy użyciu zestawu .NET SDK służy do zarządzania klastrami i 
 
 Przykłady zadania, które można wykonać przy użyciu zestawu .NET SDK w programie Visual Studio:
 * [Tworzenie klastrów i pracy w usłudze HDInsight z poziomu aplikacji .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Uruchamianie zapytań Hive przy użyciu zestawu .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [C# zdefiniowane przez użytkownika funkcji za pomocą technologii Hive i Pig przesyłania strumieniowego na platformie Hadoop](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Uruchamianie zapytań Hive przy użyciu zestawu .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [C# zdefiniowane przez użytkownika funkcji za pomocą technologii Hive i Pig przesyłania strumieniowego na platformie Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 > Porada Jeśli korzystasz z rozwiązań .NET z klastrami HDInsight opartych na systemie Windows, jest odpowiedni moment, aby planowania migracji do opartych na systemie Linux klastrów. Aby uzyskać więcej informacji, zobacz [migracji .NET rozwiązania dla systemu Windows usługi HDInsight w usłudze HDInsight opartych na systemie Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
@@ -68,15 +68,15 @@ Zarówno [Intellij IDEA](https://www.jetbrains.com/idea/download) i [Eclipse IDE
 * Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
 Te artykuły Pokaż jak: 
-* Intellij IDEA: [aplikacji Spark Utwórz za pomocą narzędzi Azure dla wtyczkę Intellij i Scala zestawu SDK.](hdinsight-apache-spark-intellij-tool-plugin.md)
-* Zaćmienie-IDE lub Scala IDE dla programu Eclipse: [Spark tworzenia aplikacji i zestawu narzędzi platformy Azure dla programu Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) 
+* Intellij IDEA: [aplikacji Spark Utwórz za pomocą narzędzi Azure dla wtyczkę Intellij i Scala zestawu SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* Zaćmienie-IDE lub Scala IDE dla programu Eclipse: [Spark tworzenia aplikacji i zestawu narzędzi platformy Azure dla programu Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Notesów na Spark dla analityków danych 
 Klastry platformy Apache Spark w usłudze HDInsight obejmują notesów Zeppelin i jądra, które mogą być używane z notesów Jupyter. 
 
-* [Dowiedz się, jak używać jądra na klastry Spark z notesów Jupyter do testowania aplikacji Spark](hdinsight-apache-spark-zeppelin-notebook.md)
-* [Dowiedz się, jak korzystanie z notesów Zeppelin w klastrze Spark do uruchomienia zadań Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md) 
+* [Dowiedz się, jak używać jądra na klastry Spark z notesów Jupyter do testowania aplikacji Spark](spark/apache-spark-zeppelin-notebook.md)
+* [Dowiedz się, jak korzystanie z notesów Zeppelin w klastrze Spark do uruchomienia zadań Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Uruchamianie narzędzi opartych na systemie Linux i technologii w systemie Windows

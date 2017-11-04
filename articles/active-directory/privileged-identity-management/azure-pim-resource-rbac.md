@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM zasobów Azure (wersja zapoznawcza)
 
@@ -43,11 +43,12 @@ Azure AD PIM można zarządzać wbudowane role zasobów Azure, a także niestand
 - Menedżer zabezpieczeń i inne
 
 >[!NOTE]
-Użytkowników lub członków grupy przypisane do ról właściciel lub Administrator dostępu użytkowników i administratorów globalnych, które umożliwiają Zarządzanie subskrypcją w usłudze Azure AD są administratorami zasobów. Administratorzy może Przypisz role, skonfiguruj ustawienia roli, a następnie przejrzyj dostępu do zasobów Azure przy użyciu usługi PIM. Wyświetl listę [wbudowane role zasobów platformy Azure](../role-based-access-built-in-roles.md)
+Użytkowników lub członków grupy przypisane do ról właściciel lub Administrator dostępu użytkowników i administratorów globalnych, które umożliwiają Zarządzanie subskrypcją w usłudze Azure AD są administratorami zasobów. Administratorzy może Przypisz role, skonfiguruj ustawienia roli, a następnie przejrzyj dostępu do zasobów Azure przy użyciu usługi PIM. Wyświetl listę [wbudowane role zasobów Azure](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Zadania
 
 PIM umożliwia wygodne dostęp do aktywowania usługi ról, wyświetlanie oczekujących aktywacji /, oczekujących żądań zatwierdzenia (dla [ról katalogu usługi Azure AD](azure-ad-pim-approval-workflow.md)) i monitoruje oczekuje na Twoją odpowiedź z sekcji zadań menu nawigacji po lewej stronie.
+
 Podczas uzyskiwania dostępu do żadnego z elementów menu zadania z punktu wejścia Przegląd, wynikowy widok zawiera wyniki zarówno usługi Azure AD directory ról i zasobów Azure (wersja zapoznawcza). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Moje role zawierają listę przypisania roli active i kwalifikujących się do r
 
 ## <a name="activate-roles"></a>Uaktywnij role
 
-Aktywacja ról zasobów Azure (wersja zapoznawcza) wprowadza nową funkcjonalność, która umożliwia członkom roli kwalifikujących się do planowania aktywacji dla przyszłych daty/godziny i wybierz czas trwania aktywacji określonym terminie (skonfigurowanych przez administratorów). Dowiedz się więcej o [aktywowanie tutaj ról usługi Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
+Aktywacja ról zasobów Azure (wersja zapoznawcza) wprowadza nową funkcjonalność, która umożliwia członkom roli kwalifikujących się do planowania aktywacji dla przyszłych daty/godziny i wybierz czas trwania aktywacji określonym terminie (skonfigurowanych przez administratorów). Dowiedz się więcej o [Aktywacja usługi Azure AD ról tutaj](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

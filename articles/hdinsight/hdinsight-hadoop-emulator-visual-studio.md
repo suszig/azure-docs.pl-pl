@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Użyj usługi Azure Data Lake tools dla programu Visual Studio z piaskownicy Hortonworks
 
@@ -29,7 +29,7 @@ Przy użyciu izolowanego Hortonworks umożliwia pracę z platformą Hadoop lokal
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Piaskownica Hortonworks działający na maszynie wirtualnej na środowiska deweloperskiego. Ten dokument został zapisany i przetestowana piaskownicy uruchomionych w Oracle VirtualBox. Aby uzyskać informacje na temat konfigurowania piaskownicy, zobacz [wprowadzenie Hortonworks piaskownicy.](hdinsight-hadoop-emulator-get-started.md) dokument.
+* Piaskownica Hortonworks działający na maszynie wirtualnej na środowiska deweloperskiego. Ten dokument został zapisany i przetestowana piaskownicy uruchomionych w Oracle VirtualBox. Aby uzyskać informacje na temat konfigurowania piaskownicy, zobacz [wprowadzenie Hortonworks piaskownicy.](hadoop/apache-hadoop-emulator-get-started.md) dokument.
 
 * Visual Studio 2013, Visual Studio 2015 lub Visual Studio 2017 (dowolna wersja).
 
@@ -39,7 +39,7 @@ Przy użyciu izolowanego Hortonworks umożliwia pracę z platformą Hadoop lokal
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Konfigurowanie haseł piaskownicy
 
-Upewnij się, że piaskownicy Hortonworks jest uruchomiona. Następnie postępuj zgodnie z instrukcjami [wprowadzenie w piaskownicy Hortonworks](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentu. Te kroki skonfigurować hasło SSH `root` konto i Ambari `admin` konta. Te hasła są używane, gdy połączysz się piaskownicy w programie Visual Studio.
+Upewnij się, że piaskownicy Hortonworks jest uruchomiona. Następnie postępuj zgodnie z instrukcjami [wprowadzenie w piaskownicy Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentu. Te kroki skonfigurować hasło SSH `root` konto i Ambari `admin` konta. Te hasła są używane, gdy połączysz się piaskownicy w programie Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Połączenie narzędzi do piaskownicy
 

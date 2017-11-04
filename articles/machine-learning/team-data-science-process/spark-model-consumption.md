@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacjonalizuj modele uczenia wbudowane Spark maszyny
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ Jądro PySpark zawiera kilka wstępnie zdefiniowanych "poleceń magicznych", kt�
 * **%% sql -o<variable name>** 
 * Wykonuje zapytanie Hive względem element sqlContext. Jeśli parametr -o zostanie przekazany, wynik kwerendy jest utrwalona w %% lokalny kontekst Python jako Pandas dataframe.
 
-Dla więcej informacji na temat jądra notesów Jupyter i wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Dla więcej informacji na temat jądra notesów Jupyter i wstępnie zdefiniowane "magics" który zapewniają, zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Pozyskiwania danych i Utwórz ramkę, oczyszczony danych
 Ta sekcja zawiera kod szereg zadań wymaganych do pozyskiwania danych do oceny. Odczyt w próbce dołączonego do 0,1% taksówki podróży i taryfy pliku (przechowywane jako plik .tsv), format danych, a następnie tworzy ramkę Wyczyść dane.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Korzystanie z modeli Spark przy użyciu interfejsu sieci web
-Platforma Spark zapewnia mechanizm zdalnie przesłania zadania wsadowe lub interakcyjnych zapytań przy użyciu interfejsu REST z składnik o nazwie Livy. Livy jest domyślnie włączone w klastrze Spark w usłudze HDInsight. Aby uzyskać więcej informacji o Livy, zobacz: [Spark przesyłania zadania zdalnie przy użyciu programu Livy](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Platforma Spark zapewnia mechanizm zdalnie przesłania zadania wsadowe lub interakcyjnych zapytań przy użyciu interfejsu REST z składnik o nazwie Livy. Livy jest domyślnie włączone w klastrze Spark w usłudze HDInsight. Aby uzyskać więcej informacji o Livy, zobacz: [Spark przesyłania zadania zdalnie przy użyciu programu Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Można użyć programu Livy zdalnie przesłać zadanie wsadowe wyniki pliku, który jest przechowywany w obiekcie blob Azure, a następnie zapisuje wyniki do innego obiektu blob. Aby to zrobić, możesz przekazać skrypt w języku Python z  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) do obiektu blob klastra Spark. Można użyć narzędzia, takiego jak **Eksploratora usługi Microsoft Azure Storage** lub **AzCopy** do Skopiuj skrypt do obiektu blob klastra. W tym przypadku możemy przekazać skrypt ***wasb:///example/python/ConsumeGBNYCReg.py***.   

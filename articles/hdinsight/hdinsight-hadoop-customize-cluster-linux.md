@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7c8c10f96a742092bb7b8453698d498707b0b2c2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Dostosowywanie klastrów usługi HDInsight opartej na systemie Linux przy użyciu akcji skryptu
 
@@ -40,7 +40,7 @@ Jeśli korzystasz z klastra usługi HDInsight przyłączonych do domeny, istniej
 * **NARZĘDZIA AMBARI. Uruchom\_niestandardowy\_polecenia**: rola administratora Ambari domyślnie ma to uprawnienie.
 * **KLASTER. Uruchom\_niestandardowy\_polecenia**: zarówno administratora klastra usługi HDInsight i administratora Ambari to uprawnienie mają domyślnie.
 
-Aby uzyskać więcej informacji na temat pracy z uprawnieniami przyłączonych do domeny usługi HDInsight, zobacz [zarządzania klastrami HDInsight przyłączonych do domeny](hdinsight-domain-joined-manage.md).
+Aby uzyskać więcej informacji na temat pracy z uprawnieniami przyłączonych do domeny usługi HDInsight, zobacz [zarządzania klastrami HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="access-control"></a>Kontrola dostępu
 

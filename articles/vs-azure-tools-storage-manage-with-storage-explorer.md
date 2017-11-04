@@ -3,23 +3,22 @@ title: Wprowadzenie do programu Storage Explorer (wersja zapoznawcza) | Microsof
 description: "Zarządzanie zasobami usługi Azure Storage za pomocą programu Storage Explorer (wersja zapoznawcza)"
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.date: 07/17/2017
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Wprowadzenie do programu Storage Explorer (wersja zapoznawcza)
 ## <a name="overview"></a>Omówienie
@@ -43,6 +42,7 @@ Ponadto można pracować z kontami magazynu na globalnej i krajowej platformie A
 * [Dołączanie do magazynu zewnętrznego](#attach-or-detach-an-external-storage-account): zarządzanie zasobami magazynu należącymi do innej subskrypcji platformy Azure lub w innych chmurach krajowej platformy Azure przy użyciu nazwy, klucza i punktów końcowych konta magazynu.
 * [Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego](#attach-storage-account-using-sas): zarządzanie zasobami magazynu należącymi do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
 * [Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego](#attach-service-using-sas): zarządzanie określoną usługą magazynu (kontenerem obiektów blob, kolejką lub tabelą) należącą do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
+* [Połącz się z kontem bazy danych rozwiązania Cosmos Azure przy użyciu ciągu połączenia](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Zarządzanie DB rozwiązania Cosmos konta przy użyciu ciągu połączenia.
 
 ## <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
 > [!NOTE]
@@ -68,7 +68,7 @@ Ponadto można pracować z kontami magazynu na globalnej i krajowej platformie A
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Łączenie z subskrypcją usługi Azure Stack
 
-Aby uzyskać informacje dotyczące łączenia z subskrypcją usługi Azure Stack, zobacz [Connect Storage Explorer to an Azure Stack subscription (Łączenie programu Storage Explorer z subskrypcją usługi Azure Stack)](azure-stack/azure-stack-storage-connect-se.md).
+Aby uzyskać informacje dotyczące łączenia z subskrypcją usługi Azure Stack, zobacz [Connect Storage Explorer to an Azure Stack subscription (Łączenie programu Storage Explorer z subskrypcją usługi Azure Stack)](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Praca z lokalnym magazynem projektowym
 Program Storage Explorer (wersja zapoznawcza) pozwala pracować z magazynem lokalnym przy użyciu emulatora usługi Azure Storage. Takie podejście umożliwia pisanie kodu dla magazynu i testowanie go bez konieczności posiadania konta magazynu wdrożonego na platformie Azure, ponieważ konto magazynu jest emulowane przez emulator usługi Azure Storage.
@@ -156,7 +156,7 @@ Aby dołączyć konto magazynu zewnętrznego, potrzebna jest nazwa konta i klucz
 2. W oknie komunikatu z potwierdzeniem wybierz przycisk **Tak**, aby potwierdzić odłączenie konta magazynu zewnętrznego.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego
-[Sygnatura dostępu współdzielonego](storage/storage-dotnet-shared-access-signature-part-1.md) zapewnia administratorowi subskrypcji platformy Azure możliwość tymczasowego przyznania dostępu do konta magazynu bez konieczności podawania poświadczeń subskrypcji platformy Azure.
+[Sygnatura dostępu współdzielonego](storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia administratorowi subskrypcji platformy Azure możliwość tymczasowego przyznania dostępu do konta magazynu bez konieczności podawania poświadczeń subskrypcji platformy Azure.
 
 Aby zilustrować ten scenariusz, załóżmy, że Użytkownik_A jest administratorem subskrypcji platformy Azure i Użytkownik_A chce zezwolić Użytkownikowi_B na dostęp do konta magazynu przez ograniczony czas z określonymi uprawnieniami:
 
@@ -223,6 +223,17 @@ W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów 
 
     ![Wynik dołączenia do usługi udostępnionej przy użyciu sygnatury dostępu współdzielonego][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Połącz się z kontem bazy danych rozwiązania Cosmos Azure przy użyciu parametrów połączenia
+Oprócz zarządzania kontami bazy danych rozwiązania Cosmos Azure przy użyciu subskrypcji platformy Azure, alternatywny sposób łączenia z bazą danych Azure rozwiązania Cosmos jest Użyj parametrów połączenia. Nawiązywanie połączenia przy użyciu parametrów połączenia, wykonaj następujące kroki.
+
+1. Znajdź **lokalnej i dołączonego** w drzewie po lewej stronie kliknij prawym przyciskiem myszy **kont DB rozwiązania Cosmos Azure**, wybierz **Połącz z bazy danych Azure rozwiązania Cosmos...**
+
+    ![Łączenie do bazy danych Azure rozwiązania Cosmos przez ciąg połączenia][33]
+
+2. Wybierz interfejsu API Azure rozwiązania Cosmos DB, Wklej Twojej **ciąg połączenia**, a następnie kliknij przycisk **OK** do łączenia z konta bazy danych Azure rozwiązania Cosmos. Aby uzyskać informacje na podczas pobierania ciągu połączenia, zobacz [pobrać ciągu połączenia](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Wyszukiwanie kont magazynu
 Jeśli masz długą listę kont magazynu, możesz szybko odnaleźć określone konto magazynu przy użyciu pola wyszukiwania w górnej części okienka po lewej stronie.
 
@@ -232,6 +243,7 @@ Podczas pisania w polu wyszukiwania w okienku po lewej stronie są wyświetlane 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie zasobami usługi Azure Blob Storage przy użyciu programu Storage Explorer (wersja zapoznawcza)](vs-azure-tools-storage-explorer-blobs.md)
+* [Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Podczas pisania w polu wyszukiwania w okienku po lewej stronie są wyświetlane 
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

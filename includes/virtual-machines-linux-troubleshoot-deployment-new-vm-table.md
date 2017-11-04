@@ -1,7 +1,7 @@
-The following table lists the possible upload and capture combinations of Linux generalized and specialized OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+W poniższej tabeli wymieniono możliwości przekazywania i przechwytywania kombinacji Linux uogólniony i specjalizowany obrazów systemu operacyjnego. Kombinacje, które będzie przetwarzać bez żadnych błędów są wskazywane przez Y i tych, które zgłosi błędy są oznaczone N. Przyczyny i rozwiązania różne błędy, zostanie uruchomiona w podane są poniżej tabeli.
 
-| OS | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| System operacyjny | Przekaż specyfikacji. | Przekaż gen. | Przechwyć specyfikacji. | Przechwyć gen. |
 | --- | --- | --- | --- | --- |
-| Linux gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
-| Linux spec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
+| Gen systemu Linux. |N<sup>1</sup> |Tak |N<sup>3</sup> |Tak |
+| Specyfikacja systemu Linux. |Tak |N<sup>2</sup> |Tak |N<sup>4</sup> |
 

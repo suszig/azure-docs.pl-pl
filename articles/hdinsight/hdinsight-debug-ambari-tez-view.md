@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Debugowanie aplikacji Tez zadania w usłudze HDInsight przy użyciu widoków Ambari
 
@@ -30,7 +30,7 @@ Interfejs użytkownika sieci Web Ambari HDInsight zawiera widok Tez, który moż
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster usługi HDInsight opartej na systemie Linux. Aby uzyskać instrukcje dotyczące tworzenia klastra, zobacz [rozpocząć korzystanie z usługi HDInsight opartej na systemie Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Klaster usługi HDInsight opartej na systemie Linux. Aby uzyskać instrukcje dotyczące tworzenia klastra, zobacz [rozpocząć korzystanie z usługi HDInsight opartej na systemie Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nowoczesna przeglądarka sieci Web, obsługująca język HTML5.
 
 ## <a name="understanding-tez"></a>Opis aplikacji Tez
@@ -106,7 +106,7 @@ Uruchamianie zapytań programu Hive, która używa Tez, wykonaj następujące kr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy znasz sposobu korzystania z widoku aplikacji Tez, Dowiedz się więcej o [przy użyciu Hive w usłudze HDInsight](hdinsight-use-hive.md).
+Teraz, kiedy znasz sposobu korzystania z widoku aplikacji Tez, Dowiedz się więcej o [przy użyciu Hive w usłudze HDInsight](hadoop/hdinsight-use-hive.md).
 
 Aby uzyskać szczegółowe informacje techniczne na temat aplikacji Tez, zobacz [Tez strony o Hortonworks](http://hortonworks.com/hadoop/tez/).
 

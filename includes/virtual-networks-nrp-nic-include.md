@@ -1,32 +1,32 @@
-## <a name="nic"></a>NIC
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+## <a name="nic"></a>KARTA SIECIOWA
+Karta sieciowa zasobu interfejsu sieciowego zapewnia łączność sieciową z istniejącą podsieć w zasobie sieci wirtualnej. Mimo że można tworzyć karty Sieciowej jako obiekt autonomiczny, należy do powiązania go z innym obiektem, aby rzeczywiście zapewniają łączność. Karta sieciowa może służyć do nawiązania maszyny Wirtualnej podsieci, publiczny adres IP lub równoważenia obciążenia.  
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **virtualMachine** |VM the NIC is associated with. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |MAC address for the NIC |any value between 4 and 30 |
-| **networkSecurityGroup** |NSG associated to the NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS settings for the NIC |see [PIP](#Public-IP-address) |
+| **maszyny wirtualnej** |Maszyna wirtualna karta sieciowa jest skojarzony. |/Subscriptions/{GUID}/../microsoft.COMPUTE/virtualMachines/vm1 |
+| **macAddress** |Adres MAC karty sieciowej |dowolna wartość od 4 do 30 |
+| **grupy networkSecurityGroup** |Grupy NSG skojarzonej z kartą sieciową |/Subscriptions/{GUID}/../microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |Ustawienia DNS dla karty Sieciowej |zobacz [PIP](#Public-IP-address) |
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Karty sieciowej lub karty Sieciowej, reprezentuje interfejs sieciowy, który może być skojarzony z maszyną wirtualną (VM). Maszyna wirtualna może mieć jeden lub więcej kart sieciowych.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![Karty Sieciowej na jednej maszynie Wirtualnej](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### <a name="ip-configurations"></a>Konfiguracje adresów IP
+Karty sieciowe mają obiektu podrzędnego o nazwie **Ipconfiguration** zawierającą następujące właściwości:
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **subnet** |Subnet the NIC is onnected to. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP address for the NIC in the subnet |10.0.0.8 |
-| **privateIPAllocationMethod** |IP allocation method |Dynamic or Static |
-| **enableIPForwarding** |Whether the NIC can be used for routing |true or false |
-| **primary** |Whether the NIC is the primary NIC for the VM |true or false |
-| **publicIPAddress** |PIP associated with the NIC |see [DNS Settings](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Back end address pools the NIC is associated with | |
-| **loadBalancerInboundNatRules** |Inbound load balancer NAT rules the NIC is associated with | |
+| **podsieci** |Podsieć karty Sieciowej jest onnected do. |/Subscriptions/{GUID}/../microsoft.Network/virtualNetworks/myvnet1/Subnets/mysub1 |
+| **elementu privateIPAddress** |Adres IP dla karty Sieciowej w podsieci |10.0.0.8 |
+| **privateIPAllocationMethod** |Metoda alokacji IP |Dynamiczne lub statyczne |
+| **enableIPForwarding** |Określa, czy karta sieciowa może służyć do routingu |wartość PRAWDA lub FAŁSZ |
+| **podstawowy** |Określa, czy karta sieciowa jest podstawowym karty Sieciowej dla maszyny Wirtualnej |wartość PRAWDA lub FAŁSZ |
+| **publicznego adresu IP** |PIP skojarzona z kartą Sieciową |zobacz [ustawienia DNS](#DNS-settings) |
+| **Loadbalancerbackendaddresspool** |Pule adresów zakończenia karty interfejsu Sieciowego jest skojarzony z kopii | |
+| **Dodatkowe** |Liczba przychodzących reguł NAT modułu równoważenia obciążenia, karta sieciowa jest skojarzony z | |
 
-Sample public IP address in JSON format:
+Przykładowe publicznego adresu IP w formacie JSON:
 
     {
         "name": "lb-nic1-be",
@@ -72,6 +72,6 @@ Sample public IP address in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+### <a name="additional-resources"></a>Dodatkowe zasoby
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) dla kart sieciowych.
 

@@ -6,19 +6,17 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Python
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL za pomocą języka [Python](https://python.org). Demonstruje on także, jak używać instrukcji języka SQL na potrzeby wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych na platformach macOS, Ubuntu Linux i Windows. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Python, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
@@ -63,8 +61,8 @@ Ten temat zawiera łącznie cztery przykłady kodu, z których każdy wykonuje k
 
 - W swoim ulubionym edytorze tekstów utwórz nowy plik.
 - Skopiuj i wklej jeden z przykładów kodu w poniższych sekcjach do pliku tekstowego. Zastąp parametry **host**, **dbname**, **user** i **password** wartościami, które zostały określone podczas tworzenia serwera i bazy danych.
-- Zapisz plik z rozszerzeniem py (na przykład postgres.py) w folderze projektu. Jeśli używasz systemu operacyjnego Windows, upewnij się, że wybrano kodowanie UTF-8 podczas zapisywania pliku. 
-- Uruchom wiersz polecenia lub powłokę Bash, a następnie zmień katalog na folder projektu, na przykład `cd postgres`.
+- Zapisz plik z rozszerzeniem py (na przykład postgres.py) w folderze projektu. Jeśli korzystasz z systemu Windows, należy wybrać podczas zapisywania pliku kodowania UTF-8. 
+- Uruchom powłokę wiersza polecenia, Terminal lub Bash, a następnie zmień katalog na folder projektu, na przykład `cd postgres`.
 -  Aby uruchomić kod, wpisz polecenie Python, a po nim nazwę pliku, na przykład `Python postgres.py`.
 
 > [!NOTE]
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
-

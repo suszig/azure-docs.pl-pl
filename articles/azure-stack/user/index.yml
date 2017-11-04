@@ -4,7 +4,7 @@ title: Dokumentacja użytkownika usługi Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Dokumentacja usługi Azure Stack — samouczki i dokumentacja interfejsu API
-  description: 'Dowiedz się, jak używać usługi Azure Stack w wersji Preview w celu udostępniania usług platformy Azure przy użyciu centrum danych. Informacje o funkcjach udostępnianych przy użyciu środowiska weryfikacji koncepcji oraz demonstracja działania tych funkcji.'
+  description: 'Dowiedz się, jak używać usługi Azure stosu i jak tworzyć aplikacje dla stosu Azure.'
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Usługa Azure Stack to platforma chmury hybrydowej, która umożliwia korzystanie z usług platformy Azure z centrum danych Twojej firmy lub dostawcy usługi. Jako deweloper możesz kompilować aplikacje w usłudze Azure Stack. Następnie możesz wdrożyć je w usłudze Azure Stack lub na platformie Azure. Możesz również kompilować prawdziwie hybrydowe aplikacje, które wykorzystują łączność między chmurą usługi Azure Stack i platformą Azure.  Dowiedz się, jak tworzyć zasoby i wdrażać aplikacje, zapoznając się z naszymi przewodnikami Szybki start i samouczkami.'
+  description: 'Usługa Azure Stack to platforma chmury hybrydowej, która umożliwia korzystanie z usług platformy Azure z centrum danych Twojej firmy lub dostawcy usługi. Jako deweloper możesz kompilować aplikacje w usłudze Azure Stack. Następnie możesz wdrożyć je w usłudze Azure Stack lub na platformie Azure. Możesz również kompilować prawdziwie hybrydowe aplikacje, które wykorzystują łączność między chmurą usługi Azure Stack i platformą Azure. Dowiedz się, jak tworzyć zasoby i wdrażać aplikacje, zapoznając się z naszymi przewodnikami Szybki start i samouczkami.<br/><br/>Jeśli operator stosu Azure zarządza infrastrukturę, która oferuje usługi, zobacz nasze <a href="/azure/azure-stack/">dokumentacji operator</a>.'
 sections:
-  - title: Szybki start
+  - title: 5-minutowe przewodniki Szybki start
     items:
       - type: paragraph
         text: 'Dowiedz się, jak wdrożyć maszynę wirtualną z systemem Windows w usłudze Azure Stack:'
@@ -56,7 +56,7 @@ sections:
   - title: Samouczki krok po kroku
     items:
       - type: paragraph
-        text: 'Wdrażanie aplikacji na platformie Azure i w usłudze Azure Stack:'
+        text: Wdrażanie aplikacji na platformie Azure i w stosu Azure.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Wiersz polecenia
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Stos Azure CLI</a></p>

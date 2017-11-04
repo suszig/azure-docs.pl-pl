@@ -1,11 +1,11 @@
 ---
-title: "Uwierzytelniania za pomocą rejestru kontenera platformy Azure | Dokumentacja firmy Microsoft"
-description: "Jak zalogować się do rejestru kontenera platformy Azure przy użyciu nazwy głównej usługi Azure Active Directory lub konto administratora"
+title: "Uwierzytelniania za pomocą rejestru kontenera platformy Azure"
+description: "Opcje uwierzytelniania dla rejestru kontenera platformy Azure, w tym usługi Azure Active Directory usługi podmiotów bezpośrednio i rejestru do logowania."
 services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: cristyg
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417
@@ -14,21 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7d2ae0e9b1f7850332d151d78a4a5fdb013777
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Uwierzytelniania za pomocą prywatnego rejestru kontenera Docker
-Aby pracować z kontenera obrazów w rejestrze kontenera platformy Azure, możesz Zaloguj się za pomocą `docker login` polecenia. Możesz zalogować się przy użyciu  **[nazwy głównej usługi Azure Active Directory](../active-directory/active-directory-application-objects.md)**  specyficznych rejestru lub **konto administratora**. Ten artykuł zawiera szczegółowe informacje o tych tożsamości.
+
+Istnieje kilka sposobów uwierzytelniania za pomocą rejestru kontenera platformy Azure, z których każdy ma zastosowanie do co najmniej jeden scenariusze użycia rejestru.
+
+Możesz zalogować się w rejestrze bezpośrednio za pomocą [poszczególnych logowania](#individual-login-with-azure-ad), a aplikacje i orchestrators kontener może wykonywać uwierzytelnianie bez nadzoru lub "bezobsługowe" za pomocą usługi Azure Active Directory (Azure AD) [ nazwy głównej usługi](#service-principal).
+
+Rejestru kontenera platformy Azure nie obsługuje nieuwierzytelnione operacje Docker lub dostęp anonimowy. Publiczny obrazów, można użyć [Centrum Docker](https://docs.docker.com/docker-hub/).
+
+## <a name="individual-login-with-azure-ad"></a>Poszczególne Zaloguj się za pomocą usługi Azure AD
+
+Podczas pracy z rejestrem bezpośrednio, takie jak ściąganie obrazów i wypychanie obrazów z deweloperskiej stacji roboczej, Uwierzytelnij się przy użyciu [logowania acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_login) w [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli):
+
+```azurecli
+az acr login --name <acrName>
+```
+
+Podczas logowania przy użyciu `az acr login`, interfejsu wiersza polecenia używa tokenu tworzone podczas wykonania `az login` bezproblemowe uwierzytelnianie sesji z rejestru. Po logujesz się w ten sposób, poświadczenia są buforowane, a kolejne `docker` polecenia nie wymagają nazwy użytkownika i hasła. Jeśli token wygaśnie, można go odświeżyć przy użyciu `az acr login` polecenia ponownie w celu ponownego uwierzytelnienia.
 
 ## <a name="service-principal"></a>Nazwy głównej usługi
 
-Można przypisać nazwy głównej usługi do rejestru, a następnie użyć jej do uwierzytelniania podstawowego Docker. Przy użyciu nazwy głównej usługi jest zalecane w przypadku większości scenariuszy. Podaj identyfikator aplikacji i hasło do głównej usługi `docker login` polecenia, jak pokazano w poniższym przykładzie:
+Można przypisać [nazwy głównej usługi](../active-directory/develop/active-directory-application-objects.md) do rejestru, a usługi lub aplikacji może być używany do uwierzytelniania bezobsługowe. Zezwalaj na nazwy główne usług [dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md) do rejestru, i wiele podmiotów usługi można przypisać do rejestru. Wiele podmiotów usługi umożliwiają definiowanie różnych dostępu dla różnych aplikacji.
+
+Dostępne role są:
+
+  * **Czytnik**: ściągania
+  * **Współautor**: ściągania i wypychania
+  * **Właściciel**: ściągnięcia, wypychania i przypisać role do innych użytkowników
+
+Nazwy główne usług umożliwić bezobsługowe łączność z rejestru w scenariuszach wypychania i ściągania podobne do poniższych:
+
+  * *Czytnik*: wdrożenia kontenera z rejestru na systemy orchestration, w tym Kubernetes DC/OS i Docker Swarm. Można również umieścić z rejestrów kontenera do powiązanych usług platformy Azure takich jak [AKS](../aks/index.yml), [usługi aplikacji](../app-service/index.yml), [partii](../batch/index.md), [sieci szkieletowej usług](/azure/service-fabric/), i inne osoby.
+
+  * *Współautor*: ciągłej integracji i wdrażania rozwiązań, takich jak Visual Studio Team Services (VSTS) lub Wpięć tworzyć obrazy kontenera i wypychanie ich do rejestru.
+
+> [!TIP]
+> Hasło nazwy głównej usługi można ponownie wygenerować uruchamiając [sp ad az resetowania — poświadczenia](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) polecenia.
+>
+
+Możesz także zalogować się bezpośrednio z nazwy głównej usługi. Podaj identyfikator aplikacji i hasło do głównej usługi `docker login` polecenia:
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -36,35 +69,37 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Po zalogowaniu, Docker buforuje poświadczeń, więc nie trzeba pamiętać identyfikator aplikacji.
 
-> [!TIP]
-> Jeśli chcesz, możesz ponownie wygenerować hasła nazwy głównej usługi, uruchamiając `az ad sp reset-credentials` polecenia.
->
-
-Zezwalaj na nazwy główne usług [dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md) rejestru. Dostępne role są:
-  * Czytnik (dostęp tylko ściągania).
-  * Współautor (ściągania i wypychania).
-  * Właściciel (ściągania, wypychania i przypisz role do innych użytkowników).
-
-Dostęp anonimowy nie jest dostępna w rejestrach kontenera platformy Azure. Obrazy publiczne można użyć [Centrum Docker](https://docs.docker.com/docker-hub/).
-
-Wiele podmiotów usługi można przypisać do rejestru, w którym można zdefiniować dostęp dla różnych użytkowników lub aplikacji. Nazwy główne usług również umożliwić "bezobsługowe" łączność z rejestru developer lub DevOps scenariuszy, takich jak następujące przykłady:
-
-  * Kontener wdrożenia z rejestru systemy orchestration, w tym DC/OS, Docker Swarm i Kubernetes. Można również pobierać kontenera rejestrów powiązane usługi Azure takich jak [usługi kontenera](../container-service/index.yml), [usługi aplikacji](../app-service/index.yml), [partii](../batch/index.md), [sieci szkieletowej usług](/azure/service-fabric/)i inne.
-
-  * Ciągłej integracji i wdrażania rozwiązań (np. programu Visual Studio Team Services lub Wpięć) tworzące kontener obrazów i wypychanie ich do rejestru.
-
+W zależności od wersji Docker został zainstalowany, może być wyświetlone ostrzeżenie rekomendowania stosowania `--password-stdin` parametru. Gdy wykorzystanie przez niego wykracza poza zakres tego artykułu, zaleca się po tym najlepszym rozwiązaniem. Aby uzyskać więcej informacji, zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) poleceń.
 
 ## <a name="admin-account"></a>Konto administratora
-Z każdym rejestru utworzone konto administratora pobiera tworzone automatycznie. Domyślnie konto jest wyłączone, ale można ją włączyć i zarządzać poświadczenia, na przykład za pomocą [portal](container-registry-get-started-portal.md#create-a-container-registry) lub przy użyciu [poleceń Azure CLI 2.0](container-registry-get-started-azure-cli.md#create-a-container-registry). Każde konto administratora jest udostępniane z dwóch haseł, które może być generowany ponownie. Dwa hasła umożliwiają zachowanie połączenia w rejestrze za pomocą jednego hasła podczas ponownego generowania inne hasło. Jeśli konto jest włączone, można przekazać nazwę użytkownika i hasło albo `docker login` polecenia dla uwierzytelniania podstawowego w rejestrze. Na przykład:
+
+Rejestr każdego kontenera zawiera konto użytkownika administratora jest domyślnie wyłączona. Można włączyć dla użytkownika administracyjnego i zarządzać jego poświadczeń w [portalu Azure](container-registry-get-started-portal.md#create-a-container-registry), lub za pomocą wiersza polecenia platformy Azure.
+
+Konto administratora jest udostępniane z dwóch haseł, które może być generowany ponownie. Dwa hasła umożliwiają zachowanie połączenia w rejestrze za pomocą jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, można przekazać nazwę użytkownika i hasło albo `docker login` polecenia dla uwierzytelniania podstawowego w rejestrze. Na przykład:
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
+Ponownie Docker zaleca użycie `--password-stdin` parametru zamiast dostarczenie go w wierszu polecenia, aby zwiększyć bezpieczeństwo. Można również określić tylko nazwy użytkownika, bez `-p`, a następnie wprowadź hasło po wyświetleniu monitu.
+
+Aby włączyć dla użytkownika administracyjnego dla istniejącego rejestru, można użyć `--admin-enabled` parametr [aktualizacji acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_update) w wiersza polecenia platformy Azure:
+
+```azurecli
+az acr update -n <acrName> --admin-enabled true
+```
+
+Można włączyć dla użytkownika administracyjnego, w portalu Azure, przechodząc rejestru, wybierając **klucze dostępu** w obszarze **ustawienia**, następnie **włączyć** w obszarze **administratora Użytkownik**.
+
+![Włącz administrator interfejsu użytkownika w portalu Azure][auth-portal-01]
+
 > [!IMPORTANT]
-> Konto administratora jest przeznaczony dla jednego użytkownika do dostępu do rejestru, głównie do celów testowych. Nie zaleca się udostępniania poświadczeń konta administratora wśród innych użytkowników. Wszyscy użytkownicy są wyświetlane jako pojedynczego użytkownika w rejestrze. Zmiana lub wyłączenie tego konta spowoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy korzystają z poświadczeń.
+> Konto administratora jest przeznaczony dla jednego użytkownika do dostępu do rejestru, głównie do celów testowych. Nie zaleca się udostępniania wielu użytkownikom za pomocą poświadczeń konta administratora. Wszyscy użytkownicy uwierzytelniania przy użyciu konta administratora są wyświetlane jako pojedynczego użytkownika w rejestrze. Zmiana lub wyłączenie tego konta spowoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy użyć jego poświadczeń.
 >
 
-### <a name="next-steps"></a>Następne kroki
-* [Wypychanie pierwszy obraz przy użyciu interfejsu wiersza polecenia Docker](container-registry-get-started-docker-cli.md).
-* Aby uzyskać więcej informacji o uwierzytelnianiu w wersji zapoznawczej rejestru kontenera, zobacz [wpis w blogu](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
+## <a name="next-steps"></a>Następne kroki
+
+* [Wypychanie pierwszy obraz przy użyciu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md)
+
+<!-- IMAGES -->
+[auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png

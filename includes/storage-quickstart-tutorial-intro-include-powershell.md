@@ -1,30 +1,30 @@
-## <a name="sign-in-to-azure"></a>Sign in to Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Login-AzureRmAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example will use **eastus**. Store this in a variable and use the variable so you can change it in one place.
+Jeśli nie znasz lokalizacji, która ma być używany, można wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znaleźć ten, który ma być używany. W tym przykładzie będzie używać **eastus**. Zapisać w zmiennej i użyj zmiennej, dzięki czemu można go zmieniać w jednym miejscu.
 
 ```powershell
 Get-AzureRmLocation | select Location 
 $location = "eastus"
 ```
 
-## <a name="create-a-resource-group"></a>Create a resource group
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called *mystorageaccount* with locally redundant storage and blob encryption enabled.
+Tworzenie konta standardowe magazynu ogólnego przeznaczenia przy użyciu replikacji LRS [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), następnie pobrać kontekst konta magazynu, który definiuje konto magazynu do użycia. Działając na konto magazynu, możesz odwoływać się kontekstu zamiast wielokrotnie podawania poświadczeń. W tym przykładzie tworzy konto magazynu o nazwie *mojekontomagazynu* z lokalnie nadmiarowego magazynu i obiektów blob szyfrowanie włączone.
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `

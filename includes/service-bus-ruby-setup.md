@@ -1,22 +1,22 @@
-## <a name="create-a-ruby-application"></a>Create a Ruby application
-For instructions, see [Create a Ruby Application on Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
+Aby uzyskać instrukcje, zobacz [tworzenie aplikacji Ruby na platformie Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configure Your application to Use Service Bus
-To use Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
+## <a name="configure-your-application-to-use-service-bus"></a>Skonfigurować aplikację do użycia usługi Service Bus
+Aby korzystać z usługi Service Bus, pobranie i użycie pakiet Azure Ruby, który zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Use RubyGems to obtain the package
-1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type "gem install azure" in the command window to install the gem and dependencies.
+### <a name="use-rubygems-to-obtain-the-package"></a>Umożliwia uzyskanie pakietu RubyGems
+1. Użyj interfejsu wiersza polecenia, takich jak **PowerShell** (system Windows), **terminali** (Mac), lub **Bash** (Unix).
+2. Wpisz "azure gem instalacji" w oknie wiersza polecenia, aby zainstalować gem i zależności.
 
-### <a name="import-the-package"></a>Import the package
-Using your favorite text editor, add the following to the top of the Ruby file in which you intend to use storage:
+### <a name="import-the-package"></a>Importowanie pakietu
+Za pomocą edytora tekstu, Dodaj następujący element do góry dopisków fonetycznych pliku, w którym mają być używane magazynu:
 
 ```ruby
 require "azure"
 ```
 
-## <a name="set-up-a-service-bus-connection"></a>Set up a Service Bus connection
-Use the following code to set the values of namespace, name of the key, key, signer and host:
+## <a name="set-up-a-service-bus-connection"></a>Skonfiguruj połączenie usługi Service Bus
+Aby ustawić wartości przestrzeni nazw, nazwę klucza, klucz podpisujący i hosta, należy użyć poniższego kodu:
 
 ```ruby
 Azure.configure do |config|
@@ -28,4 +28,4 @@ signer = Azure::ServiceBus::Auth::SharedAccessSigner.new
 sb_host = "https://#{Azure.sb_namespace}.servicebus.windows.net"
 ```
 
-Set the namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
+Ustaw wartość przestrzeni nazw na wartość, którą utworzono zamiast całej adresu URL. Na przykład użyć **"yourexamplenamespace"**, nie "yourexamplenamespace.servicebus.windows.net".

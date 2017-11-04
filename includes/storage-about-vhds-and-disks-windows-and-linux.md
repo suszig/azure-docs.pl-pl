@@ -1,59 +1,59 @@
 
-## <a name="about-vhds"></a>About VHDs
+## <a name="about-vhds"></a>Informacje o wirtualnych dyskach twardych
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/common/storage-premium-storage.md).
+Wirtualne dyski twarde używane na platformie Azure to pliki vhd przechowywane jako stronicowe obiekty blob na koncie magazynu w warstwie Standardowa lub Premium na platformie Azure. Aby uzyskać informacje na temat stronicowych obiektów blob, zobacz [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Omówienie blokowych i stronicowych obiektów blob). Aby uzyskać szczegółowe informacje na temat magazynu w warstwie Premium, zobacz [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Magazyn w warstwie Premium o wysokiej wydajności i maszyny wirtualne platformy Azure).
 
-Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
+Platforma Azure obsługuje stały format VHD dysków. W przypadku stałego formatu dysk logiczny jest zapisywany w pliku w sposób liniowy w taki sposób, że przesunięcie X na dysku jest zapisywane w obiekcie blob z przesunięciem X. Niewielka stopka na końcu obiektu blob opisuje właściwości wirtualnego dysku twardego. Często zdarza się, że stały format prowadzi do marnotrawienia miejsca, ponieważ większość dysków zawiera duże nieużywane zakresy. Platforma Azure jednak przechowuje pliki vhd w formacie rozrzedzonym, więc jednocześnie uzyskuje się zalety dysków stałych i dynamicznych. Aby uzyskać więcej szczegółów, zobacz [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx) (Pierwsze kroki z wirtualnymi dyskami twardymi).
 
-All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
+Wszystkie pliki vhd na platformie Azure, których chcesz użyć jako źródła do utworzenia dysków lub obrazów, są tylko do odczytu. Gdy tworzysz dysk lub obraz, platforma Azure tworzy kopie plików vhd. Te kopie mogą być tylko do odczytu lub do odczytu i zapisu, zależnie od tego, jak korzystasz z wirtualnego dysku twardego.
 
-When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
+Gdy tworzysz maszynę wirtualną na podstawie obrazu, platforma Azure tworzy dysk dla maszyny wirtualnej, który jest kopią źródłowego pliku vhd. Platforma Azure umieszcza dzierżawę na każdym pliku vhd używanym do utworzenia obrazu, dysku systemu operacyjnego lub dysku danych, aby chronić ten plik przed przypadkowym usunięciem.
 
-Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order. First you detach the disk from the virtual machine, then delete the disk, and then delete the .vhd file.
+Zanim będzie możliwe usunięcie źródłowego pliku vhd, trzeba będzie usunąć tę dzierżawę, usuwając dysk lub obraz. Aby usunąć plik vhd, który jest używany przez maszynę wirtualną jako dysk systemu operacyjnego, można jednocześnie usunąć maszynę wirtualną, dysk systemu operacyjnego i źródłowy plik vhd, usuwając maszynę wirtualną i wszystkie skojarzone dyski. Usunięcie pliku vhd będącego źródłem dysku danych wymaga jednak wykonania kilku kroków w ustalonej kolejności. Najpierw należy odłączyć dysk od maszyny wirtualnej, później usunąć dysk, a następnie usunąć plik vhd.
 
 > [!WARNING]
-> If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
+> Jeśli usuniesz źródłowy plik vhd z magazynu albo usuniesz swoje konto magazynu, firma Microsoft nie będzie mogła odzyskać usuniętych danych.
 > 
 
-## <a name="types-of-disks"></a>Types of disks 
+## <a name="types-of-disks"></a>Typy dysków 
 
-Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
+Dyski platformy Azure zaprojektowano tak, aby zapewniały 99,999% dostępności. Dysku systemu Azure zostały spójnie dostarczone trwałości korporacyjnej, z branży, ZERO % Annualized częstość niepowodzeń.
 
-There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
+Do wyboru podczas tworzenia dysków są dwie warstwy wydajności — magazyny Standard Storage i Premium Storage. Ponadto istnieją dwa typy dysków — niezarządzane i zarządzane — mogące występować w obu warstwach wydajności.
 
 
-### <a name="standard-storage"></a>Standard storage 
+### <a name="standard-storage"></a>Standard Storage 
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
+Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne, chociaż wciąż wydajne rozwiązanie. Magazyn Standard Storage może być replikowany lokalnie w jednym centrum danych albo być objęty nadmiarowością geograficzną z głównym i dodatkowym centrum danych. Aby uzyskać więcej informacji na temat replikowania magazynu, zobacz [Replikacja usługi Azure Storage](../articles/storage/common/storage-redundancy.md). 
 
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/common/storage-standard-storage.md).
+Aby uzyskać więcej informacji na temat korzystania z magazynu Standard Storage z dyskami maszyn wirtualnych, zobacz [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md) (Magazyn Standard Storage i dyski).
 
-### <a name="premium-storage"></a>Premium storage 
+### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/common/storage-premium-storage.md).
+Magazyn Premium Storage bazuje na dyskach półprzewodnikowych (SSD) i oferuje dyski o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają obciążenia intensywnie korzystające z operacji wejścia/wyjścia. Magazyn w warstwie Premium mogą używających DS, DSv2, GS, Ls lub maszynach wirtualnych platformy Azure serii FS. Aby uzyskać więcej informacji, zobacz [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
-### <a name="unmanaged-disks"></a>Unmanaged disks
+### <a name="unmanaged-disks"></a>Dyski niezarządzane
 
-Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/common/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
+Dyski niezarządzane to tradycyjny typ dysków używany przez maszyny wirtualne. Za ich pomocą tworzy się własne konto magazynu, które wskazuje się podczas tworzenia dysku. Musisz upewnić się, że nie umieszczasz zbyt wielu dysków na tym samym koncie magazynu, ponieważ możesz przekroczyć [cele skalowalności](../articles/storage/common/storage-scalability-targets.md) konta magazynu (np. 20 000 IOPS), przez co wydajność maszyn wirtualnych będzie ograniczona. Gdy korzystasz z dysków niezarządzanych, musisz opracować sposób zmaksymalizowania użycia jednego lub większej liczby kont magazynu w celu uzyskania najlepszej wydajności maszyn wirtualnych.
 
-### <a name="managed-disks"></a>Managed disks 
+### <a name="managed-disks"></a>Dyski zarządzane 
 
-Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
+W przypadku dysków zarządzanych tworzenie konta magazynu i zarządzanie nim odbywa się automatycznie w tle i nie trzeba martwić się o limity skalowalności konta magazynu. Wystarczy określić rozmiar dysku i warstwę wydajności (Standardowa/Premium), a platforma Azure sama utworzy dysk i będzie nim zarządzać. O używanym magazynie nie trzeba myśleć nawet przy dodawaniu dysków albo skalowaniu maszyny wirtualnej w górę i w dół. 
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Można też zarządzać własnymi obrazami niestandardowymi na jednym koncie magazynu na region platformy Azure i używać ich do tworzenia setek maszyn wirtualnych w tej samej subskrypcji. Aby uzyskać więcej informacji na temat dysków zarządzanych, zobacz [Omówienie usługi Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
+Aby czerpać korzyści z wielu funkcji dysków zarządzanych, zalecamy używanie usługi Azure Managed Disks dla nowych maszyn wirtualnych i przekonwertowanie wcześniej używanych dysków niezarządzanych na dyski zarządzane.
 
-### <a name="disk-comparison"></a>Disk comparison
+### <a name="disk-comparison"></a>Porównanie dysków
 
-The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
+Poniższa tabela zawiera porównanie warstw Premium i Standardowa dla dysków niezarządzanych i zarządzanych, które może być pomocne przy wybieraniu rozwiązania do zastosowania.
 
-|    | Azure Premium Disk | Azure Standard Disk |
+|    | Dysk platformy Azure w warstwie Premium | Dysk platformy Azure w warstwie Standardowa |
 |--- | ------------------ | ------------------- |
-| Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
-| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
-| Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
-| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
-| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+| Typ dysku | Dyski półprzewodnikowe (SSD) | Dyski twarde (HDD)  |
+| Omówienie  | Pamięć dyskowa o wysokiej wydajności i małych opóźnieniach, bazująca na dyskach SSD, przeznaczona dla maszyn wirtualnych uruchamiających obciążenia intensywnie korzystające z operacji wejścia/wyjścia lub hostujących środowisko produkcyjne o znaczeniu krytycznym | Ekonomiczna pamięć dyskowa oparta na dyskach HDD, przeznaczona dla scenariuszy z maszynami wirtualnymi do programowania i testowania |
+| Scenariusz  | Obciążenia produkcyjne i wrażliwe na wydajność | Programowanie i testowanie, zastosowania niekrytyczne <br>Rzadki dostęp |
+| Rozmiar dysku | P4: 32 GB (tylko w przypadku dysków zarządzane)<br>P6: 64 GB (tylko w przypadku dysków zarządzane)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: GB 4095 | Niezarządzane dysków: 1 GB – 4 TB (4095 GB) <br><br>Dyski zarządzane:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: GB 4095| 
+| Maksymalna przepływność na dysk | 250 MB/s | 60 MB/s | 
+| Maksymalna liczba operacji wejścia/wyjścia na dysk | 7500 IOPS | 500 IOPS | 
 

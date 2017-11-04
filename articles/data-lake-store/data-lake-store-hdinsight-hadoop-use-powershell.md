@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Tworzenie klastra usługi HDInsight z usługą Data Lake Store (jako dodatkowej pamięci masowej) przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby utworzyć usługi Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Konfigurowanie uwierzytelniania opartego na rolach dostępu do usługi Data Lake Store
-Każda subskrypcja platformy Azure jest skojarzony z usługą Azure Active Directory. Z tej usługi Azure Active Directory muszą najpierw uwierzytelnić użytkowników i usług, które uzyskują dostęp do zasobów przy użyciu klasycznego portalu Azure lub interfejsu API usługi Azure Resource Manager subskrypcji. Dostęp do usług i subskrypcji platformy Azure przez przypisywanie ich odpowiedniej roli na zasobów platformy Azure.  W przypadku usług nazwy głównej usługi identyfikuje usługi w usłudze Azure Active Directory (AAD). W tej części przedstawiono sposób przyznania usługi aplikacji, takich jak usługa HDInsight, dostęp do zasobów platformy Azure (utworzone wcześniej konto usługi Azure Data Lake Store) przez tworzenie nazwy głównej usługi dla aplikacji i przypisywanie ról w tym za pomocą programu Azure PowerShell.
+Każda subskrypcja platformy Azure jest skojarzony z usługą Azure Active Directory. Z tej usługi Azure Active Directory muszą najpierw uwierzytelnić użytkowników i usług, które uzyskują dostęp do zasobów przy użyciu portalu Azure lub interfejsu API usługi Azure Resource Manager subskrypcji. Dostęp do usług i subskrypcji platformy Azure przez przypisywanie ich odpowiedniej roli na zasobów platformy Azure.  W przypadku usług nazwy głównej usługi identyfikuje usługi w usłudze Azure Active Directory (AAD). W tej części przedstawiono sposób przyznania usługi aplikacji, takich jak usługa HDInsight, dostęp do zasobów platformy Azure (utworzone wcześniej konto usługi Azure Data Lake Store) przez tworzenie nazwy głównej usługi dla aplikacji i przypisywanie ról w tym za pomocą programu Azure PowerShell.
 
 Aby skonfigurować uwierzytelnianie usługi Active Directory dla usługi Azure Data Lake, należy wykonać poniższe zadania.
 

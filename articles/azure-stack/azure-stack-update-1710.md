@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/02/2017
 ms.author: twooley
-ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: a66c7dddab1a2246dd0a9fa3c7533063140d2f01
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Aktualizacja Azure stosu 1710 (kompilacja 20171020.1)
 
@@ -113,6 +113,7 @@ Ta sekcja zawiera po instalacji, znane problemy związane z 20171020.1 kompilacj
 **Sieć**
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
+- Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
  
 ### <a name="field-replaceable-unit-fru-procedures"></a>Pole procedury zamiennych (FRU)
 

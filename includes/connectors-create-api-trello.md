@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Trello](http://trello.com) account 
+### <a name="prerequisites"></a>Wymagania wstępne
+* A [Trello](http://trello.com) konta 
 
-Before you can use your Trello account in a Logic app, you must authorize the Logic app to connect to your Trello account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Zanim użyjesz swojego konta Trello w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem Trello. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
 
-Here are the steps to authorize your Logic app to connect to your Trello account:
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem Trello:
 
-1. To create a connection to Trello, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Trello* in the search box. Select the trigger or action you'll like to use:  
+1. Aby utworzyć połączenie Trello, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *Trello* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. If you haven't created any connections to Trello before, you'll get prompted to provide your Trello credentials. These credentials will be used to authorize your Logic app to connect to, and access your Trello account's data:  
+2. Jeśli nie utworzono żadnych połączeń Trello przed będzie zostanie wyświetlony monit o podanie poświadczeń Trello. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta Trello:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Allow us to connect to Trello:  
+3. Zezwalaj firmie Microsoft w celu nawiązania połączenia Trello:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Provide your Trello user name and password to authorize your Logic app:  
+4. Podaj Trello nazwę użytkownika i hasło, aby zezwolić aplikacji logiki:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+5. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

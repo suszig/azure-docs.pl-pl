@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Hive HDInsight Hadoop nauki wskazówki dotyczące danych przy użyciu na platformie Azure 
 
-Te wskazówki korzystanie z programu Hive z klastrem usługi HDInsight Hadoop do analizy predykcyjnej. One wykonaj kroki opisane w procesie nauki danych zespołu. Omówienie procesu nauki danych zespołu, zobacz [proces nauki danych](overview.md). Aby obejrzeć wprowadzenie do usługi Azure HDInsight, zobacz [wprowadzenie do usługi Azure HDInsight, stos technologiczny Hadoop i klastrów platformy Hadoop](../../hdinsight/hdinsight-hadoop-introduction.md).
+Te wskazówki korzystanie z programu Hive z klastrem usługi HDInsight Hadoop do analizy predykcyjnej. One wykonaj kroki opisane w procesie nauki danych zespołu. Omówienie procesu nauki danych zespołu, zobacz [proces nauki danych](overview.md). Aby obejrzeć wprowadzenie do usługi Azure HDInsight, zobacz [wprowadzenie do usługi Azure HDInsight, stos technologiczny Hadoop i klastrów platformy Hadoop](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 Wskazówki dotyczące nauki dodatkowych danych, których wykonanie procesu analizy danych zespołu są pogrupowane według **platformy** jak używane. Zobacz [wskazówki dotyczące wykonywania procesu nauki danych zespołu](walkthroughs.md) do podziału na pozycje tych przykładów.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: a3d4e5367dd41ce2ade7033cefcc774dcec9c82c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 8f224347f9e37531777cf09c14645a4cd91f9ee1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Środowisko Azure Functions Tools for Visual Studio  
 
@@ -35,11 +35,9 @@ W tym temacie przedstawiono sposób użycia narzędzia funkcji Azure dla program
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Narzędzi funkcji platformy Azure jest uwzględniona w obciążenie Azure programowanie [programu Visual Studio 2017 wersji 15 ustęp 3](https://www.visualstudio.com/vs/), lub jego nowsza wersja. Upewnij się, że uwzględniasz **Azure programowanie** obciążenia w instalacji programu Visual Studio 2017 wersji 15 ustęp 3:
+Narzędzi funkcji platformy Azure jest uwzględniona w obciążenie Azure programowanie [programu Visual Studio 2017 wersji 15.4](https://www.visualstudio.com/vs/), lub jego nowsza wersja. Upewnij się, że uwzględniasz **Azure programowanie** obciążenia w instalacji programu Visual Studio 2017:
 
 ![Instalowanie programu Visual Studio 2017 z obciążeniem Programowanie na platformie Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 Tworzenie i wdrażanie funkcji, należy również:
 

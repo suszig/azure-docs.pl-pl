@@ -1,8 +1,8 @@
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+Następujące ograniczenia mają zastosowanie podczas wykonywania operacji zarządzania przy użyciu usługi Azure Resource Manager tylko.
 
-| Resource | Default Limit |
+| Zasób | Limit domyślny |
 | --- | --- |
-| Storage account management operations (read) |800 per 5 minutes |
-| Storage account management operations (write) |200 per hour |
-| Storage account management operations (list) |100 per 5 minutes |
+| Operacje zarządzania konta magazynu (odczyt) |800 na 5 minut |
+| Operacje zarządzania konta magazynu (Zapisz) |200 na godzinę |
+| Operacje zarządzania konta magazynu (lista) |100 na 5 minut |
 

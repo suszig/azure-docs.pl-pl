@@ -6,22 +6,17 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/29/2017
-
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Kierowanie zdarzeń usługi Blob Storage do niestandardowego internetowego punktu końcowego (wersja zapoznawcza)
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono subskrybowanie zdarzeń usługi Blob Storage i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą interfejsu wiersza polecenia platformy Azure. 
-
-> [!IMPORTANT]
-> Aby móc ukończyć ten samouczek, musisz zarejestrować się na potrzeby zdarzeń usługi Blob Storage w wersji zapoznawczej.  Więcej informacji o programie wersji zapoznawczej można znaleźć [tutaj](storage-blob-event-overview.md#join-the-preview).
 
 Zazwyczaj wysyła się zdarzenia do punktu końcowego, który na nie reaguje, takiego jak element webhook lub funkcja platformy Azure. Aby uprościć przykład w tym artykule, omówimy wysłanie zdarzeń na adres URL, który tylko zbiera komunikaty. Utworzysz ten adres URL przy użyciu narzędzia open source innego producenta o nazwie [RequestBin](https://requestb.in/).
 
@@ -57,7 +52,7 @@ Aby móc użyć usługi Azure Storage, musisz mieć konto magazynu.  Zdarzenia u
 Konto usługi Blob Storage to specjalne konto magazynu służące do przechowywania danych niestrukturalnych w formie obiektów blob w usłudze Azure Storage. Konta usługi Blob Storage są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie używane obecnie funkcje doskonałej trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych lub uzupełnialnych obiektów blob zalecamy używanie kont usługi Blob Storage.
 
 > [!NOTE]
-> W wersji zapoznawczej zdarzenia usługi Blob Storage są dostępne tylko dla kont magazynu w lokalizacji **westcentralus**.
+> Siatka zdarzenie jest obecnie w wersji zapoznawczej i jest dostępna tylko w przypadku kont magazynu w **westcentralus** i **westus2** regionów.
 
 Zamień `<storage_account_name>` na unikatową nazwę konta magazynu oraz `<resource_group_name>` na wcześniej utworzoną grupę zasobów.
 
@@ -145,4 +140,3 @@ Wiesz już, jak tworzyć tematy i subskrypcje zdarzeń. Dowiedz się więcej na 
 
 - [Reagowanie na zdarzenia usługi Blob Storage](storage-blob-event-overview.md)
 - [Event Grid — informacje](../../event-grid/overview.md)
-

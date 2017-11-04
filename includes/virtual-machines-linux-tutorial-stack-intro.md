@@ -1,18 +1,18 @@
-## <a name="create-a-resource-group"></a>Create a resource group
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
+## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). 
 
-The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie *myVM* i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej. Zwróć uwagę na element `publicIpAddress`. Ten adres jest używany na potrzeby uzyskiwania dostępu do maszyny wirtualnej.
 
 ```azurecli-interactive 
 {
@@ -40,24 +40,24 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 
 
-## <a name="open-port-80-for-web-traffic"></a>Open port 80 for web traffic 
+## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-By default, only SSH connections are allowed into Linux VMs deployed in Azure. Because this VM is going to be a web server, you need to open port 80 from the internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
+Domyślnie tylko połączeń SSH mają dostęp do maszyn wirtualnych systemu Linux wdrożonych na platformie Azure. Ponieważ ta maszyna wirtualna ma być serwerem sieci web, należy otworzyć port 80 z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#open-port).  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
-## <a name="ssh-into-your-vm"></a>SSH into your VM
+## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
 
 
-If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip#list) command:
+Jeśli nie znasz już publicznego adresu IP maszyny Wirtualnej, należy uruchomić [az sieci ip publicznego listy](/cli/azure/network/public-ip#list) polecenia:
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Zastąp poprawne publiczny adres IP maszyny wirtualnej. W tym przykładzie adres IP jest *40.68.254.142*.
 
 ```bash
 ssh azureuser@40.68.254.142

@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Tworzenie aplikacji za pomocą narzędzia Draft
       href: kubernetes-draft.md
+    - name: Utrwalanie danych za pomocą usługi Azure Files
+      href: azure-files.md
     - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
       href: kubernetes-dashboard.md
     - name: Tworzenie jednostki usługi

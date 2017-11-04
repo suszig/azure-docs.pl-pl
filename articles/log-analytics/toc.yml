@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Rozwiązanie usługi Alert Management
           href: log-analytics-solution-alert-management.md
+    - name: Zarządzanie
+      items:
+        - name: Zarządzanie kosztami obszaru roboczego
+          href: log-analytics-manage-cost-storage.md
+        - name: Usuwanie obszaru roboczego
+          href: log-analytics-manage-del-workspace.md
     - name: Korzystanie z rozwiązań
       items:
         - name: Omówienie rozwiązań

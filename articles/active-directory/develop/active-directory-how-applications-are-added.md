@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Metody i przyczyny dodawania aplikacji do usługi Azure AD
 Z początkowo puzzling czynności podczas przeglądania listy aplikacji w wystąpieniu usługi Azure Active Directory jest zrozumienie, skąd pochodzą te aplikacje i dlaczego są one dostępne.  W tym artykule zapewni wysokiego poziomu omówienie sposobu znajdują się w katalogu aplikacji i umożliwiają z kontekstem, który pomoże zrozumieć, jak pochodzi aplikacja w katalogu.
@@ -84,8 +84,8 @@ Aplikacje, które Dodaj siebie obejmują:
   * Reguły przekształcania oświadczeń
   * Mapowanie atrybutów (Inicjowanie obsługi użytkowników)
 * Aby uzyskać więcej szczegółowych informacji dotyczących nazwy głównej usługi i zapoznaj się z interfejsu API REST usługi Azure AD Graph dokumentacji referencyjnej obiektów aplikacji.  *Wskazówka*: Dokumentacja interfejsu API Azure AD Graph najbliższym elementem na odwołanie do schematu jest dla usługi Azure AD, która jest obecnie dostępna.  
-  * [Aplikacji](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Nazwy głównej usługi](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Aplikacji](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Nazwy głównej usługi](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Jak aplikacje są dodawane do mojego wystąpienia usługi Azure AD?
 Istnieje wiele sposobów, aplikacji mogą zostać dodane do usługi Azure AD:

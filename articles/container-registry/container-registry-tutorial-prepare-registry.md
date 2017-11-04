@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Przygotowanie rejestru kontenera platformy Azure z replikacją geograficzną
 
@@ -247,10 +247,10 @@ W tym samouczku utworzono rejestru kontenera prywatne i replikacją geograficzn�
 > * Utworzony obraz kontenera Docker ze źródła aplikacji
 > * Wypychana obrazu kontenera do rejestru
 
-Przejście do następnym samouczku, aby dowiedzieć się więcej o wdrażaniu z kontenera do wielu wystąpień usługi Azure App Service, przy użyciu — replikacja geograficzna, do obsługi obrazów lokalnie.
+Przejdź do następnego samouczek, aby dowiedzieć się więcej o wdrażaniu z kontenera do wielu aplikacji sieci Web dla wystąpień kontenerów do obsługi obrazów lokalnie przy użyciu — replikacja geograficzna.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie kontenerów do usługi aplikacji Azure](container-registry-tutorial-deploy-app.md)
+> [Wdrażanie aplikacji sieci web z rejestru kontenera platformy Azure](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

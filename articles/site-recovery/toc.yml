@@ -79,8 +79,6 @@
   items:
     - name: Odzyskiwanie po awarii
       items:
-        - name: Maszyny wirtualne oprogramowania VMware z obsługą wielodostępu do platformy Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Maszyny wirtualne funkcji Hyper-V do platformy Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Serwery fizyczne do platformy Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Uruchamianie trybu failover i powrotu po awarii między lokacjami lokalnymi
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Maszyny wirtualne oprogramowania VMware z obsługą wielodostępu do platformy Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Wydajność i skalowanie
       items:
         - name: Planowanie wydajności na potrzeby replikacji oprogramowania VMware do platformy Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Serwer plików
+          href: file-server-disaster-recovery.md
         - name: Aplikacje internetowe bazujące na usłudze IIS
           href: site-recovery-iis.md
         - name: Citrix XenApp i XenDesktop

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: Wprowadzenie stosu magazynu kluczy Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak magazyn kluczy Azure stosu zarządza kluczy i kluczy tajnych"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Wprowadzenie do magazynu kluczy Azure stosu
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Wymagania wstępne 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Należy zasubskrybować ofertę, która obejmuje usługę Azure Key Vault.  
+* [Środowisko PowerShell jest skonfigurowany do użycia z stosu Azure](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Podstawy usługi Key Vault
+Magazyn kluczy Azure stosu pomaga w zabezpieczaniu kluczy kryptograficznych i użyj klucze tajne, które aplikacje i usługi w chmurze. Za pomocą usługi Key Vault, można szyfrować klucze i klucze tajne, takich jak:
+   * Klucze uwierzytelniania 
+   * Klucze konta magazynu
+   * Klucze szyfrowania danych
+   * pliki PFX
+   * Hasła
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+Usługa Key Vault usprawnia proces zarządzania kluczami i pozwala zachować kontrolę nad kluczami, które mają dostęp do danych i szyfrują je. Deweloperzy mogą w klika minut utworzyć klucze do programowania i testowania, a następnie bezproblemowo przeprowadzić ich migrację do kluczy produkcji. W razie potrzeby administratorzy zabezpieczeń mogą przydzielić (i cofnąć) uprawnienia do używania kluczy.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Każdy z subskrypcją platformy Azure stosu można tworzyć i używać magazynów kluczy. Mimo że Key Vault przynosi korzyści deweloperom i administratorom zabezpieczeń, operator, który zarządza innymi usługami Azure stosu dla organizacji, można zaimplementować i zarządzać nią. Na przykład operator może zalogować się przy użyciu subskrypcji platformy Azure stosu stosu Azure Tworzenie magazynu dla organizacji, w którym do przechowywania kluczy, a następnie odpowiadać za takie zadania operacyjne:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Tworzenie lub Importowanie klucza lub klucza tajnego.
+* Odwoływanie lub usuwanie klucza lub klucza tajnego.
+* Zezwalanie użytkownikom lub aplikacjom dostęp do magazynu kluczy, więc można następnie zarządzać lub używać jej kluczy i kluczy tajnych.
+* Konfigurowanie użycia klucza (na przykład, podpisywania lub szyfrowania).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+Operator może następnie dostarczyć deweloperom Uniform Resource Identifier (URI), do wywoływania z aplikacji. Operatory może także udostępnić administratorom zabezpieczeń informacje o rejestrowaniu użycia klucza.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Deweloperzy mogą również zarządzać kluczami bezpośrednio za pomocą interfejsów API. Aby uzyskać więcej informacji zobacz przewodnik dewelopera usługi Key Vault.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Scenariusze
+W poniższych scenariuszach opisano, jak usługi Key Vault może pomóc potrzeb deweloperom i administratorom zabezpieczeń.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Deweloper aplikacji Azure stosu
+**Problem:** chcę napisać aplikację dla stosu Azure, która używa kluczy do podpisywania i szyfrowania. Chcę się poza moją aplikacją tak, że rozwiązanie jest odpowiednie dla aplikacji rozproszonej geograficznie tych kluczy.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Instrukcja:** klucze są przechowywane w magazynie i wywoływane przez identyfikator URI, w razie potrzeby.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Deweloper oprogramowania jako usługa (SaaS)
+**Problem:** nie chcę odpowiedzialności odpowiedzialności lub potencjalne kluczy i kluczy tajnych przez klienta. Chcę, aby klienci mogli niezależnie zarządzać swoimi kluczami, dzięki czemu można I skoncentrować się na ten co robię najlepiej, który udostępnia podstawowe funkcje oprogramowania.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Instrukcja:** klientów można importować własne klucze do stosu usługi Azure, a następnie zarządzanie nimi. 
 
 ### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+**Problem:** chcę upewnić się, że Moja organizacja kontroluje cykl życia klucza i monitorować użycie klucza.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Instrukcja:** Key Vault jest zaprojektowana tak, aby Microsoft Zobacz lub nie wyodrębnić klucze. W przypadku aplikacji musi wykonują operacje kryptograficzne przy użyciu kluczy klientów, Key Vault używa kluczy w imieniu aplikacji. Aplikacja nie ma wglądu w klucze klientów. Chociaż korzystamy z wielu usług Azure stosu i zasobów, można zarządzać kluczami z jednej lokalizacji w stosie Azure. Magazyn zapewnia jeden interfejs, niezależnie od tego, jak wiele magazynów masz w stosie Azure, które regiony one pomocy technicznej i które aplikacje ich używają.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Następne kroki
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Zarządzanie Key Vault w stosie Azure przy użyciu portalu](azure-stack-kv-manage-portal.md)  
+* [Zarządzanie Key Vault w stosie Azure przy użyciu programu PowerShell](azure-stack-kv-manage-powershell.md)
 

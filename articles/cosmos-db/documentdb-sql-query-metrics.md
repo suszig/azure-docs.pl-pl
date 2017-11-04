@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Dostrajanie wydajności kwerend z bazy danych Azure rozwiązania Cosmos
 Udostępnia bazę danych systemu Azure rozwiązania Cosmos [interfejsu API SQL na potrzeby zapytań o dane](documentdb-sql-query.md), bez konieczności schematu lub indeksów pomocniczych. Ten artykuł zawiera następujące informacje dla deweloperów:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisekundy | Czas ładowania dokumentów  | 
 | `systemFunctionExecuteTimeInMs` | milisekundy | Łączny czas podczas wykonywania funkcji (wbudowane) systemu w milisekundach  | 
 | `userFunctionExecuteTimeInMs` | milisekundy | Łączny czas podczas wykonywania funkcji zdefiniowanej przez użytkownika (w milisekundach) | 
-| `retrievedDocumentCount` | milisekundy | Całkowita liczba pobranych dokumentów  | 
+| `retrievedDocumentCount` | Liczba | Całkowita liczba pobranych dokumentów  | 
 | `retrievedDocumentSize` | Bajty | Całkowity rozmiar pobrane dokumentów w bajtach  | 
 | `outputDocumentCount` | Liczba | Liczba dokumentów, dane wyjściowe | 
 | `writeOutputTimeInMs` | milisekundy | Czas wykonywania kwerendy w milisekundach | 

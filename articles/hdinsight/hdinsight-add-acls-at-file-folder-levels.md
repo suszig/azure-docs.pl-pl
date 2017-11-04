@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Zarządzaj uprawnieniami użytkowników na poziomie plików i folderów
 
-[Przyłączony do domeny w usłudze hdinsight](hdinsight-domain-joined-introduction.md) silnego uwierzytelniania za pomocą użytkowników usługi Azure Active Directory (Azure AD), a także *kontroli dostępu opartej na rolach* zasady (RBAC) dla różnych usług, takich jak YARN i Hive. W przypadku magazynu Azure lub systemu Windows Azure magazynu obiektów blob (WASB) do magazynu danych domyślnego dla klastra można również wymusić plików i uprawnień na poziomie folderu. Apache zakres umożliwia kontrolowanie dostępu do plików klastra dla Twojej zsynchronizowany usługi Azure AD użytkownicy i grupy.
+[Przyłączony do domeny w usłudze hdinsight](./domain-joined/apache-domain-joined-introduction.md) silnego uwierzytelniania za pomocą użytkowników usługi Azure Active Directory (Azure AD), a także *kontroli dostępu opartej na rolach* zasady (RBAC) dla różnych usług, takich jak YARN i Hive. W przypadku magazynu Azure lub systemu Windows Azure magazynu obiektów blob (WASB) do magazynu danych domyślnego dla klastra można również wymusić plików i uprawnień na poziomie folderu. Apache zakres umożliwia kontrolowanie dostępu do plików klastra dla Twojej zsynchronizowany usługi Azure AD użytkownicy i grupy.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Wystąpienie Apache zakres dla klastrów usługi HDInsight przyłączonych do domeny ma wstępnie skonfigurowane w usłudze WASB zakres. Usługa WASB zakres jest aparat zarządzania zasad, która jest podobna do systemu plików HDFS zakres, ale z inną wymuszania zasad dostępu przez zakres. Jeśli przychodzącego żądania zasobów nie ma odpowiednich zasad zakres, w usłudze WASB zakres domyślny jest ODMÓW. Sprawdzanie WASB uprawnień usługi zakres nie zostały spełnione.
@@ -69,7 +69,7 @@ Gdy symbol wieloznaczny (`*`) znajduje się w ścieżce dla zasad symbol wielozn
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Zarządzanie pliku i uprawnień na poziomie folderu z Apache zakres
 
-Jeśli nie zostało to jeszcze zrobione, wykonaj [tych instrukcji](hdinsight-domain-joined-configure.md) do udostępnienia nowego klastra przyłączonych do domeny.
+Jeśli nie zostało to jeszcze zrobione, wykonaj [tych instrukcji](./domain-joined/apache-domain-joined-configure.md) do udostępnienia nowego klastra przyłączonych do domeny.
 
 Otwórz WASB zakres, przechodząc do `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Wprowadź nazwę użytkownika administratora klastra i hasło określone podczas tworzenia klastra.
 
@@ -117,8 +117,8 @@ Zakres Apache [przepływu oceny zasad](#permission-and-policy-model) pozwala okr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie zasad Hive w usłudze HDInsight z przyłączonych do domeny](hdinsight-domain-joined-run-hive.md)
-* [Zarządzanie klastrami HDInsight przyłączonych do domeny](hdinsight-domain-joined-manage.md)
+* [Konfigurowanie zasad Hive w usłudze HDInsight z przyłączonych do domeny](./domain-joined/apache-domain-joined-run-hive.md)
+* [Zarządzanie klastrami HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-manage.md)
 * [Zarządzanie Ambari — zezwolić użytkownikom na Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

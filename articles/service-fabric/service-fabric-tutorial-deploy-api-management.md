@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
 W tym samouczku jest częścią dwóch serii. W tym samouczku przedstawiono sposób konfigurowania [Azure API Management](../api-management/api-management-key-concepts.md) z sieci szkieletowej usług można kierować ruchem do usługi zaplecza w sieci szkieletowej usług.  Po zakończeniu ma wdrożyć zarządzanie interfejsami API w sieci Wirtualnej, skonfigurowane do wysyłania ruchu do zaplecza usługi bezstanowej operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach usługi Azure API Management z sieci szkieletowej usług, zobacz [omówienie](service-fabric-api-management-overview.md) artykułu.
@@ -384,7 +384,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="conclusion"></a>Podsumowanie
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
@@ -393,7 +393,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Tworzenie operacji interfejsu API
 > * Skonfiguruj zasady wewnętrznej bazy danych
 > * Dodawanie interfejsu API do produktu
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

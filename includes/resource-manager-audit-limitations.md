@@ -1,4 +1,4 @@
-The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+Dziennik zawiera wszystkie operacje zapisu (PUT, POST, DELETE) w Twoich zasobów. Nie ma operacji odczytu (GET). Dzienniki inspekcji można użyć do znalezienia błędu podczas rozwiązywania problemów z lub do monitorowania, jak użytkownik w organizacji zmienić zasobu.
 
-Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
+Dzienniki aktywności są przechowywane przez 90 dni. Mogą wykonywać kwerendę o dowolnym zakres dat, tak długo, jak Data początkowa nie jest więcej niż 90 dni w przeszłości.
 

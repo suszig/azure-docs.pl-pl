@@ -1,7 +1,7 @@
 
-1. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name.
-2. Go to **Windows (WNS)**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, and then click **Save**.
+1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **Przeglądaj wszystko** > **usługi aplikacji**i kliknij przycisk z zaplecza aplikacji mobilnej. W obszarze **ustawienia**, kliknij przycisk **aplikacji usługi wypychania**, a następnie kliknij nazwę Centrum powiadomień.
+2. Przejdź do **systemu Windows (WNS)**, wprowadź **klucz zabezpieczeń** (klucz tajny klienta) i **identyfikatora SID pakietu** uzyskane z witryna usług Live, a następnie kliknij przycisk **Zapisz** .
 
-    ![Set the WNS key in the portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+    ![Ustaw klucz usługi WNS w portalu](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
-Your back end is now configured to use WNS to send push notifications.
+Sieci wewnętrznej jest skonfigurowany do używania usługi WNS do wysyłania powiadomień wypychanych.

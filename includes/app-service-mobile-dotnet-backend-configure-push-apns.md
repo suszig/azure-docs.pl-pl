@@ -1,13 +1,13 @@
 
-* **.NET backend (C#)**:      
+* **Zaplecze .NET (C#)**:      
   
-  1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
-  2. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
+  1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt serwera, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**, wyszukaj `Microsoft.Azure.NotificationHubs`, następnie kliknij przycisk **zainstalować**. Spowoduje to zainstalowanie biblioteki centra powiadomień do wysyłania powiadomień z zaplecza.
+  2. W projekcie wewnętrznej bazy danych programu Visual Studio Otwórz **kontrolerów** > **TodoItemController.cs**. W górnej części pliku, Dodaj następujący `using` instrukcji:
      
           using Microsoft.Azure.Mobile.Server.Config;
           using Microsoft.Azure.NotificationHubs;
 
-    3. Replace the `PostTodoItem` method with the following code:  
+    3. Zastąp `PostTodoItem` metodę z następującym kodem:  
 
             public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
             {
@@ -47,12 +47,12 @@
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
 
-    4. Republish the server project.
+    4. Ponownie opublikować projekt serwera.
 
-* **Node.js backend** : 
+* **Wewnętrzna baza danych node.js** : 
   
-  1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
-  2. Replace the todoitem.js table script with the following code:
+  1. Jeśli jeszcze tego nie zrobiono, [pobieranie projektu Szybki Start](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) lub użyj innego [edytora online w portalu Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+  2. Zastąp następujący kod skryptu tabeli todoitem.js:
 
             var azureMobileApps = require('azure-mobile-apps'),
                 promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,4 +91,4 @@
 
             module.exports = table;
 
-    2. When editing the file on your local computer, republish the server project.
+    2. Podczas edytowania pliku na komputerze lokalnym, należy ponownie opublikować projekt serwera.

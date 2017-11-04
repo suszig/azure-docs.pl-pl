@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Jak używać usługi Azure Search z aplikacji .NET
 Ten artykuł zawiera wskazówki ułatwiające rozpoczęcie działa z [zestawu .NET SDK usługi Azure Search](https://aka.ms/search-sdk). Zestaw .NET SDK umożliwia wdrożenie zaawansowane wyszukiwanie w aplikacji przy użyciu usługi Azure Search.
@@ -33,7 +33,7 @@ Biblioteka klienta definiuje klas takich jak `Index`, `Field`, i `Document`, jak
 
 Bieżąca wersja zestawu .NET SDK usługi Azure Search teraz jest ogólnie dostępna. Jeśli chcesz przekazać opinię firmie Microsoft w celu uwzględnienia w następnej wersji, skontaktuj się z odwiedziny naszych [strony](https://feedback.azure.com/forums/263029-azure-search/).
 
-Zestaw .NET SDK obsługuje wersję `2016-09-01` z [interfejsu API REST wyszukiwania Azure](https://docs.microsoft.com/rest/api/searchservice/). Ta wersja zawiera teraz obsługę niestandardowych analizatory i obiektów Blob platformy Azure i tabel Azure indeksatorze obsługi. Funkcji, które są w wersji zapoznawczej *nie* są częścią tej wersji, takie jak Obsługa indeksowania JSON i woluminów CSV, [Podgląd](search-api-2015-02-28-preview.md) i dostępne za pośrednictwem starszej [2.0 — wersja zapoznawcza zestawu .NET SDK](https://aka.ms/search-sdk-preview).
+Zestaw .NET SDK obsługuje wersję `2016-09-01` z [interfejsu API REST wyszukiwania Azure](https://docs.microsoft.com/rest/api/searchservice/). Ta wersja zawiera teraz obsługę niestandardowych analizatory i obiektów Blob platformy Azure i tabel Azure indeksatorze obsługi. Funkcji, które są w wersji zapoznawczej *nie* są częścią tej wersji, takie jak Obsługa indeksowania JSON i woluminów CSV, [Podgląd](search-api-2016-09-01-preview.md) i dostępne za pośrednictwem [4.0.1-preview wersji zestawu SDK .NET](https://aka.ms/search-sdk-preview).
 
 Zestaw SDK nie obsługuje [operacji zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) takich jak tworzenie i skalowanie usługi wyszukiwania i zarządzanie nimi klucze interfejsu API. Jeśli trzeba zarządzać zasobami wyszukiwania z aplikacji .NET, możesz użyć [zestawu SDK usługi Azure Search .NET zarządzania](https://aka.ms/search-mgmt-sdk).
 

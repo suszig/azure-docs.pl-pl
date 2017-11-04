@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics (Strumieniowe przesyłanie danych z obiektu blob usługi Azure Storage do usługi Data Lake Store za pomocą usługi Azure Stream Analytics)
 W tym artykule dowiesz się, jak używać usługi Azure Data Lake Store jako dane wyjściowe zadania usługi analiza strumienia Azure. W tym artykule przedstawiono prosty scenariusz, który będzie odczytywać dane z obiektu blob magazynu Azure (dane wejściowe) i zapisuje dane do usługi Data Lake Store (dane wyjściowe).
-
-> [!NOTE]
-> W tej chwili tworzenia i konfigurowania usługi Data Lake Store generuje Stream Analytics jest obsługiwane tylko w [klasycznego portalu Azure](https://manage.windowsazure.com). W związku z tym niektórych części tego samouczka zostanie Użyj klasycznego portalu Azure.
->
->
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:

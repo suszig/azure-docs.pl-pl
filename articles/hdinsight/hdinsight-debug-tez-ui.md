@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Debugowanie aplikacji Tez zadania w usłudze HDInsight z systemem Windows przy użyciu interfejsu użytkownika aplikacji Tez
 Interfejs użytkownika aplikacji Tez jest strony sieci web, który może służyć do zrozumienia i debugowania zadania, które korzystają z aplikacji Tez jako aparat wykonywania w klastrach HDInsight opartych na systemie Windows. Interfejs użytkownika aplikacji Tez umożliwia wizualizacji zadaniem w postaci wykresu połączonych elementów, przejdź do każdego elementu i pobrać statystyk i informacje o rejestrowaniu.
@@ -139,6 +139,6 @@ Wykonaj następujące kroki, aby uruchomić zapytanie Hive, które będą wykony
     ![Szczegóły zadania](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz sposobu korzystania z widoku aplikacji Tez, Dowiedz się więcej o [przy użyciu Hive w usłudze HDInsight](hdinsight-use-hive.md).
+Teraz, kiedy znasz sposobu korzystania z widoku aplikacji Tez, Dowiedz się więcej o [przy użyciu Hive w usłudze HDInsight](hadoop/hdinsight-use-hive.md).
 
 Aby uzyskać szczegółowe informacje techniczne na temat aplikacji Tez, zobacz [Tez strony o Hortonworks](http://hortonworks.com/hadoop/tez/).

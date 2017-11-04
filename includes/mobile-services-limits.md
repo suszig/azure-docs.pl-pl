@@ -1,16 +1,16 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| WARSTWA: | BEZPŁATNA | PODSTAWOWA | STANDARDOWA |
 | --- | --- | --- | --- |
-| API Calls |500 K |1.5 M / unit |15 M / unit |
-| Active Devices |500 |Unlimited |Unlimited |
-| Scale |N/A |Up to 6 units |Unlimited units |
-| Push Notifications |Notification Hubs Free Tier included, up to 1 M pushes |Notification Hubs Basic Tier included, up to 10 M pushes |Notification Hubs Standard Tier included, up to 10 M pushes |
-| Real time messaging/<br/>Web Sockets |Limited |350 / mobile service |Unlimited |
-| Offline synchronizations |Limited |Included |Included |
-| Scheduled jobs |Limited |Included |Included |
-| SQL Database (required) <br/>Standard rates apply for additional capacity |20 MB included |20 MB included |20 MB included |
-| CPU capacity |60 minutes / day |Unlimited |Unlimited |
-| Outbound data transfer |165 MB per day (daily Rollover) |Included |Included |
+| Wywołania API |500 KB |1.5 M / jednostki |15 M / jednostki |
+| Aktywne urządzenia |500 |Nieograniczona liczba |Nieograniczona liczba |
+| Skalowanie |Nie dotyczy |Do 6 jednostek |Bez ograniczeń jednostek |
+| Powiadomienia wypychane |Wypychanie do 1 M Notification Hubs warstwa bezpłatna uwzględnione, |Wypychanie do 10 M powiadomień koncentratory warstwie podstawowej uwzględnione, |Wypychanie do 10 M Notification Hubs warstwy standardowa uwzględnione, |
+| Obsługa wiadomości w czasie rzeczywistym /<br/>Gniazda sieci Web |Ograniczone |Usługa 350 / przenośnych |Nieograniczona liczba |
+| Synchronizacje w trybie offline |Ograniczone |Dołączono |Dołączono |
+| Zaplanowane zadania |Ograniczone |Dołączono |Dołączono |
+| Baza danych SQL (wymagane) <br/>Stawki standardowe mają zastosowanie dodatkowych |20 MB włączone |20 MB włączone |20 MB włączone |
+| Możliwości obliczeniowe CPU |60 minut/dzień |Nieograniczona liczba |Nieograniczona liczba |
+| Wychodzący transfer danych |165 MB na dzień (codziennie przerzucania) |Dołączono |Dołączono |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Dodatkowe szczegóły dotyczące tych limitów oraz informacje o cenach, zobacz [cennik usług Mobile](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

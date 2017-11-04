@@ -1,31 +1,31 @@
 
-You can learn about Azure Cosmos DB global distribution in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+Informacje na temat bazy danych Azure rozwiązania Cosmos globalne dystrybucji w tym Azure piątek wideo z Scott Hanselman i Ramana Karthik główny Menedżer zespołu inżynieryjnego.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+Aby uzyskać więcej informacji na temat sposobu globalnej replikacji bazy danych działa w usłudze Azure DB rozwiązania Cosmos, zobacz [dystrybucji danych globalnie z rozwiązania Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
-## <a id="addregion"></a>Add global database regions using the Azure Portal
-Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
+## <a id="addregion"></a>Dodawanie regionów globalna baza danych przy użyciu portalu Azure
+Azure DB rozwiązania Cosmos jest dostępna we wszystkich [regiony platformy Azure] [ azureregions] na całym świecie. Po wybraniu domyślnego poziomu spójności dla konta bazy danych, można skojarzyć jeden lub więcej regionów (w zależności od wybrana domyślna spójność dystrybucji globalnych i poziomu potrzeb).
 
-1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
-2. In the **Azure Cosmos DB** blade, select the database account to modify.
-3. In the account blade, click **Replicate data globally** from the menu.
-4. In the **Replicate data globally** blade, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) or the [Distribute data globally with Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) article for more information.
+1. W [portalu Azure](https://portal.azure.com/), na pasku po lewej stronie kliknij **bazy danych Azure rozwiązania Cosmos**.
+2. W **bazy danych Azure rozwiązania Cosmos** bloku, wybierz konto bazy danych do zmodyfikowania.
+3. W bloku konta kliknij **globalnie replikacji danych** z menu.
+4. W **globalnie replikacji danych** bloku, wybierz regionów, aby dodać lub usunąć, klikając regionów na mapie, a następnie kliknij **zapisać**. Brak koszt do dodawania regionów, zobacz [cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) lub [dystrybucji danych globalnie z bazy danych Azure rozwiązania Cosmos](../articles/cosmos-db/distribute-data-globally.md) artykułu, aby uzyskać więcej informacji.
    
-    ![Click the regions in the map to add or remove them][1]
+    ![Kliknij przycisk regionów na mapie, aby dodać lub usunąć je][1]
     
-Once you add a second region, the **Manual Failover** option is enabled on the **Replicate data globally** blade in the portal. You can use this option to test the failover process or change the primary write region. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
+Po dodaniu drugiego region **ręczną pracę awaryjną** jest włączona opcja **globalnie replikacji danych** bloku w portalu. Ta opcja umożliwia testowanie procesu pracy awaryjnej lub zmienić regionu podstawowego zapisu. Po dodaniu obszarem trzeci **priorytetów trybu Failover** opcja jest włączona na tym samym bloku, dzięki czemu można zmienić kolejność pracy awaryjnej dla odczytów.  
 
-### <a name="selecting-global-database-regions"></a>Selecting global database regions
-There are two common scenarios for configuring two or more regions:
+### <a name="selecting-global-database-regions"></a>Wybieranie regionów globalna baza danych
+Istnieją dwa typowych scenariuszy dotyczących konfigurowania dwóch lub więcej regionów:
 
-1. Delivering low-latency access to data to end users no matter where they are located around the globe
-2. Adding regional resiliency for business continuity and disaster recovery (BCDR)
+1. Dostarczanie małe opóźnienia dostępu do danych dla użytkowników końcowych, niezależnie od tego, gdzie znajdują się na całym świecie
+2. Dodawanie regionalnych odporności ciągłość prowadzenia działalności biznesowej i odzyskiwania po awarii (BCDR)
 
-For delivering low-latency to end-users, it is recommended to deploy both the application and add Azure Cosmos DB in the regions thats correspond to where the application's users are located.
+Do dostarczania małym opóźnieniu dla użytkowników końcowych, zaleca się wdrożenie zarówno aplikacji i Dodaj Azure DB rozwiązania Cosmos w regionach, które jest zgodne, do których aplikacji użytkownicy znajdują się.
 
-For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] article.
+Dla BCDR, zalecane jest dodawanie regionów na podstawie par region opisanego w [firm ciągłości i odzyskiwanie po awarii (BCDR): łączyć regiony platformy Azure] [ bcdr] artykułu.
 
 <!--
 

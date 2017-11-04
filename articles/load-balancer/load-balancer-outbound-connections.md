@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Informacje o połączeniach wychodzących na platformie Azure
 
@@ -93,4 +93,4 @@ Azure używa nieobsługiwanego algorytmu, aby określić liczbę dostępnych por
 
 Połączenia wychodzące mieć 4-minutowy limit czasu bezczynności.  To nie jest zmieniane.
 
-Należy koniecznie rememember, który liczbę dostępnych portów SNAT nie przekłada się bezpośrednio do liczby połączeń. Zobacz powyżej kątem specyfiki na kiedy i jak SNAT porty są przydzielane i jak zarządzać wyczerpującymi zasobem.
+Należy pamiętać, że liczba dostępnych portów SNAT nie przekłada się bezpośrednio do liczby połączeń. Zobacz powyżej kątem specyfiki na kiedy i jak SNAT porty są przydzielane i jak zarządzać wyczerpującymi zasobem.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 791edd4e56c7957458d49f6f3bd87b67e96db7a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ad8d9b90f78d8b36f48ec8743658a9e464a9f87
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Tworzenie klastrów usługi HDInsight przy użyciu wiersza polecenia platformy Azure
 
@@ -133,17 +133,17 @@ Teraz, że pomyślnie utworzono klaster usługi HDInsight przy użyciu wiersza p
 
 ### <a name="hadoop-clusters"></a>Klastry Hadoop
 
-* [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
-* [Korzystanie z języka Pig z usługą HDInsight](hdinsight-use-pig.md)
-* [Korzystać z usługi MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
+* [Korzystanie z programu Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)
+* [Korzystanie z języka Pig z usługą HDInsight](hadoop/hdinsight-use-pig.md)
+* [Korzystać z usługi MapReduce z usługą HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Klastrów HBase
 
-* [Rozpoczynanie pracy z bazy danych HBase w usłudze HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Tworzenie aplikacji Java bazy danych hbase w usłudze HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Rozpoczynanie pracy z bazy danych HBase w usłudze HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Tworzenie aplikacji Java bazy danych hbase w usłudze HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Klastry STORM
 
-* [Tworzenie topologii Java dla Storm w usłudze HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Użyj składników języka Python w Storm w usłudze HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Wdrażanie i monitorowanie topologii z systemu Storm w usłudze HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Tworzenie topologii Java dla Storm w usłudze HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Użyj składników języka Python w Storm w usłudze HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Wdrażanie i monitorowanie topologii z systemu Storm w usłudze HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

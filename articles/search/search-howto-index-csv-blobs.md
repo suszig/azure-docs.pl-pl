@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indeksowanie obiektów blob CSV z indeksatora obiektów blob Azure Search
 Domyślnie [indeksatora obiektów blob Azure Search](search-howto-indexing-azure-blob-storage.md) analizuje rozdzielany tekst obiekty BLOB jako pojedynczy fragmentów tekstu. Jednak z obiektami blob zawierający dane w formacie CSV, często zachodzi potrzeba Traktuj każdego wiersza w obiekcie blob jako osobny dokument. Na przykład, dla danego tekstu rozdzielanego następujące: 
@@ -45,7 +45,7 @@ Do indeksu CSV obiektów blob, Utwórz lub zaktualizuj definicję indeksatora `d
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-Aby uzyskać więcej szczegółów na tworzenie interfejsu API indeksatora, zapoznaj się [Utwórz indeksator](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Aby uzyskać więcej szczegółów na tworzenie interfejsu API indeksatora, zapoznaj się [Utwórz indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 `firstLineContainsHeaders`Wskazuje, że w pierwszym wierszu (niepustych) każdy obiekt blob zawiera nagłówki.
 Jeśli obiekty BLOB nie zawierają wiersz nagłówka początkowej, nagłówki powinny określony w konfiguracji indeksatora: 

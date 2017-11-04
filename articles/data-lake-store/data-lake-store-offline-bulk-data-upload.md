@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Użyj usługi Import/Eksport Azure dla trybu offline kopię danych do usługi Data Lake Store
 W tym artykule omówiono sposób kopiowania dużych zestawów danych (> 200 GB) do usługi Azure Data Lake Store za pomocą metody kopiowania w trybie offline, tak samo, jak [usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md). W szczególności plik używany na przykład w tym artykule jest 339,420,860,416 bajtów lub około 319 GB na dysku. Umożliwia wywołanie 319GB.tsv tego pliku.
@@ -58,7 +58,7 @@ Postępuj zgodnie z instrukcjami [za pomocą usługi Import/Eksport Azure](../st
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     Zobacz [za pomocą usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md) dla więcej przykładowe fragmenty kodu.
-4. Poprzednie polecenie tworzy plik dziennika w określonej lokalizacji. Ten plik dziennika umożliwia utworzenie zadania importu z [klasycznego portalu Azure](https://manage.windowsazure.com).
+4. Poprzednie polecenie tworzy plik dziennika w określonej lokalizacji. Ten plik dziennika umożliwia utworzenie zadania importu z [portalu Azure](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Utwórz zadania importu
 Teraz można utworzyć zadania importu zgodnie z instrukcjami podanymi w [za pomocą usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md) (w obszarze **Tworzenie zadania importu** sekcji). W przypadku tego zadania importu z innych szczegółów zapewnić pliku dziennika utworzonego podczas przygotowywania dysków.

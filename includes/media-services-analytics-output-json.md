@@ -12,7 +12,7 @@ Dane wyjściowe JSON zawiera następujące atrybuty:
 | fragmenty |Metadane fragmentaryczne jest się w różnych segmentach fragmenty. Każdy fragmentu zawiera rozpoczęcia, czas trwania, liczba interwałów i zdarzenia. |
 | rozpoczynanie |Godzina rozpoczęcia pierwsze zdarzenie parametrem "ticks". |
 | Czas trwania |Długość fragmentu w parametrem "ticks". |
-| Interwał |Interwał każdego wpisu zdarzeń w obrębie fragmentu, w parametrem "ticks". |
+| interval |Interwał każdego wpisu zdarzeń w obrębie fragmentu, w parametrem "ticks". |
 | zdarzenia |Każde zdarzenie zawiera kroje wykryte i śledzone w tym czas trwania. Jest tablicą tablicy zdarzeń. Zewnętrzne tablicy reprezentuje jeden interwał czasu. Wewnętrzny tablicy składa się z 0 lub więcej zdarzeń, które wystąpiły w danym momencie. [] Nawiasu pusty oznacza, że nie wykryto żadnych kroje. |
 | id |Identyfikator krój, który jest śledzona. Ta liczba może spowodować niezamierzoną zmianę, jeśli krój staje się niewykryte. Danej osoby powinny mieć ten sam identyfikator w ogólnej wideo, ale to nie można zagwarantować ze względu na ograniczenia w algorytmie wykrywania (okluzji itp.) |
 | x, y |Lewy górny X i Y współrzędne kroju obwiedni w skali znormalizowane 0,0 do 1,0. <br/>-X i Y współrzędne są względem poziomą zawsze, więc jeśli pionowo wideo (lub dołu, w przypadku systemu iOS), musisz odpowiednio Przestaw współrzędne. |

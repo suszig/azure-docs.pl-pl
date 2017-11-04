@@ -2,56 +2,56 @@
 
 
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, and additional cluster nodes. Alternatively, the script can use pre-existing Azure infrastructure and create only the HPC cluster nodes.
+W zależności od środowiska i dostępnych wyborów skryptu można utworzyć wszystkich infrastruktury klastra, łącznie z sieci wirtualnej platformy Azure, konta magazynu, usługi w chmurze, kontroler domeny, baz danych lokalnych lub zdalnych, węzła głównego i dodatkowe węzły klastra. Alternatywnie skryptu można użyć istniejącej infrastruktury platformy Azure i utworzyć węzłów klastra HPC.
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
+Aby uzyskać informacje dotyczące planowania klastra HPC Pack, zobacz [wersja ewaluacyjna produktu i planowanie](https://technet.microsoft.com/library/jj899596.aspx) i [wprowadzenie](https://technet.microsoft.com/library/jj899590.aspx) zawartości w bibliotece TechNet HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Prerequisites
-* **Azure subscription**: You can use a subscription in either the Azure Global or Azure China service. Your subscription limits affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-* **Windows client computer with Azure PowerShell 0.8.10 or later installed and configured**: See [Get started with Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation instructions and steps to connect to your Azure subscription.
-* **HPC Pack IaaS deployment script**: Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.2 of the script.
-* **Script configuration file**: Create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article and the file Manual.rtf that accompanies the deployment script.
+## <a name="prerequisites"></a>Wymagania wstępne
+* **Subskrypcja platformy Azure**: subskrypcji można użyć w usłudze Azure globalne lub chińskiej wersji platformy Azure. Swoje limity subskrypcji wpłynąć na liczbę i rodzaj węzłach klastra, którą można wdrożyć. Aby uzyskać informacje, zobacz [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../articles/azure-subscription-service-limits.md).
+* **Komputer kliencki z systemem Windows przy użyciu programu Azure PowerShell 0.8.10 lub nowszy zainstalowany i skonfigurowany**: zobacz [wprowadzenie do programu Azure PowerShell](/powershell/azureps-cmdlets-docs) instrukcje dotyczące instalacji i kroki nawiązać połączenia z subskrypcją platformy Azure.
+* **Skrypt wdrożenia HPC Pack IaaS**: Pobierz i Rozpakuj najnowszej wersji skryptu z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Sprawdź wersję skryptu, uruchamiając `New-HPCIaaSCluster.ps1 –Version`. W tym artykule jest oparty na wersji 4.5.2 skryptu.
+* **Konfiguracja pliku**: Utwórz plik XML, który używa skryptu do konfiguracji klastra HPC. Informacje i przykłady zobacz sekcje w dalszej części tego artykułu i plik Manual.rtf, który towarzyszy skrypt wdrożenia.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Składnia
 ```PowerShell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
-> Run the script as an administrator.
+> Uruchom skrypt jako administrator.
 > 
 > 
 
-### <a name="parameters"></a>Parameters
-* **ConfigFile**: Specifies the file path of the configuration file to describe the HPC cluster. See more about the configuration file in this topic, or in the file Manual.rtf in the folder containing the script.
-* **AdminUserName**: Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs and the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
-* **AdminPassword**: Specifies the administrator’s password. If not specified in the command line, the script prompts you to input the password.
-* **HPCImageName** (optional): Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended usually), the script chooses the latest published [HPC Pack 2012 R2 image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+### <a name="parameters"></a>Parametry
+* **ConfigFile**: Określa ścieżkę pliku konfiguracji do opisywania klastra HPC. Zobacz więcej informacji na temat pliku konfiguracji, w tym temacie lub w pliku Manual.rtf w folderze zawierających skrypt.
+* **AdminUserName**: Określa nazwę użytkownika. Jeśli w lesie domeny został utworzony przez skrypt, staje się on nazwą użytkownika administratora lokalnego dla wszystkich maszyn wirtualnych i nazwę administratora domeny. Jeśli w lesie domeny już istnieje, określa użytkownika domeny jako nazwa użytkownika administratora lokalnego do zainstalowania pakietu HPC.
+* **AdminPassword**: Określa hasło administratora. Jeśli nie zostanie określony w wierszu polecenia, skrypt wyświetli monit o wprowadzania hasła.
+* **HPCImageName** (opcjonalnie): Określa nazwę obrazu maszyny Wirtualnej programu HPC Pack umożliwia wdrożenie klastra HPC. Musi być obrazem udostępnionych przez firmę Microsoft HPC Pack z portalu Azure Marketplace. Jeśli nie zostanie określony (zwykle zalecane), skrypt wybierze najnowszych opublikowanych [obrazu HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). Najnowsze obraz jest oparty na Windows Server 2012 R2 Datacenter z HPC Pack 2012 R2 Update 3.
   
   > [!NOTE]
-  > Deployment fails if you don't specify a valid HPC Pack image.
+  > Wdrożenie zakończy się niepowodzeniem, jeśli nie określisz prawidłowym obrazem HPC Pack.
   > 
   > 
-* **LogFile** (optional): Specifies the deployment log file path. If not specified, the script creates a log file in the temp directory of the computer running the script.
-* **Force** (optional): Suppresses all the confirmation prompts.
-* **NoCleanOnFailure** (optional): Specifies that the Azure VMs that are not successfully deployed are not removed. Remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
-* **PSSessionSkipCACheck** (optional): For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution. The certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **Plik dziennika** (opcjonalnie): Określa ścieżkę pliku dziennika wdrażania. Jeśli nie zostanie określony, skrypt tworzy plik dziennika w katalogu tymczasowym komputera z uruchomionym skryptu.
+* **Wymuś** (opcjonalnie): pomija wszystkie o potwierdzenie.
+* **NoCleanOnFailure** (opcjonalnie): Określa, czy maszynach wirtualnych platformy Azure, które nie zostały pomyślnie wdrożone nie zostaną usunięte. Ręcznie usuń te maszyny wirtualne przed uruchomienie skryptu, aby kontynuować wdrażanie lub wdrożenie może się nie powieść.
+* **PSSessionSkipCACheck** (opcjonalnie): dla każdej usługi w chmurze z maszyn wirtualnych wdrożonych przez ten skrypt certyfikatu z podpisem własnym jest generowany automatycznie przez usługę Azure i wszystkich maszyn wirtualnych w usłudze w chmurze ten certyfikat będzie używany jako domyślny zdalnego systemu Windows Certyfikat zarządzania (WinRM). Aby wdrożenie funkcji HPC na tych maszynach wirtualnych Azure, skrypt domyślnie po tymczasowo zainstaluje tych certyfikatów na komputerze lokalnym\\magazynu Zaufane główne urzędy certyfikacji na komputerze klienckim, aby pominąć błąd zabezpieczeń "zaufany urząd certyfikacji" Podczas wykonywania skryptu. Certyfikaty zostaną usunięte po zakończeniu działania skryptu. Jeśli ten parametr jest określony, certyfikaty nie są zainstalowane na komputerze klienckim i ostrzeżenie o zabezpieczeniach jest pomijane.
   
   > [!IMPORTANT]
-  > This parameter is not recommended for production deployments.
+  > Ten parametr nie jest zalecane w przypadku wdrożeń produkcyjnych.
   > 
   > 
 
-### <a name="example"></a>Example
-The following example creates an HPC Pack cluster using the configuration file *MyConfigFile.xml*, and specifies administrator credentials for installing the cluster.
+### <a name="example"></a>Przykład
+Poniższy przykład tworzy klastra HPC Pack przy użyciu pliku konfiguracji *MyConfigFile.xml*i określa poświadczenia administratora dla instalowania klastra.
 
 ```PowerShell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### <a name="additional-considerations"></a>Additional considerations
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+### <a name="additional-considerations"></a>Dodatkowe zagadnienia
+* Skrypt opcjonalnie umożliwiają przesyłanie zadań za pomocą portalu internetowego HPC Pack lub interfejsu API REST HPC Pack.
+* Skrypt Opcjonalnie można uruchamianie niestandardowych skryptów przed i po konfiguracji w węźle głównym, jeśli chcesz zainstalować dodatkowe oprogramowanie lub skonfigurować inne ustawienia.
 
-## <a name="configuration-file"></a>Configuration file
-The configuration file for the deployment script is an XML file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS deployment script folder. **IaaSClusterConfig** is the root element of the configuration file, which contains the child elements described in detail in the file Manual.rtf in the deployment script folder.
+## <a name="configuration-file"></a>Plik konfiguracji
+Plik konfiguracji do skryptu wdrażania jest plik XML. Plik schematu HPCIaaSClusterConfig.xsd znajduje się w folderze skryptów wdrażania HPC Pack IaaS. **IaaSClusterConfig** jest elementem głównym pliku konfiguracji, który zawiera elementy podrzędne, które opisano szczegółowo w pliku Manual.rtf w folderze skryptów wdrażania.
 

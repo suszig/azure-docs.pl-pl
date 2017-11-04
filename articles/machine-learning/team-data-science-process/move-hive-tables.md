@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów Blob Azure
 W tym temacie przedstawiono ogólne zapytań Hive, które Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów blob platformy Azure. Instrukcje dostępne są również na partycje tabele programu Hive i przy użyciu zoptymalizowanych pod kątem wiersza kolumnowy (ORC) formatowanie, aby poprawić wydajność zapytań.
@@ -120,7 +120,7 @@ Po otwarciu domyślny kontener klastra usługi Hadoop przy użyciu Eksploratora 
 Umożliwia także konsolę kwerendy (Edytor Hive), wprowadzając adres URL w formacie *https://&#60; Nazwa klastra Hadoop >.azurehdinsight.net/Home/HiveEditor* w przeglądarce sieci web. Musi być rejestrowane widzą tę konsolę i dlatego należy poświadczenia klastra usługi Hadoop.
 
 ### <a name="ps"></a> 3. Wysyłanie zapytań programu Hive z poleceń programu PowerShell Azure
-Można również wysyłanie zapytań programu Hive za pomocą programu PowerShell. Aby uzyskać instrukcje, zobacz [zadania Hive przesyłania przy użyciu programu PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+Można również wysyłanie zapytań programu Hive za pomocą programu PowerShell. Aby uzyskać instrukcje, zobacz [zadania Hive przesyłania przy użyciu programu PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Utwórz gałąź bazy danych i tabel
 Zapytania Hive są udostępniane w [repozytorium GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) i może zostać pobrany z tego miejsca.

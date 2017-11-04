@@ -1,6 +1,6 @@
 ---
-title: Download marketplace items from Azure | Microsoft Docs
-description: I can download marketplace items from Azure to my Azure Stack deployment.
+title: "Pobieranie elementów marketplace z platformy Azure | Dokumentacja firmy Microsoft"
+description: "Można pobrać elementów marketplace z platformy Azure do mojego wdrożenia stosu Azure."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Download marketplace items from Azure to Azure Stack
+# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Pobieranie elementów marketplace z platformy Azure do stosu Azure
 
-As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure check back for new content.
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
+Jak zdecydujesz zawartość do uwzględnienia w Twojej stosu Azure marketplace, należy wziąć pod uwagę zawartości z portalu Azure marketplace. Możesz pobrać wyselekcjonowanych listy elementów witrynę Azure marketplace, które zostały przetestowane na stosie Azure. Nowe elementy często są dodawane do tej listy, dlatego upewnij się, sprawdź, czy ponownie nową zawartość.
 
-## <a name="download"></a>Download
-1. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
-2. Some marketplace items can be very large.  Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
+Aby pobrać elementów portalu marketplace, należy najpierw [zarejestrować stosu Azure w usłudze Azure](azure-stack-register.md). 
+
+## <a name="download"></a>Do pobrania
+1. Zaloguj się do portalu administratora platformy Azure stosu (https://portal.local.azurestack.external).
+2. Niektóre elementy marketplace mogą być bardzo duże.  Upewnij się, że masz wystarczającą ilość miejsca w systemie, klikając **dostawców zasobów** > **magazynu**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-3. Click **More Services** > **Marketplace Management**.
+3. Kliknij przycisk **więcej usług** > **zarządzania Marketplace**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image02.png)
 
-4. Click **Add from Azure** to see a list of items available for download. You can click on each item in the list to view its description and download size.
+4. Kliknij przycisk **Dodaj z platformy Azure** umożliwia wyświetlenie listy dostępnych do pobrania elementów. Możesz kliknąć na każdy element na liście, aby wyświetlić jej opis i rozmiar pliku.
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
+5. Wybierz element na liście, a następnie kliknij przycisk **Pobierz**. Spowoduje to uruchomienie pobierania obrazu maszyny Wirtualnej dla wybranego elementu. Czasu pobierania różnią się.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. After the download completes, you can deploy your new marketplace item as either a cloud operator or tenant user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
-7. Click **Create** to open up the creation experience for the newly downloaded item. Follow the step-by-step instructions to deploy your item.
+6. Po zakończeniu pobierania, można wdrożyć z nowy element marketplace jako operator stosu Azure lub użytkownika. Kliknij przycisk **+ nowy**, przeszukiwanie kategorie nowy element marketplace, a następnie wybierz element.
+7. Kliknij przycisk **Utwórz** otwarcie środowisko tworzenia dla nowo pobrany element. Postępuj zgodnie z instrukcjami krok po kroku w celu wdrożenia tego elementu.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Następne kroki
 
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
-
+[Tworzenie i publikowanie elementu portalu Marketplace](azure-stack-create-and-publish-marketplace-item.md)

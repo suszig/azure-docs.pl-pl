@@ -1,6 +1,6 @@
-## <a name="webapi-project"></a>WebAPI Project
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
+## <a name="webapi-project"></a>WebAPI projektu
+1. W programie Visual Studio Otwórz **AppBackend** projektu, który został utworzony w **Powiadom użytkowników** samouczka.
+2. W Notifications.cs, Zastąp cały **powiadomienia** klasy następującym kodem. Należy zastąpić symbole zastępcze ciąg połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora. Możesz uzyskać te wartości z [klasycznego portalu Azure](http://manage.windowsazure.com). Ten moduł teraz reprezentuje inną bezpieczne powiadomień, które będą wysyłane. W pełnej implementacji powiadomienia będą przechowywane w bazie danych; dla uproszczenia w tym przypadku są przechowywane ich w pamięci.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+1. W NotificationsController.cs, Zastąp kod wewnątrz **NotificationsController** klasy definicji z następującym kodem. Ten składnik implementuje sposób urządzenia pobrać bezpiecznie powiadomienia, a także sposób (na potrzeby tego samouczka) do wyzwolenia bezpiecznego wypychanych do urządzeń z systemem. Należy pamiętać, że podczas wysyłania powiadomień do Centrum powiadomień, tylko powiadomienie zostanie wysłane pierwotnych z Identyfikatorem powiadomienia (i żaden komunikat rzeczywiste):
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
+Należy pamiętać, że `Post` metody teraz nie wysyłania wyskakujących powiadomień. Wysyła raw powiadomienie, które zawiera tylko identyfikator powiadomień, a nie poufną zawartością. Upewnij się również dodać komentarz operacji wysyłania dla platformy, dla których nie masz zostały skonfigurowane w Centrum powiadomień, jak będą powodować błędy.
 
-1. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+1. Teraz ponownie wdrożymy tę aplikację do witryny sieci Web platformy Azure, aby udostępnić go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
+2. Wybierz urządzenie docelowe publikowania witryny sieci Web platformy Azure. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj **docelowy adres URL** właściwości w **połączenia** kartę. W dalszej części tego samouczka będziemy nazywać ten adres URL *punktem końcowym zaplecza*. Kliknij przycisk **Opublikuj**.
 

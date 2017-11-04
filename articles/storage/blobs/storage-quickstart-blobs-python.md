@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu języka Python
 Z tego przewodnika Szybki Start dowiesz się przekazywanie, pobieranie i listy blokowych obiektów blob w kontenerze w magazynie obiektów Blob platformy Azure przy użyciu języka Python. 
@@ -32,25 +32,7 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Utwórz konto magazynu przy użyciu portalu Azure
-
-Najpierw utwórz nowe konto magazynu ogólnego przeznaczenia na potrzeby tego przewodnika Szybki Start. 
-
-1. Przejdź do [portalu Azure](https://portal.azure.com) i zaloguj się za pomocą konta platformy Azure. 
-2. W menu Centrum wybierz **nowy** > **magazynu** > **konta magazynu — obiekt blob, plików, tabeli, kolejki**. 
-3. Wprowadź nazwę konta magazynu. Nazwa musi mieć od 3 do 24 znaków i może zawierać tylko cyfry i małe litery. Również musi być unikatowa.
-4. Ustaw `Deployment model` do **Menedżera zasobów**.
-5. Ustaw `Account kind` do **ogólnego przeznaczenia**.
-6. Ustaw `Performance` do **standardowe**. 
-7. Ustaw `Replication` do **magazyn lokalnie nadmiarowy (LRS)**.
-8. Ustaw `Storage service encryption` do **wyłączone**.
-9. Ustaw `Secure transfer required` do **wyłączone**.
-10. Wybierz subskrypcję. 
-11. Aby uzyskać `resource group`, Utwórz nową i nadaj unikatową nazwę. 
-12. Wybierz `Location` dla konta magazynu.
-13. Sprawdź **Przypnij do pulpitu nawigacyjnego** i kliknij przycisk **Utwórz** można utworzyć konta magazynu. 
-
-Po utworzeniu konta magazynu jest przypięta do pulpitu nawigacyjnego. Kliknij go, aby go otworzyć. W obszarze **ustawienia**, kliknij przycisk **klucze dostępu**. Wybierz klucz i skopiuj nazwę konta magazynu do Schowka, a następnie wklej go do Notatnika do późniejszego użycia.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 [Przykładowa aplikacja](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) używane w tym szybkiego startu jest podstawowej aplikacji Python.  
@@ -100,8 +82,10 @@ Najpierw musisz jest utworzyć odwołania do obiektów używane do uzyskania dos
 
 Po utworzeniu kontenera obiektów Blob w chmurze, można utworzyć wystąpienia **CloudBlockBlob** obiekt, który wskazuje konkretnego obiektu blob, w którym interesuje i wykonywanie operacji takich jak przekazywanie, pobieranie i kopii.
 
-W tej sekcji wystąpienia obiektów, Utwórz nowy kontener i następnie ustawić uprawnień dla kontenera, obiekty BLOB są publiczne. Kontener jest nazywany **quickstartblobs**. 
+> [!IMPORTANT]
+> Nazwy kontenerów muszą mieć małe litery. Zobacz [nazewnictwa i odwołuje się do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) uzyskać więcej informacji o nazwach i kontener obiektów blob.
 
+W tej sekcji wystąpienia obiektów, Utwórz nowy kontener i następnie ustawić uprawnień dla kontenera, obiekty BLOB są publiczne. Kontener jest nazywany **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

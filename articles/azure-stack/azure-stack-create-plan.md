@@ -1,6 +1,6 @@
 ---
-title: Create a plan in Azure Stack | Microsoft Docs
-description: As a cloud administrator, create a plan that lets subscribers provision virtual machines.
+title: Tworzenie planu w stosie Azure | Dokumentacja firmy Microsoft
+description: "Jako administrator chmury Utwórz plan, który umożliwia maszynom wirtualnym udostępniania subskrybentów."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,58 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-plan-in-azure-stack"></a>Create a plan in Azure Stack
+# <a name="create-a-plan-in-azure-stack"></a>Tworzenie planu w usłudze Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-[Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
+[Plany](azure-stack-key-features.md) są grupami obejmującymi co najmniej jedną usługę. Jako dostawca można utworzyć plany oferować użytkownikom. Z kolei użytkownikom subskrybować oferty korzystać z planów i usług, które obejmują one. Ten przykład przedstawia sposób tworzenia planu, który zawiera compute, sieci i dostawcy zasobów magazynu. Ten plan umożliwia subskrybentów na umieszczanie maszyn wirtualnych.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external). Enter the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section.
+1. Zaloguj się do portalu administratora platformy Azure stosu (https://adminportal.local.azurestack.external). Wprowadź poświadczenia dla konta, który został utworzony w kroku 5 [uruchomienia skryptu programu PowerShell](azure-stack-run-powershell-script.md) sekcji.
 
-2. To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
+2. Aby utworzyć plan i oferty, które użytkownicy mogą subskrybować, kliknij przycisk **nowy** > **oferuje dzierżawy + planów** > **planu**.
 
    ![](media/azure-stack-create-plan/image01.png)
-3. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
+3. W **nowy Plan** bloku, wypełnij **Nazwa wyświetlana** i **Nazwa zasobu**. Nazwa wyświetlana jest przyjazna nazwa planu, dostępna dla użytkowników. Nazwa zasobu jest widoczna tylko dla administratora. Jest to nazwa, których administratorzy używać do pracy z planem jako zasób usługi Azure Resource Manager.
 
    ![](media/azure-stack-create-plan/image02.png)
-4. Create a new **Resource Group**, or select an existing one, as a container for the plan.
+4. Utwórz nową **grupy zasobów**, lub wybierz istniejący, jako kontener dla planu.
 
    ![](media/azure-stack-create-plan/image02a.png)
-5. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+5. Kliknij przycisk **usług**, wybierz pozycję **Microsoft.Compute**, **Microsoft.Network**, i **Microsoft.Storage**, a następnie kliknij przycisk **Wybierz**.
 
    ![](media/azure-stack-create-plan/image03.png)
-6. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+6. Kliknij przycisk **przydziały**, kliknij przycisk **Microsoft.Storage (lokalne)**, a następnie wybierz domyślnego przydziału lub kliknij przycisk **Utwórz nowy przydział** dostosować limit przydziału.
 
    ![](media/azure-stack-create-plan/image04.png)
-7. If you're creating a new quota, enter a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+7. Jeśli tworzysz nowy przydział, wprowadź nazwę dla limitu przydziału > Ustaw wartości przydziału > kliknij **OK** > kliknij nazwę nowego limitu przydziału.
 
    ![](media/azure-stack-create-plan/image06.png)
-8. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+8. Kliknij przycisk **Microsoft.Network (lokalne)**, a następnie wybierz domyślnego przydziału lub kliknij przycisk **Utwórz nowy przydział** dostosować limit przydziału.
 
     ![](media/azure-stack-create-plan/image07.png)
-9. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+9. Jeśli tworzysz nowy przydział, wpisz nazwę przydziału > Ustaw wartości przydziału > kliknij **OK** > kliknij nazwę nowego limitu przydziału.
 
     ![](media/azure-stack-create-plan/image08.png)
-10. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+10. Kliknij przycisk **Microsoft.Compute (lokalne)**, a następnie wybierz domyślnego przydziału lub kliknij przycisk **Utwórz nowy przydział** dostosować limit przydziału.
 
     ![](media/azure-stack-create-plan/image09.png)
-11. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+11. Jeśli tworzysz nowy przydział, wpisz nazwę przydziału > Ustaw wartości przydziału > kliknij **OK** > kliknij nazwę nowego limitu przydziału.
 
     ![](media/azure-stack-create-plan/image10.png)
-12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
+12. W **przydziały** bloku, kliknij przycisk **OK**, a następnie w **nowy Plan** bloku, kliknij przycisk **Utwórz** Aby utworzyć plan.
 
     ![](media/azure-stack-create-plan/image11.png)
-13. To see your new plan, click **All resources**, then search for the plan and click its name.
+13. Aby wyświetlić nowy plan, kliknij przycisk **wszystkie zasoby**, następnie wyszukaj plan i kliknij jego nazwę.
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>Next steps
-[Create an offer](azure-stack-create-offer.md)
-
+### <a name="next-steps"></a>Następne kroki
+[Tworzenie oferty](azure-stack-create-offer.md)

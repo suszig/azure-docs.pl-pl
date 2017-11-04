@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Praca z zmiany źródła pomocy technicznej w usłudze Azure DB rozwiązania Cosmos
 
@@ -72,7 +72,7 @@ Na przykład w przypadku zmiany, źródła danych, można wykonać następujące
 * Implementowanie analizach wsadowych na danych przy użyciu [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Wykonywać zero czas przestoju migracji na inne konto bazy danych Azure rozwiązania Cosmos z różnych schemat partycjonowania.
 * Implementowanie [potoki lambda na platformie Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) z bazy danych Azure rozwiązania Cosmos. Azure DB rozwiązania Cosmos zapewnia rozwiązanie skalowalne bazy danych, które można obsługiwać wprowadzanie i zapytań oraz implementował architektury lambda z niskim całkowitego kosztu posiadania. 
-* Odbieranie i przechowywania danych o zdarzeniach z urządzeń, czujników, infrastruktury i aplikacje i przetworzyć tych zdarzeń w czasie rzeczywistym z [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), lub [Apache Platforma Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+* Odbieranie i przechowywania danych o zdarzeniach z urządzeń, czujników, infrastruktury i aplikacje i przetworzyć tych zdarzeń w czasie rzeczywistym z [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), lub [Apache Platforma Spark](../hdinsight/spark/apache-spark-overview.md). 
 
 Na poniższej ilustracji przedstawiono, jak potoki lambda, zarówno pozyskiwania, które można użyć zapytania przy użyciu bazy danych Azure rozwiązania Cosmos zmienić źródła pomocy technicznej: 
 

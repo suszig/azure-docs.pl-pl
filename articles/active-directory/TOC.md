@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -48,7 +48,6 @@
 #### [Przykłady programu Azure PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
 #### [Dokumentacja produktów i planów usług w usłudze Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
-### [Resetowanie hasła](active-directory-users-reset-password-azure-portal.md)
 ### [Zarządzanie informacjami o pracy użytkownika](active-directory-users-work-info-azure-portal.md)
 ### [Udostępnianie kont](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [Raportowanie samoobsługowego resetowania haseł](active-directory-passwords-reporting.md)
 ### Administratorzy IT: resetowanie haseł
 #### [Witryna Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klasyczna witryna Azure Portal](active-directory-create-users-reset-password.md)
 ### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
 ### [Zapisywanie zwrotne haseł](active-directory-passwords-writeback.md)
 ### [Rozwiązywanie problemów](active-directory-passwords-troubleshoot.md)

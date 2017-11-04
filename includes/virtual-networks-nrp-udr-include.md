@@ -1,25 +1,25 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## <a name="route-tables"></a>Tabele tras
+Zasoby tabeli tras zawiera trasy używane do definiowania sposobu przepływa ruch w ramach infrastruktury platformy Azure. Umożliwia trasy zdefiniowane przez użytkownika (przez) Wyślij cały ruch z jednej podsieci do urządzenia wirtualnego, takich jak system wykrywania zapory lub nieautoryzowanego dostępu (ID). Możesz skojarzyć tabelę tras do podsieci. 
 
-Route tables contain the following properties.
+Tabele tras obejmują następujące właściwości.
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **routes** |Collection of user defined routes in the route table |see [user defined routes](#User-defined-routes) |
-| **subnets** |Collection of subnets the route table is applied to |see [subnets](#Subnets) |
+| **trasy** |Kolekcja użytkownika zdefiniowanych tras w tabeli tras |zobacz [trasy zdefiniowane przez użytkownika](#User-defined-routes) |
+| **podsieci** |Kolekcja podsieci tabelę tras jest stosowany do |zobacz [podsieci](#Subnets) |
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### <a name="user-defined-routes"></a>Trasy zdefiniowane przez użytkownika
+Udr, aby określić wysyłania ruchu sieciowego, można utworzyć na podstawie jego adresu docelowego. Trasa można traktować jako definicji bramy domyślnej na podstawie docelowego adresu pakietów sieciowych.
 
-UDRs contain the following properties. 
+Udr obejmują następujące właściwości. 
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **addressPrefix** |Address prefix, or full IP address for the destination |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Type of device the traffic will be sent to |VirtualAppliance, VPN Gateway, Internet |
-| **nextHopIpAddress** |IP address for the next hop |192.168.1.4 |
+| **addressPrefix** |Prefiks adresu lub pełny adres IP dla miejsca docelowego |192.168.1.0/24, 192.168.1.101 |
+| **Typ następnego przeskoku** |Typ urządzenia, dane zostaną wysłane do |Internet VirtualAppliance, Brama sieci VPN |
+| **adres IP następnego przeskoku** |Adres IP następnego przeskoku |192.168.1.4 |
 
-Sample route table in JSON format:
+Przykładowa tabela tras w formacie JSON:
 
     {
         "name": "UDR-BackEnd",
@@ -50,8 +50,8 @@ Sample route table in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+### <a name="additional-resources"></a>Dodatkowe zasoby
+* Uzyskaj więcej informacji [Udr](../articles/virtual-network/virtual-networks-udr-overview.md).
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) dla tabel tras.
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) dla użytkownika zdefiniowanych tras (Udr).
 

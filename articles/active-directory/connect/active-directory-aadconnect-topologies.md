@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne lokalnymi i topologii usługi Azure Active Directory (Azure AD), używające synchronizacja programu Azure AD Connect jako rozwiązanie integracji klucza. W tym artykule opisano zarówno obsługiwane i nieobsługiwane konfiguracje.
@@ -111,7 +111,7 @@ Niektórych obciążeń usługi Office 365 mają niektórych ograniczeń dotycz�
 
 | Obciążenie | Ograniczenia |
 --------- | ---------
-| Exchange Online | Jeśli istnieje więcej niż jednej lokalnej organizacji programu Exchange (to znaczy Exchange wdrożono więcej niż jednego lasu), należy użyć programu Exchange 2013 z dodatkiem SP1 lub nowszym. Aby uzyskać więcej informacji, zobacz [hybrydowych wdrożeń z wieloma lasami usługi Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | Aby uzyskać więcej informacji na temat hybrydowe topologie obsługiwane przez usługę Exchange Online, zobacz [hybrydowych wdrożeń z wieloma lasami usługi Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype dla firm | Podczas korzystania z wieloma lokalnymi lasami, topologią lasu zasobów konta jest obsługiwana. Aby uzyskać więcej informacji, zobacz [środowiska wymagania dla usługi Skype dla firm Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

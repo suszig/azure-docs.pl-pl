@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
-ms.contentlocale: pl-pl
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą witryny Azure Portal
 
 Maszyny wirtualne platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie maszyn wirtualnych oraz wszystkich pokrewnych zasobów. Ten przewodnik Szybki start opisuje proces tworzenia maszyny wirtualnej i instalowania serwera sieci Web na tej maszynie wirtualnej.
@@ -58,18 +56,18 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
     ![Zrzut ekranu przedstawiający rozmiary maszyn wirtualnych](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. W bloku ustawień pozostaw ustawienia domyślne i kliknij przycisk **OK**.
+5. W obszarze **Ustawienia** zachowaj wartości domyślne i kliknij przycisk **OK**.
 
 6. Na stronie podsumowania kliknij przycisk **OK**, aby rozpocząć wdrażanie maszyny wirtualnej.
 
-7. Maszyna wirtualna zostanie przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarty blok podsumowania maszyny wirtualnej.
+7. Maszyna wirtualna zostanie przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrażania zostanie automatycznie otwarte podsumowanie maszyny wirtualnej.
 
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
 Utwórz połączenie SSH z maszyną wirtualną.
 
-1. Kliknij przycisk **Połącz** w bloku maszyny wirtualnej. Na przycisku połączenia są wyświetlane parametry połączenia SSH, których można użyć do nawiązania połączenia z maszyną wirtualną.
+1. Kliknij przycisk **Połącz** we właściwościach maszyny wirtualnej. Na przycisku połączenia są wyświetlane parametry połączenia SSH, których można użyć do nawiązania połączenia z maszyną wirtualną.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +108,13 @@ Sieciowa grupa zabezpieczeń zabezpiecza ruch przychodzący i wychodzący. Po ut
 
 ## <a name="view-the-nginx-welcome-page"></a>Wyświetlanie strony powitalnej serwera NGINX
 
-Po zainstalowaniu serwera NGINX i otwarciu portu 80 dla maszyny wirtualnej można uzyskać dostęp do serwera sieci Web z Internetu. Otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej. Publiczny adres IP można znaleźć w bloku maszyny wirtualnej w witrynie Azure Portal.
+Po zainstalowaniu serwera NGINX i otwarciu portu 80 dla maszyny wirtualnej można uzyskać dostęp do serwera sieci Web z Internetu. Otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej. Publiczny adres IP można znaleźć we właściwościach maszyny Wirtualnej w portalu Azure.
 
 ![Domyślna witryna serwera NGINX](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów z bloku maszyny wirtualnej, a następnie kliknij przycisk **Usuń**.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów dla maszyny wirtualnej, a następnie kliknij przycisk **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -124,4 +122,3 @@ W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reg
 
 > [!div class="nextstepaction"]
 > [Samouczki dla maszyny wirtualnej platformy Azure z systemem Linux](./tutorial-manage-vm.md)
-
