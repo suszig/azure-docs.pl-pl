@@ -1,142 +1,142 @@
-# <a name="azure-managed-disks-overview"></a>Azure Managed Disks Overview
+# <a name="azure-managed-disks-overview"></a>Informacje o dyskach zarządzanych platformy Azure
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Zarządzane dysku systemu Azure upraszcza zarządzanie dysku dla maszyn wirtualnych IaaS platformy Azure przez zarządzanie [kont magazynu](../articles/storage/common/storage-introduction.md) skojarzone z dysków maszyny Wirtualnej. Należy określić typ ([Premium](../articles/virtual-machines/windows/premium-storage.md) lub [standardowe](../articles/virtual-machines/windows/standard-storage.md)) należy rozmiar dysku i Azure tworzy i zarządza dysku.
 
-## <a name="benefits-of-managed-disks"></a>Benefits of managed disks
+## <a name="benefits-of-managed-disks"></a>Korzyści wynikające z dysków zarządzanych
 
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+Spójrzmy na kilka korzyści, uzyskasz przy użyciu dysków zarządzanych w programie ten film Channel 9 [lepsze odporności maszyny Wirtualnej Azure z dyskami zarządzane](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
-### <a name="simple-and-scalable-vm-deployment"></a>Simple and scalable VM deployment
+### <a name="simple-and-scalable-vm-deployment"></a>Proste i skalowalne wdrażanie maszyny Wirtualnej
 
-Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription.
+Zarządzane dyski magazynu uchwytów dla Ciebie w tle. Poprzednio konieczne było utworzenie kont magazynu do przechowywania dysków (pliki VHD) na maszynach wirtualnych platformy Azure. Podczas skalowania w, trzeba było upewnij się, że utworzona dodatkowych kont magazynu, więc nie przekracza limitu IOPS dla magazynu za pomocą dowolnego z dysków. W przypadku zarządzanych dysków obsługi magazynu nie jest już ograniczeniem limity konta magazynu (takie jak IOPS 20 000 / konta). Masz już również skopiować niestandardowe obrazy (pliki VHD) na wielu kont magazynu. Można nimi zarządzać w centralnej lokalizacji — jedno konto magazynu na region platformy Azure — i używać ich do tworzenia setki maszyn wirtualnych w ramach subskrypcji.
 
-Managed Disks will allow you to create up to 10,000 VM **disks** in a subscription, which will enable you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a VMSS using a Marketplace image.
+Dyski zarządzanych umożliwia tworzenie maszyny Wirtualnej do 10 000 **dysków** w ramach subskrypcji, która umożliwi tysiące **maszyn wirtualnych** w ramach jednej subskrypcji. Ta funkcja także dodatkowo zwiększa skalowalność [zestawy skalowania maszyny wirtualnej (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , umożliwiając tworzenie maszyn wirtualnych do tysięcy w VMSS, przy użyciu obrazu z witryny Marketplace.
 
-### <a name="better-reliability-for-availability-sets"></a>Better reliability for Availability Sets
+### <a name="better-reliability-for-availability-sets"></a>Niezawodność zestawów dostępności
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Dyski zarządzane zapewnia większą niezawodność zestawów dostępności przez zapewnienie, że dyski [maszyn wirtualnych w zestawie dostępności](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) wystarczająco izolowane od siebie, aby uniknąć pojedynczych punktów awarii. Robi to automatycznie umieszczając dyski w jednostki skalowania innego magazynu (sygnatury). Sygnatura nie powiedzie się z powodu awarii sprzętu lub oprogramowania, tylko wystąpienia maszyny Wirtualnej z dyskami tych sygnatur zakończyć się niepowodzeniem. Na przykład, załóżmy, że korzystasz z aplikacji działających na pięciu maszynach, a maszyny wirtualne znajdują się w zestawie dostępności. Dyski dla tych maszyn wirtualnych nie będą wszystkie są przechowywane w tej samej sygnaturze, więc jeśli jednej sygnatury ulegnie awarii, pozostałe wystąpienia aplikacji kontynuować działanie.
 
-### <a name="highly-durable-and-available"></a>Highly durable and available
+### <a name="highly-durable-and-available"></a>Duża trwałość i wysoka dostępność
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Dyski platformy Azure zaprojektowano tak, aby zapewniały 99,999% dostępności. Zatrzymaj, łatwiej wiedząc, że użytkownik ma trzy repliki danych, która umożliwia wysoka trwałość. Jeśli w jednej lub nawet w dwóch replikach wystąpią błędy, pozostałe repliki pomogą w zapewnieniu trwałości danych i dużej tolerancji w przypadku awarii. Ta architektura pomogła platformie Azure w zapewnieniu niezawodności klasy korporacyjnej dla dysków IaaS przez długi czas z rocznym współczynnikiem awarii w wysokości 0%, co stawia ją w czołówce branży. 
 
-### <a name="granular-access-control"></a>Granular access control
+### <a name="granular-access-control"></a>Precyzyjną kontrolę dostępu
 
-You can use [Azure Role-Based Access Control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+Można użyć [based kontroli dostępu (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) Aby przypisać uprawnienia określone dla dysków zarządzanych do co najmniej jednego użytkownika. Zarządzane dyski ujawnia różne operacje, w tym do odczytu, zapisu (Utwórz/Aktualizuj), usuwania i pobierania [sygnatury dostępu współdzielonego (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) dla dysku. Można przyznać dostęp do działań osoby musi wykonać swoje zadania. Na przykład jeśli nie chcesz, aby osoby w celu kopiowania dysków zarządzanych na konto magazynu, możesz nie udzielić dostępu do akcji eksportu dla tego dysku zarządzanego. Podobnie jeśli nie chcesz, aby osoby na potrzeby kopiowania dysków zarządzanych przez identyfikator URI sygnatury dostępu Współdzielonego, można nie przyznać uprawnienie do dysków zarządzanych.
 
-### <a name="azure-backup-service-support"></a>Azure Backup service support
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports data disk sizes up to 1TB for backup. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+### <a name="azure-backup-service-support"></a>Obsługa usługi Kopia zapasowa Azure
+Tworzenie zadania tworzenia kopii zapasowej na podstawie czasu tworzenia kopii zapasowych, łatwe przywrócenie maszyny Wirtualnej i zasady przechowywania kopii zapasowych za pomocą usługi Kopia zapasowa Azure z zarządzania dyskami. Dyski zarządzane obsługują tylko lokalnie nadmiarowego magazynu (LRS) jako opcję replikacji; oznacza to, że przechowuje trzy kopie danych w pojedynczym regionie. Regionalnej awarii, należy wykonać kopię zapasową dysków maszyny Wirtualnej w innym regionie przy użyciu [usługi Kopia zapasowa Azure](../articles/backup/backup-introduction-to-azure-backup.md) i konto magazynu GRS jako magazynu kopii zapasowych. Obecnie dysk danych w usłudze Kopia zapasowa Azure obsługuje rozmiar maksymalnie 1TB dla kopii zapasowej. Dowiedz się więcej o tym w [usługi przy użyciu kopii zapasowej Azure dla maszyn wirtualnych z dyskami zarządzane](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-When using Managed Disks, the following billing considerations apply:
-* Storage Type
+Korzystając z dysków zarządzanych, zastosuj następujące zagadnienia dotyczące rozliczeń:
+* Typ magazynu
 
-* Disk Size
+* Rozmiar dysku
 
-* Number of transactions
+* Liczba transakcji
 
-* Outbound data transfers
+* Wychodzące transfery danych
 
-* Managed Disk Snapshots (full disk copy)
+* Zarządzane migawki dysków (kopia zapełniony dysk)
 
-Let's take a closer look at these.
+Spójrzmy bliższe spojrzenie na te.
 
-**Storage Type:** Managed Disks offers 2 performance tiers: [Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Typ magazynu:** zarządzane dysków oferuje 2 warstwy wydajności: [Premium](../articles/virtual-machines/windows/premium-storage.md) (oparte na dysk SSD) i [standardowe](../articles/virtual-machines/windows/standard-storage.md) (oparte na dysk twardy). Rozliczenia dysków zarządzanych zależy od tego, jakiego typu magazynu wybranego dysku.
 
 
-**Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
+**Rozmiar dysku**: rozliczeń dla dysków zarządzanych zależy od elastycznie rozmiaru dysku. Azure mapuje elastycznie rozmiar (zaokrąglona w górę) do najbliższej opcja dysków zarządzanych w określonych w poniższych tabelach. Każdy dysk zarządzany mapuje jedną z obsługiwanych rozmiarów elastycznie i jest on rozliczany odpowiednio. Na przykład jeśli tworzenie standardowych dysków zarządzanych i określ elastycznie rozmiaru 200 GB, są rozliczane zgodnie z harmonogramem cennik typ dysku S20 w warstwie.
 
-Here are the disk sizes available for a premium managed disk:
+W tym miejscu są dostępne dla dysków zarządzanych w warstwie premium rozmiary dysków:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+| **Premium zarządzane <br>typ dysku** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-Here are the disk sizes available for a standard managed disk:
+W tym miejscu są dostępne dla standardowych dysków zarządzanych rozmiary dysków:
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+| **Standard zarządzane <br>typ dysku** | **S4** | **S6** | **S10 W WARSTWIE** | **S20** | **S30 W WARSTWIE** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
+**Liczba transakcji**: rozliczenie jest liczba transakcji, które można wykonywać na standardowych dysków zarządzanych. Nie ma żadnych kosztów transakcji dla dysków zarządzanych w warstwie premium.
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Transfer danych wychodzących**: [transfery danych wychodzących](https://azure.microsoft.com/pricing/details/data-transfers/) (danych wychodzących z centrów danych Azure) powodują Naliczanie opłat za zużycie przepustowości.
 
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-
-## <a name="managed-disk-snapshots"></a>Managed Disk Snapshots
-
-A Managed Snapshot is a read-only full copy of a managed disk which is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
-
-[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
-
-To learn more about how to create snapshots with Managed Disks, please check out these resources:
-
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+Aby uzyskać szczegółowe informacje o cenach dla dysków zarządzanych, zobacz [zarządzane cennik dysków](https://azure.microsoft.com/pricing/details/managed-disks).
 
 
-## <a name="images"></a>Images
+## <a name="managed-disk-snapshots"></a>Dyski zarządzane migawki
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Migawka zarządzanych jest tylko do odczytu pełnej kopii dysku zarządzanego, który jest przechowywany jako standardowych dysków zarządzanych przez domyślny. Z migawki można tworzyć kopie zapasowe dysków zarządzanych w dowolnym momencie w czasie. Te migawki istnieje niezależnie od dysku źródłowego i mogą służyć do tworzenia nowych dysków zarządzanych. Są one rozliczane na podstawie rozmiaru używane. Na przykład po utworzeniu migawki dysków zarządzanych z elastycznie pojemności 64 GB i rozmiaru rzeczywistego używanych danych wynosi 10 GB migawki będą naliczane tylko za używanych danych rozmiar 10 GB.  
 
-For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+[Przyrostowe migawki](../articles/virtual-machines/windows/incremental-snapshots.md) nie są obecnie obsługiwane w przypadku dysków zarządzanych, ale będzie możliwe w przyszłości.
 
-## <a name="images-versus-snapshots"></a>Images versus snapshots
+Aby dowiedzieć się więcej na temat tworzenia migawek dysków zarządzanych, sprawdź następujące zasoby:
 
-You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
-
-A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
-
-What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
-
-## <a name="managed-disks-and-encryption"></a>Managed Disks and Encryption
-
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
-
-### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
-
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+* [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
-### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+## <a name="images"></a>Obrazy
 
-Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, please see [Azure Disk Encryption for Windows and Linux IaaS VMs](../articles/security/azure-security-disk-encryption.md).
+Dyski zarządzane obsługują także tworzenie zarządzanych niestandardowego obrazu. Można utworzyć obrazu, z Twojego niestandardowego pliku VHD na koncie magazynu lub bezpośrednio z ogólnych maszyny Wirtualnej (sys prepped). To są zapisywane w jednym obrazie wszystkie zarządzane dysku skojarzonego z maszyną Wirtualną, w tym zarówno systemu operacyjnego i dysków z danymi. Dzięki temu tworzenie setki maszyn wirtualnych przy użyciu niestandardowego obrazu bez konieczności kopiowania ani zarządzanie nimi żadnych kont magazynu.
 
-## <a name="next-steps"></a>Next steps
+Informacje dotyczące tworzenia obrazów zobacz następujące artykuły:
+* [Jak przechwycić do zarządzanego obrazu uogólniony maszyny Wirtualnej na platformie Azure](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Jak generalize i przechwytywanie maszyny wirtualnej systemu Linux przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/linux/capture-image.md)
 
-For more information about Managed Disks, please refer to the following articles.
+## <a name="images-versus-snapshots"></a>Obrazy i migawki
 
-### <a name="get-started-with-managed-disks"></a>Get started with Managed Disks
+Często widoczny wyraz "obrazu" używana z maszynami wirtualnymi i spowoduje to wyświetlenie "migawki" również. Należy zrozumieć różnicę między nimi. W przypadku zarządzanych dysków może potrwać obraz uogólniony maszynę Wirtualną, która alokację. Ten obraz będzie zawierać wszystkie dysków dołączonych do maszyny Wirtualnej. Ten obraz umożliwia utworzenie nowej maszyny Wirtualnej, a uwzględni wszystkie dyski.
 
-* [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+Migawka jest kopii dysku w punkcie w czasie, który przyjmuje. Dotyczy tylko jeden dysk. Jeśli masz maszynę Wirtualną, która zawiera tylko jeden dysk (system operacyjny), można wykonać migawki lub obraz go i tworzenie maszyny Wirtualnej z migawki lub obrazu.
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+Co zrobić, jeśli maszyna wirtualna ma pięć dysków i ich są rozkładane? Można utworzyć migawkę każdy z tych dysków, ale nie Brak świadomości w Maszynie wirtualnej stanu dyski — migawek tylko wiedzieć o tym jeden dysk. W takim przypadku migawki musi być z sobą, i który nie jest obecnie obsługiwany.
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
+## <a name="managed-disks-and-encryption"></a>Dyski zarządzane i szyfrowania
 
-* [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md)
+Istnieją dwa rodzaje szyfrowania omówimy w odniesieniu do zarządzanych dysków. Pierwsza z nich jest magazynu usługi szyfrowania (SSE), które jest wykonywane przez usługę magazynu. Drugim jest szyfrowania dysków Azure, które można włączyć na dyskach systemu operacyjnego i danych dla maszyn wirtualnych.
 
-* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+### <a name="storage-service-encryption-sse"></a>Szyfrowanie usługi Magazyn (SSE)
 
-* [Use Managed Disks in Azure Resource Manager templates](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+[Szyfrowanie usługi Magazyn Azure](../articles/storage/common/storage-service-encryption.md) zapewnia szyfrowanie na rest i ochrony danych w celu spełnienia Twojej organizacji zobowiązań zabezpieczeń i zgodności. SSE jest domyślnie włączona dla wszystkich dysków zarządzanych, migawki i obrazów we wszystkich regionach, gdzie dostępna jest opcja dysków zarządzanych. Uruchamianie 10 czerwca 2017 wszystkie nowe zarządzane dyski/migawek/obrazów i nowych danych istniejących dysków zarządzanych są automatycznie szyfrowane podczas spoczynku z kluczami zarządzany przez firmę Microsoft.  Odwiedź stronę [strony często zadawane pytania dotyczące dysków zarządzanych](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) więcej szczegółów.
 
-### <a name="compare-managed-disks-storage-options"></a>Compare Managed Disks storage options
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+### <a name="azure-disk-encryption-ade"></a>Szyfrowanie dysków Azure (ADE)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+Szyfrowanie dysków Azure umożliwia szyfrowanie dysków systemu operacyjnego i danych, używanych przez maszyny wirtualne IaaS. W tym dyski zarządzanych. W systemie Windows dyski są szyfrowane za pomocą technologii szyfrowania BitLocker standardowych. Dla systemu Linux dyski są szyfrowane za pomocą technologii DM-Crypt. To jest zintegrowany z usługą Azure Key Vault, co pozwala na kontrolowanie i zarządzać kluczami szyfrowania dysku. Aby uzyskać więcej informacji, zobacz [Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS](../articles/security/azure-security-disk-encryption.md).
 
-### <a name="operational-guidance"></a>Operational guidance
+## <a name="next-steps"></a>Następne kroki
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+Aby uzyskać więcej informacji na temat zarządzanych dysków można znaleźć w następujących artykułach.
 
-* [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+### <a name="get-started-with-managed-disks"></a>Rozpoczynanie pracy z usługą Managed Disks
+
+* [Tworzenie maszyny wirtualnej przy użyciu usługi Resource Manager i programu PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+
+* [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+
+* [Dołączenie dysku danych zarządzanych do maszyny Wirtualnej systemu Windows przy użyciu programu PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
+
+* [Dodawanie dysku zarządzanego do maszyny wirtualnej z systemem Linux](../articles/virtual-machines/linux/add-disk.md)
+
+* [Zarządzane dysków programu PowerShell przykładowe skrypty](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+
+* [Dysków zarządzanych w szablonach usługi Azure Resource Manager](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+
+### <a name="compare-managed-disks-storage-options"></a>Porównanie dysków zarządzanych opcje magazynu
+
+* [Magazyn w warstwie Premium i dysków](../articles/virtual-machines/windows/premium-storage.md)
+
+* [Standardowy magazyn i dyski](../articles/virtual-machines/windows/standard-storage.md)
+
+### <a name="operational-guidance"></a>Wskazówki dotyczące obsługi
+
+* [Migrowanie z usług AWS i innych platform do zarządzanych dysków na platformie Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+
+* [Konwertuj maszynach wirtualnych platformy Azure do zarządzanych dysków na platformie Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)

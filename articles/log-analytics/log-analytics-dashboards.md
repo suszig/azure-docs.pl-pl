@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Utwórz niestandardowy pulpit nawigacyjny do użycia w analizy dzienników
 
->[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie nie można utworzyć nowe pulpity nawigacyjne lub edytowanie istniejących pulpitów nawigacyjnych. 
-
 Ten przewodnik pomaga zrozumieć, jak pulpity nawigacyjne analizy dzienników można Wizualizuj wszystkie dziennika zapisanych wyszukiwań, umożliwiając pojedynczego obiektyw, aby wyświetlić środowiska.
+
+>[!NOTE]
+> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie nie można edytować istniejące **Mój pulpit nawigacyjny**. Jeśli obszaru roboczego nie ma żadnego **Mój pulpit nawigacyjny** Kafelki dodany, a następnie nie będzie mógł przeglądać **Mój pulpit nawigacyjny** w obszarze roboczym uaktualniony. 
 
 ![Przykład pulpitu nawigacyjnego](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

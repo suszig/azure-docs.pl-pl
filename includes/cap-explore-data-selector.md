@@ -1,9 +1,9 @@
 > [!div class="op_single_selector"]
-> * [Explore data](../articles/machine-learning/team-data-science-process/explore-data.md)
-> * [Explore data in Azure blob storage](../articles/machine-learning/team-data-science-process/explore-data-blob.md)
-> * [Explore data in SQL Server](../articles/machine-learning/team-data-science-process/explore-data-sql-server.md)
-> * [Explore data in Hive tables](../articles/machine-learning/team-data-science-process/explore-data-hive-tables.md)
-> * [Explore data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)
+> * [Eksplorowanie danych](../articles/machine-learning/team-data-science-process/explore-data.md)
+> * [Eksploruj dane w magazynie obiektów blob platformy Azure](../articles/machine-learning/team-data-science-process/explore-data-blob.md)
+> * [Eksplorowanie danych w programie SQL Server](../articles/machine-learning/team-data-science-process/explore-data-sql-server.md)
+> * [Eksploruj dane w tabelach gałęzi](../articles/machine-learning/team-data-science-process/explore-data-hive-tables.md)
+> * [Eksplorowanie danych w usłudze Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)
 > 
 > 
 

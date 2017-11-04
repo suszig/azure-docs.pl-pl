@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Dostosowywanie ustawień klastra sieci szkieletowej usług i zasady uaktualniania sieci szkieletowej
 Ten dokument zawiera informacje dotyczące dostosować różne ustawienia sieci szkieletowej i sieci szkieletowej uaktualniania zasad dla klastra usługi sieć szkieletowa usług. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | PeriodicApiSlowTraceInterval | Czas w sekundach, domyślna to 5 minut |Dynamiczny| Określ zakres czasu w sekundach. PeriodicApiSlowTraceInterval Określa interwał, w którym powolne wywołania interfejsu API będzie ponownego wyświetlania przez monitor interfejsu API. |
 | NodeDeactivationMaxReplicaCloseDuration | Czas w sekundach, domyślna to 900 |Dynamiczny|Określ zakres czasu w sekundach. Czas, dla którego system będzie oczekiwał przed zakończeniem hostów usługi, które mają repliki są nadal w zamknięte podczas dezaktywacji węzła. |
 | FabricUpgradeMaxReplicaCloseDuration | Czas w sekundach, domyślna to 900 |Dynamiczny| Określ zakres czasu w sekundach. Czas, dla którego system będzie oczekiwał przed zakończeniem hostów usługi, które mają repliki są nadal w zamknięte podczas uaktualnienia programu fabric. |
-|GracefulReplicaShutdownMaxDuration|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny|Określ zakres czasu w sekundach. Czas, dla którego system będzie oczekiwał przed zakończeniem hostów usługi, które mają repliki są nadal w Zamknij.|
+|GracefulReplicaShutdownMaxDuration|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny|Określ zakres czasu w sekundach. Czas, dla którego system będzie oczekiwał przed zakończeniem hostów usługi, które mają repliki są nadal w Zamknij. Jeśli ta wartość jest równa 0, nie należy poinstruować replik zamknięcia.|
 |ReplicaChangeRoleFailureRestartThreshold|Int, domyślna to 10|Dynamiczny| Liczba całkowita. Określ liczbę błędów interfejsu API podczas podwyższania poziomu podstawowego, po którym zostaną zastosowane automatycznie ograniczenie akcji (ponowne uruchomienie repliki). |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, domyślna to 2147483647|Dynamiczny| Liczba całkowita. Określ liczbę błędów interfejsu API podczas podwyższania poziomu podstawowego, po którym ostrzeżenie raport o kondycji zostanie wygenerowany.|
 

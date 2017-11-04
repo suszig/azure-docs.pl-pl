@@ -1,6 +1,6 @@
 ---
-title: Understanding DNS in Azure Stack | Microsoft Docs
-description: Understanding DNS features and capabilities in Azure Stack
+title: Opis systemu DNS w stosie Azure | Dokumentacja firmy Microsoft
+description: "Opis DNS funkcje i możliwości w stosie Azure"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Introducing iDNS for Azure Stack
+# <a name="introducing-idns-for-azure-stack"></a>Introducing Azure stosu międzynarodowych nazw domen.
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-iDNS is a feature in Azure Stack that allows you to resolve external DNS names (such as http://www.bing.com).
-It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address, without having to provide custom DNS server entries.
+międzynarodowych nazw domen jest funkcją w stosie Azure, która pozwala na rozpoznawanie nazw DNS zewnętrznych (na przykład http://www.bing.com).
+Można też zarejestrować nazwy wewnętrznej sieci wirtualnej. W ten sposób można rozwiązać maszyn wirtualnych w tej samej sieci wirtualnej przez nazwę, a nie adres IP bez konieczności podawania niestandardowych wpisów serwera DNS.
 
-It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
+Jest to element, który zawsze było dostępne w usłudze Azure, ale jest dostępny w systemie Windows Server 2016 i stosu Azure zbyt.
 
-## <a name="what-does-idns-do"></a>What does iDNS do?
-With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries.
+## <a name="what-does-idns-do"></a>Do czego służy międzynarodowych nazw domen.
+Międzynarodowych nazw domen w stosie Azure możesz uzyskać następujące funkcje bez konieczności określania niestandardowych wpisów serwera DNS.
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* Udostępnione usługi rozpoznawania nazw DNS dla obciążeń dzierżawców.
+* Autorytatywny usługi DNS dla rozpoznawania nazw i rejestrację DNS w sieci wirtualnej dzierżawcy.
+* Usługa DNS cykliczne do rozpoznawania nazw internetowych dzierżawy maszyn wirtualnych. Dzierżawcy nie trzeba określić niestandardowe wpisy DNS do rozpoznawania nazw internetowych (na przykład www.bing.com).
 
-You can still bring your own DNS and use custom DNS servers if you want. But now, if you just want to be able to resolve Internet DNS names and be able to connect to other virtual machines in the same virtual network, you don’t need to specify anything and it will just work.
+Można nadal Ustaw własne DNS i korzystać z niestandardowych serwerów DNS. Ale teraz, jeśli właśnie chcesz mieć możliwość rozpoznania nazwy DNS w Internecie i można nawiązać połączenia z innych maszyn wirtualnych w tej samej sieci wirtualnej, nie trzeba niczego Określ i po prostu będzie działać.
 
-## <a name="what-does-idns-not-do"></a>What does iDNS not do?
-What iDNS does not allow you to do is create a DNS record for a name that can be resolved from outside the virtual network.
+## <a name="what-does-idns-not-do"></a>Do czego międzynarodowych nazw domen nie?
+Jakie międzynarodowych nazw domen nie pozwala przeprowadzić jest tworzenie rekordu DNS dla nazwy, która może zostać rozwiązany z spoza sieci wirtualnej.
 
-In Azure, you have the option of specifying a DNS name label that can be associated with a public IP address. You can choose the label (prefix), but Azure chooses the suffix, which is based on the region in which you create the public IP address.
+Na platformie Azure masz możliwość określenia etykieta nazwy DNS, który może być skojarzony z publicznym adresem IP. Możesz wybrać etykietę (prefiks), ale Azure wybiera sufiks, opartym na regionie, w którym można utworzyć publiczny adres IP.
 
-![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![Etykieta nazwy DNS zrzut ekranu](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-In the image above, Azure will create an “A” record in DNS for the DNS name label specified under the zone **westus.cloudapp.azure.com**. The prefix and the suffix together compose a Fully Qualified Domain Name (FQDN) that can be resolved from anywhere on the public Internet.
+Na ilustracji powyżej Azure utworzy rekord "A" w systemie DNS dla etykieta nazwy DNS w strefie **westus.cloudapp.azure.com**. Prefiksu i sufiksu razem tworzą pełni kwalifikowanej domeny nazwę (FQDN), który można rozwiązać ten problem z dowolnego miejsca w publicznej sieci Internet.
 
-Azure Stack only supports iDNS for internal name registration, so it cannot do the following.
+Stos Azure obsługuje tylko międzynarodowych nazw domen rejestracji nazw wewnętrznych, więc nie można wykonać następujące czynności.
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external).
-* Create a DNS zone (such as Contoso.com).
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
-
+* Utwórz rekord DNS w istniejącej hostowanej strefy DNS (na przykład local.azurestack.external).
+* Tworzenie strefy DNS (np. Contoso.com).
+* Utwórz rekord w obszarze własne niestandardowe strefy DNS.
+* Obsługuje zakupów nazw domen.
 

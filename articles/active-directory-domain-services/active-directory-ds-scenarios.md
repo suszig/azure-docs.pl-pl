@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenariusze wdrażania i przypadki użycia
 W tej sekcji przyjrzymy się kilka scenariuszy i przypadków użycia, które korzystają z usług domenowych w usłudze Azure Active Directory (AD).
@@ -85,4 +85,4 @@ Aby uzyskać więcej informacji na temat tego scenariusza wdrażania, zobacz tem
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Klastry HDInsight przyłączonych do domeny (wersja zapoznawcza)
 Można skonfigurować klaster Azure HDInsight, który jest przyłączony do domeny zarządzanej usług domenowych Azure AD z włączoną zakres Apache. Tworzenie i stosowanie zasad Hive za pośrednictwem zakres Apache oraz użytkownicy (na przykład analityków danych) do nawiązania połączenia Hive za pomocą narzędzia oparte na ODBC, na przykład programu Excel, Tableau itp. Firma Microsoft pracuje Dodawanie innych obciążeń, takich jak bazy danych HBase, Spark i Storm, do domeny w usłudze HDInsight wkrótce.
 
-Aby uzyskać więcej informacji na temat tego scenariusza wdrażania, zobacz temat jak [skonfigurować przyłączonych do domeny w usłudze hdinsight](../hdinsight/hdinsight-domain-joined-configure.md)
+Aby uzyskać więcej informacji na temat tego scenariusza wdrażania, zobacz temat jak [skonfigurować przyłączonych do domeny w usłudze hdinsight](../hdinsight/domain-joined/apache-domain-joined-configure.md)

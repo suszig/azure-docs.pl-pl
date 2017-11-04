@@ -16,17 +16,17 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ac4c5d88e724febf21fe6bcc8ecf939283f361e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługi Azure Multi-Factor Authentication (MFA) na platformie Azure przy użyciu rozszerzenia serwera zasad sieciowych (NPS)
 
 ## <a name="overview"></a>Omówienie
 
-Rozszerzenie usługi zasad sieciowych (NPS) na platformie Azure umożliwia organizacjom chronić uwierzytelniania klienta usługi usługi użytkowników zdalnego uwierzytelniania (RADIUS), za pomocą opartej na chmurze [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), która oferuje weryfikacji dwuetapowej.
+Rozszerzenia serwera zasad sieciowych (NPS) na platformie Azure umożliwia organizacjom chronić uwierzytelniania klienta usługi usługi użytkowników zdalnego uwierzytelniania (RADIUS), za pomocą opartej na chmurze [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), zapewniające weryfikacji dwuetapowej.
 
 Ten artykuł zawiera instrukcje dotyczące integracji z usługą Azure MFA infrastruktury serwera NPS przy użyciu rozszerzenia serwera NPS na platformie Azure, aby włączyć weryfikację dwuetapową bezpieczne dla użytkowników próby nawiązania połączenia z siecią za pośrednictwem sieci VPN. 
 
@@ -88,11 +88,11 @@ Usługi roli serwera NPS zawiera serwer usługi RADIUS i funkcjonalności klient
 
 Informacje na temat instalowania roli serwera zasad Sieciowych usługa systemu Windows Server 2012 lub nowszym, zobacz [zainstalować serwer zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Zasady dostępu do sieci (NAP) jest przestarzała w systemie Windows Server 2016. Opis najlepszych rozwiązań dla serwera NPS, w tym zalecenie, aby zainstalować serwer zasad Sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwera NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="licenses"></a>Licencje
+### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
 Wymagana jest licencja dla usługi Azure MFA, który jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility plus Security (EMS) lub subskrypcji usługi MFA. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
 
-### <a name="software"></a>Oprogramowanie
+### <a name="windows-server-software"></a>Oprogramowanie Windows Server
 
 Rozszerzenie serwera NPS wymaga systemu Windows Server 2008 R2 z dodatkiem SP1 lub nowszy z zainstalowaną usługą roli serwera NPS. Wszystkie kroki opisane w tym przewodniku zostały wykonane przy użyciu systemu Windows Server 2016.
 
@@ -111,7 +111,7 @@ Aby użyć rozszerzenia serwera NPS, lokalnych użytkowników musi być zsynchro
 Aby uzyskać informacje dotyczące usługi Azure AD connect, zobacz [integrację katalogów lokalnych z usługą Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Identyfikator GUID usługi Azure Active Directory 
-Aby zainstalować serwer NPS, musisz znać identyfikator GUID usługi Azure Active Directory. Instrukcje dotyczące znajdowania identyfikator GUID usługi Azure Active Directory znajdują się w następnej sekcji.
+Aby zainstalować rozszerzenie serwera NPS, musisz znać identyfikator GUID usługi Azure Active Directory. Instrukcje dotyczące znajdowania identyfikator GUID usługi Azure Active Directory znajdują się w następnej sekcji.
 
 ## <a name="configure-radius-for-vpn-connections"></a>Konfigurowanie serwera RADIUS dla połączeń sieci VPN
 
@@ -369,11 +369,11 @@ Rozszerzenia serwera NPS należy zainstalować na serwerze zasad sieciowych i za
 1. Pobierz rozszerzenie serwera NPS z [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
 2. Kopiowanie pliku wykonywalnego Instalatora (NpsExtnForAzureMfaInstaller.exe) na serwerze zasad Sieciowych.
 3. Na serwerze NPS, kliknij dwukrotnie **NpsExtnForAzureMfaInstaller.exe**. Jeśli zostanie wyświetlony monit, kliknij przycisk **Uruchom**.
-4. W rozszerzeniu zasad Sieciowych dla usługi Azure MFA — okno dialogowe, przejrzyj postanowienia licencyjne dotyczące oprogramowania, sprawdź **zgadzam się z warunkami licencji**i kliknij przycisk **zainstalować**.
+4. W oknie dialogowym serwera NPS rozszerzenia dla usługi Azure MFA instalacji, przejrzyj postanowienia licencyjne dotyczące oprogramowania, sprawdź **zgadzam się z warunkami licencji**i kliknij przycisk **zainstalować**.
 
  ![Rozszerzenia serwera NPS](./media/nps-extension-vpn/image36.png)
  
-5. W rozszerzeniu zasad Sieciowych dla usługi Azure MFA — okno dialogowe, kliknij przycisk **Zamknij**.  
+5. W oknie dialogowym serwera NPS rozszerzenia dla usługi Azure MFA instalacji, kliknij przycisk **Zamknij**.  
 
  ![Instalator pomyślnie](./media/nps-extension-vpn/image37.png) 
  
@@ -388,7 +388,7 @@ Skrypt wykonuje następujące czynności:
 * Zapewnia dostęp do klucza prywatnego certyfikatu użytkownika sieci
 * Uruchamia ponownie usługę Serwer zasad sieciowych
 
-Jeśli chcesz użyć własnych certyfikatów, należy skojarzyć publicznego certyfikatu z zasadą usługi na serwerze usługi Azure AD i tak dalej.
+Jeśli chcesz użyć własnych certyfikatów, należy skojarzyć klucz publiczny certyfikatu do nazwy głównej usługi w usłudze Azure AD i tak dalej.
 Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych usługi Azure Active Directory i skopiowane wcześniej Identyfikatora dzierżawy usługi Azure Active Directory. Uruchom skrypt na każdym serwerze NPS, w którym zainstalowano rozszerzenia serwera NPS.
 
 1. Otwórz administracyjny wiersz środowiska Windows PowerShell.
@@ -417,7 +417,7 @@ Aby sprawdzić konfigurację, należy nawiązać nowe połączenie sieci VPN z s
 
  ![Weryfikowanie konfiguracji](./media/nps-extension-vpn/image42.png)
 
-W przypadku pomyślnego uwierzytelnienia za pomocą metody dodatkowej weryfikacji wcześniej skonfigurowane w usłudze Azure MFA, są połączone z zasobem. Jednak dodatkowego uwierzytelniania zakończy się niepowodzeniem, są odmowa dostępu do zasobu. 
+W przypadku pomyślnego uwierzytelnienia za pomocą metody dodatkowej weryfikacji wcześniej skonfigurowane w usłudze Azure MFA, są połączone z zasobem. Jednak dodatkowego uwierzytelniania zakończy się niepowodzeniem, jest odmowa dostępu do zasobu. 
 
 W poniższym przykładzie aplikacji uwierzytelniania w systemie Windows phone służy do zapewnienia dodatkowego uwierzytelniania.
 

@@ -1,5 +1,5 @@
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+Powłoka chmury Azure jest środowisko przeglądarki powłoki, zarządzanie i opracowanie zasobów platformy Azure.
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
+Chmura powłoki oferuje obsługę dostępny przeglądarki, wstępnie skonfigurowane powłoki zarządzania zasobami platformy Azure, bez potrzeby instalowania wersji i utrzymywanie maszynę, samodzielnie.
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+Powłoka chmury udostępnia maszyn, na podstawie żądań i w związku z tym maszyny stanu nie będzie zachowywane między sesjami. Ponieważ powłoki chmury jest skompilowany dla sesji interaktywne, powłok automatycznie usunięte po upływie 20 minut braku aktywności powłoki.

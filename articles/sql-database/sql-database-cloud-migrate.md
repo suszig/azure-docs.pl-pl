@@ -1,6 +1,6 @@
 ---
 title: "Migracja bazy danych programu SQL Server do usługi Azure SQL Database | Microsoft Docs"
-description: "Dowiedz się więcej na temat migracji lokalnej bazy danych serwera SQL Server do bazy danych Azure SQL Database w chmurze. Narzędzia migracji bazy danych umożliwiają przetestowanie zgodności przed wykonaniem migracji bazy danych."
+description: "Dowiedz się więcej na temat migracji bazy danych programu SQL Server do usługi Azure SQL Database w chmurze."
 keywords: "migracja bazy danych,migracja bazy danych programu sql server,narzędzia migracji bazy danych,migracja bazy danych,migracja bazy danych sql"
 services: sql-database
 documentationcenter: 
@@ -9,55 +9,99 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.workload: Active
+ms.date: 02/08/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
-
-
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migracja bazy danych programu SQL Server do usługi SQL Database w chmurze
-Ten artykuł zawiera informacje o migracji lokalnej bazy danych programu SQL Server 2005 lub nowszej wersji do bazy danych Azure SQL Database. Proces migracji bazy danych obejmuje migrację schematu i danych z bazy danych programu SQL Server w bieżącym środowisku do usługi SQL Database. Aby migracja zakończyła się sukcesem, istniejąca baza danych musi najpierw przejść test zgodności. W przypadku wersji SQL Database V12 występuje niemal pełna [równowaga między funkcjami](sql-database-features.md), z wyjątkiem kwestii związanych z operacjami realizowanymi na poziomie serwera i między bazami danych. Bazy danych i aplikacje oparte na [częściowo obsługiwanych lub nieobsługiwanych funkcjach](sql-database-transact-sql-information.md) muszą zostać w pewnym stopniu przeprojektowane, aby usunąć niezgodności i umożliwić migrację bazy danych programu SQL Server.
+Ten artykuł zawiera informacje o dwóch głównych metodach migrowania bazy danych programu SQL Server 2005 lub nowszego do usługi Azure SQL Database. Pierwsza metoda jest prostsza, ale wymaga pewnego, prawdopodobnie znaczącego, przestoju podczas migracji. Druga metoda jest bardziej skomplikowana, ale znacznie eliminuje przestój podczas migracji.
 
-Aby przeprowadzić migrację, należy wykonać następujące kroki:
-
-* **Test zgodności**: sprawdzenie zgodności bazy danych z programem SQL Database. 
-* **Rozwiązanie ewentualnych problemów ze zgodnością**: jeśli sprawdzenie poprawności zakończy się niepowodzeniem, należy rozwiązać problemy.  
-* **Przeprowadzenie migracji** po zapewnieniu zgodności bazy danych można wykonać migrację przy użyciu jednej lub kilku metod. 
-
-Program SQL Server udostępnia kilka metod wykonania każdego z tych zadań. Ten artykuł zawiera omówienie dostępnych metod realizacji poszczególnych zadań. Na poniższym diagramie przedstawiono kroki i metody.
-
-  ![Diagram migracji VSSSDT](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+W obu przypadkach należy się upewnić, że baza danych jest zgodny z bazy danych SQL Azure przy użyciu [Asystenta migracji danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Zbliża się do bazy danych SQL V12 [funkcji parzystości](sql-database-features.md) z programem SQL Server, niż problemy związane z poziomu serwera i bazy danych między operacjami. Bazy danych i aplikacje oparte na [częściowo obsługiwanych lub nieobsługiwanych funkcjach](sql-database-transact-sql-information.md) muszą zostać w pewnym stopniu [przeprojektowane, aby usunąć niezgodności](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) i umożliwić migrację bazy danych programu SQL Server.
 
 > [!NOTE]
-> Aby wykonać migrację bazy danych innej niż baza danych programu SQL Server, w tym bazy danych Microsoft Access, Sybase, MySQL Oracle i DB2, do usługi Azure SQL Database, zobacz temat [Asystent migracji programu SQL Server](http://blogs.msdn.com/b/ssma/).
-> 
-> 
-
-## <a name="database-migration-tools-test-sql-server-database-compatibility-with-sql-database"></a>Narzędzia migracji bazy danych umożliwiają przetestowanie zgodności bazy danych programu SQL Server z bazą danych usługi SQL Database
-Aby sprawdzić problemy ze zgodnością bazy danych usługi SQL Database przed rozpoczęciem procesu migracji bazy danych, użyj jednej z następujących metod:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-> * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
+> Aby wykonać migrację bazy danych innej niż baza danych programu SQL Server, w tym bazy danych Microsoft Access, Sybase, MySQL Oracle i DB2, do usługi Azure SQL Database, zobacz temat [Asystent migracji programu SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-* [SQL Server Data Tools dla programu Visual Studio („SSDT”)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): narzędzie SSDT korzysta z najnowszych reguł zgodności do wykrywania niezgodności bazy danych SQL Database V12. W przypadku wykrycia niezgodności można naprawić znalezione błędy bezpośrednio w tym narzędziu. Ta metoda jest zalecaną metodą testowania i rozwiązywania problemów ze zgodnością bazy danych SQL Database V12. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage to narzędzie wiersza polecenia, które wykrywa problemy ze zgodnością i generuje raport zawierający wykryte niezgodności. Jeśli używasz tego narzędzia, upewnij się, że używana jest najnowsza wersja korzystająca z najnowszych zasad zgodności. W przypadku wykrycia błędów należy użyć innego narzędzia, aby naprawić wszelkie wykryte problemy ze zgodnością. Zaleca się korzystanie z narzędzia SSDT.  
-* [Kreator aplikacji warstwy danych eksportu w programie SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): ten kreator wykrywa błędy i wyświetla je na ekranie. Jeśli nie wykryto błędów, można kontynuować i przeprowadzić migrację do bazy danych usługi SQL Database. W przypadku wykrycia błędów należy użyć innego narzędzia, aby naprawić wszelkie wykryte problemy ze zgodnością. Zaleca się korzystanie z narzędzia SSDT.
-* [Kreator migracji SQL Azure („SAMW”)](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW to narzędzie codeplex wykorzystujące reguły zgodności usługi Azure SQL Database V11 w celu wykrywania problemów ze zgodnością w wersji Azure SQL Database V12. W przypadku wykrycia niezgodności można naprawić niektóre znalezione błędy bezpośrednio w tym narzędziu. To narzędzie może wykrywać niezgodności, które nie wymagają naprawy. Jest to pierwsze z udostępnionych narzędzi ułatwiających migrację do bazy danych Azure SQL Database, które jest aktywnie wspierane przez społeczność użytkowników programu SQL Server. To narzędzie umożliwia przeprowadzenie migracji z jego poziomu. 
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metoda 1. Migracja z przestojem podczas migracji
 
-## <a name="fix-database-migration-compatibility-issues"></a>Rozwiązywanie problemów ze zgodnością migracji bazy danych
-Jeśli zostaną wykryte problemy ze zgodnością, należy je naprawić przed przystąpieniem do migracji bazy danych programu SQL Server. Może wystąpić wiele różnych problemów ze zgodnością, w zależności od wersji programu SQL Server w źródłowej bazie danych oraz złożoności migrowanej bazy danych. Starsze wersje programu SQL Server mają więcej problemów ze zgodnością. Oprócz ukierunkowanego wyszukiwania w Internecie za pomocą preferowanej wyszukiwarki użyj następujących zasobów:
+ Tej metody należy użyć, jeżeli przestój jest dopuszczalny lub wykonywana jest testowa migracja produkcyjnej bazy danych do celów późniejszej migracji. Samouczek, zobacz [Migrowanie bazy danych programu SQL Server](sql-database-migrate-your-sql-server-database.md).
+
+Poniższa lista zawiera ogólny przepływ pracy migracji bazy danych programu SQL Server przy użyciu tej metody.
+
+  ![Diagram migracji VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
+
+1. Ocena bazy danych pod kątem zgodności za pomocą najnowszej wersji narzędzia [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+2. Przygotowanie wszelkich niezbędnych poprawek jako skryptów języka Transact-SQL.
+3. Utworzenie spójnej transakcyjnie kopii źródłowej bazy danych podlegającej migracji i upewnienie się, że żadne dalsze zmiany nie są wprowadzane do źródłowej bazy danych (ewentualnie wszelkie tego typu zmiany można zastosować ręcznie po zakończeniu migracji). Istnieje wiele metod przełączenia bazy danych w stan spoczynku: od wyłączenia łączności klientów po utworzenie [migawki bazy danych](https://msdn.microsoft.com/library/ms175876.aspx).
+4. Wdrożenie skryptów języka Transact-SQL w celu zastosowania poprawek do kopii bazy danych.
+5. [Eksportuj](sql-database-export.md) kopii bazy danych do pliku BACPAC pliku na dysku lokalnym.
+6. [Importuj](sql-database-import.md) pliku pliku BACPAC jako nowej bazy danych Azure SQL za pomocą jednej z kilku pliku BACPAC zaimportuj narzędzia, za pomocą SQLPackage.exe jest zalecanym narzędziem, aby uzyskać najlepszą wydajność.
+
+### <a name="optimizing-data-transfer-performance-during-migration"></a>Optymalizowanie wydajności transferu danych podczas migracji 
+
+Poniższa lista zawiera zalecenia pozwalające uzyskać najlepszą wydajność podczas procesu importowania.
+
+* Aby zmaksymalizować wydajność transferu, wybierz najwyższy poziom usługi i najwyższą warstwę wydajności, na które pozwala Twój budżet. Po zakończeniu migracji będzie można dokonać skalowania w dół, aby nie ponosić nadmiernych kosztów. 
+* Minimalizowanie odległości między pliku pliku BACPAC i docelowym centrum danych.
+* Wyłącz automatyczne statystyki na czas migracji.
+* Partycjonuj tabele i indeksy.
+* Usuń poindeksowane widoki i utwórz je ponownie po zakończeniu.
+* Przenieś rzadko wyszukiwane dane historyczne do innej bazy danych i zmigruj te dane historyczne do oddzielnej bazy danych SQL platformy Azure. Następnie będzie można wykonywać zapytania o te dane historyczne za pomocą [zapytań elastycznych](sql-database-elastic-query-overview.md).
+
+### <a name="optimize-performance-after-the-migration-completes"></a>Optymalizacja wydajności po zakończeniu migracji
+
+[Zaktualizuj statystyki](https://msdn.microsoft.com/library/ms187348.aspx) poprzez pełne skanowanie po zakończeniu migracji.
+
+## <a name="method-2-use-transactional-replication"></a>Metoda 2. Użycie replikacji transakcyjnej
+
+Gdy nie możesz sobie pozwolić na usunięcie bazy danych programu SQL Server ze środowiska produkcyjnego na czas migracji, jako rozwiązania do migracji możesz wykorzystać replikację transakcyjną programu SQL Server. Aby użyć tej metody, źródłowa baza danych musi spełniać [wymagania dotyczące replikacji transakcyjnej](https://msdn.microsoft.com/library/mt589530.aspx) i być zgodna z usługą Azure SQL Database. Informacje o replikacji SQL z funkcją AlwaysOn, zobacz [skonfigurować replikację dla zawsze włączonych grup dostępności (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+
+Aby użyć tego rozwiązania, usługę Azure SQL Database konfiguruje się jako subskrybenta wystąpienia programu SQL Server do migracji. Dystrybutor replikacji transakcyjnej synchronizuje dane z bazy danych do synchronizacji (wydawcy), podczas gdy cały czas realizowane są nowe transakcje. 
+
+Przy replikacji transakcyjnej wszystkie zmiany wprowadzane do danych lub schematu pojawiają się w usłudze Azure SQL Database. Gdy synchronizacja zostanie zakończona i wszystko będzie gotowe do migracji, zmień parametry połączenia swoich aplikacji w taki sposób, aby wskazać im usługę Azure SQL Database. Gdy w wyniku replikacji transakcyjnej wszystkie zmiany pozostałe w źródłowej bazie danych zostaną pobrane, a wszystkie aplikacje będą wskazywać bazę danych platformy Azure, można odinstalować replikację transakcyjną. Usługa Azure SQL Database stanie się Twoim systemem produkcyjnym.
+
+ ![Diagram SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+> [!TIP]
+> Replikacji transakcyjnej możesz także używać do migrowania podzestawu źródłowej bazy danych. Publikacja replikowana do usługi Azure SQL Database może być ograniczona do podzbioru tabel w replikowanej bazie danych. Dla każdej replikowanej tabeli dane można ograniczyć do podzestawu wierszy i/lub podzestawu kolumn.
+>
+
+### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Przepływ pracy migracji do usługi SQL Database za pomocą replikacji transakcyjnej
+
+> [!IMPORTANT]
+> Używaj najnowszej wersji programu SQL Server Management Studio, aby zachować synchronizację z aktualizacjami platformy Microsoft Azure i usługi SQL Database. Starsze wersje programu SQL Server Management Studio nie mogą skonfigurować usługi SQL Database jako subskrybenta. [Zaktualizuj program SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+
+1. Konfigurowanie dystrybucji
+   -  [Przy użyciu programu SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Przy użyciu języka Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Tworzenie publikacji
+   -  [Przy użyciu programu SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Przy użyciu języka Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Tworzenie subskrypcji
+   -  [Przy użyciu programu SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Przy użyciu języka Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Niektóre wskazówki i różnice dotyczące migracji do usługi SQL Database
+
+1. Użycie dystrybutora lokalnego: 
+   - Ma negatywny wpływ na wydajność serwera. 
+   - Jeśli negatywny wpływ na wydajność jest nieakceptowalny, można użyć innego serwera, ale komplikuje to zarządzanie i administrowanie.
+2. Wybierając folder migawki, upewnij się, że wybrany folder jest wystarczająco duży, aby pomieścić kopię BCP każdej tabeli, którą chcesz zreplikować. 
+3. Tworzenie migawki powoduje zablokowanie skojarzonych tabel do czasu zakończenia operacji, dlatego tworzenie migawek należy odpowiednio zaplanować. 
+4. Usługa Azure SQL Database obsługuje wyłącznie subskrypcje wypychane. Subskrybentów można dodawać wyłącznie ze źródłowej bazy danych.
+
+## <a name="resolving-database-migration-compatibility-issues"></a>Rozwiązywanie problemów ze zgodnością migracji bazy danych
+Może wystąpić wiele różnych problemów ze zgodnością, w zależności od wersji programu SQL Server w źródłowej bazie danych oraz złożoności migrowanej bazy danych. Starsze wersje programu SQL Server mają więcej problemów ze zgodnością. Oprócz ukierunkowanego wyszukiwania w Internecie za pomocą preferowanej wyszukiwarki użyj następujących zasobów:
 
 * [Funkcje bazy danych programu SQL Server nieobsługiwane przez usługę Azure SQL Database](sql-database-transact-sql-information.md)
 * [Nieobsługiwane funkcje aparatu bazy danych w programie SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -68,56 +112,11 @@ Jeśli zostaną wykryte problemy ze zgodnością, należy je naprawić przed prz
 
 Oprócz wyszukiwania w Internecie i użycia wymienionych zasobów, możesz skorzystać z [forów społeczności programu SQL Server w sieci MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) lub witryny [StackOverflow](http://stackoverflow.com/).
 
-Aby rozwiązać wykryte problemy, użyj jednego z następujących narzędzi do migracji baz danych:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
-> 
-
-* Korzystanie z narzędzi [SQL Server Data Tools dla programu Visual Studio („SSDT”)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): aby użyć narzędzi SSDT, zaimportuj schemat bazy danych do programu SQL Server Data Tools dla programu Visual Studio („SSDT”) i skompiluj projekt wdrożenia bazy danych SQL Database V12. Następnie rozwiąż wszystkie wykryte problemy ze zgodnością przy użyciu narzędzi SSDT. Po zakończeniu zsynchronizuj zmiany ze źródłową bazą danych (lub kopią źródłowej bazy danych). SSDT jest obecnie zalecaną metodą testowania i rozwiązywania problemów ze zgodnością bazy danych SQL Database V12. Użyj linku, aby zapoznać się z [omówieniem narzędzi SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-* Korzystanie z programu [SQL Server Management Studio („SSMS”)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): używając programu SSMS, wykonaj polecenia języka Transact-SQL, aby naprawić błędy wykryte przy użyciu innego narzędzia. Ta metoda jest przeznaczona przede wszystkim dla użytkowników zaawansowanych, którzy chcą zmodyfikować schemat bazy danych bezpośrednio w źródłowej bazie danych. 
-* Korzystanie z [Kreatora migracji SQL Azure („SAMW”)](sql-database-cloud-migrate-fix-compatibility-issues.md): aby użyć narzędzia SAMW, wygeneruj skrypt języka Transact-SQL ze źródłowej bazy danych. Kreator przekształca skrypt, jeśli jest to możliwe, aby zapewnić zgodność schematu z usługą SQL Database V12. Po zakończeniu kreator SAMW może nawiązać połączenie z usługą SQL Database V12, aby wykonać skrypt. To narzędzie analizuje również pliki śledzenia w celu określenia problemów ze zgodnością. Skrypt można wygenerować przy użyciu samego schematu lub można dołączyć dane w formacie BCP.
-
-## <a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>Migracja zgodnej bazy danych programu SQL Server do usługi SQL Database
-Aby wykonać migrację zgodnej bazy danych programu SQL Server, Microsoft zapewnia kilka metod migracji dla różnych scenariuszy. Wybór metody zależy od tolerancji na przestoje, wielkości i złożoności bazy danych programu SQL Server oraz łączności z chmurą Microsoft Azure.  
-
-> [!div class="op_single_selector"]
-> * [Kreator migracji SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [Eksport do pliku BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [Import z pliku BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [Replikacja transakcyjna](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-> 
-> 
-
-Aby wybrać metodę migracji, należy najpierw zadać sobie pytanie, czy można pozwolić sobie na wyłączenie tej bazy z systemu produkcyjnego na czas migracji. Migracja bazy danych w czasie, gdy są realizowane aktywne transakcje, może spowodować niespójności bazy danych, a nawet jej uszkodzenie. Istnieje wiele metod przełączenia bazy danych w stan spoczynku: od wyłączenia łączności klientów po utworzenie [migawki bazy danych](https://msdn.microsoft.com/library/ms175876.aspx).
-
-Aby wykonać migrację z minimalnym przestojem, wykonaj [replikację transakcji programu SQL Server](sql-database-cloud-migrate-compatible-using-transactional-replication.md), o ile baza danych spełnia wymagania replikacji transakcyjnej. Jeżeli przestój jest dopuszczalny lub wykonywana jest testowa migracja produkcyjnej bazy danych do celów późniejszej migracji, można rozważyć użycie jednej z poniższych trzech metod:
-
-* [Kreator migracji SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): w przypadku małych i średnich baz danych zgodnych z programem SQL Server 2005 lub nowszą wersją wystarczy użyć [Kreatora wdrożenia bazy danych w usłudze Microsoft Azure Database](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) w programie SQL Server Management Studio.
-* [Eksport do pliku BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md), a następnie [import z pliku BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): jeśli występują problemy z łącznością (brak połączenia, niska przepustowość lub problemy z upływem limitu czasu) w przypadku średnich i dużych baz danych, użyj pliku [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Ta metoda umożliwia eksport schematu programu SQL Server i danych do pliku BACPAC. Następnie należy zaimportować plik BACPAC do bazy danych SQL Database za pomocą Kreatora aplikacji warstwy danych eksportu w programie SQL Server Management Studio lub narzędzia wiersza polecenia [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
-* Łączne użycie metod BACPAC i BCP: w przypadku znacznie większych baz danych można użyć pliku [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) i [BCP](https://msdn.microsoft.com/library/ms162802.aspx), aby uzyskać wyższy stopień równoległości i zwiększyć wydajność, jednak przy większej złożoności zadania. W przypadku tej metody należy wykonać oddzielne migracje schematu i danych.
-  
-  * [Wyeksportuj sam schemat do pliku BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [Zaimportuj tylko schemat z pliku BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) do bazy danych SQL Database.
-  * Użyj [BCP](https://msdn.microsoft.com/library/ms162802.aspx) do wyodrębnienia danych do plików prostych i [załaduj równolegle](https://technet.microsoft.com/library/dd425070.aspx) te pliki do bazy danych Azure SQL Database.
-    
-     ![Migracja bazy danych programu SQL Server — migracja bazy danych SQL do chmury.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
-
 ## <a name="next-steps"></a>Następne kroki
-* [Najnowsza wersja narzędzi SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Najnowsza wersja programu SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Funkcje programu SQL Database](sql-database-features.md)
-  [Częściowo obsługiwane lub nieobsługiwane funkcje języka Transact-SQL](sql-database-transact-sql-information.md)
-* [Migracja baz danych innych niż bazy danych programu SQL Server przy użyciu Asystenta migracji programu SQL Server](http://blogs.msdn.com/b/ssma/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
+* Użyj skryptu z blogu SQL EMEA Engineers, aby [monitorować użycie bazy danych tempdb podczas migracji](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
+* Użyj skryptu z blogu SQL EMEA Engineers, aby [monitorować obszar rejestrowania transakcji Twojej bazy danych w czasie trwania migracji](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+* Aby poczytać o migracji za pomocą plików BACPAC na blogu SQL Server Customer Advisory Team, zobacz [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrowanie z programu SQL Server do usługi Azure SQL Database za pomocą plików BACPAC).
+* Aby uzyskać informacje na temat pracy z czasem UTC po migracji, zobacz [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Modyfikowanie domyślnej strefy czasowej dla Twojej lokalnej strefy czasowej).
+* Aby uzyskać informacje na temat zmieniania domyślnego języka bazy danych po migracji, zobacz [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Jak zmienić domyślny język usługi Azure SQL Database).
 
 

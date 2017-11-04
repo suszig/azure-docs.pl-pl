@@ -1,40 +1,40 @@
-1. Run the Unified Setup installation file.
-2. In **Before You Begin**, select **Install the configuration server and process server**.
+1. Uruchom plik instalacyjny ujednoliconego instalatora.
+2. W **przed rozpoczęciem**, wybierz pozycję **zainstalować serwer konfiguracji i serwera przetwarzania**.
 
-    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+    ![Przed rozpoczęciem](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
+3. W obszarze **Licencja na oprogramowanie innej firmy** kliknij pozycję **Akceptuję**, aby pobrać i zainstalować program MySQL.
 
-    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. In **Registration**, select the registration key you downloaded from the vault.
+    ![Oprogramowanie innych producentów](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. W obszarze **Rejestracja** wybierz klucz rejestracji pobrany z magazynu.
 
-    ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet. Make sure you've allowed the required URLs.
+    ![Rejestracja](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. W obszarze **Ustawienia internetowe** określ, jak dostawca działający na serwerze konfiguracji ma się łączyć z usługą Azure Site Recovery przez Internet. Upewnij się, że zezwolono odpowiednie adresy URL.
 
-    - If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.
-    - If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
-    - If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**, and specify the address, port, and credentials.
-     ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+    - Jeśli chcesz się połączyć z serwerem proxy aktualnie skonfigurowany na komputerze, wybierz opcję **nawiązywanie połączenia z usługi Azure Site Recovery przy użyciu serwera proxy**.
+    - Jeśli chcesz, aby dostawca łączył się bezpośrednio, wybierz opcję **Połącz bezpośrednio z usługi Azure Site Recovery bez serwera proxy**.
+    - Jeśli istniejący serwer proxy wymaga uwierzytelnienia, lub jeśli chcesz użyć niestandardowego serwera proxy dla połączenia dostawcy, wybierz opcję **Połącz przy użyciu niestandardowych ustawień serwera proxy**i określ adres, port oraz poświadczenia.
+     ![Zapora](./media/site-recovery-add-configuration-server/combined-wiz4.png)
+6. W kroku **Sprawdzanie wymagań wstępnych** Instalator przeprowadza kontrolę w celu upewnienia się, że można uruchomić instalację. Jeśli zostanie wyświetlone ostrzeżenie dotyczące **kontroli synchronizacji czasu globalnego**, sprawdź, czy czas zegara systemowego (ustawienia **Data i godzina**) jest taki sam jak dla strefy czasowej.
 
-    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
+    ![Wymagania wstępne](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. W obszarze **Konfiguracja programu MySQL** utwórz poświadczenia do logowania się do zainstalowanego wystąpienia serwera programu MySQL.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
+8. W obszarze **Szczegóły środowiska** wybierz, czy zamierzasz replikować maszyny wirtualne programu VMware. Jeśli jesteś, Instalator sprawdza, czy zainstalowana jest PowerCLI 6.0.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
+9. W obszarze **Lokalizacja instalacji** wybierz, gdzie mają zostać zainstalowane pliki binarne i gdzie ma być przechowywana pamięć podręczną. Na wybranym dysku musi być co najmniej 5 GB dostępnego miejsca, ale zalecamy dysk pamięci podręcznej z co najmniej 600 GB wolnego miejsca.
 
-    ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
+    ![Lokalizacja instalacji](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. W obszarze **Wybór sieci** określ odbiornik (kartę sieciową i port SSL), za pomocą którego serwer konfiguracji będzie wysyłać i odbierać dane replikacji. Port 9443 jest domyślnym portem używanym do wysyłania i odbierania ruchu związanego z replikacją, ale możesz zmienić ten numer portu tak, aby odpowiadał wymaganiom Twojego środowiska. Oprócz portu 9443 otwieramy też port 443, który jest używany przez serwer sieci Web do organizowania operacji replikacji. Nie należy używać portu 443 do wysyłania i odbierania ruchu związanego z replikacją.
 
-    ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+    ![Wybór sieci](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
+11. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj**. Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu.
 
-    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Podsumowanie](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
+Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **Serwery** w magazynie.

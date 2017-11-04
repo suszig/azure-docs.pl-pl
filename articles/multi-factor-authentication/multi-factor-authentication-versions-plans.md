@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: cacb027fad4127072e542f554373881932870841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 159e56c7ba1e0c27cd854f7d835611d5707c7a23
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak uzyskać uwierzytelnianie wieloskładnikowe Azure
 
 Jeśli chodzi o ochronę konta weryfikacji dwuetapowej powinna być standardowe całej organizacji. Ta funkcja jest szczególnie ważne w przypadku konta z uprawnieniami administracyjnymi, które mają uprzywilejowany dostęp do zasobów. Z tego powodu firma Microsoft oferuje funkcje weryfikacji dwuetapowej podstawowe usługi Office 365 i Azure administratorzy nie żadnymi dodatkowymi kosztami. Jeśli chcesz uaktualnić funkcje dla administratorów lub rozszerzyć weryfikację dwuetapową do pozostałej części użytkowników, możesz kupić Azure Multi-Factor Authentication. 
 
 W tym artykule opisano różnice między wersjami oferowane dla administratorów i pełną wersję usługi Azure MFA. Jeśli wszystko jest gotowe do wdrożenia pełną usługi Azure MFA oferty, dalszej części artykułu opisano opcje wdrażania i jak Microsoft oblicza zużycia.
+
 
 >[!IMPORTANT]
 >W tym artykule ma być przewodnik ułatwią zrozumienie różnych sposobów kupić usługę Azure Multi-Factor Authentication. Aby uzyskać szczegółowe informacje na temat cennik i rozliczenia, należy zawsze zapoznać się [uwierzytelnianie wieloskładnikowe, na stronie dotyczącej cen](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -55,6 +56,7 @@ Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersja
 | SMS jako czynnika |● |● |● |
 | Hasła aplikacji dla klientów, które nie obsługują uwierzytelniania Wieloskładnikowego |● |● |● |
 | Administrator kontrolę nad metody weryfikacji |● |● |● |
+| Ochrona konta bez uprawnień administratora za pomocą usługi MFA | | |● |
 | Tryb numeru PIN | | |● |
 | Alert dotyczący wykrycia oszustwa | | |● |
 | Raporty usługi MFA | | |● |
@@ -87,7 +89,7 @@ Utwórz dostawcę usługi Azure Multi-Factor Authentication w ramach subskrypcji
 
 Podczas korzystania z dostawcy usługi Azure Multi-Factor Authentication, istnieją dwa modele użycia dostępne, które są rozliczane za pośrednictwem subskrypcji platformy Azure:  
 
-1. **Dla każdego użytkownika** — w przypadku przedsiębiorstw, które chcesz włączyć weryfikację dwuetapową dla stałej liczby pracowników, którzy regularnie muszą uwierzytelniania. Karta użytkownika opiera się na liczbę użytkowników włączone dla usługi MFA w dzierżawie usługi Azure AD i z serwera usługi Azure MFA. Jeśli użytkownicy są włączone dla usługi MFA w obu usługi Azure AD i serwera usługi Azure MFA i synchronizacji domeny (Azure AD Connect) jest włączona, a następnie możemy liczba większy zestaw użytkowników. Jeśli synchronizacja domeny nie jest włączona, a następnie możemy liczba sumę wszystkich użytkowników włączone dla usługi MFA w usłudze Azure AD i serwera usługi Azure MFA. Obliczone proporcjonalnie i zgłoszone w systemie Commerce codziennie rozliczeniami. 
+1. **Każdego włączonego użytkownika** — w przypadku przedsiębiorstw, które chcesz włączyć weryfikację dwuetapową dla stałej liczby pracowników, którzy regularnie muszą uwierzytelniania. Karta użytkownika opiera się na liczbę użytkowników włączone dla usługi MFA w dzierżawie usługi Azure AD i z serwera usługi Azure MFA. Jeśli użytkownicy są włączone dla usługi MFA w obu usługi Azure AD i serwera usługi Azure MFA i synchronizacji domeny (Azure AD Connect) jest włączona, a następnie możemy liczba większy zestaw użytkowników. Jeśli synchronizacja domeny nie jest włączona, a następnie możemy liczba sumę wszystkich użytkowników włączone dla usługi MFA w usłudze Azure AD i serwera usługi Azure MFA. Obliczone proporcjonalnie i zgłoszone w systemie Commerce codziennie rozliczeniami. 
 
   > [!NOTE]
   > Przykład rozliczeń 1: 5000 użytkowników włączone dla usługi MFA dzisiaj. MFA system dzieli ten numer 31, a użytkownicy 161.29 raportów dla danego dnia. Jutro 15 większą liczbę użytkowników, zostanie włączone, MFA system zgłasza 161.77 użytkowników do danego dnia. Do końca cyklu rozliczeniowego całkowita liczba użytkowników rozliczane względem subskrypcji platformy Azure do dodaje wokół 5000. 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 19f94f009aac53baca31dcb6973a8aff3f4f5ab9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrowanie ruchu sieciowego z grup zabezpieczeń sieci i aplikacji (wersja zapoznawcza)
 
@@ -44,6 +44,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Upewnij się, że są zarejestrowane dla wersji zapoznawczej, wprowadzając następujące polecenie:

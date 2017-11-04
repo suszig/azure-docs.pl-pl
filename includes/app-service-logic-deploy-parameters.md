@@ -1,13 +1,10 @@
-Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcji parametrów zawierająca wszystkie wartości parametrów.
-Należy zdefiniować parametr dla tych wartości, które będą się różnić na podstawie projektu, który jest wdrażany lub opartych na środowisku, które wdrażasz. Definiuje parametry dla wartości, które będą zawsze taki sam. Każda wartość parametru jest używany w szablonie do definiowania zasobów, które są wdrożone. 
+Usługi Azure Resource Manager można zdefiniować parametrów wartości do użycia podczas wdrażania szablonu. Szablon zawiera `parameters` sekcję zawierającą wszystkie wartości parametrów. Każda wartość parametru jest używany przez szablon do definiowania zasoby, które mają zostać wdrożone.
 
-Określając parametry, użyj **allowedValues** pola, aby określić, które wartości użytkownika można podać podczas wdrażania. Użyj **defaultValue** pola, aby przypisać wartości do parametru, jeśli wartość nie zostanie podana podczas wdrażania.
+> [!NOTE]
+> Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Zdefiniuj parametry tylko dla wartości, które różnią się, na podstawie projektu, w której wdrażasz lub opartych na środowisku, w którym jest wdrażany.
 
-Firma Microsoft będzie opisywać każdego parametru w szablonie.
+Podczas definiowania parametry:
 
-### <a name="logicappname"></a>logicAppName
-Nazwa aplikacji logiki do utworzenia.
+* Aby określić dozwolone wartości, które użytkownik może podać podczas wdrażania, użyj **allowedValues** pola.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* Aby przypisać wartości domyślnych do parametru, jeśli wartości nie zostały podane podczas wdrażania, użyj **defaultValue** pola. 

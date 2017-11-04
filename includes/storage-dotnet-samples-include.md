@@ -9,7 +9,7 @@ Oto lista naszych repozytoriów próbki dla biblioteki klienta .NET magazynu Azu
 * [Wprowadzenie do korzystania z usługi plików na platformę Azure w .NET](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
 * [Wprowadzenie do korzystania z usługi kolejek platformy Azure w .NET](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
 * [Wprowadzenie do korzystania z dostawcy zasobów magazynu Azure w .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
-* [Rozpoczynanie pracy z magazynem tabel Azure w .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
+* [Rozpoczynanie pracy z usługą Azure Table Storage na platformie .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
 * [Wprowadzenie do korzystania z udostępnionych sygnatur dostępu (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
 * [Zarządzanie zadaniami importowania i eksportowania za pomocą interfejsu API REST](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
 * [MyDriving - Azure IOT i przenośnych przykładowej aplikacji](https://azure.microsoft.com/resources/samples/mydriving/)

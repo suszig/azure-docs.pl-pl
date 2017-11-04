@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
 Aktualizacje **Azure Data Catalog** są wydawane regularnie. Nie każdy wydanie obejmuje nowe funkcje dla użytkownika, ponieważ niektóre wersje są koncentruje się na możliwości usługi zaplecza. Ta strona przedstawia nowe możliwości dla użytkownika dodane do usługi Azure Data Catalog.
@@ -239,7 +239,7 @@ Począwszy od września 2015 r. zostały dodane do usługi Azure Data Catalog na
 * Możliwość rejestrowania i odnajdywanie obiektów magazynu danych SQL Azure i baz danych. Aby uzyskać dodatkowe informacje na temat usługi Azure SQL Data Warehouse, zobacz [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Możliwość rejestrowania i odnajdywanie modele usług SQL Server Analysis Services i serwerów SQL Server Reporting Services jako kontenerów. Podczas rejestrowania obiektów SSAS i SSRS, usługa Azure Data Catalog tworzy wpis modelu SSAS i serwer SSRS oraz raporty i inne obiekty. Kontenery mogą być wykrywane i opatrzone adnotacjami za pomocą portalu wykazu danych Azure. Użytkownicy mogą również wyszukiwanie i filtrowanie zawartości modelu lub serwerze oprócz wyszukiwanie i filtrowanie zawartości katalogu.
 * Możliwość rejestrowania i odnajdywania obiektów SQL Server Analysis Services za pośrednictwem protokołu HTTP/HTTPS. Użytkownicy mogą teraz łączyć się z serwerami SSAS przy użyciu adresu URL (na przykład https://servername/olap/msmdpump.dll) zamiast nazwy serwera i użyć uwierzytelniania podstawowego i oprócz uwierzytelniania systemu Windows na połączenia anonimowe. Aby uzyskać dodatkowe informacje w przypadku połączeń HTTP i HTTPS do usług SSAS, zobacz [skonfiguruj HTTP dostępu do usług Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-* Obsługa Hive źródeł danych w usłudze HDInsight. Użytkownicy mogą teraz zarejestrować i wykrywa tabele programu Hive dla Apache Hive w Hadoop w HDInsight źródeł danych. Aby uzyskać dodatkowe informacje na temat Hive w usłudze HDInsight, zobacz [Centrum dokumentacji usługi HDInsight](../hdinsight/hdinsight-use-hive.md).
+* Obsługa Hive źródeł danych w usłudze HDInsight. Użytkownicy mogą teraz zarejestrować i wykrywa tabele programu Hive dla Apache Hive w Hadoop w HDInsight źródeł danych. Aby uzyskać dodatkowe informacje na temat Hive w usłudze HDInsight, zobacz [Centrum dokumentacji usługi HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Możliwość rejestrowania i odnajdywanie bazami danych Oracle i klastrów systemu plików HDFS jako kontenerów. Podczas rejestrowania programu Oracle tabele i widoki lub system plików HDFS, Azure Data Catalog tworzy wpis dla bazy danych, tabel i widoków. Bazy danych mogą być wykrywane i opatrzone adnotacjami za pomocą portalu wykazu danych Azure. Użytkownicy mogą również wyszukiwanie i filtrowanie zawartości bazy danych lub klastra oprócz wyszukiwanie i filtrowanie zawartości katalogu.
 * Obsługa ręcznie rejestrowanie typy źródeł danych nieznany. Użytkownicy, można ręcznie wprowadzić informacje o źródle danych za pomocą portalu wykazu danych Azure, dzięki czemu źródeł danych nie jest jawnie obsługiwany przez narzędzia rejestracji źródła danych można dodawać adnotacje i odnalezione.
 * Możliwość rejestrowania i wykrywania baz danych programu SQL Server jako kontenerów. Podczas rejestrowania programu SQL Server tabele i widoki, usługa Azure Data Catalog tworzy wpis dla bazy danych, tabel i widoków. Bazy danych mogą być wykrywane i opatrzone adnotacjami za pomocą portalu wykazu danych Azure. Użytkownicy mogą również wyszukiwanie i filtrowanie zawartości bazy danych oprócz wyszukiwanie i filtrowanie zawartości katalogu.

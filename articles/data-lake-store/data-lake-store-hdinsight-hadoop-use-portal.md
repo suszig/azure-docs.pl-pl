@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 88fd608a02364000699224f0f2df5b4df8a29e11
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z usługą Data Lake Store za pomocą portalu Azure
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Po skonfigurowaniu klastra z usługą Data Lake Store jako magazynu dotyczą te 
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>Uruchomienie zapytania programu Hive względem danych w usłudze Data Lake Store (jako podstawowy magazyn)
 
-Aby uruchomić zapytanie Hive, użyj interfejsu widoki Hive w portalu Ambari. Aby uzyskać instrukcje dotyczące sposobu używania widoki Hive narzędzia Ambari, zobacz [użyć widoku Hive z usługą Hadoop w usłudze HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Aby uruchomić zapytanie Hive, użyj interfejsu widoki Hive w portalu Ambari. Aby uzyskać instrukcje dotyczące sposobu używania widoki Hive narzędzia Ambari, zobacz [użyć widoku Hive z usługą Hadoop w usłudze HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 Podczas pracy z danymi w usłudze Data Lake Store, istnieje kilka ciągów, aby zmienić.
 
@@ -199,11 +199,11 @@ Aby uzyskać informacje dotyczące kopiowania danych z magazynu obiektów Blob d
 * [Użyj AdlCopy, aby skopiować dane z obiektów blob magazynu Azure do usługi Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Użyj Data Lake Store z klastra Spark
-Klaster Spark służy do uruchomienia zadań Spark na dane, które są przechowywane w usłudze Data Lake Store. Aby uzyskać więcej informacji, zobacz [klastra Spark w usłudze HDInsight używany do analizowania danych w usłudze Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+Klaster Spark służy do uruchomienia zadań Spark na dane, które są przechowywane w usłudze Data Lake Store. Aby uzyskać więcej informacji, zobacz [klastra Spark w usłudze HDInsight używany do analizowania danych w usłudze Data Lake Store](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Użyj Data Lake Store w topologii Storm
-Data Lake Store służy do zapisywania danych z topologii Storm. Aby uzyskać instrukcje dotyczące sposobu uzyskania tego scenariusza, zobacz [użycia usługi Azure Data Lake Store z systemu Apache Storm z usługą HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Data Lake Store służy do zapisywania danych z topologii Storm. Aby uzyskać instrukcje dotyczące sposobu uzyskania tego scenariusza, zobacz [użycia usługi Azure Data Lake Store z systemu Apache Storm z usługą HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Zobacz też
 * [Środowiska PowerShell: Tworzenie klastra usługi HDInsight do użycia usługi Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)

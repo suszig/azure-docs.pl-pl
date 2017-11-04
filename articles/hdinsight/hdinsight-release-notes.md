@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Informacje o wersji dla składników platformy Hadoop w usłudze Azure HDInsight
 
@@ -61,7 +61,7 @@ Ten artykuł zawiera informacje na temat **najnowszych** Azure HDInsight wersji 
 
 * **Nowe funkcje w gałęzi**. Zobacz [dokumentacji Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 
-* **Hive amortyzacja CLI**: Hive interfejsu wiersza polecenia jest przestarzałe i zamiast tego użyć Beeline zachęcamy klientów. Aby uzyskać więcej informacji, zobacz [dokumentację Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Aby uzyskać instrukcje dotyczące sposobu używania Beeline z usługą HDInsight, zobacz [Beeline korzystać z usługi HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+* **Hive amortyzacja CLI**: Hive interfejsu wiersza polecenia jest przestarzałe i zamiast tego użyć Beeline zachęcamy klientów. Aby uzyskać więcej informacji, zobacz [dokumentację Apache](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Aby uzyskać instrukcje dotyczące sposobu używania Beeline z usługą HDInsight, zobacz [Beeline korzystać z usługi HDInsight Hadoop clusters](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Nowe funkcje programu Apache Phoenix i HBase**.
     * Obsługa przydziałów magazynowania: często używane w środowiskach wielodostępnych, dzięki czemu ograniczoną ilością miejsca na na tabelę i na poziomie przestrzeni nazw.

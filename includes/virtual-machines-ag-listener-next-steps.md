@@ -1,9 +1,9 @@
-In addition to automatically connecting clients to the primary replica, a listener can be used to redirect read-only workloads to the secondaries. This use can improve the performance and scalability of your overall solution. For more information, see [Use ReadIntent Routing with Azure Always On availability group listener](http://go.microsoft.com/fwlink/?LinkId=522515).
+Oprócz automatycznie łączenie klientów z repliką podstawową, odbiornik może służyć do przekierowania obciążeń tylko do odczytu do pomocnicze bazy danych. To może zwiększyć wydajność i skalowalność ogólnego rozwiązania. Aby uzyskać więcej informacji, zobacz [Użyj ReadIntent routingu przy Azure zawsze na odbiornika grupy dostępności](http://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
-> For troubleshooting tips on Azure listeners, see [Troubleshooting availability group listener in Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) in the AlwaysOn Support Team [blog](http://blogs.msdn.com/b/alwaysonpro/).
+> Porady dotyczące odbiorników Azure, zobacz [odbiornika grupy dostępności Rozwiązywanie problemów w usłudze Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) zespół pomocy technicznej AlwaysOn [blogu](http://blogs.msdn.com/b/alwaysonpro/).
 > 
 > 
 
-For more information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji o korzystaniu z programu SQL Server na platformie Azure, zobacz [programu SQL Server na maszynach wirtualnych Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

@@ -1,30 +1,30 @@
-## <a name="network-security-group"></a>Network Security Group
-An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules. Such rules can be applied to a VM, a NIC, or a subnet.
+## <a name="network-security-group"></a>Grupy zabezpieczeń sieci
+Zasób NSG umożliwia tworzenie granic zabezpieczeń dla obciążeń, implementując zezwalania i odmowy reguły. Takie zasady może odnosić się do maszyny Wirtualnej karty Sieciowej i podsieci.
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **subnets** |List of subnet ids the NSG is applied to. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |List of security rules that make up the NSG |See [Security rule](#Security-rule) below |
-| **defaultSecurityRules** |List of default security rules present in every NSG |See [Default security rules](#Default-security-rules) below |
+| **podsieci** |Listę identyfikatorów podsieci, grupa NSG jest stosowana do. |/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TestRG/Providers/Microsoft.Network/virtualNetworks/TestVNet/Subnets/FrontEnd |
+| **securityRules** |Lista reguł zabezpieczeń, które tworzą grupy NSG |Zobacz [reguły zabezpieczeń](#Security-rule) poniżej |
+| **defaultSecurityRules** |Lista domyślnych reguł zabezpieczeń w każdej grupy NSG |Zobacz [domyślne reguły zabezpieczeń](#Default-security-rules) poniżej |
 
-* **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.
+* **Reguła zabezpieczeń** -grupa NSG może mieć zdefiniowano wiele reguł zabezpieczeń. Każda reguła może akceptować lub odrzucać różnego rodzaju ruchu.
 
-### <a name="security-rule"></a>Security rule
-A security rule is a child resource of an NSG containing the properties below.
+### <a name="security-rule"></a>Reguły zabezpieczeń
+Reguła zabezpieczeń jest zasobem podrzędnych NSG, zawierający poniższe właściwości.
 
-| Property | Description | Sample values |
+| Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
-| **description** |Description for the rule |Allow inbound traffic for all VMs in subnet X |
-| **protocol** |Protocol to match for the rule |TCP, UDP, or * |
-| **sourcePortRange** |Source port range to match for the rule |80, 100-200, * |
-| **destinationPortRange** |Destination port range to match for the rule |80, 100-200, * |
-| **sourceAddressPrefix** |Source address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **destinationAddressPrefix** |Destination address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **direction** |Direction of traffic to match for the rule |inbound or outbound |
-| **priority** |Priority for the rule. Rules are checked int he order of priority, once a rule applies, no more rules are tested for matching. |10, 100, 65000 |
-| **access** |Type of access to apply if the rule matches |allow or deny |
+| **Opis elementu** |Opis reguły |Zezwalaj na ruch przychodzący dla wszystkich maszyn wirtualnych w podsieci X |
+| **Protokół** |Protokół odpowiadający regule |TCP, UDP lub * |
+| **sourcePortRange** |Zakres portów źródłowych odpowiadający regule |80, 100-200, * |
+| **destinationPortRange** |Zakres portów docelowych odpowiadający regule |80, 100-200, * |
+| **sourceAddressPrefix** |Prefiks adresu źródłowego odpowiadający regule |10.10.10.1, 10.10.10.0/24, sieć wirtualną |
+| **destinationAddressPrefix** |Prefiks adresu docelowego odpowiadający regule |10.10.10.1, 10.10.10.0/24, sieć wirtualną |
+| **Kierunek** |Kierunek ruchu odpowiadający regule |ruch przychodzący lub wychodzący |
+| **priorytet** |Priorytet reguły. Reguły są sprawdzane według ważności, gdy reguła ma zastosowanie, żadne inne reguły są sprawdzane pod kątem dopasowania. |10, 100, 65000 |
+| **dostęp** |Typ dostępu do zastosowania, jeśli reguła jest dopasowana |zezwolenie lub zablokowanie |
 
-Sample NSG in JSON format:
+Przykład grupy NSG w formacie JSON:
 
     {
         "name": "NSG-BackEnd",
@@ -67,11 +67,11 @@ Sample NSG in JSON format:
         }
     }
 
-### <a name="default-security-rules"></a>Default security rules
+### <a name="default-security-rules"></a>Domyślne reguły zabezpieczeń
 
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#default-rules) exist.
+Domyślne reguły zabezpieczeń mają takie same właściwości dostępne w zasadach zabezpieczeń. Istnieją one w celu zapewnienia podstawowej łączności między zasoby, które mają zastosowanych do nich grup NSG. Upewnij się, że wiesz, jakiego [domyślne reguły zabezpieczeń](../articles/virtual-network/virtual-networks-nsg.md#default-rules) istnieje.
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) for NSGs.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) for security rules.
+### <a name="additional-resources"></a>Dodatkowe zasoby
+* Uzyskaj więcej informacji [grup NSG](../articles/virtual-network/virtual-networks-nsg.md).
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) dla grup NSG.
+* Odczyt [dokumentacji interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) dla reguł zabezpieczeń.

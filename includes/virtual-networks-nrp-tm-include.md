@@ -1,26 +1,26 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+## <a name="traffic-manager-profile"></a>Profil Menedżera ruchu
+Menedżera ruchu i jej podrzędne zasobu punktu końcowego można włączyć DNS routingu do punktów końcowych na platformie Azure i poza platformą Azure. Taki podział ruchu podlega metody zasad routingu. Menedżer ruchu umożliwia również kondycji punktu końcowego do monitorowania i odpowiednio kierowane ruchu na podstawie kondycji punktu końcowego. 
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| **trafficRoutingMethod** |possible values are *Performance*, *Weighted*, and *Priority* |
-| **dnsConfig** |FQDN for the profile |
-| **Protocol** |monitoring protocol, possible values are *HTTP* and *HTTPS* |
-| **Port** |monitoring port |
-| **Path** |monitoring path |
-| **Endpoints** |container for endpoint resources |
+| **trafficRoutingMethod** |Możliwe wartości to *wydajności*, *ważone*, i *priorytet* |
+| **dnsConfig** |Nazwa FQDN profilu |
+| **Protokół** |Protokół monitorowania, możliwe wartości to *HTTP* i *protokołu HTTPS* |
+| **Port** |monitorowanie portu |
+| **Ścieżka** |Ścieżka monitorowania |
+| **Punkty końcowe** |kontener dla punktu końcowego zasobów |
 
 ### <a name="endpoint"></a>Endpoint
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+Punkt końcowy jest zasobem podrzędne profil Menedżera ruchu. Reprezentuje usługę lub punkt końcowy sieci web, na którym użytkownik jest przesyłane ruchu na podstawie skonfigurowanych zasad w zasobie profilu usługi Traffic Manager. 
 
-| Property | Description |
+| Właściwość | Opis |
 | --- | --- |
-| **Type** |the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* |
-| **targetResourceId** |public IP address of a service or web endpoint. This can be an Azure or external endpoint. |
-| **Weight** |endpoint weight used in traffic management. |
-| **Priority** |priority of the endpoint, used to define a failover action |
+| **Typ** |Typ punktu końcowego, możliwe wartości to *punktu końcowego Azure*, *zewnętrznego punktu końcowego*, i *zagnieżdżone punktu końcowego* |
+| **Element targetResourceId** |publiczny adres IP punktu końcowego usługi lub sieci web. Może to być platformy Azure lub zewnętrznego punktu końcowego. |
+| **Waga** |Waga punktu końcowego używane w ruchu zarządzania. |
+| **Priorytet** |priorytet punktu końcowego używany do definiowania akcji trybu failover |
 
-Sample of Traffic Manager in Json format: 
+Przykład Traffic Manager w formacie Json: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,6 +77,6 @@ Sample of Traffic Manager in Json format:
         }
 
 
-## <a name="additional-resources"></a>Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Odczyt [dokumentacja interfejsu API REST dla Menedżera ruchu](https://msdn.microsoft.com/library/azure/mt163664.aspx) Aby uzyskać więcej informacji.
 

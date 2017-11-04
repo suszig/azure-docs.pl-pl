@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Ukryj aplikacji innych producentów, od środowiska użytkownika w usłudze Azure Active Directory
 
 Jeśli masz aplikacji innych firm (aplikacji opublikowanych przez inne niż firmy Microsoft) nie chcesz widoczne na paneli dostępu użytkowników lub przyciski Uruchom usługi Office 365, ma opcji, aby ukryć ten Kafelek aplikacji. Ukrywanie użytkownicy aplikacji nadal mieć uprawnienia do aplikacji lecz nie będzie mógł przeglądać je na ich przyciski Uruchom aplikację. Musi mieć odpowiednie uprawnienia do zarządzania aplikacjami przedsiębiorstwa, a musi być administratorem globalnym katalogu.
 
-## <a name="hiding-a-users-access-panel"></a>Ukrywanie panelu dostępu użytkownika
-Wykonaj następujące kroki, aby ukryć panel dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Ukrywanie aplikacji innych firm, z komputera przez użytkownika
+Wykonaj następujące kroki, aby ukryć aplikacji innych firm, z panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>Jak ukryć z aplikacji z poziomu panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365?
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Jak ukryć aplikacji innych firm, z panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365?
 
 1.  Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 2.  Wybierz **więcej usług**, wprowadź **usługi Azure Active Directory** w polu tekstowym, a następnie wybierz **Enter**.

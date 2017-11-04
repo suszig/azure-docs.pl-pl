@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### <a name="to-add-or-remove-a-volume"></a>To add or remove a volume
+#### <a name="to-add-or-remove-a-volume"></a>Aby dodać lub usunąć woluminu
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Przejdź do urządzenia StorSimple i kliknij pozycję **Zasady kopii zapasowych**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add/remove volume**.
+2. Tabelaryczne liście zasady, wybierz i kliknij zasady, które chcesz zmodyfikować. Kliknij prawym przyciskiem myszy, aby wywołać z menu kontekstowego, a następnie wybierz **Dodaj lub Usuń wolumin**.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
+    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. In the **Add/remove volume** blade, select or deselect the checkbox(es) to add or remove the volume. Multiple volumes are selected/deselected by checking or unchecking the corresponding checkboxes.
+3. W **Dodaj lub Usuń wolumin** bloku, zaznacz lub odznacz checkbox(es), aby dodać lub usunąć wolumin. Wiele woluminów są zaznaczone odznaczona przez zaznaczenie lub usunięcie zaznaczenia odpowiednie pola wyboru.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
-    If you assign volumes from different volume containers to a backup policy, then you will need to remember to fail over those volume containers together. You will see a warning to that effect.
+    Po przypisaniu do zasady tworzenia kopii zapasowych woluminów z kontenerów inny wolumin, następnie należy pamiętać o tych kontenery woluminów pracy awaryjnej razem. Zostanie wyświetlone ostrzeżenie w tym celu.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
-4. You are notified when the backup policy is modified. The backup policy list is also updated.
+4. Użytkownik jest powiadamiany modyfikacji zasad tworzenia kopii zapasowej. Na liście zasad tworzenia kopii zapasowej zostaje również zaktualizowany.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

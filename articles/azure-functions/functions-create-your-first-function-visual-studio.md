@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Tworzenie pierwszej funkcji przy użyciu programu Visual Studio
 
@@ -35,12 +35,10 @@ W tym temacie możesz dowiedzieć się, jak za pomocą narzędzi Visual Studio 2
 
 Do ukończenia tego samouczka niezbędne jest zainstalowanie następujących składników:
 
-* [Visual Studio 2017 wersji 15 ustęp 3](https://www.visualstudio.com/vs/preview/) lub jego nowsza wersja, w tym **Azure programowanie** obciążenia.
+* [Visual Studio 2017 wersji 15.4](https://www.visualstudio.com/vs/) lub jego nowsza wersja, w tym **Azure programowanie** obciążenia.
 
     ![Instalowanie programu Visual Studio 2017 z obciążeniem Programowanie na platformie Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Tworzenie projektu usługi Azure Functions w programie Visual Studio
@@ -51,9 +49,9 @@ Po utworzeniu projektu można utworzyć pierwszą funkcję.
 
 ## <a name="create-the-function"></a>Tworzenie funkcji
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj** > **Nowy element**. Wybierz pozycję **Funkcja platformy Azure** i kliknij pozycję **Dodaj**.
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj** > **Nowy element**. Wybierz **funkcji platformy Azure**, wprowadź `HttpTriggerCSharp.cs` dla **nazwa**i kliknij przycisk **Dodaj**.
 
-2. Wybierz pozycję **HttpTrigger**, wpisz **nazwę funkcji**, wybierz opcję **Anonimowe** w polu **Prawa dostępu** i kliknij pozycję **Utwórz**. Do utworzonej funkcji można uzyskać dostęp przez żądanie HTTP z dowolnego klienta. 
+2. Wybierz **HttpTrigger**, wybierz pozycję **anonimowe** dla **praw dostępu**i kliknij przycisk **OK**. Do utworzonej funkcji można uzyskać dostęp przez żądanie HTTP z dowolnego klienta. 
 
     ![Tworzenie nowej funkcji platformy Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

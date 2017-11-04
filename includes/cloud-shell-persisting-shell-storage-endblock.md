@@ -1,19 +1,19 @@
-## <a name="transfer-local-files-to-cloud-shell"></a>Transfer local files to Cloud Shell
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
+## <a name="transfer-local-files-to-cloud-shell"></a>Transfer plików lokalnych do chmury powłoki
+`clouddrive` Katalogu synchronizacje z bloku magazynu z portalu Azure. Ten blok umożliwia transfer plików lokalnych do lub z udziału plików. Aktualizowanie plików z poziomu powłoki chmury znajduje odzwierciedlenie w usłudze magazyn plików graficznego interfejsu użytkownika podczas odświeżania bloku.
 
-### <a name="download-files"></a>Download files
+### <a name="download-files"></a>Pobieranie plików
 
-![List of local files](../articles/cloud-shell/media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
+![Lista plików lokalnych](../articles/cloud-shell/media/persisting-shell-storage/download.png)
+1. W portalu Azure przejdź do udziału zainstalowanego pliku.
+2. Wybierz plik docelowy.
+3. Wybierz **Pobierz** przycisku.
 
-### <a name="upload-files"></a>Upload files
+### <a name="upload-files"></a>Przekazywanie plików
 
-![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
+![Lokalnych plików do przekazania](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
+1. Przejdź do udziału zainstalowanego pliku.
+2. Wybierz **przekazać** przycisku.
+3. Wybierz plik lub pliki, które chcesz przekazać.
+4. Potwierdź przekazywania.
 
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+Powinien zostać wyświetlony pliki, które są dostępne w Twojej `clouddrive` katalogu w chmurze powłoki.

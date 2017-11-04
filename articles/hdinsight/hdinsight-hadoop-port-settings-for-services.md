@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty używane przez usługi Hadoop w usłudze HDInsight
 
@@ -48,17 +48,17 @@ Wszystkie węzły w klastrze HDInsight znajdują się w sieci wirtualnej platfor
 | sshd |23 |SSH |Łączy się sshd na dodatkowej headnode z klientów. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web UI. Zobacz [HDInsight zarządzać za pomocą interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Interfejs API REST Ambari. Zobacz [Zarządzanie HDInsight przy użyciu interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| Usługi WebHCat |443 |HTTPS |HCatalog interfejsu API REST. Zobacz [korzystanie z programu Hive z Curl](hdinsight-hadoop-use-pig-curl.md), [korzystanie z języka Pig z Curl](hdinsight-hadoop-use-pig-curl.md), [korzystać z usługi MapReduce z Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| Serwera HiveServer2 |443 |ODBC |Nawiązanie połączenia Hive za pośrednictwem sterownika ODBC. Zobacz [łączenie programu Excel do usługi HDInsight za pomocą sterownika Microsoft ODBC](hdinsight-connect-excel-hive-odbc-driver.md). |
-| Serwera HiveServer2 |443 |JDBC |Nawiązanie połączenia przy użyciu JDBC Hive. Zobacz [Połącz z Hive w usłudze HDInsight przy użyciu sterownik Hive JDBC](hdinsight-connect-hive-jdbc-driver.md) |
+| Usługi WebHCat |443 |HTTPS |HCatalog interfejsu API REST. Zobacz [korzystanie z programu Hive z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystanie z języka Pig z Curl](hadoop/apache-hadoop-use-pig-curl.md), [korzystać z usługi MapReduce z Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| Serwera HiveServer2 |443 |ODBC |Nawiązanie połączenia Hive za pośrednictwem sterownika ODBC. Zobacz [łączenie programu Excel do usługi HDInsight za pomocą sterownika Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| Serwera HiveServer2 |443 |JDBC |Nawiązanie połączenia przy użyciu JDBC Hive. Zobacz [Połącz z Hive w usłudze HDInsight przy użyciu sterownik Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Poniżej przedstawiono dostępne dla określonego klastra typów:
 
 | Usługa | Port | Protokół | Typ klastra | Opis |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |Interfejs API REST HBase. Zobacz [rozpocząć korzystanie z bazy danych HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |platforma Spark |Interfejs API REST platformy Spark. Zobacz [Spark przesyłania zadania zdalnie przy użyciu programu Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |STORM interfejsu użytkownika sieci web. Zobacz [wdrażanie i zarządzanie topologiami Storm w usłudze HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |Interfejs API REST HBase. Zobacz [rozpocząć korzystanie z bazy danych HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |platforma Spark |Interfejs API REST platformy Spark. Zobacz [Spark przesyłania zadania zdalnie przy użyciu programu Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |STORM interfejsu użytkownika sieci web. Zobacz [wdrażanie i zarządzanie topologiami Storm w usłudze HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Authentication
 

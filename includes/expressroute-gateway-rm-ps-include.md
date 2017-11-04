@@ -1,30 +1,30 @@
-The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+Kroki dla tego zadania użyć sieci wirtualnej na podstawie wartości na poniższej liście odwołania konfiguracji. Nazwy i dodatkowe ustawienia są także opisane w tej listy. Nie używamy tej listy bezpośrednio w krokach, mimo że dodamy zmienne na podstawie wartości na tej liście. Możesz skopiować listę i użyj go jako odwołanie, zastąpionymi wartościami z własnego.
 
-**Configuration reference list**
+**Lista odwołań konfiguracji**
 
-* Virtual Network Name = "TestVNet"
-* Virtual Network address space = 192.168.0.0/16
-* Resource Group = "TestRG"
-* Subnet1 Name = "FrontEnd" 
-* Subnet1 address space = "192.168.1.0/24"
-* Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-* Gateway Subnet address space = "192.168.200.0/26"
-* Region = "East US"
-* Gateway Name = "GW"
-* Gateway IP Name = "GWIP"
-* Gateway IP configuration Name = "gwipconf"
-* Type = "ExpressRoute" This type is required for an ExpressRoute configuration.
-* Gateway Public IP Name = "gwpip"
+* Nazwa sieci wirtualnej = "TestVNet"
+* Przestrzeń adresową sieci wirtualnej = 192.168.0.0/16
+* Grupa zasobów = "TestRG"
+* Podsieć1 Name = "FrontEnd" 
+* Przestrzeń adresowa podsieć1 = "192.168.1.0/24"
+* Nazwa podsieci bramy: "GatewaySubnet" zawsze nazwę podsieci bramy *GatewaySubnet*.
+* Przestrzeń adresów podsieci bramy = "192.168.200.0/26"
+* Region = "Wschodnie stany USA"
+* Nazwa bramy = "GW"
+* Nazwa IP bramy = "GWIP"
+* Konfigurację IP bramy Name = "gwipconf"
+* Typ: "ExpressRoute" tego typu jest wymagany dla konfiguracji usługi ExpressRoute.
+* Nazwa publicznego adresu IP bramy = "gwpip"
 
-## <a name="add-a-gateway"></a>Add a gateway
-1. Connect to your Azure Subscription.
+## <a name="add-a-gateway"></a>Dodaj bramę
+1. Połącz z subskrypcją platformy Azure.
 
   ```powershell 
   Login-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
-2. Declare your variables for this exercise. Be sure to edit the sample to reflect the settings that you want to use.
+2. Deklarowanie zmiennych w tym ćwiczeniu. Pamiętaj edytować przykład, aby odzwierciedlić ustawień, które chcesz użyć.
 
   ```powershell 
   $RG = "TestRG"
@@ -34,54 +34,54 @@ The steps for this task use a VNet based on the values in the following configur
   $GWIPconfName = "gwipconf"
   $VNetName = "TestVNet"
   ```
-3. Store the virtual network object as a variable.
+3. Jako zmienną, należy zapisać obiekt sieci wirtualnej.
 
   ```powershell
   $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
   ```
-4. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". You should create a gateway subnet that is /27 or larger (/26, /25, etc.).
+4. Dodaj podsieć bramy do sieci wirtualnej. Podsieć bramy musi być o nazwie "GatewaySubnet". Należy utworzyć podsieć bramy, która jest /27 lub większy (/ 26, / 25, itp.).
 
   ```powershell
   Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
   ```
-5. Set the configuration.
+5. Ustaw konfigurację.
 
   ```powershell
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Store the gateway subnet as a variable.
+6. Przechowywanie podsieci bramy jako zmienną.
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
   ```
-7. Request a public IP address. The IP address is requested before creating the gateway. You cannot specify the IP address that you want to use; it’s dynamically allocated. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
+7. Prześlij żądanie dotyczące publicznego adresu IP. Przed utworzeniem bramy wymagany jest adres IP. Nie można określić adres IP, który ma zostać użyty. dynamicznie został przydzielony. Ten adres IP zostanie użyty w następnej sekcji konfiguracji. Metodę AllocationMethod muszą być dynamiczne.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
   ```
-8. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you are specifying the configuration that will be used when you create the gateway. This step does not actually create the gateway object. Use the sample below to create your gateway configuration.
+8. Tworzenie konfiguracji dla bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. W tym kroku są Określanie konfiguracji, który będzie używany po utworzeniu bramy. Ten krok nie tworzy faktycznie obiektu bramy. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
 
   ```powershell
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
-9. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. After running these cmdlets, the gateway can take 45 minutes or more to create.
+9. Tworzenie bramy. W tym kroku **elementu GatewayType -** jest szczególnie ważne. Należy użyć wartości **ExpressRoute**. Po uruchomieniu tych poleceń cmdlet, bramy może potrwać 45 minut lub dłużej, aby utworzyć.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
   ```
 
-## <a name="verify-the-gateway-was-created"></a>Verify the gateway was created
-Use the following commands to verify that the gateway has been created:
+## <a name="verify-the-gateway-was-created"></a>Sprawdź, czy utworzono bramę
+Aby sprawdzić, czy utworzono bramę, użyj następujących poleceń:
 
 ```powershell
 Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
-## <a name="resize-a-gateway"></a>Resize a gateway
-There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+## <a name="resize-a-gateway"></a>Zmień rozmiar bramy
+Istnieje szereg [jednostki SKU bramy](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Następujące polecenie służy do zmiany jednostka SKU bramy w dowolnym momencie.
 
 > [!IMPORTANT]
-> This command doesn't work for UltraPerformance gateway. To change your gateway to an UltraPerformance gateway, first remove the existing ExpressRoute gateway, and then create a new UltraPerformance gateway. To downgrade your gateway from an UltraPerformance gateway, first remove the UltraPerformance gateway, and then create a new gateway.
+> To polecenie nie działa dla UltraPerformance bramy. Aby zmienić bramę do bramy UltraPerformance, najpierw usuń istniejącą bramę usługi ExpressRoute, a następnie utwórz nową bramę UltraPerformance. Na starszą wersję bramy sieci z bramy UltraPerformance, najpierw usuń UltraPerformance bramy, a następnie utwórz nową bramę.
 > 
 > 
 
@@ -90,8 +90,8 @@ $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
-## <a name="remove-a-gateway"></a>Remove a gateway
-Use the following command to remove a gateway:
+## <a name="remove-a-gateway"></a>Usuń bramę
+Aby usunąć bramę, użyj następującego polecenia:
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG

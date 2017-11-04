@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stack storage
-description: Learn about Azure Stack storage
+title: Wprowadzenie do magazynu Azure stosu
+description: "Więcej informacji na temat magazynu Azure stosu"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,80 +14,78 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Wprowadzenie do magazynu Azure stosu
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-## <a name="overview"></a>Overview
-Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
+## <a name="overview"></a>Omówienie
+Magazyn Azure stosu to zbiór obiektów blob, tabel i kolejek, które są zgodne z usług magazynu Azure w tym usługi magazynu w chmurze.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
-Azure Stack storage provides the following three services:
+## <a name="azure-stack-storage-services"></a>Usług Azure stos magazynu
+Usługa Azure storage stosu udostępnia następujące trzy usługi:
 
 * **Blob Storage** 
 
-    Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
-* **Table Storage** 
+    Magazyn obiektów blob przechowuje dane obiektów bez struktury. Obiekt blob może być dowolnymi danymi tekstowymi lub binarnymi, takimi jak dokument, plik multimedialny lub instalator aplikacji.
+* **Magazyn tabel** 
 
-    Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-* **Queue Storage** 
+    Table storage przechowuje zestawy danych ze strukturą. Magazyn tabel jest magazynem typu NoSQL zawierającym pary klucz-atrybut, co umożliwia szybkie opracowywanie i szybki dostęp do dużych ilości danych.
+* **Magazyn kolejek** 
 
-    Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+    Magazyn kolejek umożliwia niezawodną obsługę komunikatów do przetwarzania przepływu pracy i komunikacji między składnikami usług w chmurze.
 
-An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
+Konto magazynu platformy Azure stosu jest bezpieczne konto, które umożliwia dostęp do usług w usłudze Azure Storage stosu. Konto magazynu zapewnia unikatową przestrzeń nazw dla zasobów magazynu. Na poniższym diagramie przedstawiono relacje między zasobami magazynu Azure stosu na koncie magazynu:
 
-![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
-
-
-### <a name="blob-storage"></a>Blob storage
-
-For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
-
-* Documents
-* Social data such as photos, videos, music, and blogs
-* Backups of files, computers, databases, and devices
-* Images and text for web applications
-* Configuration data for cloud applications
-* Big data, such as logs and other large datasets
-
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the limit of storage account.
-
-Blob storage offers three types of blobs: 
-* **Block blobs** 
-
-    Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
-* **Append blobs** 
-
-    Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
-* **Page blobs** 
-
-    Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
+![Omówienie usługi Azure stos magazynu](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-### <a name="table-storage"></a>Table storage
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
+### <a name="blob-storage"></a>Blob Storage
 
-Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
+Dla użytkowników z dużej ilości danych bez struktury obiektów mają być przechowywane w chmurze magazynu obiektów Blob oferuje efektywne i skalowalne rozwiązanie. Możesz użyć Magazynu obiektów blob do przechowywania zawartości takiej jak:
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
+* Dokumenty
+* Dane społecznościowe takie jak zdjęcia, wideo, muzyka i blogi
+* Kopie zapasowe plików, komputerów, baz danych i urządzeń
+* Obrazy i tekst dla aplikacji sieci Web
+* Dane konfiguracji dla aplikacji w chmurze
+* Dane big data takie jak dzienniki i inne duże zestawy danych
 
-A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
+Każdy obiekt blob znajduje się w kontenerze. Kontenery to także wygodny sposób na przypisywanie zasad zabezpieczeń do grup obiektów. Konto magazynu może zawierać dowolną liczbę kontenerów, a kontener może zawierać dowolną liczbę obiektów blob w granicach konta magazynu.
 
-### <a name="queue-storage"></a>Queue storage
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
+Magazyn obiektów blob udostępnia trzy typy obiektów blob: 
+* **Blokowe obiekty BLOB** 
 
-A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+    Blokowe obiekty blob są zoptymalizowane pod kątem przesyłania strumieniowego i przechowywania obiektów w chmurze i dobrze nadają się do przechowywania dokumentów, plików multimedialnych, kopii zapasowych itd.
+* **Uzupełnialnych obiektów blob** 
 
-## <a name="next-steps"></a>Next steps
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+    Uzupełnialne obiekty blob są podobne do blokowych obiektów blob, lecz są zoptymalizowane pod kątem operacji dołączania. Uzupełnialny obiekt blob można zaktualizować tylko przez dodanie nowego bloku na końcu. Uzupełnialne obiekty blob są dobrym rozwiązaniem w przypadku scenariuszy takich jak rejestrowanie, które wymaga zapisywania tylko na końcu obiektu blob.
+* **Stronicowe obiekty BLOB** 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+    Stronicowe obiekty BLOB są zoptymalizowane pod kątem reprezentowania dysków IaaS i obsługi losowych zapisu, która jest maksymalnie 1 TB. IaaS plik VHD przechowywany jako stronicowy obiekt blob jest dysk dołączony do maszyny wirtualnej platformy Azure stosu.
 
+
+### <a name="table-storage"></a>Magazyn tabel
+Nowoczesne aplikacje często wymagają magazynu, który jest bardziej skalowalny i elastyczny, niż określają to wymagania poprzedniej generacji oprogramowania. Magazyn tabel jest skalowalny na ogromną skalę i oferuje wysoką dostępność, dzięki czemu aplikacja może automatycznie skalować się, aby spełnić wymagania użytkownika. Usługa Table Storage to magazyn typu NoSQL (par klucz-atrybut) firmy Microsoft — nie korzysta ze schematów, czym różni się od tradycyjnych relacyjnych baz danych. W wypadku magazynu danych bez schematów można łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Magazyn tabel jest łatwy w użyciu, dzięki czemu deweloperzy mogą szybko tworzyć aplikacje.
+
+Magazyn tabel to magazyn zawierający pary klucz-atrybut, co oznacza, że każda wartość w tabeli jest przechowywana razem z nazwą właściwości z określonym typem. Nazwa właściwości może służyć do filtrowania i określania kryteriów wyboru. Kolekcja właściwości i ich wartości stanowi jednostkę. Ponieważ Magazyn tabel nie korzysta ze schematów, dwie jednostki w tej samej tabeli mogą zawierać różne kolekcje właściwości, a te właściwości mogą być różnych typów.
+
+Magazyn tabel umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkownika dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach i wszelkie inne metadane, których wymaga Twoja usługa. Dla współczesnych aplikacji internetowych bazy danych NoSQL, takie jak Magazyn tabel, stanowią popularną alternatywę do tradycyjnych relacyjnych baz danych.
+
+Konto magazynu może zawierać dowolną liczbę tabel, a tabela może zawierać dowolną liczbę jednostek, aż do limitu pojemności konta magazynu.
+
+### <a name="queue-storage"></a>Queue Storage
+W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Magazyn kolejek zapewnia niezawodne rozwiązanie do obsługi komunikatów na potrzeby komunikacji asynchronicznej między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym lub urządzeniu przenośnym. Magazyn kolejek obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
+
+Konto magazynu może zawierać dowolną liczbę kolejek, a kolejka może zawierać dowolną liczbę komunikatów aż do limitu pojemności konta magazynu. Poszczególne wiadomości mogą mieć maksymalnie 64 KB.
+
+## <a name="next-steps"></a>Następne kroki
+* [Magazyn Azure spójne: różnice i zagadnienia](azure-stack-acs-differences.md)
+
+* Aby dowiedzieć się więcej na temat usługi Azure Storage, zobacz [wprowadzenie do usługi Magazyn Microsoft Azure](../../storage/common/storage-introduction.md)
 

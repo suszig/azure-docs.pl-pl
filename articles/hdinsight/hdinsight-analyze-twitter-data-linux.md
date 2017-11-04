@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analizowanie danych Twitter przy użyciu Hive i Hadoop w usłudze HDInsight
 
@@ -158,6 +158,9 @@ Poniższy kod języka Python pobiera 10 000 tweetów z serwisem Twitter, a nast�
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Dostosuj filtru tematów w ostatnim wierszu do śledzenia popularne słowa kluczowe. Przy użyciu popularnych słów kluczowych w momencie uruchamiania skryptu umożliwia szybsze przechwytywania danych.
 
 6. Użyj **Ctrl + X**, następnie **Y** można zapisać pliku.
 
@@ -312,19 +315,22 @@ Te polecenia przechowywania danych w miejscu dostępnym dla wszystkich węzłów
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     Ta kwerenda zwraca maksymalnie 10 tweetów, zawierające słowo **Azure** w treści wiadomości.
+
+    > [!NOTE]
+    > Zmiana filtru w `gettweets.py` skryptów, Zastąp **Azure** jeden z filtrów używane.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaniu przekształcania zestaw danych JSON bez struktury w strukturze tabeli programu Hive. Aby dowiedzieć się więcej na temat programu Hive w usłudze HDInsight, można znaleźć w następujących dokumentach:
 
-* [Rozpoczynanie pracy z usługą HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Rozpoczynanie pracy z usługą HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analizowanie danych opóźnienie transmitowane przy użyciu usługi HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

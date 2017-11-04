@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Tworzenie skryptów akcji skryptu dla klastrów usługi HDInsight w systemie Windows
 Dowiedz się, jak napisać skrypty akcji skryptu dla usługi HDInsight. Uzyskać informacji na temat używania skryptów akcji skryptu, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md). Aby uzyskać ten sam artykuł, przeznaczony dla klastrów usługi HDInsight opartych na systemie Linux, zobacz [skryptów tworzenie akcji skryptu dla usługi HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,7 @@ Poniżej przedstawiono kroki, które Wybraliśmy podczas przygotowania do wdroż
 
 ## <a name="debug-custom-scripts"></a>Debugowanie skryptów niestandardowych
 Dzienniki błędów skryptów są przechowywane wraz z innymi dane wyjściowe w domyślne konto magazynu określone dla klastra podczas jego tworzenia. Dzienniki są przechowywane w tabeli o nazwie *u < \cluster-name-fragment >< \time-stamp > setuplog*. Są to dzienniki zagregowane, które rekordy z wszystkie węzły (węzła głównego i węzły procesów roboczych), na których skrypt jest uruchamiany w klastrze.
-Jest łatwy sposób Sprawdź dzienniki do użycia narzędzi HDInsight Tools for Visual Studio. Dla instalacji narzędzi, zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+Jest łatwy sposób Sprawdź dzienniki do użycia narzędzi HDInsight Tools for Visual Studio. Dla instalacji narzędzi, zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
 **Aby sprawdzić dziennika za pomocą programu Visual Studio**
 

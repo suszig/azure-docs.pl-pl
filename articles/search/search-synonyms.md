@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synonimy w usłudze Azure Search (wersja zapoznawcza)
 
 Synonimy w wyszukiwarkach skojarzyć równoważnego niejawnie rozszerzające zakres kwerendy, bez konieczności podawania faktycznie termin użytkownika. Na przykład mając skojarzenia "dog" i synonim termin "canine" i "puppy" dokumenty zawierające "kot", "pies" lub "puppy" zostaną objęte zakresem zapytania.
 
-W usłudze Azure Search rozszerzenia synonim odbywa się na etapie zapytania. Synonim mapy można dodać do usługi za pomocą nie przerywania istniejące operacje. Możesz dodać **synonymMaps** właściwości do definicji pola bez konieczności odbudowanie indeksu. Aby uzyskać więcej informacji, zobacz [Aktualizuj indeks](https://docs.microsoft.com/rest/api/searchservice/update-index).
+W usłudze Azure Search rozszerzenia synonim odbywa się na etapie zapytania. Synonim mapy można dodać do usługi za pomocą nie przerywania istniejące operacje. Możesz dodać **synonymMaps** właściwości do definicji pola bez konieczności odbudowanie indeksu.
 
 ## <a name="feature-availability"></a>Dostępność funkcji
 
@@ -78,14 +78,14 @@ Alternatywnie można użyć PUT i określ nazwę mapy synonim w identyfikatorze 
 
 Solr format obsługuje synonim równoważne i jawnego mapowania. Reguły mapowania stosować się do synonimu specyfikacja filtru typu open source Apache Solr, w tym dokumencie opisano: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Poniżej znajduje się przykładowa reguła synonimy równoważne.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 Z regułą powyżej zapytania wyszukiwania rozwinie "USA" do "USA" lub "Stany Zjednoczone" lub "Stany Zjednoczone".
 
 Jawne mapowanie jest oznaczona za pomocą strzałki "= >". Gdy jest określony, sekwencji termin zapytania wyszukiwania, która jest zgodna z lewej strony "= >" zostanie zamieniony alternatyw po prawej stronie. Biorąc pod uwagę poniższe reguły, wyszukaj zapytania "W stanie Waszyngton", "Wash." lub "WA" będą wszystkie ponownego napisania do "WA". Jawne mapowanie tylko stosuje w kierunku określony i nie Przeredaguj zapytanie "WA" do "W stanie Waszyngton" w tym przypadku.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Synonim listy mapy w ramach usługi.

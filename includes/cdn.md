@@ -1,112 +1,112 @@
-# <a name="using-cdn-for-azure"></a>Using CDN for Azure
-The Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America. For a current list of CDN node locations, see [Azure CDN Node Locations].
+# <a name="using-cdn-for-azure"></a>Za pomocą sieci CDN dla platformy Azure
+Azure Content Delivery Network (CDN) oferuje deweloperom globalne rozwiązanie umożliwiające dostarczanie zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej wystąpień obliczeń w węzłach fizycznych w Stanów Zjednoczonych, Europa, Azja, Australia i Azji. Aby uzyskać bieżącą listę lokalizacje węzłów CDN, zobacz [lokalizacje węzłów CDN Azure].
 
-This task includes the following steps:
+To zadanie obejmuje następujące kroki:
 
-* [Step 1: Create a storage account](#Step1)
-* [Step 2: Create a new CDN endpoint for your storage account](#Step2)
-* [Step 3: Access your CDN content](#Step3)
-* [Step 4: Remove your CDN content](#Step4)
+* [Krok 1: Utwórz konto magazynu](#Step1)
+* [Krok 2: Utwórz nowy punkt końcowy CDN dla konta magazynu](#Step2)
+* [Krok 3: Dostęp do zawartości w sieci CDN](#Step3)
+* [Krok 4: Usuń zawartość usługi CDN](#Step4)
 
-The benefits of using CDN to cache Azure data include:
+Korzyści wynikające ze stosowania sieci CDN do buforowania danych Azure obejmują:
 
-* Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
-* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
+* Lepszą wydajność i środowisko dla użytkowników końcowych, którzy są daleko od źródła zawartości i są używane aplikacje, gdzie wiele "internet podróży" są wymagane do załadowania zawartości
+* Dużą skalę rozproszonych, aby lepiej obsługiwać natychmiastowe wysokie obciążenie, powiedzieć na początku zdarzenia, takie jak uruchamianie produktu
 
-Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Istniejących klientów usługi CDN można teraz używać usługi Azure CDN w [klasycznego portalu Azure]. Usługa CDN jest funkcją dodatek do subskrypcji i ma oddzielnej [plan rozliczeniowy].
 
 <a id="Step1"> </a>
 
-<h2>Step 1: Create a storage account</h2>
+<h2>Krok 1: Utwórz konto magazynu</h2>
 
-Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information about the Azure storage services, see [Using the Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Poniższa procedura umożliwia utworzenie nowego konta magazynu dla subskrypcji platformy Azure. Konto magazynu zapewnia dostęp do usług magazynu platformy Azure. Konto magazynu reprezentuje najwyższy poziom przestrzeni nazw do uzyskiwania dostępu do poszczególnych składników usługi Azure storage: obiektów Blob usługi, usługi kolejki i usługi tabeli. Aby uzyskać więcej informacji dotyczących usług magazynu Azure, zobacz [przy użyciu usług magazynu Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
-To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
+Aby utworzyć konto magazynu, musi być administratorem usługi albo współadministratorem subskrypcji skojarzone.
 
 > [!NOTE]
-> For information about performing this operation by using the Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> Informacje dotyczące wykonywania tej operacji przy użyciu interfejsu API zarządzania usługi Azure, zobacz [Utwórz konto magazynu](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) temat referencyjny.
 > 
 > 
 
-**To create a storage account for an Azure subscription**
+**Aby utworzyć konto magazynu dla subskrypcji platformy Azure**
 
-1. Log into the [Azure classic portal].
-2. In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1. Zaloguj się do [klasycznego portalu Azure].
+2. W lewym dolnym rogu kliknij **nowy**. W **nowy** zaznacz pozycję **usług danych**, następnie kliknij przycisk **magazynu**, następnie **szybkie tworzenie**.
    
-   The **Create Storage Account** dialog appears.
+   **Utwórz konto magazynu** zostanie wyświetlone okno dialogowe.
    
-   ![Create Storage Account][create-new-storage-account]
-3. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+   ![Tworzenie konta magazynu][create-new-storage-account]
+3. W **adres URL** wpisz nazwę domeny podrzędnej. Ten wpis może zawierać od 3 do 24 małych liter i cyfr.
    
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
+    Ta wartość używana jako nazwa hosta w identyfikatorze URI, który jest wykorzystywana do adresowania obiektów Blob, kolejki lub tabeli zasobów dla subskrypcji. W celu adresu zasobu kontenera w usłudze obiektów Blob, należy użyć identyfikatora URI w następującym formacie, gdzie  *&lt;StorageAccountLabel&gt;*  odnosi się do wartości wpisanych w **wprowadź adres URL**:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mojkontener&gt;*
    
-    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
+    **Ważne:** adresu URL etykiety formularze poddomeną identyfikatora URI konta magazynu i musi być unikatowa wśród wszystkich usług hostowanych na platformie Azure.
    
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+    Ta wartość jest także używana jako nazwa tego konta magazynu w portalu lub podczas uzyskiwania dostępu do tego konta programowo.
+4. Z **grupy Region/koligacji** listy rozwijanej, wybierz region lub koligacji grupy dla konta magazynu. Wybierz grupę koligacji zamiast region, jeśli chcesz usług magazynu w tym samym centrum danych z innymi usługami systemu Windows Azure, które są używane. Może to zwiększyć wydajność, a nie jest obciążany za wyjście.  
    
-   **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups].
-5. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
-6. Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-7. To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+   **Uwaga:** Aby utworzyć grupę koligacji, otwórz **ustawienia** obszarze portalu zarządzania, kliknij przycisk **grup koligacji**, a następnie kliknij przycisk **Dodaj grupę koligacji** lub **dodać**. Tworzyć i zarządzać przy użyciu interfejsu API systemu Windows Azure Service Management grup koligacji. Aby uzyskać więcej informacji zobacz [operacje na grupach koligacji].
+5. Z **subskrypcji** listy rozwijanej wybierz subskrypcję, która zostanie użyte konto magazynu z.
+6. Kliknij pozycję **Utwórz konto usługi Storage**. Proces tworzenia konta magazynu może potrwać kilka minut.
+7. Aby zweryfikować, że pomyślnie utworzono konto magazynu, sprawdź, czy konto jest wyświetlany w elementach wymienionych dla **magazynu** ze stanem **Online**.
 
 <a id="Step2"> </a>
 
-<h2>Step 2: Create a new CDN endpoint for your storage account</h2>
+<h2>Krok 2: Utwórz nowy punkt końcowy CDN dla konta magazynu</h2>
 
-Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+Po włączeniu sieci CDN w warstwie dostępu do konta magazynu lub usługi hostowanej, wszystkie obiekty publicznie dostępnych kwalifikują się do buforowania krawędzi CDN. Jeśli zmodyfikujesz obiekt, który jest aktualnie w pamięci podręcznej w sieci CDN nową zawartość nie będzie dostępne za pośrednictwem sieci CDN dopóki CDN odświeża jego zawartości, gdy pamięci podręcznej zawartości okres czasu wygaśnięcia.
 
-**To create a new CDN endpoint for your storage account**
+**Aby utworzyć nowy punkt końcowy CDN dla konta magazynu**
 
-1. In the [Azure classic portal], in the navigation pane, click **CDN**.
-2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
-3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
-4. Click the **Create** button to create the new endpoint.
-5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
+1. W [klasycznego portalu Azure], w okienku nawigacji kliknij **CDN**.
+2. Na wstążce kliknij **nowy**. W **nowy** okno dialogowe, wybierz opcję **usługi aplikacji**, następnie **CDN**, następnie **szybkie tworzenie**.
+3. W **domeny pochodzenia** listy rozwijanej wybierz magazyn utworzonego konta w poprzedniej sekcji z listy kont dostępny magazyn. 
+4. Kliknij przycisk **Utwórz** przycisk, aby utworzyć nowy punkt końcowy.
+5. Po utworzeniu punktu końcowego, zostanie wyświetlony na liście punktów końcowych dla subskrypcji. Widok listy zawiera adres URL służący do uzyskiwania dostępu do zawartości buforowanej (w pamięci podręcznej), a także domeny źródła. 
    
-    The origin domain is the location from which the CDN caches content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
+    Domeny pochodzenia jest to lokalizacja, z którego CDN buforuje zawartość. Domeny pochodzenia może być konta magazynu lub usługi w chmurze; Konto magazynu jest używany na potrzeby tego przykładu. Magazyn zawartość jest buforowana na serwerach krawędzi zgodnie z do ustawienia nagłówka cache-control, który określisz, lub heurystyki domyślne buforowania sieci. 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE]Konfiguracja utworzone dla punktu końcowego nie będzie natychmiast dostępna; może upłynąć do 60 minut rejestracji propagację za pośrednictwem sieci CDN. Użytkownicy, którzy spróbują użyć nazwy domeny usługi CDN natychmiast może zostać wyświetlony kod stanu 400 (nieprawidłowe żądanie), dopóki zawartość jest dostępna za pośrednictwem sieci CDN.
 
 <a id="Step3"> </a>
 
-<h2>Step 3: Access CDN content</h2> 
+<h2>Krok 3: Dostęp do zawartości w sieci CDN</h2> 
 
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+Aby uzyskać dostęp do zawartości w pamięci podręcznej w sieci CDN, użyj adresu URL CDN, w portalu. Adres pamięci podręcznej blob będzie podobny do następującego:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*\>.vo.msecnd.net/ <*myPublicContainer*\>/<*element BlobName*\>
 
 <a id="Step4"> </a>
 
-<h2>Step 4: Remove content from the CDN</h2>
+<h2>Krok 4: Usuwanie zawartości z sieci CDN</h2>
 
-If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
+Jeśli nie chcesz już w pamięci podręcznej obiektu w usłudze Azure sieci dostarczania zawartości (CDN), można wykonać jedną z następujących czynności:
 
-* For an Azure blob, you can delete the blob from the public container.
-* You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
-* You can disable or delete the CDN endpoint using the Management Portal.
-* You can modify your hosted service to no longer respond to requests for the object.
+* Dla obiektów blob platformy Azure można usunąć obiektu blob w kontenerze publicznego.
+* Można utworzyć kontenera prywatnego zamiast publicznego. Zobacz [ograniczanie dostępu do kontenerów i obiektów blob](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) Aby uzyskać więcej informacji.
+* Można wyłączyć lub usunąć punkt końcowy CDN za pomocą portalu zarządzania.
+* Można zmodyfikować usługi hostowanej nie będzie odpowiadać na żądania dla obiekt.
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+Obiekt w sieci CDN już pamięci podręcznej pozostaje w pamięci podręcznej aż do zakończenia okresu czasu wygaśnięcia dla obiekt. Po wygaśnięciu okresu time-to-live CDN sprawdzi, czy punkt końcowy CDN jest nadal ważny i nadal anonimowo dostępny obiekt. Jeśli nie, obiekt już być buforowane.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+Możliwość natychmiast przeczyścić zawartość nie jest obecnie obsługiwane w portalu zarządzania Azure. Skontaktuj się z [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) Jeśli chcesz natychmiast przeczyścić zawartości. 
 
-## <a name="additional-resources"></a>Additional resources
-* [How to Create an Affinity Group in Azure]
-* [How to: Manage Storage Accounts for an Azure Subscription]
-* [About the Service Management API]
-* [How to Map CDN Content to a Custom Domain]
+## <a name="additional-resources"></a>Dodatkowe zasoby
+* [Jak utworzyć grupę koligacji w Azure]
+* [Porady: Zarządzanie kontami magazynu dla subskrypcji platformy Azure]
+* [Temat interfejsu API zarządzania usługami]
+* [Jak zamapować zawartość usługi CDN na domenę niestandardową]
 
 [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-[Azure classic portal]: https://manage.windowsazure.com/
-[billing plan]: /pricing/calculator/?scenario=full
-[How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+[lokalizacje węzłów CDN Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+[klasycznego portalu Azure]: https://manage.windowsazure.com/
+[plan rozliczeniowy]: /pricing/calculator/?scenario=full
+[Jak utworzyć grupę koligacji w Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
-[About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
-[How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
+[Temat interfejsu API zarządzania usługami]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+[Jak zamapować zawartość usługi CDN na domenę niestandardową]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

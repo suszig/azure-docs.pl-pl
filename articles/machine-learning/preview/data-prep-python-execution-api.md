@@ -1,0 +1,55 @@
+---
+title: "Szczegółowe wskazówki na temat używania wykonywania Azure Machine Learning danych przygotowania interfejsu API | Dokumentacja firmy Microsoft"
+description: "Niniejszy dokument zawiera szczegółowe informacje o poprzednio wykonywania przeznaczony pakietów źródeł danych i przygotowania danych"
+services: machine-learning
+author: euangMS
+ms.author: euang
+manager: lanceo
+ms.reviewer: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: 
+ms.devlang: 
+ms.topic: article
+ms.date: 09/12/2017
+ms.openlocfilehash: 4a0e4bd58ffa4bc7062ee4844a090be43047e8a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/20/2017
+---
+# <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Wykonanie pakietów źródła danych i przygotowania danych w języku Python
+
+Aby użyć źródeł danych Learning maszyny Azure lub usługi Azure Machine Learning danych przygotowania pakietu w języku Python:
+
+1. Przejdź do **danych** karty Projekt.
+
+2. Kliknij prawym przyciskiem myszy odpowiednie źródłowe.
+
+3. Wybierz **Generowanie pliku kodu dostępu do danych.**
+
+Ta akcja tworzy krótki skrypt w języku Python, który wykonuje pakietu i zwraca dataframe.
+
+## <a name="data-sources"></a>Źródła danych
+
+`azureml.dataprep.datasource` Moduł zawiera jednej funkcji do wykonywania źródła danych i zwracać dataframe: `load_datasource(path, secrets=None, spark=None)`.
+- `path`to ścieżka do źródła danych (plik .dsource).
+- `secrets`jest opcjonalne słownik mapujący klucze do kluczy tajnych.
+- `spark`jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie program Azure Machine Learning Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.
+
+## <a name="data-preparations-packages"></a>Pakiety przygotowań danych
+
+`azureml.dataprep.package` Moduł zawiera trzy funkcje, których wykonanie przepływu danych w pakiecie przygotowań danych.
+
+### <a name="execution-functions"></a>Wykonanie funkcji
+
+- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)`przesyła przepływ danych określony dla wykonywania, ale nie zwraca dataframe.
+- `run(package_path, dataflow_idx=0, secrets=None, spark=None)`uruchamia przepływ określone dane i zwraca wynik jako dataframe.
+- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)`uruchamia przepływ określone dane na podstawie źródła danych w pamięci i zwraca wynik jako dataframe. `user_config` Argument jest słownik, który mapuje bezwzględna ścieżka źródła danych (plik .dsource) reprezentowane jako listę list źródłu danych w pamięci.
+
+### <a name="common-arguments"></a>Typowe argumentów
+
+- `package_path`to ścieżka do pakiecie przygotowań danych (plik .dprep).
+- `dataflow_idx`jest liczony od zera indeks, który przepływu danych w pakiecie w celu wykonania. Jeśli przepływ określonych danych odwołuje się do innych przepływów danych lub źródeł danych, wykonywane są również.
+- `secrets`jest opcjonalne słownik mapujący klucze do kluczy tajnych.
+- `spark`jest opcjonalna wartość logiczna określająca, czy mają być zwracane Spark dataframe lub Pandas dataframe. Domyślnie Workbench Określa, jakiego rodzaju dataframe zwracać w czasie wykonywania na podstawie kontekstu.

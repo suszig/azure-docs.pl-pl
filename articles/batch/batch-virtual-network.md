@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli partii zadań Azure w sieci wirtualnej
 
@@ -62,7 +62,12 @@ Aby sprawdzić, czy węzły obliczeń w puli partii zadań Azure działają w si
 * Usługa partia zadań musi łączyć się z węzłami obliczeniowymi puli do planowania zadań. Aby włączyć tę komunikację, Dodaj trasy zdefiniowane przez użytkownika dla każdego adresu IP używane przez usługi partia zadań w regionie, w którym istnieje konta partii zadań. Aby uzyskać listę adresów IP usługi partia zadań, skontaktuj się z pomocą techniczną platformy Azure.
 
 * Upewnij się, że ruch wychodzący do magazynu Azure (w szczególności adresów URL w postaci `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, i `<account>.blob.core.windows.net`) nie jest zablokowany przez urządzenia sieci lokalnej.
-    
+
+Po dodaniu trasy zdefiniowane przez użytkownika, należy zdefiniować trasy dla każdego pokrewne prefiksu adresu IP partii oraz **następnego przeskoku typu** do **Internet**. Zobacz poniższy przykład:
+
+![Trasa zdefiniowana przez użytkownika](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać szczegółowe informacje o partii, zobacz [Programowanie równoległe na dużą skalę obliczeniowe rozwiązań w partii](batch-api-basics.md).
+- Aby uzyskać więcej informacji o tworzeniu trasy zdefiniowane przez użytkownika, zobacz [utworzenie trasy zdefiniowanej przez użytkownika - portalu Azure](../virtual-network/create-user-defined-route-portal.md).

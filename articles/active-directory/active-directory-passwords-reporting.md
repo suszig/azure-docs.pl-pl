@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opcje raportowania dla usługi Azure AD zarządzania hasłami
 
@@ -31,7 +31,7 @@ Po wdrożeniu w wielu organizacjach chcieli wiedzieć, jak lub jeśli SSPR jest 
 Może być odpowiedzieć na następujące pytania przez raporty, które istnieją w [portalu Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> Musi być [administratora globalnego](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) i może zdecydować się na tych danych do zebrania imieniu swojej organizacji, odwiedzając raportowania dzienniki tab lub inspekcji, co najmniej raz. Do tej czynności dane nie będą zbierane dla Twojej organizacji
+> Musi być [administratora globalnego](active-directory-assign-admin-roles.md) i może zdecydować się na tych danych do zebrania imieniu swojej organizacji, odwiedzając raportowania dzienniki tab lub inspekcji, co najmniej raz. Do tej czynności dane nie będą zbierane dla Twojej organizacji
 
 * Ile osób zarejestrowano do resetowania hasła?
 * Kto został zarejestrowany do resetowania hasła?

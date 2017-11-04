@@ -1,34 +1,34 @@
-## <a name="install-the-prerequisites"></a>Install the prerequisites
+## <a name="install-the-prerequisites"></a>Zainstaluj wymagania wstępne
 
-1. Install [Visual Studio 2015 or 2017](https://www.visualstudio.com). You can use the free Community Edition if you meet the licensing requirements. Be sure to include Visual C++ and NuGet Package Manager.
+1. Zainstaluj [programu Visual Studio 2015 lub 2017](https://www.visualstudio.com). Bezpłatna wersja Community można użyć, jeśli spełniają wymagania licencyjne. Należy uwzględnić Visual C++ i Menedżer pakietów NuGet.
 
-1. Install [git](http://www.git-scm.com) and make sure you can run git.exe from the command line.
+1. Zainstaluj [git](http://www.git-scm.com) i upewnij się, że git.exe można uruchomić z wiersza polecenia.
 
-1. Install [CMake](https://cmake.org/download/) and make sure you can run cmake.exe from the command line. CMake version 3.7.2 or later is recommended. The **.msi** installer is the easiest option on Windows. Add CMake to the PATH for at least the current user when the installer prompts you.
+1. Zainstaluj [CMake](https://cmake.org/download/) i upewnij się, że cmake.exe można uruchomić z wiersza polecenia. CMake wersji 3.7.2 lub nowszy jest zalecane. **.Msi** Instalator jest najłatwiejsza opcja w systemie Windows. Dodaj CMake ścieżkę do co najmniej bieżącego użytkownika, gdy Instalator wyświetli monit.
 
-1. Install [Python 2.7](https://www.python.org/downloads/release/python-27). Make sure you add Python to your `PATH` environment variable in **Control Panel -> System -> Advanced system settings -> Environment Variables**.
+1. Zainstaluj [Python 2.7](https://www.python.org/downloads/release/python-27). Upewnij się, że dodawanie Python do programu `PATH` zmiennej środowiskowej. Przejdź do **Panelu sterowania** > **System i zabezpieczenia** > **systemu** > **Zaawansowane ustawienia systemu**  >  **Zmiennych środowiskowych**. Dodaj `C:\Python27` do ścieżki. 
 
-1. At a command prompt, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:
+1. W wierszu polecenia Uruchom następujące polecenie, aby Klonuj repozytorium GitHub krawędzi IoT Azure na komputerze lokalnym:
 
     ```cmd
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## <a name="how-to-build-the-sample"></a>Jak skompilować przykład
 
-You can now build the IoT Edge runtime and samples on your local machine:
+Krawędź IoT można teraz tworzyć środowiska uruchomieniowego i przykłady, na komputerze lokalnym:
 
-1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
+1. Otwórz **wiersz polecenia dla programu VS 2015 deweloperów** lub **wiersz polecenia dla programu VS 2017 deweloperów**w zależności od wersji.
 
-1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Przejdź do folderu głównego w lokalnej kopii repozytorium **iot-edge**.
 
-1. Run the build script as follows:
+1. Uruchom skrypt kompilacji w następujący sposób:
 
     ```cmd
     tools\build.cmd --disable-native-remote-modules
     ```
 
-This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **iot-edge** repository. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
+Ten skrypt tworzy plik rozwiązania Visual Studio i tworzy rozwiązanie. Możesz znaleźć rozwiązania Visual Studio w **kompilacji** folderu w lokalnej kopii **krawędzi iot** repozytorium. Jeśli chcesz tworzenia i uruchamiania testów jednostkowych, dodać `--run-unittests` parametru. Aby tworzenie i Uruchamianie testów kompleksowe, dodać `--run-e2e-tests`.
 
 > [!NOTE]
-> Every time you run the **build.cmd** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
+> Każdym uruchomieniu **build.cmd** skryptu, go usuwa, a następnie tworzy ponownie **kompilacji** folderu w folderze głównym lokalną kopię **krawędzi iot** repozytorium.

@@ -25,15 +25,10 @@ Aby uzyskać większą kontrolę nad wdrożeniem, można zastąpić domyślny sk
     \.deployment
     \deploy.cmd
 
-Do utworzenia plików można użyć [interfejsu wiersza polecenia platformy Azure][Interfejs wiersza polecenia platformy Azure].  Użyj tego polecenia w folderze projektu:
+Można użyć [interfejsu wiersza polecenia platformy Azure] [ Azure command-line interface] do utworzenia plików.  Użyj tego polecenia w folderze projektu:
 
     azure site deploymentscript --python
 
 Jeśli te pliki nie istnieją, platforma Azure tworzy tymczasowy skrypt wdrażania i uruchamia go.  Jest on identyczny z tworzonym za pomocą polecenia powyżej.
 
-[Interfejs wiersza polecenia platformy Azure]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

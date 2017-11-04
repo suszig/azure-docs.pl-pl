@@ -1,150 +1,163 @@
 ---
-title: "Tworzenie prywatnego rejestru kontenerów platformy Docker — interfejs wiersza polecenia platformy Azure | Microsoft Doc"
-description: "Rozpoczynanie pracy z tworzeniem prywatnych rejestrów kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0 i zarządzaniem nimi"
+title: "Szybki Start — tworzenie prywatnych rejestru Docker na platformie Azure z wiersza polecenia platformy Azure"
+description: "Dowiedz się szybko utworzyć prywatnego rejestru kontenera Docker z wiersza polecenia platformy Azure."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: pl-pl
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Tworzenie prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Azure w wersji 2.0
-Polecenia [interfejsu wiersza polecenia platformy Azure w wersji 2.0](https://github.com/Azure/azure-cli) służą do tworzenia rejestru kontenera i zarządzania jego ustawieniami z komputera z systemem Linux, Mac lub Windows. Tworzenie i zarządzanie rejestrami kontenerów jest także możliwe przy użyciu [witryny Azure Portal](container-registry-get-started-portal.md) lub programowo przy użyciu interfejsu [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Tworzenie rejestru kontenera za pomocą interfejsu wiersza polecenia platformy Azure
 
+Usługa Azure Container Registry to zarządzana usługa rejestru kontenerów platformy Docker używana do przechowywania prywatnych obrazów kontenerów Docker. Szczegóły ten Przewodnik tworzenia wystąpienia rejestru kontenera Azure za pomocą wiersza polecenia platformy Azure.
 
-* Podstawy oraz pojęcia zostały przedstawione w części [ — omówienie](container-registry-intro.md)
-* Aby uzyskać pomoc dotyczącą poleceń interfejsu wiersza polecenia usługi Container Registry (polecenia `az acr`), przekaż parametr `-h` do dowolnego polecenia.
+Ta opcja szybkiego startu wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.20 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
+Musi mieć również Docker zainstalowane lokalnie. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="prerequisites"></a>Wymagania wstępne
-* **Interfejs wiersza polecenia platformy Azure w wersji 2.0**: aby zainstalować interfejs wiersza polecenia platformy Azure w wersji 2.0 i rozpocząć pracę z nim, zobacz [instrukcje dotyczące instalacji](/cli/azure/install-azure-cli). Zaloguj się do subskrypcji platformy Azure, uruchamiając polecenie `az login`. Aby uzyskać więcej informacji, zobacz [Get started with the CLI 2.0](/cli/azure/get-started-with-azure-cli) (Rozpoczynanie pracy z interfejsem wiersza polecenia w wersji 2.0).
-* **Grupa zasobów**: utwórz [grupę zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) przed utworzeniem rejestru kontenerów lub użyj istniejącej grupy zasobów. Upewnij się, że grupa zasobów znajduje się w lokalizacji, w której usługa Container Registry jest [dostępna](https://azure.microsoft.com/regions/services/). Aby utworzyć grupę zasobów przy użyciu interfejsu wiersza polecenia w wersji 2.0, zobacz [dokumentację dotyczącą interfejsu wiersza polecenia w wersji 2.0](/cli/azure/group).
-* **Konto magazynu** (opcjonalnie): utwórz standardowe [konto magazynu](../storage/common/storage-introduction.md) platformy Azure, aby obsługiwać rejestr kontenerów w tej samej lokalizacji. Jeśli nie określisz konta magazynu podczas tworzenia rejestru przy użyciu polecenia `az acr create`, polecenie spowoduje utworzenie go dla Ciebie. Aby utworzyć konto magazynu przy użyciu interfejsu wiersza polecenia w wersji 2.0, zobacz [dokumentację dotyczącą interfejsu wiersza polecenia w wersji 2.0](/cli/azure/storage/account). Usługa Premium Storage nie jest obecnie obsługiwana.
-* **Nazwa główna usługi** (opcjonalnie): rejestr utworzony za pomocą interfejsu wiersza polecenia domyślnie nie jest konfigurowany do uzyskiwania dostępu. W zależności od potrzeb możesz przypisać istniejącą nazwę główną usługi Azure Active Directory do rejestru (lub utworzyć i przypisać nową) albo włączyć konto administratora w rejestrze. Zobacz sekcje w dalszej części tego artykułu. Więcej informacji dotyczących dostępu do rejestru znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenera).
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
-Uruchom polecenie `az acr create`, aby utworzyć rejestr kontenera.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-> [!TIP]
-> Podczas tworzenia rejestru określ globalnie unikatową nazwę domeny najwyższego poziomu, która będzie zawierać tylko litery i cyfry. W przykładach nazwa rejestru to `myRegistry1`, ale możesz ją zastąpić własną, unikatową nazwą.
->
->
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
-Następujące polecenie używa minimalnej liczby parametrów do utworzenia kontenera rejestru `myRegistry1` w grupie zasobów `myResourceGroup` i korzysta z *podstawowej* jednostki SKU:
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* Parametr `--storage-account-name` jest opcjonalny. Jeśli nie określono inaczej, nazwa konta magazynu utworzonego we wskazanej grupie zasobów składa się z nazwy rejestru i sygnatury czasowej.
+## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
+
+W tym szybkiego startu, utworzymy *podstawowe* rejestru. Rejestru kontenera platformy Azure jest dostępna w kilku różne jednostki magazynowe, krótko opisane w poniższej tabeli. Rozszerzone szczegółowe na każdym, patrz [rejestru kontenera jednostek SKU](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Utwórz wystąpienie usługi ACR za pomocą polecenia [az acr create](/cli/azure/acr#create).
+
+Nazwa rejestru **muszą być unikatowe**. W poniższym przykładzie *myContainerRegistry007* jest używany. Zaktualizuj to unikatowe wartości.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 Po utworzeniu rejestru dane wyjściowe będą podobne do następujących:
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+W dalszej części tego przewodnika Szybki Start, używamy `<acrname>` jako nazwę rejestru kontenera.
 
-Zwróć szczególną uwagę na następujące elementy:
+## <a name="log-in-to-acr"></a>Zaloguj się do awaryjnego
 
-* `id` — identyfikator rejestru w ramach subskrypcji, którego potrzebujesz do przypisania nazwy głównej usługi.
-* `loginServer` — w pełni kwalifikowana nazwa służąca do [logowania do rejestru](container-registry-authentication.md). W tym przykładzie nazwa to `myregistry1.exp.azurecr.io` (tylko małe litery).
-
-## <a name="assign-a-service-principal"></a>Przypisywanie nazwy głównej usługi
-Aby przypisać nazwę główną usługi Azure Active Directory do rejestru, użyj poleceń interfejsu wiersza polecenia w wersji 2.0. W tych przykładach do nazwy głównej usługi przypisano rolę Właściciel, ale możesz przypisywać [inne role](../active-directory/role-based-access-control-configure.md).
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Tworzenie nazwy głównej usługi i przypisywanie dostępu do rejestru
-W poniższym poleceniu do nowej nazwy głównej usługi jest przypisywany dostęp roli Właściciel do identyfikatora rejestru przy użyciu parametru `--scopes`. Określ silne hasło przy użyciu parametru `--password`.
+Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. Aby to zrobić, użyj polecenia [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+Polecenie zwraca komunikat „Logowanie pomyślne” po ukończeniu.
 
+## <a name="push-image-to-acr"></a>Obraz wypychania do awaryjnego
 
-### <a name="assign-an-existing-service-principal"></a>Przypisywanie istniejącej nazwy głównej usługi
-Jeśli już masz nazwę główną usługi i chcesz do niej przypisać dostęp roli Właściciel do rejestru, uruchom polecenie podobne do poniższego przykładu. Identyfikator aplikacji nazwy głównej usługi jest przekazywany przy użyciu parametru `--assignee`:
+Aby wypchnąć obrazu do rejestru kontenera platformy Azure, najpierw musi mieć obraz. W razie potrzeby, uruchom następujące polecenie, aby ściąganie wstępnie utworzony obraz z Centrum Docker.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+Obraz musi być oznaczane nazwa ACR logowania serwera. Uruchom następujące polecenie, aby zwrócić nazwę logowania serwera wystąpienia ACR.
 
-
-## <a name="manage-admin-credentials"></a>Zarządzanie poświadczeniami administratora
-Konto administratora jest automatycznie tworzone dla każdego rejestru kontenera i jest domyślnie wyłączone. W poniższych przykładach pokazano polecenia interfejsu wiersza polecenia `az acr` służące do zarządzania poświadczeniami administratora dla rejestru kontenera.
-
-### <a name="obtain-admin-user-credentials"></a>Uzyskiwanie poświadczeń użytkownika administratora
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Włączanie użytkownika administratora dla istniejącego rejestru
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Tag przy użyciu obrazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) polecenia. Zastąp  *<acrLoginServer>*  z nazwą serwera logowania wystąpienia ACR.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Wyłączanie użytkownika administratora dla istniejącego rejestru
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Na koniec użyj [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) do dystrybuowania obrazu do wystąpienia ACR. Zastąp  *<acrLoginServer>*  z nazwą serwera logowania wystąpienia ACR.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Tworzenie listy obrazów i tagów
-Użyj poleceń interfejsu wiersza polecenia `az acr` do tworzenia zapytań dotyczących obrazów i tagów w repozytorium.
+## <a name="list-container-images"></a>Tworzenie listy obrazów kontenerów
 
-> [!NOTE]
-> Obecnie usługa Container Registry nie obsługuje tworzenia zapytań dotyczących obrazów i tagów przy użyciu polecenia `docker search`.
-
-
-### <a name="list-repositories"></a>Tworzenie listy repozytoriów
-W poniższym przykładzie przedstawiono listę repozytoriów w rejestrze w formacie JSON (JavaScript Object Notation):
+Poniższy przykład zawiera repozytoria w rejestrze:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Tworzenie listy tagów
-W poniższym przykładzie przedstawiono listę tagów w repozytorium **samples/nginx** w formacie JSON:
+Dane wyjściowe:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+Poniższy przykład zawiera tagi na **aci helloworld** repozytorium.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Dane wyjściowe:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#delete) polecenie, aby usunąć grupę zasobów, wystąpienie ACR i wszystkie obrazy kontenera.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md) (Wypychanie pierwszego obrazu za pomocą interfejsu wiersza polecenia platformy Docker)
 
+Ta opcja szybkiego startu została utworzona rejestru kontenera platformy Azure z wiersza polecenia platformy Azure. Jeśli chcesz rejestru kontenera Azure za pomocą wystąpień kontenera platformy Azure, przejdź do samouczka wystąpień kontenera platformy Azure.
+
+> [!div class="nextstepaction"]
+> [Samouczek wystąpień kontenera platformy Azure](../container-instances/container-instances-tutorial-prepare-app.md)

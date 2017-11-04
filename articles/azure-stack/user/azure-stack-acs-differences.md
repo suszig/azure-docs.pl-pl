@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: "Magazynu Azure stosu: Różnice i zagadnienia dotyczące"
+description: "Opis różnic między Azure stosu magazynu i usługi Azure Storage oraz zagadnienia dotyczące wdrażania usługi Azure stosu."
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: pl-pl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Magazynu Azure stosu: Różnice i zagadnienia dotyczące
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Magazyn Azure stosu to zbiór magazynu usługi w chmurze Microsoft Azure stosu. Usługa Azure Storage stosu udostępnia obiektów blob, tabeli, kolejki i funkcje zarządzania kontami z semantyki spójnej platformy Azure.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+Ten artykuł zawiera podsumowanie znane różnice Azure stosu magazynu z usługi Magazyn Azure. Także podsumowanie innych kwestii, które należy wziąć pod uwagę podczas wdrażania usługi Azure stosu. Aby uzyskać informacje ogólne różnice między stosu Azure i usługi Azure, zobacz [kluczowe zagadnienia dotyczące](azure-stack-considerations.md) tematu.
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Ściągawka: różnice magazynu
 
-| Feature | Azure (global) | Azure Stack |
+| Funkcja | Azure (globalna) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|File Storage|Oparte na chmurze udziałów plików SMB obsługiwane|Nie jest jeszcze obsługiwane
+|Dane na rest szyfrowania|256-bitowe szyfrowanie AES|Nie jest jeszcze obsługiwane
+|Typ konta magazynu|Ogólnego przeznaczenia i Azure kont magazynu obiektów Blob|Ogólnego przeznaczenia tylko
+|Opcje replikacji|Magazyn lokalnie nadmiarowy, magazynu geograficznie nadmiarowego magazynu geograficznie nadmiarowego dostęp do odczytu i Magazyn strefowo nadmiarowy|Magazyn lokalnie nadmiarowy
+|Premium Storage|W pełni obsługiwane|Można udostępnić, ale brak limitu wydajności lub gwarancji
+|Dyski zarządzane|Premium i standardowa obsługiwane|Nie jest jeszcze obsługiwane
+|Nazwa obiektu blob|1024 znaków (2048 bajtów)|880 znaków (1,760 w bajtach)
+|Maksymalny rozmiar obiektu blob bloku|4,75 TB (100 MB X 50 000 bloków)|50 000 x 4 MB (około 195 GB)
+|Kopiowanie migawki obiektu blob strony|Kopia zapasowa Azure niezarządzane maszyny Wirtualnej dysków dołączonych do uruchomionej maszyny Wirtualnej obsługiwane|Nie jest jeszcze obsługiwane
+|Kopiuj przyrostowe migawki obiektu blob strony|Premium i standardowa Azure stronicowe obiekty BLOB obsługiwane|Nie jest jeszcze obsługiwane
+|Maksymalny rozmiar obiektu blob strony|8 TB|1 TB
+|Rozmiar strony obiektu blob strony|512 bajtów|4 KB
+|Rozmiar klucza w tabeli klucz partycji i wiersza|1024 znaków (2048 bajtów)|400 znaków (800 w bajtach)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Metryki
+Istnieją pewne różnice z metryki magazynu:
+* Metryki magazynu danych transakcji nie odróżnia przepustowość sieci wewnętrznych lub zewnętrznych.
+* Danych transakcji w metryki magazynu nie ma na maszynie wirtualnej dostęp do dysków zainstalowanych.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>Wersja interfejsu API
+Obsługiwane są następujące wersje z usługą Azure Storage stosu:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Usługi danych magazynu Azure: [2015-04-05 wersja interfejsu API REST](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
+* Usługi zarządzania magazynu Azure: [2015-05-01-preview, 2015-06-15 i 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Następne kroki
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Wprowadzenie do narzędzi programistycznych magazyn Azure stosu](azure-stack-storage-dev.md)
+* [Wprowadzenie do magazynu Azure stosu](azure-stack-storage-overview.md)
 

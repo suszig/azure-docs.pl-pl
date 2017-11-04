@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Bezpieczne wywołania do Twojej niestandardowych interfejsów API z aplikacji logiki
 
@@ -49,7 +49,7 @@ Poniżej przedstawiono ogólne kroki dla tej metody:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Część 1: Tworzenie aplikacji logiki tożsamość aplikacji usługi Azure AD
 
-Aplikację logiki używa tego tożsamość aplikacji usługi Azure AD do uwierzytelniania usługi Azure AD. Wystarczy tylko skonfigurować tej tożsamości jeden raz dla katalogu. Na przykład możesz użyć tej samej tożsamości dla wszystkich aplikacji logiki, mimo że można utworzyć unikatowych tożsamości dla każdej aplikacji logiki. Możesz skonfigurować te tożsamości w portalu Azure [klasycznego portalu Azure](#app-identity-logic-classic), lub użyj [PowerShell](#powershell).
+Aplikację logiki używa tego tożsamość aplikacji usługi Azure AD do uwierzytelniania usługi Azure AD. Wystarczy tylko skonfigurować tej tożsamości jeden raz dla katalogu. Na przykład możesz użyć tej samej tożsamości dla wszystkich aplikacji logiki, mimo że można utworzyć unikatowych tożsamości dla każdej aplikacji logiki. Możesz skonfigurować te tożsamości w portalu Azure lub użyć [PowerShell](#powershell).
 
 **Tworzenie aplikacji logiki tożsamości aplikacji w portalu Azure**
 
@@ -94,34 +94,6 @@ Aplikację logiki używa tego tożsamość aplikacji usługi Azure AD do uwierzy
 
    ![Skopiuj i Zapisz klucz do użycia później](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Utwórz tożsamość aplikacji dla aplikacji logiki w klasycznym portalu Azure**
-
-1. W klasycznym portalu Azure, wybierz [ **usługi Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Należy wybrać ten sam katalog, w której korzystasz z aplikacji sieci web lub aplikacji interfejsu API.
-
-3. Na **aplikacji** , wybierz pozycję **Dodaj** w dolnej części strony.
-
-4. Nadaj nazwę tożsamości aplikacji, a następnie wybierz pozycję **dalej** (Strzałka w prawo).
-
-5. W obszarze **właściwości aplikacji**, podaj unikatowy ciąg w formacie domeny **adres URL logowania** i **identyfikator URI aplikacji**i wybierz polecenie **Complete** (znacznikiem wyboru).
-
-6. Na **Konfiguruj** karcie, skopiuj i Zapisz **identyfikator klienta** aplikacji logiki do używania w części 3.
-
-7. W obszarze **klucze**, otwórz **wybierz czas trwania** listy. Wybierz czas trwania dla klucza.
-
-   Klucz, który tworzysz działa jako tożsamość aplikacji "tajny" lub hasła do aplikacji logiki.
-
-8. W dolnej części strony, wybierz **zapisać**. Może być konieczne kilka sekund.
-
-9. W obszarze **klucze**, skopiuj i Zapisz klucz pojawia się która teraz. 
-
-   Podczas konfigurowania aplikacji logiki w część 3, należy określić ten klucz jako "secret" lub hasło.
-
-Aby uzyskać więcej informacji, Dowiedz się, jak [skonfigurować aplikację usługi aplikacji do użycia usługi Azure Active Directory logowania](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Tworzenie aplikacji logiki tożsamości aplikacji w programie PowerShell**
@@ -156,7 +128,7 @@ Jeśli aplikację sieci web lub aplikacji interfejsu API jest już wdrożone, mo
 
 4. Na **uwierzytelniania / autoryzacji** wybierz pozycję **zapisać**.
 
-Teraz należy znaleźć tożsamości aplikacji, który został skojarzony z aplikacji sieci web lub aplikacji interfejsu API klienta ID oraz Identyfikatora dzierżawcy. Należy użyć tych identyfikatorów w część 3. Aby kontynuować następujące kroki w portalu Azure lub [klasycznego portalu Azure](#find-id-classic).
+Teraz należy znaleźć tożsamości aplikacji, który został skojarzony z aplikacji sieci web lub aplikacji interfejsu API klienta ID oraz Identyfikatora dzierżawcy. Należy użyć tych identyfikatorów w część 3. Więc wykonaj następujące kroki w portalu Azure.
 
 **Znajdź identyfikator klienta i Identyfikatora dzierżawcy tożsamość aplikacji dla aplikacji sieci web lub aplikacji interfejsu API w portalu Azure**
 
@@ -177,32 +149,6 @@ Teraz należy znaleźć tożsamości aplikacji, który został skojarzony z apli
 
 5. Bez zapisywania zmian, Zamknij **ustawień usługi Azure Active Directory** strony.
 
-<a name="find-id-classic"></a>
-
-**Znajdź identyfikator klienta i Identyfikatora dzierżawcy tożsamość aplikacji dla aplikacji sieci web lub aplikacji interfejsu API w klasycznym portalu Azure**
-
-1. W klasycznym portalu Azure, wybierz [ **usługi Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Wybierz katalog, w której korzystasz z aplikacji sieci web lub aplikacji interfejsu API.
-
-3. W **wyszukiwania** , Znajdź i wybierz tożsamość aplikacji dla aplikacji sieci web lub aplikacji interfejsu API.
-
-4. Na **Konfiguruj** karcie, skopiuj **identyfikator klienta**i Zapisz ten identyfikator GUID do użycia w część 3.
-
-5. Po pobraniu Identyfikatora klienta w dolnej części **Konfiguruj** , wybierz pozycję **wyświetlić punkty końcowe**.
-
-6. Skopiuj adres URL dla **dokument metadanych usług federacyjnych**, a następnie przejdź do tego adresu URL.
-
-7. W dokumencie metadanych można znaleźć katalogu głównego **identyfikator EntityDescriptor** element, który ma **entityID** atrybut w tym formularzu:`https://sts.windows.net/{GUID}` 
-
-   Identyfikator GUID w tym atrybucie jest dzierżawy określonego identyfikatora GUID (identyfikator dzierżawcy).
-
-8. Skopiuj identyfikator dzierżawcy i Zapisz ten identyfikator do użycia w część 3, a także do użycia w aplikacji sieci web lub aplikacji interfejsu API szablonu wdrażania, w razie potrzeby.
-
-Aby uzyskać więcej informacji zobacz następujące tematy:
-
-* [Uwierzytelnianie i autoryzację w usłudze Azure App Service](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Włącz uwierzytelnianie podczas wdrażania z szablonem usługi Azure Resource Manager**
@@ -212,7 +158,7 @@ Nadal należy utworzyć tożsamość aplikacji usługi Azure AD dla aplikacji si
 Możesz również wykonaj kroki opisane w części 1, ale pamiętaj korzystać z aplikacji sieci web lub aplikacji interfejsu API rzeczywiste `https://{URL}` dla **adres URL logowania** i **identyfikator URI aplikacji**. Z tych kroków należy zapisać identyfikator klienta i identyfikator dzierżawcy do użytku w szablonie wdrożenia aplikacji, a także dla część 3.
 
 > [!NOTE]
-> Podczas tworzenia tożsamość aplikacji usługi Azure AD dla twojej aplikacji sieci web lub aplikacji interfejsu API, musisz użyć portalu Azure lub klasycznego portalu Azure, zamiast programu PowerShell. Polecenia programu PowerShell nie skonfigurować wymagane uprawnienia do logowania się użytkowników do witryny sieci Web.
+> Podczas tworzenia tożsamość aplikacji usługi Azure AD dla twojej aplikacji sieci web lub aplikacji interfejsu API, musisz użyć portalu Azure, a nie programu PowerShell. Polecenia programu PowerShell nie skonfigurować wymagane uprawnienia do logowania się użytkowników do witryny sieci Web.
 
 Po pobraniu klienta identyfikator i identyfikator dzierżawy obejmują tych identyfikatorów jako subresource aplikacji sieci web lub aplikacji interfejsu API w szablonie wdrożenia:
 

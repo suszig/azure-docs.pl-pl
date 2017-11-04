@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4473f25fefd65de75996240955302abb08762da
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Ochrona tożsamości w usłudze Azure Active Directory
 
@@ -34,7 +34,7 @@ Azure Active Directory Identity Protection to funkcja wersji Azure AD Premium P2
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Firma Microsoft zabezpiecza oparte na chmurze tożsamości przez ponad dekadę. Z usługi Azure Active Directory Identity Protection w danym środowisku, można użyć tego samego systemy ochrony, wykorzystywane przez firmę Microsoft do zabezpieczania tożsamości.
+Microsoft ma zabezpieczone oparte na chmurze tożsamości przez ponad dekadę. Z usługi Azure Active Directory Identity Protection w danym środowisku, można użyć tego samego systemy ochrony, wykorzystywane przez firmę Microsoft do zabezpieczania tożsamości.
 
 Większość naruszeń zabezpieczeń ma miejsce, gdy osoby atakujące uzyskania dostępu do środowiska kradzieży tożsamości użytkownika. Całościowo osoby atakujące stały się coraz bardziej skuteczne w wykorzystaniu naruszeń innych firm i za pomocą zaawansowanej wyłudzania. Jak osoba atakująca uzyska dostęp do nawet niski uprzywilejowanych kont, jest względnie łatwe uzyskanie dostępu do zasobów firmy ważne za pośrednictwem penetracji sieci.
 
@@ -67,7 +67,7 @@ Azure Active Directory Identity Protection jest większa niż monitorowania i ra
 
 **Zasady dostępu warunkowego opartego na ryzyka:**
 
-* Zasady złagodzić ryzykowne logowania przez blokowanie logowania lub wymaganie uwierzytelniania wieloskładnikowego wyzwania.
+* Zasady, aby ograniczyć ryzykowne logowania przez blokowanie logowania lub wymaganie uwierzytelniania wieloskładnikowego wyzwania
 * Zasady na wartość Blokuj lub kont użytkowników ryzykowne bezpieczne
 * Zasady, aby wymagać od użytkowników rejestracji w usłudze Multi-Factor authentication
 
@@ -81,7 +81,7 @@ Na potrzeby równoważenia obciążenia zarządzaniem wokół implementacji ochr
 | :--                          | ---                                |  ---   |
 | Administrator globalny         | Pełny dostęp do ochrony tożsamości, dołączyć Identity Protection| |
 | Administrator zabezpieczeń       | Pełny dostęp do Identity Protection | Dołączyć ochronę tożsamości, zresetuj hasła dla użytkownika |
-| Czytelnik zabezpieczeń              | Dostęp tylko do gotowy do ochrony tożsamości | Dołączyć ochronę tożsamości użytkowników remidiate skonfigurować zasady, resetowania haseł |
+| Czytelnik zabezpieczeń              | Dostęp tylko do odczytu do Identity Protection | Dołączyć ochronę tożsamości użytkowników remidiate skonfigurować zasady, resetowania haseł |
 
 
 

@@ -1,7 +1,7 @@
-## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Associate an Azure Storage account to IoT Hub
+## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Skojarz konta magazynu Azure do Centrum IoT
 
-Because the simulated device app uploads a file to a blob, you must have an [Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the IoT hub generates a SAS URI. A device can use this SAS URI to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
+Ponieważ aplikacja symulowane urządzenie przekazuje plik do obiektu blob, musisz mieć [usługi Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) konta skojarzonego z Centrum IoT. Po skojarzeniu konta usługi Azure Storage z Centrum IoT, Centrum IoT generuje identyfikator URI sygnatury dostępu Współdzielonego. Urządzenie może używać tego identyfikatora URI połączenia SAS do bezpiecznego przekazania pliku do kontenera obiektów blob. Usługi IoT Hub i zestawy SDK urządzenia koordynowania procesu, który generuje identyfikator URI sygnatury dostępu Współdzielonego i udostępnia urządzenia, aby użyć w celu przekazania pliku.
 
-Follow the instructions in [Configure file uploads using the Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md) to associate an Azure Storage account to your IoT hub. Make sure that a blob container is associated with your IoT hub and that file notifications are enabled.
+Postępuj zgodnie z instrukcjami [wysyłanie plików konfiguracji za pomocą portalu Azure](../articles/iot-hub/iot-hub-configure-file-upload.md) do skojarzenia konta magazynu Azure do Centrum IoT. Upewnij się, że kontener obiektów blob jest skojarzony z Centrum IoT i włączenia powiadomień pliku.
 
-![Enable File Notifications in portal](media/iot-hub-associate-storage/enable-file-notifications.png)
+![Włącz powiadomienia pliku w portalu](media/iot-hub-associate-storage/enable-file-notifications.png)

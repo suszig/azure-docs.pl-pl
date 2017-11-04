@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów Spark z potoków fabryki danych Azure
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono typowe etapy, aby utworzyć potok fabryki danych z dział
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 1. Utwórz **ogólnego przeznaczenia konta magazynu Azure** przez następujące instrukcje w tym przewodnikiem: [Utwórz konto magazynu](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Utwórz **klastra Apache Spark w usłudze Azure HDInsight** przez następujące instrukcje w samouczku: [klastra Utwórz Apache Spark w usłudze Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Skojarz konto magazynu Azure, który został utworzony w kroku #1 z tym klastrem.  
+2. Utwórz **klastra Apache Spark w usłudze Azure HDInsight** przez następujące instrukcje w samouczku: [klastra Utwórz Apache Spark w usłudze Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Skojarz konto magazynu Azure, który został utworzony w kroku #1 z tym klastrem.  
 3. Pobierz i przejrzyj plik skryptu języka python **test.py** w lokalizacji: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Przekaż **test.py** do **pyFiles** folderu w **adfspark** kontenera w magazynie obiektów Blob platformy Azure. Tworzenie kontenera i folderu, jeśli nie istnieją.
 
@@ -234,7 +234,7 @@ W tym kroku możesz utworzyć potok wraz z **HDInsightSpark** działania. W tym 
     ![Wyniki zapytania Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Zobacz [uruchamiania zapytań Spark SQL](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) sekcji, aby uzyskać szczegółowe instrukcje. 
+Zobacz [uruchamiania zapytań Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) sekcji, aby uzyskać szczegółowe instrukcje. 
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 Ponieważ ustawisz **getDebugInfo** do **zawsze**, zostanie wyświetlony **dziennika** podfolder **pyFiles** folderu w kontenerze obiektu Blob Azure. Plik dziennika w folderze dziennika zawiera dodatkowe szczegóły. Ten plik dziennika jest szczególnie przydatna w przypadku, gdy występuje błąd. W środowisku produkcyjnym można ustawić ją na **błąd**.

@@ -1,18 +1,18 @@
 > [!div class="op_single_selector"]
-> * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Device: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
-> * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Device: Java Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Urządzenie: Node.js, usługa: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Urządzenie: Node.js, usługa: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [Urządzenie: C# usługi: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Urządzeń: Usługa języka Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices. This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
+Zaplecza aplikacji można użyć Centrum IoT Azure w nim elementów podstawowych, takich jak [dwie urządzenia] [ lnk-devtwin] i [bezpośrednie metody][lnk-c2dmethod], aby zdalnie uruchomić i monitorować urządzenia Akcje zarządzania na urządzeniach. Ten samouczek pokazuje, jak aplikacji zaplecza i aplikacji urządzenia mogą współdziałać ze sobą do inicjowania i monitorowania ponowne uruchomienie urządzenia zdalnego przy użyciu Centrum IoT.
 
-Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+Metoda bezpośrednia umożliwia zainicjować akcje zarządzania urządzeniami (takie jak ponowne uruchomienie komputera, resetowanie do ustawień fabrycznych i aktualizacji oprogramowania układowego) z zaplecza aplikacji w chmurze. Urządzenie jest odpowiedzialny za:
 
-* Handling the method request sent from IoT Hub.
-* Initiating the corresponding device-specific action on the device.
-* Providing status updates through *reported properties* to IoT Hub.
+* Obsługa żądanie metody wysyłane z Centrum IoT.
+* Inicjowanie działanie urządzenia na urządzeniu.
+* Dostarczanie aktualizacji stanu za pośrednictwem *zgłosił właściwości* z Centrum IoT.
 
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+Wewnętrznym aplikacji w chmurze służy do uruchamiania zapytań dwie urządzenia do raport dotyczący postępu operacji zarządzania urządzeniami.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

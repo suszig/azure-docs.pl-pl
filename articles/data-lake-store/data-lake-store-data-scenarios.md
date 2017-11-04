@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Za pomocą usługi Azure Data Lake Store wymagania danych big data
 Istnieją cztery etapy klucza podczas przetwarzania danych big:
@@ -49,7 +49,7 @@ Reprezentuje dane, które mogą być generowane przez różnych źródeł, takic
 Poniżej przedstawiono narzędzia, których można użyć:
 
 * [Usługa Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) -zdarzeń pozyskanych w usłudze Event Hubs można zapisać usługi Azure Data Lake za pomocą usługi Azure Data Lake Store danych wyjściowych.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) — możesz zapisać dane bezpośrednio do usługi Data Lake Store z klastra Storm.
+* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) — możesz zapisać dane bezpośrednio do usługi Data Lake Store z klastra Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) — można odbieranie zdarzeń z usługi Event Hubs i zapisać go do usługi Data Lake Store za pomocą [zestawu SDK .NET Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Danych relacyjnych

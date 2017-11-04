@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analiza danych przy użyciu języka Scala i platformy Spark na platformie Azure
 W tym artykule przedstawiono sposób użycia Scala dla zadania uczenia nadzorowanego maszyny z Spark skalowalne MLlib i Spark ML pakiety w klastrze usługi Azure HDInsight Spark. Przeprowadza użytkownika przez zadania, które stanowią [procesu nauki danych](http://aka.ms/datascienceprocess): wprowadzanie danych i eksploracja, wizualizacji engineering funkcji, modelowania i zużycia modelu. Modele w artykule obejmują Regresja logistyczna i liniowych, losowe lasów i boosted gradientu drzew (GBTs), oprócz dwie typowe zadania uczenia nadzorowanego maszyny:
@@ -32,7 +32,7 @@ Proces modelowania wymaga uczenie i Ewaluacja testowego zestawu danych i metryk 
 
 [Platforma Spark](http://spark.apache.org/) jest platforma przetwarzania równoległego open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Aparat przetwarzania Spark zaprojektowano pod kątem szybkości, łatwości użycia i zaawansowanych możliwości analitycznych. Możliwości rozproszone obliczenia w pamięci platforma Spark stanowić dobry wybór w przypadku algorytmów iteracyjnych używanych w machine learning i obliczeniach na grafach. [Spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pakiet zawiera uniform zestaw interfejsów API wysokiego poziomu, rozszerzający danych ramek, które ułatwiają tworzenie i dostrajania praktyczne machine learning potoków. [MLlib](http://spark.apache.org/mllib/) platforma Spark uczenia maszynowego Skalowalna biblioteka, udostępnia funkcje modelowania w tym środowisku rozproszonym.
 
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) jest oferty hostowanymi na platformie Azure open source platformy Spark. On również obsługą notesów Jupyter Scala w klastrze Spark i można uruchomić interakcyjnych zapytań Spark SQL do przekształcania, filtrować i wizualizacji danych przechowywanych w magazynie obiektów Blob platformy Azure. Uruchom Scala fragmenty kodu w tym artykule dostarczające rozwiązań i Pokaż odpowiednich powierzchni do wizualizacji danych w notesach Jupyter zainstalowany w klastrze Spark. Kroki modelowania w tych tematach mają kodu, pokazujący sposób uczenia, ocenić, zapisywania i korzystać z każdego typu modelu.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) jest oferty hostowanymi na platformie Azure open source platformy Spark. On również obsługą notesów Jupyter Scala w klastrze Spark i można uruchomić interakcyjnych zapytań Spark SQL do przekształcania, filtrować i wizualizacji danych przechowywanych w magazynie obiektów Blob platformy Azure. Uruchom Scala fragmenty kodu w tym artykule dostarczające rozwiązań i Pokaż odpowiednich powierzchni do wizualizacji danych w notesach Jupyter zainstalowany w klastrze Spark. Kroki modelowania w tych tematach mają kodu, pokazujący sposób uczenia, ocenić, zapisywania i korzystać z każdego typu modelu.
 
 Kroki instalacji i kodu w tym artykule dotyczą Azure HDInsight 3.4 Spark 1.6. Jednak kod w tym artykule i w [notesu Jupyter Scala](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) są ogólne i powinny działać na dowolnym klastra Spark. Kroki konfiguracji i zarządzania klastra mogą być nieco inne niż co to jest wyświetlany w tym artykule, jeśli nie używasz HDInsight Spark.
 
@@ -43,7 +43,7 @@ Kroki instalacji i kodu w tym artykule dotyczą Azure HDInsight 3.4 Spark 1.6. J
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Musi mieć subskrypcję platformy Azure. Jeśli użytkownik nie ma jeszcze jeden, [uzyskać Azure bezpłatnej wersji próbnej](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Należy Azure HDInsight 3.4 Spark 1.6 klastra wykonaj następujące procedury. Aby utworzyć klaster, zobacz instrukcje w [wprowadzenie: tworzenie Apache Spark w usłudze Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Ustaw typ klastra i wersji na **wybierz typ klastra** menu.
+* Należy Azure HDInsight 3.4 Spark 1.6 klastra wykonaj następujące procedury. Aby utworzyć klaster, zobacz instrukcje w [wprowadzenie: tworzenie Apache Spark w usłudze Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Ustaw typ klastra i wersji na **wybierz typ klastra** menu.
 
 ![Konfiguracja typu klastra usługi HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ Jądra Spark zawiera kilka wstępnie zdefiniowanych "poleceń magicznych", któr
 * `%%local`Określa lokalnie wykonać kod w kolejnych wierszach. Kod musi być prawidłowy kod języka Scala.
 * `%%sql -o <variable name>`wykonuje zapytanie Hive względem `sqlContext`. Jeśli `-o` parametr jest przekazywany, w wyniku zapytania jest trwały `%%local` kontekstu Scala jako ramki danych platformy Spark.
 
-Dla więcej informacji na temat jądra notesów Jupyter i ich wstępnie zdefiniowanych "magics" która zostanie wywołana za pomocą `%%` (na przykład `%%local`), zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Dla więcej informacji na temat jądra notesów Jupyter i ich wstępnie zdefiniowanych "magics" która zostanie wywołana za pomocą `%%` (na przykład `%%local`), zobacz [jądra dostępne dla notesu Jupyter klastrze HDInsight Spark w systemie Linux klastrów HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Importuj biblioteki
 Importowanie Spark, MLlib i innych bibliotek, które będą potrzebne przy użyciu następującego kodu.

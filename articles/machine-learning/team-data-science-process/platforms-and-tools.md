@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Projekty zespołowe platform i narzędzia do analizy danych
 
@@ -61,7 +61,7 @@ Platforma Apache Spark jest równoległe open source przetwarzania framework, kt
 
 Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Tworzenie klastra Spark w usłudze HDInsight trwa około 10 minut. Przechowywanie danych mają być przetwarzane w magazynie obiektów Blob Azure. Informacje o używaniu magazynu obiektów Blob Azure z klastra, zobacz [magazynu obiektów Blob platformy Azure zgodnego systemem plików HDFS Użyj z platformą Hadoop w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-TDSP zespołu firmy Microsoft został opublikowany dwóch end-to-end wskazówki dotyczące sposobu używania platformy Spark w usłudze Azure Hdinsight do tworzenia rozwiązań analizy danych, co przy użyciu języka Python i innych Scala. Aby uzyskać więcej informacji w usłudze Azure HDInsight **klastry Spark**, zobacz [Przegląd: platforma Apache Spark w usłudze HDInsight w systemie Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Aby dowiedzieć się, jak tworzyć danych nauki rozwiązania przy użyciu **Python** w klastrze Spark Azure HDInsight, zobacz [przegląd danych nauki używania platformy Spark w usłudze Azure HDInsight](spark-overview.md). Aby dowiedzieć się, jak tworzyć danych nauki rozwiązania przy użyciu **Scala** w klastrze Spark Azure HDInsight, zobacz [nauki danych przy użyciu języka Scala i Spark na platformie Azure](scala-walkthrough.md). 
+TDSP zespołu firmy Microsoft został opublikowany dwóch end-to-end wskazówki dotyczące sposobu używania platformy Spark w usłudze Azure Hdinsight do tworzenia rozwiązań analizy danych, co przy użyciu języka Python i innych Scala. Aby uzyskać więcej informacji w usłudze Azure HDInsight **klastry Spark**, zobacz [Przegląd: platforma Apache Spark w usłudze HDInsight w systemie Linux](../../hdinsight/spark/apache-spark-overview.md). Aby dowiedzieć się, jak tworzyć danych nauki rozwiązania przy użyciu **Python** w klastrze Spark Azure HDInsight, zobacz [przegląd danych nauki używania platformy Spark w usłudze Azure HDInsight](spark-overview.md). Aby dowiedzieć się, jak tworzyć danych nauki rozwiązania przy użyciu **Scala** w klastrze Spark Azure HDInsight, zobacz [nauki danych przy użyciu języka Scala i Spark na platformie Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -86,7 +86,7 @@ Gałąź umożliwia struktury projektu na danych niestrukturalnych w dużej mier
 
 Dla analityków danych Hive można uruchomić Python User-Defined funkcjom definiowanym gałęzi w zapytaniach w celu przetwarzania rekordów. Ta możliwość znacznie rozszerza możliwości zapytań programu Hive analizę danych. W szczególności umożliwia analityków danych przeprowadzenie engineering funkcji skalowalne w językach, które najczęściej są zaznajomieni z programem: HiveQL przypominającego SQL i Python. 
 
-Aby uzyskać więcej informacji dotyczących klastrów Hive HDInsight Azure, zobacz [używanie Hive i HiveQL z usługą Hadoop w usłudze HDInsight](../../hdinsight/hdinsight-use-hive.md). Aby dowiedzieć się, jak zbudować rozwiązanie nauki skalowalne danych na trasie o Azure Hive w usłudze Hdinsight, zobacz [zespołu danych nauki procesu w działaniu: z użyciem klastrów usługi HDInsight Hadoop](hive-walkthrough.md).
+Aby uzyskać więcej informacji dotyczących klastrów Hive HDInsight Azure, zobacz [używanie Hive i HiveQL z usługą Hadoop w usłudze HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Aby dowiedzieć się, jak zbudować rozwiązanie nauki skalowalne danych na trasie o Azure Hive w usłudze Hdinsight, zobacz [zespołu danych nauki procesu w działaniu: z użyciem klastrów usługi HDInsight Hadoop](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Magazyn plików Azure 

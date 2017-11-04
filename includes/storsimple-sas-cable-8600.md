@@ -1,43 +1,43 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>To attach the SAS cables
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+#### <a name="to-attach-the-sas-cables"></a>Aby dołączyć kabli SAS
+1. Zidentyfikuj podstawową i obudowy EBOD. Dwa załączniki można zidentyfikować analizując ich odpowiednich płaszczyzn Wstecz. Zobacz poniższy obraz, aby uzyskać wskazówki. 
    
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Utwórz kopię płaszczyzny podstawowej i obudowy EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
-    **Back view of primary and EBOD enclosures**
+    **Widok podstawowych i EBOD obudowy do tyłu**
    
-   | Label | Description |
+   | Etykieta | Opis |
    |:--- |:--- |
-   | 1 |Primary enclosure |
-   | 2 |EBOD enclosure |
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+   | 1 |Obudowa podstawowego |
+   | 2 |Obudowa EBOD |
+2. Znajdź numery seryjne z podstawowej i obudowy EBOD. Do tyłu czyść z każdej obudowy umieszcza się na naklejce numeru seryjnego. Numery seryjne musi być taka sama w obu obudów. [Skontaktuj się z Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) natychmiast, jeżeli numery seryjne są niezgodne. Zobacz poniższy rysunek można znaleźć numery seryjne.
    
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![Widok tyłu przedstawiający numer seryjny obudowy](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
-    **Location of serial number sticker**
+    **Lokalizacja naklejce numer seryjny**
    
-   | Label | Description |
+   | Etykieta | Opis |
    |:--- |:--- |
-   | 1 |Ear of the enclosure |
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+   | 1 |Wyczyść obudowa |
+3. Za pomocą podanego kabli SAS obudowa EBOD połączyć się z podstawowym obudowa w następujący sposób:
    
-   1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and correspond to port A on the EBOD enclosure, as shown in the SAS cabling illustration, below.
-   2. Use the provided SAS cables to connect the EBOD port to port A.
-   3. The EBOD port on controller 0 should be connected to the port A on EBOD controller 0. The EBOD port on controller 1 should be connected to the port A on EBOD controller 1. See the following illustration for guidance. 
+   1. Zidentyfikuj czterech portów SAS głównej obudowy i obudowy EBOD. Portów SAS są oznaczone jako EBOD na głównej obudowa i odpowiadają A portu na obudowę EBOD, jak pokazano w SAS okablowania ilustracji poniżej.
+   2. Umożliwia łączenie A. porty EBOD podana kabli SAS
+   3. Port EBOD kontrolera 0 powinny być podłączone do port A EBOD kontrolera 0. Port EBOD kontrolera 1 powinny być podłączone do port A EBOD kontrolera 1. Zobacz poniższy rysunek wskazówki. 
       
-      ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+      ![Sygnatury dostępu Współdzielonego okablowania dla urządzenia](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
-      **SAS cabling**
+      **Sygnatury dostępu Współdzielonego okablowania**
       
-      | Label | Description |
+      | Etykieta | Opis |
       |:--- |:--- |
-      | A |Primary enclosure |
-      | B |EBOD enclosure |
-      | 1 |Controller 0 |
-      | 2 |Controller 1 |
-      | 3 |EBOD Controller 0 |
-      | 4 |EBOD Controller 1 |
-      | 5, 6 |SAS ports on primary enclosure (labeled EBOD) |
-      | 7, 8 |SAS ports on EBOD enclosure (Port A) |
+      | A |Obudowa podstawowego |
+      | B |Obudowa EBOD |
+      | 1 |Kontrolera 0 |
+      | 2 |Kontrolera 1 |
+      | 3 |EBOD kontrolera 0 |
+      | 4 |EBOD kontrolera 1 |
+      | 5, 6 |Portów SAS w głównej obudowy (etykietą EBOD) |
+      | 7, 8 |Portów SAS w obudowie EBOD (Port A) |
 

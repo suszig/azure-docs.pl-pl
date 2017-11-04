@@ -8,22 +8,22 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Uzyskanie parametrów połączenia z portalu Azure
+Użyj [portalu Azure](https://portal.azure.com/) do uzyskania wymaganych przez program kliencki wchodzić w interakcje z bazy danych SQL Azure ciągu połączenia: 
 
-1. Click **BROWSE** > **SQL databases**.
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
-3. Click the row for your database.
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
+1. Kliknij przycisk **PRZEGLĄDAJ** > **baz danych SQL**.
+2. Wprowadź nazwę bazy danych w polu tekstowym filtru u lewej górnej **baz danych SQL** bloku.
+3. Kliknij wiersz bazy danych.
+4. Po wyświetleniu bloku bazy danych, można kliknąć formanty standardowe Minimalizuj zwijanie bloków, używane do przeglądania i filtrowania bazy danych dla wygody visual. 
    
-    ![Filter to isolate your database][10-FilterDatabase]
-5. On the blade for your database, click **Show database connection strings**.
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
+    ![Filtr, aby odizolować bazy danych][10-FilterDatabase]
+5. W bloku bazy danych, kliknij **Pokaż parametry połączenia bazy danych**.
+6. Jeśli zamierzasz używać biblioteki połączenia ADO.NET, skopiuj ciąg z etykietą **ADO**. 
    
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
-7. In one format or another, paste the connection string information into your client program code.
+    ![Skopiuj parametry połączenia ADO bazy danych][20-CopyAdoConnectionString]
+7. W jeden format lub innym ciągu połączenia należy wkleić kod klienta programu.
 
-For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+Aby uzyskać więcej informacji, zobacz:<br/>[Parametry połączenia i pliki konfiguracyjne](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

@@ -21,7 +21,7 @@ Aby skonfigurować to akcji, należy podać następujące informacje. Można zau
    ![Obraz akcji SalesForce 4](./media/connectors-create-api-salesforce/action-4.png)     
 9. Należy zauważyć, że token prowadzić Identyfikatora jest teraz w formancie obiektu o identyfikatorze wskazujący akcję obiektu Get wyszuka realizacji o identyfikatorze, który jest taki sam identyfikator realizacji potencjalnych klientów, która wyzwoliła tej aplikacji logiki.  
    ![Obraz akcji SalesForce 5](./media/connectors-create-api-salesforce/action-5.png)  
-10. Zapisz swoją pracę. To wszystko, Akcja obiektu Get została dodana do aplikacji logiki. Pobierz obiekt formantu powinna wyglądać następująco:    
+10. Zapisz pracę. To wszystko, Akcja obiektu Get została dodana do aplikacji logiki. Pobierz obiekt formantu powinna wyglądać następująco:    
     ![Obraz akcji SalesForce 6](./media/connectors-create-api-salesforce/action-6.png)  
 
 Teraz, dodano akcję w celu pobrania potencjalnego klienta, możesz ciekawy z nowo utworzonego potencjalnych klientów. W przedsiębiorstwie możesz wysłać wiadomość e-mail do powiadamiania listę dystrybucyjną utworzono nowe potencjalnych klientów. Użyjmy łącznik usługi Office 365, aby wysłać wiadomość e-mail z niektórymi odpowiednich informacji z nowego obiektu potencjalnych klientów w usłudze Salesforce.  

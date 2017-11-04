@@ -1,14 +1,14 @@
-## <a name="scenario"></a>Scenario
-To better illustrate how to create UDRs, this document will use the scenario below.
+## <a name="scenario"></a>Scenariusz
+Aby lepiej zilustrować tworzenie Udr, ten dokument użyje scenariusz poniżej.
 
-![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![OPIS ILUSTRACJI](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
+W tym scenariuszu utworzysz jeden przez dla *Front end podsieci* i przez inny dla *podsieci zakończenia Wstecz* , zgodnie z poniższym opisem: 
 
-* **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:    
-  * **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
-* **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route:    
-  * **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
+* **Frontonu przez**. Fronton będzie dotyczyć przez *frontonu* podsieci i może zawierać jedną trasę:    
+  * **RouteToBackend**. Ta trasa wyśle cały ruch do podsieci zaplecza, aby **FW1** maszyny wirtualnej.
+* **Wewnętrznej bazy danych przez**. Wewnętrzny przez zostaną zastosowane do *zaplecza* podsieci i może zawierać jedną trasę:    
+  * **RouteToFrontend**. Ta trasa wyśle cały ruch do podsieci frontonu, aby **FW1** maszyny wirtualnej.
 
-The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
+Kombinacja te trasy zapewni, że cały ruch kierowany z jednej podsieci do drugiej będą kierowane do **FW1** maszyny wirtualnej, która jest używana jako urządzenie wirtualne. Należy również włączyć funkcję przesyłania dalej IP dla tej maszyny Wirtualnej, aby upewnić się, że może ona odbierać ruchu kierowanego do innych maszyn wirtualnych.
 

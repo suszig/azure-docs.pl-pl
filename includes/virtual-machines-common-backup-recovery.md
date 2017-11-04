@@ -1,31 +1,31 @@
 
 ## <a name="azure-backup"></a>Azure Backup
 
-For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
+Do tworzenia kopii zapasowych maszyn wirtualnych Azure uruchamiania obciążeń produkcyjnych, użyj kopii zapasowej Azure. Kopia zapasowa Azure obsługuje kopie zapasowe spójnych z aplikacją dla systemu Windows i maszyn wirtualnych systemu Linux. Kopia zapasowa Azure tworzy punkty odzyskiwania, które są przechowywane w magazynach odzyskiwania z magazynu geograficznie nadmiarowego. Po przywróceniu z punktu odzyskiwania, można przywrócić całej maszyny Wirtualnej lub po prostu określonych plików. 
 
-For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Proste, praktyczne wprowadzenie do usługi Kopia zapasowa Azure dla maszyn wirtualnych platformy Azure, zobacz "Kopii zapasowej samouczek maszyn wirtualnych systemu Windows" dla [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [systemu Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
+Aby uzyskać więcej informacji na sposób działania usługi Kopia zapasowa Azure, zobacz [Zaplanuj infrastrukturę kopii zapasowej maszyny Wirtualnej na platformie Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Azure Site Recovery protects your VMs from a major disaster scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to an Azure region of your choice, it is not restricted to paired regions. 
+Usługa Azure Site Recovery chroni maszyn wirtualnych w przypadku poważnej awarii, gdy całego regionu ulegnie awarii z powodu poważne klęski lub powszechnie przerw w obsłudze. Można skonfigurować usługi Azure Site Recovery dla maszyn wirtualnych, dzięki czemu będzie można odzyskać aplikacji za pomocą jednego kliknięcia w kilku minut. Można replikować do regionu platformy Azure wybrane, nie jest ograniczone do sparowanego regionów. 
 
-You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
+Testowanie odzyskiwania po awarii z na żądanie testu pracy w trybie Failover, można uruchomić bez wpływu na Twoje obciążeń produkcyjnych lub trwającej replikacji. Tworzenie planów odzyskiwania do organizowania trybu failover i powrotu po awarii całej aplikacji uruchomionych na wiele maszyn wirtualnych. Funkcja planu odzyskiwania jest zintegrowany z elementu runbook usługi Automatyzacja Azure.
 
-You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). 
+Możesz rozpocząć pracę przez [replikowanie maszyn wirtualnych](https://aka.ms/a2a-getting-started). 
 
-## <a name="managed-snapshots"></a>Managed snapshots 
+## <a name="managed-snapshots"></a>Zarządzane migawki 
 
-In development and test environments, snapshots provide a quick and simple option for backing up VMs that use Managed Disks. A managed snapshot is a read-only full copy of a managed disk. Snapshots exist independent of the source disk and can be used to create new managed disks for rebuilding a VM. They are billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
+W środowiskach programistycznych i testowych migawki zapewniają szybki i prosty opcji tworzenia kopii zapasowych maszyn wirtualnych, które używają dysków zarządzanych. Zarządzane migawka jest tylko do odczytu pełnej kopii dysku zarządzanego. Migawki istnieje niezależnie od dysku źródłowego i mogą służyć do tworzenia nowych dysków zarządzanych odbudowywania maszyny Wirtualnej. Są one rozliczane oparte na używane część dysku. Na przykład po utworzeniu migawki dysków zarządzanych z elastycznie pojemności 64 GB i rozmiaru rzeczywistego używanych danych wynosi 10 GB migawki będą naliczane tylko za używanych danych rozmiar 10 GB.  
 
-For more information on creating snapshots, see:
+Aby uzyskać więcej informacji na temat tworzenia migawek zobacz:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Tworzenie kopii wirtualnego dysku twardego przechowywanej jako dysk zarządzany przy użyciu migawek w systemie Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 
-## <a name="next-steps"></a>Next steps
-You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Następne kroki
+Można wypróbować usługę kopia zapasowa Azure, postępując "Kopii zapasowej samouczek maszyn wirtualnych systemu Windows" dla [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

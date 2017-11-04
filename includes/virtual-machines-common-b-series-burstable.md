@@ -1,20 +1,20 @@
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> This preview is limited to the following regions:
-> - US - West 2
-> - US - East
-> - Europe - West
-> - Asia Pacific - Southeast
+> Podglądy są udostępniane użytkownikowi, pod warunkiem że wyrażasz zgodę na warunki użytkowania. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza jest ograniczone do następujących regionach:
+> - US - zachód 2
+> - US - wschodnie
+> - Europa - zachód
+> - Azja i Pacyfik - Southeast
 
 
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
+Rodziny wirtualna B serii można wybrać rozmiar maszyny Wirtualnej, w którym dostarcza niezbędne podstawowym poziomie wydajności dla obciążenia, możliwość serii wydajności procesora CPU do 100% v4 Intel® Broadwell E5-2673 2.3 GHz lub procesor Intel® Haswell 2,4 GHz E5-2673 v3 vCPU.
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, it VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+Maszyny wirtualne serii B idealnie nadają się do obciążeń, które nie muszą pełną wydajność procesora, takich jak serwery sieci web, małych baz danych i programowania i testowania środowisk. Te obciążenia mają zwykle burstable wymagania. Seria B zapewnia możliwość nabycia dla rozmiaru maszyny Wirtualnej z linii bazowej wydajności i wystąpienia maszyny Wirtualnej buduje środków, podczas korzystania z mniej niż jego linii bazowej. Po zebraniu środki maszyny Wirtualnej, maszyna wirtualna może serii powyżej linii bazowej, przy użyciu maksymalnie 100% vCPU, gdy aplikacja wymaga wyższej wydajności procesora CPU.
 
-The B-series comes in the following six VM sizes:
+Seria B składa się z następujących sześciu rozmiarów maszyn wirtualnych:
 
-| Size          | vCPU's | Memory: GiB | Local SSD: GiB | Base CPU Perf of VM | Max CPU Perf of VM | Credits Banked / Hour | Max Banked Credits |
+| Rozmiar          | w vCPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Podstawowej wydajności procesora CPU maszyny wirtualnej | Maksymalna liczba wydajności procesora CPU maszyny wirtualnej | Kredyty wpłaty / godzina | Maksymalna liczba wpłaty środków |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -26,46 +26,46 @@ The B-series comes in the following six VM sizes:
 
 
 
-## <a name="q--a-about-this-preview"></a>Q & A about this preview
+## <a name="q--a-about-this-preview"></a>Pytania i odpowiedzi dotyczące tej wersji zapoznawczej
 
-### <a name="q-how-can-i-participate-in-this-preview"></a>Q: How can I participate in this preview?
-**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+### <a name="q-how-can-i-participate-in-this-preview"></a>Pytanie: jak mogą uczestniczyć w tej wersji zapoznawczej?
+**A**: żądanie przydziału serii B w jednym z obsługiwanych regionów.  Po zatwierdzeniu limitu przydziału mogą korzystać z portalu lub czy interfejsów API do wdrożenia podczas normalnie. Aby uzyskać więcej informacji, zobacz [żądań Zwiększ limit przydziału rdzeni Resource Manager](../articles/azure-supportability/resource-manager-core-quotas-request.md).
 
-### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: How do you get 135% baseline performance from a VM?
-**A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
+### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Pytanie: jak uzyskać 135% linii bazowej wydajności z maszyny Wirtualnej
+**A**: 135% jest udostępniana między 8 vCPU firmy wchodzące w skład rozmiar maszyny Wirtualnej. Na przykład jeśli aplikacja korzysta z 4 8 rdzeni pracy przetwarzania wsadowego, a każdy z tych 4 vCPU są uruchomione na 30% wykorzystania całkowitej wydajności procesora CPU maszyny Wirtualnej będzie równy 120%.  Co oznacza, czy maszyna wirtualna będzie tworzenia czas środki w oparciu o różnice 15% z linii bazowej wydajności.  Ale oznacza to również, że jeśli użytkownik ma dostępne, że tej samej maszyny Wirtualnej może używać 100% wszystkich vCPU 8 środków przez nadanie tej maszyny Wirtualnej maks. wydajność 800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Q: Is there a discount on price during the preview?
-**A**: Yes, the preview prices can be viewed on our [pricing page](http://aka.ms/vmsizes).
+### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Pytanie: czy istnieje rabat ceny w wersji zapoznawczej?
+**A**: tak, ceny wersji zapoznawczej mogą być wyświetlane na naszych [cennikiem](http://aka.ms/vmsizes).
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: How can I monitor my credit balance and consumption
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Pytanie: jak można monitorować Moje salda środków oraz zużycie
+**A**: Firma Microsoft będzie wprowadzenie 2 nowe metryki w najbliższych tygodniach **środki** Metryka pozwala wyświetlić liczbę środków maszyny Wirtualnej ma wpłaty i **ConsumedCredit** Metryka przedstawia liczbę Kredyty procesora CPU wykorzystana maszyny Wirtualnej z banku.    Będzie mogła wyświetlać te metryki z okienka metryki w portalu lub programistycznie za pośrednictwem interfejsów API usługi Azure monitora.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Aby uzyskać więcej informacji na temat sposobu uzyskania dostępu do danych metryki dla platformy Azure, zobacz [omówienie metryk w Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="q-how-are-credits-accumulated"></a>Q: How are credits accumulated?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
+### <a name="q-how-are-credits-accumulated"></a>Pytanie: jak zgromadzonych środków
+**A**: stawki gromadzenia i zużycia maszyny Wirtualnej są ustawione tak, aby maszyny Wirtualnej z systemem poziomie dokładnie jego podstawowej wydajności będzie mieć net akumulacji ani zużycia poszerzająca środków.  Maszyny Wirtualnej zostanie wzrostu netto w środków zawsze, gdy jest uruchomiona poniżej poziomu wydajność bazy i będzie miał net spadek środków zawsze, gdy maszyna wirtualna jest wykorzystanie procesora CPU, więcej niż poziom jego wydajność bazy.
 
-**Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is .2 credits per minute I can use or bank. 
+**Przykład**: wdrożyć Maszynę wirtualną przy użyciu rozmiaru B1ms dla mojej aplikacji bazy danych w krótkim czasie i obecności. Ten rozmiar umożliwia Moja aplikacja ma być używana do 20% vCPU jako Mój linii bazowej jest.2 środków na minutę, których można użyć lub bank. 
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank .1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+Moja aplikacja jest zajęta na początku i na koniec dnia roboczego pracowników, między 7:00-9:00 AM a 4:00 — 6:00 PM. W innych 20 godzin dnia, mojej aplikacji jest zwykle w stanie bezczynności, tylko przy użyciu 10% vCPU. Na godziny poza szczytem I zdobyć 0,2 środków na minutę, ale tylko używać 0.l środków na minutę, więc Moja maszyna wirtualna zostanie Bankowi.1 x 60 = 6 środków na godzinę.  Do 20 godzin, w których jestem poza szczytem I będzie Bankowi 120 środków.  
 
-During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of .4 credits a minute or .4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
+W godzinach szczytu Moja aplikacja oblicza średnią 60% wykorzystania vCPU, I nadal zdobyć 0,2 środków na minutę, ale korzystać z 0,6 środków na minutę, net koszty.4 środków minutę lub.4 x 60 = 24 środków na korzystanie z na godzinę. Ma cztery godziny dziennie szczytowego wykorzystania, więc koszt wynosi 4 x 24 = 96 środków dla szczytowego użycia.
 
-If I take the 120 credits I earned off-peak and subtract the 96 credits I used for my peak times, I bank an additional 24 credits per day that I can use for other bursts of activity.
+Czy w przypadku podjęcia środków 120, który I uzyskany poza szczytem i odjąć 96 kredytu używane dla moich godzinach szczytu, Bankowi I dodatkowe kredyty 24 dziennie, którego można użyć dla innych seria działań.
 
 
-### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: Does the B-Series support Premium Storage data disks?
-**A**: Yes, all B-Series sizes support Premium Storage data disks.   
+### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Pytanie: czy serii B obsługuje magazyn w warstwie Premium dyski danych?
+**A**: tak, wszystkie rozmiary serii B obsługi dysków z danymi magazyn w warstwie Premium.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Q: Which regions can I access the preview from?
-**A**:  The B-series preview will be available in the following regions:
-- US - West 2
-- US - East
-- Europe - West
-- Asia Pacific - Southeast
+### <a name="q-which-regions-can-i-access-the-preview-from"></a>Pytanie: regiony można uzyskać dostęp do podglądu?
+**A**: Podgląd serii B będzie dostępna w następujących regionach:
+- US - zachód 2
+- US - wschodnie
+- Europa - zachód
+- Azja i Pacyfik - Southeast
 
-After the preview has completed we will release the B-series to all remaining regions.
+Po zakończeniu wersji zapoznawczej firma Microsoft opublikuje serii B wszystkich pozostałych regionów.
     
 
     

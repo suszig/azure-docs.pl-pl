@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Omówienie powłoki chmury Azure (wersja zapoznawcza)
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
@@ -44,7 +44,7 @@ Powłoki chmury jest wstępnie zainstalowane z popularnych narzędzi wiersza pol
 Wyświetl listę narzędzi Pełny dla [Bash środowisko](features.md#tools) i [środowiska PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatyczne uwierzytelnianie
-Chmura powłoki bezpiecznie uwierzytelnia automatycznie w każdej sesji dla natychmiastowy dostęp do zasobów za pośrednictwem 2.0 interfejsu wiersza polecenia platformy Azure.
+W każdej sesji dla natychmiastowy dostęp do zasobów przy użyciu poleceń cmdlet programu PowerShell i Azure 2.0 interfejsu wiersza polecenia powłoki chmury bezpiecznie uwierzytelnia automatycznie.
 
 ### <a name="connect-your-azure-file-storage"></a>Łączenie z magazynem plików Azure
 Chmury maszyn powłoki są tymczasowe i w związku z tym wymagają udział plików na platformę Azure można zainstalować jako `clouddrive` do utrwalenia $Home katalogu.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Wykryj, identyfikowanie i klasyfikowania danych osobowych w Microsoft Azure
 
@@ -150,13 +150,13 @@ Dane osobowe skojarzone z klastrów platformy Hadoop w usłudze Azure HDInsight 
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Jak używać dodatku Power Query dla programu Excel do zaimportowania do programu Excel klastrów platformy Hadoop w usłudze Azure HDInsight?
 
-Samouczek HDInsight objaśniają całego procesu. Opisano wymagania wstępne i zawiera łącze do [Rozpoczynanie pracy z usługą Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) samouczka. Instrukcje obejmują Excel 2016, a także 2010 i 2013 (kroki są nieco inaczej w przypadku starszych wersji programu Excel). Jeśli nie masz dodatku dodatku Power Query dla programu Excel, samouczek przedstawia sposób pobrać go. Początek samouczka w programie Excel i będą musiały korzystać z konta magazynu obiektów Blob platformy Azure skojarzony z klastrem.
+Samouczek HDInsight objaśniają całego procesu. Opisano wymagania wstępne i zawiera łącze do [Rozpoczynanie pracy z usługą Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) samouczka. Instrukcje obejmują Excel 2016, a także 2010 i 2013 (kroki są nieco inaczej w przypadku starszych wersji programu Excel). Jeśli nie masz dodatku dodatku Power Query dla programu Excel, samouczek przedstawia sposób pobrać go. Początek samouczka w programie Excel i będą musiały korzystać z konta magazynu obiektów Blob platformy Azure skojarzony z klastrem.
 
   ![Zapytania w programie Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Aby dowiedzieć się, jak to zrobić, odwiedź stronę [łączenie programu Excel do platformy Hadoop za pomocą dodatku Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) samouczka.
+Aby dowiedzieć się, jak to zrobić, odwiedź stronę [łączenie programu Excel do platformy Hadoop za pomocą dodatku Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) samouczka.
 
-Źródło: [Połącz Excel do platformy Hadoop za pomocą dodatku Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Źródło: [Połącz Excel do platformy Hadoop za pomocą dodatku Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Usługa Azure Information Protection: Klasyfikacja danych osobowych dla dokumentów i wiadomości e-mail
 

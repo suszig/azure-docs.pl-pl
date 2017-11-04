@@ -1,56 +1,56 @@
-You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+Możesz z łatwością [automatycznie skalować](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) Twojego [maszynach wirtualnych (VM)](../articles/virtual-machines/windows/overview.md) korzystając [zestawy skalowania maszyny wirtualnej](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) i [Skalowanie automatyczne funkcji platformy Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Maszyny wirtualne muszą być członkami skali ustawiono automatyczne skalowanie. Ten artykuł zawiera informacje, które pozwala na lepsze zrozumienie sposobu skalowania maszyn wirtualnych w pionie i w poziomie przy użyciu automatycznej i ręcznej metody.
 
-## <a name="horizontal-or-vertical-scaling"></a>Horizontal or vertical scaling
+## <a name="horizontal-or-vertical-scaling"></a>Skalowanie w poziomie lub pionie
 
-The autoscale feature of Azure Monitor only scales horizontally, which is an increase ("out") or decrease ("in") of the number of VMs. Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. You scale horizontally by either automatically or manually changing the capacity (or instance count) of the the scale set. 
+Funkcja automatycznego skalowania monitora Azure tylko skalowanie w poziomie, wzrost ("out") lub spadek ("") liczby maszyn wirtualnych. Skalowanie w poziomie jest bardziej elastyczna w sytuacji, w chmurze, ponieważ umożliwia uruchamianie potencjalnie tysiące maszyn wirtualnych do obsługi obciążenia. Możesz skalować w poziomie, automatycznie lub ręcznie zmieniając pojemności (lub liczba wystąpień) z zestawu skalowania. 
 
-Vertical scaling keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in attributes such as memory, CPU speed, or disk space. Vertical scaling is dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart. You scale vertically by setting a new size in the configuration of the VMs in the scale set.
+Skalowanie w pionie zachowuje tę samą liczbę maszyn wirtualnych, ale powoduje, że maszyny wirtualne więcej ("w górę") lub mniej ("wyłączone") zaawansowane. Power jest mierzony w atrybutów, takich jak pamięci, szybkości procesora CPU lub miejsca na dysku. Skalowanie w pionie jest zależna od dostępności sprzętu większych i szybko trafienia górny limit i zależą od regionu. Skalowanie w pionie również zwykle wymaga maszyny Wirtualnej, aby zatrzymać i uruchomić ponownie. Skalowanie w pionie, ustawiając nowy rozmiar w konfiguracji w zestawie skalowania maszyn wirtualnych.
 
-Using runbooks in [Azure Automation](../articles/automation/automation-intro.md), you can easily [scale VMs in a scale set](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) up or down.
+Używanie elementów runbook w [usługi Automatyzacja Azure](../articles/automation/automation-intro.md), możesz z łatwością [skalowania maszyn wirtualnych w zestawie skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) w górę lub w dół.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Create a virtual machine scale set
+## <a name="create-a-virtual-machine-scale-set"></a>Utwórz zestaw skali maszyny wirtualnej
 
-Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](/develop/python) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
+Zestawy skalowania ułatwiają wdrażanie i zarządzanie identycznych maszyn wirtualnych jako zestaw. Można utworzyć systemu Linux lub Windows skali ustawia przy użyciu [portalu Azure](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [programu Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), lub [interfejsu wiersza polecenia Azure](../articles/virtual-machines/linux/tutorial-create-vmss.md). Można również utworzyć i zarządzać takie jak zestawy skalowania z zestawów SDK [Python](/develop/python) lub [Node.js](/nodejs/azure), lub bezpośrednio z [interfejsów API REST](/rest/api/compute/virtualmachinescalesets). Automatyczne skalowanie maszyn wirtualnych odbywa się przez zastosowanie metryki i reguły w zestawie skali.
 
-## <a name="configure-autoscale-for-a-scale-set"></a>Configure autoscale for a scale set
+## <a name="configure-autoscale-for-a-scale-set"></a>Konfigurowanie automatycznego skalowania dla zestawu skalowania
 
-Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
+Automatyczne skalowanie zapewnia prawo liczby maszyn wirtualnych do obsługi obciążenia aplikacji. Umożliwia dodawanie maszyn wirtualnych w celu obsłużenia wzrost obciążenia i oszczędności, usuwając maszyn wirtualnych, które są obecne w stanie bezczynności. Należy określić minimalną i maksymalną liczbę maszyn wirtualnych do zestawu reguł. O minimalnej sprawia, że czy aplikacja zawsze działa nawet w przypadku obciążenia. Maksymalna wartość o ogranicza łącznym możliwy koszt co godzinę.
 
-You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
+Można włączyć automatycznego skalowania, podczas tworzenia skali ustawić za pomocą [programu Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) lub [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Możesz je również włączyć po utworzeniu zestawu skalowania. Utwórz zestaw skali, należy zainstalować rozszerzenie i skonfigurować za pomocą automatycznego skalowania [szablonu usługi Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). W portalu Azure włączyć automatycznego skalowania z monitora Azure lub skalowania automatycznego z ustawień zestaw skalowania.
 
-![Enable autoscale](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Włączanie automatycznego skalowania](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrics
+### <a name="metrics"></a>Metryki
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+Funkcja automatycznego skalowania monitora Azure umożliwia skalowanie liczba uruchomionych maszyn wirtualnych w lub w dół na podstawie [metryki](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Domyślnie maszyn wirtualnych zapewnia podstawowe metryki na poziomie hosta dla dysków, sieci i użycie procesora CPU. Konfigurując zbierania danych diagnostycznych przy użyciu rozszerzenia diagnostycznych, liczniki wydajności systemu operacyjnego gościa dodatkowe staną się dostępne dla dysku, procesora CPU i pamięci.
 
-![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
+![Metryki kryteriów](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
-If your application needs to scale based on metrics that are not available through the host, then the VMs in the scale set need to have either the [Linux diagnostic extension](../articles/virtual-machines/linux/diagnostic-extension.md) or [Windows diagnostics extension](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) installed. If you create a scale set using the Azure portal, you need to also use Azure PowerShell or the Azure CLI to install the extension with the diagnostics configuration that you need.
+Jeśli aplikacja wymaga można skalować na podstawie metryk, które nie są dostępne za pośrednictwem hosta, a następnie w zestawie skalowania maszyn wirtualnych musi być albo [rozszerzenia diagnostycznych Linux](../articles/virtual-machines/linux/diagnostic-extension.md) lub [rozszerzenie Diagnostyka systemu Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)zainstalowane. Jeśli tworzysz skali ustawić za pomocą portalu Azure, musisz również zainstalować rozszerzenie z konfiguracją diagnostyki, które należy użyć programu Azure PowerShell lub interfejsu wiersza polecenia Azure.
  
-### <a name="rules"></a>Rules
+### <a name="rules"></a>Reguły
 
-[Rules](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) combine a metric with an action to be performed. When rule conditions are met, one or more autoscale actions are triggered. For example, you might have a rule defined that increases the number of VMs by 1 if the average CPU usage goes above 85 percent.
+[Reguły](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) łączyć metrykę z akcji do wykonania. Gdy warunki reguły są spełnione, co najmniej jednej akcji skalowania automatycznego są wyzwalane. Na przykład może być zdefiniowana regułę, która zwiększa liczbę maszyn wirtualnych o 1, jeśli średnie użycie Procesora powyżej 85%.
 
-![Autoscale actions](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
+![Akcji skalowania automatycznego](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Powiadomienia
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+Możesz [ustawić wyzwalacze](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) określonej sieci web są określane jako adresy URL lub wiadomości e-mail są wysyłane na podstawie utworzonych reguł skalowania automatycznego. Elementów Webhook pozwalają kierować Azure powiadomień o alertach do innych systemów przetwarzania końcowego lub niestandardowych powiadomień.
 
-## <a name="manually-scale-vms-in-a-scale-set"></a>Manually scale VMs in a scale set
+## <a name="manually-scale-vms-in-a-scale-set"></a>Ręcznie skalować w zestawie skalowania maszyn wirtualnych
 
-### <a name="horizontal"></a>Horizontal
+### <a name="horizontal"></a>poziomy
 
-You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
+Można dodawać i usuwać maszyn wirtualnych, zmieniając pojemność zestawu skalowania. W portalu Azure, można zmniejszyć lub zwiększyć liczbę maszyn wirtualnych (wyświetlane jako **wystąpienia liczba**) w skali ustawiony przez przesuwanie na pasku stanu zastąpienie na ekranie skalowanie w lewo lub w prawo.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) command.
+Przy użyciu programu Azure PowerShell, należy uzyskać, używając obiektu zestawu skali [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Następnie ustaw **sku.capacity** właściwość, aby liczba maszyn wirtualnych, które mają i aktualizacji z zestawu skalowania [AzureRmVmss aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Przy użyciu wiersza polecenia platformy Azure, zmień pojemności z **— nowego miejsca** parametr [skali vmss az](https://docs.microsoft.com/cli/azure/vmss#scale) polecenia.
 
-### <a name="vertical"></a>Vertical
+### <a name="vertical"></a>Pionowe
 
-You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzureRmVmss, setting the image reference sku property, and then using [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) and [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Należy ręcznie zmienić rozmiar w portalu Azure na ekranie rozmiar dla zestawu skalowania maszyn wirtualnych. Za pomocą programu Azure PowerShell Get-AzureRmVmss, ustawienia właściwości sku obrazu odniesienia, a następnie za pomocą [AzureRmVmss aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) i [AzureRmVmssInstance aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Następne kroki
 
-- Learn more about scale sets in [Design Considerations for Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
+- Dowiedz się więcej o zestawy skalowania w [projektowania zestawach skali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
 

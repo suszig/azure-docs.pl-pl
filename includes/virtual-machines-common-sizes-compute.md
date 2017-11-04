@@ -1,41 +1,60 @@
 <!-- F-series, Fs-series* -->
 
-F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. 
+Seria Fsv2 opiera się na procesor Intel® Xeon® Platynowa 8168 częstotliwości podstawowej core 2.7 GHz i częstotliwości maksymalną turbo jednordzeniowy 3.7 GHz. Instrukcje Intel® AVX — 512, które są nowe na skalowalnych procesory Intel, zapewni maksymalnie 2 X wzrost wydajności przetwarzania wektor obciążeń na pojedyncze i Podwójna precyzja operacji zmiennoprzecinkowych. Innymi słowy są naprawdę fast dla dowolnego obciążeń obliczeniowych. 
 
-F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or temporary storage per vCPU.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
+W dolnym godzinową cennika serii Fsv2 jest wartością najlepsze w wydajności cen portfolio Azure oparta na platformie Azure obliczeniowe jednostki (ACU) na vCPU. 
 
-The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
+Seria F jest oparta na procesorze Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć prędkość zegara do 3,1 GHz. Wydajność procesora CPU jest taka sama jak w przypadku maszyn wirtualnych serii Dv2.  
 
-## <a name="fs-series"></a>Fs-series*
+Maszyny wirtualne z serii F są doskonałym wyborem dla obciążeń wymagających szybszych procesorów CPU, ale nie potrzebujących tak dużej ilości pamięci lub magazynu tymczasowego na każdy procesor wirtualny vCPU.  Z wartości serii F skorzystają obciążenia takie jak analizy, serwery gier, serwery sieci Web i przetwarzanie wsadowe.
 
-ACU: 210 - 250
+Seria Fs ma magazyn w warstwie Premium i wszystkie zalety serii F.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
+# <a name="fsv2-series"></a>Fsv2 serii
+
+ACU: 195-210
+
+| Rozmiar             | w vCPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Średnia                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Średnia                                       |
+| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | Wysoka                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Wysoka                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Bardzo wysoka                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Bardzo wysoka                                 |
+| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
+
+
+## <a name="fs-series"></a>Seria Fs*
+
+ACU: 210–250
+
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4,000 / 32 (12) |3,200 / 48 |2 / 750 |
-| Standard_F2s |2 |4 |8 |4 |8,000 / 64 (24) |6,400 / 96 |2 / 1500 |
-| Standard_F4s |4 |8 |16 |8 |16,000 / 128 (48) |12,800 / 192 |4 / 3000 |
-| Standard_F8s |8 |16 |32 |16 |32,000 / 256 (96) |25,600 / 384 |8 / 6000 |
-| Standard_F16s |16 |32 |64 |32 |64,000 / 512 (192) |51,200 / 768 |8 / 6000-12000 &#8224; |
+| Standardowa_F1s |1 |2 |4 |2 |4000 / 32 (12) |3200 / 48 |2 / 750 |
+| Standardowa_F2s |2 |4 |8 |4 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
+| Standardowa_F4s |4 |8 |16 |8 |16 000 / 128 (48) |12 800 / 192 |4 / 3000 |
+| Standardowa_F8s |8 |16 |32 |16 |32 000 / 256 (96) |25 600 / 384 |8 / 6000 |
+| Standardowa_F16s |16 |32 |64 |32 |64 000 / 512 (192) |51 200 / 768 |8 / 6000-12000 &#8224; |
 
-MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
+MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
-*The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/common/storage-premium-storage.md).
+* Maksymalna przepływność dysków (liczba operacji we/wy na sekundę lub MB/s) możliwa dla maszyny wirtualnej serii Fs może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
 
 
 <br>
 
-## <a name="f-series"></a>F-series
+## <a name="f-series"></a>Seria F
 
-ACU: 210 - 250
+ACU: 210–250
 
-| Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
+| Rozmiar         | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2x500                         | 2 / 750                 |
-| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / 1500                     |
-| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / 3000                     |
-| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / 6000 - 12000 &#8224;           |
+| Standardowa_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 / 750                 |
+| Standardowa_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1500                     |
+| Standardowa_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 3000                     |
+| Standardowa_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / 6000                     |
+| Standardowa_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / 6000–12 000 &#8224;           |
 
 
 <br>

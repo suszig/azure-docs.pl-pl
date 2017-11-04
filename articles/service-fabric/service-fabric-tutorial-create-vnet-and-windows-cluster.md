@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bab57f5ca6627b4532284376a9809d5ab543f2
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi Windows Fabric w sieci wirtualnej platformy Azure
 W tym samouczku wchodzi w jednej serii. Dowiesz się jak wdrażanie klastra usługi sieć szkieletowa usług systemu Windows w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu programu PowerShell. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra.  Aby utworzyć klaster systemu Linux za pomocą interfejsu wiersza polecenia Azure, zobacz [tworzenia bezpiecznych klastrów systemu Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -78,44 +78,42 @@ Pobierz następującego pliku szablonu i parametry Menedżera zasobów:
 Do wdrażania Menedżera zasobów plików szablonu i parametru konfiguracji sieci, należy użyć następującego polecenia programu PowerShell:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Wdrażanie klastra sieci szkieletowej usług
-Zasoby sieciowe zostały wykonane wdrażanie następnym krokiem jest wdrożenie klastra sieci szkieletowej usług w podsieci sieci Wirtualnej i NSG przeznaczone dla klastra sieci szkieletowej usług. Wdrażanie klastra do istniejącej sieci Wirtualnej i podsieci (wdrożone wcześniej w tym artykule) wymaga szablonu usługi Resource Manager.  Aby uzyskać więcej informacji, zobacz [Tworzenie klastra przy użyciu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Ten samouczek serii szablon jest wstępnie skonfigurowana do używania nazwy sieci Wirtualnej, podsieci i NSG, skonfigurowanym w poprzednim kroku.  Pobierz następującego pliku szablonu i parametry Menedżera zasobów:
+Zasoby sieciowe zostały wykonane wdrażanie następnym krokiem jest wdrożenie klastra sieci szkieletowej usług w podsieci sieci Wirtualnej i NSG przeznaczone dla klastra sieci szkieletowej usług. Wdrażanie klastra do istniejącej sieci Wirtualnej i podsieci (wdrożone wcześniej w tym artykule) wymaga szablonu usługi Resource Manager.  Ten samouczek serii szablon jest wstępnie skonfigurowana do używania nazwy sieci Wirtualnej, podsieci i NSG, skonfigurowanym w poprzednim kroku.  
+
+Pobierz następującego pliku szablonu i parametry Menedżera zasobów:
 - [cluster.JSON][cluster-arm]
 - [cluster.parameters.JSON][cluster-parameters-arm]
 
-Certyfikat jest używany do zabezpieczania komunikacji między węzłami klastra oraz zarządzanie dostępem użytkowników do klastra usługi sieć szkieletowa usług. Zarządzanie interfejsami API również używa tego certyfikatu do dostępu do usługi nazewnictwa sieci szkieletowej usług dla potrzeb odnajdywania usług. 
+Ten szablon umożliwia tworzenie bezpiecznej klastra.  Certyfikat klastra jest certyfikat X.509 używany do zabezpieczania komunikacji między węzłami i uwierzytelniania punktów końcowych klastra zarządzania do klienta zarządzania.  Certyfikat klastra umożliwia również SSL dla interfejsu API zarządzania HTTPS i Service Fabric Explorer, za pośrednictwem protokołu HTTPS. Usługa Azure Key Vault służy do zarządzania certyfikatami dla klastrów sieci szkieletowej usług platformy Azure.  Po wdrożeniu klastra na platformie Azure, odpowiedzialną za tworzenie klastrów sieci szkieletowej usług dostawcy zasobów platformy Azure pobiera certyfikaty z magazynu kluczy i instaluje je w klastrze maszyn wirtualnych. 
 
-Poniższy skrypt używa [AzureRmServiceFabricCluster nowy](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) polecenia cmdlet, aby wdrożyć nowy klaster na platformie Azure. Polecenia cmdlet również tworzy magazyn kluczy Azure tworzy certyfikat z podpisem własnym i magazyn kluczy i pobiera lokalnie plik certyfikatu.   
+Można użyć certyfikatu od urzędu certyfikacji (CA), jako certyfikat klastra, lub do celów testowych, Utwórz certyfikat z podpisem własnym. Certyfikat klastra musi:
+
+- zawiera klucz prywatny.
+- można utworzyć na potrzeby wymiany kluczy, które można wyeksportować do pliku wymiany informacji osobistych (pfx).
+- mieć nazwę podmiotu, która pasuje do domeny, który umożliwia dostęp do klastra usługi sieć szkieletowa usług. To dopasowanie jest wymagane jest podanie protokołu SSL dla punktów końcowych HTTPS zarządzania i Service Fabric Explorer klastra. Nie można uzyskać certyfikat od urzędu certyfikacji (CA) dla. cloudapp.azure.com domeny. Należy uzyskać niestandardowej nazwy domeny dla klastra. Podczas żądania certyfikatu z urzędu certyfikacji, nazwa podmiotu certyfikatu musi odpowiadać nazwie domeny niestandardowej, używanego przez klaster.
+
+Wypełnij puste *lokalizacji*, *clusterName*, *adminUserName*, i *adminPassword* parametrów w  *cluster.parameters.JSON* plików dla danego wdrożenia.  Pozostaw *certificateThumbprint*, *certificateUrlValue*, i *sourceVaultValue* parametry puste, aby utworzyć certyfikat z podpisem własnym.  Jeśli chcesz użyć istniejącego certyfikatu wcześniej przekazany do magazynu kluczy, wypełnij wartości tych parametrów.
+
+Poniższy skrypt używa [AzureRmServiceFabricCluster nowy](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) polecenia cmdlet i szablon do wdrożenia nowego klastra w systemie Azure. Polecenia cmdlet również tworzy nowy magazyn kluczy Azure dodaje nowy certyfikat z podpisem własnym do magazynu kluczy i pobiera lokalnie plik certyfikatu. Można określić za pomocą innych parametrów istniejącego certyfikatu i/lub magazynu kluczy [AzureRmServiceFabricCluster nowy](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) polecenia cmdlet.
 
 ```powershell
-# Certificate variables.
+# Variables.
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 $certfolder="c:\mycertificates\"
-
-# Variables for VM admin.
-$adminuser="vmadmin"
-$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-
-# Variables for common values
 $clustername = "mysfcluster"
-$vmsku = "Standard_D2_v2"
-$vaultname = "clusterkeyvault"
-$vaultgroupname="clusterkeyvaultgroup"
+$vaultname = "clusterkeyvault111"
+$vaultgroupname="clusterkeyvaultgroup111"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
-# Set the number of cluster nodes. Possible values: 1, 3-99
-$clustersize=5 
-
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
--ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
--CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
--TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
+-ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Połącz się z klastrem bezpieczne

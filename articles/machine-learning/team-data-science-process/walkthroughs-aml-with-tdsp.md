@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Projekty zespołowe nauki danych strukturalnych w konsoli usługi Azure Machine Learning Workbench
 
-Te samouczki i przykłady przedstawiają sposób tworzenia zespołu nauki danych strukturalnych projektów z usługi Azure Machine Learning Workbench. Omówienie procesu nauki danych zespołu, zobacz [proces nauki danych](overview.md). Omówienie Spark w usłudze HDInsight, zobacz [wprowadzenie do platformy Spark w usłudze HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Te samouczki i przykłady przedstawiają sposób tworzenia zespołu nauki danych strukturalnych projektów z usługi Azure Machine Learning Workbench. Omówienie procesu nauki danych zespołu, zobacz [proces nauki danych](overview.md). Omówienie Spark w usłudze HDInsight, zobacz [wprowadzenie do platformy Spark w usłudze HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 Wskazówki dotyczące nauki dodatkowych danych, których wykonanie procesu analizy danych zespołu są pogrupowane według **platformy** jak używane. Zobacz [wskazówki dotyczące wykonywania procesu nauki danych zespołu](walkthroughs.md) do podziału na pozycje tych przykładów.
 

@@ -1,20 +1,20 @@
-### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Prepare for a push installation on a Windows computer
+### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Przygotowanie do instalacji wypychanej na komputerze z systemem Windows
 
-1. Ensure that there’s network connectivity between the Windows computer and the process server.
-2. Create an account that the process server can use to access the computer. The account should have administrator rights (local or domain). (Use this account only for the push installation and for agent updates.)
+1. Upewnij się, że istnieje połączenie sieciowe między komputerem z systemem Windows i serwera przetwarzania.
+2. Utwórz konto, za pomocą którego serwer przetwarzania będzie mógł uzyskać dostęp do komputera. Konto musi mieć prawa administratora (lokalnego lub domeny). (Używają tego konta, tylko dla instalacji wypychanej i dla aktualizacji agenta).
 
    > [!NOTE]
-   > If you're not using a domain account, disable Remote User Access control on the local computer. To disable Remote User Access control, under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Set the value to **1**. To do this at a command prompt, run the following command:  
+   > Jeśli nie używasz konta domeny, należy wyłączyć kontroli dostępu użytkownika zdalnego na komputerze lokalnym. Aby wyłączyć kontroli dostępu użytkownika zdalnego, w kluczu rejestru HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System dodać nową wartość typu DWORD: **LocalAccountTokenFilterPolicy**. Ustaw wartość na **1**. W tym celu w wierszu polecenia Uruchom następujące polecenie:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-2. In Windows Firewall on the computer you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
+2. W Zaporze systemu Windows na komputerze, który chcesz chronić, wybierz **Zezwalaj aplikacji lub funkcji przez zaporę**. Włącz **udostępnianie plików i drukarek** i **Instrumentacji zarządzania Windows (WMI)**. Dla komputerów, które należą do domeny można skonfigurować ustawienia zapory, za pomocą obiektu zasad grupy (GPO).
 
-   ![Firewall settings](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
+   ![Ustawienia zapory](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
-3. Add the account that you created in CSPSConfigtool.
-    1.  Sign in to your configuration server.
-    2.  Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
-    3.  On the **Manage Accounts** tab, select **Add Account**.
-    4.  Add the account you created.
-    5.  Enter the credentials you use when you enable replication for a computer.
+3. Dodaj konto utworzone w narzędziu CSPSConfigtool.
+    1.  Zaloguj się do serwera konfiguracji.
+    2.  Otwórz plik **cspsconfigtool.exe**. (Jest dostępny jako skrót na pulpicie oraz w folderze %ProgramData%\home\svsystems\bin).
+    3.  Na **Zarządzanie kontami** wybierz opcję **Dodaj konto**.
+    4.  Dodaj utworzone konto.
+    5.  Wprowadź używane poświadczenia po włączeniu replikacji dla komputera.

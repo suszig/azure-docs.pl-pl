@@ -1,40 +1,40 @@
-| Resource | Free | Shared (Preview) | Basic | Standard | Premium (Preview)</th> |
+| Zasób | Bezpłatna | Współdzielona (wersja zapoznawcza) | Podstawowa | Standardowa | Premium (wersja zapoznawcza)</th> |
 | --- | --- | --- | --- | --- | --- |
-| [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |
-| [Logic apps](https://azure.microsoft.com/services/app-service/logic/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per core |20 per core |
-| [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |
-| Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |
-| [Scale-Out](../articles/app-service/web-sites-scale.md) (max instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated (50 in ASE)<sup>3,4</sup> |
-| Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
-| CPU time (5 min)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
-| CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
-| Memory (1 hour) |1024 MB per App Service plan |1024 MB per app |N/A |N/A |N/A |
-| Bandwidth |165 MB |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |
-| Application architecture |32-bit |32-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
-| Web Sockets per instance<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |
-| Concurrent [debugger connections](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per application |1 |1 |1 |5 |5 |
-| [azurewebsites.net subdomain with FTP/S and SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
-| [Custom domain](../articles/app-service/app-service-web-tutorial-custom-domain.md) support | |X |X |X |X |
-| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Unlimited |Unlimited, 5 SNI SSL and 1 IP SSL connections included |Unlimited, 5 SNI SSL and 1 IP SSL connections included |
-| Integrated Load Balancer | |X |X |X |X |
-| [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |Once per day |Once every 5 minutes<sup>8</sup> |
-| [Auto Scale](../articles/app-service/web-sites-scale.md) | | |X |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
-| [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
-| [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
-| [Staging Slots](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
-| Custom domains per app</a> | |500 |500 |500 |500 |
-| SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| [Aplikacje sieci Web, mobilnych lub interfejsu API](https://azure.microsoft.com/services/app-service/) na [planu usługi aplikacji](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Nieograniczone<sup>2</sup> |Nieograniczone<sup>2</sup> |Nieograniczone<sup>2</sup> |
+| [Aplikacje logiki](https://azure.microsoft.com/services/app-service/logic/) na [planu usługi aplikacji](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 na podstawowe |20 na podstawowe |
+| [Plan usługi App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 na region |10 dla grupy zasobów |100 dla każdej grupy zasobów |100 dla każdej grupy zasobów |100 dla każdej grupy zasobów |
+| Wystąpienie typu obliczania |Udostępniona |Udostępniona |W wersji dedykowanej<sup>3</sup> |W wersji dedykowanej<sup>3</sup> |W wersji dedykowanej<sup>3</sup></p> |
+| [Skalowalny w poziomie](../articles/app-service/web-sites-scale.md) (maksymalnej liczby wystąpień) |1 udostępnionego |1 udostępnionego |3 w wersji dedykowanej<sup>3</sup> |10 w wersji dedykowanej<sup>3</sup> |(50 w ASE) w wersji dedykowanej 20<sup>3,4</sup> |
+| Magazyn<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
+| Czas procesora CPU (5 min)<sup>6</sup> |3 minuty |3 minuty |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
+| Czas procesora CPU (dzień)<sup>6</sup> |60 minut |240 minut |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
+| Pamięć (1 godz.) |1024 MB na plan usługi aplikacji |1024 MB dla aplikacji |Nie dotyczy |Nie dotyczy |Nie dotyczy |
+| Przepustowość |165 MB |Nieograniczone, [szybkości transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/) Zastosuj |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |
+| Architektura aplikacji |32-bitowy |32-bitowy |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
+| Dla każdego wystąpienia w sieci Web Sockets<sup>7</sup> |5 |35 |350 |Nieograniczona liczba |Nieograniczona liczba |
+| Współbieżne [debugera połączeń](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) według aplikacji |1 |1 |1 |5 |5 |
+| [poddomeny azurewebsites.NET FTP/S i protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
+| [Domena niestandardowa](../articles/app-service/app-service-web-tutorial-custom-domain.md) obsługuje | |X |X |X |X |
+| Domena niestandardowa [Obsługa protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Nieograniczone połączeń SNI SSL |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |
+| Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |
+| [Zawsze włączone](../articles/app-service/web-sites-configure.md) | | |X |X |X |
+| [Zaplanowane kopie zapasowe](../articles/app-service/web-sites-backup.md) | | | |Raz dziennie |Co 5 minut<sup>8</sup> |
+| [Automatyczne skalowanie](../articles/app-service/web-sites-scale.md) | | | |X |X |
+| [Zadania Webjob](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [Harmonogram systemu Azure](https://azure.microsoft.com/services/scheduler/) obsługuje | |X |X |X |X |
+| [Monitorowanie punktu końcowego](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
+| [Miejsc przejściowych](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
+| Domeny niestandardowe dla aplikacji</a> | |500 |500 |500 |500 |
+| Umowa SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 
-<sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
-<sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) for more details.  
-<sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.  
-<sup>5</sup>The storage limit is the total content size across all apps in the same App Service plan. More storage options are available in [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
-<sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
-<sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.  
-<sup>9</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.   
-<sup>10</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.  
+<sup>1</sup>aplikacji i przydziały pamięci masowej są na plan usługi aplikacji, o ile nie zaznaczono inaczej.  
+<sup>2</sup>rzeczywista liczba aplikacji, które mogą być hostowane na tych komputerach zależy działanie aplikacji, rozmiar wystąpień maszyn i odpowiednie wykorzystania zasobów.  
+<sup>3</sup>dedykowanego wystąpienia może być o różnych rozmiarach. Zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) więcej szczegółów.  
+<sup>4</sup>warstwy premium umożliwia maksymalnie 50 oblicza wystąpień (pod warunkiem dostępności) i 500 GB miejsca na dysku, używając środowiska usługi App Service i 20 obliczeniowe inaczej wystąpień i 250 GB pamięci masowej.  
+<sup>5</sup>limit magazynu jest łączny rozmiar zawartości przez wszystkie aplikacje w tym samym planie usługi aplikacji. Więcej opcji magazynu są dostępne w [środowiska usługi aplikacji](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
+<sup>6</sup>te zasoby są ograniczone przez fizyczne zasoby dedykowanego wystąpienia (rozmiar wystąpienia i liczba wystąpień).  
+<sup>7</sup>Skala aplikacji w warstwie podstawowa na dwa wystąpienia, masz 350 równoczesnych połączeń dla każdego z dwóch wystąpień.  
+<sup>8</sup>warstwy premium umożliwia interwał tworzenia kopii zapasowych w dół do co 5 minut, za pomocą środowiska usługi App Service, a 50 razy dziennie w inny sposób.  
+<sup>9</sup>uruchomić niestandardowe pliki wykonywalne lub skrypty na żądanie, zgodnie z harmonogramem lub wystąpienie stale jako zadania w tle w usłudze App Service. Do ciągłego wykonywania zadań w sieci Web jest wymagana opcja Zawsze włączona. Do wykonywania zadań w sieci Web według harmonogramu jest wymagana usługa Azure Scheduler w warstwie Bezpłatna lub Standardowa. Nie ma żadnego wstępnie zdefiniowanego limitu liczby zadań Webjob, które może być uruchamiane w wystąpieniu usługi App Service, ale istnieją praktycznych limitów, które są zależne od kodu aplikacja próbuje zrobić.   
+<sup>10</sup>poziomie 99,95% podane w przypadku wdrożeń, które użycia wielu wystąpień z usługi Azure Traffic Manager skonfigurowany dla trybu failover.  
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Utwórz uwierzytelnianie nieinteraktywne aplikacji .NET HDInsight
 Można uruchomić aplikacji Microsoft .NET Azure HDInsight przy użyciu tożsamości aplikacji (nieinterakcyjnym) lub tożsamością zalogowany użytkownik aplikacji (interaktywne). W tym artykule przedstawiono sposób tworzenia uwierzytelnianie nieinteraktywne aplikacji .NET w celu połączenia z platformą Azure i zarządzanie nimi HDInsight. Przykładowy interaktywna aplikacja, [nawiązywanie połączenia z usługi Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -32,7 +32,7 @@ Z poziomu innego nieinteraktywnego aplikacji .NET potrzebne są:
 * Klucz tajny aplikacji usługi Azure AD. Zobacz [klucz uwierzytelniania aplikacji Get](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Klaster usługi HDInsight. Zobacz [Wprowadzenie — samouczek](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Klaster usługi HDInsight. Zobacz [Wprowadzenie — samouczek](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Przypisywanie roli do aplikacji usługi Azure AD
 Przypisz aplikację usługi Azure AD [roli](../active-directory/role-based-access-built-in-roles.md), udzielenia uprawnienia do wykonania akcji. Na poziomie subskrypcji, grupy zasobów lub zasobów można ustawić zakresu. Uprawnienia są dziedziczone na niższe poziomy zakresu. (Na przykład dodawanie aplikacji do roli czytnik dla grupy zasobów oznacza, że aplikacja może odczytać grupy zasobów i wszystkie zasoby w nim.) W tym samouczku Ustaw zakres na poziomie grupy zasobów. Aby uzyskać więcej informacji, zobacz [zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../active-directory/role-based-access-control-configure.md).

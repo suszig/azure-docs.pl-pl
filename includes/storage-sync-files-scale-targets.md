@@ -1,0 +1,10 @@
+| Zasób | docelowy | Nienaruszalne ograniczenie |
+|----------|--------------|------------|
+| Magazyn usługi synchronizacji na subskrypcję | 15 usługi synchronizacji magazynu | Nie |
+| Synchronizacji grupy dla usługi synchronizacji magazynu | 20 grup synchronizacji | Nie |
+| Punkty końcowe chmury dla każdej grupy synchronizacji | Punkt końcowy 1 chmury | Tak |
+| Punkty końcowe serwera dla grupy synchronizacji | 50 punktów końcowych serwera | Nie |
+| Punkty końcowe serwera na serwer | Punkty końcowe serwera 5 – 15 | Tak, ale w zależności od konfiguracji |
+| Rozmiar punktu końcowego | 4 TiB | Nie |
+| Obiekty systemu (plików i katalogów) dla każdej grupy synchronizacji plików | 6 mln obiektów | Nie |
+| Rozmiar pliku | 100 giB | Nie |
