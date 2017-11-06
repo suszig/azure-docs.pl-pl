@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Często zadawane pytania dotyczące wyszukiwania i znane problemy dziennika nowe analizy dzienników
 
@@ -38,13 +38,6 @@ Nie, istnieją pewne zmiany w akcji elementu webhook i runbook, które mogą wym
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Pytanie: błędów występujących podczas próby użycia grupy komputerów.  Zmieniono ich składni?
 Tak, przy użyciu komputera składnia grupuje zmiany po uaktualnieniu obszaru roboczego.  Zobacz [grup komputerów w analizy dzienników dziennika wyszukiwania](log-analytics-computer-groups.md) szczegółowe informacje.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Znany problem: grup importowany z usługi Active Directory
-Nie można obecnie utworzyć kwerendę, która używa grupy komputerów importowany z usługi Active Directory.  Jako rozwiązanie alternatywne dopóki ten problem zostanie rozwiązany, utworzyć grupę komputerów za pomocą zaimportowanych grupy usługi Active Directory, a następnie użyć tej nowej grupy w zapytaniu.
-
-Przykładowe zapytanie, aby utworzyć nową grupę komputera, która zawiera grupę usługi Active Directory zaimportowanych wygląda następująco:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Pulpity nawigacyjne
@@ -76,11 +69,6 @@ Zminimalizowania jest funkcją, która zapewnia widok podsumowania wyników wysz
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Znany problem: wyniki wyszukiwania na liście mogą zawierać właściwości bez danych
-Dziennik wyniki wyszukiwania na liście mogą wyświetlać właściwości nie zawiera żadnych danych.  Przed uaktualnieniem te właściwości nie będą dołączone.  Ten problem zostanie rozwiązany, aby nie są wyświetlane właściwości puste.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Znany problem: Wybieranie wartość na wykresie nie są wyświetlane szczegółowe wyniki
-Przed uaktualnieniem gdy wybrana wartość na wykresie go zwróci szczegółową listę rekordy pasujące do wybranej wartości.  Po uaktualnieniu jest zwracana tylko pojedynczy wiersz podsumowania.  Obecnie trwa bada ten problem.
 
 ## <a name="log-search-api"></a>Interfejs API wyszukiwania w dzienniku
 
@@ -109,11 +97,9 @@ Przeglądarka wymaga dostępu do następujących adresów do wykonywania kwerend
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pytanie: Czy niczego zmienia się z integracją usługi Power BI?
-Tak.  Po uaktualnieniu obszaru roboczego procesu eksportowania analizy dzienników danych do usługi Power BI nie będzie działać.  Istniejących harmonogramów, które zostały utworzone przed rozpoczęciem uaktualniania zostanie wyłączony.  Po uaktualnieniu, analiza dzienników Azure używa tej samej platformy jako usługi Application Insights i używać tego samego procesu eksportowania analizy dzienników zapytań do usługi Power BI jako [procesu eksportowania zapytań usługi Application Insights do usługi Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Tak.  Po uaktualnieniu obszaru roboczego procesu eksportowania analizy dzienników danych do usługi Power BI nie będzie działać.  Istniejących harmonogramów, które zostały utworzone przed rozpoczęciem uaktualniania zostanie wyłączony.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Znany problem: limit rozmiaru żądania usługi Power BI
-Obecnie jest ograniczenie do 8 MB dla zapytania analizy dzienników, które mogą być eksportowane do usługi Power BI.  Wkrótce będzie można zwiększyć ten limit.
-
+Po uaktualnieniu, analiza dzienników Azure używa tej samej platformy jako usługi Application Insights i używać tego samego procesu eksportowania analizy dzienników zapytań do usługi Power BI jako [procesu eksportowania zapytań usługi Application Insights do usługi Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Eksport do usługi Power BI wywołuje bezpośrednio teraz punkt końcowy interfejsu API. Dzięki temu można uzyskać do 500 000 wierszy lub 64,000,000 bajtów danych, eksportowania długich zapytań i dostosować limit czasu zapytania (domyślny limit czasu wynosi 3 minuty, a maksymalny limit czasu wynosi 10 minut).
 
 ## <a name="powershell-cmdlets"></a>Polecenia cmdlet programu PowerShell
 
@@ -153,14 +139,11 @@ Tak.  Należy użyć wersji interfejsu API 2017-03-15-preview i obejmują **funk
 ### <a name="question-will-my-solutions-continue-to-work"></a>Pytanie: Moje rozwiązań będzie działać?
 Wszystkie rozwiązania będą nadal działać w obszarze roboczym uaktualniony, mimo że ich wydajności zwiększy wtedy są konwertowane na nowy język kwerendy.  Istnieją znane problemy z istniejącego rozwiązania, które zostały opisane w tej sekcji.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Znany problem: pojemność i wydajność rozwiązania
-Niektóre elementy w [pojemność i wydajność](log-analytics-capacity.md) widok może być pusta.  Rozwiązano ten problem będzie dostępna wkrótce.
-
-### <a name="known-issue-application-insights-connector"></a>Znany problem: łącznika usługi Application Insights
-Perspektywy [rozwiązanie Application Insights łącznik](log-analytics-app-insights-connector.md) nie są obecnie obsługiwane w obszarze roboczym uaktualniony.  Rozwiązania tego problemu jest obecnie w obszarze analizy.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Znany problem: perspektywy w łączniku usługi Application Insights
+Perspektywy [rozwiązanie Application Insights łącznik](log-analytics-app-insights-connector.md) nie są już obsługiwane w rozwiązaniu łącznika usługi Application Insights.  Projektant widoków umożliwia tworzenie niestandardowych widoków z danymi usługi Application Insights.
 
 ### <a name="known-issue-backup-solution"></a>Znany problem: kopii zapasowej rozwiązania
-Rozwiązanie tworzenia kopii zapasowej nie będzie zbierał dane w uaktualnionym obszaru roboczego. Wkrótce będą ogłaszane nowe rozwiązanie tworzenia kopii zapasowej współpracujące z obszaru roboczego uaktualniony.
+Rozwiązanie tworzenia kopii zapasowej nie może zbierać dane, jeśli została zainstalowana przed uaktualnieniem obszaru roboczego. Odinstaluj rozwiązania, a następnie zainstaluj najnowszą wersję.  Nowa wersja rozwiązania nie obsługuje klasyczny magazyny kopii zapasowych, dlatego też należy uaktualnić do wersji Magazyny usług odzyskiwania, aby nadal używać rozwiązania.
 
 ## <a name="upgrade-process"></a>Proces uaktualniania
 
@@ -182,9 +165,6 @@ Przed ogólnie można przywrócić obszaru roboczego po uaktualnieniu.  Teraz, g
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pytanie: Jak utworzyć nowy widok z projektanta widoków?
 Przed uaktualnieniem można utworzyć nowy widok z projektanta widoków z kafelka na głównym pulpicie nawigacyjnym.  Po uaktualnieniu obszaru roboczego tego kafelka zostaną usunięte.  Można utworzyć nowy widok z projektanta widoków w portalu OMS, klikając przycisk w lewym menu + zielony.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Znany problem: Zobacz wszystkich opcji w przypadku wykresów liniowych w widokach nie powoduje wykres liniowy
-Po kliknięciu *zobaczyć wszystkie* opcji w dolnej części wykresu wiersza w widoku jest wyświetlana z tabelą.  Przed uaktualnieniem będą przedstawiane z wykres liniowy.  Ten problem jest analizowana potencjalnych modyfikacji.
 
 
 ## <a name="next-steps"></a>Następne kroki

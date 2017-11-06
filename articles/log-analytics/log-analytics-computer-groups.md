@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Zaloguj się wyszukiwanie grup komputerów w analizy dzienników
 
@@ -109,13 +109,29 @@ Kliknij przycisk **x** w **Usuń** kolumna usunąć grupę komputerów.  Kliknij
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>W wyszukiwaniu dziennika przy użyciu grupy komputerów
-Możesz użyć grupy komputerów w zapytaniu traktując jej aliasem jako funkcja, zwykle przy użyciu następującej składni:
+Możesz użyć grupy komputerów utworzone na podstawie wyszukiwania dziennika w zapytaniu traktując jej aliasem jako funkcja, zwykle przy użyciu następującej składni:
 
   `Table | where Computer in (ComputerGroup)`
 
 Na przykład można użyć następujących do zwrócenia UpdateSummary rekordów tylko komputery należące do grupy komputerów o nazwie mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Zaimportowany komputer grup i komputerów uwzględnione są przechowywane w **Grupa_komputerów** tabeli.  Na przykład poniższe zapytanie zwróci listę komputerów w grupie komputerów w domenie z usługi Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+Następujące zapytanie zwróci UpdateSummary rekordów tylko komputery w domenie komputerach.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Jeśli nadal używa obszaru roboczego [języka zapytań starszej wersji analizy dzienników](log-analytics-log-search-upgrade.md)>, a następnie użyj następującej składni w odwołaniu do grupy komputerów w wyszukiwaniu dziennika.  Określanie **kategorii** > jest opcjonalny i tylko wymagane, jeśli masz grupy komputerów o takiej samej nazwie w różnych kategoriach. 

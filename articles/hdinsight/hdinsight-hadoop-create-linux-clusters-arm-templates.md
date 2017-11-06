@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25a45a380db06808db352fa26b88235d6e4b8fd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Tworzenie klastrów Hadoop w usłudze HDInsight przy użyciu szablonów usługi Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,6 @@ Postępuj zgodnie z instrukcjami w tym artykule, będą potrzebne:
 
 * [Subskrypcji platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Program Azure PowerShell i/lub Azure CLI.
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 Szablon usługi Resource Manager ułatwia tworzenie następujących aplikacji w jednej, skoordynowanej operacji:
@@ -58,8 +56,7 @@ Za pomocą portalu Azure, można skonfigurować właściwości klastra, a nastę
 **Aby wygenerować szablonu przy użyciu portalu Azure**
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij przycisk **nowy** w menu po lewej stronie kliknij **analizy i analiza**, a następnie kliknij przycisk **HDInsight**.
-3. Postępuj zgodnie z instrukcjami, aby wprowadzić właściwości. Możesz użyć dowolnej **szybkie tworzenie** lub **niestandardowy** opcji.
+2. Kliknij przycisk **Utwórz zasób** w menu po lewej stronie kliknij **dane i analiza**, a następnie kliknij przycisk **HDInsight**.
 4. Na **Podsumowanie** , kliknij pozycję **Pobierz szablon i parametry**:
 
     ![Pobieranie szablonu usługi Resource Manager klastra tworzenia HDInsight Hadoop](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -169,6 +166,7 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule uzyskanych kilka sposobów tworzenia klastra usługi HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
+* Dla usługi HDInsight więcej powiązanych szablony, zobacz [szablonów Szybki Start Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Na przykład wdrażania zasobów za pomocą biblioteki klienta .NET, zobacz [wdrażanie zasobów przy użyciu bibliotek .NET oraz szablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Szczegółowy przykład wdrażania aplikacji, zobacz [udostępniania i wdrażanie mikrousług przewidywalnego na platformie Azure](../app-service/app-service-deploy-complex-application-predictably.md).
 * Aby uzyskać wskazówki dotyczące wdrażania rozwiązania w różnych środowiskach, zobacz [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md) (Środowiska projektowe i testowe na platformie Microsoft Azure).
@@ -176,7 +174,7 @@ W tym artykule uzyskanych kilka sposobów tworzenia klastra usługi HDInsight. A
 * Aby uzyskać listę funkcji, można użyć w szablonie usługi Azure Resource Manager, zobacz [szablonu funkcji](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>Dodatek: Szablonu usługi Resource Manager do tworzenia klastra usługi Hadoop
-Następujący szablon usługi Azure Resource Manager tworzy klaster opartą na systemie Linux platformą Hadoop przy użyciu konta magazynu Azure zależnego.
+Następujący szablon usługi Azure Resource Manager tworzy klastra usługi Hadoop przy użyciu konta magazynu Azure zależnego.
 
 > [!NOTE]
 > Ten przykład zawiera informacje o konfiguracji na potrzeby magazynu metadanych Hive i potrzeby magazynu metadanych Oozie. Usuń sekcję lub skonfiguruj sekcji przed rozpoczęciem korzystania z szablonu.
@@ -289,7 +287,7 @@ Następujący szablon usługi Azure Resource Manager tworzy klaster opartą na s
 
         },
         "properties": {
-            "clusterVersion": "3.4",
+            "clusterVersion": "3.6",
             "osType": "Linux",
             "tier": "standard",
             "clusterDefinition": {
@@ -420,7 +418,7 @@ Jeśli ustawisz wszystkie jeden parametr w sekcji jako część samego szablonu 
         },
         "clusterVersion": {
             "type": "string",
-            "defaultValue": "3.5",
+            "defaultValue": "3.6",
             "metadata": {
                 "description": "HDInsight cluster version."
             }

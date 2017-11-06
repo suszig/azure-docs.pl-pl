@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 19f94f009aac53baca31dcb6973a8aff3f4f5ab9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrowanie ruchu sieciowego z grup zabezpieczeń sieci i aplikacji (wersja zapoznawcza)
 
@@ -53,7 +53,9 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Nie wykonuj pozostałych kroków do *zarejestrowanej* występuje **stanu** w danych wyjściowych zwrócone przez poprzednie polecenie. Jeśli będziesz kontynuować, zanim zostanie zarejestrowany, nie pozostałe kroki.
+    > [!WARNING]
+    > Rejestracja może potrwać do godziny do wykonania. Nie wykonuj pozostałych kroków do *zarejestrowanej* występuje **stanu** w danych wyjściowych zwrócone przez poprzednie polecenie. Jeśli będziesz kontynuować, zanim zostanie zarejestrowany, nie pozostałe kroki.
+
 6. Uruchom poniższy skrypt bash, aby utworzyć grupę zasobów:
 
     ```azurecli-interactive
@@ -161,7 +163,6 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -170,7 +171,6 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -179,12 +179,11 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 9 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myWebNic*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myWebNic*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
+    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 9 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myNic1*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myNic1*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
 
 13. Tworzenie maszyn wirtualnych dla każdego typu serwera, dołączanie odpowiedniego interfejsu sieciowego do każdej maszyny wirtualnej. W tym przykładzie tworzy maszyny wirtualne systemu Windows, ale można zmienić *win2016datacenter* do *UbuntuLTS* zamiast tego utworzyć maszyn wirtualnych systemu Linux.
 
@@ -240,7 +239,8 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Nie wykonuj pozostałych kroków do *zarejestrowanej* pojawia się w **RegistrationState** kolumny dane wyjściowe zwrócone przez poprzednie polecenie. Jeśli będziesz kontynuować, zanim zostanie zarejestrowany, nie pozostałe kroki.
+    > [!WARNING]
+    > Rejestracja może potrwać do godziny do wykonania. Nie wykonuj pozostałych kroków do *zarejestrowanej* występuje **RegistrationState** w danych wyjściowych zwrócone przez poprzednie polecenie. Jeśli będziesz kontynuować, zanim zostanie zarejestrowany, nie pozostałe kroki.
         
 6. Utwórz grupę zasobów:
 
@@ -344,7 +344,6 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -352,7 +351,6 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -360,11 +358,10 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 8 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myWebNic*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myWebNic*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
+    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 8 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myNic1*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myNic1*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
 
 13. Tworzenie maszyn wirtualnych dla każdego typu serwera, dołączanie odpowiedniego interfejsu sieciowego do każdej maszyny wirtualnej. W tym przykładzie tworzy maszyny wirtualne systemu Windows, ale przed wykonaniem skryptu, można zmienić *-Windows* do *- Linux*, *MicrosoftWindowsServer* do *Canonical*, *Windows Server* do *UbuntuServer* i *2016 Datacenter* do *14.04.2-LTS*zamiast tego utworzyć maszyn wirtualnych systemu Linux.
 

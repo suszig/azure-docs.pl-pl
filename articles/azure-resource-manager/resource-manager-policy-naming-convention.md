@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 955b04517c3ccdbe530eb982e6aa1255b69e1edd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Zastosuj zasady zasobów dla nazwy i tekst
-W tym temacie przedstawiono kilka [zasad zasobów](resource-manager-policy.md) można zastosować do ustalenia konwencje nazewnictwa i tekst. Te zasady zapewnienia spójności dla nazwy zasobów i wartości tagów. 
+W tym artykule przedstawiono kilka [zasad zasobów](resource-manager-policy.md) można zastosować do ustalenia konwencje nazewnictwa i tekst. Te zasady zapewnienia spójności dla nazwy zasobów i wartości tagów. 
 
 ## <a name="set-naming-convention-with-wildcard"></a>Ustaw konwencję nazewnictwa z symbolem wieloznacznym
 W poniższym przykładzie przedstawiono użycie symbolu wieloznacznego, który jest obsługiwany przez **jak** warunku. Warunek stwierdza, że jeśli nazwa jest zgodna z wzorcem opisane powyżej (namePrefix\*nameSuffix) odrzuciła żądanie, następnie:
@@ -71,6 +71,34 @@ Aby wymagać wzorzec Data użyj dwie cyfry, kreski trzech liter, kreska i cztery
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="set-multiple-naming-patterns"></a>Ustawianie wielu wzorców nazewnictwa
+
+Aby określić więcej niż jedną konwencję nazewnictwa dozwolone, użyj **wszystkie** i **nie** operatorów. W poniższym przykładzie podana nazwa jest niezgodna z albo wzorzec odmowie.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso??????"
+                }
+            },
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso-???-##"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

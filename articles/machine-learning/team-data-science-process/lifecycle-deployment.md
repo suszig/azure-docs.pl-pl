@@ -1,6 +1,6 @@
 ---
-title: "Etap wdrażania zespołu danych nauki procesu cyklu - Azure | Dokumentacja firmy Microsoft"
-description: "Cele, zadań i elementów dostarczanych w etapie wdrażania projektów analizy danych."
+title: "Wdrożenia etapie cyklu życia procesu nauki danych zespołu - Azure | Dokumentacja firmy Microsoft"
+description: "Cele, zadań i elementów dostarczanych w etapie wdrażania projektów analizy danych"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,54 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.openlocfilehash: b49b3ab696c22928c5f5a4566e059345fd810588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c498e51316ba0f1dacb876479c2941e26c22a328
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deployment"></a>Wdrożenie
 
-W tym temacie przedstawiono cele, zadań, oraz materiałów związanych z **wdrożenia** procesu nauki danych zespołu. Ten proces obejmuje zalecane cykl służy do struktury projektów analizy danych. Cykl życia przedstawiono główne etapy, które projekty zazwyczaj wykonywane, często wielokrotnie powtarzane:
+W tym artykule omówiono cele, zadań i elementów dostarczanych skojarzone z wdrożeniem zespołu danych nauki procesu (TDSP). Ten proces obejmuje zalecane cykl służy do struktury projektów analizy danych. Cykl życia przedstawiono główne etapy, które projekty zazwyczaj wykonywane, często wielokrotnie powtarzane:
 
-* **Opis biznesowa**
-* **Uzyskiwanie danych i zrozumienie**
-* **Modelowanie**
-* **Wdrożenie**
-* **Akceptacji klienta**
+   1. **Opis biznesowa**
+   2. **Uzyskiwanie danych i zrozumienie**
+   3. **Modelowanie**
+   4. **Wdrożenie**
+   5. **Akceptacji klienta**
 
-W tym miejscu jest wizualną reprezentacją **cyklu życia procesu nauki danych zespołu**. 
+W tym miejscu jest wizualną reprezentacją życia TDSP: 
 
-![TDSP Lifecycle2](./media/lifecycle/tdsp-lifecycle2.png) 
+![Cykl życia TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Cel
-* Modele z potokiem danych są wdrażane na środowisko produkcyjne lub środowiska przypominającej środowisko produkcyjne dla użytkowników końcowych. 
+Wdrażanie modeli z potokiem danych produkcyjnych lub środowiska przypominającej środowisko produkcyjne dla użytkowników końcowych. 
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
 Zadania główne zostały omówione w tym etapie:
 
-* **Operacjonalizuj modelu**: wdrażania modelu i potoku na środowisko produkcyjne lub środowiska przypominającej środowisko produkcyjne korzystania z aplikacji.
+**Operacjonalizuj modelu**: wdrażania modelu i potoku na środowisko produkcyjne lub środowiska przypominającej środowisko produkcyjne korzystania z aplikacji.
 
-### <a name="41-operationalize-a-model"></a>4.1 operacjonalizacji modelu
-Po utworzeniu zestaw modeli, które również wykonywać, może być operationalized dla innych aplikacji do pracy z. W zależności od wymagań biznesowych prognoz są wykonywane w czasie rzeczywistym lub na podstawie partii. Modele są wdrażane przez udostępnianie ich z interfejsem API otwarty. Interfejs umożliwia modelu, który ma być łatwo używane z różnych aplikacji, takich jak witryny sieci Web w trybie online, arkusze kalkulacyjne, pulpity nawigacyjne lub aplikacje biznesowe i wewnętrznej bazy danych. Przykłady operationalization modelu z usługą sieci web uczenie maszynowe Azure można znaleźć [wdrażanie usługi sieci web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md). On również najlepszym rozwiązaniem jest tworzenie telemetrii i monitorowania w modelu produkcji i potoku danych, które są wdrożone. Takie rozwiązanie pomaga w kolejnych systemu stanu raportowania i rozwiązywania problemów.  
+### <a name="operationalize-a-model"></a>Operacjonalizuj modelu
+Po utworzeniu zestaw modeli, które również wykonywać, aby operacjonalizować je dla innych aplikacji do pracy. W zależności od wymagań biznesowych prognoz są wykonywane w czasie rzeczywistym lub na podstawie partii. Aby wdrożyć modeli, naraża je z interfejsem API otwarty. Interfejs umożliwia modelu można łatwo korzystać z różnych aplikacji, takich jak:
+
+   * Witryny sieci Web w trybie online
+   * Arkusze kalkulacyjne 
+   * Pulpity nawigacyjne
+   * -Aplikacji biznesowych 
+   * Aplikacji zaplecza 
+
+Przykłady operationalization modelu z usługą sieci web uczenie maszynowe Azure można znaleźć [wdrażanie usługi sieci web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md). Jest najlepszym rozwiązaniem jest tworzenie telemetrii i monitorowania w modelu produkcji i potoku danych, które można wdrożyć. Takie rozwiązanie pomaga w kolejnych systemu stanu raportowania i rozwiązywania problemów.  
 
 ## <a name="artifacts"></a>Artefakty
-* Pulpit nawigacyjny stanu z systemu metryki kondycji i klucza.
-* Raport końcowy modelowania z szczegóły wdrożenia.
-* Dokument architektury rozwiązania final.
+
+* Pulpit nawigacyjny stan, który przedstawia metryki kondycji i klucz systemu
+* Raport końcowy modelowania o szczegóły wdrożenia
+* Architektura dokument ostateczne rozwiązanie
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto łącza do każdego kroku w cyklu życia procesu nauki danych zespołu:
+Oto łącza do każdego kroku w cyklu TDSP:
 
-* [1. Opis biznesowa](lifecycle-business-understanding.md)
-* [2. Uzyskiwanie danych i zrozumienie](lifecycle-data.md)
-* [3. Modelowanie](lifecycle-modeling.md)
-* [4. Wdrożenia](lifecycle-deployment.md)
-* [5. Akceptacji klienta](lifecycle-acceptance.md)
+   1. [Opis biznesowa](lifecycle-business-understanding.md)
+   2. [Uzyskiwanie danych i zrozumienie](lifecycle-data.md)
+   3. [Modelowanie](lifecycle-modeling.md)
+   4. [Wdrożenie](lifecycle-deployment.md)
+   5. [Akceptacji klienta](lifecycle-acceptance.md)
 
-Pełne end-to-end wskazówki, które pokazują wszystkie kroki procesu **określonych scenariuszy** podawane są również. Wymieniono i połączone z opisami miniatur w [wskazówki przykład](walkthroughs.md) tematu. Pokazują one sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
+Firma Microsoft udostępnia pełnej end-to-end wskazówki, które pokazują wszystkie kroki w procesie w określonych scenariuszach. [Wskazówki przykład](walkthroughs.md) artykuł zawiera listę scenariuszy łącza i opisy miniatur. Wskazówki dotyczące ilustrują sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
 
-Przykłady wykonywania czynności w procesie nauki zespołu danych korzystających z usługi Azure Machine Learning Studio można znaleźć [z ML Azure](http://aka.ms/datascienceprocess) ścieżkę szkoleniową.
+Przykłady tego, jak wykonać kroki opisane w TDSPs, które używają usługi Azure Machine Learning Studio, zobacz [TDSP za pomocą usługi Azure Machine Learning](http://aka.ms/datascienceprocess).

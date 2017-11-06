@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
-Wykonywanie kopii zapasowej i przywracania w [usłudze Azure App Service](app-service-web-overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji, ręcznie lub zgodnie z harmonogramem. Zastępowanie istniejących aplikacji lub przywracania do innej aplikacji, można przywrócić aplikację do migawki poprzedniego stanu. 
+Funkcja Kopia zapasowa i przywracanie w [usłudze Azure App Service](app-service-web-overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji, ręcznie lub zgodnie z harmonogramem. Zastępowanie istniejących aplikacji lub przywracania do innej aplikacji, można przywrócić aplikację do migawki poprzedniego stanu. 
 
 Aby uzyskać informacje na przywracanie z kopii zapasowej aplikacji, zobacz [Przywracanie aplikacji na platformie Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Kopiami zapasowymi
-Usługi aplikacji może wykonywać kopie zapasowe następujące informacje, aby konto magazynu Azure i kontener, który skonfigurowano do używania aplikacji. 
+Usługi aplikacji — kopię zapasową można wykonać poniższe informacje konto magazynu Azure i kontener, który skonfigurowano do używania aplikacji. 
 
 * Konfiguracja aplikacji
 * Zawartość pliku
@@ -49,43 +49,43 @@ Obsługiwane są następujące rozwiązania bazy danych przy użyciu funkcji two
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Wymagania i ograniczenia
-* Wykonywanie kopii zapasowych i przywracania funkcja wymaga planu usługi aplikacji w **standardowe** warstwy lub **Premium** warstwy. Aby uzyskać więcej informacji na temat skalowania swój plan usługi aplikacji, aby użyć wyższego poziomu, zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md).  
+* Funkcja tworzenia kopii zapasowej i przywracania wymaga planu usługi aplikacji w **standardowe** warstwy lub **Premium** warstwy. Aby uzyskać więcej informacji na temat skalowania swój plan usługi aplikacji, aby użyć wyższego poziomu, zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md).  
   **Premium** warstwy umożliwia większej liczbie codziennie kopii ups niż **standardowe** warstwy.
-* Wymagane konto magazynu Azure i kontener w tej samej subskrypcji co aplikację, którą chcesz utworzyć kopię zapasową. Aby uzyskać więcej informacji o kontach magazynu Azure, zobacz [łącza](#moreaboutstorage) na końcu tego artykułu.
+* Wymagane jest konto magazynu Azure i kontener w tej samej subskrypcji co aplikację, którą chcesz utworzyć kopię zapasową. Aby uzyskać więcej informacji o kontach magazynu Azure, zobacz [łącza](#moreaboutstorage) na końcu tego artykułu.
 * Kopie zapasowe mogą być zawartości aplikacji i bazy danych do 10 GB. Jeśli rozmiar kopii zapasowej przekracza ten limit, wystąpi błąd.
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
-1. W [Azure Portal](https://portal.azure.com), przejdź do bloku aplikacji, wybierz **kopii zapasowych**. **Kopii zapasowych** zostanie wyświetlony blok.
+1. W [portalu Azure](https://portal.azure.com), przejdź do strony aplikacji, wybierz **kopii zapasowych**. **Kopii zapasowych** zostanie wyświetlona strona.
    
     ![Strona kopii zapasowych][ChooseBackupsPage]
    
    > [!NOTE]
    > Jeśli zostanie wyświetlony następujący komunikat, kliknij go, aby uaktualnić swój plan usługi aplikacji, aby móc kontynuować wykonywanie kopii zapasowych.
-   > Zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md) Aby uzyskać więcej informacji.  
+   > Aby uzyskać więcej informacji, zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md).  
    > ![Wybierz konto magazynu](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. W **kopii zapasowej** bloku, kliknij przycisk **Konfiguruj**
+2. W **kopii zapasowej** strony, kliknij przycisk **Konfiguruj**
 ![kliknij przycisk Konfiguruj.](./media/web-sites-backup/ClickConfigure1.png)
-3. W **konfiguracji kopii zapasowej** bloku, kliknij przycisk **magazynu: nieskonfigurowane** konfigurowania konta magazynu.
+3. W **konfiguracji kopii zapasowej** kliknij przycisk **magazynu: nieskonfigurowane** konfigurowania konta magazynu.
    
     ![Wybierz konto magazynu][ChooseStorageAccount]
-4. Wybierz miejsce docelowe kopii zapasowej, wybierając **konta magazynu** i **kontenera**. Konto magazynu muszą należeć do tej samej subskrypcji co aplikacja, którą chcesz utworzyć kopię zapasową. Jeśli chcesz, można utworzyć nowe konto magazynu lub nowy kontener w odpowiednich bloków. Gdy wszystko będzie gotowe, kliknij przycisk **wybierz**.
+4. Wybierz miejsce docelowe kopii zapasowej, wybierając **konta magazynu** i **kontenera**. Konto magazynu muszą należeć do tej samej subskrypcji co aplikacja, którą chcesz utworzyć kopię zapasową. Jeśli chcesz, można utworzyć nowe konto magazynu lub nowy kontener w odpowiednich stron. Gdy wszystko będzie gotowe, kliknij przycisk **wybierz**.
    
     ![Wybierz konto magazynu](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. W **konfiguracji kopii zapasowej** bloku, który nadal pozostanie otwarty, możesz skonfigurować **instrukcji Backup Database**, następnie wybierz bazy danych mają być uwzględnione w kopii zapasowych (baza danych SQL lub MySQL), a następnie kliknij przycisk **OK**.  
+5. W **konfiguracji kopii zapasowej** strony, którą nadal pozostanie otwarty, możesz skonfigurować **instrukcji Backup Database**, wybierz bazy danych mają zostać uwzględnione w kopii zapasowych (baza danych SQL lub MySQL), a następnie kliknij przycisk **OK**.  
    
     ![Wybierz konto magazynu](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Aby baza danych ma na liście, parametrach połączenia musi istnieć w **parametry połączenia** sekcji **ustawienia aplikacji** bloku aplikacji.
+   > Aby baza danych ma na liście, parametrach połączenia musi istnieć w **parametry połączenia** sekcji **ustawienia aplikacji** strony dla aplikacji.
    > 
    > 
-6. W **konfiguracji kopii zapasowej** bloku, kliknij przycisk **zapisać**.    
-7. W **kopii zapasowych** bloku, kliknij przycisk **kopii zapasowej**.
+6. W **konfiguracji kopii zapasowej** kliknij przycisk **zapisać**.    
+7. W **kopii zapasowych** kliknij przycisk **kopii zapasowej**.
    
     ![Przycisk BackUpNow][BackUpNow]
    
@@ -96,7 +96,7 @@ Po skonfigurowaniu konta magazynu i kontener w dowolnym momencie można zainicjo
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Skonfiguruj automatyczne kopie zapasowe
-1. W **konfiguracji kopii zapasowej** ustawić bloku **zaplanowanej kopii zapasowej** do **na**. 
+1. W **konfiguracji kopii zapasowej** ustaw **zaplanowanej kopii zapasowej** do **na**. 
    
     ![Wybierz konto magazynu](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Ustaw harmonogram tworzenia kopii zapasowych zostaną wyświetlone opcje, **zaplanowanych kopii zapasowych** do **na**następnie skonfiguruj harmonogram tworzenia kopii zapasowych zgodnie z potrzebami i kliknij **OK**.
@@ -106,13 +106,13 @@ Po skonfigurowaniu konta magazynu i kontener w dowolnym momencie można zainicjo
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Skonfiguruj częściowych kopii zapasowych
-Czasami nie chcesz kopii zapasowej wszystko w aplikacji. Oto kilka przykładów:
+Czasami nie chcesz utworzyć kopię zapasową wszystko, co w aplikacji. Oto kilka przykładów:
 
 * Możesz [Konfigurowanie cotygodniowe kopie zapasowe](web-sites-backup.md#configure-automated-backups) aplikacji zawierający zawartości statycznej, który nigdy nie zmienia, takich jak stare wpisy na blogu lub obrazów.
 * Aplikacja ma ponad 10 GB zawartości (wartość maksymalna, którą można tworzyć kopie zapasowe w czasie).
 * Nie chcesz utworzyć kopię zapasową plików dziennika.
 
-Umożliwia częściowych kopii zapasowych, możesz wybrać dokładnie plików, których można chcesz utworzyć kopię zapasową.
+Zezwalaj częściowych kopii zapasowych wybiera dokładnie pliki, których chcesz utworzyć kopię zapasową.
 
 ### <a name="exclude-files-from-your-backup"></a>Wyklucz pliki z kopii zapasowej
 Załóżmy, że masz aplikację, która zawiera pliki dziennika i obrazów statycznych, które zostały kopii zapasowej raz i nie będzie można zmienić. W takim przypadku można wykluczyć tych plików i folderów z są przechowywane w kopii zapasowych w przyszłości. Aby wykluczyć pliki i foldery z kopii zapasowych, należy utworzyć `_backup.filter` w pliku `D:\home\site\wwwroot` folderu aplikacji. Określ listę plików i folderów, które chcesz wykluczyć w tym pliku. 
@@ -125,7 +125,7 @@ Określ foldery, które chcesz wykluczyć z kopii zapasowych.  Na przykład chce
 
 ![Folderu Obrazy][ImagesFolder]
 
-Utwórz plik o nazwie `_backup.filter` na liście powyżej należy umieścić w pliku, ale usunięcie `D:\home`. Lista jednego katalogu lub pliku w jednym wierszu. Aby zawartość pliku powinna być:
+Utwórz plik o nazwie `_backup.filter` powyższej listy należy umieścić w pliku, ale usunięcie `D:\home`. Lista jednego katalogu lub pliku w jednym wierszu. Aby zawartość pliku powinna być:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
@@ -146,14 +146,23 @@ Uruchamianie tworzenia kopii zapasowych w taki sam sposób, w zwykły sposób, j
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Jak są przechowywane kopie zapasowe
-Po wybraniu jednego lub więcej kopii zapasowych dla aplikacji, kopie zapasowe są widoczne na **kontenery** blok konta magazynu i aplikacji. Na koncie magazynu każdej kopii zapasowej składa się z`.zip` plik zawierający dane kopii zapasowej i `.xml` pliku, który zawiera manifest z `.zip` pliku zawartości. Można rozpakować i przeglądanie tych plików, aby uzyskać dostęp do kopii zapasowych bez rzeczywistego wykonania przywracania aplikacji.
+Po wybraniu jednego lub więcej kopii zapasowych dla aplikacji, kopie zapasowe są widoczne na **kontenery** konta magazynu i aplikacji. Na koncie magazynu każdej kopii zapasowej składa się z`.zip` plik zawierający dane kopii zapasowej i `.xml` pliku, który zawiera manifest z `.zip` pliku zawartości. Można rozpakować i przeglądanie tych plików, aby uzyskać dostęp do kopii zapasowych bez rzeczywistego wykonania przywracania aplikacji.
 
-Kopia zapasowa bazy danych dla aplikacji są przechowywane w katalogu głównym pliku the.zip. Bazy danych SQL jest plikiem pliku BACPAC (bez rozszerzenia pliku) i można je zaimportować. Aby utworzyć oparte na eksportowanie pliku BACPAC bazy danych SQL, zobacz [Importowanie pliku pliku BACPAC, aby utworzyć nową bazę danych użytkownika](http://technet.microsoft.com/library/hh710052.aspx).
+Kopia zapasowa bazy danych dla aplikacji są przechowywane w katalogu głównym pliku zip. Bazy danych SQL jest plikiem pliku BACPAC (bez rozszerzenia pliku) i można je zaimportować. Aby utworzyć oparte na eksportowanie pliku BACPAC bazy danych SQL, zobacz [Importowanie pliku pliku BACPAC, aby utworzyć nową bazę danych użytkownika](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > Zmienianie plików w sieci **websitebackups** kontener może spowodować stała się nieprawidłowa i w związku z tym nie-umożliwiająca przywrócenie kopii zapasowej.
 > 
 > 
+
+## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
+
+Można zautomatyzować zarządzania kopiami zapasowymi za pomocą skryptów przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).
+
+Aby uzyskać przykłady zobacz:
+
+- [Przykładów dla interfejsu wiersza polecenia platformy Azure](app-service-cli-samples.md)
+- [Przykładów dla platformy Azure PowerShell](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

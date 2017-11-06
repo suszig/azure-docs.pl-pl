@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 03094a37185909855127a92d7dd10ad27e54c3f9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Spark przy użyciu usługi Azure HDInsight
 
 Dowiedz się więcej o Najważniejsze problemy i rozwiązania ich podczas pracy z ładunków Apache Spark w Apache Ambari.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu Ambari w klastrach
+## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu Ambari w klastrach?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -94,7 +94,7 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 [Przesyłanie zadań Spark w klastrach HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu notesu Jupyter w klastrze
+## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu notesu Jupyter w klastrze?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -109,7 +109,7 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 [Przesyłanie zadań Spark w klastrach HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu programu Livy w klastrach
+## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Jak skonfigurować aplikacji Spark przy użyciu programu Livy w klastrach?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -126,7 +126,7 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 [Przesyłanie zadań Spark w klastrach HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Jak skonfigurować Spark, przesłać spark aplikacji przy użyciu w klastrach
+## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Jak skonfigurować Spark, przesłać spark aplikacji przy użyciu w klastrach?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -143,7 +143,7 @@ Te zmiany są całego klastra, ale może zostać zastąpiona po przesłaniu zada
 [Przesyłanie zadań Spark w klastrach HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Dlaczego Spark wyjątek OutofMemoryError aplikacji
+## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Dlaczego Spark wyjątek OutofMemoryError aplikacji?
 
 ### <a name="detailed-description"></a>Szczegółowy opis
 
@@ -226,4 +226,8 @@ Najbardziej prawdopodobną przyczyną tego wyjątku jest, że nie ma wystarczaj�
 
 - [Omówienie zarządzania pamięci Spark](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debugowanie aplikacji Spark w klastrze usługi HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+
+
+### <a name="see-also"></a>Zobacz też
+[Rozwiązywanie problemów przy użyciu usługi Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

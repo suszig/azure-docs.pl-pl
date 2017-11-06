@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 983abcd103a58be63053e466c767015c0835eaba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi sieć szkieletowa Linux do sieci wirtualnej platformy Azure
 W tym samouczku wchodzi w jednej serii. Dowiesz się jak wdrażanie klastra usługi sieć szkieletowa usług systemu Linux w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu wiersza polecenia platformy Azure. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [tworzenie bezpiecznej klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -98,7 +98,15 @@ Można użyć certyfikatu od urzędu certyfikacji (CA), jako certyfikat klastra,
 - można utworzyć na potrzeby wymiany kluczy, które można wyeksportować do pliku wymiany informacji osobistych (pfx).
 - mieć nazwę podmiotu, która pasuje do domeny, który umożliwia dostęp do klastra usługi sieć szkieletowa usług. To dopasowanie jest wymagane jest podanie protokołu SSL dla punktów końcowych HTTPS zarządzania i Service Fabric Explorer klastra. Nie można uzyskać certyfikat od urzędu certyfikacji (CA) dla. cloudapp.azure.com domeny. Należy uzyskać niestandardowej nazwy domeny dla klastra. Podczas żądania certyfikatu z urzędu certyfikacji, nazwa podmiotu certyfikatu musi odpowiadać nazwie domeny niestandardowej, używanego przez klaster.
 
-Wypełnij puste **clusterName**, **adminUserName**, i **adminPassword** parametrów w *linuxcluster.parameters.json* pliku dla danego wdrożenia.  Pozostaw **certificateThumbprint**, **certificateUrlValue**, i **sourceVaultValue** parametry puste, aby utworzyć certyfikat z podpisem własnym.  Jeśli chcesz użyć istniejącego certyfikatu wcześniej przekazany do magazynu kluczy, wypełnij wartości tych parametrów.
+Wypełnij puste parametrów w *linuxcluster.parameters.json* plików dla danego wdrożenia:
+
+|Parametr|Wartość|
+|---|---|
+|adminPassword|Hasła #1234|
+|adminUserName|vmadmin|
+|clusterName|mysfcluster|
+
+Pozostaw **certificateThumbprint**, **certificateUrlValue**, i **sourceVaultValue** parametry puste, aby utworzyć certyfikat z podpisem własnym.  Jeśli chcesz użyć istniejącego certyfikatu wcześniej przekazany do magazynu kluczy, wypełnij wartości tych parametrów.
 
 Poniższy skrypt używa [tworzenia klastra rz az](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) polecenia i szablon do wdrożenia nowego klastra w systemie Azure. Polecenia cmdlet również tworzy nowy magazyn kluczy Azure dodaje nowy certyfikat z podpisem własnym do magazynu kluczy i pobiera lokalnie plik certyfikatu. Można określić za pomocą innych parametrów istniejącego certyfikatu i/lub magazynu kluczy [tworzenia klastra rz az](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) polecenia.
 
@@ -148,9 +156,9 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Połącz się z klastrem przy użyciu interfejsu wiersza polecenia usługi sieci szkieletowej
 > * Usuwanie klastra
 
-Następnie przejdź do samouczka następujące informacje na temat wdrażania interfejsu API zarządzania za pomocą sieci szkieletowej usług.
+Następnie przejdź do następujących samouczkiem, aby dowiedzieć się, jak można skalować klastra.
 > [!div class="nextstepaction"]
-> [Wdrażanie Managment interfejsu API](service-fabric-tutorial-deploy-api-management.md)
+> [Skalowanie klastra](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

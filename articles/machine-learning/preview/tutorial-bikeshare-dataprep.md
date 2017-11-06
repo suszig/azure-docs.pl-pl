@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Samouczek udziału roweru: Przygotowanie danych z usługi Azure Machine Learning Workbench zaawansowane
 Usługi uczenie maszynowe Azure (wersja zapoznawcza) jest nauki zintegrowane, end-to-end danych i zaawansowane metody analizy rozwiązania dla analityków danych professional Przygotowanie danych i tworzenie eksperymentów wdrażanie modeli w skali chmury.
@@ -493,7 +493,7 @@ Wybierz __OK__ Aby zastosować filtr.
 
 ### <a name="remove-columns"></a>Usuwanie kolumn
 
-W danych podróży każdy wiersz reprezentuje zdarzenie podnoszenia roweru. W tym samouczku, wystarczy **starttime** i **rozpocząć stacja** kolumn. Usuń kolumny przez wybierania wielu tymi dwiema kolumnami, kliknij prawym przyciskiem myszy nagłówek kolumny, a następnie wybierz **Zachowaj kolumny**. Inne kolumny zostaną usunięte.
+W danych podróży każdy wiersz reprezentuje zdarzenie podnoszenia roweru. W tym samouczku, wystarczy **starttime** i **start identyfikator stacji** kolumn. Usuń kolumny przez wybierania wielu tymi dwiema kolumnami, kliknij prawym przyciskiem myszy nagłówek kolumny, a następnie wybierz **Zachowaj kolumny**. Inne kolumny zostaną usunięte.
 
 ![Obraz opcji Zachowaj kolumny](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

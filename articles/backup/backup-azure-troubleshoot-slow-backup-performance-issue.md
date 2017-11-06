@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Rozwiązywanie problemów związanych z powolnym tworzeniem kopii zapasowych plików i folderów w usłudze Azure Backup
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, aby ułatwić diagnozowanie przyczynę niską wydajność tworzenia kopii zapasowej plików i folderów podczas korzystania z usługi Kopia zapasowa Azure. Gdy agenta kopii zapasowej Azure umożliwia tworzenie kopii zapasowych plików, proces tworzenia kopii zapasowej może trwać dłużej, niż oczekiwano. To opóźnienie może być spowodowany przez jedną lub więcej z następujących czynności:

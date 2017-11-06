@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Wprowadzenie do elementów Reliable Actors usługi Service Fabric
 Reliable Actors to platforma aplikacji sieci szkieletowej usług na podstawie [aktora wirtualnego](http://research.microsoft.com/en-us/projects/orleans/) wzorca. Niezawodnej interfejs API złośliwych użytkowników zapewnia model programowania jednowątkowe oparty na skalowalność i niezawodność gwarancje udostępniane przez usługi sieć szkieletowa usług.
@@ -143,7 +143,7 @@ Niektóre ważne kwestie do rozważenia:
 Środowisko uruchomieniowe złośliwych użytkowników zapewnia te gwarancje współbieżność w sytuacjach, w którym kontroluje wywołania tych metod. Na przykład zapewnia te gwarancje dla wywołań metod, które są wykonywane w odpowiedzi na żądanie klienta, a także wywołania zwrotne czasomierza i przypomnienia. Jeśli jednak kodu aktora bezpośrednio wywołuje tych metod poza mechanizmów dostarczonym w czasie wykonywania uczestników, następnie środowiska uruchomieniowego nie zawiera żadnej gwarancji współbieżności. Na przykład jeśli metoda jest wywoływana w kontekście niektórych zadań, która nie jest skojarzona z zadaniem zwracane przez metody aktora, następnie środowisko uruchomieniowe nie może zagwarantować współbieżności. Jeśli metoda jest wywoływana z wątku, który tworzy aktora samodzielnie, następnie środowiska uruchomieniowego także nie może zagwarantować współbieżności. W związku z tym, aby wykonać operacje w tle, złośliwych użytkowników należy używać [aktora czasomierze i przypomnieniami aktora](service-fabric-reliable-actors-timers-reminders.md) który przestrzegać współbieżności opartej na ruch.
 
 ## <a name="next-steps"></a>Następne kroki
-* Rozpoczynanie pracy przez utworzenie pierwszej usługi Reliable Actors:
+Rozpoczynanie pracy przez utworzenie pierwszej usługi Reliable Actors:
    * [Wprowadzenie do korzystania z Reliable Actors na platformie .NET](service-fabric-reliable-actors-get-started.md)
    * [Wprowadzenie do korzystania z Reliable Actors na języku Java](service-fabric-reliable-actors-get-started-java.md)
 

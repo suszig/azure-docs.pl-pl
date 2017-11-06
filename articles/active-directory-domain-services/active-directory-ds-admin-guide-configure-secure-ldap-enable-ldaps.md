@@ -4,7 +4,7 @@ description: "Skonfiguruj zabezpieczenia protokołu LDAP (LDAPS) dla domeny zarz
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurowanie bezpiecznego protokołu LDAP (LDAPS) dla domeny zarządzanej usług domenowych Azure AD
 
@@ -48,8 +48,8 @@ Aby włączyć bezpiecznego protokołu LDAP, wykonaj następujące kroki konfigu
     ![Włącz bezpieczny protokół LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Domyślnie bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu jest wyłączona. Przełącz **zapewnia bezpieczny dostęp LDAP w Internecie** do **włączyć**, jeśli to konieczne. 
 
-    > [!TIP]
-    > Włączenie bezpiecznego dostępu LDAP w Internecie, zaleca się skonfigurowanie grupy NSG do blokowania dostępu do zakresów adresów IP wymagana źródła. Zapoznaj się z instrukcjami, aby [blokowania dostępu LDAPS do domeny zarządzanej za pośrednictwem Internetu](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > [!WARNING]
+    > Po włączeniu bezpiecznego dostępu LDAP w Internecie domeny jest podatny na hasła ataków siłowych za pośrednictwem Internetu. Dlatego zaleca się skonfigurowanie grupy NSG do blokowania dostępu do zakresów adresów IP wymagana źródła. Zapoznaj się z instrukcjami, aby [blokowania dostępu LDAPS do domeny zarządzanej za pośrednictwem Internetu](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Kliknij ikonę następujący folder **. Plik PFX o bezpiecznego certyfikatu LDAP**. Określ ścieżkę do pliku PFX z certyfikatu na potrzeby bezpiecznego dostępu LDAP do domeny zarządzanej.
@@ -79,7 +79,7 @@ Przed rozpoczęciem tego zadania upewnij się, zostały wykonane kroki opisane w
 
 Po włączeniu bezpiecznego dostępu LDAP w Internecie dla domeny zarządzanej, musisz zaktualizować DNS tak, aby komputery klienckie można znaleźć tej domeny zarządzanej. Na koniec zadanie 3 zewnętrzny adres IP jest wyświetlany na **właściwości** karcie **IP adres dla LDAPS dostępu zewnętrznego**.
 
-Tak, aby nazwa DNS domeny zarządzanej (na przykład "ldaps.contoso100.com") wskazuje to zewnętrzny adres IP, należy skonfigurować zewnętrznego dostawcy usługi DNS. W tym przykładzie należy utworzyć następujący wpis DNS:
+Tak, aby nazwa DNS domeny zarządzanej (na przykład "ldaps.contoso100.com") wskazuje to zewnętrzny adres IP, należy skonfigurować zewnętrznego dostawcy usługi DNS. Na przykład utworzyć następujący wpis DNS:
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ To wszystko — teraz można przystąpić do nawiązania połączenia domeny zar
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>Zadanie 5 - blokowanie dostępu LDAPS do domeny zarządzanej za pośrednictwem Internetu
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Zadanie 5 blokowania bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu.
 > [!NOTE]
-> **Opcjonalne zadania** — Jeśli nie włączono dostępu LDAPS do domeny zarządzanej za pośrednictwem Internetu, pomiń to zadanie konfiguracji.
+> Jeśli nie włączono dostępu LDAPS do domeny zarządzanej za pośrednictwem Internetu, pomiń to zadanie konfiguracji.
 >
 >
 
@@ -101,13 +101,28 @@ Przed rozpoczęciem tego zadania upewnij się, zostały wykonane kroki opisane w
 
 Udostępnianie domeny zarządzanej LDAPS dostępu przez internet stanowi zagrożenie bezpieczeństwa. Domeny zarządzanej jest dostępny z Internetu na port używany do bezpiecznego protokołu LDAP (to znaczy port 636). W związku z tym można ograniczyć dostęp do domeny zarządzanej, aby określić adresy IP znane. Ze względów bezpieczeństwa należy utworzyć grupę zabezpieczeń sieci (NSG) i powiązać ją z podsieci, w której włączono usługi domenowe Azure AD.
 
-W poniższej tabeli przedstawiono przykład grupy NSG można skonfigurować do blokowania bezpiecznego dostępu LDAP w Internecie. Grupa NSG zawiera zestaw reguł, które zezwolić na przychodzący LDAPS dostęp za pośrednictwem portu TCP 636 tylko z określonego zestawu adresów IP. Domyślna reguła "DenyAll" dotyczy cały ruch przychodzący z Internetu. Reguły NSG umożliwiają LDAPS dostęp przez internet z określonych adresów IP ma wyższy priorytet niż reguły DenyAll NSG.
+W poniższej tabeli przedstawiono przykład grupy NSG można skonfigurować do blokowania bezpiecznego dostępu LDAP w Internecie. Grupa NSG zawiera zestaw reguł, które zapewnia przychodzących bezpieczny dostęp LDAP przez port TCP 636 tylko z określonego zestawu adresów IP. Domyślna reguła "DenyAll" dotyczy cały ruch przychodzący z Internetu. Reguły NSG umożliwiają LDAPS dostęp przez internet z określonych adresów IP ma wyższy priorytet niż reguły DenyAll NSG.
 
 ![Przykład grupy NSG bezpieczny dostęp do LDAPS w Internecie](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Więcej informacji** - [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+Jeśli masz problemy z połączeniem do domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP, wykonaj następujące kroki:
+* Upewnij się, że łańcucha wystawcy certyfikatu bezpiecznego LDAP jest zaufany na kliencie. Możesz dodać główny urząd certyfikacji do magazynu zaufanych certyfikatów głównych na kliencie, aby ustanowić relację zaufania.
+* Upewnij się, że bezpiecznego certyfikatu LDAP nie jest wystawiany przez urząd certyfikacji pośredniego, który nie jest zaufany domyślnie na maszynę z systemem windows świeże.
+* Sprawdź, czy klient LDAP (na przykład ldp.exe) nawiąże połączenie z bezpiecznego punktu końcowego protokołu LDAP, za pomocą nazwy DNS, a nie adres IP.
+* Sprawdź nazwę DNS, który klient LDAP łączy się jest rozpoznawana jako publiczny adres IP z bezpiecznego protokołu LDAP do domeny zarządzanej.
+* Sprawdź, czy bezpiecznego certyfikatu LDAP do domeny zarządzanej ma nazwę DNS w podmiot lub atrybut nazwy alternatywnej podmiotu.
+
+Jeśli masz problemy z połączeniem do domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP, [skontaktuj się z zespołem produktu](active-directory-ds-contact-us.md) Aby uzyskać pomoc. Należy uwzględnić następujące informacje, aby pomóc w zdiagnozowaniu problemu lepiej:
+* Zrzut ekranu Ldp.exe połączenia i niepowodzenia.
+* Identyfikator dzierżawy usługi Azure AD i nazwę domeny DNS domeny zarządzanej.
+* Nazwa użytkownika dokładne, które próbujesz powiązać jako.
+
 
 ## <a name="related-content"></a>Zawartość pokrewna
 * [Usługi domenowe AD Azure - Przewodnik wprowadzający](active-directory-ds-getting-started.md)

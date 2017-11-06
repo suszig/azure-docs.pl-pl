@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: f661aa5eb6ba87671a83b41aa25621da405aa335
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z bazy danych HBase przy użyciu usługi Azure HDInsight
 
 Dowiedz się więcej o Najważniejsze problemy i rozwiązania ich podczas pracy z bazy danych Apache HBase ładunków w Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Jak uruchomić raporty polecenie hbck z wielu regionach nieprzypisane
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Jak uruchomić raporty polecenie hbck z wielu regionach nieprzypisane?
 
 Typowe komunikat o błędzie, że można napotkać podczas uruchamiania `hbase hbck` polecenie jest "wiele regionów trwa nieprzypisane lub luk w łańcuchu regiony."
 
@@ -41,7 +41,7 @@ Aby przywrócić regionów nieprzypisane do normalnego stanu, wykonaj następuj�
 6. Uruchom `hbase hbck` polecenia ponownie (bez żadnych opcji). Sprawdź dane wyjściowe tego polecenia, aby upewnić się, że wszystkie regiony są przypisane.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Jak rozwiązać problemy z limitu czasu, korzystając z polecenia hbck przypisania region
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Jak rozwiązać problemy z limitu czasu, korzystając z polecenia hbck przypisania region?
 
 ### <a name="issue"></a>Problem
 
@@ -56,7 +56,7 @@ Potencjalną przyczyną problemów limitu czasu, gdy używasz `hbck` polecenie m
 5. W Interfejsie użytkownika narzędzia Ambari Uruchom ponownie usługę Active głównego HBase.
 6. Uruchom `hbase hbck -fixAssignments` polecenie ponownie.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Jak I Wymuś. Wyłącz tryb awaryjny systemu plików HDFS w klastrze
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Jak I Wymuś. Wyłącz tryb awaryjny systemu plików HDFS w klastrze?
 
 ### <a name="issue"></a>Problem
 
@@ -211,7 +211,7 @@ Klaster usługi HDInsight był skalowany w dół do bardzo kilku węzłów. Licz
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Jak rozwiązać łączności JDBC lub SQLLine problemy z Apache Phoenix
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Jak rozwiązać łączności JDBC lub SQLLine problemy z Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -262,7 +262,7 @@ Może upłynąć do pięciu minut, zanim usługa głównego HBase ustabilizowani
 Gdy SYSTEM. Tabela katalogu jest na normalne, problem dotyczący łączności do Phoenix powinien zostać automatycznie rozwiązane.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Co powoduje, że serwer główny uruchomienie
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>Co powoduje, że serwer główny uruchomienie?
 
 ### <a name="error"></a>Błąd 
 
@@ -344,7 +344,7 @@ Jest to znany problem z usługą HMaster. Zadania uruchamiania ogólne klastra m
 2. Ponownie uruchom wymagane usługi (HMaster i prawdopodobnie innych usług HBase).  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Na serwerze regionu co powoduje błąd ponownego uruchomienia
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Na serwerze, na region, co powoduje niepowodzenie ponownego uruchomienia?
 
 ### <a name="issue"></a>Problem
 
@@ -421,3 +421,5 @@ Z powodu niespodziewane wyłączanie portu skojarzonych z procesem może nie zos
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### <a name="see-also"></a>Zobacz też
+[Rozwiązywanie problemów przy użyciu usługi Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

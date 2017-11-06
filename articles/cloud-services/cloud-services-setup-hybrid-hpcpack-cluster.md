@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Skonfiguruj hybrydowych wysokiej wydajności obliczeniowej klastra (HPC) z pakietu Microsoft HPC Pack i węzłów obliczeń platformy Azure na żądanie
 Umożliwia Microsoft HPC Pack 2012 R2 i Azure skonfigurować małe, hybrydowego wysokiej wydajności obliczeniowej klastra (HPC). Klastra wyświetlane w tym artykule składa się z węzłem głównym HPC Pack lokalnymi i niektóre wyliczenia węzłów wdrażanie na żądanie w systemie Azure usługa w chmurze. Następnie można uruchomić zadania obliczeń w klastrze hybrydowego.
@@ -87,7 +87,9 @@ HPC Pack instaluje certyfikat z podpisem własnym na węzła głównego o nazwie
 
 2. Kliknij przycisk **subskrypcje** > *your_subscription_name*.
 
-3. Kliknij przycisk **certyfikaty zarządzania** > **przekazać**.4. Przeglądaj w węźle głównym dla pliku 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack. Następnie kliknij przycisk **przekazać**.
+3. Kliknij przycisk **certyfikaty zarządzania** > **przekazać**.
+
+4. Przeglądaj w węźle głównym dla pliku 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack. Następnie kliknij przycisk **przekazać**.
 
    
 **Domyślne HPC Azure Management** certyfikatu zostanie wyświetlony na liście certyfikatów zarządzania.

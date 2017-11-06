@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego z serwerem Proxy aplikacji usługi Azure AD
 
@@ -49,9 +49,6 @@ We wdrożeniu usług pulpitu zdalnego roli usług pulpitu zdalnego w sieci Web i
 - Ma już [wdrożone RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), i [włączono serwer Proxy aplikacji](active-directory-application-proxy-enable.md).
 
 - W tym scenariuszu przyjęto go użytkownikom końcowym za pomocą programu Internet Explorer na pulpitach systemu Windows 7 lub Windows 10, które łączenie się za pośrednictwem strony sieci Web usług pulpitu zdalnego. Jeśli potrzebujesz do obsługi innych systemów operacyjnych, zobacz [obsługę innych konfiguracji klienta](#support-for-other-client-configurations).
-
-  >[!NOTE]
-  >Aktualizacja systemu Windows 10 twórca nie jest obecnie obsługiwane.
 
 - W programie Internet Explorer należy włączyć dodatek ActiveX usług pulpitu zdalnego.
 

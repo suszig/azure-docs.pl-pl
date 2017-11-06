@@ -1,6 +1,6 @@
 ---
 title: "Samouczek usługi Azure Service Bus WCF przekazywania | Dokumentacja firmy Microsoft"
-description: "Tworzenie klienta usługi Service Bus, aplikacji i usług przy użyciu przekaźnika usługi WCF."
+description: "Tworzenie aplikacji klienta i usługi przy użyciu przekaźnika usługi WCF."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Samouczek usługi Azure przekaźnika usługi WCF
 
-Ten przewodnik opisuje sposób tworzenia prostego klienta WCF przekazywania aplikacji i usług przy użyciu przekaźnika usługi Azure. Aby podobnego samouczka dotyczącego używa [usługi magistrali komunikatów](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), zobacz [Rozpoczynanie pracy z kolejek usługi Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Ten przewodnik opisuje sposób tworzenia prostego klienta WCF przekazywania aplikacji i usług przy użyciu przekaźnika usługi Azure. Aby podobnego samouczka dotyczącego używa [komunikatów usługi Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), zobacz [Rozpoczynanie pracy z kolejek usługi Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Ten samouczek umożliwia poznanie kroków, które są wymagane do utworzenia aplikacji klienta i usługi WCF przekazywania. Podobnie jak ich odpowiedniki WCF oryginalnej usługa jest strukturą ujawniającą jeden lub więcej punktów końcowych, z których każdy ujawnia co najmniej jedną operację usługi. Punkt końcowy usługi określa adres usługi, powiązanie zawierające informacje umożliwiające klientowi komunikowanie się z usługą i kontrakt definiujący funkcje zapewniane klientom przez usługę. Podstawowa różnica między WCF i przekazywania WCF jest, że punkt końcowy jest widoczna w chmurze zamiast lokalnie na komputerze.
 
@@ -54,7 +54,7 @@ Kontrakt usługi określa, jakie operacje (terminologia usługi sieci web dla me
 
 3. Zainstaluj pakiet NuGet magistrali usług. Ten pakiet automatycznie dodaje odwołania do bibliotek usługi Service Bus, jak również przestrzeń nazw **System.ServiceModel** usługi WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) jest przestrzenią nazw umożliwiającą programowy dostęp do podstawowych funkcji platformy WCF. Usługa Service Bus używa wielu obiektów i atrybutów usługi WCF do definiowania kontraktów usług.
 
-    W Eksploratorze rozwiązań kliknij projekt prawym przyciskiem myszy, a następnie kliknij przycisk **Zarządzaj pakietami NuGet...** . Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Upewnij się, że nazwa projektu jest zaznaczona w polu **Wersje**. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
+    W Eksploratorze rozwiązań kliknij projekt prawym przyciskiem myszy, a następnie kliknij przycisk **Zarządzaj pakietami NuGet...** . Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg **WindowsAzure.ServiceBus**. Upewnij się, że nazwa projektu jest zaznaczona w polu **Wersje**. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     ![][3]
 4. W Eksploratorze rozwiązań kliknij dwukrotnie plik Program.cs, aby otworzyć go w edytorze, jeśli nie został jeszcze otwarty.

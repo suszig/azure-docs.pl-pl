@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Tworzenie frontonu sieci web usługi aplikacji przy użyciu platformy ASP.NET Core
 Domyślnie usługi sieć szkieletowa usług Azure nie udostępniają interfejs publiczny w sieci Web. Udostępniać aplikacji funkcje do klientów protokołu HTTP, należy utworzyć projekt sieci web do działania jako punkt wejścia, a następnie komunikować się z niego do poszczególnych usług.
@@ -210,12 +210,6 @@ Nasza usługa stanowa jest teraz gotowa do odbioru ruchu z innych usług za poś
     ![Wartość licznika stanowe wyświetlany w przeglądarce][browser-aspnet-counter-value]
    
     Odśwież przeglądarkę, okresowo, aby wyświetlić wartość licznika aktualizacji.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel i WebListener
-
-Serwer sieci web platformy ASP.NET Core domyślne, znany jako Kestrel, [nie są obecnie obsługiwane za obsługę ruchu internetowego bezpośredniego](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). W związku z tym używany w szablonie usługi bezstanowej platformy ASP.NET Core dla sieci szkieletowej usług [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) domyślnie. 
-
-Aby dowiedzieć się więcej o Kestrel i WebListener w usługach sieci szkieletowej usług, zapoznaj się [platformy ASP.NET Core w usługach niezawodnej usługi sieć szkieletowa](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Łączenie z usługą niezawodnego aktora
 Ten samouczek koncentruje się na dodanie frontonu sieci web, które komunikowały się z usługi stanowej. Można jednak wykonać model bardzo podobne do komunikowania się złośliwych użytkowników. Podczas tworzenia projektu niezawodnego aktora Visual Studio automatycznie generuje projektu interfejsu. Ten interfejs umożliwia generowanie serwera proxy aktora w projekcie sieci web do komunikowania się z aktora. Kanał komunikacji znajduje się automatycznie. Dlatego nie trzeba wykonywać żadnych czynności jest odpowiednikiem ustanawianie `ServiceRemotingListener` jak dla usługi stanowej w tym samouczku.

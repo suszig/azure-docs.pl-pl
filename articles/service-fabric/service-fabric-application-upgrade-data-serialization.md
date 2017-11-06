@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6aa3ac7842df4657fca7f6b4264e1c6fe52dc0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5a4ff9d70ea2b9c7e3a0337e913ea224b31648c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Jak serializacja danych wpływa na uaktualnienia aplikacji
 W [aplikacji uaktualnienia stopniowego](service-fabric-application-upgrade.md), uaktualnienie ma zostać zastosowane do podzbioru węzłów, domeny uaktualnienia pojedynczo. W trakcie tego procesu są niektórych domen uaktualnienia w nowszej wersji aplikacji i niektóre domen uaktualnienia znajdują się na starszej wersji aplikacji. Podczas wdrożenia nowa wersja aplikacji musi mieć możliwość odczytu starą wersję danych, a starą wersję aplikacji musi mieć możliwość odczytu nowej wersji danych. Jeśli format danych jest niezgodny z przodu i do tyłu, uaktualnienie może się nie powieść lub gorsza, może utraty lub uszkodzenia danych. W tym artykule opisano, co stanowi formatu danych i oferuje najlepsze rozwiązania dotyczące zapewnienie, że dane są do przodu i do tyłu zgodne.

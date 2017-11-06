@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Utwórz przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku platformy Azure
-Pierwszym etapem opis zgodności w usłudze Azure jest znajomość, gdzie autonomiczna z zasobami bieżącej. Ta opcja szybkiego startu przeprowadza użytkownika przez proces tworzenia przypisania zasad, aby zidentyfikować zasobów, które nie korzystają z programu SQL Server w wersji 12.0. Po zakończeniu tego procesu zostanie pomyślnie zidentyfikowano serwery są w innej wersji i w związku z tym *niezgodnych*.
+Pierwszym etapem opis zgodności w usłudze Azure jest znajomość, gdzie autonomiczna z zasobami bieżącej. Ta opcja szybkiego startu przeprowadza użytkownika przez proces tworzenia przypisanie zasad do identyfikacji maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
+
+Po zakończeniu tego procesu zostanie pomyślnie zidentyfikowano maszyn wirtualnych, które nie są używane dyski zarządzanych i dlatego *niezgodnych*.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="opt-in-to-azure-policy"></a>Zgódź się na Azure zasad
 
-Zasady usługi Azure jest teraz dostępna w ograniczony (wersja zapoznawcza), należy zarejestrować, aby zażądać dostępu.
+Zasady usługi Azure jest teraz dostępna w publicznej wersji zapoznawczej i należy zarejestrować, aby zażądać dostępu.
 
 1. Przejdź do zasad Azure https://aka.ms/getpolicy i wybierz **Utwórz konto** w okienku po lewej stronie.
 
@@ -32,11 +34,11 @@ Zasady usługi Azure jest teraz dostępna w ograniczony (wersja zapoznawcza), na
 
    ![Zezwól na przy użyciu zasad usługi Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Może upłynąć kilka dni firmie Microsoft zaakceptować żądanie rejestracji, w zależności od zapotrzebowania. Po zaakceptowaniu żądania pobiera dowiesz się za pośrednictwem poczty e-mail czy można rozpocząć korzystanie z usługi.
+   Żądanie zostało automatycznie zatwierdzone podglądu. Może potrwać do 30 minut, systemu przetwarzania rejestracji.
 
 ## <a name="create-a-policy-assignment"></a>Utwórz przypisanie zasad
 
-W tego przewodnika Szybki Start, możemy utworzyć przypisania zasad i przypisać *wymagają programu SQL Server wersji 12.0* definicji. 
+W tego przewodnika Szybki Start, możemy utworzyć przypisania zasad i przypisać *inspekcji maszyny wirtualne bez dysków zarządzanych* definicji zasad.
 
 1. Wybierz **przypisania** w okienku po lewej stronie Azure zasad.
 2. Wybierz **przypisać zasady** od góry **przypisania** okienka.
@@ -53,11 +55,11 @@ W tego przewodnika Szybki Start, możemy utworzyć przypisania zasad i przypisa�
    - Stosuje tag i jego wartość
    - Wymaga programu SQL Server w wersji 12.0
 
-4. Wyszukiwanie w definicji zasad można znaleźć *wymagają programu SQL Server wersji 12.0* definicji. Kliknięcie tej zasady, a następnie kliknij przycisk **wybierz**.
+4. Wyszukiwanie w definicji zasad można znaleźć *inspekcji maszyn wirtualnych, które nie używają dysków zarządzanych* definicji. Kliknięcie tej zasady, a następnie kliknij przycisk **przypisać**.
 
    ![Definicja prawidłowe zasady](media/assign-policy-definition/select-available-definition.png)
 
-5. Podaj wyświetlenie **nazwa** dla przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
+5. Podaj wyświetlenie **nazwa** dla przypisania zasad. W takim przypadku można użyć *inspekcji maszyn wirtualnych, które nie używają dysków zarządzanych*. Można również dodać opcjonalny **opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad identyfikuje wszystkie maszyny wirtualne utworzone w tym środowisku, które nie korzystają z dysków zarządzanych.
 6. Zmiana warstwy cenowej do **standardowe** aby upewnić się, że zasady stosowany do istniejących zasobów.
 
    Istnieją dwie warstwy cenowej w ramach zasad usługi Azure — *wolne* i *standardowe*. Z warstwę bezpłatna, może tylko wymuszać zasady na przyszłe zasoby, podczas gdy w przypadku Standard, można również wymusić je na istniejących zasobów, aby lepiej zrozumieć swój stan zgodności. Ponieważ firma Microsoft są ograniczone w wersji zapoznawczej, firma Microsoft ma nie zostało jeszcze udostępnione modelu cenowego, więc nie otrzymają rachunek za wybranie *standardowe*. Aby dowiedzieć się więcej o cenach, obejrzyj: [cennik zasadami Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Aby dowiedzieć się więcej o przypisanie zasad w celu zapewnienia, że **przys
 
 > [!div class="nextstepaction"]
 > [Tworzenie i zarządzanie zasadami](./create-manage-policy.md)
-

@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 11/03/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5778d54060c9be1b0c90c34bcf7c8e9bacb414d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Dezaktywuj i usuwanie urządzenia StorSimple 8000 serii za pomocą usługi Menedżer StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Dezaktywuj i usuń urządzenie serii StorSimple 8000 za pośrednictwem usługi Menedżer StorSimple](storsimple-8000-deactivate-and-delete-device.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Możesz wykonać urządzenia StorSimple poza usługi (na przykład, jeśli są zastępowanie lub uaktualnianie urządzenia lub jeśli już używasz StorSimple). Jeśli jest to możliwe, należy dezaktywować urządzenie, aby można było go usunąć. Dezaktywowanie, serwery połączenia między urządzeniem i odpowiedniej usługi Menedżer StorSimple. W tym samouczku opisano sposób usuwania urządzenia StorSimple z usługi dezaktywowanie go, a następnie usuwając go. 
 

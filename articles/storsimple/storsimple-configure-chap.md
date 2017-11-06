@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurowanie protokołu CHAP dla urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Konfigurowanie protokołu CHAP dla urządzenia StorSimple](storsimple-8000-configure-chap.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 W tym samouczku przedstawiono sposób konfigurowania protokołu CHAP dla urządzenia StorSimple. Procedury szczegółowo opisane w tym artykule dotyczą z serii StorSimple 8000, a także urządzenia StorSimple 1200.
 
 Protokół uwierzytelniania typu Challenge Handshake oznacza protokołu CHAP. Jest schemat uwierzytelniania używany przez serwery do weryfikacji tożsamości klientów zdalnych. Weryfikacja jest oparta na wspólne hasło lub klucz tajny. Protokół CHAP, może być jednokierunkowe (jednokierunkowe) lub wzajemne (dwukierunkowe). Jednokierunkowe CHAP jest podczas obiekt docelowy uwierzytelniania inicjatora. Wzajemne lub wstecznego protokołu CHAP, wymaga z drugiej strony, obiekt docelowy uwierzytelniania inicjatora i następnie inicjatora uwierzytelniania obiektu docelowego. Inicjator może być realizowane bez uwierzytelnienia docelowego. Jednak docelowym może być realizowane tylko wtedy, gdy uwierzytelnianie inicjatora również jest zaimplementowana. 
