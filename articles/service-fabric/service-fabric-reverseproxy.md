@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy w sieci szkieletowej usług Azure
 Zwrotny serwer proxy wbudowanych w sieci szkieletowej usług Azure pomaga mikrousług działającego w klastrze usługi sieć szkieletowa odnajdywania i komunikować się z innymi usługami, których punkty końcowe http.
@@ -114,9 +114,7 @@ Bramy następnie będzie przekazywał te żądania na adres URL usługi:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Specjalnej obsługi podczas udostępniania portów usług
-Azure Application Gateway próbuje rozpoznać adres usługi ponownie i ponów żądanie, gdy nie można osiągnąć usługi. Jest główną zaletą bramy aplikacji, ponieważ kod klienta musi implementować własnej rozdzielczości usługi i rozwiąż pętli.
-
-Ogólnie rzecz biorąc gdy nie można połączyć się z usługą, wystąpienie usługi lub replika została przeniesiona do innego węzła w ramach jego normalnej cyklu życia. W takim przypadku bramy aplikacji może zostać wyświetlony błąd połączenia sieciowego wskazujący, że punkt końcowy nie jest już otwarty na pierwotnie rozpoznany adres.
+Zwrotny serwer proxy usługi sieci szkieletowej próbuje rozpoznać adres usługi ponownie i ponów żądanie, gdy nie można osiągnąć usługi. Ogólnie rzecz biorąc gdy nie można połączyć się z usługą, wystąpienie usługi lub replika została przeniesiona do innego węzła w ramach jego normalnej cyklu życia. W takim przypadku zwrotny serwer proxy może zostać wyświetlony błąd połączenia sieciowego wskazujący, że punkt końcowy nie jest już otwarty na pierwotnie rozpoznany adres.
 
 Jednak repliki lub wystąpień usługi można udostępniać procesu hosta i może również udostępniać port obsługiwanych przez serwer sieci web opartych na pliku http.sys w tym:
 
@@ -124,21 +122,21 @@ Jednak repliki lub wystąpień usługi można udostępniać procesu hosta i moż
 * [WebListener platformy ASP.NET Core](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-W takiej sytuacji jest serwer sieci web jest dostępna w proces hosta i odpowiada na żądania, że wystąpienie usługi rozwiązane lub replika nie jest już dostępny na hoście. W takim przypadku brama zostanie wyświetlony komunikat odpowiedzi HTTP 404 z serwera sieci web. W związku z tym HTTP 404 ma dwa różne znaczenie:
+W takiej sytuacji jest serwer sieci web jest dostępna w proces hosta i odpowiada na żądania, że wystąpienie usługi rozwiązane lub replika nie jest już dostępny na hoście. W takim przypadku brama zostanie wyświetlony komunikat odpowiedzi HTTP 404 z serwera sieci web. W związku z tym odpowiedzi HTTP 404 może mieć dwie różne znaczenie:
 
 - W przypadku #1: Adres usługi jest poprawny, ale zasób, który użytkownik zażądał nie istnieje.
 - Przypadek #2: Adres usługi jest nieprawidłowa, i zasobów, które użytkownik zażądał może istnieć na inny węzeł.
 
-Pierwszym przypadku jest normalne 404 protokołu HTTP, która jest uznawana za błąd użytkownika. Jednak w drugim przypadku użytkownik zażądał z zasobem, który istnieje. Brama aplikacji nie może zlokalizować go, ponieważ sama usługa została przeniesiona. Brama aplikacji w musi rozpoznać adresu ponownie i ponów żądanie.
+Pierwszym przypadku jest normalne 404 protokołu HTTP, która jest uznawana za błąd użytkownika. Jednak w drugim przypadku użytkownik zażądał z zasobem, który istnieje. Zwrotny serwer proxy nie może zlokalizować go, ponieważ sama usługa została przeniesiona. Zwrotny serwer proxy musi rozpoznać adresu ponownie i ponów żądanie.
 
-Brama aplikacji w związku z tym musi mieć możliwość rozróżnienia tych przypadków. Aby tej różnicy, wskazówkę z serwera jest wymagany.
+Zwrotny serwer proxy w związku z tym musi mieć możliwość rozróżnienia tych przypadków. Aby tej różnicy, wskazówkę z serwera jest wymagany.
 
-* Domyślnie bramy aplikacji zakłada przypadku #2 i próbuje rozpoznać i ponownie wystawić żądania.
-* Aby wskazać, w przypadku #1 na bramie aplikacji, usługi powinny zostać zwrócone następujące nagłówka odpowiedzi HTTP:
+* Domyślnie zwrotny serwer proxy zakłada przypadku #2 i próbuje rozpoznać i ponownie wystawić żądania.
+* Wskaż, wielkości liter #1, aby zwrotnego serwera proxy, usługa powinny zostać zwrócone następujące nagłówka odpowiedzi HTTP:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Ten nagłówek odpowiedzi HTTP wskazuje normalnej sytuacji HTTP 404, w której żądany zasób nie istnieje, a bramy aplikacji nie będzie próbował rozpoznać adresu usługi ponownie.
+Ten nagłówek odpowiedzi HTTP wskazuje normalnej sytuacji HTTP 404, w której żądany zasób nie istnieje, a zwrotnego serwera proxy nie będzie próbował rozpoznać adresu usługi ponownie.
 
 ## <a name="setup-and-configuration"></a>Instalacja i Konfiguracja
 

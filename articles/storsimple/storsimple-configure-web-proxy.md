@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be4a8facc2f5951b6ebc027088d43ef47504acd1
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Skonfiguruj serwer proxy sieci web dla urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [skonfigurować serwer proxy sieci web dla urządzenia StorSimple](storsimple-8000-configure-web-proxy.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 W tym samouczku opisano, jak za pomocą programu Windows PowerShell dla StorSimple można skonfigurować oraz wyświetlić ustawienia serwera proxy sieci web dla urządzenia StorSimple. Ustawienia serwera proxy sieci web są używane przez urządzenia StorSimple podczas komunikowania się z chmurą. Serwer proxy sieci web służy do dodawania kolejna warstwa zabezpieczeń, filtr zawartości pamięci podręcznej w celu ułatwienia wymaganiach odnośnie do przepustowości lub nawet uzyskać pomoc dotyczącą analytics.
 

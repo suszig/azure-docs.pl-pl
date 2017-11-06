@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc23e64331ad18c604ffaa29476766827119cd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Zastąp podstawę na urządzeniu StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Zastąp podstawę na urządzeniu StorSimple](storsimple-8000-chassis-replacement.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 W tym samouczku wyjaśniono, jak usunąć i Zastąp podstawę urządzenia z serii StorSimple 8000. Model StorSimple 8100 to urządzenie jednej obudowie (wspólnej obudowie), 8600 jest urządzeniem podwójną obudowy (dwie obudowy). W przypadku modelu 8600 są potencjalnie dwóch obudowy, które może zakończyć się niepowodzeniem w urządzeniu: obudowa obudowa podstawowego lub podstawę dla obudowa EBOD.
 

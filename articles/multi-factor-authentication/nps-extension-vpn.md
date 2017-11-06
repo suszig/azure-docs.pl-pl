@@ -1,10 +1,10 @@
 ---
-title: "Integracja sieci VPN z usługą Azure MFA przy użyciu rozszerzenia zasad Sieciowych | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono integrowanie infrastruktury sieci VPN z usługą Azure MFA platformy Microsoft Azure przy użyciu rozszerzenia serwera zasad sieciowych (NPS)."
+title: "Integracja sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych | Dokumentacja firmy Microsoft"
+description: "W tym artykule omówiono integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych platformy Microsoft Azure."
 services: active-directory
 keywords: "Usługa Azure MFA, integracja sieci VPN, Azure Active Directory, serwer zasad sieciowych rozszerzenia"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,463 +13,541 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 8ac4c5d88e724febf21fe6bcc8ecf939283f361e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługi Azure Multi-Factor Authentication (MFA) na platformie Azure przy użyciu rozszerzenia serwera zasad sieciowych (NPS)
+# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych na platformie Azure
 
 ## <a name="overview"></a>Omówienie
 
 Rozszerzenia serwera zasad sieciowych (NPS) na platformie Azure umożliwia organizacjom chronić uwierzytelniania klienta usługi usługi użytkowników zdalnego uwierzytelniania (RADIUS), za pomocą opartej na chmurze [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), zapewniające weryfikacji dwuetapowej.
 
-Ten artykuł zawiera instrukcje dotyczące integracji z usługą Azure MFA infrastruktury serwera NPS przy użyciu rozszerzenia serwera NPS na platformie Azure, aby włączyć weryfikację dwuetapową bezpieczne dla użytkowników próby nawiązania połączenia z siecią za pośrednictwem sieci VPN. 
+Ten artykuł zawiera instrukcje dotyczące integrowania infrastruktury serwera NPS za pomocą usługi MFA za pomocą rozszerzenia serwera zasad Sieciowych na platformie Azure. Ten proces umożliwia weryfikację dwuetapową bezpieczne dla użytkowników, którzy próbę nawiązania połączenia z siecią przy użyciu sieci VPN. 
 
-Zasad sieciowych i dostępu do usługi (NPS) pozwala organizacjom następujące możliwości:
+Usługi zasad sieciowych i dostępu umożliwia organizacji:
 
-* Określ lokalizację centralnego zarządzania i kontroli żądania sieci, aby określić, kto może się połączyć, jakich porach dnia mogą przyjmować połączenia czas trwania połączenia i poziom zabezpieczeń klientów musi być używana do łączenia i tak dalej. Zamiast określać te zasady na każdym serwerze sieci VPN lub bramy usług pulpitu zdalnego (RD), te zasady można określić jeden raz w centralnej lokalizacji. Protokołu RADIUS służy do zapewnienia uwierzytelniania, autoryzacji i Ewidencjonowanie scentralizowane. 
+* Przypisz centralną lokalizację, zarządzania i kontroli żądania sieci, aby określić:
+
+    * Kto może się połączyć 
+    
+    * Kiedy połączeń dnia są dozwolone 
+    
+    * Czas trwania połączenia
+    
+    * Poziom zabezpieczeń, której klienci muszą używać nawiązywania połączenia
+
+    Zamiast określać zasady dotyczące każdego serwera sieci VPN lub bramy usług pulpitu zdalnego, zrobić po są one w centralnej lokalizacji. Aby zapewnić scentralizowane uwierzytelnianie, autoryzację i Ewidencjonowanie jest używany protokół usługi RADIUS. 
+
 * Ustanów i wymuszanie zasad dotyczących kondycji klienta ochrony dostępu do sieci (NAP), które określają, czy urządzenia są przyznawane nieograniczonego lub ograniczonego dostępu do zasobów sieciowych.
-* Umożliwiają wymuszające uwierzytelnianie i autoryzację na dostęp metodą 802. 1 punkty dostępu bezprzewodowego z obsługą i przełączników Ethernet.    
 
-Aby uzyskać więcej informacji, zobacz [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+* Umożliwiają wymuszające uwierzytelnianie i autoryzację dostępu metodą 802. 1 punkty dostępu bezprzewodowego z obsługą i przełączników Ethernet.   
+Aby uzyskać więcej informacji, zobacz [serwera zasad sieciowych](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
-Aby zwiększyć bezpieczeństwo i zapewniają wysoki poziom zgodności, organizacje mogą stosować serwera NPS z usługą Azure MFA, aby upewnić się, czy użytkownicy przy użyciu weryfikacji dwuetapowej aby można było nawiązać połączenia z portu wirtualnego na serwerze sieci VPN. Aby użytkownicy mogli uzyskać dostęp użytkownik musi podać ich kombinacja nazwy użytkownika i hasła z informacjami, które użytkownik ma w ich kontroli. Te informacje musi być zaufany i nie jest łatwo zduplikowany, takie jak numer telefonu komórkowego, numer telefonu stacjonarnego aplikacji na urządzeniu przenośnym i tak dalej.
+Aby zwiększyć bezpieczeństwo i zapewniają wysoki poziom zgodności, organizacje mogą stosować serwera NPS z usługi Azure Multi-Factor Authentication, aby upewnić się, czy użytkownicy przy użyciu weryfikacji dwuetapowej nawiązać połączenia z portem wirtualnym na serwerze sieci VPN. Aby użytkownicy mogli uzyskać dostęp użytkownik musi podać swoją nazwę użytkownika i kombinacja hasła i inne informacje, które kontrolują one. Te informacje musi być zaufany i nie jest zduplikowany. Może uwzględniać numer telefonu komórkowego, numer telefonu stacjonarnego lub aplikacji na urządzeniu przenośnym.
 
-Wcześniej dostępności rozszerzenia serwera zasad Sieciowych na platformie Azure klientów, którzy chcieliby implementuje weryfikację dwuetapową dla zintegrowanego środowiska serwera zasad Sieciowych i usługi Azure MFA było konfigurowania i konserwacji osobny serwer usługi MFA w środowisku lokalnym, zgodnie z opisem w bramy usług pulpitu zdalnego i Azure przy użyciu usługi RADIUS serwera Multi-Factor Authentication.
+Przed dostępności rozszerzenia serwera zasad Sieciowych na platformie Azure klientów, którzy chcieli implementuje weryfikację dwuetapową dla zintegrowane serwera zasad Sieciowych i środowisk usługi MFA została konfigurowania i konserwacji osobny serwer usługi MFA w środowisku lokalnym. Ten typ uwierzytelniania jest oferowana przez bramy usług pulpitu zdalnego i Azure przy użyciu usługi RADIUS serwera Multi-Factor Authentication.
 
-Dostępność rozszerzenia serwera zasad Sieciowych na platformie Azure pozwala organizacjom wyboru do wdrożenia rozwiązania MFA lokalne lub rozwiązanie MFA oparte na chmurze do bezpiecznego uwierzytelniania klienta RADIUS.
+Z rozszerzeniem serwera zasad Sieciowych na platformie Azure organizacje można zabezpieczyć uwierzytelniania klienta usługi RADIUS, wdrażając rozwiązanie MFA lokalne lub rozwiązanie MFA oparte na chmurze.
  
 ## <a name="authentication-flow"></a>Przepływ uwierzytelniania
-Gdy użytkownik łączy się do wirtualnego portu na serwerze sieci VPN, muszą najpierw zostać uwierzytelnione przy użyciu różnych protokołów, które umożliwiają użycie kombinacji nazwy użytkownika i hasła i metody uwierzytelniania opartego na certyfikatach. 
+Gdy użytkownicy nawiązują połączenia dla portu wirtualnego na serwerze sieci VPN, muszą najpierw zostać uwierzytelnione przy użyciu różnych protokołów. Protokoły Zezwalaj na używanie kombinacji nazwy użytkownika i hasła oraz metod uwierzytelniania opartego na certyfikatach. 
 
-Oprócz uwierzytelniania i weryfikacji tożsamości, użytkownicy muszą mieć odpowiednie uprawnienia. W przypadku prostych implementacji te uprawnienia umożliwiające dostęp są ustawiane bezpośrednio na obiekty użytkownika usługi Active Directory. 
+Oprócz uwierzytelniania i weryfikacji tożsamości, użytkownicy muszą mieć odpowiednie uprawnienia. W przypadku prostych implementacji uprawnienia umożliwiające dostęp są ustawiane bezpośrednio na obiekty użytkownika usługi Active Directory. 
 
- ![Właściwości użytkownika](./media/nps-extension-vpn/image1.png)
+![Właściwości użytkownika](./media/nps-extension-vpn/image1.png)
 
 W przypadku prostych implementacji każdy serwer sieci VPN lub go przydziela nie zezwala na dostęp na podstawie zasad zdefiniowanych każdego lokalnego serwera sieci VPN.
 
-W implementacji większych i bardziej skalowalne zasady tego Udziel lub Odmów dostępu do sieci VPN są scentralizowane na serwerach usługi RADIUS. W takim przypadku serwer sieci VPN działa jako serwer dostępu (klienta RADIUS), która przekazuje żądania połączenia i konta wiadomości do serwera usługi RADIUS. Aby połączyć portu wirtualnego na serwerze sieci VPN, użytkownicy musi zostać uwierzytelniony i spełniać warunki definiowane centralnie na serwerach usługi RADIUS. 
+W implementacji większych i bardziej skalowalne zasad, które Udziel lub Odmów dostępu do sieci VPN są scentralizowane na serwerach usługi RADIUS. W takich przypadkach serwer sieci VPN działa jako serwer dostępu (klienta RADIUS), która przekazuje żądania połączenia i konta wiadomości do serwera usługi RADIUS. Aby połączyć się portu wirtualnego na serwerze sieci VPN, użytkownicy musi zostać uwierzytelniony i spełnia warunki, które są definiowane centralnie na serwerach usługi RADIUS. 
 
-Gdy rozszerzenia serwera zasad Sieciowych na platformie Azure jest zintegrowany z serwer NPS, przepływ pomyślne uwierzytelnienie jest następujący:
+Rozszerzenia serwera zasad Sieciowych na platformie Azure jest zintegrowany z serwer NPS, przepływ pomyślne uwierzytelnienie przekłada się na, w następujący sposób:
 
-1. Serwer sieci VPN otrzymuje żądanie uwierzytelnienia od użytkownik sieci VPN, który zawiera nazwę użytkownika i hasło, aby połączyć się z zasobem, takich jak sesji pulpitu zdalnego. 
-2. Działając jako klient usługi RADIUS, serwer sieci VPN konwertuje żądanie na komunikat żądania dostępu usługi RADIUS i wysyła wiadomość (hasło jest szyfrowane) do serwera RADIUS (NPS), którym zainstalowano rozszerzenia serwera NPS. 
-3. Kombinacja nazwy użytkownika i hasła została zweryfikowana w usłudze Active Directory. Jeśli nazwa użytkownika / hasło jest nieprawidłowe, serwer usługi RADIUS wysyła komunikat odmowy dostępu. 
-4. Jeśli są spełnione wszystkie warunki określone w żądanie połączenia serwera zasad Sieciowych i zasad sieciowych (na przykład pory dnia lub grupy ograniczeniami członkostwa), żądania uwierzytelniania dodatkowego z usługą Azure MFA wyzwala rozszerzenia serwera NPS. 
-5. Usługa Azure MFA komunikuje się z usługą Azure Active Directory, pobiera szczegóły użytkownika, a następnie wykonuje dodatkowego uwierzytelniania przy użyciu metody skonfigurowany przez użytkownika (wiadomości tekstowej, aplikacji mobilnych itd.). 
-6. Na powodzenie żądanie uwierzytelniania MFA uwierzytelnianie wieloskładnikowe Azure komunikuje się wynik, który ma rozszerzenie serwera NPS.
-7. Po próba połączenia zarówno uwierzytelnieniu i autoryzacji, serwer NPS, w którym zainstalowano rozszerzenia wysyła komunikat udzielenia dostępu RADIUS do serwera sieci VPN (klienta RADIUS).
+1. Serwer sieci VPN otrzymuje żądanie uwierzytelnienia od użytkownik sieci VPN, który zawiera nazwę użytkownika i hasło do nawiązywania połączenia z zasobem, takich jak sesji pulpitu zdalnego. 
+
+2. Działając jako klient usługi RADIUS, serwer sieci VPN konwertuje żądanie promień *żądanie dostępu* wiadomości i wysyła je (zaszyfrowanym hasłem) do serwera RADIUS zainstalowanym rozszerzenia serwera NPS. 
+
+3. Kombinacja nazwy użytkownika i hasła została zweryfikowana w usłudze Active Directory. Jeśli nazwa użytkownika lub hasło jest nieprawidłowe, serwer RADIUS wysyła *odmowy dostępu* wiadomości. 
+
+4. Jeśli są spełnione wszystkie warunki określone w żądanie połączenia serwera zasad Sieciowych i zasad sieci (na przykład pory dnia lub grupy ograniczeniami członkostwa), żądania uwierzytelniania dodatkowego w usłudze Azure Multi-Factor Authentication wyzwala rozszerzenia serwera NPS. 
+
+5. Uwierzytelnianie wieloskładnikowe platformy Azure komunikuje się z usługą Azure Active Directory, pobiera szczegóły użytkownika, a następnie wykonuje dodatkowego uwierzytelniania przy użyciu metody, który został skonfigurowany przez użytkownika (komórki połączenie telefoniczne, wiadomość tekstowa lub aplikacji mobilnej). 
+
+6. Po pomyślnym zakończeniu operacji żądanie uwierzytelniania MFA, uwierzytelnianie wieloskładnikowe Azure komunikuje się wynik, który ma rozszerzenie serwera NPS.
+
+7. Po próba połączenia zarówno uwierzytelnieniu i autoryzacji, serwer zasad Sieciowych, w którym zainstalowano rozszerzenia wysyła PROMIEŃ *udzielenia dostępu* wiadomość do serwera sieci VPN (klienta RADIUS).
+
 8. Użytkownik uzyskuje dostęp do wirtualnego portu na serwerze sieci VPN i ustanawia szyfrowane tunel VPN.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Ta sekcja zawiera szczegóły dotyczące wymagań wstępnych konieczne przed Integrowanie usługi Azure MFA z bramy usług pulpitu zdalnego. Przed rozpoczęciem, musi mieć następujące wymagania wstępne w miejscu.
+Ta sekcja zawiera szczegóły dotyczące wymagań wstępnych, które należy wykonać, zanim będzie można zintegrować usługę MFA z bramy usług pulpitu zdalnego. Przed rozpoczęciem, musi mieć następujące wymagania wstępne spełnione:
 
 * Infrastrukturę sieci VPN.
-* Rola zasad sieciowych i dostępu do usługi (NPS)
-* Licencja usługi Azure MFA
+* Rola usług zasad sieciowych i dostępu
+* Licencja uwierzytelnianie wieloskładnikowe Azure
 * Oprogramowanie Windows Server
 * Biblioteki
-* Zsynchronizowane usługi Azure AD z lokalnej usługi AD 
+* Azure Active Directory (Azure AD) synchronizowane z lokalnej usługi Active Directory 
 * Identyfikator GUID usługi Azure Active Directory
 
 ### <a name="vpn-infrastructure"></a>Infrastrukturę sieci VPN.
-W tym artykule przyjęto założenie, czy masz pracy infrastrukturę sieci VPN, przy użyciu systemu Microsoft Windows Server 2016 w miejscu i że serwer sieci VPN aktualnie nie skonfigurowano przesyłanie żądań połączeń do serwera RADIUS. Skonfiguruj infrastrukturę sieci VPN do użycia w tym przewodniku centralnego serwera RADIUS.
+W tym artykule przyjęto założenie, że masz pracy infrastrukturę sieci VPN, który używa programu Microsoft Windows Server 2016 i że serwer sieci VPN aktualnie nie skonfigurowano przesyłanie żądań połączeń do serwera usługi RADIUS. W artykule można skonfigurować infrastrukturę sieci VPN do korzystania z centralnego serwera RADIUS.
 
-Jeśli nie masz infrastruktury pracę w miejscu, tej infrastruktury może szybko utworzyć z zachowaniem wskazówek zamieszczonych w wiele samouczki ustawienia sieci VPN, który znajduje się w witrynie firmy Microsoft i innych witryn. 
+Jeśli nie masz infrastrukturę sieci VPN pracę w miejscu, można szybko można utworzyć jedną z zachowaniem wskazówek zamieszczonych w wiele samouczki ustawienia sieci VPN, które znajdują się na firmy Microsoft i innych witryn. 
 
-### <a name="network-policy-and-access-services-nps-role"></a>Rola zasad sieciowych i dostępu do usługi (NPS)
+### <a name="the-network-policy-and-access-services-role"></a>Rola usług zasad sieciowych i dostępu
 
-Usługi roli serwera NPS zawiera serwer usługi RADIUS i funkcjonalności klienta. W tym artykule przyjęto założenie, że jest zainstalowana rola serwera NPS na serwer członkowski lub kontroler domeny w danym środowisku. Konfiguracji usługi RADIUS dla konfiguracji sieci VPN, w tym przewodniku. Instalowanie roli serwera NPS na serwerze _innych_ niż serwer sieci VPN.
+Usługi zasad sieciowych i dostępu udostępnia funkcje serwera i klienta RADIUS. W tym artykule przyjęto założenie, że zainstalowano rolę usług zasad sieciowych i dostępu na serwer członkowski lub kontroler domeny w danym środowisku. W tym przewodniku należy skonfigurować RADIUS dla konfiguracji sieci VPN. Zainstaluj rolę usług zasad sieciowych i dostępu na serwerze *innych niż* serwer sieci VPN.
 
-Informacje na temat instalowania roli serwera zasad Sieciowych usługa systemu Windows Server 2012 lub nowszym, zobacz [zainstalować serwer zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Zasady dostępu do sieci (NAP) jest przestarzała w systemie Windows Server 2016. Opis najlepszych rozwiązań dla serwera NPS, w tym zalecenie, aby zainstalować serwer zasad Sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwera NPS](https://technet.microsoft.com/library/cc771746).
+Aby uzyskać informacje o instalowaniu roli usług zasad sieciowych i dostępu usługi systemu Windows Server 2012 lub nowszy, odwiedź [zainstalować serwer zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Ochrony dostępu do sieci jest przestarzała w systemie Windows Server 2016. Opis najlepszych rozwiązań dla serwera NPS, w tym zalecenie, aby zainstalować serwer zasad Sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwera NPS](https://technet.microsoft.com/library/cc771746).
 
 ### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
-Wymagana jest licencja dla usługi Azure MFA, który jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility plus Security (EMS) lub subskrypcji usługi MFA. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
+Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub subskrypcji usługi Multi-Factor Authentication. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
 
 ### <a name="windows-server-software"></a>Oprogramowanie Windows Server
 
-Rozszerzenie serwera NPS wymaga systemu Windows Server 2008 R2 z dodatkiem SP1 lub nowszy z zainstalowaną usługą roli serwera NPS. Wszystkie kroki opisane w tym przewodniku zostały wykonane przy użyciu systemu Windows Server 2016.
+Rozszerzenie serwera NPS wymaga systemu Windows Server 2008 R2 z dodatkiem SP1 lub nowszym z rolą usługi zasad sieciowych i dostępu zainstalowany. Wszystkie kroki opisane w tym przewodniku zostały wykonane z systemem Windows Server 2016.
 
 ### <a name="libraries"></a>Biblioteki
 
-Te biblioteki są automatycznie instalowane z rozszerzeniem.
+Następujące biblioteki są automatycznie instalowane z rozszerzeniem serwera NPS:
 
 -   [Pakiety redystrybucyjne języka Visual C++ dla programu Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Microsoft Azure Active Directory modułu dla Windows PowerShell w wersji 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Microsoft Azure Active Directory modułu dla środowiska Windows PowerShell jest zainstalowany, jeśli nie jest już obecny za pomocą skryptu konfiguracji uruchomienia w ramach procesu instalacji. Nie istnieje potrzeba do zainstalowania tego modułu wcześniejsze, jeśli nie jest już zainstalowany.
+Microsoft Azure Active Directory modułu programu PowerShell nie jest już istnieje, jest instalowana za pomocą skryptu konfiguracji, który uruchamiany jako część procesu instalacji. Nie istnieje potrzeba aby zainstalować moduł wcześniejsze, jeśli nie jest już zainstalowany.
 
-### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Usługa Azure Active Directory zsynchronizowane z lokalną usługą Active Directory 
+### <a name="azure-active-directory-synced-with-on-premises-active-directory"></a>Usługa Azure Active Directory synchronizowane z lokalnej usługi Active Directory 
 
-Aby użyć rozszerzenia serwera NPS, lokalnych użytkowników musi być zsynchronizowane z usługą Azure Active Directory i włączone uwierzytelnianie wieloskładnikowe. W tym przewodniku założono, że użytkowników lokalnych są zsynchronizowane z usługą Azure Active Directory za pomocą AD Connect. Instrukcje dotyczące włączania uwierzytelniania Wieloskładnikowego użytkownicy znajdują się poniżej.
-Aby uzyskać informacje dotyczące usługi Azure AD connect, zobacz [integrację katalogów lokalnych z usługą Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
+Aby użyć rozszerzenia serwera NPS, lokalnych użytkowników musi być zsynchronizowane z usługą Azure Active Directory i włączone dla usługi MFA. W tym przewodniku założono, że lokalnych użytkowników są synchronizowane z usługą Azure Active Directory za pośrednictwem usługi Azure AD Connect. Instrukcje dotyczące włączania uwierzytelniania Wieloskładnikowego użytkownicy znajdują się poniżej.
+
+Informacje dotyczące usługi Azure AD Connect, zobacz [integrację katalogów lokalnych z usługą Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Identyfikator GUID usługi Azure Active Directory 
+
 Aby zainstalować rozszerzenie serwera NPS, musisz znać identyfikator GUID usługi Azure Active Directory. Instrukcje dotyczące znajdowania identyfikator GUID usługi Azure Active Directory znajdują się w następnej sekcji.
 
 ## <a name="configure-radius-for-vpn-connections"></a>Konfigurowanie serwera RADIUS dla połączeń sieci VPN
 
-Po zainstalowaniu roli serwera NPS na serwerze członkowskim, należy skonfigurować do uwierzytelniania i autoryzacji klienta sieci VPN, czy żądania połączenia sieci VPN. 
+Po zainstalowaniu roli serwera NPS na serwerze członkowskim, należy ją skonfigurować do uwierzytelniania i autoryzacji klienta sieci VPN, czy żądania połączenia sieci VPN. 
 
-W tej sekcji założono instalacji roli serwera zasad sieciowych, ale nie skonfigurowano go do użytku w infrastrukturze.
+W tej sekcji założono instalacji roli usług zasad sieciowych i dostępu, ale nie skonfigurowano go do użytku w infrastrukturze.
 
->[!NOTE]
->Jeśli masz już działający serwer sieci VPN do uwierzytelniania używa centralny serwer usługi RADIUS, możesz pominąć tę sekcję.
+> [!NOTE]
+> Jeśli masz już działający serwer sieci VPN do uwierzytelniania używa centralny serwer usługi RADIUS, możesz pominąć tę sekcję.
 >
 
 ### <a name="register-server-in-active-directory"></a>Zarejestruj serwer w usłudze Active Directory
-Działał prawidłowo, w tym scenariuszu, serwer zasad Sieciowych musi być zarejestrowane w usłudze Active Directory.
+Aby działać poprawnie, w tym scenariuszu, należy zarejestrować serwer zasad Sieciowych w usłudze Active Directory.
 
 1. Otwórz Menedżera serwera.
-2. W Menedżerze serwera kliknij **narzędzia**, a następnie kliknij przycisk **serwera zasad sieciowych**. 
-3. W konsoli serwera zasad sieciowych, kliknij prawym przyciskiem myszy **serwer NPS (lokalny)**, a następnie kliknij przycisk **Zarejestruj serwer w usłudze Active Directory**. Kliknij przycisk **OK** dwa razy.
 
- ![Serwer zasad sieciowych](./media/nps-extension-vpn/image2.png)
+2. W Menedżerze serwera wybierz **narzędzia**, a następnie wybierz **serwera zasad sieciowych**. 
+
+3. W konsoli serwera zasad sieciowych, kliknij prawym przyciskiem myszy **serwer NPS (lokalny)**, a następnie wybierz **Zarejestruj serwer w usłudze Active Directory**. Wybierz **OK** dwa razy.
+
+    ![Serwer zasad sieciowych](./media/nps-extension-vpn/image2.png)
 
 4. Pozostaw otwarte do następnej procedury konsoli.
 
-### <a name="use-wizard-to-configure-radius-server"></a>Użyj kreatora, aby skonfigurować serwer usługi RADIUS
-Można użyć standardowego (opartej na kreatorze) lub zaawansowanych opcji konfiguracji, aby skonfigurować serwer usługi RADIUS. W tej sekcji założono użycie opcji opartej na Kreatorze konfiguracji standardowej.
+### <a name="use-wizard-to-configure-the-radius-server"></a>Użyj kreatora, aby skonfigurować serwer usługi RADIUS
+Można użyć standardowego (opartej na kreatorze) lub zaawansowanych opcji konfiguracji, aby skonfigurować serwer usługi RADIUS. W tej sekcji założono, że używasz opcji opartej na Kreatorze konfiguracji standardowej.
 
-1. W konsoli serwera zasad sieciowych, kliknij polecenie **serwer NPS (lokalny)**.
-2. W obszarze konfiguracji standardowej, wybierz **serwera RADIUS w celu telefonicznych i połączeń sieci VPN**, a następnie kliknij przycisk **Konfigurowanie sieci VPN lub Dial-Up**.
+1. W konsoli serwera zasad sieciowych wybierz **serwer NPS (lokalny)**.
 
- ![Konfigurowanie sieci VPN](./media/nps-extension-vpn/image3.png)
+2. W obszarze **standardowej konfiguracji**, wybierz pozycję **serwera RADIUS w celu telefonicznych i połączeń sieci VPN**, a następnie wybierz **Konfigurowanie sieci VPN lub Dial-Up**.
 
-3. Wybierz telefonicznych lub typu połączenia sieci prywatnej wirtualnego strony, wybierz **połączenia wirtualnej sieci prywatnej**i kliknij przycisk **dalej**.
+    ![Konfigurowanie sieci VPN](./media/nps-extension-vpn/image3.png)
 
- ![Wirtualna sieć prywatna](./media/nps-extension-vpn/image4.png)
+3. W **wybierz telefonicznych lub typu połączenia sieci prywatnej wirtualnego** okna, wybierz **połączenia wirtualnej sieci prywatnej**, a następnie wybierz **dalej**.
 
-4. Na stronie Określ Dial-Up lub serwer sieci VPN kliknij **Dodaj**.
-5. W **klienta RADIUS nowe** okno dialogowe, Podaj przyjazną nazwę, wprowadź rozpoznawalną nazwę lub adres IP serwera VPN i wprowadź tajny wspólne hasło. Należy to wspólne hasło tajny długich i złożonych. To hasło, należy zarejestrować potrzebną dla czynności opisane w następnej sekcji.
+    ![Wirtualna sieć prywatna](./media/nps-extension-vpn/image4.png)
 
- ![Nowy klient RADIUS](./media/nps-extension-vpn/image5.png)
+4. W **Określ Dial-Up lub serwer VPN** wybierz **Dodaj**.
 
-6. Kliknij przycisk **OK**, a następnie **dalej**.
-7. Na **Konfigurowanie metod uwierzytelniania** Zaakceptuj wybór domyślny (uwierzytelnianie szyfrowane firmy Microsoft w wersji 2 (MS-CHAPv2) lub wybierz inną opcję i kliknij przycisk **dalej**.
+5. W **klienta RADIUS nowe** okna, Podaj przyjazną nazwę, wprowadź rozpoznawalną nazwę lub adres IP serwera sieci VPN, a następnie wprowadź tajny wspólne hasło.  
+    Należy wspólne hasło tajny długich i złożonych. Zapisz go, ponieważ będzie on potrzebny w następnej sekcji.
 
-  >[!NOTE]
-  >Jeśli konfigurujesz protokołu uwierzytelniania rozszerzonego (EAP), należy używać MS-CHAPv2 lub PEAP. Nie protokołu EAP jest obsługiwana.
+    ![Nowy klient RADIUS](./media/nps-extension-vpn/image5.png)
+
+6. Wybierz **OK**, a następnie wybierz **dalej**.
+
+7. W **Konfigurowanie metod uwierzytelniania** okna, Zaakceptuj wybór domyślny (**uwierzytelnianie szyfrowane firmy Microsoft w wersji 2 [MS-CHAPv2])** lub wybierz inną opcję i zaznacz **dalej** .
+
+    > [!NOTE]
+    > Jeśli konfigurujesz protokołu uwierzytelniania rozszerzonego (EAP), możesz korzystać Microsoft Challenge Handshake Authentication Protocol (CHAPv2) lub chronionego protokołu uwierzytelniania rozszerzonego (PEAP). Nie protokołu EAP jest obsługiwana.
  
-8. Na stronie Określ grupy użytkowników, kliknij przycisk **Dodaj** i wybierz odpowiednią grupę, jeśli taka istnieje. W przeciwnym razie pozostaw pole puste, aby przyznać dostęp wszystkim użytkownikom wybór.
+8. W **określić grupy użytkowników** wybierz **Dodaj**, a następnie wybierz odpowiednią grupę.  
+    Jeśli grupa nie istnieje, należy pozostawić wybór puste, aby udzielić dostępu do wszystkich użytkowników.
 
- ![Określ grupy użytkowników](./media/nps-extension-vpn/image7.png)
+    ![Okno określić grupy użytkowników](./media/nps-extension-vpn/image7.png)
 
-9. Kliknij przycisk **Dalej**.
-10. Na stronie określ filtry IP kliknij **dalej**.
-11. Na stronie Określ ustawienia szyfrowania, zaakceptuj ustawienia domyślne, a następnie kliknij przycisk **dalej**.
+9. Wybierz **dalej**.
 
- ![Określ szyfrowania](./media/nps-extension-vpn/image8.png)
+10. W **określ filtry IP** wybierz **dalej**.
 
-12. Na stronie Określ nazwę obszaru nazwa jest pusta, zaakceptuj ustawienia domyślne, a następnie kliknij przycisk **dalej**.
+11. W **Określ ustawienia szyfrowania** , zaakceptuj ustawienia domyślne, a następnie wybierz **dalej**.
 
- ![Określ nazwę obszaru](./media/nps-extension-vpn/image9.png)
+    ![Określ ustawienia szyfrowania okna](./media/nps-extension-vpn/image8.png)
 
-13. Kończenie nowego telefoniczne lub połączenia wirtualnej sieci prywatnej i RADIUS strony klientów, wybierz polecenie **Zakończ**.
+12. W **Określ nazwę obszaru** okna, pozostaw puste pole Nazwa obszaru, zaakceptuj ustawienia domyślne, a następnie wybierz **dalej**.
 
- ![Zakończenie połączenia](./media/nps-extension-vpn/image10.png)
+    ![Określ nazwę obszaru okna](./media/nps-extension-vpn/image9.png)
 
-### <a name="verify-radius-configuration"></a>Sprawdź konfigurację usługi RADIUS
-Ta sekcja zawiera szczegóły dotyczące konfiguracji, które zostały utworzone za pomocą kreatora.
+13. W **klientów Kończenie nowego telefoniczne lub połączenia wirtualnej sieci prywatnej i RADIUS** wybierz **Zakończ**.
 
-1. Na serwerze NPS w konsoli serwera NPS (lokalny), rozwiń węzeł klientów usługi RADIUS, a następnie wybierz **klientów RADIUS**.
-2. W okienku szczegółów kliknij prawym przyciskiem myszy klienta usługi RADIUS, które zostały utworzone za pomocą kreatora, a następnie kliknij przycisk **właściwości**. Właściwości klienta RADIUS (serwer sieci VPN) powinny być podobne do tych, pokazano poniżej.
+    ![Okno "wykonywanie nowych połączeń lub wirtualnej sieci prywatnej połączeń i RADIUS klientów"](./media/nps-extension-vpn/image10.png)
 
- ![Właściwości sieci VPN](./media/nps-extension-vpn/image11.png)
+### <a name="verify-the-radius-configuration"></a>Sprawdź konfigurację usługi RADIUS
+Ta sekcja zawiera szczegóły dotyczące utworzonego za pomocą Kreatora konfiguracji.
 
-3. Kliknij przycisk **anulować**.
-4. Na serwerze NPS w konsoli serwera NPS (lokalny), rozwiń węzeł **zasady**i wybierz **zasady żądań połączeń**. Powinny pojawić się zasady połączeń sieci VPN, podobny obraz poniżej.
+1. Na serwerze zasad sieciowych w konsoli serwera NPS (lokalny), rozwiń węzeł **klientów RADIUS**, a następnie wybierz **klientów RADIUS**.
 
- ![Żądania połączeń](./media/nps-extension-vpn/image12.png)
+2. W okienku szczegółów kliknij prawym przyciskiem myszy klienta RADIUS, który zostanie utworzony, a następnie wybierz **właściwości**.  
+    Właściwości klienta RADIUS (serwer sieci VPN) powinny być jak pokazano poniżej:
 
-5. W obszarze zasady, wybierz **zasady sieciowe**. Należy podobny obraz poniżej zasady połączenia wirtualnej sieci prywatnej (VPN).
+    ![Właściwości sieci VPN](./media/nps-extension-vpn/image11.png)
 
- ![Właściwości sieci](./media/nps-extension-vpn/image13.png)
+3. Wybierz **anulować**.
 
-## <a name="configure-vpn-server-to-use-radius-authentication"></a>Skonfiguruj serwer sieci VPN do uwierzytelniania RADIUS
-W tej sekcji możesz skonfigurować serwer sieci VPN do uwierzytelniania RADIUS. W tej sekcji założono mają działającej konfiguracji serwera sieci VPN, ale nie skonfigurowano serwer sieci VPN do uwierzytelniania RADIUS. Po skonfigurowaniu serwera sieci VPN, upewnieniu się, że konfiguracja działa zgodnie z oczekiwaniami.
+4. Na serwerze zasad sieciowych w konsoli serwera NPS (lokalny), rozwiń węzeł **zasady**, a następnie wybierz **zasady żądań połączeń**.  
+    Zasady połączeń sieci VPN jest wyświetlane, jak pokazano na poniższej ilustracji:
 
->[!NOTE]
->Jeśli masz już działającej konfiguracji serwera sieci VPN korzysta z uwierzytelniania usługi RADIUS, możesz pominąć tę sekcję.
+    ![Żądania połączeń](./media/nps-extension-vpn/image12.png)
+
+5. W obszarze **zasady**, wybierz pozycję **zasady sieciowe**.  
+    Powinny pojawić się zasady połączenia wirtualnej sieci prywatnej (VPN), podobny zasad pokazano na poniższej ilustracji:
+
+    ![Zasady sieciowe](./media/nps-extension-vpn/image13.png)
+
+## <a name="configure-your-vpn-server-to-use-radius-authentication"></a>Skonfiguruj serwer sieci VPN, aby użyć uwierzytelniania RADIUS
+W tej sekcji należy skonfigurować serwer sieci VPN do uwierzytelniania RADIUS. Instrukcjach przyjęto założenie, mają działającej konfiguracji serwera sieci VPN, ale nie została skonfigurowana do uwierzytelniania RADIUS. Po skonfigurowaniu serwera sieci VPN, należy upewnić się, że konfigurację działa zgodnie z oczekiwaniami.
+
+> [!NOTE]
+> Jeśli masz już działającej konfiguracji serwera sieci VPN korzysta z uwierzytelniania usługi RADIUS, możesz pominąć tę sekcję.
 >
 
 ### <a name="configure-authentication-provider"></a>Konfigurowanie dostawcy uwierzytelniania
 1. Na serwerze sieci VPN Otwórz Menedżera serwera.
-2. W Menedżerze serwera kliknij **narzędzia**, a następnie **Routing i dostęp zdalny**.
-3. W konsoli Routing i dostęp zdalny, kliknij prawym przyciskiem myszy  **\[nazwy serwera\] (local)**, a następnie kliknij przycisk **właściwości**.
 
- ![Routing i dostęp zdalny](./media/nps-extension-vpn/image14.png)
- 
-4. W **[nazwa serwera} (lokalne) właściwości** okno dialogowe, kliknij przycisk **zabezpieczeń** kartę. 
-5. Na **zabezpieczeń** kliknij kartę, w obszarze dostawcy uwierzytelniania **uwierzytelnianie usługi RADIUS**, a następnie **Konfiguruj**.
+2. W Menedżerze serwera wybierz **narzędzia**, a następnie wybierz **Routing i dostęp zdalny**.
 
- ![Uwierzytelnianie usługi RADIUS](./media/nps-extension-vpn/image15.png)
+3. W **Routing i dostęp zdalny** okna, kliknij prawym przyciskiem myszy  **\<nazwa serwera > (local)**, a następnie wybierz **właściwości**.
+
+    ![Okno Routing i dostęp zdalny](./media/nps-extension-vpn/image14.png)
  
-6. W oknie dialogowym uwierzytelniania usługi RADIUS kliknij **Dodaj**.
-7. W Dodaj serwer usługi RADIUS, w polu Nazwa serwera Dodaj nazwę lub adres IP serwera usługi RADIUS, które skonfigurowano w poprzedniej sekcji.
-8. W wspólny klucz tajny kliknij **zmiany** i Dodaj udostępniony poufne hasło utworzone i zarejestrowane wcześniej.
-9. W polu Limit czasu (w sekundach), zmień wartość na wartość z zakresu od **30** i **60**. Jest to konieczne umożliwić wystarczająco dużo czasu na ukończenie drugi składnik uwierzytelniania.
+4. W  **\<nazwa serwera > właściwości (lokalnego)** wybierz **zabezpieczeń** kartę. 
+
+5. Na **zabezpieczeń** , w obszarze **dostawcy uwierzytelniania**, wybierz pozycję **uwierzytelnianie usługi RADIUS**, a następnie wybierz **Konfiguruj**.
+
+    ![Uwierzytelnianie usługi RADIUS](./media/nps-extension-vpn/image15.png)
  
- ![Dodawanie serwera RADIUS](./media/nps-extension-vpn/image16.png)
+6. W **uwierzytelnianie usługi RADIUS** wybierz **Dodaj**.
+
+7. W **Dodawanie serwera RADIUS** okna, wykonaj następujące czynności:
+
+    a. W **nazwy serwera** wprowadź nazwę lub adres IP serwera usługi RADIUS, skonfigurowanego w poprzedniej sekcji.
+
+    b. Dla **wspólne hasło**, wybierz pozycję **zmiany**, a następnie wpisz wspólne hasło tajny, który został utworzony i zarejestrowane wcześniej.
+
+    c. W **limit czasu (w sekundach)** wybierz wartość z zakresu od **30** za pośrednictwem **60**.  
+    Wartość limitu czasu jest niezbędne w celu umożliwienia wystarczająco dużo czasu na ukończenie drugi składnik uwierzytelniania.
  
-10. Kliknij przycisk **OK** dopiero po wykonaniu zamknięcie wszystkich okien dialogowych.
+    ![Okno Dodawanie serwera RADIUS](./media/nps-extension-vpn/image16.png)
+ 
+8. Kliknij przycisk **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Przetestowanie łączności z siecią VPN
-W tej sekcji upewnieniu się, że klient VPN uwierzytelnieniu i autoryzacji przez serwer usługi RADIUS podczas próby nawiązania połączenia sieci VPN portu wirtualnego. W tej sekcji założono, że używasz systemu Windows 10 jako klient sieci VPN. 
+W tej sekcji upewnieniu się, że klient VPN uwierzytelnieniu i autoryzacji przez serwer usługi RADIUS podczas próby nawiązania połączenia sieci VPN portu wirtualnego. Instrukcjach przyjęto założenie, że używasz systemu Windows 10 jako klient sieci VPN. 
 
->[!NOTE]
->Jeśli skonfigurowano klienta sieci VPN w taki sposób, aby połączyć się z serwerem sieci VPN i zapisano ustawienia, można pominąć kroki dotyczące konfigurowania i zapisywanie obiektu połączenia sieci VPN.
+> [!NOTE]
+> Jeśli skonfigurowano klienta sieci VPN w taki sposób, aby połączyć się z serwerem sieci VPN i zapisano ustawienia, można pominąć kroki dotyczące konfigurowania i zapisywanie obiektu połączenia sieci VPN.
 >
 
-1. Na komputerze klienckim sieci VPN kliknij **Start**, a następnie **ustawienia** (koło zębate ikonę).
-2. W oknie Ustawienia, kliknij przycisk **sieć i Internet**.
-3. Kliknij przycisk **VPN**.
-4. Kliknij przycisk **dodać połączenie VPN**.
-5. W dodać połączenie VPN, określ systemu Windows (wbudowane) jako dostawcę sieci VPN, a następnie wypełnij pozostałe pola, zgodnie z potrzebami i kliknij **zapisać**. 
+1. Na komputerze klienckim sieci VPN wybierz **Start** przycisk, a następnie wybierz **ustawienia** przycisku.
 
- ![Dodaj połączenie VPN](./media/nps-extension-vpn/image17.png)
+2. W **ustawienia systemu Windows** wybierz **sieć i Internet**.
+
+3. Wybierz **VPN**.
+
+4. Wybierz **dodać połączenie VPN**.
+
+5. W **dodać połączenie VPN** okna w **dostawcy sieci VPN** wybierz opcję **systemu Windows (wbudowane)**, wypełnij pozostałe pola, zależnie od potrzeb, a następnie wybierz **Zapisać**. 
+
+    ![Okno "Dodaj połączenie VPN"](./media/nps-extension-vpn/image17.png)
  
-6. Otwórz **Centrum sieci i udostępniania** w Panelu sterowania.
-7. Kliknij przycisk **Zmień ustawienia karty**.
+6. Przejdź do **Panelu sterowania**, a następnie wybierz **Centrum sieci i udostępniania**.
 
- ![Zmień ustawienia karty sieciowej](./media/nps-extension-vpn/image18.png)
+7. Wybierz **Zmień ustawienia karty**.
 
-8. Kliknij prawym przyciskiem myszy połączenie sieci VPN, a następnie kliknij przycisk Właściwości. 
+    ![Zmień ustawienia karty sieciowej](./media/nps-extension-vpn/image18.png)
 
- ![Właściwości sieci VPN](./media/nps-extension-vpn/image19.png)
+8. Kliknij prawym przyciskiem myszy połączenie sieci VPN, a następnie wybierz **właściwości**. 
 
-9. W oknie dialogowym właściwości sieci VPN kliknij **zabezpieczeń** kartę. 
-10. Na karcie Zabezpieczenia, upewnij się, że tylko **Microsoft CHAP Version 2 (MS-CHAP v2)** jest zaznaczone, a następnie kliknij przycisk OK.
+    ![Właściwości sieci VPN](./media/nps-extension-vpn/image19.png)
 
- ![Zezwolić protokołów](./media/nps-extension-vpn/image20.png)
+9. W oknie właściwości sieci VPN wybierz **zabezpieczeń** kartę. 
 
-11. Kliknij prawym przyciskiem myszy połączenie sieci VPN, a następnie kliknij przycisk **Connect**.
-12. Na stronie Ustawienia kliknij **Connect**.
+10. Na **zabezpieczeń** karcie, upewnij się, że tylko **Microsoft CHAP Version 2 (MS-CHAP v2)** jest wybrany, a następnie wybierz **OK**.
 
-Udane połączenie zostanie wyświetlony w dzienniku zabezpieczeń na serwerze RADIUS jako zdarzenia 6272 identyfikator, jak pokazano poniżej.
+    ![Opcji "Zezwalaj na te protokoły"](./media/nps-extension-vpn/image20.png)
 
- ![Właściwości zdarzenia](./media/nps-extension-vpn/image21.png)
+11. Kliknij prawym przyciskiem myszy połączenie sieci VPN, a następnie wybierz **Connect**.
 
-## <a name="troubleshoot-guide"></a>Rozwiązywanie problemów z przewodnika
-Załóżmy, że przed skonfigurowaniem serwera sieci VPN do użycia centralny serwer usługi RADIUS do uwierzytelniania i autoryzacji pracy konfigurację sieci VPN. W tym przypadku jest prawdopodobne, że problem może być spowodowane błędem konfiguracji serwera RADIUS lub użycia nieprawidłowej nazwy użytkownika lub hasło. Na przykład, jeśli używasz alternatywny sufiks nazwy UPN użytkownika, próba logowania może zakończyć się niepowodzeniem (należy używać tej samej nazwy konta w celu uzyskania najlepszych wyników). 
+12. W **ustawienia** wybierz **Connect**.  
+    Udane połączenie pojawia się w dzienniku zabezpieczeń na serwerze RADIUS jako zdarzenia 6272 identyfikator, jak pokazano poniżej:
 
-Aby rozwiązać te problemy, doskonale nadaje się do uruchomienia jest zbadanie dziennikami zdarzeń zabezpieczeń na serwerze RADIUS. Aby zapisać czas wyszukiwania dla zdarzeń, służy opartej na rolach zasad sieciowych i dostępu do serwera widok niestandardowy w Podglądzie zdarzeń, jako wyświetlane poniżej. Identyfikator zdarzenia 6273 wskazuje zdarzeń, gdy serwer zasad sieciowych odmowy dostępu dla użytkownika. 
+    ![Okno właściwości zdarzenia](./media/nps-extension-vpn/image21.png)
 
- ![Podgląd zdarzeń](./media/nps-extension-vpn/image22.png)
+## <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
+Załóżmy, że przed skonfigurowaniem serwera sieci VPN do użycia centralny serwer usługi RADIUS do uwierzytelniania i autoryzacji pracy konfigurację sieci VPN. Konfiguracja została pracy, jest prawdopodobne, że przyczyną problemu jest błąd konfiguracji serwera usługi RADIUS lub użycia nieprawidłowej nazwy użytkownika lub hasło. Na przykład jeśli używasz alternatywny sufiks nazwy UPN użytkownika, próba logowania może zakończyć się niepowodzeniem. Użyj tej samej nazwy konta w celu uzyskania najlepszych wyników. 
+
+Aby rozwiązać te problemy, doskonale nadaje się do uruchomienia jest zbadanie dziennikami zdarzeń zabezpieczeń na serwerze RADIUS. Aby zapisać czas wyszukiwania dla zdarzeń, służy opartej na rolach zasad sieciowych i dostępu do serwera widok niestandardowy w Podglądzie zdarzeń, jak pokazano poniżej. "Identyfikator zdarzenia 6273" wskazuje zdarzeń, gdy serwer NPS odmowy dostępu dla użytkownika. 
+
+![Podgląd zdarzeń](./media/nps-extension-vpn/image22.png)
  
-## <a name="configure-multi-factor-authentication"></a>Skonfiguruj usługę Multi-Factor Authentication
+## <a name="configure-multi-factor-authentication"></a>Skonfiguruj usługę Multi-Factor authentication
 Ta sekcja zawiera instrukcje dotyczące włączania użytkowników dla usługi MFA i konfigurowanie kont na potrzeby weryfikacji dwuetapowej. 
 
 ### <a name="enable-multi-factor-authentication"></a>Włączanie uwierzytelniania wieloskładnikowego
-W tej sekcji można włączyć konta usługi Azure AD MFA. Użyj **klasyczny portal** aby umożliwić użytkownikom w usłudze MFA. 
+W tej sekcji można włączyć konta usługi Azure AD MFA. Użyj klasycznego portalu Azure, aby umożliwić użytkownikom w usłudze MFA. 
 
-1. Otwórz przeglądarkę i przejdź do [https://manage.windowsazure.com](https://manage.windowsazure.com). 
+1. Przejdź do [Microsoft Azure](https://manage.windowsazure.com) witryny sieci Web. 
+
 2. Zaloguj się jako administrator.
-3. W portalu, a na lewym pasku nawigacyjnym kliknij **usługi ACTIVE DIRECTORY**.
 
- ![Domyślny katalog](./media/nps-extension-vpn/image23.png)
+3. W okienku po lewej stronie wybierz **usługi Active Directory**.
 
-4. W kolumnie Nazwa kliknij **katalog domyślny** (lub innego katalogu, w razie potrzeby).
-5. Na stronie Szybki Start kliknij **Konfiguruj**.
+    ![Katalog domyślny](./media/nps-extension-vpn/image23.png)
 
- ![Konfigurowanie domyślnych](./media/nps-extension-vpn/image24.png)
+4. W **nazwa** kolumny wybierz **katalog domyślny** (lub innego katalogu, w razie potrzeby).
 
-6. Na stronie Konfiguracja przewiń w dół, a następnie w sekcji uwierzytelnianie wieloskładnikowe, kliknij przycisk **Zarządzaj ustawieniami usługi**.
+5. W **domyślny katalog** wybierz **Konfiguruj**.
 
- ![Zarządzaj ustawieniami usługi MFA](./media/nps-extension-vpn/image25.png)
+    ![Skonfiguruj katalog domyślny](./media/nps-extension-vpn/image24.png)
+
+6. W **Konfiguruj** okna, w obszarze **uwierzytelnianie wieloskładnikowe**, wybierz pozycję **Zarządzaj ustawieniami usługi**.
+
+    ![Zarządzaj ustawieniami usługi Multi-Factor authentication](./media/nps-extension-vpn/image25.png)
  
-7. Na stronie uwierzytelnianie wieloskładnikowe, przejrzyj ustawienia domyślne usługi, a następnie kliknij **użytkowników**. 
+7. W **uwierzytelnianie wieloskładnikowe** okna, Przejrzyj domyślne ustawienia usługi, a następnie wybierz **użytkowników** kartę. 
 
- ![Użytkownicy usługi MFA](./media/nps-extension-vpn/image26.png)
+    ![Na karcie użytkowników usługi Multi-Factor authentication](./media/nps-extension-vpn/image26.png)
  
-8. Na stronie użytkowników wybierz użytkowników, którzy mają zostać włączone dla usługi MFA, a następnie kliknij przycisk **włączyć**.
+8. Na **użytkowników** , a następnie wybierz użytkowników, do których chcesz włączyć dla usługi MFA, a następnie wybierz **włączyć**.
 
- ![Właściwości](./media/nps-extension-vpn/image27.png)
+    ![Właściwości](./media/nps-extension-vpn/image27.png)
  
-9. Po wyświetleniu monitu kliknij przycisk **Włącz uwierzytelnianie wieloskładnikowe**.
+9. Po wyświetleniu monitu wybierz **Włącz uwierzytelnianie wieloskładnikowe**.
 
- ![Włączenie uwierzytelniania MFA](./media/nps-extension-vpn/image28.png)
+    ![Włączanie uwierzytelniania wieloskładnikowego](./media/nps-extension-vpn/image28.png)
  
-10. Kliknij przycisk **Zamknij**. 
-11. Odśwież stronę. Stan uwierzytelniania Wieloskładnikowego jest zmieniany na włączone.
+10. Wybierz **Zamknij**. 
 
-Aby uzyskać informacje na temat umożliwić użytkownikom uwierzytelnianie wieloskładnikowe, zobacz [wprowadzenie do korzystania z usługi Azure Multi-Factor Authentication w chmurze](multi-factor-authentication-get-started-cloud.md). 
+11. Odśwież stronę.  
+    Stan uwierzytelniania wieloskładnikowego jest zmieniana na *włączone*.
+
+Aby uzyskać informacje o sposobie włączania użytkowników dla usługi MFA, zobacz [wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze](multi-factor-authentication-get-started-cloud.md). 
 
 ### <a name="configure-accounts-for-two-step-verification"></a>Konfigurowanie konta na potrzeby weryfikacji dwuetapowej
-Po włączeniu konta dla usługi MFA, użytkownicy nie będą mogli zalogować się do zasobów objętych zasady MFA, aż pomyślnie skonfigurowano zaufanego urządzenia na potrzeby drugiego etapu uwierzytelniania o używane weryfikacji dwuetapowej.
+Po włączeniu dla usługi MFA konta użytkowników występują problemy dotyczące logować się do zasobów zarządzanych przez zasady MFA aż pomyślnie skonfigurowano zaufanego urządzenia na potrzeby drugiego etapu uwierzytelniania.
 
-W tej sekcji skonfigurujesz zaufanego urządzenia do użycia w trakcie weryfikacji dwuetapowej. Dostępnych jest kilka opcji można konfigurować, takie jak następujące:
+W tej sekcji skonfigurujesz zaufanego urządzenia do użycia w trakcie weryfikacji dwuetapowej. Masz kilka opcji urządzenia, takie jak następujące:
 
-* **Aplikacja mobilna**. Aplikacja Microsoft Authenticator należy zainstalować na urządzeniu Windows Phone, Android lub iOS. W zależności od zasad organizacji, należy skorzystać z aplikacji w jednym z dwóch trybów: otrzymywać powiadomienia na potrzeby weryfikacji (powiadomienie jest wypychane na urządzenie) lub użyj kodu weryfikacyjnego (konieczne jest podanie kodu weryfikacyjnego, która aktualizuje co 30 sekund). 
-* **Telefonu komórkowego połączenia lub wiadomości SMS**. Można albo otrzymywać automatyczne połączenia telefonicznego lub wiadomości SMS. Z opcją połączenia telefonicznego odebranie połączenia i naciśnij klawisz znaku # do uwierzytelniania. Z opcją tekstu możesz Odpowiedz na wiadomość SMS lub wprowadź kod weryfikacyjny w interfejsie logowania.
-* **Z telefonem biurowym**. Ten proces jest taka sama, jak te opisane na automatyczne połączenia telefoniczne powyżej.
+* **Aplikacja mobilna**: Instalowanie aplikacji Microsoft Authenticator na urządzeniu Windows Phone, Android lub iOS. W zależności od zasad organizacji należy skorzystać z aplikacji w jednym z dwóch trybów: 
+    * Otrzymywać powiadomienia na potrzeby weryfikacji (powiadomienie jest wypychane do Twojego urządzenia).
+    * Użyj kodu weryfikacyjnego (konieczne jest podanie kodu weryfikacyjnego, która aktualizuje co 30 sekund). 
 
-Wykonaj te instrukcje dotyczące konfigurowania urządzenia na potrzeby odbierania powiadomień wypychanych do weryfikacji w aplikacji mobilnej.
+* **Telefonu komórkowego połączenia lub wiadomości SMS**: może odbierać automatyczne połączenia telefonicznego lub wiadomości tekstowej. Z opcją połączenia telefonicznego odebranie połączenia i wybierz znak krzyżyka (#) do uwierzytelniania. Z opcją tekstu należy odpowiedzieć na wiadomość SMS lub wprowadź kod weryfikacyjny w interfejsie logowania.
 
-1. Zaloguj się do [https://aka.ms/mfasetup](https://aka.ms/mfasetup) lub dowolnej lokacji, takich jak [https://portal.azure.com](https://portal.azure.com), gdzie wymagane do uwierzytelniania przy użyciu poświadczeń konta z obsługą uwierzytelniania Wieloskładnikowego. 
-2. Po zarejestrowaniu się przy użyciu nazwy użytkownika i hasła, są prezentowane ekran z monitem o skonfigurowanie konta dodatkowej weryfikacji zabezpieczeń.
+* **Z telefonem biurowym**: tego procesu jest taka sama jak procesu opisanego wcześniej podczas automatycznego połączeń telefonicznych.
 
- ![Dodatkowe zabezpieczenia](./media/nps-extension-vpn/image29.png)
+Aby skonfigurować urządzenie na potrzeby odbierania powiadomień wypychanych do weryfikacji w aplikacji mobilnej, wykonaj następujące czynności:
 
-3. Kliknij przycisk **teraz skonfigurować**.
-4. Na stronie weryfikacji dodatkowe zabezpieczenia wybierz typ kontaktu (numer telefonu uwierzytelniania, telefon biurowy lub aplikacja mobilna). Następnie wybierz kraj lub region, a następnie wybierz metodę. Metoda zależy od wybranego typu kontaktu. Na przykład jeśli aplikacja mobilna, można wybrać czy otrzymywać powiadomienia na potrzeby weryfikacji, czy Użyj kodu weryfikacyjnego. Czynności, które wykonują założono, możesz wybrać **aplikacji mobilnej** jako typ kontaktu.
+1. Zaloguj się do [Microsoft Azure](https://aka.ms/mfasetup) lub dowolnej lokacji, takich jak [portalu Azure](https://portal.azure.com), gdzie są wymagane do uwierzytelniania przy użyciu poświadczeń konta z obsługą uwierzytelniania Wieloskładnikowego.  
+    Zostanie wyświetlony monit o skonfigurowanie konta dodatkowej weryfikacji zabezpieczeń, jak pokazano poniżej:
 
- ![Telefonu uwierzytelniania](./media/nps-extension-vpn/image30.png)
+    ![Dodatkowe zabezpieczenia](./media/nps-extension-vpn/image29.png)
 
-5. Wybierz aplikację mobilną, kliknij przycisk **otrzymywać powiadomienia na potrzeby weryfikacji**, a następnie **Konfigurowanie**. 
+2. Wybierz **teraz skonfigurować**.
 
- ![Weryfikacja aplikacji mobilnej](./media/nps-extension-vpn/image31.png)
+3. W **dodatkowej weryfikacji zabezpieczeń** wpisz w oknie, wybierz kontaktu (**numer telefonu uwierzytelniania**, **telefon biurowy**, lub **aplikacji mobilnej** ), wybierz kraj lub region, a następnie wybierz metodę. Nie zaznaczaj **kontaktu mnie** jeszcze.  
+    Metoda zależy od typu kontaktu. Na przykład, jeśli wybierzesz **aplikacji mobilnej**, można wybrać, czy do odbierania powiadomień o weryfikacji lub użyj kodu weryfikacyjnego. 
+
+    ![Okno "dodatkowej weryfikacji zabezpieczeń"](./media/nps-extension-vpn/image30.png)
+
+    Czynności, które wykonują założono, że wybrano **aplikacji mobilnej** jako typ kontaktu.
+
+4. Wybierz **aplikacji mobilnej**, wybierz pozycję **otrzymywać powiadomienia na potrzeby weryfikacji**, a następnie wybierz **Konfigurowanie**. 
+
+    ![Okno "dodatkowej weryfikacji zabezpieczeń"](./media/nps-extension-vpn/image31.png)
  
-6. Jeśli jeszcze tego nie zrobiono tego wcześniej, zainstaluj aplikację mobilną wystawcy uwierzytelnienia na urządzeniu. 
-7. Postępuj zgodnie z instrukcjami w aplikacji mobilnej w celu skanowania przedstawioną kod kreskowy lub ręcznie wprowadzić informacje o, a następnie kliknij **gotowe**.
+5. Jeśli jeszcze tego nie zrobiono tego wcześniej, zainstaluj aplikację mobilną Authenticator firmy Microsoft na urządzeniu. 
 
- ![Konfigurowanie aplikacji mobilnej](./media/nps-extension-vpn/image32.png)
+6. W aplikacji mobilnej zeskanować kodu kreskowego wyświetlanych lub ręcznie wprowadzić informacje o, a następnie wybierz **gotowe**.
 
-8. Na stronie weryfikacji dodatkowe zabezpieczenia, kliknij przycisk **kontaktu mnie** i Odpowiedz na powiadomienie do Twojego urządzenia.
-9. Na stronie weryfikacji dodatkowe zabezpieczenia, wprowadź numer kontaktu w przypadku utraty dostępu do aplikacji mobilnej i kliknij przycisk **dalej**.
+    ![Konfigurowanie aplikacji mobilnej Authenticator firmy Microsoft](./media/nps-extension-vpn/image32.png)
 
- ![Numer telefonu komórkowego](./media/nps-extension-vpn/image33.png)
+7. W **dodatkowej weryfikacji zabezpieczeń** wybierz **kontaktu mnie**, a następnie odpowiedz na powiadomienie, które są wysyłane do urządzenia.
+
+8. W **dodatkowej weryfikacji zabezpieczeń** okna, w obszarze **krok 3: W przypadku utraty dostępu do aplikacji mobilnej**, wprowadź numer kontaktowy do wywołania w przypadku utraty dostępu do aplikacji mobilnej, a następnie wybierz  **Następny**.
+
+    ![Okno "dodatkowej weryfikacji zabezpieczeń"](./media/nps-extension-vpn/image33.png)
  
-10. Na dodatkowej weryfikacji zabezpieczeń, kliknij przycisk **gotowe**.
+9. W **dodatkowej weryfikacji zabezpieczeń** wybierz **gotowe**.
 
-Urządzenie jest teraz skonfigurowane do zapewniają drugi metodę weryfikacji. Aby uzyskać informacje na temat konfigurowania konta na potrzeby weryfikacji dwuetapowej, zobacz [Skonfiguruj moje konto na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-first-time.md).
+Urządzenie jest teraz skonfigurowane do zapewniają drugi metodę weryfikacji. Informacje o konfigurowaniu kont na potrzeby weryfikacji dwuetapowej, zobacz [Skonfiguruj moje konto na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-first-time.md).
 
-## <a name="install-and-configure-nps-extension"></a>Instalowanie i Konfigurowanie rozszerzeń serwera NPS
+## <a name="install-and-configure-the-nps-extension"></a>Instalowanie i Konfigurowanie rozszerzeń serwera NPS
 
-Ta sekcja zawiera instrukcje dotyczące konfigurowania sieci VPN do użycia usługi Azure MFA na potrzeby uwierzytelniania klienta z serwerem sieci VPN.
+Ta sekcja zawiera instrukcje dotyczące konfigurowania sieci VPN do użycia usługi MFA na potrzeby uwierzytelniania klienta z serwerem sieci VPN.
 
-Po zainstalowaniu i skonfigurowaniu rozszerzenia serwera NPS, wszystkie uwierzytelnianie klienta usługi RADIUS, który jest przetwarzany przez ten serwer jest wymagana do używania usługi Azure MFA. Jeśli nie wszystkich użytkowników sieci VPN są zarejestrowane w usłudze Azure MFA, do uwierzytelniania użytkowników, którzy nie są skonfigurowane do używania uwierzytelniania MFA można skonfigurować innego serwera RADIUS. Lub można utworzyć wpis rejestru, który umożliwia kwestionowanych zapewnić drugi składnik uwierzytelniania tylko wtedy, gdy są one rejestrowane w MFA. 
+Po zainstalowaniu i skonfigurowaniu rozszerzenia serwera NPS, wszystkie uwierzytelnianie klienta usługi RADIUS, który jest przetwarzany przez ten serwer jest wymagana do używać uwierzytelniania Wieloskładnikowego. Jeśli użytkownicy sieci VPN nie są zarejestrowane w usłudze Azure Multi-Factor Authentication, możesz zrobić z następujących czynności:
 
-Utwórz nową wartość ciągu o nazwie _REQUIRE_USER_MATCH w HKLM\SOFTWARE\Microsoft\AzureMfa_, a następnie ustaw wartość PRAWDA lub FAŁSZ. 
+* Konfigurowanie innego serwera RADIUS w celu uwierzytelniania użytkowników, którzy nie są skonfigurowane do korzystania z usługi MFA. 
 
- ![Wymagaj dopasowania użytkownika](./media/nps-extension-vpn/image34.png)
+* Utwórz wpis rejestru, który umożliwia użytkownikom kwestionowanych zapewnić drugi składnik uwierzytelniania, jeśli są one rejestrowane w usłudze Azure Multi-Factor Authentication. 
+
+Utwórz nową wartość ciągu o nazwie _REQUIRE_USER_MATCH w HKLM\SOFTWARE\Microsoft\AzureMfa_i ustaw wartość *True* lub *False*. 
+
+![Ustawienie "Wymagaj dopasowania użytkownika"](./media/nps-extension-vpn/image34.png)
  
-Jeśli wartość jest równa TRUE, lub nie jest ustawiona, wszystkie żądania uwierzytelniania podlegają żądanie uwierzytelniania MFA. Jeśli wartość jest równa FALSE, wyzwania MFA są wystawiane tylko do użytkowników, które są zarejestrowane w MFA. Ustawienia FALSE podczas testowania lub w środowiskach produkcyjnych w okresie dołączania należy używać tylko.
+Jeśli wartość jest równa *True* lub jest pusty, wszystkie żądania uwierzytelniania są poddawane żądanie uwierzytelniania MFA. Jeśli wartość jest równa *False*, wyzwania MFA są wystawiane tylko do użytkowników, którzy są zarejestrowane w usłudze Azure Multi-Factor Authentication. Użyj *False* ustawienie tylko podczas testowania lub w środowiskach produkcyjnych w okresie dołączania.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Uzyskać identyfikator GUID usługi Azure Active Directory
+### <a name="obtain-the-azure-active-directory-guid-id"></a>Uzyskaj identyfikator GUID usługi Azure Active Directory
 
-W ramach konfiguracji rozszerzenia serwera NPS musisz podać poświadczenia administratora i identyfikator usługi Azure Active Directory dla dzierżawy usługi Azure AD. Poniższe kroki opisano, jak uzyskać identyfikator dzierżawcy.
+W ramach konfiguracji rozszerzenia serwera NPS musisz podać poświadczenia administratora i identyfikator dzierżawy usługi Azure AD. Uzyskaj identyfikator w następujący sposób:
 
-1. Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com) jako administrator globalny dzierżawy platformy Azure.
-2. W obszarze nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony.
-3. Kliknij pozycję **Właściwości**.
-4. Aby skopiować identyfikator katalogu do Schowka, zaznacz **kopiowania** ikony.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) jako administrator globalny dzierżawy platformy Azure.
+
+2. W okienku po lewej stronie wybierz **usługi Azure Active Directory** przycisku.
+
+3. Wybierz **właściwości**.
+
+4. Aby skopiować identyfikator użytkownika usługi Azure AD, wybierz **kopiowania** przycisku.
  
- ![Identyfikator katalogu](./media/nps-extension-vpn/image35.png)
+    ![Identyfikator usługi Azure AD](./media/nps-extension-vpn/image35.png)
 
 ### <a name="install-the-nps-extension"></a>Zainstaluj rozszerzenie serwera NPS
-Rozszerzenia serwera NPS należy zainstalować na serwerze zasad sieciowych i zainstalowaną rolą usług dostępu (NPS) i tej funkcji jako serwer RADIUS w projekcie. Nie należy instalować rozszerzenia serwera NPS na serwerze usług pulpitu zdalnego.
+Rozszerzenia serwera zasad Sieciowych musi być zainstalowany na serwerze zasad sieciowych i zainstalowaną rolą usług dostępu i która działa jako serwer RADIUS w projekcie. Czy *nie* Zainstaluj rozszerzenie serwera NPS na serwerze usług pulpitu zdalnego.
 
-1. Pobierz rozszerzenie serwera NPS z [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
-2. Kopiowanie pliku wykonywalnego Instalatora (NpsExtnForAzureMfaInstaller.exe) na serwerze zasad Sieciowych.
-3. Na serwerze NPS, kliknij dwukrotnie **NpsExtnForAzureMfaInstaller.exe**. Jeśli zostanie wyświetlony monit, kliknij przycisk **Uruchom**.
-4. W oknie dialogowym serwera NPS rozszerzenia dla usługi Azure MFA instalacji, przejrzyj postanowienia licencyjne dotyczące oprogramowania, sprawdź **zgadzam się z warunkami licencji**i kliknij przycisk **zainstalować**.
+1. Pobierz rozszerzenie serwera NPS z [Microsoft Download Center](https://aka.ms/npsmfa). 
 
- ![Rozszerzenia serwera NPS](./media/nps-extension-vpn/image36.png)
+2. Kopiowanie pliku wykonywalnego (*NpsExtnForAzureMfaInstaller.exe*) na serwerze zasad Sieciowych.
+
+3. Na serwerze NPS, kliknij dwukrotnie **NpsExtnForAzureMfaInstaller.exe** i po wyświetleniu monitu wybierz **Uruchom**.
+
+4. W **NPS dla usługi Azure MFA Instalator rozszerzenia** okna, przejrzyj postanowienia licencyjne dotyczące oprogramowania, zaznaczyć **zgadzam się z warunkami licencji** pole wyboru, a następnie wybierz **zainstalować**.
+
+    ![Okno "NPS rozszerzenia dla usługi Azure MFA instalacji"](./media/nps-extension-vpn/image36.png)
  
-5. W oknie dialogowym serwera NPS rozszerzenia dla usługi Azure MFA instalacji, kliknij przycisk **Zamknij**.  
+5. W **NPS dla usługi Azure MFA Instalator rozszerzenia** wybierz **Zamknij**.  
 
- ![Instalator pomyślnie](./media/nps-extension-vpn/image37.png) 
+    !["Ustawienia pomyślnie ukończono" okno potwierdzenia](./media/nps-extension-vpn/image37.png) 
  
-### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Konfigurowanie certyfikatów do użytku z rozszerzeniem serwera NPS przy użyciu skryptu programu PowerShell
+### <a name="configure-certificates-for-use-with-the-nps-extension-by-using-a-powershell-script"></a>Konfigurowanie certyfikatów do użytku z rozszerzeniem serwera NPS przy użyciu skryptu środowiska PowerShell
 W celu zapewnienia bezpiecznej komunikacji i gwarantują, należy skonfigurować certyfikaty do użycia przez rozszerzenie serwera NPS. Składniki serwera NPS obejmują skrypt programu Windows PowerShell, który konfiguruje certyfikatu z podpisem własnym do użytku z serwera NPS. 
 
 Skrypt wykonuje następujące czynności:
 
-* Tworzy certyfikat z podpisem własnym
-* Kojarzy klucz publiczny certyfikatu do usługi podmiotu zabezpieczeń w usłudze Azure AD
-* Zapisuje certyfikat w magazynie komputera lokalnego
-* Zapewnia dostęp do klucza prywatnego certyfikatu użytkownika sieci
-* Uruchamia ponownie usługę Serwer zasad sieciowych
+* Tworzy certyfikat z podpisem własnym.
+* Kojarzy klucz publiczny certyfikatu z usługą główną w usłudze Azure AD.
+* Zapisuje certyfikat w magazynie komputera lokalnego.
+* Udziela użytkownikowi dostępu sieciowego do klucza prywatnego certyfikatu.
+* Uruchamia ponownie usługę NPS.
 
-Jeśli chcesz użyć własnych certyfikatów, należy skojarzyć klucz publiczny certyfikatu do nazwy głównej usługi w usłudze Azure AD i tak dalej.
-Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych usługi Azure Active Directory i skopiowane wcześniej Identyfikatora dzierżawy usługi Azure Active Directory. Uruchom skrypt na każdym serwerze NPS, w którym zainstalowano rozszerzenia serwera NPS.
+Jeśli chcesz użyć własnych certyfikatów, należy skojarzyć klucz publiczny certyfikatu z nazwy głównej usługi w usłudze Azure AD i tak dalej.
 
-1. Otwórz administracyjny wiersz środowiska Windows PowerShell.
-2. W wierszu polecenia programu PowerShell wpisz _cd "c:\Program Files\Microsoft\AzureMfa\Config"_i naciśnij klawisz **ENTER**.
-3. Typ _.\AzureMfsNpsExtnConfigSetup.ps1_i naciśnij klawisz **ENTER**. 
- * Skrypt sprawdza, czy jest zainstalowany moduł programu PowerShell usługi Azure Active Directory. Jeśli nie jest zainstalowany, skrypt zainstaluje moduł.
+Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych usługi Azure Active Directory i Identyfikatora dzierżawy usługi Azure Active Directory, które wcześniej zostały skopiowane. Uruchom skrypt na każdym serwerze NPS, w którym zainstalowano rozszerzenia serwera NPS.
+
+1. Uruchom program Windows PowerShell jako administrator.
+
+2. W wierszu polecenia programu PowerShell, wprowadź **cd c:\Program Files\Microsoft\AzureMfa\Config**, a następnie wybierz Enter.
+
+3. W następnym wierszu polecenia, wprowadź **.\AzureMfsNpsExtnConfigSetup.ps1**, a następnie wybierz Enter.  
+    Skrypt sprawdza, czy jest zainstalowany moduł Azure AD PowerShell. Jeśli nie jest zainstalowany, skrypt zainstaluje moduł.
  
- ![PowerShell](./media/nps-extension-vpn/image38.png)
+    ![PowerShell](./media/nps-extension-vpn/image38.png)
  
-4. Po skrypt sprawdza poprawność instalacji modułu programu PowerShell, wyświetla okno dialogowe modułu programu PowerShell usługi Azure Active Directory. W oknie dialogowym Wprowadź poświadczenia administratora usługi Azure AD i hasło, a następnie kliknij przycisk **Zaloguj**. 
+    Po skrypt sprawdza poprawność instalacji modułu programu PowerShell, wyświetla modułu programu PowerShell usługi Azure Active Directory logowania okna. 
+
+4. Wprowadź poświadczenia administratora usługi Azure AD i hasło, a następnie wybierz **Zaloguj**. 
  
- ![Logowanie do programu PowerShell](./media/nps-extension-vpn/image39.png)
+    ![Okno programu PowerShell logowania](./media/nps-extension-vpn/image39.png)
  
-5. Po wyświetleniu monitu Wklej identyfikator dzierżawcy wcześniej zostały skopiowane do Schowka i naciśnij klawisz **ENTER**. 
+5. W wierszu polecenia Wklej skopiowany wcześniej identyfikator dzierżawy, a następnie wybierz Enter. 
 
- ![Identyfikator dzierżawy](./media/nps-extension-vpn/image40.png)
+    ![Identyfikator dzierżawy](./media/nps-extension-vpn/image40.png)
 
-6. Skrypt tworzy certyfikat z podpisem własnym i wykonuje inne zmiany w konfiguracji. Dane wyjściowe są jak obraz, pokazano poniżej.
+    Skrypt tworzy certyfikat z podpisem własnym i wykonuje inne zmiany w konfiguracji. Wynik jest tak jak na poniższej ilustracji:
 
- ![Certyfikatu z podpisem własnym](./media/nps-extension-vpn/image41.png)
+    ![Certyfikat z podpisem własnym](./media/nps-extension-vpn/image41.png)
 
-7. Uruchom ponownie serwer.
- 
-### <a name="verify-configuration"></a>Weryfikowanie konfiguracji
-Aby sprawdzić konfigurację, należy nawiązać nowe połączenie sieci VPN z serwerem sieci VPN. Po pomyślnym wprowadzania poświadczeń dla uwierzytelniania podstawowego, połączenie sieci VPN czeka dodatkowego uwierzytelniania się powodzeniem przed połączenie zostanie nawiązane, jak pokazano poniżej. 
+6. Uruchom ponownie serwer.
 
- ![Weryfikowanie konfiguracji](./media/nps-extension-vpn/image42.png)
+### <a name="verify-the-configuration"></a>Sprawdź konfigurację
+Aby sprawdzić konfigurację, należy ustanowić nowe połączenie sieci VPN z serwerem sieci VPN. Po pomyślnym wprowadzeniu poświadczeń dla uwierzytelniania podstawowego, połączenie sieci VPN czeka dodatkowego uwierzytelniania się powodzeniem przed połączenie zostanie nawiązane, jak pokazano poniżej. 
 
-W przypadku pomyślnego uwierzytelnienia za pomocą metody dodatkowej weryfikacji wcześniej skonfigurowane w usłudze Azure MFA, są połączone z zasobem. Jednak dodatkowego uwierzytelniania zakończy się niepowodzeniem, jest odmowa dostępu do zasobu. 
+![Okno sieci VPN ustawienia systemu Windows](./media/nps-extension-vpn/image42.png)
 
-W poniższym przykładzie aplikacji uwierzytelniania w systemie Windows phone służy do zapewnienia dodatkowego uwierzytelniania.
+Jeśli zostanie pomyślnie uwierzytelniony przy użyciu metody dodatkowej weryfikacji, który wcześniej skonfigurowany w usłudze Azure MFA, są połączone z zasobem. Jednak dodatkowego uwierzytelniania zakończy się niepowodzeniem, jest odmowa dostępu do zasobu. 
 
- ![Sprawdź konto](./media/nps-extension-vpn/image43.png)
+W poniższym przykładzie aplikacji Microsoft Authenticator na Windows Phone zawiera dodatkowego uwierzytelniania:
 
-Po zostały pomyślnie uwierzytelniony przy użyciu metody pomocnicze, mają prawo dostępu do portu wirtualnego na serwerze sieci VPN. Jednak ponieważ były wymagane do użycia dodatkowej metody uwierzytelniania przy użyciu aplikacji mobilnej na zaufanym urządzeniu dziennika w procesie jest bardziej bezpieczne, nie może być używa tylko nazwy użytkownika / kombinacja hasła.
+![Sprawdź konto](./media/nps-extension-vpn/image43.png)
 
-### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Sprawdź dzienniki Podglądu zdarzeń dla zdarzeń pomyślnego logowania
-Do wyświetlania zdarzeń pomyślnego logowania w dziennikach podglądu zdarzeń systemu Windows, należy wydać następujące polecenie programu Windows PowerShell do badania dziennika zabezpieczeń systemu Windows na serwerze NPS.
+Po pomyślnie uwierzytelniono za pomocą metody pomocnicze są uzyska dostęp do wirtualnego portu na serwerze sieci VPN. Ponieważ trzeba użyć metody dodatkowego uwierzytelniania przy użyciu aplikacji mobilnej na zaufanym urządzeniu, procesu logowania jest bezpieczniejsza niż jeśli były używane tylko kombinacja nazwy użytkownika i hasła.
 
-Aby sprawdzić zdarzeń pomyślnego logowania w dziennikach podglądu zdarzeń zabezpieczeń, użyj następującego polecenia
-* _Get-WinEvent - Nazwa_dziennika zabezpieczeń_ | gdzie {$_.ID - eq "6272"} | FL 
+### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Sprawdź dzienniki Podglądu zdarzeń dla zdarzeń pomyślnego logowania
+Aby wyświetlić zdarzeń pomyślnego logowania w dziennikach podglądu zdarzeń systemu Windows, zapytanie zabezpieczenia systemu Windows dziennika na serwerze NPS, wprowadzając następujące polecenie programu PowerShell:
 
- ![Podgląd zdarzeń zabezpieczeń](./media/nps-extension-vpn/image44.png)
+    _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL 
+
+![Zabezpieczenia programu PowerShell Podgląd zdarzeń](./media/nps-extension-vpn/image44.png)
  
-Możesz również wyświetlić dziennik zabezpieczeń lub widok niestandardowy usług zasad sieciowych i dostępu w sposób przedstawiony poniżej:
+Możesz również wyświetlić dziennik zabezpieczeń lub widok niestandardowy usług zasad sieciowych i dostępu w sposób pokazany poniżej:
 
- ![Dostęp do zasad sieci](./media/nps-extension-vpn/image45.png)
+![Dziennik serwera zasad sieciowych](./media/nps-extension-vpn/image45.png)
 
-Na serwerze, na którym zainstalowano rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA, można znaleźć dzienniki Podglądu zdarzeń aplikacji specyficzne dla rozszerzenia w **aplikacji i usług Logs\Microsoft\AzureMfa**. 
+Na serwerze, na którym zainstalowano rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe Azure, możesz znaleźć dzienniki Podglądu zdarzeń aplikacji, które są specyficzne dla rozszerzenia w *aplikacji i usług Logs\Microsoft\AzureMfa*. 
 
-* _Get-WinEvent - Nazwa_dziennika zabezpieczeń_ | gdzie {$_.ID - eq "6272"} | FL
+    _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL
 
- ![Liczba zdarzeń (event)](./media/nps-extension-vpn/image46.png)
+![Podgląd zdarzeń "Liczba zdarzeń" okienko](./media/nps-extension-vpn/image46.png)
 
-## <a name="troubleshoot-guide"></a>Rozwiązywanie problemów z przewodnika
-Jeśli konfiguracja nie działa zgodnie z oczekiwaniami, najlepiej zacząć Rozwiązywanie problemów z jest Sprawdź, czy użytkownik jest skonfigurowany do używania usługi Azure MFA. Użytkownik powinien połączyć się z [https://portal.azure.com](https://portal.azure.com). Jeśli monit o podanie dodatkowego uwierzytelniania i można pomyślnie uwierzytelnić, można wyeliminować niepoprawnej konfiguracji usługi Azure MFA.
+## <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
+Jeśli konfiguracja nie działa zgodnie z oczekiwaniami, należy rozpocząć rozwiązywania problemów, upewniając się, że użytkownik jest skonfigurowany do używania uwierzytelniania Wieloskładnikowego. Użytkownik powinien połączyć się z [portalu Azure](https://portal.azure.com). Jeśli użytkownik jest monitowany o dodatkowego uwierzytelniania i można pomyślnie uwierzytelnić, można wyeliminować niepoprawnej konfiguracji MFA jako rozwiązaniem problemu.
 
-Jeśli usługi Azure MFA działa dla użytkowników, należy przejrzeć odpowiednich dzienników zdarzeń. Obejmują one zdarzeń zabezpieczeń, operacyjne bramy i dzienniki usługi Azure MFA, które opisano w poprzedniej sekcji. 
+Jeśli uwierzytelnianie wieloskładnikowe działa dla użytkownika, przejrzyj odpowiedni dzienniki Podglądu zdarzeń. Dzienniki zawierają zdarzeń zabezpieczeń, operacyjne bramy i dzienniki usługi Azure Multi-Factor Authentication, które opisano w poprzedniej sekcji. 
 
-Poniżej przedstawiono przykładowe dane wyjściowe dziennika zabezpieczeń przedstawiający zdarzenia logowania nie powiodło się (6273 identyfikator zdarzenia):
+Przykład dziennika zabezpieczeń, który wyświetla nie powiodło się logowania zdarzenie (event ID 6273) znajduje się w tym miejscu:
 
- ![Dziennik zabezpieczeń](./media/nps-extension-vpn/image47.png)
+![Dziennik zabezpieczeń przedstawiający nie powiodło się zdarzenia logowania](./media/nps-extension-vpn/image47.png)
 
-Poniżej znajdują się zdarzenia związane z dzienników AzureMFA:
+Zdarzenia związane z dziennika Azure Multi-Factor Authentication jest następujący:
 
- ![Dzienniki usługi Azure MFA](./media/nps-extension-vpn/image48.png)
+![Dzienniki usługi Azure Multi-Factor Authentication](./media/nps-extension-vpn/image48.png)
 
-Aby wykonywać zaawansowane rozwiązywanie problemów z opcjami, sprawdź pliki dziennika format bazy danych serwera NPS zainstalowaną usługę NPS. Te pliki dziennika są tworzone w _%SystemRoot%\System32\Logs_ folderu plików tekstowych rozdzielanych przecinkami. Aby uzyskać opis tych plików dziennika, zobacz [zinterpretować pliki dziennika Format bazy danych serwera NPS](https://technet.microsoft.com/library/cc771748.aspx). 
+Do zaawansowanego rozwiązywania problemów, sprawdź pliki dziennika format bazy danych serwera NPS zainstalowaną usługę NPS. Pliki dziennika są tworzone w _%SystemRoot%\System32\Logs_ folderu plików tekstowych rozdzielanych przecinkami. Opis plików dziennika, zobacz [zinterpretować pliki dziennika Format bazy danych serwera NPS](https://technet.microsoft.com/library/cc771748.aspx). 
 
-Wpisy w tych plikach dziennika są trudne do interpretowania bez importowania ich do arkusza kalkulacyjnego lub bazy danych. Liczba IAS analizatory składni online ułatwić interpretowanie pliki dziennika można znaleźć. Poniżej znajdują się dane wyjściowe tego takie do pobrania [aplikacji "shareware"](http://www.deepsoftware.com/iasviewer): 
+Wpisy w tych plikach dziennika są trudne do interpretowania, chyba że zostaną wyeksportowane do arkusza kalkulacyjnego lub bazy danych. Można znaleźć wiele uwierzytelniania internetowego usługi (IAS) podczas analizowania narzędzia w trybie online, aby ułatwić Interpretowanie plików dziennika. Dane wyjściowe tego takie do pobrania [aplikacji "shareware"](http://www.deepsoftware.com/iasviewer) jest następujący: 
 
- ![Aplikacja "shareware"](./media/nps-extension-vpn/image49.png)
+![Aplikacja "shareware"](./media/nps-extension-vpn/image49.png)
 
-Na koniec, aby uzyskać dodatkowe Rozwiązywanie problemów z opcjami, możesz użyć analizatora protokołów, takich jak Wireshark lub [programu Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Na poniższej ilustracji z programu Wireshark przedstawiono komunikaty RADIUS między serwerem sieci VPN i serwer zasad Sieciowych.
+Należy uzyskać dalszą pomoc, można użyć analizatora protokołów, takich jak Wireshark lub [programu Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Na poniższej ilustracji z programu Wireshark przedstawiono komunikaty RADIUS między serwerem sieci VPN i serwer zasad Sieciowych.
 
- ![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
+![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
 
-Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md).  
+Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Jak uzyskać usługę Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
+[Pobierz uwierzytelnianie wieloskładnikowe platformy Azure](multi-factor-authentication-versions-plans.md)
 
 [Brama usług pulpitu zdalnego i serwer Azure Multi-Factor Authentication korzystające z usługi RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 

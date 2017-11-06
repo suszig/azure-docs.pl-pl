@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Tworzenie klastra usługi HDInsight z usługą Data Lake Store (jako dodatkowej pamięci masowej) przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -264,6 +264,7 @@ Powinny pojawić się plik, który został wcześniej przekazany do usługi Data
 Można również użyć `hdfs dfs -put` polecenie, aby przekazać pliki do usługi Data Lake Store, a następnie użyj `hdfs dfs -ls` Aby sprawdzić, czy pliki zostały pomyślnie przekazane.
 
 ## <a name="see-also"></a>Zobacz też
+* [Użyj Data Lake Store z klastrami Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portal: Tworzenie klastra usługi HDInsight do użycia usługi Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

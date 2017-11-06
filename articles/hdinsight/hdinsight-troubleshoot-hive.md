@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Hive za pomocą usługi Azure HDInsight
 
 Dowiedz się więcej o najczęściej zadawane pytania i ich rozwiązania podczas pracy z Apache Hive ładunków w Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Jak wyeksportować na potrzeby magazynu metadanych Hive i zaimportuj go w innym klastrze
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Jak wyeksportować na potrzeby magazynu metadanych Hive i zaimportuj go w innym klastrze?
 
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
@@ -54,7 +54,7 @@ Kod w kroki rozwiązania przyjęto założenie, że ścieżki danych w nowym kla
 - [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Jak znaleźć gałęzi dzienniki w klastrze
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Jak znaleźć gałęzi dzienniki w klastrze?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -83,7 +83,7 @@ Kod w kroki rozwiązania przyjęto założenie, że ścieżki danych w nowym kla
 - [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Jak uruchomić powłokę programu Hive o określonej konfiguracji w klastrze
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Jak uruchomić powłokę programu Hive o określonej konfiguracji w klastrze?
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
@@ -110,7 +110,7 @@ Kod w kroki rozwiązania przyjęto założenie, że ścieżki danych w nowym kla
 - [Właściwości konfiguracji gałęzi](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Jak analizować dane Tez DAG na ścieżkę krytyczną klastra
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Jak analizować dane Tez DAG na ścieżkę krytyczną klastra?
 
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
@@ -150,7 +150,7 @@ Kod w kroki rozwiązania przyjęto założenie, że ścieżki danych w nowym kla
 - [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>W jaki sposób pobierać dane Tez DAG z klastra
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>W jaki sposób pobierać dane Tez DAG z klastra?
 
 
 #### <a name="resolution-steps"></a>Kroki rozwiązania
@@ -177,6 +177,8 @@ Istnieją dwa sposoby zbierania danych Tez DAG:
 [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Zobacz też
+[Rozwiązywanie problemów przy użyciu usługi Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

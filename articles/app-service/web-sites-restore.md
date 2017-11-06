@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Przywracanie aplikacji na platformie Azure
-W tym artykule przedstawiono sposób przywracania aplikacji w [usłudze Azure App Service](../app-service/app-service-web-overview.md) , która została wcześniej utworzona kopia zapasowa (zobacz [kopii zapasowych aplikacji na platformie Azure](web-sites-backup.md)). Przywracanie aplikacji za pomocą jego połączonej bazy danych na żądanie do poprzedniego stanu lub Utwórz nową aplikację na podstawie jednej z aplikacji oryginalnej kopii zapasowej. Usługa aplikacji Azure obsługuje następujące bazy danych dla kopii zapasowej i przywracania:
+W tym artykule przedstawiono sposób przywracania aplikacji w [usłudze Azure App Service](../app-service/app-service-web-overview.md) , która została wcześniej utworzona kopia zapasowa (zobacz [kopii zapasowych aplikacji na platformie Azure](web-sites-backup.md)). Możesz przywrócić poprzedni stan aplikacji za pomocą jego połączonej bazy danych na żądanie lub Utwórz nową aplikację na podstawie jednej z aplikacji oryginalne kopie zapasowe. Usługa aplikacji Azure obsługuje następujące bazy danych dla kopii zapasowej i przywracania:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Bazy danych platformy Azure dla programu MySQL (wersja zapoznawcza)](https://azure.microsoft.com/en-us/services/mysql)
 - [Bazy danych platformy Azure dla PostgreSQL (wersja zapoznawcza)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ Przywracanie z kopii zapasowych jest dostępne dla aplikacji działających **st
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Przywróć aplikację z istniejącej kopii zapasowej
-1. Na **ustawienia** bloku aplikacji w portalu Azure kliknij **kopii zapasowych** do wyświetlenia **kopii zapasowych** bloku. Następnie kliknij przycisk **przywrócić**.
+1. Na **ustawienia** strony aplikacji w portalu Azure, kliknij przycisk **kopii zapasowych** do wyświetlenia **kopii zapasowych** strony. Następnie kliknij przycisk **przywrócić**.
    
     ![Wybierz polecenie Przywróć teraz][ChooseRestoreNow]
-2. W **przywrócić** bloku, najpierw wybierz źródłowy kopii zapasowej.
+2. W **przywrócić** najpierw wybierz opcję tworzenia kopii zapasowej źródła.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ Przywracanie z kopii zapasowych jest dostępne dla aplikacji działających **st
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Pobierz lub usunięcia kopii zapasowej z konta magazynu
-1. W głównym **Przeglądaj** bloku portalu Azure, wybierz opcję **kont magazynu**. Zostanie wyświetlona lista istniejących kont magazynu.
-2. Wybierz konto magazynu, który zawiera kopię zapasową, której chcesz pobrać lub usunąć. Zostanie wyświetlony blok dla konta magazynu.
-3. W bloku konto magazynu Wybierz kontener, który ma
+1. W głównym **Przeglądaj** strony portalu Azure, wybierz opcję **kont magazynu**. Zostanie wyświetlona lista istniejących kont magazynu.
+2. Wybierz konto magazynu, który zawiera kopię zapasową, której chcesz pobrać lub usunąć. Zostanie wyświetlona strona dla konta magazynu.
+3. Na stronie tworzenia konta magazynu Wybierz kontener, który chcesz
    
     ![Kontenery widoku][ViewContainers]
 4. Wybierz plik kopii zapasowej, który chcesz pobrać lub usunąć.
@@ -72,12 +72,21 @@ Przywracanie z kopii zapasowych jest dostępne dla aplikacji działających **st
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Monitorowanie operacji przywracania
-Aby wyświetlić szczegółowe informacje o powodzeniu lub niepowodzeniu operacji przywracania aplikacji, przejdź do **dziennik aktywności** bloku w portalu Azure.  
+Aby wyświetlić szczegółowe informacje o powodzeniu lub niepowodzeniu operacji przywracania aplikacji, przejdź do **dziennik aktywności** strony w portalu Azure.  
  
 
 Przewiń w dół do znajdowania żądaną operację przywracania i zaznacz je.
 
-Szczegóły blok Wyświetla dostępne informacje dotyczące operacji przywracania.
+Na stronie Szczegóły Wyświetla dostępne informacje dotyczące operacji przywracania.
+
+## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
+
+Można zautomatyzować zarządzania kopiami zapasowymi za pomocą skryptów przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).
+
+Aby uzyskać przykłady zobacz:
+
+- [Przykładów dla interfejsu wiersza polecenia platformy Azure](app-service-cli-samples.md)
+- [Przykładów dla platformy Azure PowerShell](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

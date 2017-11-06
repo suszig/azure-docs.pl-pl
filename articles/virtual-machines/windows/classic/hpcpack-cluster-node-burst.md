@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Dodaj węzły na żądanie "serii" do klastra HPC Pack na platformie Azure
 Po skonfigurowaniu [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) klastra na platformie Azure, może być sposobem szybkie skalowanie pojemności klastra, bez zachowania zestaw węzeł obliczeniowy wstępnie skonfigurowanych maszyn wirtualnych. W tym artykule przedstawiono sposób dodawania węzłów na żądanie "serii" (uruchomionych w usłudze chmury wystąpień roli proces roboczy) jako zasoby obliczeniowe z węzłem głównym na platformie Azure. 
@@ -42,10 +42,10 @@ Kroki opisane w tym artykule pomóc szybko dodać węzły platformy Azure oparte
 * **Limit przydziału rdzeni** — należy zwiększyć limit przydziału rdzeni, zwłaszcza, jeśli użytkownik chce wdrożyć kilka węzłów Azure o rozmiarze wielordzeniowych. Aby zwiększyć przydział, [otwarcia żądania pomocy technicznej online klienta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) bez dodatkowych opłat.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Krok 1: Tworzenie usługi w chmurze i konto magazynu Azure węzłów
-Użyj klasycznego portalu Azure lub analogicznych narzędzi do konfigurowania następujących zasobów, które są wymagane do wdrożenia węzłów Azure:
+Umożliwia skonfigurowanie następujących zasobów, które są wymagane do wdrożenia węzłów Azure w portalu Azure lub analogicznych narzędzi:
 
-* Nową usługę w chmurze Azure
-* Nowe konto magazynu Azure
+* Nową usługę w chmurze Azure (klasyczne)
+* Nowe konto magazynu platformy Azure (klasyczne)
 
 > [!NOTE]
 > Nie ponownego użycia istniejącej usługi w chmurze w ramach subskrypcji. 
@@ -60,7 +60,11 @@ Użyj klasycznego portalu Azure lub analogicznych narzędzi do konfigurowania na
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Krok 2: Konfigurowanie certyfikat zarządzania platformy Azure
 Aby dodać węzły platformy Azure jako zasoby obliczeniowe, wymagany jest certyfikat zarządzania na węzła głównego i przekazywanie certyfikatu odpowiedniego do subskrypcji platformy Azure używaną na potrzeby wdrożenia.
 
-W tym scenariuszu użytkownik może **domyślne certyfikat zarządzania platformy Azure HPC** HPC Pack instaluje i konfiguruje się automatycznie w węźle głównym. Ten certyfikat jest przydatna przy testowaniu celów i weryfikacja koncepcji wdrożenia. Aby użyć tego certyfikatu, Przekaż plik 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack z węzłem głównym maszyny Wirtualnej do subskrypcji. Aby przekazać certyfikat w [klasycznego portalu Azure](https://manage.windowsazure.com), kliknij przycisk **ustawienia** > **certyfikaty zarządzania**.
+W tym scenariuszu użytkownik może **domyślne certyfikat zarządzania platformy Azure HPC** HPC Pack instaluje i konfiguruje się automatycznie w węźle głównym. Ten certyfikat jest przydatna przy testowaniu celów i weryfikacja koncepcji wdrożenia. Aby użyć tego certyfikatu, Przekaż plik 2012\Bin\hpccert.cer C:\Program Files\Microsoft HPC Pack z węzłem głównym maszyny Wirtualnej do subskrypcji. Aby przekazać certyfikat w [portalu Azure](https://portal.azure.com):
+
+1. Kliknij przycisk **subskrypcje** > *your_subscription_name*.
+
+2. Kliknij przycisk **certyfikaty zarządzania** > **przekazać**.
 
 Aby uzyskać dodatkowe opcje umożliwiające skonfigurowanie certyfikatu zarządzania, zobacz [scenariuszami, aby skonfigurować certyfikat zarządzania platformy Azure w przypadku wdrożeń serii Azure](http://technet.microsoft.com/library/gg481759.aspx).
 

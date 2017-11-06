@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6121a447acec69d354f5c1fbc7499561f471197
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c57904b7789f632d105b21c459fa1c53a8c73d04
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Tworzenie klastra usługi HDInsight z Data Lake Store za pomocą szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -139,3 +139,4 @@ Można również użyć `hdfs dfs -put` polecenie, aby przekazać pliki do usłu
 
 ## <a name="next-steps"></a>Następne kroki
 * [Kopiowanie danych z obiektów blob magazynu Azure do usługi Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Użyj Data Lake Store z klastrami Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Tworzenie i zarządzanie zasadami, by wymuszał zgodność
 
@@ -61,7 +61,7 @@ Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać d
    ![Definicje Otwórz dostępnych zasad](media/create-manage-policy/open-policy-definitions.png)
 
 5. Wybierz **wymagają programu SQL Server w wersji 12.0**.
-   
+
    ![Zlokalizuj zasady](media/create-manage-policy/select-available-definition.png)
 
 6. Podaj wyświetlenie **nazwa** dla przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
@@ -93,7 +93,7 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
       - Parametry zasad.
       - Zasady reguły/warunków, w tym przypadku — równa serii G rozmiar jednostki SKU maszyny Wirtualnej
       - Wpływ zasad, w tym przypadku — **Odmów**.
-   
+
    Oto, jak powinna wyglądać json
 
 ```json
@@ -118,9 +118,225 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Aby wyświetlić przykłady kodu json, Szukaj w tym artykule - [Przegląd zasad zasobów](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Wybierz pozycję **Zapisz**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Utwórz definicję zasad z interfejsu API REST
+
+Zasady można utworzyć przy użyciu interfejsu API REST dla definicji zasad. Interfejs API REST umożliwia tworzenie i usuwanie definicji zasad oraz uzyskać informacje o istniejących definicji.
+Aby utworzyć definicję zasad, skorzystaj z następującego przykładu:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Dołącz treści żądania, podobnie do poniższego przykładu:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Utwórz definicję zasad przy użyciu programu PowerShell
+
+Przed kontynuowaniem w przykładzie programu PowerShell, upewnij się, że zainstalowano najnowszą wersję programu Azure PowerShell. Parametry zasad zostały dodane w wersji 3.6.0. Jeśli masz starszą wersję przykłady zwrócony błąd wskazujący, że nie można odnaleźć parametru.
+
+Można utworzyć definicji zasad przy użyciu opcji `New-AzureRmPolicyDefinition` polecenia cmdlet.
+
+Aby utworzyć definicję zasad z pliku, należy przekazać ścieżkę do pliku. Dla pliku zewnętrznego skorzystaj z następującego przykładu:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Do użytku lokalnego pliku skorzystaj z następującego przykładu:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Aby utworzyć definicję zasad przy użyciu reguły z wbudowanego, skorzystaj z następującego przykładu:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+Dane wyjściowe są przechowywane w `$definition` obiektu, który jest używany podczas przypisywania zasad.
+Poniższy przykład tworzy definicji zasad, które zawiera parametry:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Wyświetlanie definicji zasad
+
+Aby wyświetlić wszystkie definicje zasad w ramach subskrypcji, użyj następującego polecenia:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w następującym formacie:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Utwórz definicję zasad z wiersza polecenia platformy Azure
+
+Możesz utworzyć definicję zasad przy użyciu wiersza polecenia platformy Azure przy użyciu polecenia definicji zasad.
+Aby utworzyć definicję zasad przy użyciu reguły z wbudowanego, skorzystaj z następującego przykładu:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Wyświetlanie definicji zasad
+
+Aby wyświetlić wszystkie definicje zasad w ramach subskrypcji, użyj następującego polecenia:
+
+```
+az policy definition list
+```
+
+Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w następującym formacie:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Utwórz i przypisz inicjatywy definicji
 
@@ -166,7 +382,7 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
    - Warstwa cenowa: standardowy
    - zakres, które chcesz zastosować do przypisania: **deweloperów pojemności Advisor Azure**
 
-5. Wybierz **przypisać**. 
+5. Wybierz **przypisać**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Rozwiąż niezgodnych lub odmówiono zasobu
 
@@ -205,4 +421,4 @@ W tym samouczku pomyślnie wykonano następujące czynności:
 Aby dowiedzieć się więcej na temat struktury definicje zasad, przyjrzeć się w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Struktura definicji zasad](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Struktura definicji zasad Azure](policy-definition.md)

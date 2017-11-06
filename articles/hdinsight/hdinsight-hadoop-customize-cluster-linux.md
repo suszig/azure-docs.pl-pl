@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c8c10f96a742092bb7b8453698d498707b0b2c2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Dostosowywanie klastrów usługi HDInsight opartej na systemie Linux przy użyciu akcji skryptu
 
@@ -140,7 +140,7 @@ W przeciwieństwie do skryptu, który akcje używane podczas tworzenia klastra, 
 >
 > Skrypty akcje uruchamiane z uprawnieniami głównego, dlatego należy się zapoznać przed jej zastosowaniem do klastra działania skryptu.
 
-Podczas stosowania skrypt do klastra, stan klastra zmiany z **systemem** do **zaakceptowane**, następnie **konfiguracji HDInsight**, a na koniec z powrotem do **systemem** skryptów powiodło się. Stan skryptu jest rejestrowana w historii akcji skryptu, i te informacje można użyć do określenia, czy skrypt zakończyło się powodzeniem, czy nie powiodło się. Na przykład `Get-AzureRmHDInsightScriptActionHistory` polecenia cmdlet programu PowerShell można wyświetlić stan skryptu. Zwraca informacje podobne do następującego tekstu:
+Podczas stosowania skrypt do klastra, klaster stan zmieni się z **systemem** do **zaakceptowane**, następnie **konfiguracji HDInsight**, a na koniec z powrotem do  **Uruchomiona** skryptów powiodło się. Stan skryptu jest rejestrowana w historii akcji skryptu, i te informacje można użyć do określenia, czy skrypt zakończyło się powodzeniem, czy nie powiodło się. Na przykład `Get-AzureRmHDInsightScriptActionHistory` polecenia cmdlet programu PowerShell można wyświetlić stan skryptu. Zwraca informacje podobne do następującego tekstu:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -213,223 +213,23 @@ Ta sekcja zawiera przykłady na różne sposoby, można użyć akcji skryptu, po
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Użyć akcji skryptu z szablonów usługi Azure Resource Manager
 
-Przykłady w tej sekcji przedstawiają sposób akcji skryptu za pomocą szablonów usługi Azure Resource Manager.
+Akcje skryptu mogą być używane z szablonów usługi Azure Resource Manager. Na przykład zobacz [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
-#### <a name="before-you-begin"></a>Przed rozpoczęciem
+W tym przykładzie akcji skryptu został dodany, używając następującego kodu:
 
-* Aby uzyskać informacji na temat konfigurowania stacji roboczej do uruchamiania poleceń cmdlet programu Powershell w usłudze HDInsight, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
-* Aby uzyskać instrukcje dotyczące sposobu tworzenia szablonów, zobacz [szablonów Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
-* Jeśli nie były wcześniej używane programu Azure PowerShell z usługą Resource Manager, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
-
-#### <a name="create-clusters-using-script-action"></a>Tworzenie klastrów za pomocą akcji skryptu
-
-1. Skopiuj następujący szablon do lokalizacji na komputerze. Ten szablon instaluje Giraph na headnodes i proces roboczy węzłów w klastrze. Możesz również sprawdzić, czy szablon JSON jest prawidłowy. Wklej szablon zawartości do [JSONLint](http://jsonlint.com/), narzędzie sprawdzania poprawności online JSON.
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "West US",
-                    "allowedValues": [ "West US" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.2",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. Uruchom program Azure PowerShell i zaloguj się do konta platformy Azure. Po podaniu poświadczeń, polecenie zwraca informacje o Twoim koncie.
+    ]
 
-        Add-AzureRmAccount
+Aby uzyskać informacje na temat sposobu wdrażania szablonu można znaleźć w następujących dokumentach:
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. Jeśli masz wiele subskrypcji, podaj identyfikator subskrypcji ma zostać użyty do wdrożenia.
+* [Wdrażanie zasobów przy użyciu szablonów i programu Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
-
-    > [!NOTE]
-    > Można użyć `Get-AzureRmSubscription` spowoduje wyświetlenie listy wszystkich subskrypcji skojarzonych z Twoim kontem, która zawiera identyfikator subskrypcji dla każdej z nich.
-
-4. Jeśli nie masz istniejącej grupy zasobów, należy utworzyć grupę zasobów. Podaj nazwę grupy zasobów i lokalizacji, która należy do rozwiązania. Zwracany jest podsumowanie nowej grupy zasobów.
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
-
-        ResourceGroupName : myresourcegroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. Aby utworzyć wdrożenie grupy zasobów, uruchom **AzureRmResourceGroupDeployment nowy** poleceń i podaj wymaganych parametrów. Parametry zawierają następujące dane:
-
-    * Nazwa wdrożenia
-    * Nazwa grupy zasobów
-    * Ścieżka lub adres URL utworzony szablon.
-
-  Jeśli szablon wymaga parametrów, należy podać także tych parametrów. W takim przypadku akcję skryptu, aby zainstalować język R w klastrze nie wymaga żadnych parametrów.
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    Monit o podanie wartości parametrów zdefiniowanych w szablonie.
-
-1. Po wdrożeniu grupy zasobów zostanie wyświetlone podsumowanie wdrożenia.
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. W przypadku niepowodzenia wdrożenia służy następujące polecenia cmdlet, aby uzyskać informacje na temat niepowodzenia.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+* [Wdrażanie zasobów przy użyciu szablonów i wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Użyć akcji skryptu podczas tworzenia klastra z programu Azure PowerShell
 
@@ -703,7 +503,7 @@ Aby uzyskać informacje na łączenie się z klastrem przy użyciu protokołu SS
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Historia nie wyświetla skrypty używane podczas tworzenia klastra
 
-Jeśli klaster został utworzony przed 15 marca 2016 r nie miało wpis w historii akcji skryptu. Jeśli rozmiar klastra po 15 marca 2016 r skrypty przy użyciu podczas tworzenia klastra są wyświetlane w historii jak są one stosowane do nowych węzłów w klastrze jako część operacji zmiany rozmiaru.
+Jeśli klaster został utworzony przed 15 marca 2016 r nie miało wpis w historii akcji skryptu. Jeśli rozmiar klastra po 15 marca 2016 r skrypty przy użyciu podczas tworzenia klastra są wyświetlane w historii jak są one stosowane do nowych węzłów w klastrze podczas operacji zmiany rozmiaru.
 
 Istnieją jednak dwa wyjątki:
 

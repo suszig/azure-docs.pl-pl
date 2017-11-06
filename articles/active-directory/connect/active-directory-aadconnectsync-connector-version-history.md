@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Historia wersji łącznika
 Łączników programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM) są często aktualizowane.
 
 > [!NOTE]
 > Ten temat dotyczy tylko programu FIM i MIM. Te łączniki nie są obsługiwane dla instalacji na Azure AD Connect. Wydanych łączników są preinstalowane na AADConnect w przypadku uaktualniania do kompilacji.
+
 
 Ten temat zawiera wszystkie wersje łączników, które zostały wydane.
 
@@ -37,6 +38,29 @@ Linki pokrewne:
 * [Łącznik programu PowerShell](active-directory-aadconnectsync-connector-powershell.md) odwołania dokumentacji
 * [Łącznika programu Lotus Domino](active-directory-aadconnectsync-connector-domino.md) odwołania dokumentacji
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Rozwiązane problemy:
+
+* Program Lotus Notes:
+  * Niestandardowe wydających świadectwa opcji filtrowania
+  * Importuj klasy ImportOperations został rozwiązany definicji jakie operacje może działać w trybie "Widoki" i które w trybie "Wyszukaj".
+* Ogólny LDAP:
+  * Katalog OpenLDAP używa nazwy domeny jako zakotwiczenia zamiast entryUUI. Nowa opcja do łącznika GLDAP, dzięki czemu można zmodyfikować zakotwiczenia
+* Ogólny SQL:
+  * Stałe eksportu do pola, które jest typu varbinary(max).
+  * Podczas dodawania danych binarnych ze źródła danych do obiektu CSEntry, funkcja DataTypeConversion nie powiodło się na zero bajtów. Fixed — funkcja DataTypeConversion klasy CSEntryOperationBase.
+
+
+
+
+### <a name="enhancements"></a>Ulepszenia:
+
+* Ogólny SQL:
+  * Możliwość skonfigurowania trybu wykonywania nazwane parametry procedura składowana lub nie o nazwie zostanie dodany w oknie Konfiguracja SQL ogólnego agenta zarządzania na stronie "Parametry globalne". Na stronie "Parametry globalne" jest pole wyboru z etykietą "Użyj parametrów nazwanych do wykonania procedury składowanej", który jest odpowiedzialny za tryb dla procedury przechowywane execute z parametrów nazwanych lub nie.
+    * Obecnie możliwość wykonania procedury składowanej z parametrów nazwanych działa tylko w przypadku baz danych programu IBM DB2 i MSSQL. W przypadku baz danych Oracle i MySQL tej metody nie działa: 
+      * Składni SQL MySQL nie obsługuje parametrów nazwanych procedur składowanych.
+      * Sterownik ODBC dla programu Oracle nie obsługuje parametrów nazwanych dla nazwanych parametrów w procedurach składowanych)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Przed marca 2016 łączników zostały wydane jako tematy pomocy technicznej.
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, luty 2014 r.  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, październik 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, sierpnia 2013
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów 
+
+> [!NOTE]
+> Podczas aktualizowania programu Microsoft Identity Manager lub programu AADConnect z użyciem ECMA2 łączników. 
+
+Należy odświeżyć definicji łącznika po uaktualnieniu do dopasowania lub w uruchamiania dziennika zdarzeń aplikacji, aby zgłosić ostrzeżenie 6947 identyfikator zostanie wyświetlony następujący błąd: "wersja zestawu w konfiguracji łącznika usługi AAD ("X.X.XXX. "X") jest starsza niż wersja rzeczywista ("X.X.XXX. "X") elementu "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+Aby odświeżyć definicji:
+* Otwiera właściwości dla wystąpienia łącznika
+* Kliknij połączenie / nawiązać połączenia z karty
+  * Wprowadź hasło dla konta łącznika
+* Kliknij każdą z kart właściwości z kolei
+  * Jeśli na karcie partycji tego typu łącznika z przycisk Odśwież, kliknij przycisk Odśwież znajduje się na tej karcie
+* Po zostały uzyskać dostęp do wszystkich kart właściwości, kliknij przycisk OK, aby zapisać zmiany.
+
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.

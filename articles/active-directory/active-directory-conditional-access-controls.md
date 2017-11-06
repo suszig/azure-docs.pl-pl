@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Formanty w usłudze Azure Active Directory dostępu warunkowego 
 
@@ -101,7 +101,7 @@ Formanty niestandardowe można tworzyć w dostępu warunkowego, które przekiero
 
 ## <a name="custom-controls"></a>Formanty niestandardowe
 
-Niestandardowe formanty w dostępu warunkowego przekierować użytkowników do usługi zgodne w celu dalszego spełniają wymagania poza usługą Azure Active Directory. W celu spełnienia tego formantu, przeglądarka użytkownika jest przekierowywany do zewnętrznej usługi, wykonuje wszelkie wymagane uwierzytelnianie lub sprawdzania poprawności działania i jest następnie przekierowany z powrotem do usługi Azure Active Directory. Azure Active Directory sprawdza odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub sprawdzić poprawności, użytkownik będzie nadal występował w przepływ dostępu warunkowego.
+Kontrolki niestandardowe są możliwości wersji usługi Azure Active Directory Premium P2. Podczas korzystania z niestandardowych formantów, użytkownicy są przekierowywani do zgodne usługi by spełnić dodatkowe wymagania poza usługą Azure Active Directory. W celu spełnienia tego formantu, przeglądarka użytkownika jest przekierowywany do zewnętrznej usługi, wykonuje wszelkie wymagane uwierzytelnianie lub sprawdzania poprawności działania i jest następnie przekierowany z powrotem do usługi Azure Active Directory. Azure Active Directory sprawdza odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub sprawdzić poprawności, użytkownik będzie nadal występował w przepływ dostępu warunkowego.
 
 Tych kontrolek Zezwalaj na korzystanie z niektórych usług zewnętrznych lub niestandardowych jako kontroli dostępu warunkowego, a rozszerzenie możliwości dostępu warunkowego.
 

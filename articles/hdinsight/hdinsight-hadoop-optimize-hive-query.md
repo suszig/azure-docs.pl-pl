@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optymalizacja zapytań programu Hive w usłudze Azure HDInsight
 
@@ -51,7 +51,7 @@ Tez przebiega szybciej, ponieważ:
 * **Pozwala uniknąć niepotrzebnego zapisy**. Ze względu na wiele zadań jest wykonana dla tego samego zapytania Hive w aparacie MapReduce dane wyjściowe każdego zadania są zapisywane w systemie plików HDFS dla pośrednich danych. Ponieważ Tez minimalizuje liczbę zadań dla każdego zapytania Hive jest w stanie uniknąć niepotrzebnych zapisu.
 * **Minimalizuje opóźnień uruchamiania**. Tez lepiej jest w stanie zminimalizować opóźnienie rozpoczęcia zmniejszenie liczby mapowań niezbędne do uruchomienia, a także zwiększanie optymalizacji w całej.
 * **Ponownie używa kontenerów**. Po każdej zmianie Tez możliwe jest ponowne użycie kontenerów, aby upewnić się, zmniejsza opóźnienia z powodu uruchamiania kontenerów.
-* **Techniki optymalizacji ciągłego**. Tradycyjnie optymalizacji została wykonana podczas fazy kompilacji. Więcej informacji na temat danych wejściowych jest dostępne umożliwiające lepsze optymalizacji w czasie wykonywania. Tez używa techniki ciągłego optymalizacji, które umożliwia Optymalizowanie planu dalsze w fazie środowiska wykonawczego.
+* **Techniki optymalizacji ciągłego**. Tradycyjnie optymalizacji została wykonana podczas fazy kompilacji. Więcej informacji na temat danych wejściowych jest dostępne umożliwiające lepsze optymalizacji w czasie wykonywania. Tez używa techniki optymalizacji ciągłego, umożliwiających Optymalizowanie planu dalsze w fazie środowiska wykonawczego.
 
 Aby uzyskać więcej informacji dotyczących tych pojęć, zobacz [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 

@@ -3,7 +3,7 @@ title: "Uwierzytelnianie wieloskładnikowe platformy Azure — często zadawane 
 description: "Często zadawane pytania i odpowiedzi dotyczące usługi Azure Multi-Factor Authentication. Uwierzytelnianie wieloskładnikowe jest metodą weryfikacji tożsamości użytkownika, który wymaga więcej niż nazwy użytkownika i hasła. Zapewnia dodatkową warstwę zabezpieczeń do logowania użytkowników i transakcji."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b1d48d3ff0d264042f2d282c6b8006e16a251f5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 Często zadawane pytania odpowiedzi na często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication i korzystanie z usługi Multi-Factor Authentication. Go dzieli się na pytania dotyczące usługi ogólnie rzecz biorąc, rozliczeń modeli, możliwości użytkowników i rozwiązywania problemów.

@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Storm przy użyciu usługi Azure HDInsight
 
 Więcej informacji na temat Najważniejsze problemy i ich rozwiązania do pracy z ładunków Apache Storm w Apache Ambari.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak uzyskać dostęp do interfejsu użytkownika platformy Storm w klastrze
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak uzyskać dostęp do interfejsu użytkownika platformy Storm w klastrze?
 Masz dwie opcje do uzyskiwania dostępu do interfejsu użytkownika platformy Storm w przeglądarce:
 
 ### <a name="ambari-ui"></a>Interfejs użytkownika narzędzia Ambari
@@ -86,14 +86,14 @@ Polecenie export zapisuje metadanych na ścieżkę Apache Hadoop Distributed pli
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak znaleźć plików binarnych systemu Storm w klastrze
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak znaleźć plików binarnych systemu Storm w klastrze?
 Pliki binarne STORM dla bieżącego stosu HDP znajdują się w /usr/hdp/current/storm-client. Lokalizacja jest taka sama dla węzłów głównych i węzłów procesu roboczego.
  
 Może istnieć wiele plików binarnych dla określonej wersji HDP w /usr/hdp (na przykład /usr/hdp/2.5.0.1233/storm). /Usr/hdp/current/storm-client folder jest symlinked do najnowszej wersji, która działa w klastrze.
 
 Aby uzyskać więcej informacji, zobacz [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Storm](http://storm.apache.org/).
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Określanie topologii wdrożenia klastra Storm
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Określanie topologii wdrożenia klastra Storm?
 Ustalenie wszystkie składniki, które są instalowane z HDInsight Storm. Klaster Storm składa się z czterech węzłów kategorii:
 
 * Węzły bramy
@@ -122,7 +122,7 @@ STORM węzłów procesu roboczego uruchomienia następujących usług:
 * Proces roboczy języka Java maszyn wirtualnych (JVMs), do uruchamiania topologii
 * Ambari agent
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Jak znaleźć plików binarnych spout Centrum zdarzeń Storm do tworzenia aplikacji
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Jak znaleźć plików binarnych spout Centrum zdarzeń Storm do tworzenia aplikacji?
  
 Aby uzyskać więcej informacji o korzystaniu z topologii Storm — pliki JAR spout Centrum zdarzeń zobacz następujące zasoby.
  
@@ -138,7 +138,7 @@ Aby dowiedzieć się, jak używać najnowszej współpracujące z klastrami HDIn
 ### <a name="source-code-examples"></a>Przykłady kodu źródłowego
 Zobacz [przykłady](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) sposobu odczytywania i zapisywania z Centrum zdarzeń platformy Azure przy użyciu topologii Apache Storm (napisany w języku Java) w klastrze usługi HDInsight Azure.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Jak znaleźć pliki konfiguracji narzędzia Log4J Storm w klastrze
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Jak znaleźć pliki konfiguracji narzędzia Log4J Storm w klastrze?
  
 Aby zidentyfikować pliki konfiguracji usługi Storm Apache Log4J.
  
@@ -152,3 +152,5 @@ Plik konfiguracji procesu roboczego Log4J są odczytywane z usr/hdp/\<wersji HDP
  
 Przykłady: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Zobacz też
+[Rozwiązywanie problemów przy użyciu usługi Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

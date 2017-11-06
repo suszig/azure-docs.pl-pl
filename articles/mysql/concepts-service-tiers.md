@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/23/2017
-ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure bazy danych MySQL opcje i wydajność: Poznaj, co jest dostępne w każdej warstwy cenowej
 Podczas tworzenia bazy danych Azure dla serwera MySQL zdecydujesz się na trzy główne opcje do konfigurowania zasobów przydzielonych dla tego serwera. Te opcje wpływ na wydajność i skalę serwera.
@@ -52,7 +52,7 @@ Aby zdecydować się na warstwę cenową, najpierw uruchomić przez określenie,
 W okresie preview nie można zmienić warstwy cenowej po utworzeniu serwera. W przyszłości będzie można rejestrować uaktualnić lub starszą wersję serwera z jedną warstwę cenową do innej warstwy.
 
 ## <a name="understand-the-price"></a>Zrozumienie ceny
-Podczas tworzenia nowej bazy danych Azure dla programu MySQL wewnątrz [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer), kliknij przycisk **warstwa cenowa** bloku i miesięczny koszt będą wyświetlane na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, użyj Azure Kalkulator cen, aby pobrać szacowanej ceny. Odwiedź [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) witryny sieci Web, następnie kliknij przycisk **Dodaj elementy**, rozwiń węzeł **baz danych** kategorii i wybierz polecenie **bazy danych Azure dla programu MySQL** Aby dostosować opcje.
+Podczas tworzenia nowej bazy danych Azure dla programu MySQL wewnątrz [portalu Azure](https://portal.azure.com/#create/Microsoft.MySQLServer), wybierz pozycję **warstwa cenowa** strony i miesięczny koszt jest wyświetlana na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, użyj Azure Kalkulator cen, aby pobrać szacowanej ceny. Odwiedź [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) witryny sieci Web, następnie kliknij przycisk **Dodaj elementy**, rozwiń węzeł **baz danych** kategorii i wybierz polecenie **bazy danych Azure dla programu MySQL** Aby dostosować opcje.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Wybierz poziom wydajności (obliczeniowe jednostki)
 Po określeniu warstwy cenowej bazy danych Azure, aby serwer MySQL, można przystąpić do określenia poziomu wydajności do poziomu, wybierając liczbę jednostek obliczeniowe potrzebne. Dobry punkt wyjścia jest 200 lub 400 jednostek obliczeniowe dla aplikacji, które wymaga wyższej współbieżności użytkownika do ich sieci web lub obciążeń analitycznych i Dostosuj przyrostowo zgodnie z potrzebami. 
@@ -84,7 +84,7 @@ Konfiguracja magazynu definiuje ilość dostępnej pojemności do bazy danych My
 
 Niektóre pojemność magazynu to na co najmniej o każdej warstwy cenowej wymienione w powyższej tabeli jako "Rozmiar magazynu dołączone." Podczas tworzenia serwera w przyrostach 125 GB do dozwolonych masowej można dodać dodatkowej pojemności. Niezależnie od konfiguracji jednostki obliczeniowe można skonfigurować dodatkowe miejsce. Zmiany ceny zależą od ilości przestrzeni dyskowej wybrane.
 
-Konfiguracja IOPS w każdym poziomie wydajności odnosi się do warstwy cenowej i wybrany rozmiar magazynu. Warstwa podstawowa nie ma gwarancji IOPS. W ramach warstwa cenowa standardowa IOPS skalować proporcjonalnie maksymalny rozmiar magazynu w stałej stosunek 3:1. Magazyn dołączony 125 GB gwarantuje dla 375 elastycznie IOPS, każdy z we/wy o długości maksymalnie 256 KB. Istnieje możliwość dodatkowego magazynu maksymalnie 1 TB, aby zagwarantować 3000 elastycznie IOPS.
+Konfiguracja IOPS w każdym poziomie wydajności odnosi się do warstwy cenowej i wybrany rozmiar magazynu. Warstwa podstawowa nie ma gwarancji IOPS. W ramach warstwa cenowa standardowa IOPS skalować proporcjonalnie maksymalny rozmiar magazynu w stałej stosunek 3:1. Magazyn dołączony gwarancji 125 GB dla 375 zainicjowana IOPS, każdy z we/wy o długości maksymalnie 256 KB. Istnieje możliwość dodatkowego magazynu maksymalnie 1 TB, aby zagwarantować 3000 elastycznie IOPS.
 
 Monitorowanie wykres metryki w portalu Azure lub tworzenia poleceń wiersza polecenia platformy Azure do pomiaru użycia magazynu i IOPS. Odpowiednich metryk do monitorowania są limit magazynu, procent użycia magazynu, Magazyn używany i procent we/wy.
 
@@ -92,11 +92,11 @@ Monitorowanie wykres metryki w portalu Azure lub tworzenia poleceń wiersza pole
 > W wersji zapoznawczej, wybierz ilość miejsca w magazynie w momencie utworzenia serwera. Zmiana rozmiaru magazynu na istniejącym serwerze nie jest jeszcze obsługiwany. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Skalować serwer w górę lub w dół
-Podczas tworzenia bazy danych Azure dla programu MySQL początkowo wybierz cenową warstwę i poziom wydajności. Później, jednostki obliczeniowe można skalować w górę lub w dół dynamicznie, w zakresie tej samej warstwie cenowej. W portalu Azure, przesuń jednostki obliczeniowe, w bloku warstwa cenowa serwera lub skrypt go, postępując w tym przykładzie: [monitora i skalowania bazy danych Azure programu MySQL serwera przy użyciu wiersza polecenia platformy Azure](scripts/sample-scale-server.md)
+Podczas tworzenia bazy danych Azure dla programu MySQL początkowo wybierz cenową warstwę i poziom wydajności. Później, jednostki obliczeniowe można skalować w górę lub w dół dynamicznie, w zakresie tej samej warstwie cenowej. W portalu Azure, przesuń jednostki obliczeniowe na stronie warstwa cenowa serwera lub skrypt go, postępując w tym przykładzie: [monitora i skalowania bazy danych Azure programu MySQL serwera przy użyciu wiersza polecenia platformy Azure](scripts/sample-scale-server.md)
 
 Skalowanie jednostki obliczeniowe odbywa się niezależnie od maksymalny rozmiar magazynu wybrana.
 
-W tle zmieniając poziom wydajności bazy danych tworzy replikę oryginalnej bazy danych na nowy poziom wydajności, a następnie przełącza połączenia do repliki. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy firma Microsoft przełączyć się do repliki połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. Czas przełączania jest zróżnicowany, ale średnio wynosi mniej niż 4 sekundy, a w ponad 99% przypadków wynosi mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
+W tle zmieniając poziom wydajności bazy danych tworzy kopię oryginalnej bazy danych na nowy poziom wydajności, a następnie przełącza połączenia z serwerem skopiowane. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy system przełącza się do nowej kopii serwera połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. Czas przełączania jest zróżnicowany, ale średnio wynosi mniej niż 4 sekundy, a w ponad 99% przypadków wynosi mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
 
 Czas trwania procesu całej skali zależy od zarówno rozmiar i warstwę cenową serwera przed i po zmianie. Na przykład serwer, który jest zmiana obliczeniowe jednostek w warstwie cenowej standardowa powinno zakończyć w ciągu kilku minut. Nowe właściwości dla serwera nie są stosowane dopiero po zakończeniu zmiany.
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 923b3ca8a2e2b1d7f44cd77946a02e1d30839f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c81d7fa793388612ec4d76d79a2f30f209b9cf42
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Załóż subskrypcji platformy Azure z Twoim kontem usługi Office 365
 Jeśli masz subskrypcję usługi Office 365, można użyć konta usługi Office 365, można utworzyć subskrypcji platformy Azure. Zaloguj się do [portalu Azure](https://portal.azure.com/) przy użyciu usługi Office 365, nazwę użytkownika i hasło. Jeśli chcesz skonfigurować maszyn wirtualnych lub innych usług platformy Azure, musisz zarejestrować subskrypcji platformy Azure. Twoja subskrypcja platformy Azure można udostępniać innym użytkownikom i [kontroli dostępu opartej na rolach umożliwia zarządzanie dostępem do Twojej subskrypcji platformy Azure i zasoby](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 88fd608a02364000699224f0f2df5b4df8a29e11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6be2b9e21d134461dc00d93c3f188c96c6e7af6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z usługą Data Lake Store za pomocą portalu Azure
 > [!div class="op_single_selector"]
@@ -206,6 +206,7 @@ Klaster Spark służy do uruchomienia zadań Spark na dane, które są przechowy
 Data Lake Store służy do zapisywania danych z topologii Storm. Aby uzyskać instrukcje dotyczące sposobu uzyskania tego scenariusza, zobacz [użycia usługi Azure Data Lake Store z systemu Apache Storm z usługą HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Zobacz też
+* [Użyj Data Lake Store z klastrami Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Środowiska PowerShell: Tworzenie klastra usługi HDInsight do użycia usługi Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

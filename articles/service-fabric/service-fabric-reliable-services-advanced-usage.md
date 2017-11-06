@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 694d75807d978ece6296b945bf348f08688d3b5d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Zaawansowane użycia niezawodnej model programowania usług
 Sieć szkieletowa usług Azure ułatwia pisanie usług oraz zarządzania nimi niezawodnej bezstanowe i stanowe. Ten przewodnik zawiera informacje o zaawansowanych użycia niezawodnych usług, aby uzyskać więcej kontrolę i elastyczność za pośrednictwem usługi. Przed odczytaniem tego przewodnika, zapoznaj się z [modelu programowania usług niezawodnej](service-fabric-reliable-services-introduction.md).

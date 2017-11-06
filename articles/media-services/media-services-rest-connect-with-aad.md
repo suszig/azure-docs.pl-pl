@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API z POZOSTAŁĄ dostęp za pomocą uwierzytelniania usługi Azure AD
 
@@ -86,21 +86,14 @@ Poniżej przedstawiono mapowania między atrybutów w token JWT i cztery aplikac
 |Typ aplikacji |Aplikacja |Atrybut JWT |
 |---|---|---|
 |Klient |Klient aplikacji lub rozwiązania |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". Identyfikator klienta aplikacji zostanie zarejestrowana do usługi Azure AD w następnej sekcji. |
-|Dostawcy tożsamości (IDP) | Azure AD jako dostawca tożsamości |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/".  Identyfikator GUID to identyfikator Microsoft dzierżawy (microsoft.onmicrosoft.com). Każdy dzierżawca ma własną, unikatowy identyfikator. |
+|Dostawcy tożsamości (IDP) | Azure AD jako dostawca tożsamości |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" identyfikator GUID to identyfikator Microsoft dzierżawy (microsoft.onmicrosoft.com). Każdy dzierżawca ma własną, unikatowy identyfikator. |
 |Secure Token Service (STS) / serwera OAuth |Azure AD jako Usługa STS | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Identyfikator GUID to identyfikator Microsoft dzierżawy (microsoft.onmicrosoft.com). |
 |Zasób | Interfejs API REST usługi Media Services |lub: "https://rest.media.azure.net". Odbiorca lub odbiorcy tokenu dostępu. |
 
 ## <a name="steps-for-setup"></a>Kroki instalacji
 
-Do rejestrowania i konfigurowanie aplikacji usługi Azure AD do uwierzytelniania usługi Azure AD i uzyskać token dostępu dla wywołaniem punktu końcowego interfejsu API REST Azure Media Services, wykonaj następujące czynności:
+Zarejestruj i konfigurowanie aplikacji usługi Azure Active Directory (AAD) i uzyskanie kluczy dla wywołaniem punktu końcowego interfejsu API REST Azure Media Services, zapoznaj się z artykułem [wprowadzenie do uwierzytelniania usługi Azure AD przy użyciu portalu Azure](media-services-portal-get-started-with-aad.md)
 
-1.  W [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), zarejestrować aplikację usługi Azure AD (na przykład wzmediaservice) do dzierżawy usługi Azure AD (na przykład microsoft.onmicrosoft.com). Nie ma znaczenia, czy zarejestrowany jako aplikacji sieci web lub aplikacji natywnej. Ponadto można wybrać adres URL logowania, a adres URL odpowiedzi (na przykład http://wzmediaservice.com dla obu).
-2. W [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), przejdź do **Konfiguruj** kartę aplikacji. Uwaga **identyfikator klienta**. Następnie w obszarze **klucze**, generowanie **klucz klienta** (klucz tajny klienta). 
-
-    > [!NOTE] 
-    > Zanotuj klucz tajny klienta. Nie można wyświetlić ponownie.
-    
-3.  W [portalu Azure](http://ms.portal.azure.com), przejdź do konta usługi Media Services. Wybierz **kontroli dostępu** okienka (IAM). Dodaj nowy element członkowski ma właściciela lub roli współautora. Dla podmiotu zabezpieczeń Wyszukaj nazwę aplikacji, które zarejestrowaną w kroku 1 (w tym przykładzie wzmediaservice).
 
 ## <a name="info-to-collect"></a>Informacje do zbierania
 
@@ -138,9 +131,9 @@ Przykładowy projekt ma trzy funkcje:
 
 Niektóre czytniki może poprosić o: gdzie jest token odświeżania? Dlaczego nie używać tokenu odświeżania w tym miejscu?
 
-Token odświeżania ma na celu nie Odśwież tokenu dostępu. Zamiast tego zaprojektowano go do obejścia interwencji użytkownika końcowego uwierzytelniania lub użytkownika i wciąż uzyskać token prawidłowy dostępu po wygaśnięciu wcześniej tokenu. Lepsze nazwę token odświeżania może być następująca: "obejścia ponownie-konta w tokenu".
+Token odświeżania ma na celu nie Odśwież tokenu dostępu. Zaprojektowano go, aby pominąć uwierzytelnianie użytkownika końcowego i nadal uzyskać token prawidłowy dostępu po wygaśnięciu tokenu wcześniej. Lepsze nazwę token odświeżania może być następująca: "obejścia ponownie-konta w tokenu".
 
-Jeśli używasz protokołu OAuth 2.0 autoryzacji przyznać przepływu (nazwa użytkownika i hasło, działając w imieniu użytkownika), token odświeżania pomaga Uzyskaj token dostępu odnowionego bez interwencji użytkownika żądania. Jednak OAuth 2.0 poświadczenia klienta umożliwiają przepływ, które opisano w tym artykule, klient działa w swoim imieniu. Nie wymagają interwencji użytkownika na wszystkich, a serwer autoryzacji nie musi i nie będzie zapewniają token odświeżania. Jeśli debugowania **GetUrlEncodedJWT** metody, można zauważyć, że odpowiedź z punktu końcowego tokena ma tokenu dostępu, ale nie token odświeżania.
+Jeśli używasz protokołu OAuth 2.0 autoryzacji przyznać przepływu (nazwa użytkownika i hasło, działając w imieniu użytkownika), token odświeżania pomaga Uzyskaj token dostępu odnowionego bez interwencji użytkownika żądania. Jednak OAuth 2.0 poświadczenia klienta umożliwiają przepływ, które jest opisane w tym artykule, klient działa w swoim imieniu. Nie wymagają interwencji użytkownika na wszystkich i nie trzeba zapewniają token odświeżania serwera autoryzacji. Jeśli debugowania **GetUrlEncodedJWT** metody, można zauważyć, że odpowiedź z punktu końcowego tokena ma tokenu dostępu, ale nie token odświeżania.
 
 ## <a name="next-steps"></a>Następne kroki
 

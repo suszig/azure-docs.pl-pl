@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalowanie aktualizacji 5 na urządzeniu StorSimple
 
@@ -30,7 +30,7 @@ Aktualizacja 5 obejmuje oprogramowanie urządzenia, Storport i Spaceport, aktual
 
 > [!IMPORTANT]
 > * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe czasu zainstalowania w celu określenia kondycji urządzenia pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje z portalu Azure.
-> * Zdecydowanie zaleca się, że podczas aktualizowania urządzenia z wersjami przed Update 3, zainstalować aktualizacje za pomocą metody poprawki. Aby ułatwić obsługę przeprowadzenia aktualizacji, [dziennika biletu pomocy technicznej](storsimple-8000-contact-microsoft-support.md).
+> * Zdecydowanie zaleca się, że podczas aktualizowania urządzenia z wersjami przed Update 3, zainstalować aktualizacje za pomocą metody poprawki. Jeśli wystąpią problemy, [dziennika biletu pomocy technicznej](storsimple-8000-contact-microsoft-support.md).
 > * Zaleca się zainstalowanie oprogramowania i innych regularne aktualizacje za pomocą portalu Azure. Tylko powinien możesz przejść do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. W zależności od wersji aktualizujesz z aktualizacji może potrwać 4 godziny (lub nowszego) do zainstalowania. Aktualizacje trybu konserwacji musi być zainstalowany za pośrednictwem interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, te spowodować dół czasu dla danego urządzenia.
 > * Uruchomiona opcjonalne StorSimple Snapshot Manager, upewnij się, że wersji Snapshot Manager zostały uaktualnione do aktualizacji 5 przed zaktualizowaniem urządzenia.
 

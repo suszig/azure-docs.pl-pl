@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
-description: "Ten samouczek ułatwia szybkie wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza)."
+description: "Ten samouczek ułatwia szybkie wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 77e1c1e6ce345b83ba5d88150fd9642c506ae7b9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Wprowadzenie do synchronizacji danych Azure SQL (wersja zapoznawcza)
+# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza)
 Z tego samouczka dowiesz się sposobu konfigurowania synchronizacji danych SQL Azure, tworząc grupy synchronizacji hybrydowych, zawierającej wystąpienia zarówno usługi Azure SQL Database i programu SQL Server. Nowa grupa synchronizacji jest w pełni skonfigurowane i synchronizuje się zgodnie z harmonogramem, które można ustawić.
 
 W tym samouczku założono, że co najmniej pewne doświadczenie z bazy danych SQL i programu SQL Server. 
@@ -43,17 +43,17 @@ Aby uzyskać pełną przykładów programu PowerShell, które przedstawiają spo
 
     ![Lista baz danych Azure SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-3.  Na **baz danych SQL** bloku, wybierz istniejącej bazy danych SQL, który ma być używany jako baza danych Centrum synchronizacji danych. Zostanie otwarty blok bazy danych SQL.
+3.  Na **baz danych SQL** wybierz istniejącej bazy danych SQL, który ma być używany jako baza danych Centrum synchronizacji danych. Zostanie otwarta strona bazy danych SQL.
 
-4.  W bloku bazy danych SQL dla wybranej bazy danych, wybierz **synchronizacji do innych baz danych**. Zostanie otwarty blok synchronizacji danych.
+4.  Na stronie bazy danych SQL dla wybranej bazy danych wybierz **synchronizacji do innych baz danych**. Zostanie otwarta strona synchronizacji danych.
 
     ![Synchronizowanie innych opcji bazy danych](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
 ### <a name="create-a-new-sync-group"></a>Utwórz nową grupę synchronizacji
 
-1.  W bloku danych synchronizacji wybierz **nowej grupy synchronizacji**. **Nowej grupy synchronizacji** z kroku 1, zostanie otwarty blok **Utwórz grupę synchronizacji**, zaznaczony. **Tworzenie grupy synchronizacji danych** również zostanie otwarty blok.
+1.  Na stronie synchronizacja danych wybierz **nowej grupy synchronizacji**. **Nowej grupy synchronizacji** z kroku 1, zostanie otwarta strona **Utwórz grupę synchronizacji**, zaznaczony. **Tworzenie grupy synchronizacji danych** zostanie otwarta strona również.
 
-2.  Na **Tworzenie grupy synchronizacji danych** blok, wykonaj następujące czynności:
+2.  Na **Tworzenie grupy synchronizacji danych** wykonaj następujące czynności:
 
     1.  W **nazwy grupy synchronizacji** wprowadź nazwę nowej grupy synchronizacji.
 
@@ -62,7 +62,7 @@ Aby uzyskać pełną przykładów programu PowerShell, które przedstawiają spo
         > [!NOTE]
         > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych do użycia jako bazy danych usługi synchronizacji metadanych. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenia. Ta baza danych jest automatycznie udostępniony jako bazy danych usługi synchronizacji metadanych dla wszystkich grup synchronizacji w wybranym regionie. Nie można zmienić bazy danych usługi synchronizacji metadanych lub jego nazwa bez porzuceniem jej.
 
-        Jeśli została wybrana opcja **nową bazę danych**, wybierz pozycję **Utwórz nową bazę danych.** **Bazy danych SQL** zostanie otwarty blok. Na **bazy danych SQL** bloku, nazwy i skonfiguruj nową bazę danych. Następnie wybierz **OK**.
+        Jeśli została wybrana opcja **nową bazę danych**, wybierz pozycję **Utwórz nową bazę danych.** **Bazy danych SQL** zostanie otwarta strona. Na **bazy danych SQL** strony, nazwy i skonfiguruj nową bazę danych. Następnie wybierz **OK**.
 
         Jeśli została wybrana opcja **Użyj istniejącej bazy danych**, wybierz bazę danych z listy.
 
@@ -80,17 +80,17 @@ Aby uzyskać pełną przykładów programu PowerShell, które przedstawiają spo
 
 ## <a name="step-2---add-sync-members"></a>Krok 2 — Dodawanie członków synchronizacji
 
-Po utworzeniu i wdrożeniu, krok 2 nowej grupy synchronizacji **dodawać członków synchronizacji**, zostanie wyróżniona w **nowej grupy synchronizacji** bloku.
+Po utworzeniu i wdrożeniu, krok 2 nowej grupy synchronizacji **dodawać członków synchronizacji**, zostanie wyróżniona w **nowej grupy synchronizacji** strony.
 
 W **bazy danych Centrum** wprowadź istniejących poświadczeń dla serwera bazy danych SQL, na którym znajduje się baza danych Centrum. Nie wprowadzaj *nowe* poświadczeń w tej sekcji.
 
 ![Koncentrator bazy danych został dodany do grupy synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-## <a name="add-an-azure-sql-database"></a>Dodaj bazę danych Azure SQL
+### <a name="add-an-azure-sql-database"></a>Dodaj bazę danych Azure SQL
 
-W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj do grupy synchronizacji bazy danych SQL Azure, wybierając **dodać bazy danych Azure**. **Konfigurowanie bazy danych Azure** zostanie otwarty blok.
+W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj do grupy synchronizacji bazy danych SQL Azure, wybierając **dodać bazy danych Azure**. **Konfigurowanie bazy danych Azure** zostanie otwarta strona.
 
-Na **Konfigurowanie bazy danych Azure** blok, wykonaj następujące czynności:
+Na **Konfigurowanie bazy danych Azure** wykonaj następujące czynności:
 
 1.  W **nazwa elementu członkowskiego synchronizacji** Podaj nazwę nowego elementu synchronizacji. Ta nazwa różni się od nazwy bazy danych.
 
@@ -110,17 +110,17 @@ Na **Konfigurowanie bazy danych Azure** blok, wykonaj następujące czynności:
 
     ![Dodano nowy element członkowski synchronizacji bazy danych SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-## <a name="add-an-on-premises-sql-server-database"></a>Dodaj lokalną bazą danych programu SQL Server
+### <a name="add-an-on-premises-sql-server-database"></a>Dodaj lokalną bazą danych programu SQL Server
 
-W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj lokalny serwer SQL do grupy synchronizacji, wybierając **Dodaj bazę danych z lokalnego**. **Konfigurowanie lokalnego** zostanie otwarty blok.
+W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj lokalny serwer SQL do grupy synchronizacji, wybierając **Dodaj bazę danych z lokalnego**. **Konfigurowanie lokalnego** zostanie otwarta strona.
 
-Na **Konfigurowanie lokalnego** blok, wykonaj następujące czynności:
+Na **Konfigurowanie lokalnego** wykonaj następujące czynności:
 
-1.  Wybierz **wybierz bramę Agent synchronizacji**. **Agent synchronizacji wybierz** zostanie otwarty blok.
+1.  Wybierz **wybierz bramę Agent synchronizacji**. **Agent synchronizacji wybierz** zostanie otwarta strona.
 
     ![Wybierz bramę agent synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
 
-2.  Na **wybierz bramę Agent synchronizacji** bloku, wybierz, czy chcesz użyć istniejącego agenta lub Utwórz nowy agent.
+2.  Na **wybierz bramę Agent synchronizacji** wybierz, czy użyć istniejącego agenta lub utworzyć nowy agent.
 
     Jeśli została wybrana opcja **agentów istniejące**, wybierz z listy istniejącego agenta.
 
@@ -140,7 +140,7 @@ Na **Konfigurowanie lokalnego** blok, wykonaj następujące czynności:
         
         ![Tworzenie nowego agenta synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
 
-    5.  Wybierz **OK** zamknąć **Agent synchronizacji wybierz** bloku.
+    5.  Wybierz **OK** zamknąć **Agent synchronizacji wybierz** strony.
 
     6.  Na komputerze serwera SQL Znajdź i uruchom aplikację klienta synchronizacji agenta.
 
@@ -153,7 +153,7 @@ Na **Konfigurowanie lokalnego** blok, wykonaj następujące czynności:
         ![Wprowadź poświadczenia agenta klucza i serwera](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Jeśli w tym momencie zostanie wyświetlony błąd zapory, należy utworzyć regułę zapory na platformie Azure, aby zezwolić na ruch przychodzący z komputera programu SQL Server. Regułę można utworzyć ręcznie w portalu, ale użytkownik może ułatwić ją utworzyć w programu SQL Server Management Studio (SSMS). W programie SSMS próby nawiązania połączenia z bazą danych Centrum na platformie Azure. Wpisz jej nazwę jako \<hub_database_name\>. database.windows.net. Wykonaj kroki opisane w oknie dialogowym, aby skonfigurować regułę zapory platformy Azure. Następnie wróć do aplikacji agenta klienta synchronizacji.
+        >   Jeśli w tym momencie zostanie wyświetlony błąd zapory, należy utworzyć regułę zapory na platformie Azure, aby zezwolić na ruch przychodzący z komputera programu SQL Server. Regułę można utworzyć ręcznie w portalu, ale użytkownik może ułatwić ją utworzyć w programu SQL Server Management Studio (SSMS). W programie SSMS próby nawiązania połączenia z bazą danych Centrum na platformie Azure. Wpisz jej nazwę jako \<hub_database_name\>. database.windows.net. Aby skonfigurować regułę zapory platformy Azure, wykonaj czynności opisane w oknie dialogowym. Następnie wróć do aplikacji agenta klienta synchronizacji.
 
     9.  W aplikacji klienta synchronizacji agenta, kliknij przycisk **zarejestrować** zarejestrować bazy danych programu SQL Server z agentem. **Konfiguracji serwera SQL** zostanie otwarte okno dialogowe.
 
@@ -165,13 +165,13 @@ Na **Konfigurowanie lokalnego** blok, wykonaj następujące czynności:
 
     11. Można teraz zamknąć aplikacji agenta klienta synchronizacji.
 
-    12. W portalu na **Konfigurowanie lokalnego** bloku, wybierz opcję **wybierz bazę danych.** **Wybierz bazę danych** zostanie otwarty blok.
+    12. W portalu na **Konfigurowanie lokalnego** wybierz pozycję **wybierz bazę danych.** **Wybierz bazę danych** zostanie otwarta strona.
 
-    13. Na **wybierz bazę danych** bloku, w **nazwa elementu członkowskiego synchronizacji** Podaj nazwę nowego elementu synchronizacji. Ta nazwa różni się od nazwy bazy danych. Wybierz bazę danych z listy. W **kierunki synchronizacji** pola, wybierz opcję synchronizacji dwukierunkowe, do koncentratora lub z Centrum.
+    13. Na **wybierz bazę danych** strony w **nazwa elementu członkowskiego synchronizacji** Podaj nazwę nowego elementu synchronizacji. Ta nazwa różni się od nazwy bazy danych. Wybierz bazę danych z listy. W **kierunki synchronizacji** pola, wybierz opcję synchronizacji dwukierunkowe, do koncentratora lub z Centrum.
 
         ![Wybierz bazę danych na lokalnym](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
 
-    14. Wybierz **OK** zamknąć **wybierz bazę danych** bloku. Następnie wybierz **OK** zamknąć **Konfigurowanie lokalnego** bloku i oczekiwania dla nowego elementu synchronizacji, aby utworzyć i wdrożyć. Na koniec kliknij **OK** zamknąć **Wybierz członków synchronizacji** bloku.
+    14. Wybierz **OK** zamknąć **wybierz bazę danych** strony. Następnie wybierz **OK** zamknąć **Konfigurowanie lokalnego** strony i poczekaj, aż nowy element członkowski synchronizacji utworzyć i wdrożyć. Na koniec kliknij **OK** zamknąć **Wybierz członków synchronizacji** strony.
 
         ![W lokalnej bazie danych dodane do grupy synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
@@ -179,9 +179,9 @@ Na **Konfigurowanie lokalnego** blok, wykonaj następujące czynności:
 
 ## <a name="step-3---configure-sync-group"></a>Krok 3 — Konfigurowanie synchronizacji grupy
 
-Po nowych członków grupy synchronizacji są tworzone i wdrażane, krok 3 **Konfigurowanie synchronizacji grupy**, zostanie wyróżniona w **nowej grupy synchronizacji** bloku.
+Po nowych członków grupy synchronizacji są tworzone i wdrażane, krok 3 **Konfigurowanie synchronizacji grupy**, zostanie wyróżniona w **nowej grupy synchronizacji** strony.
 
-1.  Na **tabel** bloku, wybierz bazę danych z listy synchronizacji członków grupy, a następnie wybierz **schematu odświeżania**.
+1.  Na **tabel** , wybierz bazę danych z listy członków grupy synchronizacji, a następnie wybierz **schematu odświeżania**.
 
 2.  Z listy dostępnych tabel wybierz tabele, które mają być synchronizowane.
 

@@ -3,7 +3,7 @@ title: "Uwierzytelnianie LDAP i serwer usługi Azure MFA | Microsoft Docs"
 description: "Ta strona jest poświęcona tematyce uwierzytelniania wieloskładnikowego na platformie Azure i zawiera informacje pomocne podczas wdrażania uwierzytelniania LDAP i korzystania z usługi Serwer Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Uwierzytelnianie LDAP i serwera usługi Azure Multi-Factor Authentication
 Domyślnie usługa Serwer Azure Multi-Factor Authentication jest skonfigurowana pod kątem importowania lub synchronizowania użytkowników z usługi Active Directory. Można ją jednak skonfigurować pod kątem powiązań z różnymi katalogami LDAP, takimi jak katalog ADAM, lub z określonym kontrolerem domeny usługi Active Directory. Podczas połączenia z katalogiem za pośrednictwem protokołu LDAP, serwer usługi Azure Multi-Factor Authentication może działać jako serwer proxy LDAP do wykonania uwierzytelnienia. Umożliwia również korzystanie z powiązania LDAP jako elementu docelowego protokołu RADIUS do wstępnego uwierzytelniania użytkowników przy użyciu uwierzytelniania w usługach IIS lub do uwierzytelniania podstawowego w portalu użytkowników usługi Azure MFA.

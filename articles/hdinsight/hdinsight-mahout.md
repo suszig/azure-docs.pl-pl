@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generowanie zaleceń filmu przy użyciu Apache Mahout Hadoop w usłudze HDInsight (PowerShell)
 
@@ -56,11 +56,11 @@ Poniższy przykład jest uproszczone przewodnika działania procesu zalecenia:
 
 ### <a name="understanding-the-data"></a>Opis danych
 
-[Badania GroupLens] [ movielens] zapewnia filmów w formacie, który jest zgodny z Mahout klasyfikacji danych. Dane te są dostępne na domyślny magazyn dla klastra w `/HdiSamples//HdiSamples/MahoutMovieData`.
+[Badania GroupLens] [ movielens] zapewnia filmów w formacie, który jest zgodny z Mahout klasyfikacji danych. Dane te są dostępne na domyślny magazyn dla klastra w `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Istnieją dwa pliki `moviedb.txt` (informacje na temat filmów) i `user-ratings.txt`. `user-ratings.txt` Plik jest używany podczas analizy. `moviedb.txt` Pliku służy do zapewnienia tekst przyjazną dla użytkownika, wyświetlając wyniki analizy.
 
-Dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userRating`, i `timestamp`, który informuje NAS jak bardzo każdego użytkownika oceną filmu. Oto przykładowe dane:
+Dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userRating`, i `timestamp`, które informuje, jak bardzo każdego użytkownika oceną filmu. Oto przykładowe dane:
 
     196    242    3    881250949
     186    302    3    891717742

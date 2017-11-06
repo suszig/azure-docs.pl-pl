@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/03/2017
+ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 6965765757d9a20dfb542bbb3cfae1c30276c238
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1bf73bce96d231990bd42b4f840d97ce518dc9e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Załóż subskrypcji usługi Office 365 z Twoim kontem platformy Azure
 Jeśli jest to Twoja subskrypcja platformy Azure, można użyć konta platformy Azure w celu uzyskania subskrypcji usługi Office 365. W przypadku części organizacji, która ma subskrypcji platformy Azure, można utworzyć subskrypcji usługi Office 365 dla użytkowników w istniejącej Azure usługi Active Directory (Azure AD). Utwórz konto usługi Office 365 przy użyciu konta mającego uprawnienia administratora globalnego lub administratorem rozliczeń w dzierżawie usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Sprawdź uprawnienia Moje konto w usłudze Azure AD](#RoleInAzureAD) i [przypisywanie ról administratorów w usłudze Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).

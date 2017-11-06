@@ -4,23 +4,26 @@ description: "Interfejs API dziennika analizy dziennika wyszukiwania umożliwia 
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Pobieranie danych z analizy dzienników przy użyciu skryptu języka Python
 [Interfejs API dziennika analizy dziennika wyszukiwania](log-analytics-log-search-api.md) umożliwia dowolnego klienta interfejsu API REST do pobierania danych z obszaru roboczego analizy dzienników.  W tym artykule przedstawiono przykładowy skrypt języka Python, wykorzystujący interfejs API dziennika analizy dziennika wyszukiwania.  
+
+>[!NOTE]
+> W tym artykule używa interfejsu API Search dziennika dla języka zapytań starszej wersji w analizy dzienników.  Aktualizacja zostaną przekazane w tym artykule obszarów roboczych, które zostały uaktualnione do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Authentication
 Ten skrypt używa nazwy głównej usługi w usłudze Azure Active Directory do uwierzytelniania do obszaru roboczego.  Nazwy główne usług Zezwalaj aplikacji klienckiej na żądanie usługi uwierzytelniania konta, nawet jeśli klient nie ma nazwy konta. Przed wykonaniem tego skryptu, należy utworzyć procesu przy użyciu nazwy głównej usługi [użycia portalu do tworzenia aplikacji i usług podmiot zabezpieczeń, który ma dostęp do zasobów usługi Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Należy podać identyfikator aplikacji, identyfikator dzierżawy i klucz uwierzytelniania do skryptu. 

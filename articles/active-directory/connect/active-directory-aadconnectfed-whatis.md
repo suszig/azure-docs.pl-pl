@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Program Azure AD Connect a federacja
 Azure umożliwia połączenia usługi Active Directory (Azure AD), konfigurowanie federacji z lokalnej usługi Active Directory Federation Services (AD FS) i Azure AD. Z federacyjnego logowania można umożliwić użytkownikom zalogować się do usług platformy Azure AD na podstawie ich hasłami lokalnymi--i, znajduje się w sieci firmowej, bez konieczności ponownego wprowadzania haseł. Przy użyciu opcji federacyjnego z usługami AD FS, można wdrażać nowej instalacji usług AD FS, lub można określić istniejącą instalację w farmie programu Windows Server 2012 R2.
@@ -40,6 +40,7 @@ Ten temat jest stroną główną dla informacji o funkcji związanych z federacy
 | [Dodaj nowy serwer AD FS WAP](active-directory-aadconnect-federation-management.md#addwapserver) |Rozwiń węzeł farmy usług AD FS jest dodatkowy serwer Proxy aplikacji sieci Web (WAP) po wstępnej instalacji. |
 | [Dodaj nową domenę federacyjnych](active-directory-aadconnect-federation-management.md#addfeddomain) |Dodaj inną domenę federacyjną z usługą Azure AD. |
 | [Aktualizuj certyfikat protokołu SSL](active-directory-aadconnectfed-ssl-update.md)| Aktualizuj certyfikat protokołu SSL dla farmy usług AD FS. |
+| [Odnawianie certyfikatów Federacji dla usługi Office 365 i Azure AD](active-directory-aadconnect-o365-certs.md)|Odnawianie certyfikatu usługi Office 365 z usługą Azure AD.|
 | **Inna konfiguracja federacyjna** | |
 | [Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usług AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federację wielu usługi Azure AD z jednym farmy usług AD FS| 
 | [Dodać logo firmy/ilustracji](active-directory-aadconnect-federation-management.md#customlogo) |Zmodyfikuj środowiska logowania, określając niestandardowe logo, które jest wyświetlany na stronie logowania usług AD FS. |

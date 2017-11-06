@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: e1d35bcd51349e6460d50acec0d9706fcd291e89
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b8b1ac04c20cf9fe6d6d8ea58571af05010461d9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Skalowanie klastra sieci szkieletowej usług
 
@@ -48,6 +48,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
 Do pomyślnego ukończenia tej części samouczka zostały wykonane, należy nawiązać zarówno klastra sieci szkieletowej usług, jak i zestawu skali maszyny wirtualnej (obsługującego klastra). Zestaw skali maszyny wirtualnej jest zasobem platformy Azure, który jest hostem usługi sieć szkieletowa usług Azure.
@@ -67,7 +72,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-Z `Get-ServiceFabricClusterHealth` polecenia stanu jest zwracany użytkownikowi o szczegółowe informacje dotyczące kondycji każdego węzła w klastrze.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Teraz, gdy masz połączenie, służy polecenie można uzyskać stanu każdego węzła w klastrze. Dla programu PowerShell, użyj `Get-ServiceFabricClusterHealth` polecenia oraz **sfctl** Użyj "polecenia.
 
 ## <a name="scale-out"></a>Skalowanie w poziomie
 
@@ -80,7 +90,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Po ukończeniu operacji update, uruchom `Get-ServiceFabricClusterHealth` polecenie, aby wyświetlić nowe informacje węzła.
+Ten kod ustawia pojemność 6.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## <a name="scale-in"></a>Skalowanie w
 
@@ -91,22 +109,29 @@ Skalowanie w jest taka sama jak skalowanie w poziomie, z wyjątkiem użycia doln
 > [!NOTE]
 > Ta część dotyczy tylko *brązowa* warstwa trwałości. Aby uzyskać więcej informacji o trwałości, zobacz [planowania pojemności klastra usługi sieć szkieletowa][durability].
 
-Skalowanie w zestawie skalowania maszyn wirtualnych skali (w większości przypadków) usuwa wystąpienie maszyny wirtualnej, utworzonej ostatnio. Dlatego należy znaleźć dopasowanie, ostatniego utworzenia, węzeł sieci szkieletowej usług. Możesz znaleźć tego ostatniego węzła za pośrednictwem powiązanych punktów sprzedaży sprawdzanie `NodeInstanceId` wartości właściwości w węzłach sieci szkieletowej usług. 
+Skalowanie w zestawie skalowania maszyn wirtualnych skali (w większości przypadków) usuwa wystąpienie maszyny wirtualnej, utworzonej ostatnio. Dlatego należy znaleźć dopasowanie, ostatniego utworzenia, węzeł sieci szkieletowej usług. Możesz znaleźć tego ostatniego węzła za pośrednictwem powiązanych punktów sprzedaży sprawdzanie `NodeInstanceId` wartości właściwości w węzłach sieci szkieletowej usług. Przykłady kodu poniżej sortowania przez węzeł wystąpienia i zwracają szczegółowe informacje o wystąpieniu o największej wartości identyfikatora. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 Klastra sieci szkieletowej usług musi wiedzieć, że ten węzeł ma zostać usunięte. Istnieją trzy kroki, które należy wykonać:
 
 1. Wyłącz węzeł, aby była już replikacja danych.  
-`Disable-ServiceFabricNode`
+Środowiska PowerShell:`Disable-ServiceFabricNode`  
+sfcli:`sfctl node disable`
 
 2. Zatrzymanie węzła, tak aby środowisko uruchomieniowe usługi sieć szkieletowa przebiega prawidłowo, a aplikacja pobiera żądanie przerwania.  
-`Start-ServiceFabricNodeTransition -Stop`
+Środowiska PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
+sfcli:`sfctl node transition --node-transition-type Stop`
 
 2. Usuń węzeł z klastra.  
-`Remove-ServiceFabricNodeState`
+Środowiska PowerShell:`Remove-ServiceFabricNodeState`  
+sfcli:`sfctl node remove-state`
 
 Gdy te trzy kroki zostały zastosowane do węzła, można usunąć z zestawu skalowania. Jeśli używasz dowolnego warstwa trwałości oprócz [brązowa][durability], te kroki są wykonywane, gdy wystąpienia zestawu skalowania powoduje usunięcie.
 
@@ -169,6 +194,30 @@ else
 }
 ```
 
+W **sfctl** kodu poniżej, następujące polecenie służy do pobierania **nazwa węzła** i **węzła wystąpienia identyfikatora** wartości utworzone ostatniego węzła:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Należy użyć następującego **sfctl** zapytania, aby sprawdzić stan każdego kroku
+>
+> **Sprawdź stan dezaktywację.**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Sprawdź stan zatrzymania**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### <a name="scale-in-the-scale-set"></a>Skalowanie w zestawie skalowania
 
 Teraz, gdy węzeł sieci szkieletowej usług został usunięty z klastra, zestaw skali maszyny wirtualnej może być skalowana w. W poniższym przykładzie zostanie zmniejszona pojemność zestawu skalowania 1.
@@ -179,6 +228,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+Ten kod ustawia pojemność 5.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 

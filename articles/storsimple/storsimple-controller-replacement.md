@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8c6ebddef89d48d8121da5777e62e311c234666
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Zastąp modułu kontroler na urządzeniu StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [zastąpić modułu kontroler na urządzeniu StorSimple](storsimple-8000-controller-replacement.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 W tym samouczku wyjaśniono, jak usunąć i Zastąp jeden lub oba modułów kontrolera w urządzeniu StorSimple. Zawiera omówienie również podstawowej logiki w scenariuszach zastępczy jednym lub dwoma kontrolera.
 

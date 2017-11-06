@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać komunikacji niezawodnej usługi interfejsów API
 Azure Service Fabric jako platformę jest całkowicie niezależny o komunikacji między usługami. Wszystkie protokoły i stosy są dopuszczalne, z UDP HTTP. To dewelopera usługi, aby wybrać komunikowania usług. Struktura aplikacji niezawodne usługi zawiera komunikacji wbudowanej stosach, a także interfejsów API, który można wykorzystać do tworzenia składników niestandardowych komunikacji.
@@ -427,7 +427,6 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Zobacz przykład protokołu HTTP do komunikacji między usługami w [przykładowy projekt C# w witrynie GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount) lub [Java przykładowy projekt w witrynie GitHUb](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog).
+* [Platformy ASP.NET Core z usługami Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Zdalne wywołania procedur z usług zdalnych niezawodne usługi](service-fabric-reliable-services-communication-remoting.md)
-* [Interfejs API, który używa OWIN w niezawodnej usługi sieci Web](service-fabric-reliable-services-communication-webapi.md)
 * [Komunikacyjny WCF za pomocą niezawodnych usług](service-fabric-reliable-services-communication-wcf.md)

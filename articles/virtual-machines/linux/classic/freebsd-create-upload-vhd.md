@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Tworzenie i przekazywanie wirtualnego dysku twardego FreeBSD na platformie Azure
 W tym artykule opisano tworzenie i przekazywanie wirtualnego dysku twardego (VHD) z systemem operacyjnym FreeBSD. Po wysłaniu, służy ona jako własnego obrazu można utworzyć maszynę wirtualną (VM) na platformie Azure.
@@ -39,7 +39,7 @@ W tym artykule przyjęto założenie, że masz następujące elementy:
 >
 >
 
-To zadanie obejmuje następujące kroki 5:
+To zadanie obejmuje następujące cztery kroki:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Krok 1: Przygotowanie obrazu do przekazywania
 Na maszynie wirtualnej, w którym zainstalowany jest system operacyjny FreeBSD wykonaj następujące procedury:
@@ -114,66 +114,21 @@ Na maszynie wirtualnej, w którym zainstalowany jest system operacyjny FreeBSD w
 
     Teraz można zamknąć maszyny Wirtualnej.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Krok 2: Utwórz konto magazynu na platformie Azure
-Potrzebujesz konta magazynu na platformie Azure, aby przekazać plik VHD, może służyć do tworzenia maszyny wirtualnej. Klasyczny portal Azure umożliwia tworzenie konta magazynu.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Krok 2: Przygotowanie połączenia z platformą Azure
+Upewnij się, że używasz interfejsu wiersza polecenia Azure w klasycznym modelu wdrażania (`azure config mode asm`), następnie zaloguj się do swojego konta:
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. Na pasku poleceń Wybierz **nowy**.
-3. Wybierz **usług danych** > **magazynu** > **szybkie tworzenie**.
+```azurecli
+azure login
+```
 
-    ![Szybkie tworzenie konta magazynu](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Należy wypełnić pola w następujący sposób:
 
-   * W **adres URL** wpisz nazwę domeny podrzędnej do użycia w adresie URL konta magazynu. Wpis może zawierać od 3 do 24 cyfry i małe litery. Ta nazwa jest używana jako nazwa hosta, w ramach adresu URL, która jest wykorzystywana do adresowania magazynu obiektów Blob platformy Azure, magazyn kolejek Azure lub zasobów magazynu tabel Azure dla subskrypcji.
-   * W **grupa lokalizacji/koligacji** menu rozwijanego wybierz **lokalizacja lub grupa koligacji** dla konta magazynu. Grupa koligacji pozwala umieścić usługi w chmurze i magazynu w tym samym centrum danych.
-   * W **replikacji** Określ, czy używać **geograficznie nadmiarowego** replikacji dla konta magazynu. Replikacja geograficzna jest domyślnie włączona. Ta opcja replikuje dane do lokalizacji dodatkowej, bez ponoszenia kosztów, tak, aby Magazyn awaryjnie przełącza działanie do tej lokalizacji w przypadku poważnej awarii w lokalizacji głównej. Lokalizacja dodatkowa jest przypisywany automatycznie i nie można zmienić. Jeśli potrzebujesz większej kontroli nad lokalizacji magazynu oparte na chmurze ze względu na wymagania prawne i zasady organizacji, można wyłączyć replikacji geograficznej. Należy jednak pamiętać, że jeśli później włączyć replikację geograficzną zostanie naliczona opłaty transfer jednorazowe danych w celu replikowania istniejących danych do lokalizacji dodatkowej. Usługi magazynu bez — replikacja geograficzna jest oferowany z rabatem. Więcej informacji o zarządzaniu — replikacja geograficzna kont magazynu można znaleźć tutaj: [replikacja usługi Azure Storage](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Wprowadź szczegóły konta magazynu](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Wybierz **utworzyć konto magazynu**. Konto jest teraz wyświetlany w obszarze **magazynu**.
 
-    ![Pomyślnie utworzono konto magazynu](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Następnie należy utworzyć kontener dla plików VHD przekazane. Wybierz nazwę konta magazynu, a następnie wybierz **kontenery**.
+## <a name="step-3-upload-the-vhd-file"></a>Krok 3: Przekaż plik VHD
 
-    ![Szczegóły konta magazynu](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Wybierz **utworzyć kontener**.
+Musisz mieć konto magazynu, aby przesłać plik wirtualnego dysku twardego do. Albo można wybrać istniejące konto magazynu lub [Utwórz nową](../../../storage/common/storage-create-storage-account.md).
 
-    ![Szczegóły konta magazynu](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. W **nazwa** wpisz nazwę użytkownika kontenera. Następnie w **dostępu** menu rozwijanego, wybierz typ zasad dostępu ma.
-
-    ![Nazwa kontenera](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Domyślnie kontener jest prywatny i jest dostępny tylko przez właściciela konta. Aby zezwolić na publiczny dostęp do odczytu do obiektów blob w kontenerze, ale nie do właściwości kontenera i metadanych, należy użyć **publicznego obiektu Blob** opcji. Aby umożliwić pełnej publiczny dostęp do odczytu do kontenera i obiektów blob, należy użyć **publicznego kontenera** opcji.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Krok 3: Przygotowanie połączenia z platformą Azure
-Zanim można przekazać pliku VHD, należy ustanowić bezpiecznego połączenia między komputerem i Twojej subskrypcji platformy Azure. Aby wykonać to zadanie, można użyć metody usługi Azure Active Directory (Azure AD) lub certyfikatów.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Przekaż plik VHD przy użyciu metody usługi Azure AD
-1. Otwórz konsolę programu Azure PowerShell.
-2. Wpisz następujące polecenie:  
-    `Add-AzureAccount`
-
-    To polecenie powoduje otwarcie okna logowania której możesz zalogować się przy użyciu konta służbowego.
-
-    ![Okno programu PowerShell](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure uwierzytelnia i zapisanie informacji o poświadczeniach. Następnie zamyka okna.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Przekaż plik VHD przy użyciu metody certyfikatu
-1. Otwórz konsolę programu Azure PowerShell.
-2. Typ: `Get-AzurePublishSettingsFile`.
-3. Oknie przeglądarki zostanie otwarty i wyświetli monit o pobranie pliku .publishsettings. Ten plik zawiera informacje i certyfikatu dla Twojej subskrypcji platformy Azure.
-
-    ![Strona pobierania przeglądarki](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Zapisz plik .publishsettings.
-5. Typ: `Import-AzurePublishSettingsFile <PathToFile>`, gdzie `<PathToFile>` jest pełną ścieżką do pliku .publishsettings.
-
-   Aby uzyskać więcej informacji, zobacz [wprowadzenie do poleceń cmdlet systemu Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Aby uzyskać więcej informacji na temat instalowania i konfigurowania programu PowerShell, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Krok 4: Przekaż plik VHD
 Podczas przekazywania pliku VHD, należy go umieścić w dowolnym w ramach usługi magazynu obiektów Blob. Poniżej przedstawiono niektóre warunki, które będą używane podczas przekazywania pliku:
 
 * **BlobStorageURL** jest adres URL dla konta magazynu, który został utworzony w kroku 2.
@@ -185,7 +140,7 @@ W oknie programu Azure PowerShell używanego w poprzednim kroku wpisz:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Krok 5: Tworzenie maszyny Wirtualnej z pliku VHD przekazany
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Krok 4: Tworzenie maszyny Wirtualnej z pliku VHD przekazany
 Po przekazaniu pliku VHD, można dodać go jako obraz do listy niestandardowych obrazów, które są skojarzone z subskrypcją i Utwórz maszynę wirtualną z tego obrazu niestandardowego.
 
 1. W oknie programu Azure PowerShell używanego w poprzednim kroku wpisz:
