@@ -98,6 +98,6 @@ sections:
           - title: Wiersz polecenia
             html: '<p><a href="/cli/azure/sf">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Interfejs wiersza polecenia usługi Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Języki
-            html: <p><a href="/java/api/overview/azure/servicefabric">Interfejs API języka Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">Interfejs API języka Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Schemat XML modelu usług</a></p>
           - title: REST
             html: <p><a href="/rest/api/servicefabric">Dokumentacja interfejsu API REST</a></p>
