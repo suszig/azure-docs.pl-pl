@@ -71,15 +71,10 @@
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Przypisywanie zasad za pomocą witryny Azure Portal](resource-manager-policy-portal.md)
 ### [Przypisywanie zasad za pomocą skryptów](resource-manager-policy-create-assign.md)
 ### Przykłady
 #### [Tagi](resource-manager-policy-tags.md)
 #### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
-#### [Sieć](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Maszyna wirtualna z systemem Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Maszyna wirtualna z systemem Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Inspekcja
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
