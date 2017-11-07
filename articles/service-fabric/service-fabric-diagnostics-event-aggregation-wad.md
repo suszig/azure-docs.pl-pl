@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja zdarzeń i kolekcji przy użyciu systemu Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Po zmodyfikowaniu pliku template.json zgodnie z opisem, ponownie opublikować sz
 
 Począwszy od wersji 5.4 sieci szkieletowej usług kondycji i obciążenia metryki zdarzenia są dostępne dla kolekcji. Te zdarzenia odzwierciedlają zdarzeń generowanych przez system lub kodu za pomocą kondycji lub załadować API raportowania, takie jak [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) lub [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Dzięki temu agregowanie i wyświetlanie stanu systemu wraz z upływem czasu oraz alerty na podstawie kondycji lub obciążenia zdarzeń. Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000008" do listy dostawców ETW.
 
-Aby zbierać zdarzenia, zmodyfikuj szablonu usługi Resource Manager w celu uwzględnienia
+Aby zbierać zdarzenia w klastrze, należy zmodyfikować `scheduledTransferKeywordFilter` w WadCfg szablonu usługi Resource Manager `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Aby zbierać zdarzenia, zmodyfikuj szablonu usługi Resource Manager w celu uwzg
 
 ## <a name="collect-reverse-proxy-events"></a>Zbieranie zdarzeń zwrotnego serwera proxy
 
-Począwszy od wersji 5.7 wydania usługi Service Fabric [odwrotny serwer proxy](service-fabric-reverseproxy.md) zdarzenia są dostępne dla kolekcji.
-Zwrotny serwer proxy emituje zdarzenia do dwa kanały, jeden zawierający zdarzenia błędów w czasie wykonywania odbicia żądania przetwarzania błędów i jeden z nich zawierający pełne zdarzenia dotyczące wszystkich żądań przetworzonych w zwrotnego serwera proxy. 
+Począwszy od wersji 5.7 wydania usługi Service Fabric [odwrotny serwer proxy](service-fabric-reverseproxy.md) zdarzenia są dostępne dla kolekcji kanałami wiadomości & danych. 
 
-1. Zbieranie zdarzeń błędu: Aby wyświetlić te zdarzenia w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000010" do listy dostawców ETW.
-Aby zbierać zdarzenia z klastrów platformy Azure, zmodyfikuj szablonu usługi Resource Manager w celu uwzględnienia
+Zwrotny serwer proxy wypycha tylko zdarzenia błędów za pośrednictwem głównego kanału wiadomości & danych - odzwierciedlające żądania przetwarzania błędów i krytyczne problemy. Szczegółowe kanału zawiera pełne zdarzenia o wszystkie żądania przetwarzane przez zwrotny serwer proxy. 
+
+Aby wyświetlić zdarzenia błędów w Podglądzie zdarzeń diagnostycznych programu Visual Studio Dodaj "Microsoft-ServiceFabric:4:0x4000000000000010" do listy dostawców ETW. Wszystkie dane telemetryczne żądania, aktualizacja ServiceFabric programu Microsoft wpis na liście dostawcy ETW "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Dla klastrów działających na platformie Azure:
+
+Aby pobrać dane śledzenia w głównym kanału wiadomości & danych, zmodyfikuj `scheduledTransferKeywordFilter` wartość WadCfg szablonu usługi Resource Manager `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Aby zbierać zdarzenia z klastrów platformy Azure, zmodyfikuj szablonu usługi 
     }
 ```
 
-2. Zbieranie wszystkie żądania przetwarzania zdarzeń: W programie Visual Studio diagnostycznych podglądu zdarzeń aktualizacji ServiceFabric programu Microsoft wpis na liście dostawcy ETW "Microsoft-ServiceFabric:4:0x4000000000000020".
-W przypadku klastrów sieci szkieletowej usług Azure zmodyfikować szablon usługi resource manager do uwzględnienia
+Aby zbierać zdarzenia przetwarzania żądania, Włącz wiadomości - & danych szczegółowe kanału, zmieniając `scheduledTransferKeywordFilter` wartość WadCfg szablonu usługi Resource Manager `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ W przypadku klastrów sieci szkieletowej usług Azure zmodyfikować szablon usł
       }
     }
 ```
-> Zalecane jest rozważnie włączyć zbierania zdarzeń z tego kanału, ponieważ to zbiera cały ruch przez zwrotny serwer proxy i może wymagać pojemności magazynu.
 
-W przypadku klastrów sieci szkieletowej usług Azure zdarzenia ze wszystkich węzłów są zbierane i agregowane w SystemEventTable.
+Włączenie zbierania zdarzeń z tego szczegółowe wyniki kanału w partii śladów Trwa generowanie szybko i może używać pojemności magazynu. Tylko włączenie tej funkcji, gdy jest to bezwzględnie konieczne.
 Szczegółowe Rozwiązywanie problemów z zdarzeń zwrotnego serwera proxy, zobacz [przewodnik diagnostyki zwrotnego serwera proxy](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Zbierać z nowych kanałów źródła zdarzeń

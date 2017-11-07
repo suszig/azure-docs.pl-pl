@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1263f2cdf6a6467d973f838bb380bd00ce52ba1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c066aab8641377705047f6b0ebd0e18c2afbac8
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon proste usługi magazynu przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [connnector Amazon S3 w wersji 1](v1/data-factory-amazon-simple-storage-service-connector.md).
 
-## <a name="supported-scenarios"></a>Obsługiwane scenariusze
+## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Kopiowanie danych z dowolnego źródła obsługiwanych magazynu danych do usługi Azure Data Lake Store lub skopiować dane z usługi Azure Data Lake Store żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych, które są obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 

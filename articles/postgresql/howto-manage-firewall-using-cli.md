@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 05e645ebafd8c8b9f3078524b76732b3e1be05f8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu wiersza polecenia platformy Azure
 Reguły zapory poziomu serwera umożliwiają administratorom zarządzanie dostępem do bazy danych Azure PostgreSQL serwera z określonego adresu IP lub zakresu adresów IP. Za pomocą wygodny poleceń interfejsu wiersza polecenia Azure, możesz utworzyć, zaktualizować, Usuń listę i Pokaż reguły zapory do zarządzania serwerem. Omówienie bazy danych Azure dla reguł zapory PostgreSQL, zobacz [bazą danych Azure dla reguł zapory serwera PostgreSQL](concepts-firewall-rules.md)
@@ -22,7 +22,7 @@ Reguły zapory poziomu serwera umożliwiają administratorom zarządzanie dostę
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do wykonania kroków opisanych ten przewodnik, potrzebne są:
 - [Bazy danych Azure PostgreSQL serwera i bazy danych](quickstart-create-server-database-azure-cli.md).
-- Zainstaluj [Azure CLI 2.0](/cli/azure/install-azure-cli) narzędzia wiersza polecenia lub użyć powłoki chmury Azure w przeglądarce.
+- Zainstaluj [Azure CLI 2.0](/cli/azure/install-azure-cli) narzędzia wiersza polecenia lub użyj powłoki chmury Azure w przeglądarce.
 
 ## <a name="configure-firewall-rules-for-azure-database-for-postgresql"></a>Konfigurowanie reguł zapory dla bazy danych platformy Azure dla PostgreSQL
 [Az postgres reguły zapory serwera-](/cli/azure/postgres/server/firewall-rule) polecenia są używane do konfigurowania reguł zapory.
@@ -39,7 +39,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 ## <a name="create-firewall-rule"></a>Tworzenie reguły zapory
 Aby utworzyć nową regułę zapory na serwerze, uruchom [az postgres reguły zapory serwera — Utwórz](/cli/azure/postgres/server/firewall-rule#create) polecenia. 
 
-Określając 0.0.0.0 jako `--start-ip-address` i 255.255.255.255 jako `--end-ip-address` zakresu, w poniższym przykładzie zezwala na wszystkie adresy IP na dostęp do serwera **mypgserver 20170401.postgres.database.azure.com**
+Określając 0.0.0.0 jako `--start-ip-address` i 255.255.255.255 jako `--end-ip-address` zakresu, poniższy przykład umożliwia wszystkie adresy IP na dostęp do serwera **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```

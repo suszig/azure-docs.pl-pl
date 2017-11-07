@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/10/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Hadoop przy użyciu interfejsu API REST Azure
 
@@ -130,7 +130,7 @@ Następujący dokument JSON jest połączenie z plików szablonu i parametry [ht
 
                    },
                    "properties": {
-                       "clusterVersion": "3.5",
+                       "clusterVersion": "3.6",
                        "osType": "Linux",
                        "clusterDefinition": {
                            "kind": "[parameters('clusterType')]",
@@ -361,17 +361,17 @@ Teraz, że pomyślnie utworzono klaster usługi HDInsight, użyj następującego
 
 ### <a name="hadoop-clusters"></a>Klastry Hadoop
 
-* [Korzystanie z programu Hive z usługą HDInsight](hdinsight-use-hive.md)
-* [Korzystanie z języka Pig z usługą HDInsight](hdinsight-use-pig.md)
-* [Korzystać z usługi MapReduce z usługą HDInsight](hdinsight-use-mapreduce.md)
+* [Korzystanie z programu Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)
+* [Korzystanie z języka Pig z usługą HDInsight](hadoop/hdinsight-use-pig.md)
+* [Korzystać z usługi MapReduce z usługą HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Klastrów HBase
 
-* [Rozpoczynanie pracy z bazy danych HBase w usłudze HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Tworzenie aplikacji Java bazy danych hbase w usłudze HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Rozpoczynanie pracy z bazy danych HBase w usłudze HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Tworzenie aplikacji Java bazy danych hbase w usłudze HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Klastry STORM
 
-* [Tworzenie topologii Java dla Storm w usłudze HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Użyj składników języka Python w Storm w usłudze HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Wdrażanie i monitorowanie topologii z systemu Storm w usłudze HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Tworzenie topologii Java dla Storm w usłudze HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Użyj składników języka Python w Storm w usłudze HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Wdrażanie i monitorowanie topologii z systemu Storm w usłudze HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Wdrażanie wielu aplikacji wykonywalnych gości
 W tym artykule przedstawiono sposób pakietów i wdrożyć wiele plików wykonywalnych gościa sieć szkieletowa usług Azure. Umożliwiające tworzenie i wdrażanie pojedynczego pakietu sieci szkieletowej usług przeczytać artykuł dotyczący sposobu do [wdrażanie pliku wykonywalnego gościa sieci szkieletowej usług](service-fabric-deploy-existing-app.md).
@@ -29,7 +29,7 @@ Visual Studio można użyć do utworzenia pakietu aplikacji, która zawiera wiel
 
 ## <a name="samples"></a>Przykłady
 * [Przykład dla pakowanie i wdrażanie pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Ręcznie pakietu wielu aplikacja wykonywalna gościa
 Można też ręcznie pakietu pliku wykonywalnego gościa. Dla pakietów ręcznego, w tym artykule używa narzędzia pakowania sieci szkieletowej usług, które jest dostępne w [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -217,4 +217,4 @@ Aby dodać kolejną usługę do aplikacji utworzonej już przy użyciu polecenia
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o wdrażaniu kontenerów [sieci szkieletowej usług i kontenery — omówienie](service-fabric-containers-overview.md)
 * [Przykład dla pakowanie i wdrażanie pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Przykład dwóch gościa pliki wykonywalne (C# i nodejs) podczas komunikacji za pośrednictwem usługi nazw za pomocą usługi REST](https://github.com/Azure-Samples/service-fabric-containers)

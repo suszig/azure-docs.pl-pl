@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Wymagania systemowe macierzy wirtualnej StorSimple
 ## <a name="overview"></a>Omówienie
@@ -50,7 +50,7 @@ Wymagania dotyczące oprogramowania zawierają informacje obsługiwane przegląd
 | Minimalna ilość pamięci (RAM) |8 GB <br> Serwer plików, 8 GB mniej niż 2 miliony plików i 16 GB 2-4 miliony plików|
 | Miejsce na dysku<sup>1</sup> |Dysk systemu operacyjnego - 80 GB <br></br>Dysk danych — 500 GB do 8 TB |
 | Minimalna liczba interfejsów sieci |1 |
-| Przepustowość minimalna Internet<sup>2</sup> |5 MB/s |
+| Przepustowości połączenia z Internetem<sup>2</sup> |Przepustowość minimalna wymagana: 5 MB/s <br> Zalecane przepustowości: 100 MB/s <br> Szybkość transferu danych można skalować przepustowości połączenia z Internetem. Na przykład 100 GB danych ma 2 dni do transferu 5 MB/s, które może powodować awarie kopii zapasowych, ponieważ codzienne wykonywanie kopii zapasowych nie zostać ukończone w ciągu jednego dnia. O przepustowości 100 MB/s 100 GB danych można przenieść w wersji 2.5 godzinach.   |
 
 <sup>1</sup> — elastycznej obsługi administracyjnej
 
@@ -113,7 +113,7 @@ Firma Microsoft zaleca, aby ustawić regułach zapory dla ruchu wychodzącego, o
 > [!NOTE]
 > 
 > * Urządzenia (źródło) adresów IP powinien być zawsze ustawiony na wszystkich interfejsów sieciowych z obsługą chmury. 
-> * Miejsce docelowe adresy IP należy wybrać opcję [zakresy IP centrum danych Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Miejsce docelowe adresy IP należy wybrać opcję [zakresy IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Firma Microsoft zaleca, aby ustawić regułach zapory dla ruchu wychodzącego, o
 | `https://*.partners.extranet.microsoft.com/*` |Pakiet pomocy technicznej |
 | `http://*.data.microsoft.com ` |Usługa telemetrii w systemie Windows, zobacz [aktualizacja obsługi klienta i dane telemetryczne diagnostycznych](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 * [Przygotowanie portalu, aby wdrożyć tablica wirtualnego StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
-

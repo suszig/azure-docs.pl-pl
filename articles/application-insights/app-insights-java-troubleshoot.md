@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Rozwiązywanie problemów oraz pytania i odpowiedzi dotyczące usługi Application Insights dla języka Java
 Pytania lub problemy z [Azure Application Insights w języku Java][java]? Poniżej przedstawiono kilka wskazówek.
@@ -124,6 +124,13 @@ W zaporze może być konieczne otwarcie portów TCP 80 i 443 dla ruchu wychodzą
 **Jak długo dane są przechowywane w portalu Czy jest bezpieczna?**
 
 Zobacz [przechowywanie danych i ochrona prywatności][data].
+
+## <a name="debug-logging"></a>Funkcję rejestrowania debugowania
+Korzysta z usługi Application Insights `org.apache.http`. To jest przenoszony w słoików podstawowe usługi Application Insights w przestrzeni nazw `com.microsoft.applicationinsights.core.dependencies.http`. Dzięki temu usługi Application Insights do obsługi scenariuszy, w przypadku, gdy różne wersje tego samego `org.apache.http` istnieje w jeden podstawowy kod. 
+
+>[!NOTE]
+>Jeśli włączysz poziomu rejestrowania debugowania dla wszystkich obszarów nazw w aplikacji, będą honorowane przez wszystkie moduły wykonywanego w tym `org.apache.http` przemianowana `com.microsoft.applicationinsights.core.dependencies.http`. Usługa Application Insights nie będzie można zastosować filtrowanie dla tych wywołań, ponieważ wywołanie dziennika jest wykonywane przez biblioteki Apache. Poziom rejestrowania debugowania utworzyć znaczną ilość danych dziennika i nie jest zalecane dla wystąpień produkcyjnym.
+
 
 ## <a name="next-steps"></a>Następne kroki
 **Skonfigurować usługi Application Insights dla aplikacja Mój serwer Java. Co można zrobić?**

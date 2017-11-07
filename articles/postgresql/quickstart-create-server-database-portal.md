@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Tworzenie bazy danych Azure PostgreSQL serwera w portalu Azure
 
@@ -124,7 +124,7 @@ Istnieje wiele aplikacji, za pomocą których można nawiązać połączenie z s
 
     Parametr psql |Sugerowana wartość|Opis
     ---|---|---
-    --host | Nazwa serwera | Wartość nazwy serwera używane podczas tworzenia bazy danych Azure wcześniej PostgreSQL serwera. Jest serwera przykładzie pokazano **mypgserver 20170401.postgres.database.azure.com.** Użyj w pełni kwalifikowaną nazwę domeny (**\*. postgres.database.azure.com**) jak pokazano w przykładzie. Jeśli nie pamiętasz nazwy serwera, postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia. 
+    --host | Nazwa serwera | Wartość nazwy serwera używane podczas tworzenia bazy danych Azure wcześniej PostgreSQL serwera. Serwer przykładzie pokazano jest **mypgserver 20170401.postgres.database.azure.com.** Użyj w pełni kwalifikowaną nazwę domeny (**\*. postgres.database.azure.com**) jak pokazano w przykładzie. Jeśli nie pamiętasz nazwy serwera, postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia. 
     --port | 5432 | Port używany podczas łączenia z bazą danych Azure PostgreSQL serwera. 
     --username | Nazwa logowania administratora serwera |Serwer logowania nazwa użytkownika podane przez użytkownika podczas tworzenia bazy danych Azure wcześniej PostgreSQL serwera. Jeśli nie pamiętasz nazwy użytkownika, wykonaj kroki opisane w poprzedniej sekcji, aby uzyskać informacje o połączeniu. Format to *username@servername*.
     --dbname | *postgres* | Wartość domyślna generowanych przez system Nazwa bazy danych utworzone dla pierwszego połączenia. Później należy utworzyć własne bazy danych.
@@ -199,13 +199,13 @@ Aby połączyć się z serwerem Azure PostgreSQL przy użyciu pgAdmin narzędzia
 
 6. W **przeglądarki** w okienku po lewej stronie rozwiń **serwerów** węzła. Wybierz serwer, na przykład **serwera PostgreSQL Azure**. Kliknij, aby się z nim połączyć.
 
-7. Rozwiń węzeł serwera, a następnie rozwiń jego podrzędny element **Bazy danych**. Lista powinna zawierać istniejące *postgres* bazy danych i wszystkie nowo utworzonego użytkownika bazy danych, takich jak **mypgsqldb**, który utworzono w poprzedniej sekcji. Zwróć uwagę, że można utworzyć wiele baz danych na serwerze z bazą danych Azure dla PostgreSQL.
+7. Rozwiń węzeł serwera, a następnie rozwiń jego podrzędny element **Bazy danych**. Lista powinna zawierać istniejące *postgres* bazy danych i wszystkie nowo utworzonego użytkownika bazy danych, takich jak **mypgsqldb**, który został utworzony w poprzedniej sekcji. Zwróć uwagę, że można utworzyć wiele baz danych na serwerze z bazą danych Azure dla PostgreSQL.
 
 8. Kliknij prawym przyciskiem myszy **baz danych**, wybierz **Utwórz** menu, a następnie wybierz **bazy danych**.
 
 9. Wpisz nazwę bazy danych w wybranym **bazy danych** pola, takie jak **mypgsqldb**, jak pokazano w przykładzie.
 
-10. Wybierz **właściciela** dla bazy danych w polu listy. Wybierz nazwę logowania administratora, takich jak naszym przykładzie serwer **mylogin**.
+10. Wybierz **właściciela** dla bazy danych w polu listy. Wybierz nazwę logowania administratora, takich jak na przykład serwer **mylogin**.
 
 11. Wybierz **zapisać** do utworzenia nowej bazy danych puste.
 
@@ -221,9 +221,9 @@ Możesz wyczyścić zasoby, które zostały utworzone z opcją szybkiego startu 
 > Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli chcesz kontynuować pracę z przewodnikami Szybki start, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz, wykonaj następujące kroki, aby usunąć zasoby, które zostały utworzone przez tego szybkiego startu w portalu.
 
 Aby usunąć grupę zasobów całej, łącznie z nowo utworzonego serwera:
-1. Zlokalizuj grupie zasobów w portalu. W menu po lewej stronie wybierz **grup zasobów**. Następnie wybierz nazwę grupy zasobów, takich jak naszym przykładzie **myresourcegroup**.
+1. Zlokalizuj grupie zasobów w portalu. W menu po lewej stronie wybierz **grup zasobów**. Następnie wybierz nazwę grupy zasobów, takich jak na przykład, **myresourcegroup**.
 
-2. Na stronie grupy zasobów wybierz pozycję **Usuń**. Wpisz nazwę grupy zasobów, takich jak naszym przykładzie **myresourcegroup**, w polu tekstowym, aby potwierdzić usunięcie. Wybierz pozycję **Usuń**.
+2. Na stronie grupy zasobów wybierz pozycję **Usuń**. Wpisz nazwę grupy zasobów, takich jak na przykład, **myresourcegroup**, w polu tekstowym, aby potwierdzić usunięcie. Wybierz pozycję **Usuń**.
 
 Aby usunąć tylko nowo utworzonego serwera:
 1. Zlokalizuj serwera w portalu, jeśli nie jest otwarty. W menu po lewej stronie wybierz **wszystkie zasoby**. Następnie wyszukaj utworzony serwer.
@@ -232,7 +232,7 @@ Aby usunąć tylko nowo utworzonego serwera:
 
     ![Przycisk "Usuń"](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Potwierdź nazwę serwera, który chcesz usunąć, a następnie wyświetlić baz danych w nim, których dotyczy problem. Wpisz nazwę serwera w polu tekstowym, takich jak naszym przykładzie **mypgserver 20170401**. Wybierz pozycję **Usuń**.
+3. Potwierdź nazwę serwera, który chcesz usunąć, a następnie wyświetlić baz danych w nim, których dotyczy problem. Wpisz nazwę serwera w polu tekstowym, takich jak na przykład, **mypgserver 20170401**. Wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

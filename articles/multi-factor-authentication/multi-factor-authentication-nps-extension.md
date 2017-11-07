@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3cdeec642590d4ab4ae342e8675c124fa86bc970
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integracja istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ Rozszerzenia serwera NPS jest przeznaczona do pracy z istniejącej infrastruktur
 
 ### <a name="licenses"></a>Licencje
 
-Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA jest dostępny dla klientów z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub subskrypcji usługi MFA).
+Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA jest dostępny dla klientów z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub subskrypcji usługi MFA). Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. 
 
 ### <a name="software"></a>Oprogramowanie
 

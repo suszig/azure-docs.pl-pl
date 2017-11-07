@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2017
-ms.openlocfilehash: c16705c89c36452a28ab0547dc6b5277f57dd6d5
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 72756c6acd8cd7c35405754ccda585228f800a8e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą środowiska Node.js
 Ta opcja szybkiego startu pokazano, jak nawiązać połączenia z bazą danych Azure dla przy użyciu PostgreSQL [Node.js](https://nodejs.org/) aplikacji. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. Kroki opisane w tym artykule założono, że znasz tworzenie przy użyciu środowiska Node.js i są nowe do pracy z bazą danych Azure dla PostgreSQL.
@@ -45,7 +45,7 @@ npm list
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** i wyszukiwania na serwerze, który został właśnie utworzony.
+2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** i wyszukaj serwer został utworzony.
 3. Kliknij nazwę serwera.
 4. Wybierz stronę serwera **Przegląd**. Zanotuj wartości **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/connect-nodejs/1-connection-string.png)

@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Bazy danych platformy Azure dla serwerów PostgreSQL
-Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure PostgreSQL serwerów.
+Ten artykuł zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure PostgreSQL serwerów.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Co to jest Azure bazy danych serwera PostgreSQL?
 Baza danych Azure dla serwera PostgreSQL jest centralny punkt administracyjny dla wielu baz danych. Jest tym samym konstrukcja PostgreSQL serwera można zapoznać się z na świecie lokalnych. W szczególności usługa PostgreSQL jest zarządzany, zapewnia gwarancje wydajności, udostępnia dostępu i funkcji na poziomie serwera.
@@ -43,7 +43,7 @@ Następujące elementy zapewnić bezpieczny dostęp do bazy danych.
 | **Uwierzytelnianie i autoryzacja** | Azure bazy danych dla serwera PostgreSQL obsługuje natywnych uwierzytelnianie PostgreSQL. Możesz łączyć i uwierzytelniać się na serwerze z nazwą logowania administratora serwera. |
 | **Protokół** | Usługa obsługuje protokół oparta na komunikatach używany przez PostgreSQL. |
 | **PROTOKÓŁ TCP/IP** | Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i za pośrednictwem gniazda domeny systemu Unix. |
-| **Zapora** | Aby chronić dane, regułę zapory uniemożliwia wszystkie dostęp do serwera bazy danych oraz jej baz danych do chwili określenia komputery, które ma uprawnienia. Zobacz [bazą danych Azure dla reguł zapory serwera PostgreSQL](concepts-firewall-rules.md). |
+| **Zapora** | Aby chronić dane, regułę zapory zapobiega dostęp do serwera i jego baz danych, do momentu określenia komputery, które ma uprawnienia. Zobacz [bazą danych Azure dla reguł zapory serwera PostgreSQL](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Jak zarządzać serwerem?

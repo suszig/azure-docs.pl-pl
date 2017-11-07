@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 11/03/2017
+ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure bazy danych MySQL opcje i wydajność: Poznaj, co jest dostępne w każdej warstwy cenowej
 Podczas tworzenia bazy danych Azure dla serwera MySQL zdecydujesz się na trzy główne opcje do konfigurowania zasobów przydzielonych dla tego serwera. Te opcje wpływ na wydajność i skalę serwera.
@@ -96,7 +96,7 @@ Podczas tworzenia bazy danych Azure dla programu MySQL początkowo wybierz cenow
 
 Skalowanie jednostki obliczeniowe odbywa się niezależnie od maksymalny rozmiar magazynu wybrana.
 
-W tle zmieniając poziom wydajności bazy danych tworzy kopię oryginalnej bazy danych na nowy poziom wydajności, a następnie przełącza połączenia z serwerem skopiowane. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy system przełącza się do nowej kopii serwera połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. Czas przełączania jest zróżnicowany, ale średnio wynosi mniej niż 4 sekundy, a w ponad 99% przypadków wynosi mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
+W tle zmiana poziomu wydajności serwera na nowy poziom wydajności zostanie utworzona kopia oryginalnego serwera, a następnie przełącza połączenia z serwerem skopiowane. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy system przełącza się do nowej kopii serwera połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. Czas przełączania jest zróżnicowany, ale średnio wynosi mniej niż 4 sekundy, a w ponad 99% przypadków wynosi mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
 
 Czas trwania procesu całej skali zależy od zarówno rozmiar i warstwę cenową serwera przed i po zmianie. Na przykład serwer, który jest zmiana obliczeniowe jednostek w warstwie cenowej standardowa powinno zakończyć w ciągu kilku minut. Nowe właściwości dla serwera nie są stosowane dopiero po zakończeniu zmiany.
 

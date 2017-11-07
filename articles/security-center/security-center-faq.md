@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące usługi Azure Security Center
 Często zadawane pytania odpowiedzi na pytania dotyczące Centrum zabezpieczeń Azure to usługa, która pomaga zapobiec, wykrywania i reagowania na zagrożenia lepszy wgląd w i kontroli w zakresie bezpieczeństwa zasobów na platformie Microsoft Azure.
@@ -127,6 +127,15 @@ Centrum zabezpieczeń Azure ma wgląd w ochrony przed złośliwym oprogramowanie
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>Dlaczego jest wyświetlany komunikat "Brakujących danych skanowania" Moje maszyny wirtualnej?
 Ten komunikat jest wyświetlany, gdy nie ma żadnych danych skanowania dla maszyny Wirtualnej. Może upłynąć trochę czasu (mniej niż godzinę), zanim dane skanowania do wypełnienia po włączeniu funkcji zbierania danych w Centrum zabezpieczeń Azure. Po początkowej populacji danych skanowania ponieważ nie ma żadnych danych skanowania w ogóle lub nie ma żadnych ostatnich danych skanowania może zostać wyświetlony ten komunikat. Skanowanie nie należy wypełniać dla maszyny Wirtualnej w stanie zatrzymania. Ten komunikat może również zostać wyświetlony, jeśli dane skanowania nie został wypełniony ostatnio (zgodnie z zasadami przechowywania dla agenta systemu Windows, który ma wartość domyślną w ciągu 30 dni).
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Jak często Centrum zabezpieczeń skanowania w poszukiwaniu luk w zabezpieczeniach systemu operacyjnego, aktualizacji systemu i problemy z ochroną punktu końcowego?
+Czas oczekiwania w Centrum zabezpieczeń skanowania pod kątem luk w zabezpieczeniach, aktualizacje i problemów:
+
+- Luki w zabezpieczeniach systemu operacyjnego (przez Microsoft) — dane są aktualizowane w ciągu 48 godzin
+- Aktualizacje systemu — danych jest aktualizowany w ciągu 24 godzin
+- Problemy z ochroną punktu końcowego — dane są aktualizowane w ramach 8 godzin
+
+Centrum zabezpieczeń zwykle skanowania pod kątem nowych danych co godzinę. Wartości opóźnienia powyżej są scenariusz gdzie nie jest ostatnie skanowanie lub skanowania nie powiodło się.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Dlaczego jest wyświetlany komunikat "Brak jest Agent maszyny Wirtualnej?"
 Agent maszyny Wirtualnej musi być zainstalowany na maszynach wirtualnych, aby włączyć zbieranie danych. Agent maszyny wirtualnej jest instalowany domyślnie w przypadku maszyn wirtualnych wdrażanych z poziomu portalu Azure Marketplace. Aby uzyskać informacje dotyczące sposobu instalowania agenta maszyny Wirtualnej na innych maszynach wirtualnych, zobacz we wpisie blogu [agenta maszyny Wirtualnej i rozszerzenia](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

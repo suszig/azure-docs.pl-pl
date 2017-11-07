@@ -5,47 +5,46 @@ keywords: "samouczek usługi sql database"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
-ms.contentlocale: pl-pl
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>Zarządzanie schematami wielu dzierżaw w aplikacji SaaS o nazwie WTP
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Zarządzanie schematami wielu dzierżaw w aplikacji z wieloma dzierżawami, która korzysta z usługi Azure SQL Database
 
-Samouczek Wprowadzenie do aplikacji WTP pokazuje, jak aplikacja WTP może wyposażyć bazę danych dzierżawy w schemat początkowy i zarejestrować go w wykazie. Jak każda inna aplikacja, aplikacja WTP będzie rozwijana w miarę upływu czasu, i niekiedy będzie wymagała wprowadzenia zmian w bazie danych. Zmiany mogą obejmować nowy lub zmieniony schemat, nowe lub zmienione dane referencyjne, oraz rutynowe zadania konserwacji bazy danych zapewniające optymalną wydajność aplikacji. W przypadku aplikacji SaaS zmiany te muszą zostać wprowadzone w sposób skoordynowany — potencjalnie w bardzo wielu bazach danych dzierżaw. Zmiany muszą także zostać dołączone do procesu aprowizacji przyszłych baz danych dzierżawy.
+[Pierwszy samouczek Wingtip SaaS](sql-database-saas-tutorial.md) pokazuje, jak udostępnić bazę danych dzierżawy i zarejestruj go w katalogu aplikacji. Podobnie jak wszelkie aplikacje aplikacji Wingtip SaaS rozpoczyna się wraz z upływem czasu, a czasem wymaga zmiany w bazie danych. Zmiany mogą obejmować nowy lub zmieniony schemat, nowe lub zmienione dane referencyjne, oraz rutynowe zadania konserwacji bazy danych zapewniające optymalną wydajność aplikacji. W przypadku aplikacji SaaS zmiany te muszą zostać wprowadzone w sposób skoordynowany — potencjalnie w bardzo wielu bazach danych dzierżaw. Aby te zmiany można w przyszłości dzierżawy baz danych muszą należy włączyć do procesu inicjowania obsługi administracyjnej.
 
-Ten samouczek analizuje dwa scenariusze — wdrażanie aktualizacji danych referencyjnych dla wszystkich dzierżaw i dostrajanie indeksu tabeli zawierającej dane referencyjne. Funkcja [Zadania elastyczne](sql-database-elastic-jobs-overview.md) jest używana do wykonywania tych operacji we wszystkich dzierżawach i we *wzorcowej* bazie danych dzierżawy, która jest używana jako szablon dla nowych baz.
+Ten samouczek analizuje dwa scenariusze — wdrażanie aktualizacji danych referencyjnych dla wszystkich dzierżaw i dostrajanie indeksu tabeli zawierającej dane referencyjne. [Zadania elastyczne](sql-database-elastic-jobs-overview.md) funkcja służy do wykonywania tych operacji we wszystkich dzierżawców i *złotego* bazy danych dzierżawy, który służy jako szablon dla nowych baz danych.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 
-> * Utworzenie konta zadania do tworzenia zapytań dotyczących wielu dzierżaw
+> * Tworzenie zadania konta
+> * Wysyłanie zapytań na wielu dzierżawców
 > * Aktualizowanie danych we wszystkich bazach danych dzierżaw
 > * Tworzenie indeksu tabeli we wszystkich bazach danych dzierżaw
 
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Wdrożona jest aplikacja WTP. Aby wdrożyć tę aplikację w czasie krótszym niż pięć minut, zobacz [Wdrażanie i korzystanie z aplikacji SaaS o nazwie WTP](sql-database-saas-tutorial.md)
+* Aplikacja Wingtip SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](sql-database-saas-tutorial.md)
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Zainstalowano najnowszą wersję programu SSMS (SQL Server Management Studio). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ponieważ jest to ograniczona wersja zapoznawcza, w przypadku pytań lub konieczności pomocy technicznej skontaktuj się z SaaSFeedback@microsoft.com.*
+*Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Wprowadzenie do wzorców zarządzania schematami SaaS
@@ -60,11 +59,11 @@ Wzorzec SaaS pojedynczej dzierżawy na bazę danych korzysta na wiele sposobów 
 Istnieje nowa wersja Zadań elastycznych, która jest teraz zintegrowaną funkcją usługi Azure SQL Database (nie wymaga żadnych dodatkowych usług ani składników). Nowa wersja Zadań elastycznych jest obecnie dostępna w ograniczonej wersji zapoznawczej. Ograniczona wersja zapoznawcza obsługuje obecnie program PowerShell do tworzenia kont zadań, oraz oprogramowanie T-SQL do tworzenia zadań i zarządzania nimi.
 
 > [!NOTE]
-> *Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ponieważ jest to ograniczona wersja zapoznawcza, w przypadku pytań lub konieczności pomocy technicznej skontaktuj się z SaaSFeedback@microsoft.com.*
+> *Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Skrypty i kod źródłowy aplikacji Wingtip Tickets są dostępne w repozytorium GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Pliki skryptów znajdują się w [folderze Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Pobierz folder **Learning Modules** na komputer lokalny, zachowując jego strukturę folderów.
+Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki, aby pobrać skrypty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Tworzenie bazy danych konta zadania oraz nowego konta zadania
 
@@ -87,18 +86,18 @@ Aby utworzyć nowe zadanie, użyjemy zestawu procedur składowanych systemu zada
 
 1. Otwórz program SSMS i połącz się z serwerem wykazu: catalog-\<użytkownik\>.database.windows.net.
 1. Połącz się również z serwerem dzierżaw: tenants1-\<użytkownik\>.database.windows.net.
-1. Przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników nie ma pozycji *Motorcycle Racing* i *Swimming Club* ****.
+1. Przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników nie ma pozycji *Motorcycle Racing* i *Swimming Club* **nie są**.
 1. Otwórz plik …\\Learning Modules\\Schema Management\\DeployReferenceData.sql.
-1. We wszystkich trzech miejscach w skrypcie zmodyfikuj pole \<user\>, używając nazwy podanej podczas wdrażania aplikacji WTP.
+1. Modyfikowanie instrukcji: Ustaw @wtpUser = &lt;użytkownika&gt; i zastąp wartość użytkownika używane w przypadku wdrażania aplikacji Wingtip
 1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz **F5**, aby uruchomić skrypt.
 
 * **sp\_add\_target\_group** tworzy nazwę grupy docelowej DemoServerGroup. Teraz należy dodać członków docelowych.
-* **sp\_add\_target\_group\_member** dodaje typ członka docelowego *server*, który wskazuje, że wszystkie bazy danych na tym serwerze (jest to serwer customer1-&lt;WtpUser&gt; zawierający bazy danych dzierżaw) w momencie wykonania zadania powinny być dołączone do zadania. Następnie dodaje typ członka docelowego *database*, a w szczególności wzorcową bazę danych baseTenantDB na serwerze catalog-&lt;WtpUser&gt;, a na koniec dodaje inny typ członka grupy docelowej *database*, który obejmuje bazę danych adhocanalytics używaną w jednym z dalszym samouczków.
+* **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (Uwaga to tenants1&lt; Użytkownik&gt; serwer zawierający dzierżawy baz danych) w czasie zadania wykonywania powinny być uwzględnione w zadaniu, polega na dodaniu drugiego *bazy danych* docelowy typ elementu członkowskiego, w szczególności "złotego" bazy danych (basetenantdb) który znajduje się w katalogu -&lt;użytkownika&gt; serwera, a na koniec innego *bazy danych* docelowy typ elementu członkowskiego grupy, aby uwzględnić adhocanalytics bazy danych, używany w samouczku nowsze.
 * **sp\_add\_job** tworzy zadanie o nazwie „Reference Data Deployment”.
-* **sp\_add\_jobstep** tworzy krok zadania zawierający tekst polecenia T-SQL służącego do aktualizacji tabeli referencyjnej VenueTypes.
-* Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Sprawdź wartość stanu w kolumnie **lifecycle**. Zadanie zostało ukończone dla wszystkich dzierżaw i dwóch dodatkowych baz danych zawierających tabelę referencyjną.
+* **SP\_dodać\_etap zadania** tworzy etap zadania zawierające tekst polecenia T-SQL, aby zaktualizować tabeli referencyjnej VenueTypes
+* Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Aby przejrzeć wartość stanu, użyj tych zapytań **cyklu życia** kolumnę, aby określić, kiedy zadanie pomyślnie zakończył się na wszystkie dzierżawy i dwóch dodatkowych baz danych zawierających tabeli referencyjnej.
 
-1. W programie SSMS przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników znajdują się teraz pozycje *Motorcycle Racing* i *Swimming Club* ****.
+1. W programie SSMS przejdź do bazy danych *contosoconcerthall* na serwerze *tenants1* i utwórz zapytanie dla tabeli *VenueTypes*, aby upewnić się, że na liście wyników znajdują się teraz pozycje *Motorcycle Racing* i *Swimming Club* **są**.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Tworzenie zadania do zarządzania indeksem tabeli referencyjnej
@@ -107,9 +106,9 @@ Podobnie jak w poprzednim ćwiczeniu, w tym zostanie utworzone zadanie służąc
 
 Utwórz zadanie, używając tych samych procedur składowanych „system”.
 
-1. Otwórz aplikację SSMS i połącz się z serwerem catalog-&lt;WtpUser&gt;.database.windows.net.
+1. Otwórz SSMS i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera
 1. Otwórz plik …\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-1. Kliknij prawym przyciskiem myszy, wybierz opcję Połączenie i nawiąż połączenie z serwerem catalog-&lt;WtpUser&gt;. database.windows.net, jeśli jeszcze tego nie zrobiono.
+1. Kliknij prawym przyciskiem myszy, wybierz połączenie i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
 1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz F5, aby uruchomić skrypt.
 
 * sp\_add\_job tworzy nowe zadanie o nazwie „Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
@@ -133,6 +132,6 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dodatkowe samouczki nawiązujące do początkowego wdrożenia aplikacji Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Dodatkowe samouczki, które zależą od wdrożenia aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Zarządzanie skalowaną w poziomie bazą danych w chmurze](sql-database-elastic-jobs-overview.md)
 * [Tworzenie baz danych skalowanych w poziomie i zarządzanie nimi](sql-database-elastic-jobs-create-and-manage.md)

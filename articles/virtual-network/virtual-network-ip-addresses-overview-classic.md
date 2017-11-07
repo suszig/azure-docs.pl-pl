@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Typy adresów IP i metod alokacji (klasyczne) na platformie Azure
 Do zasobów platformy Azure można przypisać adresy IP w celu komunikowania się z innymi zasobami platformy Azure, siecią lokalną i Internetem. Istnieją dwa typy adresów IP można używać w Azure: prywatnych i publicznych.
@@ -141,9 +141,8 @@ W poniższej tabeli przedstawiono każdy typ zasobu z metod możliwe alokacji (d
 
 | Zasób | Dynamiczny | Statyczny | Wiele adresów IP |
 | --- | --- | --- | --- |
-| Maszyna wirtualna (w *autonomiczny* usługi w chmurze) |Tak |Tak |Tak |
-| Wystąpienia roli PaaS (w *autonomiczny* usługi w chmurze) |Tak |Nie |Tak |
-| Wystąpienia roli maszyny Wirtualnej lub PaaS (w sieci wirtualnej) |Tak |Tak |Tak |
+| Maszyna wirtualna (w *autonomiczny* usługi lub sieci wirtualnej w chmurze) |Tak |Tak |Tak |
+| Wystąpienia roli PaaS (w *autonomiczny* usługi lub sieci wirtualnej w chmurze) |Tak |Nie |Nie |
 | Frontonu modułu równoważenia obciążenia wewnętrznego |Tak |Tak |Tak |
 | Frontonu bramy aplikacji |Tak |Tak |Tak |
 

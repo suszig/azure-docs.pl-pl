@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/20/2017
-ms.openlocfilehash: 3f1ffa20b58c52558e880ed6a0ef4ca674173973
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Sposób wykonywania kopii zapasowej i przywracania serwera w bazie danych Azure dla PostgreSQL przy użyciu portalu Azure
 
@@ -35,7 +35,7 @@ Poniższe kroki przywrócenie serwera próbki do punktu w czasie:
 
    ![Portal Azure — Wyszukaj, aby zlokalizować serwera](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. Na pasku narzędzi bloku Omówienie serwera, kliknij przycisk **przywrócić**. Zostanie otwarty blok przywracania.
+3. Na pasku narzędzi strony Przegląd serwera, kliknij przycisk **przywrócić**. Zostanie otwarta strona przywracania.
 
    ![Bazy danych platformy Azure dla przycisku PostgreSQL — Przegląd — przywracania](./media/postgresql-howto-restore-server-portal/2_server.png)
 

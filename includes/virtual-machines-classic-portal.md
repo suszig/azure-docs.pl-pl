@@ -1,0 +1,1 @@
+Uruchamianie 15 listopada 2017 maszyny wirtualne będą dostępne tylko w [portalu Azure](https://portal.azure.com). Dostęp z portalu klasycznego będzie już obsługiwany.

@@ -1,6 +1,6 @@
 ---
 title: "Co nowego? Informacje o wersji dla usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Użyj tych wersji uwagi, Pozostań na bieżąco śledzić najnowsze wersje, znanych problemów, poprawek, przestarzałe funkcje i planów dla zmian w usłudze Azure Active Directory (Azure AD)."
+description: "Dowiedz się, co jest nowego w usłudze Azure Active Directory (Azure AD) w tym informacje o najnowszej wersji, znane problemy, poprawki, przestarzałe funkcje i nadchodzących zmianach."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54a6f197de82e5c4ae93d196a532aec7793bbd4c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0fd0ee5bb0bc3e9dcda9db291a1f9dbac6a2e7dc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
 
----
 
-Stosowanie nowości w usłudze Azure Active Directory to subskrypcja [źródła danych](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) w ulubionej czytnik danych RSS.
 
----
+> Stosowanie nowości w usłudze Azure Active Directory to subskrypcja [źródła danych](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) w ulubionej czytnik danych RSS.
+
 
 
 Firma Microsoft umożliwiają zwiększenie usługi Azure Active Directory w sposób ciągły. Aby umożliwić bądź na bieżąco o najnowszych zmianach, w tym temacie przedstawiono informacje o:

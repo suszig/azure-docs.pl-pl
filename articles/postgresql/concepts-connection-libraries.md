@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Biblioteki połączeń dla bazy danych Azure dla PostgreSQL
-Ten temat zawiera listę bibliotek i sterowniki, które umożliwiają deweloperom do aplikacji programu w celu nawiązania połączenia i wyszukiwać w bazie danych Azure PostgreSQL.
+W tym artykule wymieniono bibliotek i sterowniki, które deweloperzy mogą używać do tworzenia aplikacji do nawiązania połączenia i wyszukiwać w bazie danych Azure PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfejsy klienta
-Większość bibliotek klienckich język używany do łączenia z serwerem PostgreSQL projektów zewnętrznych i są dystrybuowane niezależnie. Są obsługiwane na platformach Windows, Linux lub Mac. Niektóre sterowniki popularnych klienta są wymienione w poniższej tabeli:
+Większość bibliotek klienckich język używany do łączenia z serwerem PostgreSQL projektów zewnętrznych i są dystrybuowane niezależnie. Biblioteki wymienione są obsługiwane na platformach Windows, Linux i komputerów Mac, do łączenia z bazą danych Azure dla PostgreSQL. Kilka przykładów szybkiego startu są wymienione w sekcji Następne kroki.
 
 | **Język** | **Interfejs klienta** | **Dodatkowe informacje** | **Pobieranie** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

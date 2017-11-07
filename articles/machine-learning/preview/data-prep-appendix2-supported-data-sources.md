@@ -1,6 +1,6 @@
 ---
-title: "Obsługiwane dostępnych źródeł danych Azure Machine Learning danych przygotowań | Dokumentacja firmy Microsoft"
-description: "Ten dokument zawiera pełną listę obsługiwanych źródeł danych Azure Machine Learning danych przygotowania"
+title: "Obsługiwane źródła danych dostępne z Przygotowanie danych usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
+description: "Ten dokument zawiera pełną listę obsługiwanych źródeł danych dostępnych w celu przygotowania danych usługi Azure Machine Learning."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,29 +12,31 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 1ef4c5c33d98cfeb566e8fe23bda9e0d3f041781
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="supported-data-sources-for-this-release"></a>Obsługiwanych źródeł danych w tej wersji 
-Ten dokument zawiera opis listę aktualnie obsługiwanych źródeł danych Azure Machine Learning danych przygotowania.
+# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning 
+W tym artykule opisano aktualnie obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning.
 
 Dostępne są następujące obsługiwanych źródeł danych w tej wersji.
 
 ## <a name="types"></a>Typy 
-### <a name="directory-versus-file"></a>Katalog lub plik
-*Plików i katalogów*: Wybierz pojedynczy plik, a następnie go odczytać w przygotowaniu danych. Typ pliku jest analizowany w celu określenia domyślnych parametrów połączenia pliku, który znajduje się na następnym ekranie. Wybierz katalog lub zestaw plików w katalogu (selektora plików jest multiselect). Albo podejście wyniki w plikach odczytywane jako pojedynczy przepływu danych z plikami dołączony do siebie (nagłówki wycięte w razie potrzeby).
+### <a name="directory-vs-file"></a>Katalog lub plik
+Wybierz pojedynczy plik, a następnie go odczytać w przygotowaniu danych. Typ pliku jest analizowany w celu określenia domyślnych parametrów połączenia pliku pokazano na następnym ekranie.
 
-Dostępne są następujące typy plików:
-- Przecinkami (CSV, .tsv, txt itd.) 
+Wybierz katalog lub zestawu plików w katalogu (selektora plików jest multiselect). Albo podejścia przy rozwiązywaniu pliki są odczytywane w jako przepływ danych jednego i dołączony do siebie, nagłówki wycięte w razie potrzeby.
+
+Są obsługiwane typy plików:
+- Przecinkami (.csv .tsv, txt, itp.)
 - O stałej szerokości
 - Zwykły tekst
 - Plik JSON
 
 ### <a name="csv-file"></a>Plik CSV
-Odczytuje plik CSV z magazynu.
+Odczytaj plik przecinkami wartości rozdzielanych przecinkami magazynu.
 
 #### <a name="options"></a>Opcje
 - Separator
@@ -45,7 +47,7 @@ Odczytuje plik CSV z magazynu.
 - Wierszy do pominięcia
 
 ### <a name="tsv-file"></a>Plik TSV
-Odczytuje plik z wartościami rozdzielanymi TSV z magazynu.
+Odczytaj plik kartę wartości rozdzielanych przecinkami magazynu.
 
 #### <a name="options"></a>Opcje
 - Komentarz
@@ -54,33 +56,33 @@ Odczytuje plik z wartościami rozdzielanymi TSV z magazynu.
 - Wierszy do pominięcia
 
 ### <a name="excel-xlsxlsx"></a>Program Excel (.xls/.xlsx)
-Odczytuje plik programu Excel, jeden arkusz naraz, określając nazwę arkusza lub numer.
+Odczytać Excel pliku jeden arkusz naraz, określając nazwę arkusza lub numer.
 
 #### <a name="options"></a>Opcje
-- Numer nazwy arkusza
+- Nazwa arkusza lub numer
 - Nagłówki
 - Wierszy do pominięcia
 
 ### <a name="json-file"></a>Plik JSON
-Plik JSON do odczytu z magazynu. Należy pamiętać, że plik jest "jako spłaszczone" na odczyt.
+Plik JSON do odczytu z magazynu. Plik jest "spłaszczane" na odczyt.
 
 #### <a name="options"></a>Opcje
-Brak
+- Brak
 
 ### <a name="parquet"></a>Parquet
-Przeczytaj Parquet zestawu danych, albo pojedynczego pliku lub folderu.
+Przeczytaj Parquet zestawu danych, albo jednym pliku lub folderu.
 
-Parquet zgodnie z formatem mogą mieć różne formy w magazynie. W przypadku mniejszych zestawów danych jest czasami używana .parquet pojedynczego pliku. Różne biblioteki Python obsługiwać odczyt lub zapis .parquet pojedynczego pliku. Obecnie Azure Machine Learning Workbench korzysta z biblioteki PyArrow Python do odczytywania Parquet podczas lokalnego interakcyjnej. Obsługuje ona plikami jednej .parquet (o ile zostały one zapisane, nie jako część większy zestaw danych). Obsługuje ona również Parquet zestawów danych. 
+Parquet zgodnie z formatem mogą mieć różne formy w magazynie. Dla mniejszych zestawów danych jest czasami używana .parquet pojedynczego pliku. Różne biblioteki Python obsługują odczytywanie lub zapisywanie w plikach .parquet pojedynczego. W tej chwili Przygotowanie danych usługi Azure Machine Learning zależy od biblioteki języka PyArrow Python do odczytywania Parquet podczas lokalnego interakcyjnej. Obsługuje pliki pojedynczego .parquet (tak długo, jak zostały napisane działa w taki sposób, a nie jako część większy zestaw danych), a także Parquet zestawów danych.
 
-Zestaw danych Parquet to zbiór więcej niż jeden plik .parquet, z których każdy reprezentuje mniejszy partycji większy zestaw danych. Zestawy danych zwykle są zawarte w folderze. Są one domyślny format danych wyjściowych Parquet wspólnej platformy, na przykład Spark i Hive.
+Zestaw danych Parquet jest kolekcją więcej niż jeden plik .parquet, z których każdy reprezentuje mniejszy partycji większy zestaw danych. Zestawy danych zwykle są zawarte w folderze i są domyślnym formatem danych wyjściowych parquet platformach, na przykład Spark i Hive.
 
 >[!NOTE]
->Podczas czytania Parquet danych, który znajduje się w folderze z wieloma plikami .parquet, jest możliwie najbezpieczniejszy wybierz katalog do odczytu i znaczników **Parquet Dataset** opcji. Dzięki temu PyArrow odczytu całego folderu zamiast poszczególnych plików. Dzięki temu odczytywanie bardziej skomplikowany sposób przechowywania Parquet na dysku (np. folderu partycjonowania.)
+>Podczas czytania Parquet danych, który znajduje się w folderze z wieloma plikami .parquet, jest możliwie najbezpieczniejszy wybierz katalog do odczytu i **zestawu danych Parquet** opcji. Dzięki temu PyArrow odczytu całego folderu zamiast poszczególnych plików. Dzięki temu odczytywanie bardziej skomplikowane sposobów Parquet są przechowywane na dysku, takie jak folder partycjonowania.
 
-Wykonanie skalowania w poziomie zależy od możliwości odczytu Parquet platforma Spark i obsługuje pojedynczych plików oraz folderów.
+Wykonanie skalowania w poziomie zależy od możliwości odczytu Parquet platforma Spark i obsługuje pojedynczych plików oraz folderów, podobny do użytku lokalnego interaktywnego.
 
 #### <a name="options"></a>Opcje
-*Zestaw danych parquet*: Ta opcja określa, czy usługi Azure Machine Learning Workbench używa trybu unticked lub ticked. Unticked tryb rozwijane w podanym katalogu i podejmuje próbę odczytania każdy plik w jego pojedynczo. Tryb ticked traktuje katalog jako cały zestaw danych i umożliwia PyArrow określić najlepszy sposób, aby zinterpretować plików.
+- Parquet zestawu danych. Ta opcja określa, czy Przygotowanie danych usługi Azure Machine Learning rozwijane w podanym katalogu i podejmuje próbę odczytania każdego pliku osobno (tryb niezaznaczone), lub czy traktuje katalogu jako cały zestaw danych (tryb wybrany). Wybrany tryb PyArrow wybiera najlepszy sposób, aby zinterpretować plików.
 
 
 ## <a name="locations"></a>Lokalizacje
@@ -88,5 +90,5 @@ Wykonanie skalowania w poziomie zależy od możliwości odczytu Parquet platform
 Lokalny dysk twardy lub lokalizacji magazynu mapowanej sieci.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
-Wymaga subskrypcji platformy Azure.
+Magazyn obiektów Blob Azure, która wymaga subskrypcji platformy Azure.
 

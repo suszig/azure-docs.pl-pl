@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 4c3c4ec341a0e5f4f0e7415128479f6448f7db6b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu środowiska Node.js
 
@@ -51,7 +51,7 @@ To polecenie klonów repozytorium do folderu lokalnego git. Aby otworzyć aplika
 
 W aplikacji musisz podać parametry połączenia dla konta magazynu. Otwórz `index.js` pliku, Znajdź `connectionString` zmiennej. Zastąp wartość całą wartość parametrów połączenia, który został zapisany w portalu Azure. Parametry połączenia magazynu powinien wyglądać podobnie do następującego:
 
-```node
+```javascript
 // Create a blob client for interacting with the blob service from connection string
 // How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
 var connectionString = '<Your connection string here>';
@@ -62,7 +62,7 @@ var blobService = storage.createBlobService(connectionString);
 
 W katalogu aplikacji, uruchom `npm install` z instalowaniem dowolnej wymagane pakiety wymienione w `package.json` pliku.
 
-```node
+```javascript
 npm install
 ```
 
@@ -113,7 +113,7 @@ Jest najpierw musisz utworzyć odwołania do `BlobService` używane do uzyskania
 
 W tym przykładzie użyto [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) ponieważ chcemy, aby utworzyć nowy kontener za każdym razem próbki jest uruchamiany. W środowisku produkcyjnym, której używasz tego samego kontenera w całej aplikacji, lepiej praktyką jest tylko jeden raz wywołać CreateIfNotExists. Można również utworzyć kontenera wcześniejsze, więc nie trzeba go utworzyć w kodzie.
 
-```node
+```javascript
 // Create a container for organizing blobs within the storage account.
 console.log('1. Creating a Container with Public Access:', blockBlobContainerName, '\n');
 blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLevel': 'blob' }, function (error) {
@@ -128,7 +128,7 @@ Aby przekazać plik do obiektu blob, należy użyć [createBlockBlobFromLocalFil
 
 Przykładowy kod tworzy plik lokalny do zastosowania w przypadku przekazywania i pobierania, przechowywanie plików do przekazania jako **localPath** i nazwa obiektu blob w **localFileToUpload**. Poniższy przykład powoduje przekazanie pliku z kontenera rozpoczynających się od **quickstartcontainer -**.
 
-```node
+```javascript
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
 console.log('   Local File:', LOCAL_FILE_PATH, '\n');
 fs.writeFileSync(LOCAL_FILE_PATH, 'Greetings from Microsoft!');
@@ -147,7 +147,7 @@ Następnie aplikacja pobiera listę plików za pomocą kontenera [listBlobsSegme
 
 Jeśli masz 5000 lub mniej obiektów blob w kontenerze, wszystkie nazwy obiektów blob są pobierane w jednym wywołaniu [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Jeśli masz więcej niż 5000 obiekty BLOB w kontenerze, usługa pobiera listę w zestawach 5000, dopóki wszystkie nazwy obiektów blob zostały pobrane. Dlatego po raz pierwszy wywołać tego interfejsu API, zwraca pierwszy nazwy 5000 obiektów blob i token kontynuacji. Drugim, podaj token, usługa pobiera następnego zestawu nazwy obiektów blob i itd., dopóki token kontynuacji ma wartość null, co oznacza, że wszystkie nazwy obiektów blob zostały pobrane.
 
-```node
+```javascript
 console.log('4. Listing blobs in container\n');
 blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     handleError(error);
@@ -164,7 +164,7 @@ Pobieranie obiektów blob przy użyciu dysku lokalnym [getBlobToLocalFile](/node
 
 Poniższy kod pobiera blob przekazany w poprzedniej sekcji, dodanie sufiksu "_DOWNLOADED" Nazwa obiektu blob, dzięki czemu oba pliki na dysku lokalnym. 
 
-```node
+```javascript
 console.log('5. Downloading blob\n');
 blobService.getBlobToLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, DOWNLOADED_FILE_PATH, function (error) {
 handleError(error);
@@ -175,7 +175,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 Przekazane w tego przewodnika Szybki Start obiektów blob nie są już potrzebne, można usunąć za pomocą całego kontenera [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) i [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). To również usunięcie plików utworzony, jeśli nie są już potrzebne. To jest poświęcony na obsługę aplikacji po naciśnięciu klawisza enter, aby zakończyć działanie aplikacji.
 
-```node
+```javascript
 console.log('6. Deleting block Blob\n');
     blobService.deleteBlobIfExists(CONTAINER_NAME, BLOCK_BLOB_NAME, function (error) {
         handleError(error);

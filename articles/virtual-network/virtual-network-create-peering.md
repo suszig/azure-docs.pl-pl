@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.openlocfilehash: ebe418f03c2edf176790f654f3f9f4d7eec09165
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab62164c85ece30181217a36a51d19fda52907bc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Tworzenie sieci wirtualnej równorzędna - Resource Manager tej samej subskrypcji
 
@@ -33,41 +33,12 @@ Kroki tworzenia sieci wirtualnej komunikacji równorzędnej są różne, w zale�
 |[Jeden Resource Manager, co classic](create-peering-different-deployment-models.md) |tym samym|
 |[Jeden Resource Manager, co classic](create-peering-different-deployment-models-subscriptions.md) |Różne|
 
-Tylko można utworzyć sieci wirtualnej komunikacji równorzędnej między dwiema sieciami wirtualnymi, znajdujące się w tym samym regionie Azure.
+Nie można utworzyć sieci wirtualnej komunikacji równorzędnej między dwiema sieciami wirtualnej wdrożone za pośrednictwem klasycznego modelu wdrażania. Jeśli musisz połączyć sieci wirtualnych, które były tworzone przy użyciu klasycznego modelu wdrażania, można użyć Azure [bramy sieci VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do łączenia sieci wirtualnej. 
 
-  > [!WARNING]
-  > Tworzenie sieci wirtualnej komunikacji równorzędnej między sieciami wirtualnymi w różnych regionach jest obecnie w wersji zapoznawczej. Można zarejestrować subskrypcji dla podglądu poniżej. Komunikacji równorzędnych sieci wirtualnych utworzonych w tym scenariuszu nie może mieć taki sam poziom dostępności i niezawodności, jak podczas tworzenia sieci wirtualnej komunikacji równorzędnej w scenariuszach ogólnie wersji dostępności. Komunikacji równorzędnych sieci wirtualnych utworzonych w tym scenariuszu nie są obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-
-Nie można utworzyć sieci wirtualnej komunikacji równorzędnej między dwiema sieciami wirtualnej wdrożone za pośrednictwem klasycznego modelu wdrażania. Jeśli musisz połączyć sieci wirtualnych obu utworzonych przy użyciu klasycznego modelu wdrażania lub istnieje w różnych regionach platformy Azure, możesz użyć Azure [bramy sieci VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do łączenia sieci wirtualnej. 
+W tym samouczku równorzędnymi użytkownikami sieci wirtualne w tym samym regionie. Możliwość elementów równorzędnych sieci wirtualnych w różnych regionach jest obecnie w przeglądzie. Wykonaj kroki [zarejestrować się w globalnej sieci wirtualnej komunikacji równorzędnej](#register) przed podjęciem próby elementów równorzędnych sieci wirtualnych w różnych regionach lub komunikacji równorzędnej kończy się niepowodzeniem. Możliwość łączenia z platformy Azure, sieci wirtualnych w różnych regionach [bramy sieci VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) jest ogólnie dostępna i nie wymaga rejestracji.
 
 Można użyć [portalu Azure](#portal), Azure [interfejsu wiersza polecenia](#cli) (CLI) Azure [PowerShell](#powershell), lub [szablonu usługi Azure Resource Manager](#template)można utworzyć sieci wirtualnej komunikacji równorzędnej. Kliknij dowolny z poprzedniej łączy narzędzia, aby przejść bezpośrednio do kroki tworzenia sieci wirtualnej komunikacji równorzędnej narzędzie wyboru.
 
-## <a name="register"></a>Zarejestruj w globalnej sieci wirtualnej komunikacji równorzędnej w wersji zapoznawczej
-
-Do elementów równorzędnych sieci wirtualnych w regionach, zarejestrować się w wersji zapoznawczej, wykonaj kroki, które należy wykonać w przypadku obu subskrypcji, które zawierają sieci wirtualnych, który chcesz elementu równorzędnego. Jedynie narzędzie, które służy do rejestrowania dla podglądu jest programu PowerShell.
-
-1. Zainstaluj najnowszą wersję modułu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Uruchom sesję programu PowerShell i zaloguj się do platformy Azure przy użyciu `Login-AzureRmAccount` polecenia.
-3. Zarejestruj subskrypcję w wersji zapoznawczej, wprowadzając następujące polecenia:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-    Nie są wykonywane w portalu, wiersza polecenia platformy Azure lub programu PowerShell sekcjach tego artykułu, dopóki **RegistrationState** dane wyjściowe po wprowadzeniu poniższego polecenia jest **zarejestrowanej** dla obu subskrypcji:
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-  > [!WARNING]
-  > Tworzenie sieci wirtualnej komunikacji równorzędnej między sieciami wirtualnymi w różnych regionach jest obecnie w wersji zapoznawczej. Komunikacji równorzędnych sieci wirtualnych utworzonych w tym scenariuszu może ograniczone możliwości i może nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-  
 ## <a name="portal"></a>Utwórz równorzędna - portalu Azure
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com). Konto logowania przy użyciu musi mieć uprawnienia do tworzenia sieci wirtualnej komunikacji równorzędnej. Zobacz [uprawnienia](#permissions) sekcji tego artykułu, aby uzyskać szczegółowe informacje.
@@ -100,7 +71,7 @@ Do elementów równorzędnych sieci wirtualnych w regionach, zarejestrować się
      - **Zezwalaj na dostęp do sieci wirtualnej:** upewnij się, że **włączone** jest zaznaczone.
     W tym samouczku są używane żadne inne ustawienia. Aby dowiedzieć się więcej na temat wszystkich ustawień komunikacji równorzędnej, przeczytaj [Zarządzanie komunikacji równorzędnych sieci wirtualnych](virtual-network-manage-peering.md#create-a-peering).
 10. Po kliknięciu przycisku **OK** w poprzednim kroku, **równorzędna Dodaj** zamyka bloku, aby zobaczyć **myVnet1 - komunikacji równorzędnych** ponownie blok. Po kilku sekundach komunikacji równorzędnej, utworzony zostanie wyświetlony w bloku. **Zainicjowano** znajduje się w **RÓWNORZĘDNA stan** kolumny dla **myVnet1ToMyVnet2** równorzędna zostanie utworzony. Już połączyć za pomocą Vnet1 do Vnet2, ale teraz musi równorzędnego myVnet2 do myVnet1. Komunikację równorzędną muszą być tworzone w obu kierunkach, aby włączyć zasobów w sieci wirtualne do komunikowania się ze sobą.
-11. Wykonaj kroki 5 – 10 ponownie dla myVnet2.  Nazwa komunikację równorzędną *myVnet2ToMyVnet1*.
+11. Wykonaj kroki 5 – 10 ponownie dla myVnet2. Nazwa komunikację równorzędną *myVnet2ToMyVnet1*.
 12. Kilka sekund po kliknięciu przycisku **OK** utworzyć komunikacji równorzędnej dla MyVnet2, **myVnet2ToMyVnet1** równorzędna właśnie utworzony znajduje się **połączony** w  **Komunikacja RÓWNORZĘDNA stan** kolumny.
 13. Wykonaj kroki 5-7 ponownie dla MyVnet1. **RÓWNORZĘDNA stan** dla **myVnet1ToVNet2** komunikacji równorzędnej jest teraz również **połączony**. Komunikację równorzędną zostanie pomyślnie nawiązane po **połączony** w **RÓWNORZĘDNA stan** kolumny dla obu sieci wirtualnych w komunikacji równorzędnej.
 14. **Opcjonalne**: Chociaż tworzenia maszyn wirtualnych nie została uwzględniona w tym samouczku, można utworzyć maszynę wirtualną w każdej sieci wirtualnej i połączyć się z jednej maszyny wirtualnej do drugiej strony, aby sprawdzić łączność.
@@ -298,6 +269,56 @@ Wprowadź następujące polecenie:
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -force
 ```
+
+## <a name="register"></a>Zarejestrować w wersji zapoznawczej komunikacji równorzędnej globalnej sieci wirtualnej
+
+Możliwość elementów równorzędnych sieci wirtualnych w różnych regionach jest obecnie w przeglądzie. Ta funkcja jest dostępna w określonych regionach (początkowo nam zachodnio-środkowe, Kanada centralnej i nam zachodnie 2). Utworzony między sieciami wirtualnymi w różnych regionach komunikacji równorzędnych sieci wirtualnych nie może mieć taki sam poziom dostępności i niezawodności jako komunikacji równorzędnej między sieciami wirtualnymi w tym samym regionie. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
+
+-To-peer sieci wirtualnych w regionach, najpierw należy zarejestrować w preview, wykonując następujące czynności (w ramach subskrypcji, w każdej sieci wirtualnej, aby elementu równorzędnego jest w) przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia Azure:
+
+### <a name="powershell"></a>PowerShell
+
+1. Zainstaluj najnowszą wersję modułu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Uruchom sesję programu PowerShell i zaloguj się do platformy Azure przy użyciu `Login-AzureRmAccount` polecenia.
+3. Zarejestruj subskrypcję, która każdej sieci wirtualnej, który chcesz elementu równorzędnego jest w wersji zapoznawczej, wprowadzając następujące polecenia:
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+4. Upewnij się, że są zarejestrowane dla wersji zapoznawczej, wprowadzając następujące polecenie:
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+
+    W sekcjach szablonu portalu, interfejsu wiersza polecenia Azure, programu PowerShell lub Menedżera zasobów tego artykułu, dopóki nie zostanie wypełnione **RegistrationState** dane wyjściowe po wprowadzeniu poprzedniego polecenia jest wyświetlany **zarejestrowane**  dla obu subskrypcji.
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+1. [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+2. Upewnij się, czy używasz wersji 2.0.18 lub wyższej z wiersza polecenia platformy Azure, wprowadzając `az --version` polecenia. Jeśli nie masz, zainstaluj najnowszą wersję.
+3. Logowanie do platformy Azure z `az login` polecenia.
+4. Zarejestruj w wersji zapoznawczej, wprowadzając następujące polecenia:
+
+    ```azurecli-interactive
+    az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    az provider register --name Microsoft.Network
+    ```
+
+5. Upewnij się, że są zarejestrowane dla wersji zapoznawczej, wprowadzając następujące polecenie:
+
+    ```azurecli-interactive
+    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    ```
+
+    W sekcjach szablonu portalu, interfejsu wiersza polecenia Azure, programu PowerShell lub Menedżera zasobów tego artykułu, dopóki nie zostanie wypełnione **RegistrationState** dane wyjściowe po wprowadzeniu poprzedniego polecenia jest wyświetlany **zarejestrowane**  dla obu subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

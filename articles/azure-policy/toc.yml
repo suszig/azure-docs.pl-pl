@@ -15,6 +15,14 @@
   items:
     - name: Tworzenie zasad platformy Azure i zarządzanie nimi
       href: create-manage-policy.md
+- name: Przykłady
+  items:
+    - name: Szablony zasad
+      href: json-samples.md
+- name: Pojęcia
+  items:
+    - name: Struktura definicji zasad platformy Azure
+      href: policy-definition.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

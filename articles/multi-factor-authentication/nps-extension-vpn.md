@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych na platformie Azure
 
@@ -99,7 +99,7 @@ Ta sekcja zawiera szczegóły dotyczące wymagań wstępnych, które należy wyk
 W tym artykule przyjęto założenie, że masz pracy infrastrukturę sieci VPN, który używa programu Microsoft Windows Server 2016 i że serwer sieci VPN aktualnie nie skonfigurowano przesyłanie żądań połączeń do serwera usługi RADIUS. W artykule można skonfigurować infrastrukturę sieci VPN do korzystania z centralnego serwera RADIUS.
 
 Jeśli nie masz infrastrukturę sieci VPN pracę w miejscu, można szybko można utworzyć jedną z zachowaniem wskazówek zamieszczonych w wiele samouczki ustawienia sieci VPN, które znajdują się na firmy Microsoft i innych witryn. 
-
+            
 ### <a name="the-network-policy-and-access-services-role"></a>Rola usług zasad sieciowych i dostępu
 
 Usługi zasad sieciowych i dostępu udostępnia funkcje serwera i klienta RADIUS. W tym artykule przyjęto założenie, że zainstalowano rolę usług zasad sieciowych i dostępu na serwer członkowski lub kontroler domeny w danym środowisku. W tym przewodniku należy skonfigurować RADIUS dla konfiguracji sieci VPN. Zainstaluj rolę usług zasad sieciowych i dostępu na serwerze *innych niż* serwer sieci VPN.
@@ -108,7 +108,7 @@ Aby uzyskać informacje o instalowaniu roli usług zasad sieciowych i dostępu u
 
 ### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
-Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub subskrypcji usługi Multi-Factor Authentication. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
+Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub subskrypcji usługi Multi-Factor Authentication. Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
 
 ### <a name="windows-server-software"></a>Oprogramowanie Windows Server
 

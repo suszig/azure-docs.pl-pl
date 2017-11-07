@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Analiza zdarzeń i wizualizacji z OMS
 
@@ -37,52 +37,13 @@ Zaleca się, że obejmują rozwiązania usługi sieci szkieletowej w obszarze ro
 
 ![Rozwiązanie rz OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-Istnieją dwa sposoby udostępniania i konfigurowania obszarem roboczym pakietu OMS za pomocą szablonu usługi Resource Manager lub bezpośrednio z portalu Azure Marketplace. Użyj pierwszej podczas wdrażania klastra, a drugie Jeśli masz już wdrożone w diagnostyce klastra włączone.
-
-### <a name="deploying-oms-using-a-resource-management-template"></a>Wdrażanie pakietu OMS przy użyciu szablonu zarządzanie zasobami
-
-W przypadku wdrażania klastra przy użyciu szablonu usługi Resource Manager, szablon można również utworzyć nowy obszar roboczy OMS Dodaj rozwiązania sieci szkieletowej usług do niego i skonfiguruj go odczytać danych z tabel do przechowywania odpowiednie.
-
->[!NOTE]
->Aby to zrobić, musi być aktywne w kolejności dla tabel usługi Azure storage istnieć OMS diagnostyki / Log Analytics dostęp do informacji z.
-
-[W tym miejscu](https://azure.microsoft.com/resources/templates/service-fabric-oms/) jest przykładowy szablon, który można używać i modyfikować zgodnie z harmonogramem wymaganie, który przeprowadza powyżej akcje. W przypadku, że ma więcej Opcjonalność, istnieje kilka więcej szablonów, które zapewniają różne opcje w zależności od tego, gdzie w procesie może być konfigurowania obszarem roboczym pakietu OMS - znajduje się w temacie [szablonów usługi Service Fabric i OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
-
-### <a name="deploying-oms-using-through-azure-marketplace"></a>Wdrażanie pakietu OMS przy użyciu za pośrednictwem portalu Azure Marketplace
-
-Jeśli wolisz Dodaj obszar roboczy OMS po wdrożeniu klastra, przejdź do portalu Azure Marketplace i poszukaj *"Analytics sieci szkieletowej usług"*.
-
-![OMS rz Analytics w portalu Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
-
-* Polecenie **tworzenie**
-* W oknie tworzenia usługi sieć szkieletowa Analytics kliknij **wybierz obszar roboczy** dla *obszarem roboczym pakietu OMS* pola, a następnie **Utwórz nowy obszar roboczy**. Wypełnij odpowiednie wpisy — jedynym wymaganiem jest subskrypcji dla klastra sieci szkieletowej usług i obszarem roboczym pakietu OMS musi być taka sama. Po sprawdzeniu poprawności wpisy obszar roboczy OMS zostanie uruchomione w celu wdrożenia. Ten trwa tylko kilka minut.
-* Gdy skończysz, kliknij przycisk **Utwórz** ponownie w dolnej części okna Tworzenie usługi Analytics sieci szkieletowej. Upewnij się, że nowy obszar roboczy zostaną wyświetlone w obszarze *obszarem roboczym pakietu OMS*. Spowoduje to dodanie rozwiązania do obszaru roboczego, który został utworzony.
-
-
-Chociaż spowoduje to dodanie rozwiązania do obszaru roboczego, obszar roboczy nadal musi być podłączony do danych diagnostycznych z klastra. Przejdź do utworzenia rozwiązania analizy sieci szkieletowej usług w grupy zasobów. Powinny pojawić się *ServiceFabric (\<nameOfOMSWorkspace\>)*.
-
-* Kliknij rozwiązanie, aby przejść do strony Przegląd, z którym można zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i przejdź do portalu OMS.
-* W menu nawigacji po lewej stronie kliknij **dzienników kont magazynu**w obszarze *źródeł danych obszaru roboczego*.
-
-    ![Rozwiązanie usługi sieć szkieletowa Analytics w portalu](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
-
-* Na *dzienniki konta magazynu* kliknij przycisk **Dodaj** u góry, aby dodać dzienników z klastra do obszaru roboczego.
-* Kliknij przycisk do **konta magazynu** można dodać odpowiednie konta tworzone w klastrze. Jeśli zostanie użyta domyślna nazwa, nosi nazwę konta magazynu *sfdg\<resourceGroupName\>*. Można również to potwierdzić, sprawdzając szablonu usługi Azure Resource Manager używane do wdrażania klastra, sprawdzając wartość używaną do `applicationDiagnosticsStorageAccountName`. Może być również konieczne przewiń w dół i kliknij przycisk **załadować więcej** Jeśli nazwa konta nie jest wyświetlany. Kliknij nazwę konta magazynu prawo podczas jest wyświetlane aby go wybrać.
-* Następnie należy określić *— typ danych*, powinny być **zdarzenia sieci szkieletowej usług**.
-* *Źródła* automatycznie powinien być ustawiony na *WADServiceFabric\*EventTable*.
-* Kliknij przycisk **OK** nawiązać obszaru roboczego dzienników z klastra.
-
-    ![Dodaj dzienniki konta magazynu z usługą OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-* Konto powinna zostać wyświetlona jako część programu *dzienniki konta magazynu* w źródłach danych obszaru roboczego.
-
-Z tym zostało dodane rozwiązania analizy sieci szkieletowej usług w obszarze roboczym analizy dzienników OMS, który jest teraz prawidłowo podłączone do sieci klastra platformy oraz tabeli dziennika aplikacji. Możesz dodać dodatkowe źródła do obszaru roboczego w taki sam sposób.
+Zobacz [Konfigurowanie analizy dzienników OMS](service-fabric-diagnostics-oms-setup.md) rozpocząć pracę z tym dla klastra.
 
 ## <a name="using-the-oms-agent"></a>Za pomocą agenta pakietu OMS
 
-Jest zalecane, aby użyć EventFlow i WAD jako rozwiązania agregacji, ponieważ pozwalają one na bardziej podejściu Diagnostyka i monitorowanie. Na przykład jeśli chcesz zmienić Twoje dane wyjściowe z EventFlow wymaga nie zmieniono Twojego rzeczywiste Instrumentacji tylko prostą modyfikację do pliku konfiguracji. Jeśli, można jednak podjąć decyzję o inwestycji w przy użyciu pakietu OMS i chcesz kontynuować z użyciem jej do analizy zdarzeń (musi być jedynym Użyj platformy, ale raczej jego będzie co najmniej jednej z platform), firma Microsoft zaleca zapoznanie się ustawienie [OMS ag Enterprise](../log-analytics/log-analytics-windows-agents.md). Należy też używać agent pakietu OMS podczas wdrażania kontenerów do klastra, zgodnie z opisem poniżej.
+Jest zalecane, aby użyć EventFlow i WAD jako rozwiązania agregacji, ponieważ pozwalają one na bardziej podejściu Diagnostyka i monitorowanie. Na przykład jeśli chcesz zmienić Twoje dane wyjściowe z EventFlow wymaga nie zmieniono Twojego rzeczywiste Instrumentacji tylko prostą modyfikację do pliku konfiguracji. Jeśli jednak użytkownik zdecyduje się inwestycji w przy użyciu analizy dzienników OMS, należy skonfigurować [agent pakietu OMS](../log-analytics/log-analytics-windows-agents.md). Należy też używać agent pakietu OMS podczas wdrażania kontenerów do klastra, zgodnie z opisem poniżej. 
 
-Proces w ten sposób jest stosunkowo łatwa, ponieważ należy dodać agenta jako skalowania maszyny wirtualnej ustawić rozszerzenia do szablonu usługi Resource Manager zapewnienie, że jest zainstalowany na każdym z węzłów. Przykładowy szablon Menedżera zasobów, która wdraża obszar roboczy OMS z rozwiązaniem sieci szkieletowej usług (jak powyżej) i dodanie agenta do węzły znajdują się w przypadku klastrów [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) lub [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+HEAD za pośrednictwem do [dodać do klastra Agent pakietu OMS](service-fabric-diagnostics-oms-agent.md) dotyczące kroków związanych z tym.
 
 Zalety tego są następujące:
 
@@ -107,16 +68,7 @@ Agent umożliwia zbieranie kilka dzienników specyficzne dla kontenera, które m
 * ContainerServiceLog: docker demon poleceń, które zostały uruchomione
 * O wydajności: liczniki wydajności w tym kontenerze procesora cpu, pamięć, ruch sieciowy na dysku We/Wy i metryki niestandardowe z maszyn hosta
 
-W tym artykule opisano kroki wymagane do skonfigurowania kontenera monitorowania dla klastra. Aby dowiedzieć się więcej o rozwiązaniu kontenery w OMS, zapoznaj się ich [dokumentacji](../log-analytics/log-analytics-containers.md).
-
-Aby skonfigurować rozwiązanie kontenera, w obszarze roboczym, upewnij się, że masz agent pakietu OMS wdrożone w węzłach klastra, wykonując kroki wymienione powyżej. Gdy klaster jest gotowy, należy wdrożyć kontener do niego. Przy tym pamiętać, że kontener jest wdrażany do klastra, po raz pierwszy go może zająć kilka minut pobranie obrazu w zależności od rozmiaru.
-
-W portalu Azure Marketplace, wyszukaj *rozwiązanie monitorowanie kontenera* i Utwórz **rozwiązanie monitorowanie kontenera** wynik, który powinna pochodzić, w obszarze monitorowanie i zarządzanie kategorii.
-
-![Dodawanie rozwiązania kontenerów](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-W kroku tworzenia żądania obszarem roboczym pakietu OMS. Wybierz jedną, która została utworzona przy użyciu wdrażania powyżej. Ten krok dodaje rozwiązania kontenery w obszarze roboczym pakietu OMS i jest automatyczne wykrywany przez agenta pakietu OMS wdrożone przez szablon. Agent rozpocznie zbieranie danych o procesach kontenery w klastrze i mniej niż 15 minut, lub tak, powinien zostać wyświetlony światła się za pomocą danych, tak jak obraz powyżej pulpitu nawigacyjnego rozwiązania.
-
+[Monitorowanie kontenery z analizy dzienników OMS](service-fabric-diagnostics-oms-containers.md) opisano kroki wymagane do skonfigurowania kontenera monitorowania dla klastra. Aby dowiedzieć się więcej o rozwiązaniu kontenery w OMS, zapoznaj się ich [dokumentacji](../log-analytics/log-analytics-containers.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

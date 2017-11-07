@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Projektowanie pierwszą bazę danych Azure do PostgreSQL przy użyciu portalu Azure
 
@@ -71,13 +71,13 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurowanie reguły zapory na poziomie serwera
 
-Usługa Azure Database for PostgreSQL tworzy zaporę na poziomie serwera. Domyślnie Zapora uniemożliwia wszystkich narzędzi i aplikacji zewnętrznych łączenia z serwera i żadnych baz danych na serwerze, jeśli nie można otworzyć zapory konkretny zakres adresów IP jest tworzona reguła zapory. 
+Bazy danych Azure dla usługi PostgreSQL używa zapory na poziomie serwera. Domyślnie Zapora uniemożliwia wszystkich narzędzi i aplikacji zewnętrznych łączenia z serwera i żadnych baz danych na serwerze, jeśli nie można otworzyć zapory konkretny zakres adresów IP jest tworzona reguła zapory. 
 
 1.  Po zakończeniu wdrożenia kliknij pozycję **Wszystkie zasoby** w menu po lewej stronie i wpisz nazwę **mypgserver-20170401**, aby wyszukać nowo utworzony serwer. Kliknij nazwę serwera wyświetlaną w wynikach wyszukiwania. Zostanie otwarta strona **Przegląd**, która zawiera dalsze opcje konfiguracji.
  
  ![Azure Database for PostgreSQL — wyszukiwanie serwera ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  W bloku serwera wybierz **zabezpieczenia połączeń**. 
+2.  Na stronie serwera wybierz pozycję **Zabezpieczenia połączeń**. 
 3.  Kliknij w polu tekstowym w obszarze **Nazwa reguły** i dodaj nową regułę zapory, aby na liście dozwolonych umieścić zakres adresów IP służących do łączności. W tym samouczku umożliwia Zezwalaj na wszystkie adresy IP, wpisując w **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** i **końcowemu adresowi IP = 255.255.255.255** , a następnie kliknij przycisk **Zapisz** . Można ustawić określoną regułę zapory, która obejmuje mniejszy zakres IP, aby móc połączyć się z sieci.
  
  ![Usługa Azure Database for PostgreSQL — tworzenie reguły zapory](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -85,19 +85,20 @@ Usługa Azure Database for PostgreSQL tworzy zaporę na poziomie serwera. Domyś
 4.  Kliknij przycisk **zapisać** , a następnie kliknij przycisk **X** zamknąć **zabezpieczenia połączeń** strony.
 
   > [!NOTE]
-  > Serwer Azure PostgreSQL komunikuje się przez port 5432. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 5432 może być zablokowany przez zaporę sieciową. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 5432.
+  > Serwer Azure PostgreSQL komunikuje się przez port 5432. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 5432 może być zablokowany przez zaporę sieciową. Jeśli tak, chyba że dział IT otwiera port 5432 nie można połączyć z serwerem bazy danych SQL Azure.
   >
 
 
 ## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
 
-Podczas tworzenia serwera usługi Azure Database for PostgreSQL, domyślnie jest także tworzona baza danych **postgres**. Aby nawiązać połączenie z serwerem bazy danych, musisz podać informacje o hoście i poświadczenia dostępu.
+Podczas tworzenia bazy danych Azure serwer PostgreSQL, domyślnie **postgres** również została utworzona baza danych. Aby nawiązać połączenie z serwerem bazy danych, musisz podać informacje o hoście i poświadczenia dostępu.
 
 1. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** i wyszukiwania na serwerze, który został właśnie utworzony **mypgserver 20170401**.
 
   ![Azure Database for PostgreSQL — wyszukiwanie serwera ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Kliknij nazwę serwera **mypgserver 20170401**.
+
 4. Wybierz stronę serwera **Przegląd**. Zanotuj wartości **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
 
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -125,7 +126,7 @@ Teraz można użyć [psql](https://www.postgresql.org/docs/9.6/static/app-psql.h
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
    ```
 
-## <a name="create-a-new-database"></a>Utwórz nową bazę danych
+## <a name="create-a-new-database"></a>Tworzenie nowej bazy danych
 Po nawiązaniu połączenia z serwerem utwórz pustą bazę danych za pomocą wiersza polecenia.
 ```bash
 CREATE DATABASE mypgsqldb;
@@ -136,9 +137,9 @@ W wierszu polecenia wykonaj poniższe polecenie, aby przełączyć połączenie 
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Tworzenie tabel w bazie danych
-Teraz, Znając sposób nawiązywania połączenia z bazą danych Azure dla PostgreSQL możemy przekazywane sposób wykonania zadania podstawowe.
+Teraz, Znając sposób nawiązywania połączenia z bazą danych Azure dla PostgreSQL, można wykonać niektóre podstawowe zadania:
 
-Firma Microsoft najpierw utwórz tabelę i załaduj go z niektórych danych. Ta funkcja pozwala utworzyć tabelę, która śledzi informacje o spisie.
+Najpierw utwórz tabelę i załaduj go z niektórych danych. Ta funkcja pozwala utworzyć tabelę, która śledzi informacje spisu przy użyciu tego kodu SQL:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -153,7 +154,7 @@ Teraz wyświetlić nowo utworzona tabela listy tabel, wpisując:
 ```
 
 ## <a name="load-data-into-the-tables"></a>Ładowanie danych do tabel
-Teraz, gdy mamy tabeli możemy wstawić niektóre dane do niego. W oknie Otwórz okno wiersza polecenia Uruchom następujące zapytanie, aby wstawić niektórych wierszy danych.
+Teraz, gdy masz tabeli wstawić dane do niego. W oknie Otwórz okno wiersza polecenia Uruchom następujące zapytanie, aby wstawić niektórych wierszy danych.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Logowanie użytkowników usługi Azure AD w jednej aplikacji & Account firmy Microsoft
 W przeszłości Deweloper aplikacji, którzy chcieli obsługuje oba osobistego konta Microsoft i działać kont z usługi Azure Active Directory było wymagane do integracji z dwóch oddzielnych systemach.  **Punktu końcowego v2.0 usługi Azure AD** wprowadziła nową wersję interfejsu API uwierzytelniania, umożliwiający Zaloguj się w obu typów kont przy użyciu jednego prostą integrację.  Aplikacje korzystające z punktem końcowym v2.0 można również korzystać z interfejsów API REST z [Microsoft Graph](https://graph.microsoft.io) za pomocą dowolnego typu konta.
@@ -49,13 +49,8 @@ Te linki przydadzą się do eksplorowania platform szczegółowo:
 * [Zakresy i zgody w punkcie końcowym v2.0](active-directory-v2-scopes.md)
 * [Program Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>Pomoc i obsługa techniczna
-To są najlepsze miejsca, aby uzyskać pomoc w programowaniu dla usługi Azure Active Directory.
-
-* [Tagi `azure-active-directory` i `adal` w witrynie Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Opinia o usłudze Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > Jeśli wymagane jest tylko do logowania do kont służbowych z usługi Azure Active Directory, należy zacząć z naszych [przewodnik dewelopera usługi Azure AD](active-directory-developers-guide.md).  Punktem końcowym v2.0 jest przeznaczony do użycia przez deweloperów, którzy jawnie konieczne logowanie w osobistego konta Microsoft.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

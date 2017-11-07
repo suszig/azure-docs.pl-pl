@@ -78,6 +78,7 @@
 ### [Sugestie](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Nawigacja aspektowa](search-faceted-navigation.md)
 ### [Synonimy — wersja zapoznawcza](search-synonyms.md)
+### [moreLikeThis (wersja zapoznawcza)](search-more-like-this.md)
 
 # Dokumentacja
 
@@ -86,7 +87,7 @@
 ## [Python (zarządzanie)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (zarządzanie)](/rest/api/searchmanagement)
-## [REST usługi (wersja zapoznawcza)](search-api-2015-02-28-preview.md)
+## [REST usługi (wersja zapoznawcza)](search-api-2016-09-01-preview.md)
 
 # Zasoby
 
