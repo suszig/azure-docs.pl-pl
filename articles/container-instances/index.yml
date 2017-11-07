@@ -48,6 +48,6 @@ sections:
         className: cardsD
         items:
           - title: Wiersz polecenia
-            html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance/get-azurermcontainergroup">PowerShell</a></p>
+            html: '<p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
           - title: REST
             html: <p><a href="/rest/api/container-instances">Dokumentacja interfejsu API REST</a></p>
