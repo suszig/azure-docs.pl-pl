@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie systemem Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -61,7 +61,7 @@ HDInsight działa ze składnikami szeroki zakres Hadoop. Lista składników, kt�
 
 * Za pomocą akcji skryptu umożliwiają uruchamianie niestandardowych skryptów, które można dostosować klastra, aby zainstalować składniki niestandardowe, takie jak Giraph lub Solr albo zmień konfigurację klastra. Aby uzyskać więcej informacji, zobacz [dostosować klastra usługi HDInsight przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster.md).
 * Użyj parametrów dostosowania klastra w programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight podczas tworzenia klastra. Te zmiany w konfiguracji są następnie zachowywane przez okres istnienia klastra i nie dotyczy reimages węzła klastra, które platformy Azure okresowo przesyła konserwacji. Aby uzyskać więcej informacji na temat używania parametrów dostosowania klastra, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Niektóre składniki natywnego języka Java, takich jak Mahout i usuwania kaskadowego, można uruchomić w klastrze jako pliki JAR. Te pliki JAR można dystrybuować do magazynu obiektów Blob platformy Azure i przesłać do klastrów usługi HDInsight za pomocą mechanizmów przesyłanie zadań Hadoop. Aby uzyskać więcej informacji, zobacz [Hadoop przesyłania zadania programowo](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Niektóre składniki natywnego języka Java, takich jak Mahout i usuwania kaskadowego, można uruchomić w klastrze jako pliki JAR. Te pliki JAR można dystrybuować do magazynu obiektów Blob platformy Azure i przesłać do klastrów usługi HDInsight za pomocą mechanizmów przesyłanie zadań Hadoop. Aby uzyskać więcej informacji, zobacz [Hadoop przesyłania zadania programowo](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Jeśli masz problemy z wdrożeniem pliki JAR do klastrów usługi HDInsight lub wywoływania pliki JAR w klastrach HDInsight, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ Istnieje wiele sposobów zostanie proces:
 * Użytkownik fabryki danych Azure. Zobacz [połączoną usługą usługi HDInsight Azure](../data-factory/compute-linked-services.md) i [transformacji i analizy przy użyciu fabryki danych Azure](../data-factory/transform-data.md) dla usługi HDInsight na żądanie i samodzielnie zdefiniowanym połączone usługi.
 * Za pomocą programu Azure PowerShell.  Zobacz [analizowanie danych opóźnienie transmitowane](hdinsight-analyze-flight-delay-data.md).
 * Za pomocą interfejsu wiersza polecenia platformy Azure. Zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu wiersza polecenia Azure](hdinsight-administer-use-command-line.md).
-* Używanie zestawu SDK .NET usługi HDInsight. Zobacz [Hadoop przesyłania zadań](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Używanie zestawu SDK .NET usługi HDInsight. Zobacz [Hadoop przesyłania zadań](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Aby usunąć klaster z portalu, zobacz [usuwać klastry](#delete-clusters)
 
@@ -225,7 +225,7 @@ Klaster usługi HDInsight mogą być dwa konta użytkownika. Utworzono konto uż
 1. Zaloguj się do [Portal][azure-portal].
 2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
 3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **logowania do klastra**.
-4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła..
+4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła.
 5. Zmień **nazwa logowania klastra** i/lub **hasło logowania klastra**, a następnie kliknij przycisk **zapisać**.
 
     ![HDInsight zmienić http klastra użytkownika nazwy użytkownika hasło](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
@@ -251,7 +251,7 @@ Domyślnie te usługi są przyznawane dostępu. Możesz można odwołać/Udziel 
 1. Zaloguj się do [Portal][azure-portal].
 2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
 3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **logowania do klastra**.
-4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła..
+4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła.
 5. Aby uzyskać **nazwa użytkownika logowania klastra** i **hasło logowania klastra**, wprowadź nową nazwę użytkownika i hasło (odpowiednio) dla klastra.
 6. Kliknij przycisk **SAVE** (Zapisz).
 
@@ -271,7 +271,7 @@ Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Otwórz konsolę usługi HDInsight zapytania
 Konsolę zapytania HDInsight obejmuje następujące funkcje:
 
-* **Edytor hive**: interfejs sieci web graficznego interfejsu użytkownika A przesyłania zadań Hive.  Zobacz [uruchamianie zapytań Hive przy użyciu konsoli zapytania](hdinsight-hadoop-use-hive-query-console.md).
+* **Edytor hive**: interfejs sieci web graficznego interfejsu użytkownika A przesyłania zadań Hive.  Zobacz [uruchamianie zapytań Hive przy użyciu konsoli zapytania](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![Edytor portalu hive HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Historia zadania**: Monitor Hadoop zadania.  
@@ -371,8 +371,8 @@ W tym artykule uzyskanych sposób tworzenia klastra usługi HDInsight przy użyc
 * [Administrowanie HDInsight przy użyciu programu Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administrowanie HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)
 * [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [Przesyłanie zadań Hadoop programowo](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Rozpoczynanie pracy z usługą Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Przesyłanie zadań Hadoop programowo](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Rozpoczynanie pracy z usługą Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Jest wersję platformy Hadoop w usłudze Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

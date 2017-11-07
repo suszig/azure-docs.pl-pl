@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Łączenie ScaleR i SparkR w usłudze HDInsight
 
@@ -552,7 +552,7 @@ W tym artykule firma Microsoft już pokazuje, jak jest można połączyć użyci
 
 - Ogólne informacje na temat R Server, zobacz [wprowadzenie R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artykułu.
 
-- Aby uzyskać informacje na serwerze R w usłudze HDInsight, zobacz [R Server w usłudze Azure HDInsight omówienie](hdinsight-hadoop-r-server-overview.md) i [R Server w usłudze Azure HDInsight](hdinsight-hadoop-r-server-get-started.md).
+- Aby uzyskać informacje na serwerze R w usłudze HDInsight, zobacz [R Server w usłudze Azure HDInsight omówienie](r-server/r-server-overview.md) i [R Server w usłudze Azure HDInsight](r-server/r-server-get-started.md).
 
 Aby uzyskać więcej informacji na użycie SparkR zobacz:
 
