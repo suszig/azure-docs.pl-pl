@@ -1,6 +1,6 @@
 ---
-title: "Przy użyciu Import/Eksport Azure na przesyłanie danych do i z magazynu obiektów blob | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia importowania i eksportowania zadania w portalu Azure do przesyłania danych do i z magazynu obiektów blob."
+title: "Przy użyciu Import/Eksport Azure na przesyłanie danych do i z usługi Azure Storage | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie tworzenia importowania i eksportowania zadania w portalu Azure do przesyłania danych do i z usługi Azure Storage."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do magazynu Azure za pomocą usługi Import/Eksport Microsoft Azure
-W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów blob i plików platformy Azure poprzez wysyłanie dysków do centrum danych platformy Azure. Ta usługa mogą służyć do przesyłania danych z magazynu obiektów blob platformy Azure na dyskach twardych i wysłać do lokalnych witryn. Nie można zaimportować danych z pojedynczej stacji dysków SATA wewnętrzny albo Azure magazynu lub plików Azure magazynu obiektów blob. 
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
+W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
 
 > [!IMPORTANT] 
-> Wybrana usługa dopuszcza wyłącznie wewnętrznych dysków twardych SATA lub dysków SSD tylko. Nie innych urządzeń jest obsługiwane. Nie wysyłaj urządzeń zewnętrznych dysków twardych lub NAS itp zgodnie z ich będą zwracane, gdy jest to możliwe lub odrzucone.
+> Wybrana usługa dopuszcza wyłącznie wewnętrznych dysków twardych SATA lub dysków SSD tylko. Nie innych urządzeń jest obsługiwane. Nie wysyłaj zewnętrznych dysków twardych, urządzeniach NAS itp., zgodnie z ich zostanie zwrócony, jeśli to możliwe, lub w inny sposób odrzuconych.
 >
 >
 
-Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania do magazynu obiektów Blob Azure.
+Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania do usługi Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Krok 1: Przygotowanie za pomocą narzędzia WAImportExport dysku/s i Generuj plik dziennika/s.
 
-1.  Identyfikowanie danych mają być zaimportowane do magazynu obiektów blob platformy Azure. Może to być katalogów i plików autonomicznych na serwerze lokalnym lub w udziale sieciowym.
+1.  Identyfikowanie danych mają być zaimportowane do magazynu Azure. Może to być katalogów i plików autonomicznych na serwerze lokalnym lub w udziale sieciowym.
 2.  W zależności od całkowity rozmiar danych Uzyskaj wymaganej liczby 2,5 SSD 2,5-calowe lub 3,5" stacje dysków twardych SATA II lub III.
 3.  Dołącz dyski twarde bezpośrednio przy użyciu SATA lub z zewnętrznej karty USB do komputera z systemem windows.
 4.  Utwórz pojedynczy wolumin NTFS na każdy dysk twardy i przypisać literę dysku do woluminu. Nie punkty instalacji.
@@ -80,7 +80,7 @@ Tej usługi można użyć w scenariuszach takich jak:
 
 * Migrowanie danych w chmurze: szybkie przenoszenie dużych ilości danych na platformie Azure i tańszy sposób.
 * Dystrybucję zawartości: szybko wysyłania danych do lokacji klienta.
-* Kopia zapasowa: Korzystać z kopii zapasowych danych lokalnych do przechowywania w magazynie obiektów blob platformy Azure.
+* Kopia zapasowa: Korzystać z kopii zapasowych danych lokalnych do przechowywania w magazynie Azure.
 * Odzyskiwanie danych: odzyskać dużej ilości danych przechowywanych w magazynie i jest dostarczany do Twojej lokalizacji lokalnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -90,13 +90,13 @@ W tej sekcji na listę wymagań wstępnych dotyczących tej usługi. Przejrzyj j
 Musi mieć istniejącej subskrypcji platformy Azure i co najmniej jedno konto magazynu ma być używana usługa importu i eksportu. Każde zadanie może służyć do transferu danych do lub z tylko jedno konto magazynu. Innymi słowy zadanie pojedynczego importu/eksportu nie może obejmować wielu wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Typy danych
-Usługa Import/Eksport Azure umożliwia kopiowanie danych do **bloku** obiektów blob lub **strony** obiektów blob lub **pliki**. Z drugiej strony, można wyeksportować tylko **bloku** obiektów blob, **strony** obiektów blob lub **Append** obiekty BLOB z usługi Azure storage przy użyciu tej usługi. Usługa nie obsługuje eksportowania plików Azure i można importować tylko pliki do magazynu Azure.
+Usługa Import/Eksport Azure umożliwia kopiowanie danych do **bloku** obiektów blob, **strony** obiektów blob, lub **pliki**. Z drugiej strony, można wyeksportować tylko **bloku** obiektów blob, **strony** obiektów blob lub **Append** obiekty BLOB z usługi Azure storage przy użyciu tej usługi. Usługa obsługuje tylko importowanie plików Azure do usługi Azure storage. Eksportowanie plików Azure nie jest obecnie obsługiwane.
 
 ### <a name="job"></a>Zadanie
 Aby rozpocząć proces importowania i eksportowania z magazynu, należy najpierw utworzyć zadania. Zadania mogą być zadania importu lub eksportu:
 
-* Utwórz zadania importu umożliwia transfer danych ma lokalnego do obiektów blob na koncie magazynu Azure.
-* Utwórz zadanie eksportu, gdy chcesz przenieść dane przechowywane jako obiekty BLOB na koncie magazynu do dysków twardych, które są wysyłane do nas. Podczas tworzenia zadania można powiadomić usługi Import/Eksport czy użytkownik będzie wysyłania jeden lub więcej dysków twardych do centrum danych platformy Azure.
+* Utwórz zadania importu umożliwia transfer danych ma lokalnej z kontem magazynu platformy Azure.
+* Utwórz zadanie eksportu, jeśli chcesz przenieść dane przechowywane na koncie magazynu do dysków twardych, które są wysyłane do nas. Podczas tworzenia zadania można powiadomić usługi Import/Eksport czy użytkownik będzie wysyłania jeden lub więcej dysków twardych do centrum danych platformy Azure.
 
 * Dla zadania importu będzie wysyłania dyski twarde zawierające dane.
 * Dla zadania eksportu zostanie wysyłania pustych dysków twardych.
@@ -107,7 +107,7 @@ Możesz utworzyć importu lub eksportu zadania przy użyciu portalu Azure lub [i
 ### <a name="waimportexport-tool"></a>Narzędzie WAImportExport
 Pierwszym krokiem tworzenia **zaimportować** zadania jest przygotowanie dysków, które zostaną dostarczone do importu. Aby przygotować dyski, musi on połączyć się z lokalnym serwerem i uruchom narzędzie WAImportExport na lokalnym serwerze. To narzędzie WAImportExport umożliwia kopiowanie danych na dysku, szyfrowanie danych na dysku za pomocą funkcji BitLocker i generowanie plików dziennika dysku.
 
-Pliki dziennika przechowują podstawowe informacje o zadaniu i dysku, takich jak numer seryjny dysk i nazwa konta magazynu. Ten plik dziennika nie są przechowywane na dysku. Jest on używany podczas tworzenia zadania importu. Krok po kroku szczegóły zadania tworzenia znajduje się w dalszej części tego artykułu.
+Pliki dziennika przechowują podstawowe informacje o zadaniu i dysku, takich jak numer seryjny dysk i nazwa konta magazynu. Ten plik dziennika nie są przechowywane na dysku. Jest on używany podczas tworzenia zadania importu. Szczegóły krok po kroku dotyczące tworzenia zadania znajdują się w dalszej części tego artykułu.
 
 Narzędzie WAImportExport jest zgodna tylko z 64-bitowym systemie operacyjnym Windows. Zobacz [systemu operacyjnego](#operating-system) sekcji dla określonych wersji systemu operacyjnego, obsługiwany.
 
@@ -220,7 +220,7 @@ Na wysokim poziomie zadania importu obejmuje następujące kroki:
 
 ### <a name="inside-an-export-job"></a>Wewnątrz zadania eksportu
 > [!IMPORTANT]
-> Usługa obsługuje tylko eksportu obiektów blob Azure i nie obsługuje eksportowania plików Azure...
+> Usługa obsługuje tylko eksportu obiektów blob Azure i nie obsługuje eksportowania plików Azure.
 > 
 >
 
@@ -294,7 +294,7 @@ Podczas wydawania dysków na platformie Azure, płacisz koszt wysyłki do wysył
 
 **Koszty transakcji**
 
-Brak Brak kosztów transakcji podczas importowania danych do magazynu obiektów blob. Opłaty za wyjście standardowe są stosowane, gdy dane są eksportowane z magazynu obiektów blob. Więcej szczegółów kosztów transakcji, zobacz [ceny transferu danych.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Brak Brak kosztów transakcji podczas importowania danych do usługi Azure Storage. Opłaty za wyjście standardowe są stosowane, gdy dane są eksportowane z magazynu obiektów Blob. Więcej szczegółów kosztów transakcji, zobacz [ceny transferu danych.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Pierwszym krokiem podczas importowania danych za pomocą usługi Import/Eksport 
 
 1. Identyfikowanie danych do zaimportowania do usługi Magazyn plików Azure. Może to być katalogów i plików autonomicznych na serwerze lokalnym lub w udziale sieciowym.  
 2. Określ liczbę dysków, które mają być w zależności od całkowity rozmiar danych. Uzyskaj wymaganej liczby 2,5 SSD 2,5-calowe lub 3,5" stacje dysków twardych SATA II lub III.
-3. Określ docelowe konto magazynu, kontenera, katalogów wirtualnych i obiektów blob.
 4. Ustal, katalogów i/lub plików autonomicznych, które zostaną skopiowane do każdego dysku twardego.
 5. Utwórz plik CSV dla elementu dataset i driveset.
     
@@ -425,7 +424,7 @@ Następujące testy wstępne są zalecane w przypadku przygotowywania dysków dl
    
    ![Utwórz zadanie eksportu — krok 3](./media/storage-import-export-service/export-job-03.png)
 
-4. W kroku 3 powrócić wysyłania informacji Wybierz nośnik z listy rozwijanej i wprowadź numer konta nieprawidłowy operator, które zostały utworzone z tego nośnika. Firma Microsoft będzie używać tego konta na potrzeby wysłania dysków powrotem po zakończeniu zadania importu. Podaj nazwisko osoby kontaktowej w pełne i prawidłowe, telefonu, poczty e-mail, adres, Miasto, zip, stan/proviince i kraj/region..
+4. W kroku 3 powrócić wysyłania informacji Wybierz nośnik z listy rozwijanej i wprowadź numer konta nieprawidłowy operator, które zostały utworzone z tego nośnika. Firma Microsoft będzie używać tego konta na potrzeby wysłania dysków powrotem po zakończeniu zadania importu. Podaj nazwisko osoby kontaktowej w pełne i prawidłowe, telefonu, poczty e-mail, adres, Miasto, zip, stan/proviince i kraj/region.
    
  5. Na stronie Podsumowanie podano adres wysyłkowy centrum danych Azure do zastosowania w przypadku wysyłania dysków do kontrolera domeny usługi Azure. Upewnij się, są wymienione nazwy zadania i pełny adres na etykiecie wysyłki. 
 
@@ -500,9 +499,9 @@ Dane na koncie magazynu Azure są dostępne za pośrednictwem portalu Azure lub 
 
 Podczas przygotowywania dysk twardy dla zadania importu, miejsce docelowe jest określony przez pole DstBlobPathOrPrefix w zestawie danych CSV. Jest to docelowy kontener na koncie magazynu, do którego jest kopiowany danych z dysku twardego. W tym docelowy kontener katalogi wirtualne są tworzone foldery z dysku twardego i obiekty BLOB są tworzone dla plików. 
 
-**Jeśli dysk ma plików, które już istnieją w moim koncie magazynu, usługa zastąpią istniejące obiekty BLOB w moim koncie magazynu?**
+**Jeśli dysk ma plików, które już istnieją w moim koncie magazynu, usługa zastąpią istniejące obiekty BLOB lub pliki w moim koncie magazynu?**
 
-Podczas przygotowywania dysku, można określić czy pliki docelowy powinien zostać zastąpione lub ignorowane za pomocą pola w pliku CSV zestawu danych o nazwie dyspozycji: < zmienić | zastąpić nie | zastąpić >. Domyślnie usługa będzie nowych plików zamiast zastąpić istniejące obiekty BLOB.
+Podczas przygotowywania dysku, można określić czy pliki docelowy powinien zostać zastąpione lub ignorowane za pomocą pola w pliku CSV zestawu danych o nazwie dyspozycji: < zmienić | zastąpić nie | zastąpić >. Domyślnie usługa będzie nowych plików zamiast zastąpić istniejące obiekty BLOB lub plików.
 
 **Narzędzie WAImportExport jest zgodny z 32-bitowych systemach operacyjnych?**
 Nie. Narzędzie WAImportExport jest zgodna tylko z 64-bitowych systemach operacyjnych Windows. Można znaleźć w sekcji dotyczącej systemów operacyjnych w [wstępne](#pre-requisites) pełną listę obsługiwanych wersji systemu operacyjnego.
