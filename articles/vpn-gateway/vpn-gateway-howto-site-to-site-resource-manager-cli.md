@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
 
@@ -87,6 +87,11 @@ az group create --name TestRG1 --location eastus
 ## <a name="VNet"></a>3. Tworzenie sieci wirtualnej
 
 Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją przy użyciu polecenia [az network vnet create](/cli/azure/network/vnet#create). Podczas tworzenia sieci wirtualnej upewnij się, że określone przestrzenie adresowe nie nakładają się na żadne inne przestrzenie adresowe w obrębie sieci lokalnej.
+
+>[!NOTE]
+>Aby ta sieć wirtualna nawiązywała połączenie z lokalizacją lokalną, musisz zapewnić koordynację z administratorem sieci lokalnej w celu wyznaczenia zakresu adresów IP, którego będzie można używać w szczególności dla tej sieci wirtualnej. W przeciwnym razie ruch nie będzie przekierowywany poprawnie, jeśli po obu stronach połączenia sieci VPN będzie istnieć powielony zakres adresów.
+>
+>
 
 Poniższy przykład obejmuje tworzenie sieci wirtualnej o nazwie „TestVNet1” i podsieci „Subnet1”.
 

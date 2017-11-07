@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ac70959b4582ace8c8f34e71caccd61f640aabfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu programu Visual Studio
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
+
+> [!NOTE]
+> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi Data Factory, która jest w wersji zapoznawczej, zapoznaj się z [dokumentacją samouczka działania kopiowania w wersji 2](../quickstart-create-data-factory-dot-net.md). 
 
 W tym artykule wyjaśniono, jak używać programu Microsoft Visual Studio do tworzenia fabryki danych obejmującej potok, który kopiuje dane z usługi Azure Blob Storage do bazy danych SQL na platformie Azure. Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem instrukcji z tego samouczka zapoznaj się z artykułem [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md).   
 
@@ -432,7 +435,7 @@ Dodaj plik konfiguracji dla każdego środowiska, wykonując następujące czynn
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
@@ -489,7 +492,7 @@ Jeśli nazwa właściwości zawiera spacje, użyj nawiasów kwadratowych, jak po
 ### <a name="deploy-solution-using-a-configuration"></a>Wdrożenie rozwiązania przy użyciu konfiguracji
 Podczas publikowania jednostek usługi Fabryka danych Azure w programie VS możesz określić konfigurację, której chcesz użyć dla tej operacji publikowania.
 
-Aby opublikować jednostki w projekcie usługi Fabryka danych Azure przy użyciu pliku konfiguracji:   
+Aby opublikować jednostki w projekcie usługi Azure Data Factory przy użyciu pliku konfiguracji:   
 
 1. Kliknij prawym przyciskiem myszy projekt usługi Fabryka danych i kliknij polecenie **Publikuj**, aby wyświetlić okno dialogowe **Publikowanie elementów**.
 2. Wybierz istniejącą fabrykę danych lub określ wartości do tworzenia fabryki danych na stronie **Konfigurowanie fabryki danych** i kliknij przycisk **Dalej**.   

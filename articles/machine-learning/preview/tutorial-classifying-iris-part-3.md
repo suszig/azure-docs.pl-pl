@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -85,15 +85,15 @@ Aby wdrożyć usługę internetową wraz z plikiem modelu, potrzebny jest także
 
    ![Plik oceniania](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Aby uzyskać plik schematu, uruchom skrypt. Na pasku poleceń wybierz środowisko **local** i skrypt **iris_score.py**, a następnie kliknij przycisk **Przebieg**. 
+4. Aby uzyskać plik schematu, uruchom skrypt. Na pasku poleceń wybierz środowisko **local** i skrypt **iris-score.py**, a następnie kliknij przycisk **Przebieg**. 
 
 5. Ten skrypt utworzy w folderze **outputs** plik JSON, który będzie przechwytywał wejściowy schemat danych wymagany przez model.
 
-6. Zwróć uwagę na okienko zadań po prawej stronie okna aplikacji Machine Learning Workbench. Poczekaj, aż stan najnowszego zadania **iris\_score.py** zmieni się na zielony wskaźnik **Ukończono**. Następnie kliknij hiperlink **iris\_score.py [1]** dla najnowszego przebiegu zadania, aby wyświetlić szczegóły przebiegu z przebiegu **iris_score.py**. 
+6. Zwróć uwagę na okienko zadań po prawej stronie okna aplikacji Machine Learning Workbench. Poczekaj, aż stan najnowszego zadania **iris-score.py** zmieni się na zielony wskaźnik **Ukończono**. Następnie kliknij hiperlink **iris-score.py [1]** dla najnowszego przebiegu zadania, aby wyświetlić szczegóły przebiegu z przebiegu **iris-score.py**. 
 
 7. Na stronie właściwości przebiegu w sekcji **Dane wyjściowe** wybierz nowo utworzony plik **service_schema.json**. **Sprawdź** plik i kliknij pozycję **Pobierz**. Zapisz plik w folderze głównym projektu.
 
-8. Wróć do poprzedniej karty, na której został otwarty skrypt **iris_score.py**. 
+8. Wróć do poprzedniej karty, na której został otwarty skrypt **iris-score.py**. 
 
    Zwróć uwagę na użycie zbierania danych, które umożliwia przechwycenie danych wejściowych i prognozowania modelu z usługi internetowej. Poniższe punkty mają szczególne znaczenie w odniesieniu do zbierania danych:
 
@@ -120,6 +120,9 @@ Aby wdrożyć usługę internetową wraz z plikiem modelu, potrzebny jest także
    ```
 
 Teraz można przystąpić do przygotowania środowiska do obsługi operacji modelu.
+
+>[!NOTE]
+>Aby móc wdrażać modele, musisz mieć dostęp właściciela do subskrypcji platformy Azure.
 
 ## <a name="prepare-to-operationalize-locally"></a>Przygotowywanie do lokalnej obsługi operacji
 Użyj wdrożenia w _trybie lokalnym_, które będzie działać w kontenerach Docker na komputerze lokalnym.
@@ -201,7 +204,7 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
 1. Użyj poniższego polecenia, aby utworzyć usługę internetową czasu rzeczywistego:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Spowoduje to wygenerowanie identyfikatora usługi internetowej, którego będzie można użyć później.
 
@@ -241,7 +244,7 @@ Zamiast używać przedstawionego powyżej polecenia **az ml service create realt
    Aby utworzyć manifest, użyj tego polecenia i podaj wyjściowy identyfikator modelu z poprzedniego kroku:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    To polecenie spowoduje wygenerowanie identyfikatora manifestu.
 

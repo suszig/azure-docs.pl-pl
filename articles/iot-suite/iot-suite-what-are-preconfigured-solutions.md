@@ -1,6 +1,6 @@
 ---
-title: "Wstępnie skonfigurowane rozwiązania Azure IoT | Microsoft Docs"
-description: "Opis wstępnie skonfigurowanych rozwiązań Azure IoT, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów."
+title: "Omówienie wstępnie skonfigurowanych rozwiązań Pakietu IoT Azure | Microsoft Docs"
+description: "Opis wstępnie skonfigurowanych rozwiązań Pakietu IoT Azure, w tym informacje dotyczące ich architektury oraz linki prowadzące do dodatkowych zasobów."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,33 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: e0e79cb3b4c71c5d424f3b46af72fcb8b2f63ead
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Co to są wstępnie skonfigurowane rozwiązania Pakietu IoT Azure?
+# <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 
-Wstępnie skonfigurowane rozwiązania Pakietu IoT Azure to implementacje typowych wzorców rozwiązań IoT, które można wdrożyć na platformie Azure przy użyciu posiadanej subskrypcji. Wstępnie skonfigurowanych rozwiązań można używać w następujący sposób:
+Pakiet IoT Azure jest zestawem *wstępnie skonfigurowanych rozwiązań* który:
 
-* Jako punktu wyjściowego dla własnych rozwiązań IoT.
-* Jako platformy umożliwiającej zapoznanie się z typowymi wzorcami projektowania i tworzenia rozwiązań IoT.
+* Można wdrożyć w ciągu kilku minut.
+* Ułatwia szybkie rozpoczynanie pracy.
+* Można dostosować do własnych wymagań.
 
-Każde wstępnie skonfigurowane rozwiązanie stanowi kompletną implementację, która korzysta z symulowanych urządzeń do generowania danych telemetrycznych.
+Wszystkie wstępnie skonfigurowane rozwiązania *Pakietu IoT* zostały zaprojektowane według tych samych reguł i celów.
 
-Możliwe jest pobranie pełnego kodu źródłowego w celu dostosowania i rozbudowania danego rozwiązania pod kątem własnych wymagań dotyczących urządzeń IoT.
+## <a name="preconfigured-solutions-overview"></a>Omówienie wstępnie skonfigurowanych rozwiązań
 
-> [!NOTE]
-> Aby wdrożyć wstępnie skonfigurowane rozwiązanie, odwiedź witrynę [Pakiet IoT Azure firmy Microsoft][lnk-azureiotsuite]. Więcej informacji dotyczących wdrażania i uruchamiania przykładowego rozwiązania można znaleźć w artykule [Wprowadzenie do wstępnie skonfigurowanych rozwiązań IoT][lnk-getstarted-preconfigured].
+Wstępnie skonfigurowane rozwiązanie to implementacja typu „open source” typowych wzorców rozwiązań IoT, które można wdrożyć na platformie Azure przy użyciu posiadanej subskrypcji. Na każde wstępnie skonfigurowane rozwiązanie składa się niestandardowy kod i usługi platformy Azure umożliwiające zaimplementowanie konkretnego scenariusza (lub scenariuszy) IoT. Dowolny scenariusz można dostosować do własnych wymagań. Scenariusze obejmują:
+
+* Wizualizowanie danych na zaawansowanym pulpicie nawigacyjnym na potrzeby uzyskiwania szczegółowego wglądu w dane i wyświetlania stanu rozwiązania.
+* Konfigurowanie reguł i alarmów na podstawie przesyłanych w czasie rzeczywistym danych telemetrycznych z urządzenia IoT.
+* Planowanie zadań zarządzania urządzeniami, takich jak aktualizacje oprogramowania i konfiguracja.
+* Udostępnianie własnych niestandardowych urządzeń fizycznych lub symulowanych.
+* Rozwiązywanie i korygowanie problemów w ramach grup urządzeń IoT.
+
+Każde wstępnie skonfigurowane rozwiązanie stanowi kompletną implementację, która może korzystać z symulowanych lub fizycznych urządzeń do generowania danych telemetrycznych. Wstępnie skonfigurowanych rozwiązań można używać jako akceleratorów rozwiązań do:
+
+* Udostępniania punktu wyjściowego dla własnych rozwiązań IoT.
+* Uzyskiwania informacji o typowych wzorcach projektowania i tworzenia rozwiązań IoT.
+
+Obecnie są dostępne trzy wstępnie skonfigurowane rozwiązania:
+
+* [Zdalne monitorowanie](iot-suite-remote-monitoring-explore.md)
+* [Konserwacja predykcyjna](iot-suite-predictive-overview.md)
+* [Połączona fabryka](iot-suite-connected-factory-overview.md)
 
 W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje IoT:
 
-| Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Zarządzanie urządzeniami | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Zdalne monitorowanie][lnk-getstarted-preconfigured] |Tak |Tak |Tak |Tak |Tak |- |
-| [Konserwacja zapobiegawcza][lnk-predictive-maintenance] |Tak |Tak |- |Tak |Tak |Tak |
-| [Połączona fabryka][lnk-getstarted-factory] |Tak |Tak |Tak |Tak |Tak |- |
+| Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Zarządzanie urządzeniami | Przetwarzanie brzegowe | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
+| ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
+| [Zdalne monitorowanie](iot-suite-remote-monitoring-explore.md)  |Tak |Tak |Tak |-   |Tak |Tak |-   |
+| [Konserwacja predykcyjna](iot-suite-predictive-overview.md)   |Tak |Tak |-   |-   |Tak |Tak |Tak |
+| [Połączona fabryka](iot-suite-connected-factory-overview.md) |Tak |Tak |Tak |Tak |Tak |Tak |-   |
 
 * *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
 * *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami urządzeń i sterowanie dostępem urządzeń do rozwiązania.
@@ -50,128 +67,84 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 * *Reguły i akcje*: w celu wykonania działania względem określonych danych przesyłanych z urządzenia do chmury zaplecze rozwiązania korzysta z ról.
 * *Analiza predykcyjna*: zaplecze rozwiązania analizuje dane przesyłane z urządzenia do chmury i przewiduje czas, kiedy konkretne działania powinny zostać wykonane. Na przykład analiza danych telemetrycznych silnika samolotu umożliwia określenie konieczności przeprowadzenia konserwacji silnika.
 
-## <a name="remote-monitoring-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania monitorowania zdalnego
+> [!NOTE]
+> Aby wdrożyć wstępnie skonfigurowane rozwiązanie i uzyskać więcej informacji o sposobie ich dostosowywania, odwiedź stronę [Pakiet IoT Microsoft Azure](https://www.azureiotsuite.com/).
 
-W tym artykule omówiono wstępnie skonfigurowane rozwiązanie monitorowania zdalnego, ponieważ zawiera ono wiele typowych elementów projektu, które są używane w innych rozwiązaniach.
+## <a name="azure-services"></a>Usługi platformy Azure
 
-Na poniższym diagramie przedstawiono najważniejsze elementy rozwiązania monitorowania zdalnego. Następujące sekcje zawierają więcej informacji na temat tych elementów.
+Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania obsługi konfiguruje pewną liczbę usług platformy Azure. W poniższej tabeli przedstawiono usługi używane ze wstępnie skonfigurowanymi rozwiązaniami:
 
-![Architektura wstępnie skonfigurowanego rozwiązania monitorowania zdalnego][img-remote-monitoring-arch]
+|                      | Zdalne monitorowanie  | Konserwacja zapobiegawcza | Połączona fabryka |
+| -------------------- | ------------------ | ---------------------- | ----------------- |
+| Usługa IoT Hub              | Tak                |                        | Tak               |
+| Usługa Event Hubs           |                    | Tak                    |                   |
+| Time Series Insights |                    |                        | Tak               |
+| Usługi kontenerów   | Tak                |                        | Tak               |
+| Stream Analytics     |                    | Tak                    |                   |
+| Web Apps             | Tak                | Tak                    | Tak               |
+| Cosmos DB            | Tak                | Tak                    | Tak               |
+| Tabele platformy Azure         |                    | Tak                    | Tak               |
 
-## <a name="devices"></a>Urządzenia
+* [Azure IoT Hub](../iot-hub/index.md). Ta usługa umożliwia dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń. Usługa ta umożliwia także [zarządzanie urządzeniami](../iot-hub/iot-hub-device-management-overview.md). Na przykład możesz skonfigurować jedno lub większą liczbę urządzeń połączonych z tą usługą, przeprowadzić ich ponowny rozruch lub je zresetować do ustawień fabrycznych.
+* [Azure Event Hubs](../event-hubs/index.md). Ta usługa umożliwia wprowadzanie dużej liczby zdarzeń do chmury. Zobacz [Porównanie Centrum IoT Azure i usługi Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Time Series Insights](../time-series-insights/index.md). Wstępnie skonfigurowane rozwiązania używają tej usługi do analizowania i wyświetlania danych telemetrycznych z urządzeń.
+* [Azure Container Service](../container-service/index.yml). Ta usługa obsługuje mikrousługi i zarządza nimi we wstępnie skonfigurowanych rozwiązaniach.
+* Usługi [Azure Cosmos DB](../cosmos-db/index.yml) i [Azure Storage](../storage/index.yml) obsługują przechowywanie danych.
+* [Azure Stream Analytics](../stream-analytics/index.md). Wstępnie skonfigurowane rozwiązanie do konserwacji predykcyjnej korzysta z tej usługi w celu przetwarzania przychodzących danych telemetrycznych, przeprowadzania agregacji danych i wykrywania zdarzeń. To wstępnie skonfigurowane rozwiązanie używa również analizy strumienia do przetwarzania komunikatów informacyjnych, które zawierają metadane lub odpowiedzi urządzeń na wysyłane polecenia.
+* Usługa [Azure Web Apps](../app-service/index.yml) hostuje niestandardowy kod aplikacji we wstępnie skonfigurowanych rozwiązaniach.
 
-Po wdrożeniu wstępnie skonfigurowanego rozwiązania monitorowania zdalnego następuje wstępna aprowizacja czterech symulowanych urządzeń w ramach rozwiązania, które pozoruje pracę urządzenia chłodzącego. Symulowane urządzenia mają wbudowany model generowania wartości temperatury i wilgotności, który emituje dane telemetryczne. Te symulowane urządzenia mogą wykonywać następujące działania:
+Omówienie architektury typowego rozwiązania IoT można znaleźć w artykule [Platforma Azure i Internet rzeczy](iot-suite-what-is-azure-iot.md).
 
-- Ilustrować kompleksowy przepływ danych przez rozwiązanie.
-- Zapewniać wygodne źródło danych telemetrycznych.
-- Udostępniać miejsce docelowe dla metod lub poleceń programistom zaplecza korzystającym z rozwiązania jako punktu początkowego na potrzeby implementacji niestandardowej.
+## <a name="whats-new-in-preconfigured-solutions"></a>Co nowego we wstępnie skonfigurowanych rozwiązaniach?
 
-Symulowane urządzenia w rozwiązaniu mogą odpowiadać na następujące rodzaje komunikacji z chmury do urządzenia:
+Firma Microsoft aktualizuje wstępnie skonfigurowane rozwiązania do nowej architektury bazującej na mikrousługach. W poniższej tabeli przedstawiono bieżący stan wstępnie skonfigurowanych rozwiązań:
 
-- *Metody ([metody bezpośrednie][lnk-direct-methods])*: dwukierunkowa metoda komunikacji, w przypadku której oczekuje się natychmiastowej odpowiedzi od podłączonego urządzenia.
-- *Polecenia (komunikaty z chmury do urządzenia)*: jednokierunkowa metoda komunikacji, w przypadku której urządzenie pobiera polecenie z kolejki trwałej.
+| Wstępnie skonfigurowane rozwiązanie | Architektura  | Języki     |
+| ---------------------- | ------------- | ------------- |
+| Zdalne monitorowanie      | Mikrousługi | Java i .NET |
+| Konserwacja zapobiegawcza | MVC           | .NET          |
+| Połączona fabryka      | MVC           | .NET          |
 
-Porównanie tych różnych rozwiązań zawiera temat [Wskazówki dotyczące komunikacji z chmury do urządzenia][lnk-c2d-guidance].
+W poniższych sekcjach opisano, jakie nowe elementy wprowadzono we wstępnie skonfigurowanych rozwiązaniach opartych na mikrousługach:
 
-Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub w ramach wstępnie skonfigurowanego rozwiązania, wysyła do centrum komunikat z informacjami o urządzeniu. Ten komunikat zawiera metody, na które może odpowiedzieć urządzenie. W zdalnym, wstępnie skonfigurowanym rozwiązaniu do monitorowania symulowane urządzenia obsługują następujące metody:
+### <a name="microservices"></a>Mikrousługi
 
-* *Initiate Firmware Update*: ta metoda inicjuje na urządzeniu asynchroniczne zadanie wykonania aktualizacji oprogramowania układowego. Zadanie asynchroniczne używa zgłaszanych właściwości na potrzeby dostarczania aktualizacji stanu do pulpitu nawigacyjnego rozwiązania.
-* *Reboot*: ta metoda powoduje ponowne uruchomienie symulowanego urządzenia.
-* *FactoryReset*: ta metoda wyzwala resetowanie symulowanego urządzenia do ustawień fabrycznych.
+Nowa wersja wstępnie skonfigurowanego rozwiązania do zdalnego monitorowania korzysta z architektury mikrousług. To wstępnie skonfigurowane rozwiązanie składa się z wielu mikrousług, takich jak *Menedżer usług IoT Hub* lub *Menedżer magazynowania*. Poszczególne mikrousługi można pobrać zarówno w wersji Java, jak i .NET, wraz z pokrewną dokumentacją dla deweloperów. Aby uzyskać więcej informacji na temat mikrousług, zobacz [Architektura zdalnego monitorowania](iot-suite-remote-monitoring-sample-walkthrough.md).
 
-Gdy dane urządzenie pierwszy raz łączy się z usługą IoT Hub w ramach wstępnie skonfigurowanego rozwiązania, wysyła do centrum komunikat z informacjami o urządzeniu. Ten komunikat zawiera polecenia, na które może odpowiedzieć urządzenie. W zdalnym, wstępnie skonfigurowanym rozwiązaniu do monitorowania symulowane urządzenia obsługują następujące polecenia:
+Ta architektura mikrousług jest sprawdzonym wzorcem dla rozwiązań w chmurze, dzięki temu, że:
 
-* *Ping Device*: urządzenie potwierdza odebranie tego polecenia. To polecenie jest przydatne w przypadku sprawdzania, czy urządzenie jest nadal aktywne i czy działa nasłuchiwanie.
-* *Start Telemetry*: nakazuje urządzeniu rozpoczęcie wysyłania danych telemetrycznych.
-* *Stop Telemetry*: nakazuje urządzeniu zaprzestanie wysyłania danych telemetrycznych.
-* *Change Set Point Temperature*: umożliwia sterowanie symulowanymi wartościami telemetrycznymi temperatury wysyłanymi przez urządzenie. To polecenie jest przydatne w przypadku testowania logiki zaplecza.
-* *Diagnostic Telemetry*: umożliwia określenie, czy informacje o temperaturze zewnętrznej mają być wysyłane przez urządzenie w postaci danych telemetrycznych.
-* *Change Device State*: określa właściwość metadanych stanu urządzenia zgłaszaną przez urządzenie. To polecenie jest przydatne w przypadku testowania logiki zaplecza.
+* Jest skalowalna.
+* Umożliwia rozszerzalność.
+* Jest łatwa do zrozumienia.
+* Umożliwia wymianę poszczególnych usług na ich odpowiedniki.
 
-Do rozwiązania można dodać kolejne symulowane urządzenia, które emitują te same dane telemetryczne oraz obsługują te same metody i polecenia.
+> [!TIP]
+> Aby dowiedzieć się więcej na temat architektury mikrousług, zobacz [Architektura aplikacji .NET](https://www.microsoft.com/net/learn/architecture) i [Mikrousługi: rewolucja w aplikacjach wspierana przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-Oprócz odpowiadania na polecenia i metody rozwiązanie korzysta z [bliźniaczych reprezentacji urządzeń][lnk-device-twin]. Urządzenia używają bliźniaczych reprezentacji urządzeń na potrzeby zgłaszania wartości właściwości do zaplecza rozwiązania. Pulpit nawigacyjny rozwiązania używa bliźniaczych reprezentacji urządzeń do ustawiania nowych wartości żądanych właściwości na urządzeniach. Na przykład podczas aktualizacji oprogramowania układowego symulowane urządzenie informuje o stanie aktualizacji za pomocą zgłaszanych właściwości.
+Podczas wdrażania nowej wersji zdalnego monitorowania należy wybrać jedną z następujących opcji wdrażania:
 
-## <a name="iot-hub"></a>Usługa IoT Hub
+* **Podstawowa:** tańsza wersja przeznaczona do celów demonstracyjnych i do testowania wdrożenia. Wszystkie mikrousługi są wdrażane na jednej maszynie wirtualnej platformy Azure.
+* **Enterprise:** rozwinięte wdrożenie infrastruktury na potrzeby opracowywania wdrożenia produkcyjnego. Mikrousługi są wdrażane na wielu maszynach wirtualnych platformy Azure za pomocą usługi Azure Container Service. Platforma Kubernetes zarządza kontenerami aparatu Docker, w których są hostowane poszczególne mikrousługi.
 
-W tym wstępnie skonfigurowanym rozwiązaniu wystąpienie usługi IoT Hub odpowiada *bramie chmury* w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
+### <a name="language-choices-java-and-net"></a>Wybór języka: Java i .NET
 
-Usługa IoT Hub odbiera dane telemetryczne z urządzeń w jednym punkcie końcowym. Udostępnia również punkty końcowe umożliwiające poszczególnym urządzeniom pobranie wysyłanych do nich poleceń.
+Implementacje poszczególnych mikrousług są dostępne w językach Java i .NET. Podobnie jak kod platformy .NET, kod źródłowy Java jest typu „open source” i można go dostosować do konkretnych wymagań:
 
-Usługa IoT Hub udostępnia odebrane dane telemetryczne za pośrednictwem punktu końcowego odczytu danych telemetrycznych po stronie usługi.
+* [Repozytorium GitHub rozwiązania do zdalnego monitorowania w języku .NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Repozytorium GitHub rozwiązania do zdalnego monitorowania w języku Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
-Funkcja zarządzania urządzeniami w usłudze IoT Hub umożliwia zarządzanie właściwościami urządzenia z portalu rozwiązania i planowanie zadań wykonujących następujące operacje:
+Jeśli potrzebujesz implementacji w innym językach, zapytaj o nie na forum [Azure IoT User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-- Ponowne uruchamianie urządzenia
-- Zmienianie stanów urządzenia
-- Przeprowadzanie aktualizacji oprogramowania układowego
+### <a name="react-user-interface-framework"></a>Struktura interfejsu użytkownika React
 
-## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
-
-Filtrowanie strumienia danych telemetrycznych pochodzących z urządzeń we wstępnie skonfigurowanym rozwiązaniu odbywa się za pomocą trzech zadań usługi [Azure Stream Analytics][lnk-asa] (ASA).
-
-* *Zadanie dotyczące informacji o urządzeniach* — wysyła dane do centrum zdarzeń, które kieruje komunikaty dotyczące rejestracji urządzeń do rejestru urządzeń rozwiązania. Rejestr tego urządzenia to baza danych Azure Cosmos DB. Te komunikaty są wysyłane przy pierwszym połączeniu z urządzeniem lub w odpowiedzi na polecenie **Change device state**.
-* *Zadanie dotyczące telemetrii* — wysyła wszystkie nieprzetworzone dane telemetryczne do magazynu obiektów blob Azure w celu przechowania i oblicza zagregowane wartości danych telemetrycznych wyświetlane na pulpicie nawigacyjnym rozwiązania.
-* *Zadanie dotyczące reguł* — filtruje strumień danych telemetrycznych w poszukiwaniu danych przekraczających wartości progowe reguł i przesyła dane do centrum zdarzeń. Gdy reguła jest wyzwalana, w widoku pulpitu nawigacyjnego portalu rozwiązania to zdarzenie jest wyświetlane jako nowy wiersz w tabeli historii alarmów. Te reguły mogą również wyzwalać akcję na podstawie ustawień zdefiniowanych w widokach **Reguły** i **Akcje** w portalu rozwiązania.
-
-W tym wstępnie skonfigurowanym rozwiązaniu zadania usługi ASA stanowią część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
-
-## <a name="event-processor"></a>Procesor zdarzeń
-
-W tym wstępnie skonfigurowanym rozwiązaniu procesor zdarzeń stanowi część **zaplecza rozwiązania IoT** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
-
-Zadania usługi ASA dotyczące **reguł** i **informacji o urządzeniach** wysyłają dane wyjściowe do centrów zdarzeń, z których dane są przekazywane do innych usług zaplecza. Do odczytu komunikatów z centrów zdarzeń jest używane wystąpienie klasy [EventProcessorHost][lnk-event-processor] uruchomione w zadaniu [WebJob][lnk-web-job]. Klasa **EventProcessorHost** korzysta z następujących elementów:
-- Dane obiektu **DeviceInfo** do aktualizowania danych urządzenia w bazie danych Cosmos DB.
-- Dane obiektu **Rules** do wywoływania aplikacji logiki i aktualizowania alertów wyświetlanych w portalu rozwiązania.
-
-## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Rejestr tożsamości urządzeń, bliźniacza reprezentacja urządzenia i usługa Cosmos DB
-
-Każde wystąpienie usługi IoT Hub zawiera [rejestr tożsamości urządzeń][lnk-identity-registry], który przechowuje klucze urządzeń. Usługa IoT Hub używa tych informacji do uwierzytelniania urządzeń — dane urządzenie musi być zarejestrowane i mieć prawidłowy klucz, zanim będzie mogło połączyć się z centrum.
-
-[Bliźniacza reprezentacja urządzenia][lnk-device-twin] to dokument JSON zarządzany przez usługę IoT Hub. Bliźniacza reprezentacja urządzenia zawiera następujące elementy:
-
-- Zgłaszane właściwości wysyłane przez urządzenie do centrum. Te właściwości można wyświetlić w portalu rozwiązania.
-- Żądane właściwości, które mają być wysyłane do urządzenia. Te właściwości można ustawić w portalu rozwiązania.
-- Tagi, które istnieją tylko w bliźniaczej reprezentacji urządzenia, a nie na urządzeniu. Tych tagów można używać do filtrowania list urządzeń w portalu rozwiązania.
-
-To rozwiązanie korzysta z bliźniaczych reprezentacji urządzeń do zarządzania metadanymi urządzenia. Rozwiązanie korzysta również z bazy danych Cosmos DB do przechowywania dodatkowych danych urządzeń specyficznych dla rozwiązania, takich jak polecenia obsługiwane przez poszczególne urządzenia i historia poleceń.
-
-Informacje przechowywane w rejestrze tożsamości urządzeń muszą być także synchronizowane z zawartością bazy danych Cosmos DB. Klasa **EventProcessorHost** zarządza synchronizacją przy użyciu danych z zadania analizy strumienia dotyczącego **informacji o urządzeniach**.
-
-## <a name="solution-portal"></a>Portal rozwiązania
-
-![portal rozwiązania][img-dashboard]
-
-Portal rozwiązania to oparty na sieci Web interfejs użytkownika wdrożony w chmurze w ramach wstępnie skonfigurowanego rozwiązania. Umożliwia on wykonywanie następujących czynności:
-
-* Wyświetlanie historii danych telemetrycznych i alarmów na pulpicie nawigacyjnym.
-* Aprowizacja nowych urządzeń.
-* Monitorowanie urządzeń i zarządzanie nimi.
-* Wysyłanie poleceń do określonych urządzeń.
-* Wywoływanie metod na konkretnych urządzeniach.
-* Zarządzanie regułami i akcjami.
-* Planowanie zadań do uruchomienia na jednym lub większej liczbie urządzeń.
-
-W tym wstępnie skonfigurowanym rozwiązaniu portal rozwiązania stanowi część **zaplecza rozwiązania IoT** oraz **przetwarzania i łączności biznesowej** w typowej [architekturze rozwiązania IoT][lnk-what-is-azure-iot].
+Interfejs użytkownika jest tworzony przy użyciu biblioteki [React](https://facebook.github.io/react/) języka JavaScript. Kod źródłowy jest typu „open source”, można go pobrać i dostosować.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat architektury rozwiązań IoT, zobacz dokument [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Usługi Microsoft Azure IoT: architektura referencyjna).
+Po omówieniu wstępnie skonfigurowanych rozwiązań Pakietu IoT zamieszczono tutaj sugerowane następne czynności, które warto wykonać dla poszczególnych rozwiązań:
 
-Teraz, kiedy już wiesz, czym jest wstępnie skonfigurowane rozwiązanie, możesz rozpocząć wdrażanie wstępnie skonfigurowanego rozwiązania *monitorowania zdalnego*: [Wprowadzenie do wstępnie skonfigurowanych rozwiązań][lnk-getstarted-preconfigured].
+* [Eksplorowanie modelu wdrażania Menedżera zasobów rozwiązania do zdalnego monitorowania Pakietu IoT Azure](iot-suite-remote-monitoring-explore.md).
+* [Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej](iot-suite-predictive-overview.md).
+* [Wprowadzenie do wstępnie skonfigurowanego rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md).
 
-[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
-[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+Aby uzyskać więcej informacji na temat architektury rozwiązań IoT, zobacz dokument [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (Usługi Microsoft Azure IoT: architektura referencyjna).

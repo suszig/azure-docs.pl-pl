@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: b71d5c2303fa33637a95d0979e15236d7f8156bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Samouczek: Tworzenie fabryki danych za pomocą programu Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 10/11/2017
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi Data Factory, która jest w wersji zapoznawczej, zobacz [Szybki start: tworzenie fabryki danych przy użyciu usługi Azure Data Factory w wersji 2](../quickstart-create-data-factory-dot-net.md).
 
 Ten samouczek pokazuje, jak utworzyć fabrykę danych Azure Data Factory przy użyciu programu Visual Studio. Utworzysz projekt programu Visual Studio przy użyciu szablonu projektu Data Factory, zdefiniujesz jednostki usługi Data Factory (połączone usługi, zestawy danych i potok) w formacie JSON, a następnie opublikujesz lub wdrożysz te jednostki w chmurze. 
 
@@ -468,7 +472,7 @@ Dodaj plik konfiguracji dla każdego środowiska, wykonując następujące czynn
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
@@ -525,7 +529,7 @@ Jeśli nazwa właściwości zawiera spacje, użyj nawiasów kwadratowych, jak po
 ### <a name="deploy-solution-using-a-configuration"></a>Wdrożenie rozwiązania przy użyciu konfiguracji
 Podczas publikowania jednostek usługi Fabryka danych Azure w programie VS możesz określić konfigurację, której chcesz użyć dla tej operacji publikowania.
 
-Aby opublikować jednostki w projekcie usługi Fabryka danych Azure przy użyciu pliku konfiguracji:   
+Aby opublikować jednostki w projekcie usługi Azure Data Factory przy użyciu pliku konfiguracji:   
 
 1. Kliknij prawym przyciskiem myszy projekt usługi Fabryka danych i kliknij polecenie **Publikuj**, aby wyświetlić okno dialogowe **Publikowanie elementów**.
 2. Wybierz istniejącą fabrykę danych lub określ wartości do tworzenia fabryki danych na stronie **Konfigurowanie fabryki danych** i kliknij przycisk **Dalej**.   

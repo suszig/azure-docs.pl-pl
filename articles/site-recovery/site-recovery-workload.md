@@ -1,6 +1,6 @@
 ---
-title: "Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?"
-description: "Usługa Azure Site Recovery chroni obciążenia i aplikacje poprzez koordynowanie replikacji, pracy w trybie failover i odzyskiwania lokalnych maszyn wirtualnych i serwerów fizycznych do platformy Azure lub dodatkowej lokalizacji lokalnej"
+title: "Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery? | Microsoft Docs"
+description: "W tym artykule opisano obciążenia, które można chronić za pomocą funkcji odzyskiwania po awarii w usłudze Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
-W tym artykule opisano obciążenia i aplikacje, które można replikować za pomocą usługi Azure Site Recovery.
 
-Zamieść wszelkie komentarze lub pytania pod tym artykułem lub na [forum Usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+W tym artykule opisano obciążenia i aplikacje, które można replikować za pomocą usługi [Azure Site Recovery](site-recovery-overview.md).
+
+
 
 ## <a name="overview"></a>Omówienie
+
 Organizacje wymagają strategii zapewniającej ciągłość biznesową i odzyskiwanie po awarii (BCDR, Business Continuity and Disaster Recovery), w ramach której obciążenia i dane pozostają bezpieczne i dostępne podczas planowanych lub nieplanowanych przestojów oraz możliwie jak najszybciej są przywracane do normalnych warunków roboczych.
 
 Usługa Site Recovery na platformie Azure ułatwia realizację strategii BCDR. Za pomocą usługi Site Recovery można wdrożyć replikację obsługującą aplikacje w chmurze lub lokacji dodatkowej. Niezależnie od tego, czy aplikacje są oparte na systemie Windows, czy Linux, działają na serwerach fizycznych, platformie VMware lub w ramach funkcji Hyper-V, usługi Site Recovery można używać do organizowania replikacji, przeprowadzania testów odzyskiwania po awarii oraz uruchamiania trybu failover i powrotu po awarii.
@@ -33,6 +35,7 @@ Usługa Site Recovery na platformie Azure ułatwia realizację strategii BCDR. Z
 Usługa Site Recovery integruje się z aplikacjami firmy Microsoft, w tym SharePoint, Exchange, Dynamics, SQL Server i Active Directory. Firma Microsoft współpracuje również blisko z czołowymi producentami, takimi jak Oracle, SAP i Red Hat. Rozwiązania replikacji można dostosować do poszczególnych aplikacji.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Dlaczego warto używać usługi Site Recovery do replikacji aplikacji?
+
 Usługa Site Recovery przyczynia się do ochrony i odzyskiwania na poziomie aplikacji w następujący sposób:
 
 * Zapewnia replikację dla dowolnych obciążeń działających na obsługiwanej maszynie, niezależnie od aplikacji.
@@ -157,4 +160,5 @@ Aby chronić wdrożenia programów Citrix XenApp i XenDesktop, korzystaj z usłu
 [Dowiedz się więcej](site-recovery-citrix-xenapp-and-xendesktop.md) na temat chronienia wdrożeń programów Citrix XenApp i XenDesktop. Możesz też zapoznać się z [oficjalnym dokumentem firmy Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) poświęconym tym samym zagadnieniom.
 
 ## <a name="next-steps"></a>Następne kroki
-[Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)
+
+[Zapoznaj się z wprowadzeniem](azure-to-azure-quickstart.md) do replikacji maszyn wirtualnych platformy Azure.
