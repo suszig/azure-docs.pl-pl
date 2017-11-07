@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: yurid
-ms.openlocfilehash: 847a872661bea31b774814188c7707260a16e620
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -32,10 +32,24 @@ Usługa Security Center ułatwia włączanie zintegrowanych rozwiązań zabezpie
 
 Obecnie zintegrowane rozwiązania zabezpieczeń obejmują:
 
-- Ochronę punktów końcowych ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [usługę firmy Microsoft chroniącą przed złośliwym kodem dla usług Azure Cloud Services i maszyn wirtualnych](https://docs.microsoft.com/azure/security/azure-security-antimalware), Windows Defender i System Center Endpoint Protection (SCEP))
+- Ochrona punktów końcowych ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender i System Center Endpoint Protection — SCEP)
 - Zapora aplikacji sieci Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) i [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Zapora nowej generacji ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) i [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Ocena luk w zabezpieczeniach ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+
+Obsługa integracji ochrony punktów końcowych może się różnić w zależności od rozwiązania. W poniższej tabeli zamieszczono więcej informacji na temat obsługi poszczególnych rozwiązań:
+
+| Ochrona punktów końcowych               | Platformy                             | Instalacja usługi Security Center | Odnajdywanie usługi Security Center |
+|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
+| Windows Defender (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem)                  | Windows Server 2016                   | Nie, wbudowana w system operacyjny           | Tak                       |
+| System Center Endpoint Protection (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem) | Windows Server 2012 R2, 2012, 2008 R2 | Za pomocą rozszerzenia                | Tak                       |
+| Trend Micro — wszystkie wersje         | Rodzina systemów Windows Server                 | Za pomocą rozszerzenia                | Tak                       |
+| Symantec — w wersji co najmniej 12                     | Rodzina systemów Windows Server                 | Nie                           | Tak                        |
+| MacAfee                           | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
+| Kaspersky                         | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
+| Sophos                            | Rodzina systemów Windows Server                 | Nie                           | Nie                        |
+
+
 
 ## <a name="how-security-solutions-are-integrated"></a>Jak są integrowane rozwiązania zabezpieczeń
 Rozwiązania zabezpieczeń platformy Azure, które zostały wdrożone z usługi Security Center, są automatycznie połączone. Możesz także połączyć inne źródła danych zabezpieczeń, a w tym:

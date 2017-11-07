@@ -1,6 +1,6 @@
 ---
-title: "Instrukcje dotyczące platformy Azure — jak korzystać z innych modeli zabezpieczeń sprzętowych z zestawem SDK klienta usługi Device Provisioning na platformie Azure | Microsoft Docs"
-description: "Instrukcje dotyczące platformy Azure — jak korzystać z innych modeli zabezpieczeń sprzętowych z zestawem SDK klienta usługi Device Provisioning na platformie Azure"
+title: "Instrukcje dotyczące platformy Azure — jak korzystać z innego sprzętowego modułu zabezpieczeń z zestawem SDK klienta usługi Device Provisioning na platformie Azure | Microsoft Docs"
+description: "Instrukcje dotyczące platformy Azure — jak korzystać z innego sprzętowego modułu zabezpieczeń z zestawem SDK klienta usługi Device Provisioning na platformie Azure"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,14 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Jak używać różnych sprzętowych modułów zabezpieczeń z zestawem SDK klienta usługi Device Provisioning
-Te kroki pokazują, jak używać różnych [sprzętowych modułów zabezpieczeń (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) z zestawem SDK klienta usługi Device Provisioning w języku C za pomocą urządzenia fizycznego i symulatora.  Usługa aprowizowania obsługuje dwa tryby uwierzytelniania: X**.**509 i moduł TPM.
+# <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Jak używać różnych sprzętowych modułów zabezpieczeń z zestawem SDK klienta usługi Device Provisioning Service
+Te kroki pokazują, jak używać różnych [sprzętowych modułów zabezpieczeń (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) z zestawem SDK klienta usługi Device Provisioning Service w języku C za pomocą urządzenia fizycznego i symulatora.  Usługa aprowizowania obsługuje dwa tryby uwierzytelniania: X**.**509 i moduł TPM.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Przygotuj środowisko deweloperskie zgodnie z sekcją „Prepare the development
 
 ## <a name="enable-authentication-with-different-hsms"></a>Włączanie uwierzytelniania przy użyciu różnych modułów HSM
 
-Tryb uwierzytelniania (X**.**509 lub moduł TPM) musi zostać włączony dla urządzenia fizycznego lub symulatora, aby można było zarejestrować je w witrynie Azure Portal.  Przejdź do folderu głównego elementu azure-iot-sdk-c.  Uruchom odpowiednie polecenie, w zależności od wybranego trybu uwierzytelniania.
+Aby można było zarejestrować urządzenie fizyczne lub symulator w witrynie Azure Portal, należy dla niego włączyć tryb uwierzytelniania (X**.**509 lub moduł TPM).  Przejdź do folderu głównego elementu azure-iot-sdk-c.  Uruchom odpowiednie polecenie, w zależności od wybranego trybu uwierzytelniania.
 
 ### <a name="use-x509-with-simulator"></a>Używanie trybu X**.**509 z symulatorem
 
@@ -131,7 +131,7 @@ Skompiluj zestaw SDK przed utworzeniem rejestracji urządzeń.
 ## <a name="create-a-device-enrollment-entry-in-dps"></a>Tworzenie wpisu rejestracji urządzenia w usłudze DPS
 
 ### <a name="tpm"></a>Moduł TPM
-Jeśli korzystasz z modułu TPM, postępuj zgodnie z instrukcjami z sekcji [„Create and provision a simulated device using IoT Hub Device Provisioning”](./quick-create-simulated-device.md) (Tworzenie i aprowizowanie symulowanego urządzenia za pomocą usługi IoT Hub Device Provisioning Service), aby utworzyć wpis rejestracji urządzenia w usłudze DPS i symulować pierwsze uruchomienie.
+Jeśli korzystasz z modułu TPM, postępuj zgodnie z instrukcjami z sekcji [„Create and provision a simulated device using IoT Hub Device Provisioning Service”](./quick-create-simulated-device.md) (Tworzenie i aprowizowanie symulowanego urządzenia za pomocą usługi IoT Hub Device Provisioning Service), aby utworzyć wpis rejestracji urządzenia w usłudze DPS i symulować pierwsze uruchomienie.
 
 ### <a name="x509"></a>X**.**509
 1. Aby zarejestrować urządzenie w usłudze aprowizowania, należy zanotować klucz poręczenia i identyfikator rejestracji każdego urządzenia. Te informacje są wyświetlane w narzędziu aprowizowania dostępnym w zestawie SDK klienta. Uruchom następujące polecenie, aby wydrukować certyfikat głównego urzędu certyfikacji (dla grup rejestracji) i certyfikat osoby podpisującej (dla indywidualnej rejestracji):

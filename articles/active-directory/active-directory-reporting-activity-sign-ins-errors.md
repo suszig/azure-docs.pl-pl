@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Kody błędów w raportach działań związanych z logowaniem w portalu usługi Azure Active Directory
 
@@ -58,16 +58,17 @@ W poniższej sekcji przedstawiono kompletne omówienie wszystkich możliwych bł
 
 | Błąd| Opis |
 | --- | --- |
-| 50001| Nie można odnaleźć jednostki usługi o nazwie X w dzierżawie o nazwie Y. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy. Lub w katalogu nie znaleziono jednostki Zasób albo jest ona nieprawidłowa|
+| 50001| Nie można odnaleźć jednostki usługi o nazwie X w dzierżawie o nazwie Y. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy. Lub w katalogu nie znaleziono jednostki Zasób albo jest ona nieprawidłowa.|
 | 50008| Brak potwierdzeń języka SAML lub zostały nieprawidłowo skonfigurowane w tokenie.|
 | 50011| Brak adresu zwrotnego, został nieprawidłowo skonfigurowany lub jest inny niż adresy zwrotne skonfigurowane dla aplikacji.|
+| 50012| Użytkownik zgłosił oszustwo podczas uwierzytelniania wieloskładnikowego.|
 | 50053| Konto zostało zablokowane, ponieważ użytkownik podjął zbyt wiele prób zalogowania przy użyciu niepoprawnego identyfikatora użytkownika lub hasła.|
 | 50054| Podczas uwierzytelniania użyto starego hasła.|
 | 50055| Nieprawidłowe hasło — wprowadzono nieważne hasło.|
 | 50057| Konto użytkownika zostało wyłączone.|
 | 50058| W podanych poświadczeniach nie znaleziono informacji o tożsamości użytkownika, w dzierżawie nie znaleziono użytkownika albo wysłano żądanie logowania dyskretnego, ale żaden użytkownik nie jest zalogowany lub usługa nie mogła uwierzytelnić użytkownika.|
-| 50074| Wymagane jest silne uwierzytelnianie (dwuskładnikowe)|
-| 50079| Użytkownik musi zarejestrować się na potrzeby uwierzytelniania dwuskładnikowego|
+| 50074| Użytkownik nie przeszedł żądania uwierzytelniania MFA.|
+| 50079| Użytkownik musi zarejestrować się na potrzeby uwierzytelniania dwuskładnikowego.|
 | 50126| Nieprawidłowa nazwa lub hasło użytkownika albo nieprawidłowa nazwa lub hasło użytkownika lokalnego.|
 | 50131| Kod używany w przypadku różnych błędów dostępu warunkowego, takich jak zły stan urządzenia z systemem Windows albo żądanie zablokowane z powodu podejrzanych decyzji związanych z działaniami, zasadami dostępu i zasadami zabezpieczeń.|
 | 50133| Sesja jest nieprawidłowa z powodu wygaśnięcia lub niedawnej zmiany hasła.|
@@ -75,13 +76,14 @@ W poniższej sekcji przedstawiono kompletne omówienie wszystkich możliwych bł
 | 65001| Aplikacja X nie ma uprawnienia dostępu do aplikacji Y lub uprawnienie zostało odwołany. Lub użytkownik albo administrator nie wyraził zgody na używanie aplikacji z identyfikatorem X. Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu. Lub użytkownik albo administrator nie wyraził zgody na używanie aplikacji z identyfikatorem X. Wyślij do administratora dzierżawy żądanie autoryzacji dotyczące działania w imieniu aplikacji Y dla zasobu Z.|
 | 65005| Lista dostępu do wymaganych zasobów aplikacji nie zawiera aplikacji możliwych do wykrycia przez zasób lub aplikacja kliencka zażądała dostępu do zasobu, który nie został określony na liście dostępu do wymaganych zasobów lub usługa programu Graph zwróciła nieprawidłowe żądanie lub nie można odnaleźć zasobu.|
 | 70001| Nie można odnaleźć aplikacji o nazwie X w dzierżawie o nazwie Y. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Żądanie uwierzytelniania mogło zostać wysłane do nieprawidłowej dzierżawy.|
-| 80001| Brak dostępnych agentów uwierzytelniania.|
+| 80001| Agent uwierzytelniania nie może nawiązać połączenia z usługą Active Directory.|
 | 80002| Upłynął limit czasu żądania weryfikacji hasła agenta uwierzytelniania.|
 | 80003| Agent uwierzytelniania odebrał nieprawidłową odpowiedź.|
 | 80004| W żądaniu logowania użyto nieprawidłowej głównej nazwy użytkownika (UPN).|
 | 80005| Agent uwierzytelniania: wystąpił błąd.|
-| 80007| Agent uwierzytelniania nie może nawiązać połączenia z usługą Active Directory.|
+| 80007| Agent uwierzytelniania nie może zweryfikować hasła użytkownika.|
 | 80010| Agent uwierzytelniania nie może odszyfrować hasła.|
+| 80011| Agent uwierzytelniania nie może pobrać klucza odszyfrowującego.|
 | 81001| Bilet Kerberos użytkownika jest zbyt duży.|
 | 81002| Nie można zweryfikować biletu Kerberos użytkownika.|
 | 81003| Nie można zweryfikować biletu Kerberos użytkownika.|
@@ -94,6 +96,7 @@ W poniższej sekcji przedstawiono kompletne omówienie wszystkich możliwych bł
 | 81013| Nie można znaleźć obiektu użytkownika w oparciu o informacje z biletu Kerberos użytkownika.|
 | 90014| Kod używany w różnych przypadkach, jeśli poświadczenia nie zawierają oczekiwanego pola.|
 | 90093| Program Graph zwrócił niedozwolony kod błędu dla żądania.|
+
 
 
 

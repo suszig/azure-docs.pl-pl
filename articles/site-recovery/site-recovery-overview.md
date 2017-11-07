@@ -1,5 +1,5 @@
 ---
-title: "Co to jest usługa Azure Site Recovery? | Microsoft Docs"
+title: "Informacje o usłudze Azure Site Recovery | Microsoft Docs"
 description: "Zawiera omówienie usługi Azure Site Recovery oraz podsumowanie scenariuszy wdrażania."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>Co to jest usługa Site Recovery?
+# <a name="about-site-recovery"></a>Informacje o usłudze Site Recovery
 
 Usługa Azure Site Recovery — Zapraszamy! Ten artykuł zawiera krótkie omówienie usługi.
 
@@ -62,19 +63,15 @@ Usługa Site Recovery może zarządzać replikacją dla:
 
 **Obsługiwane** | **Szczegóły**
 --- | ---
-**Co można replikować?** | Maszyny wirtualne platformy Azure między regionami świadczenia usługi Azure (w wersji zapoznawczej)<br/><br/>  Lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V oraz serwery fizyczne (z systemami Windows i Linux) do platformy Azure<br/<br/> Lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V oraz serwery fizyczne do lokacji dodatkowej. Dla maszyn wirtualnych funkcji Hyper-V replikacja do lokacji dodatkowej jest obsługiwana tylko w przypadku, gdy hosty funkcji Hyper-V są zarządzane przez program System Center VMM.
+**Co można replikować?** | Maszyny wirtualne platformy Azure między regionami platformy Azure<br/><br/>  Lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V oraz serwery fizyczne (z systemami Windows i Linux) do platformy Azure<br/><br/> Lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V oraz serwery fizyczne do programu ​Virtual Machine Manager (VMM).
 **Które regiony są obsługiwane na potrzeby usługi Site Recovery?** | [Obsługiwane regiony](https://azure.microsoft.com/regions/services/) |
-**Które systemy operacyjne są potrzebne dla zreplikowanych maszyn?** | [Wymagania dotyczące maszyny wirtualnej platformy Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[Wymagania dotyczące maszyny wirtualnej programu VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> W przypadku maszyn wirtualnych funkcji Hyper-V obsługiwane są wszystkie [systemy operacyjne gościa](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) obsługiwane przez platformę Azure i funkcję Hyper-V.<br/><br/> [Wymagania dotyczące serwera fizycznego](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Jakie serwery/hosty VMware są potrzebne?** | Maszyny wirtualne programu VMware mogą znajdować się na [obsługiwanych hostach vSphere/serwerach vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
-**Jakie obciążenia można replikować?** | Można replikować dowolne obciążenia uruchomione na obsługiwanej maszynie replikacji. Dodatkowo zespół usługi Site Recovery wykonał specyficzne dla aplikacji testowanie na potrzeby [wielu aplikacji](site-recovery-workload.md#workload-summary).
+**Które systemy operacyjne są potrzebne dla zreplikowanych maszyn?** | [Wymagania dotyczące maszyny wirtualnej platformy Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Wymagania dotyczące maszyny wirtualnej programu VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> W przypadku maszyn wirtualnych funkcji Hyper-V obsługiwane są wszystkie [systemy operacyjne gościa](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) obsługiwane przez platformę Azure i funkcję Hyper-V.<br/><br/> [Wymagania dotyczące serwera fizycznego](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Jakie serwery/hosty VMware są potrzebne?** | Maszyny wirtualne programu VMware mogą znajdować się na [obsługiwanych hostach vSphere/serwerach vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+
+**Jakie obciążenia można replikować?** Możesz replikować dowolne obciążenia uruchomione na obsługiwanej maszynie replikacji. Dodatkowo zespół usługi Site Recovery wykonał specyficzne dla aplikacji testowanie na potrzeby [wielu aplikacji](site-recovery-workload.md#workload-summary).
 
 
-## <a name="azure-portal-considerations"></a>Zagadnienia związane z witryną Azure Portal
-
-* Usługę Site Recovery można wdrożyć w witrynie [Azure Portal](https://portal.azure.com).
-* W klasycznym portalu Azure możliwe jest zarządzanie usługą Site Recovery przy użyciu klasycznego modelu zarządzania usługami.
-- Portalu klasycznego należy używać tylko do obsługi istniejących wdrożeń usługi Site Recovery. Nie można w nim tworzyć nowych magazynów.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [obsłudze obciążeń](site-recovery-workload.md)
-* Rozpocznij pracę z [replikacją maszyny wirtualnej platformy Azure między regionami](site-recovery-azure-to-azure.md), [replikacją VMware do platformy Azure](vmware-walkthrough-overview.md) lub [replikacją funkcji Hyper-V do platformy Azure](hyper-v-site-walkthrough-overview.md).
+* Dowiedz się więcej o [obsłudze obciążeń](site-recovery-workload.md).
+* Zapoznaj się z wprowadzeniem do [replikacji maszyn wirtualnych platformy Azure między regionami](azure-to-azure-quickstart.md). 

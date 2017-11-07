@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ad-access-reviews-preview"></a>Przeglądy dostępu w usłudze Azure AD (wersja zapoznawcza)
 
-Przeglądy dostępu pozwalają organizacjom efektywnie zarządzać członkostwem w grupach i dostępem do aplikacji przedsiębiorstwa. 
+Przeglądy dostępu w usłudze Azure Active Directory (Azure AD) pozwalają organizacjom efektywnie zarządzać członkostwem w grupach i dostępem do aplikacji przedsiębiorstwa. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Co można zrobić przy użyciu przeglądów dostępu?
    
-- Można przeprowadzić ponowną certyfikację dostępu gości za pomocą przeglądów ich dostępu do aplikacji i członkostw w grupach, korzystając z informacji, dzięki którym recenzenci mogą efektywnie decydować, czy goście powinni mieć przedłużony dostęp.
+- Przeprowadzając przeglądy dostępu, można ponownie certyfikować dostęp użytkowników-gości do aplikacji i ich członkostwo w grupach. Recenzenci mogą używać szczegółowych danych, aby efektywnie decydować, czy goście mają mieć przedłużony dostęp.
       
-- Przeprowadzając przeglądy dostępu, można zatwierdzać dostęp do aplikacji i członkostwo w grupach pracowników.
+- Przeprowadzając przeglądy dostępu, można ponownie certyfikować dostęp do aplikacji i członkostwo w grupach pracowników.
    
 - Kontrole z przeglądem dostępu można łączyć w programy odpowiednie dla danej organizacji, aby śledzić przeglądy dla aplikacji dotyczących zgodności lub aplikacji narażonych na ryzyko.
     

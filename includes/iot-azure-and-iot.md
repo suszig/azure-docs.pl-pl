@@ -1,19 +1,14 @@
 
-# <a name="azure-and-internet-of-things"></a>Platforma Azure i Internet rzeczy
+# <a name="azure-and-the-internet-of-things"></a>Platforma Azure i Internet rzeczy
 
-Witamy na platformie Microsoft Azure oraz w Internecie rzeczy (IoT). Ten artykuł przedstawia typowe cechy rozwiązania IoT, które można wdrożyć przy użyciu usług platformy Azure. Rozwiązania IoT wymagają bezpiecznej, dwukierunkowej komunikacji między dużą liczbą urządzeń a zapleczem rozwiązania. Zaplecze rozwiązania może korzystać z automatycznej analizy predykcyjnej w celu uzyskiwania wglądu w dane ze strumienia zdarzeń przesyłanego z urządzenia do chmury.
-
-Usługa [Azure IoT Hub][lnk-iot-hub] stanowi kluczowy element każdego rozwiązania IoT korzystającego z usług platformy Azure. IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i zapleczem rozwiązania. 
-
-[Pakiet IoT Azure][lnk-iot-suite] zapewnia pełne, kompleksowe wdrożenia tej architektury w określonych scenariuszach IoT. Na przykład:
-
-* Rozwiązanie do *monitorowania zdalnego* umożliwia monitorowanie stanu urządzeń, takich jak automaty do sprzedaży.
-* Rozwiązanie do *konserwacji predykcyjnej* pomaga przewidywać wymagania związane z konserwacją urządzeń, na przykład pomp w zdalnych przepompowniach, oraz unikać nieplanowanych przestojów.
-* Rozwiązanie *połączonej fabryki* ułatwia łączenie z urządzeniami przemysłowymi oraz ich monitorowanie.
+Witamy na platformie Microsoft Azure oraz w Internecie rzeczy (IoT). W tym artykule opisano typowe cechy rozwiązania IoT w chmurze. Rozwiązania IoT wymagają bezpiecznej, dwukierunkowej komunikacji między urządzeniami, których liczba może być liczona nawet w milionach, oraz zaplecza rozwiązania. Rozwiązanie może na przykład korzystać z automatycznej analizy predykcyjnej w celu uzyskiwania wglądu w dane ze strumienia zdarzeń przesyłanego z urządzenia do chmury.
 
 ## <a name="iot-solution-architecture"></a>Architektura rozwiązania IoT
 
-Poniższy schemat przedstawia typową architekturę rozwiązania IoT. Diagram nie obejmuje nazw żadnych konkretnych usług platformy Azure, ale zawiera opis kluczowych elementów ogólnej architektury rozwiązania IoT. W ramach tej architektury urządzenia IoT zbierają dane, które wysyłają do bramy chmury. Brama chmury udostępnia dane do przetwarzania przez inne usługi zaplecza. Zaplecze rozwiązania dostarcza dane do aplikacji branżowych lub osób pełniących rolę operatorów za pośrednictwem pulpitu nawigacyjnego lub raportów.
+Poniższy schemat przedstawia kluczowe elementy typowej architektury rozwiązania IoT. Diagram jest niezależny od szczegółów konkretnej implementacji, takich jak użyte usługi platformy Azure i systemy operacyjne urządzeń. W ramach tej architektury urządzenia IoT zbierają dane, które wysyłają do bramy chmury. Brama chmury udostępnia dane do przetwarzania przez inne usługi zaplecza. Te usługi zaplecza mogą dostarczyć dane do:
+
+* Innych aplikacji biznesowych.
+* Osób pełniących rolę operatorów za pośrednictwem pulpitu nawigacyjnego lub innego urządzenia do prezentacji.
 
 ![Architektura rozwiązania IoT][img-solution-architecture]
 
@@ -22,11 +17,11 @@ Poniższy schemat przedstawia typową architekturę rozwiązania IoT. Diagram ni
 
 ### <a name="device-connectivity"></a>Łączność urządzeń
 
-W ramach tego rozwiązania IoT urządzenia wysyłają dane telemetryczne, np. odczyty czujników z przepompowni, do punktu końcowego w chmurze w celu ich przechowywania i przetwarzania. W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może używać strumienia danych z czujnika do określenia, kiedy dana pompa wymaga konserwacji. Urządzenia mogą również odbierać komunikaty przesyłane z chmury do urządzenia oraz odpowiadać na nie, odczytując komunikaty z punktu końcowego w chmurze. W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może na przykład wysyłać komunikaty do innych pomp w przepompowni w celu zainicjowania zmiany trasy przepływów przed samym rozpoczęciem zaplanowanej konserwacji. Procedura ta pozwala inżynierom serwisu natychmiast rozpocząć rozwiązywanie problemów.
+W ramach architektury rozwiązania IoT urządzenia zwykle wysyłają dane telemetryczne do chmury w celu przechowywania i przetwarzania. Na przykład w scenariuszu konserwacji predykcyjnej zaplecze rozwiązania może używać strumienia danych z czujnika do określenia, kiedy dana pompa wymaga konserwacji. Urządzenia mogą również odbierać komunikaty przesyłane z chmury do urządzenia oraz odpowiadać na nie, odczytując komunikaty z punktu końcowego w chmurze. W tym samym przykładzie zaplecze rozwiązania może wysyłać komunikaty do innych pomp w przepompowni w celu zainicjowania zmiany trasy przepływów przed samym rozpoczęciem zaplanowanej konserwacji. Procedura ta zapewnia możliwość rozpoczęcia pracy od razu po przybyciu inżyniera serwisu.
 
-Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Urządzenia IoT charakteryzują się innymi cechami niż pozostałe rozwiązania klienckie, takie jak przeglądarki i aplikacje mobilne. Urządzenia IoT:
+Podłączanie urządzeń w sposób bezpieczny i niezawodny jest często największym wyzwaniem w rozwiązaniach IoT. Wynika to z tego, że urządzenia IoT charakteryzują się innymi cechami niż pozostałe rozwiązania klienckie, takie jak przeglądarki i aplikacje mobilne. W szczególności urządzenia IoT:
 
-* są często systemami osadzonymi bez osoby pełniącej rolę operatora;
+* są często systemami osadzonymi bez osoby pełniącej rolę operatora (w odróżnieniu od telefonu);
 * mogą być wdrażane w lokalizacjach zdalnych, gdzie dostęp fizyczny jest bardzo kosztowny;
 * mogą być dostępne tylko za pośrednictwem zaplecza rozwiązania. Nie istnieje inny sposób interakcji z urządzeniem;
 * mogą mieć ograniczone zasoby w zakresie zasilania i przetwarzania;
@@ -34,28 +29,36 @@ Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niez
 * mogą wymagać używania zastrzeżonych, niestandardowych lub branżowych protokołów aplikacji;
 * mogą być tworzone przy użyciu szerokiej gamy popularnych platform sprzętowych i programowych.
 
-Oprócz powyższych wymagań każde rozwiązanie IoT musi również zapewniać skalowalność, bezpieczeństwo i niezawodność. Ustalony zbiór wymogów dotyczących łączności jest trudny i czasochłonny we wdrażaniu przy użyciu tradycyjnych technologii, takich jak kontenery sieci Web i brokery obsługujące komunikaty. Usługa Azure IoT Hub i zestawy SDK urządzeń Azure IoT ułatwiają wdrażanie rozwiązań, które spełniają te wymagania.
+Oprócz powyższych ograniczeń każde rozwiązanie IoT musi być również skalowalne, bezpieczne i niezawodne.
 
-Urządzenie może komunikować się bezpośrednio z punktem końcowym bramy chmury. Jeśli urządzenie nie może użyć żadnych protokołów komunikacyjnych obsługiwanych przez bramę chmury, może nawiązać połączenie za pośrednictwem bramy pośredniej. Na przykład [brama protokołu IoT Azure][lnk-protocol-gateway] może wykonać translację protokołu, jeśli urządzenia nie mogą używać żadnych protokołów obsługiwanych przez usługę IoT Hub.
+W zależności od protokołu komunikacyjnego i dostępności sieci urządzenie może się komunikować z chmurą bezpośrednio albo przy użyciu bramy pośredniej. Architektury IoT często mają kombinację tych dwóch wzorców komunikacji.
 
 ### <a name="data-processing-and-analytics"></a>Przetwarzanie danych i analiza
 
-Większość operacji przetwarzania danych w chmurze jest realizowana na poziomie zaplecza rozwiązania IoT. Zaplecze rozwiązania IoT:
+W nowoczesnych rozwiązaniach IoT przetwarzanie danych może nastąpić w chmurze lub po stronie urządzenia. Przetwarzanie po stronie urządzenia jest określane jako *obliczenia brzegowe*. Wybór miejsca przetwarzania danych zależy od takich czynników, jak:
 
-* odbiera telemetrię z urządzeń we właściwej skali i określa sposób przetwarzania i przechowywania tych danych; 
-* umożliwia wysyłanie poleceń z chmury do konkretnych urządzeń;
-* zapewnia funkcje rejestracji, które pozwalają aprowizować urządzenia oraz kontrolować łączenie się urządzeń z infrastrukturą;
-* umożliwia śledzenie stanu urządzeń i monitorowanie ich działania.
+* Ograniczenia sieci. Jeśli przepustowość między urządzeniami i chmurą jest ograniczona, stanowi to zachętę do zwiększenia obliczeń brzegowych.
+* Czas odpowiedzi. Jeśli jest wymagane działanie urządzenia w czasie bliskim rzeczywistemu, lepszym rozwiązaniem może być przetworzenie odpowiedzi na samym urządzeniu. Na przykład ramię robota, które musi zostać zatrzymane w nagłym wypadku.
+* Środowisko prawne. Niektórych danych nie można wysłać do chmury.
 
-W scenariuszu konserwacji predykcyjnej zaplecze rozwiązania przechowuje historyczne dane telemetryczne. Zaplecze rozwiązania może użyć tych danych w celu zidentyfikowania wzorców, które wskazują na konieczność przeprowadzenia konserwacji danej pompy.
+Ogólnie rzecz biorąc przetwarzanie danych zarówno na brzegu, jak i w chmurze to kombinacja następujących możliwości:
 
-Rozwiązania IoT mogą obejmować automatyczne pętle sprzężenia zwrotnego. Na przykład moduł analityczny zaplecza rozwiązania może rozpoznać na podstawie telemetrii, że temperatura określonego urządzenia przekracza normalne poziomy działania. Następnie rozwiązanie może wysłać do urządzenia polecenie podjęcia akcji naprawczej.
+* odbierania telemetrii z urządzeń we właściwej skali i określania sposobu przetwarzania i przechowywania tych danych;
+* analizowania danych telemetrycznych w celu udostępnienia szczegółowych informacji, czy są one określane w czasie rzeczywistym, czy też po fakcie;
+* wysyłania poleceń z chmury lub urządzenia bramy do określonego urządzenia.
+
+Ponadto zaplecze chmury IoT powinno zapewniać:
+
+* Możliwości rejestracji urządzenia, które umożliwiają:
+    * Aprowizację urządzeń.
+    * Kontrolowanie tego, które urządzenia są uprawnione do łączenia się z Twoją infrastrukturą.
+* Zarządzanie urządzeniami w celu śledzenia stanu Twoich urządzeń i monitorowania ich działania.
+
+Na przykład w scenariuszu konserwacji predykcyjnej zaplecze chmury przechowuje historyczne dane telemetryczne. Rozwiązanie używa tych danych do identyfikowania potencjalnych nietypowych zachowań określonych pomp zanim spowodują one rzeczywisty problem. Za pomocą analizy danych może ono ustalić, że rozwiązanie prewencyjne polega na wysłaniu z powrotem do urządzenia polecenia podjęcia akcji naprawczej. Ten proces generuje pętlę automatycznego sprzężenia zwrotnego między urządzeniem i chmurą, która znacznie zwiększa wydajność rozwiązania.
 
 ### <a name="presentation-and-business-connectivity"></a>Prezentacja i łączność biznesowa
 
-Warstwa prezentacji i łączności biznesowej umożliwia użytkownikom końcowym interakcję z rozwiązaniem IoT i urządzeniami. Pozwala użytkownikom wyświetlać i analizować dane zbierane z urządzeń. Widoki te mogą mieć formę pulpitów nawigacyjnych lub raportów, które zawierają zarówno dane historyczne, jak i dane uzyskiwane niemal w czasie rzeczywistym. Na przykład operator może sprawdzić stan określonej przepompowni i wyświetlić wszystkie alerty wygenerowane przez system. Ta warstwa umożliwia także integrację zaplecza rozwiązania IoT z istniejącymi aplikacjami branżowymi w celu ich powiązania w ramach procesów biznesowych i przepływów pracy przedsiębiorstwa. Na przykład rozwiązanie do konserwacji predykcyjnej można zintegrować z systemem planowania. Gdy rozwiązanie wykryje, że jakaś pompa wymaga konserwacji, system planowania zarezerwuje wizytę serwisanta w przepompowni.
-
-![Pulpit nawigacyjny rozwiązania IoT][img-dashboard]
+Warstwa prezentacji i łączności biznesowej umożliwia użytkownikom końcowym interakcję z rozwiązaniem IoT i urządzeniami. Pozwala użytkownikom wyświetlać i analizować dane zbierane z urządzeń. Widoki te mogą mieć formę pulpitów nawigacyjnych i raportów analizy biznesowej, które zawierają zarówno dane historyczne, jak i dane uzyskiwane niemal w czasie rzeczywistym. Na przykład operator może sprawdzić stan określonej przepompowni i wyświetlić wszystkie alerty wygenerowane przez system. Ta warstwa umożliwia także integrację zaplecza rozwiązania IoT z istniejącymi aplikacjami branżowymi w celu ich powiązania w ramach procesów biznesowych i przepływów pracy przedsiębiorstwa. Na przykład rozwiązanie do konserwacji predykcyjnej można zintegrować z systemem planowania w celu zarezerwowania wizyty serwisanta w przepompowni, gdy zidentyfikuje ono pompę wymagającą konserwacji.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png

@@ -3,8 +3,8 @@ title: "Delegowanie domeny do usługi Azure DNS | Microsoft Docs"
 description: "Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 
@@ -30,11 +30,11 @@ Załóżmy na przykład, że masz zakupioną domenę „contoso.net” i tworzys
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
 1. Logowanie się do witryny Azure Portal
-1. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
+1. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę Tworzenie strefy DNS.
 
     ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
+1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
@@ -50,9 +50,9 @@ Załóżmy na przykład, że masz zakupioną domenę „contoso.net” i tworzys
 
 Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz najpierw znać nazwy serwerów nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
 
-1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku **Wszystkie zasoby** kliknij strefę DNS **contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do bramy aplikacji. 
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** kliknij strefę DNS **contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do bramy aplikacji. 
 
-1. W bloku Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
+1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -161,11 +161,11 @@ Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować 
 ### <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
 1. Logowanie się do witryny Azure Portal
-1. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
+1. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę Tworzenie strefy DNS.
 
     ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
+1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
@@ -179,9 +179,9 @@ Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować 
 
 ### <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
-1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku **Wszystkie zasoby** kliknij strefę DNS **partners.contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **partners.contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do strefy DNS.
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** kliknij strefę DNS **partners.contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **partners.contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do strefy DNS.
 
-1. W bloku Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
+1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawier
 
 1. W witrynie Azure Portal przejdź do strefy DNS **contoso.net**.
 1. Kliknij pozycję **+ Zestaw rekordów**.
-1. W bloku **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**:
+1. Na stronie **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
-1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contosorg** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
-1. W bloku **contosorg** kliknij przycisk **Usuń**.
+1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie Wszystkie zasoby kliknij grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contosorg** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
+1. Na stronie **contosorg** kliknij przycisk **Usuń**.
 1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Wpisz nazwę grupy zasobów *contosorg*, po czym kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki

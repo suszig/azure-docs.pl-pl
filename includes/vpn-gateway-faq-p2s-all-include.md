@@ -8,6 +8,7 @@ Obsługiwane są następujące systemy operacyjne klientów:
 * Windows 8.1 (32-bitowy i 64-bitowy)
 * Windows Server 2012 (tylko 64-bitowy)
 * Windows Server 2012 R2 (tylko 64-bitowy)
+* Windows Server 2016 (tylko 64-bitowy)
 * Windows 10
 * OSX 10.11 dla komputerów Mac (El Capitan)
 * macOS 10.12 dla komputerów Mac (Sierra)
