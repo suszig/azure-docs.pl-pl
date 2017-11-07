@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Powiąż istniejący certyfikat SSL niestandardowych do aplikacji sieci Web Azure
 
@@ -151,13 +151,13 @@ Jeśli używasz usług IIS lub _Certreq.exe_ do wygenerowania żądania certyfik
 
 Aby przekazać certyfikat SSL, kliknij przycisk **certyfikaty SSL** na lewym pasku nawigacyjnym aplikacji sieci web.
 
-Kliknij przycisk **Przekaż certyfikat**.
+Kliknij przycisk **Przekaż certyfikat**. 
 
 W **plik certyfikatu PFX**, wybierz plik w formacie PFX. W **hasło certyfikatu**, wpisz hasło, które utworzono podczas eksportowania pliku PFX.
 
 Kliknij pozycję **Przekaż**.
 
-![Przekazywanie certyfikatu](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Przekazywanie certyfikatu](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Po zakończeniu przekazywania certyfikatu usługi aplikacji był w **certyfikaty SSL** strony.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certyfikaty publiczne (opcjonalnie)
+Możesz przekazać [certyfikaty publiczne](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) do aplikacji sieci web. Certyfikaty publiczne można użyć z aplikacjami sieci Web usługi aplikacji lub środowiska usługi aplikacji (ASE). Jeśli potrzebujesz do przechowywania certyfikatu w magazynie LocalMachine certyfikatów, należy użyć aplikacji sieci web w środowisku usługi aplikacji. Aby uzyskać więcej informacji, zobacz [jak skonfigurować certyfikaty publiczne do aplikacji sieci Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Przekaż certyfikat publiczny](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

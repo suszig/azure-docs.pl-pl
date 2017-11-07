@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: 82721fe984ff7b3c7440b11d7526a9413b0770de
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure zasady?
 
@@ -55,7 +55,7 @@ Aby dowiedzieć się więcej na temat struktury definicje zasad, Szukaj w tym ar
 
 ## <a name="policy-assignment"></a>Przypisania zasad
 
-Przypisania zasad jest sformułowanie zasad przypisany została wykonana w określonym zakresie. Ten zakres może należeć do zakresu od grupy zarządzania do grupy zasobów. Przypisania zasad są dziedziczone przez wszystkie zasoby podrzędne. Tak Jeśli zasady są stosowane do grupy zasobów, jest stosowane do wszystkich zasobów w danej grupie zasobów. Termin *zakres* odwołuje się do wszystkich grup zasobów, subskrypcji lub grup zarządzania, które przypisano definicji zasad.
+Przypisania zasad jest sformułowanie zasad przypisany została wykonana w określonym zakresie. Ten zakres może należeć do zakresu od grupy zarządzania do grupy zasobów. Termin *zakres* odwołuje się do wszystkich grup zasobów, subskrypcji lub grup zarządzania, które przypisano definicji zasad. Przypisania zasad są dziedziczone przez wszystkie zasoby podrzędne. Tak Jeśli zasady są stosowane do grupy zasobów, jest stosowane do wszystkich zasobów w danej grupie zasobów. Jednak można wykluczyć subscope z przypisania zasad. Na przykład w zakresie subskrypcji można przypisać zasady, która uniemożliwia tworzenie zasobów sieciowych. Jednak możesz wykluczyć jednej grupy zasobów w ramach subskrypcji, która jest przeznaczona dla infrastruktury sieci. Można przyznać dostęp do tej grupy zasobów sieciowych, użytkownikom, którym ufasz z tworzeniem zasobów sieciowych.
 
 Aby uzyskać więcej informacji na definicji ustawień zasad i przypisań, zobacz [Utwórz przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku Azure](assign-policy-definition.md).
 

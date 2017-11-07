@@ -1,6 +1,6 @@
 ---
 title: "Wprowadzenie do zasad zabezpieczeń Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat zasad zabezpieczeń Centrum zabezpieczeń Azure i jego kluczowych możliwości."
+description: "Więcej informacji na temat zasad zabezpieczeń Centrum zabezpieczeń Azure i kluczowych możliwości."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 95ef2099cb16bcfd550ce2799428f1a16031f535
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="security-policies-overview"></a>Omówienie zasad zabezpieczeń
-Ten dokument zawiera omówienie zasad zabezpieczeń w Centrum zabezpieczeń.
+Ten artykuł zawiera omówienie zasad zabezpieczeń w Centrum zabezpieczeń.
 
 ## <a name="what-are-security-policies"></a>Czym są zasady zabezpieczeń?
-Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń oraz pomagają zapewnić zgodność z wymaganiami dotyczącymi zabezpieczeń określonymi przez firmę lub przepisy. W usłudze Security Center możesz zdefiniować zasady dla swoich subskrypcji platformy Azure, które mogą być dopasowane do typu obciążenia oraz poufności danych. Na przykład aplikacje używające danymi podlegającymi ochronie jak identyfikowalne dane osobowe mogą wymagać wyższego poziomu zabezpieczeń niż innych obciążeń. 
+Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń oraz pomagają zapewnić zgodność z wymaganiami dotyczącymi zabezpieczeń określonymi przez firmę lub przepisy. W Centrum zabezpieczeń Azure można zdefiniować zasady dla subskrypcji platformy Azure i dostosować je do danego typu obciążenia i wrażliwość danych. Na przykład aplikacje korzystające z danymi podlegającymi ochronie, takich jak dane osobowe, mogą wymagać wyższego poziomu zabezpieczeń niż innych obciążeń. 
 
 Zasady usługi Security Center zawierają następujące składniki:
 
-- Funkcji zbierania danych: agent inicjowania obsługi administracyjnej i [zbierania danych](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ustawienia.
-- Zasady zabezpieczeń: Określa, które kontrolki są monitorowane i zalecane przez Centrum zabezpieczeń (Edytuj [zasady zabezpieczeń](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) w Centrum zabezpieczeń, lub użyj [zasadami Azure](security-center-azure-policy.md), w podglądzie ograniczony, aby utworzyć nowy definicje, zdefiniować dodatkowe zasady i przypisanie zasad w grupach zarządzania).
-- Wiadomości e-mail z powiadomieniami: kontakty zabezpieczeń i [powiadomień e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) ustawienia.
-- Warstwy cenowej: wolnego lub standard [cennik wybór](https://docs.microsoft.com/azure/security-center/security-center-pricing), która określa zakres funkcji Centrum zabezpieczeń, które są dostępne dla zasobów w zakresie (można określić dla subskrypcji, grupy zasobów i obszarów roboczych). 
+- **Zbieranie danych**: Określa agenta inicjowania obsługi administracyjnej i [zbierania danych](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ustawienia.
+- **Zasady zabezpieczeń**: Określa, który kontroluje monitorów Centrum zabezpieczeń i zaleca. Można edytować [zasady zabezpieczeń](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) w Centrum zabezpieczeń. Można również użyć [zasadami Azure](security-center-azure-policy.md) (w wersji zapoznawczej ograniczone) do tworzenia nowych definicji, zdefiniuj dodatkowe zasady, a przypisanie zasad w grupach zarządzania.
+- **Wiadomości e-mail z powiadomieniami**: Określa kontaktów zabezpieczeń i [powiadomień e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) ustawienia.
+- **Warstwa cenowa**: definiuje wolnego lub standard [cennik wybór](https://docs.microsoft.com/azure/security-center/security-center-pricing). Wybranej warstwie określa funkcji Centrum zabezpieczeń, które są dostępne dla zasobów w zakresie. Można określić warstwy dla subskrypcji, grupy zasobów i obszarów roboczych. 
 
 
 ## <a name="who-can-edit-security-policies"></a>Kto może edytować zasady zabezpieczeń?
-Centrum zabezpieczeń używa opartej na rolach kontroli dostępu (RBAC), który zawiera wbudowane role, które można przypisać do użytkowników, grup i usług Azure. Gdy użytkownik otwiera usługę Security Center, widzi tylko informacje dotyczące zasobów, do których ma dostęp. Oznacza to, że użytkownik ma przypisaną rolę właściciela, współautora lub czytelnika subskrypcji albo grupy zasobów, do której należy zasób. Oprócz tych ról istnieją dwie określone role usługi Security Center:
+Centrum zabezpieczeń używa opartej na rolach kontroli dostępu (RBAC), który zawiera wbudowane role, które można przypisać do użytkowników, grup i usług Azure. Po otwarciu Centrum zabezpieczeń, zostanie wyświetlona tylko informacje związane z zasobami, które mają dostęp do. Co oznacza, że użytkownicy są przypisane roli *właściciela*, *współautora*, lub *czytnika* do zasobu należącego do grupy zasobów lub subskrypcji. Oprócz tych ról istnieją dwie określone role usługi Security Center:
 
-- Czytnik zabezpieczeń: użytkownika, który należy do tej roli jest możliwość wyświetlania praw do Centrum zabezpieczeń, który zawiera zalecenia, alertów, zasad i kondycji, ale nie będzie mogła wprowadzać zmiany.
-- Administrator zabezpieczeń: takie same jak czytnika zabezpieczeń, ale można także zaktualizować zasady zabezpieczeń odrzucić zalecenia i alerty.
+- **Czytnik zabezpieczeń**: ma widoku praw do Centrum zabezpieczeń, który zawiera zalecenia, alertów, zasad i kondycji, ale ich nie można wprowadzić zmian.
+- **Administrator zabezpieczeń**: mają te same prawa widoku jako *czytnika zabezpieczeń*, i może również zaktualizować zasady zabezpieczeń i odrzucić zalecenia i alerty.
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono informacje dotyczące zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
+W tym artykule przedstawiono informacje dotyczące zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
-* [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md) — informacje o sposobie konfigurowania zasad zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
-* [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md) — Dowiedz się, w jaki sposób zalecenia ułatwiają ochronę zasobów platformy Azure.
-* [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
-* [Reagowanie na alerty zabezpieczeń w Centrum zabezpieczeń Azure i zarządzanie nimi](security-center-managing-and-responding-alerts.md) — Dowiedz się, jak reagowania na alerty zabezpieczeń i zarządzania nimi.
+* [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md): informacje o sposobie konfigurowania zasad zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
+* [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md): Dowiedz się, w jaki sposób zalecenia Centrum zabezpieczeń ułatwiają ochronę zasobów platformy Azure.
+* [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md): informacje o sposobie monitorowania kondycji zasobów platformy Azure.
+* [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
-- [Bezpieczeństwo danych w Centrum zabezpieczeń Azure](security-center-data-security.md) — Dowiedz się, jak dane są zarządzane i w Centrum zabezpieczeń.
-* [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Uzyskaj najnowsze informacje zabezpieczeń platformy Azure i informacje.
+- [Bezpieczeństwo danych w Centrum zabezpieczeń Azure](security-center-data-security.md): Dowiedz się, jak zarządza i zabezpiecza dane w Centrum zabezpieczeń.
+* [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md): odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
+* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/): Pobierz najnowsze zabezpieczeń platformy Azure i informacje.
 
 

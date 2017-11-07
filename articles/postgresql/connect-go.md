@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 06/29/2017
-ms.openlocfilehash: 1a581752e3803e9c9aba826b23db14a76080b4ec
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.date: 11/03/2017
+ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Go
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) (golang). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym artykule założono, że wiesz już, jak programować za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
@@ -88,8 +88,8 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd** i wyświetl nazwę logowania administratora serwera. W razie potrzeby zresetuj hasło.
 
 ## <a name="build-and-run-go-code"></a>Kompilowanie i uruchamianie kodu języka Go 
-1. Do pisania kodu w języku Golang można użyć prostego edytora tekstów, takiego jak Notatnik w systemie Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) lub [Nano](https://www.nano-editor.org/) w systemie Ubuntu lub TextEdit w systemie macOS. Jeśli wolisz bardziej zaawansowane środowisko IDE, wypróbuj rozwiązanie [Gogland](https://www.jetbrains.com/go/) firmy Jetbrains, edytor [Visual Studio Code](https://code.visualstudio.com/) firmy Microsoft lub [Atom](https://atom.io/).
-2. Wklej kod języka Golang z poniższych sekcji do plików tekstowych i zapisz pliki w folderze projektu z rozszerzeniem pliku \*.go. Na przykład ścieżka w systemie Windows: `%USERPROFILE%\go\src\postgresqlgo\createtable.go`, ścieżka w systemie Linux: `~/go/src/postgresqlgo/createtable.go`.
+1. Do pisania kodu, Golang, można użyć edytora zwykłego tekstu, takiego jak Notatnik w systemie Microsoft Windows [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) lub [Nano](https://www.nano-editor.org/) Ubuntu lub TextEdit w macOS. Jeśli wolisz bardziej zaawansowane środowisko IDE, wypróbuj rozwiązanie [Gogland](https://www.jetbrains.com/go/) firmy Jetbrains, edytor [Visual Studio Code](https://code.visualstudio.com/) firmy Microsoft lub [Atom](https://atom.io/).
+2. Wklej kod Golang z następujących sekcji w plikach tekstowych i zapisać w folderze projektu z rozszerzeniem pliku \*.go, takich jak ścieżki systemu Windows `%USERPROFILE%\go\src\postgresqlgo\createtable.go` lub ścieżka systemu Linux `~/go/src/postgresqlgo/createtable.go`.
 3. Zlokalizuj zmienne `HOST`, `DATABASE`, `USER` i `PASSWORD` w kodzie i zastąp przykładowe wartości wybranymi samodzielnie wartościami.  
 4. Uruchom wiersz polecenia lub powłokę bash. Przejdź do folderu projektu. Na przykład w systemie Windows uruchom polecenie `cd %USERPROFILE%\go\src\postgresqlgo\`. W systemie Linux: `cd ~/go/src/postgresqlgo/`. Niektóre z wymienionych środowisk IDE oferują możliwości debugowania i uruchamiania bez konieczności używania poleceń powłoki.
 5. Uruchom kod, wpisując polecenie `go run createtable.go`, aby skompilować aplikację i uruchomić ją. 
@@ -166,7 +166,7 @@ Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą 
 
 Kod importuje pakiety trzy: [pakietu sql](https://golang.org/pkg/database/sql/), [pakietu pq](http://godoc.org/github.com/lib/pq) jako sterownik do komunikacji z serwerem PostgreSQL i [formatowaniu pakietu](https://golang.org/pkg/fmt/) reakcję wydruku i dane wyjściowe w wierszu polecenia.
 
-Kod wywołuje metodę [sql. Metody Open()](http://godoc.org/github.com/lib/pq#Open) nawiązać połączenia z bazą danych Azure w przypadku bazy danych PostgreSQL i sprawdzić połączenie przy użyciu metody [bazy danych. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Wybierz zapytanie jest uruchamiany przez wywołanie metody [bazy danych. Query()](https://golang.org/pkg/database/sql/#DB.Query), a wynikowy wiersze są przechowywane w zmiennej typu [wierszy](https://golang.org/pkg/database/sql/#Rows). Kod odczytuje wartości danych kolumny danych w bieżącym wierszu przy użyciu metody [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) i wykonuje operacje dla wierszy w pętli, używając iteratora [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) do momentu, gdy nie ma już kolejnych wierszy. Wartości kolumn w każdym wierszu są drukowane do konsoli. Zawsze metody checkError() niestandardowy jest używany do sprawdzania, jeśli wystąpił błąd i awaryjne, aby zakończyć, jeśli wystąpić błąd.
+Kod wywołuje metodę [sql. Metody Open()](http://godoc.org/github.com/lib/pq#Open) nawiązać połączenia z bazą danych Azure w przypadku bazy danych PostgreSQL i sprawdzić połączenie przy użyciu metody [bazy danych. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Wybierz zapytanie jest uruchamiany przez wywołanie metody [bazy danych. Query()](https://golang.org/pkg/database/sql/#DB.Query), a wynikowy wiersze są przechowywane w zmiennej typu [wierszy](https://golang.org/pkg/database/sql/#Rows). Kod odczytuje wartości danych kolumny danych w bieżącym wierszu przy użyciu metody [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) i wykonuje operacje dla wierszy w pętli, używając iteratora [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) do momentu, gdy nie ma już kolejnych wierszy. Wartości kolumn w każdym wierszu są drukowane do konsoli. Zawsze metody checkError() niestandardowych służy do sprawdzania, jeśli wystąpił błąd i awaryjne, aby zakończyć działanie po wystąpieniu błędu.
 
 Zastąp parametry `HOST`, `DATABASE`, `USER` i `PASSWORD` własnymi wartościami. 
 
@@ -286,7 +286,7 @@ Użyj poniższego kodu, aby nawiązać połączenie i usunąć dane za pomocą i
 
 Kod importuje trzy pakiety: [pakiet sql](https://golang.org/pkg/database/sql/), [pakiet pq](http://godoc.org/github.com/lib/pq) jako sterownik do komunikacji z serwerem Postgres i [pakiet fmt](https://golang.org/pkg/fmt/) dla drukowanych danych wejściowych i wyjściowych w wierszu polecenia.
 
-Kod wywołuje metodę [sql. Metody Open()](http://godoc.org/github.com/lib/pq#Open) nawiązać połączenia z bazą danych Azure w przypadku bazy danych PostgreSQL i sprawdzić połączenie przy użyciu metody [bazy danych. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Kod wywołuje [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) metodę do uruchomienia instrukcji SQL, która usuwa wiersz z tabeli. Metody niestandardowe checkError() służy do Sprawdź, czy wystąpił błąd i alarm, aby zakończyć, jeśli błąd nie występuje.
+Kod wywołuje metodę [sql. Metody Open()](http://godoc.org/github.com/lib/pq#Open) nawiązać połączenia z bazą danych Azure w przypadku bazy danych PostgreSQL i sprawdzić połączenie przy użyciu metody [bazy danych. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Kod wywołuje [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) metodę do uruchomienia instrukcji SQL, która usuwa wiersz z tabeli. Metody niestandardowe checkError() służy do sprawdzania, jeśli wystąpił błąd i awaryjne, aby zakończyć działanie po wystąpieniu błędu.
 
 Zastąp parametry `HOST`, `DATABASE`, `USER` i `PASSWORD` własnymi wartościami. 
 ```go

@@ -6,6 +6,7 @@
 ## [Tworzenie aplikacji .NET](service-fabric-quickstart-dotnet.md)
 ## [Wdrażanie aplikacji kontenera systemu Linux](service-fabric-quickstart-containers-linux.md)
 ## [Wdrażanie aplikacji kontenera systemu Windows](service-fabric-quickstart-containers.md)
+## [Wdrażanie aplikacji Java](service-fabric-quickstart-java.md)
 
 # Samouczki
 ## Wdrażanie aplikacji .NET
@@ -28,7 +29,9 @@
 ### 1 — Tworzenie klastra na platformie Azure
 #### [1a — Tworzenie klastra z systemem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b — Tworzenie klastra z systemem Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2 — Wdrażanie usług API Management i Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2 — Skalowanie klastra](service-fabric-tutorial-scale-cluster.md)
+### [3 — Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Przykłady
 ## [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=service-fabric)

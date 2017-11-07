@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Można skonfigurować tokenu okresy istnienia w usłudze Azure Active Directory (publicznej wersji zapoznawczej)
 Można określić okres istnienia token wystawiony przez usługę Azure Active Directory (Azure AD). Można ustawić tokenu okresy istnienia dla wszystkich aplikacji w organizacji, dla wielodostępnych aplikacji (wielu organizacji) lub nazwy głównej usługi określonego w organizacji.
@@ -58,9 +58,9 @@ Klienci publiczny nie może bezpiecznie przechowywać hasła klienta (klucz tajn
 Identyfikator tokeny są przekazywane do witryn sieci Web i klientach natywnych. Tokeny Identyfikatora zawierają informacje profilu użytkownika. Identyfikator tokenu jest powiązany z kombinacją określonego użytkownika i klienta. Identyfikator tokeny są uznawane za prawidłowe aż do ich wygaśnięcia. Zwykle, aplikacji sieci web odpowiada użytkownik okres istnienia sesji w aplikacji na okres istnienia tokenu identyfikator wydanych dla użytkownika. Można dostosować okres istnienia tokenu identyfikator, aby kontrolować częstotliwość aplikacji sieci web wygaśnie sesja aplikacji i jak często wymaga użytkownikowi można ponownie uwierzytelnić z usługą Azure AD (dyskretnie lub interaktywnego).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokeny sesji rejestracji jednokrotnej
-Gdy użytkownik jest uwierzytelniany w usłudze Azure AD i wybiera **wylogowuj mnie** pole wyboru sesji rejestracji jednokrotnej (SSO) jest nawiązywane z przeglądarki użytkownika i Azure AD. Token rejestracji Jednokrotnej w postaci pliku cookie, reprezentuje tej sesji. Należy pamiętać, że tokenu sesji logowania jednokrotnego nie jest powiązany z aplikacją określonego zasobu/klienta. Mogą być odwoływane tokeny sesji logowania jednokrotnego, a ich ważność jest sprawdzana za każdym razem, gdy są one używane.
+Gdy użytkownik jest uwierzytelniany w usłudze Azure AD, sesji rejestracji jednokrotnej (SSO) jest nawiązywane z przeglądarki użytkownika i Azure AD. Token rejestracji Jednokrotnej w postaci pliku cookie, reprezentuje tej sesji. Należy pamiętać, że tokenu sesji logowania jednokrotnego nie jest powiązany z aplikacją określonego zasobu/klienta. Mogą być odwoływane tokeny sesji logowania jednokrotnego, a ich ważność jest sprawdzana za każdym razem, gdy są one używane.
 
-Dwa rodzaje tokeny sesji rejestracji Jednokrotnej używa usługi Azure AD: stałe i nietrwałe. Tokeny trwały sesji są przechowywane jako trwałe pliki cookie przez przeglądarkę. Tokeny nietrwałych sesji są przechowywane jako pliki cookie z sesji. (Pliki cookie z sesji zostaną zniszczone zamknięcie przeglądarki).
+Dwa rodzaje tokeny sesji rejestracji Jednokrotnej używa usługi Azure AD: stałe i nietrwałe. Tokeny trwały sesji są przechowywane jako trwałe pliki cookie przez przeglądarkę. Tokeny nietrwałych sesji są przechowywane jako pliki cookie z sesji. (Pliki cookie z sesji zostaną zniszczone zamknięcie przeglądarki). Zazwyczaj token nietrwałych sesji jest przechowywany. Jednak gdy użytkownik wybierze **wylogowuj mnie** pole wyboru podczas uwierzytelniania tokenów trwały sesji jest przechowywany.
 
 Tokeny nietrwałych sesji ma 24-godzinny okres istnienia. Trwałe tokeny będą miały okres istnienia 180 dni. Zawsze, gdy tokenu sesji rejestracji Jednokrotnej jest używana w okresie ważności okres ważności jest dłuższy innego 24 godzin lub 180 dni, w zależności od typu tokenu. Jeśli tokenu sesji logowania jednokrotnego nie jest używana w okresie ważności, jest on uznawany za wygasła i została już zaakceptowana.
 

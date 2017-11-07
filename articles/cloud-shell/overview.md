@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Omówienie powłoki chmury Azure (wersja zapoznawcza)
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
 Udostępnia było wybrać środowisko powłoki, który najlepiej odpowiada sposobu pracy.
 Użytkownicy systemu Linux mogą wybrać korzystanie z powłoki Bash, zaś użytkownicy systemu Windows mogą wybrać środowisko PowerShell.
+
+Uruchamianie za pośrednictwem portalu Azure z ikony powłoki chmury:
+
+![Uruchomienie portalu](media/overview/portal-launch-icon.png)
+
+Wykorzystanie Bash lub programu PowerShell z listy rozwijanej selektora powłoki:
 
 ![Bash w powłoce chmury](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ Powłoki chmury jest wstępnie zainstalowane z popularnych narzędzi wiersza pol
 Wyświetl listę narzędzi Pełny dla [Bash środowisko](features.md#tools) i [środowiska PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatyczne uwierzytelnianie
-W każdej sesji dla natychmiastowy dostęp do zasobów przy użyciu poleceń cmdlet programu PowerShell i Azure 2.0 interfejsu wiersza polecenia powłoki chmury bezpiecznie uwierzytelnia automatycznie.
+Chmura powłoki bezpiecznie uwierzytelnia automatycznie w każdej sesji dla natychmiastowy dostęp do zasobów za pomocą poleceń cmdlet Azure CLI w wersji 2.0 lub Azure PowerShell.
 
 ### <a name="connect-your-azure-file-storage"></a>Łączenie z magazynem plików Azure
-Chmury maszyn powłoki są tymczasowe i w związku z tym wymagają udział plików na platformę Azure można zainstalować jako `clouddrive` do utrwalenia $Home katalogu.
+Chmury maszyn powłoki są tymczasowe i w związku z tym wymagają udział plików Azure można zainstalować jako `clouddrive` do utrwalenia $Home katalogu.
 Na pierwszego uruchomienia powłoki chmury monituje o Utwórz zasób grupy, konto magazynu i udziału plików w Twoim imieniu. To jest jednorazowe kroku i być automatycznie dołączane do wszystkich sesji. Jeden udział pliku można zamapować i będzie używana przez Bash i programu PowerShell w chmurze powłoki.
 
 #### <a name="create-new-storage"></a>Tworzenie nowego magazynu
 ![](media/overview/basic-storage.png)
 
-Magazyn lokalnie nadmiarowy (LRS) konta i udziału plików platformy Azure można tworzyć w Twoim imieniu. Udziału plików platformy Azure będzie używany dla środowisk zarówno Bash, jak i programu PowerShell, jeśli chcesz korzystać z obu. Koszty przechowywania regularne mają zastosowanie.
+Magazyn lokalnie nadmiarowy (LRS) konta i udział plików Azure można tworzyć w Twoim imieniu. Udział plików Azure będzie używany dla środowisk zarówno Bash, jak i programu PowerShell, jeśli chcesz korzystać z obu. Koszty przechowywania regularne mają zastosowanie.
 
 Trzy zasoby zostaną utworzone w Twoim imieniu:
 1. Grupa zasobów o nazwie:`cloud-shell-storage-<region>`
@@ -90,7 +96,7 @@ Dowiedz się więcej o funkcjach [Bash w chmurze powłoki](features.md) i [progr
 Wypróbuj te przykłady w poradniki Szybki Start dla [Bash w chmurze powłoki](quickstart.md) i [programu PowerShell w chmurze powłoki](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Cennik
-Komputer, na którym powłoki chmury jest wolne, wymaga wstępnie posiadania udziału zainstalowanego pliku Azure. Koszty przechowywania regularne mają zastosowanie.
+Komputer, na którym powłoki chmury jest wolne, wymaga wstępnie posiadania zainstalowany udział plików Azure. Koszty przechowywania regularne mają zastosowanie.
 
 ## <a name="supported-browsers"></a>Obsługiwane przeglądarki
 Powłoka w chmurze jest zalecane Chrome, Edge i przeglądarki Safari.

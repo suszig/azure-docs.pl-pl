@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -289,6 +289,8 @@ Po wykonaniu kwestionariusz, musisz podać dodatkowe informacje, takie jak infor
 W procesie publikowania możesz określić uniform resource identifier (URI) prowadzących do każdego z dysków VHD zostały utworzone dla Twojego jednostki SKU. Dostęp do tych wirtualnych dysków twardych jest potrzebny firmie Microsoft w procesie certyfikacji. W związku z tym należy utworzyć identyfikator URI sygnatury dostępu współdzielonego dla każdego wirtualnego dysku twardego. Jest to identyfikator URI, który powinny być wprowadzane w **obrazów** kartę w portalu publikowania.
 
 Sygnatury dostępu współdzielonego, utworzenia identyfikatora URI należy stosować następujące wymagania:
+
+Uwaga: poniższe instrukcje dotyczą tylko niezarządzane dyski, które są tylko rodzaj obsługiwane.
 
 * Podczas generowania sygnatury dostępu współdzielonego identyfikatorów URI dla dyski VHD, listy i Odczyt uprawnienia są wystarczające. Nie należy przydzielać uprawnień do zapisywania ani usuwania.
 * Czas trwania dla dostępu powinien mieć co najmniej trzech (3) tygodni od, podczas tworzenia sygnatury dostępu współdzielonego identyfikatora URI.

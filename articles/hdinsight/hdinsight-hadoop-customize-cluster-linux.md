@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Dostosowywanie klastrów usługi HDInsight opartej na systemie Linux przy użyciu akcji skryptu
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Dostosowywanie klastrów usługi HDInsight opartej na systemie Linux za pomocą akcji skryptu
 
 HDInsight zapewnia opcję konfiguracji o nazwie **akcji skryptu** który wywołuje niestandardowe skrypty umożliwiające dostosowanie klastra. Skrypty te służą do instalowania dodatkowych składników i zmienić ustawienia konfiguracji. Akcje skryptu można podczas lub po utworzeniu klastra.
 
@@ -55,7 +55,7 @@ Więcej informacji o zarządzaniu dostępem można znaleźć w następujących d
 
 ## <a name="understanding-script-actions"></a>Opis akcji skryptu
 
-Akcja skryptu jest po prostu Podaj identyfikator URI do skryptu Bash i parametry. Skrypt jest uruchamiany na węzłach w klastrze usługi HDInsight. Poniżej przedstawiono cechy i funkcje akcji skryptu.
+Akcji skryptu jest skrypt Bash, podaj identyfikator URI, aby i parametry. Skrypt jest uruchamiany na węzłach w klastrze usługi HDInsight. Poniżej przedstawiono cechy i funkcje akcji skryptu.
 
 * Muszą być przechowywane na identyfikator URI, który jest dostępny z klastra usługi HDInsight. Lokalizacje magazynu możliwe są następujące:
 
@@ -171,11 +171,11 @@ Usługa HDInsight zapewnia skryptów do zainstalowania następujących składnik
 | **Wstępne ładowanie bibliotek technologii Hive** |https://hdiconfigactions.blob.Core.Windows.NET/linuxsetupcustomhivelibsv01/Setup-customhivelibs-v01.sh. Zobacz [dodać Hive bibliotek w klastrach HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 | **Instalowanie i aktualizowanie środowiska Mono** | https://hdiconfigactions.blob.Core.Windows.NET/Install-mono/Install-mono.bash. Zobacz [instalacji lub aktualizacji Mono w usłudze HDInsight](hdinsight-hadoop-install-mono.md). |
 
-## <a name="use-a-script-action-during-cluster-creation"></a>Użyć akcji skryptu podczas tworzenia klastra
+## <a name="use-a-script-action-during-cluster-creation"></a>Za pomocą akcji skryptu, podczas tworzenia klastra
 
 Ta sekcja zawiera przykłady na różne sposoby, można użyć akcji skryptu, podczas tworzenia klastra usługi HDInsight.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Użyć akcji skryptu podczas tworzenia klastra w portalu Azure
+### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Za pomocą akcji skryptu, podczas tworzenia klastra w portalu Azure
 
 1. Rozpocznij tworzenie klastra, zgodnie z opisem w [klastrów utworzyć Hadoop w HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Zatrzymać po osiągnięciu __klastra Podsumowanie__ sekcji.
 
@@ -231,9 +231,9 @@ Aby uzyskać informacje na temat sposobu wdrażania szablonu można znaleźć w 
 
 * [Wdrażanie zasobów przy użyciu szablonów i wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
-### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Użyć akcji skryptu podczas tworzenia klastra z programu Azure PowerShell
+### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Za pomocą akcji skryptu, podczas tworzenia klastra z programu Azure PowerShell
 
-W tej sekcji użyjesz [AzureRmHDInsightScriptAction Dodaj](https://msdn.microsoft.com/library/mt603527.aspx) polecenia cmdlet do wywołania skryptów przez dostosowywanie klastra za pomocą akcji skryptu. Przed kontynuowaniem upewnij się, zainstalowaniu i skonfigurowaniu programu Azure PowerShell. Aby uzyskać informacji na temat konfigurowania stacji roboczej do uruchamiania poleceń cmdlet programu PowerShell w usłudze HDInsight, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+W tej sekcji użyjesz [AzureRmHDInsightScriptAction Dodaj](https://msdn.microsoft.com/library/mt603527.aspx) polecenia cmdlet do wywołania, skrypty, aby dostosować klastra. Przed kontynuowaniem upewnij się, zainstalowaniu i skonfigurowaniu programu Azure PowerShell. Aby uzyskać informacji na temat konfigurowania stacji roboczej do uruchamiania poleceń cmdlet programu PowerShell w usłudze HDInsight, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
 Poniższy skrypt pokazuje, jak zastosować akcję skryptu, podczas tworzenia klastra przy użyciu programu PowerShell:
 
@@ -241,7 +241,7 @@ Poniższy skrypt pokazuje, jak zastosować akcję skryptu, podczas tworzenia kla
 
 Może upłynąć kilka minut przed utworzeniem klastra.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Użyć akcji skryptu podczas tworzenia klastra z zestawu SDK .NET usługi HDInsight
+### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Za pomocą akcji skryptu, podczas tworzenia klastra z zestawu SDK .NET usługi HDInsight
 
 Zestaw .NET SDK usługi HDInsight zapewnia bibliotek klienckich, które ułatwia do pracy z usługą HDInsight z poziomu aplikacji .NET. Przykładowy kod [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu zestawu .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
@@ -260,7 +260,7 @@ W tej sekcji informacje o sposobie dotyczą akcji skryptu uruchomionego klastra.
    > [!NOTE]
    > Możesz też wybrać **wszystkie ustawienia** , a następnie wybierz **akcji skryptu** w sekcji Ustawienia.
 
-3. W górnej części sekcji akcji skryptu, wybierz **przesyłania nowych**.
+3. W górnej części sekcji działania skryptu, wybierz **przesyłania nowych**.
 
     ![Skrypt do klastra uruchomione](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -335,7 +335,7 @@ Przed kontynuowaniem upewnij się, zostanie zainstalowany i skonfigurowany inter
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>Dotyczą akcji skryptu uruchomionego klastra przy użyciu interfejsu API REST
 
-Zobacz [uruchomienia akcji skryptu w klastrze uruchomione](https://msdn.microsoft.com/library/azure/mt668441.aspx).
+Zobacz [wykonanie akcji skryptu w klastrze uruchomione](https://msdn.microsoft.com/library/azure/mt668441.aspx).
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Zastosuj akcji skryptu do klastra uruchomione z zestawu .NET SDK usługi HDInsight
 
@@ -354,7 +354,7 @@ Na przykład zastosować skryptów do klastra przy użyciu zestawu .NET SDK, zob
    > [!NOTE]
    > Możesz też wybrać **wszystkie ustawienia** , a następnie wybierz **akcji skryptu** w sekcji Ustawienia.
 
-4. Historia skryptów dla tego klastra jest wyświetlana w sekcji akcji skryptu. Informacje te obejmują listę utrwalonych skryptów. Na poniższym zrzucie ekranu widać, że Solr skryptu zostało uruchomione w tym klastrze. Zrzut ekranu nie są wyświetlane wszystkie skrypty utrwalonych.
+4. Historia skryptów dla tego klastra jest wyświetlana w sekcji działania skryptu. Informacje te obejmują listę utrwalonych skryptów. Na poniższym zrzucie ekranu widać, że Solr skryptu zostało uruchomione w tym klastrze. Zrzut ekranu nie są wyświetlane wszystkie skrypty utrwalonych.
 
     ![Sekcji działania skryptu](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
@@ -362,7 +362,7 @@ Na przykład zastosować skryptów do klastra przy użyciu zestawu .NET SDK, zob
 
     ![Właściwości działania skryptu](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Można również użyć **...**  po prawej stronie wpisy w sekcji akcji skryptu do wykonania akcji.
+6. Można również użyć **...**  po prawej stronie wpisy w sekcji działania skryptu do wykonania akcji.
 
     ![Skrypt akcje... użycia](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -447,7 +447,7 @@ Interfejs użytkownika sieci web Ambari służy do wyświetlania informacji zare
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Dzienniki dostępu z domyślnego konta magazynu
 
-Jeśli utworzenie klastra nie powiodło się z powodu błędu akcji skryptu, dzienniki są dostępne z konta magazynu klastra.
+W przypadku tworzenia klastra zakończy się niepowodzeniem z powodu błędu skryptu, dzienniki będą przechowywane na koncie magazynu klastra.
 
 * Dzienniki magazynu są dostępne pod adresem `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -503,7 +503,7 @@ Aby uzyskać informacje na łączenie się z klastrem przy użyciu protokołu SS
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Historia nie wyświetla skrypty używane podczas tworzenia klastra
 
-Jeśli klaster został utworzony przed 15 marca 2016 r nie miało wpis w historii akcji skryptu. Jeśli rozmiar klastra po 15 marca 2016 r skrypty przy użyciu podczas tworzenia klastra są wyświetlane w historii jak są one stosowane do nowych węzłów w klastrze podczas operacji zmiany rozmiaru.
+Jeśli klaster został utworzony przed 15 marca 2016 r nie miało wpis w historii akcji skryptu. Zmiana rozmiaru klastra powoduje, że skrypty, które mają być widoczne w historii akcji skryptu.
 
 Istnieją jednak dwa wyjątki:
 

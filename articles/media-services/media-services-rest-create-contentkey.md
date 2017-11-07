@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Tworzenie kluczy zawartości z REST
 > [!div class="op_single_selector"]
@@ -47,23 +47,23 @@ Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, kt�
 4. Utwórz wartość sumy kontrolnej (oparte na algorytm klucza sumy kontrolnej PlayReady AES) obliczane przy użyciu klucza identyfikator i klucz zawartości. Aby uzyskać więcej informacji, zobacz sekcję "Algorytm sumy kontrolnej kluczy AES PlayReady" dokumentu PlayReady nagłówka obiektu znajdującego się [tutaj](http://www.microsoft.com/playready/documents/).
    
    Poniżej przedstawiono przykład .NET, który oblicza sumę kontrolną, używając identyfikatora GUID części klucza identyfikator i klucz czyszczenie zawartości.
-
-         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
+   
+        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-
-            byte[] array = null;
-            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-            {
-                aesCryptoServiceProvider.Mode = CipherMode.ECB;
-                aesCryptoServiceProvider.Key = contentKey;
-                aesCryptoServiceProvider.Padding = PaddingMode.None;
-                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-                array = new byte[16];
-                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-            }
-            byte[] array2 = new byte[8];
-            Array.Copy(array, array2, 8);
-            return Convert.ToBase64String(array2);
+ 
+             byte[] array = null;
+             using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+             {
+                 aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                 aesCryptoServiceProvider.Key = contentKey;
+                 aesCryptoServiceProvider.Padding = PaddingMode.None;
+                 ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                 array = new byte[16];
+                 cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+             }
+             byte[] array2 = new byte[8];
+             Array.Copy(array, array2, 8);
+             return Convert.ToBase64String(array2);
          }
 5. Utwórz klucz zawartości z **EncryptedContentKey** (konwertowana na ciąg kodowany w formacie base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
 6. Skojarz **ContentKey** jednostki o Twojej **zasobów** jednostki za pomocą operacji $links.

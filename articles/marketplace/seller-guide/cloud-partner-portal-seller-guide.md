@@ -1,30 +1,35 @@
 ---
 title: "Przewodnik sprzedawcy w usłudze Azure Marketplace | Dokumentacja firmy Microsoft"
-description: "Ten przewodnik jest przeznaczony dla użytkowników biznesowych i menedżerów produktu w niezależnym dostawcom oprogramowania (ISV) zainteresowanych sprzedaży obrazów maszyny wirtualnej Azure certyfikowane dla informatyków i deweloperów."
+description: "Ten przewodnik jest przeznaczony dla użytkowników biznesowych i menedżerów produktu w niezależnym dostawcom oprogramowania (ISV) zainteresowanych sprzedaży ich certyfikowane Azure obrazy maszyny wirtualnej i zarządzane aplikacje dla informatyków i deweloperów."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Podręcznik sprzedawcy w witrynie Azure Marketplace
 
-Witamy w podręczniku sprzedawcy portalu Azure Marketplace. Ten przewodnik jest przeznaczony dla użytkowników biznesowych i menedżerów produktu w niezależnym dostawcom oprogramowania (ISV) zainteresowanych sprzedaży obrazów maszyny wirtualnej Azure certyfikowane dla informatyków i deweloperów. Z klientów platformy Azure na całym świecie [Marketplace](https://azuremarketplace.microsoft.com/) zapewniają dużą reach i zagrożeń produktów.
-
+Witamy w podręczniku sprzedawcy portalu Azure Marketplace. Ten przewodnik jest przeznaczony dla użytkowników biznesowych i menedżerów produktu w niezależnym dostawcom oprogramowania (ISV) zainteresowanych sprzedaży ich certyfikowane Azure obrazy maszyny wirtualnej i zarządzane aplikacje dla informatyków i deweloperów. Z klientów platformy Azure na całym świecie [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/) zapewniają dużą reach i zagrożeń produktów.
 
 > [!NOTE]
-> Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produkty użytkownikom biznesowym, można zapoznać się z opcji, aby wyświetlić je w [AppSource](https://appsource.microsoft.com).
+> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/en-us/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produktów _informatykom i deweloperom_, mogą dotrzeć do saas-on-amp@microsoft.com Aby uzyskać więcej informacji na temat opcji.
+
+> [!NOTE]
+> Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produktów _użytkownicy biznesowi_, można zapoznać się z opcji, aby wyświetlić je w [AppSource](https://appsource.microsoft.com).
+
 
 Na koniec tego przewodnika będzie wiadomo, gdzie można znaleźć bardziej szczegółowe informacje na następujące tematy:
 
@@ -43,9 +48,9 @@ Zacznijmy od początku.
 
 ## <a name="whats-the-azure-marketplace"></a>Co to jest Azure Marketplace?
 
-W portalu Azure Marketplace jest online marketplace aplikacji i usług, na którym niezależnym dostawcom oprogramowania — od uruchomienia dla przedsiębiorstw — oferowanie ich klientom rozwiązań platformy Azure na świecie. Za pośrednictwem portalu Marketplace Azure wydawcy dystrybucji i sprzedawania ich obrazów maszyn wirtualnych innych pracowników, którzy chcą szybkie opracowywanie aplikacji opartej na chmurze i rozwiązań mobilnych w usłudze Azure. Witryny Marketplace obsługuje szeroką gamę ofert — od aplikacji analizy danych end-to-end z przetwarzania danych, Magazyn danych i warstwy analizy do aplikacji warstwowych handlu elektronicznego (danych, usługi i Internetu).
+W portalu Azure Marketplace jest online marketplace aplikacji i usług, na którym niezależnym dostawcom oprogramowania — od uruchomienia dla przedsiębiorstw — oferowanie ich klientom rozwiązań platformy Azure na świecie. Za pośrednictwem portalu Marketplace rozpowszechniać i sprzedawania ich obrazy maszyny wirtualnej Azure wydawców, zarządzane aplikacje i aplikacji SaaS innych pracowników, którzy chcą szybkie opracowywanie oparte na chmurze do aplikacji i rozwiązań mobilnych w usłudze Azure. Azure Marketplace obsługuje szeroką gamę ofert — od aplikacji analizy danych end-to-end z przetwarzania danych, Magazyn danych i warstwy analizy do aplikacji warstwowych handlu elektronicznego (danych, usługi i Internetu).
 
-Chmury wiele wyzwań stojących przed klientami podczas wyszukiwania rozwiązań do swoich potrzeb. Witryny Marketplace pozwala rozwiązać te problemy i połączenia klientów z innowacyjnych rozwiązań niezależnego dostawcy oprogramowania, jak wyjaśniono w poniższej tabeli:
+Chmury wiele wyzwań stojących przed klientami podczas wyszukiwania rozwiązań do swoich potrzeb. Azure Marketplace pozwala rozwiązać te problemy i połączenia klientów z innowacyjnych rozwiązań niezależnego dostawcy oprogramowania, jak wyjaśniono w poniższej tabeli:
 
 | Potrzeba klienta | Azure Marketplace rozwiązanie |
 | --- | --- |
@@ -54,14 +59,14 @@ Chmury wiele wyzwań stojących przed klientami podczas wyszukiwania rozwiązań
 | Wymaga mechanizm wdrażania skalowalnej dla usług i aplikacji innych firm | Umożliwia tworzenie i konfiguracja skalowalnych wdrożeń dla usług i aplikacji innych firm |
 | Wymaga nowych aplikacji i usług integracji i pracować z istniejącymi rozwiązaniami | Łatwo zintegrować z istniejącymi rozwiązaniami na platformie Azure usługi i aplikacje innych producentów |
 
-Witryny Marketplace wprowadzono jakości, wybór i siły ekosystemem partnerów Azure do klientów globalnych. Najważniejsze korzyści to:
+Azure Marketplace wprowadzono jakości, wybór i siły ekosystemem partnerów Azure do klientów globalnych. Najważniejsze korzyści to:
 
 - Ujednolicone lokalizacja bazujących na platformie Azure ofert od firmy Microsoft i partnerów.
 - Więcej niż 5000 oferty.
 - Środowisko zintegrowaną platformę.
 - Prostsze konfiguracji, wdrażania i zarządzania.
 
-## <a name="is-the-marketplace-right-for-my-business"></a>Jest prawo Marketplace firmową?
+## <a name="is-azure-marketplace-right-for-my-business"></a>To jest Azure Marketplace prawa do firmy?
 
 Już może zastanawiasz, jeśli w portalu Azure Marketplace jest prawo rozwiązaniem dla Twojej firmy. I jeśli tak jest, co będzie można uzyskać od niego? Witryny Marketplace tworzy nowe możliwości sprzedaży, można:
 
@@ -74,23 +79,32 @@ Już może zastanawiasz, jeśli w portalu Azure Marketplace jest prawo rozwiąza
 
 Klienci Marketplace są różne. Ponadto platforma Azure ma jedną z podstaw klienta najszybciej rozwijających wszystkich dostawców chmury. Możesz uzyskać dostępu do ZAWODOWYM informatykom i deweloperom pracy dla firm od nowych dla przedsiębiorstw, w branży, a w publicznego i prywatnym.
 
-## <a name="how-does-the-marketplace-work"></a>Jak działa witryny Marketplace
+## <a name="how-does-marketplace-work"></a>Jak działa Marketplace?
 
-&#39; s dość łatwe. Po &#39; ponowna zatwierdzone, Utwórz obraz maszyny wirtualnej Azure certyfikowane i publikowanie w portalu Marketplace. , Klientów platformy Azure można znaleźć, kupić i wdrażanie produktu w minutach. Lepszy klienci wdrażania rozwiązania bez obaw. Wiedzieli, że środowisko jest skonfigurowane do poprawnego działania na platformie Azure i że infrastruktura jest gotowa do użytku w ciągu kilku minut.
+&#39; s dość łatwe. Po &#39; ponowna zatwierdzone, Utwórz obraz maszyny wirtualnej Azure certyfikowane lub zarządzanych aplikacji i publikowanie w portalu Marketplace. , Klientów platformy Azure można znaleźć, kupić i wdrażanie produktu w minutach. Lepszy klienci wdrażania rozwiązania bez obaw. Wiedzieli, że środowisko jest skonfigurowane do poprawnego działania na platformie Azure i że infrastruktura jest gotowa do użytku w ciągu kilku minut.
 
-Portal dla partnerów chmury jest koncentratora do tworzenia Twojej oferty w witrynie Marketplace. Obrazy maszyny wirtualnej są wstępnie skonfigurowane z pełnego zainstalowanego systemu operacyjnego i co najmniej jednej aplikacji. Aby przeprowadzić certyfikację obrazu tak jego &#39; s, gotowy do opublikowania, muszą spełniać określone wymagania wstępne. Omówiono je w następnej sekcji.
+Portal dla partnerów chmury jest koncentratora do tworzenia Twojej oferty w witrynie Marketplace. Aby przeprowadzić certyfikację ofertę tak że &#39; s gotowy do opublikowania, muszą spełniać określone wymagania wstępne. Omówiono je w następnej sekcji.
 
 
 ## <a name="whats-next"></a>Co dalej?
 
-Możesz może pomyśleć, że Azure Marketplace jest naprawdę rozwiązanie właściwe dla produktu. W jaki sposób rozpoczęcie pracy? W tej sekcji jest uruchamianie i przeprowadzanie w witrynie Marketplace (rysunek 1) przez: 
+Możesz może pomyśleć, że Azure Marketplace jest naprawdę rozwiązanie właściwe dla produktu. W jaki sposób rozpoczęcie pracy? W tej sekcji koncentruje się na pobieranie w i uruchomiona w witrynie Marketplace (rysunek 1) dla obrazów maszyny wirtualnej przez: 
 * Która staje się Azure certyfikowane.
 * Uzyskiwanie zatwierdzenia sprzedaży na produkt.
-* Tworzenie Twojej oferty w portalu dla partnerów chmury. 
+* Tworzenie i publikowanie ofertę za pośrednictwem portalu dla partnerów chmury. 
 
 ![Proces sprzedaży w portalu Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Rysunek 1: Proces sprzedaży w portalu Azure Marketplace
+
+W zależności od obciążenia (maszyny wirtualnej lub zarządzanych aplikacji) planowanie publikowania, zastosują się inny proces publikowania ofertę. Następująca zawartość koncentruje się na publikowanie _oferty maszyny wirtualnej_.
+
+> [!NOTE]
+> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/en-us/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produktów _informatykom i deweloperom_, mogą dotrzeć do saas-on-amp@microsoft.com Aby uzyskać więcej informacji na temat opcji.
+
 
 Najpierw spełniają określone wymagania wstępne dotyczące technicznych i nietechnicznym i Przygotuj obraz maszyny wirtualnej. Następnie możesz wyznaczyć produktu i Zarejestruj jako sprzedawcy. Na koniec Dodaj zawartość marketing i przesłać do publikowania. Możesz przejrzeć ofertę w wersji zapoznawczej/przemieszczania środowiska przed przekształcenie go na żywo w witrynie Marketplace.
 
@@ -103,6 +117,7 @@ Pierwszym krokiem podczas tworzenia Twojej oferty dla portalu Azure Marketplace 
 ![Wymagania dotyczące staje się certyfikowane Azure](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Rysunek 2: Wymagania dotyczące staje się certyfikowane Azure
+
 
 ### <a name="technical-prerequisites"></a>Wymagania wstępne techniczne
 
@@ -147,13 +162,15 @@ Zdobywanie _certyfikowane Azure_ stan reprezentuje pomyślne zakończenie proces
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>Jak wyznaczyć produktu i uzyskania zatwierdzenia?
 
-Teraz nadszedł czas, aby uzyskać zezwolenie na sprzedaż produktu w witrynie Marketplace (rysunek 3). Microsoft ułatwia wyznaczyć produktu, ukończyć proces publikowania i zarejestrować jako sprzedawcy.
+Teraz nadszedł czas, aby uzyskać zezwolenie na sprzedaż produktu w witrynie Marketplace (rysunek 3). 
+
+Microsoft ułatwia wyznaczyć produktu, ukończyć proces publikowania i zarejestrować jako sprzedawcy. W zależności od obciążenia (maszyny wirtualnej lub zarządzanych aplikacji) planowanie publikowania, zostaną wykonaj proces innej nazwy.
 
 ![Uzyskiwanie zatwierdzenia sprzedawać w witrynie Azure Marketplace](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Rysunek 3: Kroki pobierania zatwierdzone sprzedawać w witrynie Azure Marketplace
 
-Pierwszym krokiem procesu zatwierdzania jest [wyznaczyć](https://createopportunity.azurewebsites.net/) produkt przed rejestracji i publikacji. Można wykonać zatwierdzenia _do trzech dni roboczych_.
+Jeśli chcesz opublikować _oferta maszyny wirtualnej_, będzie wyznaczyć produktu [tutaj](https://createopportunity.azurewebsites.net/). Można wykonać zatwierdzenia _do trzech dni roboczych_.
 
 Po zatwierdzeniu pojawi się następujące czynności:
 
@@ -172,17 +189,19 @@ Teraz można przystąpić do certyfikowania obrazu maszyny wirtualnej i opubliko
 
 ## <a name="what-about-best-practices"></a>Informacje o najlepszych rozwiązań?
 
-Poniżej przedstawiono niektóre narzędzia i najlepsze rozwiązania, które mogą ułatwić lepsze wykorzystanie trwa sprzedawcy w witrynie Marketplace.
+Poniżej przedstawiono najważniejsze wskazówki, które mogą ułatwić lepsze wykorzystanie trwa sprzedawcy w witrynie Marketplace.
 
 ### <a name="azure-test-drives"></a>Dysków Azure testu
 
 [Dysków Azure testu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) to doskonały sposób, aby zaprezentować produktu, aby potencjalnych klientów i podaj opcję, aby spróbować przed zakupu. Dyski testu może pomóc zwiększyć konwersji i generowanie potencjalnych klientów.
 
-Po podaniu informacje kontaktowe, klienci mają dostęp do dysku wbudowane testu. Wystąpienia z praktyczne programem wersji próbnej produktu &#39; s najważniejsze funkcje i korzyści w rzeczywistych scenariuszy.
+Po podaniu informacje kontaktowe, klienci mają dostęp do dysku wbudowane testu. Wystąpienia z praktyczne programem wersji próbnej produktu &#39; s najważniejsze funkcje i korzyści w rzeczywistych scenariuszy. Nawet lepiej? Możesz uzyskać do 36% więcej potencjalnych klientów publikując dysku testu skojarzone z Twoją ofertę.
 
-Obecnie publikowanie dysku testu na produkt jest dostępna tylko w klasycznym portalu publikowania. Dowiedz się więcej, przechodząc do dokumentacji [jak opublikować nowy dysk testu](https://github.com/Azure/AzureTestDrive/wiki).
+Zapewniamy, że możesz się do wytycznych, należy opublikować testu na dysku w portalu dla partnerów chmurze podczas procesu dołączania. Dowiedz się więcej o [dysków Azure testu](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-Dowiedz się więcej o [dysków Azure testu](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###<a name="lead-generation"></a>Generowanie potencjalnych klientów
+
+Jest jedną z właściwości wartość klucza produktu w witrynie Azure Marketplace wyświetlanie, że firma Microsoft będzie wysyłać wysokiej zakwalifikowanych potencjalnych klientów dla użytkowników, którzy są zainteresowani lub wdrożeniu produktu. Co to jest jeszcze bardziej poprawić jakość jest wyślemy potencjalni klienci bezpośrednio do programu CRM, dzięki czemu można podjąć działania i wykonać kolejne czynności szybkiego tworzenia więcej możliwości i zamykanie więcej transakcji. Integracja generacji realizacji zajmuje kilka minut i jest wykonywane w procesie publikowania w portalu dla partnerów chmury.
 
 ### <a name="go-to-market-checklist"></a>Lista kontrolna przejdź na rynek
 
@@ -198,21 +217,20 @@ Przed uruchomieniem programu zaleca się podjęcia kilku czynności, aby uzyska�
 
 ## <a name="what-about-reports"></a>Informacje o raportach?
 
-Witryny Marketplace zawiera raportów zleceń, użycia i klientów, które są dostępne za pośrednictwem portalu Marketplace [wydawcy raportowania portal](https://reports.azure.com). Oprócz przydatne informacje na temat technologii i analiza danych pierwotnych znajduje się w niej nawigować tabeli i można pobrać jako plik CSV lub XLS.
+Witryny Marketplace zawiera raportów zleceń, użycia i klientów, które są dostępne za pośrednictwem sekcji Insights portalu partnerów chmury. Oprócz przydatne informacje na temat technologii i analiza danych pierwotnych znajduje się w niej nawigować tabeli i można pobrać jako plik CSV lub XLS.
 
-[Ten film](https://player.vimeo.com/video/200859918) pozwala zobaczyć podglądu raportu funkcje i korzyści, w tym:
+Oto niektóre z Insights funkcje i korzyści:
 
-- Typy raportów: Podsumowanie migawki zamówień, użycia i trendów klienta na stronie głównej.
+- Typy raportów: Podsumowanie migawki zamówień, użycie, deployements i klienta trendów na stronie głównej szczegółowych informacji.
 - Szczegółowe zamówień, użycia i dane klienta.
 - Zleceń i użycie wyświetlany jako miesięczne podsumowanie lub Wyświetl trend sześciu miesięcy.
-- Wyświetlane jako standard kilka szczegółowych informacji.
 - Użycie/zamówienia według:
   - Rynek
   - Kanał
   - Umożliwia analizę trendów oferty
   - Typ licencji Marketplace
 
-Szczegółowe raporty Pokaż informacje o kliencie, takie jak nazwa firmy i lokalizacji geograficznej w dół, aby kod pocztowy, możesz porównać klientów. Poniższa lista zawiera określone atrybuty dostarczamy klientów:
+Szczegółowe raporty Pokaż informacje o kliencie, takie jak nazwa firmy i lokalizacji geograficznej w dół, aby kod pocztowy, aby można było porównać klientów i kompensacji Twoich sprzedawców. Poniższa lista zawiera określone atrybuty dostarczamy klientów:
 
 - Odsprzedawcy
 - Imię
@@ -221,7 +239,7 @@ Szczegółowe raporty Pokaż informacje o kliencie, takie jak nazwa firmy i loka
 - Nazwa firmy
 - TransactionDate
 - Nazwa subskrypcji
-- AzureSubscriptionId
+- AzureSubscriptionId (tylko dla klientów między)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Szczegółowe raporty Pokaż informacje o kliencie, takie jak nazwa firmy i loka
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-Oferujemy również szkolenia w dokumentacji pomocy, zapoznać się ze słownikiem i pokaz zarejestrowane. Jeśli potrzebna jest Pomoc i obsługuje z raportów, możesz otworzyć [obsługuje biletu](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+Oferujemy również szkolenia w dokumentacji pomocy, zapoznać się ze słownikiem i pokaz zarejestrowane. Jeśli potrzebna jest Pomoc i obsługuje z raportów, należy otworzyć bilet pomocy technicznej za pośrednictwem portalu dla partnerów chmury, w dowolnym momencie.
 
 Firma Microsoft Zapraszamy naszej społeczności sprzedających niezależnego dostawcy oprogramowania i czekamy na Twoją ofertę wyświetlanie.
 

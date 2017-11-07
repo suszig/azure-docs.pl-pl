@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 97ce45f93964ac6759a40f4496256167d99190d4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiowanie danych z lub do magazynu plików Azure przy użyciu fabryki danych Azure
 
@@ -26,7 +26,7 @@ W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [działanie kopiowania w wersji 1](v1/data-factory-data-movement-activities.md).
 
-## <a name="supported-scenarios"></a>Obsługiwane scenariusze
+## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Możesz skopiować dane z usługi Magazyn plików Azure żadnych obsługiwanych ujścia magazynu danych lub skopiować dane z dowolnego źródła obsługiwanych magazynu danych do magazynu plików Azure. Lista magazynów danych, które są obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
@@ -48,7 +48,11 @@ Obsługiwane są następujące właściwości dla pliku połączoną usługą ma
 | Host | Określa punkt końcowy magazyn plików Azure jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Tak |
 | Nazwa użytkownika | Określ użytkownika, dostęp do magazynu plików Azure jako `"userid": "AZURE\\<storage name>"`. | Tak |
 | hasło | Określ klucz dostępu do magazynu. Zaznacz to pole jako SecureString.<br/> | Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
+
+>[!TIP]
+> - Aby skopiować do magazynu plików Azure przy użyciu środowiska uruchomieniowego integracji Azure, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją przechowywania plików i kojarzenie w połączonej usłudze jako poniższy przykład.
+> - Aby skopiować z/na magazyn plików Azure przy użyciu środowiska uruchomieniowego integracji Self-hosted poza platformą Azure, pamiętaj, aby otworzyć port wychodzący TCP 445 w sieci lokalnej.
 
 **Przykład:**
 
@@ -72,9 +76,6 @@ Obsługiwane są następujące właściwości dla pliku połączoną usługą ma
     }
 }
 ```
-
-> [!TIP]
-> Kopiowanie danych z/na magazyn plików Azure za pomocą środowiska uruchomieniowego integracji Self-hosted poza platformą Azure, pamiętaj, aby otworzyć port wychodzący TCP 445 w sieci lokalnej.
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 

@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Projektowanie pierwszej bazy danych Azure, aby baza danych MySQL
 
@@ -33,7 +34,7 @@ Można użyć powłoki chmury Azure w przeglądarce lub [zainstalować Azure CLI
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym artykule, wymaga czy korzystasz z wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w której zasób istnieje lub dla której są za niego naliczane opłaty. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Tworzenie tabel w bazie danych
-Teraz, gdy wiesz, jak nawiązać połączenia z bazą danych Azure dla bazy danych MySQL, możemy przekazywane sposób wykonania zadania podstawowe.
+Teraz, Znając sposób nawiązywania połączenia z bazą danych Azure dla bazy danych MySQL, należy wykonać kilka podstawowych zadań:
 
-Firma Microsoft najpierw utwórz tabelę i załaduj go z niektórych danych. Teraz utworzyć tabelę, która przechowuje informacje dotyczące spisu.
+Najpierw utwórz tabelę i załaduj go z niektórych danych. Teraz utworzyć tabelę, która przechowuje informacje dotyczące spisu.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Ładowanie danych do tabel
-Teraz, gdy mamy tabeli możemy wstawić niektóre dane do niego. W oknie Otwórz okno wiersza polecenia Uruchom następujące zapytanie, aby wstawić niektórych wierszy danych.
+Teraz, gdy masz tabeli wstawić dane do niego. W oknie Otwórz okno wiersza polecenia Uruchom następujące zapytanie, aby wstawić niektórych wierszy danych.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -158,7 +159,7 @@ SELECT * FROM inventory;
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Przywracanie bazy danych do określonego punktu w czasie
 Załóżmy, że zostanie przypadkowo usunięte w tej tabeli. Jest to coś, co nie można łatwo odzyskać z. Bazy danych platformy Azure dla programu MySQL umożliwia wróć do dowolnego punktu w czasie w górę ostatnich 35 dni i przywrócić ten punkt w czasie na nowy serwer. Możesz użyć tego nowego serwera, aby odzyskać usunięte dane. Poniższe kroki należy przywrócić działanie serwera próbki do punktu przed tabeli został dodany.
 
-W przypadku przywracania należy następujące informacje:
+Do przywrócenia potrzebne są następujące informacje:
 
 - Punkt przywracania: Wybierz w momencie po serwer został zmieniony. Musi być większa niż lub równa wartości kopii zapasowej najstarsze źródłowej bazy danych.
 - Serwer docelowy: Podaj nową nazwę serwera mają zostać przywrócone

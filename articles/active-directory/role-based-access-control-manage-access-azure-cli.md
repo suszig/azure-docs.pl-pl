@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Zarządzanie oparte na rolach kontrola dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Przykład następnie usuwa przypisanie roli z grupy dla tej subskrypcji.
 ## <a name="create-a-custom-role"></a>Tworzenie niestandardowej roli zabezpieczeń
 Aby utworzyć niestandardową rolę, należy użyć:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 W poniższym przykładzie tworzona rola niestandardowa o nazwie *Operator maszyny wirtualnej*. Tę rolę niestandardową nieograniczony dostęp do wszystkich operacji odczytu z *Microsoft.Compute*, *Microsoft.Storage*, i *Microsoft.Network* dostawców zasobów i udziela dostępu do Uruchom ponowne uruchomienie i monitorowania maszyn wirtualnych. Tę rolę niestandardową można w dwóch subskrypcji. W tym przykładzie używany jest plik JSON jako danych wejściowych.
 
@@ -159,9 +159,9 @@ W poniższym przykładzie tworzona rola niestandardowa o nazwie *Operator maszyn
 ![Tworzenie roli azure wiersza poleceń Azure RBAC - — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Modyfikowanie niestandardowej roli zabezpieczeń
-Aby zmodyfikować rolę niestandardową, należy najpierw użyć `azure role definition list` polecenie, aby pobrać definicji roli. Po drugie wprowadź żądane zmiany w pliku definicji roli. Na koniec użyj `azure role definition update` można zapisać definicji roli zmodyfikowane.
+Aby zmodyfikować rolę niestandardową, należy najpierw użyć `azure role list` polecenie, aby pobrać definicji roli. Po drugie wprowadź żądane zmiany w pliku definicji roli. Na koniec użyj `azure role set` można zapisać definicji roli zmodyfikowane.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 W poniższym przykładzie dodano *Microsoft.Insights/diagnosticSettings/* operacji **akcje**oraz uzyskać subskrypcję platformy Azure **AssignableScopes** z Rola niestandardowa Operator maszyny wirtualnej.
 
@@ -170,7 +170,7 @@ W poniższym przykładzie dodano *Microsoft.Insights/diagnosticSettings/* operac
 ![Zrzut ekranu wiersza polecenia - azure roli set - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Usunięcia niestandardowej roli zabezpieczeń
-Aby usunąć rolę niestandardową, należy najpierw użyć `azure role definition list` polecenie w celu ustalenia **identyfikator** roli. Następnie należy użyć `azure role definition delete` polecenie, aby usunąć rolę, określając **identyfikator**.
+Aby usunąć rolę niestandardową, należy najpierw użyć `azure role list` polecenie w celu ustalenia **identyfikator** roli. Następnie należy użyć `azure role delete` polecenie, aby usunąć rolę, określając **identyfikator**.
 
 Poniższy przykład umożliwia usunięcie *Operator maszyny wirtualnej* niestandardowej roli zabezpieczeń.
 
@@ -182,7 +182,7 @@ Aby wyświetlić listę ról, które są dostępne do przypisania w zakresie, na
 Polecenie wyświetla listę wszystkich ról, które są dostępne do przypisania w wybranej subskrypcji.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Zrzut ekranu wiersza polecenia — Lista roli azure - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 W poniższym przykładzie *Operator maszyny wirtualnej* rola niestandardowa nie jest dostępna w *Production4* subskrypcji, ponieważ nie ma subskrypcji **AssignableScopes** roli.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Zrzut ekranu wiersza polecenia — Lista azure roli dla role niestandardowe - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

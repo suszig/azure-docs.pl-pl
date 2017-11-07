@@ -1,14 +1,14 @@
 # Omówienie
 ## [Sieci wirtualne](virtual-networks-overview.md)
-## [Trasy zdefiniowane przez użytkownika i przesyłanie dalej IP](virtual-networks-udr-overview.md)
+## [Routing](virtual-networks-udr-overview.md)
 ## [Wirtualne sieci równorzędne](virtual-network-peering-overview.md)
 ## [Punkty końcowe usługi sieci wirtualnej](virtual-network-service-endpoints-overview.md)
 ## [Sieć wirtualna dla usług platformy Azure](virtual-network-for-azure-services.md)
 ## [Bezpieczeństwo](security-overview.md)
 ## [Ciągłość działalności biznesowej:](virtual-network-disaster-recovery-guidance.md)
-## [Często zadawane pytania](virtual-networks-faq.md)
 ## [Adresowanie IP](virtual-network-ip-addresses-overview-arm.md)
 ## [Ochrona przed atakami DDOS](ddos-protection-overview.md)
+## [Często zadawane pytania](virtual-networks-faq.md)
 ## Wdrożenie klasyczne
 ### [Adresowanie IP](virtual-network-ip-addresses-overview-classic.md)
 ### [Listy kontroli dostępu](virtual-networks-acl.md)

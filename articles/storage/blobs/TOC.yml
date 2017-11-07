@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Praca z obiektami blob — Python
       href: storage-quickstart-blobs-python.md
+    - name: Praca z obiektami blob — Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: Samouczki
   items:
     - name: Przekazywanie i przetwarzanie obrazu

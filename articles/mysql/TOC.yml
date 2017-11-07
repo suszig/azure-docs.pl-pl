@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Opracowywanie zawartości
       items:
-        - name: Biblioteki połączeń
-          href: concepts-connection-libraries.md
+        - name: Zgodność sterowników i narzędzi
+          href: concepts-compatibility.md
         - name: Opracowywanie aplikacji
           href: concepts-database-application-development.md
     - name: Migrowanie bazy danych

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 96e917d1ea147e3b53b00002675ed16facb69255
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Tworzenie i zarządzanie bazą danych Azure dla reguł zapory PostgreSQL przy użyciu portalu Azure
 Reguły zapory poziomu serwera umożliwiają administratorom dostęp do bazy danych Azure PostgreSQL serwera z określonego adresu IP lub zakresu adresów IP. 
@@ -23,11 +23,11 @@ Do wykonania kroków opisanych ten przewodnik, potrzebne są:
 - Serwer [utworzenia bazy danych Azure dla PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal
-1. W bloku serwera PostgreSQL, w obszarze Ustawienia kliknij pozycję **zabezpieczenia połączeń** aby otworzyć blok połączenia zabezpieczeń bazy danych Azure dla PostgreSQL.
+1. Na stronie serwer PostgreSQL w sekcji Ustawienia kliknij pozycję **zabezpieczenia połączeń** otworzyć strona połączenia zabezpieczeń bazy danych Azure do PostgreSQL.
 
   ![Portal Azure — kliknij przycisk Zabezpieczenia połączeń](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Kliknij przycisk **dodać Moje IP** na pasku narzędzi. To automatycznie utworzy regułę zapory z publicznym adresem IP komputera, jako widocznego w systemie Azure.
+2. Wybierz **dodać Moje IP** na pasku narzędzi. Ta akcja automatycznie tworzy regułę zapory z publicznym adresem IP komputera, jako widocznego w systemie Azure.
 
   ![Portal Azure — kliknij przycisk Dodaj mój adres IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 

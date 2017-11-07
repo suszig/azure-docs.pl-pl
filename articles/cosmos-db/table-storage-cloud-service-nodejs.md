@@ -1,5 +1,5 @@
 ---
-title: Aplikacja sieci Web z magazynem tabel (Node.js) | Dokumentacja firmy Microsoft
+title: 'Magazyn tabel Azure: tworzenie aplikacji sieci web Node.js | Dokumentacja firmy Microsoft'
 description: "Samouczek, która tworzy w aplikacji sieci Web z samouczka Express przez dodanie usługi Azure Storage i moduł Azure."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Aplikacja sieci Web node.js za pomocą magazynu
+# <a name="azure-table-storage-nodejs-web-application"></a>Magazyn tabel Azure: aplikacja sieci Web Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Omówienie
 W tym samouczku aplikacji utworzony w [aplikacji sieci Web Node.js za pomocą ekspresowego] samouczka został rozszerzony za pomocą biblioteki klienta Microsoft Azure dla środowiska Node.js do pracy z usługami zarządzania danych. Aplikację można rozszerzyć przez tworzenie aplikacji opartych na sieci web listy zadań, które można wdrożyć na platformie Azure. Lista zadań pozwala użytkownikowi na pobieranie zadań, Dodaj nowe zadania i oznaczanie zadań jako ukończone.
 

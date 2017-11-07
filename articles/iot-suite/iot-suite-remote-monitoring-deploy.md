@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b16990d41b691c13b01d61aa0cde7d14e533e440
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Wdrażanie zdalne wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -39,9 +39,13 @@ Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka
 
 Przed wdrożeniem wstępnie skonfigurowane rozwiązanie do subskrypcji platformy Azure, musisz wybrać niektóre opcje konfiguracji:
 
-1. Zaloguj się do [azureiotsuite.com](https://www.azureiotsuite.com) poświadczenia konta przy użyciu platformy Azure i kliknij przycisk  **+**  tworzenie rozwiązań.
+1. Zaloguj się do [azureiotsuite.com](https://www.azureiotsuite.com) poświadczenia konta przy użyciu platformy Azure i kliknij przycisk  **+**  do tworzenia nowego rozwiązania:
 
-1. Kliknij pozycję **Wybierz** na kafelku **Zdalne monitorowanie**.
+    ![Utwórz nowe rozwiązanie](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Kliknij przycisk **wybierz** na **zdalnego Podgląd monitorowania** kafelka.
+
+    ![Wybierz monitorowania zdalnego](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. Na **utworzyć monitorowania zdalnego rozwiązania** wprowadź **Nazwa rozwiązania** dla zdalnego monitorowania wstępnie skonfigurowane rozwiązanie.
 
@@ -53,7 +57,9 @@ Przed wdrożeniem wstępnie skonfigurowane rozwiązanie do subskrypcji platformy
 
 1. W polach **Subskrypcja** i **Region** wybierz wartości, których chcesz użyć do aprowizacji rozwiązania.
 
-1. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Zwykle trwa on kilka minut.
+1. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Ten proces zwykle trwa kilka minut do uruchomienia:
+
+    ![Zdalnego monitorowania szczegóły rozwiązania](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Aby uzyskać informacje dotyczące rozwiązywania problemów, zobacz [co robić, jeśli wdrożenie nie powiedzie się](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) w repozytorium GitHub.
 
@@ -61,12 +67,16 @@ Aby uzyskać informacje dotyczące rozwiązywania problemów, zobacz [co robić,
 
 Po zakończeniu procesu inicjowania obsługi administracyjnej można logowania się do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania.
 
-1. Na **elastycznie rozwiązań** wybierz nowe zdalnego rozwiązanie monitorowania.
+1. Na **elastycznie rozwiązań** wybierz nowe zdalnego rozwiązanie monitorowania:
+
+    ![Wybierz nowe rozwiązanie](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. Można wyświetlić informacje dotyczące rozwiązania monitorowania zdalnego w panelu, który pojawi się. Wybierz **pulpit nawigacyjny rozwiązania** do nawiązania połączenia zdalnego rozwiązanie monitorowania.
 
     > [!NOTE]
     > Rozwiązanie monitorowania zdalnego można usunąć z tego panelu po zakończeniu pracy z nim.
+
+    ![Panel rozwiązania](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Zdalny pulpit nawigacyjny monitorowania rozwiązania wyświetla w przeglądarce.
 

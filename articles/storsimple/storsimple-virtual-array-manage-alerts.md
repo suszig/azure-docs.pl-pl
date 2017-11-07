@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Użyj Menedżera urządzeń StorSimple do zarządzania alertami dla tablicy wirtualnego StorSimple
 
@@ -146,6 +146,11 @@ W poniższych tabelach przedstawiono niektóre alerty StorSimple, które można 
 |:--- |:--- |:--- |
 | Tworzenie kopii zapasowych <*nazwa urządzenia*> nie można ukończyć. |Niepowodzenie zadania tworzenia kopii zapasowej. |Nie można utworzyć kopii zapasowej. Weź pod uwagę jedną z następujących czynności:<ul><li>Problemy z łącznością może uniemożliwiać pomyślne wykonanie operacji tworzenia kopii zapasowej. Upewnij się, że nie ma problemów z połączeniem. Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci web](storsimple-ova-web-ui-admin.md) dla urządzenia wirtualnego.</li><li>Osiągnięto limit dostępnej pamięci. Aby zwolnić miejsce, należy rozważyć usunięcie wszelkich kopii zapasowych, które nie są już potrzebne.</li></ul> Rozwiąż problemy, wyczyść alert, a następnie spróbuj ponownie wykonać operację. |
 | Klon <*nazwa urządzenia*> nie można ukończyć. |Klonowanie niepowodzenie zadania. |Nie można utworzyć klonu. Weź pod uwagę jedną z następujących czynności:<ul><li>Z listy kopii zapasowych jest nieprawidłowy. Odśwież listę, aby sprawdzić, czy jest nadal ważny.</li><li>Problemy z łącznością może uniemożliwiać pomyślne wykonanie operacji klonowania. Upewnij się, że nie ma problemów z połączeniem.</li><li>Osiągnięto limit dostępnej pamięci. Aby zwolnić miejsce, należy rozważyć usunięcie wszelkich kopii zapasowych, które nie są już potrzebne.</li></ul>Rozwiąż problemy, wyczyść alert, a następnie spróbuj ponownie wykonać operację. |
+
+### <a name="networking-alerts"></a>Alerty sieci
+| Tekst alertu | Wydarzenie | Więcej informacji / zalecane akcje |
+|:--- |:--- |:--- |
+| Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki danych |Adres URL, który jest używany do uwierzytelniania nie jest dostępny. Upewnij się, że reguły zapory obejmuje wzorce adres URL określony dla urządzenia StorSimple. Aby uzyskać więcej informacji dotyczących wzorców adresów URL w portalu Azure, przejdź do [tablicy wirtualnego StorSimple wymagań sieciowych](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Alerty wydajności
 

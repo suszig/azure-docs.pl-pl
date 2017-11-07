@@ -1,6 +1,6 @@
 ---
-title: "Jak wykonać kopię zapasową i przywrócić serwera w bazie danych Azure PostgreSQL | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wykonać kopię zapasową i przywrócić serwera w bazie danych Azure PostgreSQL przy użyciu wiersza polecenia platformy Azure."
+title: Jak wykonywanie kopii zapasowych i przywracania serwera w bazie danych Azure dla PostgreSQL | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak kopie zapasowe i przywracanie serwera w bazie danych Azure dla PostgreSQL przy użyciu wiersza polecenia platformy Azure."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Jak wykonać kopię zapasową i przywrócić serwera w bazie danych Azure PostgreSQL przy użyciu wiersza polecenia platformy Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Sposób wykonywania kopii zapasowej i przywracania serwera w bazie danych Azure dla PostgreSQL przy użyciu wiersza polecenia platformy Azure
 
 Użyj bazy danych Azure dla PostgreSQL, aby przywrócić serwer bazy danych do wcześniejszego stanu, który jest liczony od 7 do 35 dni.
 
@@ -31,7 +31,7 @@ Aby ukończyć ten przewodnik, potrzebne są:
 > [!IMPORTANT]
 > Jeśli został zainstalowany, użyj interfejsu wiersza polecenia Azure lokalnie, ten przewodnik wymaga użycia interfejsu wiersza polecenia Azure w wersji 2.0 lub nowszej. Aby upewnić się, wersja, w wierszu polecenia interfejsu wiersza polecenia Azure, wprowadź `az --version`. Aby zainstalować lub uaktualnić, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>Tworzenie kopii zapasowej odbywa się automatycznie
+## <a name="backup-happens-automatically"></a>Kopia zapasowa jest wykonywana automatycznie
 Gdy używasz bazy danych Azure PostgreSQL, usługa bazy danych automatycznie tworzy kopię zapasową usługi co 5 minut. 
 
 Dla warstwy Basic kopie zapasowe są dostępne przez 7 dni. Dla warstwy standardowa kopie zapasowe są dostępne dla 35 dni. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla PostgreSQL warstw cenowych](concepts-service-tiers.md).
@@ -56,7 +56,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 | --- | --- | --- |
 | grupy zasobów |  myResourceGroup |  Grupy zasobów, w której serwer źródłowy istnieje.  |
 | name | przywrócona mypgserver | Nazwa nowego serwera, który jest tworzony przez polecenie restore. |
-| Przywracanie punktu w czasie | 2017-04-13T13:59:00Z | Wybierz punkt w czasie, aby przywrócić. To data i godzina musi być w ramach serwera źródłowego kopii zapasowych okresu przechowywania. Użyj formatu ISO8601 daty i godziny. Na przykład można własnej lokalnej strefie czasowej, takich jak `2017-04-13T05:59:00-08:00`. Można też używać formatu UTC Zulu, na przykład `2017-04-13T13:59:00Z`. |
+| Przywracanie punktu w czasie | 2017-04-13T13:59:00Z | Wybierz punkt w czasie, aby przywrócić. Ta data i godzina musi być w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu ISO8601 daty i godziny. Na przykład można własnej lokalnej strefie czasowej, takich jak `2017-04-13T05:59:00-08:00`. Można też używać formatu UTC Zulu, na przykład `2017-04-13T13:59:00Z`. |
 | Serwer źródłowy | mypgserver 20170401 | Nazwa lub identyfikator serwera źródłowego, aby przywrócić z. |
 
 Po przywróceniu serwera do wcześniejszego punktu w czasie, jest tworzony nowy serwer. Oryginalny serwer i jej baz danych z określonego punktu w czasie są kopiowane do nowego serwera.

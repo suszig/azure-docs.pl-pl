@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Bazy danych platformy Azure dla PostgreSQL opcje i wydajność: Poznaj, co jest dostępne w każdej warstwy cenowej
 Podczas tworzenia bazy danych Azure dla serwera PostgreSQL zdecydujesz się na trzy główne opcje do konfigurowania zasobów przydzielonych dla tego serwera. Te opcje wpływ na wydajność i skalę serwera.
@@ -53,7 +53,7 @@ Aby zdecydować się na warstwę cenową, najpierw uruchomić przez określenie,
 W okresie preview nie można zmienić warstwy cenowej po utworzeniu serwera. W przyszłości będzie można rejestrować uaktualnić lub starszą wersję serwera z jedną warstwę cenową do innej warstwy.
 
 ## <a name="understand-the-price"></a>Zrozumienie ceny
-Podczas tworzenia nowej bazy danych Azure dla PostgreSQL wewnątrz [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), kliknij przycisk **warstwa cenowa** bloku i miesięczny koszt będą wyświetlane na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, użyj Azure Kalkulator cen, aby pobrać szacowanej ceny. Odwiedź [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) witryny sieci Web, następnie kliknij przycisk **Dodaj elementy**, rozwiń węzeł **baz danych** kategorii i wybierz polecenie **bazą danych Azure dla PostgreSQL** Aby dostosować opcje.
+Podczas tworzenia nowej bazy danych Azure dla PostgreSQL wewnątrz [portalu Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), kliknij przycisk **warstwa cenowa** strony i miesięczny koszt jest wyświetlana na podstawie wybranych opcji. Jeśli nie masz subskrypcji platformy Azure, użyj Azure Kalkulator cen, aby pobrać szacowanej ceny. Odwiedź [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) witryny sieci Web, następnie kliknij przycisk **Dodaj elementy**, rozwiń węzeł **baz danych** kategorii i wybierz polecenie **bazą danych Azure dla PostgreSQL** Aby dostosować opcje.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Wybierz poziom wydajności (obliczeniowe jednostki)
 Po określeniu warstwy cenowej bazy danych Azure, aby serwer PostgreSQL, można przystąpić do określenia poziomu wydajności do poziomu, wybierając liczbę jednostek obliczeniowe potrzebne. Dobry punkt wyjścia jest 200 lub 400 jednostek obliczeniowe dla aplikacji, które wymaga wyższej współbieżności użytkownika do ich sieci web lub obciążeń analitycznych i Dostosuj przyrostowo zgodnie z potrzebami. 
@@ -85,7 +85,7 @@ Konfiguracja magazynu definiuje ilość dostępnej pojemności do bazy danych Az
 
 Niektóre pojemność magazynu to na co najmniej o każdej warstwy cenowej wymienione w powyższej tabeli jako "Rozmiar magazynu dołączone." Podczas tworzenia serwera w przyrostach 125 GB do dozwolonych masowej można dodać dodatkowej pojemności. Niezależnie od konfiguracji jednostki obliczeniowe można skonfigurować dodatkowe miejsce. Zmiany ceny zależą od ilości przestrzeni dyskowej wybrane.
 
-Konfiguracja IOPS w każdym poziomie wydajności odnosi się do warstwy cenowej i wybrany rozmiar magazynu. Warstwa podstawowa nie ma gwarancji IOPS. W ramach warstwa cenowa standardowa IOPS skalować proporcjonalnie maksymalny rozmiar magazynu w stałej stosunek 3:1. Magazyn dołączony 125 GB gwarantuje dla 375 elastycznie IOPS, każdy z we/wy o długości maksymalnie 256 KB. Istnieje możliwość dodatkowego magazynu maksymalnie 1 TB, aby zagwarantować 3000 elastycznie IOPS.
+Konfiguracja IOPS w każdym poziomie wydajności odnosi się do warstwy cenowej i wybrany rozmiar magazynu. Warstwa podstawowa nie ma gwarancji IOPS. W ramach warstwa cenowa standardowa IOPS skalować proporcjonalnie maksymalny rozmiar magazynu w stałej stosunek 3:1. Magazyn dołączony gwarancji 125 GB dla 375 zainicjowana IOPS, każdy z we/wy o długości maksymalnie 256 KB. Istnieje możliwość dodatkowego magazynu maksymalnie 1 TB, aby zagwarantować 3000 elastycznie IOPS.
 
 Monitorowanie wykres metryki w portalu Azure lub tworzenia poleceń wiersza polecenia platformy Azure do pomiaru użycia magazynu i IOPS. Odpowiednich metryk do monitorowania są limit magazynu, procent użycia magazynu, Magazyn używany i procent we/wy.
 
@@ -93,11 +93,11 @@ Monitorowanie wykres metryki w portalu Azure lub tworzenia poleceń wiersza pole
 > W wersji zapoznawczej, wybierz ilość miejsca w magazynie w momencie utworzenia serwera. Zmiana rozmiaru magazynu na istniejącym serwerze nie jest jeszcze obsługiwany. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Skalować serwer w górę lub w dół
-Po utworzeniu bazy danych Azure PostgreSQL początkowo wybierz cenową warstwę i poziom wydajności. Później, jednostki obliczeniowe można skalować w górę lub w dół dynamicznie, w zakresie tej samej warstwie cenowej. W portalu Azure, przesuń jednostki obliczeniowe, w bloku warstwa cenowa serwera lub skrypt go, postępując w tym przykładzie: [monitora i skali pojedynczy serwer PostgreSQL przy użyciu wiersza polecenia platformy Azure](scripts/sample-scale-server-up-or-down.md)
+Po utworzeniu bazy danych Azure PostgreSQL początkowo wybierz cenową warstwę i poziom wydajności. Później, jednostki obliczeniowe można skalować w górę lub w dół dynamicznie, w zakresie tej samej warstwie cenowej. W portalu Azure, przesuń jednostki obliczeniowe na stronie warstwa cenowa serwera lub skrypt go, postępując w tym przykładzie: [monitora i skali pojedynczy serwer PostgreSQL przy użyciu wiersza polecenia platformy Azure](scripts/sample-scale-server-up-or-down.md)
 
 Skalowanie jednostki obliczeniowe odbywa się niezależnie od maksymalny rozmiar magazynu wybrana.
 
-W tle zmieniając poziom wydajności bazy danych tworzy replikę oryginalnej bazy danych na nowy poziom wydajności, a następnie przełącza połączenia do repliki. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy firma Microsoft przełączyć się do repliki połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. To okno różni się, ale na ogół jest w sekcji 4 sekundy i więcej niż 99% przypadków jest mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
+W tle zmiana poziomu wydajności bazy danych na nowy poziom wydajności zostanie utworzona kopia oryginalnego serwera, a następnie przełącza połączenia z serwerem skopiowane. W trakcie tego procesu nie zostały utracone nie dane. Podczas krótki moment, gdy system przełącza się do nowej kopii serwera połączeń z bazą danych są wyłączone, więc niektóre transakcje w locie może zostać przywrócona. To okno różni się, ale na ogół jest w sekcji 4 sekundy i więcej niż 99% przypadków jest mniej niż 30 sekund. Jeśli w momencie wyłączenia połączeń liczba bieżących transakcji będzie bardzo duża, czas przełączania może się wydłużyć.
 
 Czas trwania procesu całej skali zależy od zarówno rozmiar i warstwę cenową serwera przed i po zmianie. Na przykład serwer, który jest zmiana obliczeniowe jednostek w warstwie cenowej standardowa powinno zakończyć w ciągu kilku minut. Nowe właściwości dla serwera nie są stosowane dopiero po zakończeniu zmiany.
 

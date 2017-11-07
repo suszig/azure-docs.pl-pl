@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie tabeli interfejsu API programu .NET
 
@@ -41,29 +41,11 @@ Ten samouczek obejmuje następujące zadania:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabele Azure rozwiązania Cosmos bazy danych 
 
-Udostępnia bazę danych systemu Azure rozwiązania Cosmos [API tabeli](table-introduction.md) (wersja zapoznawcza) dla aplikacji, które muszą magazyn kluczy i wartości, z projektem bez schematu. Zestawy SDK [magazynu tabel Azure](../storage/common/storage-introduction.md) i interfejsy API REST można wykorzystywać do pracy z usługą Azure Cosmos DB. Usługa Azure Cosmos DB umożliwia tworzenie tabel o wysokich wymaganiach dotyczących przepływności. Usługa Azure Cosmos DB obsługuje tabele o zoptymalizowanej przepływności (nazywane nieformalnie „tabelami premium”), dostępne obecnie w publicznej wersji zapoznawczej. 
+Udostępnia bazę danych systemu Azure rozwiązania Cosmos [API tabeli](table-introduction.md) (wersja zapoznawcza) dla aplikacji, które muszą klucz wartość przechowywania z projektem bez schematu i mają wysokie througput wymagania. [Magazyn tabel Azure](../storage/common/storage-introduction.md) zestawy SDK i interfejsów API REST może służyć do pracy z tabelami w usłudze Azure DB rozwiązania Cosmos.   
 
-Z magazynu tabel Azure można także korzystać w przypadku tabel o wysokich wymaganiach dotyczących pamięci i niższych wymaganiach w kwestii przepływności.
+Ten samouczek jest przeznaczony dla deweloperów, którzy są zaznajomieni z magazynem tabel Azure SDK i chcesz korzystać z funkcji premium dostępne z bazy danych Azure rozwiązania Cosmos. Jest on oparty na [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md) i pokazuje, jak korzystać z dodatkowych funkcji, takich jak indeksów pomocniczych, udostępnionej przepływności i wielu. W tym samouczku opisano, jak utworzyć konto bazy danych Azure rozwiązania Cosmos tworzenie i wdrażanie aplikacji interfejsu API tabeli za pomocą portalu Azure. Przeprowadzenie możemy również przykłady .NET do tworzenia i usuwania tabeli, wstawianie, aktualizowanie, usuwanie i przeszukiwaniem danych w tabeli. 
 
-Jeśli obecnie używasz magazynu tabel Azure, możesz zyskać następujące korzyści z wersji zapoznawczej "Tabela premium":
-
-- Gotowe [globalne dystrybucji](distribute-data-globally.md) z wielu i [automatycznej i ręcznej pracy awaryjnej.](regional-failover.md)
-- Obsługa automatycznego schematu niezwiązane z żadnym indeksowania względem wszystkich właściwości ("indeksów pomocniczych") i szybkie zapytań 
-- Obsługa [niezależne skalowanie pamięci masowej i przepływność](partition-data.md), przez dowolną liczbę regionów
-- Obsługa [dedykowanych przepływności na tabelę](request-units.md) mogą być skalowane od kilkuset do miliony żądań na sekundę
-- Obsługa [pięć dostosowywalne poziomy spójności](consistency-levels.md) celu kompromis dostępności, opóźnienia i spójności dla aplikacji
-- dostępności 99,99% w ramach jednego regionu, a możliwość dodawania kolejnych regionach na potrzeby wyższej dostępności i [SLA kompleksowe branży](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) na ogólnej dostępności
-- Praca z istniejącego magazynu Azure .NET SDK i bez wprowadzania zmian kodu w aplikacji
-
-W wersji zapoznawczej bazy danych rozwiązania Cosmos Azure obsługuje interfejs API tabeli przy użyciu zestawu .NET SDK. Możesz pobrać [zestawu SDK w wersji zapoznawczej usługi Magazyn Azure](https://aka.ms/premiumtablenuget) z pakietu NuGet, która ma tej samej klasy i podpisy metod jako [zestawu SDK usługi Magazyn Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ale również mogą łączyć się z konta bazy danych rozwiązania Cosmos Azure przy użyciu interfejsu API tabeli.
-
-Aby dowiedzieć się więcej o skomplikowanych zadaniach magazynu tabel Azure, zobacz:
-
-* [Wprowadzenie do platformy Azure rozwiązania Cosmos DB: Tabela interfejsu API](table-introduction.md)
-* Dokumentację referencyjną usługi tabel, aby uzyskać szczegółowe informacje o dostępnych interfejsach API [biblioteki klienta usługi Storage dla platformy .NET odwołania](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>Informacje o tym samouczku
-W tym samouczku jest dla deweloperów, którzy są zaznajomieni z magazynem tabel Azure SDK i chcesz korzystać z funkcji premium dostępne przy użyciu bazy danych Azure rozwiązania Cosmos. Jest on oparty na [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md) i pokazuje, jak korzystać z dodatkowych funkcji, takich jak indeksów pomocniczych, udostępnionej przepływności i wielu. Firma Microsoft opisano, jak utworzyć konto bazy danych Azure rozwiązania Cosmos, a następnie utworzyć i wdrożyć aplikację tabeli za pomocą portalu Azure. Przeprowadzenie możemy również przykłady .NET do tworzenia i usuwania tabeli, wstawianie, aktualizowanie, usuwanie i przeszukiwaniem danych w tabeli. 
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz jeszcze programu Visual Studio 2017 r zainstalowany, możesz pobrać i użyć **wolnego** [programu Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
@@ -72,14 +54,6 @@ Jeśli nie masz jeszcze programu Visual Studio 2017 r zainstalowany, możesz pob
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
 Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.  
-
-> [!TIP]
-> * Masz już konto bazy danych rozwiązania Cosmos Azure? Jeśli tak, przejdź do [konfigurowanie rozwiązania Visual Studio](#SetupVS).
-> * Czy miał konto usługi Azure DocumentDB? Jeśli tak, Twoje konto jest kontem bazy danych Azure rozwiązania Cosmos i możesz przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS).  
-> * Jeśli używasz emulatora usługi Azure rozwiązania Cosmos bazy danych, wykonaj kroki opisane w temacie [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) skonfigurować emulatora i przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 ```
 
 > [!NOTE]
-> Aby użyć tej aplikacji z magazynem tabel Azure standardowe, musisz zmienić parametry połączenia w `app.config file`. Użyj nazwy konta jako nazwa tabeli konta i klucz jako klucz podstawowy magazyn Azure. <br>
+> Aby użyć tej aplikacji z magazynem tabel Azure, musisz zmienić parametry połączenia w `app.config file`. Użyj nazwy konta jako nazwa tabeli konta i klucz jako klucz podstawowy magazyn Azure. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Teraz można wrócić do Eksploratora danych i zobacz zapytania, modyfikowania i
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Możliwości platformy Azure DB rozwiązania Cosmos
-Azure DB rozwiązania Cosmos obsługuje wiele funkcji, które nie są dostępne w magazynie tabel Azure, interfejsu API. Nowe funkcje można włączyć za pomocą następujących `appSettings` wartości konfiguracji. Firma Microsoft nie wprowadzają, ani nowe sygnatury przeciążenia do zestawu SDK usługi Magazyn Azure w wersji zapoznawczej. Dzięki temu można nawiązać połączenia z tabel zarówno warstwy standardowa i premium i pracy z innymi usługami Azure Storage, takich jak obiekty BLOB i kolejki. 
+Azure rozwiązania Cosmos DB tabeli interfejs API obsługuje wiele funkcji, które nie są dostępne w magazynie tabel platformy Azure. Nowe funkcje można włączyć za pomocą następujących `appSettings` wartości konfiguracji. Nie nowe sygnatury lub przeciążenia zostały dodane do tabeli interfejsu API, które nie zostały w zestawu SDK usługi Magazyn Azure. Dzięki temu można połączyć z tabelami w magazynu tabel Azure i bazy danych Azure rozwiązania Cosmos i pracy z innymi usługami Azure Storage, takich jak obiekty BLOB i kolejki. 
 
 
 | Klucz | Opis |
