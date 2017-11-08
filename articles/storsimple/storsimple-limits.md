@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adefbe89108bc5a807b7413e821f8fcd0f3f325
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Jakie są ograniczenia systemu serii StorSimple 8000?
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [jakie są limity systemu serii StorSimple 8000?](storsimple-8000-limits.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 StorSimple zapewnia skalowalny i elastyczna pamięć centrum danych. Istnieją jednak niektóre limity, które należy mieć na uwadze, jak planowania, wdrażania i obsługi rozwiązania StorSimple. Poniższa tabela opisuje te limity oraz przedstawiono powiązane zalecenia, dzięki czemu można uzyskać na maksymalne wykorzystanie możliwości rozwiązania StorSimple.
 

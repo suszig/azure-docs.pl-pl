@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Rozwiązywanie problemów z działającego urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów przydatne w celu rozwiązania problemów z konfiguracją czy mogą wystąpić po urządzenia StorSimple jest wdrożone i działa. Opisuje typowych problemów, możliwe przyczyny i zalecane kroki w celu ułatwienia rozwiązywania problemów, które mogą wystąpić po uruchomieniu programu Microsoft Azure StorSimple. Te informacje dotyczą zarówno lokalnego urządzenia fizycznego StorSimple, jak i urządzenia wirtualnego StorSimple.
 

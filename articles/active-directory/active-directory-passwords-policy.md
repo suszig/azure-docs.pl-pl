@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Ograniczenia w usłudze Azure Active Directory i zasad haseł
 
@@ -94,7 +94,7 @@ W poniższej tabeli opisano ustawienia zasad dostępne hasła, które można zas
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Ustawianie zasad wygasania haseł w usłudze Azure Active Directory
 
-Administrator globalny dla usługi w chmurze firmy Microsoft umożliwia Microsoft Azure Active Directory modułu dla środowiska Windows PowerShell Ustaw hasła użytkowników nie wygaśnie. Użyciu polecenia cmdlet programu Windows PowerShell można również usunąć nigdy nie wygasa konfiguracji lub aby wyświetlić użytkowników, których hasła są konfigurowane nie wygaśnie. Niniejsze wytyczne mają zastosowanie do innych dostawców, takich jak Microsoft Intune i Office 365, które również polegać na Microsoft Azure Active Directory dla tożsamości i usługi katalogowe.
+Administrator globalny dla usługi w chmurze firmy Microsoft umożliwia Microsoft Azure Active Directory modułu dla środowiska Windows PowerShell Ustaw hasła użytkowników nie wygaśnie. Użyciu polecenia cmdlet programu Windows PowerShell można również usunąć nigdy nie wygasa konfiguracji lub aby wyświetlić użytkowników, których hasła są konfigurowane nie wygaśnie. Niniejsze wytyczne mają zastosowanie do innych dostawców, takich jak Microsoft Intune i Office 365, które również polegać na Microsoft Azure Active Directory dla tożsamości i usługi katalogowe. To jest tylko część zasad, które można zmienić.
 
 > [!NOTE]
 > Można skonfigurować tylko haseł dla kont użytkowników, które nie są synchronizowane przez synchronizacji katalogów nie wygaśnie. Aby uzyskać więcej informacji na temat synchronizacji katalogów zobacz[AD z usługą Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ Aby rozpocząć pracę, musisz [Pobierz i zainstaluj moduł programu PowerShell 
    * Aby ustawić hasło nigdy nie wygasa dla wielu użytkowników, uruchom następujące polecenie cmdlet za pomocą głównej nazwy użytkownika (UPN) lub identyfikator użytkownika, użytkownik:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Aby ustawić hasła wszystkich użytkowników w organizacji nigdy nie wygasa, uruchom następujące polecenie cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Jeśli ustawisz `-PasswordNeverExpires $true` hasła będzie nadal wieku na podstawie `pwdLastSet` atrybutu. Oznacza to, że jeśli ustawisz hasła nigdy nie wygasa, a następnie 90 dni przejść na podstawie `pwdLastSet` i zmienić `-PasswordNeverExpires $false` wszystkie hasła, które mają `pwdLastSet` starsze niż 90 dni, należy zmienić przy następnym logowaniu. Ta zmiana może mieć wpływ na wielu użytkowników. 
+
 ## <a name="next-steps"></a>Następne kroki
 
 Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Co to jest funkcji zapisywania zwrotnego haseł i dlaczego I interesujących go?](active-directory-passwords-writeback.md)
-* [Jak zgłosić w działaniu w SSPR](active-directory-passwords-reporting.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Myślę, że dany element jest uszkodzony. Jak rozwiązywać problemy z SSPR](active-directory-passwords-troubleshoot.md)
-* [Masz pytania, na które nie objęte gdzieś else](active-directory-passwords-faq.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)
+* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-reporting.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
+* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)

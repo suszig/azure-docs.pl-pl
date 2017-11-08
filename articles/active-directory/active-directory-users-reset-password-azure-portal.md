@@ -16,11 +16,11 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 3dede0f026ab38bae64df664d190b47937416d2d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Resetowanie hasła dla użytkownika w usłudze Azure Active Directory
 
@@ -37,6 +37,9 @@ Administratorzy może być konieczne zresetowanie hasła użytkownika w przypadk
     
 6. Na **resetowania hasła**, wybierz pozycję **resetowania hasła**.
 7. Tymczasowe hasło jest wyświetlane, które można następnie udostępniać dla użytkownika. Użytkownik jest proszony o następnie zmiany hasła podczas następnego logowania ich. 
+
+   > [!NOTE]
+   > To hasło tymczasowe nie ma czasu wygaśnięcia będzie obowiązywać do momentu logowania i są następnie muszą go zmienić. 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dodaj użytkownika](active-directory-users-create-azure-portal.md)

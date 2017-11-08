@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcca578b2993c025e62f1eca7ecec0e62a092479
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Użyj usługi Menedżer StorSimple do administrowania urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple](storsimple-8000-manager-service-administration.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 W tym artykule opisano interfejsie usługi Menedżer StorSimple, łącznie ze sposobem łączyć się z jej, różne opcje dostępne i łączy się do określonych przepływów pracy, które mogą być wykonywane za pośrednictwem tego interfejsu użytkownika. W tych wskazówkach ma zastosowanie do obu; fizyczne StorSimple oraz urządzenia wirtualnego.
 

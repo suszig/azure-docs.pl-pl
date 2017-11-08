@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Rozwiązywanie problemów z powłoki w chmurze Azure
 
@@ -37,6 +37,18 @@ Następujące znane rozwiązania problemów w powłoce chmury Azure:
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal output — błąd: nie można nawiązać połączenia terminal: obiektu websocket nie powiodło się. Naciśnij klawisz `Enter` połączyć się ponownie.
  - **Szczegóły**: powłoki chmury wymaga możliwość ustanowienia połączenia obiektu websocket infrastruktury chmury powłoki.
  - **Rozdzielczość**: Sprawdź skonfigurowano ustawienia sieci, aby umożliwić wysyłanie żądań https i żądania protokołu websocket do domen na *. console.azure.com.
+
+## <a name="bash-resolutions"></a>Bash rozwiązania
+
+### <a name="cannot-run-az-login"></a>Nie można uruchomić az logowania
+
+- **Szczegóły**: systemem `az login` nie będzie działać, ponieważ zostali już uwierzytelnieni w ramach konta używane do logowania się do portalu powłoki chmury lub Azure.
+- **Rozdzielczość**: Korzystanie z konta, używany do podpisywania lub wyloguj się i ponownego uwierzytelnienia przy użyciu danego konta platformy Azure.
+
+### <a name="cannot-run-the-docker-daemon"></a>Nie można uruchomić demona docker
+
+- **Szczegóły**: powłoki chmury korzysta z kontenera do hostowania środowiska powłoki, w związku z tym systemem demona jest niedozwolone.
+- **Rozdzielczość**: Korzystanie z [docker maszyny](https://docs.docker.com/machine/overview/), który jest instalowany domyślnie, aby zarządzać kontenery docker z hostem zdalnym Docker.
 
 ## <a name="powershell-resolutions"></a>Rozwiązania programu PowerShell
 

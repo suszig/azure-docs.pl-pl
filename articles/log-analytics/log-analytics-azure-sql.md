@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -102,7 +102,16 @@ Wybranie dowolnego elementu Kafelki, zostanie otwarty raport przechodzenia do ok
 
 Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastycznej i poziom bazy danych. Ponadto każdy perspektywy pokazuje perspektywy określonego raportu po prawej stronie. Wybierając z listy subskrypcję, serwera, puli lub bazy danych nadal Drąż w dół.
 
-| Perspektywa | Opis elementu || Zasób według typu | Perspektywa obliczającej wszystkie zasoby, które są monitorowane. Przechodzenie do szczegółów zawiera podsumowanie metryki DTU i GB. | | Informacje na temat technologii | Udostępnia hierarchiczna przechodzenia do inteligentnego szczegółowych informacji. Dowiedz się więcej o inteligentnego szczegółowych informacji. | | Błędy | Zapewnia hierarchiczna przechodzenia do błędów SQL, które wystąpiły w bazach danych. | | Limity czasu | Udostępnia hierarchiczna przechodzenia do przekroczenia limitu czasu SQL, które wystąpiły w bazach danych. | | Blokowanie | Udostępnia hierarchiczna przechodzenia do blokowanie SQL, które wystąpiły w bazach danych. | | Baza danych czeka | Udostępnia hierarchiczna przechodzenia do SQL oczekiwania statystyk na poziomie bazy danych. Zawiera podsumowania łączny czas oczekiwania i czas oczekiwania na typ oczekiwania. | | Czas trwania zapytania | Udostępnia hierarchiczna przechodzenia do statystyk wykonywania zapytań, takich jak czas trwania kwerendy, użycie procesora CPU, użycia we/wy danych, użycie dziennika we/wy. | | Zapytanie czeka | Udostępnia hierarchiczna przechodzenia do statystyki oczekiwania zapytania według kategorii oczekiwania. |
+| Perspektywa | Opis |
+| --- | --- |
+| Zasób według typu | Perspektywa obliczającej wszystkie zasoby, które są monitorowane. Przechodzenie do szczegółów zawiera podsumowanie metryki DTU i GB. |
+| Insights | Udostępnia hierarchiczna przechodzenia do inteligentnego szczegółowych informacji. Dowiedz się więcej o inteligentnego szczegółowych informacji. |
+| Błędy | Zapewnia hierarchiczna przechodzenia do błędów SQL, które wystąpiły w bazach danych. |
+| Limity czasu | Udostępnia hierarchiczna przechodzenia do przekroczenia limitu czasu SQL, które wystąpiły w bazach danych. |
+| Blokowanie | Udostępnia hierarchiczna przechodzenia do blokowanie SQL, które wystąpiły w bazach danych. |
+| Czeka bazy danych | Udostępnia hierarchiczna przechodzenia do SQL oczekiwania statystyk na poziomie bazy danych. Zawiera podsumowania łączny czas oczekiwania i czas oczekiwania na typ oczekiwania. |
+| czas trwania kwerendy | Udostępnia hierarchiczna przechodzenia do statystyk wykonywania zapytań, takich jak czas trwania kwerendy, użycie procesora CPU, użycia we/wy danych, użycie dziennika we/wy. |
+| Kwerenda | Udostępnia hierarchiczna przechodzenia do statystyki oczekiwania zapytania według kategorii oczekiwania. |
 
 ### <a name="intelligent-insights-report"></a>Raport Insights inteligentnego
 

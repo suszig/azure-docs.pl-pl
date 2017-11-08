@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
+ms.date: 11/03/2017
 ms.author: anbacker
-ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3ca8e1f22e50f5cffa982f321c9a6c325785a2d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Użyj usługi Menedżer StorSimple, aby wyświetlić alerty i zarządzaj nimi StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Użyj usługi Menedżer StorSimple, aby wyświetlić alerty i zarządzaj nimi StorSimple](storsimple-8000-manage-alerts.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 **Alerty** karty w usłudze Menedżer StorSimple umożliwia przeglądanie i wyczyść alerty związane z urządzenia StorSimple na podstawie w czasie rzeczywistym. Na tej karcie można centralnie monitorować problemy dotyczące kondycji urządzenia StorSimple i ogólnego rozwiązania Microsoft Azure StorSimple.
 

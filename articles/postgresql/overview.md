@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Co to jest Azure bazy danych PostgreSQL?
 
@@ -39,7 +39,7 @@ Zestaw przykładów wiersza polecenia platformy Azure zobacz:
 - [Przykładów dla interfejsu wiersza polecenia platformy Azure dla bazy danych Azure dla PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Dostosowanie wydajności i skalowanie w ciągu kilku sekund
-W wersji zapoznawczej, baza danych Azure dla usługi MySQL zapewnia dwie warstwy usług: Basic i Standard. Każda warstwa oferuje różne wydajności i funkcji do obsługi niewielkich do ogromnych obciążeń bazy danych. Można utworzyć pierwszą aplikację na małej bazie danych dla kilku dolarów miesięcznie, a następnie Dostosuj skalę na potrzeby rozwiązania. Skalowalność dynamiczne umożliwia bazy danych odpowiada przezroczysty na szybko ulegają zmianie wymagań dotyczących zasobów. Płacisz tylko dla zasobów możesz konieczności i tylko wtedy, gdy są potrzebne. Zobacz [warstw cenowych](concepts-service-tiers.md) szczegółowe informacje.
+W wersji zapoznawczej, bazą danych PostgreSQL usługi Azure oferuje dwie warstwy usług: Basic i Standard. Każda warstwa oferuje różne wydajności i funkcji do obsługi niewielkich do ogromnych obciążeń bazy danych. Można utworzyć pierwszą aplikację na małej bazie danych dla kilku dolarów miesięcznie, a następnie Dostosuj skalę na potrzeby rozwiązania. Skalowalność dynamiczne umożliwia bazy danych odpowiada przezroczysty na szybko ulegają zmianie wymagań dotyczących zasobów. Płacisz tylko dla zasobów możesz konieczności i tylko wtedy, gdy są potrzebne. Zobacz [warstw cenowych](concepts-service-tiers.md) szczegółowe informacje.
 
 ## <a name="monitoring-and-alerting"></a>Monitorowanie i zgłaszanie alertów
 Jak można podczas wybierania w górę i w dół decyduje? Możesz użyć wbudowanych wydajności monitorowania oraz alertów funkcji, z ocen wydajności na podstawie obliczeniowe jednostek. Za pomocą tych narzędzi, może szybko ocenić wpływ skalowania obliczeniowe jednostki lub w dół na podstawie potrzeb bieżącego lub planowane wydajności. Zobacz [alerty](howto-alert-on-metric.md) szczegółowe informacje.

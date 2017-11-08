@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Kolejki, tematy i subskrypcje usługi Service Bus
 
-Microsoft Azure Service Bus obsługuje zestaw technologii chmurowych, zorientowany oprogramowanie pośredniczące, takich jak usługi kolejkowania komunikatów niezawodnej i trwałe publikowania/subskrybowania komunikatów. Te możliwości obsługi komunikatów "obsługiwanych przez brokera" można traktować jako całkowicie niezależna funkcji obsługi komunikatów, które publikacji / subskrypcji, oddzielenia czasowego i scenariuszy przy użyciu sieci szkieletowej do obsługi komunikatów magistrali usługi równoważenia obciążenia. Komunikacja oddzielona ma wiele zalet, na przykład klienci i serwery mogą nawiązywać połączenie zgodnie z potrzebami i wykonywać ich operacje w sposób asynchroniczny.
+Microsoft Azure Service Bus obsługuje zestaw technologii chmurowych, zorientowany oprogramowanie pośredniczące, takich jak usługi kolejkowania komunikatów niezawodnej i trwałe publikowania/subskrybowania komunikatów. Te możliwości obsługi komunikatów "obsługiwanych przez brokera" można traktować jako całkowicie niezależna funkcji obsługi komunikatów, które publikacji / subskrypcji, oddzielenia czasowego i scenariuszy przy użyciu obciążenie obsługi komunikatów usługi Service Bus równoważenia obciążenia. Komunikacja oddzielona ma wiele zalet, na przykład klienci i serwery mogą nawiązywać połączenie zgodnie z potrzebami i wykonywać ich operacje w sposób asynchroniczny.
 
 Jednostek obsługi komunikatów, które tworzą podstawowe możliwości obsługi komunikatów w usłudze Service Bus są kolejki, tematy i subskrypcje i reguły/akcji.
 
@@ -30,7 +30,7 @@ Jednostek obsługi komunikatów, które tworzą podstawowe możliwości obsługi
 
 Kolejki oferują *pierwszy na wejściu — pierwszy limit* dostarczanie komunikatów (FIFO) do co najmniej jeden konkurujących konsumentów. Oznacza to, że komunikaty zwykle powinny były odbierane i przetwarzane przez odbiorców w kolejności, w którym zostały one dodane do kolejki, a każdy komunikat jest odbierany i przetwarzany przez tylko jednego odbiorcę komunikatów. Najważniejszą korzyścią z używania kolejek jest osiągnięcie "oddzielenia czasowego" składników aplikacji. Innymi słowy producenci (nadawcy) i konsumenci (odbiorcy) nie ma wysyłać i odbierać komunikatów w tym samym czasie, ponieważ komunikaty są trwale przechowywane w kolejce. Ponadto producent nie ma czekać na odpowiedź od konsumenta, aby kontynuować przetwarzanie i wysyłanie komunikatów.
 
-Pokrewną korzyścią jest "Wyrównywanie obciążenia," które umożliwia producentom i odbiorcom wysyłanie i odbieranie wiadomości w różnym tempie. W wielu aplikacjach obciążenie systemu różni się wraz z upływem czasu; Jednak gdy czas przetwarzania wymagany dla każdej jednostki pracy jest zwykle stały. Pośredniczenie producentami a konsumentami komunikatów z kolejki oznacza, że aplikacja odbierająca komunikaty tylko ma być przygotowana do być w stanie obsłużyć obciążenia średni zamiast obciążenia szczytowego. Głębokość kolejki rośnie i zmniejsza się w zależności od zmian obciążenia przychodzącego. To jest zapisywany bezpośrednio oszczędność pieniędzy w odniesieniu do kwoty infrastruktury wymaganej do obsługi obciążenia aplikacji. Miarę wzrostu obciążenia, można dodać więcej procesów roboczych do odczytu z kolejki. Każdy komunikat jest przetwarzany tylko przez jeden z procesów roboczych. Ponadto ta Równoważenie obciążenia oparte na ściąganiu umożliwia optymalne wykorzystanie komputerów roboczych nawet wtedy, gdy komputery procesu roboczego różnią się względem mocy przetwarzania, ponieważ każda będzie ściągać komunikaty ich maksymalna szybkość. Ten wzorzec jest często nazywany wzorcem "konkurujących konsumentów".
+Pokrewną korzyścią jest "Wyrównywanie obciążenia," które umożliwia producentom i odbiorcom wysyłanie i odbieranie wiadomości w różnym tempie. W wielu aplikacjach obciążenie systemu różni się wraz z upływem czasu; Jednak gdy czas przetwarzania wymagany dla każdej jednostki pracy jest zwykle stały. Pośredniczenie producentami a konsumentami komunikatów z kolejki oznacza, że aplikacja odbierająca komunikaty tylko ma być przygotowana do być w stanie obsłużyć obciążenia średni zamiast obciążenia szczytowego. Głębokość kolejki rośnie i zmniejsza się w zależności od zmian obciążenia przychodzącego. To jest zapisywany bezpośrednio oszczędność pieniędzy w odniesieniu do kwoty infrastruktury wymaganej do obsługi obciążenia aplikacji. Miarę wzrostu obciążenia, można dodać więcej procesów roboczych do odczytu z kolejki. Każdy komunikat jest przetwarzany tylko przez jeden z procesów roboczych. Ponadto ta Równoważenie obciążenia oparte na ściąganiu umożliwia optymalne wykorzystanie komputerów roboczych nawet wtedy, gdy komputery procesu roboczego różnią się mocy obliczeniowej, zgodnie z ich ściągać komunikaty z ich maksymalna szybkość. Ten wzorzec jest często nazywany wzorcem "konkurujących konsumentów".
 
 Kolejki, aby między producentami a konsumentami komunikatów zapewnia możliwość dostępu do właściwych luźne powiązanie między składnikami. Ponieważ producenci i konsumenci nie są wzajemnie świadomi, można uaktualnić konsumenta bez wpływu na producenta.
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-Następnie możesz wysłać wiadomości do kolejki. Na przykład, jeśli masz listę obsługiwanych przez brokera komunikatów o nazwie `MessageList`, kod wygląda podobnie do następującego:
+Następnie możesz wysłać wiadomości do kolejki. Na przykład, jeśli masz listę obsługiwanych przez brokera komunikatów o nazwie `MessageList`, kod jest podobny do poniższego przykładu:
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ W [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) trybie oper
 
 Jeśli aplikacja nie może przetworzyć komunikatu z jakiegoś powodu, może wywołać [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) metody dla odebranego komunikatu (zamiast [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Dzięki temu usługa Service Bus odblokować wiadomości i udostępnienie go do ponownego odbioru, przez tego samego użytkownika lub innego konkurujących konsumentów. Po drugie, istnieje limit czasu skojarzony z blokadą i jeśli aplikacja nie może przetworzyć komunikatu przed blokady upłynięciem limitu czasu (na przykład jeśli wystąpiła awaria aplikacji), a następnie usługi Service Bus odblokowuje komunikat i udostępnia go do ponownego odbioru (zasadniczo wykonywania [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) operacji domyślnie).
 
-Należy pamiętać, że w przypadku, gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem **Complete** żądania, wiadomość jest dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często nazywane *co najmniej raz* przetwarzania; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz. Jednak w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie Toleruje dwukrotnego przetwarzania, a następnie dodatkową logikę jest wymagany w aplikacji na wykrywanie duplikatów, które można osiągnąć na podstawie **MessageId** właściwości wiadomości, która pozostaje stała między kolejnymi próbami dostarczenia. Jest to nazywane *dokładnie raz* przetwarzania.
+Należy pamiętać, że w przypadku, gdy aplikacja przestaje działać po przetworzeniu komunikatu, ale przed wysłaniem **Complete** żądania, wiadomość jest dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często nazywane *co najmniej raz* przetwarzania; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz. Jednak w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie Toleruje zduplikowane przetwarzania, a następnie dodatkową logikę jest wymagany w aplikacji na wykrywanie duplikatów, który można uzyskać na podstawie **MessageId** właściwości wiadomości, która pozostaje stała między kolejnymi próbami dostarczenia. Jest to nazywane *dokładnie raz* przetwarzania.
 
 ## <a name="topics-and-subscriptions"></a>Tematy i subskrypcje
 W przeciwieństwie do kolejek, w których każdy komunikat jest przetwarzany przez jednego konsumenta, *tematy* i *subskrypcje* Podaj jeden do wielu formę komunikacji w *publikowania/subskrypcji* wzorca. Przydatne w przypadku skalowania do bardzo dużej liczby adresatów, każdy opublikowany komunikat jest udostępniana do każdej subskrypcji zarejestrowanej w temacie. Komunikaty są wysyłane do tematu i dostarczane do przynajmniej jednej subskrypcji skojarzone, w zależności od reguły filtrowania, które można ustawić na podstawie na subskrypcję. Subskrypcje użyć dodatkowych filtrów do ograniczenia wiadomości, które mają otrzymywać. Komunikaty są wysyłane do tematu w taki sam sposób jak są wysyłane do kolejki, ale nie odbiera wiadomości z tematu bezpośrednio. Zamiast tego są odbierane z subskrypcji. Subskrypcja tematu przypomina wirtualną kolejkę, która odbiera kopie komunikatów, które są wysyłane do tematu. Komunikaty są odbierane z subskrypcji, tak samo jak, które zostały odebrane z kolejki.
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Ten filtr subskrypcji w miejscu, tylko komunikaty, które mają `StoreName` ustawioną właściwość `Store1` są kopiowane do wirtualnej kolejki w celu `Dashboard` subskrypcji.
 
-Aby uzyskać więcej informacji o wartości filtru możliwości, zobacz dokumentację dla [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) i [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasy. Zobacz też [obsługiwanych przez brokera obsługi komunikatów: filtry zaawansowane](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) i [filtry tematu](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) próbek.
+Aby uzyskać więcej informacji o wartości filtru możliwości, zobacz dokumentację dla [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) i [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasy. Zobacz też [obsługiwanych przez brokera obsługi komunikatów: filtry zaawansowane](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) i [filtry tematu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) próbek.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz poniższe tematy, aby uzyskać więcej informacji i przykłady użycia komunikatów usługi Service Bus zaawansowane.
@@ -163,6 +163,5 @@ Zobacz poniższe tematy, aby uzyskać więcej informacji i przykłady użycia ko
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [samouczek dotyczący komunikatów obsługiwanych przez brokera w usłudze Service Bus dla platformy .NET](service-bus-brokered-tutorial-dotnet.md)
 * [Samouczek dotyczący REST komunikatów obsługiwanych przez brokera usługi Service Bus](service-bus-brokered-tutorial-rest.md)
-* [Przykładowe filtry tematu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Obsługiwanych przez brokera komunikatów: Przykładowe filtry zaawansowane](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

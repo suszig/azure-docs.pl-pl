@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 37514e7b90afe1162aa4bbd2869326a691f75c4e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Uwierzytelniania za pomocą prywatnego rejestru kontenera Docker
 
@@ -39,7 +39,7 @@ Podczas pracy z rejestrem bezpośrednio, takie jak ściąganie obrazów i wypych
 az acr login --name <acrName>
 ```
 
-Podczas logowania przy użyciu `az acr login`, interfejsu wiersza polecenia używa tokenu tworzone podczas wykonania `az login` bezproblemowe uwierzytelnianie sesji z rejestru. Po logujesz się w ten sposób, poświadczenia są buforowane, a kolejne `docker` polecenia nie wymagają nazwy użytkownika i hasła. Jeśli token wygaśnie, można go odświeżyć przy użyciu `az acr login` polecenia ponownie w celu ponownego uwierzytelnienia.
+Podczas logowania przy użyciu `az acr login`, interfejsu wiersza polecenia używa tokenu tworzone podczas wykonania `az login` bezproblemowe uwierzytelnianie sesji z rejestru. Po logujesz się w ten sposób, poświadczenia są buforowane, a kolejne `docker` polecenia nie wymagają nazwy użytkownika i hasła. Jeśli token wygaśnie, można go odświeżyć przy użyciu `az acr login` polecenia ponownie w celu ponownego uwierzytelnienia. Przy użyciu `az acr login` z tożsamościami Azure udostępnia [dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="service-principal"></a>Nazwy głównej usługi
 
@@ -75,6 +75,10 @@ W zależności od wersji Docker został zainstalowany, może być wyświetlone o
 
 Rejestr każdego kontenera zawiera konto użytkownika administratora jest domyślnie wyłączona. Można włączyć dla użytkownika administracyjnego i zarządzać jego poświadczeń w [portalu Azure](container-registry-get-started-portal.md#create-a-container-registry), lub za pomocą wiersza polecenia platformy Azure.
 
+> [!IMPORTANT]
+> Konto administratora jest przeznaczony dla jednego użytkownika do dostępu do rejestru, głównie do celów testowych. Nie zaleca się udostępniania wielu użytkownikom za pomocą poświadczeń konta administratora. Wszyscy użytkownicy uwierzytelniania przy użyciu konta administratora są wyświetlane jako pojedynczego użytkownika z dostępem do wypychania i ściągania w rejestrze. Zmiana lub wyłączenie tego konta spowoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy użyć jego poświadczeń. Poszczególne tożsamości jest zalecana dla użytkowników i nazwy główne usług dla scenariuszy bezobsługowe.
+>
+
 Konto administratora jest udostępniane z dwóch haseł, które może być generowany ponownie. Dwa hasła umożliwiają zachowanie połączenia w rejestrze za pomocą jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, można przekazać nazwę użytkownika i hasło albo `docker login` polecenia dla uwierzytelniania podstawowego w rejestrze. Na przykład:
 
 ```
@@ -92,10 +96,6 @@ az acr update -n <acrName> --admin-enabled true
 Można włączyć dla użytkownika administracyjnego, w portalu Azure, przechodząc rejestru, wybierając **klucze dostępu** w obszarze **ustawienia**, następnie **włączyć** w obszarze **administratora Użytkownik**.
 
 ![Włącz administrator interfejsu użytkownika w portalu Azure][auth-portal-01]
-
-> [!IMPORTANT]
-> Konto administratora jest przeznaczony dla jednego użytkownika do dostępu do rejestru, głównie do celów testowych. Nie zaleca się udostępniania wielu użytkownikom za pomocą poświadczeń konta administratora. Wszyscy użytkownicy uwierzytelniania przy użyciu konta administratora są wyświetlane jako pojedynczego użytkownika w rejestrze. Zmiana lub wyłączenie tego konta spowoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy użyć jego poświadczeń.
->
 
 ## <a name="next-steps"></a>Następne kroki
 

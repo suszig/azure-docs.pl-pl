@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>Omówienie funkcji zapisywania zwrotnego haseł
 
@@ -91,6 +91,8 @@ Poniższe kroki założono skonfigurowano już program Azure AD Connect w środo
    ![Włączanie zapisywania zwrotnego haseł w programie Azure AD Connect][Writeback]
 7. Na stronie wszystko gotowe do skonfigurowania ekran, kliknij przycisk **Konfiguruj** i poczekaj na zakończenie procesu.
 8. Po wyświetleniu konfiguracji zakończyć, kliknij przycisk **zakończenia**
+
+Typowe zadania dotyczące rozwiązywania problemów związanych z zapisywaniem zwrotnym haseł można znaleźć w sekcji [Rozwiązywanie problemów z zapisywaniem zwrotnym haseł](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) w naszym artykuł dotyczący rozwiązywania problemów.
 
 ## <a name="active-directory-permissions"></a>Uprawnienia usługi Active Directory
 
@@ -212,16 +214,16 @@ Rozmiar każdego komunikatu opisany powyżej jest zwykle w obszarze 1 kb, nawet 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jakie są opcje zasad z SSPR?](active-directory-passwords-policy.md)
-* [Jak zgłosić w działaniu w SSPR](active-directory-passwords-reporting.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Myślę, że dany element jest uszkodzony. Jak rozwiązywać problemy z SSPR](active-directory-passwords-troubleshoot.md)
-* [Masz pytania, na które nie objęte gdzieś else](active-directory-passwords-faq.md)
+* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
+* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-reporting.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
+* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Włączanie zapisywania zwrotnego haseł w programie Azure AD Connect"

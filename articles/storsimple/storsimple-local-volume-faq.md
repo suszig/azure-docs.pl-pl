@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/11/2017
+ms.date: 11/03/2017
 ms.author: manuaery
-ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c892cbc4acd5531100f45c26a1b81cd5468d255
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Woluminy przypięte lokalnie StorSimple: często zadawane pytania (FAQ)
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [woluminów przypiętych lokalnie StorSimple: często zadawane pytania (FAQ)](storsimple-8000-local-volume-faq.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Poniżej przedstawiono pytania i odpowiedzi, które mogą wystąpić podczas tworzenia woluminu StorSimple przypięty lokalnie, konwertowanie woluminu warstwowego do woluminu przypiętego lokalnie (i na odwrót) lub tworzenie kopii zapasowej i przywracania woluminu przypiętego lokalnie.
 

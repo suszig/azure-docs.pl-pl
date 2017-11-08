@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Monitorowanie i rozwiązywanie problemów z ochroną maszyn wirtualnych i serwerów fizycznych
 Ten przewodnik monitorowania i rozwiązywania problemów pomaga śledzić kondycję replikacji i rozwiązywanie problemów z techniki dla usługi Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Opis składników
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Maszyny wirtualnej VMware lub serwerów fizycznych wdrożenia lokacji replikacji między lokalną i platformą Azure
-Aby skonfigurować odzyskiwanie bazy danych między na lokalnej maszynie wirtualnej VMware lub serwerów fizycznych i usługi Azure, należy skonfigurować serwer konfiguracji głównego serwera docelowego, a proces składników serwera na maszynie wirtualnej lub serwerze. Po włączeniu ochrony dla serwera źródłowego usługi Azure Site Recovery instaluje funkcji Mobile Apps usługi Microsoft Azure App Service. Po awarii lokalnymi i po źródłowy serwer nie może za pośrednictwem na platformie Azure, klienci konieczne jest skonfigurowanie serwer przetwarzania na platformie Azure i głównego serwera docelowego na lokalnych do odbudowywania serwera źródłowego na lokalnych.
+Aby skonfigurować odzyskiwanie bazy danych między na lokalnej maszynie wirtualnej VMware lub serwerów fizycznych i usługi Azure, należy skonfigurować serwer konfiguracji głównego serwera docelowego, a proces składników serwera na maszynie wirtualnej lub serwerze. Po włączeniu ochrony dla serwera źródłowego usługi Azure Site Recovery instaluje usługi mobilności z wybranego serwera przetwarzania, jeśli zaktualizowanej wersji nie jest już wdrożone. Po awarii lokalnymi i po źródłowy serwer nie może za pośrednictwem na platformie Azure, klienci konieczne jest skonfigurowanie serwer przetwarzania na platformie Azure i głównego serwera docelowego na lokalnych do odbudowywania serwera źródłowego na lokalnych.
 
 ![Wdrożenie lokacji VMware/fizyczne replikacji między lokalną i platformą Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

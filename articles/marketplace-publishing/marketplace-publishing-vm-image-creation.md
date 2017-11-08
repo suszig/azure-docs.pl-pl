@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -432,7 +432,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
 2.  Po pobraniu jej Zainstaluj
 
-3.  Utwórz plik programu PowerShell zawierający następujący kod i zapisz go w lokalnym
+3.  Tworzenie programu PowerShell (lub innego pliku wykonywalnego skryptu) pliku z następującym kodem i zapisać ją lokalnie
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -444,9 +444,9 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
     b. **`<Storage Account Key>`**: Podać klucz konta magazynu
 
-    c. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25
+    c. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Wybierz datę, która jest co najmniej 3 tygodni po **Data rozpoczęcia**. Wartość musi być **2016-11-02**.
+    d. **`<Permission End Date>`**: Wybierz datę, która jest co najmniej 3 tygodni po **Data rozpoczęcia**. Wartość powinna być **2016-11-02**. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 11-02-2016T00:00:00Z.
 
     Poniżej przedstawiono przykładowy kod po zaktualizowaniu odpowiednie parametry
 
@@ -454,7 +454,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  Otwórz Edytor programu Powershell w trybie "Uruchom jako Administrator", a następnie otwórz plik w kroku #3.
+4.  Otwórz Edytor programu Powershell w trybie "Uruchom jako Administrator", a następnie otwórz plik w kroku #3. Można użyć dowolnego edytora skryptów, które są dostępne w systemie operacyjnym.
 
 5.  Uruchom skrypt i będzie on zawierał możesz adres URL SAS dla kontenera poziom dostępu
 
@@ -517,7 +517,7 @@ Po utworzeniu oferty i wersji produktu, należy wprowadzić szczegóły obrazu s
 |Błąd podczas kopiowania obrazów — "sp = rl" nie znajduje się w adres url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego|Zaktualizuj adres Url SAS z uprawnienia "Odczyt" & "Lista jako|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Błąd podczas kopiowania obrazów — adres url SAS ma białe znaki w nazwie wirtualnego dysku twardego|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Aktualizacja adresu Url SAS, bez spacji|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Błąd podczas kopiowania obrazów — błąd autoryzacji adresów Url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na błąd autoryzacji|Wygeneruj ponownie adres Url SAS|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Błąd podczas kopiowania obrazów — adres Url SAS "st" i "se" parametrów nie mają specyfikacji pełnej daty i godziny|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na nieprawidłowy adres Url SAS |Parametry Start adres Url SAS i Data zakończenia ("st", "se") muszą mieć specyfikacji pełnej daty i godziny, takich jak 11-02-2017T00:00:00Z, a nie tylko datę lub skróconej wersji po raz. Użytkownik może wystąpić ten scenariusz przy użyciu usługi Azure CLI 2.0 (polecenie az). Należy podać specyfikację daty godziny i ponowne wygenerowanie adres Url SAS.|[https://Azure.microsoft.com/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Następny krok
 Po wykonaniu szczegóły jednostka SKU, można przenieść do przodu [marketing przewodnik zawartości portalu Azure Marketplace][link-pushstaging]. W tym kroku procesu publikowania można zapewnić zawartość marketing, ceny i inne informacje, które są niezbędne przed **krok 3: testowanie maszyny Wirtualnej oferują tymczasowych**, który testować różne scenariusze przypadek użycia przed wdrożeniem oferty w portalu Azure Marketplace widoczności publicznej i zakupu.  

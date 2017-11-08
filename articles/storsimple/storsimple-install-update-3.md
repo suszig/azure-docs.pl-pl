@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Zainstaluj na urządzeniu z serii StorSimple 8000 z aktualizacją Update 3
+
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Omówienie
 
 W tym samouczku przedstawiono sposób instalacji aktualizacji 3 na urządzeniu StorSimple uruchomiona starsza wersja oprogramowania za pośrednictwem klasycznego portalu Azure i przy użyciu metody poprawki. Metoda poprawki jest używana, gdy brama jest skonfigurowany w interfejsie sieciowym innym niż dane 0 urządzenia StorSimple i są próby aktualizacji z wersji oprogramowania 1 przed aktualizacją.
 
-Aktualizacja 3 obejmuje oprogramowanie urządzenia, LSI sterowników i oprogramowania układowego, Storport i aktualizuje Spaceport. Jeśli aktualizacja Update 2 lub starszej wersji, będzie również wymagane do zastosowania iSCSI, usługi WMI, a w niektórych przypadkach dysku aktualizacje oprogramowania układowego. Oprogramowanie urządzenia, WMI iSCSI, LSI sterownika, Spaceport i Storport poprawki Brak aktualizacji i mogą być stosowane za pośrednictwem klasycznego portalu Azure. Aktualizacje oprogramowania układowego dysku destrukcyjne aktualizacji i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia. 
+Aktualizacja 3 obejmuje oprogramowanie urządzenia, LSI sterowników i oprogramowania układowego, Storport i aktualizuje Spaceport. Jeśli aktualizacja Update 2 lub starszej wersji, również należy zastosować iSCSI, usługi WMI i w niektórych przypadkach dysku aktualizacje oprogramowania układowego. Oprogramowanie urządzenia, WMI iSCSI, LSI sterownika, Spaceport i Storport poprawki są Brak aktualizacji. Te aktualizacje mogą być stosowane za pośrednictwem klasycznego portalu Azure. Aktualizacje oprogramowania układowego dysku destrukcyjne aktualizacji i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia.
 
 > [!IMPORTANT]
 > * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe czasu zainstalowania w celu określenia kondycji urządzenia pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje z klasycznego portalu Azure.
-> * Zaleca się zainstalowanie aktualizacji oprogramowania i sterowników za pośrednictwem klasycznego portalu Azure. Tylko powinien możesz przejść do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. W zależności od wersji aktualizowanej z aktualizacji może potrwać godzin w wersji 1.5 — 2.5 do zainstalowania. Aktualizacje trybu konserwacji musi być zainstalowany za pośrednictwem interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, te spowoduje dół czasu dla danego urządzenia.
+> * Zaleca się zainstalowanie aktualizacji oprogramowania i sterowników za pośrednictwem klasycznego portalu Azure. Przejdź do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), tylko jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. W zależności od wersji aktualizowanej z aktualizacji może potrwać godzin w wersji 1.5 — 2.5 do zainstalowania. Aktualizacje trybu konserwacji musi być zainstalowany za pośrednictwem interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, urządzenie napotyka przestoju.
 > * Uruchomiona opcjonalne StorSimple Snapshot Manager, upewnij się, że uaktualniono wersji Snapshot Manager do wersji Update 2 przed zaktualizowaniem urządzenia.
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Aktualizacja 3 obejmuje oprogramowanie urządzenia, LSI sterowników i oprogramo
 Wykonaj poniższe kroki, aby zaktualizować urządzenie do [Update 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
-> Stosowania Update 2 lub nowszym (w tym Update 2.1) firmy Microsoft będzie można ściągnąć dodatkowych informacji diagnostycznych z urządzenia. W związku z tym gdy działu operacji identyfikuje urządzenia, które występują problemy, firma Microsoft mają większe możliwości zbierania informacji z urządzenia i diagnozowanie problemów. Akceptowanie Update 2 lub nowszej, umożliwia firmie Microsoft w celu obsługi aktywne.
-> 
-> 
+> Stosowania Update 2 lub nowszym (w tym Update 2.1) firmy Microsoft będzie można ściągnąć dodatkowych informacji diagnostycznych z urządzenia. Te dane ułatwiają identyfikowanie urządzeń StorSimple, które występują problemów i diagnozowanie problemów pomocy. Akceptowanie Update 2 lub nowszej, umożliwia firmie Microsoft w celu obsługi aktywne.
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Sprawdź, czy urządzenie działa **StorSimple 8000 serii Update 3 (6.3.9600.17759)**. **Ostatniej aktualizacji daty** również powinien być modyfikowany. 
-   - Jeśli aktualizacja z wersji przed Update 2, pojawi się także o dostępnych aktualizacjach tryb konserwacji (ten komunikat może nadal wyświetlane przez 24 godziny, po zainstalowaniu aktualizacji).
-     Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia. W niektórych przypadkach po uruchomieniu 1.2 aktualizacji oprogramowania układowego dysku mogą być już aktualne, w którym to przypadku nie trzeba instalować żadnych aktualizacji w trybie konserwacji.
+Sprawdź, czy urządzenie działa **StorSimple 8000 serii Update 3 (6.3.9600.17759)**. **Ostatniej aktualizacji daty** jest modyfikowany. 
+   - Jeśli aktualizacja z wersji przed Update 2, zobacz o dostępnych aktualizacjach tryb konserwacji. Ten komunikat może nadal wyświetlane przez 24 godziny, po zainstalowaniu aktualizacji.
+     Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia. Te aktualizacje mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia. W niektórych przypadkach po uruchomieniu 1.2 aktualizacji oprogramowania układowego dysku mogą być już aktualne i nie trzeba instalować żadnych aktualizacji w trybie konserwacji.
    - W przypadku aktualizacji z Update 2 lub nowszej, urządzenie powinno być teraz aktualne. Następny krok można pominąć.
 
 Pobierz aktualizacje tryb konserwacji przy użyciu kroków opisanych w [do pobrania poprawek](#to-download-hotfixes) do wyszukania i pobrania KB3121899, które instaluje aktualizacje oprogramowania układowego dysku (inne aktualizacje powinny być zainstalowane przez teraz). Wykonaj czynności opisane w [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes) trybu konserwacji do zainstalowania aktualizacji. 

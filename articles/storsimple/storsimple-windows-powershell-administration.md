@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811c06c6355ae881037cceb573ae0f96fa1ec2ad
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Administrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Użyj środowiska Windows PowerShell dla urządzenia StorSimple do administrowania urządzenia](storsimple-8000-windows-powershell-administration.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Program Windows PowerShell dla StorSimple udostępnia interfejs wiersza polecenia, który służy do zarządzania urządzeniem Microsoft Azure StorSimple. Jak wynika z nazwy, jest oparty na programie Windows PowerShell, interfejsu wiersza polecenia, który korzysta z wbudowanej w ograniczonego obszaru działania. Z perspektywy użytkownika w wierszu polecenia ograniczonego obszaru działania jest wyświetlany jako ograniczona wersja programu Windows PowerShell. Przy zachowaniu niektóre podstawowe funkcje programu Windows PowerShell, ten interfejs ma dodatkowe dedykowanych poleceń cmdlet, które są przeznaczone dla zarządzania urządzenia Microsoft Azure StorSimple. 
 

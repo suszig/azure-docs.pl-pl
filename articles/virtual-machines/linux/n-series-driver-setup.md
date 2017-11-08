@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych N-series systemem Linux
 
@@ -205,13 +205,13 @@ Ten plik może być wywoływany jako główny na rozruch, tworząc wpis dla nieg
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Zainstaluj sterowniki CUDA NC maszyn wirtualnych
 
-Poniżej przedstawiono kroki, aby zainstalować sterowniki NVIDIA na maszynach wirtualnych NC Linux z NVIDIA CUDA Toolkit 8.0. 
+Poniżej przedstawiono kroki, aby zainstalować sterowniki NVIDIA na maszynach wirtualnych NC Linux z zestawu narzędzi CUDA NVIDIA. 
 
 Deweloperzy C i C++ może opcjonalnie zainstalować pełny zestaw narzędzi do tworzenia aplikacji przyspieszony procesora GPU. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Łącza pobierania sterowników CUDA podane w tym miejscu są aktualne w momencie publikacji. Najnowsze sterowniki CUDA, odwiedź stronę [NVIDIA](http://www.nvidia.com/) witryny sieci Web.
+> Łącza pobierania sterowników CUDA podane w tym miejscu są aktualne w momencie publikacji. Najnowsze sterowniki CUDA, odwiedź stronę [NVIDIA](https://developer.nvidia.com/cuda-zone) witryny sieci Web.
 >
 
 Aby zainstalować zestaw narzędzi CUDA, należy utworzyć połączenie SSH na każdej maszynie Wirtualnej. Aby zweryfikować, że system ma obsługą CUDA procesora GPU, uruchom następujące polecenie:
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Nie uruchamiaj `sudo yum update` aktualizację wersji jądra na CentOS 7.3 lub Red Hat Enterprise Linux 7.3. Obecnie instalacji sterowników i aktualizacji nie działają, jeśli jądra jest aktualizowany.
->
-
 1. Zainstaluj najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V.
 
   > [!IMPORTANT]
-  > Jeśli obraz na podstawie CentOS HPC jest zainstalowany na maszynie Wirtualnej NC24r, przejdź do kroku 3. Ponieważ sterowniki Azure RDMA i usługi integracji systemu Linux są wstępnie zainstalowane w obrazie, LIS nie powinny zostać uaktualnione, a aktualizacje jądra są domyślnie wyłączone.
+  > Jeśli obraz na podstawie CentOS HPC jest zainstalowany na maszynie Wirtualnej NC24r, przejdź do kroku 3. Ponieważ sterowniki Azure RDMA i usługi integracji systemu Linux są wstępnie zainstalowane w obrazie HPC, LIS nie powinny zostać uaktualnione, a aktualizacje jądra są domyślnie wyłączone.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 

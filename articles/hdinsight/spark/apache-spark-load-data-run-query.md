@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
-ms.openlocfilehash: ef9154b0d400ff23c53460454c886ab90e290f0c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0d93e261121f11d2a1082b9672e6d979955d3bee
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Uruchamianie interakcyjnych zapytań w klastrze Spark w usłudze HDInsight
 
@@ -34,10 +34,12 @@ W tym samouczku, użyj **PySpark** jądra notesu Jupyter do uruchamiania interak
 
 ## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Tworzenie notesu Jupyter do wykonywania interakcyjnych zapytań
 
-Aby uruchamiać kwerendy, używamy przykładowych danych, które jest domyślnie dostępna w magazynie skojarzony z klastrem. Jednak należy najpierw załadować dane do Spark jako dataframe. Po utworzeniu dataframe, można wykonać zapytania na nim za pomocą notesu Jupyter. W tej sekcji można przyjrzeć się jak:
+Aby uruchamiać kwerendy, używamy przykładowych danych, które jest domyślnie dostępna w magazynie skojarzony z klastrem. Jednak należy najpierw załadować dane do Spark jako dataframe. Po utworzeniu dataframe, można wykonać zapytania na nim za pomocą notesu Jupyter. W tym artykule należy przyjrzeć się jak:
 
 * Rejestrowanie zestawu danych przykładowych jako Spark dataframe.
 * Uruchamianie kwerend dotyczących dataframe.
+
+Zacznijmy od początku.
 
 1. Otwórz [portal Azure](https://portal.azure.com/). Jeśli wybrana została opcja przypięcia klastra do pulpitu nawigacyjnego, kliknij kafelek klastra na pulpicie nawigacyjnym, aby uruchomić blok klastra.
 
@@ -78,7 +80,7 @@ Aby uruchamiać kwerendy, używamy przykładowych danych, które jest domyślnie
 
     ![Migawki danych do interaktywnego zapytań Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "migawki danych do interaktywnego zapytań Spark SQL")
 
-6. Tworzenie dataframe i tabeli tymczasowej (**hvac**), uruchamiając poniższy kod. W tym samouczku firma Microsoft nie twórz wszystkie kolumny w tabeli tymczasowej w porównaniu do kolumn w nieprzetworzone dane w formacie CSV. 
+6. Tworzenie dataframe i tabeli tymczasowej (**hvac**), uruchamiając poniższy kod. W tym samouczku firma Microsoft nie twórz wszystkie kolumny w pliku CSV. 
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -107,11 +109,13 @@ Aby uruchamiać kwerendy, używamy przykładowych danych, które jest domyślnie
 
      ![Tabela wyjściowa wyników interakcyjnego zapytania Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabela wyjściowa wyników interakcyjnego zapytania Spark")
 
-    Wyniki można również przeglądać w postaci innych wizualizacji. Na przykład wykres warstwowy tych samych danych wyjściowych będzie wyglądać w następujący sposób.
+9. Wyniki można również przeglądać w postaci innych wizualizacji. Aby wyświetlić wykres warstwowy tych samych danych wyjściowych, wybierz **obszaru** następnie ustaw inne wartości, jak pokazano.
 
     ![Wykres warstwowy wyników interakcyjnego zapytania Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Wykres warstwowy wyników interakcyjnego zapytania Spark")
 
-9. Po zakończeniu działania aplikacji zamknij notes w celu zwolnienia zasobów klastra. W tym celu w menu **File** (Plik) w notesie kliknij polecenie **Close and Halt** (Zamknij i zatrzymaj).
+10. Z **pliku** menu w notesie kliknij **zapisywanie i punktu kontrolnego**. 
+
+11. Jeśli zaczynasz [następny samouczek](apache-spark-use-bi-tools.md) teraz, pozostaw otwarte notesu. Jeśli nie, należy wyłączyć aby zwolnić zasoby klastra: z **pliku** menu w notesie kliknij **zamknąć i zatrzymuje**.
 
 ## <a name="next-step"></a>Następny krok
 

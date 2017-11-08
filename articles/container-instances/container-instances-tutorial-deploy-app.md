@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Wdrażanie kontenera do wystąpień kontenera platformy Azure
 
@@ -56,31 +56,31 @@ Kontener rejestru hasło:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Aby wdrożyć obraz kontenera z rejestru kontenera żądanie zasobu 1 rdzeń procesora CPU i 1 GB pamięci, uruchom następujące polecenie:
+Aby wdrożyć obraz kontenera z rejestru kontenera żądanie zasobu 1 rdzeń procesora CPU i 1 GB pamięci, uruchom następujące polecenie. Zastąp `<acrLoginServer>` i `<acrPassword>` z wartościami uzyskane z poprzednich dwóch poleceń.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-W ciągu kilku sekund powinien zostać wyświetlony początkową odpowiedź z usługi Azure Resource Manager. Aby wyświetlić stan wdrożenia, należy użyć:
+W ciągu kilku sekund powinien zostać wyświetlony początkową odpowiedź z usługi Azure Resource Manager. Aby wyświetlić stan wdrożenia, użyj [Pokaż kontenera az](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-Można kontynuować, wykonanie tego polecenia, aż stan zmieni się z *oczekujące* do *systemem*. Następnie można przejść.
+Powtórz `az container show` poleceń, aż stan zmieni się z *oczekujące* do *systemem*, powinien zająć w kilka minut. Gdy jest kontenera *systemem*, przejdź do następnego kroku.
 
 ## <a name="view-the-application-and-container-logs"></a>Wyświetl dzienniki aplikacji i kontenera
 
-Po pomyślnym wdrożeniu, otwórz przeglądarkę z adresem IP wyświetlany w danych wyjściowych z następującego polecenia:
+Po pomyślnym wdrożeniu, wyświetlania kontenera na publiczny adres IP z [Pokaż kontenera az](/cli/azure/container#az_container_show) polecenia:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Przykład danych wyjściowych:`"13.88.176.27"`
+
+Aby wyświetlić działającej aplikacji, przejdź do publicznego adresu IP w ulubionej przeglądarce.
 
 ![Witaj świecie aplikacji w przeglądarce][aci-app-browser]
 
@@ -96,6 +96,14 @@ Dane wyjściowe:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Jeśli nie ma potrzeby zasobów utworzone w tym samouczku, można wykonywać [usunięcie grupy az](/cli/azure/group#delete) polecenie, aby usunąć grupę zasobów i wszystkie zasoby, które zawiera. To polecenie usuwa rejestr kontenera, który został utworzony, a także uruchomiona kontenera i wszystkie powiązane zasoby.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki

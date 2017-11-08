@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8182d0ccf9fb57a9dba383d376d1c557845bcc8a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Zarządzanie kontrolerów urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [Zarządzanie kontrolerów urządzenia StorSimple](storsimple-8000-manage-device-controller.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 W tym samouczku opisano różne operacje, które można wykonać na kontrolerach urządzenia StorSimple. Kontrolery w urządzeniu StorSimple są kontrolery nadmiarowy (peer) w konfiguracji aktywny / pasywny. W danym momencie tylko jeden kontroler jest aktywna i przetwarza wszystkie operacje dysku i sieci. Inny kontroler jest w trybie pasywnym. W przypadku niepowodzenia aktywnego kontrolera pasywnym kontrolera staje się aktywny automatycznie.
 

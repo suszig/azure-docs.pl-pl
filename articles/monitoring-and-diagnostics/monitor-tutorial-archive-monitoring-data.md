@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure archiwum danych monitorowania
 
 Kilku warstw środowiska Azure utworzyć dziennika i metryki danych, które mogą być archiwizowane, do konta magazynu platformy Azure. Można to zrobić, aby zachować historii danych monitorowania w czasie w magazynie niedrogich, niemożliwych po upływie jego okres przechowywania w Log Analytics lub Azure monitora tych danych. Ten samouczek kroki przez proces konfigurowania środowiska Azure do archiwum danych na konto magazynu.
+
+> [!div class="checklist"]
+> * Utwórz konto magazynu do przechowywania danych monitorowania
+> * Dzienniki subskrypcji trasy do niego 
+> * Dane trasy zasobów do niego 
+> * Dane trasy maszyna wirtualna (system operacyjny gościa) do niego 
+> * Widok danych monitorowania w nim 
+> * Czyszczenie zasobów 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -158,7 +166,18 @@ Możesz teraz pomyślnie skonfigurowano monitorowanie danych do archiwizacji na 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób monitorowania danych z Twoim środowiskiem platformy Azure (subskrypcji, zasobów i system operacyjny gościa), które mają być archiwizowane na konto magazynu. Aby wprowadzić więcej znaczenie poza danych i uzyskania szczegółowych informacji, spróbuj również wysyłanie danych do analizy dzienników.
+W tym samouczku przedstawiono sposób monitorowania danych z Twoim środowiskiem platformy Azure (subskrypcji, zasobów i system operacyjny gościa), które mają być archiwizowane na konto magazynu. 
+
+
+> [!div class="checklist"]
+> * Utwórz konto magazynu do przechowywania danych monitorowania
+> * Dzienniki subskrypcji trasy do niego 
+> * Dane trasy zasobów do niego 
+> * Dane trasy maszyna wirtualna (system operacyjny gościa) do niego 
+> * Widok danych monitorowania w nim 
+> * Czyszczenie zasobów 
+
+Aby lepiej wykorzystać danych i pochodzić dodatkowe informacje szczegółowe, należy również wysyłać danych do analizy dzienników.
 
 > [!div class="nextstepaction"]
 > [Wprowadzenie do analizy dzienników](../log-analytics/log-analytics-get-started.md)

@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee22a31e9c0ec23d9b042dc894cafe0fc346e742
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Wdrażanie usługi Menedżer StorSimple w klasycznym portalu Azure
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [wdrożyć usługę Menedżer StorSimple w klasycznym portalu Azure](storsimple-8000-manage-service.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Omówienie
 Usługę Menedżer StorSimple działa na platformie Microsoft Azure i łączy się wieloma urządzeniami StorSimple. Po utworzeniu usługi musisz służy do zarządzania urządzeniami przy użyciu klasycznego portalu Microsoft Azure działającego w przeglądarce. Dzięki temu można monitorować urządzenia, które są podłączone do usługi Menedżer StorSimple z jednym centralnym miejscu, w tym samym minimalizując nakładu prac administracyjnych.

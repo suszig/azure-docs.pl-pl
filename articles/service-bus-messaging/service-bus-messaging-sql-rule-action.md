@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83b4f76a171cd8a860e7ab43462c976bf4df941a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sqlruleaction-syntax"></a>Składnia SQLRuleAction
 
 A *SqlRuleAction* jest wystąpieniem [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasy i reprezentuje zestaw akcji napisane w języku SQL na podstawie składnię, która nie jest przeprowadzana [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-Ten temat zawiera szczegółowe informacje o gramatyki akcji reguły SQL.  
+Ten artykuł zawiera szczegółowe informacje o gramatyki akcji reguły SQL.  
   
 ```  
 <statements> ::=

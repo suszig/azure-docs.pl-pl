@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -57,7 +57,7 @@ Podobnie jak inne rodzaje próbkowania algorytm zachowuje elementy powiązane da
 
 Punkty danych, które są odrzucane przez pobieranie próbek nie są dostępne w dowolnej funkcji usługi Application Insights, takich jak [eksportu ciągłego](app-insights-export-telemetry.md).
 
-Wprowadzanie próbkowania nie działa podczas operacji SDK próbkowania adaptacyjną lub stałej stawki. Jeśli częstotliwość próbkowania w zestawie SDK jest mniejsza niż 100%, częstotliwość próbkowania wprowadzanie ustawiona jest ignorowana.
+Wprowadzanie próbkowania nie działa podczas operacji SDK próbkowania adaptacyjną lub stałej stawki. Należy pamiętać, że adaptacyjną próbkowania jest domyślnie włączona po zestawu SDK platformy ASP.NET jest włączona w programie Visual Studio lub za pomocą Monitora stanu i wprowadzanie próbek jest wyłączone. Jeśli częstotliwość próbkowania w zestawie SDK jest mniejsza niż 100%, częstotliwość próbkowania wprowadzanie ustawiona jest ignorowana.
 
 > [!WARNING]
 > Wartości wyświetlane na kafelku określa wartość, która zostanie ustawiona wprowadzanie próbkowania. Jeśli jest używany w operacji pobierania zestawu SDK nie reprezentuje rzeczywistego próbkowania.

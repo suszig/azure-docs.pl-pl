@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji sieci szkieletowej usług .NET na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
 Kliknij prawym przyciskiem myszy ikonę programu Visual Studio w Start Menu i wybierz polecenie **Uruchom jako administrator**. Aby dołączyć debuger do usługi, należy uruchomić program Visual Studio jako administrator.
 
-Otwórz **Voting.sln** rozwiązania Visual Studio z sklonowanego repozytorium.
+Otwórz **Voting.sln** rozwiązania Visual Studio z sklonowanego repozytorium.  
+
+Aplikacja głosowania domyślnie nasłuchiwanie na porcie 8080.  Port aplikacji jest ustawiony w */VotingWeb/PackageRoot/ServiceManifest.xml* pliku.  W przypadku zmiany portu aplikacji, aktualizując **portu** atrybutu **punktu końcowego** elementu.  Aby wdrożyć i uruchomić aplikację lokalnie, port aplikacji musi być otwartego i dostępnego na komputerze.  W przypadku zmiany portu aplikacji, zastąp wartość port aplikacji "8080" w tym artykule.
 
 Aby wdrożyć aplikację, naciśnij klawisz **F5**.
 
 > [!NOTE]
-> Podczas pierwszego uruchomienia i wdrażanie aplikacji Visual Studio tworzy lokalny klaster na potrzeby debugowania. Ta operacja może potrwać pewien czas. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.
+> Podczas pierwszego uruchomienia i wdrażanie aplikacji Visual Studio tworzy lokalny klaster na potrzeby debugowania. Ta operacja może potrwać pewien czas. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.  W danych wyjściowych zostanie wyświetlony komunikat "Adres URL aplikacji nie jest ustawiona lub nie jest adres URL protokołu HTTP/HTTPS, więc nie zostanie otwarta przeglądarka do aplikacji".  Ten komunikat nie wskazuje błąd, ale ten przeglądarki zostanie nie automatyczne uruchamianie.
 
 Po zakończeniu wdrażania Uruchom przeglądarkę i otwórz tę stronę: `http://localhost:8080` -frontonu aplikacji sieci web.
 
@@ -114,14 +116,15 @@ Aby przyjrzeć się, co się stanie w kodzie, wykonaj następujące kroki:
 Aby zatrzymać sesję debugowania, naciśnij klawisz **Shift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
-Aby wdrożyć aplikację do klastra na platformie Azure, albo można do utworzenia własnego klastra lub używania klastra strony.
+Aby wdrożyć aplikację na platformie Azure, należy klaster sieci szkieletowej usług, w którym jest uruchomiona aplikacja. 
 
-Klastry testowe to bezpłatne, ograniczone czasowo klastry usługi Service Fabric hostowane na platformie Azure i uruchamiane przez zespół usługi Service Fabric, w których każdy może wdrażać aplikacje i poznawać platformę. Aby uzyskać dostęp do klastra testowego, [postępuj zgodnie z instrukcjami](http://aka.ms/tryservicefabric). 
+### <a name="join-a-party-cluster"></a>Dołącz do klastra strony
+Klastry testowe to bezpłatne, ograniczone czasowo klastry usługi Service Fabric hostowane na platformie Azure i uruchamiane przez zespół usługi Service Fabric, w których każdy może wdrażać aplikacje i poznawać platformę. 
 
-Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure](service-fabric-get-started-azure-cluster.md).
+Zaloguj się i [przyłączyć do klastra z systemem Windows](http://aka.ms/tryservicefabric). Należy pamiętać, **punktu końcowego połączenia** wartość, która jest używana w następujących krokach.
 
 > [!Note]
-> Usługa frontonu sieci web jest skonfigurowane do nasłuchiwania na porcie 8080 dla ruchu przychodzącego. Upewnij się, że port w klastrze został otwarty. Jeśli używasz klastra strona ten port jest otwarty.
+> Domyślnie usługi frontonu sieci web jest skonfigurowane do nasłuchiwania na porcie 8080 dla ruchu przychodzącego. Port 8080 jest otwarty w klastrze strony.  Jeśli musisz zmienić port aplikacji, zmień go na jeden z portów, które są otwarte w klastrze strony.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Wdrażanie aplikacji przy użyciu programu Visual Studio
@@ -131,7 +134,9 @@ Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze bezpośrednio z pro
 
     ![Okno dialogowe Publikowanie](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Wpisz punkt końcowy połączenia klastra w polu **Punkt końcowy połączenia**, a następnie kliknij przycisk **Publikuj**. Podczas rejestracji dla klastra firm, punktu końcowego połączenia jest dostępna w przeglądarce. — na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopiuj **punktu końcowego połączenia** ze strony firmy klastra do **punktu końcowego połączenia** a następnie kliknij przycisk **publikowania**. Na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Każda aplikacja w klastrze musi mieć unikatową nazwę.  Klastry firm są jednak środowiska publicznego, udostępnionych i może być konflikt z istniejącą aplikacją.  Jeśli występuje konflikt nazw, Zmień nazwę projektu Visual Studio i Wdróż ponownie.
 
 3. Otwórz przeglądarkę i typ w foolowed adres klastra przez ": 8080', aby uzyskać dostęp do aplikacji w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Powinna zostać wyświetlona aplikacja była uruchomiona w klastrze na platformie Azure.
 

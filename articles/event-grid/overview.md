@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Wprowadzenie do usługi Azure Event siatki
 
@@ -50,6 +50,8 @@ Oto niektóre z kluczowych funkcji usługi Azure siatki zdarzeń:
 * **Wysokiej przepływności** — Tworzenie dużych obciążeń w siatce zdarzeń z obsługą miliony zdarzeń na sekundę.
 * **Wbudowane zdarzenia** — Uzyskaj i szybko uruchomić zdefiniowany zasób wbudowanych zdarzenia.
 * **Niestandardowe zdarzenia** -Użyj siatki zdarzeń trasy, filtr i niezawodnie dostarczyć zdarzeń niestandardowych w aplikacji.
+
+Porównanie siatki zdarzenia, usługi Event Hubs i Service Bus, zobacz [wybór między usługami Azure, których dostarczania komunikatów](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Wbudowane funkcje integracji wydawcy i obsługi
 
@@ -100,14 +102,6 @@ Usługa Event Grid umożliwia przyspieszenie automatyzacji i uproszczenie wymusz
 ![Integracja aplikacji](./media/overview/app_integration.png)
 
 Usługa Event Grid łączy aplikację z innymi usługami. Na przykład utworzyć niestandardowy temat wysyłać dane zdarzeń aplikacji siatki zdarzeń i wykorzystać jej wiarygodnych dostarczania zaawansowane routingu i bezpośrednia Integracja z platformą Azure. Ewentualnie możesz użyć usługi Event Grid oraz usługi Logic Apps, aby przetwarzać dane w dowolnym miejscu, bez pisania kodu. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Czym różni się siatki zdarzeń od innych usług integracji Azure?
-
-Siatka zdarzeń jest płyty montażowej obsługi zdarzeń, która umożliwia programowanie sterowane zdarzeniami, reaktywne. Jest ściśle zintegrowana z usługami Azure, a może być zintegrowana z usługami innych firm. Komunikat zdarzenia zawiera informacje potrzebne do reagowania na zmiany w usługach i aplikacjach. Siatka zdarzeń nie jest potoku danych i nie dostarcza rzeczywistego obiektu, który został zaktualizowany.
-
-Usługa Service Bus jest odpowiednia dla przedsiębiorstwa tradycyjnej aplikacji, które wymagają transakcji, porządkowanie, wykrywania duplikatów i natychmiastowe spójności. Siatka zdarzeń jest pod kątem szybkości, skala, szerokość i niedrogiej reaktywne modelu. Jest to dobrze nadają się do niekorzystającą architektury.
-
-Zdarzenie siatki uzupełnia innymi usługami Azure, takich jak aplikacje logiki i usługi Event Hubs. Siatka zdarzeń wyzwala aplikację logiki, aby rozpocząć jego przepływu pracy. Centra zdarzeń współpracuje z siatki zdarzeń umożliwiając reagowania na zdarzenia z przechwytywania centra zdarzeń i tworzenie potoków danych wejściowych i przekształcania.
 
 ## <a name="how-much-does-event-grid-cost"></a>Ile kosztuje siatki zdarzeń
 

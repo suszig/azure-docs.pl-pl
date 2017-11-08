@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera usługi Azure Java funkcji
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Dane wejściowe są podzielone na dwie kategorie w usługi Azure Functions: jedn
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ public class MyClass {
 }
 ```
 
-Po wywołaniu tej funkcji HTTP zażąda przekazuje ładunku `String` argumentu `in` i Azure Table Storage `MyObject` typ został przekazany do argumentu `obj`.
+Dlatego po wywołaniu tej funkcji ładunku żądania HTTP przekazuje opcjonalny `String` argumentu `in` i Azure Table Storage `MyObject` typ został przekazany do argumentu `obj`. Użyj `Optional<T>` typu do obsługi danych wejściowych do funkcji, które mogą mieć wartości null.
 
 ## <a name="outputs"></a>dane wyjściowe
 
@@ -271,11 +272,34 @@ Czasami funkcję musi dokładną kontrolę nad wejścia i wyjścia. Specjalizowa
 
 | Specjalistyczną odmianą      |       docelowy        | Typowy sposób                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    Wyzwalacz protokołu HTTP     | Pobierz — metoda, nagłówkach lub zapytania |
-| `HttpResponseMessage` | Powiązanie wyniku HTTP | Zwrotny stan innych niż 200   |
+| `HttpRequestMessage<T>`  |    Wyzwalacz protokołu HTTP     | Pobierz — metoda, nagłówkach lub zapytania |
+| `HttpResponseMessage<T>` | Powiązanie wyniku HTTP | Zwrotny stan innych niż 200   |
 
 > [!NOTE] 
 > Można również użyć `@BindingName` adnotacji można pobrać nagłówków HTTP i zapytania. Na przykład `@Bind("name") String query` iteruje nagłówków żądań HTTP i zapytań i przekazać tę wartość do metody. Na przykład `query` będzie `"test"` Jeśli adres URL żądania jest `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Metadane
+
+Metadane pochodzą z różnych źródeł, takich jak nagłówki HTTP, kwerendy HTTP i [wyzwolenia metadanych](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Użyj `@BindingName` adnotacji z nazwą metadanych można uzyskać wartość.
+
+Na przykład `queryValue` w poniższym kodzie będzie fragment `"test"` Jeśli żądany adres URL jest `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>Kontekst wykonywania funkcji
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

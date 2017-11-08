@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opcje raportowania dla usługi Azure AD zarządzania hasłami
 
@@ -78,13 +78,7 @@ Obecnie raportów usługi Azure AD i interfejsu API zdarzenia pobiera do **75,00
 
 Jeśli potrzebujesz do pobierania lub przechowywania danych po przekroczeniu tego okna, zalecamy utrwalanie go w zewnętrznej bazy danych i do badania delty, które powodują przy użyciu interfejsu API. Jest nasze zalecenie, aby rozpocząć pobieranie tych danych podczas uruchamiania w organizacji za pomocą funkcji SSPR, utrwalić go zewnętrznie, a następnie przejdź do śledzenia może od tego momentu.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Jak pobrać zdarzenia rejestracji resetowania haseł szybko przy użyciu programu PowerShell
-
-Oprócz bezpośrednio za pomocą raportów usługi Azure AD i interfejsu API zdarzenia, można także użyć poniższego skryptu programu PowerShell, aby ostatnie zdarzenia rejestracji w katalogu. Jest to przydatne w przypadku, gdy użytkownik chce zobaczyć, kto został ostatnio zarejestrowany lub chcesz upewnij się, że wdrożenia resetowania hasła jest wykonywana zgodnie z oczekiwaniami.
-
-* [Skrypt programu PowerShell działania rejestracji usługi Azure AD SSPR](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Opis kolumn raportu w portalu Azure
+## <a name="description-of-report-columns-in-azure-portal"></a>Opis kolumn raportu w portalu Azure
 
 Poniżej objaśniono szczegółowo kolumn raportu:
 
@@ -93,7 +87,7 @@ Poniżej objaśniono szczegółowo kolumn raportu:
 * **Data i godzina** — Data i godzina próby.
 * **Dane zarejestrowane** — jakie dane uwierzytelniania użytkownika podana podczas hasło rejestracji resetowania.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Opis raportu wartości w portalu Azure
+## <a name="description-of-report-values-in-azure-portal"></a>Opis raportu wartości w portalu Azure
 
 W poniższej tabeli opisano różne wartości dla każdej kolumny:
 
@@ -198,16 +192,16 @@ Poniżej wyjaśniono tego działania szczegółowo:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jakie są opcje zasad z SSPR?](active-directory-passwords-policy.md)
-* [Co to jest funkcji zapisywania zwrotnego haseł i dlaczego I interesujących go?](active-directory-passwords-writeback.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Myślę, że dany element jest uszkodzony. Jak rozwiązywać problemy z SSPR](active-directory-passwords-troubleshoot.md)
-* [Masz pytania, na które nie objęte gdzieś else](active-directory-passwords-faq.md)
+* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
+* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Przykład SSPR działania inspekcji logowania w usłudze Azure AD"
