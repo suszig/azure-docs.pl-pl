@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Usługa Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Usługa Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1352,8 +1352,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Skalowanie i koordynacja kontenerów przy użyciu systemu operacyjnego DC/OS albo rozwiązania Kubernetes lub Docker Swarm</p>
+                                                    <h3>Usługa Azure Container Service (AKS)</h3>
+                                                    <p>Uruchamianie konteneryzowanych aplikacji na dużą skalę przy użyciu platformy Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2019,8 +2019,8 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Skalowanie i koordynacja kontenerów przy użyciu systemu operacyjnego DC/OS albo rozwiązania Kubernetes lub Docker Swarm</p>
+                                                    <h3>Usługa Azure Container Service (AKS)</h3>
+                                                    <p>Uruchamianie konteneryzowanych aplikacji na dużą skalę przy użyciu platformy Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>

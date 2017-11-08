@@ -79,8 +79,23 @@
           maintainContext: true
         - name: Platformy i narzędzia
           href: platforms-and-tools.md
-        - name: Dostosowywanie usługi Hadoop
-          href: customize-hadoop-cluster.md
+        - name: Języki R i Python w klastrach usługi HDInsight
+          items:
+            - name: Wprowadzenie do platformy Spark w usłudze HDInsight
+              href: ../../hdinsight/spark/apache-spark-overview.md
+              maintainContext: true
+            - name: Tworzenie klastra platformy Apache Spark w usłudze Azure HDInsight
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+              maintainContext: true
+            - name: Jądra PySpark dla aplikacji Jupyter Notebook
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+              maintainContext: true
+            - name: Program R Server w usłudze HDInsight
+              href: ../../hdinsight/r-server/r-server-overview.md
+              maintainContext: true
+            - name: Wprowadzenie do korzystania z oprogramowania R Server w usłudze HDInsight
+              href: ../../hdinsight/r-server/r-server-get-started.md
+              maintainContext: true
         - name: Obszar roboczy usługi Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true

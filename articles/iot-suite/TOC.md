@@ -8,6 +8,41 @@
 ### [Wdrażanie wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-deploy.md)
 ### [Obsługa wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-explore.md)
 
+## Zdalne monitorowanie (poprzednia wersja)
+### [Co to są wstępnie skonfigurowane rozwiązania?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Często zadawane pytania](iot-suite-v1-faq.md)
+
+### Wprowadzenie
+#### [Wprowadzenie do wstępnie skonfigurowanych rozwiązań](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Uprawnienia w witrynie azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Przewodnik po rozwiązaniu do zdalnego monitorowania](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Łączenie urządzenia Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Korzystanie z języka C
+###### [Symulowane dane](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Korzystanie z rzeczywistych czujników](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Korzystanie ze środowiska Node.js
+###### [Symulowane dane](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Korzystanie z rzeczywistych czujników](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Łączenie bramy Intel NUC
+##### [Symulowane dane](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Korzystanie z rzeczywistego czujnika](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Instrukcje
+#### Podłączanie symulowanego urządzenia
+##### [C w systemie Windows](iot-suite-v1-connecting-devices.md)
+##### [C w systemie Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-v1-logic-apps-tutorial.md)
+#### [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-v1-dynamic-telemetry.md)
+#### [Tworzenie reguły niestandardowej w rozwiązaniu do zdalnego monitorowania](iot-suite-v1-custom-rule.md)
+#### [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Konserwacja zapobiegawcza
 ### [Omówienie rozwiązania do konserwacji zapobiegawczej](iot-suite-predictive-overview.md)
 ### [Przewodnik po rozwiązaniu do konserwacji zapobiegawczej](iot-suite-predictive-walkthrough.md)

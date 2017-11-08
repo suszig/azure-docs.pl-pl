@@ -59,18 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Odzyskiwanie po awarii dla obciążeń
       href: site-recovery-workload.md
-    - name: Migrowanie za pomocą usługi Azure Site Recovery
+    - name: Migracja na platformę Azure
       href: site-recovery-migrate-to-azure.md
-    - name: Sieć Azure–Azure (wersja zapoznawcza)
-      href: site-recovery-azure-to-azure-networking-guidance.md
-    - name: Łączność maszyn wirtualnych po przejściu w tryb failover na platformie Azure
-      href: concepts-on-premises-to-azure-networking.md
-    - name: Łączność maszyn wirtualnych po przejściu w tryb failover w lokacji dodatkowej
-      href: concepts-on-premises-to-on-premises-networking.md
-    - name: Mapowanie sieci na potrzeby replikacji maszyny wirtualnej platformy Azure
-      href: site-recovery-network-mapping-azure-to-azure.md
-    - name: Mapowanie sieci na potrzeby replikacji maszyny wirtualnej funkcji Hyper-V do platformy Azure
-      href: site-recovery-network-mapping.md
     - name: Uprawnienia dostępu oparte na rolach
       href: site-recovery-role-based-linked-access-control.md
     - name: Często zadawane pytania
@@ -115,6 +105,16 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurowanie
       items:
+        - name: Konfigurowanie sieci na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure (wersja zapoznawcza)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Konfigurowanie adresów IP na potrzeby dostępu po włączeniu trybu failover na platformie Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Konfigurowanie adresów IP na potrzeby dostępu po włączeniu trybu failover w lokacji dodatkowej
+          href: concepts-on-premises-to-on-premises-networking.md
+        - name: Konfigurowanie mapowania sieci na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure (wersja zapoznawcza)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Przygotowywanie mapowania sieci na potrzeby replikacji maszyny wirtualnej funkcji Hyper-V do platformy Azure
+          href: site-recovery-network-mapping.md
         - name: Konfigurowanie środowiska źródłowego
           items:
             - name: Środowisko źródłowe dla replikacji VMware–Azure

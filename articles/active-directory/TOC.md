@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -21,8 +21,8 @@
 # Instrukcje
 ## Planowanie i projektowanie
 ### [Omówienie architektury usługi Azure AD](active-directory-architecture.md)
-### [Wdrażanie rozwiązania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Mapowanie oświadczeń w usłudze Azure Active Directory](active-directory-claims-mapping.md)
+### [Wdrażanie rozwiązania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Określanie wymagań
 ##### [Tożsamość](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Synchronizacja katalogów](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -40,18 +40,35 @@
 #### [Porównanie narzędzi](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Zarządzanie użytkownikami
-### [Przypisywanie licencji za pomocą grup](active-directory-licensing-whatis-azure-portal.md)
-#### [Przypisywanie licencji do grupy](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Wykrywanie i rozwiązywanie problemów z licencją w grupie](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrowanie użytkowników z licencjami indywidualnymi do licencji opartych na grupach](active-directory-licensing-group-migration-azure-portal.md)
-#### [Dodatkowe scenariusze dotyczące licencjonowania opartego na grupach](active-directory-licensing-group-advanced.md)
-#### [Przykłady programu Azure PowerShell dla licencjonowania opartego na grupach](active-directory-licensing-ps-examples.md)
-#### [Dokumentacja produktów i planów usług w usłudze Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
+### [Dodawanie nowych użytkowników do usługi Azure AD](add-users-azure-active-directory.md)
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
-### [Zarządzanie informacjami o pracy użytkownika](active-directory-users-work-info-azure-portal.md)
 ### [Udostępnianie kont](active-directory-sharing-accounts.md)
-
-
+### [Przypisywanie użytkowników do ról administratorów](active-directory-users-assign-role-azure-portal.md)
+### [Dodawanie użytkowników-gości z innego katalogu (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
+#### [Administratorzy dodający użytkowników B2B](active-directory-b2b-admin-add-users.md)
+#### [Pracownicy przetwarzający informacje dodający użytkowników B2B](active-directory-b2b-iw-add-users.md)
+#### [Interfejs API i dostosowywanie](active-directory-b2b-api.md)
+#### [Przykłady kodu i programu Azure PowerShell](active-directory-b2b-code-samples.md)
+#### [Przykład portalu do samodzielnej rejestracji](active-directory-b2b-self-service-portal.md)
+#### [Wiadomość e-mail z zaproszeniem](active-directory-b2b-invitation-email.md)
+#### [Realizacja zaproszenia](active-directory-b2b-redemption-experience.md)
+#### [Add B2B users without an invitation (Dodawanie użytkowników B2B bez zaproszenia)](active-directory-b2b-add-user-without-invite.md)
+#### [Dostęp warunkowy dla modelu B2B](active-directory-b2b-mfa-instructions.md)
+#### [Zasady udostępniania B2B](active-directory-b2b-delegate-invitations.md)
+#### [Dodawanie użytkownika B2B do roli](active-directory-b2b-add-guest-to-role.md)
+#### [Grupy dynamiczne i użytkownicy B2B](active-directory-b2b-dynamic-groups.md)
+#### [Inspekcja i raporty](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B i udostępnianie zewnętrzne w usłudze Office 365](active-directory-b2b-o365-external-user.md)
+#### [Licencjonowanie B2B](active-directory-b2b-licensing.md)
+#### [Bieżące ograniczenia](active-directory-b2b-current-limitations.md)
+#### [Często zadawane pytania](active-directory-b2b-faq.md)
+#### [Rozwiązywanie problemów dotyczących B2B](active-directory-b2b-troubleshooting.md)
+#### [Informacje o użytkowniku B2B](active-directory-b2b-user-properties.md)
+#### [Token użytkownika B2B](active-directory-b2b-user-token.md)
+#### [Aplikacje zintegrowane B2B dla usługi Azure AD](active-directory-b2b-configure-saas-apps.md)
+#### [Mapowanie oświadczeń użytkowników B2B](active-directory-b2b-claims-mapping.md)
+#### [Porównanie współpracy B2B do modelu B2C](active-directory-b2b-compare-b2c.md)
+#### [Uzyskiwanie pomocy technicznej dla modelu B2B](active-directory-b2b-support.md)
 
 ## [Zarządzanie grupami i członkami](active-directory-manage-groups.md)
 ### Zarządzanie grupami
@@ -233,8 +250,7 @@
 ### [Program Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Niestandardowe nazwy domen
 #### [Omówienie](active-directory-add-domain-concepts.md)
-#### Zarządzanie nazwami domen
-##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
+#### [Zarządzanie nazwami domen](active-directory-domains-manage-azure-portal.md)
 ##### [Portal klasyczny](active-directory-add-manage-domain-names.md)
 ### [Administrowanie własnym katalogiem](active-directory-administer.md)
 ### [Wiele katalogów](active-directory-licensing-directory-independence.md)
@@ -248,38 +264,13 @@
 #### [Często zadawane pytania](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Rozwiązywanie problemów](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
-### [Integrowanie partnerów przy użyciu usługi Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Administratorzy dodający użytkowników B2B](active-directory-b2b-admin-add-users.md)
-#### [Pracownicy przetwarzający informacje dodający użytkowników B2B](active-directory-b2b-iw-add-users.md)
-#### [Interfejs API i dostosowywanie](active-directory-b2b-api.md)
-#### [Przykłady kodu i programu Azure PowerShell](active-directory-b2b-code-samples.md)
-#### [Przykład portalu do samodzielnej rejestracji](active-directory-b2b-self-service-portal.md)
-#### [Wiadomość e-mail z zaproszeniem](active-directory-b2b-invitation-email.md)
-#### [Realizacja zaproszenia](active-directory-b2b-redemption-experience.md)
-#### [Add B2B users without an invitation (Dodawanie użytkowników B2B bez zaproszenia)](active-directory-b2b-add-user-without-invite.md)
-#### [Dostęp warunkowy dla modelu B2B](active-directory-b2b-mfa-instructions.md)
-#### [Zasady udostępniania B2B](active-directory-b2b-delegate-invitations.md)
-#### [Dodawanie użytkownika B2B do roli](active-directory-b2b-add-guest-to-role.md)
-#### [Grupy dynamiczne i użytkownicy B2B](active-directory-b2b-dynamic-groups.md)
-#### [Inspekcja i raporty](active-directory-b2b-auditing-and-reporting.md)
-#### [B2B i udostępnianie zewnętrzne w usłudze Office 365](active-directory-b2b-o365-external-user.md)
-#### [Licencjonowanie](active-directory-b2b-licensing.md)
-#### [Bieżące ograniczenia](active-directory-b2b-current-limitations.md)
-#### [Często zadawane pytania](active-directory-b2b-faq.md)
-#### [Rozwiązywanie problemów dotyczących B2B](active-directory-b2b-troubleshooting.md)
-#### [Informacje o użytkowniku B2B](active-directory-b2b-user-properties.md)
-#### [Token użytkownika B2B](active-directory-b2b-user-token.md)
-#### [Aplikacje zintegrowane B2B dla usługi Azure AD](active-directory-b2b-configure-saas-apps.md)
-#### [Mapowanie oświadczeń użytkowników B2B](active-directory-b2b-claims-mapping.md)
-#### [Porównanie współpracy B2B do modelu B2C](active-directory-b2b-compare-b2c.md)
-#### [Uzyskiwanie pomocy technicznej dla modelu B2B](active-directory-b2b-support.md)
 
 ### [Integrowanie tożsamości lokalnych za pomocą usługi Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## [Zarządzanie dostępem do platformy Azure](toc.yml)
 
 ## Delegowanie dostępu do zasobów
-### [Role administratorów](active-directory-assign-admin-roles.md)
+### [Role administratorów](active-directory-assign-admin-roles-azure-portal.md)
 #### [Przypisywanie ról administratora](active-directory-users-assign-role-azure-portal.md)
 ### [Jednostki administracyjne](active-directory-administrative-units-management.md)
 ### [Konfigurowanie okresów istnienia tokenu](active-directory-configurable-token-lifetimes.md)
