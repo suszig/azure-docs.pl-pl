@@ -71,7 +71,6 @@
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Przypisywanie zasad za pomocą skryptów](resource-manager-policy-create-assign.md)
 ### Przykłady
 #### [Tagi](resource-manager-policy-tags.md)
 #### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)

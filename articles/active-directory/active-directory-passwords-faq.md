@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -176,6 +176,11 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   > **Odpowiedź:** okres istnienia sesji do resetowania hasła jest 15 minut. Od początku operacji resetowania hasła użytkownika ma 15 minut do zresetowania swojego hasła. Po tym okresie poczty e-mail i SMS jednorazowy kod dostępu są nieprawidłowe.
   >
   >
+* **Pytanie: czy można zablokować użytkownikom zresetowania hasła?**
+
+  > **Odpowiedź:** tak, jeśli używasz grupy, aby włączyć samoobsługowe Resetowanie hasła można usunąć je z grupy, która umożliwia im tę możliwość.
+  >
+  >
 
 ## <a name="password-change"></a>Zmienianie hasła
 
@@ -187,6 +192,11 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 * **Pytanie: czy Moi użytkownicy powiadamianych w portalu usługi Office po wygaśnięciu hasła lokalnego?**
 
   > **Odpowiedź:** jest to możliwe dzisiaj Jeśli używasz usług AD FS, postępując zgodnie z instrukcjami w tym miejscu: [wysyłanie oświadczeń zasad haseł z usług AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Jeśli używasz synchronizacji skrótu hasła nie jest to możliwe dzisiaj. Jest to spowodowane nie zsynchronizować zasad haseł z lokalnej, więc nie jest możliwe w firmie Microsoft można wysłać powiadomienia o wygasaniu do środowiska chmury. W obu przypadkach istnieje również możliwość [Powiadom użytkowników, których hasła zbliża się termin wygaśnięcia przy użyciu programu PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **Pytanie: czy można zablokować użytkownikom zmianę ich haseł?**
+
+  > **Odpowiedź:** dla użytkowników tylko w chmurze nie mogą zostać zablokowane. Dla użytkowników lokalnych można ustawić `User cannot change password` można sprawdzić i tych użytkowników, nie będzie można zmienić swoje hasło.
   >
   >
 
@@ -263,14 +273,14 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jakie są opcje zasad z SSPR?](active-directory-passwords-policy.md)
-* [Co to jest funkcji zapisywania zwrotnego haseł i dlaczego I interesujących go?](active-directory-passwords-writeback.md)
-* [Jak zgłosić w działaniu w SSPR](active-directory-passwords-reporting.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Myślę, że dany element jest uszkodzony. Jak rozwiązywać problemy z SSPR](active-directory-passwords-troubleshoot.md)
+* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)
+* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-reporting.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)

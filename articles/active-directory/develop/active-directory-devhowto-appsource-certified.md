@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Jak uzyskać AppSource certyfikowane dla usługi Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) jest docelowy dla użytkowników biznesowych wykrywanie, spróbuj i zarządzanie nimi z biznesowych aplikacji SaaS (SaaS, jak i dodatku do istniejących produktów Microsoft SaaS).
@@ -108,9 +108,9 @@ Aby uzyskać więcej informacji na temat środowisko wersji próbnej AppSource, 
 
 
 ## <a name="get-support"></a>Uzyskaj pomoc techniczną
-Integracja usługi Azure Active Directory, używamy [przepełnienie stosu](http://stackoverflow.com/questions/tagged/azure-active-directory) społeczności, aby zapewnić obsługę. 
+Integracja usługi Azure Active Directory, używamy [przepełnienie stosu](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) społeczności, aby zapewnić obsługę. 
 
-Zdecydowanie zaleca się najpierw zadać pytania w witrynie Stack Overflow i Przeglądaj istniejących problemów, aby zobaczyć, jeśli ktoś poprosił pytanie przed. Upewnij się, że pytania lub komentarze są oznaczane `[azure-active-directory]`.
+Zdecydowanie zaleca się najpierw zadać pytania w witrynie Stack Overflow i Przeglądaj istniejących problemów, aby zobaczyć, jeśli ktoś poprosił pytanie przed. Upewnij się, że pytania lub komentarze są oznaczane [ `[azure-active-directory]` i `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 W poniższej sekcji komentarzy umożliwia wyrazić swoją opinię i pomóc nam dostosować i kształtu zawartość.
 

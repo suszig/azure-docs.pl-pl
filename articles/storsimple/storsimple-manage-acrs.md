@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320569e302d145d695f3be9684e97786fa82e80b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Zarządzanie rekordami kontroli dostępu przy użyciu usługi Menedżer StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [zarządzania rekordami kontroli dostępu przy użyciu usługi Menedżer StorSimple](storsimple-8000-manage-acrs.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Rekordy kontroli dostępu (ACRs) pozwala na określenie, których hostów można połączyć się wolumin w urządzeniu StorSimple. ACRs to określonego woluminu i zawierać nazwy kwalifikowanej iSCSI (nazw IQN) z hostów. Gdy host próbuje nawiązać połączenia z woluminu, urządzenie sprawdza ACR skojarzona z tego woluminu dla nazwy IQN, jeśli istnieje dopasowanie, połączenie zostanie nawiązane. Kontrola dostępu rejestruje sekcji na **Konfiguruj** strona wyświetla wszystkie rekordy kontroli dostępu z odpowiednich nazw IQN hostów.
 

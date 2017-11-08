@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurowanie urządzenia do obsługi administracyjnej przy użyciu usługi Azure IoT Hub urządzenia inicjowania obsługi administracyjnej
 
@@ -35,7 +35,7 @@ Przed kontynuowaniem utwórz wystąpienie usługi inicjowania obsługi urządze�
 
 ## <a name="select-a-hardware-security-module"></a>Wybierz sprzętowego modułu zabezpieczeń
 
-[Klient urządzenia inicjowania obsługi usługi SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) obsługuje dwa rodzaje sprzętowych modułów zabezpieczeń (lub sprzętowych modułów zabezpieczeń): 
+[Klient urządzenia inicjowania obsługi usługi SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) obsługuje dwa rodzaje sprzętowych modułów zabezpieczeń (lub sprzętowych modułów zabezpieczeń): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - Moduł TPM jest ustalonych standardowe rozwiązanie dla większości platform urządzeń z systemem Windows, a także kilka urządzeń z systemem Linux/Ubuntu. Jeśli masz jednej z tych systemów operacyjnych uruchomiony na urządzeniach, a szukasz standardu ustalonych sprzętowych modułów zabezpieczeń od producenta urządzenia, można wybrać tego modułu HSM. Moduły TPM możesz tylko zarejestrować każde urządzenie indywidualnie do usługi inicjowania obsługi urządzeń. Do celów programistycznych można użyć symulatora modułu TPM na komputerze deweloperskim systemu Windows lub Linux.

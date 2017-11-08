@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36be252baffe3b6ff84fcdf2d85a97101bec2371
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Dane techniczne i zgodności dla urządzenia StorSimple
+> [!NOTE]
+> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Aby wyświetlić wersję tego artykułu dla nowego portalu Azure, przejdź do [technicznych oraz zgodność dla urządzenia StorSimple](storsimple-8000-technical-specifications-and-compliance.md). Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Składniki sprzętowe urządzenia Microsoft Azure StorSimple stosować się do specyfikacji technicznych i norm opisane w tym artykule. Specyfikacja techniczna opisano zasilania i chłodzenia modułów (PCMs), stacji dysków, pojemności magazynu i obudowy. Informacje o zgodności omówiono czynności, takich jak międzynarodowe standardy, bezpieczeństwa i emisji i okablowanie.
 

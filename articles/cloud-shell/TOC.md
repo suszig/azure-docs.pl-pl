@@ -8,7 +8,6 @@
 ## [Funkcje i narzędzia powłoki Bash](features.md)
 ## [Funkcje i narzędzia programu PowerShell](features-powershell.md)
 ## [Ograniczenia](limitations.md)
-## [Rozwiązywanie problemów](troubleshooting.md)
 
 # Porady
 ## [Magazyn trwały powłoki Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Korzystanie z okna](using-the-shell-window.md)
 
 # [Cennik](pricing.md)
+
+# [Rozwiązywanie problemów](troubleshooting.md)
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobsługowe Resetowanie w usłudze Azure AD nowości haseł
 
@@ -88,6 +88,23 @@ Ta opcja określa minimalną liczbę dostępne metody uwierzytelniania lub bramy
 Użytkownicy, można podać więcej metod uwierzytelniania, jeśli są one włączone przez administratora.
 
 Jeśli użytkownik nie ma minimalnych wymaganych metod zarejestrowany, zostanie wyświetlona strona błędu, który kieruje żądanie do zresetowania swojego hasła administratora.
+
+#### <a name="changing-authentication-methods"></a>Zmiana metody uwierzytelniania
+
+Jeśli rozpoczyna się zasady, która ma tylko jedną metodę uwierzytelniania wymagany do resetowania lub odblokować zarejestrowane i zmiany, że do dwóch co się stanie?
+
+| Liczba metod w zarejestrowany | Wiele metod wymagane | wynik |
+| :---: | :---: | :---: |
+| co najmniej 1 | 1 | **Możliwe** zresetować lub odblokowania |
+| 1 | 2 | **Nie można** zresetować lub odblokowania |
+| co najmniej 2 | 2 | **Możliwe** zresetować lub odblokowania |
+
+Jeśli zmienisz typy metod uwierzytelniania, użytkownik może używać możesz przypadkowo może przestać użytkownicy mogli używać SSPR, jeśli nie mają minimalnej ilości dostępnych danych.
+
+Przykład: 
+1. Oryginalny zasady skonfigurowane z 2 metod uwierzytelniania, wymagany przy użyciu tylko office pytania telefonu i zabezpieczeń. 
+2. Administrator może zmienić zasady nie są już używane pytań zabezpieczających, ale zezwalaj na korzystanie z telefonów komórkowych i alternatywny adres e-mail.
+3. Użytkownicy bez telefon komórkowy i pól alternatywny adres e-mail nie można zresetować hasła.
 
 ### <a name="how-secure-are-my-security-questions"></a>Jak bezpieczne czy moje pytania zabezpieczające
 
@@ -169,6 +186,7 @@ Po wyłączeniu to użytkownicy będą mogli nadal ręcznie zarejestrować swoje
 > [!NOTE]
 > Użytkownicy można odrzucić portalu rejestracji resetowania haseł przez kliknięcie przycisku Anuluj lub zamykania okna, ale są monitowani o każdym razem, gdy są one logowania aż do chwili zakończenia rejestracji.
 >
+> Spowoduje to nie przerwanie połączenia użytkownika, jeśli są one już zalogowany.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania
 
@@ -190,7 +208,7 @@ Przykład: Istnieją cztery Administratorzy w środowisku. Administrator "A" Res
 
 ## <a name="on-premises-integration"></a>Integracja z lokalnymi
 
-Jeśli zostały zainstalowane, skonfigurowane i włączone Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi.
+Jeśli zostały zainstalowane, skonfigurowane i włączone Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wyszarzone w poziomie, a następnie zapisywania zwrotnego nie został poprawnie skonfigurowany zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) Aby uzyskać więcej informacji.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zapisywania zwrotnego haseł do katalogu lokalnego
 
@@ -215,21 +233,24 @@ Resetowanie hasła i zmiany są w pełni obsługiwane we wszystkich konfiguracja
 
 Do przetestowania tego scenariusza, przejdź do http://passwordreset.microsoftonline.com jeden z tych użytkowników z firm partnerskich. Tak długo, jak długo mają alternatywny adres e-mail lub uwierzytelniania wiadomości e-mail zdefiniowanych resetowania haseł działa zgodnie z oczekiwaniami.
 
+> [!NOTE]
+> Dzierżawy konta Microsoft, którym udzielono dostępu dla gości do usługi Azure AD, takich jak zasoby z usługi Outlook.com, Hotmail.com lub innych osobistych adresów e-mail nie będą mogli używać usługi Azure AD SSPR i trzeba będzie zresetować hasło przy użyciu informacji zamieszczonych w artykuł [po nie logowania się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Następne kroki
 
 Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jakie są opcje zasad z SSPR?](active-directory-passwords-policy.md)
-* [Co to jest funkcji zapisywania zwrotnego haseł i dlaczego I interesujących go?](active-directory-passwords-writeback.md)
-* [Jak zgłosić w działaniu w SSPR](active-directory-passwords-reporting.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Myślę, że dany element jest uszkodzony. Jak rozwiązywać problemy z SSPR](active-directory-passwords-troubleshoot.md)
-* [Masz pytania, na które nie objęte gdzieś else](active-directory-passwords-faq.md)
+* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)
+* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-reporting.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
+* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD dostępne metody uwierzytelniania i liczby wymaganych"
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Dostępne metody uwierzytelniania w usłudze Azure AD i wymagane ilości"

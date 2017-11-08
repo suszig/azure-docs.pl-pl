@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 89924a02396403258bf50dce0c4d24f89565997e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3f3075fc5c6f3a47bde13d98d0b705c29b98112b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertuj maszynę wirtualną systemu Windows z dysków niezarządzanych do zarządzanych dysków
 
@@ -93,7 +93,6 @@ Jeśli maszyny wirtualne, które ma zostać przekonwertowany na zarządzany dysk
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 
@@ -101,6 +100,7 @@ Jeśli maszyny wirtualne, które ma zostać przekonwertowany na zarządzany dysk
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli występuje błąd podczas konwersji lub Jeśli maszyna wirtualna jest w stanie awarii z powodu problemów dotyczących w poprzedniej konwersji, uruchom `ConvertTo-AzureRmVMManagedDisk` ponownie polecenia cmdlet. Proste ponownych prób zwykle odblokowuje sytuacji.
+Przed przekonwertowaniem, upewnij się, wszystkie rozszerzenia maszyny Wirtualnej są w stanie pomyślnie udostępnianie lub konwersji zakończy się niepowodzeniem z kodem błędu 409.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -12,32 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2017
+ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Podniesienie uprawnień dostępu jako Administrator dzierżawy przy użyciu kontroli dostępu opartej na rolach
 
 Oparta na rolach kontrola dostępu ułatwia administratorom dzierżawy uzyskiwania wybierającym tymczasowe w programie access, przyznają uprawnienia wyższe niż zwykle. Administrator dzierżawy może podnieść poziom siebie do roli Administrator dostępu użytkowników w razie potrzeby. Ta rola zapewnia dzierżawcy uprawnienia administratora, aby przydzielić sobie lub innych ról w zakresie "/".
 
-Ta funkcja jest ważna, ponieważ zezwala ona na administratora dzierżawy wyświetlić wszystkie subskrypcje, które istnieją w organizacji. Umożliwia on również automatyzacji aplikacji (takich jak fakturowania i inspekcji) dostęp do wszystkich subskrypcji i podaj dokładnego widoku stanu zarządzania rozliczeń lub zasobów organizacji.  
+Ta funkcja jest ważna, ponieważ zezwala ona na administratora dzierżawy wyświetlić wszystkie subskrypcje, które istnieją w organizacji. Umożliwia on również automatyzacji aplikacji, takich jak fakturowania i przeprowadzanie inspekcji dostępu do wszystkich subskrypcji i podaj dokładnego widoku stanu organizacji rozliczeń lub zarządzania zasobami.  
 
-## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Jak używać elevateAccess dostęp do dzierżawy przy użyciu Centrum administracyjnego usługi Azure AD
+## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Użyj elevateAccess na potrzeby dostępu dzierżawcy z Centrum administracyjnego usługi Azure AD
 
-W [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) można wywołać tej funkcji w **właściwości**.
-Funkcja jest nazywana **Administrator globalny może zarządzać subskrypcjami Azure**. Wrażenie to, że jest to właściwość globalny usługi Azure Active Directory, jednak działa na podstawie użytkownika dla obecnie zalogowanego użytkownika. Jeśli użytkownik ma uprawnienia administratora globalnego w usłudze Azure Active Directory, można wywołać funkcji elevateAccess dla użytkownika, który jest aktualnie zalogowany do Centrum administracyjnego usługi Azure Active Directory.
+1. Przejdź do [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) i zaloguj się przy użyciu możesz poświadczeń.
 
-Wybieranie **tak** , a następnie **zapisać**: to **przypisuje** **Administrator dostępu użytkowników** roli w katalogu głównym "/" (główny zakres) dla użytkownika z której użytkownik jest aktualnie zalogowany do portalu.
+2. Wybierz **właściwości** z usługi Azure AD w lewo menu.
 
-Wybieranie **nr** , a następnie **zapisać**: to **usuwa** **Administrator dostępu użytkowników** roli w katalogu głównym "/" (główny zakres) dla użytkownika z której użytkownik jest aktualnie zalogowany do portalu.
+3. W **właściwości** bloku znaleźć **Administrator globalny może zarządzać subskrypcjami Azure**, wybierz **tak**, następnie **zapisać**.
+    > [!IMPORTANT] 
+    > Po wybraniu **tak**, przypisuje **Administrator dostępu użytkowników** roli w katalogu głównym "/" (główny zakres) dla użytkownika, z którym użytkownik jest aktualnie zalogowany do portalu. **Dzięki temu użytkownikowi na zobaczenie innych subskrypcji platformy Azure.**
+    
+    > [!NOTE] 
+    > Po wybraniu **nr**, usuwa **Administrator dostępu użytkowników** roli w katalogu głównym "/" (główny zakres) dla użytkownika, z którym użytkownik jest aktualnie zalogowany do portalu.
+
+> [!TIP] 
+> Wrażenie to, że jest to właściwość globalny usługi Azure Active Directory, jednak działa na podstawie użytkownika dla obecnie zalogowanego użytkownika. Jeśli użytkownik ma uprawnienia administratora globalnego w usłudze Azure Active Directory, można wywołać funkcji elevateAccess dla użytkownika, który jest aktualnie zalogowany do Centrum administracyjnego usługi Azure Active Directory.
 
 ![Globaladmin Centrum administracyjne — właściwości — w usłudze Azure AD można zarządzać subskrypcją Azure — zrzut ekranu](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Jak używać elevateAccess umożliwiają dostęp do dzierżawy przy użyciu interfejsu API REST
+## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Użyj elevateAccess, aby zapewnić dostęp do dzierżawy przy użyciu interfejsu API REST
 
 Podstawowy proces działa z następujących kroków:
 
@@ -70,47 +77,56 @@ Podstawowy proces działa z następujących kroków:
 
 Podczas wywoływania *elevateAccess* Tworzenie przypisania roli dla siebie, tak aby można było odwołać uprawnienia te należy usunąć przypisanie.
 
-1.  Wywołanie [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) gdzie roleName = Administrator dostępu użytkowników można określić nazwy roli Administrator dostępu użytkowników identyfikator GUID. Odpowiedź powinna wyglądać następująco:
+1.  Wywołanie GET definicje ról gdzie roleName = Administrator dostępu użytkowników można określić nazwy roli Administrator dostępu użytkowników identyfikator GUID.
+    1.  Pobierz *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ filtru = roleName + eq + "użytkownik + dostępu + administratora*
 
-    ```
-    {"value":[{"properties":{
-    "roleName":"User Access Administrator",
-    "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
-    "assignableScopes":["/"],
-    "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-    "createdOn":"0001-01-01T08:00:00.0000000Z",
-    "updatedOn":"2016-05-31T23:14:04.6964687Z",
-    "createdBy":null,
-    "updatedBy":null},
-    "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "type":"Microsoft.Authorization/roleDefinitions",
-    "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleName":"User Access Administrator",
+        "type":"BuiltInRole",
+        "description":"Lets you manage user access to Azure resources.",
+        "assignableScopes":["/"],
+        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
+        "createdOn":"0001-01-01T08:00:00.0000000Z",
+        "updatedOn":"2016-05-31T23:14:04.6964687Z",
+        "createdBy":null,
+        "updatedBy":null},
+        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "type":"Microsoft.Authorization/roleDefinitions",
+        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
+        "nextLink":null}
+        ```
 
-    Zapisz identyfikator GUID z *nazwa* parametru, w tym przypadku **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+        Zapisz identyfikator GUID z *nazwa* parametru, w tym przypadku **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Wywołanie [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) gdzie principalId = własne ObjectId. Ta lista zawiera wszystkie przypisaniami w dzierżawie. Wyszukaj co gdzie jest zakresem "/" i RoleDefinitionId kończy nazwę roli GUID można znaleźć w kroku 1. Przypisanie roli powinien wyglądać następująco:
+2. Należy również listy przypisania roli Administrator dzierżawy w zakresie dzierżawy. Wyświetl listę wszystkich przypisań w zakresie dzierżawy dla PrincipalId z TenantAdmin, który wykonał wywołania dostępu podniesienie uprawnień. Wyświetl listę wszystkich przypisań w dzierżawie dla ObjectID. 
+    1. Pobierz *filtru$ https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01& =, + principalId eq + {objectid}*
+    
+        >[!NOTE] 
+        >Administrator dzierżawy nie powinny mieć wielu przypisań, jeśli zapytanie powyżej zwraca za dużo przypisania, możesz także zbadać dla wszystkich przypisań tylko na poziomie zakresu dzierżawy, a następnie filtrować wyniki: Pobierz *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        
+    2. Wywołania powyżej zwraca listę przypisań ról. Znajdź przypisania roli, której zakresem jest "/" RoleDefinitionId kończy nazwę roli można znaleźć w kroku 1 identyfikator GUID i PrincipalId odpowiada ObjectId administratora dzierżawy. Przypisanie roli wygląda następująco:
 
-    ```
-    {"value":[{"properties":{
-    "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "principalId":"{objectID}",
-    "scope":"/",
-    "createdOn":"2016-08-17T19:21:16.3422480Z",
-    "updatedOn":"2016-08-17T19:21:16.3422480Z",
-    "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-    "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-    "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-    "type":"Microsoft.Authorization/roleAssignments",
-    "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "principalId":"{objectID}",
+        "scope":"/",
+        "createdOn":"2016-08-17T19:21:16.3422480Z",
+        "updatedOn":"2016-08-17T19:21:16.3422480Z",
+        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
+        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
+        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+        "type":"Microsoft.Authorization/roleAssignments",
+        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
+        "nextLink":null}
+        ```
+        
+        Ponownie, Zapisz identyfikator GUID z *nazwa* parametru, w tym przypadku **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-    Ponownie, Zapisz identyfikator GUID z *nazwa* parametru, w tym przypadku **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    3. Na koniec użyj wyróżnionych **identyfikator RoleAssignment** można usunąć przypisania dodawany przez podniesienia uprawnień dostępu:
 
-3. Na koniec wywołania [DELETE roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) gdzie roleAssignmentId = nazwa identyfikatora GUID można znaleźć w kroku 2.
+        Usuń https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>Następne kroki
 

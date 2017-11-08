@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja zdarzeń i kolekcji przy użyciu systemu Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -254,27 +254,9 @@ Aby zebrać liczników wydajności lub dzienniki zdarzeń, należy modyfikować 
 
 ## <a name="collect-performance-counters"></a>Zebrać liczników wydajności
 
-Na potrzeby zbierania miar wydajności z klastra, należy dodać liczniki wydajności do użytkownika "WadCfg > DiagnosticMonitorConfiguration" w szablonie usługi Resource Manager dla klastra. Zobacz [liczniki wydajności sieci szkieletowej usług](service-fabric-diagnostics-event-generation-perf.md) dla liczników wydajności zalecamy zbierania.
-
-Na przykład, w tym miejscu możemy ustawić jeden licznik wydajności, próbkowany co 15 s (to można zmienić i jest zgodna z formatu "PT\<czasu >\<jednostki >", na przykład PT3M czy przykładowe co trzy minut) i przeniesione do Tabela magazynu odpowiednie co minutę.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Na potrzeby zbierania miar wydajności z klastra, należy dodać liczniki wydajności do użytkownika "WadCfg > DiagnosticMonitorConfiguration" w szablonie usługi Resource Manager dla klastra. Zobacz [monitorowania wydajności z WAD](service-fabric-diagnostics-perf-wad.md) instrukcje na temat modyfikowania Twojej `WadCfg` zbierać określone liczniki wydajności. Odwołanie [liczniki wydajności sieci szkieletowej usług](service-fabric-diagnostics-event-generation-perf.md) dla listy wydajności liczniki, które firma Microsoft zaleca zbierania.
   
-Jeśli używasz zbiornika usługi Application Insights zgodnie z opisem w poniższej sekcji i chcesz tych metryk wyświetlani w usłudze Application Insights, następnie upewnij się, że Dodaj nazwę obiektu sink w sekcji "sink", jak pokazano powyżej. Ponadto należy rozważyć utworzenie osobnej tabeli można wysłać liczniki wydajności, więc ich nie tłumu dane pochodzące z innych kanałów rejestrowanie, które aktywowano.
+Jeśli używasz zbiornika usługi Application Insights zgodnie z opisem w poniższej sekcji i chcesz tych metryk wyświetlani w usłudze Application Insights, następnie upewnij się, że Dodaj nazwę obiektu sink w sekcji "sink", jak pokazano powyżej. Liczniki wydajności, które są konfigurowane osobno automatycznie zostanie wysłane do zasobu usługi Application Insights.
 
 
 ## <a name="send-logs-to-application-insights"></a>Wysyłanie dzienników do usługi Application Insights

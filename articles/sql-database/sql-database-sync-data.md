@@ -1,6 +1,6 @@
 ---
-title: Synchronizowanie danych (wersja zapoznawcza) | Dokumentacja firmy Microsoft
-description: "W tym omówieniu przedstawiono synchronizacji danych SQL Azure (wersja zapoznawcza)."
+title: Synchronizacja danych Azure SQL (wersja zapoznawcza) | Dokumentacja firmy Microsoft
+description: "W tym omówieniu przedstawiono synchronizacji danych SQL Azure (wersja zapoznawcza)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c53eabfeb9ee1a7c50340bbfc65674b478068c75
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronizowanie danych między wieloma bazami danych chmury i lokalnych z opcją synchronizacji danych SQL
 
@@ -58,7 +58,7 @@ Synchronizacja danych jest przydatne w sytuacjach, w którym dane muszą być na
 
 -   **Globalny aplikacji rozproszonych:** wiele firm span kilka regionów i nawet kilka krajów. Aby zminimalizować opóźnienie sieci, jest najlepszym rozwiązaniem jest dane w regionie blisko Ciebie. Z opcją synchronizacji danych można pracować z baz danych w regionach na świecie zsynchronizowane.
 
-Nie zaleca się synchronizacja danych w następujących scenariuszach:
+Synchronizacja danych nie jest odpowiedni dla następujących scenariuszy:
 
 -   Odzyskiwanie po awarii
 
@@ -77,48 +77,6 @@ Nie zaleca się synchronizacja danych w następujących scenariuszach:
 -   **Rozwiązywanie konfliktów:** synchronizacji danych są dostępne dwie opcje do rozwiązywania konfliktów *wins Centrum* lub *wins elementu członkowskiego*.
     -   W przypadku wybrania *wins Centrum*, zmiany w Centrum zawsze zastąpienie zmian w elemencie członkowskim.
     -   W przypadku wybrania *wins elementu członkowskiego*, zmiany w zmian Zastąp elementów członkowskich w Centrum. Jeśli istnieje więcej niż jeden element członkowski, końcowa wartość zależy który element członkowski jest najpierw zsynchronizowane.
-
-## <a name="limitations-and-considerations"></a>Ograniczenia i zagadnienia
-
-### <a name="performance-impact"></a>Wpływ na wydajność
-Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do śledzenia zmian. Tworzy tabele w bazie danych użytkownika, śledzenie zmian. Te działania śledzenia zmiany mają wpływ na obciążenie bazy danych. Ocenia warstwę usługi i uaktualnienia, jeśli to konieczne.
-
-### <a name="eventual-consistency"></a>Spójność ostateczna
-Ponieważ synchronizacji danych na podstawie wyzwalacza, nie gwarantuje spójności transakcyjnej. Microsoft gwarantuje wprowadzone po pewnym czasie wszystkie zmiany i synchronizacji danych nie powoduje utraty danych.
-
-### <a name="unsupported-data-types"></a>Nieobsługiwane typy danych
-
--   FileStream
-
--   UDT SQL/CLR
-
--   Kolekcji XMLSchemaCollection (XML obsługiwane)
-
--   Kursor, Timestamp, Hierarchyid
-
-### <a name="requirements"></a>Wymagania
-
--   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli masz w tym celu Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
-
--   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
-
--   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([) lub prawo kwadratowa nawiasu (]).
-
--   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Ograniczenia dotyczące wymiarów usługi i bazy danych
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Wymiary**                                                      | **Limit**              | **Obejście problemu**              |
-| Maksymalna liczba grup synchronizacji wszystkie bazy danych może należeć do.       | 5                      |                             |
-| Maksymalna liczba punktów końcowych w grupie jednej synchronizacji              | 30                     | Utwórz wiele grup synchronizacji |
-| Maksymalna liczba punktów końcowych lokalnie w jednej synchronizacji grupy. | 5                      | Utwórz wiele grup synchronizacji |
-| Nazwy bazy danych, tabel, schematów i kolumn                       | 50 znaków według nazwy |                             |
-| Tabele w grupie synchronizacji                                          | 500                    | Utwórz wiele grup synchronizacji |
-| Kolumn w tabeli w grupie synchronizacji                              | 1000                   |                             |
-| Rozmiar wiersza danych w tabeli                                        | 24 mb                  |                             |
-| Interwał synchronizacji minimalna                                           | 5 minut              |                             |
 
 ## <a name="common-questions"></a>Często zadawane pytania
 
@@ -143,9 +101,55 @@ Ten komunikat o błędzie wskazuje jeden z dwóch następujących problemów:
 Synchronizacja danych nie obsługuje odwołań cyklicznych. Pamiętaj uniknąć ich. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak wyeksportować i zaimportować bazę danych z opcją synchronizacji danych?
-Po wyeksportować w postaci pliku bacpac bazy danych i zaimportuj go w celu utworzenia nowej bazy danych, należy wykonać następujące czynności dwa na synchronizację danych do nowej bazy danych:
+Po wyeksportowaniu bazy danych jako `.bacpac` pliku i zaimportować plik, aby utworzyć nową bazę danych, należy wykonać następujące czynności dwa na synchronizację danych do nowej bazy danych:
 1.  Czyszczenie obiektów synchronizacji danych i tabel na **nową bazę danych** za pomocą [ten skrypt](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ten skrypt powoduje usunięcie wszystkich wymaganych obiektów synchronizacji danych z bazy danych.
 2.  Utwórz ponownie grupę synchronizacji z nową bazę danych. Jeśli stary grupy synchronizacji nie jest już potrzebny, usuń go.
+
+## <a name="sync-req-lim"></a>Wymagania i ograniczenia
+
+### <a name="general-requirements"></a>Wymagania ogólne
+
+-   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli masz w tym celu Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
+
+-   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
+
+-   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([]) lub prawo kwadratowa nawiasu (]).
+
+-   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Zagadnienia ogólne
+
+#### <a name="eventual-consistency"></a>Spójność ostateczna
+Ponieważ synchronizacji danych na podstawie wyzwalacza, nie gwarantuje spójności transakcyjnej. Microsoft gwarantuje wprowadzone po pewnym czasie wszystkie zmiany i synchronizacji danych nie powoduje utraty danych.
+
+#### <a name="performance-impact"></a>Wpływ na wydajność
+Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do śledzenia zmian. Tworzy tabele w bazie danych użytkownika, śledzenie zmian. Te działania śledzenia zmiany mają wpływ na obciążenie bazy danych. Ocenia warstwę usługi i uaktualnienia, jeśli to konieczne.
+
+### <a name="general-limitations"></a>Ogólne ograniczenia
+
+#### <a name="unsupported-data-types"></a>Nieobsługiwane typy danych
+
+-   FileStream
+
+-   UDT SQL/CLR
+
+-   Kolekcji XMLSchemaCollection (XML obsługiwane)
+
+-   Kursor, Timestamp, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Ograniczenia dotyczące wymiarów usługi i bazy danych
+
+| **Wymiary**                                                      | **Limit**              | **Obejście problemu**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Maksymalna liczba grup synchronizacji wszystkie bazy danych może należeć do.       | 5                      |                             |
+| Maksymalna liczba punktów końcowych w grupie jednej synchronizacji              | 30                     | Utwórz wiele grup synchronizacji |
+| Maksymalna liczba punktów końcowych lokalnie w jednej synchronizacji grupy. | 5                      | Utwórz wiele grup synchronizacji |
+| Nazwy bazy danych, tabel, schematów i kolumn                       | 50 znaków według nazwy |                             |
+| Tabele w grupie synchronizacji                                          | 500                    | Utwórz wiele grup synchronizacji |
+| Kolumn w tabeli w grupie synchronizacji                              | 1000                   |                             |
+| Rozmiar wiersza danych w tabeli                                        | 24 mb                  |                             |
+| Interwał synchronizacji minimalna                                           | 5 minut              |                             |
+|||
 
 ## <a name="next-steps"></a>Następne kroki
 

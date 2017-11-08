@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ponownie ucz istniejącej usługi sieci web predykcyjnej
 W tym dokumencie opisano proces ponownego trenowania w następującym scenariuszu:
@@ -86,9 +86,10 @@ W **zużycie podstawowe informacje o** sekcji **Consume** strony Znajdź klucz p
 ### <a name="update-the-azure-storage-information"></a>Zaktualizuj informacje o usłudze Azure Storage
 BES przykładowy kod operacji przekazywania plików z dysku lokalnego (na przykład "C:\temp\CensusIpnput.csv") do usługi Azure Storage, procesy i zapisuje wyniki wstecz do magazynu Azure.  
 
-Aby zaktualizować informacje magazynu Azure, należy pobrać nazwy konta magazynu, klucz i informacje o kontenerze dla konta magazynu w klasycznym portalu Azure, a następnie aktualizacji correspondi po zakończeniu eksperymentu, wynikowy przepływu pracy powinny być podobne do następującego:
+Aby zaktualizować informacje magazynu Azure, możesz pobrać nazwę konta magazynu, klucz i informacje o kontenerze dla konta magazynu w klasycznym portalu Azure, a następnie zaktualizuj odpowiednie wartości w kodzie.
+Po zakończeniu eksperymentu, wynikowy przepływu pracy powinny być podobne do następujących:
 
-![Wynikowa przepływu pracy po uruchomieniu][4]wartości ng w kodzie.
+![Wynikowa przepływu pracy po uruchomieniu][4]
 
 1. Zaloguj się do klasycznego portalu Azure.
 2. W kolumnie nawigacji po lewej stronie kliknij **magazynu**.
@@ -119,7 +120,9 @@ Po określeniu lokalizacji danych wyjściowych w ładunku żądania rozszerzenie
             }
         },
 
-Poniżej przedstawiono przykład danych wyjściowych ponownego trenowania: ![ponownego trenowania danych wyjściowych][6]
+Poniżej przedstawiono przykład ponownego trenowania danych wyjściowych:
+
+![Ponownego trenowania danych wyjściowych][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Ocena ponownego trenowania wyników
 Po uruchomieniu aplikacji, danych wyjściowych zawiera adres URL i tokenu sygnatury dostępu współdzielonego, który są niezbędne do uzyskania dostępu wyniki oceny.

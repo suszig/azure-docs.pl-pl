@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>Szyfrowanie CENC przy użyciu technologii Multi-DRM i kontroli dostępu: odwołanie do projektowania i implementacji na platformie Azure i w usłudze Azure Media Services
  
@@ -207,7 +207,7 @@ Implementacja obejmuje następujące kroki:
 
 George Trifonov Azure Media Services zespołu został zapisany blogu udostępnia szczegółowe kroki w procesie konfigurowania usługi Azure Active Directory dla aplikacji ASP.NET MVC player: [integracji Azure Media Services OWIN MVC na podstawie aplikacji w usłudze Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George również został zapisany na blogu [JWT token uwierzytelniania w usłudze Azure Media Services i szyfrowania dynamicznego](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). A Oto jego [w integracji usługi Azure AD z usługi Azure Media Services klucza dostawy](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George również został zapisany na blogu [JWT token uwierzytelniania w usłudze Azure Media Services i szyfrowania dynamicznego](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Aby uzyskać informacje dotyczące usługi Azure Active Directory:
 

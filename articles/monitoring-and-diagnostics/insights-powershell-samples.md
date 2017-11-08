@@ -1,8 +1,8 @@
 ---
 title: "Przykłady szybki start Azure PowerShell monitora. | Microsoft Docs"
 description: "Dostęp do funkcji Azure Monitor, takich jak skalowania automatycznego, alertów, elementów webhook i wyszukiwanie Dzienniki aktywności za pomocą programu PowerShell."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Przykładów dla platformy Azure Monitor PowerShell szybki start
-Ten artykuł przedstawia przykładowe polecenia programu PowerShell, aby ułatwić dostęp do funkcji Azure monitora. Azure Monitor pozwala automatycznego skalowania usługi w chmurze, maszyn wirtualnych i aplikacji sieci Web, jak i do wysyłania powiadomień o alertach lub zadzwoń na podstawie wartości dane telemetryczne skonfigurowanych adresów URL sieci web.
+Ten artykuł przedstawia przykładowe polecenia programu PowerShell, aby ułatwić dostęp do funkcji Azure monitora. Azure Monitor pozwala automatycznego skalowania usługi w chmurze, maszyn wirtualnych i aplikacji sieci Web. Można też do wysyłania powiadomień o alertach, lub zadzwoń na podstawie wartości dane telemetryczne skonfigurowanych adresów URL sieci web.
 
 > [!NOTE]
-> Azure Monitor to nowa nazwa dla proponowaną "Azure Insights" do 25 września 2016 r. Jednak przestrzenie nazw i w związku z tym następujące polecenia nadal zawierają "insights".
+> Azure Monitor to nowa nazwa dla proponowaną "Azure Insights" do 25 września 2016 r. Jednak przestrzenie nazw, dlatego poniższe polecenia nadal zawierać słowo "insights".
 > 
 > 
 
@@ -41,13 +41,13 @@ Po pierwsze Zaloguj się do subskrypcji platformy Azure.
 Login-AzureRmAccount
 ```
 
-Wymaga zalogowania się. Gdy to zrobisz, Twoje konto dla identyfikatora dzierżawcy i domyślnego Identyfikatora subskrypcji są wyświetlane. Wszystkie polecenia cmdlet systemu Azure działają w kontekście subskrypcji domyślne. Aby wyświetlić subskrypcje, do których masz dostęp do listy, użyj następującego polecenia.
+Zobaczysz ekran logowania, w. Po zalogowaniu się konto dla identyfikatora dzierżawcy, i domyślnego Identyfikatora subskrypcji są wyświetlane. Wszystkie polecenia cmdlet systemu Azure działają w kontekście subskrypcji domyślne. Aby wyświetlić subskrypcje, do których masz dostęp do listy, użyj następującego polecenia:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Aby zmienić kontekst pracy do innej subskrypcji, użyj następującego polecenia.
+Aby zmienić kontekst pracy do innej subskrypcji, użyj następującego polecenia:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -139,9 +139,9 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 `Get-AzureRmAlertRule`obsługuje inne parametry. Zobacz [Get AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) Aby uzyskać więcej informacji.
 
 ## <a name="create-metric-alerts"></a>Tworzenie metryk alertów
-Można użyć `Add-AlertRule` polecenia cmdlet, aby tworzyć, aktualizować lub wyłączyć regułę alertu.
+Można użyć `Add-AlertRule` polecenia cmdlet do tworzenia, aktualizowania ani wyłączyć regułę alertu.
 
-Można utworzyć właściwości poczty e-mail i elementu webhook za pomocą `New-AzureRmAlertRuleEmail` i `New-AzureRmAlertRuleWebhook`odpowiednio. W poleceniu cmdlet reguły alertu, przypisz je jako akcje **akcje** właściwości reguły alertu.
+Można utworzyć właściwości poczty e-mail i elementu webhook za pomocą `New-AzureRmAlertRuleEmail` i `New-AzureRmAlertRuleWebhook`odpowiednio. W poleceniu cmdlet reguły alertu, Przypisz te właściwości jako akcje **akcje** właściwości reguły alertu.
 
 W poniższej tabeli opisano parametry i wartości używane do utworzenia alertu za pomocą metryki.
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Pełną listę dostępnych opcji `Get-AzureRmMetricDefinition` znajduje się w temacie [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Utwórz i Zarządzaj ustawieniami automatycznego skalowania
-Zasób, takie jak aplikacja sieci Web, maszyn wirtualnych, usługa w chmurze lub zestawu skalowania maszyn wirtualnych może mieć tylko jedno ustawienie skalowania automatycznego skonfigurowane pod jego kątem.
+Zasób (aplikacja sieci Web, maszyn wirtualnych, usługa w chmurze lub zestawu skalowania maszyn wirtualnych) może mieć tylko jedno ustawienie skalowania automatycznego skonfigurowane pod jego kątem.
 Jednak każdego ustawienia automatycznego skalowania może mieć wiele profilów. Na przykład jeden profil na podstawie wydajności skali i drugi dla profilu oparte na harmonogramie. Każdy profil może mieć wiele reguł skonfigurowane na nim. Aby uzyskać więcej informacji na temat skalowania automatycznego, zobacz [sposobu skalowania automatycznego aplikacji](../cloud-services/cloud-services-how-to-scale.md).
 
-Poniżej przedstawiono kroki, które będą używane:
+Poniżej przedstawiono kroki, aby użyć:
 
 1. Tworzenie reguł.
 2. Utwórz Profile mapowania reguł, które zostały utworzone wcześniej do profilów.
@@ -213,13 +213,13 @@ Poniżej przedstawiono kroki, które będą używane:
 
 Poniższe przykłady przedstawiają sposób tworzenia ustawieniu skalowania automatycznego dla zestawu skalowania maszyn wirtualnych systemu operacyjnego Windows za pomocą metryki użycia procesora CPU.
 
-Najpierw utwórz regułę w celu skalowania w poziomie, o zwiększenie liczby wystąpień.
+Najpierw utwórz regułę w celu skalowania o zwiększenie liczby wystąpień.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Następnie utwórz reguły do skali przy, zmniejszenie liczby wystąpień.
+Następnie należy utworzyć regułę skalować, zmniejszenie liczby wystąpień.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Utwórz właściwość powiadomień w ustawieniu skalowania automatycznego, w ty
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Na koniec Utwórz w ustawieniu skalowania automatycznego, aby dodać profil utworzoną wcześniej.
+Na koniec Utwórz w ustawieniu skalowania automatycznego, aby dodać profil, który został utworzony wcześniej. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Zarządzanie profilami dziennika dla dziennika aktywności
-Można utworzyć *dziennika profilu* i eksportu danych z dziennika aktywności konta magazynu i należy skonfigurować przechowywania danych dla niego. Opcjonalnie można również strumienia danych do Centrum zdarzeń. Należy pamiętać, że ta funkcja jest obecnie w wersji zapoznawczej i można tworzyć tylko jeden profil dziennika na subskrypcję. Za pomocą następujących poleceń cmdlet i Twojej bieżącej subskrypcji do tworzenia i zarządzania profilami dziennika. Możesz również określonej subskrypcji. Mimo że domyślne programu PowerShell do bieżącej subskrypcji, zawsze można zmienić tego za pomocą `Set-AzureRmContext`. Można skonfigurować dziennik aktywności na przesyłanie danych do dowolnego konta magazynu lub Centrum zdarzeń, w ramach danej subskrypcji. Dane są zapisywane jako pliki obiektu blob w formacie JSON.
+Można utworzyć *dziennika profilu* i eksportu danych z dziennika aktywności konta magazynu i należy skonfigurować przechowywania danych dla niego. Opcjonalnie można również strumienia danych do Centrum zdarzeń. Ta funkcja jest obecnie w wersji zapoznawczej i można utworzyć tylko jeden profil dziennika na subskrypcję. Za pomocą następujących poleceń cmdlet i Twojej bieżącej subskrypcji do tworzenia i zarządzania profilami dziennika. Możesz również określonej subskrypcji. Mimo że domyślne programu PowerShell do bieżącej subskrypcji, zawsze można zmienić tego za pomocą `Set-AzureRmContext`. Można skonfigurować dziennik aktywności na przesyłanie danych do dowolnego konta magazynu lub Centrum zdarzeń, w ramach danej subskrypcji. Dane są zapisywane jako pliki obiektu blob w formacie JSON.
 
 ### <a name="get-a-log-profile"></a>Pobierz profil dziennika
 Aby pobrać profili istniejącego dziennika, należy użyć `Get-AzureRmLogProfile` polecenia cmdlet.
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Dodawanie profilu dziennika z przechowywania i EventHub
-Oprócz routingu danych do konta magazynu, można również strumienia go do Centrum zdarzeń. Należy pamiętać, że w tej wersji zapoznawczej i Magazyn konfiguracji konta jest wymagane, ale konfiguracja Centrum zdarzeń jest opcjonalne.
+Oprócz routingu danych do konta magazynu, można również strumienia go do Centrum zdarzeń. W tej wersji zapoznawczej konfiguracji konta magazynu jest wymagane, ale konfiguracja Centrum zdarzeń jest opcjonalne.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Konfigurowanie dzienników diagnostycznych
-Wiele usług platformy Azure zapewniają dodatkowe dzienniki i dane telemetryczne, które może być skonfigurowany tak, aby zapisać danych na koncie magazynu Azure, Wyślij do usługi Event Hubs i/lub wysyłane do obszaru roboczego analizy dzienników OMS. Tę operację można wykonać tylko na poziomie zasobów i Centrum konta lub zdarzenia magazynu powinien znajdować się w tym samym regionie co zasób docelowy, na którym skonfigurowano ustawienie diagnostyki.
+Wiele usług platformy Azure zapewniają dodatkowe dzienniki i dane telemetryczne, które można wykonać jedną lub więcej z następujących czynności: 
+ - można skonfigurować w celu zapisywania danych na koncie magazynu Azure
+ - wysyłane do usługi Event Hubs
+ - wysyłane do obszaru roboczego analizy dzienników OMS. 
+
+Tę operację można wykonać tylko na poziomie zasobów. Centrum konta lub zdarzenia magazynu powinien znajdować się w tym samym regionie co zasób docelowy, na którym skonfigurowano ustawienie diagnostyki.
 
 ### <a name="get-diagnostic-setting"></a>Pobierz ustawienia diagnostyki
 ```PowerShell

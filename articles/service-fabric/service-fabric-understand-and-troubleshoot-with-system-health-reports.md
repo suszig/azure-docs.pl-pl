@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki sieci szkieletowej usług Azure udostępnia raporty kondycji systemu na wszystkich jednostek w klastrze dodatkowych zabiegów. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemu. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
@@ -55,6 +55,18 @@ Raport określa limit czasu globalnego dzierżawy jako czas wygaśnięcia (TTL).
 * **SourceId**: System.Federation
 * **Właściwość**: rozpoczyna się od **otoczenie** i zawiera informacje na węźle.
 * **Następne kroki**: Sprawdź, dlaczego otoczenie zostaną utracone, na przykład, Sprawdź komunikację między węzłami klastra.
+
+### <a name="rebuild"></a>Skompiluj ponownie
+
+**Menedżera trybu Failover** usługi (**FM**) zarządza informacjami o węzłach klastra. FM utraci swoje dane i przechodzi do utraty danych, który go nie może zagwarantować, że ma najnowszych informacji o węzłach klastra. W takim przypadku system przechodzi przez **odbudować**, i **System.FM** zbiera dane ze wszystkich węzłów w klastrze, aby można było odbudować jego stanu. Czasami z powodu sieci lub zagadnienia węzła Odbuduj można pobrać zablokował lub zablokowany. Taki sam może się zdarzyć z **główny menedżer trybu Failover** usługi (**FMM**). **FMM** jest usługi bezstanowej system, który śledzi where wszystkie **FMs** znajdują się w klastrze. **FMMs** podstawowy jest zawsze węzeł o identyfikatorze najbliżej 0. Jeśli ten węzeł zostanie porzucone, **odbudować** zostanie wywołany.
+Gdy wystąpi jeden z powyższych warunków, **System.FM** lub **System.FMM** Flaga go za pośrednictwem raportów o błędach. Ponowna kompilacja może zostać zatrzymane w jednym z dwóch faz:
+
+* Oczekiwanie na emisji: **FM/FMM** czeka na odpowiedź emisji komunikatów w innych węzłach. **Następne kroki:** Sprawdź, czy istnieje problem z połączeniem sieci między węzłami.   
+* Oczekiwanie na węzłach: **FM/FMM** już odebrał odpowiedź emisji z innych węzłów i czeka na odpowiedź od określonych węzłów. Raport o kondycji zawiera węzły, dla którego **FM/FMM** czeka na odpowiedź. **Następne kroki:** Sprawdź połączenie sieciowe między **FM/FMM** i listy węzłów. Sprawdź każdy węzeł wymienionych w przypadku innych możliwych problemów.
+
+* **SourceID**: System.FM lub System.FMM
+* **Właściwość**: Skompiluj ponownie.
+* **Następne kroki**: Sprawdź połączenie sieciowe między węzły, a także stan określonych węzłów, które są wyświetlane na opis raport o kondycji.
 
 ## <a name="node-system-health-reports"></a>Węzeł systemowych raportów kondycji
 **System.FM**, który reprezentuje usługę Menedżer trybu Failover jest urzędu, który zarządza informacjami o węzłach klastra. Każdy węzeł powinien mieć jeden raport z System.FM przedstawiający jego stanu. Jednostek node zostaną usunięte po usunięciu stan węzła. Aby uzyskać więcej informacji, zobacz [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

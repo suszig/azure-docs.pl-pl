@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Przepływ sterowania
       items:
+        - name: Działanie If Condition
+          href: control-flow-if-condition-activity.md
         - name: Działanie internetowe
           href: control-flow-web-activity.md
         - name: Działanie wyszukiwania

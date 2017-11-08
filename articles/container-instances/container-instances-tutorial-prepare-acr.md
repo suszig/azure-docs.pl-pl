@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: "Docker, kontenery, mikrousługi, Kubernetes, DC/OS, Azure"
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Wdrażanie i użytkowanie rejestru kontenera platformy Azure
 
@@ -54,13 +54,19 @@ Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#
 az group create --name myResourceGroup --location eastus
 ```
 
-Tworzenie kontenera Azure rejestru [az acr utworzyć](/cli/azure/acr#create) polecenia. Nazwa rejestru kontenera **muszą być unikatowe**. W poniższym przykładzie używamy nazwy *mycontainerregistry082*.
+Tworzenie kontenera platformy Azure rejestru [az acr utworzyć](/cli/azure/acr#create) polecenia. Nazwa kontenera rejestru **muszą być unikatowe** w obrębie platformy Azure i musi zawierać znaki alfanumeryczne 5 – 50. Zastąp `<acrName>` o unikatowej nazwie do rejestru:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Na przykład można utworzyć kontenera platformy Azure rejestru o nazwie *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-W dalszej części tego samouczka, używamy `<acrname>` jako nazwę rejestru kontenera, który został wybrany.
+W dalszej części tego samouczka, używamy `<acrName>` jako nazwę rejestru kontenera, który został wybrany.
 
 ## <a name="container-registry-login"></a>Kontener rejestru logowania
 
@@ -70,7 +76,7 @@ Musisz zalogować się do Twojego wystąpienia ACR przed wypchnięciem obrazów 
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat "Pomyślnie logowania" po ukończeniu.
+Polecenie zwraca `Login Succeeded` komunikat po ukończeniu.
 
 ## <a name="tag-container-image"></a>Tag obrazu kontenera
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Aby uzyskać nazwę loginServer, uruchom następujące polecenie:
+Aby uzyskać nazwę loginServer, uruchom następujące polecenie. Zastąp `<acrName>` o nazwie rejestru kontenera.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Tag *aci samouczek aplikacji* obrazu o loginServer rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa numer wersji obrazu.
+Przykładowe dane wyjściowe:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Tag *aci samouczek aplikacji* obrazu o loginServer Twojego rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa numer wersji obrazu. Zastąp `<acrLoginServer>` z wynikiem `az acr show` polecenie zostanie wykonane.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Obraz wypychania do rejestru kontenera platformy Azure
 
-Wypychanie *aci samouczek aplikacji* obrazu w rejestrze.
-
-Korzystając z następującego przykładu, zastąp nazwę kontenera rejestru loginServer loginServer ze środowiska.
+Wypychanie *aci samouczek aplikacji* obrazu w rejestrze z `docker push` polecenia. Zastąp `<acrLoginServer>` logowania pełną nazwę serwera, możesz uzyskać w poprzednim kroku.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+`push` Operacji powinien zająć kilka sekund do kilku minut w zależności od połączenia internetowego, a wynik jest podobny do następującego:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Listy obrazów w rejestrze kontenera platformy Azure

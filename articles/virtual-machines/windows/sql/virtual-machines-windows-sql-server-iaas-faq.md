@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88c54293b4a9b470febeda3c0e9a1755ad3b0638
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d692d806bab072fc2c4b734677223bad4142561
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Często zadawane pytania dotyczące programu SQL Server na maszynach wirtualnych Windows Azure
 
@@ -60,6 +60,9 @@ W tym temacie przedstawiono odpowiedzi na niektóre często zadawane pytania dot
       Wystąpił błąd związany z siecią lub wystąpieniem podczas ustanawiania połączenia z programem SQL Server. Serwer nie został znaleziony lub był niedostępny.
 
    Jeśli zdecydujesz się wystąpienia domyślnego, również odinstalować [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) również.
+   
+   >[!NOTE]
+   >Maszyny wirtualnej Azure serwera SQL są rozliczane zgodnie z opisem w [cennik wskazówki dotyczące maszyn wirtualnych programu SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Po usunięciu programu SQL Server, opłaty za użycie kontynuować. Jeśli program SQL Server nie są już potrzebne, można wdrożyć nową maszynę wirtualną i przeprowadzić migrację danych i aplikacji do nowej maszyny wirtualnej. Następnie można usunąć maszyny wirtualnej programu SQL Server.
 
 1. **Jak uaktualnić do nowej wersji/wydania programu SQL Server w maszynie Wirtualnej platformy Azure?**
 

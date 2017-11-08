@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>Korzystanie z usług sieci web
 Gdy należy wdrożyć model jako usługę sieci web w czasie rzeczywistym, możesz przesyła dane i uzyskać prognoz z różnych platform i aplikacji. Usługa sieci web czasu rzeczywistego udostępnia interfejs API REST dla pobierania prognoz. Można wysyłać dane do usługi sieci web w formacie jednego lub wielu wierszy w momencie uzyskać co najmniej jeden prognoz w.
 
-W usłudze Azure Machine Learning w sieci Web aplikacji zewnętrznej komunikuje się z model predykcyjny synchronicznie poprzez wywołanie adres URL usługi POST protokołu HTTP. Aby wywołać usługi sieci web, aplikacja kliencka musi określić klucz interfejsu API, który jest tworzony podczas wdrażania Prognozowanie i umieszczanie danych żądania w treści żądania POST.
+Z [usługi sieci Web Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), zewnętrzną aplikacją synchronicznie komunikuje się z modelu predykcyjnego za wywołania HTTP POST na adres URL usługi. Aby wywołać usługi sieci web, aplikacja kliencka musi określić klucz interfejsu API, który jest tworzony podczas wdrażania Prognozowanie i umieszczanie danych żądania w treści żądania POST.
 
 Należy pamiętać, że klucze interfejsu API są dostępne tylko w trybie wdrożenia klastra. Usługi sieci web w lokalnej nie ma kluczy.
 

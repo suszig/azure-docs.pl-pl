@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Włącz lub wyłącz urządzenie serii StorSimple 8000
+
 ## <a name="overview"></a>Omówienie
 Wyłączanie urządzenia Microsoft Azure StorSimple nie jest wymagane w ramach normalnego działania. Jednak należy włączyć nowe urządzenie lub urządzenia, które ma zostać wyłączony. Ogólnie rzecz biorąc wyłączania jest wymagany w przypadku których należy wymienić sprzęt nie powiodło się, fizycznie przenieść jednostkę lub podjąć urządzenia z usługi. W tym samouczku opisano procedury wymagane włączanie i wyłączanie urządzenia StorSimple w różnych scenariuszach.
 

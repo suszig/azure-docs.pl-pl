@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Wdrażanie zdalne wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -49,7 +49,7 @@ Przed wdrożeniem wstępnie skonfigurowane rozwiązanie do subskrypcji platformy
 
 1. Na **utworzyć monitorowania zdalnego rozwiązania** wprowadź **Nazwa rozwiązania** dla zdalnego monitorowania wstępnie skonfigurowane rozwiązanie.
 
-1. Wybierz **podstawowe** lub **standardowe** wdrożenia. Jeśli są deplying Dowiedz się, jak to działa rozwiązania lub wybierz pozycję Uruchom pokaz **podstawowe** opcję, aby zminimalizować koszty.
+1. Wybierz **podstawowe** lub **standardowe** wdrożenia. Jeśli wdrażasz Dowiedz się, jak to działa rozwiązania lub uruchomić pokaz, wybierz **podstawowe** opcję, aby zminimalizować koszty.
 
 1. Wybierz **Java** lub **.NET** jako język. Wszystkie mikrousług są dostępne jako implementacje Java lub .NET.
 

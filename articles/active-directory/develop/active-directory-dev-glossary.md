@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Słownik dewelopera usługi Azure Active Directory
 Ten artykuł zawiera definicje dla niektórych podstawowe koncepcje dla deweloperów usługi Azure Active Directory (AD), które są przydatne podczas nauki opracowywanie aplikacji dla usługi Azure AD.
@@ -153,13 +153,13 @@ Funkcja logowania aplikacji jest zwykle używane do implementacji-jednokrotnej (
 Proces odinstalowywania uwierzytelniania użytkownika końcowego, odłączenie stanu użytkownika skojarzony z [aplikacji klienckiej](#client-application) sesji podczas [logowania](#sign-in)
 
 ## <a name="tenant"></a>Dzierżawy
-Wystąpienie katalogu usługi Azure AD jest określana jako dzierżawa usługi Azure AD. Zapewnia szereg funkcji, takich jak:
+Wystąpienie katalogu usługi Azure AD jest określana jako dzierżawa usługi Azure AD. Zapewnia kilka funkcji, takich jak:
 
 * Usługa rejestru dla zintegrowanych aplikacji
 * Uwierzytelnianie konta użytkowników i zarejestrowanych aplikacji
 * Punkty końcowe REST wymagane do obsługi różnych protokołów, w tym OAuth2 i SAML, łącznie z [punktu końcowego autoryzacji](#authorization-endpoint), [punktu końcowego tokena](#token-endpoint) i "typowych" punktowi końcowemu używanemu przez [ aplikacje wielodostępne](#multi-tenant-application).
 
-Dzierżawa jest także powiązany z usługą Azure AD lub subskrypcji usługi Office 365 podczas inicjowania obsługi administracyjnej subskrypcji, takim funkcjom tożsamość i zarządzanie dostępem dla subskrypcji. Zobacz [jak uzyskać dzierżawę usługi Azure Active Directory] [ AAD-How-To-Tenant] szczegółowe informacje na temat sposobów możesz uzyskać dostęp do dzierżawy. Zobacz [jak subskrypcje platformy Azure są kojarzone z usługi Azure Active Directory] [ AAD-How-Subscriptions-Assoc] szczegółowe informacje na temat relacji między subskrypcjami i dzierżawa usługi Azure AD.
+Dzierżaw usługi Azure AD są tworzone lub skojarzyć za pomocą subskrypcji platformy Azure i usługi Office 365 podczas tworzenia konta, zapewniając funkcje tożsamość i zarządzanie dostępem dla subskrypcji. Administratorzy subskrypcji platformy Azure można również utworzyć dodatkowych dzierżaw usługi Azure AD za pomocą portalu Azure. Zobacz [jak uzyskać dzierżawę usługi Azure Active Directory] [ AAD-How-To-Tenant] szczegółowe informacje na temat sposobów możesz uzyskać dostęp do dzierżawy. Zobacz [jak subskrypcje platformy Azure są kojarzone z usługi Azure Active Directory] [ AAD-How-Subscriptions-Assoc] szczegółowe informacje na temat relacji między subskrypcjami i dzierżawa usługi Azure AD.
 
 ## <a name="token-endpoint"></a>Token punktu końcowego
 Jeden z punktów końcowych, implementowane przez [serwera autoryzacji](#authorization-server) do obsługi protokołu OAuth2 [przyznaje autoryzacji](#authorization-grant). W zależności od grant, może służyć do uzyskania [token dostępu](#access-token) (i powiązanych tokenu "Odśwież") do [klienta](#client-application), lub [token Identyfikatora](#ID-token) w przypadku użycia z [OpenID Połącz] [ OpenIDConnect] protokołu.
