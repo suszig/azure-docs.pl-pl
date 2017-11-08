@@ -79,7 +79,7 @@ Jeśli zamierzasz kontynuować pracę z samouczkiem dotyczącym tworzenia kopii 
 
     ![Zatrzymywanie tworzenia kopii zapasowej maszyny wirtualnej w witrynie Azure Portal](./media/quick-backup-vm-portal/stop-backup.png)
 
-3. Wybierz polecenie **Usuń dane kopii zapasowej	** z menu rozwijanego.
+3. Wybierz polecenie **Usuń dane kopii zapasowej** z menu rozwijanego.
 
 4. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wprowadź nazwę maszyny wirtualnej, np. *myVM*. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**
 
