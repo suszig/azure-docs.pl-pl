@@ -37,3 +37,4 @@ sections:
           - html: <a href="tutorial-review-usage">Przeglądanie użycia i kosztów w celu wykrycia anomalii i wydajności</a>
           - html: <a href="tutorial-user-access">Przypisywanie dostępu do danych rozwiązania Cost Management</a>
           - html: <a href="tutorial-forecast-spending">Prognozowanie wydatków w przyszłości</a>
+          - html: <a href="tutorial-manage-costs">Zarządzanie kosztami przy użyciu alokacji kosztów oraz raportów przewidywanych kosztów i obciążeń zwrotnych</a>

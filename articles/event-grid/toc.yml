@@ -4,6 +4,8 @@
   items:
     - name: Event Grid — informacje
       href: overview.md
+    - name: Porównanie usług obsługi wiadomości
+      href: compare-messaging-services.md
 - name: Przewodniki Szybki start
   items:
     - name: Kierowanie zdarzeń usługi Blob Storage — interfejs wiersza polecenia platformy Azure
