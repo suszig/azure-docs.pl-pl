@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 6101dfa4bc74acf5045975f6513886fa135fe833
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="best-practices-for-sql-data-sync"></a>Najlepsze rozwiązania dotyczące synchronizacji danych SQL 
+# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure (wersja zapoznawcza) 
 
 W tym artykule opisano najlepsze rozwiązania dla synchronizacji danych SQL (wersja zapoznawcza).
+
+Omówienie synchronizacji danych SQL, zobacz [synchronizacji danych między wieloma bazami danych chmury i lokalnych z synchronizacji danych SQL Azure (wersja zapoznawcza)](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Bezpieczeństwo i niezawodność
 
@@ -221,3 +223,21 @@ Nie należy próbować usunąć bazę danych z grupy synchronizacji, a następni
 Najpierw należy usunąć bazę danych z grupy synchronizacji. Następnie Wdróż zmiany i poczekaj, aż do Zakończenie inicjowania obsługi. Po zakończeniu tej operacji może edytować grupę synchronizacji i wdrażanie zmiany.
 
 Próba usunięcia bazy danych, a następnie Edytuj grupę synchronizacji bez wdrażania pierwszego zmiany, co lub inna operacja zakończy się niepowodzeniem, a portalu interfejsu mogą trafić w niespójnym stanie. W takim przypadku można odświeżyć stronę, aby przywrócić stan.
+
+## <a name="next-steps"></a>Następne kroki
+Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
+
+-   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure](sql-database-sync-data.md)
+-   [Wprowadzenie do synchronizacji danych Azure SQL](sql-database-get-started-sql-data-sync.md)
+-   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)
+
+-   Wykonaj przykłady z programu PowerShell, które przedstawiają sposób konfigurowania synchronizacji danych SQL:
+    -   [Synchronizacja między wiele baz danych Azure SQL przy użyciu programu PowerShell](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Synchronizacja między bazą danych SQL Azure i lokalnej bazy danych programu SQL Server przy użyciu programu PowerShell](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Pobrać dokumentację interfejsu API REST synchronizacji danych SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Aby uzyskać więcej informacji na temat bazy danych SQL zobacz:
+
+-   [Omówienie bazy danych SQL](sql-database-technical-overview.md)
+-   [Zarządzanie cyklem życia bazy danych](https://msdn.microsoft.com/library/jj907294.aspx)

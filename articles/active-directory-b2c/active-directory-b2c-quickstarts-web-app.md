@@ -1,5 +1,5 @@
 ---
-title: "Test stacji aplikacji sieci web usługi Azure AD B2C | Dokumentacja firmy Microsoft"
+title: "Test stacji aplikacji sieci web platformy Azure AD B2C włączone | Dokumentacja firmy Microsoft"
 description: "Testowanie Zaloguj, zarejestruj się edytowanie profilu i resetowania hasła użytkownika podróże przy użyciu środowiska testowego usługi Azure AD B2C"
 services: active-directory-b2c
 documentationcenter: .net
@@ -13,26 +13,27 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: 2a51f15fd38a901548dcf4c56922f9715c328463
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: patricka
+ms.openlocfilehash: 07f2c21409176d30f4570e267a4472745f843f85
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="test-drive-a-web-application-configured-with-azure-ad-b2c"></a>Przetestuj aplikację sieci web skonfigurowany w usłudze Azure AD B2C
+# <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Testowanie usługi Azure AD B2C włączone aplikacji sieci web
 
-Usługa Azure Active Directory B2C umożliwia zarządzanie tożsamości chmury do zachowania aplikacji, firmy oraz klientów chronionych.  Aby zademonstrować tego przewodnika Szybki Start korzysta z przykładową aplikację listy zadań do wykonania:
+Usługa Azure Active Directory B2C umożliwia zarządzanie tożsamości chmury do zachowania aplikacji, firmy oraz klientów chronionych. Aby zademonstrować tego przewodnika Szybki Start korzysta z przykładową aplikację listy zadań do wykonania:
 
-* Przy użyciu **Utwórz konto lub zaloguj** zasad, aby utworzyć lub zaloguj się przy użyciu dostawcy tożsamości społecznościowych lub lokalnego konta przy użyciu adresu e-mail. 
-* Wywołanie interfejsu API zabezpieczonej przez usługi Azure AD B2C do tworzenia i edytowania elementów do wykonania.
+> [!div class="checklist"]
+> * Zaloguj się za pomocą strony logowania niestandardowych.
+> * Zaloguj się przy użyciu dostawcy tożsamości społecznościowych.
+> * Tworzenie i Zarządzanie profilem konta i użytkowników usługi Azure AD B2C.
+> * Wywoływanie składnika web API zabezpieczonej przez usługi Azure AD B2C.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj program [Visual Studio 2017](https://www.visualstudio.com/downloads/) z następującymi pakietami roboczymi:
-    - **Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych**
-
-* Konto społecznościowych z usługi Facebook, Google, Microsoft lub Twitter. Jeśli nie masz konta społecznościowych, wymagany jest prawidłowy adres e-mail.
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) z **ASP.NET i sieć web development** obciążenia. 
+* Konto społecznościowych z usługi Facebook, Google, Microsoft lub Twitter.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,14 +45,14 @@ Usługa Azure Active Directory B2C umożliwia zarządzanie tożsamości chmury d
 
 W folderze projektu aplikacji przykładowej Otwórz `B2C-WebAPI-DotNet.sln` rozwiązania w programie Visual Studio. 
 
-Rozwiązania zawiera dwa projekty:
+Rozwiązanie to przykładowa aplikacja listy zadań do wykonania składające się z dwóch projektów:
 
 * **TaskWebApp** — aplikacji sieci web platformy ASP.NET MVC, której użytkownik można zarządzać ich elementy listy zadań do wykonania.  
-* **TaskService** — wykonać wewnętrznej bazy danych interfejsu API sieci Web platformy ASP.NET, która zarządza wszystkich operacji CRUD na elementy listy zadań do wykonania przez użytkownika. Aplikacja sieci web wywołuje ten interfejs API i wyświetla wyniki.
+* **TaskService** — zaplecza interfejsu API sieci Web platformy ASP.NET, zarządzającej operacje wykonywane na elementy listy zadań do wykonania przez użytkownika. Aplikacja sieci web wywołuje interfejs API sieci web i wyświetla wyniki.
 
 Dla tego przewodnika Szybki Start, musisz uruchomić oba `TaskWebApp` i `TaskService` projekty w tym samym czasie. 
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie i wybierz **Ustaw projekty startowe...** . 
+1. W menu programu Visual Studio wybierz **projekty > Ustaw projekty startowe...** . 
 2. Wybierz **wiele projektów startowych** przycisk radiowy.
 3. Zmień **akcji** dla obu projektów do **Start**. Kliknij przycisk **OK**.
 
@@ -59,72 +60,38 @@ Dla tego przewodnika Szybki Start, musisz uruchomić oba `TaskWebApp` i `TaskSer
 
 Wybierz **Debuguj > Rozpocznij debugowanie** Aby skompilować i uruchomić obydwu aplikacji. Każda aplikacja otworzy się w osobnej karcie przeglądarki:
 
-* `https://localhost:44316/`-Ta strona jest aplikacja sieci web ASP.NET. Możesz bezpośrednią interakcję z tej aplikacji z opcją szybkiego startu.
-* `https://localhost:44332/`-Ta strona jest interfejs API, który jest wywoływany przez aplikacje sieci web ASP.NET w sieci web.
+`https://localhost:44316/`-Ta strona jest aplikacja sieci web ASP.NET. Możesz bezpośrednią interakcję z tej aplikacji z opcją szybkiego startu.
+`https://localhost:44332/`-Ta strona jest interfejs API, który jest wywoływany przez aplikacje sieci web ASP.NET w sieci web.
 
 ## <a name="create-an-account"></a>Tworzenie konta usługi
 
-Kliknij przycisk **Zarejestruj / Zaloguj** łącze w aplikacji sieci web ASP.NET, aby uruchomić **Utwórz konto lub zaloguj** przepływu pracy. Podczas tworzenia konta, można użyć istniejącego konta dostawcy tożsamości społecznościowych lub konto e-mail.
+Kliknij przycisk **Zarejestruj / Zaloguj** łącze w aplikacji sieci web ASP.NET, aby uruchomić **Utwórz konto lub zaloguj** przepływu pracy. Podczas tworzenia konta, można użyć istniejącego konta dostawcy tożsamości społecznościowych lub konto e-mail. Dla tego przewodnika Szybki Start należy użyć konta dostawcy społecznościowych tożsamości z usługi Facebook, Google, Microsoft lub Twitter.
 
 ![Przykładową aplikację sieci web ASP.NET](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Zaloguj przy użyciu dostawcy tożsamości społecznościowych
 
-Aby utworzyć konto przy użyciu dostawcy tożsamości społecznościowych, kliknij przycisk dostawcy tożsamości, który ma być używany. Jeśli wolisz używać adresu e-mail, należy przejść do [zaloguj przy użyciu adresu e-mail](#sign-up-using-an-email-address) sekcji.
+Aby utworzyć konto przy użyciu dostawcy tożsamości społecznościowych, kliknij przycisk dostawcy tożsamości, który ma być używany. 
 
 ![Dostawca logowania lub Utwórz konto](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
 Musisz uwierzytelnić (logowania) za pomocą konta społecznościowych poświadczenia i zezwolić aplikacji na odczytywanie informacji z Twojego konta społecznościowych. Udzielenie dostępu, aplikacja może pobrać informacji o profilu konta społecznościowych, takie jak nazwa i Miasto. 
 
+Zakończ proces logowania dla dostawcy tożsamości. Na przykład, jeśli została wybrana opcja Twitter, wprowadź swoje poświadczenia usługi Twitter i kliknij przycisk **Zaloguj**.
+
 ![Uwierzytelniania i autoryzacji przy użyciu konta społecznościowych](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
-Zakończ proces logowania dla dostawcy tożsamości. Na przykład kliknij pozycję **Zaloguj** przycisk Twitter.
-
-Szczegóły nowego profilu konta są wstępnie wypełnione informacjami z konta społecznościowych.
-
-![Nowe konto Szczegóły profilu rejestracji](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
+Szczegóły nowego profilu konta usługi Azure AD B2C są wstępnie wypełnione informacjami z konta społecznościowych.
 
 Zaktualizuj pola Nazwa wyświetlana, stanowisko i Miasto, a następnie kliknij przycisk **Kontynuuj**.  Wartości, które należy wprowadzić służą do profilu konta użytkownika usługi Azure AD B2C.
 
-Pomyślnie utworzono nowe konto użytkownika usługi Azure AD B2C, która używa dostawcy tożsamości. 
+![Nowe konto Szczegóły profilu rejestracji](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 
-Następny krok: [skok do wyświetlenia z oświadczeń](#view-your-claims) sekcji.
+Został pomyślnie:
 
-### <a name="sign-up-using-an-email-address"></a>Zaloguj przy użyciu adresu e-mail
-
-Jeśli wybierzesz opcję rezygnacji z używania kont społecznościowych do zapewnienia uwierzytelniania, można utworzyć konta użytkownika usługi Azure AD B2C przy użyciu prawidłowy adres e-mail. Konto użytkownika lokalnego usługi Azure AD B2C używa usługi Azure Active Directory jako dostawcy tożsamości. Aby użyć adresu e-mail, kliknij przycisk **nie masz konta? Zarejestruj się teraz** łącza.
-
-![Zaloguj się lub zaloguj się za pomocą poczty e-mail](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-email-web.png)
-
-Wprowadź prawidłowy adres e-mail i kliknij przycisk **wysłać kod weryfikacyjny**. Prawidłowy adres e-mail jest wymagany, aby uzyskać kod weryfikacyjny z usługi Azure AD B2C. 
-
-Wprowadź kod weryfikacyjny wyświetlany w wiadomości e-mail i kliknij przycisk **Sprawdź kod**.
-
-Dodawanie informacji o Twoim profilu, a następnie kliknij przycisk **Utwórz**.
-
-![Logowanie się przy nowe konto, za pomocą poczty e-mail](media/active-directory-b2c-quickstarts-web-app/sign-up-new-account-profile-email-web.png)
-
-Pomyślnie utworzono nowe konto użytkownika lokalnego dla usługi Azure AD B2C.
-
-## <a name="reset-your-password"></a>Resetowanie hasła
-
-Jeśli utworzono przy użyciu adresu e-mail konta usługi Azure AD B2C ma funkcję, aby umożliwić użytkownikom resetowania hasła. Aby edytować to profil utworzony, kliknij swoją nazwę profilu na pasku menu, a następnie wybierz **Resetuj hasło**.
-
-Zweryfikuj swój adres e-mail, wprowadzając ją i klikając **wysłać kod weryfikacyjny**. Kod weryfikacyjny są wysyłane na adres e-mail.
-
-Wprowadź kod weryfikacyjny odebrany w wiadomości e-mail, a następnie kliknij przycisk **Sprawdź kod**.
-
-Po zweryfikowaniu swój adres e-mail, kliknij przycisk **Kontynuuj**.
-
-Wprowadź nowe hasło, a następnie kliknij przycisk **Kontynuuj**.
-
-## <a name="view-your-claims"></a>Wyświetl oświadczenia użytkownika
-
-Kliknij przycisk **oświadczeń** na pasku menu aplikacji sieci web, aby wyświetlić oświadczeń skojarzone z ostatnią akcję. 
-
-![Logowanie się przy nowe konto, za pomocą poczty e-mail](media/active-directory-b2c-quickstarts-web-app/view-claims-sign-up-web.png)
-
-W tym przykładzie, ostatnia akcja została dla *zalogowania się lub zarejestrować się* wystąpić. Powiadomienie **typ oświadczenia** `http://schemas.microsoft.com/claims/authnclassreference` jest `b2c_1_susi` wskazujący ostatnia akcja została rejestracji lub logowania. Jeśli ostatnia akcja została resetowania hasła **typ oświadczenia** będzie `b2c_1_reset`.
+> [!div class="checklist"]
+> * Uwierzytelniony przy użyciu dostawcy tożsamości.
+> * Utworzone konto użytkownika usługi Azure AD B2C. 
 
 ## <a name="edit-your-profile"></a>Edytowanie profilu
 
@@ -136,15 +103,9 @@ Zmień Twoje **Nazwa wyświetlana** i **miasta**.  Kliknij przycisk **Kontynuuj*
 
 ![Aktualizuj profil](media/active-directory-b2c-quickstarts-web-app/update-profile-web.png)
 
-Zwróć uwagę aktualizacje nazwę wyświetlaną w prawej górnej części strony, po zmianie nazwy. 
+Należy zauważyć, że aktualizacja nazwy zawiera nazwy wyświetlanej w prawej górnej części strony. 
 
-Kliknij przycisk **oświadczeń**. Zmian wprowadzanych w **Nazwa wyświetlana** i **miasta** są uwzględniane w oświadczeniach.
-
-![Widok oświadczeń](media/active-directory-b2c-quickstarts-web-app/view-claims-update-web.png)
-
- Powiadomienie **typ oświadczenia** `http://schemas.microsoft.com/claims/authnclassreference` został zaktualizowany do `b2c_1_edit_profile` wskazujący ostatnia akcja wykonywana edycji profilu. Należy również zauważyć, nazwa i Miasto są nowe wartości *S. Ewa* i *Seattle*.
-
-## <a name="access-a-resource"></a>Dostęp do zasobu
+## <a name="access-a-secured-web-api-resource"></a>Dostęp do zabezpieczonych zasobów interfejsu API sieci web
 
 Kliknij przycisk **listy zadań do wykonania** o wprowadzenie i zmodyfikuj elementy listy zadań do wykonania. Aplikacja sieci web ASP.NET zawiera token dostępu w żądania sieci Web interfejsu API zasobów żądania uprawnień do wykonywania operacji na elementy listy zadań do wykonania przez użytkownika. 
 
@@ -152,16 +113,16 @@ Wprowadź tekst w **nowy element** pola tekstowego. Kliknij przycisk **Dodaj** d
 
 ![Dodawanie elementu listy zadań do wykonania](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
-## <a name="other-scenarios"></a>Inne scenariusze
-
-Przetestuj inne scenariusze są następujące:
-
-* Wylogować się z aplikacji i kliknij przycisk **listy zadań do wykonania**. Zwróć uwagę, jak pojawieniu się zalogować i elementy listy są zachowywane. 
-* Utwórz nowe konto, przy użyciu innego typu konta. Jeśli utworzony wcześniej przy użyciu adresu e-mail konta, na przykład użyć dostawcy tożsamości społecznościowych.
+Pomyślnie użyto konta użytkownika usługi Azure AD B2C do wywoływania autoryzowanych usługi Azure AD B2C zabezpieczonej interfejsu API sieci web.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnym krokiem jest tworzenie dzierżawy usługi Azure AD B2C i konfigurowanie przykładowych przy użyciu dzierżawy. 
+Przykładowe używane w tym szybkiego startu może służyć do spróbuj innych scenariuszy usługi Azure AD B2C, w tym:
+
+* Tworzenie nowego konta lokalnego przy użyciu adresu e-mail.
+* Resetowanie hasła konta lokalnego.
+
+Jeśli wszystko jest gotowe do delve do procesu tworzenia dzierżawy usługi Azure AD B2C i konfigurowania przykładowych przy użyciu własnego dzierżawy, wypróbuj następujące samouczka.
 
 > [!div class="nextstepaction"]
-> [Tworzenie dzierżawy usługi Azure Active Directory B2C w portalu Azure](active-directory-b2c-get-started.md)
+> [Tworzenie aplikacji sieci web platformy ASP.NET z usługi Azure Active Directory B2C profilu rejestracji, logowania, edycji i resetowania hasła](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

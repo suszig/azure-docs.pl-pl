@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak uruchomić zadanie wymagające wielu obliczeń w środowisku Java na maszynie wirtualnej
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Przy użyciu platformy Azure maszyny wirtualnej służy do obsługi zadań obliczeniowych. Na przykład maszynę wirtualną można obsłużyć zadania i dostarczania wyniki do komputerów klienckich lub aplikacji dla urządzeń przenośnych. Po przeczytaniu tego artykułu, trzeba będzie zrozumienia sposobu tworzenia maszyny wirtualnej, która uruchamia aplikację Java obliczeniowych, które mogą być monitorowane przez inną aplikację Java.
 

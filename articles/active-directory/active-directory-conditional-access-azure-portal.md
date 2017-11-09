@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Dostęp warunkowy w usłudze Azure Active Directory
 
@@ -131,18 +131,13 @@ Poziom ryzyka obliczeniowej logowania można użyć jako warunek w zasadach dost
 
 ### <a name="device-platforms"></a>Platformy urządzeń
 
-Platformy urządzeń charakteryzuje się systemu operacyjnego, który działa na twoim urządzeniu:
+Platformy urządzeń charakteryzuje się systemu operacyjnego, który działa na twoim urządzeniu: można zdefiniować platformy urządzeń, które znajdują się, jak również platformy urządzeń, które są wykluczone z zasad.  
+Do używania platformy urządzeń w zasadach, najpierw zmień przełączników Konfiguruj, aby **tak**, a następnie wybierz wszystkie lub platform urządzeń poszczególnych zasad dotyczy. W przypadku wybrania platformy poszczególnych urządzeń zasady ma wpływ tylko na tych platformach. W takim przypadku logowania do innych platform obsługiwanych przez zasady nie są zagrożone.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- System macOS (wersja zapoznawcza). 
 
 ![Warunki](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Można zdefiniować platformy urządzeń, które są dołączone oraz platformy urządzeń, które są wykluczone z zasad.  
-Do używania platformy urządzeń w zasadach, najpierw zmień przełączników Konfiguruj, aby **tak**, a następnie wybierz wszystkie lub platform urządzeń poszczególnych zasad dotyczy. W przypadku wybrania platformy poszczególnych urządzeń zasady ma wpływ tylko na tych platformach. W takim przypadku logowania do innych platform obsługiwanych przez zasady nie są zagrożone.
+Aby uzyskać pełną listę obsługiwanych platform urządzeń, zobacz [warunku platformy urządzenia](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Lokalizacje

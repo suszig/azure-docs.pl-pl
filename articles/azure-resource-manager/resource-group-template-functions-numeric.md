@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b90885583c411e5b1e513188a636fe54ec74b7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funkcje numeryczne szablonów usługi Azure Resource Manager
 
@@ -122,11 +122,13 @@ Zwraca indeks iteracji pętli.
 
 ### <a name="remarks"></a>Uwagi
 
-Ta funkcja jest zawsze używana z **kopiowania** obiektu. Jeśli wartość nie zostanie podana dla **przesunięcie**, jest zwracana wartość bieżącą iterację. Wartość iteracji zaczyna się od zera.
+Ta funkcja jest zawsze używana z **kopiowania** obiektu. Jeśli wartość nie zostanie podana dla **przesunięcie**, jest zwracana wartość bieżącą iterację. Wartość iteracji zaczyna się od zera. Podczas definiowania zasobów lub zmienne, można użyć iteracji pętli.
 
 **LoopName** właściwość umożliwia określenie, czy copyIndex odwołuje się do zasobu iteracji lub właściwość iteracji. Jeśli wartość nie zostanie podana dla **loopName**, bieżącą iterację typu zasobu jest używana. Podaj wartość dla **loopName** podczas iteracji we właściwości. 
  
 Pełny opis stosowania **copyIndex**, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+
+Na przykład za pomocą **copyIndex** podczas definiowania zmienną, zobacz [zmienne](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Przykład
 

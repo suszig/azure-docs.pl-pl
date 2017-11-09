@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usługi Azure, przydziały i ograniczenia
 Ten dokument przedstawia niektóre z najczęściej limity Microsoft Azure, nazywane również przydziałów. Ten dokument obecnie nie obejmuje wszystkich usług platformy Azure. Wraz z upływem czasu listy zostanie rozwinięty, a zaktualizowane, aby pokrywał się z platformy.
@@ -27,10 +27,10 @@ Ten dokument przedstawia niektóre z najczęściej limity Microsoft Azure, nazyw
 Odwiedź stronę [omówienie cennik usługi Azure](https://azure.microsoft.com/pricing/) Aby dowiedzieć się więcej o cenach systemu Azure. Istnieje, można oszacować koszty przy użyciu [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/) lub poprzez odwiedzenie szczegóły stronie dotyczącej cen usługi (na przykład [maszyn wirtualnych systemu Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Aby uzyskać wskazówki pomagające w zarządzaniu kosztów, zobacz [uniknąć kosztów nieoczekiwany rozliczenia Azure i kosztów zarządzania](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Jeśli chcesz podnieść limit lub powyżej limitu przydziału **domyślny Limit**, [otwarcia żądania pomocy technicznej online klienta bez dodatkowych opłat](azure-supportability/resource-manager-core-quotas-request.md). Nie można zgłosić limity powyżej **maksymalny Limit** wartość pokazana w poniższych tabelach. W przypadku nie **maksymalny Limit** kolumny, a następnie zasób nie ma regulowany limity. 
-> 
+> Jeśli chcesz podnieść limit lub powyżej limitu przydziału **domyślny Limit**, [otwarcia żądania pomocy technicznej online klienta bez dodatkowych opłat](azure-supportability/resource-manager-core-quotas-request.md). Nie można zgłosić limity powyżej **maksymalny Limit** wartość pokazana w poniższych tabelach. W przypadku nie **maksymalny Limit** kolumny, a następnie zasób nie ma regulowany limity.
+>
 > Bezpłatna wersja próbna subskrypcji nie kwalifikują się do limitu lub zwiększenie limitu przydziału. Jeśli masz bezpłatną wersję próbną można uaktualnić do [płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-azr-0003p/) subskrypcji. Aby uzyskać więcej informacji, zobacz [uaktualnienia bezpłatna wersja próbna platformy Azure na płatność za rzeczywiste użycie](billing/billing-upgrade-azure-subscription.md).
-> 
+>
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limity i usługa Azure Resource Manager
 Obecnie istnieje możliwość łączenia wielu zasobów platformy Azure w jednej grupy zasobów platformy Azure. Podczas korzystania z grup zasobów, ograniczeń, które raz były globalne stanie zarządzaną na poziomie regionalnym z Menedżerem zasobów Azure. Aby uzyskać więcej informacji na temat grup zasobów platformy Azure, zobacz [Omówienie usługi Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
@@ -41,8 +41,8 @@ W obszarze poniżej ograniczenia dodano nową tabelę odzwierciedlają różnice
 > Należy wyróżnić przydziałów dla zasobów w grupach zasobów platformy Azure są na regionem dostępny dla Twojej subskrypcji i nie są na subskrypcji, jak przydziały usługi zarządzania. Na przykład użyjmy podstawowej przydziałów. Jeśli potrzebujesz zażądać zwiększenia limitu przydziału o obsługę rdzeni, należy zdecydować, jak wiele rdzeni chcesz używać, w których regionach, a następnie wprowadź żądanie określonych dla grupy zasobów platformy Azure core przydziały dla kwoty i regionów, które mają. W związku z tym, jeśli chcesz używać do uruchamiania aplikacji; 30 rdzeni Europa Zachodnia w szczególności należy zażądać 30 rdzeni Europa Zachodnia. Ale nie ma limit przydziału rdzeni zwiększyć w innym regionie — tylko Europa ma limit przydziału rdzeni 30.
 > <!-- -->
 > W związku z tym może warto wziąć pod uwagę przy wyborze co przydziałami grupy zasobów platformy Azure musi być dla obciążenia w dowolnym regionie, co i żądania wielkość w każdym regionie, w którym rozważane jest wdrożenie. Zobacz [Rozwiązywanie problemów dotyczących wdrożenia](resource-manager-common-deployment-errors.md) Aby uzyskać dodatkową pomoc odnajdywania bieżącego przydziałami dla konkretnych regionów.
-> 
-> 
+>
+>
 
 ## <a name="service-specific-limits"></a>Limity specyficzne dla usługi
 * [Usługa Active Directory](#active-directory-limits)
@@ -60,6 +60,7 @@ W obszarze poniżej ograniczenia dodano nową tabelę odzwierciedlają różnice
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
+* [Container Registry](#container-registry-limits)
 * [Fabryka danych](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -120,6 +121,11 @@ Następujące ograniczenia mają zastosowanie podczas korzystania z usługi Azur
 ### <a name="container-instances-limits"></a>Limity wystąpień kontenera
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
+### <a name="container-registry-limits"></a>Limity rejestru kontenera
+W poniższej tabeli przedstawiono funkcje i limity podstawowa, standardowa i Premium [warstw usług](./container-registry/container-registry-skus.md).
+
+[!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
 ### <a name="networking-limits"></a>Limity sieci
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -141,7 +147,7 @@ Następujące ograniczenia mają zastosowanie podczas korzystania z usługi Azur
 ### <a name="storage-limits"></a>Limity magazynu
 Aby uzyskać więcej informacji na temat limitów konta magazynu, zobacz [cele dotyczące wydajności i skalowalności magazynu Azure](storage/common/storage-scalability-targets.md).
 
-<!--like # storage accts --> 
+<!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
@@ -164,7 +170,7 @@ Aby uzyskać więcej informacji na temat ograniczeń usługi pliki Azure, zobacz
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Limity dysku maszyny wirtualnej 
+#### <a name="virtual-machine-disk-limits"></a>Limity dysku maszyny wirtualnej
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Zobacz [rozmiarów maszyn wirtualnych](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dodatkowe szczegóły.

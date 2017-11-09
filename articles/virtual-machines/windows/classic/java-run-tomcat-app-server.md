@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Jak uruchomić serwer aplikacji Java na maszynie wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania
 > [!IMPORTANT]
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dla szablonu usługi Resource Manager do wdrażania aplikacji sieci Web Java 8 i Tomcat, zobacz [tutaj](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Przy użyciu platformy Azure maszyny wirtualnej służy do nadania możliwości serwera. Na przykład można skonfigurować maszynę wirtualną działającą na platformie Azure do hostowania serwera aplikacji Java, takich jak Apache Tomcat.
 

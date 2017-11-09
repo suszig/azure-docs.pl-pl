@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Używanie programu Azure PowerShell z usługą Azure Storage
 
@@ -165,7 +165,7 @@ Aby ponownie wygenerować klucz innych, należy użyć `key2` jako nazwę klucza
 Wygeneruj ponownie jeden z kluczy, a następnie pobrać go ponownie, aby wyświetlić nową wartość.
 
 > [!NOTE] 
-> Należy przeprowadzić dokładne planowanie przed Trwa ponowne generowanie klucza dla konta magazynu produkcji. Trwa ponowne generowanie kluczy jeden lub oba spowoduje unieważnienie dostępu dla dowolnej aplikacji przy użyciu klucza, który został ponownie wygenerowany. Aby uzyskać więcej informacji, zobacz [kluczy dostępu do magazynu Regenate](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Należy przeprowadzić dokładne planowanie przed Trwa ponowne generowanie klucza dla konta magazynu produkcji. Trwa ponowne generowanie kluczy jeden lub oba spowoduje unieważnienie dostępu dla dowolnej aplikacji przy użyciu klucza, który został ponownie wygenerowany. Aby uzyskać więcej informacji, zobacz [ponowne generowanie kluczy dostępu do magazynu](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Usuwanie konta magazynu 
@@ -216,6 +216,12 @@ Teraz, że rozumiesz, jak zarządzać kontem magazynu za pomocą programu PowerS
 * [Jak zarządzać obiektów blob przy użyciu programu PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Jak zarządzać plikami przy użyciu programu PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Jak zarządzać kolejki przy użyciu programu PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Wykonywanie operacji magazynu tabel Azure przy użyciu programu PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Interfejsu API Azure rozwiązania Cosmos DB tabeli zawiera funkcje premium magazynu tabel gotowe dystrybucji globalnych, odczyty małe opóźnienia i zapisy, automatycznego indeksowania dodatkowej i dedykowanych przepływności. 
+
+* Aby uzyskać więcej informacji, zobacz [interfejsu API Azure rozwiązania Cosmos DB tabeli](../../cosmos-db/table-introduction.md). 
+* Aby dowiedzieć się, jak wykonywać operacje interfejsu API Azure rozwiązania Cosmos DB tabeli za pomocą programu PowerShell, zobacz [operacji wykonania rozwiązania Cosmos DB tabeli interfejsu API Azure przy użyciu programu PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Chmury niezależnie wdrożyć platformy Azure
 

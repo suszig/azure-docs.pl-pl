@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
@@ -40,6 +40,18 @@ Firma Microsoft umożliwiają zwiększenie usługi Azure Active Directory w spos
 -   Plany zmiany 
 
 Należy ponownie tę stronę regularnie, ponieważ trwa jego aktualizacja co miesiąc.
+
+## <a name="november-2017"></a>2017 listopada
+
+**Typ:** przestarzałe funkcje  
+**Kategoria usług:** ACS  
+**Możliwości produktu:** usługi kontroli dostępu 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory kontroli dostępu (znanej także jako usługa kontroli dostępu lub ACS) została wycofana w 2018 opóźnione.  Więcej informacji, w tym szczegółowy harmonogram & wskazówki wysokiego poziomu migracji zostanie podana w następnych kilku tygodni. Tymczasem zostaw komentarze na tej stronie z pytania dotyczące usług ACS i członkiem naszego zespołu będą dotrzeć do pomocy odpowiedzi.
+
+---
 
 
 ## <a name="october-2017"></a>2017 października

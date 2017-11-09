@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Porady dotyczące wydajności dla bazy danych Azure rozwiązania Cosmos
 Azure DB rozwiązania Cosmos jest szybkie i elastyczne rozproszoną bazę danych, która skaluje bezproblemowo gwarantowane opóźnienia i przepływności. Nie trzeba wprowadzić zmiany w najważniejszych architektura lub pisania złożonego kodu można skalować bazy danych za pomocą rozwiązania Cosmos bazy danych. Skalowanie w górę i w dół sprowadza się do jednego wywołania interfejsu API lub [zestawu SDK wywołania metody](set-throughput.md#set-throughput-sdk). Jednak ponieważ DB rozwiązania Cosmos jest dostępny za pośrednictwem połączeń sieci istnieją optymalizacje po stronie klienta, wprowadzone aby osiągnąć najwyższą wydajność.
@@ -165,7 +165,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Rozwiązania cosmos DB oferuje bogaty zestaw operacji bazy danych, w tym relacyjnych i hierarchicznych zapytania z funkcji UDF, procedury składowane i wyzwalaczy — wszystkie działania w dokumentach w ramach kolekcji bazy danych. Koszt związany z każdej z tych operacji zależy od Procesora, we/wy i pamięci wymaganej do ukończenia tej operacji. Zamiast analiza zasobów i zarządzania nimi sprzętu można traktować jednostki żądań (RU) jako pojedynczy miary dla zasobów wymaganych do wykonywania różnych operacji bazy danych i usługi żądania aplikacji.
 
-    [Jednostek żądania](request-units.md) obsługi administracyjnej dla każdego konta bazy danych na podstawie liczby jednostek pojemności, które zakupu. Zużycie jednostka żądania jest szacowana jako szybkość na sekundę. Aplikacje, które przekraczają szybkość jednostki elastycznie żądania, dla swojego konta jest ograniczona, dopóki częstotliwość spadnie poniżej poziomu zarezerwowane dla konta. Jeśli aplikacja wymaga wyższego poziomu przepływności, możesz kupić jej większą pojemność jednostki.
+    Przepływność zostanie zainicjowana na podstawie ilości [jednostek żądania](request-units.md) ustawić dla każdego kontenera. Zużycie jednostka żądania jest szacowana jako szybkość na sekundę. Aplikacje, które przekraczają szybkość jednostki elastycznie żądania, dla swojego konta jest ograniczona, dopóki częstotliwość spadnie poniżej poziomu zarezerwowane dla konta. Jeśli aplikacja wymaga wyższego poziomu przepływności, można zwiększyć przepływność sieci przez Inicjowanie obsługi administracyjnej jednostki dodatkowe żądania. 
 
     Złożoność kwerendy wpływa na liczbę jednostek żądania są używane dla operacji. Liczba predykatów, rodzaj predykaty, liczba funkcji UDF i rozmiaru zestawu danych źródła wszystkich wpływ kosztów operacji zapytania.
 

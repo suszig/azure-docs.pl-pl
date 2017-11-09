@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Skopiuj wydajności działania i dostrajania przewodnik
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Jako odwołanie, w poniższej tabeli pokazuje liczbę przepływności kopiowania
 ![Macierz wydajności](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->W fabryce danych Azure w wersji 2 gdy działanie kopiowania jest wykonywana w środowisku uruchomieniowym integracji Azure minimalnego chmury jednostki przepływu danych wynosi dwa.
+>W fabryce danych Azure w wersji 2 gdy działanie kopiowania jest wykonywana w środowisku uruchomieniowym integracji Azure jednostki przepływu danych minimalny dozwolony chmury wynosi dwa. Jeśli nie zostanie określony, zobacz jednostki przepływu danych domyślne używane w [jednostki przepływu danych w chmurze](#cloud-data-movement-units).
 
 Informacje, które należy zwrócić uwagę:
 
@@ -84,13 +84,12 @@ Informacje, które należy zwrócić uwagę:
 
 A **jednostki przepływu danych w chmurze (DMU)** miary, która odzwierciedla wydajność (kombinacja Procesora, pamięci i alokacji zasobów w sieci) w pojedynczą jednostkę w fabryce danych. **DMU ma zastosowanie tylko do [środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md#azure-integration-runtime)**, ale nie [środowiska uruchomieniowego integracji Self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Jednostki przepływu danych minimalnego chmury dla uruchamiania działania kopiowania wynosi dwa.** W poniższej tabeli wymieniono DMUs domyślne używane w scenariuszach różnych kopiowania.
+**Jednostki przepływu danych minimalnego chmury dla uruchamiania działania kopiowania wynosi dwa.** Jeśli nie zostanie określony, w poniższej tabeli wymieniono DMUs domyślne używane w scenariuszach różnych kopiowania:
 
 | Skopiuj scenariusza | Domyślne DMUs określone przez usługę |
 |:--- |:--- |
-| Kopiowanie danych między magazynów opartych na plikach | Od 2 do 16, w zależności od liczby i rozmiaru plików. |
-| Kopiowanie danych z usług Salesforce/Dynamics | 4 |
-| Inne scenariusze kopiowania | 2 |
+| Kopiowanie danych między magazynów opartych na plikach | Od 4 do 16, w zależności od liczby i rozmiaru plików. |
+| Inne scenariusze kopiowania | 4 |
 
 Aby zastąpić to ustawienie domyślne, należy określić wartość dla **cloudDataMovementUnits** właściwości w następujący sposób. **Dozwolone wartości** dla **cloudDataMovementUnits** to 2, 4, 8, 16, 32. **Rzeczywistą liczbę chmury DMUs** używany w czasie wykonywania operacji kopiowania jest równa lub mniejsza niż skonfigurowana wartość, w zależności od tego wzorca sieci danych. Uzyskać informacje na temat poziomu są bardziej wydajne, można uzyskać po skonfigurowaniu więcej jednostek dla konkretnej kopii źródłowy i odbiorczy, zobacz [dotyczące wydajności](#performance-reference).
 

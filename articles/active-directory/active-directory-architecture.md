@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informacje na temat architektury usługi Azure Active Directory
-Usługa Azure Active Directory (Azure AD) umożliwia bezpieczne zarządzanie dostępem do usług i zasobów platformy Azure dla użytkowników. W ramach usługi Azure AD można skorzystać z pełnego zestawu możliwości zarządzania tożsamościami. Aby uzyskać więcej informacji na temat funkcji usługi Azure AD, zobacz [Co to jest usługa Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Usługa Azure Active Directory (Azure AD) umożliwia bezpieczne zarządzanie dostępem do usług i zasobów platformy Azure dla użytkowników. W ramach usługi Azure AD można skorzystać z pełnego zestawu możliwości zarządzania tożsamościami. Aby uzyskać więcej informacji na temat funkcji usługi Azure AD, zobacz [Co to jest usługa Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
-Za pomocą usługi Azure AD możesz tworzyć użytkowników i grupy oraz zarządzać nimi, a także zezwalać na dostęp do zasobów organizacji i odmawiać go przy użyciu uprawnień. Aby uzyskać informacje dotyczące zarządzania tożsamościami, zobacz [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (Podstawy zarządzania tożsamościami platformy Azure).
+Za pomocą usługi Azure AD możesz tworzyć użytkowników i grupy oraz zarządzać nimi, a także zezwalać na dostęp do zasobów organizacji i odmawiać go przy użyciu uprawnień. Aby uzyskać informacje dotyczące zarządzania tożsamościami, zobacz [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (Podstawy zarządzania tożsamościami platformy Azure).
 
 ## <a name="azure-ad-architecture"></a>Architektura usługi Azure AD
 Rozproszona geograficznie architektura usługi Azure AD umożliwia rozbudowane monitorowanie, automatyczne przekierowywanie, korzystanie z trybu failover i odzyskiwanie — pozwala to dostarczyć klientom dostępność i wydajność na poziomie korporacyjnym.
@@ -79,7 +79,7 @@ Usługa Azure AD obsługuje zerowy [cel czasu odzyskiwania (RTO, Recovery Time O
 
 ### <a name="data-centers"></a>Centra danych
 
-Repliki usługi Azure AD są przechowywane w centrach danych znajdujących się na całym świecie. Aby uzyskać więcej informacji, zobacz [Centra danych platformy Azure](https://azure.microsoft.com/en-us/overview/datacenters).
+Repliki usługi Azure AD są przechowywane w centrach danych znajdujących się na całym świecie. Aby uzyskać więcej informacji, zobacz [Centra danych platformy Azure](https://azure.microsoft.com/overview/datacenters).
 
 Działania usługi Azure AD względem centrów danych mają następujące cechy:
 
@@ -113,8 +113,8 @@ Jeśli jakakolwiek z usług Azure AD nie działa zgodnie z oczekiwaniami, natych
 
 **Zabezpieczanie operacji**
 
-Stosujemy kontrole operacyjne, takie jak uwierzytelnianie wieloskładnikowe (MFA) dla każdej operacji, a także inspekcję wszystkich operacji. Ponadto nieprzerwanie używamy systemu podnoszenia uprawnień w miarę potrzeb w celu udzielenia niezbędnego tymczasowego dostępu dla dowolnych operacyjnych zadań na żądanie. Aby uzyskać więcej informacji, zobacz [Zaufana chmura](https://azure.microsoft.com/en-us/support/trust-center).
+Stosujemy kontrole operacyjne, takie jak uwierzytelnianie wieloskładnikowe (MFA) dla każdej operacji, a także inspekcję wszystkich operacji. Ponadto nieprzerwanie używamy systemu podnoszenia uprawnień w miarę potrzeb w celu udzielenia niezbędnego tymczasowego dostępu dla dowolnych operacyjnych zadań na żądanie. Aby uzyskać więcej informacji, zobacz [Zaufana chmura](https://azure.microsoft.com/support/trust-center).
 
 ## <a name="next-steps"></a>Następne kroki
-[Przewodnik dewelopera usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Przewodnik dewelopera usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

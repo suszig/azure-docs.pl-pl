@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań Hive
 Ten dokument przedstawia sposób tworzenia funkcji danych przechowywanych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Te zapytania Hive Użyj osadzonych Hive funkcje zdefiniowane przez użytkownika (UDF), skryptów, dla której są dostarczane.
@@ -37,18 +37,18 @@ W tym artykule przyjęto założenie, że masz:
 * Utworzone konto magazynu platformy Azure. Aby uzyskać instrukcje, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Zainicjowano obsługę administracyjną dostosowane klastra usługi Hadoop w usłudze HDInsight.  Aby uzyskać instrukcje, zobacz [dostosować Azure klastrów usługi HDInsight Hadoop zaawansowane analizy](customize-hadoop-cluster.md).
 * Dane przekazane do tabele programu Hive w klastrach usługi Azure HDInsight Hadoop. Jeśli nie, wykonaj [tworzenie i ładowanie danych do tabel Hive](move-hive-tables.md) najpierw przekazywać dane do tabele programu Hive.
-* Włączyć dostęp zdalny do klastra. Aby uzyskać instrukcje, zobacz [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md#headnode).
+* Włączyć dostęp zdalny do klastra. Aby uzyskać instrukcje, zobacz [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Funkcja generowania
 W tej sekcji opisano kilka przykładów sposoby, w którym można generowania funkcji za pomocą zapytań Hive. Po wygenerowaniu dodatkowe funkcje, możesz dodać je jako kolumny do istniejącej tabeli lub Utwórz nową tabelę z dodatkowych funkcji i klucza podstawowego, który następnie może być połączony z oryginalnej tabeli. Poniżej przedstawiono w przykładach przedstawionych:
 
-1. [Funkcja generowania na podstawie częstotliwości](#hive-frequencyfeature)
+1. [Generowanie na podstawie częstotliwości funkcji](#hive-frequencyfeature)
 2. [Ryzyko podzielone na kategorie zmiennych w klasyfikacji binarnej](#hive-riskfeature)
 3. [Wyodrębnij funkcji z pola daty/godziny](#hive-datefeatures)
 4. [Wyodrębnij funkcji z pola tekstowego.](#hive-textfeatures)
 5. [Oblicz odległość między współrzędne GPS](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Funkcja generowania na podstawie częstotliwości
+### <a name="hive-frequencyfeature"></a>Generowanie na podstawie częstotliwości funkcji
 Często jest przydatne do obliczania częstotliwości poziomów podzielone na kategorie zmiennej lub częstotliwości niektórych kombinacji poziomy wiele zmiennych podzielone na kategorie. Użytkownicy mogą używać poniższy skrypt, aby obliczyć częstotliwości te:
 
         select
@@ -63,7 +63,7 @@ Często jest przydatne do obliczania częstotliwości poziomów podzielone na ka
 
 
 ### <a name="hive-riskfeature"></a>Ryzyko podzielone na kategorie zmiennych w klasyfikacji binarnej
-W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na kategorie zmiennych w funkcje numeryczne modeli używany tylko zająć funkcje numeryczne. Jest to realizowane przez zamianę każdy poziom nieliczbowy zagrożenie liczbowych. W tej sekcji zostanie przedstawiony niektórych ogólnego zapytań Hive, które obliczania wartości ryzyka (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
+W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na kategorie zmiennych w funkcje numeryczne modeli używany tylko zająć funkcje numeryczne. Jest to realizowane przez zamianę każdy poziom nieliczbowy zagrożenie liczbowych. W tej sekcji przedstawiono pewne ogólne zapytań programu Hive obliczające wartości ryzyka (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,12 +83,12 @@ W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na katego
             group by <column_name1>, <column_name2>
             )b
 
-W tym przykładzie zmienne `smooth_param1` i `smooth_param2` ustawioną smooth wartości ryzyka obliczana na podstawie danych. Ryzyko ma zakresie -Inf Inf. Zagrożenia > 0 wskazuje, że prawdopodobieństwo, że element docelowy jest równa 1, jest większa niż 0,5.
+W tym przykładzie zmienne `smooth_param1` i `smooth_param2` ustawioną smooth wartości ryzyka obliczana na podstawie danych. Ryzyko ma zakresie -Inf Inf. Ryzyko > 0 wskazuje, że prawdopodobieństwo, że element docelowy jest równa 1, jest większa niż 0,5.
 
 Po ryzyko jest obliczana tabeli, użytkownicy mogą przypisywać wartości ryzyka do tabeli przez dołączenie go do tabeli ryzyka. Zapytanie łącząca Hive została dostarczona w poprzedniej sekcji.
 
 ### <a name="hive-datefeatures"></a>Wyodrębnij funkcji z pól daty i godziny
-Gałąź jest dostarczany z zestawem funkcji UDF przetwarzania pól daty i godziny. W gałęzi, domyślny format daty/godziny jest "RRRR MM-dd 00:00:00" ("1970-01-01-12:21:32" na przykład). W tej sekcji zostanie przedstawiony przykłady, które wyodrębnianie dnia miesiąca, miesiąc z polem datetime i inne przykłady, które konwertowanie ciągu daty i godziny w formacie innym niż domyślny format ciąg daty i godziny w domyślnym formacie.
+Gałąź jest dostarczany z zestawem funkcji UDF przetwarzania pól daty i godziny. W gałęzi, domyślny format daty/godziny jest "RRRR MM-dd 00:00:00" ("1970-01-01-12:21:32" na przykład). W tej sekcji przedstawiono przykłady, które wyodrębnianie dnia miesiąca, miesiąc z polem datetime i inne przykłady, które konwertowanie ciągu daty i godziny w formacie innym niż domyślny format ciąg daty i godziny w domyślnym formacie.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -150,13 +150,13 @@ Domyślne ustawienia parametru gałęzi klastra może nie być odpowiednie dla z
 
     Ten parametr przydziela 4GB pamięci, aby miejsce na stercie Java i powoduje sortowanie efektywniejsze przez przydzielanie większej ilości pamięci. Należy dobrze gry z tych przydziałów, jeśli istnieją wszystkie zadania błędy związane z miejsca na stercie.
 
-1. **Rozmiaru bloku systemu plików DFS** : ten parametr określa najmniejsza jednostka danych przechowywanych w systemie plików. Na przykład jeśli rozmiar bloku systemu plików DFS jest 128MB, a następnie żadnych danych o rozmiarze mniejsza i maksymalnie 128MB są przechowywane w jeden blok danych, który jest większy niż 128MB przydzielony dodatkowe bloki. Wybieranie rozmiaru bloku bardzo małych powoduje duże koszty Hadoop, ponieważ nazwa węzła ma przetwarzać wiele żądań więcej można znaleźć odpowiedniego bloku odnoszące się do pliku. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
+1. **Rozmiaru bloku systemu plików DFS**: ten parametr określa najmniejsza jednostka danych przechowywanych w systemie plików. Na przykład jeśli rozmiar bloku systemu plików DFS jest 128MB, a następnie żadnych danych o rozmiarze mniejsza i maksymalnie 128MB są przechowywane w jeden blok danych, który jest większy niż 128MB przydzielony dodatkowe bloki. Wybieranie rozmiaru bloku bardzo małych powoduje duże koszty Hadoop, ponieważ nazwa węzła ma przetwarzać wiele żądań więcej można znaleźć odpowiedniego bloku odnoszące się do pliku. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
    
         set dfs.block.size=128m;
-2. **Optymalizacja operacji tworzenia sprzężenia w gałęzi** : podczas operacji łączenia w ramach mapy/Zmniejsz zazwyczaj miejsce w fazie Zmniejsz czasami znaczne zyski można osiągnąć poprzez zaplanowanie sprzężenia w fazie mapy (zwane również "mapjoins"). Aby skierować gałąź, aby to zrobić, jeśli to możliwe, możemy ustawić:
+2. **Optymalizacja operacji tworzenia sprzężenia w gałęzi**: podczas operacji łączenia w ramach mapy/Zmniejsz zazwyczaj miejsce w fazie Zmniejsz czasami znaczne zyski można osiągnąć poprzez zaplanowanie sprzężenia w fazie mapy (zwane również "mapjoins"). Aby skierować gałąź, aby to zrobić, jeśli to możliwe, należy ustawić:
    
         set hive.auto.convert.join=true;
-3. **Określanie liczby mapowań do gałęzi** : podczas Hadoop zezwala użytkownikowi na określenie liczby reduktory, liczba mapowań jest zwykle nie jest ustawiony przez użytkownika. Lewy, umożliwiający pewien stopień kontroli tego numeru jest wybranie zmienne Hadoop *mapred.min.split.size* i *mapred.max.split.size* jako rozmiar map zadań zależy od:
+3. **Określanie liczby mapowań do gałęzi**: podczas Hadoop zezwala użytkownikowi na określenie liczby reduktory, liczba mapowań jest zwykle nie jest ustawiony przez użytkownika. Lewy, umożliwiający pewien stopień kontroli tego numeru jest wybranie zmienne Hadoop *mapred.min.split.size* i *mapred.max.split.size* jako rozmiar map zadań zależy od:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

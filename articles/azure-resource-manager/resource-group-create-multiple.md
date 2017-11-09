@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Wdrażanie wielu wystąpień zasobów lub właściwości w szablonach usługi Azure Resource Manager
 W tym temacie przedstawiono sposób wykonania iteracji w szablonie usługi Azure Resource Manager, aby utworzyć wiele wystąpień zasobu lub wiele wystąpień właściwości w zasobie.
 
 Jeśli musisz dodać logikę do szablonu, który pozwala określić, czy zasób jest wdrażany, zobacz [warunkowo wdrażanie zasobów](#conditionally-deploy-resource).
+
+Na przykład tworzenie wielu elementów w tablicy zmiennej, zobacz [zmienne](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Iteracja zasobów
 Aby utworzyć wiele wystąpień tego typu zasobu, należy dodać `copy` elementu Typ zasobu. Copy element służy do określenia liczby iteracji i nazwę tej pętli. Wartość licznika musi być dodatnią liczbą całkowitą i nie może przekraczać 800. Menedżer zasobów tworzy zasoby równolegle. W związku z tym nie jest gwarantowana kolejności ich utworzenia. Aby utworzyć iterowane zasobów w sekwencji, zobacz [Serial kopiowania](#serial-copy). 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Jednostki SKU rejestru kontenera platformy Azure
 
@@ -43,21 +43,7 @@ Rejestr Classic jednostki SKU włączone początkowa wersja usługi rejestru kon
 
 W poniższej tabeli przedstawiono funkcje i limity warstwy usług podstawowa, standardowa i Premium.
 
-| Funkcja | Podstawowa | Standardowa | Premium |
-|---|---|---|---|---|
-| Magazyn | 10 giB | 100 giB| 500 giB |
-| ReadOps na minutę<sup>1, 2</sup> | 1 KB | 300k | 10 000 k |
-| WriteOps na minutę<sup>1, 3</sup> | 100 | 500 | 2k |
-| Pobierz MB/s przepustowości<sup>1</sup> | 30 | 60 | 100 |
-| Przekaż MB/s przepustowości<sup>1</sup> | 10 | 20 | 50 |
-| elementów webhook | 2 | 10 | 100 |
-| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwane *(wersja zapoznawcza)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps*, i *przepustowości* są szacowane wartości minimalnej. ACR dokłada starań zwiększyć wydajność, ponieważ wymaga użycia.
-
-<sup>2</sup> [ściągania docker](https://docs.docker.com/registry/spec/api/#pulling-an-image) przekłada się wiele operacji odczytu na podstawie liczby warstw w obrazu, a także pobierania manifestu.
-
-<sup>3</sup> [wypychania docker](https://docs.docker.com/registry/spec/api/#pushing-an-image) tłumaczy wiele operacji zapisu, na podstawie liczby warstw, które muszą zostać przeniesiony. A `docker push` obejmuje *ReadOps* można pobrać manifestu dla istniejącego obrazu.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Zarządzanie rozmiaru rejestru
 Ograniczenia pamięci masowej każdej jednostki SKU są przeznaczone do zapewnienia zgodności z typowy scenariusz: podstawowe dla klientów rozpoczynających pracę, standardowych dla większości aplikacji produkcyjnych i Premium dla dużej skali, wydajności i [— replikacja geograficzna](container-registry-geo-replication.md). Cały czas życia rejestr możesz zarządzać jego rozmiar, przez okresowe usuwanie nieużywanych zawartości.

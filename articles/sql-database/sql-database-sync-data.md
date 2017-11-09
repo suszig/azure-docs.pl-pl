@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: c53eabfeb9ee1a7c50340bbfc65674b478068c75
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronizowanie danych między wieloma bazami danych chmury i lokalnych z opcją synchronizacji danych SQL
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure (wersja zapoznawcza)
 
 Synchronizacja danych SQL to usługa oparta na bazie danych SQL Azure, która umożliwia synchronizowanie danych, wybranych dwukierunkowo przez wiele baz danych i wystąpień programu SQL Server.
 
@@ -44,7 +44,7 @@ Synchronizacja danych używa topologii gwiazdy do synchronizacji danych. Należy
 -   **Bazy danych usługi synchronizacji** zawiera metadanych i dziennika dla synchronizacji danych. Bazy danych usługi synchronizacji musi być bazy danych SQL Azure znajduje się w tym samym regionie co baza danych Centrum. Bazy danych usługi synchronizacji jest utworzyć klienta i należące do klientów.
 
 > [!NOTE]
-> Jeśli używasz bazy danych na lokalnym, konieczne będzie [Konfigurowanie lokalnego agenta.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Jeśli używasz bazy danych na lokalnym, konieczne będzie [Konfigurowanie lokalnego agenta.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Synchronizowanie danych między bazami danych](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -113,9 +113,9 @@ Po wyeksportowaniu bazy danych jako `.bacpac` pliku i zaimportować plik, aby ut
 
 -   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
 
--   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([]) lub prawo kwadratowa nawiasu (]).
+-   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([) lub prawo kwadratowa nawiasu (]).
 
--   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+-   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-considerations"></a>Zagadnienia ogólne
 
@@ -155,7 +155,9 @@ Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do
 
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
--   [Wprowadzenie do synchronizacji danych SQL](sql-database-get-started-sql-data-sync.md)
+-   [Wprowadzenie do synchronizacji danych Azure SQL](sql-database-get-started-sql-data-sync.md)
+-   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](sql-database-best-practices-data-sync.md)
+-   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Wykonaj przykłady z programu PowerShell, które przedstawiają sposób konfigurowania synchronizacji danych SQL:
     -   [Synchronizacja między wiele baz danych Azure SQL przy użyciu programu PowerShell](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -166,5 +168,4 @@ Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 Aby uzyskać więcej informacji na temat bazy danych SQL zobacz:
 
 -   [Omówienie bazy danych SQL](sql-database-technical-overview.md)
-
 -   [Zarządzanie cyklem życia bazy danych](https://msdn.microsoft.com/library/jj907294.aspx)

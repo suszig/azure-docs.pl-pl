@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych N-series systemem Linux
 
@@ -350,8 +350,9 @@ Wdrażanie maszyn wirtualnych NC24r z jednego z następujących obrazów w porta
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* Istnieje znany problem dotyczący CUDA sterowników w N-series maszyny wirtualne platformy Azure systemem jądra systemu Linux 4.4.0-75 Ubuntu 16.04 LTS. Jeśli uaktualniasz z wcześniejszej wersji jądra, uaktualnienie do co najmniej 4.4.0-77 wersji jądra. 
+* Istnieje znany problem dotyczący CUDA sterowników w N-series maszyny wirtualne platformy Azure systemem jądra systemu Linux 4.4.0-75 Ubuntu 16.04 LTS. Jeśli uaktualniasz z wcześniejszej wersji jądra, uaktualnienie do co najmniej 4.4.0-77 wersji jądra.
 
+* Można ustawić trybu trwałości za pomocą nvidia smi, dlatego dane wyjściowe polecenia jest szybszy, gdy trzeba karty zapytania. Aby ustawić tryb trwałości, należy wykonać `nvidia-smi -pm 1`. Należy pamiętać, że jeśli maszyna wirtualna zostanie ponownie uruchomiony, ustawienie trybu zniknie. Ustawienie trybu do wykonania podczas uruchamiania zawsze można skryptu.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Tworzenie wirtualnego dysku twardego systemu Windows Server i przekazywanie go na platformę Azure
 W tym artykule przedstawiono sposób przekazywania własnego uogólniony obraz maszyny Wirtualnej jako wirtualny dysk twardy (VHD), aby można było ich użyć do utworzenia maszyny wirtualnej. Aby uzyskać więcej informacji o dyskach i wirtualne dyski twarde w systemie Microsoft Azure, zobacz [o dyski i wirtualne dyski twarde dla maszyn wirtualnych](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Możesz również [przekazać](../upload-generalized-managed.md) maszynę wirtualną przy użyciu modelu Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule przyjęto założenie, że masz:

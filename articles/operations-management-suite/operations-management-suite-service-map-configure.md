@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurowanie usługi mapy w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -135,7 +135,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### <a name="shell-script-for-linux"></a>Skrypt powłoki dla systemu Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Rozszerzenia maszyny Wirtualnej platformy Azure
@@ -228,10 +228,15 @@ Administrator może odinstalować zależności agenta dla systemu Windows za pom
 Administrator można również uruchomić %Programfiles%\Microsoft Agent\Uninstall.exe zależności można odinstalować agenta zależności.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstaluj agenta zależności w systemie Linux
-Aby całkowicie odinstalować agenta zależności z systemem Linux, należy usunąć sam agent i łącznika, który jest instalowany automatycznie przy użyciu agenta. Można odinstalować zarówno przy użyciu pojedynczego następujące polecenie:
-
-    rpm -e dependency-agent dependency-agent-connector
-
+Aby całkowicie odinstalować agenta zależności z systemem Linux, należy usunąć sam agent i łącznika, który jest instalowany automatycznie przy użyciu agenta. Można odinstalować zarówno przy użyciu następującego polecenia pojedynczego.
+<br>RHEL, CentOs lub Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli masz problemy z Instalowanie i uruchamianie mapy usług w tej sekcji mogą pomóc. Jeśli nadal nie możesz rozwiązać problemu, skontaktuj się z Microsoft Support.
 
@@ -316,6 +321,7 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Wersja systemu operacyjnego | Wersja jądra |
@@ -329,6 +335,7 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 | Wersja systemu operacyjnego | Wersja jądra |
@@ -336,10 +343,17 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Linux przedsiębiorstwa z jądra podzielenie Enterprise
+### <a name="ubuntu-server"></a>Ubuntu Server
+- Niestandardowe jądra, w tym ponownych kompilacji standardowe jądra, nie są obsługiwane.
 
+| Wersja systemu operacyjnego | Wersja jądra |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Linux przedsiębiorstwa z jądra podzielenie Enterprise
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 | Wersja systemu operacyjnego | Wersja jądra
 |:--|:--|

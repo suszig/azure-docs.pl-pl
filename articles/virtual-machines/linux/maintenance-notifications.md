@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Obsługa planowanych konserwacji powiadomienia dla maszyn wirtualnych systemu Linux
 
@@ -65,6 +65,8 @@ Następujące wartości są zwracane w obszarze MaintenanceRedeployStatus:
 | LastOperationResultCode               | Wynik ostatniej próby zainicjowanie obsługi w maszynie Wirtualnej ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Obsługa uruchamiania na maszynie Wirtualnej za pomocą interfejsu wiersza polecenia
 
 Następujące wywołanie spowoduje zainicjowanie obsługi na maszynie Wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` jest ustawiona na true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>W przypadku wdrożeń klasycznych
+
+Jeśli nadal masz starszych maszyn wirtualnych, które zostały wdrożone przy użyciu klasycznego modelu wdrażania, można używać 1.0 interfejsu wiersza polecenia do zapytania dla maszyn wirtualnych i inicjowania obsługi.
+
+Upewnij się, że jesteś w tryb pracy z klasycznym maszyny Wirtualnej, wpisując:
+
+```
+azure config mode asm
+```
+
+Stan konserwacji maszyny wirtualnej o nazwie *myVM*, wpisz:
+
+```
+azure vm show myVM 
+``` 
+
+Do uruchomienia obsługi w przypadku klasycznych maszyn wirtualnych o nazwie *myVM* w *Moja_usługa* usługi i *myDeployment* wdrożenia, wpisz:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>Często zadawane pytania
