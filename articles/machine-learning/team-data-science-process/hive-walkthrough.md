@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: klastrów użycia usługi Azure HDInsight Hadoop
 W tym przewodniku używamy [zespołu danych nauki procesu (TDSP)](overview.md) w scenariuszu end-to-end przy użyciu [klastra usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, Eksploruj i odtwarzania danych z publicznie dostępnych funkcji [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych i w dół przykładowe dane. Modele danych są tworzone przy użyciu usługi Azure Machine Learning do obsługi binarnej i wieloklasowej klasyfikacji i regresji predykcyjnej zadania.
@@ -59,15 +59,15 @@ Poniżej przedstawiono trzy przykłady problemów prognozowania, które można r
 
 1. **Klasyfikacji binarnej**: prognozowania, czy etykietki został płatnej podróży, tj. *Porada\_kwota* większą niż $0 jest przykład dodatnią, podczas gdy *Porada\_kwota* $ 0 jest ujemny przykład.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Wieloklasowej klasyfikacji**: przewidywanie zakres kwoty Porada uregulowaniu płatności podróży. Możemy podzielić *Porada\_kwota* do pięciu bins lub klasy:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Zadanie regresji**: przewidywanie ilość Porada płatnej w podróży.  
 
 ## <a name="setup"></a>Konfigurowanie klastra usługi HDInsight Hadoop zaawansowana analityka
@@ -132,7 +132,7 @@ Dane powinno się teraz w magazynie obiektów Blob Azure i są gotowe do użycia
 > 
 > 
 
-Aby uzyskać dostęp do węzła głównego klastra do analizy danych poznawcze i w dół próbkowania danych, wykonaj procedurę opisaną w [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md#headnode).
+Aby uzyskać dostęp do węzła głównego klastra do analizy danych poznawcze i w dół próbkowania danych, wykonaj procedurę opisaną w [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md).
 
 W tym przewodniku używamy głównie zapytań w [Hive](https://hive.apache.org/), język kwerendy przypominającego SQL, do wykonywania eksploracji wstępne dane. Zapytania Hive są przechowywane w plikach .hql. Firma Microsoft następnie wyłącza przykładowe tych danych do użycia w usłudze Azure Machine Learning przeznaczone do budowania modeli.
 
@@ -723,17 +723,17 @@ Jako wymagania wstępne dotyczące wystawiania Hive zapytania w programie [i zai
 
 Niektóre szczegóły na [i zaimportuj dane] [ import-data] modułu i parametry wejściowe:
 
-**Identyfikator URI serwera HCatalog**: Jeśli nazwa klastra jest abc123, wówczas jest to po prostu: https://abc123.azurehdinsight.net
+**Identyfikator URI serwera HCatalog**: Jeśli nazwa klastra jest abc123, to po prostu: https://abc123.azurehdinsight.net
 
-**Nazwa konta użytkownika Hadoop** : nazwa użytkownika wybrany dla klastra (**nie** nazwa użytkownika dostępu zdalnego)
+**Nazwa konta użytkownika Hadoop**: nazwa użytkownika wybrany dla klastra (**nie** nazwa użytkownika dostępu zdalnego)
 
-**Hasło konta ser Hadoop** : hasło wybrane dla klastra (**nie** hasła dostępu zdalnego)
+**Hasło konta ser Hadoop**: hasło wybrane dla klastra (**nie** hasła dostępu zdalnego)
 
-**Lokalizacja danych wyjściowych** : to jest wybierany jako platformy Azure.
+**Lokalizacja danych wyjściowych**: to jest wybierany jako platformy Azure.
 
-**Nazwa konta magazynu Azure** : Nazwa domyślnego konta magazynu skojarzone z klastrem.
+**Nazwa konta magazynu Azure**: Nazwa domyślnego konta magazynu skojarzone z klastrem.
 
-**Nazwa kontenera Azure** : to jest domyślna nazwa kontenera dla klastra i zwykle jest taka sama jak nazwa klastra. W przypadku klastra o nazwie "abc123" jest po prostu abc123.
+**Nazwa kontenera Azure**: to jest domyślna nazwa kontenera dla klastra i zwykle jest taka sama jak nazwa klastra. W przypadku klastra o nazwie "abc123" jest po prostu abc123.
 
 > [!IMPORTANT]
 > **Wszystkie tabele Życzymy zapytań przy użyciu [i zaimportuj dane] [ import-data] modułu w usłudze Azure Machine Learning musi być wewnętrznej tabeli.** Porada na określenie, czy tabela T w bazie danych D.db wewnętrznej tabeli ma następującą składnię.
@@ -783,7 +783,7 @@ W związku z tym możemy uzyskać AUC 0.987, jak pokazano na poniższej ilustrac
 
 a. W przypadku tego problemu jest naszą etykietę docelowego (lub klasy) "Porada\_klasy" może to zająć jednej z pięciu wartości (0,1,2,3,4). Tak jak w przypadku klasyfikacji binarnej mamy kilka kolumn, które są przecieki docelowych do tego eksperymentu. W szczególności: Przechylony, porada\_łączna kwota\_ilość ujawniania informacji o etykiecie docelowej, która nie jest dostępny na czas testowania. Firma Microsoft Usuń te kolumny za pomocą [Select Columns in Dataset] [ select-columns] modułu.
 
-Migawki poniżej przedstawia naszych eksperymentu do prognozowania, w których bin Porada jest mogącego wchodzić (klasy 0: Porada = $0, 1 — klasa: Porada > $0 i Porada < = $5, klasy 2: Porada > $5 i Porada < = $10 klasy 3: Porada > $10 i Porada < = $20, klasa 4: Porada > $20)
+Migawki poniżej przedstawia naszych eksperymentu do prognozowania, w których bin Porada jest mogącego wchodzić (klasy 0: Porada = $0, 1 klasy: Porada > $0 i Porada < = $5, 2 klasy: Porada > $5 i porady < = $10 klasy 3: Porada > $10 i Porada < = $20 Klasa 4: Porada > $20)
 
 ![Migawki eksperymentu](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,7 +795,7 @@ b. W tym eksperymencie używamy macierzy pomyłek spojrzeć na naszych dokładno
 
 ![Macierz pomyłek](./media/hive-walkthrough/cxFmErM.png)
 
-Należy pamiętać, że naszej klasy dokładności powszechnie klas jest bardzo dobre, modelu, które nie są dobrym zadanie "learning" w klasach rzadkich.
+Należy pamiętać, że nasze dokładności klasy w klasach powszechnie znane są bardzo dobre, modelu, które nie są dobrym zadanie "learning" w rzadkich klasy.
 
 **3. Zadanie regresji**: przewidywanie ilość Porada płatnej w podróży.
 
@@ -814,12 +814,12 @@ b. Regresja problemów firma Microsoft pomiarów dokładności przewidywania nas
 Widzimy o współczynnik determinacji jest 0.709, co oznacza około 71% wariancję tłumaczy naszych współczynników modelu.
 
 > [!IMPORTANT]
-> Aby dowiedzieć się więcej na temat usługi Azure Machine Learning oraz sposób dostępu i przy jego użyciu, zapoznaj się [co to jest Machine Learning?](../studio/what-is-machine-learning.md). Jest bardzo przydatny zasobów do odtwarzania z licznych eksperymenty uczenia maszynowego w usłudze Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerii obejmuje gamy eksperymenty i zapewnia kompleksowy wprowadzenia zakres możliwości usługi Azure Machine Learning.
+> Aby dowiedzieć się więcej na temat usługi Azure Machine Learning oraz sposób dostępu i przy jego użyciu, zapoznaj się [co to jest Machine Learning](../studio/what-is-machine-learning.md). Jest bardzo przydatny zasobów do odtwarzania z licznych eksperymenty uczenia maszynowego w usłudze Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerii obejmuje gamy eksperymenty i zapewnia kompleksowy wprowadzenia zakres możliwości usługi Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informacje o licencji
-Ten przewodnik próbki i jego towarzyszący skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Sprawdź plik LICENSE.txt w katalogu przykładowy kod w witrynie GitHub, aby uzyskać więcej informacji.
+Ten przewodnik próbki i jego towarzyszący skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Sprawdź, czy w pliku LICENSE.txt w katalogu przykładowy kod w serwisie GitHub więcej szczegółów.
 
 ## <a name="references"></a>Dokumentacja
 • [Andrés Monroy taksówki NYC rund stronę pobierania](http://www.andresmh.com/nyctaxitrips/)  

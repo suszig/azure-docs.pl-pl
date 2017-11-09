@@ -14,17 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Zalecenia doradcy w zakresie wydajności
 
 Azure zalecenia wydajności doradcy w zakresie zwiększyć szybkość i czas odpowiedzi aplikacji biznesowych o znaczeniu krytycznym. Zalecenia dotyczące wydajności z usługi Advisor można uzyskać **wydajności** pulpitu nawigacyjnego usługi Advisor.
-
-![Karta wydajność usługi Advisor](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Poprawić wydajność bazy danych w usłudze Advisor bazy danych SQL
 
@@ -34,8 +32,6 @@ Advisor zapewnia spójne, skonsolidowanego widoku zaleceń dla wszystkich zasob�
 > Aby uzyskać zalecenia, bazy danych musi mieć o tydzień użycia, a w ciągu tygodnia musi być pewne spójnej działania. Doradca bazy danych SQL można zoptymalizować łatwiej wzorców zapytania spójna niż dla losowych seria działań.
 
 Aby uzyskać więcej informacji o usłudze Advisor bazy danych SQL, zobacz [doradcy bazy danych SQL](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
-
-![Zalecenia dotyczące bazy danych SQL](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Zwiększyć wydajność pamięci podręcznej Redis i niezawodności
 
@@ -49,23 +45,12 @@ Klasyfikator Azure integruje się poniżej rekomendowane najlepsze rozwiązania 
 * Wykrywanie wystąpień, w którym collocating zasoby, takie jak aplikacje sieci web i baz danych można zwiększyć wydajność i tańsze. 
 
 Aby uzyskać więcej informacji na temat zalecenia usługi aplikacji, zobacz [najlepsze rozwiązania dotyczące usługi Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
-![Zalecenia dotyczące usług aplikacji](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp zalecenia dotyczące wydajności w usługi Advisor
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com), a następnie otwórz [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. W okienku po lewej stronie kliknij **więcej usług**.
-
-3. W okienku usługi menu w obszarze **monitorowanie i zarządzanie**, kliknij przycisk **Azure Advisor**.  
- Zostanie wyświetlony pulpit nawigacyjny usługi Advisor.
-
-4. Na pulpicie nawigacyjnym usługi Advisor, kliknij przycisk **wydajności** kartę.
-
-5. Wybierz subskrypcję, dla którego chcesz otrzymywać zalecenia, a następnie kliknij przycisk **Uzyskaj zalecenia**.
-
-> [!NOTE]
-> Aby uzyskać dostęp do zalecenia doradcy w zakresie, należy najpierw *zarejestrować swoją subskrypcję* usłudze Advisor. Subskrypcja jest zarejestrowana przy *właściciela subskrypcji* uruchamia pulpitu nawigacyjnego usługi Advisor i klika pozycję **Uzyskaj zalecenia** przycisk. Jest to *jednorazowa operacja*. Po zarejestrowaniu subskrypcji są dostępne zalecenia doradcy w zakresie jako *właściciela*, *współautora*, lub *czytnika* dla określonego zasobu, grupy zasobów lub subskrypcji.
+2.  Na pulpicie nawigacyjnym usługi Advisor, kliknij przycisk **wydajności** kartę.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 8cde8e10b6789e930ea1deda2f4aa0d4a5e7ea97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory dostępu warunkowego techniczne
 
@@ -82,11 +82,7 @@ Oprócz aplikacji firmy Microsoft w chmurze można przypisać zasady dostępu wa
 
 ## <a name="device-platform-condition"></a>Warunek platformy urządzenia
 
-W zasadach dostępu warunkowego można skonfigurować warunek platformy urządzenia powiązać zasady systemu operacyjnego na komputerze klienckim.
-
-![Powiązanie zasady dostępu do systemu operacyjnego klienta](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Dostęp warunkowy usługi Azure AD obsługuje następujące platformy urządzeń:
+W zasadach dostępu warunkowego można skonfigurować warunek platformy urządzenia powiązać zasady systemu operacyjnego na komputerze klienckim. Dostęp warunkowy usługi Azure AD obsługuje następujące platformy urządzeń:
 
 - Android
 
@@ -96,7 +92,12 @@ Dostęp warunkowy usługi Azure AD obsługuje następujące platformy urządzeń
 
 - Windows
 
-- System macOS (wersja zapoznawcza)
+- macOS
+
+
+![Powiązanie zasady dostępu do systemu operacyjnego klienta](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,8 +132,8 @@ W zasadach dostępu warunkowego obsługiwane są poniższe przeglądarki:
 | Windows Server 2016    | Chrome                      | Wkrótce |
 | Windows Server 2012 R2 | Program Internet Explorer, Chrome   | ![Zaznacz][1] |
 | Windows Server 2008 R2 | Program Internet Explorer, Chrome   | ![Zaznacz][1] |
-| macOS                  | Safari                      | ![Zaznacz][1] |
-| macOS                  | Chrome                      | Wkrótce |
+| macOS                  | Chrome, Safari              | ![Zaznacz][1] |
+
 
 > [!NOTE]
 > Obsługa Chrome, należy użyć systemu Windows 10 twórców aktualizację (wersja 1703) lub nowszym.<br>
@@ -153,7 +154,7 @@ Następujące aplikacje mobilne i będących klientami pulpitu obsługują dost�
 | Aplikacji programu Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS i Android|
 | Osoby-mail/kalendarza aplikacji Outlook 2016 Outlook 2013 (z nowoczesnego uwierzytelniania)| Office 365 Exchange Online| Windows 10|
 | Zasady MFA i lokalizację dla aplikacji. Urządzenia, na podstawie zasad nie są obsługiwane.| Moje aplikacje usługi aplikacji| Android i iOS|
-| Kontroluje usługi zespoły firmy Microsoft — do wszystkich usług, które obsługują Teams firmy Microsoft i wszystkie jego aplikacjach klienckich - pulpitu systemu Windows, iOS, Android, WP i klienta sieci web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS i Android|
+| Kontroluje usługi zespoły firmy Microsoft — do wszystkich usług, które obsługują Teams firmy Microsoft i wszystkie jego aplikacjach klienckich - pulpitu systemu Windows, iOS, Android, WP i klienta sieci web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS|
 | Aplikacje pakietu Office 2016, Office 2013 (z nowoczesnego uwierzytelniania), usługi OneDrive Synchronizowanie klienta (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Usługi Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), obsługa grupy Office jest planowane w przyszłości, obsługi aplikacji programu SharePoint jest planowane w przyszłości| Usługi Office 365 SharePoint Online| Windows 10|
 | Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych w przyszłości| Usługi Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Następujące aplikacje mobilne i będących klientami pulpitu obsługują dost�
 | Aplikacja usługi Power BI. Aplikacja usługi Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.| Usługa Power BI| Windows 10, Windows 8.1, Windows 7 i iOS|
 | Skype dla firm| Office 365 Exchange Online| Android i IOS|
 | Visual Studio Team Services aplikacji| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS i Android|
+
 
 
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji sieci szkieletowej usług .NET na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -87,30 +87,30 @@ Po głosowanie w aplikacji występują następujące zdarzenia:
 3. Usługi zaplecza przyjmuje żądania przychodzącego, a następnie przechowuje zaktualizowanego wyniku w niezawodnej słownik, który pobiera replikowane na wielu węzłach w klastrze i utrwalony na dysku. Dane wszystkich aplikacji znajduje się w klastrze, więc nie bazy danych nie jest wymagane.
 
 ## <a name="debug-in-visual-studio"></a>Debugowanie w programie Visual Studio
-Podczas debugowania aplikacji w programie Visual Studio, czy używasz klastra lokalnego Projektowanie sieci szkieletowej usług. Użytkownik może dostosować środowiska debugowania do danego scenariusza. W tej aplikacji są przechowywane dane w naszej usługi zaplecza przy użyciu niezawodnych słownika. Po zatrzymaniu debugera programu Visual Studio spowoduje usunięcie aplikacji na domyślne. Usunięcie aplikacji powoduje, że dane w usłudze zaplecza do także zostaną usunięte. Aby zachować dane między sesji debugowania, można zmienić **tryb debugowania aplikacji** jako właściwość **głosowania** projektu programu Visual Studio.
+Podczas debugowania aplikacji w programie Visual Studio, czy używasz klastra lokalnego Projektowanie sieci szkieletowej usług. Użytkownik może dostosować środowiska debugowania do danego scenariusza. W tej aplikacji dane są przechowywane w usłudze zaplecza przy użyciu niezawodnych słownika. Po zatrzymaniu debugera programu Visual Studio spowoduje usunięcie aplikacji na domyślne. Usunięcie aplikacji powoduje, że dane w usłudze zaplecza do także zostaną usunięte. Aby zachować dane między sesji debugowania, można zmienić **tryb debugowania aplikacji** jako właściwość **głosowania** projektu programu Visual Studio.
 
 Aby przyjrzeć się, co się stanie w kodzie, wykonaj następujące kroki:
-1. Otwórz **VotesController.cs** pliku i ustaw punkt przerwania w sieci web interfejsu API **Put** — metoda (linii 47) — możesz wyszukać plik w Eksploratorze rozwiązań w programie Visual Studio.
+1. Otwórz **/VotingWeb/Controllers/VotesController.cs** pliku i ustaw punkt przerwania w sieci web interfejsu API **Put** — metoda (linii 47) — możesz wyszukać plik w Eksploratorze rozwiązań w programie Visual Studio.
 
-2. Otwórz **VoteDataController.cs** pliku i ustaw punkt przerwania w tym składnika web API **Put** — metoda (wiersz 50).
+2. Otwórz **/VotingData/ControllersVoteDataController.cs** pliku i ustaw punkt przerwania w tym składnika web API **Put** — metoda (wiersz 50).
 
 3. Wróć do przeglądarki i kliknij opcję głosu lub dodać nową opcję głosu. Trafień jest pierwszy punkt przerwania w kontroler interfejsu api sieci web przodu end firmy.
     - Jest to, gdzie JavaScript w przeglądarce wysyła żądanie do kontrolera interfejsu API sieci web frontonu usługi.
     
     ![Dodawanie usługi frontonu głosu](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Najpierw możemy utworzyć adres URL, który ReverseProxy dla naszej usługi zaplecza **(1)**.
-    - Następnie możemy wysłać umieść żądanie HTTP do ReverseProxy **(2)**.
-    - Na koniec zostanie zwrócona odpowiedź z usługi zaplecza do klienta **(3)**.
+    - Najpierw należy utworzyć adres URL, który ReverseProxy dla naszej usługi zaplecza **(1)**.
+    - Następnie należy wysłać umieść żądanie HTTP do ReverseProxy **(2)**.
+    - Na koniec wróć do klienta odpowiedź z usługi zaplecza **(3)**.
 
 4. Naciśnij klawisz **F5** aby kontynuować
     - To jest punkt przerwania w usłudze zaplecza.
     
     ![Dodawania usługi zaplecza głosu](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - W pierwszym wierszu w metodzie **(1)** używamy `StateManager` do pobrania lub dodać słownika niezawodnej o nazwie `counts`.
+    - W pierwszym wierszu w metodzie **(1)** `StateManager` pobiera lub dodaje słownik niezawodnej o nazwie `counts`.
     - Wszystkie interakcje z wartości w słowniku niezawodnej wymagają transakcji, za pomocą tej instrukcji **(2)** tworzy tej transakcji.
-    - W transakcji, możemy następnie zaktualizuj tę wartość klucza odpowiednich opcji głosu i zatwierdza operacji **(3)**. Po aktualizacji w słowniku zwraca metoda zatwierdzania, dane i replikowane do innych węzłów w klastrze. Dane, teraz są bezpiecznie przechowywane w klastrze, a usługi zaplecza może zostać przeniesiony do innych węzłów, nadal o dostępnych danych.
+    - W transakcji, zaktualizuj tę wartość klucza odpowiednich opcji głosu i zatwierdź operacji **(3)**. Po aktualizacji w słowniku zwraca metoda zatwierdzania, dane i replikowane do innych węzłów w klastrze. Dane, teraz są bezpiecznie przechowywane w klastrze, a usługi zaplecza może zostać przeniesiony do innych węzłów, nadal o dostępnych danych.
 5. Naciśnij klawisz **F5** aby kontynuować
 
 Aby zatrzymać sesję debugowania, naciśnij klawisz **Shift + F5**.
@@ -138,12 +138,12 @@ Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze bezpośrednio z pro
 
     Każda aplikacja w klastrze musi mieć unikatową nazwę.  Klastry firm są jednak środowiska publicznego, udostępnionych i może być konflikt z istniejącą aplikacją.  Jeśli występuje konflikt nazw, Zmień nazwę projektu Visual Studio i Wdróż ponownie.
 
-3. Otwórz przeglądarkę i typ w foolowed adres klastra przez ": 8080', aby uzyskać dostęp do aplikacji w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Powinna zostać wyświetlona aplikacja była uruchomiona w klastrze na platformie Azure.
+3. Otwórz przeglądarkę i wprowadź adres klastra następuje ": 8080', aby uzyskać dostęp do aplikacji w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Powinna zostać wyświetlona aplikacja była uruchomiona w klastrze na platformie Azure.
 
 ![Aplikacji frontonu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
-Łatwo można skalować usługi Service Fabric w klastrze, aby uwzględnić zmiany w obciążenia w ramach usług. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usługi, możesz użyć skryptów lub poleceń programu PowerShell lub interfejsu wiersza polecenia usługi sieci szkieletowej (sfctl). W tym przykładzie użyto Service Fabric Explorer.
+Łatwo można skalować usługi Service Fabric w klastrze, aby uwzględnić zmiany w obciążenia w ramach usług. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usługi, możesz użyć skryptów lub poleceń programu PowerShell lub interfejsu wiersza polecenia usługi sieci szkieletowej (sfctl). W tym przykładzie użyj Eksploratora usługi sieć szkieletowa.
 
 Service Fabric Explorer działa we wszystkich klastrach sieci szkieletowej usług i jest dostępny z poziomu przeglądarki, przechodząc do portu zarządzania klastrami HTTP (19080), na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
@@ -161,22 +161,17 @@ Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
     ![Usługa skalowania Eksploratora sieci szkieletowej usług](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    Usługa ma dwa wystąpienia, czy w widoku drzewa Zobacz węzły, których wystąpienia Uruchom na będą teraz widoczne.
+    Z opóźnieniem widać, że usługa ma dwa wystąpienia.  W widoku drzewa można zobaczyć węzły, których wystąpienia Uruchom na.
 
-Wykonując to proste zadanie zarządzania, podwoiliśmy zasoby dostępne dla naszej usługi frontonu w celu przetworzenia obciążenia użytkownika. Ważne jest, aby zrozumieć, że nie musisz mieć wielu wystąpień usługi, aby działała ona niezawodnie. W przypadku niepowodzenia usługi usługa Service Fabric zapewnia, że nowe wystąpienie usługi jest uruchamiane w klastrze.
+Przez to zadanie proste zarządzanie dostępnych zasobów podwójny do przetworzenia obciążenie użytkownikami usługi frontonu. Ważne jest, aby zrozumieć, że nie musisz mieć wielu wystąpień usługi, aby działała ona niezawodnie. W przypadku niepowodzenia usługi usługa Service Fabric zapewnia, że nowe wystąpienie usługi jest uruchamiane w klastrze.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Uaktualnienie stopniowe aplikacji
 Podczas wdrażania nowych aktualizacji aplikacji, usługi Service Fabric zbiera i wydaje aktualizację w bezpieczny sposób. Uaktualnień stopniowych daje bez przestojów podczas uaktualniania oraz automatycznego wycofywania powinien wystąpić błędy.
 
 Aby uaktualnić aplikację, wykonaj następujące czynności:
 
-1. Otwórz **Index.cshtml** pliku w Visual Studio — można wyszukać plik w Eksploratorze rozwiązań w programie Visual Studio.
-2. Zmień nagłówka na stronie przez dodanie tekstem — na przykład.
-    ```html
-        <div class="col-xs-8 col-xs-offset-2 text-center">
-            <h2>Service Fabric Voting Sample v2</h2>
-        </div>
-    ```
+1. Otwórz **/VotingWeb/Views/Home/Index.cshtml** pliku w programie Visual Studio.
+2. Zmiany <h2> Nagłówek na stronie przez dodanie lub aktualizowanie tekstu. Na przykład zmienić pozycji do "V2 próbki głosowania sieci szkieletowej usług".
 3. Zapisz plik.
 4. Kliknij prawym przyciskiem myszy **głosowania** w Eksploratorze rozwiązań i wybierz polecenie **publikowania**. Zostanie wyświetlone okno dialogowe Publikowanie.
 5. Kliknij przycisk **wersji manifestu** przycisk, aby zmienić wersję usługi i aplikacje.
@@ -187,7 +182,7 @@ Aby uaktualnić aplikację, wykonaj następujące czynności:
 
     ![Okno dialogowe publikowania uaktualnienia ustawienie](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Otwórz przeglądarkę i przejdź do adresu klastra na porcie 19080 — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Polecenie **aplikacji** węzeł w widoku drzewa, a następnie **uaktualnień w toku** w okienku po prawej stronie. Możesz sprawdzić sposób uaktualniania przedstawia za pośrednictwem domen uaktualnienia w klastrze, upewniając się, że każdej domeny jest w dobrej kondycji przed przejściem do następnej.
+9. Polecenie **aplikacji** węzeł w widoku drzewa, a następnie **uaktualnień w toku** w okienku po prawej stronie. Możesz sprawdzić sposób uaktualniania przedstawia za pośrednictwem domen uaktualnienia w klastrze, upewniając się, że każdej domeny jest w dobrej kondycji przed przejściem do następnej. Domeny uaktualnienia na pasku postępu jest wyświetlany zielony, gdy kondycji domeny zostały zweryfikowane.
     ![Uaktualnij widok w narzędziu Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Sieć szkieletowa usług pozwala uaktualnienia bezpieczne oczekuje dwóch minut po uaktualnieniu usługi na każdym węźle w klastrze. Oczekiwać, że cały aktualizacji zajmie około osiem minut.

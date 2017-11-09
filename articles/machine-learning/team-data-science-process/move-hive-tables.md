@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 1eee39135dca98db205677072d79421eadcdd85e
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów Blob Azure
 W tym temacie przedstawiono ogólne zapytań Hive, które Tworzenie tabel programu Hive i ładowanie danych z magazynu obiektów blob platformy Azure. Instrukcje dostępne są również na partycje tabele programu Hive i przy użyciu zoptymalizowanych pod kątem wiersza kolumnowy (ORC) formatowanie, aby poprawić wydajność zapytań.
@@ -32,7 +32,7 @@ W tym artykule przyjęto założenie, że masz:
 
 * Utworzone konto magazynu platformy Azure. Aby uzyskać instrukcje, zobacz [kont magazynu Azure o](../../storage/common/storage-create-storage-account.md).
 * Zainicjowano obsługę administracyjną dostosowane klastra usługi Hadoop w usłudze HDInsight.  Aby uzyskać instrukcje, zobacz [dostosować Azure HDInsight Hadoop clusters zaawansowana analityka](customize-hadoop-cluster.md).
-* Włączony dostęp zdalny do klastra, zalogowany i otworzyć konsolę wiersza polecenia usługi Hadoop. Aby uzyskać instrukcje, zobacz [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md#headnode).
+* Włączony dostęp zdalny do klastra, zalogowany i otworzyć konsolę wiersza polecenia usługi Hadoop. Aby uzyskać instrukcje, zobacz [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Przekazywanie danych do magazynu obiektów blob platformy Azure
 Jeśli utworzono maszynę wirtualną platformy Azure, wykonując instrukcje podane w [Konfigurowanie maszyny wirtualnej platformy Azure, zaawansowana analityka](../data-science-virtual-machine/setup-virtual-machine.md), ten plik skryptu powinien zostały pobrane *C:\\użytkowników \\ \<nazwy użytkownika\>\\dokumenty\\skryptów nauki danych* katalogu na maszynie wirtualnej. Te zapytania Hive wymagają tylko należy podłączyć własny schemat danych i konfiguracji magazynu obiektów blob platformy Azure w odpowiednich polach gotowość do przesłania.

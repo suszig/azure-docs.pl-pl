@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 80c029866f3d28712be823692f3bf4ce6e210405
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Obsługa planowanych konserwacji powiadomienia dla maszyn wirtualnych systemu Windows
 
@@ -87,8 +87,7 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]
-        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -110,6 +109,23 @@ W poprzedniej sekcji, korzystając z informacji z funkcji, następujące urucham
 ```powershell
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
+
+## <a name="classic-deployments"></a>W przypadku wdrożeń klasycznych
+
+Jeśli nadal masz starszych maszyn wirtualnych, które zostały wdrożone przy użyciu klasycznego modelu wdrażania, można przy użyciu programu PowerShell zapytania dla maszyn wirtualnych i inicjowania obsługi.
+
+Aby uzyskać stan konserwacji maszyny wirtualnej, wpisz:
+
+```
+Get-AzureVM -ServiceName <Service name> -Name <VM name>
+```
+
+Aby uruchomić konserwacji w przypadku klasycznych maszyn wirtualnych, wpisz:
+
+```
+Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
+```
+
 
 ## <a name="faq"></a>Często zadawane pytania
 

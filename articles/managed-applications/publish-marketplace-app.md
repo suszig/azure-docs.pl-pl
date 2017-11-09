@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure zarządzanych aplikacji w witrynie Marketplace
 
@@ -122,7 +122,7 @@ Jednostka SKU jest wyświetlany w obszarze oferta nadrzędnego w witrynie market
    Wypełnij następujące pola:
 
    * **Bieżąca wersja**: wprowadź wersję pakietu przekazywania. Powinna być w formacie `{number}.{number}.{number}{number}`.
-   * **Wybierz plik pakietu**: ten pakiet zawiera wymagany plik skompresowany do pakietu ZIP. Aby uzyskać więcej informacji, zobacz [Utwórz aplikację usługi wykazu](publish-service-catalog-app.md).
+   * **Wybierz plik pakietu**: ten pakiet zawiera dwa wymagane pliki skompresowane do pakietu ZIP. Jeden plik jest szablonu usługi Resource Manager, który definiuje zasoby w celu wdrożenia dla aplikacji zarządzanej. Drugi plik definiuje [interfejsu użytkownika](create-uidefinition-overview.md) dla konsumentów wdrażanie zarządzanych aplikacji za pośrednictwem portalu. W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podać wartości parametrów.
    * **PrincipalId**: Ta właściwość jest identyfikator usługi Azure Active Directory (Azure AD) użytkownika, grupy użytkowników lub aplikacji, który został udzielony dostęp do zasobów w subskrypcji klienta. Definicja roli Opisuje uprawnienia.
    * **Definicja roli**: Ta właściwość jest lista wszystkich kontroli dostępu opartej na rolach (RBAC) role wbudowane dostarczane przez usługę Azure AD. Możesz wybrać rolę, która jest najbardziej odpowiednia na potrzeby zarządzania zasobami w imieniu klienta.
 
@@ -197,5 +197,5 @@ Po wypełnieniu wszystkie sekcje wybierz **publikowania** można uruchomić proc
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [Omówienie aplikacji zarządzanych](overview.md).
+* Zobacz artykuł [Omówienie aplikacji zarządzanych](overview.md) zawierający wprowadzenie do aplikacji zarządzanych.
 * Aby dowiedzieć się, jak publikowanie aplikacji zarządzanych katalogu usług, zobacz [Utwórz i publikowanie aplikacji katalogu usług zarządzanych](publish-service-catalog-app.md).

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Wdrażanie aplikacji do klastra strony na platformie Azure
 W tym samouczku jest częścią dwóch serii i pokazuje, jak wdrożyć aplikację sieci szkieletowej usług Azure do klastra strony na platformie Azure.
@@ -58,24 +58,6 @@ Własnego klastra można użyć zamiast klastra strony, jeśli chcesz.  Frontone
 
 > [!NOTE]
 > Klastry firm nie są zabezpieczone, dlatego może być widoczny dla innych aplikacji i danych, które należy umieścić w nich. Nie zostanie wdrożona niczego nie ma innych osób. Należy przeczytać przez naszych warunków użytkowania szczegółowe informacje.
-
-## <a name="configure-the-listening-port"></a>Skonfiguruj port nasłuchujący
-Po utworzeniu usługi frontonu VotingWeb Visual Studio losowo wybiera port dla usługi do nasłuchiwania.  Usługa VotingWeb działa jako frontonu dla tej aplikacji i akceptuje ruch zewnętrzny, więc warto powiązać ustalonego tej usługi i także znać port. W Eksploratorze rozwiązań Otwórz *VotingWeb/PackageRoot/ServiceManifest.xml*.  Znajdź **punktu końcowego** zasobu w **zasobów** sekcji i zmień **portu** wartość 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Również zaktualizować wartość właściwości adresu URL aplikacji w projekcie głosowania, więc w przeglądarce sieci web zostanie otwarty do właściwego portu podczas debugowania za pomocą "F5".  W Eksploratorze rozwiązań wybierz **głosowania** projektu i zaktualizuj **adres URL aplikacji** właściwości.
-
-![Adres URL aplikacji](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Wdrażanie aplikacji na platformie Azure
 Teraz, że aplikacja jest gotowa, wdrożysz ją do bezpośredniego klastra strony z programu Visual Studio.

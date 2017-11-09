@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # Protokołu AMQP 1.0 w przewodniku protokołu usługi Azure Service Bus i usługi Event Hubs
 
@@ -32,7 +32,7 @@ W tym artykule krótko zawiera podsumowanie podstawowych pojęciach protokołu A
 
 Celem jest dla Każdy deweloper przy użyciu dowolnego istniejącego stosu klienta protokołu AMQP 1.0 na dowolnej platformie mieć możliwość interakcji z usługi Azure Service Bus za pośrednictwem protokołu AMQP 1.0.
 
-Typowe ogólnego przeznaczenia stosy protokołu AMQP 1.0, takie jak Apache protonów lub AMQP.NET Lite już implementuje wszystkie gesty core protokołu AMQP 1.0. Tych podstawowych gestów czasami są ujęte w wyższego poziomu API; Apache protonów nawet oferuje dwa imperatywnych API Messenger i reaktywne API reaktora.
+Typowe ogólnego przeznaczenia stosy protokołu AMQP 1.0, takie jak Apache protonów lub AMQP.NET Lite zaimplementować już wszystkie protokoły core protokołu AMQP 1.0. Tych podstawowych gestów czasami są ujęte w wyższego poziomu API; Apache protonów nawet oferuje dwa imperatywnych API Messenger i reaktywne API reaktora.
 
 W poniższych kwestii przyjęto założenie, zarządzania połączenia protokołu AMQP, sesji, i łącza i obsługi transferów ramki i sterowanie przepływem są obsługiwane przez odpowiednich stosu (takich jak Apache protonów-C) i nie wymagają znacznie, jeśli istnieją szczególną uwagę deweloperów aplikacji. Przyjęto założenie, abstrakcyjnie istnienie kilka interfejsu API w nim elementów podstawowych takich jak możliwość nawiązania połączenia i utworzyć jakiegoś typu *nadawcy* i *odbiornika* obiekty abstrakcji, który następnie mają niektóre kształt `send()` i `receive()` operacje, odpowiednio.
 
@@ -238,13 +238,13 @@ W poniższych sekcjach opisano właściwości z sekcji standardowy komunikat pro
 W tej sekcji omówiono zaawansowanych możliwości usługi Azure Service Bus, które są oparte na wersji roboczej rozszerzeń protokołu AMQP, obecnie opracowywane w Komisji techniczne OASIS dla protokołu AMQP. Usługa Service Bus implementuje najnowsze wersje tych projektów i przyjmuje zmiany wprowadzone w jak te wersje robocze osiągnąć standardowych.
 
 > [!NOTE]
-> Zaawansowane operacje komunikatów magistrali usług są obsługiwane za pomocą wzorca żądanie/odpowiedź. Szczegóły operacje te są opisane w dokumencie [protokołu AMQP 1.0 w usłudze Service Bus: opartych na protokole żądanie odpowiedź operacji](service-bus-amqp-request-response.md).
+> Zaawansowane operacje komunikatów magistrali usług są obsługiwane za pomocą wzorca żądanie/odpowiedź. Szczegółowe informacje o tych operacji są opisane w artykule [protokołu AMQP 1.0 w usłudze Service Bus: opartych na protokole żądanie odpowiedź operacji](service-bus-amqp-request-response.md).
 > 
 > 
 
 ### Protokół AMQP zarządzania
 
-Specyfikacja protokołu AMQP zarządzania jest pierwszy rozszerzenia projektu omówionych w tym miejscu. Określenie tej wartości definiuje zestaw gestów protokołu w warstwie ponad protokołu AMQP, które umożliwiają zarządzanie interakcji z infrastrukturą obsługi wiadomości za pośrednictwem protokołu AMQP. Specyfikacja definiuje ogólne operacje takie jak *utworzyć*, *odczytu*, *aktualizacji*, i *usunąć* zarządzania jednostek w infrastrukturze obsługi wiadomości i zestaw operacji zapytania.
+Specyfikacja zarządzania AMQP jest pierwszy rozszerzenia projektu omówionych w tym artykule. Określenie tej wartości definiuje zestaw protokołów w warstwie ponad protokołu AMQP, które umożliwiają zarządzanie interakcji z infrastrukturą obsługi wiadomości za pośrednictwem protokołu AMQP. Specyfikacja definiuje ogólne operacje takie jak *utworzyć*, *odczytu*, *aktualizacji*, i *usunąć* zarządzania jednostek w infrastrukturze obsługi wiadomości i zestaw operacji zapytania.
 
 Wszystkie te gesty wymagają interakcji żądanie/odpowiedź, między klientem a infrastruktury obsługi wiadomości i w związku z tym specyfikację definiuje sposób modelu tego wzorca interakcji u góry AMQP: klient łączy się infrastruktury obsługi wiadomości, inicjuje sesję, a następnie tworzy parę łącza. Na jedno łącze klient działa jako nadawcę i innych działa jako odbiornik, co powoduje utworzenie pary linki, które mogą działać jako kanału dwukierunkowego.
 

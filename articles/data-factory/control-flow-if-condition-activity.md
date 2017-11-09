@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: shlo
-ms.openlocfilehash: 0eb4f03a5d53da771a550bd5d79607ff7f0f52d3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Jeśli warunek działania w fabryce danych Azure
 Jeśli warunek działania zapewnia te same funkcje, jeśli instrukcja zawiera w językach programowania. Ocenia zestaw działań, gdy warunek jest `true` i innego zestawu działań, gdy warunek jest `false`. 
@@ -76,10 +76,13 @@ wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Tak
 ifTrueActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `true`. | Tak
 ifFalseActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `false`. | Tak
 
-## <a name="sample"></a>Przykład
+## <a name="example"></a>Przykład
 Potok, w tym przykładzie kopiuje dane z wejściowych folderu do folderu wyjściowego. Folder wyjściowy jest określana przez wartość parametru potoku: routeSelection. Jeśli wartość routeSelection ma wartość true, dane są kopiowane do outputPath1. I, jeśli wartość routeSelection ma wartość false, dane są kopiowane do outputPath2. 
 
-### <a name="pipeline-with-if-condition-activity"></a>Się stanie w przypadku działania w potoku
+> [!NOTE]
+> Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell do uruchamiania potoku. Przewodnik krok po kroku instrukcje, aby utworzyć potok fabryki danych przy użyciu programu Azure PowerShell i JSON definicji, zobacz [samouczek: tworzenie fabryki danych przy użyciu programu Azure PowerShell](quickstart-create-data-factory-powershell.md).
+
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>W potoku z działaniem warunek IF (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +193,7 @@ Innym przykładem wyrażenie jest:
 ```
 
 
-### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure połączoną usługą magazynu (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,7 +210,7 @@ Innym przykładem wyrażenie jest:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset"></a>Sparametryzowane zestawu danych obiektów Blob Azure
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowane zestawu danych obiektów Blob Azure (BlobDataset.json)
 Ustawia potoku **folderPath** wartość albo **outputPath1** lub **outputPath2** parametru potoku. 
 
 ```json
@@ -234,7 +237,7 @@ Ustawia potoku **folderPath** wartość albo **outputPath1** lub **outputPath2**
 }
 ```
 
-### <a name="pipeline-parameter-json"></a>Parametr potoku JSON
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parametr potoku JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,10 +249,11 @@ Ustawia potoku **folderPath** wartość albo **outputPath1** lub **outputPath2**
 ```
 
 ### <a name="powershell-commands"></a>Polecenia programu PowerShell
+Tych poleceniach założono, zapisane pliki w formacie JSON do folderu: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Użycie rozwiązania mapy usługi w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Z mapy usługi można przeglądać serwery w taki sposób, który należy wziąć pod uwagę ich: jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej połączenia TCP architekturze, bez konieczności wykonywania konfiguracyjnych wymaganych innych niż instalację agenta.
@@ -224,11 +224,26 @@ Poniższa ilustracja jest szczegółowy widok zdarzenie Zmianakonfiguracji, któ
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integracji programu Operations Management Suite wydajności
-**Wydajność maszyny** okienko przedstawia metryki wydajności standardowe dla wybranego serwera. Metryki obejmują użycie Procesora, wykorzystanie pamięci, sieci bajtów wysłanych i odebranych i listę najważniejszych procesów sieci bajtów wysłanych i odebranych. Aby uzyskać dane dotyczące wydajności sieci, musi również włączono rozwiązania podczas transmisji danych 2.0 w Operations Management Suite.
+**Wydajność maszyny** okienko przedstawia metryki wydajności standardowe dla wybranego serwera. Metryki obejmują użycie Procesora, wykorzystanie pamięci, sieci bajtów wysłanych i odebranych i listę najważniejszych procesów sieci bajtów wysłanych i odebranych.
 
 ![Okienko wyników maszyny](media/oms-service-map/machine-performance.png)
 
+Aby wyświetlić dane wydajności, może być konieczne [włączyć odpowiednie liczniki wydajności usługi Analiza dzienników](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Liczniki, które ma zostać włączony:
 
+W systemie Windows:
+- Procesor(*)\% czas procesora
+- Pamięć\% Zadeklarowane bajty w użyciu
+- Sieci karty (*) \Bytes wysłane/s
+- Sieci karty (*) \Bytes odebrane/s
+
+Linux:
+- Procesor(*)\% czas procesora
+- Memory(*)\% użycie pamięci
+- Sieci karty (*) \Bytes wysłane/s
+- Sieci karty (*) \Bytes odebrane/s
+
+Aby uzyskać dane dotyczące wydajności sieci, musi również włączono rozwiązania podczas transmisji danych 2.0 w Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integracji programu Operations Management Suite zabezpieczeń
 Mapy usług integracji z zabezpieczeniami i inspekcji odbywa się automatycznie, gdy oba rozwiązania są włączone i skonfigurowane w obszarze roboczym usługi Operations Management Suite.
 

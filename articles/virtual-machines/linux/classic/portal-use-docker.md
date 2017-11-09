@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker z klasycznym portalem Azure
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) jest jednym z najpopularniejszych podejść wirtualizacji, które używa [kontenery Linux](http://en.wikipedia.org/wiki/LXC) zamiast maszyn wirtualnych w sposób izolowanie danych i przetwarzania danych w udostępnionych zasobów. Można użyć rozszerzenia maszyny Wirtualnej platformy Docker zarządza [agenta systemu Linux Azure] tworzenie Docker maszyny Wirtualnej, który obsługuje dowolną liczbę kontenerów dla aplikacji na platformie Azure.
 
 > [!NOTE]
-> W tym temacie opisano sposób tworzenia maszyny Wirtualnej platformy Docker z klasycznego portalu Azure. Aby sprawdzić, jak można utworzyć maszyny Wirtualnej platformy Docker w wierszu polecenia, zobacz [sposobu użycia Docker rozszerzenia maszyny Wirtualnej z interfejsu wiersza polecenia platformy Azure (Azure CLI)]. Aby wyświetlić ogólne omówienie kontenery i ich zalety, zobacz [Docker wysoki poziom tablicy](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> W tym temacie opisano sposób tworzenia maszyny Wirtualnej platformy Docker w portalu Azure. Aby sprawdzić, jak można utworzyć maszyny Wirtualnej platformy Docker w wierszu polecenia, zobacz [sposobu użycia Docker rozszerzenia maszyny Wirtualnej z interfejsu wiersza polecenia platformy Azure (Azure CLI)]. Aby wyświetlić ogólne omówienie kontenery i ich zalety, zobacz [Docker wysoki poziom tablicy](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Utwórz nową maszynę Wirtualną z galerii obrazów
-Pierwszym krokiem wymaga maszyny Wirtualnej platformy Azure z obrazu systemu Linux, który obsługuje Docker rozszerzenia maszyny Wirtualnej, używając obrazu Ubuntu 14.04 LTS z galerii obrazów jako przykład obrazu serwera i Ubuntu 14.04 pulpitu jako klienta. W portalu kliknij **+ nowy** w lewym dolnym rogu do utworzenia nowego wystąpienia maszyny Wirtualnej, a następnie wybierz obraz Ubuntu 14.04 LTS z dostępnych opcji lub pełną Galeria obrazów, jak pokazano poniżej.
+Pierwszym krokiem wymaga maszyny Wirtualnej platformy Azure z obrazu systemu Linux, który obsługuje Docker rozszerzenia maszyny Wirtualnej, używając obrazu Ubuntu 14.04 LTS z galerii obrazów jako przykład obrazu serwera i Ubuntu 14.04 pulpitu jako klienta. W portalu kliknij **+ nowy** do utworzenia nowego wystąpienia maszyny Wirtualnej, a następnie wybierz obraz Ubuntu 14.04 LTS z dostępnych opcji lub pełną Galeria obrazów, jak pokazano poniżej.
 
 > [!NOTE]
 > Obecnie tylko obrazy Ubuntu 14.04 LTS nowsza niż lipca 2014 obsługują Docker rozszerzenia maszyny Wirtualnej.
@@ -67,11 +68,6 @@ W wierszu polecenia, użyj  **`base64`**  lub innego ulubionego narzędzia kodow
 
 ## <a name="add-the-docker-vm-extension"></a>Dodawanie rozszerzenia maszyny Wirtualnej platformy Docker
 Aby dodać Docker rozszerzenia maszyny Wirtualnej, zlokalizować wystąpienia maszyny Wirtualnej utworzone, a następnie przewiń w dół do **rozszerzenia** i kliknij go, aby wyświetlić rozszerzeń maszyny Wirtualnej, jak pokazano poniżej.
-
-> [!NOTE]
-> Ta funkcja jest obsługiwana w portalu w wersji zapoznawczej tylko: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

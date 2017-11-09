@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Rozpoczynanie pracy z usługą SQL Data Warehouse
 
@@ -50,7 +50,7 @@ Jeśli używasz systemu operacyjnego Windows, zalecamy użycie programu [Visual 
 
 ## <a name="create-a-sql-data-warehouse"></a>Tworzenie bazy danych w usłudze SQL Data Warehouse
 
-Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z myślą o masowym przetwarzaniu równoległym. Baza danych jest rozpowszechniana w wielu węzłach i przetwarza zapytania równolegle. Magazyn danych SQL Data Warehouse zawiera węzeł kontrolny, który organizuje działania wszystkich węzłów. Węzły zarządzają danymi przy użyciu bazy danych SQL Database.  
+Magazyn danych SQL Data Warehouse to specjalny typ bazy danych zaprojektowany z myślą o masowym przetwarzaniu równoległym. Baza danych jest rozpowszechniana w wielu węzłach i przetwarza zapytania równolegle. SQL Data Warehouse zawiera węzeł kontrolny, który organizuje działania wszystkich węzłów. Węzły zarządzają danymi przy użyciu bazy danych SQL Database.  
 
 > [!NOTE]
 > Utworzenie bazy danych w usłudze SQL Data Warehouse może skutkować powstaniem nowej usługi płatnej.  Aby uzyskać więcej informacji, zobacz [Cennik usługi SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -198,7 +198,7 @@ Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, 
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, 
     ```
 5. Utwórz tabele zewnętrzne. Te tabele odwołują się do danych przechowywanych w usłudze Azure Blob Storage. Uruchom poniższe polecenia T-SQL, aby utworzyć tabele zewnętrzne wskazujące obiekt blob platformy Azure zdefiniowany wcześniej w naszym zewnętrznym źródle danych.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Teraz możesz zacząć ładować dane do magazynu danych. W tym kroku pokazano, 
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Zaimportuj dane z usługi Azure Blob Storage.
 
@@ -430,7 +430,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
 
 2. Wyświetlaj dane podczas ładowania.
 
-   Ładowane jest kilka gigabajtów danych, które są kompresowane do wysoce wydajnych indeksów magazynu kolumn klastra. Uruchom następujące zapytanie korzystające z dynamicznych widoków zarządzania (DMV), aby wyświetlić stan ładowania. Po uruchomieniu zapytania można zrobić sobie przerwę, podczas gdy usługa SQL Data Warehouse będzie wykonywała skomplikowane obliczenia.
-    
-    ```sql
+  Ładowane jest kilka gigabajtów danych, które są kompresowane do wysoce wydajnych indeksów magazynu kolumn klastra. Uruchom następujące zapytanie korzystające z dynamicznych widoków zarządzania (DMV), aby wyświetlić stan ładowania. Po uruchomieniu zapytania można zrobić sobie przerwę, podczas gdy usługa SQL Data Warehouse będzie wykonywała skomplikowane obliczenia.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ Usługa SQL Data Warehouse obsługuje kluczową instrukcję o nazwie CREATE TABL
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Wyświetl wszystkie zapytania systemowe.
 
@@ -563,7 +564,7 @@ Najpierw zostanie przeprowadzone skalowanie w dół do 100 jednostek DWU, dzięk
     > [!NOTE]
     > Podczas zmiany skali nie można uruchamiać zapytań. Skalowanie powoduje **skasowanie** aktualnie uruchomionych zapytań. Można je ponownie uruchomić po zakończeniu tej operacji.
     >
-    
+
 5. Wykonaj operację skanowania danych podróży, zaznaczając pierwszy milion wpisów dla wszystkich kolumn. Jeśli zależy Ci na czasie, możesz wybrać mniej wierszy. Zapisz czas potrzebny do wykonania tej operacji.
 
     ```sql
@@ -626,11 +627,11 @@ Najpierw zostanie przeprowadzone skalowanie w dół do 100 jednostek DWU, dzięk
 
     > [!NOTE]
     > Usługa SQL Data Warehouse nie zarządza statystykami automatycznie. Statystyki są istotne w przypadku wydajności zapytań i zdecydowanie zalecane jest ich tworzenie i aktualizowanie.
-    > 
+    >
     > **Największe korzyści można osiągnąć, prowadząc statystyki dla kolumn uczestniczących w sprzężeniach, kolumn używanych w ramach klauzuli WHERE i kolumn z klauzuli GROUP BY.**
     >
 
-3. Uruchom zapytanie ponownie z poziomu sekcji Wymagania wstępne i obserwuj różnice wydajności. Mimo że różnice w wydajności zapytania nie będą tak znaczące jak w przypadku skalowania w górę, przyspieszenie powinno być odczuwalne. 
+4. Uruchom zapytanie ponownie z poziomu sekcji Wymagania wstępne i obserwuj różnice wydajności. Mimo że różnice w wydajności zapytania nie będą tak znaczące jak w przypadku skalowania w górę, przyspieszenie powinno być odczuwalne. 
 
 ## <a name="next-steps"></a>Następne kroki
 

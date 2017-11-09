@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager
 
-W tym temacie opisano niektóre typowe błędy wdrożenia usługi Azure może wystąpić, a także informacje umożliwiające rozwiązanie błędów. Jeśli nie możesz znaleźć kod błędu dla błędu wdrożenia, zobacz [znaleźć kodu błędu](#find-error-code).
+W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może wystąpić, a także informacje umożliwiające rozwiązanie błędów. Jeśli nie możesz znaleźć kod błędu dla błędu wdrożenia, zobacz [znaleźć kodu błędu](#find-error-code).
 
 ## <a name="error-codes"></a>Kody błędów
 
@@ -61,6 +61,7 @@ W tym temacie opisano niektóre typowe błędy wdrożenia usługi Azure może wy
 | PrivateIPAddressNotInSubnet | Określony adres IP jest spoza zakresu podsieci. Zmienianie adresu IP, aby przypadał zakresu podsieci. | [Adresy IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Niektóre właściwości nie można zmienić na wdrożonych zasobów. Podczas aktualizowania zasobu, należy ograniczyć zmiany właściwości dozwolone. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Twoja subskrypcja obejmuje zasadę zasobu, która uniemożliwia akcję, którą próbujesz wykonać podczas wdrażania. Znajdź zasad, która blokuje akcji. Jeśli to możliwe zmodyfikuj wdrożenie do spełnienia ograniczenia z zasad. | [Zasady rozwiązania](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Podaj nazwę zasobu, która nie zawiera zastrzeżoną nazwą. | [Nazw zarezerwowanych zasobów](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Poczekaj do usunięcia zakończyć. | |
 | ResourceGroupNotFound | Sprawdź nazwę grupy zasobów docelowych wdrożenia. Musi już istnieć w ramach subskrypcji. Sprawdź kontekst subskrypcji. | [Azure CLI](/cli/azure/account?#az_account_set) [programu PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Wdrożenie odwołuje się do zasobu, którego nie można rozwiązać. Upewnij się, że korzystanie z **odwołania** funkcja zawiera parametrów wymaganych dla danego scenariusza. | [Rozpoznawania odwołań](resource-manager-not-found-errors.md) |

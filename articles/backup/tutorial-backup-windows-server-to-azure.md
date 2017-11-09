@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Tworzenie kopii zapasowych serwera z systemem Windows na platformie Azure
 
@@ -116,23 +116,19 @@ Agent usług odzyskiwania Microsoft Azure umożliwia planowanie kopii zapasowych
 
 3. Kliknij przycisk **dalej** można przejść do **wybierz elementy do kopii zapasowej** strony.
 
-4. Kliknij przycisk **Dodaj elementy** i z okna dialogowego, którego kliknięcie spowoduje otwarcie wybierz **stanu systemu** i pliki lub foldery, które chcesz utworzyć kopię zapasową. Następnie kliknij przycisk **OK**.
+4. Kliknij przycisk **Dodaj elementy** z wyświetlonym oknie dialogowym wybierz **stanu systemu** i pliki lub foldery, które chcesz utworzyć kopię zapasową. Następnie kliknij przycisk **OK**.
 
 5. Kliknij przycisk **Dalej**.
 
-6. Na **Określanie harmonogramu tworzenia kopii zapasowej** pozycję określić godziny, dnia lub tygodnia, gdy kopie zapasowe trzeba być wywołany dla plików i folderów. Jest automatycznie konfigurowany harmonogram tworzenia kopii zapasowych stanu systemu. 
+6. Na **Określanie harmonogramu tworzenia kopii zapasowej (stan systemu)** określić godzinę dnia lub tygodnia, gdy kopie zapasowe trzeba być wywołany dla stanu systemu, a następnie kliknij pozycję **dalej** 
 
-    ![Przygotowywanie infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Na **Wybieranie zasady przechowywania** wybierz zasady przechowywania kopii zapasowej plików i folderów. Okres przechowywania kopii zapasowych stanu systemu automatycznie wynosi 60 dni.
+7.  Na **Wybieranie zasady przechowywania (stan systemu)** , wybierz zasady przechowywania dla kopii zapasowej stanu systemu i kliknij przycisk **dalej**
+8. Podobnie wybierz zasady harmonogram i przechowywania kopii zapasowej dla wybranych plików i folderów. 
 8.  Na **wybierz początkowa kopia zapasowa typu** pozostaw opcję **automatycznie przez sieć** zaznaczone, a następnie kliknij przycisk **dalej**.
 9.  Na **potwierdzenie** , przejrzyj informacje, a następnie kliknij przycisk **Zakończ**.
 10. Po ukończeniu harmonogramu tworzenia kopii zapasowej przez kreatora kliknij przycisk **Zamknij**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Wykonaj kopię zapasową ad hoc
-
 
 Uruchomienie zadania tworzenia kopii zapasowej zostało ustanowione harmonogramu. Jednak nie ma kopii zapasowej serwera. Go awaryjnego odzyskiwania najlepszym rozwiązaniem jest uruchamianie tworzenia kopii zapasowej na żądanie w celu zapewnienia odporności danych serwera.
 
@@ -140,8 +136,9 @@ Uruchomienie zadania tworzenia kopii zapasowej zostało ustanowione harmonogramu
 
     ![Przygotowywanie infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Na **potwierdzenie** Przejrzyj ustawienia, które **wykonaj kopię zapasową teraz** kreator używa do tworzenia kopii zapasowej serwera. Następnie kliknij pozycję **Utwórz kopię zapasową**.
-3.  Kliknij przycisk **Zamknij**, aby zamknąć kreatora. Jeśli Kreator zostanie zamknięty przed zakończeniem plik kopii zapasowej procesu, Kreator będzie nadal uruchomione w tle.
+2.  Na **wykonaj kopię zapasową teraz** kreatora, wybierz jedną z **pliki i foldery** lub **stanu systemu** , który chcesz utworzyć kopię zapasową, a następnie kliknij przycisk **dalej** 
+3. Na **potwierdzenie** Przejrzyj ustawienia, które **wykonaj kopię zapasową teraz** kreator używa do tworzenia kopii zapasowej serwera. Następnie kliknij pozycję **Utwórz kopię zapasową**.
+4.  Kliknij przycisk **Zamknij**, aby zamknąć kreatora. Jeśli Kreator zostanie zamknięty przed zakończeniem plik kopii zapasowej procesu, Kreator będzie nadal uruchomione w tle.
 4.  Po zakończeniu tworzenia początkowej kopii zapasowej **zadanie zostało ukończone** stan jest wyświetlany w **zadania** okienku konsoli agenta MARS.
 
 

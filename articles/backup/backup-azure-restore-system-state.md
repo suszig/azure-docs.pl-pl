@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywracanie stanu systemu do systemu Windows Server
 
-W tym artykule opisano sposób przywracania kopii zapasowych stanu systemu Windows Server z magazynu usług odzyskiwania Azure. Aby przywrócić stan systemu, musi mieć kopię zapasową stanu systemu (utworzone przy użyciu instrukcji w [Utwórz kopię zapasową stanu systemu](backup-azure-system-state.md#back-up-windows-server-system-state-preview)) i upewnij się, że zainstalowano [najnowszą wersję agenta usług odzyskiwania Azure firmy Microsoft (MARS)](http://aka.ms/azurebackup_agent). Odzyskiwanie stanu systemu Windows Server danych z magazynu usług odzyskiwania Azure jest procesem dwuetapowym:
+W tym artykule opisano sposób przywracania kopii zapasowych stanu systemu Windows Server z magazynu usług odzyskiwania Azure. Aby przywrócić stan systemu, musi mieć kopię zapasową stanu systemu (utworzone przy użyciu instrukcji w [Utwórz kopię zapasową stanu systemu](backup-azure-system-state.md#back-up-windows-server-system-state)i upewnij się, że zainstalowano [najnowszą wersję usług odzyskiwania Azure firmy Microsoft (MARS) Agent](http://aka.ms/azurebackup_agent). Odzyskiwanie stanu systemu Windows Server danych z magazynu usług odzyskiwania Azure jest procesem dwuetapowym:
 
 1. Przywróć stan systemu jako pliki kopii zapasowej Azure. Podczas przywracania stanu systemu plików z kopii zapasowej Azure, można wykonać jedną z następujących czynności:
   * Przywracanie stanu systemu na tym samym serwerze których wykonano kopie zapasowe, lub

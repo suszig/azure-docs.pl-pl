@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Informacje o usłudze Site Recovery
 
@@ -67,8 +67,7 @@ Usługa Site Recovery może zarządzać replikacją dla:
 **Które regiony są obsługiwane na potrzeby usługi Site Recovery?** | [Obsługiwane regiony](https://azure.microsoft.com/regions/services/) |
 **Które systemy operacyjne są potrzebne dla zreplikowanych maszyn?** | [Wymagania dotyczące maszyny wirtualnej platformy Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Wymagania dotyczące maszyny wirtualnej programu VMware](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> W przypadku maszyn wirtualnych funkcji Hyper-V obsługiwane są wszystkie [systemy operacyjne gościa](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) obsługiwane przez platformę Azure i funkcję Hyper-V.<br/><br/> [Wymagania dotyczące serwera fizycznego](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Jakie serwery/hosty VMware są potrzebne?** | Maszyny wirtualne programu VMware mogą znajdować się na [obsługiwanych hostach vSphere/serwerach vCenter](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
-**Jakie obciążenia można replikować?** Możesz replikować dowolne obciążenia uruchomione na obsługiwanej maszynie replikacji. Dodatkowo zespół usługi Site Recovery wykonał specyficzne dla aplikacji testowanie na potrzeby [wielu aplikacji](site-recovery-workload.md#workload-summary).
+**Jakie obciążenia można replikować?** | Można replikować dowolne obciążenia uruchomione na obsługiwanej maszynie replikacji. Dodatkowo zespół usługi Site Recovery wykonał specyficzne dla aplikacji testowanie na potrzeby [wielu aplikacji](site-recovery-workload.md#workload-summary).
 
 
 

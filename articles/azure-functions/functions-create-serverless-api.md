@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Utwórz interfejs API niekorzystającą przy użyciu usługi Azure Functions
 
@@ -61,7 +61,8 @@ Następnie należy przetestować funkcję wyświetlić go do pracy z nowego powi
 1. Przejdź z powrotem do strony programowanie klikając nazwę funkcji, na lewym pasku nawigacyjnym.
 1. Kliknij przycisk **uzyskać adres URL funkcji** i skopiuj adres URL. Powinny pojawić się go używa `/api/hello` teraz trasy.
 1. Skopiuj adres URL do nowej karty przeglądarki lub preferowanego klienta REST. Przeglądarki użyje GET domyślnie.
-1. Uruchom funkcję i upewnij się, że działa. Użytkownik może być konieczne podanie parametru "name" jako ciąg zapytania do zaspokojenia kodu Szybki Start.
+1. Dodawanie parametrów do ciągu zapytania w adresie URL, np.`/api/hello/?name=John`
+1. Kliknij przycisk wprowadzić, aby upewnić się, że działa. Powinny pojawić się odpowiedzi "*Hello Jan*"
 1. Można też spróbować wywoływanie punkt końcowy z innej metody HTTP, aby upewnić się, że funkcja nie jest uruchomiona. W tym celu należy użyć klienta REST, takie jak cURL, Postman lub Fiddler.
 
 ## <a name="proxies-overview"></a>Omówienie serwerów proxy
@@ -85,9 +86,8 @@ W tej sekcji utworzysz nowego serwera proxy, który służy jako frontonu do og�
 Powtórz kroki, aby [tworzenia aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) Aby utworzyć nową aplikację funkcji spowoduje utworzenie serwera proxy. Adres URL tej nowej aplikacji będzie służyć jako fronton dla interfejsach API i aplikacji funkcji, które zostały wcześniej edycji będzie służyć jako wewnętrznej bazy danych.
 
 1. Przejdź do nowej aplikacji funkcji serwera sieci Web w portalu.
-1. Wybierz **ustawienia**. Następnie przełącz **włączyć proxy funkcji Azure (wersja zapoznawcza)** do "Na".
-1. Wybierz **ustawienia platformy** i wybierz polecenie **ustawienia aplikacji**.
-1. Przewiń w dół do **ustawień aplikacji** i utworzyć nowe ustawienie z kluczem "HELLO_HOST". Ustaw jej wartość na hoście aplikacji funkcji wewnętrznej bazy danych, takich jak `<YourBackendApp>.azurewebsites.net`. Jest to część adresu URL, które wcześniej zostały skopiowane podczas testowania funkcji HTTP. To ustawienie w konfiguracji później będziesz odwoływać.
+1. Wybierz **funkcji platformy** i wybierz polecenie **ustawienia aplikacji**.
+1. Przewiń w dół do **ustawienia aplikacji** gdzie pary klucz wartość są przechowywane i utworzyć nową ustawiania z kluczem "HELLO_HOST". Ustaw jej wartość na hoście aplikacji funkcji wewnętrznej bazy danych, takich jak `<YourBackendApp>.azurewebsites.net`. Jest to część adresu URL, które wcześniej zostały skopiowane podczas testowania funkcji HTTP. To ustawienie w konfiguracji później będziesz odwoływać.
 
     > [!NOTE] 
     > Ustawienia aplikacji są zalecane w przypadku konfiguracji hosta zapobiec zależności środowiska ustalony dla serwera proxy. Przy użyciu ustawień aplikacji oznacza, że konfiguracja serwera proxy można przenosić między środowiskami i zostaną zastosowane ustawienia aplikacji dla określonego środowiska.
@@ -120,7 +120,7 @@ Powtórz kroki, aby [tworzenia aplikacji funkcji](https://docs.microsoft.com/azu
 
 Następnie użyje serwer proxy można utworzyć zasymulować interfejsu API dla rozwiązania. Dzięki temu programowanie klienta do postępu, bez konieczności wewnętrznej bazy danych, w pełni wdrożone. Później w rozwoju należy utworzyć nową aplikację funkcji, która obsługuje tę logikę i przekierowywania serwera proxy.
 
-Aby utworzyć ten zasymulować interfejs API, utworzymy nowe proxy przy użyciu tego czasu [Edytor usług aplikacji](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Aby rozpocząć, przejdź do aplikacji funkcji w portalu. Wybierz **funkcji platformy** i Znajdź **Edytor usług aplikacji**. Kliknięcie łącza zostanie otwarty Edytor usługi aplikacji na nowej karcie.
+Aby utworzyć ten zasymulować interfejs API, utworzymy nowe proxy przy użyciu tego czasu [Edytor usług aplikacji](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Aby rozpocząć, przejdź do aplikacji funkcji w portalu. Wybierz **funkcji platformy** i w obszarze **narzędzi programistycznych** znaleźć **Edytor usług aplikacji**. Kliknięcie łącza zostanie otwarty Edytor usługi aplikacji na nowej karcie.
 
 Wybierz `proxies.json` na lewym pasku nawigacyjnym. To jest plik zawierający konfigurację dla wszystkich sieci serwerów proxy. Jeśli używany jest jeden z [metody wdrażania funkcji](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), jest to plik mają być przechowywane w kontroli źródła. Aby dowiedzieć się więcej na temat tego pliku, zobacz [proxy Zaawansowana konfiguracja](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Następnie dodasz zasymulować interfejsu API. Zastąp plik proxies.json następ
 
 Spowoduje to dodanie nowego serwera proxy, "GetUserByName" bez właściwości backendUri. Zamiast kontaktować się z innym zasobem, modyfikuje domyślny z serwerów proxy przy użyciu zastąpienia odpowiedzi. Można także zastąpienia żądań i odpowiedzi w połączeniu z adresem URL wewnętrznej bazy danych. Jest to szczególnie przydatne podczas pośredniczenie dla starszej wersji systemu, której użytkownik może być konieczne zmodyfikowanie nagłówków, zapytania parametry itp. Aby dowiedzieć się więcej na temat zastąpienia żądań i odpowiedzi, zobacz [modyfikowanie żądań i odpowiedzi w proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Testowanie zasymulować interfejsu API przez wywołanie metody `/api/users/{username}` punktu końcowego za pomocą przeglądarki lub Twoje ulubione klienta REST. Pamiętaj zastąpić _{username}_ z wartością ciągu reprezentujący nazwę użytkownika.
+Testowanie zasymulować interfejsu API przez wywołanie metody `<YourProxyApp>.azurewebsites.net/api/users/{username}` punktu końcowego za pomocą przeglądarki lub Twoje ulubione klienta REST. Pamiętaj zastąpić _{username}_ z wartością ciągu reprezentujący nazwę użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 

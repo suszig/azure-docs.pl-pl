@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Wykonaj kopię zapasową stanu systemu Windows podczas wdrażania usługi Resource Manager
 W tym artykule opisano sposób wykonywania kopii zapasowej stanu systemu Windows Server na platformie Azure. Ten samouczek zawiera podstawowe informacje.
@@ -29,7 +29,7 @@ Jeśli chcesz dowiedzieć się więcej o usłudze Azure Backup, przeczytaj to [o
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) umożliwiające dostęp do dowolnej usługi Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
-Aby utworzyć kopię zapasową plików i folderów, należy utworzyć magazyn usługi Recovery Services w regionie, w którym chcesz przechowywać dane. Należy również określić sposób replikowania magazynu.
+Aby utworzyć kopię zapasową stanu systemu Windows Server, musisz utworzyć magazyn usług odzyskiwania w regionie, w którym chcesz przechowywać dane. Należy również określić sposób replikowania magazynu.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Aby utworzyć magazyn usługi Recovery Services
 1. Jeśli nie zostało to wcześniej zrobione, zaloguj się witryny [Azure Portal](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
@@ -135,6 +135,9 @@ Teraz, po utworzeniu magazynu, należy go skonfigurować do tworzenia kopii zapa
     Poświadczenia magazynu zostaną pobrane do folderu Pobrane. Po zakończeniu pobierania poświadczeń magazynu zobaczysz okno podręczne z pytaniem, czy chcesz otworzyć poświadczenia, czy je zapisać. Kliknij pozycję **Zapisz**. Jeśli przypadkowo klikniesz pozycję **Otwórz**, zaczekaj, aż działanie okna dialogowego, które spróbuje otworzyć poświadczenia magazynu, zakończy się niepowodzeniem. Poświadczeń magazynu nie da się otworzyć. Przejdź do następnego kroku. Poświadczenia magazynu znajdują się w folderze Pobrane.   
 
     ![Zakończenie pobierania poświadczeń magazynu](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Poświadczenia magazynu musi zostać zapisany tylko do lokalizacji, która jest lokalny dla systemu Windows Server, na którym ma być używany z agenta. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
 
@@ -163,40 +166,13 @@ Teraz, po utworzeniu magazynu, należy go skonfigurować do tworzenia kopii zapa
 
 Agent jest teraz zainstalowany, a maszyna zarejestrowana w magazynie. Wszystko jest gotowe do skonfigurowania kopii zapasowej i zaplanowania jej tworzenia.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Wykonaj kopię zapasową stanu systemu Windows Server (wersja zapoznawcza)
-Początkowa kopia zapasowa obejmuje trzy zadania:
+## <a name="back-up-windows-server-system-state"></a>Tworzenie kopii zapasowej stanu systemu Windows Server 
+Początkowa kopia zapasowa obejmuje dwa zadania:
 
-* Włącz kopii zapasowej stanu systemu przy użyciu agenta usługi Kopia zapasowa Azure
 * Planowanie tworzenia kopii zapasowej
-* Tworzenie kopii zapasowej plików i folderów po raz pierwszy
+* Wykonaj kopię zapasową stanu systemu po raz pierwszy
 
 Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azure Recovery Services.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Aby włączyć za pomocą usługi Kopia zapasowa Azure agenta kopii zapasowej stanu systemu
-
-1. W sesji programu PowerShell uruchom następujące polecenie, aby zatrzymać aparat kopia zapasowa Azure.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Otwórz rejestr systemu Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Dodaj następujący klucz rejestru z określoną wartością DWord.
-
-  | Ścieżka rejestru | Klucz rejestru | Wartość DWord |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Uruchom ponownie Aparat kopii zapasowej, wykonując następujące polecenie w wierszu polecenia z pełnymi uprawnieniami.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Aby zaplanować zadanie tworzenia kopii zapasowej
 
@@ -216,11 +192,7 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
 6. Kliknij przycisk **Dalej**.
 
-7. Automatycznie ustawiono harmonogramu kopii zapasowej stanu systemu i przechowywania kopii zapasowej każdą niedzielę o 21:00:00 czasu lokalnego, a okres przechowywania wynosi 60 dni.
-
-   > [!NOTE]
-   > Automatycznie skonfigurowano zasad przechowywania i kopii zapasowych stanu systemu. Po utworzeniu kopii zapasowej plików i folderów oprócz stanu systemu Windows Server, należy określić tylko zasady kopii zapasowych pliku z poziomu Kreatora tworzenia kopii zapasowej i przechowywania. 
-   >
+7. Wybierz wymagane częstotliwość wykonywania kopii zapasowych i zasad przechowywania kopii zapasowych stanu systemu na kolejnych stronach. 
 
 8. Przejrzyj informacje na stronie Potwierdzenie, a następnie kliknij przycisk **Zakończ**.
 
@@ -234,88 +206,21 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
     ![Natychmiastowe tworzenie kopii zapasowej systemu Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Na stronie Potwierdzenie przejrzyj ustawienia, które zostaną użyte przez Kreatora natychmiastowego tworzenia kopii zapasowej do utworzenia kopii zapasowej maszyny. Następnie kliknij pozycję **Utwórz kopię zapasową**.
+3. Wybierz **stanu systemu** na **Wybieranie elementu kopii zapasowej** ekranu, który pojawia się, a następnie kliknij przycisk **dalej**.
+
+4. Na stronie Potwierdzenie przejrzyj ustawienia, które zostaną użyte przez Kreatora natychmiastowego tworzenia kopii zapasowej do utworzenia kopii zapasowej maszyny. Następnie kliknij pozycję **Utwórz kopię zapasową**.
 
 4. Kliknij przycisk **Zamknij**, aby zamknąć kreatora. Jeśli zamkniesz kreatora przed zakończeniem procesu tworzenia kopii zapasowej, kreator będzie nadal działać w tle.
 
-5. Po utworzeniu kopii zapasowej plików i folderów na serwerze, oprócz stanu systemu Windows Server, kreator Utwórz kopię zapasową teraz tylko wykona kopię zapasową plików. Aby wykonać ad hoc stanu systemu wykonaj kopię zapasową, użyj następującego polecenia programu PowerShell:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup zostanie wyświetlony stan **Ukończono zadanie**.
+Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup zostanie wyświetlony stan **Ukończono zadanie**.
 
   ![Początkowa replikacja została zakończona](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
-
-Następujące pytania i odpowiedzi zawierają dodatkowe informacje.
-
-### <a name="what-is-the-staging-volume"></a>Co to jest woluminem przemieszczania?
-
-Wielkość przemieszczania stanowi pośredni lokalizacji, gdzie dostępna natywnie, kopia zapasowa systemu Windows Server przygotuje kopii zapasowej stanu systemu. Agent usługi Kopia zapasowa Azure, a następnie kompresuje i szyfruje pośredniego kopia zapasowa i wysyła je za pośrednictwem bezpiecznego protokołu HTTPS na skonfigurowanym magazynu usług odzyskiwania. **Stanowczo zaleca się, że ustanowić woluminu tymczasowe na woluminie z systemem innym niż systemu Windows. Jeśli zauważysz problemy z kopii zapasowych stanu systemu, Sprawdzanie lokalizacji woluminu przemieszczania jest pierwszym krokiem rozwiązywania problemów.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Jak zmienić ścieżkę woluminu przemieszczania określone w agenta usługi Kopia zapasowa Azure?
-
-Wolumin przemieszczania znajduje się w folderze z pamięcią podręczną domyślnie. 
-
-1. Aby zmienić tę lokalizację, wpisz następujące polecenie (w wierszu polecenia z podwyższonym poziomem uprawnień):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Następnie zaktualizuj następujące wpisy rejestru ze ścieżką do nowego folderu przemieszczania woluminu.
-
-  |Ścieżka rejestru|Klucz rejestru|Wartość|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | Nowa lokalizacja woluminu przemieszczania |
-
-Ścieżka przemieszczania jest rozróżniana wielkość liter i muszą być dokładnie odpowiadać tej samej jako co istnieje na serwerze. 
-
-3. Po zmianie ścieżki woluminu przemieszczania, uruchom ponownie Aparat kopii zapasowej:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Aby pobrać zmieniona ścieżka, otwórz agenta usług odzyskiwania Microsoft Azure i Wyzwól ad hoc kopię zapasową stanu systemu.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Dlaczego ustawiono przechowywania domyślnego stanu systemu do 60 dni
-
-Użytkowania kopii zapasowej stanu systemu jest taka sama jak ustawienie "okresu istnienia reliktu" dla roli usługi Active Directory systemu Windows Server. Wartość domyślna dla wpisu okresu istnienia reliktu wynosi 60 dni. Tę wartość można ustawić dla obiektu konfiguracji usługi Directory (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Jak zmienić domyślny kopii zapasowej i zasad przechowywania dla stanu systemu?
-
-Aby zmienić domyślne kopii zapasowej i zasad przechowywania dla stanu systemu:
-1. Zatrzymaj Aparat kopii zapasowej. Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Dodaj lub zaktualizuj następujących wpisach kluczy rejestru w HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Nazwa rejestru|Opis|Wartość|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Służy do konfigurowania tworzenia kopii zapasowej. Domyślna to 21: 00 czasu lokalnego.|DWord: Format hh: mm (dziesiętna) na przykład 2130 dla 21:30:00 czasu lokalnego|
-  |SSBScheduleDays|Służy do konfigurowania dni, kiedy należy wykonać kopii zapasowej stanu systemu w określonym czasie. Poszczególnych cyfr określ dni tygodnia. 0 oznacza niedzielę, 1 oznacza poniedziałek, i tak dalej. Dzień domyślny dla kopii zapasowej oznacza niedzielę.|DWord: dni tygodnia uruchamianie tworzenia kopii zapasowej (dziesiętna), na przykład 1230 harmonogramy tworzenia kopii zapasowych w poniedziałek, Wtorek, środę i niedzielę.|
-  |SSBRetentionDays|Służy do konfigurowania dni przechowywania kopii zapasowej. Wartość domyślna to 60. Maksymalna dozwolona wartość to 180.|DWord: Dni przechowywania kopii zapasowych (dziesiętna).|
-
-3. Użyj następującego polecenia, aby ponownie uruchomić aparatu tworzenia kopii zapasowej.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Otwórz agenta usług odzyskiwania Microsoft.
-
-5. Kliknij przycisk **harmonogram tworzenia kopii zapasowych** , a następnie kliknij przycisk **dalej** do momentu wyświetlenia wprowadzonych zmian.
-
-6. Kliknij przycisk **Zakończ** Aby zastosować zmiany.
-
 
 ## <a name="questions"></a>Pytania?
 Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [tworzeniu kopii zapasowej maszyn z systemem Windows](backup-configure-vault.md).
-* Teraz, gdy utworzono kopię zapasową plików i folderów, możesz [zarządzać swoimi magazynami i serwerami](backup-azure-manage-windows-server.md).
+* Teraz, gdy utworzono kopię zapasową stanu systemu Windows Server, możesz [zarządzać swoimi magazynami i serwerami](backup-azure-manage-windows-server.md).
 * Jeśli chcesz przywrócić kopię zapasową, w tym artykule znajdziesz informacje dotyczące [przywracania plików na maszynę z systemem Windows](backup-azure-restore-windows-server.md).

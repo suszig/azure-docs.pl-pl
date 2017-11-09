@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Dodaj węzły na żądanie "serii" do klastra HPC Pack na platformie Azure
 Po skonfigurowaniu [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) klastra na platformie Azure, może być sposobem szybkie skalowanie pojemności klastra, bez zachowania zestaw węzeł obliczeniowy wstępnie skonfigurowanych maszyn wirtualnych. W tym artykule przedstawiono sposób dodawania węzłów na żądanie "serii" (uruchomionych w usłudze chmury wystąpień roli proces roboczy) jako zasoby obliczeniowe z węzłem głównym na platformie Azure. 
 
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Węzły serii][burst]
 

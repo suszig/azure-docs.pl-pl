@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronizacja programu Azure AD Connect: brany pod uwagę i zadania operacyjne
 Celem tego tematu jest do opisywania zadań operacyjnych synchronizacji usługi Azure AD Connect.
@@ -68,11 +68,18 @@ Ma teraz przemieszczane eksportu zmiany do usługi Azure AD i lokalnej usłudze 
 #### <a name="verify"></a>Weryfikuj
 1. Uruchom wiersz polecenia i przejdź do`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Instalacja: `csexport "Name of Connector" %temp%\export.xml /f:x` nazwę łącznika można znaleźć w usługi synchronizacji. Ma on nazwę, podobnie jak "contoso.com — AAD" dla usługi Azure AD.
-3. Skopiuj skrypt programu PowerShell z sekcji [CSAnalyzer](#appendix-csanalyzer) w pliku o nazwie `csanalyzer.ps1`.
-4. Otwórz okno programu PowerShell i przejdź do folderu, w którym utworzono skrypt programu PowerShell.
-5. Instalacja: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. Istnieje już plik o nazwie **processedusers1.csv** które można zbadać w programie Microsoft Excel. Wszystkie zmiany przemieszczane mają być eksportowane do usługi Azure AD znajdują się w tym pliku.
-7. Wprowadź niezbędne zmiany dane lub konfiguracja, a następnie uruchom następujące kroki ponownie (importowania i synchronizowania i sprawdź, czy), dopóki nie zostaną wprowadzone zmiany, które mają zostać wyeksportowane.
+3. Instalacja: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` plik w % temp % o nazwie export.csv, która może być zbadana w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają być eksportowane.
+4. Wprowadź niezbędne zmiany dane lub konfiguracja, a następnie uruchom następujące kroki ponownie (importowania i synchronizowania i sprawdź, czy), dopóki nie zostaną wprowadzone zmiany, które mają zostać wyeksportowane.
+
+**Opis plików export.csv** najczęściej pliku jest nie wymaga objaśnień. Niektóre skróty do poznania treści:
+* OMODT — Typ modyfikacji obiektu. Wskazuje, czy operacja na poziomie obiektu jest Add, Update lub Delete.
+* AMODT — typ atrybutu modyfikacji. Wskazuje, czy operacja na poziomie atrybutu jest Add, Update lub delete.
+
+**Pobierać wspólne identyfikatory** plik export.csv zawiera wszystkie zmiany, które mają być eksportowane. Każdy wiersz odpowiada zmiany obiektu do przestrzeni łącznika i obiekt jest identyfikowany przez atrybut nazwy domeny. Nazwa Wyróżniająca atrybutu to unikatowy identyfikator przypisany do obiektu w przestrzeni łącznika. Jeśli masz wiele wierszy/zmian w export.csv do analizowania może być trudne można dowiedzieć się, które obiekty się, że zmiany są dla na podstawie atrybutu Nazwa Wyróżniająca samodzielnie. Aby uprościć proces analizowania zmiany, należy użyć csanalyzer.ps1 skrypt programu PowerShell. Skrypt pobiera wspólne identyfikatory obiektów (na przykład, nazwa wyświetlana, userPrincipalName). Aby użyć skryptu:
+1. Skopiuj skrypt programu PowerShell z sekcji [CSAnalyzer](#appendix-csanalyzer) w pliku o nazwie `csanalyzer.ps1`.
+2. Otwórz okno programu PowerShell i przejdź do folderu, w którym utworzono skrypt programu PowerShell.
+3. Instalacja: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Istnieje już plik o nazwie **processedusers1.csv** które można zbadać w programie Microsoft Excel. Należy pamiętać, że plik zawiera mapowanie atrybutu nazwy domeny do typowych identyfikatorów (na przykład, nazwa wyświetlana i userPrincipalName). Obecnie nie obejmuje zmiany rzeczywistej atrybutów, które mają być eksportowane.
 
 #### <a name="switch-active-server"></a>Serwer active przełącznika
 1. Na aktualnie aktywnym serwerem wyłączyć serwer (DirSync/FIM/usługi Azure AD Sync), nie jest eksportowany do usługi Azure AD lub ustaw go w trybie (Azure AD Connect) przejściowym.
