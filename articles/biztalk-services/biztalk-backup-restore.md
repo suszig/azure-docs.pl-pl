@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Backup and Restore (Usługa BizTalk Services: tworzenie kopii zapasowej i przywracanie)
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Usługi BizTalk Azure obejmuje możliwości tworzenia kopii zapasowych i przywracania. W tym temacie opisano, jak utworzyć kopii zapasowej i przywracania usługi BizTalk Services przy użyciu klasycznego portalu Azure.
+Usługi BizTalk Azure obejmuje możliwości tworzenia kopii zapasowych i przywracania. 
 
-Można również tworzyć kopie zapasowe przy użyciu usługi BizTalk Services [interfejsu API REST usługi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Połączenia hybrydowe nie kopii zapasowej, niezależnie od wersji. Należy ponownie utworzyć połączeń hybrydowych.
@@ -34,7 +34,6 @@ Można również tworzyć kopie zapasowe przy użyciu usługi BizTalk Services [
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 * Kopii zapasowej i przywracania może nie być dostępne dla wszystkich wersji. Zobacz [usługi BizTalk Services: wersje wykresu](biztalk-editions-feature-chart.md).
-* Przy użyciu klasycznego portalu Azure, możesz utworzyć kopię zapasową na żądanie lub utworzyć zaplanowaną kopię zapasową. 
 * Zawartość kopii zapasowej można przywrócić do tej samej usługi BizTalk lub nową usługę BizTalk. Aby przywrócić usługi BizTalk, przy użyciu takiej samej nazwie, należy usunąć istniejącej usługi BizTalk i nazwa musi być dostępna. Po usunięciu usługi BizTalk, może potrwać dłużej, niż żądana dla tej samej nazwie, które mają być dostępne. Jeśli użytkownik nie może czekać na tej samej nazwie, które mają być dostępne, następnie przywróć nową usługę BizTalk.
 * Usługi BizTalk Services można przywrócić do tej samej wersji lub nowszą wersję. Przywracanie usługi BizTalk Services do niższej wersji, z po wykonaniu kopii zapasowej, nie jest obsługiwane.
   
@@ -46,70 +45,10 @@ Można również tworzyć kopie zapasowe przy użyciu usługi BizTalk Services [
 * Opcjonalnie: W portalu usługi BizTalk, Zatrzymaj wszystkie operacje zarządzania.
 
 ## <a name="create-a-backup"></a>Tworzenie kopii zapasowej
-Kopię zapasową można wykonać w dowolnym momencie i całkowicie jest kontrolowany przez użytkownika. W tej sekcji przedstawiono kroki, aby utworzyć kopie zapasowe przy użyciu klasycznego portalu Azure, w tym:
-
-[Na żądanie kopii zapasowej](#backupnow)
-
-[Planowanie tworzenia kopii zapasowych](#backupschedule)
-
-#### <a name="backupnow"></a>Na żądanie kopii zapasowej
-1. W klasycznym portalu Azure, wybierz **usługi BizTalk Services**, a następnie wybierz usługę BizTalk, aby utworzyć kopię zapasową.
-2. W **pulpitu nawigacyjnego** wybierz opcję **kopię zapasową** w dolnej części strony.
-3. Wprowadź nazwę kopii zapasowej. Na przykład wprowadź *myBizTalkService*BU*data*.
-4. Wybierz konto magazynu obiektów blob, a następnie wybierz znacznik wyboru, aby rozpocząć tworzenie kopii zapasowej.
-
-Po wykonaniu kopii zapasowej, kontener z kopii zapasowej wprowadzona nazwa jest tworzony na koncie magazynu. Ten kontener zawiera konfiguracji kopii zapasowej usługi BizTalk.
-
-#### <a name="backupschedule"></a>Planowanie tworzenia kopii zapasowych
-1. W klasycznym portalu Azure, wybierz **usługi BizTalk Services**, wybierz nazwę usługi BizTalk, aby zaplanować tworzenie kopii zapasowej, a następnie wybierz **Konfiguruj** kartę.
-2. Ustaw **kopię zapasową stanu** do **automatyczne**. 
-3. Wybierz **konta magazynu** zapisana kopia zapasowa, wprowadź **częstotliwość** do tworzenia kopii zapasowych, a czas przechowywania kopii zapasowych (**dni przechowywania**):
-   
-    ![][AutomaticBU]
-   
-    **Uwagi**     
-   
-   * W **dni przechowywania**, okres przechowywania musi być większa niż częstotliwość wykonywania kopii zapasowych.
-   * Wybierz **zawsze Zachowuj co najmniej jedną kopię zapasową**nawet wtedy, gdy po upływie okresu przechowywania.
-4. Wybierz pozycję **Zapisz**.
-
-Po uruchomieniu zaplanowanego zadania tworzenia kopii zapasowej, tworzy kontener (do przechowywania danych kopii zapasowej) na koncie magazynu, który został wprowadzony. Nazwa kontenera o nazwie *usługi BizTalk Nazwa daty i godziny*. 
-
-Jeśli wyświetlane na pulpicie nawigacyjnym usługi BizTalk **niepowodzenie** stanu:
-
-![Stan ostatniej kopii zapasowej według harmonogramu][BackupStatus] 
-
-To łącze powoduje otwarcie dzienniki operacji usług zarządzania do rozwiązywania problemów. Zobacz [usługi BizTalk Services: Rozwiązywanie problemów przy użyciu dzienników operacji](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+Kopię zapasową można wykonać w dowolnym momencie i całkowicie jest kontrolowany przez użytkownika. Aby utworzyć kopię zapasową, użyj [interfejsu API REST dla usługi BizTalk Services zarządzania na platformie Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Przywracanie
-Możesz przywracać kopie zapasowe, z klasycznego portalu Azure lub [przywrócić usług BizTalk — wersja interfejsu API REST usługi](http://go.microsoft.com/fwlink/p/?LinkID=325582). W tej sekcji wymieniono kroki, aby przywrócić przy użyciu klasycznego portalu.
-
-#### <a name="before-restoring-a-backup"></a>Przed przywróceniem kopii zapasowej
-* Nowe śledzenie, archiwizacji i monitorowania magazynów można wprowadzić podczas przywracania usługi BizTalk.
-* Te same dane środowiska uruchomieniowego EDI został przywrócony. Kopia zapasowa środowiska uruchomieniowego EDI przechowuje numery kontroli. Numery przywróconej kontroli znajdują się w sekwencji z tworzenia kopii zapasowej. Wiadomości są przetwarzane po utworzeniu ostatniej kopii zapasowej, przywrócenia tej kopii zapasowej zawartości może spowodować numery zduplikowane kontroli.
-
-#### <a name="restore-a-backup"></a>Przywracanie kopii zapasowej
-1. W klasycznym portalu Azure, wybierz **nowy** > **usługi aplikacji** > **usługi BizTalk** > **przywrócić**:
-   
-    ![Przywracanie kopii zapasowej][Restore]
-2. W **kopii zapasowej adresu URL**, wybierz ikonę folderu i rozwiń konto magazynu Azure, która przechowuje kopię zapasową konfiguracji usługi BizTalk. Rozwiń kontener i w okienku po prawej stronie, wybierz odpowiedni plik kopii zapasowej .txt. 
-   <br/><br/>
-   Wybierz **Otwórz**.
-3. Na **usługi BizTalk przywracania** wprowadź **nazwa usługi BizTalk** i sprawdź **adresu URL domeny**, **wersji**, i **Region** przywróconej usługi BizTalk. **Utwórz nowe wystąpienie bazy danych SQL** dla bazy danych śledzenia:
-   
-    ![][RestoreBizTalkService]
-   
-    Wybierz strzałkę dalej.
-4. Sprawdź nazwę bazy danych SQL, wprowadź serwerze fizycznym, w której zostanie utworzona z bazą danych SQL i nazwę użytkownika/hasło dla tego serwera.
-
-    Jeśli chcesz skonfigurować wersji bazy danych SQL, rozmiar i inne właściwości, wybierz **skonfigurować zaawansowane ustawienia bazy danych**. 
-
-    Wybierz strzałkę dalej.
-
-1. Utwórz nowe konto magazynu, lub wprowadź istniejącego konta magazynu dla usługi BizTalk.
-2. Wybierz znacznik wyboru, aby rozpocząć przywracanie.
-
-Po pomyślnym zakończeniu przywracania, nową usługę BizTalk znajduje się w stanie wstrzymania na stronie usługi BizTalk Services w klasycznym portalu Azure.
+Aby przywrócić kopię zapasową, użyj [interfejsu API REST dla usługi BizTalk Services zarządzania na platformie Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Po przywróceniu kopii zapasowej
 Usługi BizTalk zawsze jest przywracany **zawieszone** stanu. W tym stanie można wprowadzać żadnych zmian konfiguracji, zanim nowe środowisko będzie działać, w tym:
@@ -118,8 +57,6 @@ Usługi BizTalk zawsze jest przywracany **zawieszone** stanu. W tym stanie możn
 * Możesz przywrócić usługi BizTalk do replikowania istniejącego środowiska usługi BizTalk. W takiej sytuacji, jeśli są skonfigurowane w portalu usługi BizTalk Services oryginalnej Umowy, korzystających z folderu źródłowego FTP, może być konieczne Aktualizacja umów w środowisku nowo przywrócony do korzystania z folderu FTP innego źródła. W przeciwnym razie może być dwóch różnych umów próby pobierać ten sam komunikat.
 * Jeśli przywracany mają wiele środowisk usługi BizTalk, upewnij się, że poprawne środowisko w aplikacji Visual Studio, poleceń cmdlet programu PowerShell, interfejsów API REST lub handlem partnera OM interfejsów API Management są przeznaczone.
 * Jest dobrym rozwiązaniem, aby skonfigurować automatyczne tworzenie kopii zapasowych na nowo przywrócony środowiska usługi BizTalk.
-
-Aby uruchomić usługę BizTalk w klasycznym portalu Azure, wybierz usługę BizTalk przywrócone, a następnie wybierz **Wznów** na pasku zadań. 
 
 ## <a name="what-gets-backed-up"></a>Kopiami zapasowymi
 Po utworzeniu kopii zapasowej, tworzy kopię zapasową następujących elementów:
@@ -194,13 +131,13 @@ Jeśli baza danych śledzenia zostaje usunięta i odzyskać na potrzeby bazy dan
 </table>
 
 ## <a name="next"></a>Następne kroki
-Aby utworzyć usługi BizTalk Azure w klasycznym portalu Azure, przejdź do [usługi BizTalk Services: klasycznego portalu Azure za pomocą udostępniania](http://go.microsoft.com/fwlink/p/?LinkID=302280). Aby rozpocząć tworzenie aplikacji, przejdź do artykułu [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) (Usługa Azure BizTalk Services).
+Aby utworzyć usługi BizTalk Azure, przejdź do [usługi BizTalk Services: Inicjowanie obsługi administracyjnej](http://go.microsoft.com/fwlink/p/?LinkID=302280). Aby rozpocząć tworzenie aplikacji, przejdź do artykułu [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) (Usługa Azure BizTalk Services).
 
 ## <a name="see-also"></a>Zobacz też
 * [Usługi BizTalk kopii zapasowej](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Przywracanie z kopii zapasowej usługi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Usługi BizTalk Services: Developer, podstawowa, standardowa i Premium Edition wykresu](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [Usługi BizTalk Services: Klasyczny portal Azure przy użyciu inicjowania obsługi](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [Usługi BizTalk Services: Inicjowanie obsługi administracyjnej](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Provisioning Status Chart (Usługa BizTalk Services: aprowizowanie wykresu stanu)](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Dashboard, Monitor and Scale tabs (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Throttling (Usługa BizTalk Services: ograniczanie przepływności)](http://go.microsoft.com/fwlink/p/?LinkID=302282)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Zarządzanie wolumin ceny i danych w usłudze Application Insights
 
@@ -39,7 +39,7 @@ Zobacz [cennikiem usługi Application Insights] [ pricing] dla bieżącego cen w
 Podstawowy plan jest ustawieniem domyślnym, gdy jest tworzony nowy zasób usługi Application Insights i jest wystarczające dla większości klientów.
 
 * W planie Basic, naliczane są opłaty za ilość danych: liczba bajtów odebranych przez usługę Application Insights telemetrii. Ilość danych jest mierzony jako rozmiar nieskompresowanych pakietu danych JSON odebranych przez usługę Application Insights z aplikacji.
-Aby uzyskać [zaimportowane do analizy danych tabelarycznych](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), ilość danych jest mierzony jako rozmiar nieskompresowanych plików wysłane do usługi Application Insights.  
+Aby uzyskać [zaimportowane do analizy danych tabelarycznych](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), ilość danych jest mierzony jako rozmiar nieskompresowanych plików wysłane do usługi Application Insights.  
 * Pierwszy 1 GB dla każdej aplikacji jest bezpłatne, więc po prostu eksperymentowanie lub tworzenie, jest mało prawdopodobne zapłacić.
 * [Metryki strumień na żywo](app-insights-live-stream.md) danych nie są one uwzględniane dla celów cennik.
 * [Eksport ciągły](app-insights-export-telemetry.md) jest dostępna za GB dodatkowe obciążenie w planie Basic.

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4edac05325ad12596d982d113df0db7461124b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00f756fdbd059b917ac7d28f24b1a0ec22594a9
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Synchronizacja programu Azure AD Connect: zrozumienie i dostosowywanie synchronizacji
 Usługi synchronizacji usługi Azure Active Directory Connect (synchronizacja programu Azure AD Connect) jest głównym składnikiem programu Azure AD Connect. Odpowiada on za wszystkich operacji związanych z synchronizacją tożsamości między środowiskiem lokalnym i usługą Azure AD. Synchronizacja programu Azure AD Connect jest zastępuje narzędzie DirSync, Azure AD Sync i Forefront Identity Manager z usługi Azure Active Directory Connector skonfigurowany.
 
 Ten temat jest stroną główną dla **synchronizacja programu Azure AD Connect** (nazywane również **aparatu synchronizacji**) i zawiera linki do innych tematów z nim związane. Łącza do usługi Azure AD Connect, zobacz [integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 
-Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja programu Azure AD Connect** składnika i po stronie usługi w usłudze Azure AD o nazwie **usługi synchronizacji programu Azure AD Connect**. Usługa jest typowe dla narzędzia DirSync, Azure AD Sync i Azure AD Connect.
+Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja programu Azure AD Connect** składnika i po stronie usługi w usłudze Azure AD o nazwie **usługi synchronizacji programu Azure AD Connect**. 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Tematy synchronizacji usługi Azure AD Connect
 | Temat | Co obejmuje i kiedy do odczytu |

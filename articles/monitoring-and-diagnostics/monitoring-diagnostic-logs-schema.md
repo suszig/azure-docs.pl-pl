@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Obsługiwane usługi, schematy i kategorie dzienników diagnostycznych platformy Azure
 
@@ -56,20 +56,36 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dziennika na typ zasobu
 |Typ zasobu|Kategoria|Nazwa wyświetlana kategorii|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Aparat|Aparat|
+|Microsoft.AnalysisServices/servers|Usługa|Usługa|
 |Microsoft.ApiManagement/service|GatewayLogs|Dzienniki związane z ApiManagement bramy|
 |Microsoft.Automation/automationAccounts|JobLogs|Rejestruje zadania|
 |Microsoft.Automation/automationAccounts|JobStreams|Strumienie zadania|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stan węzła DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Dzienniki usługi|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki punktu końcowego, np. przepustowości, transfer danych wychodzących,... itd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|Uruchomień|Dziennik uruchamia aktywności w potoku|
+|Microsoft.DataFactory/factories|PipelineRuns|Potok jest uruchamiane dziennika|
+|Microsoft.DataFactory/factories|TriggerRuns|Wyzwalacz uruchamia dziennika|
 |Microsoft.DataLakeAnalytics/accounts|Inspekcja|Dzienniki inspekcji|
 |Microsoft.DataLakeAnalytics/accounts|Żądania|Dzienniki żądań|
 |Microsoft.DataLakeStore/accounts|Inspekcja|Dzienniki inspekcji|
 |Microsoft.DataLakeStore/accounts|Żądania|Dzienniki żądań|
+|Microsoft.Devices/IotHubs|Połączenia|Połączenia|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetrii urządzenia|
+|Microsoft.Devices/IotHubs|C2DCommands|Polecenia C2D|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operacje tożsamości urządzenia|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operacje przekazywania plików|
+|Microsoft.Devices/IotHubs|Trasy|Trasy|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Operacje dwie C2D|
+|Microsoft.Devices/IotHubs|TwinQueries|Dwie zapytań|
+|Microsoft.Devices/IotHubs|JobsOperations|Operacje zadania|
+|Microsoft.Devices/IotHubs|DirectMethods|Bezpośrednie metody|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operacje urządzenia|
 |Microsoft.Devices/provisioningServices|Serviceoperation|Operacje usługi|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Dzienniki archiwum|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operacyjne dzienniki|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Dzienniki skalowania automatycznego|
@@ -78,6 +94,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Zdarzenia śledzenia konta integracji|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Zdarzenie sieciowej grupy zabezpieczeń|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Licznik reguł sieciowej grupy zabezpieczeń|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Zdarzenie przepływu reguł sieciowej grupy zabezpieczeń|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Zdarzenia alertu modułu równoważenia obciążenia|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stan kondycji sondę modułu równoważenia obciążenia|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Powiadomienia ochrony przed atakami DDoS|
@@ -85,6 +102,11 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Dziennik dostępu bramy aplikacji|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Dziennik wydajności bramy aplikacji|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Dziennik zapory bramy aplikacji|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Dzienniki diagnostyczne bramy|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Dzienniki diagnostyczne tunelu|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Dzienniki diagnostyczne trasy|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Menedżer ruchu sondy kondycji wyniki zdarzenia|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela GWM liczników|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Kopia zapasowa Azure danych raportowania|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Zadania usługi Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Usługi Azure Site Recovery zdarzenia|
@@ -93,7 +115,6 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punkty odzyskiwania odzyskiwania lokacji Azure|
 |Microsoft.Search/searchServices|OperationLogs|Dzienniki operacji|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operacyjne dzienniki|
-|Microsoft.Sql/servers/databases|QueryStore|Magazyn zapytań|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Magazyn zapytań statystyk czasu wykonywania|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Magazyn zapytań oczekiwania statystyki|
 |Microsoft.Sql/servers/databases|Błędy|Błędy|

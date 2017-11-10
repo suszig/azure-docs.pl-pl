@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacji telemetrii w usłudze Application Insights
 
@@ -81,7 +81,7 @@ Definiuje usługi Application Insights [rozszerzenia](https://github.com/lmolkov
 - `dependency`mapuje **zakres** z`span.kind = client`
 - `id`z `request` i `dependency` mapuje **Span.Id**
 - `operation_Id`mapuje **TraceId**
-- `operation_ParentId`mapuje **odwołania** typu`ChileOf`
+- `operation_ParentId`mapuje **odwołania** typu`ChildOf`
 
 Zobacz [modelu danych](application-insights-data-model.md) dla modelu danych i typów usługi Application Insights.
 

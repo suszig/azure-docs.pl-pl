@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/09/2017
 ---
@@ -165,7 +165,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Rozwiązania cosmos DB oferuje bogaty zestaw operacji bazy danych, w tym relacyjnych i hierarchicznych zapytania z funkcji UDF, procedury składowane i wyzwalaczy — wszystkie działania w dokumentach w ramach kolekcji bazy danych. Koszt związany z każdej z tych operacji zależy od Procesora, we/wy i pamięci wymaganej do ukończenia tej operacji. Zamiast analiza zasobów i zarządzania nimi sprzętu można traktować jednostki żądań (RU) jako pojedynczy miary dla zasobów wymaganych do wykonywania różnych operacji bazy danych i usługi żądania aplikacji.
 
-    Przepływność zostanie zainicjowana na podstawie ilości [jednostek żądania](request-units.md) ustawić dla każdego kontenera. Zużycie jednostka żądania jest szacowana jako szybkość na sekundę. Aplikacje, które przekraczają szybkość jednostki elastycznie żądania, dla swojego konta jest ograniczona, dopóki częstotliwość spadnie poniżej poziomu zarezerwowane dla konta. Jeśli aplikacja wymaga wyższego poziomu przepływności, można zwiększyć przepływność sieci przez Inicjowanie obsługi administracyjnej jednostki dodatkowe żądania. 
+    Przepływność zostanie zainicjowana na podstawie ilości [jednostek żądania](request-units.md) ustawić dla każdego kontenera. Zużycie jednostka żądania jest szacowana jako szybkość na sekundę. Aplikacje, które przekroczyć współczynnika jednostki żądania elastycznie ich kontenera są ograniczone, dopóki częstotliwość spadnie poniżej poziomu elastycznie kontenera. Jeśli aplikacja wymaga wyższego poziomu przepływności, można zwiększyć przepływność sieci przez Inicjowanie obsługi administracyjnej jednostki dodatkowe żądania. 
 
     Złożoność kwerendy wpływa na liczbę jednostek żądania są używane dla operacji. Liczba predykatów, rodzaj predykaty, liczba funkcji UDF i rozmiaru zestawu danych źródła wszystkich wpływ kosztów operacji zapytania.
 

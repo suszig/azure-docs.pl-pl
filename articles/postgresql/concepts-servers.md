@@ -1,6 +1,6 @@
 ---
 title: "Pojęcia dotyczące serwera bazy danych Azure PostgreSQL | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure PostgreSQL serwerów."
+description: "Ten temat zawiera zagadnienia i zalecenia dotyczące konfigurowania i zarządzania dla serwerów PostgreSQL bazy danych Azure."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Bazy danych platformy Azure dla serwerów PostgreSQL
 Ten artykuł zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure PostgreSQL serwerów.
@@ -30,7 +30,7 @@ Azure bazy danych programu PostgreSQL serwera:
 - Collocates zasoby w regionie.
 - Udostępnia punkt końcowy połączenia dla dostępu do serwera i bazy danych (. postgresql.database.azure.com).
 - Określa zakres dla zasad zarządzania, które są stosowane do jej baz danych: logowania, zapory, użytkowników, ról, konfiguracje itd.
-- Jest dostępna w różnych wersjach. Aby uzyskać więcej informacji, zobacz [wersji bazy danych obsługiwane PostgreSQL](concepts-supported-versions.md).
+- Jest dostępna w różnych wersjach. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje bazy danych PostgreSQL](concepts-supported-versions.md).
 - Jest otwarty przez użytkowników. Aby uzyskać więcej informacji, zobacz [PostgreSQL rozszerzenia](concepts-extensions.md).
 
 W ramach Azure bazy danych programu PostgreSQL serwera można utworzyć jedną lub wiele baz danych. Można wybrać opcję utworzenia jednej bazy danych na serwer w celu wykorzystania wszystkich zasobów. Można też utworzyć wiele baz danych, współdzielących zasoby. Cennik jest strukturalnych dla poszczególnych serwerów, na podstawie konfiguracji cen warstwy, jednostki obliczeniowe i magazyn (GB). Aby uzyskać więcej informacji, zobacz [warstw cenowych](./concepts-service-tiers.md).
@@ -47,9 +47,16 @@ Następujące elementy zapewnić bezpieczny dostęp do bazy danych.
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Jak zarządzać serwerem?
-Baza danych Azure PostgreSQL serwerów można zarządzać za pomocą portalu Azure lub [interfejsu wiersza polecenia Azure](/cli/azure/postgres).
+Bazy danych Azure dla serwerów PostgreSQL można zarządzać za pomocą [portalu Azure](https://portal.azure.com) lub [interfejsu wiersza polecenia Azure](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Parametry serwera
+Parametry serwera PostgreSQL określić konfigurację serwera. W bazie danych Azure PostgreSQL listę parametrów można wyświetlać i edytować za pomocą portalu Azure lub interfejsu wiersza polecenia Azure. 
+
+Jako usługa zarządzana Postgres, można konfigurować parametry w bazie danych Azure PostgreSQL są podzbiorem parametrów w lokalnym wystąpieniu Postgres (Aby uzyskać więcej informacji o parametrach Postgres, zobacz [dokumentacji PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Bazy danych Azure, PostgreSQL serwera jest włączone w wartości domyślne dla każdego parametru po utworzeniu. Parametry, które wymagają serwera Uruchom lub dostępu administratora, aby zmiany zaczęły obowiązywać nie może zostać skonfigurowany przez użytkownika.
+
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby zapoznać się z omówieniem usługi, zobacz [bazy danych Azure omówienie PostgreSQL](overview.md).
 - Aby uzyskać informacje dotyczące określonego zasobu Przydziały i ograniczenia na podstawie Twojej **warstwy usług**, zobacz [warstwy usług](concepts-service-tiers.md).
 - Aby uzyskać informacje na połączenie z usługą, zobacz [biblioteki połączeń dla bazy danych Azure dla PostgreSQL](concepts-connection-libraries.md).
+- Wyświetl i Edytuj parametry serwera za pomocą [portalu Azure](howto-configure-server-parameters-using-portal.md) lub [interfejsu wiersza polecenia Azure](howto-configure-server-parameters-using-cli.md).

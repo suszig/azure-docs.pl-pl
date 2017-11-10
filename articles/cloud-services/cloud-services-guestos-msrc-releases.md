@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
+
+## <a name="october-guest-os"></a>Październik systemu operacyjnego gościa
+| Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
+| --- | --- | --- | --- | --- |
+| ReL 17 10 | [4041691] |Aktualizacje systemu Windows 10 |5.12 |10 października 2017 r. |
+| ReL 17 10 | [4041678], [4041679], [4041687] |Tylko zabezpieczenia systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
+| ReL 17 10 | [4040685], |Program Internet Explorer |2.67, 3.54, 4.47 |10 października 2017 r. |
+| ReL 17 10 | [4041681], [4041690], [4041693] |Pakiety zbiorcze miesięczne systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
+| Nie dotyczy | [4038777] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |2.67 |12 września 2017 r. |
+| Nie dotyczy | [4038799] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |3.54 |12 września 2017 r. |
+| Nie dotyczy | [4038792] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |4.47 |12 września 2017 r. |
+| Nie dotyczy | [4040980] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |2.67 |12 września 2017 r. |
+| Nie dotyczy | [4040979] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |3.54 |12 września 2017 r. |
+| Nie dotyczy | [4040981] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |4.47 |12 września 2017 r. |
 
 ## <a name="september-guest-os"></a>Września systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -535,6 +549,20 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | Nie dotyczy |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a90eb0eae6855cd0fbede65a024b5ff6490cce0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Zdalne monitorowanie wstępnie architektury rozwiązania
 
@@ -42,7 +42,7 @@ Poniższy diagram przedstawia logiczne składniki zdalnego monitorowania wstępn
 Powstał architektury chmury, ponieważ firma Microsoft wydała pierwszy wstępnie skonfigurowanych rozwiązań. [Mikrousług](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) pojawiło się jako rozwiązaniem sprawdzonych osiągnąć skalowalność i elastyczność bez ograniczania programowanie szybkości. Kilka usług firmy Microsoft za pomocą tego wzorca architektury wewnętrznie dużą niezawodność i skalowalność wyników. Zaktualizowano wstępnie skonfigurowanych rozwiązań umieścić te learnings w praktyce również mogli korzystać z nich.
 
 > [!TIP]
-> Aby dowiedzieć się więcej na temat architektury mikrousługi, zobacz [architektury aplikacji .NET](https://www.microsoft.com/net/learn/architecture) i [Mikrousług: obrotów aplikacji obsługiwane przez usługę w chmurze](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Aby dowiedzieć się więcej na temat architektury mikrousług, zobacz [Architektura aplikacji .NET](https://www.microsoft.com/net/learn/architecture) i [Mikrousługi: rewolucja w aplikacjach wspierana przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="device-connectivity"></a>Łączność urządzeń
 
@@ -141,5 +141,6 @@ Aby zapoznać się z dokumentacji źródła kodu i deweloperów, z jednym Urucho
 
 * [Wstępnie skonfigurowane rozwiązanie do monitorowania zdalnego z IoT Azure (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Wstępnie skonfigurowane rozwiązanie do monitorowania zdalnego za pomocą usługi Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Wstępnie skonfigurowane rozwiązanie dla zdalnego monitorowania architektury)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Aby uzyskać więcej informacji pojęciach dotyczących zdalnego wstępnie skonfigurowane rozwiązanie monitorowania, zobacz [dostosować wstępnie skonfigurowane rozwiązanie](iot-suite-remote-monitoring-customize.md).

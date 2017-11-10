@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Wprowadzenie do języka R Server i open source możliwości R w usłudze HDInsight
 
@@ -44,7 +44,9 @@ Istnieje możliwość dodania dostęp do dodatkowych obiektów Blob i usługi Da
 Można również użyć [plików Azure](../../storage/files/storage-how-to-use-files-linux.md) jako opcji magazynu do użycia w węźle krawędzi. Usługa pliki Azure umożliwia zainstalowanie udziału plików, który został utworzony w usłudze Azure Storage w systemie Linux. Aby uzyskać więcej informacji o tych opcjach przechowywania danych platformy R Server w klastrze usługi HDInsight, zobacz [usługi Azure Storage opcje dla klastrów serwerów R w usłudze HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Serwer R dostępu w klastrze
-Można połączyć serwerem R w z węzłem krawędzi przy użyciu przeglądarki, pod warunkiem wybrano Dołącz serwer programu RStudio podczas procesu inicjowania obsługi administracyjnej. Jeśli nie został on zainstalowany, podczas inicjowania obsługi klastra, możesz dodać ją później. Aby uzyskać informacje o instalowaniu serwera programu RStudio po utworzeniu klastra, zobacz [Instalowanie serwera programu RStudio w klastrach HDInsight](r-server-install-r-studio.md). Można także połączyć się z serwerem R, przy użyciu SSH/PuTTY dostęp do konsoli R. 
+Można łączyć z serwerem R w węzła krawędzi w przeglądarce. Jest instalowana domyślnie podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [uzyskać stared z serwerem R w usłudze HDInsight](r-server-get-started.md).
+
+Można również nawiązać serwerem R w wierszu polecenia przy użyciu protokołu SSH/PuTTY dostęp do konsoli R. 
 
 ## <a name="develop-and-run-r-scripts"></a>Tworzenie i uruchamianie skryptów R
 Tworzenie i uruchamianie skryptów R można użyć dowolnego z pakietów typu open source R 8000 + oprócz procedury zrównoleglone i rozproszone dostępne w bibliotece ScaleR. Ogólnie rzecz biorąc skrypt, który jest uruchamiany z serwerem R w węźle krawędzi jest uruchamiany w ramach interpreter języka R w tym węźle. Wyjątki są te kroki, które należy wywołać funkcję ScaleR z kontekstem obliczeń, który jest ustawiony do Hadoop mapy Zmniejsz (RxHadoopMR) lub Spark (RxSpark). W takim przypadku funkcja działa w sposób rozproszonych w tych węzłów danych (zadania) klastra, które są skojarzone z danych, do których odwołuje się. Aby uzyskać więcej informacji na temat opcji kontekstu obliczeń różnych zobacz [obliczeniowe kontekstu opcje serwera R w usłudze HDInsight](r-server-compute-contexts.md).
@@ -87,7 +89,7 @@ Na podstawowych maszynach wirtualnych systemu Linux w klastrze HDInsight jest wy
 Ponieważ węzłów głównych są zbędne, a nie wszystkie węzły danych ma wpływ, wszystkie zadania, które są uruchomione w tym czasie może spowolnić. One nadal uruchamiać do zakończenia, jednak. Niestandardowe oprogramowania ani danych lokalnych, czy masz jest zachowywana przez te zdarzenia konserwacji o ile nie wystąpił błąd krytyczny wymagającego odbudowie klastra.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Więcej informacji na temat opcji IDE platformy R Server w klastrze usługi HDInsight
-Węzeł krawędzi Linux klaster usługi HDInsight jest strefy docelowej do analizy na podstawie R. Nowe wersje HDInsight zapewniają domyślną opcją instalowania wersji społeczności [serwera programu RStudio](https://www.rstudio.com/products/rstudio-server/) w węźle krawędź jako środowiska IDE bazujące na przeglądarce. Korzystania z serwera programu RStudio jako IDE dla rozwoju i wykonywanie skryptów R może być znacznie większą wydajność niż tylko przy użyciu konsoli R. Jeśli wybrano opcję Dodaj serwer programu RStudio, podczas tworzenia klastra, ale chcesz dodać go później, a następnie zobacz [Instalowanie serwera Studio R w klastrach HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Węzeł krawędzi Linux klaster usługi HDInsight jest strefy docelowej do analizy na podstawie R. Nowe wersje HDInsight zawierają domyślnej instalacji serwera programu RStudio węzła krawędzi jako środowiska IDE bazujące na przeglądarce. Korzystania z serwera programu RStudio jako IDE dla rozwoju i wykonywanie skryptów R może być znacznie większą wydajność niż tylko przy użyciu konsoli R.
 
 Inną opcją pełnej IDE jest zainstalowanie pulpitu IDE i umożliwia dostęp do klastra przy użyciu zdalnego kontekstu obliczeń Zmniejsz mapy lub Spark. Dostępne są następujące opcje firmy Microsoft [R Tools for Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS), programu RStudio i Walware na podstawie Eclipse [StatET](http://www.walware.de/goto/statet).
 
@@ -100,6 +102,5 @@ Opłaty, które są skojarzone z klastrem usługi HDInsight, z serwerem R mają 
 Aby dowiedzieć się więcej o sposobie używania R Server z klastrami usługi HDInsight, zobacz następujące tematy:
 
 * [Rozpoczynanie pracy z serwerem R w usłudze HDInsight](r-server-get-started.md)
-* [Add RStudio Server to HDInsight (if not installed during cluster creation)](r-server-install-r-studio.md) (Dodawanie programu RStudio Server do usługi HDInsight — jeśli nie zainstalowano podczas tworzenia klastra)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md) (Opcje kontekstu obliczeniowego dla oprogramowania R Server w usłudze HDInsight)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md) (Opcje usługi Azure Storage dla oprogramowania R Server w usłudze HDInsight)

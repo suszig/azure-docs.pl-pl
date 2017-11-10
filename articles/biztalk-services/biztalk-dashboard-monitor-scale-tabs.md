@@ -1,6 +1,6 @@
 ---
 title: "Pulpit nawigacyjny, monitora, skalowania, skonfigurować i połączeń hybrydowych w usługi BizTalk Services | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat formantów i monitorowanie wydajności na kartach klasycznym portalu usługi BizTalk Services: pulpitu nawigacyjnego, Monitor skali, konfigurowanie i połączeń hybrydowych było możliwe. MABS, WABS"
+description: "Więcej informacji na temat kontroli i monitorowania wydajności dla usługi BizTalk Services"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Przegląd kart Pulpit nawigacyjny, Monitorowanie, Skala, Konfigurowanie i Połączenie hybrydowe
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Po utworzeniu usługi BizTalk i wdrażania aplikacji, można zmienić niektóre ustawienia usługi BizTalk i monitorowania wydajności aplikacji. 
 
-Po otwarciu klasycznego portalu Azure, można automatycznie umieszczane w **wszystkie elementy** kartę. Aby wyświetlić usługi BizTalk, wybierz usługę BizTalk w **wszystkie elementy** karcie lub wybierz **usługi BIZTALK SERVICES** ; a następnie wybierz nazwę usługi BizTalk.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Spowoduje to otwarcie nowego okna zawierająca poniższe karty. W tym temacie opisano te karty.
 
@@ -84,9 +84,9 @@ Możesz na przykład usługi BizTalk do nowego podstawowego klucza dla konta mag
 <br/><br/>
 <ol>
 <li>Wybierz usługę BizTalk i wybierz <strong>klucze synchronizacji</strong>. Wybierz klucz pomocniczy. Po wykonaniu tej czynności usługa BizTalk jest uruchamiana za pomocą klucza pomocniczego.</li>
-<li>W klasycznym portalu Azure wybierz konto magazynu i ponowne wygenerowanie klucza podstawowego. Należy pamiętać, że usługi BizTalk używa klucza pomocniczego.</li>
+<li>Wybierz konto magazynu i ponowne wygenerowanie klucza podstawowego. Należy pamiętać, że usługi BizTalk używa klucza pomocniczego.</li>
 <li>Wybierz usługę BizTalk i wybierz <strong>klucze synchronizacji</strong>. Teraz wybierz klucz podstawowy. Jest to nowy klucz podstawowy zostanie ponownie wygenerowany.</li>
-<li>W klasycznym portalu Azure wybierz konto magazynu i ponowne wygenerowanie klucza pomocniczego.</li>
+<li>Wybierz konto magazynu i ponowne wygenerowanie klucza pomocniczego.</li>
 </ol>
 <br/>
 Ten proces jest nazywany "przerzucania kluczy". Celem jest umożliwienie użytkownikom przełączać się między klucz podstawowy i klucz pomocniczy bez zakłócania działania usługi BizTalk.</td>
@@ -169,7 +169,7 @@ Aby uzyskać opis tych metryk wydajności, przejdź do [dostępne metryki](#Metr
 </tr>
 <tr>
 <td><strong>Nazwa subskrypcji</strong></td>
-<td>Wyświetla listę subskrypcji, który jest hostem usługi BizTalk. Subskrypcja kontroluje dostęp do klasycznego portalu Azure.</td>
+<td>Wyświetla listę subskrypcji, który jest hostem usługi BizTalk. Subskrypcja podlega dostępu.</td>
 </tr>
 <tr>
 <td><strong>Identyfikator subskrypcji</strong></td>
@@ -177,7 +177,7 @@ Aby uzyskać opis tych metryk wydajności, przejdź do [dostępne metryki](#Metr
 </tr>
 </table>
 
-[Usługi BizTalk Services: Inicjowanie obsługi administracyjnej klasycznego portalu Azure za pomocą](http://go.microsoft.com/fwlink/p/?LinkID=302280) zawiera listę czynności w celu utworzenia usługi BizTalk.
+[Usługi BizTalk Services: Inicjowanie obsługi administracyjnej](http://go.microsoft.com/fwlink/p/?LinkID=302280) zawiera listę czynności w celu utworzenia usługi BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Zarządzanie, informacje o połączeniu, klucze synchronizacji i Usuń na pasku zadań:
 <table border="1">
@@ -206,9 +206,9 @@ Możesz na przykład usługi BizTalk do nowego podstawowego klucza dla konta mag
 <br/><br/>
 <ol>
 <li>Wybierz usługę BizTalk i wybierz <strong>klucze synchronizacji</strong>. Wybierz klucz pomocniczy. Po wykonaniu tej czynności usługa BizTalk jest uruchamiana za pomocą klucza pomocniczego.</li>
-<li>W klasycznym portalu Azure wybierz konto magazynu i ponowne wygenerowanie klucza podstawowego. Należy pamiętać, że usługi BizTalk używa klucza pomocniczego.</li>
+<li>Wybierz konto magazynu i ponowne wygenerowanie klucza podstawowego. Należy pamiętać, że usługi BizTalk używa klucza pomocniczego.</li>
 <li>Wybierz usługę BizTalk i wybierz <strong>klucze synchronizacji</strong>. Teraz wybierz klucz podstawowy. Jest to nowy klucz podstawowy zostanie ponownie wygenerowany.</li>
-<li>W klasycznym portalu Azure wybierz konto magazynu i ponowne wygenerowanie klucza pomocniczego.</li>
+<li>Wybierz konto magazynu i ponowne wygenerowanie klucza pomocniczego.</li>
 </ol>
 <br/>
 Ten proces jest nazywany "przerzucania kluczy". Celem jest umożliwienie użytkownikom przełączać się między klucz podstawowy i klucz pomocniczy bez zakłócania działania usługi BizTalk.</td>
@@ -329,7 +329,7 @@ Ustawia stan kopii zapasowej, None lub automatyczne. Jeśli wartość None, nie 
 [Usługi BizTalk Services: Kopia zapasowa i przywracanie](biztalk-backup-restore.md) udostępnia szczegółowe informacje. 
 
 ## <a name="HybridConnections"></a>Połączenia hybrydowe
-Połączenia hybrydowe umożliwiają łączenie aplikacji Azure, takich jak aplikacje sieci Web lub Mobile Apps w usłudze Azure App Service lokalnymi zasobem, który korzysta z portu statycznego TCP, takich jak SQL Server, MySQL, interfejsów API sieci Web HTTP i większość niestandardowych usług sieci Web. Usługi BizTalk Services zarządzania połączeń hybrydowych w klasycznym portalu Azure.
+Połączenia hybrydowe umożliwiają łączenie aplikacji Azure, takich jak aplikacje sieci Web lub Mobile Apps w usłudze Azure App Service lokalnymi zasobem, który korzysta z portu statycznego TCP, takich jak SQL Server, MySQL, interfejsów API sieci Web HTTP i większość niestandardowych usług sieci Web. Usługi BizTalk Services zarządzania połączeń hybrydowych było możliwe.
 
 Aby utworzyć lub zarządzać połączeń hybrydowych w usłudze Azure BizTalk Services, zobacz [połączeń hybrydowych](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Teraz, kiedy znasz różnych kartach zawierających, można dowiedzieć się wi�
 ## <a name="see-also"></a>Zobacz też
 * [Połączenia hybrydowe](integration-hybrid-connection-overview.md)  
 * [Usługi BizTalk Services: Developer, podstawowa, standardowa i Premium Edition wykresu](biztalk-editions-feature-chart.md)  
-* [Usługi BizTalk Services: Klasyczny portal Azure przy użyciu inicjowania obsługi](biztalk-provision-services.md)  
+* [Usługi BizTalk Services: Inicjowanie obsługi administracyjnej](biztalk-provision-services.md)  
 * [Usługi BizTalk Services: Stan usługi BizTalk wykresu](biztalk-service-state-chart.md)  
 * [Jak rozpocząć pracę z zestawem SDK usługi Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

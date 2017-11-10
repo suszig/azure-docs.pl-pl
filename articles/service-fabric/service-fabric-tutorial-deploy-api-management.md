@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
-W tym samouczku jest częścią dwóch serii. W tym samouczku przedstawiono sposób konfigurowania [Azure API Management](../api-management/api-management-key-concepts.md) z sieci szkieletowej usług można kierować ruchem do usługi zaplecza w sieci szkieletowej usług.  Po zakończeniu ma wdrożyć zarządzanie interfejsami API w sieci Wirtualnej, skonfigurowane do wysyłania ruchu do zaplecza usługi bezstanowej operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach usługi Azure API Management z sieci szkieletowej usług, zobacz [omówienie](service-fabric-api-management-overview.md) artykułu.
+W tym samouczku jest częścią trzech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu przydatne w przypadku należy opublikować interfejsów API ze bogatym zestawem reguł routingu do usług sieci szkieletowej usług zaplecza. W tym samouczku przedstawiono sposób konfigurowania [Azure API Management](../api-management/api-management-key-concepts.md) z sieci szkieletowej usług można kierować ruchem do usługi zaplecza w sieci szkieletowej usług.  Po zakończeniu ma wdrożyć zarządzanie interfejsami API w sieci Wirtualnej, skonfigurowane do wysyłania ruchu do zaplecza usługi bezstanowej operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach usługi Azure API Management z sieci szkieletowej usług, zobacz [omówienie](service-fabric-api-management-overview.md) artykułu.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -63,6 +63,10 @@ az account set --subscription <guid>
 Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej, takie jak aplikacja platformy ASP.NET Core lub innej usługi, przeznaczony dla ruch przychodzący, takie jak usługi Event Hubs, Centrum IoT lub usługi Azure API Management. W tym samouczku jest wprowadzenie do korzystania z usługi Azure API Management jako bramy dla poszczególnych aplikacji sieci szkieletowej usług. Zarządzanie interfejsami API integruje się bezpośrednio z usługi Service Fabric, co umożliwia publikowanie interfejsów API za pomocą bogaty zestaw reguł routingu do usług sieci szkieletowej usług zaplecza. 
 
 Teraz, gdy masz bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure, wdrożenia interfejs API zarządzania siecią wirtualną (VNET) w podsieci i NSG przeznaczone dla interfejsu API zarządzania. W tym samouczku jest wstępnie skonfigurowana do używania nazwy sieci Wirtualnej, podsieci i NSG, skonfigurowanym w poprzednim szablonu usługi Resource Manager Management API [samouczek klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [samouczka klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+W tym samouczku wdraża następujących topologii na platformie Azure, w którym interfejs API zarządzania i sieci szkieletowej usług znajdują się w podsieci w tej samej sieci wirtualnej:
+
+ ![Podpis obrazu][sf-apim-topology-overview]
 
 Pobierz następującego pliku szablonu i parametry Menedżera zasobów:
  
@@ -404,3 +408,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

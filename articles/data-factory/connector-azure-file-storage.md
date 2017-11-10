@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiowanie danych z lub do magazynu plików Azure przy użyciu fabryki danych Azure
 
@@ -48,11 +48,11 @@ Obsługiwane są następujące właściwości dla pliku połączoną usługą ma
 | Host | Określa punkt końcowy magazyn plików Azure jako `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Tak |
 | Nazwa użytkownika | Określ użytkownika, dostęp do magazynu plików Azure jako `"userid": "AZURE\\<storage name>"`. | Tak |
 | hasło | Określ klucz dostępu do magazynu. Zaznacz to pole jako SecureString.<br/> | Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Brak źródła tak dla obiekt sink |
 
->[!TIP]
-> - Aby skopiować do magazynu plików Azure przy użyciu środowiska uruchomieniowego integracji Azure, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją przechowywania plików i kojarzenie w połączonej usłudze jako poniższy przykład.
-> - Aby skopiować z/na magazyn plików Azure przy użyciu środowiska uruchomieniowego integracji Self-hosted poza platformą Azure, pamiętaj, aby otworzyć port wychodzący TCP 445 w sieci lokalnej.
+>[!IMPORTANT]
+> - Aby skopiować dane do usługi Magazyn plików Azure przy użyciu środowiska uruchomieniowego integracji Azure, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją przechowywania plików i kojarzenie w połączonej usłudze jako poniższym przykładzie.
+> - Aby skopiować dane z/na magazyn plików Azure przy użyciu środowiska uruchomieniowego integracji Self-hosted poza platformą Azure, pamiętaj, aby otworzyć port wychodzący TCP 445 w sieci lokalnej.
 
 **Przykład:**
 

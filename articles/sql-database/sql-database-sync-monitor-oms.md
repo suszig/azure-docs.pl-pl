@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizacja danych Azure SQL monitora (wersja zapoznawcza) z pakietu OMS analizy dzienników 
 
@@ -24,19 +24,19 @@ Omówienie synchronizacji danych SQL, zobacz [synchronizacji danych między wiel
 
 Nie trzeba Przejrzyj dzienniki każdej grupy synchronizacji indywidualnie do wyszukania problemów. Wszystkie grupy synchronizacji można monitorować za pomocą dowolnego z subskrypcji w jednym miejscu, za pomocą widok niestandardowy OMS (Operations Management Suite). Ten widok udostępnia informacje, które ma znaczenie klientom synchronizacji danych SQL.
 
-![Pulpitu nawigacyjnego monitorowania synchronizacji danych](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Pulpitu nawigacyjnego monitorowania synchronizacji danych](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Automatyczne powiadomienia E-mail
 
-Nie trzeba sprawdzić dziennik ręcznie w portalu Azure lub za pomocą programu PowerShell lub interfejsu API REST. Dzięki wykorzystaniu [analizy dzienników OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), można tworzyć alerty, które go bezpośrednio na adresy e-mail osób, które chcesz wyświetlać je w przypadku wystąpienia błędu.
+Nie trzeba sprawdzić dziennik ręcznie w portalu Azure lub za pomocą programu PowerShell lub interfejsu API REST. Z [analizy dzienników OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), można tworzyć alerty, które go bezpośrednio na adresy e-mail osób, którym chcesz wyświetlać je po wystąpieniu błędu.
 
-![Powiadomienia e-mail synchronizacji danych](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Powiadomienia e-mail synchronizacji danych](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>Jak należy wybrać tę opcję? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Jak można skonfigurować te funkcje monitorowania? 
 
-Implementowanie niestandardowych OMS, monitorowanie rozwiązania synchronizacji danych SQL w mniej niż godzinę, wykonując następujące czynności.
+Implementowanie niestandardowych OMS, monitorowanie rozwiązania synchronizacji danych SQL w mniej niż godzinę, wykonując następujące czynności:
 
-Musisz skonfigurować składniki 3:
+Należy skonfigurować trzy składniki:
 
 -   Element runbook programu PowerShell ze źródłem danych dziennika SQL danych synchronizacji z usługą OMS.
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat tworzenia elementu runbook, zobacz [Moj
 
 1.  Przy użyciu tego konta usługi Automatyzacja Azure, wybierz **elementów Runbook** kartę w obszarze automatyzacji procesu.
 
-2.  Wybierz **Dodaj elementy Runbook** w lewym górnym rogu strony elementów Runbook.
+2.  Wybierz **Dodaj element Runbook** w lewym górnym rogu strony elementów Runbook.
 
 3.  Wybierz **importowanie istniejącego elementu Runbook**.
 
@@ -80,13 +80,13 @@ Aby uzyskać więcej informacji na temat tworzenia elementu runbook, zobacz [Moj
 
 6.  W obszarze Twoje konto usługi Automatyzacja Azure, wybierz **zmienne** kartę w obszarze udostępnionych zasobów.
 
-7.  Wybierz **dodać zmienną** na zmienne. Należy utworzyć zmienną do przechowywania ostatni czas wykonania elementu runbook. Jeśli masz wiele elementów runbook należy jedną zmienną dla każdego elementu runbook.
+7.  Wybierz **dodać zmienną** na zmienne. Utwórz zmienną do przechowywania ostatni czas wykonania elementu runbook. Jeśli masz wiele elementów runbook należy jedną zmienną dla każdego elementu runbook.
 
 8.  Ustaw nazwę zmiennej jako `DataSyncLogLastUpdatedTime` i ustaw jej typ jako element DateTime.
 
 9.  Wybierz element runbook, a następnie kliknij przycisk Edytuj w górnej części strony.
 
-10. Zmiany wymagane do konta i konfiguracji synchronizacji danych SQL. (Zobacz przykładowy skrypt, aby uzyskać szczegółowe informacje).
+10. Zmiany wymagane do konta i konfiguracji synchronizacji danych SQL. (Aby uzyskać szczegółowe informacje, zobacz przykładowy skrypt).
 
     1.  Azure informacje.
 
@@ -96,7 +96,7 @@ Aby uzyskać więcej informacji na temat tworzenia elementu runbook, zobacz [Moj
 
 11. Uruchom element runbook w okienku testu. Sprawdź, czy było pomyślne.
 
-    Jeśli masz błędy, upewnij się, że masz najnowszą zainstalowany moduł programu PowerShell. Można to zrobić w **Galeria modułów** na Twoim koncie automatyzacji.
+    Jeśli masz błędy, upewnij się, że masz najnowszą zainstalowany moduł programu PowerShell. Można zainstalować moduł PowerShell najnowsze w **Galeria modułów** na Twoim koncie automatyzacji.
 
 12. Kliknij przycisk **publikowania**
 
@@ -118,7 +118,7 @@ Aby zaplanować elementu runbook:
 
 ### <a name="check-the-automation"></a>Sprawdź automatyzacji
 
-Można monitorować, czy Twoje automatyzacji działa zgodnie z oczekiwaniami, w obszarze **omówienie** Twojego konta automatyzacji, można znaleźć **statystyki zadania** wyświetlić w obszarze **monitorowanie**. Przypnij to do pulpitu nawigacyjnego w celu łatwego wyświetlania. Uruchamia się pomyślnie Pokaż runbook jako "Ukończone" i działa są wyświetlane jako "Niepowodzenie".
+Można monitorować, czy Twoje automatyzacji działa zgodnie z oczekiwaniami, w obszarze **omówienie** Twojego konta automatyzacji, można znaleźć **statystyki zadania** wyświetlić w obszarze **monitorowanie**. Przypnij ten widok do pulpitu nawigacyjnego w celu łatwego wyświetlania. Uruchamia się pomyślnie Pokaż runbook jako "Ukończone" i działa wyświetlane jako "Nieudane".
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Utwórz Alert czytnika dziennika OMS powiadomień E-mail
 
@@ -136,7 +136,7 @@ Aby utworzyć alert, który używa analizy dzienników OMS, wykonaj następując
 
     1.  Ustawiono wartość zagregowaną **większa niż**.
 
-    2.  Po **większa niż**, wprowadź wartość progową, którym chcesz otrzymywać powiadomienia. Oczekiwano błędów przejściowych w synchronizacji danych. Firma Microsoft zaleca, ustaw wartość progową do 5 w celu zmniejszenia szumu.
+    2.  Po **większa niż**, wprowadź wartość progową, którym chcesz otrzymywać powiadomienia. Oczekiwano błędów przejściowych w synchronizacji danych. Do zmniejszenia szumu, należy ustawić próg na wartość 5.
 
 5.  W obszarze **akcje**ustaw **powiadomienia E-mail** "Yes". Wprowadź adresatów żądanej wiadomości e-mail.
 
@@ -168,7 +168,7 @@ Aby skonfigurować widok OMS, wykonaj następujące czynności:
 
         2.  Na Kafelki dla każdej grupy synchronizacji zaktualizuj nazwy grupy synchronizacji.
 
-    3.  Onn każdego kafelka, zaktualizuj tytuł zgodnie z potrzebami.
+    3.  W każdym segmencie Zaktualizuj tytuł zgodnie z potrzebami.
 
 4.  Kliknij przycisk **zapisać** i widoku jest gotowy.
 
@@ -189,10 +189,11 @@ Pobierz przykłady kodu, opisane w tym artykule w następujących lokalizacjach:
 -   [Widok OMS dziennika synchronizacji danych](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Następne kroki
-lub więcej informacji o synchronizacji danych SQL, zobacz:
+Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
 -   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure](sql-database-sync-data.md)
 -   [Wprowadzenie do synchronizacji danych Azure SQL](sql-database-get-started-sql-data-sync.md)
+-   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](sql-database-best-practices-data-sync.md)
 -   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Wykonaj przykłady z programu PowerShell, które przedstawiają sposób konfigurowania synchronizacji danych SQL:
