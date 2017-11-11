@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizacja danych Azure SQL monitora (wersja zapoznawcza) z pakietu OMS analizy dzienników 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Synchronizacja danych SQL Monitor (wersja zapoznawcza) z pakietu OMS analizy dzienników 
 
 Sprawdź dziennik aktywności synchronizacji danych SQL i wykrywać błędy i ostrzeżenia, należy wcześniej było ręcznie sprawdzić synchronizacji danych SQL w portalu Azure, lub użyj programu PowerShell lub interfejsu API REST. Wykonaj kroki opisane w tym artykule, aby skonfigurować niestandardowe rozwiązanie zwiększa monitorowania obsługi synchronizacji danych. Można dostosować to rozwiązanie do danego scenariusza.
 
@@ -92,7 +92,7 @@ Aby uzyskać więcej informacji na temat tworzenia elementu runbook, zobacz [Moj
 
     2.  Informacje o synchronizacji grupy.
 
-    3.  Informacje o OMS. Te informacje można znaleźć w portalu OMS | Ustawienia | Połączonych źródeł. Aby uzyskać więcej informacji na temat wysyłania danych do analizy dzienników, zobacz [wysyłania danych do analizy dzienników przy użyciu protokołu HTTP danych modułu zbierającego interfejsu API (w publicznej wersji zapoznawczej)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  Informacje o OMS. Te informacje można znaleźć w portalu OMS | Ustawienia | Połączonych źródeł. Aby uzyskać więcej informacji na temat wysyłania danych do analizy dzienników, zobacz [wysyłania danych do analizy dzienników przy użyciu protokołu HTTP danych modułu zbierającego interfejsu API (w publicznej wersji zapoznawczej)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Uruchom element runbook w okienku testu. Sprawdź, czy było pomyślne.
 
@@ -192,7 +192,7 @@ Pobierz przykłady kodu, opisane w tym artykule w następujących lokalizacjach:
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
 -   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure](sql-database-sync-data.md)
--   [Wprowadzenie do synchronizacji danych Azure SQL](sql-database-get-started-sql-data-sync.md)
+-   [Konfigurowanie synchronizacji danych SQL Azure](sql-database-get-started-sql-data-sync.md)
 -   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](sql-database-best-practices-data-sync.md)
 -   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)
 

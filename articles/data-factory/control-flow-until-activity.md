@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Do działania w fabryce danych Azure
 Działanie Until zapewnia te same funkcje czy-dopóki zapętlenia struktury udostępnia w językach programowania. Wykonywania zestawu działań w pętli do momentu warunku skojarzone z działaniem zwraca wartość true. Można określić wartość limitu czasu do czasu działania w fabryce danych. 
@@ -60,7 +60,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 name | Nazwa `Until` działania. | Ciąg | Tak
 type | Należy wybrać opcję **do momentu**. | Ciąg | Tak
 wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Wyrażenie.  | Tak
-timeout | Czy — do pętli razy się po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`(lub) `hh:mm:ss`. Wartość domyślna to 7 dni. | Nie
+timeout | Czy — do pętli razy się po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`(lub) `hh:mm:ss`. Wartość domyślna to 7 dni. Maksymalna wartość to: 90 dni. | Nie
 Działania | Zbiór działań, które są wykonywane, dopóki wyrażenie daje w wyniku `true`. | Tablica działań. |  Tak
 
 ## <a name="example-1"></a>Przykład 1

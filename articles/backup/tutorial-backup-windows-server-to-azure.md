@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Tworzenie kopii zapasowych serwera z systemem Windows na platformie Azure
 
@@ -42,9 +42,9 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 Przed utworzeniem kopii zapasowej systemu Windows Server, należy utworzyć miejsce na kopie zapasowe, lub przywrócić punkty przechowywania. A [magazyn usług odzyskiwania](backup-azure-recovery-services-vault-overview.md) to kontener na platformie Azure, która przechowuje kopie zapasowe z serwera z systemem Windows. Wykonaj poniższe kroki, aby utworzyć magazyn usług odzyskiwania w portalu Azure. 
 
-1. W menu po lewej stronie wybierz **więcej usług** i na liście usług wpisz **usług odzyskiwania**. Kliknij przycisk **Magazyny usług odzyskiwania**.
+1. W menu po lewej stronie wybierz **wszystkie usługi** i na liście usług wpisz **usług odzyskiwania**. Kliknij przycisk **Magazyny usług odzyskiwania**.
 
-   ![Otwórz magazyn usług odzyskiwania](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Otwórz magazyn usług odzyskiwania](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  W menu **Magazyny usługi Recovery Services** kliknij pozycję **Dodaj**.
 
@@ -134,7 +134,7 @@ Uruchomienie zadania tworzenia kopii zapasowej zostało ustanowione harmonogramu
 
 1.  W konsoli agenta usług odzyskiwania Microsoft Azure, kliknij polecenie **wykonaj kopię zapasową teraz**.
 
-    ![Przygotowywanie infrastruktury](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Przygotowywanie infrastruktury](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Na **wykonaj kopię zapasową teraz** kreatora, wybierz jedną z **pliki i foldery** lub **stanu systemu** , który chcesz utworzyć kopię zapasową, a następnie kliknij przycisk **dalej** 
 3. Na **potwierdzenie** Przejrzyj ustawienia, które **wykonaj kopię zapasową teraz** kreator używa do tworzenia kopii zapasowej serwera. Następnie kliknij pozycję **Utwórz kopię zapasową**.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2f32f16ae9559a057f9b39658e437aeedfd575c7
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure rozwiązania Cosmos zestawu .NET SDK DB: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -51,6 +51,14 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* Znakowanie zmiany z usługi Azure DocumentDB do bazy danych rozwiązania Cosmos Azure w dokumentacji interfejsu API dokumentacji, informacje o metadanych w zestawach i pakietu NuGet. 
+* Udostępnianie informacji diagnostycznych i opóźnienia z odpowiedzi żądania wysyłane z bezpośrednie połączenie między trybem. Nazwy właściwości są RequestDiagnosticsString i RequestLatency ResourceResponse klasy.
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Wewnętrzny zmiany dla zestawów znajomych firmy Microsoft.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -261,6 +269,8 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |10 listopada 2017 r. |--- |
+| [1.18.1](#1.18.1) |07 listopada 2017 r. |--- |
 | [1.18.0](#1.18.0) |17 października 2017 r. |--- |
 | [1.17.0](#1.17.0) |10 sierpnia 2017 r. |--- |
 | [1.16.1](#1.16.1) |07 sierpnia 2017 r. |--- |

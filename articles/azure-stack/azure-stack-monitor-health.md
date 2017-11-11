@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorowanie kondycji i alertów w stosie Azure
 
@@ -36,7 +36,7 @@ Stos Azure obejmuje monitorowanie możliwości, które umożliwiają wyświetlan
  
  Jako operator stosu Azure można wyświetlić stan kondycji składników, w portalu administratora i za pośrednictwem interfejsu API REST i programu PowerShell.
  
-Aby wyświetlić stan kondycji w portalu, kliknij obszar, który chcesz wyświetlić w **zarządzania Region** kafelka. Można wyświetlić stan kondycji ról infrastruktury i dostawców zasobów. W tej wersji dostawcy zasobów obliczeniowych nie zgłasza stan kondycji.
+Aby wyświetlić stan kondycji w portalu, kliknij obszar, który chcesz wyświetlić w **zarządzania Region** kafelka. Można wyświetlić stan kondycji ról infrastruktury i dostawców zasobów.
 
 ![Lista ról infrastruktury](media/azure-stack-monitor-health/image2.png)
 

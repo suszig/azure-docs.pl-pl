@@ -11,7 +11,6 @@ Magazyn jest ograniczony przez ilość miejsca na dysku albo stały limit *maksy
 | Maksymalna liczba indeksatorów |3 |5 |50 |200 |200 |Brak obsługi indeksatorów |
 | Maksymalna liczba źródeł danych |3 |5 |50 |200 |200 |Brak obsługi indeksatorów |
 | Maksymalna liczba dokumentów |10 000 |1 mln |15 mln na partycję lub 180 mln na usługę |60 mln na partycję lub 720 mln na usługę |120 mln na partycję lub 1,4 mld na usługę |1 mln na indeks lub 200 mln na partycję |
-| Szacowana liczba zapytań na sekundę |Nie dotyczy |Około 3 na replikę |Około 15 na replikę |Około 60 na replikę |Około 60 na replikę |Ponad 60 na replikę |
 
 <sup>1</sup> bezpłatnej warstwy i Podgląd funkcji nie pochodzą z umów dotyczących poziomu usług (SLA). Dla wszystkich warstw rozliczeniowy umowy SLA zaczną obowiązywać podczas obsługi administracyjnej nadmiarowość wystarczające dla Twojej usługi. Co najmniej dwa repliki są wymagane do umowy SLA kwerendy (odczyt). Co najmniej trzech repliki są wymagane dla zapytań i indeksowania SLA (odczytu i zapisu). Liczba partycji nie jest brany pod uwagę umowy dotyczącej poziomu usług. 
 

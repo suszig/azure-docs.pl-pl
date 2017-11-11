@@ -1,5 +1,5 @@
 ---
-title: "Instalowanie plików Azure woluminu w wystąpień kontenera platformy Azure"
+title: "Zainstalować woluminu plików Azure w wystąpień kontenera platformy Azure"
 description: "Dowiedz się, jak można zainstalować woluminu plików Azure, aby utrwalić stanu z wystąpień kontenera platformy Azure"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Instalowanie udziału plików na platformę Azure z wystąpień kontenera platformy Azure
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Instalowanie udziału plików na platformę Azure z wystąpień kontenera platformy Azure
 
 Domyślnie bezstanowe są wystąpień kontenera platformy Azure. Kontener ulegnie awarii lub przestanie, wszystkie jego stan zostanie utracone. Aby zachować stan poza okres istnienia kontenera, można zainstalować woluminu z magazynu zewnętrznego. W tym artykule przedstawiono sposób instalacji udziału plików na platformę Azure do użycia z wystąpień kontenera platformy Azure.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Przechowuj szczegóły dostępu konta magazynu z usługi Azure key vault
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Przechowuj szczegóły dostępu konta magazynu z usługą Azure Key Vault
 
 Klucze konta magazynu ochrony dostępu do danych, dlatego zalecamy przechowywanie ich w magazynie kluczy Azure.
 
@@ -185,16 +185,16 @@ Wstaw wartości w pliku parametrów:
 Z szablonem zdefiniowane można utworzyć kontenera i zainstalować jego woluminu przy użyciu wiersza polecenia platformy Azure. Przy założeniu, że plik szablon ma nazwę *azuredeploy.json* i pliku parametrów o nazwie *azuredeploy.parameters.json*, a następnie w wierszu polecenia jest:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą **seanmckenna/aci-hellofiles** obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj adres IP dla aplikacji sieci web za pomocą następujących czynności:
+Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą **seanmckenna/aci-hellofiles** obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj adres IP dla aplikacji sieci web z [Pokaż kontenera az](/cli/azure/container#az_container_show) polecenia:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Można użyć narzędzia, takiego jak [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com) pobierania i sprawdź plik zapisywane w udziale plików.
+Można użyć narzędzia, takiego jak [Eksploratora usługi Microsoft Azure Storage](https://storageexplorer.com) pobierania i sprawdź plik zapisywane w udziale plików.
 
 >[!NOTE]
 > Aby dowiedzieć się więcej o korzystaniu z szablonów usługi Azure Resource Manager, pliki parametrów i wdrożenie z wiersza polecenia platformy Azure, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i interfejsu wiersza polecenia Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

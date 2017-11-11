@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -153,7 +153,7 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszyst
 W zależności od szybkości wydajności i pobierania systemu instalacja może zająć zaledwie 20 minut lub tak długo, jak kilka godzin. Jeśli blok MySQLAdapter nie jest dostępna, Odśwież z portalu administratora.
 
 > [!NOTE]
-> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść, i zobaczysz komunikat o błędzie na ekranie i w pliku dziennika. Wdrożenie próba zostanie ponowiona z kroku się niepowodzeniem. Systemy, które nie spełnia zalecanych wymagań pamięci i podstawowe nie można wdrożyć MySQL RP.
+> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść, i zobaczysz komunikat o błędzie na ekranie i w pliku dziennika. Wdrożenie próba zostanie ponowiona z kroku się niepowodzeniem. Systemy, które nie spełnia zalecanych wymagań pamięci i vCPU nie można wdrożyć MySQL RP.
 
 
 

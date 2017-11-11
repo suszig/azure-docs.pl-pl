@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dewelopera usługi Azure funkcji JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 Podczas pracy z funkcji JavaScript, należy pamiętać o zagadnień opisane w poniższych sekcjach.
 
-### <a name="choose-single-core-app-service-plans"></a>Wybierz jednordzeniowy planów usługi aplikacji
+### <a name="choose-single-vcpu-app-service-plans"></a>Wybierz jeden vCPU planów usługi aplikacji
 
-Podczas tworzenia aplikacji funkcji, który używa plan usługi aplikacji zaleca się wybranie planu jednordzeniowy zamiast planu z wieloma rdzeniami. Obecnie funkcji uruchamia funkcji JavaScript wydajniej na maszynach wirtualnych jednordzeniowy i przy użyciu większe maszyny wirtualne nie tworzy ulepszenia obniżenie wydajności. Jeśli to konieczne, można ręcznie skalować w poziomie przez dodanie więcej wystąpień maszyny Wirtualnej jednordzeniowy, lub można włączyć automatycznego skalowania. Aby uzyskać więcej informacji, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Podczas tworzenia aplikacji funkcji, który używa plan usługi aplikacji, zaleca się wybrania planu jednym vCPU, a nie planu z wielu Vcpu. Obecnie funkcji działa funkcji JavaScript wydajniej na maszynach wirtualnych jednym vCPU i przy użyciu większe maszyny wirtualne nie tworzy ulepszenia obniżenie wydajności. Jeśli to konieczne, można ręcznie skalować w poziomie przez dodanie więcej wystąpień maszyny Wirtualnej w jednym vCPU, lub można włączyć automatycznego skalowania. Aby uzyskać więcej informacji, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Obsługa języka typeScript i CoffeeScript
 Ponieważ wsparcia bezpośredniego jeszcze nie istnieje maszynie lub CoffeeScript kompilowanie automatycznie za pomocą środowiska uruchomieniowego, wsparcie takie musi do obsługi poza środowisko uruchomieniowe, w czasie wdrażania. 

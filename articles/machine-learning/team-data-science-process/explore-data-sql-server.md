@@ -4,7 +4,7 @@ description: "Jak eksplorować dane przechowywane na maszynie Wirtualnej z progr
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Eksplorowanie danych maszyny wirtualnej programu SQL Server na platformie Azure
 W tym dokumencie opisano sposób eksplorować dane przechowywane na maszynie Wirtualnej z programu SQL Server na platformie Azure. Można to zrobić przy użyciu języka programowania, takich jak Python lub wrangling danych przy użyciu programu SQL.
@@ -69,6 +69,6 @@ Następującego formatu ciągu połączenia może służyć do połączenia z ba
 
 Teraz możesz pracować z Pandas DataFrame, jak to opisano w temacie [danych obiektów Blob platformy Azure procesu w danym środowisku nauki danych](data-blob.md).
 
-## <a name="cortana-analytics-process-in-action-example"></a>Proces Cortana analityka w przykładzie akcji
+## <a name="the-team-data-science-process-in-action-example"></a>Proces nauki danych zespołu w przykładzie akcji
 Aby proces Analytics Cortana, przy użyciu publicznego zestawu danych, na przykład na trasie wskazówki, zobacz [zespołu danych nauki procesu w działaniu: przy użyciu programu SQL Server](sql-walkthrough.md).
 

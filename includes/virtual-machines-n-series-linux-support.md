@@ -6,7 +6,11 @@
 
 | Dystrybucja | Sterownik |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Oparty na systemie CentOS 7.3 | NVIDIA GRID 4.3, gałąź sterownika R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Oparty na systemie CentOS 7.3 | Sterownik gałęzi R384 NVIDIA siatki 5.0|
+
+> [!NOTE]
+> Microsoft ponownie dystrybuuje instalatorów sterownika NVIDIA siatki dla maszyn wirtualnych z wirtualizacją sieci. Zainstaluj tylko te sterowniki siatki na maszynach wirtualnych z wirtualizacją sieci platformy Azure. Te sterowniki obejmują licencjonowania siatki wirtualnej oprogramowania procesora GPU na platformie Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Wystąpienia NC — sterowniki NVIDIA Tesla
 | Dystrybucja | Sterownik |

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Dane telemetryczne metryki: model danych usługi Application Insights
 
@@ -24,7 +24,7 @@ Istnieją dwa typy dane telemetryczne metryki obsługiwane przez [usługi Applic
 
 Wstępnie zagregowane dane telemetryczne metryki zakłada tego okresu agregacji został jednej minuty.
 
-Istnieje kilka dobrze znane nazwy metryki obsługiwane przez usługę Application Insights. 
+Istnieje kilka dobrze znane nazwy metryki obsługiwane przez usługę Application Insights. Te metryki umieszczane w tabeli liczniki wydajności.
 
 Metryka reprezentujący liczniki systemu i procesu:
 
@@ -65,6 +65,8 @@ Maksymalna wartość zagregowane metryki. Nie powinien mieć ustawionej dla miar
 Odchylenie standardowe zagregowane metryki. Nie powinien mieć ustawionej dla miary.
 
 ## <a name="custom-properties"></a>Właściwości niestandardowe
+
+Metryka z właściwości niestandardowej `CustomPerfCounter` ustawioną `true` wskazują, że metryka reprezentuje licznika wydajności systemu windows. Te metryki umieszczone w tabeli liczniki wydajności. Nie w customMetrics. Również nazwa ta metryka jest analizowany w celu wyodrębnienia kategorii, licznika i nazwy wystąpienia.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

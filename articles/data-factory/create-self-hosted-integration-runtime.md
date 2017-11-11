@@ -3,7 +3,7 @@ title: "Tworzenie środowiska uruchomieniowego integracji siebie w fabryce danyc
 description: "Dowiedz się, jak utworzyć środowiska uruchomieniowego integracji siebie w fabryce danych Azure, dzięki czemu fabryki danych można uzyskać dostępu do magazyny danych w sieci prywatnej."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak utworzyć i skonfigurować Self-hosted integracji w czasie wykonywania
 Integracja środowiska uruchomieniowego (IR) jest używany przez fabryki danych Azure zapewnienie możliwości integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej. Aby uzyskać więcej informacji o IR, zobacz [Omówienie środowiska uruchomieniowego integracji](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Hostowanie Samoobsługowe integrację środowiska uruchomieniowego mogą być in
 
 
 ## <a name="high-availability-and-scalability"></a>Wysoką dostępność i skalowalność
-Środowisko uruchomieniowe Self-hosted integracji może być associateed na wielu komputerach lokalnych. Te komputery są nazywane węzłami. Może mieć maksymalnie czterech węzłów skojarzony ze środowiskiem uruchomieniowym Self-hosted integracji. Zalety mające wiele węzłów (lokalnymi maszynami z bramą zainstalowany) dla bramy logiczne to:
+Środowisko uruchomieniowe Self-hosted integracji może być skojarzony z wieloma komputerami lokalnymi. Te komputery są nazywane węzłami. Może mieć maksymalnie czterech węzłów skojarzony ze środowiskiem uruchomieniowym Self-hosted integracji. Zalety mające wiele węzłów (lokalnymi maszynami z bramą zainstalowany) dla bramy logiczne to:
 1. Wyższej dostępności środowiska uruchomieniowego integracji Self-hosted, że nie jest już pojedynczy punkt awarii w danych Big Data rozwiązania lub w chmurze danych integracją z fabryką danych Azure, zapewniając ciągłość z maksymalnie 4 węzły.
 2. Zwiększona wydajność i przepływność podczas przenoszenia danych między lokalnymi i w chmurze magazynów danych. Uzyskać więcej informacji na temat [porównania wydajności](copy-activity-performance.md).
 
-Można skojarzyć wielu węzłów po prostu instalując oprogramowanie środowiska uruchomieniowego integracji Self-hosted od [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i rejestrując ją przy użyciu jednej z obtainined klucze uwierzytelniania z AzureRmDataFactoryV2IntegrationRuntimeKey nowe polecenia cmdlet, zgodnie z opisem w [samouczka](tutorial-hybrid-copy-powershell.md)
+Można skojarzyć wielu węzłów po prostu instalując oprogramowanie środowiska uruchomieniowego integracji Self-hosted od [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i rejestrując ją przy użyciu jednej z kluczy uwierzytelniania uzyskane z AzureRmDataFactoryV2IntegrationRuntimeKey nowe polecenia cmdlet, zgodnie z opisem w [samouczka](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > Nie trzeba utworzyć nowy środowiska uruchomieniowego integracji Self-hosted kojarzenia każdego węzła.

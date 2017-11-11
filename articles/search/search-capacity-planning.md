@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Poziomy zasobów skali kwerendy i indeksowania obciążeń w usłudze Azure Search
 Po [wybierz warstwę cenową](search-sku-tier.md) i [alokowanie usługi wyszukiwania](search-create-service-portal.md), następnym krokiem jest opcjonalnie zwiększenie liczby replikami lub partycje używane przez usługę. Każda warstwa oferuje ustalona liczba jednostek rozliczeń. W tym artykule opisano sposób przydzielania tych jednostek, aby osiągnąć optymalną konfigurację, który równoważy wymagania dotyczące wykonywania zapytania, indeksowanie i magazynu.
 
-Konfiguracja zasobu jest dostępna podczas konfigurowania usługi po [warstwy Basic](http://aka.ms/azuresearchbasic) lub jeden z [warstwy standardowa](search-limits-quotas-capacity.md). W przypadku rozliczeniowy usług w tych warstwach pojemności jest zakupić według przyrostów *jednostek wyszukiwania* (SUs) gdzie każdej partycji i replik liczone jako jeden SU. 
+Konfiguracja zasobu jest dostępna podczas konfigurowania usługi po [warstwy Basic](http://aka.ms/azuresearchbasic) lub jeden z [warstwy standardowa](search-limits-quotas-capacity.md). W przypadku usług w tych warstwach pojemności jest zakupić według przyrostów *jednostek wyszukiwania* (SUs) gdzie każdej partycji i replik liczone jako jeden SU. 
 
 Użycie mniejszej liczby powoduje SUs rachunek proporcjonalnie niższa. Karta jest włączona dla tak długo, jak usługa jest skonfigurowana. Jeśli nie tymczasowo używasz usługi, jedynym sposobem uniknięcia rozliczeń jest usunięcie usługi, a następnie ponownie go utworzyć w razie konieczności.
 
@@ -51,21 +51,19 @@ Aby zwiększyć lub zmienić alokację replik i partycji, zaleca się korzystani
 1. Zaloguj się do [portalu Azure](https://portal.azure.com/) i wybierz usługę wyszukiwania.
 2. W **ustawienia**, otwórz **skali** bloku i zwiększyć lub zmniejszyć liczbę partycji i replik za pomocą suwaków.
 
-Jeśli potrzebujesz opartych na skryptach lub oparte na kodzie metody inicjowania obsługi administracyjnej, [interfejsu API REST zarządzania](https://msdn.microsoft.com/library/azure/dn832687.aspx) stanowi alternatywę do portalu.
+Jeśli potrzebujesz opartych na skryptach lub oparte na kodzie metody inicjowania obsługi administracyjnej, [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/services) stanowi alternatywę do portalu.
 
 Ogólnie rzecz biorąc wyszukiwanie aplikacji muszą replik więcej niż partycje, szczególnie w przypadku, gdy operacje usług są ukierunkowane kierunku obciążeń zapytania. Sekcję [wysokiej dostępności](#HA) zawiera informacje o przyczynie.
 
 > [!NOTE]
-> Po zainicjowaniu obsługi usługi, nie można uaktualnić do nowszej wersji produktu. Konieczne będzie Utwórz usługę wyszukiwania na nową warstwę i ponownie załaduj z indeksów. Zobacz [Tworzenie usługi Azure Search w portalu](search-create-service-portal.md) Aby uzyskać pomoc dotyczącą usługi udostępniania.
+> Po zainicjowaniu obsługi usługi, nie można uaktualnić do nowszej wersji produktu. Należy utworzyć usługi wyszukiwania na nową warstwę i ponowne załadowanie z indeksów. Zobacz [Tworzenie usługi Azure Search w portalu](search-create-service-portal.md) Aby uzyskać pomoc dotyczącą usługi udostępniania.
 >
 >
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Wysoka dostępność
-Ponieważ jest stosunkowo szybkie skalowanie w górę, ogólnie zalecamy czy uruchomić jedną partycję oraz jedną lub dwie repliki, a następnie skalowania w górę jako woluminy zapytania kompilacji. Dla wielu usług w warstwach Basic lub S1 jedną partycję miejsce wystarczające magazynu i operacji We/Wy (co 15 milionów dokumentów na partycję).
-
-Uruchom zapytanie obciążeń głównie w replikach. Jeśli potrzebujesz więcej przepustowości lub wysoką dostępność, prawdopodobnie będzie wymagać dodatkowych replik.
+Ponieważ jest stosunkowo szybkie skalowanie w górę, ogólnie zalecamy czy uruchomić jedną partycję oraz jedną lub dwie repliki, a następnie skalowania w górę jako woluminy zapytania kompilacji. Uruchom zapytanie obciążeń głównie w replikach. Jeśli potrzebujesz więcej przepustowości lub wysoką dostępność, prawdopodobnie będzie wymagać dodatkowych replik.
 
 Ogólne zalecenia dotyczące wysokiej dostępności są:
 
@@ -73,6 +71,8 @@ Ogólne zalecenia dotyczące wysokiej dostępności są:
 * Co najmniej trzech replik wysokiej dostępności obciążeń odczytu/zapisu (kwerend oraz indeksowania podczas dodawania, aktualizacji lub usuwania pojedyncze dokumenty)
 
 Umowy dotyczące poziomu usług (SLA) dla usługi wyszukiwanie Azure są przeznaczone dla operacji zapytań i indeksu aktualizacje, które składają się z Dodawanie, aktualizowanie lub usuwanie dokumentów.
+
+Warstwa podstawowa wierzchołki w jednej partycji i replik trzy. Jeśli chcesz elastyczność natychmiast odpowiada wahań zapotrzebowanie na przepustowość indeksowanie i zapytania, weź pod uwagę jedną warstwy standardowa.
 
 ### <a name="index-availability-during-a-rebuild"></a>Indeks dostępności podczas kompilowania
 
@@ -89,9 +89,9 @@ Obecnie nie istnieje wbudowany mechanizm odzyskiwania po awarii. Dodawanie repli
 ## <a name="increase-query-performance-with-replicas"></a>Zwiększ wydajność zapytań z replikami
 Opóźnienie kwerendy jest wskaźnik potrzebne są dodatkowe repliki. Ogólnie rzecz biorąc pierwszym krokiem procesu poprawę wydajności zapytań jest dodanie więcej zasobów. Podczas dodawania replik dodatkowych kopii indeksu są przełączony w tryb online do obsługi większych obciążeń zapytania i załadować równoważenie żądań przez wiele replik.
 
-Nie możemy przekazać twardych szacuje na zapytania na sekundę (QPS): zapytanie wydajność zależy od złożoności zapytania i konkurencyjnych obciążeń. Średnio repliki na podstawowym lub jednostki SKU S1 może obsłużyć QPS około 15, ale przepustowość sieci jest wyższe lub niższe w zależności od złożoności kwerendy (aspektowej zapytania są bardziej złożonych) i opóźnienie sieci. Ponadto ważne jest, aby rozpoznać, że chociaż dodanie replik ostatecznie spowoduje dodanie skalowalność i wydajność, wynik nie jest ściśle liniowa: dodanie trzy repliki nie gwarantuje Potrójna przepływności.
+Nie możemy przekazać twardych szacuje na zapytania na sekundę (QPS): zapytanie wydajność zależy od złożoności zapytania i konkurencyjnych obciążeń. Mimo że wyraźnie Dodawanie repliki powoduje lepszą wydajność, wynik nie jest ściśle liniowej: dodanie trzy repliki nie gwarantuje Potrójna przepływności.
 
-Aby dowiedzieć się więcej o QPS podejścia do oszacowania QPS dla obciążeń, w tym temacie [Zarządzanie usługą wyszukiwania](search-manage.md).
+Aby uzyskać wskazówki dotyczące szacowania QPS dla obciążeń, zobacz [zagadnienia dotyczące wydajności i optymalizacji usługi Azure Search](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Zwiększ wydajność indeksowania partycji
 Aplikacji wyszukiwania, które wymagają niemal odświeżanie danych w czasie rzeczywistym, należy proporcjonalnie więcej partycji niż replik. Dodawanie partycji rozprzestrzenia operacji odczytu/zapisu w większej liczby zasobów obliczeniowych. Również daje więcej miejsca na dysku do przechowywania dodatkowych indeksów oraz dokumentów.

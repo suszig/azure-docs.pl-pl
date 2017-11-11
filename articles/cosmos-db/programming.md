@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programowanie po stronie serwera w usłudze Azure DB rozwiązania Cosmos: procedury składowane, wyzwalacze bazy danych i funkcji UDF
 Dowiedz się, jak zintegrować języka Azure rozwiązania Cosmos DB, transakcyjne wykonywanie kodu JavaScript umożliwia deweloperom pisanie **procedur składowanych**, **wyzwalaczy** i **funkcje zdefiniowane przez użytkownika** natywnie w [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Umożliwia pisanie logiki aplikacji programu bazy danych, które mogą być dostarczane i wykonywane bezpośrednio na partycje magazynu bazy danych. 
@@ -681,7 +681,7 @@ Oprócz interfejsu API usługi DocumentDB dla [Node.js](documentdb-sdk-node.md) 
     document.Year = 1949;
 
     // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
 Ten przykład przedstawia sposób użycia [interfejsu API platformy .NET usługi DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) do tworzenia wyzwalacza wstępne i Utwórz dokument z wyzwalaczem włączone. 

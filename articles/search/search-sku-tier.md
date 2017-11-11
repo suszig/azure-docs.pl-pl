@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Wybieranie jednostki SKU lub warstwy cenowej usługi Azure Search
 W usłudze Azure Search [usługi zostanie zainicjowana](search-create-service-portal.md) w określonych warstwę cenową lub jednostki SKU. Dostępne są następujące opcje **wolne**, **podstawowe**, lub **standardowe**, gdzie **standardowe** są dostępne w wielu konfiguracjach i pojemności.
@@ -43,9 +43,9 @@ Pojemność i kosztów uruchomiona usługa go ręcznie dostępnych. Informacje p
 
 * Liczba i rozmiar indeksów, które mają być tworzone
 * Liczba i rozmiar dokumentów do przekazania
-* Niektóre informacje o tym wielkości zapytania pod względem zapytania na drugie (QPS)
+* Niektóre informacje o tym wielkości zapytania pod względem zapytania na drugie (QPS). Aby uzyskać instrukcje, zobacz [wydajności usługi Azure Search i optymalizacji](search-performance-optimization.md).
 
-Liczba i rozmiar są ważne, ponieważ osiągnięto maksymalny limit za pośrednictwem nienaruszalne ograniczenie liczby indeksów lub dokumentów w usłudze lub zasobów (repliki lub magazynu) używanego przez usługę. Rzeczywiste limitu dla Twojej usługi jest pobiera zależności używany na pierwszym: zasobów lub obiektów.
+Liczba i rozmiar są ważne, ponieważ osiągnięto maksymalny limit za pośrednictwem nienaruszalne ograniczenie liczba indeksów dla danej usługi lub zasobów (repliki lub magazynu) używanego przez usługę. Rzeczywiste limitu dla Twojej usługi jest pobiera zależności używany na pierwszym: zasobów lub obiektów.
 
 Szacunkowe w ręcznie poniższe kroki należy uprościć proces:
 
@@ -60,10 +60,10 @@ Poniższa tabela zawiera opisy każdej warstwy.
 | --- | --- |
 | **W warstwie bezpłatna** |Usługa udostępnionego, bez żadnych opłat, używany do oceny, dochodzenia lub małych obciążeń. Ponieważ są one udostępniane innym użytkownikom, przepływności zapytania i indeksowania w zależności od kogo jeszcze jest za pomocą usługi. Pojemność jest mała (50 MB lub 3 indeksów z się 10 000 dokumentów każdego). |
 | **Podstawowa** |Obciążeń produkcyjnych małych na dedykowanym sprzęcie. Wysokiej dostępności. Pojemność zależy od repliki 3 i 1 partycji (2 GB). |
-| **S1** |Standardowa 1 obsługuje elastyczne kombinacje partycji (12) i repliki (12), używany w przypadku obciążeń produkcyjnych średnia na dedykowanym sprzęcie. Możesz przydzielić partycji i replik w kombinacji obsługiwane przez maksymalną liczbę jednostek wyszukiwania rozliczeniowy 36. Na tym poziomie partycje są 25 GB i QPS jest około 15 zapytania na sekundę. |
-| **S2** |Standardowy 2 jest uruchamiane przy użyciu tej samej jednostki 36 wyszukiwania, jak S1, ale większy rozmiar partycji i replik większych obciążeń produkcyjnych. Na tym poziomie partycje są 100 GB i QPS jest około 60 zapytania na sekundę. |
-| **S3** |Standardowa 3 działa proporcjonalnie większych obciążeń produkcyjnych w systemach wyższej zakończenia w konfiguracjach maksymalnie 12 partycji i replik 12 jednostek wyszukiwania w obszarze 36. Na tym poziomie partycje są 200 GB i QPS jest więcej niż 60 zapytania na sekundę. |
-| **S3 HD** |Standardowa 3 o wysokiej gęstości jest przeznaczona dla dużej liczby mniejsze indeksów. Może mieć maksymalnie 3 partycji, co 200 GB. QPS jest więcej niż 60 zapytania na sekundę. |
+| **S1** |Standardowa 1 obsługuje elastyczne kombinacje partycji (12) i repliki (12), używany w przypadku obciążeń produkcyjnych średnia na dedykowanym sprzęcie. Możesz przydzielić partycji i replik w kombinacji obsługiwane przez maksymalną liczbę jednostek wyszukiwania rozliczeniowy 36. Na tym poziomie partycje są 25 GB. |
+| **S2** |Standardowy 2 jest uruchamiane przy użyciu tej samej jednostki 36 wyszukiwania, jak S1, ale większy rozmiar partycji i replik większych obciążeń produkcyjnych. Na tym poziomie partycje są 100 GB. |
+| **S3** |Standardowa 3 działa proporcjonalnie większych obciążeń produkcyjnych w systemach wyższej zakończenia w konfiguracjach maksymalnie 12 partycji i replik 12 jednostek wyszukiwania w obszarze 36. Na tym poziomie partycje są 200 GB. |
+| **S3 HD** |Standardowa 3 o wysokiej gęstości jest przeznaczona dla dużej liczby mniejsze indeksów. Może mieć maksymalnie 3 partycji, co 200 GB.|
 
 > [!NOTE]
 > Maksymalne wartości repliki i partycji są rozliczane się jako jednostek wyszukiwania (36 jednostka maksymalną dla danej usługi), które nakłada skuteczne niższej niż maksymalna oznacza na wartość przedniej. Na przykład, aby użyć maksymalnie 12 replik, może mieć co najwyżej 3 partycji (12 * 3 = 36 jednostek). Podobnie do używania partycji maksymalną zmniejsza replik do 3. Zobacz [skalować poziomy zasobów dla zapytania i obciążeń w usłudze Azure Search indeksowanie](search-capacity-planning.md) wykresu w dozwolonym kombinacji.
@@ -81,7 +81,6 @@ Poniższy schemat jest podzbiorem limitów z [ograniczenia usługi w usłudze Az
 | Maksymalna partycji |Nie dotyczy |1 |12 |12 |12 |3<sup>2</sup> |
 | Rozmiar partycji |Całkowita liczba 50 MB |2 GB na usługi |25 GB dla jednej partycji |100 GB dla jednej partycji (maksymalnie 1,2 TB na usługę) |200 GB dla jednej partycji (maksymalnie 2.4 TB na usługę) |200 GB (maksymalnie 600 GB dla usługi) |
 | Maksymalna repliki |Nie dotyczy |3 |12 |12 |12 |12 |
-| Zapytania na sekundę |Nie dotyczy |Około 3 na replikę |Około 15 na replikę |Około 60 na replikę |Ponad 60 na replikę |Ponad 60 na replikę |
 
 <sup>1</sup> bezpłatnej warstwy i Podgląd funkcji nie pochodzą z umów dotyczących poziomu usług (SLA). Dla wszystkich warstw rozliczeniowy umowy SLA zaczną obowiązywać podczas obsługi administracyjnej nadmiarowość wystarczające dla Twojej usługi. Co najmniej dwa repliki są wymagane do umowy SLA kwerendy (odczyt). Co najmniej trzech repliki są wymagane dla zapytań i indeksowania SLA (odczytu i zapisu). Liczba partycji nie jest brany pod uwagę umowy dotyczącej poziomu usług. 
 

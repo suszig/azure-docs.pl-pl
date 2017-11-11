@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych SQL Microsoft Azure stosu
 
@@ -74,7 +74,7 @@ Skrypt wykonuje następujące czynności:
 - Rejestrowanie dostawcy zasobów z lokalnej usługi Azure Resource Manager (administratora i użytkowników).
 
 > [!NOTE]
-> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść zobaczysz komunikat o błędzie na ekranie i w pliku dziennika, a próba zostanie ponowiona z kroku niepowodzenie wdrożenia. Systemy, które nie spełnia zalecanych wymagań pamięci i podstawowe nie można wdrożyć SQL RP.
+> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść zobaczysz komunikat o błędzie na ekranie i w pliku dziennika, a próba zostanie ponowiona z kroku niepowodzenie wdrożenia. Systemy, które nie spełnia zalecanych wymagań pamięci i vCPU nie można wdrożyć SQL RP.
 >
 
 Oto przykład można uruchomić z programu PowerShell Monituj (ale zmienić informacje o koncie i hasła w razie potrzeby):

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: f48e270054ba45211c2a1517593d5d7b22925d0a
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Przenieś publicznej komunikacji równorzędnej się do komunikacji równorzędnej firmy Microsoft
 
@@ -34,7 +34,7 @@ W tym artykule opisano, jak przenieść publicznej konfiguracji komunikacji rów
 
 * Aby nawiązać komunikacji równorzędnej firmy Microsoft, należy skonfigurować i zarządzać nimi translatora adresów sieciowych. Dostawca połączenia może oraz zarządzać nimi translatora adresów Sieciowych jako usługa zarządzana. Jeśli planujesz dostęp do usług Azure SaaS w komunikacji równorzędnej firmy Microsoft i Azure PaaS, należy poprawnie rozmiaru puli adresów IP translatora adresów Sieciowych. Aby uzyskać więcej informacji o NAT ExpressRoute, zobacz [NAT wymagania dotyczące komunikacji równorzędnej firmy Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* Jeśli masz obecnie sieci listy kontroli dostępu (ACL) dla zasobu usługi Azure PaaS w Azure publicznej komunikacji równorzędnej, należy się upewnić, że pula IP translatora adresów Sieciowych **zakres adresów** jest zawarte w ACL zapory dla firmy Microsoft komunikacji równorzędnej.
+* Jeśli korzystają z publicznej komunikacji równorzędnej, a obecnie ma zasady sieci IP dla publicznych adresów IP, które są używane do dostępu [usługi Azure Storage](../storage/common/storage-network-security.md) lub [bazy danych SQL Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), należy upewnić się, że konfiguracja puli adresów IP translatora adresów Sieciowych z firmą Microsoft równorzędna znajduje się na liście publicznych adresów IP dla konta magazynu Azure lub konta usługi Azure SQL.
 
 * Aby przenieść do firmy Microsoft, równorzędna bez przestojów, wykonaj kroki w tym artykule w kolejności, które mają być przedstawiane.
 

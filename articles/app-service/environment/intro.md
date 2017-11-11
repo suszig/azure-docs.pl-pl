@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 63e2256ca6d392a0cd284269e8c2d059f94e9139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Wprowadzenie do środowiska usługi aplikacji #
  
@@ -48,13 +48,13 @@ ASE składa się z interfejsy i pracowników. Interfejsy są zobowiązani do zak
 
 Pracownicy są role, które hostowanie aplikacji klienta. Pracownicy są dostępne w trzech rozmiarach stałe:
 
-* Jeden rdzeń/3.5 GB pamięci RAM
-* Dwa podstawowe/7 GB pamięci RAM
-* Cztery podstawowe/14 GB pamięci RAM
+* Jeden vCPU/3.5 GB pamięci RAM
+* Dwa vCPU/7 GB pamięci RAM
+* 4 vCPU/14 GB pamięci RAM
 
 Klienci nie muszą zarządzać interfejsy i pracowników. Wszystkie infrastruktury jest automatycznie dodawane jako klienci skalowania planów usługi aplikacji. Zgodnie z planami usługi aplikacji są tworzone lub skalowany w elemencie ASE, że wymagana infrastruktura dodaniu lub usunięciu odpowiednio.
 
-Brak płaskim miesięczne szybkości dla ASE, który pokrywa infrastruktury i nie zmienia się rozmiar ASE. Ponadto jest koszt core planu usługi aplikacji. Wszystkie aplikacje obsługiwane w elemencie ASE znajdują się w izolowany cennik jednostki SKU. Aby uzyskać informacje o cenach dla ASE, zobacz [cennik usługi aplikacji] [ Pricing] strony i przejrzyj dostępne opcje ASEs.
+Brak płaskim miesięczne szybkości dla ASE, który pokrywa infrastruktury i nie zmienia się rozmiar ASE. Ponadto jest koszt vCPU planu usługi aplikacji. Wszystkie aplikacje obsługiwane w elemencie ASE znajdują się w izolowany cennik jednostki SKU. Aby uzyskać informacje o cenach dla ASE, zobacz [cennik usługi aplikacji] [ Pricing] strony i przejrzyj dostępne opcje ASEs.
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej ##
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji na temat działania ASEs z sieciami wirtualnymi 
 
 W ASEv1 trzeba zarządzać wszystkie zasoby ręcznie. Zawierającej interfejsy, pracowników i adresy IP używane dla opartych na protokole SSL. Przed można skalować w poziomie planu usługi aplikacji, konieczne jest pierwszy skalowania puli procesów roboczych, które chcesz udostępnić go.
 
-ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdego rdzenia przydzielone. Zawierającej rdzeni interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
+ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdym vCPU przydzielone. Zawierającą Vcpu, interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

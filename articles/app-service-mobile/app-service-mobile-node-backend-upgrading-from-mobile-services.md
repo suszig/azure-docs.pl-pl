@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Uaktualnij istniejącą usługę Mobile Node.js Azure App Service
 Mobile App Service jest nowy sposób tworzenia aplikacji dla urządzeń przenośnych przy użyciu programu Microsoft Azure. Aby dowiedzieć się więcej, zobacz [co to są Mobile Apps?].
 
-W tym temacie opisano sposób uaktualnienia istniejącej aplikacji zaplecza Node.js z usług Azure Mobile Services do nowej aplikacji usługi Mobile Apps. Podczas wykonywania tego uaktualnienia istniejącej aplikacji usługi Mobile Services może kontynuować działanie.  Jeśli konieczne jest uaktualnienie aplikacji zaplecza Node.js, zapoznaj się [uaktualniania usług Mobile Services dla programu .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
+W tym artykule opisano sposób uaktualniania istniejącej aplikacji zaplecza Node.js z usług Azure Mobile Services do nowej aplikacji usługi Mobile Apps. Podczas wykonywania tego uaktualnienia istniejącej aplikacji usługi Mobile Services może kontynuować działanie.  Jeśli konieczne jest uaktualnienie aplikacji zaplecza Node.js, zapoznaj się [uaktualniania usług Mobile Services dla programu .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Po uaktualnieniu zaplecza mobilnego do usługi Azure App Service, ma dostęp do wszystkich funkcji usługi aplikacji i są rozliczane zgodnie ze standardem [cennik usługi aplikacji], nie Mobile Services cennik.
 
@@ -36,7 +36,7 @@ Po uaktualnieniu zaplecza mobilnego do usługi Azure App Service, ma dostęp do 
 >
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Ulepszenia w Mobile Apps Node.js server SDK
-Uaktualnienie do nowej [zestaw SDK usługi Mobile Apps](https://www.npmjs.com/package/azure-mobile-apps) zawiera wiele udoskonaleń, w tym:
+Uaktualnienie do nowej [zestaw SDK usługi Mobile Apps](https://www.npmjs.com/package/azure-mobile-apps) zawiera wiele ulepszeń, w tym:
 
 * Na podstawie [Express framework](http://expressjs.com/en/index.html), nowego węzła zestawu SDK jest lekki i mające na celu nadąża z nowych wersji węzła, ponieważ zaczynają. Można dostosować zachowanie aplikacji z oprogramowania pośredniczącego Express.
 * Znaczący wzrost wydajności w porównaniu do zestawu SDK usług mobilnych.
@@ -44,7 +44,7 @@ Uaktualnienie do nowej [zestaw SDK usługi Mobile Apps](https://www.npmjs.com/pa
 * Skompilowany dla rozwoju i platform i lokalnego, zestaw SDK usługi Mobile Apps można opracowany i uruchom lokalnie na platformach Windows, Linux lub OS x. Teraz jest łatwy w użyciu wspólnej węzła metody takie jak uruchamianie [Mocha](https://mochajs.org/) testy przed ich wdrożeniem.
 
 ## <a name="overview"></a>Ogólne omówienie uaktualnienia
-W celu ułatwienia uaktualniania zaplecza Node.js, usługa aplikacji Azure udostępnił pakietu zgodności.  Po uaktualnieniu trzeba będzie lokacji niew, które można wdrożyć do nowej lokacji z usługi aplikacji.
+W celu ułatwienia uaktualniania zaplecza Node.js, usługa aplikacji Azure udostępnił pakietu zgodności.  Po uaktualnieniu trzeba będzie nowej lokacji, które można wdrożyć do nowej lokacji z usługi aplikacji.
 
 Są zestawy SDK klienta usługi Mobile Services **nie** zgodny z nowym serwerem Mobile Apps SDK. W celu zapewnienia ciągłości usługi dla aplikacji, nie należy opublikować zmian do lokacji aktualnie obsługujący opublikowanych klientów. Zamiast tego należy utworzyć nowej aplikacji mobilnej, która służy jako duplikat. Tej aplikacji można umieścić na tym samym planu usługi aplikacji, aby uniknąć ponoszenia dodatkowych kosztów finansowych.
 
@@ -56,7 +56,7 @@ Pełna konspekt procesu uaktualniania przebiega następująco:
 2. Skonwertuj projekt do aplikacji mobilnej Azure przy użyciu pakietu zgodności.
 3. Rozwiąż wszystkie problemy dotyczące różnic (na przykład ustawienia uwierzytelniania).
 4. Wdróż przekonwertowanego projektu aplikacji mobilnej Azure do nowej usługi aplikacji.
-5. Zwolnij nowej wersji aplikacji klienckich korzystających z nowej aplikacji mobilnej.
+5. Nowej wersji aplikacji klienta, który korzysta z nowej aplikacji mobilnej.
 6. (Opcjonalnie) Usuń zmigrowane usługi mobilnej oryginalnej aplikacji.
 
 Usuwanie może wystąpić, gdy nie jest widoczny cały ruch w oryginalnej zmigrowane usługi mobilnej.
@@ -98,12 +98,12 @@ Podczas wdrażania należy wykonać następujące czynności:
 3. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową (używając tej samej nazwy, co aplikacja).
 
     Możesz wybrać inny plan usługi App Service lub utworzyć nowy. Aby uzyskać więcej informacji o usługach aplikacji planów i sposób tworzenia nowego planu w innej cennik warstwy oraz w preferowanej lokalizacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. W przypadku **planu usługi App Service** jest wybrany plan domyślny (w [warstwie standardowej](https://azure.microsoft.com/pricing/details/app-service/)). Możesz również wybrać inny plan lub [utworzyć nowy](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Ustawienia planu usługi App Service określają [lokalizację, funkcje, koszt i zasoby obliczeniowe](https://azure.microsoft.com/pricing/details/app-service/) skojarzone z aplikacją.
+4. W przypadku **planu usługi App Service** jest wybrany plan domyślny (w [warstwie standardowej](https://azure.microsoft.com/pricing/details/app-service/)). Możesz też wybrać inny plan lub [Utwórz nową](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Ustawienia planu usługi aplikacji określają [lokalizację, funkcje, koszt i zasoby obliczeniowe](https://azure.microsoft.com/pricing/details/app-service/) skojarzone z aplikacją.
 
     Po wybraniu planu kliknij przycisk **Utwórz**. Spowoduje to utworzenie zaplecza aplikacji mobilnej.
 
 ### <a name="run-createviewssql"></a>Uruchom CreateViews.SQL
-Ta aplikacja szkieletu zawiera plik o nazwie `createViews.sql`.  Ten skrypt musi zostać wykonana względem docelowej bazy danych.  Ciąg połączenia dla docelowej bazy danych można uzyskać z usługą mobilną zmigrowanych z **ustawienia** bloku w obszarze **parametry połączenia**.  Szablon ma nazwę `MS_TableConnectionString`.
+Ta aplikacja szkieletu zawiera plik o nazwie `createViews.sql`.  Ten skrypt musi zostać wykonana względem docelowej bazy danych.  Ciąg połączenia dla docelowej bazy danych można uzyskać z usługą mobilną zmigrowanych z **ustawienia** w obszarze **parametry połączenia**.  Szablon ma nazwę `MS_TableConnectionString`.
 
 Możesz uruchomić ten skrypt w programie SQL Server Management Studio lub Visual Studio.
 
@@ -116,12 +116,12 @@ Połącz istniejącą bazę danych z usługi aplikacji:
 * Z listy rozwijanej wybierz **bazy danych SQL**
 * W obszarze **bazy danych SQL**, wybierz istniejącą bazę danych, a następnie kliknij pozycję **wybierz**.
 * W obszarze **ciąg połączenia**, wprowadź nazwę użytkownika i hasło dla bazy danych, a następnie kliknij pozycję **OK**.
-* W **dodać połączenia danych** bloku, kliknij polecenie **OK**.
+* W **dodać połączenia danych** kliknij pozycję **OK**.
 
 Wyświetlając ciąg połączenia dla docelowej bazy danych w usłudze Mobile migrowanych można znaleźć nazwy użytkownika i hasła.
 
 ### <a name="set-up-authentication"></a>Konfigurowanie uwierzytelniania
-Aplikacje mobilne platformy Azure umożliwia skonfigurowanie usługi Azure Active authentication katalogu, Facebook, Google, Microsoft i Twitter w ramach usługi.  Niestandardowe uwierzytelnianie będzie konieczne opracowywane oddzielnie.  Zapoznaj się [pojęć dotyczących uwierzytelniania] dokumentacji i [uwierzytelniania szybkiego startu] dokumentacji, aby uzyskać więcej informacji.  
+Aplikacje mobilne platformy Azure umożliwia konfigurowanie usługi Azure Active Directory, Facebook, Google, Microsoft i uwierzytelniania w usłudze Twitter.  Niestandardowe uwierzytelnianie będzie konieczne opracowywane oddzielnie.  Zapoznaj się [pojęć dotyczących uwierzytelniania] dokumentacji i [uwierzytelniania szybkiego startu] dokumentacji, aby uzyskać więcej informacji.  
 
 ## <a name="updating-clients"></a>Aktualizowanie klientów mobilnych
 Po utworzeniu operacyjną zaplecza aplikacji mobilnej, można pracować na nowej wersji aplikacji klienta, która go wykorzystuje. Mobile Apps obejmuje również nową wersję klienta zestawy SDK i podobne do uaktualnienia serwera powyżej, należy usunąć wszystkie odwołania do zestawów SDK usługi Mobile przed zainstalowaniem wersji aplikacji mobilnej.

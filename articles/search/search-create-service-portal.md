@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Tworzenie usługi Azure Search w portalu
 
-W tym artykule opisano sposób tworzenia i inicjowania obsługi administracyjnej usługi Azure Search w portalu. Aby uzyskać instrukcje programu PowerShell, zobacz [zarządzania usługi Azure Search przy użyciu programu PowerShell](search-manage-powershell.md).
+Informacje o sposobie tworzenia i inicjowania obsługi administracyjnej usługi Azure Search w portalu. Aby uzyskać instrukcje programu PowerShell, zobacz [zarządzania usługi Azure Search przy użyciu programu PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (wolne lub płatną)
 
@@ -34,20 +34,21 @@ Alternatywnie [aktywować korzyści dla subskrybentów MSDN](https://azure.micro
 2. Kliknij znak plus ("+") w lewym górnym rogu.
 3. Wybierz **sieci Web i mobilność** > **wyszukiwanie Azure**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Nazwa usługi i punktu końcowego adresu URL
 
-Nazwa usługi jest częścią punktu końcowego adresu URL, względem którego są wydawane wywołań interfejsu API. Wpisz nazwę usługi w **adres URL** pola. 
+Nazwa usługi jest częścią punktu końcowego adresu URL, względem których interfejsu API są wydawane wywołania: `https://your-service-name.search.windows.net`. Wprowadź nazwę usługi w **adres URL** pola. 
 
 Wymagania dotyczące nazw usługi:
+   * Muszą być unikatowe w przestrzeni nazw search.windows.net
    * 2 do 60 znaków
-   * małe litery, cyfry i łączniki ("-")
-   * nie dash ("-") jako pierwsze 2 znaki lub ostatni pojedynczy znak
-   * nie następujących po sobie kresek ("--")
+   * Użyj małe litery, cyfry i łączniki ("-")
+   * Unikaj kreski ("-") w najpierw 2 znaki lub jako ostatni znak pojedynczego
+   * Nie następujących po sobie kresek ("--") dowolnego miejsca
 
 ## <a name="select-a-subscription"></a>Wybierz subskrypcję
-Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z usług magazynu danych lub pliku. Usługa wyszukiwanie Azure można Autowykrywanie magazynu tabel Azure i obiektów Blob, bazy danych SQL i bazy danych Azure rozwiązania Cosmos indeksowania za pośrednictwem *indeksatory*, ale tylko w przypadku usług w tej samej subskrypcji.
+Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z usług magazynu danych lub pliku. Usługa wyszukiwanie Azure można Autowykrywanie magazynu tabel Azure i obiektów Blob, bazy danych SQL i bazy danych Azure rozwiązania Cosmos indeksowania za pośrednictwem [ *indeksatory*](search-indexer-overview.md), ale tylko w przypadku usług w tej samej subskrypcji.
 
 ## <a name="select-a-resource-group"></a>Wybierz grupę zasobów
 Grupa zasobów to zbiór usług platformy Azure i zasoby używane razem. Na przykład jeśli używasz usługi Azure Search do indeksowania bazy danych SQL, obie te usługi należy częścią tej samej grupie zasobów.
@@ -63,11 +64,13 @@ Jak usługa Azure usługi Azure Search może być hostowana w centrach danych na
 
 W tym przewodniku Wybraliśmy warstwy standardowa naszej usługi.
 
+Nie można zmienić warstwy cenowej, po utworzeniu usługi. Warstwy wyższe lub niższe potrzebne później, należy ponownie utworzyć usługę.
+
 ## <a name="create-your-service"></a>Tworzenie usługi
 
 Pamiętaj, aby przypiąć do pulpitu nawigacyjnego usługi łatwy dostęp przy każdym logowaniu.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Skalowanie usługi
 Może upłynąć kilka minut, aby utworzyć usługę (15 minut lub dłużej w zależności od warstwy). Po zainicjowaniu obsługi usługi, można też skalować, zgodnie z potrzebami. Ponieważ wybrano warstwy standardowa dla usługi Azure Search w dwóch wymiarów można skalować usługi: repliki i partycji. Czy wybierze warstwie podstawowej, można dodać tylko repliki. Jeśli elastycznie bezpłatnej usługi, skalowanie jest niedostępne.
@@ -79,7 +82,7 @@ Może upłynąć kilka minut, aby utworzyć usługę (15 minut lub dłużej w za
 > [!Important]
 > Usługa musi mieć [2 replik do umowy SLA tylko do odczytu i 3 repliki do odczytu/zapisu SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Przejdź do bloku usługi z wyszukiwania w portalu Azure.
+1. Przejdź do strony usługi wyszukiwania w portalu Azure.
 2. W okienku nawigacji po lewej, wybierz **ustawienia** > **skali**.
 3. Slidebar umożliwia dodawanie repliki lub partycji.
 
@@ -105,9 +108,7 @@ Mimo że większość klientów używają tylko jedną usługę, nadmiarowość 
 Drugi usługi nie jest wymagane w celu zapewnienia wysokiej dostępności. Wysoka dostępność dla zapytania odbywa się przy użyciu co najmniej 2 replik w tej samej usługi. Repliki są aktualizacje sekwencyjnych, co oznacza, że co najmniej jeden działa podczas aktualizacji usługi jest wdrażana. Aby uzyskać więcej informacji o dostępności, zobacz [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Następne kroki
-Po zainicjowaniu obsługi administracyjnej usługi Azure Search, możesz przystąpić do [zdefiniuj indeks](search-what-is-an-index.md) , można przekazać i wyszukiwać dane.
+Po zainicjowaniu obsługi administracyjnej usługi Azure Search, możesz przystąpić do [zdefiniuj indeks](search-what-is-an-index.md) , można przekazać i wyszukiwać dane. 
 
-Aby uzyskać dostęp do usługi z kodu lub skryptu, podaj adres URL (*nazwa usługi*. search.windows.net) i klucz. Klucze administratora przyznają dostęp; klucze zapytań przyznać dostęp tylko do odczytu. Zobacz [jak używać usługi Azure Search w środowisku .NET](search-howto-dotnet-sdk.md) rozpocząć pracę.
-
-Zobacz [kompilacji i tworzenie zapytań względem indeksu pierwszego](search-get-started-portal.md) zawiera krótki samouczek oparte na portalu.
-
+> [!div class="nextstepaction"]
+> [Jak używać usługi Azure Search w .NET](search-howto-dotnet-sdk.md)

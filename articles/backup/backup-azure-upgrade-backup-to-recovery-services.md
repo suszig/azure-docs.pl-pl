@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uaktualnij magazynu kopii zapasowych do magazynu usług odzyskiwania
 
@@ -120,7 +120,7 @@ Po uaktualnieniu do magazynu usług odzyskiwania, skonfiguruj raporty dla usług
 Nie. Kopie zapasowe trwającą nadal przerwana podczas i po uaktualnieniu.
 
 **Jeśli nie należy zaplanować na temat uaktualniania wkrótce, co się dzieje z mojej magazynów?**</br>
-Ponieważ wszystkie nowe funkcje dotyczą tylko Magazyny usług odzyskiwania, zalecamy uaktualnienie z magazynów. Microsoft ostatecznie wycofuje klasycznego portalu. Uruchamianie 1 września 2017 Microsoft rozpocznie uaktualniania automatycznie magazynów kopii zapasowych do magazynów usług odzyskiwania. Przez 30 listopada 2017 Microsoft ukończy proces uaktualniania. Magazyn można automatycznie uaktualnić wszystkie czas między. Firma Microsoft zaleca się, że jak najszybciej Uaktualnij magazynu.
+Ponieważ wszystkie nowe funkcje dotyczą tylko Magazyny usług odzyskiwania, zalecamy uaktualnienie z magazynów. Microsoft ostatecznie wycofuje klasycznego portalu. Uruchamianie 1 września 2017 Microsoft rozpocznie uaktualniania automatycznie magazynów kopii zapasowych do magazynów usług odzyskiwania. Od listopada 30,2017, możesz już tworzyć magazyny kopii zapasowych przy użyciu programu PowerShell. Magazyn można automatycznie uaktualnić wszystkie czas między. Firma Microsoft zaleca się, że jak najszybciej Uaktualnij magazynu.
 
 **Jaki jest średnia ta uaktualnienia do mojej istniejącej oprzyrządowania?**</br>
 Aktualizacja z narzędziami do modelu wdrażania usługi Resource Manager. Usługi odzyskiwania, który magazynów zostały utworzone dla używać w modelu wdrażania usługi Resource Manager. Planowanie modelu wdrażania usługi Resource Manager i ewidencjonowanie aktywności różnicy z magazynów jest ważne. 

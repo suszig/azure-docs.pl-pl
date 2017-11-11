@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie reguły autoryzacji usługi Service Bus przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+title: "Utwórz regułę autoryzacji usługi Service Bus przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
 description: "Utworzyć regułę autoryzacji usługi Service Bus dla przestrzeni nazw i kolejki przy użyciu szablonu usługi Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: fbd2372829a1aefa2c080c0a8a72b9ff4375b16f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Utworzyć regułę autoryzacji usługi Service Bus dla przestrzeni nazw i kolejki przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule pokazano, jak szablon Menedżera zasobów Azure, która tworzy [reguły autoryzacji](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) dla przestrzeni nazw usługi Service Bus i kolejki. Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule pokazano, jak szablon Menedżera zasobów Azure, która tworzy [reguły autoryzacji](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) dla przestrzeni nazw usługi Service Bus i kolejki. Wyjaśniono sposób do określania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [szablonów Authoring Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -36,12 +36,13 @@ Zakończenie szablonu, zobacz [szablonu reguły autoryzacji usługi Service Bus]
 > * [Tworzenie przestrzeni nazw usługi Service Bus z tematów i subskrypcji](service-bus-resource-manager-namespace-topic.md)
 > * [Tworzenie przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Aby sprawdzić najnowsze szablony, odwiedź stronę [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukaj "Service Bus".
+> Aby sprawdzić najnowsze szablony, odwiedź stronę [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukaj **usługi Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
-W przypadku tego szablonu zostanie wdrożona regułę autoryzacji usługi Service Bus dla przestrzeni nazw i jednostki obsługi komunikatów (w tym przypadku kolejki).
+
+W przypadku tego szablonu można wdrożyć regułę autoryzacji usługi Service Bus dla przestrzeni nazw i jednostki obsługi komunikatów (w tym przypadku kolejki).
 
 Ten szablon używa [dostępu sygnatury dostępu Współdzielonego](service-bus-sas.md) do uwierzytelniania. Sygnatury dostępu Współdzielonego umożliwia aplikacjom uwierzytelnić się przy użyciu klawisza dostępu skonfigurowana w przestrzeni nazw lub komunikatów jednostki (kolejka lub temat), z którym są skojarzone określonych praw usługi Service Bus. Można następnie użyć tego klucza do wygenerowania tokenu sygnatury dostępu Współdzielonego, której klienci mogą z kolei używać do uwierzytelniania usługi Service Bus.
 
@@ -86,9 +87,12 @@ Nazwa kolejki w przestrzeni nazw usługi Service Bus.
 Wersja interfejsu API usługi Service Bus szablonu.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia

@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: c69fab3f711e2a650d088ccec1c05ec29e0e567b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure (wersja zapoznawcza)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z opcją synchronizacji danych SQL (wersja zapoznawcza)
 
 Synchronizacja danych SQL to usługa oparta na bazie danych SQL Azure, która umożliwia synchronizowanie danych, wybranych dwukierunkowo przez wiele baz danych i wystąpień programu SQL Server.
 
@@ -44,7 +44,7 @@ Synchronizacja danych używa topologii gwiazdy do synchronizacji danych. Należy
 -   **Bazy danych usługi synchronizacji** zawiera metadanych i dziennika dla synchronizacji danych. Bazy danych usługi synchronizacji musi być bazy danych SQL Azure znajduje się w tym samym regionie co baza danych Centrum. Bazy danych usługi synchronizacji jest utworzyć klienta i należące do klientów.
 
 > [!NOTE]
-> Jeśli używasz bazy danych na lokalnym, konieczne będzie [Konfigurowanie lokalnego agenta.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Jeśli używasz bazy danych na lokalnym, konieczne będzie [Konfigurowanie lokalnego agenta](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Synchronizowanie danych między bazami danych](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -155,7 +155,7 @@ Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do
 
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
--   [Wprowadzenie do synchronizacji danych Azure SQL](sql-database-get-started-sql-data-sync.md)
+-   [Konfigurowanie synchronizacji danych SQL Azure](sql-database-get-started-sql-data-sync.md)
 -   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](sql-database-best-practices-data-sync.md)
 -   [Monitor synchronizacji danych Azure SQL z OMS analizy dzienników](sql-database-sync-monitor-oms.md)
 -   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)

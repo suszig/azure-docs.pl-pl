@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Zabezpieczenia bazy danych Azure SQL
 
@@ -242,7 +242,7 @@ Na przykład wykrywanie zagrożeń wykrywa niektóre działania nietypowych bazy
 W tym samouczku przedstawiono poprawienia ochrony przed złośliwymi użytkownikami lub nieautoryzowanego dostępu, wystarczy kilka prostych kroków bazy danych.  W tym samouczku omówiono: 
 
 > [!div class="checklist"]
-> * Konfigurowanie reguł zapory serwera i lub bazy danych
+> * Konfigurowanie reguł zapory dla serwera i lub bazy danych
 > * Połączenia z bazą danych przy użyciu ciągu bezpiecznego połączenia
 > * Zarządzanie dostępem użytkowników
 > * Ochrona danych za pomocą szyfrowania

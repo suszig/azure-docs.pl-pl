@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
 Środowisko Azure Functions umożliwia pisanie kodu w odpowiedzi na zdarzenia w Azure i innych usług za pośrednictwem *wyzwalaczy* i *powiązania*. Ten artykuł zawiera omówienie wyzwalaczy i powiązań dla wszystkich obsługiwanych języków programowania. Funkcje, które są wspólne dla wszystkich powiązań są opisane poniżej.
@@ -243,7 +243,7 @@ Na przykład wyzwalacz kolejki magazynu Azure obsługuje następujące właściw
 
 Szczegółowe informacje o właściwości metadanych dla każdego wyzwalacza są opisane w odpowiedni temat odwołania. Dokumentacja jest również dostępna w **integracji** kartę portalu w **dokumentacji** sekcji poniżej obszar konfiguracji powiązania.  
 
-Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożliwia wyzwalacz kolejki uruchomienia funkcji (zobacz [wyzwalacza magazynu obiektów Blob](functions-bindings-storage-blob.md#storage-blob-trigger)). Komunikat z kolejki może zawierać filename obiektu blob do wyzwolenia na. Przy użyciu `queueTrigger` właściwości metadanych to zachowanie można określić w konfiguracji, a nie w kodzie.
+Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożliwia wyzwalacz kolejki uruchomienia funkcji (zobacz [wyzwalacza magazynu obiektów Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Komunikat z kolejki może zawierać filename obiektu blob do wyzwolenia na. Przy użyciu `queueTrigger` właściwości metadanych to zachowanie można określić w konfiguracji, a nie w kodzie.
 
 ```json
   "bindings": [

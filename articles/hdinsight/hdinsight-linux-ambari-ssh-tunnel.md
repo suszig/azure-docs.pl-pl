@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Użyj tunelowania SSH, aby uzyskać dostęp do interfejsu użytkownika sieci web Ambari, JobHistory, NameNode, Oozie i innych sieci web UI
 
@@ -48,7 +48,7 @@ Jeśli akcji skryptu można użyć do dostosowania z klastrem, usługi lub narz�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klient SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Klient SSH. Większość systemów operacyjnych Podaj klienta SSH za pośrednictwem `ssh` polecenia. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Przeglądarka sieci web, które mogą być skonfigurowane do korzystania z serwera proxy SOCKS5.
 
@@ -74,9 +74,9 @@ To polecenie tworzy połączenie kieruje ruchem do portu lokalnego 9876 do klast
 * **C** -Kompresuj wszystkich danych, ponieważ ruchu w sieci web jest przeważnie tekstu.
 * **2** -force SSH próby tylko w wersji 2 protokołu.
 * **q** — tryb cichy.
-* **T** — Wyłącz pseudo-tty alokacji, ponieważ będziemy są po prostu przekazywania portu.
-* **n**— Wartość pola Zapobiegaj odczytu STDIN, ponieważ będziemy są po prostu przekazywania portu.
-* **N** -nie wykonuj polecenia zdalnego, ponieważ będziemy są po prostu przekazywania portu.
+* **T** — Wyłącz pseudo-tty alokacji, ponieważ właśnie przesyłasz portu.
+* **n**— Wartość pola Zapobiegaj odczytu STDIN, ponieważ właśnie przesyłasz portu.
+* **N** -nie wykonuj polecenia zdalnego, ponieważ właśnie przesyłasz portu.
 * **f** -uruchomione w tle.
 
 Po zakończeniu działania polecenia ruch wysyłany do portu 9876 na komputerze lokalnym jest przekierowywane do węzła głównego klastra.
