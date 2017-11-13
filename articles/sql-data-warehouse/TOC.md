@@ -1,6 +1,6 @@
 # Omówienie
 
-## [Co to jest Magazyn danych SQL?](sql-data-warehouse-overview-what-is.md)
+## [Co to jest  SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Obciążenie magazynu danych](sql-data-warehouse-overview-workload.md)
 
 # Wprowadzenie
@@ -120,6 +120,8 @@
 ### [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Interfejs API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Automatyzowanie poziomów obliczeniowych](manage-compute-with-azure-functions.md)
+
 ### Klasy zasobów
 #### [Wytyczne](resource-classes-for-workload-management.md)
 #### [Analizowanie obciążenia](analyze-your-workload.md)

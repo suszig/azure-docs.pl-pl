@@ -4,7 +4,7 @@
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
 ## [Rozszerzenia kodu VS dla szablonów](resource-manager-vscode-extension.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -71,9 +71,7 @@
 
 ## Ustawianie zasad zasobów
 ### [Co to są zasady zasobów?](resource-manager-policy.md)
-### Przykłady
-#### [Tagi](resource-manager-policy-tags.md)
-#### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
+### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
 
 ## Inspekcja
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Błędy wdrożenia maszyny wirtualnej

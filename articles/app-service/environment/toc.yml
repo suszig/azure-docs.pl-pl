@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Tworzenie środowiska ASE na podstawie szablonu
       href: create-from-template.md
+    - name: Konfiguracja wymuszonego tunelowania
+      href: forced-tunnel-support.md
 - name: Dokumentacja
   items:
     - name: Adresy zarządzania

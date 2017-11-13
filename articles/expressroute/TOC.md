@@ -36,12 +36,19 @@
 ### [Witryna Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](how-to-routefilter-cli.md)
+## [Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft](how-to-move-peering.md)
 ## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
 ### [Konfigurowanie routera](expressroute-config-samples-routing.md)
 ### [Przykłady konfiguracji routera pod kątem translatora adresów sieciowych](expressroute-config-samples-nat.md)
 ## [Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute](how-to-npm.md)
+## Artykuły dotyczące klasycznego modelu wdrażania
+### [Modyfikowanie obwodu](expressroute-howto-circuit-classic.md)
+### [Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej](expressroute-howto-routing-classic.md)
+### [Link a virtual network to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-classic.md)
+### [Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja](expressroute-howto-coexist-classic.md)
+### [Dodawanie bramy do sieci wirtualnej](expressroute-howto-add-gateway-classic.md)
 
 ## Najlepsze rozwiązania
 ### [Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze](../best-practices-network-security.md)

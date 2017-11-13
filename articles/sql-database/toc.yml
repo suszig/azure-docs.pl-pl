@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Monitorowanie funkcji SQL Data Sync za pomocą usługi Log Analytics pakietu OMS
+          href: sql-database-sync-monitor-oms.md
         - name: Najlepsze rozwiązania dotyczące funkcji SQL Data Sync
           href: sql-database-best-practices-data-sync.md
         - name: Rozwiązywanie problemów z funkcją SQL Data Sync
