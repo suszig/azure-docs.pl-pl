@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: nitinme
-ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operacje zarządzania kontem w usłudze Azure Data Lake Store przy użyciu zestawu SDK platformy .NET
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób
 * Aby dowiedzieć się więcej o uwierzytelnianiu użytkowników końcowych w aplikacji, zobacz [End-user authentication with Data Lake Store using .NET SDK (Uwierzytelnianie użytkowników końcowych w usłudze Data Lake Store przy użyciu zestawu SDK platformy .NET)](data-lake-store-end-user-authenticate-net-sdk.md).
 * Aby dowiedzieć się więcej o uwierzytelnianiu „usługa-usługa” w aplikacji, zobacz [Service-to-service authentication with Data Lake Store using .NET SDK (Uwierzytelnianie „usługa-usługa” w usłudze Data Lake Store przy użyciu zestawu SDK platformy .NET)](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="create-client-objects"></a>Tworzenie obiektów klienta
+## <a name="create-client-object"></a>Tworzenie obiektu klienta
 Poniższy fragment kodu tworzy obiekt klienta konta usługi Data Lake Store, który jest używany do wysyłania do usługi żądań zarządzania kontem, takich jak tworzenie konta, usuwanie konta itp.
 
     // Create client objects and set the subscription ID

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ W witrynie Azure Portal [serwer można utworzyć](analysis-services-create-serve
 Gdy już serwer zostanie utworzony, można utworzyć model tabelaryczny bezpośrednio w witrynie Azure Portal. Dzięki nowej [funkcji projektanta internetowego](analysis-services-create-model-portal.md) (wersja zapoznawcza) możesz połączyć się z usługą Azure SQL Database albo źródłem danych usługi Azure SQL Data Warehouse lub zaimportować plik pbix programu Power BI Desktop. Relacje między tabelami są tworzone automatycznie, a następnie można utworzyć miary lub edytować plik model.bim w formacie json bezpośrednio z przeglądarki.
 
 ## <a name="scale-to-your-needs"></a>Skalowanie zgodnie z potrzebami
+
+### <a name="the-right-tier-when-you-need-it"></a>Odpowiednia warstwa dopasowana do potrzeb
+
 Usługi Azure Analysis Services są dostępne w warstwach Deweloper, Podstawowa i Standardowa. W każdej warstwie cena planu zależy od mocy przetwarzania, jednostek QPU i rozmiaru pamięci. Plan w ramach warstwy wybiera się podczas tworzenia serwera. W ramach tej samej warstwy można zmieniać plany w górę lub w dół albo przejść na wyższą warstwę, ale nie można przejść z warstwy wyższej na niższą.
 
 Serwer można skalować w górę, skalować w dół lub wstrzymywać. Można do tego użyć witryny Azure Portal lub, aby mieć pełną kontrolę na bieżąco, użyć programu PowerShell. Płaci się wyłącznie za użyte zasoby. Aby dowiedzieć się więcej na temat różnych planów i warstw oraz skorzystać z kalkulatora cen w celu wybrania właściwego planu dla siebie, zobacz [cennik usługi Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Skalowanie zasobów w poziomie w celu szybkiego uzyskiwania odpowiedzi na zapytania
+
+W przypadku skalowania usług Azure Analysis Services w poziomie zapytania klienta są dystrybuowane między wieloma *replikami zapytania* w puli zapytania. Repliki zapytania mają zsynchronizowane kopie modeli tabelarycznych. Dzięki rozproszeniu obciążenia zapytania można zredukować czas odpowiedzi w przypadku dużych obciążeń związanych z zapytaniami. Operacje przetwarzania modelu można oddzielić od puli zapytania, dzięki czemu operacje przetwarzania nie będą wpływać negatywnie na zapytania klienta. Można utworzyć pulę zapytania z nawet siedmioma dodatkowymi replikami zapytania (łącznie ośmioma, wliczając serwer). 
+
+Podobnie jak w przypadku zmiany warstwy użytkownik może skalować repliki zapytania w poziomie zgodnie z potrzebami. Konfiguracja skalowania w poziomie jest możliwa w portalu lub przy użyciu interfejsów API REST. Aby dowiedzieć się więcej, zobacz artykuł [Azure Analysis Services scale-out (Skalowanie usług Azure Analysis Services w poziomie)](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Przechowywanie danych w zasięgu ręki
 Serwery usług Azure Analysis Services można tworzyć w następujących [regionach platformy Azure](https://azure.microsoft.com/regions/):
@@ -92,11 +101,17 @@ Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwa
 #### <a name="data-security"></a>Bezpieczeństwo danych
 Usługi Azure Analysis Services używają magazynu obiektów Blob Azure jako trwałego magazynu przechowania danych i metadanych dla baz danych usług Analysis Services. Pliki danych w ramach obiektu Blob są szyfrowane za pomocą szyfrowania po stronie serwera (SSE) Azure Blob. W trybie zapytania bezpośredniego przechowywane są tylko metadane. Dostęp do danych rzeczywistych ze źródła danych następuje podczas przeszukiwania.
 
+#### <a name="firewall"></a>Zapora
+
+Zapora usług Azure Analysis Services blokuje wszystkie połączenia klienta inne niż określone w regułach. Skonfiguruj reguły, określając dozwolone adresy IP przy użyciu poszczególnych adresów IP klientów lub zakresu. Połączenia usługi Power BI również mogą być dozwolone lub zablokowane. 
+
 #### <a name="on-premises-data-sources"></a>Lokalne źródła danych
 Bezpieczny dostęp do danych przechowywanych lokalnie w organizacji jest osiągany przez instalację i skonfigurowanie [lokalnej bramy danych](analysis-services-gateway.md). Bramy zapewniają dostęp do danych w trybach zapytania bezpośredniego i dostępu w pamięci. Po nawiązaniu połączenia pomiędzy modelem usług Azure Analysis Services a źródłem danych lokalnych jest tworzone zapytanie wraz z zaszyfrowanymi poświadczeniami dla źródła danych lokalnych. Usługa bramy w chmurze analizuje zapytanie i wypycha je na magistralę Azure Service Bus. Brama lokalna sonduje magistralę Azure Service Bus, poszukując żądań oczekujących. Następnie brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie ze źródłem danych w celu wykonania zapytania. Wyniki są wysyłane ze źródła danych do bramy, a następnie do bazy danych usług Azure Analysis Services.
 
 Usługi Azure Analysis Services są objęte [warunkami dotyczącymi usług online firmy Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) i [zasadami zachowania poufności informacji w witrynie Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Aby dowiedzieć się więcej na temat zabezpieczeń platformy Azure, zobacz witrynę 	[Centrum Zaufania Microsoft](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Obsługuje najnowsze narzędzia klienckie
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-clients.png)

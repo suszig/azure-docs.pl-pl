@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 
@@ -85,7 +85,10 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania ob
 | Cosmos DB            | Tak                | Tak                    | Tak               |
 | Tabele platformy Azure         |                    | Tak                    | Tak               |
 
-* [Azure IoT Hub](../iot-hub/index.md). Ta usługa umożliwia dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń. Usługa ta umożliwia także [zarządzanie urządzeniami](../iot-hub/iot-hub-device-management-overview.md). Na przykład możesz skonfigurować jedno lub większą liczbę urządzeń połączonych z tą usługą, przeprowadzić ich ponowny rozruch lub je zresetować do ustawień fabrycznych.
+> [!NOTE]
+> Aby uzyskać więcej informacji na temat zasobów wdrożonych we wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego, zobacz ten [artykuł](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) w witrynie GitHub.
+
+* [Azure IoT Hub](../iot-hub/index.md). Umożliwia ona dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń. Usługa ta umożliwia także [zarządzanie urządzeniami](../iot-hub/iot-hub-device-management-overview.md). Na przykład możesz skonfigurować jedno lub większą liczbę urządzeń połączonych z tą usługą, przeprowadzić ich ponowny rozruch lub je zresetować do ustawień fabrycznych.
 * [Azure Event Hubs](../event-hubs/index.md). Ta usługa umożliwia wprowadzanie dużej liczby zdarzeń do chmury. Zobacz [Porównanie Centrum IoT Azure i usługi Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.md). Wstępnie skonfigurowane rozwiązania używają tej usługi do analizowania i wyświetlania danych telemetrycznych z urządzeń.
 * [Azure Container Service](../container-service/index.yml). Ta usługa obsługuje mikrousługi i zarządza nimi we wstępnie skonfigurowanych rozwiązaniach.
@@ -124,7 +127,7 @@ Ta architektura mikrousług jest sprawdzonym wzorcem dla rozwiązań w chmurze, 
 Podczas wdrażania nowej wersji zdalnego monitorowania należy wybrać jedną z następujących opcji wdrażania:
 
 * **Podstawowa:** tańsza wersja przeznaczona do celów demonstracyjnych i do testowania wdrożenia. Wszystkie mikrousługi są wdrażane na jednej maszynie wirtualnej platformy Azure.
-* **Enterprise:** rozwinięte wdrożenie infrastruktury na potrzeby opracowywania wdrożenia produkcyjnego. Mikrousługi są wdrażane na wielu maszynach wirtualnych platformy Azure za pomocą usługi Azure Container Service. Platforma Kubernetes zarządza kontenerami aparatu Docker, w których są hostowane poszczególne mikrousługi.
+* **Standardowa:** rozwinięte wdrożenie infrastruktury na potrzeby opracowywania wdrożenia produkcyjnego. Mikrousługi są wdrażane na wielu maszynach wirtualnych platformy Azure za pomocą usługi Azure Container Service. Platforma Kubernetes zarządza kontenerami aparatu Docker, w których są hostowane poszczególne mikrousługi.
 
 ### <a name="language-choices-java-and-net"></a>Wybór języka: Java i .NET
 

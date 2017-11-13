@@ -12,16 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Tworzenie hybrydowej aplikacji lokalnej/w chmurze platformy .NET przy użyciu przekaźnika WCF platformy Azure
-## <a name="introduction"></a>Wprowadzenie
 
 Ten artykuł przedstawia sposób tworzenia hybrydowej aplikacji w chmurze przy użyciu platformy Microsoft Azure i programu Visual Studio. W tym samouczku założono, że nie masz wcześniejszego doświadczenia w używaniu platformy Azure. W mniej niż 30 minut utworzysz aplikację korzystającą z wielu zasobów platformy Azure i działającą w chmurze.
 
@@ -52,7 +51,7 @@ W samouczku założono, że informacje o produktach znajdują się w istniejący
 Przed rozpoczęciem tworzenia aplikacji dla platformy Azure pobierz potrzebne narzędzia i skonfiguruj swoje środowisko deweloperskie:
 
 1. Zainstaluj zestaw Azure SDK dla platformy .NET ze [strony pobierania](https://azure.microsoft.com/downloads/) zestawów SDK.
-2. W kolumnie **.NET** kliknij używaną wersję programu [Visual Studio](http://www.visualstudio.com). Czynności opisane w tym samouczku są wykonywane w programie Visual Studio 2015, ale można w ich przypadku korzystać z programu Visual Studio 2017.
+2. W kolumnie **.NET** kliknij używaną wersję programu [Visual Studio](http://www.visualstudio.com). W krokach tego samouczka używany jest program Visual Studio 2017.
 3. Gdy zostanie wyświetlony monit o uruchomienie lub zapisanie instalatora, kliknij przycisk **Uruchom**.
 4. W **Instalatorze platformy sieci Web** kliknij przycisk **Zainstaluj** i kontynuuj instalację.
 5. Po zakończeniu instalacji będziesz mieć do dyspozycji wszystkie narzędzia niezbędne do tworzenia aplikacji. Zestaw SDK zawiera narzędzia, które pozwalają w łatwy sposób tworzyć aplikacje dla platformy Azure w programie Visual Studio.
@@ -77,7 +76,7 @@ Ten projekt jest aplikacją konsolową programu Visual Studio i używa [pakietu 
 4. Kliknij przycisk **OK**, aby utworzyć projekt **ProductsServer**.
 5. Jeśli masz już zainstalowany menedżer pakietów NuGet dla programu Visual Studio, przejdź do następnego kroku. W przeciwnym razie odwiedź stronę menedżera pakietów [NuGet][NuGet] i kliknij przycisk [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (Zainstaluj menedżer pakietów NuGet). Postępuj zgodnie z monitami, aby zainstalować menedżera pakietów NuGet, a następnie ponownie uruchom program Visual Studio.
 6. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **ProductsServer**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**.
-7. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg `Microsoft Azure Service Bus`. Wybierz pakiet **WindowsAzure.ServiceBus**.
+7. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg **WindowsAzure.ServiceBus**. Wybierz pakiet **WindowsAzure.ServiceBus**.
 8. Kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
    ![][13]
@@ -198,6 +197,8 @@ Ten projekt jest aplikacją konsolową programu Visual Studio i używa [pakietu 
       </behaviors>
     </system.serviceModel>
     ```
+    Błąd spowodowany przez element „transportClientEndpointBehavior” jest tylko ostrzeżeniem i nie powoduje blokady w tym przykładzie.
+    
 13. W pliku App.config w elemencie `<appSettings>` zastąp wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
 
     ```xml
@@ -230,7 +231,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     ![][18]
 
 7. W oknie dialogowym **Nowa aplikacja sieci Web platformy ASP.NET** kliknij przycisk **OK**, aby utworzyć aplikację MVC.
-8. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Postępuj zgodnie z instrukcjami znajdującymi się w [sekcji Publikowanie na platformie Azure tego artykułu](../app-service/app-service-web-get-started-dotnet.md). Następnie wróć do tego samouczka i przejdź do następnego kroku.
+8. Teraz musisz skonfigurować zasoby platformy Azure dla nowej aplikacji sieci Web. Postępuj zgodnie z instrukcjami znajdującymi się w [sekcji Publikowanie na platformie Azure tego artykułu](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Następnie wróć do tego samouczka i przejdź do następnego kroku.
 10. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Klasa**. W polu **Nazwa** wpisz nazwę **Product.cs**. Następnie kliknij pozycję **Dodaj**.
 
     ![][17]
@@ -274,7 +275,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     }
     ```
 4. W Eksploratorze rozwiązań rozwiń folder Views\Shared, a następnie kliknij dwukrotnie plik **_Layout.cshtml**, aby otworzyć go w edytorze programu Visual Studio.
-5. Zamień wszystkie wystąpienia ciągu **My ASP.NET Application** na **LITWARE's Products**.
+5. Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **Northwind Traders Products**.
 6. Usuń linki **Home**, **About** oraz **Contact**. W poniższym przykładzie usuń wyróżniony kod.
 
     ![][41]
@@ -332,7 +333,7 @@ Następny krok polega na połączeniu lokalnego serwera produktów z aplikacją 
 
 1. Jeśli nie jest jeszcze otwarty, w programie Visual Studio ponownie otwórz projekt **ProductsPortal**, który został utworzony w sekcji [Tworzenie aplikacji ASP.NET](#create-an-aspnet-application).
 2. Podobnie jak w sekcji „Tworzenie serwera lokalnego” dodaj pakiet NuGet do odwołań projektu. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **ProductsPortal**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**.
-3. Wyszukaj ciąg „Service Bus”, a następnie wybierz element **WindowsAzure.ServiceBus**. Następnie zakończ instalację i zamknij to okno dialogowe.
+3. Wyszukaj ciąg **WindowsAzure.ServiceBus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Następnie zakończ instalację i zamknij to okno dialogowe.
 4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **ProductsPortal**, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Istniejący element**.
 5. Przejdź do pliku **ProductsContract.cs** z projektu konsolowego **ProductsServer**. Kliknij, aby zaznaczyć plik ProductsContract.cs. Kliknij strzałkę w dół obok pozycji **Dodaj**, a następnie kliknij polecenie **Dodaj jako link**.
 
@@ -455,7 +456,7 @@ Przed uruchomieniem aplikacji w chmurze musisz się upewnić, że aplikacja **Pr
 Aby dowiedzieć się więcej na temat usługi Azure Relay, zobacz następujące zasoby:  
 
 * [Co to jest usługa Azure Relay?](relay-what-is-it.md)  
-* [Jak używać usługi Relay](service-bus-dotnet-how-to-use-relay.md)  
+* [Jak korzystać z usługi Azure Relay?](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
