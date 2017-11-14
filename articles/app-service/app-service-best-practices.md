@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Najlepsze rozwiązania dotyczące usługi Azure App Service
 W tym artykule przedstawiono najlepsze rozwiązania dotyczące używania [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Jeśli widać, że aplikacja wykorzystuje więcej procesorów niż oczekiwano lu
 Aby uzyskać więcej informacji o aplikacjach "bezstanowych", "statefull" vs można Obejrzyj ten film: [planowanie skalowalności End-to-End wielowarstwowej aplikacji w aplikacji sieci Web platformy Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Aby uzyskać więcej informacji na temat opcji skalowania i skalowanie automatyczne usługi aplikacji przeczytaj: [skalowanie aplikacji sieci Web w usłudze Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Gdy wyczerpania zasobów gniazda
-Typową przyczyną wyczerpuje wychodzące połączenia TCP jest używana bibliotek klienta, które nie są zaimplementowane do ponownego użycia połączenia TCP lub w przypadku poziomu protokół wyższej takich jak HTTP - Keep-Alive nie wykorzystywane. Przejrzyj dokumentację dla poszczególnych bibliotek odwołuje się do aplikacji w Twojego planu usługi App Service zapewnienie są skonfigurowane lub dostępne w kodzie wydajne ponowne połączeń wychodzących. Wykonaj również biblioteki dokumentacji wskazówki dotyczące utworzenia prawidłowego i wersji lub czyszczenia, aby uniknąć przeciek połączenia. W czasie dochodzenia takie biblioteki klienta wpływ postępu mogą skorygowane przez skalowanie w poziomie do wielu wystąpień.  
+Typową przyczyną wyczerpuje wychodzące połączenia TCP jest używana bibliotek klienta, które nie są zaimplementowane do ponownego użycia połączenia TCP lub w przypadku poziomu protokół wyższej takich jak HTTP - Keep-Alive nie wykorzystywane. Przejrzyj dokumentację dla poszczególnych bibliotek odwołuje się do aplikacji w Twojego planu usługi App Service zapewnienie są skonfigurowane lub dostępne w kodzie wydajne ponowne połączeń wychodzących. Wykonaj również biblioteki dokumentacji wskazówki dotyczące utworzenia prawidłowego i wersji lub czyszczenia, aby uniknąć przeciek połączenia. W czasie dochodzenia takie biblioteki klienta wpływ postępu mogą skorygowane przez skalowanie w poziomie do wielu wystąpień.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js i wychodzących żądań http
+Podczas pracy z wielu wychodzących żądań http i Node.js, zajmowanie HTTP - Keep-Alive jest szczególnie istotna. Można użyć [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` pakietu w celu ułatwienia w kodzie.
+
+Należy zawsze powinna obsługiwać `http` odpowiedzi, nawet jeśli nie wykonasz żadnej obsługi czynności. Jeśli odpowiedzi nie obsługują poprawnie, aplikacji zostanie ostatecznie zatrzymywane nie więcej gniazda nie są dostępne.
+
+Na przykład podczas pracy z `http` lub `https` pakietu:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Jeśli używasz w usłudze aplikacji w systemie Linux na maszynie z wieloma rdzeniami, inny najlepszym rozwiązaniem jest Użyj PM2, aby uruchomić wiele procesów Node.js do wykonywania aplikacji. Można to zrobić, określając polecenie uruchomienia z kontenera.
+
+Na przykład, aby uruchomić czterech wystąpień:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>Gdy aplikacja kopii zapasowej uruchamia się niepowodzeniem
 Dwie najbardziej typowe przyczyny niepowodzenia tworzenia kopii zapasowej aplikacji są: nieprawidłowy miejsca do magazynowania i nieprawidłowa konfiguracja bazy danych. Takie błędy zazwyczaj się zdarzyć, gdy istnieją zmiany do magazynu lub bazy danych zasobów lub zmiany dotyczące dostępu do tych zasobów (np. poświadczenia zaktualizowane dla wybranej w ustawieniach tworzenia kopii zapasowej bazy danych). Tworzenie kopii zapasowych zwykle uruchamiane zgodnie z harmonogramem i wymagają dostępu do bazy danych i magazynu (w przypadku wyprowadzanie z kopii zapasowej plików) (w przypadku kopiowania i odczytu zawartości do uwzględnienia w kopii zapasowej). Wynik nie może uzyskać dostępu do żadnego z tych zasobów będą zgodne niepowodzenia wykonywania kopii zapasowej. 

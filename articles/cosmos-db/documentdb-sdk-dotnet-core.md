@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4520b9ea730d2be7d30d946a8cbc7437c5be7899
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB .NET Core SDK: Informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -61,6 +61,7 @@ Azure rozwiązania Cosmos DB .NET Core SDK ma parzystość funkcji z najnowszej 
  
  * Znakowanie zmiany z usługi Azure DocumentDB do bazy danych rozwiązania Cosmos Azure w dokumentacji interfejsu API dokumentacji, informacje o metadanych w zestawach i pakietu NuGet. 
  * Udostępnianie informacji diagnostycznych i opóźnienia z odpowiedzi żądania wysyłane z bezpośrednie połączenie między trybem. Nazwy właściwości są RequestDiagnosticsString i RequestLatency ResourceResponse klasy.
+ * Ta wersja zestawu SDK wymaga najnowszej wersji emulatora DB rozwiązania Cosmos Azure dostępne do pobrania z https://aka.ms/cosmosdb-emulator.
  
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Rozwiązywanie problemów z Microsoft Azure stosu
 
@@ -37,16 +37,6 @@ Jeśli wystąpi błąd podczas instalacji, można użyć opcji Uruchom ponownie 
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Po zakończeniu wdrożenia sesji programu PowerShell jest wciąż otwarty i nie wyświetla żadnych danych wyjściowych
 To zachowanie jest prawdopodobnie tylko wynik domyślne zachowanie okno poleceń programu PowerShell, gdy została wybrana. Rozwój wdrożenie zestawu faktycznie ma zakończyło się pomyślnie, ale skrypt został wstrzymany, wybierając okna. Możesz sprawdzić, czy jest to możliwe, wyszukując słowa "Wybierz" pasek tytułu okna wiersza polecenia.  Naciśnij klawisz ESC, aby usunąć jej zaznaczenie, a powinien być wyświetlany komunikat o zakończeniu po nim.
-
-## <a name="templates"></a>Szablony
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Szablon Azure nie będą wdrażane Azure stosu
-Upewnij się, że:
-
-* Szablon musi korzystać z usługi Microsoft Azure, który jest już dostępny, lub w wersji zapoznawczej w stosie Azure.
-* Interfejsy API używane dla konkretnego zasobu są obsługiwane przez lokalne wystąpienie usługi Azure stosu i przeznaczonych prawidłowej lokalizacji ("local" Azure stosu development kit, vs "Wschodnie stany USA" lub "Indie Południowe" na platformie Azure).
-* Należy przejrzeć [w tym artykule](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) o poleceniach cmdlet AzureRmResourceGroupDeployment testu, który przechwytuje niewielkie różnice w składni usługi Azure Resource Manager.
-
-Umożliwia także szablony stosu Azure już podany w [repozytorium GitHub](http://aka.ms/AzureStackGitHub/) ułatwiające rozpoczęcie pracy.
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 ### <a name="default-image-and-gallery-item"></a>Element domyślny obraz i galerii
@@ -75,20 +65,6 @@ Więcej o konfigurowaniu przechowywania odzyskiwanie próg i na żądanie w [Zar
 ## <a name="storage"></a>Magazyn
 ### <a name="storage-reclamation"></a>Odzyskiwanie pamięci masowej
 Może upłynąć do 14 godzin regeneracji pojemność były wyświetlane w portalu. Odzyskiwanie miejsca zależy od różnych czynników, takich jak procent użycia plików wewnętrzny kontenera w magazynie obiektów blob bloku. W związku z tym w zależności od tego, jak dużo danych zostanie usunięty, nie ma żadnej gwarancji na ilość miejsca, które można odzyskać po uruchomieniu przez moduł Garbage Collector.
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Nie zarejestrowano dostawców zasobów
-Podczas nawiązywania połączenia subskrypcji dzierżawcy przy użyciu programu PowerShell, można zauważyć, że dostawców zasobów nie są automatycznie zarejestrowany. Użyj [modułu Connect](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), lub uruchomić następujące polecenie w środowiska PowerShell (po [zainstalować i połączyć](azure-stack-connect-powershell.md) dzierżawcy): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>Interfejs wiersza polecenia
-
-* Tj interfejsu wiersza polecenia w trybie interakcyjnym `az interactive` polecenie nie jest jeszcze obsługiwane w stosie Azure.
-* Aby uzyskać listę dostępnych w stosie Azure obrazów maszyny wirtualnej, użyj `az vm images list --all` polecenia zamiast `az vm image list` polecenia. Określanie `--all` option zapewnia, że odpowiedzi zwraca tylko obrazy, które są dostępne w środowisku Azure stosu. 
-* Aliasy obrazu maszyny wirtualnej, które są dostępne w systemie Azure nie może być stosowane do stosu Azure. Korzystając z obrazów maszyny wirtualnej, użyć całego parametru URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) zamiast alias obrazu. I to URNmust jest zgodna ze specyfikacją obrazu wynikające z `az vm images list` polecenia.
-* Domyślnie 2.0 interfejsu wiersza polecenia używa "Standard_DS1_v2" jako domyślny rozmiar obrazu maszyny wirtualnej. Jednak ten rozmiar nie jest jeszcze dostępna w stosie Azure, dlatego należy określić `--size` parametru jawnie, podczas tworzenia maszyny wirtualnej. Można pobrać listy rozmiarów maszyn wirtualnych, które są dostępne w stosie Azure przy użyciu `az vm list-sizes --location <locationName>` polecenia.
-
 
 ## <a name="windows-azure-pack-connector"></a>Łącznik usługi Windows Azure Pack
 * Jeśli zmienisz hasło konta azurestackadmin po wdrożeniu zestaw deweloperski stosu Azure, nie można skonfigurować tryb usługi chmury. W związku z tym nie będzie można połączyć się środowiska docelowego pakietu Windows Azure Pack.

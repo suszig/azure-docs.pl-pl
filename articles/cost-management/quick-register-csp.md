@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Zarejestruj program partnerski dostawcy usług Kryptograficznych i widoku danych kosztów
 
@@ -22,7 +22,13 @@ Jako serwer partnerski dostawcy usług Kryptograficznych można zarejestrować u
 
 
 >[!NOTE]
->Aby ukończyć rejestrację, musi być administratorem programu partnera z dostępu do interfejsu API Center partnera. Konfiguracja interfejsu API Center partnera jest wymagany do uwierzytelniania i dostępu do danych. Aby uzyskać więcej informacji, zobacz [Połącz z interfejsu API Centrum partnerskiego](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Ponadto pośrednie dostawcy usług Kryptograficznych użytkowników tylko przy użyciu Cloudyn podczas ich bezpośredniego sprzedawcą dostawcy usług Kryptograficznych rejestruje Cloudyn w celu zapewnienia dostępu do swoich klientów i subskrypcje.
+
+>Tylko partnerzy bezpośredniego dostawcy usług Kryptograficznych i dostawcy usług Kryptograficznych pośrednie dostawcy można wykonać Cloudyn rejestracji.
+>
+>Konfigurowanie interfejsu API Center partnera jest wymagane do uwierzytelniania i dostępu do danych. Konto administratora globalnego Center partnera jest potrzebny do inicjują obsługę dostępu do interfejsu API.
+Aby uzyskać więcej informacji, zobacz [Połącz z interfejsu API Centrum partnerskiego](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Dostęp do Cloudyn można udostępniane odsprzedawców pośrednie dostawcy usług Kryptograficznych po zarejestrowaniu ich pośrednie dostawcy usług Kryptograficznych z Cloudyn. Pośrednie odsprzedawców dostawcy usług Kryptograficznych mogą udzielić im dostępu Cloudyn klientów platformy Azure i subskrypcji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 

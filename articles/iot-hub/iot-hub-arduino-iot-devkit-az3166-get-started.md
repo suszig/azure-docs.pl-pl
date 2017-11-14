@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: da757085e55fa0d8ca883f8ed64f30ea81e973f7
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>AZ3166 zestaw deweloperski IoT nawiązać połączenia z Centrum IoT Azure w chmurze
 
@@ -29,7 +29,7 @@ Można użyć [zestaw deweloperski IoT MXChip](https://microsoft.github.io/azure
 ## <a name="what-you-do"></a>Co zrobić
 Połącz [zestaw deweloperski](https://microsoft.github.io/azure-iot-developer-kit/) w Centrum Azure IoT utworzony zbierania danych temperatury i wilgotności z czujników i wysyłać dane do Centrum IoT.
 
-Nie masz jeszcze zestaw deweloperski? [Pobierz jedną](https://aka.ms/iot-devkit-purchase).
+Nie masz jeszcze zestaw deweloperski? [Spróbuj symulator](https://aka.ms/iot-devkit-simulator) lub [kupić](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 

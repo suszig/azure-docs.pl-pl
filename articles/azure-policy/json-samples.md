@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="templates-for-azure-policy"></a>Szablony zasad Azure
 
-Poniższa tabela zawiera linki do szablony json dla zasad usługi Azure.
+Poniższa tabela zawiera linki do szablony json dla zasad usługi Azure. Te przykłady znajdują się w [repozytorium Przykłady zasad Azure](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Obliczanie**||
 | [Zatwierdzone obrazów maszyn wirtualnych](scripts/allowed-custom-images.md) | Wymaga tylko zatwierdzone niestandardowe obrazy wdrożenia w danym środowisku. Należy określić tablicę zatwierdzony obraz identyfikatorów. |
-| [Tworzenie maszyny Wirtualnej za pomocą zarządzania dyskami](scripts/create-vm-managed-disk.md) | Inspekcja po utworzeniu maszyny wirtualnej, który nie korzysta z dysków zarządzanych.|
+| [Inspekcji, gdy maszyna wirtualna nie używa dysku zarządzanego](scripts/create-vm-managed-disk.md) | Inspekcja po utworzeniu maszyny wirtualnej, który nie korzysta z dysków zarządzanych.|
 | [Inspekcji, jeśli rozszerzenie nie istnieje.](scripts/audit-ext-not-exist.md) | Inspekcje, jeśli rozszerzenie nie została wdrożona z maszyną wirtualną. Należy określić wydawcy rozszerzenia i typu, aby sprawdzić, czy została ona wdrożona. |
 | [Zezwalaj na niestandardowe obrazu maszyny Wirtualnej z grupy zasobów](scripts/allow-custom-vm-image.md) |  Wymaga się, że niestandardowe obrazy pochodzą z grupy zasobów zatwierdzone. Należy określić nazwę grupy zasobów zatwierdzone. |
 | [Odmów korzyści Użyj hybrydowego](scripts/deny-hybrid-use.md) | Zabrania używania programu Azure hybrydowego Użyj korzyści (AHUB). Użyj, jeśli nie chcesz zezwolić na korzystanie z lokalnych licencji. |
@@ -39,6 +39,11 @@ Poniższa tabela zawiera linki do szablony json dla zasad usługi Azure.
 | [Tworzenie maszyny Wirtualnej za pomocą zarządzania dyskami](scripts/use-managed-disk-vm.md) | Wymaga użycia dysków zarządzanych maszyn wirtualnych.|
 |**Monitorowanie**||
 | [Ustawienie diagnostyczne inspekcji](scripts/audit-diag-setting.md) | Inspekcje, jeśli ustawienia diagnostyki nie jest włączone dla określonych typów zasobów. Należy określić tablicę typów zasobów, aby sprawdzić, czy są włączone ustawienia diagnostyki. |
+|**Konwencje nazw i tekst**||
+| [Zezwalaj na wiele wzorce nazw](scripts/allow-multiple-name-patterns.md) | Zezwalaj na jednym z wielu Nazwa do użycia dla zasobów. |
+| [Wymagaj like wzór](scripts/enforce-like-pattern.md) | Upewnij się, że nazwy zasobów spełniają warunek like dla wzorca. |
+| [Wymagaj dopasowania wzorca](scripts/enforce-match-pattern.md) | Upewnij się, że nazwy zasobu jest zgodna z wzorcem nazw. |
+| [Wymaganie tag dopasowania wzorca](scripts/enforce-tag-match-pattern.md) | Upewnij się, że wartość tagu jest zgodna z wzorcem tekstu. |
 |**Sieć**||
 | [Dozwolone jednostki SKU bramy aplikacji](scripts/allowed-app-gate-sku.md) | Wymaga użycia zatwierdzone jednostki SKU bramy aplikacji. Należy określić tablicę zatwierdzone jednostki SKU. |
 | [Inspekcji, jeśli nie włączono obserwatora sieciowego dla regionu](scripts/net-watch-not-enabled.md) | Inspekcje, jeśli nie włączono obserwatora sieciowego dla określonego regionu. Należy określić nazwę regionu, aby sprawdzić, czy włączono obserwatora sieciowego. |

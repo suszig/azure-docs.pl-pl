@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
 
@@ -39,21 +39,27 @@ Możesz:
 
 * Wyświetlać stan systemu ExpressRoute z poprzedniego punktu w czasie
 
-**Jak to działa?**
+## <a name="regions"></a>Obsługiwane regiony
+
+Obwody usługi ExpressRoute w dowolnej części świata można monitorować za pomocą obszaru roboczego, który znajduje się w jednym z następujących obszarów:
+
+* Europa Zachodnia 
+* Wschodnie stany USA 
+* Azja Południowo-Wschodnia 
+
+## <a name="workflow"></a>Przepływ pracy
 
 Monitorowania agenci są zainstalowani na wielu serwerach, zarówno lokalnie i na platformie Azure. Agenci komunikują się ze sobą, ale nie wysyłaj danych, wysyłają pakiety uzgadnianie protokołu TCP. Komunikacja między agentami umożliwia platformie Azure mapy topologii sieci i ścieżkę, którą może zająć ruchu.
 
-**Przepływ pracy**
-
-1. Utwórz obszar roboczy NPM regionu zachodnie centralnej NAS. Obecnie jest tylko regionu, w którym ta wersja zapoznawcza jest obsługiwana.
+1. Utwórz obszar roboczy programu NPM do jednej z [obsługiwane regiony](#regions).
 2. Instalowanie i konfigurowanie agentów oprogramowania: 
     * Agenci monitorowania należy zainstalować na serwerach lokalnych i maszyn wirtualnych platformy Azure.
     * Skonfiguruj ustawienia na serwerze agenta monitorowania umożliwia agenci monitorowania do komunikacji. (Otwórz porty zapory itp.)
 3. Konfigurowanie reguł grupa zabezpieczeń sieci umożliwia agenta monitorowania zainstalowanych na maszynach wirtualnych Azure do komunikowania się z lokalnymi monitorowanie agentów.
-4. Żądanie do listy dozwolonych obszaru roboczego programu NPM
+4. Żądanie dozwolonych obszaru roboczego programu NPM.
 5. Konfigurowanie monitorowania: Wykryj automatycznie i zarządzanie sieciami, które są widoczne w NPM.
 
-Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obiektów lub usługi, a masz już obszar roboczy w zachodnie środkowe stany, można pominąć krok 1 i 2 i rozpocząć konfigurację z kroku 3.
+Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obiektów lub usługi, a masz już obszar roboczy w jednym z obsługiwanych regionów, można pominąć krok 1 i 2 i rozpocząć konfigurację z kroku 3.
 
 ## <a name="configure"></a>Krok 1: Tworzenie obszaru roboczego
 
@@ -66,7 +72,7 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
   * Obszar roboczy OMS - wpisanie nazwy obszaru roboczego.
   * Subskrypcja — Jeśli masz wiele subskrypcji, wybierz jedną, które chcesz skojarzyć z nowego obszaru roboczego.
   * Grupa zasobów — Utwórz grupę zasobów lub użyć istniejącego.
-  * Lokalizacja — należy wybrać zachodnie centralnej nam dla tej wersji zapoznawczej
+  * Lokalizacja — należy wybrać [obsługiwany region](#regions).
   * Warstwy cenowej — wybierz bezpłatna
 
   ![Obszar roboczy](.\media\how-to-npm\4.png)<br><br>

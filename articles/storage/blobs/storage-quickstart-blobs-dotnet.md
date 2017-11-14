@@ -3,56 +3,35 @@ title: "Szybki Start Azure - obiektów transferu do/z magazynu obiektów Blob pl
 description: "Szybko poznać, aby przenieść obiekty z magazynu obiektów Blob platformy Azure przy użyciu platformy .NET"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu platformy .NET
 
-W tym szybkiego startu Dowiedz się jak używać języka C# .NET przekazywanie, pobieranie i listy blokowych obiektów blob w kontenerze w magazynie obiektów Blob platformy Azure w systemie Windows.
+W tym szybkiego startu Dowiedz się jak używać biblioteki klienta .NET dla usługi Azure Storage do przekazywanie, pobieranie i listy blokowych obiektów blob w kontenerze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start:
-
-* Zainstaluj [programu Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) z obciążeniem, następujące:
+Aby ukończyć tego przewodnika Szybki Start, zainstaluj [programu Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) z obciążeniem, następujące:
+    
     - **Tworzenie aplikacji na platformie Azure**
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Utwórz konto magazynu przy użyciu portalu Azure
-
-Najpierw utwórz nowe konto magazynu ogólnego przeznaczenia na potrzeby tego przewodnika Szybki Start. 
-
-1. Przejdź do [portalu Azure](https://portal.azure.com) i zaloguj się za pomocą konta platformy Azure. 
-2. W menu Centrum wybierz **nowy** > **magazynu** > **konta magazynu — obiekt blob, plików, tabeli, kolejki**. 
-3. Wprowadź nazwę konta magazynu. Nazwa musi mieć od 3 do 24 znaków i może zawierać tylko cyfry i małe litery. Również musi być unikatowa.
-4. Ustaw `Deployment model` do **Menedżera zasobów**.
-5. Ustaw `Account kind` do **ogólnego przeznaczenia**.
-6. Ustaw `Performance` do **standardowe**. 
-7. Ustaw `Replication` do **magazyn lokalnie nadmiarowy (LRS)**.
-8. Ustaw `Storage service encryption` do **wyłączone**.
-9. Ustaw `Secure transfer required` do **wyłączone**.
-10. Wybierz subskrypcję. 
-11. Aby uzyskać `resource group`, Utwórz nową i nadaj unikatową nazwę. 
-12. Wybierz `Location` dla konta magazynu.
-13. Sprawdź **Przypnij do pulpitu nawigacyjnego** i kliknij przycisk **Utwórz** można utworzyć konta magazynu. 
-
-Po utworzeniu konta magazynu jest przypięta do pulpitu nawigacyjnego. Kliknij go, aby go otworzyć. W obszarze Ustawienia, kliknij przycisk **klucze dostępu**. Wybierz klucz i skopiuj parametry połączenia do Schowka, a następnie wklej go w edytorze tekstu do późniejszego użycia.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
@@ -104,7 +83,11 @@ Można również użyć narzędzia takie jak [Eksploratora usługi Storage Azure
 
 Po zweryfikowaniu pliki naciśnij dowolny klawisz, aby zakończyć pokaz i usuwanie plików testowych. Teraz, znając prezentowanym przykładzie, otwórz plik Program.cs, aby przyjrzeć się kodu. 
 
-## <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
+## <a name="understand-the-sample-code"></a>Zrozumienie przykładowy kod
+
+Następnie możemy przeprowadzenie przykładowy kod, dzięki czemu można zrozumieć, jak to działa.
+
+### <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
 
 Najpierw musisz jest utworzyć odwołania do obiektów używane do uzyskania dostępu i zarządzania magazynem obiektów Blob. Te obiekty kompilacji na każdym z nich — są używane przez kolejnego na liście.
 
@@ -115,6 +98,9 @@ Najpierw musisz jest utworzyć odwołania do obiektów używane do uzyskania dos
 * Utwórz wystąpienie **CloudBlobContainer** obiektu, który reprezentuje uzyskują dostęp do kontenera. Kontenery są używane do organizowania obiektów blob, jak używać folderów na komputerze do organizowania plików.
 
 Po utworzeniu **CloudBlobContainer**, można utworzyć wystąpienia **CloudBlockBlob** obiekt, który wskazuje konkretnego obiektu blob, w którym interesuje i wykonaj przekazywanie, pobieranie kopiowania, itp. Operacja.
+
+> [!IMPORTANT]
+> Nazwy kontenerów muszą mieć małe litery. Zobacz [nazewnictwa i odwołuje się do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) uzyskać więcej informacji o nazwach i kontener obiektów blob.
 
 W tej sekcji utworzenia wystąpienia obiektów, Utwórz nowy kontener i następnie ustawić uprawnień dla kontenera obiektów blob są publiczne i jest możliwy tylko adres URL. Kontener jest nazywany **quickstartblobs**. 
 
@@ -139,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
+### <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty BLOB są najczęściej używane i która jest używana w tym Szybki Start. 
 
@@ -163,7 +149,7 @@ Istnieje kilka metod przekazywania, korzystających z magazynu obiektów Blob. N
 
 Blokowe obiekty BLOB może być dowolnego typu text lub pliku binarnego. Stronicowe obiekty BLOB są głównie używane dla pliki VHD używane do tworzenia kopii maszyn wirtualnych IaaS. Dołącz obiekty BLOB są używane do logowania, takie jak kiedy zachodzi potrzeba zapisane do pliku i następnie dodać więcej informacji. Większość obiektów przechowywanych w magazynie obiektów Blob są blokowych obiektów blob.
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
+### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
 Zostanie wyświetlona lista plików za pomocą kontenera [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Poniższy kod pobiera listę obiektów blob, a następnie w pętli, przedstawiający identyfikatorów URI obiektów blob znalezionych. Można skopiować identyfikator URI w oknie polecenia i wklej go w przeglądarce, aby wyświetlić plik.
 
@@ -183,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Pobieranie obiektów blob
+### <a name="download-blobs"></a>Pobieranie obiektów blob
 
 Pobieranie obiektów blob przy użyciu dysku lokalnym [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -199,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Przekazane w tego przewodnika Szybki Start obiektów blob nie są już potrzebne, można usunąć za pomocą całego kontenera [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). To również usunięcie plików utworzony, jeśli nie są już potrzebne.
 
@@ -215,5 +201,7 @@ W tym szybkiego startu przedstawiono sposób przesyłania plików między dyskie
 
 > [!div class="nextstepaction"]
 > [Porada operacje magazynu obiektów blob](storage-dotnet-how-to-use-blobs.md)
+
+Aby uzyskać dodatkowe przykłady kodu usługi Azure Storage, które można pobrać i uruchomić, zobacz listę [przykłady usługi Azure Storage przy użyciu platformy .NET](../common/storage-samples-dotnet.md).
 
 Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zobacz [zasobami magazynu obiektów Blob platformy Azure zarządzać za pomocą Eksploratora usługi Storage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

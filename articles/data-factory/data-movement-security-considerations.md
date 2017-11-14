@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 61ccae3c77533037de1d8d8e3963d7beb3e07a65
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ W tym artykule opisano infrastrukturę podstawowych zabezpieczeń, która umożl
 
 W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](concepts-pipelines-activities.md) danych. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Potoki te znajdują się w regionie, w której został utworzony z fabryką danych. 
 
-Mimo że fabryki danych jest dostępna tylko w **wschodnie stany USA** i **wschodnie stany USA 2** region (wersja zapoznawcza version 2), usługa przenoszenia danych jest dostępne [globalnie w wielu regionach](concepts-integration-runtime.md#azure-ir). Jeśli usługa przenoszenia danych nie została jeszcze wdrożona do tego regionu, usługi fabryka danych zapewnia, że dane nie opuści obszaru geograficznego / regionu, chyba że jawnie poinstruować usługę, aby użyć alternatywnej regionu. 
+Mimo że fabryki danych jest dostępna tylko w **wschodnie stany USA**, **wschodnie stany USA 2**, i **Europa Zachodnia** regionów (wersja zapoznawcza version 2), usługa przenoszenia danych jest dostępne [globalny w wielu regionach](concepts-integration-runtime.md#azure-ir). Jeśli usługa przenoszenia danych nie została jeszcze wdrożona do tego regionu, usługi fabryka danych zapewnia, że dane nie opuści obszaru geograficznego / regionu, chyba że jawnie poinstruować usługę, aby użyć alternatywnej regionu. 
 
 Fabryka danych Azure, sam nie przechowuje żadnych danych, z wyjątkiem poświadczeń połączonej usługi dla magazynów danych chmury, które są szyfrowane za pomocą certyfikatów. Usługa umożliwia tworzenie opartych na danych przepływów pracy do aranżowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats) oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Można też monitorować i zarządzać przepływów pracy za pomocą monitora Azure i zestawy SDK.
 

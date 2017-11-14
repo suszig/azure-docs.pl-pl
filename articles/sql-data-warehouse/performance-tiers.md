@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Warstwy wydajności w usłudze Azure SQL Data Warehouse (wersja zapoznawcza)
 Magazyn danych SQL oferuje dwie warstwy wydajności, które są zoptymalizowane pod kątem obciążeń analitycznych. W tym artykule opisano pojęcia związane z warstwy wydajności, aby ułatwić możesz wybrać najodpowiedniejszy warstwę wydajności dla obciążenia. 
@@ -55,7 +55,7 @@ WITH
 ## <a name="memory-maximums"></a>Maksymalne wartości pamięci
 Warstwy wydajności mają profile różnych pamięci, co przekłada się na inną ilość pamięci na zapytanie. Zoptymalizowane dla warstwy wydajności obliczeniowej zapewnia 2,5 x większa ilość pamięci na zapytanie niż zoptymalizowane dla warstwy wydajności elastyczność. Ta dodatkowa pamięć pomaga zoptymalizowana dla warstwy wydajności obliczeniowej jego błyskawicznie szybkie wydajności. Dodatkowej pamięci na zapytanie umożliwia również uruchamiać zapytania więcej jednocześnie, ponieważ można korzystać z zapytania niższe [klasy zasobu](resource-classes-for-workload-management.md). 
 
-### <a name="optimized-for-elasticity"></a>Zoptymalizowana pod kątem elastyczność
+### <a name="optimized-for-elasticity"></a>Zoptymalizowane pod kątem elastyczności
 
 Poziomy usług dla zoptymalizowany pod kątem elastyczność wydajności warstwy należą do zakresu od DW100 do DW6000. 
 
@@ -148,7 +148,7 @@ W poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gnia
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### <a name="optimized-for-elasticity"></a>Zoptymalizowana pod kątem elastyczność
+### <a name="optimized-for-elasticity"></a>Zoptymalizowane pod kątem elastyczności
 W poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gniazda współbieżności dla każdego [klasy zasobu dynamicznego](resource-classes-for-workload-management.md).  Te dotyczą zoptymalizowane dla warstwy wydajności elastyczność.
 
 **Klasy zasobu dynamicznego**

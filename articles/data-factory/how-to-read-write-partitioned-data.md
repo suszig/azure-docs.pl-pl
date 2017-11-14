@@ -1,6 +1,6 @@
 ---
 title: Jak do odczytu lub zapisu na partycje danych w fabryce danych Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak odczytu lub zapisu danych partycjonowanych fabryki danych Azure w wersji 2."
+description: "Dowiedz się, jak odczytu lub zapisu danych podzielonej na partycje w fabryce danych Azure w wersji 2."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: ee83fce3eeef4bde6dc8e0ea6f17b40396619412
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Jak do odczytu lub zapisu na partycje dane z fabryki danych Azure w wersji 2
 W wersji 1 usługi fabryka danych Azure obsługiwane odczytu lub zapisu danych podzielonej na partycje przy użyciu SliceStart/SliceEnd/WindowStart/WindowEnd zmienne systemowe. W wersji 2 to zachowanie można osiągnąć za pomocą parametru potoku i czas/zaplanowana godzina rozpoczęcia tego wyzwalacza jako wartość parametru. 
@@ -38,19 +38,19 @@ Aby uzyskać więcej informacji na temat właściwości partitonedBy, zobacz [ł
 
 W wersji 2 sposobów osiągnięcia to zachowanie jest wykonywanie następujących czynności: 
 
-1. Zdefiniuj **potoku parametru** typu String. W poniższym przykładzie nazwa parametru potoku jest **ScheduledRunTime**. 
-2. Ustaw **folderPath** w definicji zestawu danych z wartością parametru potoku dla, jak pokazano w przykładzie. 
+1. Zdefiniuj **potoku parametru** typu String. W poniższym przykładzie nazwa parametru potoku jest **scheduledRunTime**. 
+2. Ustaw **folderPath** w definicji zestawu danych z wartością parametru potoku. 
 3. Przed uruchomieniem potoku, należy przekazać wartość zapisane na stałe dla parametru. Lub Przekaż wyzwalacza czas rozpoczęcia lub zaplanowanego czasu dynamicznie w czasie wykonywania. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Podaj wartość od wyzwalacza
-W następującej definicji wyzwalacza zaplanowanego czasu wyzwalacza jest przekazywany jako wartość parametru ScheduledRunTime potoku: 
+W następującej definicji wyzwalacza zaplanowanego czasu wyzwalacza jest przekazywany jako wartość **scheduledRunTime** parametru w potoku: 
 
 ```json
 {
@@ -64,7 +64,7 @@ W następującej definicji wyzwalacza zaplanowanego czasu wyzwalacza jest przeka
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -80,7 +80,7 @@ Oto przykład definicji zestawu danych (która używa parametru o nazwie: `date`
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -134,15 +134,15 @@ Definicja potoku:
                         "type": "Expression"
                     },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +154,7 @@ Definicja potoku:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "date": {
+            "scheduledRunTime": {
                 "type": "String"
             },
             "blobStorageAccount": {

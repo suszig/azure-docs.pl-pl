@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Usługa Azure Active Directory B2C: Zaloguj się przy użyciu konta usługi Azure AD
 
@@ -52,6 +52,9 @@ Aby włączyć logowanie użytkowników z określonej usługi Azure AD w organiz
 1. Wprowadź nazwę dla aplikacji (na przykład `Azure AD B2C App`).
 1. Wybierz **aplikacji sieci Web / interfejs API** typu aplikacja.
 1. Aby uzyskać **adres URL logowania**, wprowadź następujący adres URL, gdzie `yourtenant` zastępuje nazwę dzierżawy usługi Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >Wartość "yourtenant" musi być małych liter w **adres URL logowania**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp

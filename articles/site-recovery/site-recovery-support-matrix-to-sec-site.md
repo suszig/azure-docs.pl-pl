@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Tabela wsparcia dla replikacji do lokacji dodatkowej z usługą Azure Site Recovery
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera podsumowanie, co jest obsługiwana w przypadku użycia [us�
 
 **Wdrożenie** | **Szczegóły** 
 --- | ---
-**VMware do programu VMware** | Odzyskiwania po awarii lokalnych maszyn wirtualnych VMware do lokacji dodatkowej VMware.<br/><br/> Pobierz [InMage Scout Podręcznik użytkownika](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware do programu VMware** | Odzyskiwania po awarii lokalnych maszyn wirtualnych VMware do lokacji dodatkowej VMware.<br/><br/> Pobierz [InMage Scout Podręcznik użytkownika](https://aka.ms/asr-scout-user-guide)
 **Z funkcji Hyper-V do funkcji Hyper-V** | Odzyskiwanie maszyn wirtualnych funkcji Hyper-V lokalnymi w chmurach VMM do dodatkowej chmury VMM.<br></br> Nie jest obsługiwane bez programu VMM.
 
 
@@ -39,7 +39,7 @@ Ten artykuł zawiera podsumowanie, co jest obsługiwana w przypadku użycia [us�
 
 **Wdrożenie** | **Pomoc techniczna**
 --- | ---
-**Maszyna wirtualna oprogramowania VMware/fizyczne serwera** | vCenter 5.5 lub 6.0 (Obsługa tylko funkcji 5.5)
+**Maszyna wirtualna oprogramowania VMware/fizyczne serwera** | vCenter 5.5, 6.0 i 6.5 (Obsługa tylko funkcji 5.5)
 **Funkcja Hyper-V w programie VMM** | Windows Server 2016 i Windows Server 2012 R2 z najnowszymi aktualizacjami.<br/><br/> Hosty z systemem Windows Server 2016 powinny być zarządzane przez program VMM 2016.<br/><br/> Chmury VMM 2016 z systemu Windows Server 2016 i 2012 R2 hosty nie są obecnie obsługiwane.<br/><br/> Wdrożenia, które obejmują uaktualnienie istniejącego VMM 2012 R2 do wersji System Center 2016 nie są obecnie obsługiwane.
 
 
@@ -49,7 +49,7 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego maszyny repliko
 
 **Serwer VMware/fizyczne** | **Funkcja Hyper-V (w programie VMM)**
 --- | ---
-64-bitowego systemu Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Linux przedsiębiorstwa 6.4 lub 6.5 systemem Red Hat zgodne jądra lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 z dodatkiem SP3 | Gość żadnego systemu operacyjnego [obsługiwane przez funkcję Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bitowego systemu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 z dodatkiem SP3, 11 z dodatkiem SP4  | Gość żadnego systemu operacyjnego [obsługiwane przez funkcję Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Magazyn maszyny systemu Linux
 
@@ -104,15 +104,15 @@ DYSK VHD/VHDX | Nie dotyczy | Tak (maksymalnie 16 dysków)
 Gł 2 maszyny Wirtualnej | Nie dotyczy | Tak
 Udostępniony dysk klastra | Tak  | Nie
 Zaszyfrowanego dysku | Nie | Nie
-Z INTERFEJSEM UEFI| Nie | Nie dotyczy
+Z INTERFEJSEM UEFI| Tak | Nie dotyczy
 SYSTEMU PLIKÓW NFS | Nie | Nie
 SMB 3.0 | Nie | Nie
 DYSK RDM | Tak | Nie dotyczy
-Na dysku > 1 TB | Nie | Tak
+Na dysku > 1 TB | Tak | Tak
 Wolumin dysku rozłożone > 1 TB<br/><br/> LVM | Tak | Tak
 Funkcja miejsca do magazynowania | Nie | Tak
-Dodaj lub usuń gorących dysku | Nie | Nie
-Wykluczanie dysku | Nie | Tak
+Dodaj lub usuń gorących dysku | Tak | Nie
+Wykluczanie dysku | Tak | Tak
 Wiele ścieżek (MPIO) | Nie dotyczy | Tak
 
 ## <a name="vaults"></a>magazynów

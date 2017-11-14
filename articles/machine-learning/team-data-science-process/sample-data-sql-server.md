@@ -4,7 +4,7 @@ description: "Przykładowe dane w programie SQL Server na platformie Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Przykładowe dane w programie SQL Server na platformie Azure
-Ten dokument zamieszczono przykładowe dane przechowywane w programie SQL Server na platformie Azure przy użyciu SQL lub języka programowania Python. Ponadto jak przenieść próbki danych do usługi Azure Machine Learning przez zapisanie go w pliku, przekazać go do obiektów blob platformy Azure i odczytywania go do usługi Azure Machine Learning Studio.
+W tym artykule pokazano, jak przykładowe dane przechowywane w programie SQL Server na platformie Azure przy użyciu SQL lub języka programowania Python. Ponadto jak przenieść próbki danych do usługi Azure Machine Learning przez zapisanie go w pliku, przekazać go do obiektów blob platformy Azure i odczytywania go do usługi Azure Machine Learning Studio.
 
 Używa języka Python próbkowania [pyodbc](https://code.google.com/p/pyodbc/) ODBC — Biblioteka nawiązać połączenia z programem SQL Server na platformie Azure i [Pandas](http://pandas.pydata.org/) biblioteki w celu pobierania próbek.
 
 > [!NOTE]
-> Przykładowy kod SQL w tym dokumencie przyjęto założenie, że dane są w programie SQL Server na platformie Azure. Jeśli nie jest, zapoznaj się [przenoszenie danych do programu SQL Server na platformie Azure](move-sql-server-virtual-machine.md) tematu, aby uzyskać instrukcje dotyczące sposobu przenoszenia danych do programu SQL Server na platformie Azure.
+> Przykładowy kod SQL w tym dokumencie przyjęto założenie, że dane są w programie SQL Server na platformie Azure. Jeśli nie jest, zapoznaj się [przenoszenie danych do programu SQL Server na platformie Azure](move-sql-server-virtual-machine.md) artykuł, aby uzyskać instrukcje dotyczące sposobu przenoszenia danych do programu SQL Server na platformie Azure.
 > 
 > 
 
-Następujące **menu** linki do tematów opisujących sposób przykładowe dane z różnych środowiskach magazynu. 
+Następujące **menu** łącza do artykułów, które opisują sposób przykładowe dane z różnych środowiskach magazynu. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -40,9 +40,9 @@ Jeśli zestaw danych, które mają być analizowanie jest duży, zazwyczaj jest 
 To zadanie próbkowania jest krokiem w [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="SQL"></a>Przy użyciu programu SQL
-W tej sekcji opisano kilka metod, aby wykonać pobieranie próbek losowych z danymi w bazie danych przy użyciu programu SQL. Wybierz metodę, w oparciu o rozmiar danych i jego dystrybucji.
+W tej sekcji opisano kilka metod, aby wykonać pobieranie próbek losowych z danymi w bazie danych przy użyciu programu SQL. Wybierz metodę opartą na rozmiar danych i jego dystrybucji.
 
-Dwa poniższe elementy pokazują, jak używać newid w programie SQL Server do wykonywania próbki. Wybór metody zależy od sposobu losowej próbki w celu (pk_id w poniższym przykładowym kodzie zakłada się, że klucz podstawowy generowane automatycznie).
+Poniższych dwóch elementów pokazują, jak używać `newid` w programie SQL Server do wykonania próbkowania. Wybór metody zależy od sposobu losowej próbki w celu (pk_id w poniższy przykład kodu zakłada się, że klucz podstawowy generowane automatycznie).
 
 1. Mniej rygorystyczne losowej próbki
    
@@ -53,7 +53,7 @@ Dwa poniższe elementy pokazują, jak używać newid w programie SQL Server do w
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample może być użyta do próbkowania także przedstawiona poniżej. Może to być lepszym rozwiązaniem, jeśli rozmiar danych jest duży (przy założeniu, że nie jest skorelowany danych na różnych stronach) i dla zapytania do wykonania w odpowiednim czasie.
+Tablesample może służyć do pobierania próbek danych również. Może to być lepszym rozwiązaniem, jeśli rozmiar danych jest duży (przy założeniu, że nie jest skorelowany danych na różnych stronach) i dla zapytania do wykonania w odpowiednim czasie.
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Tablesample może być użyta do próbkowania także przedstawiona poniżej. Mo�
 > 
 
 ### <a name="sql-aml"></a>Nawiązywanie połączenia z usługi Azure Machine Learning
-Przykładowe zapytania powyżej można używać bezpośrednio w usłudze Azure Machine Learning [i zaimportuj dane] [ import-data] moduł dół przykładowe dane na bieżąco i przełączyć go do eksperymentu uczenia maszynowego Azure. Poniżej przedstawiono zrzut ekranu przy użyciu modułu czytnik do odczytu próbki danych:
+Przykładowe zapytania powyżej można używać bezpośrednio w usłudze Azure Machine Learning [i zaimportuj dane] [ import-data] moduł dół przykładowe dane na bieżąco i przełączyć go do eksperymentu uczenia maszynowego Azure. Zrzut ekranu przy użyciu modułu czytnik do odczytu próbki danych jest następujący:
 
 ![Czytnik sql][1]
 
@@ -112,12 +112,12 @@ Następujący przykładowy kod umożliwia zapisują dane próbkowania w dół do
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Odczytywanie danych z obiektów blob platformy Azure przy użyciu usługi Azure Machine Learning [i zaimportuj dane] [ import-data] modułu, jak pokazano poniżej Przechwyć ekranu:
+3. Odczytywanie danych z obiektów blob platformy Azure przy użyciu usługi Azure Machine Learning [i zaimportuj dane] [ import-data] modułu, jak pokazano w poniższych Przechwyć ekranu:
 
 ![Czytnik obiektów blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Proces nauki danych zespołu w przykładzie akcji
-Przykład end-to-end wskazówki procesu nauki danych Team publicznego zestawu danych, przy użyciu zobacz [proces nauki danych zespołu w działaniu: przy użyciu programu SQL Server](sql-walkthrough.md).
+Aby wskazówki publicznego zestawu danych, przy użyciu Zobacz przykład procesu nauki danych Team [proces nauki danych zespołu w działaniu: przy użyciu programu SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

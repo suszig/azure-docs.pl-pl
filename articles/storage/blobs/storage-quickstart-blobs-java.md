@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: b096b9d79c049d8659a4171a0cbb42a99e245776
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu języka Java
 
@@ -85,19 +85,23 @@ Po zweryfikowaniu pliki, naciśnij klawisz enter, aby zakończyć pokaz i usuwan
 
 ## <a name="understand-the-sample-code"></a>Zrozumienie przykładowy kod
 
+Następnie możemy przeprowadzenie przykładowy kod, dzięki czemu można zrozumieć, jak to działa.
+
+### <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
+
 Najpierw musisz jest utworzyć odwołania do obiektów używane do uzyskania dostępu i zarządzania magazynem obiektów Blob. Te obiekty kompilacji na każdym z nich — są używane przez kolejnego na liście.
 
 * Utwórz wystąpienie **CloudStorageAccount** obiekt wskazujący [konta magazynu](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-**CloudStorageAccount** obiekt jest reprezentację konta magazynu i pozwala na ustawianie i programowy dostęp właściwości konta magazynu. Przy użyciu **CloudStorageAccount** można utworzyć wystąpienia obiektu **CloudBlobClient**, która jest niezbędne do uzyskania dostępu do usługi blob.
+    **CloudStorageAccount** obiekt jest reprezentację konta magazynu i pozwala na ustawianie i programowy dostęp właściwości konta magazynu. Przy użyciu **CloudStorageAccount** można utworzyć wystąpienia obiektu **CloudBlobClient**, która jest niezbędne do uzyskania dostępu do usługi blob.
 
 * Utwórz wystąpienie **CloudBlobClient** obiektu, który wskazuje [usługa Blob](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) na koncie magazynu.
 
-**CloudBlobClient** zapewnia punkt dostępu do usługi obiektów blob, umożliwiając ustawić i programowy dostęp właściwości do magazynu obiektów blob. Przy użyciu **CloudBlobClient** można utworzyć wystąpienia **CloudBlobContainer** obiektu, które są niezbędne do utworzenia kontenerów.
+    **CloudBlobClient** zapewnia punkt dostępu do usługi obiektów blob, umożliwiając ustawić i programowy dostęp właściwości do magazynu obiektów blob. Przy użyciu **CloudBlobClient** można utworzyć wystąpienia **CloudBlobContainer** obiektu, które są niezbędne do utworzenia kontenerów.
 
 * Utwórz wystąpienie **CloudBlobContainer** obiektu, który reprezentuje [kontenera](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) uzyskują dostęp do. Kontenery są używane do organizowania obiektów blob, jak używać folderów na komputerze do organizowania plików.    
 
-Po utworzeniu **CloudBlobContainer**, można utworzyć wystąpienia **CloudBlockBlob** obiekt wskazujący na konkretnym [obiektu blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) , w której jesteś zainteresowany, i Wykonaj przekazywanie, pobieranie, kopiowania, operacji itp.
+    Po utworzeniu **CloudBlobContainer**, można utworzyć wystąpienia **CloudBlockBlob** obiekt wskazujący na konkretnym [obiektu blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) , w której jesteś zainteresowany, i Wykonaj przekazywanie, pobieranie, kopiowania, operacji itp.
 
 > [!IMPORTANT]
 > Nazwy kontenerów muszą mieć małe litery. Zobacz [nazewnictwa i odwołuje się do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) uzyskać więcej informacji o nazwach i kontener obiektów blob.

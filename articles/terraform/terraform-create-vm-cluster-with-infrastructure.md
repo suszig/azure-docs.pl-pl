@@ -7,13 +7,13 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/13/2017
 ms.author: tarcher
-ms.openlocfilehash: 859c0a2f2cf315e9168ed9828061c03da6b8e0a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Tworzenie klastra maszyny Wirtualnej z Terraform i HCL
 
@@ -35,7 +35,7 @@ W tym samouczku zostały wykonane następujące czynności:
 
 W tej sekcji służy do generowania nazwy głównej usługi platformy Azure i dwóch plików konfiguracyjnych Terraform zawierający poświadczenia od podmiotu zabezpieczeń.
 
-1. [Konfigurowanie nazwy głównej usługi Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) umożliwiające Terraform do udostępniania zasobów na platformie Azure. Podczas tworzenia podmiot zabezpieczeń, zanotuj wartości Identyfikatora subskrypcji, identyfikator dzierżawy, nazwa wyświetlana i hasło.
+1. [Konfigurowanie nazwy głównej usługi Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) umożliwiające Terraform do udostępniania zasobów na platformie Azure. Podczas tworzenia podmiot zabezpieczeń, zanotuj wartości Identyfikatora subskrypcji, dzierżawy, appId i hasło.
 
 2. Otwórz wiersz polecenia.
 
@@ -236,7 +236,7 @@ Aby zainicjować Terraform, uruchom następujące polecenie:
 
 [Terraform planu polecenia](https://www.terraform.io/docs/commands/plan.html) służy do tworzenia planu wykonywania. Aby wygenerować planu wykonywania, Terraform agreguje wszystkich `.tf` plików w bieżącym katalogu. 
 
-Jeśli pracujesz w środowisku współpracy, których konfiguracja może zmieniać między czas utworzenia planu wykonania i zastosować plan wykonania, należy użyć [terraform planu polecenia-out parametru](https://www.terraform.io/docs/commands/plan.html#out-path)i plan wykonania do pliku wyjściowego. W przeciwnym razie, jeśli pracujesz w środowisku pojedynczego osoby, można pominąć `-out` parametru.
+Jeśli pracujesz w środowisku współpracy, których konfiguracja może zmieniać między czas utworzenia planu wykonania i zastosować plan wykonania, należy użyć [terraform planu polecenia-out parametru](https://www.terraform.io/docs/commands/plan.html#out-path)można zapisać planu wykonania do pliku. W przeciwnym razie, jeśli pracujesz w środowisku pojedynczego osoby, można pominąć `-out` parametru.
 
 Jeśli nazwa pliku zmiennych Terraform nie jest `terraform.tfvars` i nie będzie zgodna z `*.auto.tfvars` wzorzec, należy określić przy użyciu nazwy pliku [parametru - var pliku polecenia planu terraform](https://www.terraform.io/docs/commands/plan.html#var-file-foo) podczas uruchamiania `terraform plan`polecenia.
 

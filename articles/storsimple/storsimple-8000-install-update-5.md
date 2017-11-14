@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalowanie aktualizacji 5 na urządzeniu StorSimple
 
@@ -29,6 +29,7 @@ W tym samouczku przedstawiono sposób instalacji aktualizacji 5 na urządzeniu S
 Aktualizacja 5 obejmuje oprogramowanie urządzenia, Storport i Spaceport, aktualizacje zabezpieczeń systemu operacyjnego i aktualizacje systemu operacyjnego, a aktualizacje oprogramowania układowego dysku.  Oprogramowanie urządzenia, Spaceport Storport, zabezpieczeń i inne aktualizacje systemu operacyjnego są Brak aktualizacji. Brak lub regularne aktualizacje mogą być stosowane za pośrednictwem portalu Azure lub za pomocą metody poprawki. Aktualizacje oprogramowania układowego dysku destrukcyjne aktualizacji i są stosowane, gdy urządzenie jest w trybie konserwacji za pomocą metody poprawek za pomocą interfejsu programu Windows PowerShell urządzenia.
 
 > [!IMPORTANT]
+> * Aktualizacja 5 jest to aktualizacja wymagana i powinny być instalowane natychmiast. Aby uzyskać więcej informacji, zobacz [wersji aktualizacji 5](storsimple-update5-release-notes.md).
 > * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe czasu zainstalowania w celu określenia kondycji urządzenia pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje z portalu Azure.
 > * Zdecydowanie zaleca się, że podczas aktualizowania urządzenia z wersjami przed Update 3, zainstalować aktualizacje za pomocą metody poprawki. Jeśli wystąpią problemy, [dziennika biletu pomocy technicznej](storsimple-8000-contact-microsoft-support.md).
 > * Zaleca się zainstalowanie oprogramowania i innych regularne aktualizacje za pomocą portalu Azure. Tylko powinien możesz przejść do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. W zależności od wersji aktualizujesz z aktualizacji może potrwać 4 godziny (lub nowszego) do zainstalowania. Aktualizacje trybu konserwacji musi być zainstalowany za pośrednictwem interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, te spowodować dół czasu dla danego urządzenia.

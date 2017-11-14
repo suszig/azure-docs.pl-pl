@@ -4,7 +4,7 @@ description: "Opisuje nowe funkcje, problemy i rozwiązania StorSimple 8000 seri
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Informacje o wersji StorSimple 8000 serii aktualizacji 5
 
@@ -31,6 +31,7 @@ Można zastosować aktualizacji 5, do każdego urządzenia StorSimple systemem U
 Przejrzyj informacje zawarte w informacjach o wersji przed wdrożeniem aktualizacji w rozwiązaniu StorSimple.
 
 > [!IMPORTANT]
+> * Aktualizacja 5 jest to aktualizacja wymagana i musi być zainstalowana natychmiast. Aby uzyskać więcej informacji, zobacz temat jak [zastosowania aktualizacji 5](storsimple-8000-install-update-5.md).
 > * Aktualizacja 5 ma oprogramowanie urządzenia, oprogramowania układowego dysku zabezpieczeń systemu operacyjnego i inne aktualizacje systemu operacyjnego. Trwa około 4 godziny, aby zainstalować tę aktualizację. Aktualizacja oprogramowania układowego dysku jest destrukcyjne aktualizacji i powoduje przestój dla danego urządzenia. Firma Microsoft zaleca się zastosowanie aktualizacji 5 w celu zapewnienia aktualności urządzenia.
 > * Dostępność nowych wersji nie może wyświetlić aktualizacje od razu, ponieważ jak etapowego wdrażania aktualizacji. Poczekaj kilka dni, a następnie skanowanie w poszukiwaniu aktualizacji ponownie jako tych aktualizacji zostanie wkrótce udostępnione.
 

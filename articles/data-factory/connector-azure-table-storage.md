@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7b1ee6afc3cb3d55e2abd1bcf742610e7dcc92ea
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopiowanie danych do i z tabel Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Kopiowanie danych z dowolnego źródła obsługiwanych magazynu danych do tabeli
 
 W szczególności ten łącznik tabel Azure obsługuje kopiowanie danych przy użyciu zarówno **klucz konta** i **sygnatury dostępu Współdzielonego usługi** uwierzytelnienia (Shared Access Signature).
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do magazynu tabel platformy Azure.
@@ -187,7 +187,7 @@ W przypadku tabel Azure kolumny typu Data/Godzina:
 
 ### <a name="azure-table-as-sink"></a>Tabeli platformy Azure jako odbioru
 
-Aby skopiować dane z tabel Azure, należy ustawić typ źródła w przypadku działania kopiowania do **AzureTableSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **zbiornika** sekcji:
+Aby skopiować dane do tabeli platformy Azure, należy ustawić typ ujścia w działaniu kopiowania do **AzureTableSink**. Następujące właściwości są obsługiwane w przypadku działania kopiowania **zbiornika** sekcji:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
@@ -264,7 +264,7 @@ Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefini
 |:--- |:--- |:--- |
 | Edm.Binary |Byte] |Tablica bajtów do 64 KB. |
 | Edm.Boolean |wartość logiczna |Wartość logiczna. |
-| Edm.DateTime |Data i godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Obsługiwanym zakresem DateTime zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. (R), CZAS UTC. Zakres kończy się po 31 grudnia 9999 r. |
+| Edm.DateTime |Data/godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Obsługiwanym zakresem DateTime zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. (R), CZAS UTC. Zakres kończy się po 31 grudnia 9999 r. |
 | Edm.Double |O podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
 | Edm.Guid |Identyfikator GUID |Globalnie unikatowy identyfikator 128-bitowego. |
 | Edm.Int32 |Int32 |32-bitową liczbę całkowitą. |

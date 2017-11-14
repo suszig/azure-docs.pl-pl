@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Pomoc, pamiętam hasła usługi Azure AD
+# <a name="reset-your-work-or-school-password"></a>Resetowanie hasła lub szkoły
 
-Jeśli nie pamiętasz hasła, Twój dział IT nigdy Ci go nie przekazał, masz zablokowany dostęp do swojego konta lub chcesz zmienić hasło, możemy Ci pomóc. Jeśli znasz hasła i po prostu należy zmienić nadal w dół do sekcji [zmienić hasło](#change-my-password) poniżej.
+Jeśli nie pamiętasz hasła, nigdy nie odebrał z działem pomocy technicznej firmy, zostało zablokowane z Twojego konta lub chcesz je zmienić, możemy Ci pomóc. Jeśli znasz hasła i po prostu należy zmienić nadal w dół do sekcji [zmienić hasło](#change-my-password) poniżej.
 
    > [!NOTE]
    > Jeśli próbujesz wrócić na koncie osobistych, takich jak Xbox, hotmail.com lub outlook.com spróbuj [sugestie znaleziono w tym artykule](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Wykonaj kroki, które należy wykonać, aby dostęp do usługi Azure AD samoobs�
    ![Sprawdzanie danych uwierzytelniania][Verification]
 
 4. Pracownicy działu IT mogą wymagać dodatkowej weryfikacji i może być konieczne powtórzenie kroku 3 z wyborem innej opcji.
-5. Na stronie **Wybierz nowe hasło** wprowadź nowe hasło, potwierdź je, a następnie kliknij przycisk **Zakończ**. Sugerujemy, aby hasło miało długość od 8 do 16 znaków i zawierało wielkie i małe litery, cyfry oraz znaki specjalne.
+5. Na stronie **Wybierz nowe hasło** wprowadź nowe hasło, potwierdź je, a następnie kliknij przycisk **Zakończ**. Hasło pracy lub nauki może mieć określone wymagania; Zaleca się, że hasło można 8 do 16 znaków z wielkich i małych liter, cyfr i znaków specjalnych.
 6. Po wyświetleniu komunikatu **Hasło zostało zresetowane** możesz zalogować się przy użyciu nowego hasła.
 
     ![Hasło zostało zresetowane][Complete]
@@ -102,7 +102,7 @@ Skorzystaj z tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji za pomoc�
 | Przypadek błędu| Jakie błąd znaleźć?| Rozwiązanie |
 | --- | --- | --- |
 | Pojawia się Strona "Skontaktuj się z administratorem" po wprowadzeniu mój identyfikator użytkownika | Skontaktuj się z administratorem <br> <br> Wykryliśmy, że hasło konta użytkownika nie jest zarządzany przez firmę Microsoft. W związku z tym nie możemy automatycznie zresetować hasła. <br> <br> Należy się skontaktować z działu IT w celu dalszej pomocy. | Ten komunikat jest wyświetlany, ponieważ działu IT zarządza hasła w środowisku lokalnym i nie pozwala na zresetowanie hasła z nie może uzyskać dostępu połączenie z kontem. <br> <br> Aby zresetować hasło, bezpośrednio uzyskać pomoc, skontaktuj się z pracownikami działu IT i go poinformować, że chcesz zresetować hasło, więc ich włączenia tej funkcji można.|
-| Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie ma uprawnień do resetowania hasła <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował tego konta do korzystania z tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z nie ma dostępu do konta łącze lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, kliknij kontakt łącze administratora, aby wysłać wiadomość e-mail do firmy przez personel działu informatycznego i daj znać, aby zresetować hasło, więc ich włączenia tej funkcji można. |
+| Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie jest włączona w celu resetowania haseł <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował tego konta do korzystania z tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z nie ma dostępu do konta łącze lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, kliknij kontakt łącze administratora, aby wysłać wiadomość e-mail do firmy przez personel działu informatycznego i daj znać, aby zresetować hasło, więc ich włączenia tej funkcji można. |
 | Pojawia się komunikat o błędzie "nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować konta <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ są włączone do resetowania hasła, ale nie została zarejestrowana do korzystania z usługi. Aby zarejestrować do resetowania hasła, należy przejść do http://aka.ms/ssprsetup po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, kliknij kontakt łącze administratora, aby wysłać wiadomość e-mail do firmy personel działu informatycznego. |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5da47bf2f48b0f5df5f7fa19f1f626fbdca2b8db
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication — publicznej wersji zapoznawczej
 
@@ -29,7 +29,7 @@ Ten artykuł ułatwia zarządzanie Azure Multi-Factor Authentication, skoro masz
 
 | Funkcja | Opis | 
 |:--- |:--- |
-| [Zablokuj/Odblokuj użytkowników](#block/unblock-users) |Zablokuj/Odblokuj użytkownikom można uniemożliwić użytkownikom odbieranie żądań uwierzytelniania. |
+| [Blokować i odblokowywać użytkowników](#block-and-unblock) |Zablokuj/Odblokuj użytkownikom można uniemożliwić użytkownikom odbieranie żądań uwierzytelniania. |
 | [Alert o oszustwie](#fraud-alert) |Alert o oszustwie można konfigurować i skonfigurować, aby użytkownicy mogą raportować fałszywych próbuje uzyskać dostęp do swoich zasobów. |
 | [Jednorazowe obejście](#one-time-bypass) |Jednorazowe obejście pozwala na uwierzytelnianie tylko raz, pomijając"" uwierzytelnianie wieloskładnikowe. |
 | [Niestandardowe wiadomości głosowe](#custom-voice-messages) |Niestandardowe wiadomości głosowe umożliwiają używanie własnych nagrań lub pozdrowienia przy użyciu uwierzytelniania wieloskładnikowego. |
@@ -39,7 +39,7 @@ Ten artykuł ułatwia zarządzanie Azure Multi-Factor Authentication, skoro masz
 | [Zapamiętać usługi Multi-Factor Authentication na zapamiętanych urządzeniach i przeglądarki](#remember-multi-factor-authentication-for-devices-that-users-trust) |Służy do zapamiętania urządzeń przez liczbę dni, po użytkownik pomyślnie zalogował się przy użyciu usługi MFA. |
 | [Metody wyboru weryfikacji](#selectable-verification-methods) |Umożliwia wybór metody uwierzytelniania, które są dostępne dla użytkowników do użycia. |
 
-## <a name="blockunblock-users"></a>Zablokuj/Odblokuj użytkowników
+## <a name="block-and-unblock"></a>Blokować i odblokowywać
 Zablokuj/Odblokuj użytkownikom można uniemożliwić użytkownikom odbieranie żądań uwierzytelniania. Wszelkie próby uwierzytelnienia dla zablokowanych użytkowników będą automatycznie odrzucane. Zablokowanych użytkowników pozostanie zablokowane do 90 dni od czasu są zablokowane.
 
 ### <a name="block-a-user"></a>Blokuj użytkownika
@@ -56,7 +56,7 @@ Zablokuj/Odblokuj użytkownikom można uniemożliwić użytkownikom odbieranie �
 4. Wprowadź komentarz w **Przyczyna odblokowania** pola.
 5. Kliknij przycisk **Odblokuj** na zakończenie odblokowania użytkownika.
 
-## <a name="fraud-alert"></a>Alert o oszustwie
+## <a name="fraud-alert"></a>Alert oszustwa
 Alert o oszustwie można konfigurować i skonfigurować, aby użytkownicy mogą raportować fałszywych próbuje uzyskać dostęp do swoich zasobów.  Użytkownicy mogą raportować oszustwo w aplikacji mobilnej lub przez telefon.
 
 ### <a name="turn-on-fraud-alert"></a>Włącz oszustwa
@@ -70,7 +70,7 @@ Alert o oszustwie można konfigurować i skonfigurować, aby użytkownicy mogą 
 
 ### <a name="configuration-options"></a>Opcje konfiguracji
 
-- **Blokuj użytkownika, gdy zostaje zgłoszone oszustwo** — Jeśli oszustwa raporty użytkownika, jego konta jest zablokowane.
+- **Blokuj użytkownika, gdy zostaje zgłoszone oszustwo** — Jeśli oszustwa raporty użytkownika, jego konta jest zablokowane przez 90 dni lub dopóki administrator odblokowuje swojego konta. Administrator można przejrzeć logowania przy użyciu raportu logowania i podjąć odpowiednie działania w celu zapobiegania oszustwom przyszłych. Administrator może następnie [odblokować](#unblock-a-user) konta użytkownika.
 - **Kod zgłoszenia oszustwa w trakcie początkowego pozdrowienia** — gdy użytkownik odbierze połączenie telefoniczne do przeprowadzenia weryfikacji dwuetapowej one zwykle naciśnięcie przycisku #, aby potwierdzić ich logowania. Jeśli chcą zgłoś oszustwo one wprowadzić kod przed naciśnięciem przycisku #. Ten kod jest **0** domyślnie, ale można go dostosować.
 
 > [!NOTE]
@@ -296,7 +296,7 @@ Gdy użytkownicy rejestrują swoje konta dla usługi MFA, decydują ich metodę 
 |:--- |:--- |
 | Połączenie z telefonem |Umieszcza wykonywane automatyczne połączenie głosowe. Użytkownik odbierze połączenie i naciska klawisz # na klawiaturze telefonu w celu uwierzytelnienia. Ten numer telefonu nie jest zsynchronizowany do lokalnej usługi Active Directory. |
 | SMS na telefon |Wysyła wiadomość tekstową zawierającą kod weryfikacyjny. Użytkownik jest monitowany o odpowiedź na wiadomość SMS z kodem weryfikacyjnym lub aby wprowadzić kod weryfikacyjny w interfejsie logowania. |
-| Powiadomienia za pomocą aplikacji mobilnej |Wysyła powiadomienia wypychanego na telefonie lub zarejestrowanym urządzeniem. Użytkownik wyświetla powiadomienie i wybiera **Sprawdź** aby ukończyć weryfikację. <br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Powiadomienie przez aplikację mobilną |Wysyła powiadomienia wypychanego na telefonie lub zarejestrowanym urządzeniem. Użytkownik wyświetla powiadomienie i wybiera **Sprawdź** aby ukończyć weryfikację. <br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Kod weryfikacyjny z aplikacji mobilnej |Aplikacja Microsoft Authenticator generuje nowy kod OATH weryfikacji co 30 sekund. Użytkownik wprowadza ten kod weryfikacyjny w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Jak włączyć/wyłączyć metody uwierzytelniania
