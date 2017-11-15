@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Wprowadzenie do usługi Azure Event siatki
 
@@ -25,6 +25,30 @@ W wersji zapoznawczej usługa Event Grid obsługuje lokalizacje **westus2** i **
 Ten artykuł zawiera omówienie Azure zdarzeń siatki. Jeśli chcesz rozpocząć pracę z siatki zdarzeń, zobacz [tworzenie i tras niestandardowych zdarzeń siatki zdarzeń Azure](custom-event-quickstart.md).
 
 ![Model funkcjonalności siatki zdarzeń](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Wydawcy zdarzeń
+
+Obecnie następujących usług platformy Azure są wbudowane wydawcy obsługę zdarzeń siatki:
+
+* Grupy zasobów (operacje zarządzania)
+* Subskrypcje platformy Azure (operacje zarządzania)
+* Usługa Event Hubs
+* Obiektu Blob magazynu
+* Niestandardowe — tematy
+
+Innymi usługami Azure zostaną dodane tego roku.
+
+## <a name="event-handlers"></a>Uchwyty zdarzeń
+
+Obecnie następujących usług platformy Azure są wbudowana obsługa siatki zdarzeń: 
+
+* Stan usługi Funkcje Azure
+* Logic Apps
+* Azure Automation
+* Elementów Webhook
+* Przepływ firmy Microsoft
+
+Innymi usługami Azure zostaną dodane tego roku.
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -52,34 +76,6 @@ Oto niektóre z kluczowych funkcji usługi Azure siatki zdarzeń:
 * **Niestandardowe zdarzenia** -Użyj siatki zdarzeń trasy, filtr i niezawodnie dostarczyć zdarzeń niestandardowych w aplikacji.
 
 Porównanie siatki zdarzenia, usługi Event Hubs i Service Bus, zobacz [wybór między usługami Azure, których dostarczania komunikatów](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Wbudowane funkcje integracji wydawcy i obsługi
-
-Azure oferuje obsługę wbudowanych zdarzeń przy użyciu wielu usług, w tym zarówno i obsługi.
-
-### <a name="publishers"></a>Wydawcy
-
-Obecnie następujących usług platformy Azure są wbudowane wydawcy obsługę zdarzeń siatki:
-
-* Grupy zasobów (operacje zarządzania)
-* Subskrypcje platformy Azure (operacje zarządzania)
-* Usługa Event Hubs
-* Obiektu Blob magazynu
-* Niestandardowe — tematy
-
-Innymi usługami Azure zostaną dodane tego roku.
-
-### <a name="handlers"></a>Programy obsługi
-
-Obecnie następujących usług platformy Azure są wbudowana obsługa siatki zdarzeń: 
-
-* Stan usługi Funkcje Azure
-* Logic Apps
-* Azure Automation
-* Elementów Webhook
-* Przepływ firmy Microsoft
-
-Innymi usługami Azure zostaną dodane tego roku.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Co można zrobić siatki zdarzenia?
 

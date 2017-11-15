@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie zasobów Azure Service Bus przy użyciu szablonów usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+title: "Tworzenie zasobów Azure Service Bus przy użyciu szablonów usługi Resource Manager | Dokumentacja firmy Microsoft"
 description: "Szablony usługi Azure Resource Manager umożliwia zautomatyzowanie tworzenie zasobów usługi Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,22 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm
-ms.openlocfilehash: c8142d8edfd3a527b13d655bac21acf5332f2d14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów usługi Service Bus przy użyciu szablonów usługi Azure Resource Manager
 
 W tym artykule opisano sposób tworzenia i wdrażania zasobów usługi Service Bus przy użyciu szablonów usługi Azure Resource Manager, programu PowerShell i dostawcy zasobów usługi Service Bus.
 
-Szablony usługi Azure Resource Manager pomagają zdefiniować zasobów do wdrożenia rozwiązania, aby określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Aby uzyskać szczegółowe informacje na temat pisania szablonów usługi Azure Resource Manager i omówione w formacie szablonu, zobacz [struktury i składni szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Szablony usługi Azure Resource Manager pomagają zdefiniować zasobów do wdrożenia rozwiązania, aby określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon jest zapisywany w formacie JSON i składa się z wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Aby uzyskać szczegółowe informacje na temat pisania szablonów usługi Azure Resource Manager i omówione w formacie szablonu, zobacz [struktury i składni szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Przykłady w tym artykule pokazano, jak używać usługi Azure Resource Manager do tworzenia nazw usługi Service Bus i jednostki obsługi komunikatów (kolejki). Inne przykłady szablonów można znaleźć [galerię szablonów Szybki Start Azure] [ Azure Quickstart Templates gallery] i wyszukaj "Service Bus".
+> Przykłady w tym artykule pokazano, jak używać usługi Azure Resource Manager do tworzenia nazw usługi Service Bus i jednostki obsługi komunikatów (kolejki). Inne przykłady szablonów można znaleźć [galerię szablonów Szybki Start Azure] [ Azure Quickstart Templates gallery] i wyszukaj **usługi Service Bus**.
 >
 >
 
@@ -43,7 +43,7 @@ Te szablony usługi magistrali usługi Azure Resource Manager są dostępne do p
 
 ## <a name="deploy-with-powershell"></a>Wdrażanie przy użyciu programu PowerShell
 
-W poniższej procedurze opisano sposób użycia programu PowerShell do wdrożenia szablonu usługi Azure Resource Manager, która tworzy **standardowe** warstwy przestrzeń nazw magistrali usług i kolejką w tej przestrzeni nazw. Ten przykład jest oparty na [tworzenie przestrzeni nazw usługi Service Bus z kolejką](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) szablonu. Przybliżony przepływu pracy jest następujący:
+Poniższa procedura opisuje sposób wdrażania szablonu usługi Azure Resource Manager, który tworzy przestrzeni nazw usługi Service Bus warstwy standardowa i kolejką w tej przestrzeni nazw przy użyciu programu PowerShell. Ten przykład jest oparty na [tworzenie przestrzeni nazw usługi Service Bus z kolejką](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) szablonu. Przybliżony przepływu pracy jest następujący:
 
 1. Instalowanie programu PowerShell.
 2. Utwórz szablon i (opcjonalnie) pliku parametrów.
@@ -65,67 +65,72 @@ Klonuj lub kopiowanie [201 magistrali usług — Tworzenie kolejki](https://gith
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusQueueName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Queue"
-            }
-        },
-        "serviceBusApiVersion": {
-            "type": "string",
-            "defaultValue": "2015-08-01",
-            "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
-            }
-        }
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceBusNamespaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
     },
-    "variables": {
-        "location": "[resourceGroup().location]",
-        "sbVersion": "[parameters('serviceBusApiVersion')]",
-        "defaultSASKeyName": "RootManageSharedAccessKey",
-        "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]"
-    },
-    "resources": [{
-        "apiVersion": "[variables('sbVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
-        },
-        "resources": [{
-            "apiVersion": "[variables('sbVersion')]",
-            "name": "[parameters('serviceBusQueueName')]",
-            "type": "Queues",
-            "dependsOn": [
-                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-            ],
-            "properties": {
-                "path": "[parameters('serviceBusQueueName')]"
-            }
-        }]
-    }],
-    "outputs": {
-        "NamespaceConnectionString": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
-        },
-        "SharedAccessPolicyPrimaryKey": {
-            "type": "string",
-            "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
-        }
+    "serviceBusQueueName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Queue"
+      }
     }
+  },
+  "variables": {
+    "defaultSASKeyName": "RootManageSharedAccessKey",
+    "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
+    "sbVersion": "2017-04-01"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
+      "type": "Microsoft.ServiceBus/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {},
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('serviceBusQueueName')]",
+          "type": "Queues",
+          "dependsOn": [
+            "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+          ],
+          "properties": {
+            "lockDuration": "PT5M",
+            "maxSizeInMegabytes": "1024",
+            "requiresDuplicateDetection": "false",
+            "requiresSession": "false",
+            "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+            "deadLetteringOnMessageExpiration": "false",
+            "duplicateDetectionHistoryTimeWindow": "PT10M",
+            "maxDeliveryCount": "10",
+            "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+            "enablePartitioning": "false",
+            "enableExpress": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "NamespaceConnectionString": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
+    },
+    "SharedAccessPolicyPrimaryKey": {
+      "type": "string",
+      "value": "[listkeys(variables('authRuleResourceId'), variables('sbVersion')).primaryKey]"
+    }
+  }
 }
 ```
 
@@ -145,13 +150,13 @@ Aby użyć pliku następujące parametry opcjonalne, skopiuj [201 magistrali us�
             "value": "<myQueueName>"
         },
         "serviceBusApiVersion": {
-            "value": "2015-08-01"
+            "value": "2017-04-01"
         }
     }
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [parametry](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) tematu.
+Aby uzyskać więcej informacji, zobacz [parametry](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) artykułu.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Logowanie do platformy Azure i ustaw subskrypcji platformy Azure
 
@@ -161,13 +166,13 @@ Z wiersza polecenia programu PowerShell, uruchom następujące polecenie:
 Login-AzureRmAccount
 ```
 
-Zostanie wyświetlony monit logowania do konta platformy Azure. Po zalogowaniu, uruchom następujące polecenie, aby wyświetlić dostępne subskrypcji.
+Zostanie wyświetlony monit logowania do konta platformy Azure. Po zalogowaniu, uruchom następujące polecenie, aby wyświetlić dostępne subskrypcji:
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję dla bieżącej sesji, uruchamiając następujące polecenie. Zastąp `<YourSubscriptionId>` o identyfikatorze GUID dla subskrypcji platformy Azure, którego chcesz użyć.
+To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję dla bieżącej sesji, uruchamiając następujące polecenie. Zastąp `<YourSubscriptionId>` o identyfikatorze GUID dla subskrypcji platformy Azure, którego chcesz użyć:
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -209,7 +214,7 @@ Polecenie wyświetla monit o podanie trzy parametry w oknie programu PowerShell:
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Aby zamiast tego określ plik parametrów, należy użyć następującego polecenia.
+Aby zamiast tego określ plik parametrów, należy użyć następującego polecenia:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -234,7 +239,7 @@ Jeśli zasoby zostały pomyślnie wdrożone, zostanie wyświetlone podsumowanie 
 DeploymentName    : MyDemoDeployment
 ResourceGroupName : MyDemoRG
 ProvisioningState : Succeeded
-Timestamp         : 4/19/2016 10:38:30 PM
+Timestamp         : 4/19/2017 10:38:30 PM
 Mode              : Incremental
 TemplateLink      :
 Parameters        :
@@ -242,7 +247,7 @@ Parameters        :
                     ===============  =========================  ==========
                     serviceBusNamespaceName  String             <namespaceName>
                     serviceBusQueueName  String                 <queueName>
-                    serviceBusApiVersion  String                2015-08-01
+                    serviceBusApiVersion  String                2017-04-01
 
 ```
 

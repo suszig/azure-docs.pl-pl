@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 Ten artykuł zawiera informacje o procedurę konfigurowania raportów dla usługi Kopia zapasowa Azure przy użyciu magazynu usług odzyskiwania oraz dostęp do tych raportów za pomocą usługi Power BI. Po wykonaniu tych kroków, można przejść bezpośrednio do usługi Power BI do wyświetlania wszystkich raportów, dostosowywania i tworzenia raportów. 
@@ -29,6 +29,7 @@ Ten artykuł zawiera informacje o procedurę konfigurowania raportów dla usług
 2. Raporty dotyczące Azure SQL, program DPM i serwer kopii zapasowej Azure nie są obsługiwane w tej chwili.
 3. Raporty można wyświetlić różnych magazynów i różnych subskrypcji, skonfigurowanie tego samego konta magazynu dla każdej z magazynów. Wybrane konto magazynu należy w tym samym regionie co magazyn usług odzyskiwania.
 4. Częstotliwość odświeżania Zaplanowane raporty wynosi 24 godziny w usłudze Power BI. Można również przeprowadzić odświeżanie ad hoc raportów w usłudze Power BI, w których wielkość najnowsze dane na koncie magazynu klienta jest używany do renderowania raportów. 
+5. Raporty kopia zapasowa Azure obecnie nie są obsługiwane w National chmury.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 1. Utwórz [konto magazynu Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) ją skonfigurować do raportów. To konto magazynu jest używany do przechowywania danych powiązanych raportów.
@@ -50,19 +51,26 @@ Następujące kroki umożliwiają konfigurowanie konta magazynu dla magazynu us�
 2. Z listy elementów, który pojawia się w magazynie, kliknij przycisk **raporty kopii zapasowej** w sekcji monitorowanie i raporty, aby skonfigurować konta magazynu dla raportów.
 
       ![Wybierz raporty kopii zapasowej menu elementu krok 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. W bloku kopia zapasowa raporty, kliknij **Konfiguruj** przycisku. Spowoduje to otwarcie bloku Azure Application Insights, który jest używany do wypychania danych do konta magazynu klienta.
+3. W bloku kopia zapasowa raporty, kliknij **ustawień diagnostycznych** łącza. Spowoduje to otwarcie diagnostyki ustawienia interfejsu użytkownika, który jest używany do wypychania danych do konta magazynu klienta.
 
-      ![Skonfiguruj konto magazynu — krok 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Ustaw stan przycisku przełącznika **na** i wybierz **archiwum na konto magazynu** pole wyboru, aby raportowania danych można uruchomić przepływu w koncie magazynu.
+      ![Włącz diagnostykę w kroku 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Kliknij łącze **Włącz diagnostykę**. Spowoduje to otwarcie interfejsu użytkownika do konfigurowania konta magazynu. 
 
-      ![Włącz diagnostykę krok 4.](./media/backup-azure-configure-reports/set-status-on.png)
-5. Kliknij przycisk Wybór konta magazynu i wybierz konto magazynu na liście do przechowywania raportowania danych i kliknij przycisk **OK**.
+      ![Włącz diagnostykę w kroku 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. W polu wprowadź nazwę ustawienia **nazwa** i wybierz **archiwum na konto magazynu** pole wyboru, aby raportowania danych można uruchomić przepływu w koncie magazynu.
 
-      ![Wybierz konto magazynu — krok 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Wybierz **AzureBackupReport** pole wyboru, a także Przesuń suwak do okresu przechowywania wybierz dla tej danych raportowania. Raportowanie danych na koncie magazynu jest przechowywana w okresie wybranych za pomocą tego suwaka.
+      ![Włącz diagnostykę krok 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Kliknij przycisk Wybór konta magazynu i wybierz odpowiednie konto subskrypcji i magazynu na liście do przechowywania raportowania danych i kliknij przycisk **OK**.
 
-      ![Wybierz konto magazynu — krok 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Przejrzyj wszystkie zmiany, a następnie kliknij przycisk **zapisać** znajdującego się na górze, jak pokazano na rysunku powyżej. Ta akcja gwarantuje, że wszystkie zmiany są zapisywane i konto magazynu jest teraz skonfigurowane do przechowywania danych raportowania.
+      ![Wybierz konto magazynu — krok 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Wybierz **AzureBackupReport** Sprawdź pola w sekcji dziennika i przesuń suwak na okres przechowywania wybierz dla tej danych raportowania. Raportowanie danych na koncie magazynu jest przechowywana w okresie wybranych za pomocą tego suwaka.
+
+      ![Zapisywanie konta magazynu — krok 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Przejrzyj wszystkie zmiany, a następnie kliknij przycisk **zapisać** znajdującego się na górze, jak pokazano na rysunku powyżej. Ta akcja gwarantuje, że wszystkie zmiany są zapisywane i konto magazynu jest teraz skonfigurowane do przechowywania danych raportowania.
+
+9. W tabeli ustawień diagnostycznych powinny być teraz wyświetlane nowe ustawienie jest włączone dla magazynu. Jeśli go nie widać, Odśwież tabelę, aby zobaczyć zaktualizowane ustawienia.
+
+      ![Ustawienie diagnostyczne widoku kroku 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Po skonfigurowaniu raportów przez zapisanie konta magazynu należy **Poczekaj 24 godziny** do wypychania początkowej danych do ukończenia. Pakiet zawartości usługi Kopia zapasowa Azure w usłudze Power BI należy importować tylko po tym czasie. Zobacz [sekcji często zadawanych PYTAŃ](#frequently-asked-questions) uzyskać więcej szczegółowych informacji. 

@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorowanie magazynów i serwerów usługi Azure Recovery Services i zarządzanie nimi dla maszyn z systemem Windows
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-manage-windows-server.md)
-> * [Wdrożenie klasyczne](backup-azure-manage-windows-server-classic.md)
->
->
 
-W tym artykule znajdziesz Omówienie kopii zapasowej zadania zarządzania i monitorowania, które są dostępne za pośrednictwem portalu Azure i agenta kopii zapasowej Microsoft Azure. W tym artykule przyjęto założenie, już mieć subskrypcję platformy Azure i został utworzony co najmniej jeden magazyn usług odzyskiwania.
+Ten artykuł zawiera omówienie kopii zapasowej zadania zarządzania i monitorowania, które są dostępne za pośrednictwem portalu Azure i agenta kopii zapasowej Microsoft Azure. W tym artykule przyjęto założenie, już mieć subskrypcję platformy Azure i został utworzony co najmniej jeden magazyn usług odzyskiwania.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -41,7 +36,7 @@ Na pulpicie nawigacyjnym magazynu usług odzyskiwania przedstawia szczegóły lu
 
     ![Otwórz listę magazynów usług odzyskiwania — krok 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
-3. Chcesz otworzyć magazyn usług odzyskiwania. W oknie dialogowym zacznij pisać **usług odzyskiwania**. Po rozpoczęciu pisania zawartość listy będzie filtrowana w oparciu o wpisywane dane. Kliknij przycisk **Magazyny usług odzyskiwania** do wyświetlenia na liście magazynów usług odzyskiwania w ramach subskrypcji.
+3. Chcesz otworzyć magazyn usług odzyskiwania. W oknie dialogowym zacznij pisać **usług odzyskiwania**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Kliknij przycisk **Magazyny usług odzyskiwania** do wyświetlenia na liście magazynów usług odzyskiwania w ramach subskrypcji.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
@@ -49,7 +44,7 @@ Na pulpicie nawigacyjnym magazynu usług odzyskiwania przedstawia szczegóły lu
 
     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Z listy magazynów wybierz nazwę magazynu usług odzyskiwania, który chcesz otworzyć. Zostanie otwarty blok pulpitu nawigacyjnego magazynu usług odzyskiwania.
+4. Z listy magazynów wybierz nazwę magazynu usług odzyskiwania, który chcesz otworzyć. Zostanie otwarte menu nawigacyjnym magazynu usług odzyskiwania.
 
     ![pulpitem nawigacyjnym magazynu usług odzyskiwania](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -66,13 +61,13 @@ Można monitorować, zadania i alerty na pulpicie nawigacyjnym magazynu usług o
 
 ![Zadania tworzenia kopii zapasowej pulpitu nawigacyjnego](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Informacje zawarte w każdej z tych kafelków kliknięcie spowoduje otwarcie bloku skojarzone, w których zarządzasz powiązanych zadań.
+Kliknięcie przycisku informacje w każdym z tych kafelków otwiera menu skojarzona, w których zarządzasz powiązanych zadań.
 
 W górnej części pulpitu nawigacyjnego:
 
-* Ustawienia zapewnia dostęp dostępnych zadań tworzenia kopii zapasowej.
+* Ustawienia — zapewnia dostęp dostępnych zadań tworzenia kopii zapasowej.
 * Wykonywanie kopii zapasowej — umożliwia wykonanie kopii zapasowej nowe pliki i foldery (lub maszyn wirtualnych platformy Azure) w magazynie usług odzyskiwania.
-* Delete — Jeśli magazyn usług odzyskiwania jest już używana, można usunąć go w celu zwolnienia miejsca do magazynowania. DELETE jest włączona tylko po usunięciu wszystkich chronionych serwerach z magazynu.
+* Usuń — Jeśli odzyskiwania magazynu usług nie jest już w użyciu, usuń go, aby zwolnić miejsce do magazynowania. DELETE jest włączona tylko po usunięciu wszystkich chronionych serwerach z magazynu.
 
 ![Zadania tworzenia kopii zapasowej pulpitu nawigacyjnego](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ W górnej części pulpitu nawigacyjnego:
 | Poziom alertu | Wysyłania alertów |
 | --- | --- |
 | Krytyczne |Niepowodzenia wykonywania kopii zapasowej, niepowodzenia odzyskiwania |
-| Ostrzeżenie |Kopia zapasowa zakończona z ostrzeżeniami (jeśli jest mniej niż sto nie kopii zapasowej plików z powodu uszkodzenia problemów i pomyślnie kopii zapasowej plików ponad milion) |
+| Ostrzeżenie |Kopia zapasowa została ukończona z ostrzeżeniami (jeśli < 100 nie kopii zapasowej plików z powodu problemów uszkodzenia, i pomyślnie kopii zapasowej plików > 1 000 000) |
 | Informacyjny |Brak |
 
 ## <a name="manage-backup-alerts"></a>Zarządzanie alertami kopii zapasowej
-Kliknij przycisk **alerty kopii zapasowej** Kafelek, aby otworzyć **alerty kopii zapasowej** blok alerty i zarządzaj nimi.
+Kliknij przycisk **alerty kopii zapasowej** Kafelek, aby otworzyć **alerty kopii zapasowej** menu alerty i zarządzaj nimi.
 
 ![Alerty kopii zapasowej](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,23 +88,23 @@ Kafelek alerty kopii zapasowej jest wyświetlana liczba:
 * alerty krytyczne nierozpoznane w ostatnich 24 godzinach
 * alerty ostrzegawcze nierozpoznane w ostatnich 24 godzinach
 
-Kliknięcie na każdym z nich umożliwia przejście do **alerty kopii zapasowej** bloku filtrowany widok alertów (krytyczna lub poważna).
+Kliknij łącze, aby wyświetlić **alerty kopii zapasowej** menu filtrowany widok alertów (krytyczna lub poważna).
 
-W bloku alerty kopii zapasowej możesz:
+Z menu alerty kopii zapasowej możesz:
 
 * Wybierz odpowiednie informacje, aby uwzględnić z alertami.
 
     ![Wybierz kolumny](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Filtrowanie alertów na czas ważności, stanu i rozpoczęcia i zakończenia.
+* Filtrowanie alertów dotyczących ważności, stan i godziny rozpoczęcia/zakończenia.
 
     ![Filtrowanie alertów](./media/backup-azure-manage-windows-server/filter-alerts.png)
 * Konfigurowanie powiadomień o ważności, częstotliwości i adresatów, a także włączyć alerty lub wyłączyć.
 
     ![Filtrowanie alertów](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-Jeśli **na alertu** został wybrany jako **powiadamiania** częstotliwość nie grupowania lub zmniejszenia w wiadomościach e-mail. Każdy alert powoduje 1 powiadomień. To jest ustawienie domyślne i rozpoznawania wiadomości e-mail jest również wysyłane natychmiast.
+Jeśli **na alertu** został wybrany jako **powiadamiania** częstotliwości, nie grupowania lub zmniejszenia w wiadomościach e-mail. Każdy alert powoduje jedno powiadomienie (ustawienie domyślne), a następnie wysyłana wiadomość e-mail z rozwiązania natychmiast.
 
-Jeśli **co godzinę szyfrowanego** został wybrany jako **powiadamiania** częstotliwość jeden adres e-mail jest wysyłane do użytkownika informacją, które istnieją nierozwiązane nowe alerty wygenerowane w ciągu ostatniej godziny. Wiadomość e-mail z rozwiązania jest wysyłane na koniec godziny.
+Jeśli **co godzinę szyfrowanego** został wybrany jako **powiadamiania** częstotliwości, zostanie wysłana wiadomość e-mail do użytkownika wyjaśniający nierozwiązane alerty zostały wygenerowane w ciągu ostatniej godziny. Wiadomość e-mail z rozwiązania jest wysyłane na koniec godziny.
 
 Alerty mogą być wysyłane do następujących poziomów ważności:
 
@@ -117,12 +112,12 @@ Alerty mogą być wysyłane do następujących poziomów ważności:
 * Ostrzeżenie
 * Informacje
 
-Dezaktywuj alert o **Dezaktywuj** przycisk w bloku szczegóły zadania. Po kliknięciu Dezaktywuj, możesz podać informacje o rozdzielczości.
+Dezaktywuj alert o **Dezaktywuj** przycisk menu szczegóły zadania. Po kliknięciu Dezaktywuj, możesz podać informacje o rozdzielczości.
 
 Wybierz kolumny mają być wyświetlane jako część alert o **wybierz kolumny** przycisku.
 
 > [!NOTE]
-> Z **ustawienia** bloku Zarządzanie alerty kopii zapasowej przez zaznaczenie **monitorowanie i Raporty > Alerty i zdarzenia > Alerty kopii zapasowej** , a następnie klikając polecenie **filtru** lub  **Konfigurowanie powiadomień**.
+> Z **ustawienia** menu Zarządzaj alerty kopii zapasowej przez zaznaczenie **monitorowanie i Raporty > Alerty i zdarzenia > Alerty kopii zapasowej** , a następnie klikając polecenie **filtru** lub  **Konfigurowanie powiadomień**.
 >
 >
 
@@ -133,14 +128,14 @@ Kliknij przycisk **folderów plików** w elementach kopii zapasowej kafelka.
 
 ![Kafelek elementów kopii zapasowych](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-Z zestaw do plików i folderów, w której występuje każdej kopii zapasowej elementów na liście filtrów zostanie otwarty blok elementów kopii zapasowych.
+Otwiera menu elementów kopii zapasowych z zestaw do plików i folderów, w której występuje każdej kopii zapasowej elementów na liście filtrów.
 
 ![Elementy kopii zapasowej](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Jeśli określony element kopii zapasowej wybierz z listy, zobaczysz istotne szczegóły dla tego elementu.
 
 > [!NOTE]
-> Z **ustawienia** bloku zarządzania plikami i folderami wybierając **chronione elementy > kopii zapasowej elementów** , a następnie wybierając **folderów plików** z menu rozwijanego.
+> Z **ustawienia** menu zarządzania plikami i folderami wybierając **chronione elementy > kopii zapasowej elementów** , a następnie wybierając **folderów plików** z menu rozwijanego.
 >
 >
 
@@ -154,18 +149,18 @@ W sekcji kopii zapasowej w pulpicie nawigacyjnym kafelka zadania tworzenia kopii
 * w toku
 * Nie można w ciągu ostatnich 24 godzin.
 
-Aby zarządzać zadaniami kopii zapasowej, kliknij przycisk **zadania tworzenia kopii zapasowej** kafelka, która otwiera blok zadań tworzenia kopii zapasowej.
+Aby zarządzać zadaniami kopii zapasowej, kliknij przycisk **zadania tworzenia kopii zapasowej** kafelka, która otwiera menu zadania tworzenia kopii zapasowej.
 
 ![Elementy kopii zapasowej z ustawień](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-Modyfikowanie informacji dostępnych w bloku zadania tworzenia kopii zapasowej z **wybierz kolumny** u góry strony.
+Modyfikowanie informacji dostępnych w menu zadania tworzenia kopii zapasowej z **wybierz kolumny** u góry strony.
 
 Użyj **filtru** przycisk, aby wybrać między plików i folderów z kopii zapasowej maszyny wirtualnej platformy Azure.
 
-Jeśli nie widzisz z kopii zapasowej plików i folderów, kliknij przycisk **filtru** u góry strony i wybierz **pliki i foldery** typu elementu menu.
+Kopii zapasowej plików i folderów nie jest widoczny, kliknij przycisk **filtru** u góry strony i wybierz **pliki i foldery** typu elementu menu.
 
 > [!NOTE]
-> Z **ustawienia** bloku Zarządzanie zadania tworzenia kopii zapasowej przez zaznaczenie **monitorowanie i Raporty > zadania > zadań tworzenia kopii zapasowej** , a następnie wybierając **folderów plików** z listy rozwijanej menu.
+> Z **ustawienia** menu Zarządzanie zadania tworzenia kopii zapasowej przez zaznaczenie **monitorowanie i Raporty > zadania > zadań tworzenia kopii zapasowej** , a następnie wybierając **folderów plików** z listy rozwijanej menu.
 >
 >
 
@@ -180,7 +175,7 @@ Aby zarządzać serwerów produkcyjnych, kliknij przycisk **ustawienia**.
 
 W obszarze Zarządzanie kliknij **infrastruktura kopii zapasowej > serwerów produkcyjnych**.
 
-Wyświetla blok serwerów produkcyjnych serwerów produkcyjnych. Kliknij serwer, na liście, aby otworzyć szczegóły serwera.
+Wyświetla menu serwerów produkcyjnych serwerów produkcyjnych. Kliknij serwer, na liście, aby otworzyć szczegóły serwera.
 
 ![Elementy chronione](./media/backup-azure-manage-windows-server/production-server-list.png)
 

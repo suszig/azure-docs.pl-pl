@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
 
@@ -183,6 +183,18 @@ Wykonaj poniższe kroki, aby utworzyć publiczny punkt końcowy w urządzeniu w 
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Firma Microsoft zaleca nawiązywanie połączenia z innej maszyny wirtualnej znajdującej się w tej samej sieci wirtualnej, ponieważ takie rozwiązanie zmniejsza do minimum liczbę publicznych punktów końcowych w sieci wirtualnej. W takiej sytuacji należy nawiązać połączenie z maszyną wirtualną za pośrednictwem sesji pulpitu zdalnego, po czym skonfigurować maszynę wirtualną do użytku, jak w przypadku innych klientów z systemem Windows w sieci lokalnej. Nie trzeba dołączać numeru portu publicznego, ponieważ port jest już znany.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Uzyskiwanie prywatnego adresu IP urządzenia w chmurze
+
+Aby urządzenie w chmurze nawiązało połączenie z serwerem hosta w tej samej sieci wirtualnej, wymagany jest wewnętrzny lub prywatny adres IP dla tego urządzenia w chmurze. Wykonaj następujące kroki, aby uzyskać prywatny adres IP urządzenia w chmurze.
+
+1. Przejdź do maszyny wirtualnej stanowiącej podstawę dla urządzenia w chmurze. Maszyna wirtualna ma taką samą nazwę jak urządzenie w chmurze. Przejdź do sekcji **Wszystkie zasoby**, podaj nazwę urządzenia w chmurze i subskrypcję, a następnie wybierz typ jako maszyny wirtualne. Na liście prezentowanych maszyn wirtualnych wybierz i kliknij maszynę wirtualną powiązaną z urządzeniem w chmurze.
+
+     ![Wybieranie maszyny wirtualnej dla urządzenia w chmurze](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Przejdź do opcji **Ustawienia > Sieć**. W okienku po prawej stronie wyświetlany jest prywatny adres IP urządzenia w chmurze. Zanotuj go.
+
+    ![Uzyskiwanie prywatnego adresu IP dla urządzenia w chmurze](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Praca z urządzeniem StorSimple w chmurze
 

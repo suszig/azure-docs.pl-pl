@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Zagadnienia dotyczące szablonów usługi Azure Resource Manager
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Podczas opracowywania aplikacji jest zapewnienie przenośność szablonu platformy Azure i stosu Azure.  W tym temacie przedstawiono zagadnienia związane z opracowywaniem usługi Azure Resource Manager [szablony](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), co może prototypu wdrożenia aplikacji i testowania na platformie Azure bez dostępu do środowiska Azure stosu.
+
+## <a name="resource-provider-availability"></a>Dostępność dostawcy zasobów
+Szablon, który zamierzasz wdrożyć muszą używać usługi Microsoft Azure, który jest już dostępny, lub w wersji zapoznawczej w stosie Azure.
 
 ## <a name="public-namespaces"></a>Publiczne obszary nazw
 Ponieważ stosu Azure znajduje się w centrum danych, ma przestrzeni nazw punktu końcowego usługi innej niż chmurze publicznej Azure. W związku z tym zapisane na stałe publiczne punkty końcowe w szablonach usługi Resource Manager zakończyć się niepowodzeniem podczas próby wdrażania ich na stosie Azure. Zamiast tego można użyć *odwołania* i *łączenie* funkcja dynamiczne tworzenie punktu końcowego usługi na podstawie wartości pobrać od dostawcy zasobów podczas wdrażania. Na przykład zamiast określania *blob.core.windows.net* w szablonie, należy pobrać [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamicznie ustawić *osDisk.URI* punktu końcowego:
@@ -73,7 +76,6 @@ Szablony usługi Resource Manager umożliwia atrybut lokalizacji umieść zasoby
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdrażanie szablonów za pomocą programu PowerShell](azure-stack-deploy-template-powershell.md)

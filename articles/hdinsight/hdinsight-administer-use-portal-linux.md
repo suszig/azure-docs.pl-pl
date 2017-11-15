@@ -3,7 +3,7 @@ title: "Zarządzanie klastrami Hadoop w HDInsight przy użyciu portalu Azure | D
 description: "Informacje o sposobie tworzenia i zarządzania klastrami HDInsight przy użyciu portalu Azure."
 services: hdinsight
 documentationcenter: 
-author: ashishthaps
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: ashishtha
-ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: jgao
+ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -148,7 +148,7 @@ Skalowanie funkcji klastra umożliwia zmianę liczby węzłów procesu roboczego
 
 Wpływ zmianę liczby węzłów danych może być różna dla każdego typu obsługiwanych przez HDInsight klastra:
 
-* Usługa Hadoop
+* Hadoop
 
     Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze platformy Hadoop, który jest uruchomiony bez wpływu na wszystkie oczekujące lub uruchomione zadania. Również można przesłać nowe zadania, gdy operacja jest w toku. Błędy w operacji skalowania bezpiecznie obsługi tak, aby zawsze pozostanie w stanie funkcjonalności klastra.
 

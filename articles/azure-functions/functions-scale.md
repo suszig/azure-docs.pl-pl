@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Środowisko Azure Functions hosting planów porównania
 
@@ -68,7 +68,7 @@ Maszyna wirtualna oddziela kosztów od liczby wykonaniami, czas wykonywania i u�
 
 Plan usługi aplikacji można ręcznie skalować w poziomie przez dodanie więcej wystąpień maszyny Wirtualnej, lub można włączyć automatycznego skalowania. Aby uzyskać więcej informacji, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Można także skalowanie w górę, wybierając inny plan usługi aplikacji. Aby uzyskać więcej informacji, zobacz [skalowanie w górę aplikacji na platformie Azure](../app-service/web-sites-scale.md). 
 
-Jeśli planujesz uruchamianie funkcji JavaScript na plan usługi aplikacji, należy wybrać plan, który ma mniejszą liczbę rdzeni. Aby uzyskać więcej informacji, zobacz [JavaScript — odwołanie do funkcji](functions-reference-node.md#choose-single-core-app-service-plans).  
+Jeśli planujesz uruchamianie funkcji JavaScript na plan usługi aplikacji, należy wybrać plan, który ma mniej Vcpu. Aby uzyskać więcej informacji, zobacz [wybierz planów usługi App Service jednordzeniowy](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +93,7 @@ Użycie zużycie plan hostingu, funkcja kodu pliki są przechowywane w udziałac
 > [!NOTE]
 > Podczas korzystania z wyzwalacza obiektu blob w planie zużycia, może istnieć maksymalnie 10-minutowych opóźnienia w przetwarzaniu nowe obiekty BLOB, jeśli aplikacja funkcji przeszedł bezczynności. Po uruchomieniu aplikacji funkcja obiekty BLOB są przetwarzane natychmiast. Aby uniknąć tego opóźnienia początkowej, weź pod uwagę jedną z następujących opcji:
 > - Host aplikacji funkcji na plan usługi aplikacji z na zawsze włączone.
-> - Użyj innego mechanizmu wyzwalanie obiektów blob, przetwarzanie, takie jak wiadomość z kolejki nazwa obiektu blob. Na przykład zobacz [wyzwalacza kolejki z obiektu blob danych wejściowych powiązania](functions-bindings-storage-blob.md#input-sample).
+> - Użyj innego mechanizmu wyzwalanie obiektów blob, przetwarzanie, takie jak wiadomość z kolejki nazwa obiektu blob. Na przykład zobacz [skryptu C# i JavaScript przykłady dla obiektu blob wejściowa i wyjściowa powiązania](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Skalowanie środowiska wykonawczego
 

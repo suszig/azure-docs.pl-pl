@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi maszyn wirtualnych platformy Azure
 > [!div class="op_single_selector"]
@@ -32,6 +32,11 @@ Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapa
 ## <a name="backup"></a>Tworzenie kopii zapasowych
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Błąd: Określona konfiguracja dysku nie jest obsługiwana
+
+> [!NOTE]
+> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB niezarządzanych. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Jeśli masz dysków jest większa niż 1 TB, [dołączyć nowe dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , które są mniej niż 1 TB <br>

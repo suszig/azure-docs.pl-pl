@@ -2,19 +2,19 @@
 title: "Jak korzystać z notesów Jupyter w Workbench Azure Machine Learning | Dokumentacja firmy Microsoft"
 description: "Przewodnik dla funkcji notesów Jupyter Azure Machine Learning Workbench za pomocą"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Jak używać notesu Jupyter w konsoli usługi Azure Machine Learning Workbench
 
@@ -31,12 +31,12 @@ Na wysokim poziomie architektura notesu Jupyter zawiera trzy składniki, każdy 
 - **Serwer**: serwer sieci web obsługujący notesu (pliki .ipynb)
 - **Jądra**: środowisko uruchomieniowe, gdzie się stanie rzeczywistego wykonania komórek notesu
 
-Więcej szczegółów, odwołaj się do urzędnika [dokumentacji Jupyter](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Fowllowing jest diagram przedstawiający sposób mapowania tego klienta, serwera i Architektura jądra ze składnikami w uczenie Maszynowe Azure.
+Więcej szczegółów, odwołaj się do urzędnika [dokumentacji Jupyter](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Poniżej przedstawiono diagram przedstawiający sposób mapowania tego klienta, serwera i Architektura jądra ze składnikami w uczenie Maszynowe Azure.
 
 ![Architektura notesu](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Jądra w notesie Workbench uczenia Maszynowego Azure
-Dostęp do wielu różnych jądra w Azure ML Workbench przez po prostu ustawienia konfiguracji uruchamiania i obliczeniowe elementy docelowe w `aml_config` folder w projekcie. Dodanie nowego miejsca docelowego obliczeń wysyłając `az ml computetarget attach` polecenie jest odpowiednikiem Dodawanie nowych jądra.
+Obliczeniowe elementy docelowe w i dostępne wiele różnych jądra w konsoli usługi Azure ML Workbench konfigurując konfiguracje wykonywania `aml_config` folder w projekcie. Dodanie nowego miejsca docelowego obliczeń wysyłając `az ml computetarget attach` polecenie jest odpowiednikiem Dodawanie nowych jądra.
 
 >[!NOTE]
 >Przegląd [skonfigurować wykonywania](experimentation-service-configuration.md) więcej informacji na temat uruchamiania konfiguracji i obliczeniowe elementy docelowe.
@@ -48,6 +48,9 @@ Obecnie Workbench obsługuje następujące typy jądra.
 
 ### <a name="local-python-kernel"></a>Lokalne jądra Python
 Ta jądra Python obsługuje wykonywanie na komputerze lokalnym. Jest zintegrowany z obsługą historii uruchamiania usługi Azure Machine Learning. Nazwa jądra jest zwykle "my_project_name lokalny".
+
+>[!NOTE]
+>Nie należy używać jądra "Python 3". Jest domyślnie dostępne przez Jupyter jądra autonomicznej. Nie jest zintegrowany z możliwości usługi Azure Machine Learning.
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python jądra w Docker (lokalne i zdalne)
 Ta jądra Python działa w kontenerze Docker na komputerze lokalnym lub zdalnym maszyny Wirtualnej systemu Linux. Nazwa jądra jest zwykle "my_project docker". Skojarzony `docker.runconfig` plik ma `Framework` pole `Python`.
@@ -104,6 +107,33 @@ Domyślnej przeglądarki zostanie automatycznie uruchomiony z serwerem Jupyter w
 Możesz teraz kliknąć `.ipynb` pliku notesu otwórz go, ustaw jądra (Jeśli nie została ustawiona) i uruchomić sesję interaktywnego.
 
 ![pulpit nawigacyjny projektu](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Umożliwia zarządzanie eksperymenty poleceń magicznych
+
+Można użyć [Magiczna polecenia](http://ipython.readthedocs.io/en/stable/interactive/magics.html) w komórkach z notesu śledzenie historii wykonywania i zapisywanie danych wyjściowych, takich jak modele ani zestawów danych.
+
+Śledzenie poszczególnych notesu komórki uruchomieniu polecenia magic "% uczenie maszynowe Azure Historia" use. Po włączeniu historii uruchomienia każdej komórki będą wyświetlane jako wpis w historii wykonywania.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Aby włączyć komórki Uruchom śledzenie, użyj polecenia magic "% historii uczenie maszynowe Azure poza".
+
+Polecenie magic "% przekazywania uczenie maszynowe Azure" umożliwia zapisywanie plików danych i modelu z Twojej uruchamiania. Zapisane obiekty są wyświetlane jako dane wyjściowe w widoku Historia uruchomień dla danego uruchomienia.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>Folder o nazwie "dane wyjściowe" muszą zostać zapisane dane wyjściowe
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby dowiedzieć się, jak użyć notesu Jupyter, odwiedź stronę [Jupyter oficjalnej dokumentacji](http://jupyter-notebook.readthedocs.io/en/latest/).    

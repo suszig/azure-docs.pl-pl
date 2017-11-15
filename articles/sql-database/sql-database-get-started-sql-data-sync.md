@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
-description: "Ten samouczek ułatwia szybkie wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza)"
+title: Konfigurowanie synchronizacji danych SQL Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft
+description: "Ten samouczek pokazuje, jak skonfigurować synchronizację danych SQL Azure (wersja zapoznawcza)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Wprowadzenie do synchronizacji danych SQL Azure (wersja zapoznawcza)
+# <a name="set-up-sql-data-sync-preview"></a>Konfigurowanie synchronizacji danych SQL (wersja zapoznawcza)
 Z tego samouczka dowiesz się sposobu konfigurowania synchronizacji danych SQL Azure, tworząc grupy synchronizacji hybrydowych, zawierającej wystąpienia zarówno usługi Azure SQL Database i programu SQL Server. Nowa grupa synchronizacji jest w pełni skonfigurowane i synchronizuje się zgodnie z harmonogramem, które można ustawić.
 
 W tym samouczku założono, że co najmniej pewne doświadczenie z bazy danych SQL i programu SQL Server. 
@@ -110,7 +110,7 @@ Na **Konfigurowanie bazy danych Azure** wykonaj następujące czynności:
 
     ![Dodano nowy element członkowski synchronizacji bazy danych SQL](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Dodaj lokalną bazą danych programu SQL Server
+### <a name="add-on-prem"></a>Dodaj lokalną bazą danych programu SQL Server
 
 W **bazy danych elementów członkowskich** sekcji i opcjonalnie Dodaj lokalny serwer SQL do grupy synchronizacji, wybierając **Dodaj bazę danych z lokalnego**. **Konfigurowanie lokalnego** zostanie otwarta strona.
 
@@ -200,6 +200,7 @@ Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
 -   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure](sql-database-sync-data.md)
 -   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](sql-database-best-practices-data-sync.md)
+-   [Monitor synchronizacji danych Azure SQL z OMS analizy dzienników](sql-database-sync-monitor-oms.md)
 -   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Wykonaj przykłady z programu PowerShell, które przedstawiają sposób konfigurowania synchronizacji danych SQL:

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Kopiowanie danych z dowolnego źródła obsługiwanych magazynu danych do usług
 
 W szczególności ten łącznik usługi Azure Data Lake Store obsługuje:
 
-- Kopiowanie plików za pomocą **nazwy głównej usługi** uwierzytelniania.
+- Kopiowanie plików za pomocą **nazwy głównej usługi** lub **tożsamość usługi (MSI) zarządzanej** uwierzytelniania.
 - Kopiowanie plików jako — jest lub analizowania/Generowanie plików z [obsługiwane formaty plików i kodery-dekodery kompresji](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
@@ -44,7 +44,23 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
 
-Można utworzyć usługi Azure Data Lake Store połączone przy użyciu uwierzytelniania główną usługi.
+Następujące właściwości są obsługiwane przez usługi Azure Data Lake Store połączonej usługi:
+
+| Właściwość | Opis | Wymagane |
+|:--- |:--- |:--- |
+| type | Właściwość type musi mieć ustawioną **AzureDataLakeStore**. | Tak |
+| dataLakeStoreUri | Informacje o koncie usługi Azure Data Lake Store. Informacja ta ma jeden z następujących formatów: `https://[accountname].azuredatalakestore.net/webhdfs/v1` lub `adl://[accountname].azuredatalakestore.net/`. | Tak |
+| Dzierżawy | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak |
+| subscriptionId | Identyfikator subskrypcji platformy Azure, do której należy konto usługi Data Lake Store. | Wymagany dla odbiorcy |
+| Grupy zasobów o nazwie | Nazwa grupy zasobów platformy Azure, do której należy konto usługi Data Lake Store. | Wymagany dla odbiorcy |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
+
+Można znaleźć w sekcjach poniżej więcej właściwości i przykłady JSON dla typów uwierzytelniania inny odpowiednio:
+
+- [Przy użyciu uwierzytelniania głównej usługi](#using-service-principal-authentication)
+- [Przy użyciu uwierzytelniania identitiy zarządzanych usług](#using-managed-service-identitiy-authentication)
+
+### <a name="using-service-principal-authentication"></a>Przy użyciu uwierzytelniania głównej usługi
 
 Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej dostęp do usługi Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
 
@@ -54,21 +70,15 @@ Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w
 
 >[!TIP]
 > Upewnij się, że można przydzielić usługi głównej odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- Jako źródła, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta.
->- Jako obiekt sink, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Jeśli chcesz uniknąć tej roli IAM [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie.
+>- Jako źródła, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- Jako obiekt sink, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie.
 
 Obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną **AzureDataLakeStore**. | Tak |
-| dataLakeStoreUri | Informacje o koncie usługi Azure Data Lake Store. Informacja ta ma jeden z następujących formatów: `https://[accountname].azuredatalakestore.net/webhdfs/v1` lub `adl://[accountname].azuredatalakestore.net/`. | Tak |
 | servicePrincipalId | Określ identyfikator aplikacji klienta. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Zaznacz to pole jako SecureString. | Tak |
-| Dzierżawy | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak |
-| subscriptionId | Identyfikator subskrypcji platformy Azure, do której należy konto usługi Data Lake Store. | Wymagany dla odbiorcy |
-| Grupy zasobów o nazwie | Nazwa grupy zasobów platformy Azure, do której należy konto usługi Data Lake Store. | Wymagany dla odbiorcy |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
 
@@ -84,6 +94,43 @@ Obsługiwane są następujące właściwości:
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identitiy-authentication"></a>Przy użyciu uwierzytelniania identitiy zarządzanych usług
+
+Fabryka danych może być skojarzony z [tożsamość usługi zarządzanej](data-factory-service-identity.md), reprezentuje tej fabryki danych. Ta tożsamość usługi można korzystać bezpośrednio do uwierzytelniania usługi Data Lake Store, podobnie jak przy użyciu własnej usługi princial. Umożliwia tej fabryki wyznaczonych do dostępu i skopiować dane z/do usługi Data Lake Store.
+
+Aby używać uwierzytelniania identitiy (MSI) zarządzanych usług:
+
+1. [Pobieranie tożsamości usługi fabryka danych](data-factory-service-identity.md#retrieve-service-identity) przez skopiowanie wartości "Usługa tożsamości aplikacji Identyfikatora" generowane wraz z fabryką.
+2. Udziel dostępu do tożsamości usługi Data Lake Store w taki sam sposób jak w przypadku nazwy głównej usługi. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania, aplikacji Przypisz usługi Azure AD do usługi Azure Data Lake Store konta pliku lub folderu](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+
+>[!TIP]
+> Upewnij się, że można przydzielić danych fabryki usługi identitiy odpowiednie uprawnienia w usłudze Azure Data Lake Store:
+>- Jako źródła, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- Jako obiekt sink, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie.
+
+W fabryce danych Azure nie trzeba określić wszelkie właściwości poza ogólne informacje o usłudze Data Lake Store w połączonej usłudze.
+
+**Przykład:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"

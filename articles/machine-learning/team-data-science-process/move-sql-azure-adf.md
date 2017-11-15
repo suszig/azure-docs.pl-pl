@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Przenoszenie danych z lokalnego programu SQL server SQL Azure z fabryką danych Azure
 W tym temacie pokazano, jak przenieść dane z lokalną bazą danych serwera SQL z bazą danych SQL Azure za pomocą usługi Azure Blob Storage przy użyciu fabryki danych Azure (ADF).
@@ -80,32 +80,14 @@ Brama zarządzania danymi serializuje i deserializuje źródłowy i odbiorczy da
 Aby uzyskać instrukcje dotyczące konfiguracji oraz szczegółowe informacje w bramie zarządzania danymi, zobacz [przenoszenie danych między lokalnych źródeł i w chmurze z brama zarządzania danymi](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Utwórz połączone usługi, aby połączyć się z zasobami danych
-Połączona usługa definiuje informacje wymagane dla fabryki danych Azure połączyć się z zasobem danych. Krok po kroku procedury tworzenia połączonych usług znajduje się w [utworzenia połączonych usług](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Połączona usługa definiuje informacje wymagane dla fabryki danych Azure połączyć się z zasobem danych. Firma Microsoft udostępnia trzy zasoby w tym scenariuszu, dla których wymagane są połączone usługi:
 
-Firma Microsoft udostępnia trzy zasoby w tym scenariuszu, dla którego połączone usługi są potrzebne.
+1. Lokalny serwer SQL
+2. Azure Blob Storage
+3. Baza danych SQL Azure
 
-1. [Połączona usługa dla lokalnego programu SQL Server](#adf-linked-service-onprem-sql)
-2. [Połączonej usługi magazynu obiektów Blob Azure](#adf-linked-service-blob-store)
-3. [Połączonej usługi bazy danych Azure SQL](#adf-linked-service-azure-sql)
+Krok po kroku procedury tworzenia połączonych usług znajduje się w [utworzenia połączonych usług](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Połączona usługa lokalnej bazy danych SQL Server
-Aby utworzyć połączonej usługi dla lokalnego programu SQL Server:
-
-* Kliknij przycisk **magazynu danych** w strony docelowej ADF w klasycznym portalu Azure
-* Wybierz **SQL** , a następnie wprowadź *username* i *hasło* poświadczeń dla lokalnego programu SQL Server. Musisz wprowadzić servername jako **nazwa wystąpienia pełną servername ukośnik odwrotny (servername\instancename)**. Nazwa połączonej usługi *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Połączona usługa obiektu blob
-Aby utworzyć połączonej usługi dla konta magazynu obiektów Blob Azure:
-
-* Kliknij przycisk **magazynu danych** w strony docelowej ADF w klasycznym portalu Azure
-* Wybierz **konta magazynu Azure**
-* Wprowadź nazwę klucza i kontenera konta magazynu obiektów Blob Azure. Nazwa połączonej usługi *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Połączonej usługi bazy danych Azure SQL
-Aby utworzyć połączonej usługi bazy danych SQL Azure:
-
-* Kliknij przycisk **magazynu danych** w strony docelowej ADF w klasycznym portalu Azure
-* Wybierz **Azure SQL** , a następnie wprowadź *username* i *hasło* poświadczenia bazy danych SQL Azure. *Username* muszą być określone jako  *user@servername* .   
 
 ## <a name="adf-tables"></a>Definiowanie i tworzenie tabel, aby określić sposób uzyskać dostępu do zestawów danych
 Tworzenie tabel, które określają strukturę, lokalizacji i dostępności zestawy danych z następującymi procedurami opartych na skryptach. Pliki w formacie JSON są używane do definiowania tabel. Aby uzyskać więcej informacji o strukturze tych plików, zobacz [zestawów danych](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Kopię tej definicji JSON potoku do pliku o nazwie *pipelinedef.json* pliku i za
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Upewnij się, można wyświetlić potoku na ADF w klasycznym portalu Azure wyświetlane jako następujące (po kliknięciu przycisku diagramu)
-
-![Potok fabryki danych AZURE](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Uruchom potoku
 Obecnie można uruchomić potoku za pomocą następującego polecenia:

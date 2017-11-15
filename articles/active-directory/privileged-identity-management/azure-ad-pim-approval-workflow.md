@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Zatwierdzenia (wersja zapoznawcza)
+# <a name="approvals"></a>Zatwierdzenia
 
 ## <a name="overview"></a>Omówienie
 
 Z zatwierdzenia Privileged Identity Management można skonfigurować role, aby wymagały zatwierdzenia aktywacji i wybierz jednego lub wielu użytkowników lub grup w ramach delegowanego osób zatwierdzających. Zachowaj odczytu, aby dowiedzieć się, jak skonfigurować role i wybierz osób zatwierdzających.
 
->[!NOTE]
-Pamiętaj, ta funkcja jest nadal w rozwoju i mogą wystąpić błędy. Funkcji, łącznie z tekstem i konwencje nazewnictwa mogą ulec zmianie, a nie należy traktować jako ostatecznego.
 
-
-## <a name="key-terminology"></a>Kluczową terminologię
+## <a name="new-terminology"></a>Nowe terminologia
 
 *Kwalifikujące się roli użytkownika* — kwalifikujących się roli użytkownik jest użytkownikiem w organizacji, który jest przypisany do roli usługi Azure AD jako kwalifikujących się (rola wymaga aktywacji).
 
-*Delegowane osoba zatwierdzająca* — delegowanego osoba zatwierdzająca jest jednego lub wielu osób lub grup w ramach usługi Azure AD, odpowiedzialnych za zatwierdzanie żądań dla roli aktywacji.
+*Delegowane osoba zatwierdzająca* — delegowanego osoba zatwierdzająca jest jednym lub wielu osób lub grup w ramach usługi Azure AD odpowiedzialny za zatwierdzanie żądań aktywacji ról.
 
 ## <a name="scenarios"></a>Scenariusze
 

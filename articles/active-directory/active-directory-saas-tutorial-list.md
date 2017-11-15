@@ -15,11 +15,11 @@ ms.date: 06/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: cd3548e4e4ff71aeb3c3fd30eb6c162a70d90879
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c8e05fb3b6fbb4e7fb5c328638aee821ea5200e
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integracja aplikacji SaaS w usłudze Azure Active Directory
 
@@ -159,6 +159,7 @@ Aby uzyskać pełną listę aplikacji SaaS, które zostały wstępnie zintegrowa
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_GitHub.png)| [GitHub](active-directory-saas-github-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Usługi Google Apps](active-directory-saas-google-apps-tutorial.md)|[Usługi Google Apps — Inicjowanie obsługi użytkowników](active-directory-saas-google-apps-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-greenhouse-tutorial.png)| [Cieplarnianych](active-directory-saas-greenhouse-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-grovo-tutorial.png) | [Grovo](active-directory-saas-grovo-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-hackerone-tutorial.png)| [HackerOne](active-directory-saas-hackerone-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Chlorowców oprogramowania](active-directory-saas-halogen-software-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halosys.png)| [Halosys](active-directory-saas-halosys-tutorial.md)|

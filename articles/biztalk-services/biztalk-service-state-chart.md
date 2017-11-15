@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Co można i nie można wykonać przy użyciu stanu usługi BizTalk
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 W zależności od bieżącego stanu usługi BizTalk ma działań, które mogą lub nie można wykonać na usługi BizTalk.
 
-Na przykład można udostępnić nową usługę BizTalk w klasycznym portalu Azure. Po pomyślnym ukończeniu, usługa BizTalk jest `active` stanu. W stanie aktywnym Zatrzymaj, Wstrzymaj, a usunąć usługi BizTalk. Jeśli należy zatrzymać usługę BizTalk i Zatrzymaj zakończy się niepowodzeniem, a następnie usługi BizTalk przechodzi do `StopFailed` stanu. W `StopFailed` stanu, można ponownie uruchomić usługę BizTalk. Jeśli spróbujesz operację, która nie jest dozwolona, takich jak wznowieniu wystąpił następujący błąd:
+Na przykład można udostępnić nową usługę BizTalk. Po pomyślnym ukończeniu, usługa BizTalk jest `active` stanu. W stanie aktywnym Zatrzymaj, Wstrzymaj, a usunąć usługi BizTalk. Jeśli należy zatrzymać usługę BizTalk i Zatrzymaj zakończy się niepowodzeniem, a następnie usługi BizTalk przechodzi do `StopFailed` stanu. W `StopFailed` stanu, można ponownie uruchomić usługę BizTalk. Jeśli spróbujesz operację, która nie jest dozwolona, takich jak wznowieniu wystąpił następujący błąd:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ W poniższych tabelach przedstawiono operacje lub akcje, które można wykonać,
 
 
 ## <a name="see-also"></a>Zobacz też
-* [Utwórz usługę BizTalk przy użyciu klasycznego portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Co można zrobić w kartach pulpitu nawigacyjnego, monitor i skalowania w usługi BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Pobierz Developer, podstawowa, standardowa i Premium Edition w usługi BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Jak wykonać kopię zapasową i przywrócić usługi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

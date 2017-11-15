@@ -3,7 +3,7 @@ title: "Niestandardowe pakiety narzędzia Maven za pomocą Jupyter w łączniku 
 description: "Instrukcje krok po kroku dotyczące sposobu konfigurowania notesów Jupyter dostępne z klastrami Spark w usłudze HDInsight do używania niestandardowych pakietów Maven."
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: e9bfe7065321957883ae4fadbfa8b8e3558f5b75
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: nitinme
+ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Korzystanie z zewnętrznych pakietów z notesami Jupyter w klastrach Apache Spark w usłudze HDInsight
 > [!div class="op_single_selector"]

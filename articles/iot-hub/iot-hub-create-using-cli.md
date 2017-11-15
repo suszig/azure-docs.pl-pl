@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 11/13/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951cd64f475363aaceac75ba96176a9b423ac5c1
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Tworzenie Centrum IoT przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure
 
@@ -31,7 +31,7 @@ Azure CLI 2.0 (az.py) umożliwia tworzenie i zarządzanie nimi centra Azure IoT 
 Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) — interfejsu wiersza polecenia dla modeli wdrażania zarządzania classic i zasobów.
-* Azure CLI 2.0 (az.py) - generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów zgodnie z opisem w tym artykule.
+* Azure CLI 2.0 (az.py) - generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów. W tym artykule opisano.
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
@@ -43,17 +43,17 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 Zaloguj się do konta platformy Azure i wyboru subskrypcji.
 
 1. W wierszu polecenia Uruchom [polecenia logowania][lnk-login-command]:
-    
+
     ```azurecli
     az login
     ```
 
     Postępuj zgodnie z instrukcjami w celu uwierzytelnienia przy użyciu kodu i zaloguj się do konta platformy Azure za pośrednictwem przeglądarki sieci web.
 
-2. Jeśli masz wiele subskrypcji Azure, logowanie do platformy Azure przydziela dostęp do wszystkich kont platformy Azure skojarzone z poświadczeniami użytkownika. Należy użyć następującego [polecenia do listy kont Azure] [ lnk-az-account-command] dostępne do użycia:
-    
+1. Jeśli masz wiele subskrypcji Azure, logowanie do platformy Azure przydziela dostęp do wszystkich kont platformy Azure skojarzone z poświadczeniami użytkownika. Należy użyć następującego [polecenia do listy kont Azure] [ lnk-az-account-command] dostępne do użycia:
+
     ```azurecli
-    az account list 
+    az account list
     ```
 
     Użyj następującego polecenia, aby wybrać subskrypcję, która ma być używany do uruchamiania poleceń, aby utworzyć Centrum IoT. Przy użyciu subskrypcji nazwa lub identyfikator z danych wyjściowych poprzednie polecenie:
@@ -67,29 +67,24 @@ Zaloguj się do konta platformy Azure i wyboru subskrypcji.
 Użyj wiersza polecenia platformy Azure, Utwórz grupę zasobów, a następnie dodaj Centrum IoT.
 
 1. Podczas tworzenia Centrum IoT należy utworzyć ją w grupie zasobów. Użyj istniejącej grupy zasobów, albo uruchom następujące polecenie [polecenie, aby utworzyć grupę zasobów][lnk-az-resource-command]:
-    
+
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
     > Poprzedni przykład tworzy grupy zasobów w lokalizacji zachodnie stany USA. Można wyświetlić listę dostępnych lokalizacji, uruchamiając polecenie `az account list-locations -o table`.
-    >
-    >
 
-2. Uruchom następujące polecenie [polecenie, aby utworzyć Centrum IoT] [ lnk-az-iot-command] w grupie zasobów, przy użyciu globalnie unikatowej nazwy Centrum IoT:
-    
+1. Uruchom następujące polecenie [polecenie, aby utworzyć Centrum IoT] [ lnk-az-iot-command] w grupie zasobów, przy użyciu globalnie unikatowej nazwy Centrum IoT:
+
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
 > [!NOTE]
 > Poprzednie polecenie powoduje utworzenie Centrum IoT w S1, dla której są rozliczane warstwy cenowej. Aby uzyskać więcej informacji, zobacz [cennik Centrum IoT Azure][lnk-iot-pricing].
->
->
 
 ## <a name="remove-an-iot-hub"></a>Usuń Centrum IoT
 
@@ -108,6 +103,7 @@ az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
 Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz następujące artykuły:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]

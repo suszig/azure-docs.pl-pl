@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 4358130a2c8e897a0fdd1f9560f766d6e22db4d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ac9bb07a1b690681e0b263eea233cd5373d990b
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Service Bus i kolejki przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeni nazw usługi Service Bus i kolejką w tej przestrzeni nazw. Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeni nazw usługi Service Bus i kolejką w tej przestrzeni nazw. Wyjaśniono sposób do określania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [szablonów Authoring Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -36,13 +36,13 @@ Zakończenie szablonu, zobacz [szablonu przestrzeni nazw i kolejki usługi Servi
 > * [Tworzenie przestrzeni nazw usługi Service Bus](service-bus-resource-manager-namespace.md)
 > * [Tworzenie przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Aby sprawdzić najnowsze szablony, odwiedź stronę [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukaj "Service Bus".
+> Aby sprawdzić najnowsze szablony, odwiedź stronę [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukaj **usługi Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
 
-W przypadku tego szablonu zostanie wdrożona przestrzeni nazw usługi Service Bus z kolejką.
+W przypadku tego szablonu można wdrożyć przestrzeni nazw usługi Service Bus z kolejką.
 
 [Kolejki usługi Service Bus](service-bus-queues-topics-subscriptions.md#queues) oferują pierwszy na wejściu — pierwszy na wyjściu (FIFO) dostarczanie komunikatów dla co najmniej jeden konkurujących konsumentów.
 
@@ -81,9 +81,12 @@ Nazwa kolejki utworzoną w przestrzeni nazw usługi Service Bus.
 Wersja interfejsu API usługi Service Bus szablonu.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia

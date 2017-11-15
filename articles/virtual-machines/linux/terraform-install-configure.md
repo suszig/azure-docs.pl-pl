@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalowanie i konfigurowanie Terraform do obsługi administracyjnej maszyn wirtualnych i innych infrastruktury na platformie Azure
  
 Terraform zapewnia prosty sposób definiowania Podgląd i wdrażania infrastruktury chmurowej przy użyciu [tworzenia szablonów prostego języka](https://www.terraform.io/docs/configuration/syntax.html). W tym artykule opisano czynności niezbędnych do użycia Terraform do udostępniania zasobów platformy Azure. 
 
 > [!TIP]
-> Terraform jest instalowany domyślnie w [Bash w środowisku Azure Cloud powłoki](/azure/cloud-shell/quickstart). Jest wstępnie również skonfigurowany przy użyciu poświadczeń i [Azure Terraform modułów](https://registry.terraform.io/modules/Azure). Za pomocą powłoki w chmurze, można pominąć instalacji/części tego dokumentu.
+Aby dowiedzieć się więcej o sposobie używania Terraform z platformy Azure, odwiedź stronę [Centrum Terraform](/azure/terraform). Terraform jest instalowany domyślnie w [powłoki chmury](/terraform/terraform-cloud-shell). Za pomocą powłoki w chmurze, można pominąć instalacji/części tego dokumentu.
 
 ## <a name="install-terraform"></a>Zainstaluj Terraform
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Dodaj dostawcy zasobów usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS
 
@@ -110,7 +110,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Przejrzyj opcje jednostki SKU i wystąpienia roli. Wartości domyślne są wypełniane przy użyciu minimalną liczbę wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań rdzeni i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
+12. Przejrzyj opcje jednostki SKU i wystąpienia roli. Wartości domyślne są wypełniane przy użyciu minimalną liczbę wystąpień i minimalna jednostki SKU dla każdej roli we wdrożeniu ASDK. Aby ułatwić planowanie rozmieszczenia udostępniane jest podsumowanie wymagań vCPU i pamięci. Po dokonaniu wyboru kliknij przycisk **dalej**.
 
      > [!NOTE]
      > W przypadku wdrożeń produkcyjnych, postępując zgodnie ze wskazówkami w [zaplanować role serwera usługi Azure App Service w stosie Azure wydajność](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
     | Rola | Minimalna wystąpień | Minimalna jednostki SKU | Uwagi |
     | --- | --- | --- | --- |
-    | Kontrolera | 1 | Standard_A1 - (1 rdzeń, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
-    | Zarządzanie | 1 | Standard_A2 - (2 rdzenie, 3584 MB) | Zarządza punktów końcowych aplikacji usługi Azure Resource Manager i interfejsu API, rozszerzenia portalu (administratora, dzierżawcy, funkcje portalu) i usługi danych. Do obsługi trybu failover, zwiększyć zalecane wystąpień na 2. |
-    | Wydawca | 1 | Standard_A1 - (1 rdzeń, 1792 MB) | Publikowanie zawartości za pośrednictwem sieci web i FTP wdrożenia. |
-    | FrontEnd | 1 | Standard_A1 - (1 rdzeń, 1792 MB) | Kieruje żądania do aplikacji usługi aplikacji. |
-    | Udostępnionego procesu roboczego | 1 | Standard_A1 - (1 rdzeń, 1792 MB) | Hosty aplikacji sieci web lub aplikacji interfejsu API i usługi Azure Functions. Można dodać więcej wystąpień. Uprawnienia operatora można zdefiniować Twojej oferty i wybierz warstwę wszystkie jednostki SKU. Warstw musi mieć co najmniej jednego rdzenia. |
+    | Kontrolera | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
+    | Zarządzanie | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Zarządza punktów końcowych aplikacji usługi Azure Resource Manager i interfejsu API, rozszerzenia portalu (administratora, dzierżawcy, funkcje portalu) i usługi danych. Do obsługi trybu failover, zwiększyć zalecane wystąpień na 2. |
+    | Wydawca | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publikowanie zawartości za pośrednictwem sieci web i FTP wdrożenia. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Kieruje żądania do aplikacji usługi aplikacji. |
+    | Udostępnionego procesu roboczego | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosty aplikacji sieci web lub aplikacji interfejsu API i usługi Azure Functions. Można dodać więcej wystąpień. Uprawnienia operatora można zdefiniować Twojej oferty i wybierz warstwę wszystkie jednostki SKU. Warstw musi mieć co najmniej jeden vCPU. |
 
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image08.png)    
 

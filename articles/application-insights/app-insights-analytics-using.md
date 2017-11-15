@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Za pomocą analizy w usłudze Application Insights
 [Analiza](app-insights-analytics.md) to funkcja wyszukiwania zaawansowanego [usługi Application Insights](app-insights-overview.md). Te strony opisano język zapytań usługi Analiza dzienników.
@@ -38,7 +38,7 @@ Brak [szerszej samouczek tutaj](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Napisz zapytanie
 ![Wyświetlanie schematu](./media/app-insights-analytics-using/150.png)
 
-Zaczyna się od nazwy tabel wymienionych po lewej stronie (lub [zakres](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) lub [Unii](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) operatory). Użyj `|` można utworzyć potoku o [operatory](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Zaczyna się od nazwy tabel wymienionych po lewej stronie (lub [zakres](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) lub [Unii](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) operatory). Użyj `|` można utworzyć potoku o [operatory](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense wyświetla operatory i elementy wyrażenia, które są dostępne. Kliknij ikonę informacji (lub naciśnij klawisze CTRL + SPACJA) Aby uzyskać opis dłużej i przykłady sposobu używania poszczególnych elementów.
 
@@ -49,7 +49,7 @@ Zobacz [samouczek języka Analytics](app-insights-analytics-tour.md) i [materia�
 
 1. Pojedynczy podziały wierszy można użyć w zapytaniu.
 2. Umieść kursor wewnątrz lub na końcu zapytania, który chcesz uruchomić.
-3. Sprawdź zakres czasu zapytania. (Można zmienić lub zmienić, umieszczając w niej własnych [ `where...timestamp...` ](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) klauzuli w zapytaniu.)
+3. Sprawdź zakres czasu zapytania. (Można zmienić lub zmienić, umieszczając w niej własnych [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) klauzuli w zapytaniu.)
 3. Kliknij polecenie Przejdź do uruchomienia zapytania.
 4. Nie umieszczaj pustych wierszy w zapytaniu. Kilka zapytań rozdzielonych można przechowywać w jedną kartę zapytanie, rozdzielając je puste wiersze. Uruchamia tylko kwerendy, w której znajduje się kursor.
 
@@ -71,7 +71,7 @@ Można sortować, filtrowanie, z podziałem na strony i grupy wyników zwrócony
 > [!NOTE]
 > Sortowanie, grupowanie i filtrowanie w przeglądarce nie ponownie uruchom zapytanie. Rozmieszczanie one tylko wyników zwróconych przez kwerendę ostatniego. 
 > 
-> Aby wykonać te zadania na serwerze przed są zwracane, zapisać zapytanie z [sortowania](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [Podsumuj](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) i [gdzie](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) operatorów.
+> Aby wykonać te zadania na serwerze przed są zwracane, zapisać zapytanie z [sortowania](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [Podsumuj](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) i [gdzie](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) operatorów.
 > 
 > 
 
@@ -99,7 +99,7 @@ Jeśli uważasz, że nie występują wszystkie wyniki, które miały, istnieje k
 
     Można jednak zmienić zakres czasu filtru przy użyciu menu rozwijanego.
 
-    Lub zakresie automatycznego można zastąpić, umieszczając w niej własnych [ `where  ... timestamp ...` klauzuli](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) do zapytania. Na przykład:
+    Lub zakresie automatycznego można zastąpić, umieszczając w niej własnych [ `where  ... timestamp ...` klauzuli](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) do zapytania. Na przykład:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ Jeśli uważasz, że nie występują wszystkie wyniki, które miały, istnieje k
 
     Dobrym rozwiązaniem, aby uniknąć naciśnięcie limit jest. Użyj filtru zakres czasu lub używać operatorów, takich jak:
 
-  * [100 najpopularniejszych przez sygnatury czasowej](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [podejmij 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [Podsumowanie](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [gdzie sygnatury czasowej > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [100 najpopularniejszych przez sygnatury czasowej](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [podejmij 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [Podsumowanie](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [gdzie sygnatury czasowej > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Więcej niż 10 KB wierszy chcesz? Należy rozważyć użycie [eksportu ciągłego](app-insights-export-telemetry.md) zamiast tego. Analiza jest przeznaczona dla analizy, a nie podczas pobierania danych pierwotnych).
 
@@ -121,7 +121,7 @@ Wybierz typ diagramu, który chcesz:
 
 Jeśli masz kilka kolumn prawego typów można x i osi y, a kolumna wymiarów, aby podzielić wyniki według.
 
-Domyślnie wyniki są początkowo wyświetlane jako tabelę i ręcznie wybrać diagramu. Jednak można użyć [renderowania dyrektywy](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) na końcu zapytania, aby wybrać diagram.
+Domyślnie wyniki są początkowo wyświetlane jako tabelę i ręcznie wybrać diagramu. Jednak można użyć [renderowania dyrektywy](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) na końcu zapytania, aby wybrać diagram.
 
 ### <a name="analytics-diagnostics"></a>Diagnostyka analityka
 

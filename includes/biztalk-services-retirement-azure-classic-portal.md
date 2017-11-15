@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Portalu jest przestarzały. Aby zarządzać swoich wystąpień MABS, zobacz [interfejsu API REST dla usługi BizTalk Services zarządzania na platformie Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu środowiska Node.js
 
@@ -103,7 +103,11 @@ Można również użyć narzędzia takie jak [Eksploratora usługi Storage Azure
 
 Po zweryfikowaniu pliki naciśnij dowolny klawisz, aby zakończyć pokaz i usuwanie plików testowych. Teraz, znając prezentowanym przykładzie, otwórz plik index.js, aby przyjrzeć się kodu. 
 
-## <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
+## <a name="understand-the-sample-code"></a>Zrozumienie przykładowy kod
+
+Następnie możemy przeprowadzenie przykładowy kod, dzięki czemu można zrozumieć, jak to działa.
+
+### <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
 
 Jest najpierw musisz utworzyć odwołania do `BlobService` używane do uzyskania dostępu i zarządzania magazynem obiektów Blob. Te obiekty kompilacji na każdym z nich — są używane przez kolejnego na liście.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
+### <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty BLOB są najczęściej używane. Doskonale nadają się do przechowywania tekstu i danych binarnych, czyli przyczyny, które są używane w tym Szybki Start.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Istnieje kilka metod przekazywania, korzystających z magazynu obiektów Blob. Na przykład, jeśli masz strumienia pamięci, można użyć [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) metody zamiast [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
+### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
 Następnie aplikacja pobiera listę plików za pomocą kontenera [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Poniższy kod pobiera listę obiektów blob, a następnie w pętli, przedstawiający identyfikatorów URI obiektów blob znalezionych. Można skopiować identyfikator URI w oknie polecenia i wklej go w przeglądarce, aby wyświetlić plik.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Pobieranie obiektów blob
+### <a name="download-blobs"></a>Pobieranie obiektów blob
 
 Pobieranie obiektów blob przy użyciu dysku lokalnym [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Przekazane w tego przewodnika Szybki Start obiektów blob nie są już potrzebne, można usunąć za pomocą całego kontenera [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) i [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). To również usunięcie plików utworzony, jeśli nie są już potrzebne. To jest poświęcony na obsługę aplikacji po naciśnięciu klawisza enter, aby zakończyć działanie aplikacji.
 

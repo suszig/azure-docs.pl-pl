@@ -12,21 +12,24 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6107f64ae86af9b0ee873c8313ebba5371737f4d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)
+
+> [!NOTE]
+> Klasyczny portal dla urządzeń StorSimple jest przestarzały. Menedżerowie urządzeń StorSimple dokonają automatycznego przeniesienia do nowej witryny Azure Portal zgodnie z ustalonym harmonogramem wycofywania przestarzałych produktów. Powiadomienie o przeniesieniu otrzymasz pocztą e-mail i za pośrednictwem portalu. Ten dokument zostanie wkrótce usunięty. Aby wyświetlić wersję tego artykułu dla nowej witryny Azure Portal, przejdź do artykułu [Wdrażanie lokalnego urządzenia StorSimple (aktualizacja Update 2)](storsimple-8000-deployment-walkthrough-u2.md). W razie jakichkolwiek pytań dotyczących przeniesienia, zobacz [FAQ: Move to Azure portal (Często zadawane pytania — przeniesienie do witryny Azure Portal)](storsimple-8000-move-azure-portal-faq.md).
+
+
 > [!div class="op_single_selector"]
 > * [Aktualizacja Update 2 i nowsze ](storsimple-deployment-walkthrough-u2.md)
 > * [Aktualizacja 1](storsimple-deployment-walkthrough-u1.md)
 > * [Wersja ogólnodostępna](storsimple-deployment-walkthrough.md)
-> 
-> 
 
 ## <a name="overview"></a>Omówienie
 Witamy w procesie wdrażania urządzenia Microsoft Azure StorSimple. W niniejszych samouczkach opisano wdrożenie urządzenia z serii StorSimple 8000 z aktualizacją Update 2. W tej serii samouczków uwzględniono listę kontrolną i wymagania wstępne dotyczące konfiguracji oraz szczegółowe opisy kroków konfiguracji dla urządzenia StorSimple.

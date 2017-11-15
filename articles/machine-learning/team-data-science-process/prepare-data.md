@@ -4,7 +4,7 @@ description: "Wstępnie przetworzyć i czyszczenia danych, aby przygotować go d
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Zadania w celu przygotowania danych do rozszerzonego uczenia maszynowego
-Przetwarzanie wstępne i czyszczenia danych są ważne zadania, które zwykle należy przeprowadzić przed zestawu danych można skutecznie uczenia maszynowego. Dane pierwotne jest często zakłócenia i zawodnych i może brakować wartości. Przy użyciu tych danych do modelowania może wygenerować błędne wyniki. Te zadania należą do zespołu danych nauki procesu (TDSP) i zwykle wykonaj eksploracji początkowego zestawu danych używane do odnajdywania i planowanie przetwarzanie wstępne wymagane. Aby uzyskać szczegółowe instrukcje dotyczące procesu TDSP, zobacz czynności opisane w temacie [proces nauki danych zespołu](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Przetwarzanie wstępne i czyszczenia danych są ważne zadania, które zwykle należy przeprowadzić przed zestawu danych można skutecznie uczenia maszynowego. Dane pierwotne jest często zakłócenia i zawodnych i może brakować wartości. Przy użyciu tych danych do modelowania może wygenerować błędne wyniki. Te zadania należą do zespołu danych nauki procesu (TDSP) i zwykle wykonaj eksploracji początkowego zestawu danych używane do odnajdywania i planowanie przetwarzanie wstępne wymagane. Aby uzyskać szczegółowe instrukcje dotyczące procesu TDSP, zobacz czynności opisane w temacie [proces nauki danych zespołu](overview.md).
 
 Przetwarzanie wstępne i czyszczenie zadania, takie jak zadanie Eksploracja danych, może zostać przeprowadzona w różnych środowiskach, takich jak SQL lub Hive lub Azure Machine Learning Studio oraz z różnych narzędzi i języków, takich jak R lub Python, w którym dane są przechowywane w zależności i sposób formatowania. Ponieważ TDSP ma charakter iteracyjny charakter, te zadania może odbywać się w różnych kroków w przepływie pracy procesu.
 

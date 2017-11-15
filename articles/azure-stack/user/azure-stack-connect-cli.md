@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalowanie i Konfigurowanie interfejsu wiersza polecenia do użycia z programem Azure stosu
 
@@ -204,6 +204,15 @@ az group create \
 Jeśli grupa zasobów została utworzona pomyślnie, poprzednie polecenie wyświetla następujące właściwości nowo utworzonego zasobu:
 
 ![Tworzenie grupy zasobów danych wyjściowych](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Znane problemy
+Istnieją znane problemy, które trzeba pamiętać podczas przy użyciu interfejsu wiersza polecenia Azure stosu:
+
+* Tj interfejsu wiersza polecenia w trybie interakcyjnym `az interactive` polecenie nie jest jeszcze obsługiwane w stosie Azure.
+* Aby uzyskać listę dostępnych w stosie Azure obrazów maszyny wirtualnej, użyj `az vm images list --all` polecenia zamiast `az vm image list` polecenia. Określanie `--all` option zapewnia, że odpowiedzi zwraca tylko obrazy, które są dostępne w środowisku Azure stosu. 
+* Aliasy obrazu maszyny wirtualnej, które są dostępne w systemie Azure nie może być stosowane do stosu Azure. Korzystając z obrazów maszyny wirtualnej, użyć całego parametru URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) zamiast alias obrazu. Ten URN musi odpowiadać specyfikacji obrazu wynikające z `az vm images list` polecenia.
+* Domyślnie 2.0 interfejsu wiersza polecenia używa "Standard_DS1_v2" jako domyślny rozmiar obrazu maszyny wirtualnej. Jednak ten rozmiar nie jest jeszcze dostępna w stosie Azure, dlatego należy określić `--size` parametru jawnie, podczas tworzenia maszyny wirtualnej. Można pobrać listy rozmiarów maszyn wirtualnych, które są dostępne w stosie Azure przy użyciu `az vm list-sizes --location <locationName>` polecenia.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Używanie usługi Azure Security Center do reagowania na zdarzenia
 Wiele organizacji uczy się reagowania na zdarzenia zabezpieczeń dopiero wtedy, gdy zostaną celem ataku. Aby zmniejszyć koszty i straty, ważne jest dysponowanie planem reagowania na takie zdarzenia jeszcze przed wystąpieniem ataku. Usługi Azure Security Center można używać na różnych etapach reagowania na zdarzenia.
@@ -96,7 +96,7 @@ Szymon otrzymuje zgłoszenie od Magdy i zaczyna przeglądanie czynności zaradcz
 ![Cykl życia reakcji na zdarzenie](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
-Zespół reagowania na zdarzenia może również korzystać z możliwości usługi [Security Center Power BI](security-center-powerbi.md) pozwalającej wyświetlać różne typy raportów. Te raporty mogą pomóc im podczas dalszej analizy w celu wizualizacji, analizowania i filtrowania zaleceń i alertów zabezpieczeń. Firmy, które podczas analizy korzystają z rozwiązania do zarządzania informacjami i zdarzeniami dotyczącymi bezpieczeństwa (SIEM), mogą również [zintegrować usługę Security Center z używanym rozwiązaniem](security-center-integrating-alerts-with-log-integration.md). Dzienniki inspekcji platformy Azure i zdarzenia zabezpieczeń dotyczące maszyn wirtualnych można też zintegrować przy użyciu [narzędzia do integracji dziennika Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Aby zbadać atak, możesz użyć tych informacji w połączeniu z informacjami dostarczonymi przez usługę Security Center.
+Firmy, które podczas analizy korzystają z rozwiązania do zarządzania informacjami i zdarzeniami dotyczącymi bezpieczeństwa (SIEM), mogą również [zintegrować usługę Security Center z używanym rozwiązaniem](security-center-integrating-alerts-with-log-integration.md). Dzienniki inspekcji platformy Azure i zdarzenia zabezpieczeń dotyczące maszyn wirtualnych można też zintegrować przy użyciu [narzędzia do integracji dziennika Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Aby zbadać atak, możesz użyć tych informacji w połączeniu z informacjami dostarczonymi przez usługę Security Center. W celu ustalenia głównej przyczyny wystąpienia zdarzenia można również użyć funkcji [analizy](https://docs.microsoft.com/azure/security-center/security-center-investigation) w usłudze Security Center.
 
 ## <a name="conclusion"></a>Podsumowanie
 Stworzenie zespołu przed wystąpieniem ataku jest bardzo istotne dla organizacji i pozytywnie wpływa na sposób reagowania na zdarzenia dotyczące bezpieczeństwa. Odpowiednie narzędzia do monitorowania zasobów mogą ułatwić zespołowi podjęcie właściwych kroków w celu usunięcia skutków zdarzenia zabezpieczeń. [Funkcje wykrywania](security-center-detection-capabilities.md) usługi Security Center mogą pomóc zespołowi IT szybko reagować na zdarzenia zabezpieczeń i rozwiązywać problemy dotyczące bezpieczeństwa.

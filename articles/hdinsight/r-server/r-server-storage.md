@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 80af328fc046f8d33727930d02b569da37ccf332
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Azure rozwiązań magazynów na potrzeby R Server w usłudze HDInsight
 
@@ -197,6 +197,5 @@ Po zapoznaniu się z opcji magazynu Azure, użyj następujących łączy odkrywa
 
 * [Omówienie R Server w usłudze HDInsight](r-server-overview.md)
 * [Rozpoczynanie pracy z serwerem R na platformie Hadoop](r-server-get-started.md)
-* [Dodaj serwer programu RStudio do HDInsight (Jeśli nie dodano podczas tworzenia klastra)](r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md) (Opcje kontekstu obliczeniowego dla oprogramowania R Server w usłudze HDInsight)
 

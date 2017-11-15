@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: bc1c1fdc4d7482b0a92b14ac90b8162367946636
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Tworzenie fabryki danych i potoku przy użyciu języka Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,7 +108,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Dodaj do metody **Main** poniższy kod, który tworzy wystąpienie klasy DataFactoryManagementClient. Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku. Ustaw zmienną **subscription_id** na identyfikator swojej subskrypcji platformy Azure.
+3. Dodaj do metody **Main** poniższy kod, który tworzy wystąpienie klasy DataFactoryManagementClient. Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku. Ustaw zmienną **subscription_id** na identyfikator swojej subskrypcji platformy Azure. Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
     ```python   
     def main():
@@ -424,7 +424,7 @@ Copy duration: 4
 Aby usunąć fabrykę danych, dodaj następujący kod do programu:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Następne kroki

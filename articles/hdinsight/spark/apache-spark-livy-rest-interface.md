@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Użyj interfejsu API Apache Spark REST do przesyłania zadań zdalnego w klastrze Spark w usłudze HDInsight
 
-Dowiedz się, jak używać programu Livy, Apache Spark interfejsu API REST, który służy do przesyłania zadań zdalnego klastra usługi Azure HDInsight Spark. Szczegółowa dokumentacja zobacz [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Dowiedz się, jak używać programu Livy, Apache Spark interfejsu API REST, który służy do przesyłania zadań zdalnego klastra usługi Azure HDInsight Spark. Szczegółowa dokumentacja zobacz [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Livy służy do uruchamiania interaktywnego Spark powłoki lub przesyłania zadania wsadowego mają być uruchamiane na Spark. Ten artykuł zawiera informacje o przy użyciu programu Livy do przesyłania zadań wsadowych. Fragmenty kodu, w tym artykule umożliwiają cURL wywołań interfejsu API REST do punktu końcowego programu Livy Spark.
 
@@ -189,6 +189,7 @@ Poniżej przedstawiono niektóre problemy, które możesz napotkać podczas skł
 
 ## <a name="next-step"></a>Następny krok
 
+* [Dokumentacja interfejsu API REST Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight](apache-spark-resource-manager.md)
 * [Śledzenie i debugowanie zadań uruchamianych w klastrze Apache Spark w usłudze HDInsight](apache-spark-job-debugging.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Tworzenie trasy zdefiniowane przez użytkownika - wiersza polecenia platformy Azure
 
@@ -293,6 +293,12 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
         - **Ubuntu**: Uruchom `tracepath myvm-private` polecenia.
       Ruch przechodzi przez 10.0.2.4 (NVA) przed osiągnięciem 10.0.1.4 (maszynę wirtualną w podsieci prywatne). 
     - Wykonać poprzednie kroki, łącząc się z *prywatnego myVm* maszyny wirtualnej i polecenie ping *myVm publicznego* maszyny wirtualnej. Śledzenie trasy zawiera komunikacji określanego 10.0.2.4 przed osiągnięciem 10.0.0.4 (maszynę wirtualną w publicznych podsieci).
+      
+      > [!NOTE]
+      > Poprzednie kroki umożliwiają potwierdzenie routingu między Azure prywatnych adresów IP. Jeśli chcesz przekazać lub serwer proxy, ruch do publicznego adresu IP adresów przez urządzenie wirtualne sieci:
+      > - Urządzenie musi zapewnić translatora adresów sieciowych lub możliwości serwera proxy. Jeśli translatora adresów sieciowych, urządzenie musi tłumaczenie źródła adresów IP, adres do jego własnej i przesyłania dalej tego żądania do publicznego adresu IP. Czy urządzenie ma adres sieciowy translacji adresu źródłowego lub używany jako serwer proxy, Azure tłumaczy urządzenie wirtualne sieci prywatnego adresu IP do publicznego adresu IP. Aby uzyskać więcej informacji o różnych metodach Azure używa do przekształcania prywatnych adresów IP na publiczne adresy IP, zobacz [opis połączenia wychodzące](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Dodatkowe trasy w tabeli tras, takie jak prefiks: wartość 0.0.0.0/0, typ następnego przeskoku VirtualAppliance i następnego przeskoku adresów IP 10.0.2.4 (w poprzednim przykładowy skrypt).
+      >
     - **Opcjonalnie**: Użyj następnego przeskoku możliwości obserwatora sieciowego Azure można sprawdzić poprawności następnego przeskoku między dwiema maszynami wirtualnymi w obrębie platformy Azure. Przed użyciem obserwatora sieciowego, należy najpierw [utworzenia wystąpienia obserwatora sieciowego Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dla regionu, którego chcesz użyć w. W tym samouczku jest używany nam wschodnie regionu. Po aktywowaniu wystąpienia obserwatora sieciowego, dla regionu, wprowadź następujące polecenie, aby zobaczyć informacje o następnego przeskoku między maszynami wirtualnymi w podsieci publicznej i prywatnej:
      
         ```azurecli-interactive

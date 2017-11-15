@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure
 ## <a name="overview"></a>Omówienie
 Platforma Azure oferuje wbudowane narzędzia diagnostyczne, aby pomóc w debugowaniu [aplikacji sieci web usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714). W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne i dodać Instrumentacji do aplikacji, a także sposobu uzyskania dostępu do informacji rejestrowane przez platformę Azure.
 
-W tym artykule wykorzystano [Azure Portal](https://portal.azure.com), programu Azure PowerShell i interfejsu wiersza polecenia platformy Azure (Azure CLI) do pracy z dzienników diagnostycznych. Aby uzyskać informacje na temat pracy z dzienników diagnostycznych przy użyciu programu Visual Studio, zobacz [Rozwiązywanie problemów z platformy Azure w programie Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+W tym artykule wykorzystano [portalu Azure](https://portal.azure.com), programu Azure PowerShell i interfejsu wiersza polecenia platformy Azure (Azure CLI) do pracy z dzienników diagnostycznych. Aby uzyskać informacje na temat pracy z dzienników diagnostycznych przy użyciu programu Visual Studio, zobacz [Rozwiązywanie problemów z platformy Azure w programie Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,19 +48,19 @@ W czasie wykonywania mogą pobierać te dzienniki, aby pomóc w rozwiązywaniu p
 Aplikacje sieci web usługi aplikacji także rejestrować informacje na temat wdrażania podczas publikowania zawartości do aplikacji sieci web. Dzieje się to automatycznie i nie ma żadnych ustawień konfiguracji dla rejestrowania wdrożenia. Rejestrowanie wdrożenia pozwala określić, dlaczego wdrożenia nie powiodło się. Na przykład jeśli używasz skryptu wdrażania niestandardowych, można użyć wdrożenia rejestrowania do ustalenia, dlaczego skrypt nie działa prawidłowo.
 
 ## <a name="enablediag"></a>Jak włączyć diagnostyki
-Aby włączyć diagnostyki w [Azure Portal](https://portal.azure.com), przejdź do bloku dla aplikacji sieci web i kliknij przycisk **Ustawienia > dzienniki diagnostyczne**.
+Aby włączyć diagnostyki w [portalu Azure](https://portal.azure.com), przejdź do strony dla aplikacji sieci web i kliknij przycisk **Ustawienia > dzienniki diagnostyczne**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Część dzienników](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Po włączeniu **programu application diagnostics** również wybrać **poziom**. To ustawienie umożliwia filtrowanie informacji przechwycone do **informacyjny**, **ostrzeżenie** lub **błąd** informacji. To ustawienie **pełne** będzie rejestrować wszystkie informacje wygenerowane przez aplikację.
+Po włączeniu **programu application diagnostics**, możesz również wybrać **poziom**. To ustawienie umożliwia filtrowanie informacji przechwycone do **informacyjny**, **ostrzeżenie**, lub **błąd** informacji. To ustawienie **pełne** rejestruje wszystkie informacje produkowane przez aplikację.
 
 > [!NOTE]
 > W przeciwieństwie do zmiany pliku web.config, włączanie diagnostyki aplikacji lub zmienianie poziomów dzienników diagnostycznych nie jest odtwarzana aplikacji jest uruchamiany w ramach domeny aplikacji.
 >
 >
 
-W [klasyczny portal](https://manage.windowsazure.com) aplikacji sieci Web **Konfiguruj** karcie, możesz wybrać **magazynu** lub **system plików** dla **rejestrowanie pracy serwera sieci web** . Wybieranie **magazynu** służy do wybierania konta magazynu i kontener obiektów blob, który dzienniki będą zapisywane. Wszystkie dzienniki dla **lokacji diagnostyki** są zapisywane w systemie plików.
+W [klasyczny portal](https://manage.windowsazure.com) aplikacji sieci Web **Konfiguruj** karcie, możesz wybrać **magazynu** lub **system plików** dla **rejestrowanie pracy serwera sieci web** . Wybieranie **magazynu** służy do wybierania konta magazynu i kontener obiektów blob, który dzienniki są zapisywane. Wszystkie dzienniki dla **lokacji diagnostyki** są zapisywane w systemie plików.
 
 [Klasyczny portal](https://manage.windowsazure.com) aplikacji sieci Web **Konfiguruj** karta zawiera również dodatkowe ustawienia dla programu application diagnostics:
 
@@ -113,7 +113,7 @@ Pobierz pliki dziennika i uruchomić nowe wystąpienie programu Azure PowerShell
 
     Save-AzureWebSiteLog -Name webappname
 
-Spowoduje to zapisanie dzienników aplikacji sieci web określonej przez **— nazwa** parametru w pliku o nazwie **logs.zip** w bieżącym katalogu.
+To polecenie zapisuje dzienniki dla aplikacji sieci web, określony przez **— nazwa** parametru w pliku o nazwie **logs.zip** w bieżącym katalogu.
 
 > [!NOTE]
 > Jeśli nie zainstalowano programu Azure PowerShell lub nie zostały skonfigurowane do korzystania z subskrypcji Azure, zobacz [jak używać programu Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ Aby pobrać pliki dziennika przy użyciu interfejsu wiersza polecenia Azure, otw
 
     azure site log download webappname
 
-Spowoduje to zapisanie dzienników aplikacji sieci web o nazwie "webappname" w pliku o nazwie **diagnostics.zip** w bieżącym katalogu.
+To polecenie zapisuje dzienniki dla aplikacji sieci web o nazwie "webappname" w pliku o nazwie **diagnostics.zip** w bieżącym katalogu.
 
 > [!NOTE]
 > Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure (Azure CLI) lub nie zostały skonfigurowane do korzystania z subskrypcji Azure, zobacz [sposób użycia interfejsu wiersza polecenia Azure](../cli-install-nodejs.md).
@@ -136,11 +136,11 @@ Spowoduje to zapisanie dzienników aplikacji sieci web o nazwie "webappname" w p
 Visual Studio Application Insights udostępnia narzędzia do filtrowania i wyszukiwania dzienników oraz korelowanie dzienniki z żądaniami oraz innymi zdarzeniami.
 
 1. Dodaj zestaw SDK usługi Application Insights do projektu programu Visual Studio.
-   * W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz polecenie Dodaj usługę Application Insights. Poprowadzą Cię przez kroki, które obejmują tworzenie zasobu usługi Application Insights. [Dowiedz się więcej](../application-insights/app-insights-asp-net.md)
+   * W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz polecenie Dodaj usługę Application Insights. Interfejs prowadzi użytkownika przez kroki, które obejmują tworzenie zasobu usługi Application Insights. [Dowiedz się więcej](../application-insights/app-insights-asp-net.md)
 2. Dodaj pakiet nasłuchującego śledzenia do projektu.
    * Kliknij prawym przyciskiem myszy projekt i wybierz polecenie Zarządzaj pakietami NuGet. Wybierz `Microsoft.ApplicationInsights.TraceListener` [Dowiedz się więcej](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Przekaż swój projekt, a następnie uruchom go, aby wygenerować dane dziennika.
-4. W [Azure Portal](https://portal.azure.com/), przejdź do nowego zasobu usługi Application Insights i Otwórz **wyszukiwania**. Zobaczysz danych dziennika, wraz z żądania, użytkowania i innych danych telemetrycznych. Niektóre dane telemetryczne może potrwać kilka minut na odebranie: kliknij przycisk Odśwież. [Dowiedz się więcej](../application-insights/app-insights-diagnostic-search.md)
+4. W [portalu Azure](https://portal.azure.com/), przejdź do nowego zasobu usługi Application Insights i Otwórz **wyszukiwania**. Powinny być widoczne dane dziennika, wraz z żądania, użycia i innych danych telemetrycznych. Niektóre dane telemetryczne może potrwać kilka minut na odebranie: kliknij przycisk Odśwież. [Dowiedz się więcej](../application-insights/app-insights-diagnostic-search.md)
 
 [Dowiedz się więcej na temat wydajności śledzenia z usługą Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -151,7 +151,7 @@ Podczas tworzenia aplikacji, często jest przydatne wyświetlić informacje o re
 > Niektóre typy rejestrowania bufor zapisu do pliku dziennika, co może skutkować zdarzenia poza kolejnością w strumieniu. Na przykład wpis dziennika aplikacji, która występuje, gdy użytkownik odwiedza stronę mogą być wyświetlane w strumieniu przed odpowiadający mu wpis dziennika HTTP dla żądania strony.
 >
 > [!NOTE]
-> Przesyłanie strumieniowe dziennika również strumienia informacje zapisane w pliku tekstowym, wszystkie przechowywane w **D:\\macierzystego\\LogFiles\\**  folderu.
+> Również dzienników przesyłania strumieniowego strumieni informacje zapisane w pliku tekstowym, wszystkie przechowywane w **D:\\macierzystego\\LogFiles\\**  folderu.
 >
 >
 
@@ -160,7 +160,7 @@ Informacje o rejestrowaniu strumienia i uruchomić nowe wystąpienie programu Az
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Spowoduje to połączenie do aplikacji sieci web, określony przez **— nazwa** parametru i rozpocząć przesyłanie strumieniowe informacje do okna programu PowerShell w momencie wystąpienia zdarzenia dziennika w aplikacji sieci web. Wszystkie informacje zapisane pliki kończące się txt, log lub htm, które są przechowywane w katalogu /LogFiles (d: lub głównej/pliki dziennika) zostanie przesłany strumieniowo do konsoli lokalnej.
+To polecenie łączy do aplikacji sieci web, określony przez **— nazwa** parametru i rozpocząć przesyłanie strumieniowe informacje do okna programu PowerShell w momencie wystąpienia zdarzenia dziennika w aplikacji sieci web. Wszystkie informacje zapisane pliki kończące się txt, log lub htm, które są przechowywane w katalogu /LogFiles (d: lub głównej/pliki dziennika) jest przesyłane strumieniowo do konsoli lokalnej.
 
 Aby filtrować określonych zdarzeń, takich jak błędy, należy użyć **-komunikat** parametru. Na przykład:
 
@@ -182,7 +182,7 @@ Do strumienia rejestrowanie informacji, otwórz nowy wiersz polecenia, programu 
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Spowoduje to łączenia się z aplikacją sieci web o nazwie "webappname" i rozpocząć przesyłanie strumieniowe informacje do okna w momencie wystąpienia zdarzenia dziennika w aplikacji sieci web. Wszystkie informacje zapisane pliki kończące się txt, log lub htm, które są przechowywane w katalogu /LogFiles (d: lub głównej/pliki dziennika) zostanie przesłany strumieniowo do konsoli lokalnej.
+To polecenie łączy do aplikacji sieci web o nazwie "webappname" i rozpocząć przesyłanie strumieniowe informacje do okna w momencie wystąpienia zdarzenia dziennika w aplikacji sieci web. Wszystkie informacje zapisane pliki kończące się txt, log lub htm, które są przechowywane w katalogu /LogFiles (d: lub głównej/pliki dziennika) jest przesyłane strumieniowo do konsoli lokalnej.
 
 Aby filtrować określonych zdarzeń, takich jak błędy, należy użyć **— filtr** parametru. Na przykład:
 
@@ -203,9 +203,9 @@ Diagnostyka aplikacji są przechowywane informacje w określonym formacie aplika
 
 **System plików**
 
-Każdy wiersz logowania do systemu plików lub odbierane przy użyciu przesyłania strumieniowego będą w następującym formacie:
+Każdym wierszu logowania do systemu plików lub odbierane przy użyciu przesyłania strumieniowego znajduje się w następującym formacie:
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Na przykład zdarzenie błędu widoczne jest podobny do następującego:
 
@@ -253,12 +253,12 @@ Dane przechowywane w obiekcie blob będzie wyglądać podobnie do poniższej:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Pierwszy wiersz dziennika będzie zawierać nagłówki kolumn, jak w tym przykładzie.
+> Pierwszy wiersz dziennika zawiera nagłówki kolumn, jak w tym przykładzie.
 >
 >
 
 ### <a name="failed-request-traces"></a>Nie powiodło się żądanie śledzenia
-Dane śledzenia nieudanych żądań, są przechowywane w plikach XML o nazwie **fr ### .xml**. Aby ułatwić wyświetlać zarejestrowane informacje o nazwie arkusz stylów XSL **freb.xsl** znajduje się w tym samym katalogu co plik XML. Otwieranie pliku XML w programie Internet Explorer użyje arkusz stylów XSL zapewnienie sformatowany wyświetlanie informacji o śledzeniu. Będzie ona widoczna podobny do następującego:
+Dane śledzenia nieudanych żądań, są przechowywane w plikach XML o nazwie **fr ### .xml**. Aby ułatwić wyświetlać zarejestrowane informacje o nazwie arkusz stylów XSL **freb.xsl** znajduje się w tym samym katalogu co plik XML. Po otwarciu pliki XML w programie Internet Explorer programu Internet Explorer używa arkusza stylów XSL, aby zapewnić sformatowany wyświetlanie informacji o śledzeniu. Ta opcja ma podobny do następującego:
 
 ![żądań zakończonych niepowodzeniem w przeglądarce](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ Dzienniki serwera sieci web są sformatowane przy użyciu [rozszerzonym formacie
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 >
 >
-
-## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
-* Przewodnik dotyczący zmiany portalu starego do nowego portalu, zobacz: [odwołanie do nawigowania portalu Azure](http://go.microsoft.com/fwlink/?LinkId=529715)

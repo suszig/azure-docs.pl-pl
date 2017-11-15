@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Rozwiązywanie problemów
           href: azure-diagnostics-troubleshooting.md
-    - name: Korzystanie z Eksploratora metryk usługi Azure Monitor
-      items:
-        - name: Tworzenie wykresów metryk
-          href: monitoring-metric-charts.md
+    - name: Tworzenie wykresów metryki w Eksploratorze metryk
+      href: monitoring-metric-charts.md
+    - name: Wysyłanie metryk do narzędzia Grafana
+      href: monitor-send-to-grafana.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

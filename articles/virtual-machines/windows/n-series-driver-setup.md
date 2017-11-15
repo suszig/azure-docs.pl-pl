@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Konfigurowanie wersji sterowników procesora GPU dla maszyn wirtualnych N-series, system operacyjny Windows Server
 Aby skorzystać z możliwości procesora GPU Azure N-series maszyny wirtualne z systemami Windows Server 2016 lub Windows Server 2012 R2, zainstaluj obsługiwanych NVIDIA grafiki sterowników. Ten artykuł zawiera kroki konfiguracji sterownika po wdrożeniu maszyny Wirtualnej N serii. Informacje o instalacji sterowników jest również dostępny do [maszyn wirtualnych systemu Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -50,7 +50,7 @@ Aby sprawdzić stan urządzenia procesora GPU, uruchom [nvidia smi](https://deve
 
 1. Otwórz wiersz polecenia i zmień **C:\Program Files\NVIDIA Corporation\NVSMI** katalogu.
 
-2. Uruchom **nvidia smi**. Jeśli jest zainstalowany sterownik zostaną wyświetlone informacje podobne do poniżej. Należy pamiętać, że **GPU Util** pokazuje **0%** chyba, że obciążenie procesora GPU są aktualnie uruchomione na maszynie Wirtualnej.
+2. Uruchom polecenie `nvidia-smi`. Jeśli jest zainstalowany sterownik zostaną wyświetlone dane wyjściowe podobne do następującego. Należy pamiętać, że **GPU Util** pokazuje **0%** chyba, że obciążenie procesora GPU są aktualnie uruchomione na maszynie Wirtualnej. Wersja sterownika, a szczegóły GPU mogą być inne niż te wyświetlane.
 
 ![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi.png)  
 

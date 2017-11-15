@@ -3,7 +3,7 @@ title: "Aplikacji node.js za pomocą użyciu biblioteki Socket.io | Dokumentacja
 description: "Dowiedz się, jak używać użyciu biblioteki socket.io w aplikacji node.js hostowanej na platformie Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: a85d4348a13b79b5b7542362de9956aa3398375a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usłudze chmury Azure
 Użyciu biblioteki Socket.IO zapewnia czasu rzeczywistego komunikacji między między serwerem środowiska node.js i klientami. W tym samouczku opisano za pośrednictwem obsługi gniazda. We/Wy na podstawie rozmów aplikacji na platformie Azure. Aby uzyskać więcej informacji o użyciu biblioteki Socket.IO, zobacz <http://socket.io/>.
@@ -72,7 +72,7 @@ Dla tego projektu, użyjemy przykład rozmów z [repozytorium GitHub użyciu bib
 Przed testowaniem aplikacji w emulatorze platformy Azure, firma Microsoft wprowadzać niektórych drobne zmiany. Wykonaj poniższe kroki, aby pliku server.js:
 
 1. Otwórz **server.js** pliku w Visual Studio lub w dowolnym edytorze tekstów.
-2. Znajdź **zależności modułu** sekcji na początku server.js i zmień wiersz zawierający **sio = require('..//..lib//Socket.IO ")** do **sio = require('socket.io')** w sposób przedstawiony poniżej:
+2. Znajdź **zależności modułu** sekcji na początku server.js i zmień wiersz zawierający **sio = require('.. //.. lib//Socket.IO ")** do **sio = require('socket.io')** w sposób przedstawiony poniżej:
    
        var express = require('express')
          , stylus = require('stylus')

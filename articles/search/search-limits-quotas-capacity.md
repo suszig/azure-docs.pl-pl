@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Ograniczenia usługi w usłudze Azure Search
 Maksymalne zawartości w pamięci masowej, obciążenia i ilości indeksów, dokumentów, a inne obiekty są zależne od tego, czy możesz [udostępnić usługi Azure Search](search-create-service-portal.md) w **wolne**, **podstawowe**, lub **standardowe** warstwy cenowej.
 
-* **Bezpłatne** jest wielodostępne usług udostępnionych, która pochodzi z subskrypcją platformy Azure. Jest opcja dodatkowe — bezpłatnie dla istniejących subskrybentów, umożliwiający wypróbowanie usługi przed utworzeniem dla zasobów dedykowanych.
+* **Bezpłatne** jest wielodostępne usług udostępnionych, która pochodzi z subskrypcją platformy Azure. 
 * **Podstawowe** zawiera dedykowany zasobów obliczeniowych dla obciążeń produkcyjnych na mniejszą skalę.
-* **Standardowe** działa na dedykowanych maszyn o większej pojemności magazynu i przetwarzania na każdym poziomie. Standard składa się z czterech poziomów: S1, S2 S3 i o wysokiej gęstości S3 (S3 HD).
+* **Standardowe** działa na dedykowanych maszyn o większej pojemności do przechowywania i przetwarzania na każdym poziomie. Standard składa się z czterech poziomów: S1, S2 S3 i o wysokiej gęstości S3 (S3 HD).
 
 > [!NOTE]
-> Usługa jest zainicjowana dla określonej warstwy. Jeśli konieczne jest przejście warstw w celu uzyskania większej pojemności, należy udostępnić nowej usługi (uaktualnienie w miejscu, nie istnieje). Aby uzyskać więcej informacji, zobacz [wybierz jednostki SKU lub warstwy](search-sku-tier.md). Aby dowiedzieć się więcej na temat dostosowywania wydajności w ramach usługi została już przydzielona, zobacz [skalowania zasobu poziomy kwerendy i indeksowania obciążeń](search-capacity-planning.md).
+> Usługa jest zainicjowana dla określonej warstwy. Przeskakiwanie warstw w celu uzyskania pojemności obejmuje Inicjowanie obsługi administracyjnej nowej usługi (uaktualnienie w miejscu, nie istnieje). Aby uzyskać więcej informacji, zobacz [wybierz jednostki SKU lub warstwy](search-sku-tier.md). Aby dowiedzieć się więcej na temat dostosowywania wydajności w ramach usługi została już przydzielona, zobacz [skalowania zasobu poziomy kwerendy i indeksowania obciążeń](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Na limity subskrypcji
@@ -66,16 +66,11 @@ Odwołuje się do rozmiar maksymalny dokumentu podczas wywoływania indeksu inte
 
 Aby zachować rozmiar dokumentu w dół, pamiętaj, aby wykluczyć z systemem innym niż kolejność danych w żądaniu. Obrazy i inne dane binarne nie są bezpośrednio zapytań i nie powinny być przechowywane w indeksie. Do integracji z systemem innym niż kolejność danych w wynikach wyszukiwania, zdefiniuj niemożliwych pole, które przechowuje URL odwołania do zasobu.
 
-## <a name="workload-limits-queries-per-second"></a>Limity obciążenia (zapytania na sekundę)
-| Zasób | Bezpłatna | Podstawowa | S1 | S2 | S3 | S3 (wysoka gęstość) |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |Nie dotyczy |Około 3 na replikę |Około 15 na replikę |Około 60 na replikę |Ponad 60 na replikę |Ponad 60 na replikę |
+## <a name="queries-per-second-qps"></a>Zapytania na sekundę (QPS)
 
-Zapytania na sekundę (QPS) jest przybliżenie oparte na algorytmy heurystyczne, przy użyciu obciążeń symulowanych i rzeczywistych odbiorcy pochodzić szacowane wartości. Dokładne przepływności QPS różni się w zależności od danych i rodzaj zapytania.
+Szacuje QPS musi być opracowana niezależnie przez każdego klienta. Rozmiar indeksu i złożoność, rozmiar kwerendy i złożoność oraz ilość ruchu sieciowego są głównej uwarunkowania QPS. Nie istnieje sposób oferowanie szacuje znaczenie w przypadku takich czynników nieznany.
 
-Mimo że szacunkowe podano powyżej, rzeczywista szybkość trudno jest określić, szczególnie w przypadku wolnego usług udostępnionych, w którym przepływności na podstawie dostępnej przepustowości i konkurowanie o zasoby systemowe. W warstwie bezpłatna zasoby obliczeniowe i magazynujące są współużytkowane przez wielu subskrybentów, więc QPS rozwiązania zawsze będą się różnić w zależności od tego, jak wiele innych obciążeń uruchomionych na tym samym czasie.
-
-Na poziomie standardowa można oszacować QPS ściślej, ponieważ mają kontrolę nad więcej parametrów. Zobacz sekcję najlepszych rozwiązań w [Zarządzanie rozwiązania wyszukiwania](search-manage.md) wskazówki dotyczące sposobu obliczania QPS dla obciążeń.
+Szacuje są bardziej przewidywalne podczas obliczania na usługi działające na zasobów dedykowanych (warstwy Basic i Standard). QPS więcej można oszacować ściśle, ponieważ mają kontrolę nad więcej parametrów. Aby uzyskać wskazówki dotyczące szacowania podejście, zobacz [wydajności usługi Azure Search i optymalizacji](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>Limity żądań interfejsu API
 * Maksymalnie 16 MB na żądanie <sup>1</sup>

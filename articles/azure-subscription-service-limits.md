@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usługi Azure, przydziały i ograniczenia
 Ten dokument przedstawia niektóre z najczęściej limity Microsoft Azure, nazywane również przydziałów. Ten dokument obecnie nie obejmuje wszystkich usług platformy Azure. Wraz z upływem czasu listy zostanie rozwinięty, a zaktualizowane, aby pokrywał się z platformy.
@@ -38,7 +38,7 @@ Obecnie istnieje możliwość łączenia wielu zasobów platformy Azure w jednej
 W obszarze poniżej ograniczenia dodano nową tabelę odzwierciedlają różnice w granicach, korzystając z usługi Azure Resource Manager. Na przykład istnieje **limity subskrypcji** tabeli i **limity subskrypcji — usługi Azure Resource Manager** tabeli. Gdy limit dotyczy oba scenariusze, jego jest wyświetlana tylko w pierwszej tabeli. O ile nie wskazano inaczej, limity są globalne we wszystkich regionach.
 
 > [!NOTE]
-> Należy wyróżnić przydziałów dla zasobów w grupach zasobów platformy Azure są na regionem dostępny dla Twojej subskrypcji i nie są na subskrypcji, jak przydziały usługi zarządzania. Na przykład użyjmy podstawowej przydziałów. Jeśli potrzebujesz zażądać zwiększenia limitu przydziału o obsługę rdzeni, należy zdecydować, jak wiele rdzeni chcesz używać, w których regionach, a następnie wprowadź żądanie określonych dla grupy zasobów platformy Azure core przydziały dla kwoty i regionów, które mają. W związku z tym, jeśli chcesz używać do uruchamiania aplikacji; 30 rdzeni Europa Zachodnia w szczególności należy zażądać 30 rdzeni Europa Zachodnia. Ale nie ma limit przydziału rdzeni zwiększyć w innym regionie — tylko Europa ma limit przydziału rdzeni 30.
+> Należy wyróżnić przydziałów dla zasobów w grupach zasobów platformy Azure są na regionem dostępny dla Twojej subskrypcji i nie są na subskrypcji, jak przydziały usługi zarządzania. Na przykład użyjmy vCPU przydziałów. Jeśli potrzebujesz zażądać zwiększenia limitu przydziału o obsługę Vcpu, należy zdecydować, jak wiele Vcpu, które chcesz użyć, w których regionach, a następnie wprowadź określone żądanie dla grupy zasobów platformy Azure vCPU przydziały dla kwoty i regionów, które mają. W związku z tym jeśli musisz użyć 30 Vcpu w Europie zachodnie do uruchamiania aplikacji istnieje, należy w szczególności zażądać 30 Vcpu w Europa Zachodnia. Ale nie ma limit przydziału vCPU zwiększyć w innym regionie — tylko Europa Zachodnia ma limit przydziału 30 vCPU.
 > <!-- -->
 > W związku z tym może warto wziąć pod uwagę przy wyborze co przydziałami grupy zasobów platformy Azure musi być dla obciążenia w dowolnym regionie, co i żądania wielkość w każdym regionie, w którym rozważane jest wdrożenie. Zobacz [Rozwiązywanie problemów dotyczących wdrożenia](resource-manager-common-deployment-errors.md) Aby uzyskać dodatkową pomoc odnajdywania bieżącego przydziałami dla konkretnych regionów.
 >

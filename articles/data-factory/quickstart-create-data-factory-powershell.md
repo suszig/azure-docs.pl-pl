@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 82c6f69e886bfe86b2839e7efc3579782c8c3dce
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b8e0b30bf85c8bafd193c942a6a86f2166c1e7
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Tworzenie fabryki danych i potoku przy użyciu programu PowerShell
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,7 +85,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
         ```
 
     * Aby tworzyć wystąpienia usługi Data Factory, musisz być współautorem lub administratorem subskrypcji platformy Azure.
-    * Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach **Wschodnie stany USA** i **Wschodnie stany USA 2**. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+    * Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
 

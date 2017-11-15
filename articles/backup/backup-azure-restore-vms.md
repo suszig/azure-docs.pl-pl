@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/09/2017
 ms.author: trinadhk; jimpark;
-ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6e5dd9d4fb96376762300856b594d772d84af8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Przywracanie maszyn wirtualnych na platformie Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Przywrócenie maszyny wirtualnej do nowej maszyny Wirtualnej z kopii zapasowych znajdujących się w magazynie usługi Kopia zapasowa Azure następujące kroki.
 
 > [!IMPORTANT]
-> Magazyny kopii zapasowych możesz teraz uaktualnić do magazynów usługi Recovery Services. Więcej szczegółów znajduje się w artykule [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uaktualnianie magazynu kopii zapasowych do magazynu usługi Recovery Services). Firma Microsoft zachęca do przeprowadzenia uaktualnienia magazynów kopii zapasowych do magazynów usługi Recovery Services.<br/> **15 października 2017 r.**: nie będzie już można tworzyć magazynów kopii zapasowych przy użyciu programu PowerShell. <br/> **Od 1 listopada 2017 roku**:
+> Magazyny kopii zapasowych możesz teraz uaktualnić do magazynów usługi Recovery Services. Więcej szczegółów znajduje się w artykule [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uaktualnianie magazynu kopii zapasowych do magazynu usługi Recovery Services). Firma Microsoft zachęca do przeprowadzenia uaktualnienia magazynów kopii zapasowych do magazynów usługi Recovery Services. Po <br/> **30 listopada 2017**, nie będzie można tworzyć magazyny kopii zapasowych przy użyciu programu PowerShell. <br/> Przez **30 listopada 2017**:
 >- Wszystkie pozostałe magazyny kopii zapasowych zostaną automatycznie uaktualnione do magazynów usługi Recovery Services.
 >- Nie będzie możliwe uzyskanie dostępu do danych kopii zapasowych w portalu klasycznym. Zamiast tego należy użyć witryny Azure Portal, aby uzyskać dostęp do danych kopii zapasowych w magazynach usługi Recovery Services.
 >

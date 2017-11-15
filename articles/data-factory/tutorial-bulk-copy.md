@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: cf69d30f36178db9cad18e18f370645cd84de558
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
 
@@ -99,7 +99,7 @@ Zarówno dla bazy SQL Database, jak i dla magazynu SQL Data Warehouse, zezwól u
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Uruchom polecenie cmdlet **Set-AzureRmDataFactoryV2**, aby utworzyć fabrykę danych. Przed uruchomieniem polecenia zastąp symbol zastępczy własnymi wartościami.
+2. Uruchom polecenie cmdlet **Set-AzureRmDataFactoryV2**, aby utworzyć fabrykę danych. Przed uruchomieniem polecenia zastąp symbol zastępczy własnymi wartościami. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -116,7 +116,7 @@ Zarówno dla bazy SQL Database, jak i dla magazynu SQL Data Warehouse, zezwól u
         ```
 
     * Aby tworzyć wystąpienia usługi Data Factory, musisz być współautorem lub administratorem subskrypcji platformy Azure.
-    * Obecnie usługa Data Factory umożliwia tworzenie fabryk danych tylko w regionie Wschodnie stany USA. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+    * Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 

@@ -14,27 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Usługi BizTalk Services: Rozwiązywanie problemów przy użyciu dzienników operacji
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 ## <a name="what-are-the-operation-logs"></a>Co to są dzienniki operacji
-Dzienniki operacji to funkcja usługi zarządzania dostępnych w klasycznym portalu Azure, która pozwala wyświetlać historyczne dzienniki operacji wykonywanych na usługami Azure, takich jak usługi BizTalk. Dzięki temu można wyświetlić dane historyczne dotyczące operacji zarządzania w ramach subskrypcji usługi BizTalk, nawet sprzed 180 dni.
+Dzienniki operacji to funkcja usług zarządzania, która pozwala wyświetlać historyczne dzienniki operacji wykonywanych na usługami Azure, takich jak usługi BizTalk. Dzięki temu można wyświetlić dane historyczne dotyczące operacji zarządzania w ramach subskrypcji usługi BizTalk, nawet sprzed 180 dni.
 
 > [!NOTE]
-> Ta funkcja przechwytuje tylko dzienniki dla operacji zarządzania na usługi BizTalk, np. gdy usługa została uruchomiona, kopie włączone, i tak dalej. Takie operacje są śledzone niezależnie od tego, czy są wykonywane z klasycznego portalu Azure lub za pomocą [interfejsów API REST usługi BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Aby uzyskać pełną listę działań, które są śledzone za pomocą usług zarządzania, zobacz [operacji śledzone za pomocą zarządzania usług Azure](#bizops).<br/><br/>
+> Ta funkcja przechwytuje tylko dzienniki dla operacji zarządzania na usługi BizTalk, np. gdy usługa została uruchomiona, kopie włączone, i tak dalej. Takie operacje są śledzone za pomocą [interfejsów API REST usługi BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Aby uzyskać pełną listę działań, które są śledzone za pomocą usług zarządzania, zobacz [operacji śledzone za pomocą zarządzania usług Azure](#bizops).<br/><br/>
 > To nie przechwytywania w dziennikach działania związane z środowiska uruchomieniowego usługi BizTalk (na przykład komunikatów przetwarzanych przez mostków itd.). Aby wyświetlić te dzienniki, użyj widoku śledzenia z portalu usługi BizTalk Services. Aby uzyskać więcej informacji, zobacz [komunikatów śledzenia](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>Wyświetl dzienniki operacji usługi BizTalk
-1. W klasycznym portalu Azure, wybierz **usług zarządzania**, a następnie wybierz **dzienniki operacji** kartę.
+1. W portalu, wybierz **usług zarządzania**, a następnie wybierz **dzienniki operacji** kartę.
 2. Można filtrować dzienniki na podstawie różnych parametrów, takich jak subskrypcji, zakres dat, typ usługi (np. usługi BizTalk Services), nazwę usługi lub stanu operacji (Powodzenie, niepowodzenie).
 3. Wybierz znacznik wyboru, aby wyświetlić listę filtrowane. Na poniższej ilustracji przedstawiono działania związane z testbiztalkservice: ![Sprawdź dzienniki operacji][ViewLogs] 
 4. Aby wyświetlić więcej o określonej operacji, zaznacz wiersz, a następnie kliknij przycisk **szczegóły** na pasku zadań u dołu.
@@ -64,7 +66,7 @@ W poniższej tabeli wymieniono operacje, które są śledzone za pomocą usług 
 * [Usługi BizTalk kopii zapasowej](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Przywracanie z kopii zapasowej usługi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Usługi BizTalk Services: Developer, podstawowa, standardowa i Premium Edition wykresu](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [Usługi BizTalk Services: Klasyczny portal Azure przy użyciu inicjowania obsługi](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [Usługi BizTalk Services: Inicjowanie obsługi administracyjnej](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Provisioning Status Chart (Usługa BizTalk Services: aprowizowanie wykresu stanu)](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Dashboard, Monitor and Scale tabs (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Throttling (Usługa BizTalk Services: ograniczanie przepływności)](http://go.microsoft.com/fwlink/p/?LinkID=302282)

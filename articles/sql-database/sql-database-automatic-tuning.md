@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatycznego dostrajania w bazie danych SQL Azure
 
@@ -46,10 +46,7 @@ Operacje dostrajania stosowany do bazy danych SQL Azure są całkowicie bezpiecz
 
 Automatycznego dostrajania mechanizmów są dojrzałe i został perfected na setki tysięcy baz danych działających na platformie Azure. Automatycznego dostrajania operacji stosowane są automatycznie sprawdza się upewnij się, że dodatnią poprawy wydajności obciążeń. Zalecenia uwzględniona wydajności są wykrywane dynamicznie i szybko przywrócić. Za pomocą dostrajania dziennika historii jest wyczyść śledzenie dostrajanie usprawnienia wprowadzone w każdej bazie danych SQL Azure. 
 
-Omówienie sposobu automatycznego dostrajania działa i typowe scenariusze użytkowania Zobacz osadzonego wideo:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Jak działa automatycznego dostrajania](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Dostrajanie automatycznego bazy danych SQL Azure udostępnia swojej logiki core z aparatem automatycznego dostrajania programu SQL Server. Aby uzyskać dodatkowe informacje techniczne na mechanizmie wbudowane narzędzie analizy, zobacz [programu SQL Server automatycznego dostrajania](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ Automatycznego dostrajania musi zostać włączona ręcznie w ramach subskrypcji
 Automatycznego dostrajania mogą działać autonomicznie przez automatycznego stosowania zaleceń dostrajania, w tym weryfikacji automatyczne zwiększenie wydajności. 
 
 Uzyskać większą kontrolę można wyłączyć automatyczne stosowanie dostrajanie zalecenia i dostrajania zalecenia można ręcznie stosować za pomocą portalu Azure. Istnieje również możliwość użycie rozwiązania do wyświetlania automatycznego dostrajania zalecenia dotyczące tylko i zastosować je ręcznie za pomocą skryptów i narzędzi wybranych przez użytkownika. 
+
+Omówienie sposobu automatycznego dostrajania działania oraz typowe scenariusze użytkowania Zobacz osadzonego wideo:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Opcje automatycznego dostrajania
 

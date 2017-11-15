@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Biznesowe ciągłości i odzyskiwanie po awarii (BCDR): łączyć regiony platformy Azure
 
@@ -48,7 +48,8 @@ Rysunek 1 — diagram Azure pary regionalne
 | Europa |Europa Północna |Europa Zachodnia |
 | Japonia |Japonia Wschodnia |Japonia Zachodnia |
 | Brazylia |Brazylia Południowa (1) |Środkowo-południowe stany USA |
-| Rząd USA |Administracja USA — Iowa |Administracja USA — Wirginia |
+| Rząd USA |Iowa wersji dla instytucji rządowych Stanów Zjednoczonych (2) |Administracja USA — Wirginia |
+| Rząd USA |Virginia wersji dla instytucji rządowych Stanów Zjednoczonych (3) |Administracja USA — Teksas |
 | Rząd USA |Administracja USA — Arizona |Administracja USA — Teksas |
 | Departamentu Obrony Stanów Zjednoczonych |US DoD — wschodnie stany |US DoD — środkowe stany |
 | WIELKA BRYTANIA |Zachodnie Zjednoczone Królestwo |Południowe Zjednoczone Królestwo |
@@ -57,6 +58,10 @@ Rysunek 1 — diagram Azure pary regionalne
 Tabela 1 - mapowania par regionalnych Azure
 
 > (1) Brazylia Południowa jest unikatowa, ponieważ jest łączyć się z obszarem poza jego własnej lokalizacji geograficznej. Brazylia Południowa region pomocniczy jest południowo-środkowe stany, ale południowo-środkowe stany w regionie pomocniczym nie jest Brazylia Południowa.
+>
+> (2) region pomocniczy Iowa wersji dla instytucji rządowych Stanów Zjednoczonych jest Virginia nam wersji dla instytucji rządowych, ale region pomocniczy Virginia nam wersji dla instytucji rządowych nie Iowa nam wersji dla instytucji rządowych.
+> 
+> (3) region pomocniczy Virginia wersji dla instytucji rządowych Stanów Zjednoczonych jest Texas nam wersji dla instytucji rządowych, ale region pomocniczy Texas nam wersji dla instytucji rządowych nie Virginia nam wersji dla instytucji rządowych.
 
 
 Firma Microsoft zaleca replikować obciążenia między regionalnych pary do korzystania z platformy Azure zasad izolacji i dostępności. Na przykład aktualizacje planowane systemu Azure są wdrażane kolejno (nie w tym samym czasie) w parach regionach. Oznacza to, że nawet w rzadkich błędny aktualizacji obu regionów nie zostaną zmienione jednocześnie. Ponadto na wypadek awarii szerokie priorytetu jest Odzyskiwanie co najmniej jeden region poza każdej pary.

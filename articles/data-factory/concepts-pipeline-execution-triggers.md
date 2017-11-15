@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
 }
 ```
 
+> [!IMPORTANT]
+>  Właściwość **parameters** jest obowiązkowa wewnątrz sekcji **pipelines**. Nawet gdy potok nie przyjmuje żadnych parametrów, należy dodać pusty kod json dla właściwości parameters, ponieważ ta właściwość musi istnieć.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Omówienie: schemat wyzwalacza harmonogramu
 Poniższa tabela zawiera ogólne omówienie głównych elementów odnoszących się do powtarzania i planowania w wyzwalaczu:
 
 Właściwość JSON |     Opis
 ------------- | -------------
 startTime | Właściwość startTime ma format data-godzina. W przypadku prostych harmonogramów startTime to pierwsze wystąpienie. W przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany wcześniej niż startTime.
+endTime | Określa datę i godzinę zakończenia wyzwalacza. Po upływie tego czasu wyzwalacz nie jest wykonywany. Wartość endTime nie może być przeszłą datą.
+timeZone | Aktualnie obsługiwany jest tylko czas UTC. 
 recurrence | Obiekt recurrence określa reguły powtarzania wyzwalacza. Obiekt recurrence obsługuje następujące elementy: frequency, interval, endTime, count i schedule. Zdefiniowanie powtarzalności wymaga zdefiniowania częstotliwości. Inne elementy obiektu recurrence są opcjonalne.
 frequency | Reprezentuje jednostkę częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to `minute`, `hour`, `day`, `week` i `month`.
 interval | Obiekt interval jest dodatnią liczbą całkowitą. Oznacza on interwał częstotliwości, który określa częstotliwość uruchamiania wyzwalacza. Na przykład jeśli wartość interval to 3, a frequency to „week”, wyzwalacz powtarza się co 3 tygodnie.
-endTime | Określa datę i godzinę zakończenia wyzwalacza. Po upływie tego czasu wyzwalacz nie jest wykonywany. Wartość endTime nie może być przeszłą datą.
 schedule | Wyzwalacz z określoną częstotliwością zmienia swój cykl na podstawie harmonogramu cyklu. Harmonogram zawiera modyfikacje oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia.
+
+
+### <a name="schedule-trigger-example"></a>Przykładowy wyzwalacz harmonogramu
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Omówienie: wartości domyślne schematu wyzwalacza harmonogramu, limity i przykłady
 
@@ -251,7 +292,7 @@ Z kolei jeśli wyzwalacz ma harmonogram, jeśli w harmonogramie nie ustawiono go
 ### <a name="deep-dive-schedule"></a>Szczegółowe informacje: schedule
 Z jednej strony, właściwość schedule może ograniczyć liczbę wykonań wyzwalacza. Na przykład, jeśli wyzwalacz z częstotliwością „month” ma harmonogram uruchamiany tylko w 31 dniu, wyzwalacz jest wykonywany tylko w miesiącach, której mają 31 dni.
 
-Z drugiej strony harmonogram może także zwiększyć liczbę wykonań harmonogramu. Na przykład, jeśli wyzwalacz z częstotliwością „month”ma harmonogram uruchamiany w 1 i 2 dniu miesiąca, wyzwalacz jest wykonywany w 1 i 2dniu miesiąca, nie tylko raz w miesiącu.
+Harmonogram może także zwiększyć liczbę wykonań wyzwalacza. Na przykład, jeśli wyzwalacz z częstotliwością „month”ma harmonogram uruchamiany w 1 i 2 dniu miesiąca, wyzwalacz jest wykonywany w 1 i 2dniu miesiąca, nie tylko raz w miesiącu.
 
 W przypadku określenia wielu elementów harmonogramu ocena następuje od największego do najmniejszego elementu: numer tygodnia, dzień miesiąca, dzień tygodnia, godzina i minuta.
 
@@ -262,9 +303,9 @@ Nazwa JSON | Opis | Prawidłowe wartości
 --------- | ----------- | ------------
 minutes | Minuty godziny, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
 hours | Godziny dnia, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
-weekDays | Dni tygodnia, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością tygodniową. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday lub Sunday</li><li>Tablica dowolnych z powyższych wartości (maksymalny rozmiar tablicy: 7)</li></p>Bez uwzględniania wielkości liter</p>
+weekDays | Dni tygodnia, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością tygodniową. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday lub Sunday</li><li>Tablica dowolnych wartości (maksymalny rozmiar tablicy: 7)</li></p>Bez uwzględniania wielkości liter</p>
 monthlyOccurrences | Określa dni miesiąca, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | Tablica obiektów monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> Dzień to dzień tygodnia, w którym uruchamiany jest wyzwalacz, na przykład `{Sunday}` to każda niedziela miesiąca. Wymagany.<p>Wystąpienie to wystąpienie dnia w miesiącu, na przykład `{Sunday, -1}` to ostatnia niedziela miesiąca. Opcjonalny.
-monthDays | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica powyższych wartości</li>
+monthDays | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica wartości</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Przykłady: harmonogramy cyklu

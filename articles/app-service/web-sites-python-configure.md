@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 08b07053dd1507bcf0564f3071642f66f06b3559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Konfigurowanie języka Python z aplikacjami sieci Web usługi aplikacji Azure
 W tym samouczku opisano opcje dotyczące tworzenia i konfigurowania podstawowej aplikacji Python zgodnych sieci Web serwera bramy interfejsu (WSGI) w [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,12 +36,12 @@ W portalu Azure Marketplace zawiera szablony dla struktur Bottle, Django i Flask
 ## <a name="web-app-creation-on-azure-portal"></a>Tworzenie aplikacji sieci Web w portalu Azure
 Ten samouczek zakłada istniejącą subskrypcję platformy Azure i dostęp do portalu Azure.
 
-Jeśli nie masz istniejącej aplikacji sieci web, możesz utworzyć jedną z [Azure Portal](https://portal.azure.com).  Kliknij przycisk Nowy w lewym górnym rogu, a następnie kliknij przycisk **sieci Web i mobilność** > **aplikacji sieci Web**.
+Jeśli nie masz istniejącej aplikacji sieci web, możesz utworzyć jedną z [portalu Azure](https://portal.azure.com).  Kliknij przycisk Nowy w lewym górnym rogu, a następnie kliknij przycisk **sieci Web i mobilność** > **aplikacji sieci Web**.
 
 ## <a name="git-publishing"></a>Publikowanie w usłudze Git
-Skonfiguruj publikowanie w systemie Git dla nowo utworzonej aplikacji sieci Web zgodnie z poniższymi instrukcjami w artykule [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service). W tym samouczku używana Git do tworzenia, zarządzania i opublikować swoją aplikację sieci web języka Python w usłudze Azure App Service.
+Skonfiguruj publikowanie w systemie Git dla nowo utworzonej aplikacji sieci Web zgodnie z poniższymi instrukcjami w artykule [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service). W tym samouczku używana Git do tworzenia, zarządzania i publikowanie aplikacji sieci web języka Python w usłudze Azure App Service.
 
-Po skonfigurowaniu publikowania w usłudze Git repozytorium Git zostanie utworzona i skojarzona z aplikacją sieci web. Adres URL repozytorium będą wyświetlane i odtąd może służyć do dystrybuowania danych ze środowiska projektowego lokalnych do chmury. Do publikowania aplikacji za pomocą narzędzia Git, upewnij się, że zainstalowano klienta Git i skorzystać z instrukcji podanych do dystrybuowania zawartości aplikacji sieci web w usłudze Azure App Service.
+Po skonfigurowaniu publikowania w usłudze Git repozytorium Git jest utworzona i skojarzona z aplikacji sieci web. Adres URL repozytorium jest wyświetlany i może służyć do dystrybuowania danych ze środowiska projektowego lokalnych do chmury. Do publikowania aplikacji za pomocą narzędzia Git, upewnij się, że zainstalowano klienta Git i skorzystać z instrukcji podanych do dystrybuowania zawartości aplikacji sieci web w usłudze Azure App Service.
 
 ## <a name="application-overview"></a>Omówienie aplikacji
 W kolejnych sekcjach są tworzone następujące pliki. Powinny one umieszczone w folderze głównym repozytorium Git.
@@ -74,16 +74,16 @@ Oto przykład `app.py` definiuje niestandardowego programu obsługi:
 Można uruchomić tej aplikacji lokalnie z `python app.py`, a następnie wyszukaj `http://localhost:5555` w przeglądarce sieci web.
 
 ## <a name="virtual-environment"></a>Środowisko wirtualne
-Chociaż przykładową aplikację powyżej nie wymaga żadnych pakiety zewnętrzne, jest prawdopodobne, że aplikacja będzie wymagać niektóre.
+Chociaż poprzedniego przykładową aplikację nie wymaga żadnych pakiety zewnętrzne, jest prawdopodobne, że aplikacja wymaga niektórych.
 
 Aby ułatwić zarządzanie zależności pakietów zewnętrznych, wdrożenie Azure Git obsługuje tworzenie środowisk wirtualnych.
 
 Wykrycie Azure pliku requirements.txt w folderze głównym repozytorium, automatycznie tworzy środowiska wirtualnego o nazwie `env`. Jest to wykonywane tylko przy pierwszym wdrożeniu lub podczas każdego wdrożenia po Python wybranego środowiska wykonawczego został zmieniony.
 
-Prawdopodobnie zajdzie potrzeba tworzenia środowisk wirtualnych lokalnie do tworzenia, ale nie dołączaj do repozytorium Git.
+Prawdopodobnie chcesz utworzyć środowisko wirtualne lokalnie dla rozwoju, ale nie dołączaj do repozytorium Git.
 
 ## <a name="package-management"></a>Zarządzanie pakietami
-W środowisku wirtualnym przy użyciu narzędzia pip, zostaną automatycznie zainstalowane pakiety wymienione w pliku requirements.txt. Dzieje się to przy każdym wdrożeniu, ale narzędzie pip pomija instalację, jeśli pakiet jest już zainstalowana.
+Pakiety wymienione w pliku requirements.txt są instalowane automatycznie w środowisku wirtualnym przy użyciu narzędzia pip. Dzieje się to przy każdym wdrożeniu, ale pip pomija instalację, jeśli pakiet jest już zainstalowana.
 
 Przykład `requirements.txt`:
 
@@ -101,7 +101,7 @@ Przykład `runtime.txt`:
 ## <a name="webconfig"></a>Web.config
 Należy utworzyć plik web.config, aby określić, jak serwer powinien obsługiwać żądań.
 
-Należy pamiętać, że jeśli plik pliku web.x.y.config do repozytorium, w którym x.y odpowiada wybrane środowisko uruchomieniowe języka Python, a następnie Azure automatycznie spowoduje skopiowanie odpowiednich pliku web.config.
+Jeśli plik pliku web.x.y.config w repozytorium, w którym x.y zgodny wybrane środowisko uruchomieniowe języka Python, Azure automatycznie kopiuje odpowiedniego pliku jako pliku web.config.
 
 W poniższych przykładach plik web.config jest zależne od środowiska wirtualnego skryptu serwera proxy, który jest opisany w następnej sekcji.  Pracują z programem obsługi WSGI używane w tym przykładzie `app.py` powyżej.
 
@@ -203,7 +203,7 @@ Przykład `web.config` dla języka Python 3.4:
     </configuration>
 
 
-Pliki statyczne będą obsługiwane przez serwer sieci web bezpośrednio, bez przechodzenia przez kod języka Python, aby poprawić wydajność.
+Pliki statyczne są obsługiwane przez serwer sieci web bezpośrednio, bez przechodzenia przez kod języka Python, aby poprawić wydajność.
 
 W powyższych przykładach lokalizacji plików statycznych na dysku powinien być zgodny lokalizacji w adresie URL. Oznacza to, że żądanie `http://pythonapp.azurewebsites.net/static/site.css` posłuży pliku na dysku w `\static\site.css`.
 
@@ -356,7 +356,3 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
-
-## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
-

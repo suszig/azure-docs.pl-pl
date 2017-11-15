@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Wdrażanie i użytkowanie rejestru kontenera platformy Azure
 
@@ -44,10 +44,10 @@ Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.20
 
 W przypadku wdrażania rejestru kontenera platformy Azure, musisz najpierw grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). W tym przykładzie grupy zasobów o nazwie `myResourceGroup` jest tworzony w `westus2` regionu.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). W tym przykładzie grupy zasobów o nazwie `myResourceGroup` jest tworzony w `eastus` regionu.
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Tworzenie kontenera Azure rejestru [az acr utworzyć](/cli/azure/acr#create) polecenia. Nazwa rejestru kontenera **muszą być unikatowe**.

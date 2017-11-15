@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analizowanie dzienników telemetrii usługi Application Insights z platformy Spark w usłudze HDInsight
 
@@ -61,7 +61,7 @@ Aby stale wyeksportować informacje o telemetrii do obiektów blob można skonfi
 
 * **Typ obiektu blob**: HDInsight obsługuje tylko blokowe obiekty BLOB. Informacje na temat technologii aplikacji domyślnie używa blokowych obiektów blob, więc powinny działać domyślnie z usługą HDInsight.
 
-Aby uzyskać informacji o dodawaniu dodatkowego miejsca do magazynowania w istniejącym klastrze usługi HDInsight, zobacz [dodać dodatkowe konta magazynu](../hdinsight-hadoop-add-storage.md) dokumentu.
+Aby uzyskać informacje na dodawanie magazynu do istniejącego klastra, zobacz [dodać dodatkowe konta magazynu](../hdinsight-hadoop-add-storage.md) dokumentu.
 
 ### <a name="data-schema"></a>Schemat danych
 
@@ -79,7 +79,7 @@ Aby dodać konto magazynu Azure do istniejącego klastra, użyj informacji w [do
 
 ## <a name="analyze-the-data-pyspark"></a>Analizowanie danych: PySpark
 
-1. Z [portalu Azure](https://portal.azure.com), wybierz użytkownika Spark w klastrze usługi HDInsight. Z **szybkie linki** zaznacz **pulpitów nawigacyjnych klastrów**, a następnie wybierz **notesu Jupyter** z bloku Dashboard__ klastra.
+1. Z [portalu Azure](https://portal.azure.com), wybierz użytkownika Spark w klastrze usługi HDInsight. Z **szybkie linki** zaznacz **pulpitów nawigacyjnych klastrów**, a następnie wybierz **notesu Jupyter** z sekcji Dashboard__ klastra.
 
     ![Pulpitów nawigacyjnych klastrów](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Aby dodać konto magazynu Azure do istniejącego klastra, użyj informacji w [do
 
 ## <a name="analyze-the-data-scala"></a>Analizowanie danych: Scala
 
-1. Z [portalu Azure](https://portal.azure.com), wybierz użytkownika Spark w klastrze usługi HDInsight. Z **szybkie linki** zaznacz **pulpitów nawigacyjnych klastrów**, a następnie wybierz **notesu Jupyter** z bloku Dashboard__ klastra.
+1. Z [portalu Azure](https://portal.azure.com), wybierz użytkownika Spark w klastrze usługi HDInsight. Z **szybkie linki** zaznacz **pulpitów nawigacyjnych klastrów**, a następnie wybierz **notesu Jupyter** z sekcji Dashboard__ klastra.
 
     ![Pulpitów nawigacyjnych klastrów](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. W prawym górnym rogu strony Jupyter wybierz **nowy**, a następnie **Scala**. Pojawi się na nowej karcie przeglądarki zawierające notesu Jupyter opartych na języku Scala.

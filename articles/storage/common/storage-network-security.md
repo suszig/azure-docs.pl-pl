@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7bb001f1ddcbf4f62fda27f286a502a3f7cbd64d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurowanie zapór magazynu Azure i sieciami wirtualnymi (wersja zapoznawcza)
 Magazyn Azure oferuje model zabezpieczeń warstwowych, co umożliwia Zabezpieczanie kont magazynu do określonego zestawu dozwolonych sieci.  Gdy zasady sieci są skonfigurowane, tylko aplikacje z dozwolonych sieci można uzyskać dostęp do konta magazynu.  Podczas wywoływania metody z dozwolonych sieci, aplikacje będą nadal będą musieli właściwą autoryzację (prawidłowy dostęp do klucza lub tokenu sygnatury dostępu Współdzielonego) do uzyskania dostępu do konta magazynu.
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Zainstaluj interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli) i [logowania](/cli/azure/authenticate-azure-cli).
 2. Wyświetlanie stanu reguły domyślnej dla konta magazynu.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. Ustaw domyślną regułę w celu odmawiania dostępu do sieci domyślnie.  
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Zainstaluj interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli) i [logowania](/cli/azure/authenticate-azure-cli).
 2. Wyświetl wyjątki dla zasad sieci konta magazynu.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. Skonfiguruj wyjątki zasad sieci konta magazynu.

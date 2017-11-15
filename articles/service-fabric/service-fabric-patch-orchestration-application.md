@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa
 
@@ -51,14 +51,6 @@ Poprawka aplikacji orchestration składa się z następujących Podskładniki:
 > Poprawki aplikacji orchestration korzysta z sieci szkieletowej usług naprawy Menedżera systemu usługi, aby wyłączyć lub włączyć węzeł i sprawdzania kondycji. Zadanie naprawy tworzonych przez aplikację aranżacji poprawki śledzi postęp procesu usługi Windows Update dla każdego węzła.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Minimalna obsługiwana wersja środowiska uruchomieniowego platformy Service Fabric
-
-#### <a name="azure-clusters"></a>Klastry platformy Azure
-Poprawka aplikacji aranżacji musi być uruchamiane na Azure klastrów, które mają wersji środowiska uruchomieniowego platformy Service Fabric w wersji 5.5 lub nowszego.
-
-#### <a name="standalone-on-premises-clusters"></a>Autonomiczny lokalnymi klastrów
-Na autonomicznych klastrów się v5.6 wersji środowiska uruchomieniowego platformy Service Fabric musi być uruchomiona aplikacja orchestration poprawki lub nowszym.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Włącz usługę Menedżer napraw (Jeśli nie jest już uruchomiona)
 
@@ -135,59 +127,6 @@ Aby włączyć usługę Menedżer naprawy:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Wyłącz automatyczną aktualizację systemu Windows na wszystkich węzłach
 
 Aktualizacje automatyczne systemu Windows, mogą spowodować utratę dostępności, ponieważ wiele węzłów klastra można uruchomić ponownie w tym samym czasie. Poprawka aplikacji aranżacji, domyślnie próbuje wyłączania automatycznej aktualizacji systemu Windows w każdym węźle klastra. Jeśli ustawienia są zarządzane przez administratora lub zasad grupy, firma Microsoft zaleca jednak jawnie ustawienie zasad usługi Windows Update "Powiadom przed pobierania".
-
-### <a name="optional-enable-azure-diagnostics"></a>Opcjonalnie: Włącz diagnostyki Azure
-
-Klastry z systemem wersja środowiska uruchomieniowego platformy Service Fabric `5.6.220.9494` i loguje się powyżej Dzienniki aplikacji aranżacji zbieranie poprawki w ramach sieci szkieletowej usług.
-Ten krok można pominąć, jeśli klaster jest uruchomiony na wersji środowiska uruchomieniowego platformy Service Fabric `5.6.220.9494` i powyżej.
-
-W przypadku klastrów wersja środowiska uruchomieniowego platformy Service Fabric mniej niż `5.6.220.9494`, dzienniki aplikacji aranżacji poprawki są gromadzone lokalnie na każdym z węzłów klastra.
-Firma Microsoft zaleca, aby skonfigurować diagnostyki Azure przekazywania dzienników z wszystkich węzłów w centralnej lokalizacji.
-
-Aby uzyskać informacje na temat włączania diagnostyki Azure, zobacz [zbierania dzienników przy użyciu diagnostyki Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Dzienniki aplikacji aranżacji poprawki są generowane dla następującego dostawcy stałym identyfikatory:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-W instrukcji goto szablonu usługi Resource Manager `EtwEventSourceProviderConfiguration` w obszarze `WadCfg` i dodaj następujące wpisy:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Jeśli klaster sieci szkieletowej usług ma wiele typów węzeł, a następnie poprzedniej sekcji, należy dodać wszystkie `WadCfg` sekcje.
 
 ## <a name="download-the-app-package"></a>Pobierz pakiet aplikacji
 
@@ -303,20 +242,16 @@ Aby włączyć zwrotnego serwera proxy w klastrze, wykonaj czynności opisane w 
 
 ## <a name="diagnosticshealth-events"></a>Diagnostyka kondycji zdarzenia
 
-### <a name="collect-patch-orchestration-app-logs"></a>Aplikacja orchestration poprawki zbieranie dzienników
+### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
-Dzienniki aplikacji aranżacji poprawki są zbierane w ramach dzienników sieci szkieletowej usług z wersji środowiska uruchomieniowego `5.6.220.9494` i powyżej.
-W przypadku klastrów wersja środowiska uruchomieniowego platformy Service Fabric mniej niż `5.6.220.9494`, dzienniki mogą zostać pobrane za pomocą jednej z poniższych metod.
+Poprawka aranżacji aplikacji dzienniki są gromadzone w ramach dzienniki środowisko uruchomieniowe usługi sieć szkieletowa usług.
 
-#### <a name="locally-on-each-node"></a>Lokalnie na każdym węźle
+W przypadku, gdy chcesz przechwytywać dzienniki za pośrednictwem narzędzia diagnostyczne/potoku wybranych przez użytkownika. Aplikacja orchestration poprawki używa poniżej stałym dostawcy identyfikatory do dziennika zdarzeń za pośrednictwem [źródła zdarzeń](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Dzienniki są gromadzone lokalnie na każdym węźle klastra sieci szkieletowej usług w przypadku wersji środowiska uruchomieniowego usługi sieć szkieletowa usług mniej niż `5.6.220.9494`. Lokalizacja dostępu do dzienników jest \[sieci szkieletowej usług\_instalacji\_dysków\]:\\PatchOrchestrationApplication\\dzienniki.
-
-Na przykład, jeśli usługa sieć szkieletowa jest zainstalowany na dysku D, ścieżka jest D:\\PatchOrchestrationApplication\\dzienniki.
-
-#### <a name="central-location"></a>Centralnej lokalizacji
-
-Jeśli diagnostyki Azure jest skonfigurowany jako część wstępnie wymagane kroki, dzienniki aplikacji aranżacji poprawki są dostępne w usłudze Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Raportów o kondycji
 

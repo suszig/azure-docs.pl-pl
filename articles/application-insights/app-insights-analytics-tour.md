@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Samouczek analizy w usłudze Application Insights
 [Analiza](app-insights-analytics.md) to funkcja wyszukiwania zaawansowanego [usługi Application Insights](app-insights-overview.md). Te strony opisano język zapytań usługi Analiza dzienników.
@@ -54,7 +54,7 @@ Rozwiń dowolny element, aby wyświetlić szczegóły:
 ![Wybierz tabelę i użyj kolumn skonfigurować](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Kliknij nagłówek kolumny, aby zmienić kolejność wyników dostępnych w przeglądarce sieci web. Należy jednak pamiętać, że dla zestawu wyników dużą liczbę wierszy pobrane w przeglądarce jest ograniczona. W ten sposób sortowania nie zawsze opisano rzeczywiste elementy najwyższej i najniższej. Aby posortować elementy niezawodnie, użyj `top` lub `sort` operatora.
+> Kliknij nagłówek kolumny, aby zmienić kolejność wyników dostępnych w przeglądarce sieci web. Należy jednak pamiętać, że dla zestawu wyników dużą liczbę wierszy pobrane w przeglądarce jest ograniczona. Sortowanie w ten sposób po prostu sortuje zestaw wyników zwrócony i nie zawsze wyświetlić rzeczywiste elementy najwyższej i najniższej. Aby posortować elementy niezawodnie, użyj `top` lub `sort` operatora.
 >
 >
 
@@ -92,7 +92,7 @@ Pokaż pierwsze n wierszy, uporządkowanych według określonej kolumny:
 
 Wynik będzie taki sam, ale może działać nieco wolniej. (Można również napisać `order`, który jest aliasem `sort`.)
 
-Nagłówki kolumn w widoku tabeli można również sortowanie wyników na ekranie. Oczywiście jeśli był używany, ale `take` lub `top` można pobrać tylko część tabeli, użytkownik będzie tylko zmienić kolejność rekordów została pobrana.
+Nagłówki kolumn w widoku tabeli można również sortowanie wyników na ekranie. Oczywiście jeśli był używany, ale `take` lub `top` można pobrać tylko część tabeli, klikając nagłówek kolumny zostanie tylko zmienić kolejność rekordów zostały pobrane.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Gdzie](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrowanie warunek
 
@@ -115,8 +115,9 @@ Zobaczmy, po prostu żądań, które zwróciło kod określonego wyniku:
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Pobieranie odpowiedniego typu
-Znajdź żądania nie powiodło się:
+### <a name="find-unsuccessful-requests"></a>Znajdź żądania nie powiodło się
+
+Konwertowanie wartości ciągu na liczba całkowita większa-niż porównania:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Lub można oddzielić wynik do żądań różne nazwy elementu:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`zbiera punktów danych w strumieniu w grupach, dla którego `by` klauzuli ocenia jednakowo. Każda wartość w `by` wyrażenie - nazwy operacji w powyższym przykładzie - powoduje wiersz w tabeli wyników.
+`Summarize`zbiera punktów danych w strumieniu w grupach, dla którego `by` klauzuli ocenia jednakowo. Każda wartość w `by` wyrażenie - nazwy operacji unikatowy w powyższym przykładzie - powoduje wiersz w tabeli wyników.
 
 Lub firma Microsoft może grupowania wyników według pora dnia:
 
@@ -402,7 +403,7 @@ Ile sesji są dostępne różne długości?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-Ostatni wiersz jest wymagany do przekonwertowania na typ datetime. Obecnie na osi x wykresu jest wyświetlana jako skalarnej tylko wtedy, gdy jest wartość datetime.
+Ostatni wiersz jest wymagany do przekonwertowania na typ datetime. Obecnie osi x wykresu jest wyświetlana jako skalarnej tylko wtedy, gdy jest wartość datetime.
 
 `where` Klauzuli wyklucza jednorazowej sesji (sessionDuration == 0) i ustawia długość osi x.
 

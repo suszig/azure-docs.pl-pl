@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Przenoszenie danych
+    - name: Kopiowanie danych
       items:
-        - name: Omówienie działania kopiowania
+        - name: Kopiowanie danych z obsługiwanych źródeł do miejsc docelowych
           href: copy-activity-overview.md
+        - name: Odczyt lub zapis danych partycjonowanych
+          href: how-to-read-write-partitioned-data.md
         - name: Łączniki
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: Działanie If Condition
           href: control-flow-if-condition-activity.md
+        - name: Działanie Until
+          href: control-flow-until-activity.md
         - name: Działanie internetowe
           href: control-flow-web-activity.md
         - name: Działanie wyszukiwania
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Dla każdego działania
           href: control-flow-for-each-activity.md
+        - name: Działanie Wait
+          href: control-flow-wait-activity.md
         - name: Język wyrażeń
           href: control-flow-expression-language-functions.md
         - name: Zmienne systemu
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Szyfrowanie poświadczeń dla środowiska Integration Runtime (Self-hosted)
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Tożsamość usługi fabryki danych
+          href: data-factory-service-identity.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Korzystanie z zestawów SDK

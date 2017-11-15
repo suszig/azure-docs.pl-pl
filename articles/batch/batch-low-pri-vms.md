@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Niskiego priorytetu maszyn wirtualnych za pomocą usługi partia zadań
 
@@ -71,7 +71,7 @@ Partia zadań Azure oferuje kilka możliwości, które ułatwiają korzystanie i
 
 -   Przerwanie zadania wsadowego wykrywa i automatycznie requeues zadania, aby uruchomić ponownie.
 
--   Maszyny wirtualne o niskim priorytecie przydziału rdzeni oddzielne, różni się od dla dedykowanych maszyn wirtualnych. 
+-   Maszyny wirtualne o niskim priorytecie przydziału oddzielnych vCPU, różni się od dla dedykowanych maszyn wirtualnych. 
     Limit przydziału maszyn wirtualnych o niskim priorytecie jest większy niż limit przydziału dla dedykowanych maszyn wirtualnych, ponieważ koszt niskiego priorytetu maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [partii usługi przydziały i limity](batch-quota-limit.md#resource-quotas).    
 
 

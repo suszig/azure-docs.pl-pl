@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Fabryki danych Azure — często zadawane pytania
 Ten artykuł dotyczy wersji 2 usługi fabryka danych Azure. Zawiera on odpowiedzi na często zadawane pytania dotyczące usługi fabryka danych.  
@@ -152,7 +152,7 @@ Aby uzyskać więcej informacji o pojęciach związanych z usługą Data Factory
 Aby uzyskać szczegóły cennika usługi fabryka danych Azure, zobacz [szczegóły cennika usługi fabryka danych](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Jakie regionów pomocy technicznej usługi fabryka danych Azure w wersji 2?
-Obecnie można utworzyć fabryki danych w wersji 2 w regionach wschodnie stany USA 2 i wschodnie stany USA. Jednak fabryki danych umożliwia integrację środowiska uruchomieniowego w innym regionie przenoszenie danych między magazyny danych, działań wysyłania usługi obliczeniowe lub wysyłania pakietów SSIS. Aby uzyskać więcej informacji, zobacz [lokalizacje fabryki danych](concepts-integration-runtime.md#integration-runtime-location).
+Obecnie można utworzyć fabryki danych w wersji 2 w regionach wschodnie stany USA, wschodnie stany USA 2 i Europa. Jednak fabryki danych umożliwia integrację środowiska uruchomieniowego w innym regionie przenoszenie danych między magazyny danych, działań wysyłania usługi obliczeniowe lub wysyłania pakietów SSIS. Aby uzyskać więcej informacji, zobacz [lokalizacje fabryki danych](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Jak mogę bądź na bieżąco z informacjami o fabryki danych?
 Aby uzyskać najbardziej aktualne informacje o usłudze fabryka danych Azure przejdź do następujących lokacji:

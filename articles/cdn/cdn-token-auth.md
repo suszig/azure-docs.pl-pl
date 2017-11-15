@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure Content Delivery Network z tokenu uwierzytelniania
 
@@ -30,7 +30,7 @@ Token uwierzytelniania jest mechanizm, który pozwala zapobiec obsługująca zas
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Token uwierzytelniania sprawdza, czy żądania są generowane przez zaufanych witryn, gdyż żądania zawiera wartość tokenu tego blokad zakodowane informacje obiektu żądającego. Zawartość jest udostępniany element żądający tylko wtedy, gdy dane zakodowane spełnia wymagania; w przeciwnym razie żądania są odrzucane. Wymagania można skonfigurować przy użyciu co najmniej jeden z następujących parametrów:
+Token uwierzytelniania sprawdza, czy żądania są generowane przez zaufanych witryn, gdyż żądania zawiera wartość tokenu, że blokad zakodowany informacji na temat obiektu żądającego. Zawartość jest udostępniany element żądający tylko wtedy, gdy dane zakodowane spełnia wymagania; w przeciwnym razie żądania są odrzucane. Wymagania można skonfigurować przy użyciu co najmniej jeden z następujących parametrów:
 
 - Kraju: Akceptować lub odrzucać żądania, które pochodzą z krajów określony przez ich [numer kierunkowy kraju](https://msdn.microsoft.com/library/mt761717.aspx).
 - Adres URL: Zezwalaj tylko te żądania, które odpowiadają określonym zasobie lub ścieżki.
@@ -41,8 +41,6 @@ Token uwierzytelniania sprawdza, czy żądania są generowane przez zaufanych wi
 - Czas wygaśnięcia: przypisywanie okres daty i godziny, aby upewnić się, że łącze pozostaje ważny tylko przez ograniczony czas.
 
 Aby uzyskać więcej informacji, zobacz przykłady szczegółowej konfiguracji dla każdego parametru w [Konfigurowanie uwierzytelniania tokenu](#setting-up-token-authentication).
-
-Po wygenerowaniu zaszyfrowany token, zostanie ona dodana jako ciąg zapytania do końca ścieżki adresu URL pliku. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Architektura odwołań
 
@@ -64,15 +62,21 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
 
 2. Umieść kursor nad **HTTP dużych**, a następnie kliknij przycisk **Token uwierzytelniania** w wysuwane okno. Można następnie ustawić klucza szyfrowania i szyfrowania parametrów w następujący sposób:
 
-    1. Wprowadź unikatowy klucz szyfrowania w **klucza podstawowego** i opcjonalnie wpisz kopii zapasowej klucza w **kopii zapasowej klucza** pole.
-
-        ![Klucz tokenu uwierzytelniania CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Utwórz co najmniej jeden klucz szyfrowania. Klucz szyfrowania jest rozróżniana wielkość liter i może zawierać dowolną kombinację znaków alfanumerycznych. Inne rodzaje znaków, łącznie ze spacjami, nie są dozwolone. Maksymalna długość to 250 znaków. Aby upewnić się, że klucze szyfrowania są losowe, zaleca się, że można je utworzyć za pomocą narzędzia biblioteki OpenSSL. Narzędzie biblioteki OpenSSL ma następującą składnię: `rand -hex <key length>`. Na przykład `OpenSSL> rand -hex 32`. Aby uniknąć przestoju, Utwórz podstawowego i zapasowego klucza. Klucz zapasowy zapewnia nieprzerwany dostęp do zawartości po klucz podstawowy jest aktualizowana.
     
-    2. Ustawianie parametrów szyfrowania za pomocą narzędzia szyfrowania. Za pomocą narzędzia Szyfruj można akceptować lub odrzucać żądania na podstawie czasu wygaśnięcia, kraj, odwołania, protokół i IP klienta (w dowolnej kombinacji). 
+    2. Wprowadź unikatowy klucz szyfrowania w **klucza podstawowego** i opcjonalnie wpisz kopii zapasowej klucza w **kopii zapasowej klucza** pole.
 
-        ![Narzędzia szyfrowania CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Wybrana wersja minimalna szyfrowania dla każdego klucza z jego **minimalna wersja szyfrowania** listy rozwijanej liście, a następnie kliknij przycisk **aktualizacji**:
+       - **V2**: wskazuje, że klucz może być używane do generowania tokenów w wersji 2.0 i 3.0. Użyj tej opcji tylko wtedy, gdy są przenoszone z klucza szyfrowania starszych wersji 2.0, do klucza w wersji 3.0.
+       - **V3**: (zalecane) wskazuje, że klucz tylko mogą być używane do generowania tokenów w wersji 3.0 lub nowszej.
 
-       Wprowadź wartości dla co najmniej jednego z następujących parametrów szyfrowania w **szyfrowania narzędzia** obszar:  
+    ![Klucz tokenu uwierzytelniania CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Narzędzie Szyfruj służy do ustawiania parametrów szyfrowania oraz do generowania tokenu. Za pomocą narzędzia Szyfruj można akceptować lub odrzucać żądania na podstawie czasu wygaśnięcia, kraj, odwołania, protokół i IP klienta (w dowolnej kombinacji). Nie ma żadnego limitu liczby i kombinacja parametrów, które można łączyć, do utworzenia tokenu, ale token całkowita długość jest ograniczona do 512 znaków. 
+
+       ![Narzędzia szyfrowania CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Wprowadź wartości dla co najmniej jednego z następujących parametrów szyfrowania w **szyfrowania narzędzia** sekcji:  
 
        - **ec_expire**: przypisuje czas wygaśnięcia tokenu, po którym token jest ważny. Żądań przesłanych po czas wygaśnięcia nie są dozwolone. Ten parametr używa sygnatury czasowej systemu Unix, opartym na liczba sekund od standardowego epoka `1/1/1970 00:00:00 GMT`. (Umożliwia konwersję pomiędzy (czas standardowy) i czas Unix można użyć narzędzia online). Na przykład, jeśli chcesz, aby token do wygaśnięcia na `12/31/2016 12:00:00 GMT`, należy użyć wartości sygnatury czasowej systemu Unix `1483185600`, wykonując następujące czynności. 
     
@@ -98,7 +102,7 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
     
        - **ec_ref_allow**: tylko zezwala na żądania pochodzące z określonej odwołania. Odwołania określa adres URL strony sieci web, który jest połączony z żądanych zasobów. Nie dołączaj protokołu w wartości parametru odwołania. Następujące dane wejściowe są dozwolone dla wartości parametru:
            - Nazwa hosta lub nazwa hosta i ścieżkę.
-           - Wiele odwołań. Aby dodać wiele odwołań, każdy odwołania należy oddzielić przecinkami. Po określeniu wartości odwołania, ale informacje odwołania nie są wysyłane w żądania z powodu konfiguracji przeglądarki, te żądania są odrzucane domyślnie. 
+           - Wiele odwołań. Aby dodać wiele odwołań, każdy odwołania należy oddzielić przecinkami. Jeśli wartość odwołania, ale informacje odwołania nie są wysyłane w żądania z powodu konfiguracji przeglądarki, żądanie zostanie odrzucone domyślnie. 
            - Żądania z brakującymi informacji odwołania. Aby zezwolić na te typy żądań, wprowadź tekst "Brak" lub wartość pustą. 
            - Domeny podrzędne. Aby umożliwić poddomen, wprowadź znak gwiazdki (\*). Na przykład, aby umożliwić wszystkich poddomen `consoto.com`, wprowadź `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
             
          ![Przykład ec_clientip CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Po wprowadzeniu wszystkich wartości parametru szyfrowania, wybierz typ klucza szyfrowania (jeśli zostały utworzone podstawowego i zapasowego klucza) z **szyfrowania klucza** listy wersji szyfrowania z  **Wersja szyfrowania** listy, a następnie kliknij przycisk **Szyfruj**.
+    5. Po zakończeniu wprowadzania wartości parametrów szyfrowania klucza szyfrowania (jeśli zostały utworzone podstawowego i zapasowego klucza) wybierz z **szyfrowania klucza** listy.
+    
+    6. Wybierz wersję szyfrowania z **wersja szyfrowania** listy: **V2** w wersji 2 lub **V3** w wersji 3 (zalecane). Następnie kliknij przycisk **Szyfruj** do wygenerowania tokenu.
+
+    Po wygenerowaniu tokenu, jest on wyświetlany w **wygenerowany Token** pole. Korzystanie z tokenu, dołącza go jako ciąg zapytania do końca pliku w ścieżce URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz typ klucza szyfrowania do odszyfrowania z **odszyfrować klucza** listy rozwijanej liście, a następnie kliknij przycisk **odszyfrować**.
+    7. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz opcję Użyj klucza szyfrowania z **odszyfrować klucza** listy rozwijanej liście, a następnie kliknij przycisk **odszyfrować**.
 
-    5. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz kod z **kod odpowiedzi** listy rozwijanej i kliknij przycisk **zapisać**. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. Dla niektórych kodów odpowiedzi, możesz też wprowadzić adres URL strony błędu w **wartość nagłówka** pole. 
+    Po token jest odszyfrowywany, jego parametrów są wyświetlane w **oryginalnych parametrów** pole.
 
-    6. Po wygenerowaniu zaszyfrowany token, zostanie ona dodana jako ciąg zapytania do końca pliku w ścieżce URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz kod z **kod odpowiedzi** listy rozwijanej i kliknij przycisk **zapisać**. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. Dla niektórych kodów odpowiedzi, możesz też wprowadzić adres URL strony błędu w **wartość nagłówka** pole. 
 
 3. W obszarze **HTTP dużych**, kliknij przycisk **aparatu reguł**. Aparat reguł służy do definiowania ścieżki, aby zastosować funkcję, włączyć funkcję uwierzytelniania tokenu i włączyć dodatkowe funkcje tokenu związane z uwierzytelnianiem. Aby uzyskać więcej informacji, zobacz [odwołania aparat reguł](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Dostępne języki:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funkcji i cenach dostawcy
 
-Aby uzyskać informacje, zobacz [Omówienie usługi CDN](cdn-overview.md).
+Aby uzyskać informacje o funkcjach, zobacz [Omówienie usługi CDN](cdn-overview.md). Aby uzyskać informacje o cenach, zobacz [cennik Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).

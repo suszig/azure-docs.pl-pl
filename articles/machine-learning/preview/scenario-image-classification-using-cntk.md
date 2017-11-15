@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Za pomocą usługi Azure Machine Learning Workbench klasyfikacji obrazu
 
@@ -91,12 +91,10 @@ W tym samouczku używana jako uruchamianie przykładu górny treści zestawu dan
 
 Skrypt `0_downloadData.py` pobierze wszystkie obrazy do *DATA_DIR/obrazów/fashionTexture/* katalogu. Niektóre 428 adresy URL są prawdopodobnie uszkodzone. Nie stanowi to problemu, a tylko oznacza, że mamy nieco mniejsze obrazy do celów szkoleniowych i testów.
 
-Na poniższej ilustracji przedstawiono przykłady atrybutów kropkami (lewy dwóch kolumn), (środkowym dwie kolumny) i leopard (prawo dwie kolumny). Adnotacje zostały wykonane zgodnie z elementu odzieży górny treści.
+Na poniższej ilustracji przedstawiono przykłady dla atrybutów z kropkami (po lewej), rozłożone (na środku) i leopard (po prawej). Adnotacje zostały wykonane zgodnie z elementu odzieży górny treści.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

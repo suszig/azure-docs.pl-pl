@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.
@@ -66,11 +66,11 @@ Można użyć [firmowe funkcji](../active-directory/active-directory-add-company
 
 Podpis e-mail zawiera nazwę dzierżawy B2C, podane podczas tworzenia dzierżawy B2C. Można zmienić nazwę, korzystając z tych instrukcji:
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/) jako administrator subskrypcji.
-1. Przejdź do dzierżawy usługi B2C.
-1. Kliknij kartę **Konfiguracja**.
-1. Zmień **nazwa** pole w obszarze **właściwości Directory** sekcji.
-1. Kliknij przycisk **Zapisz** w dolnej części strony.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/) jako Administrator subskrypcji.
+1. Otwórz **usługi Azure Active Directory** bloku.
+1. Kliknij przycisk **właściwości** kartę.
+1. Zmień **nazwa** pola.
+1. Kliknij przycisk **zapisać** w górnej części strony.
 
 Obecnie nie istnieje sposób zmiany "od:" w wiadomości e-mail. Głosowania [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) planuje się Dostosowywanie treść wiadomości e-mail weryfikacji.
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Jednostki magazynu danych (dwu) i zasobów obliczeniowych jednostki magazynu danych (cDWUs)
 Zawiera opis jednostki magazynu danych (dwu) oraz obliczeniowe jednostki magazynu danych (cDWUS) dla usługi Azure SQL Data Warehouse. Obejmują zalecenia dotyczące wybierania idealne numer jednostki magazynu danych oraz sposobu zmiany ich liczba. 
@@ -52,16 +52,8 @@ Zarówno jednostek dwu i cDWUs obsługuje obliczeń skalowania w górę lub w d�
 Wraz ze zwiększaniem jednostki magazynu danych są liniowo zwiększanie zasobów obliczeniowych. Zoptymalizowane dla obliczania warstwę wydajności zapewnia najlepszą wydajność zapytań i najwyższy skali, lecz jest wyższe ceny wejścia. Jest on przeznaczony dla firm, które mają stałą zapotrzebowanie na wydajność. Te systemy wykorzystują większości pamięci podręcznej. 
 
 ### <a name="capacity-limits"></a>Limity pojemności
-Domyślnie każdy serwer (na przykład myserver.database.windows.net) ma limit przydziału, która ogranicza rozmiaru i skali baz danych w tym wystąpieniu. Serwer magazynu danych SQL i bazy danych SQL bazy danych, które musi mieścić się w limit przydziału. Ten limit przydziału jest mierzony w jednostkach transakcji bazy danych (DTU) i domyślnie jest ustawiona wartość równa 54 000 umożliwia maksymalnie 6000 cDWU. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Tworzenie biletu pomocy technicznej i wybierając pozycję "Przydziału" jako typ żądania można zwiększenia limitu przydziału. 
+Każdy serwer SQL (na przykład myserver.database.windows.net) ma [jednostka transakcji bazy danych (DTU)](../sql-database/sql-database-what-is-a-dtu.md) przydziału, który umożliwia określoną liczbę jednostki magazynu danych. Aby uzyskać więcej informacji, zobacz [limity pojemności zarządzania obciążenia](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Aby obliczyć wymagań jednostek dtu w warstwie, dotyczą następujących mnożników obliczenia jednostek dtu w warstwie:
-
-| Warstwę wydajności | Jednostka miary | Mnożnik jednostek dtu w warstwie | Przykład                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Elastyczność       |  DWU            | 7.5            | DW6000 x w wersji 7.5 = 45,000 jednostek dtu w warstwie |
-| Wystąpienia obliczeniowe          | cDWU            | 9              | DW6000 x w wersji 7.5 = równa 54 000 jednostek dtu w warstwie |
-
-Bieżący jednostek dtu w warstwie zużycie Zobacz SQL server właściwości można wyświetlić w portalu.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Liczbę jednostek magazynu danych potrzebne?
 Nadaje się doskonale liczbę jednostek magazynu danych zależy od znacznie obciążenie i ilość danych, które zostały załadowane do systemu.

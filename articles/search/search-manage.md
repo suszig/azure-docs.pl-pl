@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administrowanie usługi dla usługi Azure Search w portalu Azure
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Usługa wyszukiwanie Azure to usługa wyszukiwania w pełni zarządzana, oparte 
 * Dostosuj wydajność usługi, zmieniając Alokacja partycji i replik.
 * Monitorowanie użycia zasobów, względem maksymalną wartością warstwę usług.
 
-**Nie znajduje się w zakresie** 
+Zwróć uwagę, że *uaktualnienia* nie jest wymieniony jako zadania administracyjnego. Ponieważ zasoby są przydzielane po zainicjowaniu obsługi usługi, przejście z inną warstwą wymaga nowej usługi. Aby uzyskać więcej informacji, zobacz [Tworzenie usługi Azure Search](search-create-service-portal.md).
 
-*Zarządzanie zawartością* (lub indeksu zarządzania) odwołuje się do operacji, takich jak analizowania ruchu wyszukiwania, aby dowiedzieć się woluminu zapytania, odnajdywanie terminów wyszukiwania osób dla i jak są wyniki wyszukiwania pomyślnie w kierowaniu klientów do określonych dokumentów w indeksu. Aby uzyskać pomoc w tym obszarze, [analizy ruchu wyszukiwania dla usługi wyszukiwanie Azure](search-traffic-analytics.md).
-
-*Wydajność zapytania* również wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji, zobacz [monitorowanie metryk użycia i zapytania](search-monitor-usage.md) i [wydajności i optymalizacji](search-performance-optimization.md).
-
-*Uaktualnij* nie jest zadania administracyjnego. Ponieważ zasoby są przydzielane po zainicjowaniu obsługi usługi, przejście z inną warstwą wymaga nowej usługi. Aby uzyskać więcej informacji, zobacz [Tworzenie usługi Azure Search](search-create-service-portal.md).
+> [!Tip]
+> Szukasz informacji na temat analizowania wydajności ruchu lub zapytania wyszukiwania? Korzyści wgląd w informacje wolumin zapytania, które osoby warunki wyszukiwania, i jak pomyślne wyniki wyszukiwania są przeprowadzi klientów do określonych dokumentów w indeksie. Aby uzyskać instrukcje, zobacz [analizy ruchu wyszukiwania dla usługi wyszukiwanie Azure](search-traffic-analytics.md), [monitorowanie metryk użycia i zapytania](search-monitor-usage.md), i [wydajności i optymalizacji](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Innym sposobem wyświetlenia uprawnień dostępu ma kliknij **ról** na blok uż
 ## <a name="monitor-resource-usage"></a>Monitorowanie użycia zasobów
 Na pulpicie nawigacyjnym monitorowania zasobów jest ograniczona do informacje wyświetlane na pulpicie nawigacyjnym usługi i kilka metryk, które można uzyskać przez wysyłanie zapytań usługi. Na pulpicie nawigacyjnym usługi w sekcji obciążenie może szybko określić, czy poziomy zasobów partycji są odpowiednie dla twojej aplikacji.
 
-Przy użyciu interfejsu API usługi wyszukiwania, możesz uzyskać liczbę dokumentów oraz indeksów. Brak limitu skojarzone z tych liczników oparte na warstwie cenowej. Aby uzyskać więcej informacji, zobacz [limity usługi wyszukiwania](search-limits-quotas-capacity.md). 
+Przy użyciu interfejsu API REST usługi wyszukiwania, możesz uzyskać liczbę dokumentów oraz indeksów programowo: 
 
 * [Uzyskać statystyki indeksu](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Liczba dokumentów](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Buforowanie zachowania tymczasowo zawyżenie limit. Na przykład, korzystając z usług udostępnionych, można napotkać dokumentu liczba przekracza limit twardych 10 000 dokumentów. Zawyżenia jest tymczasowy i zostanie wykryty na następny sprawdzenia wymuszenia limitu. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Awarie awaryjnego odzyskiwania i usługi
 

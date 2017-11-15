@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralne zarządzanie Zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT (wersja zapoznawcza)
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 10/11/2017
 
   - Integracja operacyjnej alerty rozwiązaniami zarządzania zdarzeniami, w narzędziu Zarządzanie usługami IT — wybranych przez użytkownika.
     - Tworzenie elementów roboczych (na przykład alert, zdarzenie, zdarzenia) w zarządzanie usługami IT —, OMS alertów i za pomocą wyszukiwania dziennika.
-    - Tworzenie elementów roboczych na podstawie alertów programu dziennika aktywności platformy Azure za pomocą akcji Zarządzanie usługami IT — w grupach akcji. 
-  
+    - Tworzenie elementów roboczych na podstawie alertów programu dziennika aktywności platformy Azure za pomocą akcji Zarządzanie usługami IT — w grupach akcji.
+
   - Ujednolicenie monitorowania, dzienników i danych zarządzania usługi używane w organizacji.
     - Skorelować zdarzenia i zmień dane żądania z Twojej Zarządzanie usługami IT — narzędzi z właściwymi danymi dziennika w obszarze roboczym analizy dzienników.   
     - Wyświetlanie najwyższego poziomu pulpity nawigacyjne omówienie na incydenty, żądania zmiany i wpływ na systemy.
     - Pisanie zapytań analizy dzienników, aby uzyskać wgląd w dane usługi zarządzania.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Dodawanie IT usługi rozwiązania do zarządzania łącznika
 
 Dodaj rozwiązanie IT usługi zarządzania łącznika do obszaru roboczego analizy dzienników przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
@@ -70,14 +70,15 @@ Po pomyślnym dodaniu zobaczysz łącznika zarządzania usługi IT w obszarze **
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
 
-Po skonfigurowaniu łącznika zarządzania usługi IT z Zarządzanie usługami IT — szczegóły oprogramowania łącznik rozpoczyna zbieranie danych z połączonych Zarządzanie usługami IT — produktu lub usługi. W zależności od liczby zdarzeń i żądań zmiany w zarządzanie usługami IT — produktu lub usługi początkowej synchronizacji należy wykonać w kilka minut. 
+Po skonfigurowaniu łącznika zarządzania usługi IT z Zarządzanie usługami IT — szczegóły oprogramowania łącznik rozpoczyna zbieranie danych z połączonych Zarządzanie usługami IT — produktu lub usługi. W zależności od liczby zdarzeń i żądań zmiany w zarządzanie usługami IT — produktu lub usługi początkowej synchronizacji należy wykonać w kilka minut.
 
 > [!NOTE]
 > - Dane importowane z produktu Zarządzanie usługami IT — przez rozwiązanie łącznika zarządzania usługi IT pojawi się w analizy dzienników jako rekord dziennika typu **ServiceDesk_CL**.
 > - Rekord dziennika zawiera pole o nazwie **ServiceDeskWorkItemType_s**, która jest albo zdarzeniem lub żądaniem zmiany, dwa rodzaje danych zaimportowane z produktu Zarządzanie usługami IT —
 
 ## <a name="data-synced-from-itsm-product"></a>Synchronizowane z produktu Zarządzanie usługami IT — danych
-Zdarzenia i żądania zmiany są synchronizowane z produktu Zarządzanie usługami IT — do obszaru roboczego analizy dzienników. Poniższe informacje przedstawiono przykładowe dane zebrane przez łącznik zarządzania usługami IT:
+Zdarzenia i żądania zmiany są synchronizowane z produktu Zarządzanie usługami IT — do obszaru roboczego analizy dzienników.
+Poniższe informacje przedstawiono przykładowe dane zebrane przez łącznik zarządzania usługami IT:
 
 > [!NOTE]
 > W zależności od typu elementu roboczego zaimportowane do analizy dzienników **ServiceDesk_CL** zawiera następujące pola:
@@ -252,29 +253,29 @@ Elementy pracy można również utworzyć w połączonych źródeł Zarządzanie
 4. Podaj odpowiednie wartości w **typ**, **wpływ**, **pilność**, **kategorii**, i **podkategorii** pola tekstowe, a następnie kliknij przycisk **Utwórz**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — alertów Azure
-Zarządzanie usługami IT — łącznika jest teraz zintegrowana z grupy akcji. [Grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md) umożliwiają moduły i wielokrotnego użytku z wyzwalają akcje dla alerty Azure. Zarządzanie usługami IT — akcji w grupy akcji tworzy elementy robocze w produkcie przy użyciu istniejącego rozwiązania łącznika Zarządzanie usługami IT — zarządzanie usługami IT —.
+Zarządzanie usługami IT — łącznika jest teraz zintegrowana z grupy akcji.
 
-1. W portalu Azure, kliknij polecenie **monitora**
-2. W okienku po lewej stronie kliknij **grupy akcji**
+[Grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md) umożliwiają moduły i wielokrotnego użytku z wyzwalają akcje dla alerty Azure. Zarządzanie usługami IT — akcji w grupy akcji tworzy elementy robocze w produkcie przy użyciu istniejącego rozwiązania łącznika Zarządzanie usługami IT — zarządzanie usługami IT —.
+
+1. W portalu Azure kliknij **Monitor**.
+2. W okienku po lewej stronie kliknij **grupy akcji**.
 
     ![Grupy akcji](media/log-analytics-itsmc/ActionGroups.png)
 
-3. Podaj **nazwa** i **nazwa_skrócona** grupy działań. Wybierz **grupy zasobów** i **subskrypcji** miejscu utworzyć grupę akcji.
+3. Podaj **nazwa** i **nazwa_skrócona** grupy działań. Wybierz **grupy zasobów** i **subskrypcji** której chcesz utworzyć grupy działań.
 
     ![Szczegóły grupy akcji](media/log-analytics-itsmc/ActionGroupsDetail.png)
 
-4. Na liście akcji wybierz **Zarządzanie usługami IT —** z listy rozwijanej dla **typ akcji**. Podaj **nazwa** dla akcji, a następnie kliknij polecenie **Edytuj szczegóły**.
-
-
+4. Na liście akcji wybierz **Zarządzanie usługami IT —** z menu rozwijanego dla **typ akcji**. Podaj **nazwa** dla akcji, a następnie kliknij przycisk **Edytuj szczegóły**.
 5. Wybierz **subskrypcji** którym znajduje się obszar roboczy analizy dzienników. Wybierz **połączenia** tj nazwą łącznika Zarządzanie usługami IT — następuje nazwa obszaru roboczego. Na przykład "MyITSMMConnector(MyWorkspace)".
 
     ![Akcja Zarządzanie usługami IT — szczegóły](./media/log-analytics-itsmc/ITSMActionDetails.png)
 
-6. Wybierz **elementu roboczego** typu z listy rozwijanej.
+6. Wybierz **elementu roboczego** typu z menu rozwijanego.
 7. Wybierz korzystać z istniejących szablonów lub wypełnienie pól wymaganych przez produkt Zarządzanie usługami IT —.
 8. Kliknij przycisk **OK**.
 
-Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, która ma akcję Zarządzanie usługami IT —. Gdy alert jest wyzwalane, element roboczy jest tworzony w narzędziu Zarządzanie usługami IT —. 
+Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, która ma akcję Zarządzanie usługami IT —. Gdy alert jest wyzwalane, element roboczy jest tworzony w narzędziu Zarządzanie usługami IT —.
 
 >[!NOTE]
 >Obecnie tylko alerty dziennika aktywności obsługuje zarządzanie usługami IT — Akcja. Dla innych Azure alertów ta akcja jest pusta.
@@ -288,10 +289,10 @@ Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, k
     - Sprawdź, czy masz wystarczające uprawnienia w produktu Zarządzanie usługami IT — do nawiązania połączenia.
  - W przypadku połączeń programu Service Manager
      - Sprawdź, czy aplikacja sieci Web zostanie pomyślnie wdrożona i utworzeniu połączenia hybrydowego. Aby sprawdzić pomyślnym nawiązaniu połączenia z komputera lokalnego programu Service Manager, odwiedź adres URL aplikacji sieci Web zgodnie z opisem w dokumentacji dotyczącej wprowadzania [połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+
 2.  Jeśli dane z usługi ServiceNow jest wprowadzenie nie zostały zsynchronizowane z analizy dzienników, upewnij się, że usługi ServiceNow, wystąpienie nie jest uśpiony. Wystąpień deweloperów usługi ServiceNow czasami Przejdź w stan uśpienia podczas bezczynności przez dłuższy okres. W przeciwnym wypadku zgłosić problem.
 3.  Jeśli alerty OMS wyzwalać, ale działa elementy nie są tworzone w produkcie Zarządzanie usługami IT — lub elementy konfiguracji nie są utworzone/połączone elementy robocze lub inne informacje ogólne, można znaleźć w następujących miejscach:
- -  **Rozwiązanie usługi zarządzania łącznika IT**: rozwiązanie zawiera podsumowanie połączeń/pracy elementów/komputerów itp. Kliknięcie kafelka przedstawiający **stan łącznika**, która powoduje przejście do **wyszukiwania dziennika** zapytania o odpowiednich. Przyjrzyj się rekordy dziennika z LogType_S jako błąd Aby uzyskać więcej informacji.
+ -  **Rozwiązanie usługi zarządzania łącznika IT**: rozwiązanie zawiera podsumowanie połączeń/pracy elementów/komputerów itp. Kliknij przycisk przedstawiający Kafelek **stan łącznika**, która powoduje przejście do **wyszukiwania dziennika** z odpowiednimi zapytania. Przyjrzyj się rekordy dziennika z LogType_S jako błąd Aby uzyskać więcej informacji.
  - I wyświetlania informacji powiązanych z/błędy bezpośrednio w **wyszukiwania dziennika** stronę przy użyciu zapytania *typu = ServiceDeskLog_CL*.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web programu Service Manager

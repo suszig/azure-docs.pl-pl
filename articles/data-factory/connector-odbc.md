@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: d8fa78585842a7e4414c8decf422c971938b683f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Skopiuj dane z i do magazynów danych ODBC przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -194,7 +194,7 @@ Aby skopiować dane do magazynu danych zgodne ze standardem ODBC, należy ustawi
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **OdbcSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OdbcSink** | Tak |
 | writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (wartość domyślna to 0 – wykrywane automatycznie) |
 | preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do magazynu danych w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |

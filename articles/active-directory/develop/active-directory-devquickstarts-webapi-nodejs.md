@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: a0b8ff6894a1f30fd8d18beef234737573691af9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Zabezpieczanie interfejsu API w usłudze Azure Active Directory sieci Web Node.js
 
@@ -53,7 +53,7 @@ Raz `package.json` został utworzony, uruchom `npm install` w z wiersza poleceni
 
 ### <a name="configure-the-project-to-use-active-directory"></a>Konfigurowanie projektu do użycia usługi Active Directory
 
-Aby rozpocząć konfigurowanie aplikacji, istnieje kilka wartości dotyczący konta można uzyskać wiersza polecenia platformy Azure. Najprostszym sposobem, aby rozpocząć korzystanie z interfejsu wiersza polecenia jest użyć powłoki chmury Azure.
+Aby rozpocząć konfigurowanie aplikacji, istnieje kilka wartości specyficznych dla konta, które można uzyskać z wiersza polecenia platformy Azure. Najprostszym sposobem, aby rozpocząć korzystanie z interfejsu wiersza polecenia jest użyć powłoki chmury Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

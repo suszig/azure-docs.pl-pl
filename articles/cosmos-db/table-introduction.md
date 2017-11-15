@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
 
@@ -30,9 +30,9 @@ Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel (w wersj
 * Gwarantowana wysoka dostępność.
 * [Automatyczne indeksowanie pomocnicze](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Aplikacje te mogą być migrowane do usługi Azure Cosmos DB przy użyciu interfejsu API tabel bez zmian kodu i mogą korzystać z funkcji warstwy Premium. Interfejs API tabel jest dostępny dla platformy .NET i języka Python.
+Aplikacje korzystające z usługi Azure Table Storage mogą być migrowane do usługi Azure Cosmos DB przy użyciu interfejsu API tabel bez zmian kodu i mogą korzystać z funkcji warstwy Premium. Interfejs API tabel udostępnia platformie .NET jeden zestaw SDK klienta.
 
-Zalecamy obejrzenie poniższego klipu wideo, w którym Aravind Ramachandran wyjaśnia, jak rozpocząć pracę z interfejsem API tabel na potrzeby korzystania z usługi Azure Cosmos DB:
+Zalecamy obejrzenie poniższego wideo, w którym Aravind Ramachandran wyjaśnia, jak rozpocząć pracę z interfejsem API tabel w usłudze Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -64,5 +64,5 @@ Oto kilka wskazówek ułatwiających rozpoczęcie pracy:
 * [Wykonywanie zapytań dotyczących danych tabel przy użyciu interfejsu API tabel](tutorial-query-table.md)
 * [Dowiedz się, jak skonfigurować dystrybucję globalną usługi Azure Cosmos DB przy użyciu interfejsu API tabel](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB — interfejs API tabel dla platformy .NET](table-sdk-dotnet.md)
-* [Azure Cosmos DB — zestaw SDK tabel dla języka Python](table-sdk-python.md)
+
 

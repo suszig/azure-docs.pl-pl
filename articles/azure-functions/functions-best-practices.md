@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizuj wydajność i niezawodność usługi Azure Functions
 
@@ -66,8 +66,7 @@ Jak kodu reagować, jeśli wystąpi błąd po wstawieniu 5000 tych elementów w 
 
 Jeśli element kolejki został już przetworzony, Zezwalaj funkcja ma być pusta.
 
-Skorzystaj z środków obrony już dostarczona dla składników używanych przez platformę Azure funkcji. Na przykład, zobacz **obsługi wiadomości w kolejce skażone** w dokumentacji dotyczącej [wyzwala kolejki magazynu Azure](functions-bindings-storage-queue.md#trigger).
- 
+Skorzystaj z środków obrony już dostarczona dla składników używanych przez platformę Azure funkcji. Na przykład, zobacz **obsługi wiadomości w kolejce skażone** w dokumentacji dotyczącej [kolejki magazynu Azure wyzwalaczy i powiązań](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Nie można mieszać testowych i produkcyjnych kodu w tej samej aplikacji — funkcja
 
@@ -97,4 +96,3 @@ Więcej informacji zawierają następujące zasoby:
 
 Ponieważ usługi Azure Functions używa usługi Azure App Service, należy wziąć pod uwagę wskazówki dotyczące usługi aplikacji.
 * [Wzorce i praktyki optymalizacji wydajności HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

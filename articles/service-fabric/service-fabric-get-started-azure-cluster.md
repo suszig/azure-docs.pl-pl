@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie klastra usługi Azure Service Fabric | Microsoft Docs"
-description: "Szybki start — tworzenie klastra usługi Service Fabric z systemem Windows lub Linux na platformie Azure."
+description: "Ten przewodnik Szybki start pomoże Ci w utworzeniu klastra usługi Service Fabric z systemem Windows lub Linux na platformie Azure."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: caf76bb739fa92982c511c8e3e6c6aaf2bf9d6c1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure
-[Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Niniejszy przewodnik Szybki start pomaga w utworzeniu klastra o pięciu węzłach, z systemem Windows lub Linux, za pośrednictwem środowiska [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) lub witryny [Azure Portal](http://portal.azure.com) w ciągu kilku minut.  
+[Klaster usługi Azure Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Niniejszy przewodnik Szybki start pomaga w utworzeniu klastra o pięciu węzłach, z systemem Windows lub Linux, za pośrednictwem środowiska [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) lub witryny [Azure Portal](http://portal.azure.com) w ciągu kilku minut. W tym celu można także użyć interfejsu wiersza polecenia platformy Azure.  
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -32,44 +32,44 @@ Zaloguj się w witrynie Azure Portal pod adresem [http://portal.azure.com](http:
 
 ### <a name="create-the-cluster"></a>Tworzenie klastra
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
-2. Wyszukaj pozycję **Service Fabric** i wybierz ze zwróconych wyników pozycję **Klaster usługi Service Fabric** w obszarze **Klaster usługi Service Fabric**.  Kliknij przycisk **Utwórz**.
-3. Uzupełnij formularz **Podstawy** usługi Service Fabric. W sekcji **System operacyjny** wybierz wersję systemu Windows lub Linux, którego chcesz używać w węzłach klastra. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Po zakończeniu kliknij przycisk **OK**.
+1. W lewym górnym rogu witryny Azure Portal wybierz przycisk **Nowy**.
+2. Wyszukaj pozycję **Service Fabric** i wybierz ze zwróconych wyników pozycję **Klaster usługi Service Fabric**. Następnie wybierz przycisk **Utwórz**.
+3. Uzupełnij formularz **Podstawy** usługi Service Fabric. W sekcji **System operacyjny** wybierz wersję systemu Windows lub Linux, którego chcesz używać w węzłach klastra. Nazwa użytkownika i hasło wprowadzone w tym miejscu są używane na potrzeby logowania się do maszyny wirtualnej. W obszarze **Grupa zasobów** utwórz nową. Grupa zasobów to logiczny kontener, w którym są tworzone i zbiorczo zarządzane zasoby platformy Azure. Gdy skończysz, kliknij przycisk **OK**.
 
-    ![Dane wyjściowe instalacji klastra][cluster-setup-basics]
+    ![Zrzut ekranu przedstawiający dane wyjściowe instalacji klastra][cluster-setup-basics]
 
-4. Uzupełnij formularz **Konfiguracja klastra**.  Dla ustawienia **Liczba typów węzłów** wprowadź wartość „1”.
+4. Uzupełnij formularz **Konfiguracja klastra**. Dla ustawienia **Liczba typów węzłów** wprowadź wartość **1**.
 
-5. Wybierz pozycję **Typ węzła 1 (podstawowy)** i wypełnij formularz **Konfiguracja typu węzła**.  Wprowadź nazwę typu węzła i dla pozycji [Warstwa trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) ustaw wartość „Brązowa”.  Wybierz rozmiar maszyny wirtualnej.
+5. Wybierz pozycję **Typ węzła 1 (podstawowy)** i wypełnij formularz **Konfiguracja typu węzła**. Wprowadź nazwę typu węzła i dla pozycji [Warstwa trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) ustaw wartość **Brązowa**. Następnie wybierz rozmiar maszyny wirtualnej.
 
-    Typy węzłów definiują rozmiar maszyny wirtualnej, liczbę maszyn wirtualnych, niestandardowe punkty końcowe oraz inne ustawienia dla maszyn wirtualnych tego typu. Każdy zdefiniowany typ węzła jest konfigurowany jako oddzielny zestaw skalowania maszyn wirtualnych, który jest używany do wdrażania maszyn wirtualnych i zarządzania nimi jako zestawem. Każdy typ węzła może być niezależnie skalowany w górę lub w dół, może mieć różne zestawy otwartych portów i może mieć różne metryki pojemności.  Pierwszy lub główny typ węzła jest miejscem, w którym hostowane są usługi systemowe Service Fabric. Musi zawierać co najmniej pięć maszyn wirtualnych.
+    Typy węzłów definiują rozmiar maszyny wirtualnej, liczbę maszyn wirtualnych, niestandardowe punkty końcowe oraz inne ustawienia dla maszyn wirtualnych tego typu. Każdy zdefiniowany typ węzła jest konfigurowany jako oddzielny zestaw skalowania maszyn wirtualnych, który jest używany do wdrażania maszyn wirtualnych i zarządzania nimi jako zestawem. Każdy typ węzła może być niezależnie skalowany w górę lub w dół, może mieć różne zestawy otwartych portów i może mieć różne metryki pojemności. Pierwszy lub główny typ węzła jest miejscem, w którym hostowane są usługi systemowe Service Fabric. Ten typ węzła musi zawierać co najmniej pięć maszyn wirtualnych.
 
-    W przypadku wszystkich wdrożeń produkcyjnych [planowanie pojemności](service-fabric-cluster-capacity.md) jest ważnym krokiem.  Niemniej w ramach tego przewodnika Szybki start nie uruchamiasz aplikacji, więc wybierz rozmiar maszyny wirtualnej *Standardowa DS1_v2*.  Wybierz wartość „Srebrna” dla [warstwy niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) oraz ustaw początkową pojemność zestawu skalowania maszyn wirtualnych na 5.  
+    W przypadku wszystkich wdrożeń produkcyjnych [planowanie pojemności](service-fabric-cluster-capacity.md) jest ważnym krokiem. Niemniej w ramach tego przewodnika Szybki start nie uruchamiasz aplikacji, więc wybierz rozmiar maszyny wirtualnej *Standardowa DS1_v2*. Wybierz wartość **Srebrna** dla [warstwy niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) oraz ustaw początkową pojemność zestawu skalowania maszyn wirtualnych na 5.  
 
-    Niestandardowe punkty końcowe otwierają porty w module równoważenia obciążenia platformy Azure, dzięki czemu możesz nawiązywać połączenie z aplikacjami uruchomionymi w klastrze.  Wprowadź „80, 8172”, aby otworzyć porty 80 i 8172.
+    Niestandardowe punkty końcowe otwierają porty w usłudze Azure Load Balancer, dzięki czemu możesz nawiązywać połączenie z aplikacjami uruchomionymi w klastrze.  Wprowadź **80, 8172**, aby otworzyć porty 80 i 8172.
 
     Nie zaznaczaj pola wyboru **Skonfiguruj ustawienia zaawansowane**. Opcji tej używa się do dostosowywania punktów końcowych zarządzania protokołem TCP/HTTP, zakresem portów aplikacji, [ograniczeniami dotyczącymi umieszczania](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) oraz [właściwościami pojemności](service-fabric-cluster-resource-manager-metrics.md).    
+    
+    ![Zrzut ekranu przedstawiający konfigurację typu węzła][node-type-config]
 
     Kliknij przycisk **OK**.
 
-6. W formularzu **Konfigurowanie klastra** ustaw opcję **Diagnostyka** na wartość **Wł**.  W ramach tego przewodnika Szybki start nie musisz wprowadzać żadnych właściwości [ustawień sieci szkieletowej](service-fabric-cluster-fabric-settings.md).  W pozycji **Wersja sieci szkieletowej** wybierz tryb uaktualniania **Automatyczny**, dzięki czemu firma Microsoft będzie automatycznie aktualizować wersję kodu sieci szkieletowej obsługującego klaster.  Ustaw tryb **Ręczny**, jeśli chcesz [wybrać obsługiwaną wersję](service-fabric-cluster-upgrade.md) do uaktualnienia. 
-
-    ![Konfiguracja typu węzła][node-type-config]
+6. W formularzu **Konfigurowanie klastra** ustaw opcję **Diagnostyka** na wartość **Wł**. W ramach tego przewodnika Szybki start nie musisz wprowadzać żadnych właściwości [ustawień sieci szkieletowej](service-fabric-cluster-fabric-settings.md).  W pozycji **Wersja sieci szkieletowej** wybierz tryb uaktualniania **Automatyczny**, dzięki czemu firma Microsoft będzie automatycznie aktualizować wersję kodu sieci szkieletowej obsługującego klaster.  Ustaw tryb **Ręczny**, jeśli chcesz [wybrać obsługiwaną wersję](service-fabric-cluster-upgrade.md) do uaktualnienia.     
 
     Kliknij przycisk **OK**.
 
-7. Uzupełnij formularz **Zabezpieczenia**.  W ramach tego przewodnika Szybki start wybierz opcję **Niezabezpieczony**.  Niemniej zaleca się utworzenie zabezpieczonego klastra dla obciążeń produkcyjnych, ponieważ każda osoba może anonimowo połączyć się z niezabezpieczonym klastrem i przeprowadzić operacje związane z zarządzaniem.  
+7. Uzupełnij formularz **Zabezpieczenia**. W ramach tego przewodnika Szybki start wybierz opcję **Niezabezpieczony**. Pamiętaj, że zwykle w przypadku obciążeń produkcyjnych należy tworzyć zabezpieczone klastry. Każdy może anonimowo połączyć się niezabezpieczonym klastrem i wykonywać na nim operacje zarządzania.  
 
-    W usłudze Service Fabric używa się certyfikatów, aby zapewniać uwierzytelnianie i szyfrowanie w celu zabezpieczania różnych aspektów klastra i jego aplikacji. Aby uzyskać więcej informacji o sposobie wykorzystania certyfikatów w usłudze Service Fabric, zobacz [Scenariusze zabezpieczeń klastra usługi Service Fabric](service-fabric-cluster-security.md).  Aby włączyć uwierzytelnianie użytkownika przy użyciu usługi Azure Active Directory lub skonfigurować certyfikaty dla zabezpieczeń aplikacji, [utwórz klaster z szablonu usługi Resource Manager](service-fabric-cluster-creation-via-arm.md).
+   Usługa Service Fabric używa certyfikatów, aby zapewniać uwierzytelnianie i szyfrowanie w celu zabezpieczania różnych aspektów klastra i jego aplikacji. Aby uzyskać więcej informacji, zobacz temat [Service Fabric cluster security scenarios](service-fabric-cluster-security.md) (Scenariusze zabezpieczeń klastra usługi Service Fabric). Aby włączyć uwierzytelnianie użytkownika przy użyciu usługi Azure Active Directory lub skonfigurować certyfikaty dla zabezpieczeń aplikacji, zobacz temat [Create a cluster from a Resource Manager template](service-fabric-cluster-creation-via-arm.md) (Tworzenie klastra z szablonu usługi Resource Manager).
 
     Kliknij przycisk **OK**.
 
-8. Przejrzyj podsumowanie.  Jeśli chcesz pobrać szablon usługi Resource Manager utworzony na podstawie wprowadzonych ustawień, wybierz opcję **Pobierz szablon i parametry**.  Wybierz opcję **Utwórz**, aby utworzyć klaster.
+8. Przejrzyj podsumowanie. Jeśli chcesz pobrać szablon usługi Azure Resource Manager utworzony na podstawie wprowadzonych ustawień, wybierz opcję **Pobierz szablon i parametry**. Wybierz opcję **Utwórz**, aby utworzyć klaster.
 
-    Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz pozycję **Wdrażanie klastra usługi Service Fabric** przypiętą do tablicy **Start**.
+    Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę „Dzwonka” w pobliżu paska stanu w prawym górnym rogu ekranu). Jeśli wybrano opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz pozycję **Wdrażanie klastra usługi Service Fabric** przypiętą do tablicy **Start**.
 
-### <a name="connect-to-the-cluster-using-powershell"></a>Nawiązywanie połączenia z klastrem przy użyciu programu PowerShell
-Sprawdź, czy klaster działa, nawiązując połączenie przy użyciu programu PowerShell.  Moduł ServiceFabric programu PowerShell jest instalowany przy użyciu [Zestawu SDK usługi Service Fabric](service-fabric-get-started.md).  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.   
+### <a name="connect-to-the-cluster-by-using-powershell"></a>Nawiązywanie połączenia z klastrem przy użyciu programu PowerShell
+Sprawdź, czy klaster działa, nawiązując połączenie przy użyciu programu PowerShell. Moduł Service Fabric programu PowerShell jest instalowany przy użyciu [Zestawu SDK usługi Service Fabric](service-fabric-get-started.md). Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
@@ -89,19 +89,21 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
 ```
 
 ### <a name="remove-the-cluster"></a>Usuwanie klastra
-Klaster usługi Service Fabric składa się z innych zasobów platformy Azure poza samym zasobem klastra. Dlatego też, aby całkowicie usunąć klaster usługi Service Fabric, musisz również usunąć wszystkie zasoby, z których się składa. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. Aby uzyskać informacje o innych sposobach usunięcia klastra lub usunięcia części (nie wszystkich) zasobów w grupie zasobów, zobacz [Usuwanie klastra](service-fabric-cluster-delete.md).
+Klaster usługi Service Fabric składa się z innych zasobów platformy Azure poza samym zasobem klastra. Aby całkowicie usunąć klaster usługi Service Fabric, musisz również usunąć wszystkie zasoby, z których się składa. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów. Aby uzyskać informacje o innych sposobach usunięcia klastra lub usunięcia części (nie wszystkich) zasobów w grupie zasobów, zobacz temat [Usuwanie klastra](service-fabric-cluster-delete.md).
 
 Usuń grupę zasobów w witrynie Azure Portal:
 1. Przejdź do klastra usługi Service Fabric, który chcesz usunąć.
-2. Kliknij nazwę **Grupy zasobów** na stronie podstawowych elementów klastra.
-3. Na stronie **Podstawowe elementy grupy zasobów** kliknij pozycję **Usuń grupę zasobów** i wykonaj instrukcje na tej stronie, aby zakończyć usuwanie grupy zasobów.
-    ![Usuwanie grupy zasobów][cluster-delete]
+2. Na stronie podstawowych elementów klastra wybierz nazwę **Grupy zasobów**.
+3. Na stronie **Podstawowe elementy grupy zasobów** wybierz pozycję **Usuń grupę zasobów**. Następnie wykonaj instrukcje na tej stronie, aby zakończyć usuwanie grupy zasobów.
+    ![Zrzut ekranu przedstawiający stronę Podstawowe elementy grupy zasobów z wyróżnionym przyciskiem Usuń grupę zasobów][cluster-delete]
 
 
 ## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
-1. Pobierz na komputer [moduł Azure Powershell w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Innym sposobem na utworzenie klastra jest użycie programu PowerShell. Oto kroki tej procedury:
 
-2. Uruchom polecenie cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster), aby utworzyć klaster usługi Service Fabric z 5 węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-OS*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami. 
+1. Pobierz na komputer [moduł Azure PowerShell w wersji 4.0 lub nowszej](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+2. Uruchom polecenie cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster), aby utworzyć klaster usługi Service Fabric z pięciami węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-OS*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami. 
 
     ```powershell
     #Provide the subscription Id
@@ -138,9 +140,9 @@ Usuń grupę zasobów w witrynie Azure Portal:
     -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Wykonanie tego polecenia może potrwać od 10 do 30 minut. Na koniec powinny zostać wyświetlone dane wyjściowe podobne do następujących. Dane wyjściowe zawierają informacje dotyczące certyfikatu, usługi KeyVault, do której został przekazany certyfikat, i folderu lokalnego, do którego został skopiowany.     
+    Ukończenie polecenia może potrwać od 10 do 30 minut. Dane wyjściowe zawierają informacje dotyczące certyfikatu, magazynu kluczy, do którego został przekazany certyfikat, i folderu lokalnego, do którego został skopiowany.     
 
-3. Skopiuj wszystkie dane wyjściowe i zapisz je w pliku tekstowym do przyszłego użycia. Zanotuj następujące informacje z danych wyjściowych. 
+3. Skopiuj wszystkie dane wyjściowe i zapisz je w pliku tekstowym (będą potrzebne później). Zanotuj następujące informacje z danych wyjściowych: 
 
     - CertificateSavedLocalPath
     - CertificateThumbprint
@@ -149,7 +151,7 @@ Usuń grupę zasobów w witrynie Azure Portal:
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Instalowanie certyfikatu na komputerze lokalnym
   
-Aby połączyć się z klastrem, należy zainstalować certyfikat w magazynie osobistym bieżącego użytkownika. 
+Aby połączyć się z klastrem, zainstaluj certyfikat w magazynie osobistym bieżącego użytkownika. 
 
 Uruchom następujące polecenie:
 
@@ -199,6 +201,7 @@ $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 ## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+Innym sposobem na utworzenie klastra jest użycie interfejsu wiersza polecenia. Oto kroki tej procedury:
 
 1. Zainstaluj [interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) na komputerze.
 2. Zaloguj się do platformy Azure i wybierz subskrypcję, w ramach której chcesz utworzyć klaster.
@@ -206,7 +209,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
    az login
    az account set --subscription <GUID>
    ```
-3. Uruchom polecenie [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), aby utworzyć klaster usługi Service Fabric z 5 węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-os*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami.
+3. Uruchom polecenie [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create), aby utworzyć klaster usługi Service Fabric z pięcioma węzłami zabezpieczony przy użyciu certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Ustaw parametr *-os*, aby wybrać wersję systemu Windows lub Linux działającego w węzłach klastra. Dostosuj parametry zgodnie z potrzebami.
 
     ```azurecli
     #!/bin/bash
@@ -228,7 +231,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
     # Create secure five node Linux cluster. Creates a key vault in a resource group
     # and creates a certficate in the key vault. The certificate's subject name must match 
-    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    # the domain that you use to access the Service Fabric cluster. The certificate is downloaded locally.
     az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
         --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
@@ -236,7 +239,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
     ```
     
 ### <a name="connect-to-the-cluster"></a>Łączenie z klastrem
-Uruchom poniższe polecenie interfejsu wiersza polecenia, aby połączyć się z klastrem przy użyciu certyfikatu.  Podczas uwierzytelniania przy użyciu certyfikatu klienta szczegóły certyfikatu muszą być zgodne z certyfikatem wdrożonym w węzłach klastra.  Użyj opcji `--no-verify` w przypadku certyfikatu z podpisem własnym.
+Uruchom poniższe polecenie interfejsu wiersza polecenia, aby połączyć się z klastrem przy użyciu certyfikatu.  Podczas uwierzytelniania przy użyciu certyfikatu klienta upewnij się, że szczegóły certyfikatu są zgodne z certyfikatem wdrożonym w węzłach klastra. Użyj opcji `--no-verify` w przypadku certyfikatu z podpisem własnym.
 
 ```azurecli
 az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
@@ -250,7 +253,7 @@ az sf cluster health
 
 ### <a name="connect-to-the-nodes-directly"></a>Bezpośrednie łączenie z węzłami 
 
-Aby połączyć się z węzłami klastra systemu Linux, możesz użyć protokołu SSH w celu nawiązania połączenia z węzłami przez podanie numeru portu o wartości 3389 lub większej. Na przykład w przypadku pięciu utworzonych wcześniej węzłów klastra polecenia będą następujące:
+Aby połączyć się z węzłami w klastrze systemu Linux, możesz użyć polecenia SSH. Określ numer portu o wartości 3389 lub większej. Na przykład w przypadku pięciu utworzonych wcześniej węzłów klastra polecenia będą następujące:
 ```bash
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390

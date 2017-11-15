@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Wdrażanie urządzenia wirtualnego StorSimple oraz zarządzanie nim na platformie Azure
+> [!NOTE]
+> Klasyczny portal dla urządzeń StorSimple jest przestarzały. Menedżerowie urządzeń StorSimple dokonają automatycznego przeniesienia do nowej witryny Azure Portal zgodnie z ustalonym harmonogramem wycofywania przestarzałych produktów. Powiadomienie o przeniesieniu otrzymasz pocztą e-mail i za pośrednictwem portalu. Ten dokument zostanie wkrótce usunięty. Aby wyświetlić wersję tego artykułu dla nowej witryny Azure Portal, przejdź do artykułu [Wdrażanie urządzenia wirtualnego StorSimple na platformie Azure i zarządzanie nim](storsimple-8000-cloud-appliance-u2.md). W razie jakichkolwiek pytań dotyczących przeniesienia, zobacz [FAQ: Move to Azure portal (Często zadawane pytania — przeniesienie do witryny Azure Portal)](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Omówienie
 Urządzenie wirtualne z serii StorSimple 8000 zapewnia dodatkową funkcję dołączoną do rozwiązania Microsoft Azure StorSimple. Urządzenie wirtualne StorSimple działa na maszynie wirtualnej w sieci wirtualnej Microsoft Azure i służy do tworzenia kopii zapasowych oraz klonowania danych z hostów. W tym samouczku opisano wdrażanie urządzenia wirtualnego oraz zarządzanie nim na platformie Azure. Zawarte w nim informacje dotyczą wszystkich urządzeń wirtualnych z oprogramowaniem w wersji z aktualizacją Update 2 oraz w wersjach starszych.
 
@@ -33,7 +36,7 @@ Dostępne są dwa modele urządzenia wirtualnego StorSimple: standardowy — 801
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci) |Standard_DS3 (4 rdzenie, 14 GB pamięci) |
 | **Zgodność wersji** |Wersje przed wprowadzeniem aktualizacji Update 2 lub nowsze |Wersje z aktualizacją Update 2 lub nowsze |
 | **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Wszystkie regiony świadczenia usługi Azure obsługujące usługę Premium Storage i maszyny wirtualne DS3 platformy Azure<br></br> Przy użyciu [tej listy](https://azure.microsoft.com/en-us/regions/services) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja *Maszyny wirtualne > Seria DS*, jak i opcja *Magazyn > Magazyn na dysku*. |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../virtual-machines/windows/premium-storage.md) |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br>Informacje na temat [tworzenia konta Premium Storage](../storage/common/storage-premium-storage.md) |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Tworzenie chmur i scenariusze testowania, krótki czas oczekiwania, bardziej wydajne obciążenia <br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
 <sup>1</sup> *Poprzednia nazwa: 1100*.
@@ -63,7 +66,7 @@ W poniższej tabeli przedstawiono niektóre podstawowe różnice między wirtual
 | **Klucz szyfrowania danych usługi** |Należy wygenerować ponownie na urządzeniu fizycznym, a następnie zaktualizować urządzenie wirtualne za pomocą nowego klucza. |Nie można ponownie wygenerować z urządzenia wirtualnego. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Wymagania wstępne dotyczące urządzeń wirtualnych
-Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji urządzenia wirtualnego StorSimple. Przed wdrożeniem urządzenia wirtualnego zapoznaj się z [zagadnieniami dotyczącymi zabezpieczeń podczas używania urządzenia wirtualnego](storsimple-security.md).
+Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji urządzenia wirtualnego StorSimple. Przed wdrożeniem urządzenia wirtualnego zapoznaj się z [zagadnieniami dotyczącymi zabezpieczeń podczas używania urządzenia wirtualnego](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### <a name="azure-requirements"></a>Wymagania systemu Azure
 Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować następujące elementy w środowisku platformy Azure:
@@ -82,7 +85,7 @@ Przed zainicjowaniem obsługi urządzenia wirtualnego należy przygotować nast�
 Przed utworzeniem urządzenia wirtualnego pobierz następujące aktualizacje usługi Azure StorSimple:
 
 * Dodaj [rekordy kontroli dostępu](storsimple-manage-acrs.md) do maszyn wirtualnych, które będą serwerami hosta dla urządzenia wirtualnego.
-* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/common/storage-create-storage-account.md) lub [konta Premium Storage](../virtual-machines/windows/premium-storage.md)
+* Użyj [konta magazynu](storsimple-manage-storage-accounts.md#add-a-storage-account) w tym samym regionie, w którym znajduje się urządzenie wirtualne. Jeśli konta usługi Storage są w różnych regionach, wydajność może zostać obniżona. Na urządzeniu wirtualnym można używać konta Standard lub Premium Storage. Więcej informacji na temat tworzenia [konta Standard Storage](../storage/common/storage-create-storage-account.md) lub [konta Premium Storage](../storage/common/storage-premium-storage.md)
 * Do utworzenia urządzenia wirtualnego użyj innego konta magazynu niż to używane do danych. Użycie tego samego konta magazynu może spowodować obniżenie wydajności.
 
 Upewnij się, że przed rozpoczęciem masz przygotowane następujące informacje:

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Zarządzanie aplikacją sieci Web dla kontenerów przy użyciu wiersza polecenia platformy Azure
 
 Za pomocą poleceń w tym artykule jest możliwe tworzenie i zarządzanie nimi w aplikacji sieci Web dla kontenerów używa interfejsu wiersza polecenia platformy Azure w wersji 2.0.
 Można uruchomić przy użyciu nowej wersji interfejsu wiersza polecenia na dwa sposoby:
 
-* [Instalowanie Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) na tym komputerze.
+* [Instalowanie Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) na tym komputerze.
 * Przy użyciu [powłoki chmury Azure (wersja zapoznawcza)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Tworzenie planu usługi aplikacji w systemie Linux
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Następne kroki
 
 * [Co to jest Azure App Service w systemie Linux?](app-service-linux-intro.md)
-* [Zainstaluj interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Zainstaluj interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Powłoka chmury Azure (wersja zapoznawcza)](../../cloud-shell/overview.md)
 * [Konfigurowanie środowisk w usłudze Azure App Service przejściowych](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Ciągłe wdrażanie w aplikacji sieci Web dla kontenerów](app-service-linux-ci-cd.md)

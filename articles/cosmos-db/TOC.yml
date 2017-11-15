@@ -246,6 +246,8 @@
           items:
             - name: Opracowywanie tabel
               href: table-support.md
+            - name: Operacje interfejsu API tabel przy użyciu programu PowerShell
+              href: table-powershell.md
             - name: Azure Table Storage
               items:
                 - name: Omówienie usługi Table Storage
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: Interfejsy API REST usługi Table Storage
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Instrukcje
+                - name: Programowanie
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Źródło zmian
           href: change-feed.md
         - name: Dane geoprzestrzenne

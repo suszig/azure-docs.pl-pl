@@ -4,7 +4,7 @@ description: "Planowanie zaawansowana analityka przy uwzględnieniu szereg pyta�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identyfikowanie scenariuszy i planowanie zaawansowanego przetwarzania danych analizy
-Jakie zasoby powinny zamierzasz włączyć podczas konfigurowania środowiska w celu zaawansowana analityka przetwarzania na zestaw danych? W tym artykule sugeruje szereg pytań do zadania, które pomogą zidentyfikować zadania i odpowiednie zasoby danego scenariusza. Kolejność etapów wysokiego poziomu analizy predykcyjnej jest opisane w temacie [co to jest proces nauki danych zespołu (TDSP)?](overview.md). Każda z tych czynności będzie wymagać określonych zasobów dla zadań dotyczących Twojego scenariusza. Ważne pytania, aby zidentyfikować scenariusz dotyczy danych logistyki cech jakości zestawów danych, narzędzia i języki, aby wykonać analizy.
+Jakie zasoby powinny zamierzasz włączyć podczas konfigurowania środowiska w celu zaawansowana analityka przetwarzania na zestaw danych? W tym artykule sugeruje szereg pytań pomagające w identyfikacji zadania i odpowiednie zasoby danego scenariusza. Kolejność etapów wysokiego poziomu analizy predykcyjnej jest opisane w temacie [co to jest proces nauki danych zespołu (TDSP)?](overview.md). Każda z tych czynności wymaga określonych zasobów dla zadań dotyczących Twojego scenariusza. Ważne pytania, aby zidentyfikować scenariusz dotyczy danych logistyki cech jakości zestawów danych, narzędzia i języki, aby wykonać analizy.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Pytania logistyczna: lokalizacje danych i przepływu
-Logistyczna pytania dotyczą lokalizację **źródła danych**, **docelowej** Azure i wymagania dotyczące przenoszenia danych, łącznie z harmonogramem kwota i zasoby zaangażowane. Dane mogą należy przenieść kilka razy podczas procesu analytics. Typowy scenariusz obejmuje przenoszenia danych lokalnych do jakiegoś magazynu na platformie Azure, a następnie do usługi Machine Learning Studio.
+Logistyczna pytania dotyczą lokalizację **źródła danych**, **docelowej** platformy Azure i wymagania dotyczące przenoszenia danych, w tym harmonogram, wielkość i zasobach. Dane mogą należy przenieść kilka razy podczas procesu analytics. Typowy scenariusz obejmuje przenoszenia danych lokalnych do jakiegoś magazynu na platformie Azure, a następnie do usługi Machine Learning Studio.
 
 1. **Co to jest źródło danych?** Jest lokalnym lub w chmurze? Na przykład:
    
@@ -42,7 +42,7 @@ Logistyczna pytania dotyczą lokalizację **źródła danych**, **docelowej** Az
    * HDInsight (Hadoop na platformie Azure) lub tabele programu Hive
    * Azure Machine Learning
    * Instalację Azure wirtualnych dysków twardych.
-3. **Jak zamierzasz przenieść dane?** W poniższych tematach opisano procedury i dostępnych zasobów do pozyskiwania lub załadować danych do różnych innego magazynu i przetwarzania środowisk.
+3. **Jak zamierzasz przenieść dane?** Procedury i dostępnych zasobów do pozyskiwania lub załadować danych do różnych innego magazynu i przetwarzania środowisk zostały opisane w następujących artykułach:
    
    * [Ładowanie danych do środowiska magazynu dla analityka](ingest-data.md)
    * [Importowanie danych szkoleniowych w usłudze Azure Machine Learning Studio z różnych źródeł danych](../studio/import-data.md).
@@ -57,7 +57,7 @@ Pytania te stanowią podstawę planowania magazynu i przetwarzania środowiska, 
    * Wartości liczbowych
    * Podzielone na kategorie
    * Ciągi
-   * Binarne
+   * Binarny
 2. **Sposób formatowania danych?** Na przykład:
    
    * Rozdzielana przecinkami (CSV) lub tabulatorami (TSV) plików prostych
@@ -67,9 +67,9 @@ Pytania te stanowią podstawę planowania magazynu i przetwarzania środowiska, 
    * Tabel programu SQL Server
 3. **Jak duże jest danych?**
    
-   * Mała liczba godzin: mniej niż 2GB
-   * Średnia liczba godzin: Większa niż 2GB i mniejsza niż 10GB
-   * Duże: Ponad 10GB
+   * Mała liczba godzin: mniej niż 2 GB
+   * Średnia liczba godzin: Większa niż 2 GB i mniejsza niż 10 GB
+   * Duże: Ponad 10 GB
 
 Na przykład wykonać środowiska Azure Machine Learning Studio:
 
@@ -79,7 +79,7 @@ Na przykład wykonać środowiska Azure Machine Learning Studio:
 Aby informacji na temat ograniczeń innymi usługami Azure używanego podczas analizy, zobacz [subskrypcji platformy Azure i ograniczenia usługi, przydziały i ograniczenia](../../azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Pytania dotyczące jakości danych: eksploracji i przetwarzania wstępnego
-1. **Co należy wiedzieć o danych?** Eksplorowanie danych, gdy trzeba uzyskać opis jego podstawowymi charakterystykami. Co wzorce lub trendów go dowody, co to jest wartości odstających lub brak wartości liczby. Ten krok jest ważne w przypadku określania przetwarzanie wstępne potrzebnych formułowania hipotez, które może sugerować najbardziej odpowiednie funkcje lub wpisz analizy i opracowywania planów zbierania dodatkowych danych. Obliczanie statystyki opisowe i kreślenia wizualizacje są przydatne techniki danych inspekcji. Uzyskać szczegółowe informacje o sposobach eksplorowania zestawu danych w różnych środowiskach Azure, zobacz [Eksplorowanie danych w procesie nauki danych zespołu](explore-data.md).
+1. **Co należy wiedzieć o danych?** Eksplorowanie danych, aby uzyskać opis jego podstawowymi charakterystykami. Jakie wzorców i trendów wskazuje, ile wartości lub wartości, jakie odstających ma Brak. Ten krok jest ważne w przypadku określania przetwarzanie wstępne potrzebnych formułowania hipotez, które może sugerować najbardziej odpowiednie funkcje lub wpisz analizy i opracowywania planów zbierania dodatkowych danych. Obliczanie statystyki opisowe i kreślenia wizualizacje są przydatne techniki danych inspekcji. Uzyskać szczegółowe informacje o sposobach eksplorowania zestawu danych w różnych środowiskach Azure, zobacz [Eksplorowanie danych w procesie nauki danych zespołu](explore-data.md).
 2. **Czy przetwarzanie wstępne lub czyszczenie danych wymaga?**
    Przetwarzanie wstępne i czyszczenia danych są ważne zadania, które zwykle należy przeprowadzić przed zestawu danych można skutecznie uczenia maszynowego. Dane pierwotne jest często zakłócenia i zawodnych i może brakować wartości. Przy użyciu tych danych do modelowania może wygenerować błędne wyniki. Aby uzyskać opis, zobacz [uczenia maszynowego zadania, aby przygotować dane dla rozszerzonego](prepare-data.md).
 

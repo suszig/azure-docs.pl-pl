@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Issuer Name and Issuer Key (Usługa BizTalk Services: nazwa i klucz wydawcy)
 
@@ -76,13 +76,9 @@ Więcej na temat [AzureSBNamespace nowy](https://msdn.microsoft.com/library/dn49
 Nazwa wystawcy magistrali usługi i klucza wystawcy, są używane przez usługi karty BizTalk. W projekcie usługi BizTalk Services w programie Visual Studio usługi karty BizTalk są używane do nawiązania połączenia lokalnego systemu — biznesowych (LOB). Nawiązać połączenie, Utwórz LOB przekazywania i wprowadź szczegóły systemu LOB. W ten sposób można także wprowadzić nazwy wystawcy magistrali usługi i klucza wystawcy.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Pobieranie nazwy wystawcy magistrali usługi i klucza wystawcy
-1. Zaloguj się do [klasycznej witryny Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. W lewym okienku nawigacji, wybierz **usługi Service Bus**.
-3. Wybierz obszar nazw. Na pasku zadań wybierz **informacje o połączeniu**. Spowoduje to wyświetlenie **domyślne wystawcy** (Nazwa wystawcy) i **domyślny klucz** (klucza wystawcy). Można skopiować wartości.  
-
-Podsumowując:  
-Nazwa wystawcy = wystawcy domyślne  
-Klucz wystawcy domyślny klucz =
+1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com).
+2. Wyszukaj **usługi Service Bus**i wybierz przestrzeni nazw. 
+3. Otwórz **zasady dostępu współużytkowanego** właściwości, wybierz zasady i wyświetlić **ciąg połączenia** dla nazwy i wartości klucza.  
 
 ## <a name="next"></a>Następne kroki
 Dodatkowe tematy usługi BizTalk Azure:
@@ -95,7 +91,7 @@ Dodatkowe tematy usługi BizTalk Azure:
 ## <a name="see-also"></a>Zobacz też
 * [Porady: Konfigurowanie tożsamości usługi za pomocą usługi zarządzania ACS](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [Usługi BizTalk Services: Developer, podstawowa, standardowa i Premium Edition wykresu](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Usługi BizTalk Services: Klasyczny portal Azure przy użyciu inicjowania obsługi](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Usługi BizTalk Services: Inicjowanie obsługi administracyjnej](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Provisioning Status Chart (Usługa BizTalk Services: aprowizowanie wykresu stanu)](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk Services: Dashboard, Monitor and Scale tabs (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: Backup and Restore (Usługa BizTalk Services: tworzenie kopii zapasowej i przywracanie)](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

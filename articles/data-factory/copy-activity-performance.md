@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Skopiuj wydajności działania i dostrajania przewodnik
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ A **jednostki przepływu danych w chmurze (DMU)** miary, która odzwierciedla wy
 
 | Skopiuj scenariusza | Domyślne DMUs określone przez usługę |
 |:--- |:--- |
-| Kopiowanie danych między magazynów opartych na plikach | Od 4 do 16, w zależności od liczby i rozmiaru plików. |
+| Kopiowanie danych między magazynów opartych na plikach | Od 4 do 32 w zależności od liczby i rozmiaru plików. |
 | Inne scenariusze kopiowania | 4 |
 
 Aby zastąpić to ustawienie domyślne, należy określić wartość dla **cloudDataMovementUnits** właściwości w następujący sposób. **Dozwolone wartości** dla **cloudDataMovementUnits** to 2, 4, 8, 16, 32. **Rzeczywistą liczbę chmury DMUs** używany w czasie wykonywania operacji kopiowania jest równa lub mniejsza niż skonfigurowana wartość, w zależności od tego wzorca sieci danych. Uzyskać informacje na temat poziomu są bardziej wydajne, można uzyskać po skonfigurowaniu więcej jednostek dla konkretnej kopii źródłowy i odbiorczy, zobacz [dotyczące wydajności](#performance-reference).
@@ -96,7 +96,7 @@ Aby zastąpić to ustawienie domyślne, należy określić wartość dla **cloud
 Widać jednostki przepływu danych chmury faktycznie używana dla poszczególnych kopii uruchamiania w przypadku działania kopiowania danych wyjściowych podczas uruchamiania działania monitorowania. Dowiedz się więcej szczegółów z [skopiuj Monitorowanie działania](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Jeśli potrzebujesz więcej chmury DMUs umożliwiających uzyskanie większej produktywności, skontaktuj się z [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/). Ustawienie 8 i nowszych jest obecnie obsługiwane tylko wtedy, gdy użytkownik **skopiować wielu plików z obiektu Blob magazynu/Data Lake Store/Amazon S3/w chmurze SFTP FTP/w chmurze do innych magazynów danych chmury.**.
+> Jeśli potrzebujesz więcej chmury DMUs umożliwiających uzyskanie większej produktywności, skontaktuj się z [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/). Ustawienie 8 i nowszych jest obecnie obsługiwane tylko wtedy, gdy użytkownik **skopiować wielu plików z obiektu Blob magazynu/Data Lake Store/Amazon S3/w chmurze SFTP FTP/w chmurze do innych magazynów danych chmury**.
 >
 
 **Przykład:**
@@ -133,7 +133,7 @@ Dla każdego działania kopiowania Uruchom fabryki danych określa liczbę równ
 
 | Skopiuj scenariusza | Liczba równoległych kopii domyślne określone przez usługę |
 | --- | --- |
-| Kopiowanie danych między magazynów opartych na plikach |Od 1 do 32. Zależy od rozmiaru plików i liczby jednostek chmury danych przepływu (DMUs) umożliwia kopiowanie danych między dwa magazyny danych w chmurze lub fizyczną konfigurację środowiska uruchomieniowego integracji Self-hosted maszyny. |
+| Kopiowanie danych między magazynów opartych na plikach |Od 1 do 64. Zależy od rozmiaru plików i liczby jednostek chmury danych przepływu (DMUs) umożliwia kopiowanie danych między dwa magazyny danych w chmurze lub fizyczną konfigurację środowiska uruchomieniowego integracji Self-hosted maszyny. |
 | Kopiowanie danych z dowolnego źródła danych magazynu do magazynu tabel Azure |4 |
 | Inne scenariusze kopiowania |1 |
 

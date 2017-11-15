@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w usłudze Application Insights
 System Windows udostępnia wiele różnych [liczniki wydajności](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) takich jak zajęte Procesora, pamięci, dysku i użycia sieci. Możesz również definiować własnych. [Usługa Application Insights](app-insights-overview.md) można wyświetlić te liczniki wydajności, jeśli aplikacja działa w środowisku usług IIS na lokalnym hosta lub maszyny wirtualnej, do których masz dostęp administracyjny. Wykresy określają zasoby dostępne dla działającej aplikacji, a może pomóc w identyfikacji obciążenia równowagi między wystąpieniami serwera.
@@ -83,7 +83,6 @@ Aby zebrać liczników wydajności systemu i wysyłać je do usługi Application
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Lub możesz zrobić to samo z metryki niestandardowe utworzone:
 
 ``` C#
@@ -115,6 +114,9 @@ Inne telemetrii, takich jak **liczniki wydajności** również zawiera kolumnę 
 
 * *Szybkość wyjątek* jest licznika wydajności systemu. Środowisko CLR zlicza wszystkich obsłużonych i nieobsłużonych wyjątków, które są generowane i podzielenie sumy w interwale próbkowania przez długość interwału. Zestaw SDK usługi Application Insights zbiera wynik i wysyła go do portalu.
 * *Wyjątki* to liczba raportów TrackException odebranych przez portal w interwale próbkowania wykresu. Obejmuje on tylko wyjątki obsłużone których napisano TrackException wywołuje w kodzie i nie zawiera wszystkich [nieobsługiwane wyjątki](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Liczniki wydajności aplikacji platformy Asp.Net Core
+Liczniki wydajności są obsługiwane tylko wtedy, gdy aplikacja jest docelowo pełne .NET Framework. Istnieje możliwość zbierania danych z liczników wydajności dla platformy .net Core aplikacji.
 
 ## <a name="alerts"></a>Alerty
 Podobnie jak inne metryki, możesz [ustawić alert](app-insights-alerts.md) celu ostrzeżenia, jeśli licznika wydajności wykracza poza możesz określić limit. Otwiera blok alerty, a następnie kliknij przycisk Dodaj alertu.

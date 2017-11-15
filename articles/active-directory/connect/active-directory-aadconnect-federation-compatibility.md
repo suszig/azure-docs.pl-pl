@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista zgodności usługi Azure AD z usługami federacyjnymi
 Usługa Azure Active Directory zapewnia jednokrotnego na i rozszerzone zabezpieczenia dostępu do aplikacji dla usługi Office 365 i innych usług Online firmy Microsoft dla implementacji tylko w chmurze i hybrydowa bez konieczności dowolnego rozwiązania innej firmy niż Microsoft. Usługi Office 365, takich jak większość usług Online firmy Microsoft, jest zintegrowany z usługą Azure Active Directory usług katalogowych, uwierzytelniania i autoryzacji. Usługa Azure Active Directory udostępnia jednokrotnego do tysięcy aplikacji SaaS i lokalnej aplikacji sieci web. Zobacz galerii aplikacji usługi Azure Active Directory dla obsługiwanych aplikacji SaaS.
@@ -46,6 +46,7 @@ Informacji na temat jak wprowadzasz dostawcy tożsamości innych firm przedstawi
 * [Centrify](#centrify) 
 * [Dell jeden v7.1 Menedżer dostępu do tożsamości chmury](#dell-one-identity-cloud-access-manager-v71) 
 * [Uwierzytelnianie złożone DigitalPersona](#digitalpersona-composite-authentication)
+* [Tożsamość ForgeRock platformy dostępu administracyjnego 5.x](#forgerock-identity-platform-access-management-v5x)
 * [Menedżer tożsamości 6.2.2 federacyjnych IBM Tivoli](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation w wersji 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotn
 
 Aby uzyskać więcej informacji, zobacz [uwierzytelniania złożonego DigitalPersona](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>Tożsamość ForgeRock platformy dostępu administracyjnego 5.x
+
+Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+
+| Klient | Pomoc techniczna | Wyjątki |
+| --- | --- | --- |
+| Oparte na sieci Web klientów, takich jak dostęp w sieci Web programu Exchange i SharePoint Online |Obsługiwane |Brak|
+| Rozbudowane aplikacje klienckie, takie jak Lync subskrypcji pakietu Office, CRM |Obsługiwane |Brak|
+| Bogate w wiadomości e-mail klientów, takich jak Outlook i programu ActiveSync |Obsługiwane |Brak |
+
+Aby uzyskać więcej informacji, zobacz [ForgeRock tożsamość platformy dostępu administracyjnego 5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>Menedżer tożsamości 6.2.2 federacyjnych IBM Tivoli
 

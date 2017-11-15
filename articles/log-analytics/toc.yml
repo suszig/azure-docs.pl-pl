@@ -28,7 +28,13 @@
 - name: Pojęcia
   items:
     - name: Uaktualnianie obszaru roboczego
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Omówienie uaktualnienia
+          href: log-analytics-log-search-upgrade.md
+        - name: Podsumowanie zmian
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Uaktualnienie — często zadawane pytania
+          href: log-analytics-log-search-faq.md
     - name: Log Analytics — często zadawane pytania
       href: log-analytics-faq.md
     - name: Użycie danych
@@ -41,8 +47,6 @@
       items:
         - name: Wyszukiwanie w dzienniku — omówienie
           href: log-analytics-log-search-new.md
-        - name: Często zadawane pytania dotyczące przeszukiwania dzienników
-          href: log-analytics-log-search-faq.md
         - name: Portale do przeszukiwania dzienników
           href: log-analytics-log-search-portals.md
 - name: Przewodniki z instrukcjami

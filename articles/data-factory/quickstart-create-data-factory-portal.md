@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 851477331c5990f2e950b2aa83ef1d61e6174326
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Tworzenie fabryki danych za pomocą witryny Azure Portal
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Poniżej przedstawiono kroki do wykonania w ramach tego samouczka szybkiego star
          
       W niektórych krokach w tym samouczku szybkiego startu zakłada się, że nazwa grupy zasobów to **ADFTutorialResourceGroup**. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 4. Wybierz wartość **V2 (wersja zapoznawcza)** dla **wersji**.
-5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Obecnie można tworzyć fabryki danych V2 tylko w regionie **Wschodnie stany USA**. Jednak obliczenia i magazyny danych wykorzystywane w fabrykach danych mogą znajdować się w innych regionach. 
+5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
 7. Kliknij przycisk **Utwórz**.
       

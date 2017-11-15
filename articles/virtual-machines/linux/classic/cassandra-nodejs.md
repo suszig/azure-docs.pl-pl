@@ -3,7 +3,7 @@ title: Uruchom Cassandra z systemem Linux na platformie Azure | Dokumentacja fir
 description: "Jak uruchomić Cassandra klastra w systemie Linux w maszynach wirtualnych platformy Azure z poziomu aplikacji Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Uruchamianie rozwiązania Cassandra w systemie Linux na platformie Azure i uzyskiwanie do niej dostępu na platformie Node.js
 > [!IMPORTANT] 
@@ -157,9 +157,9 @@ Na ekranie "konfiguracja maszyny wirtualnej" #2, wprowadź następujące informa
 <tr><td> USŁUGI W CHMURZE    </td><td> Utwórz nową usługę w chmurze    </td><td>Usługa w chmurze jest zasoby obliczeniowe kontenera, takich jak maszyny wirtualne</td></tr>
 <tr><td> NAZWA DNS USŁUGI W CHMURZE    </td><td>ubuntu template.cloudapp.net    </td><td>Nadaj nazwę modułu równoważenia obciążenia o niesprecyzowanym maszyny</td></tr>
 <tr><td> REGION/GRUPY KOLIGACJI/SIECI WIRTUALNEJ </td><td>    Zachodnie stany USA    </td><td> Wybierz region, z której uzyskują dostęp do klastra Cassandra aplikacji sieci web</td></tr>
-<tr><td>KONTO MAGAZYNU </td><td>    Użyj domyślnej    </td><td>Użyj domyślnego konta magazynu lub wstępnie utworzone konto magazynu w określonym regionie</td></tr>
+<tr><td>KONTO MAGAZYNU </td><td>    Użyj wartości domyślnej    </td><td>Użyj domyślnego konta magazynu lub wstępnie utworzone konto magazynu w określonym regionie</td></tr>
 <tr><td>ZESTAW DOSTĘPNOŚCI </td><td>    Brak </td><td>    Pozostaw to pole puste</td></tr>
-<tr><td>PUNKTY KOŃCOWE    </td><td>Użyj domyślnej </td><td>    Użyj domyślnej konfiguracji SSH </td></tr>
+<tr><td>PUNKTY KOŃCOWE    </td><td>Użyj wartości domyślnej </td><td>    Użyj domyślnej konfiguracji SSH </td></tr>
 </table>
 
 Kliknij strzałkę w prawo, pozostaw wartości domyślne na ekranie #3 i kliknij przycisk "Sprawdź", aby ukończyć proces tworzenia maszyny Wirtualnej. Po kilku minutach maszyny Wirtualnej o nazwie "ubuntu-template" powinna być w stanie "uruchomiona".

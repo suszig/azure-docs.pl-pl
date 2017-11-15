@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ Rejestrowanie diagnostyczne umożliwia zbieranie zapisy inspekcji dostępu do da
 
     ![Włącz diagnostykę do zbierania danych inspekcji i Dzienniki żądań](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Z __ustawień diagnostycznych__, Ustaw stan __na__ i wybierz polecenie Opcje rejestrowania.
+3. Z __ustawień diagnostycznych__, wprowadź __nazwa__ dla tej konfiguracji rejestrowania i rejestrowanie a następnie wybierz pozycję Opcje.
 
     ![Włącz diagnostykę do zbierania danych inspekcji i Dzienniki żądań](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Włączanie dzienników diagnostycznych")
-
-   * Ustaw **stan** do **na** Włączanie rejestrowania diagnostyki.
 
    * Istnieje możliwość magazynu/procesu dane na trzy różne sposoby.
 
@@ -58,34 +56,14 @@ Rejestrowanie diagnostyczne umożliwia zbieranie zapisy inspekcji dostępu do da
         > [!NOTE]
         > Musisz wybrać __archiwum na konto magazynu__, __strumienia do Centrum zdarzeń__ lub __wysyłać do analizy dzienników__ przed kliknięciem przycisku __zapisać__ przycisk.
 
-Po włączeniu ustawienia diagnostyki, można powrócić do __dzienników diagnostycznych__ bloku, aby wyświetlić dzienniki.
-
-## <a name="view-logs"></a>Wyświetl dzienniki
-
-### <a name="use-the-data-lake-analytics-view"></a>Użyj widoku usługi Data Lake Analytics
-
-1. Z usługi Data Lake Analytics konta bloku, w obszarze **monitorowanie**, wybierz pozycję **dzienników diagnostycznych** , a następnie wybierz wpis, aby wyświetlić dzienniki.
-
-    ![Widok rejestrowania diagnostycznego](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "wyświetlania dziennika diagnostycznego")
-
-2. Dzienniki są pogrupowane według **dzienników inspekcji** i **żądania dzienniki**.
-
-    ![wpisy dziennika](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Dzienniki żądań przechwytywania każdego żądania interfejsu API na koncie usługi Data Lake Analytics.
-   * Dzienniki inspekcji są podobne do żądania dzienniki, ale zapewnia bardziej szczegółowy podział operacji. Na przykład wywołanie interfejsu API przekazywanych w dzienniku żądanie może spowodować wiele operacji "Dołącz" w jego dzienniku inspekcji.
-
-3. Kliknij przycisk **Pobierz** link dla wpisu dziennika pobrać tego dziennika.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Użyj konta magazynu Azure, która zawiera dane dziennika
 
-1. Otwarcie bloku konto magazynu Azure skojarzony z usługą Data Lake Analytics rejestrowania, a następnie kliknij przycisk __obiekty BLOB__. **Usługa Blob** blok zawiera dwa kontenery.
-
-    ![Widok rejestrowania diagnostycznego](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "wyświetlania dziennika diagnostycznego")
+1. Aby wyświetlić kontenerów obiektów blob, które zawierają dane rejestrowania, otwieranie konta usługi Azure Storage używane na potrzeby rejestrowania dla usługi Data Lake Analytics, a następnie kliknij __obiekty BLOB__.
 
    * Kontener **insights dzienniki inspekcji** zawiera dzienników inspekcji.
    * Kontener **insights dzienniki żądania** zawiera dzienniki żądania.
-2. W tych kontenerach dzienniki są przechowywane w następującej strukturze:
+
+2. W kontenerach dzienniki są przechowywane w następującej struktury plików:
 
         resourceId=/
           SUBSCRIPTIONS/

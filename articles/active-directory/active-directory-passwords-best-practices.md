@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Jak pomyślnie wdrożyć funkcję samoobsługowego resetowania haseł
 
@@ -28,7 +28,7 @@ Większość klientów wykonuje następujące kroki, aby zapewnić sobie bezprob
 
 1. [Włącz resetowanie haseł w katalogu](active-directory-passwords-getting-started.md).
 2. [Skonfiguruj lokalne uprawnienia usługi AD do zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Skonfiguruj zapisywanie zwrotne haseł](active-directory-passwords-writeback.md#configuring-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym.
+3. [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym.
 4. [Przypisz i zweryfikuj wymagane licencje](active-directory-passwords-licensing.md).
 5. Jeśli chcesz przeprowadzić stopniowe wdrażanie funkcji samoobsługowego resetowania haseł, możesz ograniczyć dostęp do jednej grupy użytkowników i przeprowadzić dla tej grupy pilotażowe wdrażanie. W tym celu zmień ustawienie przełącznika **Funkcja samoobsługowego resetowania hasła jest włączona** na opcję **Wybrano** i wybierz grupę zabezpieczeń, dla której ma być włączone resetowanie haseł. 
 6. Wypełnij [dane uwierzytelniania](active-directory-passwords-data.md) użytkowników, takie jak numer telefonu służbowego, numer telefonu komórkowego i alternatywny adres e-mail.
@@ -38,8 +38,8 @@ Większość klientów wykonuje następujące kroki, aby zapewnić sobie bezprob
 10. Co jakiś czas przeglądaj użytkowników rejestrujących się i korzystających z tej funkcji, wyświetlając [raporty udostępniane przez usługę Azure AD](active-directory-passwords-reporting.md).
 11. Gdy wszystko będzie gotowe, włącz resetowanie haseł dla wszystkich użytkowników, ustawiając przełącznik **Funkcja samoobsługowego resetowania hasła jest włączona** na wartość **Wszystkie**. 
 
-    > [!IMPORTANT]
-    > Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [szczegółowy artykuł](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [artykuł na temat zasad haseł](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Wdrożenie bazujące na poczcie e-mail
 

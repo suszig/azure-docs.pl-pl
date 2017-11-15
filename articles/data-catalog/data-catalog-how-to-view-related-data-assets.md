@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Jak wyświetlać dane dotyczące zasobów w usłudze Azure Data Catalog?
 Wykaz danych Azure służy do wyświetlania zasobów danych związanych z wybranych danych zasobów i widoku relacji między nimi. 
@@ -30,6 +30,9 @@ Podczas rejestrowania zasobów danych z następujących źródeł danych usługi
 - Usługa Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Dla usługi Data Catalog do zaimportowania relacji między zasobami dwóch danych należy zarejestrować oba zasoby, w tym samym czasie. Jeśli jeden z nich ma dodany oddzielnie, dodaj go ponownie i innych zasobów danych zaimportowanie relacji między nimi.
 
 ## <a name="view-related-data-assets"></a>Wyświetlanie powiązanych danych zasobów
 Aby wyświetlić zasoby danych, które są powiązane z wybrany zestaw danych, użyj **relacje** karcie, jak pokazano na poniższej ilustracji: 

@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Reagowanie na zdarzenia magazynu obiektów Blob (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Dodatkowe informacje dotyczące użycia właściwości zdarzenia zdarzeń siatki
 > |eventTime|Ciąg|Data/Godzina wygenerowania zdarzenia, w formacie ISO 8601|
 > |Typ zdarzenia|Ciąg|"Microsoft.Storage.BlobCreated" lub "Microsoft.Storage.BlobDeleted"|
 > |Identyfikator|Ciąg|Unikatowy identyfikator, jeśli to zdarzenie|
-> |Dane|Obiekt|Zbieranie danych zdarzeń specyficznych dla magazynu obiektów blob|
+> |Dane|obiekt|Zbieranie danych zdarzeń specyficznych dla magazynu obiektów blob|
 > |data.contentType|Ciąg|Typ zawartości obiektu blob, czy zwrócony w nagłówku Content-Type z obiektu blob|
 > |data.contentLength|Numer|Rozmiar obiektu blob, tak jak liczbę całkowitą reprezentującą liczbę bajtów, czy zwrócony w nagłówku Content-Length z obiektu blob.  Wysyłane z BlobCreated zdarzeń, ale nie z BlobDeleted.|
 > |Data.URL|Ciąg|Adres url obiektu, który jest przedmiotem zdarzenia|
@@ -55,7 +55,7 @@ Dodatkowe informacje dotyczące użycia właściwości zdarzenia zdarzeń siatki
 > |Data.Sequencer|Ciąg|Ciąg z ogólnym opisem reprezentującej logicznej sekwencji zdarzeń dla dowolnej nazwy określonego obiektu blob.  Użytkownicy mogą używać standardowego porównywania ciągów, aby zrozumieć względną sekwencję dwóch zdarzeń na tej samej nazwie obiektu blob.|
 > |data.requestId|Ciąg|Identyfikator żądania generowanych przez usługi dla operacji interfejsu API magazynu.  Może służyć do skorelowania do magazynu Azure diagnostycznych dzienników, korzystając z pola "żądanie id-header" w dziennikach i zostanie zwrócona przez inicjowanie wywołań interfejsu API w nagłówku "x-ms-request-id". Zobacz [Format dziennika](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|Ciąg|Identyfikator żądania dostarczonych przez klienta do przechowywania operacji interfejsu API.  Służy do skorelowania do dzienników diagnostycznych usługi Azure Storage, korzystając z pola "client-request-id" w dziennikach i może zostać dostarczona w żądaniach klienta przy użyciu nagłówka "x-ms-client żądania id". Zobacz [Format dziennika](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.storageDiagnostics|Obiekt|Dane diagnostyczne czasami uwzględniony przez usługę Azure Storage.  Jeśli jest obecny, powinny być ignorowane przez odbiorców zdarzeń.|
+> |data.storageDiagnostics|obiekt|Dane diagnostyczne czasami uwzględniony przez usługę Azure Storage.  Jeśli jest obecny, powinny być ignorowane przez odbiorców zdarzeń.|
 
 Oto przykład zdarzenia BlobCreated:
 ```json
@@ -80,7 +80,7 @@ Oto przykład zdarzenia BlobCreated:
 
 ```
 
-Aby uzyskać więcej informacji, zobacz [schematu zdarzenia magazynu obiektów Blob](../../event-grid/event-schema.md#azure-blob-storage).
+Aby uzyskać więcej informacji, zobacz [schematu zdarzenia magazynu obiektów Blob](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrowanie zdarzeń
 Subskrypcje zdarzeń obiektu blob można filtrować na podstawie typu zdarzenia oraz nazwa kontenera i nazwa obiektu blob obiektu, który został utworzony lub usunięty.  Filtry tematu w pracach siatki zdarzenia na podstawie "rozpoczyna się od ciągu" i "kończy się wyrazem" dopasowań, dzięki czemu zdarzenia z podmiotu pasującego są dostarczane do subskrybenta.

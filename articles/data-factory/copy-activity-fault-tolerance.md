@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia działania kopiowania w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 Działanie kopiowania w fabryce danych Azure oferuje obsługi niezgodne wierszy, gdy kopiowanie danych między źródłowy i odbiorczy magazynów danych na dwa sposoby:
 
 - Możesz przerwać i niepowodzenie kopiowania działanie w przypadku niezgodnych danych napotkało (domyślnie).
-- Możesz skopiować wszystkie dane przez dodanie odporność na uszkodzenia i pomijanie niezgodne dane wierszy. Ponadto możesz zalogować się niezgodne wiersze magazynu obiektów Blob platformy Azure. Następnie można sprawdzić dziennik Dowiedz się przyczynę błędu, Usuń dane w źródle danych, a następnie ponów działanie kopiowania.
+- Możesz skopiować wszystkie dane przez dodanie odporność na uszkodzenia i pomijanie niezgodne dane wierszy. Ponadto możesz zalogować się niezgodne wiersze magazynu obiektów Blob platformy Azure lub usługi Azure Data Lake Store. Następnie można sprawdzić dziennik Dowiedz się przyczynę błędu, Usuń dane w źródle danych, a następnie ponów działanie kopiowania.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [skopiuj działania odporność na uszkodzenia w wersji 1](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -50,23 +50,24 @@ W poniższym przykładzie przedstawiono definicji JSON, aby skonfigurować pomij
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Określa, czy pominąć niezgodne wierszy podczas kopiowania lub nie. | True<br/>Wartość FAŁSZ (ustawienie domyślne) | Nie
 redirectIncompatibleRowSettings | Grupy właściwości, które można określić, kiedy mają być rejestrowane niezgodne wierszy. | &nbsp; | Nie
-linkedServiceName | Połączonej usługi magazynu Azure do przechowywania dziennika, który zawiera wiersze zostało pominięte. | Nazwa AzureStorage lub element AzureStorageSas połączone usługi, która odwołuje się do wystąpienia magazynu, który ma być używany do przechowywania plików dziennika. | Nie
-Ścieżka | Ścieżka pliku dziennika, który zawiera wiersze zostało pominięte. | Określ ścieżki do magazynu obiektów Blob, który ma być używany do rejestrowania danych niezgodne. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener. | Nie
+linkedServiceName | Połączonej usługi [usługi Azure Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) do przechowywania dziennika, który zawiera wiersze zostało pominięte. | Nazwa `AzureStorage` lub `AzureDataLakeStore` typu połączonej usługi, która odwołuje się do wystąpienia, które ma być używany do przechowywania plików dziennika. | Nie
+Ścieżka | Ścieżka pliku dziennika, który zawiera wiersze zostało pominięte. | Określ ścieżkę, którego chcesz używać do logowania się niezgodne dane. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener. | Nie
 
 ## <a name="monitor-skipped-rows"></a>Monitorowanie pominiętych wierszy
 Po zakończeniu uruchamiania działania kopiowania, można wyświetlić Liczba pominiętych wierszy w danych wyjściowych działania kopiowania:

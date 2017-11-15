@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Tryby sieci kontenera sieci szkieletowej usług
 
-Domyślny tryb sieci oferowanych w klastrze usługi sieć szkieletowa usług dla usługi kontenera jest `nat` trybu sieci. Z `nat` sieci trybie mających więcej niż jedna usługa kontenery nasłuchiwanie wyniki do tego samego portu błędy wdrożenia. Uruchomione kilka usług tego nasłuchiwania na tym samym porcie, obsługuje sieci szkieletowej usług `open` trybu sieciowego (w wersji 5.7 lub nowszej). Z `open` sieci trybu każdej usługi kontenera pobiera przypisywany dynamicznie adres IP wewnętrznie stosowanie wielu usług do nasłuchiwania do tego samego portu.   
+Domyślny tryb sieci oferowanych w klastrze usługi sieć szkieletowa usług dla usługi kontenera jest `nat` trybu sieci. Z `nat` sieci trybie mających więcej niż jedna usługa kontenery nasłuchiwanie wyniki do tego samego portu błędy wdrożenia. Uruchomione kilka usług tego nasłuchiwania na tym samym porcie, obsługuje sieci szkieletowej usług `Open` trybu sieciowego (w wersji 5.7 lub nowszej). Z `Open` sieci trybu każdej usługi kontenera pobiera przypisywany dynamicznie adres IP wewnętrznie stosowanie wielu usług do nasłuchiwania do tego samego portu.   
 
-W związku z tym z pojedynczego typu usługi z punktem końcowym statyczne zdefiniowane w manifeście usługi, nowych usług mogą być tworzone i usunąć bez błędów wdrażania przy użyciu `open` trybu sieci. Podobnie, co może używać tego samego `docker-compose.yml` plik z portu statycznego mapowania do tworzenia wielu usług.
+W związku z tym z pojedynczego typu usługi z punktem końcowym statyczne zdefiniowane w manifeście usługi, nowych usług mogą być tworzone i usunąć bez błędów wdrażania przy użyciu `Open` trybu sieci. Podobnie, co może używać tego samego `docker-compose.yml` plik z portu statycznego mapowania do tworzenia wielu usług.
 
 Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zalecane od czasu zmiany adresu IP, gdy Usługa uruchamia się ponownie lub przenoszone do innego węzła. Należy używać tylko **Usługa nazewnictwa sieci szkieletowej** lub **usługi DNS** dla potrzeb odnajdywania usług. 
 
 
 > [!WARNING]
-> Tylko łącznie 4096 adresy IP są dozwolone dla sieci wirtualnej na platformie Azure. W związku z tym sumę liczby węzłów i numer wystąpienia usługi kontenera (z `open` sieci) nie może przekroczyć 4096 w ramach sieci wirtualnej. W przypadku takich scenariuszy wysokiej gęstości `nat` zalecany jest tryb sieci.
+> Tylko łącznie 4096 adresy IP są dozwolone dla sieci wirtualnej na platformie Azure. W związku z tym sumę liczby węzłów i numer wystąpienia usługi kontenera (z `Open` sieci) nie może przekroczyć 4096 w ramach sieci wirtualnej. W przypadku takich scenariuszy wysokiej gęstości `nat` zalecany jest tryb sieci.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Konfigurowanie trybu otwartego sieci
@@ -183,7 +183,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Zezwalaj  |
 
 
-4. Określ tryb sieci w manifeście aplikacji dla każdej usługi `<NetworkConfig NetworkType="open">`.  Tryb `open` powoduje Usługa pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie przyjmowana do podstawowego `nat` tryb. W związku z tym w poniższym przykładzie manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` można każdego nasłuchiwania do tego samego portu (obie te usługi są nasłuchiwanie `Endpoint1`).
+4. Określ tryb sieci w manifeście aplikacji dla każdej usługi `<NetworkConfig NetworkType="Open">`.  Tryb `Open` powoduje Usługa pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie przyjmowana do podstawowego `nat` tryb. W związku z tym w poniższym przykładzie manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` można każdego nasłuchiwania do tego samego portu (obie te usługi są nasłuchiwanie `Endpoint1`). Gdy `Open` tryb sieci jest seryjnych, `PortBinding` configs nie może zostać określony.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. W związku z tym niektóre usługi mogą mieć na `open` tryb i niektóre na `nat` trybu sieci. Gdy usługa jest skonfigurowana z `nat`, port jest nasłuchiwanie muszą być unikatowe. Mieszanie tryby sieci dla różnych usług nie jest obsługiwana w systemie Linux klastrów. 
+Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. W związku z tym niektóre usługi mogą mieć na `Open` tryb i niektóre na `nat` trybu sieci. Gdy usługa jest skonfigurowana z `nat`, port jest nasłuchiwanie muszą być unikatowe. Mieszanie tryby sieci dla różnych usług nie jest obsługiwana w systemie Linux klastrów. 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurowanie odzyskiwania po awarii na lokalne maszyny wirtualne VMware lub serwerów fizycznych do lokacji dodatkowej
 
@@ -45,7 +45,7 @@ Wybierz, co ma replicate i gdzie jej do replikacji.
 2. Wybierz **do odzyskiwania lokacji** > **tak, z programem VMware vSphere Hypervisor**. Następnie kliknij przycisk **OK**.
 3. W **Instalatora Scout**, Pobierz oprogramowanie GA InMage Scout 8.0.1 i klucz rejestracji. Pliki instalacyjne dla wszystkich składników znajdują się w pliku zip pobranego.
 
-## <a name="install-component-updates"></a>Zainstaluj aktualizacje składników
+## <a name="download-and-install-component-updates"></a>Pobierz i zainstaluj aktualizacje składników
 
  Przejrzyj i zainstaluj najnowszą [aktualizacje](#updates). Aktualizacje powinny być zainstalowane na serwerach w następującej kolejności:
 
@@ -83,7 +83,7 @@ Pobierz [aktualizacji](https://aka.ms/asr-scout-update6) pliku zip. Plik zawiera
 ## <a name="enable-replication"></a>Włączanie replikacji
 
 1. Konfigurowanie replikacji między źródłem i docelowych witryn VMware.
-2. Aby uzyskać wskazówki Użyj dokumentacji InMage Scout, który jest pobierany z produktem. Można też dostęp do dokumentacji w następujący sposób:
+2. Można znaleźć w następujących dokumentach, aby dowiedzieć się więcej na temat instalacji, ochrony i odzyskiwania:
 
    * [Informacje o wersji](https://aka.ms/asr-scout-release-notes)
    * [Macierz zgodności](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Pobierz [aktualizacji](https://aka.ms/asr-scout-update6) pliku zip. Plik zawiera
 
 ### <a name="site-recovery-scout-801-update-6"></a>Lokacja odzyskiwania Scout 8.0.1 aktualizacji 6 
 Zaktualizowano: 12 października 2017 r
+
+Pobierz [Scout aktualizacji 6](https://aka.ms/asr-scout-update6).
 
 Aktualizacja Scout 6 jest aktualizacją zbiorczą. Zawiera wszystkie poprawki z zakresu od 1 aktualizacji do aktualizacji 5 oraz nowe poprawki i ulepszeń, które opisano poniżej. 
 

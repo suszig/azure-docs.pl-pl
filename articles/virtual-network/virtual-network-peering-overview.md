@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
 
@@ -35,7 +35,7 @@ Korzystanie z wirtualnych sieci równorzędnych zapewnia m.in. następujące kor
 
 ## <a name="requirements-constraints"></a>Wymagania i ograniczenia
 
-* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest obecnie dostępne w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa i Zachodnie stany USA 2. Możesz [zarejestrować swoją subskrypcję](virtual-network-create-peering.md) w celu korzystania z wersji zapoznawczej.
+* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest obecnie dostępne w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa i Zachodnie stany USA 2. Przed rozpoczęciem łączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach należy [zarejestrować subskrypcję](virtual-network-create-peering.md#register) w celu uzyskania dostępu do wersji zapoznawczej. Próba połączenia sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach zakończy się niepowodzeniem, jeśli rejestracja w celu uzyskania dostępu do wersji zapoznawczej nie została zakończona.
     > [!WARNING]
     > Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej między regionami mogą nie mieć takiego samego poziomu dostępności i niezawodności jak połączenia za pomocą komunikacji równorzędnej w wersji ogólnodostępnej. Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -65,7 +65,7 @@ Podczas konfigurowania wirtualnych sieci równorzędnych można otwierać i zamy
 
 Użytkownicy mogą konfigurować trasy zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych jako adresy IP „kolejnego przeskoku”, aby umożliwić tworzenie łańcucha usług. Tworzenie łańcucha usług umożliwia bezpośrednie kierowanie ruchu z jednej sieci wirtualnej do urządzenia wirtualnego w wirtualnej sieci równorzędnej przy użyciu tras zdefiniowanych przez użytkownika.
 
-Można również skutecznie tworzyć środowiska typu gwiazdy, w których serwer centralny jest hostem składników infrastruktury, takich jak sieciowe urządzenie wirtualne. Następnie wszystkie sieci wirtualne typu gwiazda można połączyć za pomocą komunikacji równorzędnej z centralną siecią wirtualną. Ruch może przepływać za pośrednictwem wirtualnych urządzeń sieciowych działających w centralnej sieci wirtualnej. Krotko mówiąc, wirtualne sieci równorzędne umożliwiają użycie jako adresu IP kolejnego przeskoku w trasie zdefiniowanej przez użytkownika adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej. Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zobacz [User-defined routes overview (Omówienie tras definiowanych przez użytkownika)](virtual-networks-udr-overview.md). Aby dowiedzieć się, jak utworzyć topologię sieci typu gwiazda, zobacz [Hub and spoke network topology (Topologia sieci typu gwiazda)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+Można również skutecznie tworzyć środowiska typu gwiazdy, w których serwer centralny jest hostem składników infrastruktury, takich jak sieciowe urządzenie wirtualne. Następnie wszystkie sieci wirtualne typu gwiazda można połączyć za pomocą komunikacji równorzędnej z centralną siecią wirtualną. Ruch może przepływać za pośrednictwem wirtualnych urządzeń sieciowych działających w centralnej sieci wirtualnej. Krotko mówiąc, wirtualne sieci równorzędne umożliwiają użycie jako adresu IP kolejnego przeskoku w trasie zdefiniowanej przez użytkownika adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej. Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zobacz [User-defined routes overview (Omówienie tras definiowanych przez użytkownika)](virtual-networks-udr-overview.md). Aby dowiedzieć się, jak utworzyć topologię sieci typu gwiazda, zobacz [Hub and spoke network topology (Topologia sieci typu gwiazda)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Bramy i łączność lokalna
 

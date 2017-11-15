@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi Blob Storage
 
@@ -55,7 +55,7 @@ Proces mapowania domeny niestandardowej do punktu końcowego obiektu blob może 
 Pośredniczące metoda została opisana w [zarejestrować domeny niestandardowej przy użyciu *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Zarejestruj domeny niestandardowej
-Użyj tej procedury, aby zarejestrować domeny niestandardowej, jeśli nie pytań dotyczących trwa krótko niedostępne dla użytkowników domeny lub domeny niestandardowej nie jest obecnie hostuje aplikację.
+Użyj tej procedury, aby zarejestrować domeny niestandardowej, jeśli nie pytań dotyczących trwa krótko niedostępne dla użytkowników domeny lub domeny niestandardowej nie jest obecnie hostuje aplikację. Aby skonfigurować niestandardową nazwę DNS dla magazynu obiektów Blob platformy Azure, można użyć usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [użycia usługi Azure DNS, aby określić ustawienia domeny niestandardowej dla usługi Azure](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
 W przypadku domeny niestandardowej jest obecnie obsługi aplikacji, która nie może mieć żadnych przestojów, postępuj zgodnie z procedurą przedstawioną w [zarejestrować domeny niestandardowej przy użyciu *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
 

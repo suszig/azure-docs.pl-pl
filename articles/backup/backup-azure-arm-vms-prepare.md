@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Aby przygotować środowisko, należy zapoznać się z ograniczeniami.
 
 * Tworzenie kopii zapasowych maszyn wirtualnych z więcej niż 16 dysków danych nie jest obsługiwane.
 * Tworzenie kopii zapasowych maszyn wirtualnych z danymi dysku o rozmiarze przekraczającym 1023GB nie jest obsługiwane.
+
+> [!NOTE]
+> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB niezarządzanych. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Tworzenie kopii zapasowych maszyn wirtualnych z zastrzeżonego adresu IP i nie zdefiniowanych punktów końcowych nie jest obsługiwane.
 * Kopia zapasowa maszyn wirtualnych jest szyfrowana przy użyciu tylko BEK nie jest obsługiwane. Kopia zapasowa szyfrowane przy użyciu szyfrowania LUKS maszyn wirtualnych systemu Linux nie jest obsługiwane.
 * Kopia zapasowa maszyn wirtualnych zawierających Volumes(CSV) udostępnionych klastra lub skalę limit konfiguracji serwera plików nie jest zalecane, ponieważ wymagają one, obejmujące wszystkich maszyn wirtualnych uwzględnione w konfiguracji klastra podczas zadania migawki. Kopia zapasowa Azure nie obsługuje wielu maszyn wirtualnych. 

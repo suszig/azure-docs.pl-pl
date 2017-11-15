@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 12caf933b04258065039a51f45d531a30865f8d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3db06eed16191ef906f2c565d78fd0063cdb2f7b
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Przenoszenie danych do i z magazynu obiektów Blob Azure za pomocą Eksploratora usługi Storage platformy Azure
 Eksplorator usługi Storage platformy Azure to bezpłatne narzędzie firmy Microsoft, który umożliwia pracę z danymi usługi Azure Storage w systemie Windows, macOS i Linux. W tym temacie opisano, jak używać go do przekazywania i pobierania danych z magazynu obiektów blob platformy Azure. Narzędzie można pobrać z [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/).

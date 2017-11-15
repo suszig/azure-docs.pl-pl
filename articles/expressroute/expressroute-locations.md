@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2017
 ms.author: kaanan
-ms.openlocfilehash: 0ef91f6f952b901bcda981e5375be0b84e1ca0a3
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: fef70ca56761565d7b2fa329a17929b978d54cb8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -55,7 +55,7 @@ W poniższej tabeli zamieszczono informacje o regionach i granicach geopolityczn
 
 | **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
-| **Chmura administracji USA** |Administracja USA — Iowa, Administracja USA — Wirginia, US DoD — środkowe stany, US DoD — wschodnie stany  |Chicago, Dallas, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton |
+| **Chmura administracji USA** |Administracja USA — Arizona, Administracja USA — Iowa, Administracja USA — Teksas, Administracja USA — Wirginia, US DoD — środkowe stany, US DoD — wschodnie stany  |Chicago, Dallas, Nowy Jork, Seattle, Dolina Krzemowa, Waszyngton |
 | **Chiny** |Chiny Północne, Chiny Wschodnie |Pekin, Szanghaj |
 | **Niemcy** |Niemcy Środkowe, Niemcy Wschodnie |Berlin, Frankfurt |
 

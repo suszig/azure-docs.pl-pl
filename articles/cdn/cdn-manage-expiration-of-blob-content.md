@@ -1,5 +1,5 @@
 ---
-title: "Zarządzaj wygasaniem obiektów blob magazynu Azure w usłudze Azure CDN | Dokumentacja firmy Microsoft"
+title: "Zarządzaj wygasaniem magazynu obiektów Blob platformy Azure w usłudze Azure Content Delivery Network | Dokumentacja firmy Microsoft"
 description: "Informacje na temat opcji kontroli time-to-live dla obiektów blob w pamięci podręcznej Azure CDN."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Zarządzaj wygasaniem obiektów blob magazynu Azure w usłudze Azure CDN
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Zarządzaj wygasaniem magazynu obiektów Blob platformy Azure w usłudze Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Usługi aplikacji/w chmurze Azure sieci Web, ASP.NET lub usług IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Usługa blob magazynu Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-[Usługa blob](../storage/common/storage-introduction.md#blob-storage) w [usługi Azure Storage](../storage/common/storage-introduction.md) jest jedną z wielu źródeł opartych na platformie Azure zintegrowanych z usługą Azure CDN.  Zawartość obiektu blob publicznie mogą być buforowane w usłudze Azure CDN, dopóki nie upłynie jego czas wygaśnięcia (TTL).  Czas wygaśnięcia jest określany przez [ *Cache-Control* nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) w odpowiedzi HTTP z usługi Magazyn Azure.
+[Usługa blob](../storage/common/storage-introduction.md#blob-storage) w [usługi Azure Storage](../storage/common/storage-introduction.md) jedną z wielu źródeł opartych na platformie Azure jest zintegrowany z Azure Content Delivery Network (CDN). Zawartość obiektu blob publicznie mogą być buforowane w usłudze Azure CDN, dopóki nie upłynie jego czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez [ `Cache-Control` nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) w odpowiedzi HTTP z usługi Magazyn Azure.
 
 > [!TIP]
-> Można ustawić nie TTL dla obiektu blob.  W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni.
+> Można ustawić nie TTL dla obiektu blob. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni.
 > 
-> Aby uzyskać więcej informacji na temat działania usługi Azure CDN do Przyspieszanie dostępu do obiektów blob i innych plików, zobacz [Omówienie usługi Azure CDN](cdn-overview.md).
+> Aby uzyskać więcej informacji na temat działania usługi Azure CDN do Przyspieszanie dostępu do obiektów blob i innych plików, zobacz [Omówienie usługi Azure Content Delivery Network](cdn-overview.md).
 > 
-> Więcej szczegółów usługi obiektów blob magazynu Azure, zobacz [pojęcia dotyczące usługi Blob](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Aby uzyskać więcej informacji na temat magazynu obiektów Blob platformy Azure, zobacz [wprowadzenie do magazynu obiektów Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 W tym samouczku przedstawiono kilka sposobów, w których czas TTL można ustawić dla obiektu blob w usłudze Azure Storage.  
 
@@ -100,7 +99,7 @@ class Program
 ## <a name="other-methods"></a>Inne metody
 * [Interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md)
   
-    Jeśli przekazywanie obiektu blob, należy skonfigurować *cacheControl* za pomocą właściwości `-p` przełącznika.  W tym przykładzie czas wygaśnięcia na godzinę (3600 sekund).
+    Jeśli przekazywanie obiektu blob, należy skonfigurować *cacheControl* właściwości przy użyciu `-p` przełącznika. W tym przykładzie czas wygaśnięcia na godzinę (3600 sekund).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Niektóre narzędzia do zarządzania magazynem Azure innych firm umożliwiają skonfigurowanie *CacheControl* właściwości obiektów blob. 
 
-## <a name="testing-the-cache-control-header"></a>Testowanie *Cache-Control* nagłówka
-Możesz łatwo sprawdzić czasu istnienia obiektów blob.  Za pomocą przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test, który jest łącznie z obiektu blob *Cache-Control* nagłówka odpowiedzi.  Można także użyć narzędzia, takiego jak **wget**, [Postman](https://www.getpostman.com/), lub [Fiddler](http://www.telerik.com/fiddler) Aby sprawdzić nagłówki odpowiedzi.
+## <a name="testing-the-cache-control-header"></a>Testowanie nagłówek Cache-Control
+Możesz łatwo sprawdzić czasu istnienia obiektów blob.  Za pomocą przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test, który zawiera z obiektu blob `Cache-Control` nagłówka odpowiedzi. Można również użyć narzędzia takie jak **wget**, [Postman](https://www.getpostman.com/), lub [Fiddler](http://www.telerik.com/fiddler) Aby sprawdzić nagłówki odpowiedzi.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przeczytaj informacje o *Cache-Control* nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Przeczytaj informacje o `Cache-Control` nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Dowiedz się, jak zarządzać wygasaniem zawartości usługi w chmurze w usłudze Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

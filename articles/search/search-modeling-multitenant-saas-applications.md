@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Projektowanie wzorce dla wielodostępnych aplikacji SaaS i usługi Azure Search
 Wielodostępna aplikacji to taki, który zawiera te same usług i funkcji do dowolnej liczby dzierżawców, którzy nie są wyświetlane ani udostępniać dane z innymi dzierżawami. W tym dokumencie omówiono strategii izolacji dzierżawy dla wielodostępnych aplikacji skompilowanej za pomocą usługi Azure Search.
 
 ## <a name="azure-search-concepts"></a>Pojęcia wyszukiwanie Azure
-Jako rozwiązanie wyszukiwanie jako usługa Azure Search umożliwia deweloperom Dodawanie środowiska wyszukiwania sformatowanego do aplikacji bez dowolnej infrastruktury zarządzania i staje się eksperta w wyszukiwaniu. Dane są przekazywane do usługi, a następnie przechowywane w chmurze. Za pomocą prostego żądania interfejsu API usługi Azure Search, dane można następnie można modyfikować i przeszukiwane. Omówienie usługi można znaleźć w [w tym artykule](http://aka.ms/whatisazsearch). Przed omówieniem wzorce projektowe, ważne jest zrozumienie niektóre pojęcia dotyczące usługi Azure Search.
+Jako rozwiązanie wyszukiwanie jako usługa Azure Search umożliwia deweloperom Dodawanie środowiska wyszukiwania sformatowanego do aplikacji bez dowolnej infrastruktury zarządzania i staje się eksperta w pobierania informacji. Dane są przekazywane do usługi, a następnie przechowywane w chmurze. Za pomocą prostego żądania interfejsu API usługi Azure Search, dane można następnie można modyfikować i przeszukiwane. Omówienie usługi można znaleźć w [w tym artykule](http://aka.ms/whatisazsearch). Przed omówieniem wzorce projektowe, ważne jest zrozumienie niektóre pojęcia dotyczące usługi Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Wyszukiwanie w usługach, indeksów, pól i dokumentów
 Podczas korzystania z usługi Azure Search, jeden subskrybuje *usługi wyszukiwania*. Ponieważ dane są przesyłane do usługi Azure Search, jest ona przechowywana w *indeksu* w ramach usługi wyszukiwania. Może to być liczba indeksów w ramach jednej usługi. Aby użyć znane pojęcia związane z baz danych, usługę wyszukiwania można przyrównać do bazy danych podczas indeksy w ramach usługi można przyrównać do tabel w bazie danych.

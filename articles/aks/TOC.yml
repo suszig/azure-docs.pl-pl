@@ -51,12 +51,14 @@
       href: /rest/api/aks
 - name: Zasoby
   items:
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Cennik
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Dostępność w danym regionie
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Harmonogram działania
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Przekazywanie opinii dotyczących produktów
+      href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Filmy wideo

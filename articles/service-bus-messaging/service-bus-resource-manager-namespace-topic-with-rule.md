@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeń nazw usługi Service Bus z tematu, subskrypcji i reguły (filtru). Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeń nazw usługi Service Bus z tematu, subskrypcji i reguły (filtru). Wyjaśniono sposób do określania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -50,7 +50,7 @@ W przypadku tego szablonu można wdrożyć przestrzeni nazw usługi Service Bus 
 
 ## <a name="what-are-rules-filters"></a>Co to są reguły (filtry)?
 
-W wielu scenariuszach wiadomości, które mają określone parametry muszą być przetwarzane na różne sposoby. Aby je włączyć, można skonfigurować subskrypcje, aby znaleźć wiadomości, które zostały określone właściwości, a następnie wykonaj zmiany w tych właściwości. Mimo że subskrypcje usługi Service Bus, zobacz wszystkich wiadomości wysłanych do tematu, można kopiować tylko podzbiór tych wiadomości do kolejki subskrypcji wirtualnego. Jest to realizowane przy użyciu filtrów subskrypcji. Aby dowiedzieć się więcej na temat reguł (filtry), zobacz [reguł i akcje](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+W wielu scenariuszach wiadomości, które mają określone parametry muszą być przetwarzane na różne sposoby. Aby włączyć to przetwarzanie niestandardowych, można skonfigurować subskrypcje, aby znaleźć wiadomości, które zostały określone właściwości, a następnie wykonaj zmiany w tych właściwości. Mimo że subskrypcje usługi Service Bus, zobacz wszystkich wiadomości wysłanych do tematu, można kopiować tylko podzbiór tych wiadomości do kolejki subskrypcji wirtualnego. Jest to realizowane przy użyciu filtrów subskrypcji. Aby dowiedzieć się więcej na temat reguł (filtry), zobacz [reguł i akcje](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
@@ -100,9 +100,12 @@ Nazwa rule(filter) utworzone w przestrzeni nazw usługi Service Bus.
 Wersja interfejsu API usługi Service Bus szablonu.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 Tworzy standardowe przestrzeni nazw usługi Service Bus typu **wiadomości**, z tematów i subskrypcji i zasadami.

@@ -3,7 +3,7 @@ title: "Wymagania dotyczące routingu dla usługi Azure ExpressRoute | Microsoft
 description: "Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania routingu oraz zarządzania nim na potrzeby obwodów usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
-ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/03/2017
+ms.author: ganesr
+ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -174,6 +174,8 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Europa Zachodnia | 12076:51002 |
 | Południowe Zjednoczone Królestwo | 12076:51024 |
 | Zachodnie Zjednoczone Królestwo | 12076:51025 |
+| Francja Środkowa | 12076:51030 |
+| Francja Południowa | 12076:51031 |
 | **Azja i Pacyfik** | |
 | Azja Wschodnia | 12076:51010 |
 | Azja Południowo-Wschodnia | 12076:51011 |

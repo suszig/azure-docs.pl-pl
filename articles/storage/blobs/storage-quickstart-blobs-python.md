@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu języka Python
 Z tego przewodnika Szybki Start dowiesz się przekazywanie, pobieranie i listy blokowych obiektów blob w kontenerze w magazynie obiektów Blob platformy Azure przy użyciu języka Python. 
@@ -73,7 +73,11 @@ Można również użyć narzędzia takie jak [Eksploratora usługi Storage Azure
 
 Po zweryfikowaniu pliki naciśnij dowolny klawisz, aby zakończyć pokaz i usuwanie plików testowych. Teraz, znając prezentowanym przykładzie, otwórz plik example.py, aby przyjrzeć się kodu. 
 
-## <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
+## <a name="understand-the-sample-code"></a>Zrozumienie przykładowy kod
+
+Następnie możemy przeprowadzenie przykładowy kod, dzięki czemu można zrozumieć, jak to działa.
+
+### <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
 Najpierw musisz jest utworzyć odwołania do obiektów używane do uzyskania dostępu i zarządzania magazynem obiektów Blob. Te obiekty kompilacji na każdym z nich i są używane przez kolejnego na liście.
 
 * Utwórz wystąpienie **BlockBlobService** obiektu, który wskazuje usługi obiektów Blob na koncie magazynu. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
+### <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty BLOB są najczęściej używane i która jest używana w tym Szybki Start.  
 
@@ -128,7 +132,7 @@ Istnieje kilka metod przekazywania, korzystających z magazynu obiektów Blob. N
 
 Blokowe obiekty BLOB może być możliwie jak 4,7 TB i może być dowolna z arkuszy programu Excel do dużych plików wideo. Stronicowe obiekty BLOB są głównie używane dla pliki VHD używane do tworzenia kopii maszyn wirtualnych IaaS. Dołącz obiekty BLOB są używane do logowania, takie jak kiedy zachodzi potrzeba zapisane do pliku i następnie dodać więcej informacji. Większość obiektów przechowywanych w magazynie obiektów Blob są blokowych obiektów blob.
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
+### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
 Pobierz listę plików za pomocą kontenera **list_blobs** metody. Ta metoda zwraca generator. Poniższy kod pobiera listę obiektów blob, a następnie w pętli, przedstawiający nazwy obiektów blob znalezionych w kontenerze.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Pobieranie obiektów blob
+### <a name="download-the-blobs"></a>Pobieranie obiektów blob
 
 Pobierać obiekty BLOB przy użyciu dysku lokalnym **uzyskać\_obiektów blob\_do\_ścieżki** metody. Poniższy kod pobiera blob przekazany w poprzedniej sekcji. "_DOWNLOADED" jest dodawany jako sufiks nazwy obiektów blob pozwala zobaczyć, oba pliki na dysku lokalnym. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Przekazane w tego przewodnika Szybki Start obiektów blob nie są już potrzebne, można usunąć za pomocą całego kontenera **usunąć\_kontenera**. Jeśli pliki utworzone nie są już potrzebne, możesz użyć **usunąć\_obiektu blob** metody, aby usunąć pliki.
 
 ```python

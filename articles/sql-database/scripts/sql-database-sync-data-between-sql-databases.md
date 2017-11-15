@@ -1,5 +1,5 @@
 ---
-title: "PowerShell przykład synchronizacja między wiele baz danych Azure SQL | Dokumentacja firmy Microsoft"
+title: "PowerShell przykład synchronizacja między wieloma bazami danych SQL Azure | Dokumentacja firmy Microsoft"
 description: "Azure przykładowy skrypt programu PowerShell do synchronizacji między wiele baz danych Azure SQL"
 services: sql-database
 documentationcenter: sql-database
@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Synchronizacja między wiele baz danych Azure SQL przy użyciu programu PowerShell
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Synchronizacja między wiele baz danych przy użyciu programu PowerShell
  
 W tym przykładzie programu PowerShell skonfiguruje funkcję synchronizacji danych do synchronizacji między wiele baz danych Azure SQL.
 
@@ -367,8 +367,9 @@ Dodatkowe przykłady skryptów programu PowerShell bazy danych SQL można znale�
 Aby uzyskać więcej informacji na temat synchronizacji danych SQL zobacz:
 
 -   [Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z synchronizacji danych SQL Azure](../sql-database-sync-data.md)
--   [Wprowadzenie do synchronizacji danych Azure SQL](../sql-database-get-started-sql-data-sync.md)
+-   [Konfigurowanie synchronizacji danych SQL Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Najlepsze rozwiązania dotyczące synchronizacji danych SQL Azure](../sql-database-best-practices-data-sync.md)
+-   [Monitor synchronizacji danych Azure SQL z OMS analizy dzienników](../sql-database-sync-monitor-oms.md)
 -   [Rozwiązywanie problemów z synchronizacją danych SQL Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Wykonaj przykłady z programu PowerShell, które przedstawiają sposób konfigurowania synchronizacji danych SQL:

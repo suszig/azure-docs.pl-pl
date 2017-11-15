@@ -1,5 +1,5 @@
 ---
-title: "Zarządzaj wygasaniem zawartości sieci web w usłudze Azure CDN | Dokumentacja firmy Microsoft"
+title: "Zarządzaj wygasaniem zawartości sieci web w sieci dostarczania zawartości platformy Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak zarządzać wygasaniem zawartości usług Azure Web Apps/Cloud Services, ASP.NET lub usługi IIS w usłudze Azure CDN."
 services: cdn
 documentationcenter: .NET
@@ -12,34 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d58a245923242b3963b188ca869e8290d999c0a2
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Zarządzaj wygasaniem zawartości usług Azure Web Apps/Cloud Services, ASP.NET lub usługi IIS w usłudze Azure CDN
+# <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Zarządzaj wygasaniem zawartości sieci web w sieci dostarczania zawartości platformy Azure
+ w przypadku usługi Azure CDN
 > [!div class="op_single_selector"]
 > * [Usługi aplikacji/w chmurze Azure sieci Web, ASP.NET lub usług IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Usługa blob magazynu Azure](cdn-manage-expiration-of-blob-content.md)
-> 
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Mogą być buforowane pliki z dowolnego publicznie dostępnego źródła serwera sieci web w usłudze Azure CDN, dopóki nie upłynie jego czas wygaśnięcia (TTL).  Czas wygaśnięcia jest określany przez [ *Cache-Control* nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) w odpowiedzi HTTP z serwera pochodzenia.  W tym artykule opisano sposób ustawiania `Cache-Control` nagłówki dla aplikacji sieci Web platformy Azure, usługi w chmurze Azure, aplikacji programu ASP.NET i witryny internetowe usługi informacyjne, które są skonfigurowane podobnie.
+Pliki z dowolnego publicznie dostępnego źródła serwera sieci web mogą być buforowane w Azure Content Delivery Network (CDN), dopóki nie upłynie ich czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez [ `Cache-Control` nagłówka](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) w odpowiedzi HTTP z serwera pochodzenia. W tym artykule opisano sposób ustawiania `Cache-Control` nagłówki dla funkcji aplikacji sieci Web Microsoft Azure App Service, usługi w chmurze Azure, aplikacji programu ASP.NET i witryn internetowych usług informacyjnych, które są skonfigurowane podobnie.
 
 > [!TIP]
-> Można ustawić nie TTL w pliku.  W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni.
+> Można ustawić nie TTL w pliku. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni.
 > 
-> Aby uzyskać więcej informacji na temat działania usługi Azure CDN do Przyspieszanie dostępu do plików i innych zasobów, zobacz [Omówienie usługi Azure CDN](cdn-overview.md).
-> 
+> Aby uzyskać więcej informacji na temat działania usługi Azure CDN do Przyspieszanie dostępu do plików i innych zasobów, zobacz [Omówienie usługi Azure Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-in-configuration"></a>Nagłówki Cache-Control ustawienia w konfiguracji
-Dla zawartości statycznej, takich jak obrazy i arkusze stylów, możesz kontrolować częstotliwość aktualizacji przez zmodyfikowanie **applicationHost.config** lub **web.config** plików dla aplikacji sieci web.  **System.webServer\staticContent\clientCache** ustawi elementu w pliku konfiguracyjnym `Cache-Control` nagłówek dla zawartości. Aby uzyskać **web.config**, ustawienia konfiguracji będzie miało wpływ na wszystkie elementy w folderze i wszystkie podfoldery, jeśli zastąpiona na poziomie podfolder.  Można na przykład domyślny czas wygaśnięcia główny zestaw ma wszystkie zawartości statycznej pamięci podręcznej dla 3 dni, ale ma podfolder, który ma więcej zmiennych zawartość z ustawieniem pamięci podręcznej 6 godzin.  Dla **applicationHost.config**, wszystkie aplikacje w witrynie zostaną zmienione, ale może zostać zastąpiona w **web.config** plików w aplikacjach.
+## <a name="setting-cache-control-headers-in-configuration-files"></a>Ustawienie Cache-Control nagłówków w plikach konfiguracji
+Dla zawartości statycznej, takich jak obrazy i arkusze stylów, możesz kontrolować częstotliwość aktualizacji przez zmodyfikowanie **applicationHost.config** lub **web.config** plików dla aplikacji sieci web. **System.webServer\staticContent\clientCache** elementu w pliku konfiguracji ustawia `Cache-Control` nagłówek dla zawartości. Aby uzyskać **web.config** pliki, ustawienia konfiguracji mają wpływ na wszystkie elementy w folderze i jego podfolderach, chyba że są one zastąpione na poziomie podfolderu. Na przykład można ustawić domyślnego ustawienia TTL w folderze głównym do buforowania zawartości statycznej wszystkie trzy dni i ustawiać podfolder o więcej zmiennych zawartości w pamięci podręcznej zawartość tylko sześciu godzin. Mimo że **applicationHost.config** pliku ustawienia mają wpływ na wszystkie aplikacje w lokacji, są zastępowane wszystkie istniejące ustawienia **web.config** plików w aplikacjach.
 
-Następujący kod XML przedstawiono przykład ustawienie **clientCache** określić maksymalny wiek 3 dni:  
+W poniższym przykładzie XML przedstawiono sposób ustawiania **clientCache** określić maksymalny wiek trzy dni:  
 
 ```xml
 <configuration>
@@ -51,14 +50,19 @@ Następujący kod XML przedstawiono przykład ustawienie **clientCache** określ
 </configuration>
 ```
 
-Określanie **UseMaxAge** dodaje `Cache-Control: max-age=<nnn>` nagłówka w odpowiedzi na podstawie wartości określone w **CacheControlMaxAge** atrybutu. Format elementu timespan **cacheControlMaxAge** atrybutu <days>.<hours>:<min>:<sec>. Aby uzyskać więcej informacji na temat **clientCache** węzła, zobacz [pamięci podręcznej klienta <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Określanie **UseMaxAge** powoduje, że `Cache-Control: max-age=<nnn>` nagłówka do dodania do odpowiedzi na podstawie wartości określone w **CacheControlMaxAge** atrybutu. Format timespan dla **cacheControlMaxAge** atrybutu `<days>.<hours>:<min>:<sec>`. Aby uzyskać więcej informacji na temat **clientCache** węzła, zobacz [pamięci podręcznej klienta <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-in-code"></a>Ustawianie Cache-Control nagłówków w kodzie
-Dla aplikacji ASP.NET można ustawić CDN buforowanie programowo, ustawiając **HttpResponse.Cache** właściwości. Aby uzyskać więcej informacji na temat **HttpResponse.Cache** właściwości, zobacz [właściwości HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) i [HttpCachePolicy klasy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Dla aplikacji ASP.NET można kontrolować CDN buforowanie programowo, ustawiając **HttpResponse.Cache** właściwości. Aby uzyskać więcej informacji na temat **HttpResponse.Cache** właściwości, zobacz [właściwości HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) i [HttpCachePolicy klasy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
-Jeśli chcesz programowo pamięci podręcznej zawartości aplikacji w programie ASP.NET, upewnij się, czy zawartość jest oznaczony jako buforowalnej ustawiając HttpCacheability *publicznego*. Ponadto upewnij się, że moduł weryfikacji pamięci podręcznej jest ustawiona. Moduł sprawdzania poprawności pamięci podręcznej może być ostatniej modyfikacji sygnatury czasowej ustawiony przez wywołanie SetLastModified lub wartość etag ustawiony przez wywołanie SetETag. Opcjonalnie można również określić czas wygaśnięcia pamięci podręcznej przez wywołanie metody SetExpires lub może polegać na domyślny algorytm heurystyczny pamięci podręcznej, opisem we wcześniejszej części tego dokumentu.  
+Aby programowo zawartości pamięci podręcznej aplikacji w programie ASP.NET wykonaj następujące kroki:
+   1. Sprawdź, czy zawartość jest oznaczony jako buforowalnej przez ustawienie `HttpCacheability` do *publicznego*. 
+   2. Ustaw moduł weryfikacji pamięci podręcznej, wywołując jedną z następujących metod:
+      - Wywołanie `SetLastModified` można ustawić sygnaturę czasową LastModified.
+      - Wywołanie `SetETag` można ustawić `ETag` wartość.
+   3. Opcjonalnie można określić czas wygaśnięcia pamięci podręcznej przez wywołanie metody `SetExpires`. W przeciwnym razie domyślny algorytm heurystyczny pamięci podręcznej, opisanych wcześniej w tym dokumencie mają zastosowanie.
 
-Na przykład do pamięci podręcznej zawartości przez jedną godzinę, należy dodać:  
+Na przykład do pamięci podręcznej zawartości przez jedną godzinę, Dodaj następujący kod C#:  
 
 ```csharp
 // Set the caching parameters.

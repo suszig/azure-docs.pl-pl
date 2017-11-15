@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Obliczenia bazy danych kontekstu opcje serwera R w usłudze HDInsight
 
@@ -42,7 +42,7 @@ Ogólnie rzecz biorąc skrypt języka R, uruchamiany w R Server dla węzła kraw
 
 W poniższej tabeli przedstawiono różne opcje kontekstu obliczeń ustalenie sposobu wykonywania wywołań:
 
-| Obliczenia bazy danych kontekstu  | Jak ustawić                      | Kontekst wykonywania                        |
+| Kontekst obliczeniowy  | Jak ustawić                      | Kontekst wykonywania                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
 | Lokalny sekwencyjne | rxSetComputeContext('local')    | Wykonanie zrównoleglone między rdzenie serwera węzła krawędzi, z wyjątkiem rxExec wywołań, które są wykonywane szeregowo |
 | Równoległe lokalnego   | rxSetComputeContext('localpar') | Wykonanie zrównoleglone między rdzenie serwera granicznego węzła |
@@ -83,6 +83,5 @@ W tym artykule przedstawiono o opcjach, które są dostępne określić, czy i j
 
 * [Omówienie R Server dla usługi Hadoop](r-server-overview.md)
 * [Rozpoczynanie pracy z R Server dla platformy Hadoop](r-server-get-started.md)
-* [Dodaj serwer programu RStudio do HDInsight (Jeśli nie dodano podczas tworzenia klastra)](r-server-install-r-studio.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md) (Opcje usługi Azure Storage dla oprogramowania R Server w usłudze HDInsight)
 

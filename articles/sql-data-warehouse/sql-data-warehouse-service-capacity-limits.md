@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limity pojemności magazynu danych SQL
 Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych składników usługi Azure SQL Data Warehouse.
@@ -27,12 +27,12 @@ Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych s
 ## <a name="workload-management"></a>Zarządzanie obciążeniami
 | Kategoria | Opis | Maksymalna |
 |:--- |:--- |:--- |
-| [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Jednostka DWU Max jednego magazynu danych SQL |6000 |
-| [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Jednostka DWU Max dla pojedynczego serwera SQL |6000 domyślnie<br/><br/> Domyślnie każdy serwer SQL (np. myserver.database.windows.net) ma przydziału jednostek dtu w warstwie 45,000, dzięki czemu maksymalnie 6000 DWU. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Może spowodować zwiększenie limitu przydziału przez [tworzenie biletu pomocy technicznej] [ creating a support ticket] i wybierając *przydziału* jako typ żądania.  Do obliczenia z jednostek dtu w warstwie musi, należy pomnożyć 7.5 przez łączną potrzebne DWU. Aktualne użycie jednostek DTU możesz zobaczyć z poziomu bloku serwera SQL w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. |
-| Połączenie z bazą danych |Otwieranie sesji jednoczesnych |1024<br/><br/>Firma Microsoft obsługuje maksymalnie 1024 aktywnych połączeń, z których każdy przesyłania żądań do bazy danych magazynu danych SQL, w tym samym czasie. Należy pamiętać, że nie istnieją ograniczenia dotyczące liczby zapytań, które faktycznie mogą być wykonywane jednocześnie. Po przekroczeniu limitu współbieżności, żądanie przechodzi w stan kolejki wewnętrznej, gdzie oczekuje na przetworzenie. |
+| [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Jednostka DWU Max jednego magazynu danych SQL | Zoptymalizowana pod kątem elastyczność [warstwę wydajności](performance-tiers.md): DW6000<br></br>Zoptymalizowana pod kątem obliczeń [warstwę wydajności](performance-tiers.md): DW30000c |
+| [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Domyślne jednostek dtu w warstwie na serwer |54,000<br></br>Domyślnie każdy serwer SQL (na przykład myserver.database.windows.net) ma limit przydziału jednostek DTU równa 54 000, dzięki czemu do DW6000c. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Może spowodować zwiększenie limitu przydziału przez [tworzenie biletu pomocy technicznej] [ creating a support ticket] i wybierając *przydziału* jako typ żądania.  Do obliczenia z jednostek dtu w warstwie wymaga, należy pomnożyć 7.5 przez łączną potrzebne DWU lub należy pomnożyć 9.0, przez całkowitą cDWU, potrzebne. Na przykład:<br></br>DW6000 x w wersji 7.5 = 45,000 Dtu<br></br>DW600c x 9.0 = równa 54 000 jednostek Dtu.<br></br>Twoje bieżące użycie jednostek DTU z opcji programu SQL server można wyświetlić w portalu. Zarówno wstrzymana i nie wstrzymane baz danych są wliczane do limitu przydziału jednostek dtu w warstwie. |
+| Połączenie z bazą danych |Otwieranie sesji jednoczesnych |1024<br/><br/>Każdy z 1024 aktywnych sesji przesyłania żądań do bazy danych magazynu danych SQL, w tym samym czasie. Uwaga: istnieją ograniczenia liczby zapytań, które mogą być wykonywane jednocześnie. Po przekroczeniu limitu współbieżności, żądanie przechodzi w stan kolejki wewnętrznej, gdzie oczekuje na przetworzenie. |
 | Połączenie z bazą danych |Maksymalna ilość pamięci dla przygotowanych instrukcji |20 MB |
-| [Zarządzanie obciążenia][Workload management] |Maksymalna liczba jednoczesnych kwerend |32<br/><br/> Domyślnie usługi SQL Data Warehouse można wykonywać maksymalnie 32 zapytania jednoczesne i kolejek pozostałych zapytań.<br/><br/>Poziom współbieżności mogą się zmniejszyć, gdy użytkownicy są przypisane do wyższych klasy zasobu lub SQL Data Warehouse jest skonfigurowany z DWU niski. Niektóre kwerendy, takie jak zapytania DMV zawsze mogą być uruchamiane. |
-| [Bazy danych tempdb][Tempdb] |Maksymalny rozmiar bazy danych Tempdb |399 GB na DW100. W związku z tym w bazie danych Tempdb DWU1000 jest dopasowywany do 3,99 TB |
+| [Zarządzanie obciążenia][Workload management] |Maksymalna liczba jednoczesnych kwerend |32<br/><br/> Domyślnie usługi SQL Data Warehouse można wykonywać maksymalnie 32 zapytania jednoczesne i kolejek pozostałych zapytań.<br/><br/>Liczba równoczesnych zapytań można descrease, gdy użytkownicy są przypisane do wyższych klas zasobów lub gdy magazyn danych SQL ma mniejszy [usługi poziom](performance-tiers.md#service-levels). Niektóre kwerendy, takie jak zapytania DMV zawsze mogą być uruchamiane. |
+| [bazy danych tempdb][Tempdb] |Maksymalna GB |399 GB na DW100. W związku z tym w DWU1000, bazy danych tempdb jest dopasowywany do 3,99 TB |
 
 ## <a name="database-objects"></a>Obiekty bazy danych
 | Kategoria | Opis | Maksymalna |
@@ -42,7 +42,7 @@ Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych s
 | Tabela |Tabel na bazę danych |2 miliardów |
 | Tabela |Kolumn w tabeli |1024 kolumn |
 | Tabela |Liczba bajtów na kolumny |Zależne od kolumny [— typ danych][data type].  Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB dla typów danych MAX. |
-| Tabela |Liczba bajtów na wiersz, zdefiniowanego rozmiaru |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana tak samo jak dla programu SQL Server w kompresji strony. Jak SQL Server magazynu danych SQL obsługuje magazynowanie przepełnienia wierszy, co umożliwia **kolumn o zmiennej długości** do zostać przeniesiony poza wiersz. Jeśli wierszy o zmiennej długości są przenoszone poza wiersz, tylko bajtów 24 główny jest przechowywany w głównym rekordzie. Aby uzyskać więcej informacji, zobacz [przepełnienia wiersza danych przekraczających 8 KB] [ Row-Overflow Data Exceeding 8 KB] artykuł w witrynie MSDN. |
+| Tabela |Liczba bajtów na wiersz, zdefiniowanego rozmiaru |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana tak samo jak dla programu SQL Server w kompresji strony. Jak SQL Server magazynu danych SQL obsługuje magazynu przepełnienia wiersza, który umożliwia **kolumn o zmiennej długości** do zostać przeniesiony poza wiersz. Jeśli wierszy o zmiennej długości są przenoszone poza wiersz, tylko bajtów 24 główny jest przechowywany w głównym rekordzie. Aby uzyskać więcej informacji, zobacz [przepełnienia wiersza danych przekraczających rozmiarze 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabela |Partycje tabeli |15,000<br/><br/>O wysokiej wydajności, firma Microsoft zaleca, minimalizując liczbę partycji muszą podczas przerywania obsługi wymagań biznesowych. Miarę zwiększania się liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i manipulowania języka DML (Data) rozwoju i powoduje, że niższej wydajności. |
 | Tabela |Liczba znaków na wartość graniczna partycji. |4000 |
 | Indeks |Indeksy klastrowane nie na tabelę. |999<br/><br/>Dotyczy tylko tabele magazynu wierszy. |
@@ -58,7 +58,7 @@ Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych s
 ## <a name="loads"></a>Obciążenia
 | Kategoria | Opis | Maksymalna |
 |:--- |:--- |:--- |
-| Program Polybase obciążenia |MB na wiersz |1<br/><br/>Program Polybase obciążenia są ograniczone do ładowania wierszy, zarówno mniejszy niż 1MB i nie można załadować VARCHR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX).<br/><br/> |
+| Program Polybase obciążenia |MB na wiersz |1<br/><br/>Program Polybase ładuje tylko do wierszy, które są mniejsze niż 1 MB, a nie można załadować VARCHAR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Zapytania
 | Kategoria | Opis | Maksymalna |
