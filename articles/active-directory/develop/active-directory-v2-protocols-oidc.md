@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# V2.0 usługi Azure Active Directory i protokołu OpenID Connect
+# <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>V2.0 usługi Azure Active Directory i protokołu OpenID Connect
 OpenID Connect to protokół uwierzytelniania, oparty na OAuth 2.0, który służy do bezpiecznego logowania użytkownika do aplikacji sieci web. Korzystając z punktem końcowym v2.0 wdrażania protokołu OpenID Connect, logowania i dostępu do interfejsu API można dodać do aplikacji opartych na sieci web. W tym artykule firma Microsoft opisano, jak zrobić to niezależny od języka. Opisano sposób wysyłania i odbierania wiadomości HTTP bez korzystania z żadnych bibliotek open source firmy Microsoft.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OpenID Connect to protokół uwierzytelniania, oparty na OAuth 2.0, który słu�
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół OAuth 2.0 *autoryzacji* protokół do użycia jako *uwierzytelniania* protokołu, dzięki czemu można wykonywać z jednego logowania w trybie OAuth. OpenID Connect pojęcia związane z *token Identyfikatora*, który jest token zabezpieczający, który umożliwia klientowi zweryfikowania tożsamości danego użytkownika. Token Identyfikatora pobiera również podstawowych informacji o profilu użytkownika. Ponieważ OpenID Connect rozszerza protokół OAuth 2.0, aplikacje mogą bezpiecznie uzyskiwać *tokenów dostępu*, które mogą służyć do dostępu do zasobów, które są zabezpieczone przez [serwera autoryzacji](active-directory-v2-protocols.md#the-basics). Zaleca się, że używasz OpenID Connect, jeśli tworzysz [aplikacji sieci web](active-directory-v2-flows.md#web-apps) który jest hostowany na serwerze i dostępne za pośrednictwem przeglądarki.
 
-## Diagram protokołu: logowania
+## <a name="protocol-diagram-sign-in"></a>Diagram protokołu: logowania
 Najbardziej podstawowa przepływu logowania ma kroki opisane w następnej diagramu. Opisano każdy krok szczegółowo w tym artykule.
 
 ![Protokołu OpenID Connect: logowania](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## Pobrać dokumentu metadanych OpenID Connect
+## <a name="fetch-the-openid-connect-metadata-document"></a>Pobrać dokumentu metadanych OpenID Connect
 OpenID Connect zawiera opis dokument metadanych zawiera większość informacji wymaganych dla aplikacji wykonać logowania. W tym informacje, takie jak adresy URL do użycia i lokalizację usługi publiczne klucze podpisywania. Dla punktu końcowego v2.0 jest OpenID Connect dokument metadanych, które powinny być używane:
 
 ```
@@ -71,7 +71,7 @@ Metadane są proste dokumentu JavaScript Object Notation (JSON). Zobacz poniższ
 
 Zazwyczaj należy użyć ten dokument metadanych, aby skonfigurować OpenID Connect biblioteki lub zestawu SDK; biblioteki użyje metadanych, aby wykonać swoją pracę. Jednak jeśli nie używasz biblioteki OpenID Connect wstępnej kompilacji, można wykonać kroki opisane w dalszej części tego artykułu, aby wykonać logowania w aplikacji sieci web przy użyciu punktu końcowego v2.0.
 
-## Wyślij żądanie logowania
+## <a name="send-the-sign-in-request"></a>Wyślij żądanie logowania
 Gdy aplikacja sieci web musi uwierzytelnić użytkownika, można kierować użytkownikowi `/authorize` punktu końcowego. To żądanie jest podobny do pierwszego etap [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-v2-protocols-oauth-code.md), z tych istotne różnice:
 
 * Żądanie musi zawierać `openid` zakresu w `scope` parametru.
@@ -117,7 +117,7 @@ W tym momencie użytkownik jest monitowany o wprowadzenie poświadczeń i wykona
 
 Po uwierzytelnia użytkownika, a przyznaje zgody, punktu końcowego v2.0 zwraca odpowiedź do aplikacji na wskazany identyfikator URI przekierowania za pomocą metody określonej w `response_mode` parametru.
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie, korzystając z `response_mode=form_post` wygląda podobnie do następującej:
 
 ```
@@ -133,7 +133,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | żądaniu |Token ID żądanej aplikacji. Można użyć `id_token` parametr do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. Aby uzyskać więcej szczegółów o identyfikatorze tokeny i ich zawartość, zobacz [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md). |
 | state |Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikacja powinna Sprawdź, czy wartości stan żądania i odpowiedzi są identyczne. |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może obsłużyć ich. Odpowiedzi na błąd wygląda następująco:
 
 ```
@@ -149,7 +149,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |Ciąg kodu błędu, który służy do klasyfikowania typy błędów występujących i reagowanie na błędy. |
 | error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu uwierzytelniania. |
 
-### Kody błędów dla błędów punktu końcowego autoryzacji
+### <a name="error-codes-for-authorization-endpoint-errors"></a>Kody błędów dla błędów punktu końcowego autoryzacji
 W poniższej tabeli opisano kody błędów, które mogą być zwracane w `error` parametru odpowiedzi o błędzie:
 
 | Kod błędu: | Opis | Akcja klienta |
@@ -162,7 +162,7 @@ W poniższej tabeli opisano kody błędów, które mogą być zwracane w `error`
 | temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
 | invalid_resource |Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD, lub nie jest poprawnie skonfigurowana. |Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikacja może być monitowany instrukcje dotyczące instalowania aplikacji i dodanie go do usługi Azure AD. |
 
-## Zweryfikuj token Identyfikatora
+## <a name="validate-the-id-token"></a>Zweryfikuj token Identyfikatora
 Odbieranie token identyfikator nie jest wystarczające do uwierzytelnienia użytkownika. Musisz również zweryfikować podpisu tokenu identyfikator i sprawdzić oświadczenia w tokenie na wymagania dotyczące Twojej aplikacji. Korzysta z punktu końcowego v2.0 [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdź, czy są prawidłowe.
 
 Można sprawdzić poprawności Identyfikatora tokenu w kodu klienta, ale jest typowym rozwiązaniem do wysyłania Identyfikatora token do serwera zaplecza i sprawdzania poprawności. Po upewnieniu podpisu tokenu Identyfikatora, należy sprawdzić kilka oświadczeń. Aby uzyskać więcej informacji, tym więcej o [sprawdzanie poprawności tokenów](active-directory-v2-tokens.md#validating-tokens) i [ważnych informacji na temat podpisywania Przerzucanie klucza](active-directory-v2-tokens.md#validating-tokens), zobacz [v2.0 tokeny odwołanie](active-directory-v2-tokens.md). Firma Microsoft zaleca, aby przeanalizować i sprawdzania poprawności tokenów przy użyciu biblioteki. Istnieje co najmniej jeden z tych bibliotek dostępne dla większości języków i platform.
@@ -178,7 +178,7 @@ Aby uzyskać więcej informacji na temat oświadczenia w tokenie identyfikator, 
 
 Po całkowicie poprawności tokenu identyfikator można rozpocząć sesji z użytkownikiem. Użyj oświadczenia w tokenie identyfikator, aby uzyskać informacje o użytkowniku w aplikacji. Te informacje służy do wyświetlania, rekordy, autoryzacje i tak dalej.
 
-## Wyślij żądanie wylogowania
+## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 Jeśli chcesz się wylogować użytkownika z aplikacji, nie jest wystarczające, aby wyczyścić pliki cookie aplikacji lub w przeciwnym razie kończenie sesji użytkownika. Należy również przekierować użytkownika do punktu końcowego v2.0, aby się wylogować. Jeśli nie zrobisz, użytkownik ponownie uwierzytelnia do aplikacji bez konieczności wprowadzania poświadczeń, ponieważ mają one nieprawidłowy jednej sesji logowania z punktem końcowym v2.0.
 
 Można przekierować użytkownika do `end_session_endpoint` wymienione w dokumencie metadanych OpenID Connect:
@@ -192,17 +192,17 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Zalecane | Adres URL, który jest przekierowywany użytkownik po wylogowaniu się pomyślnie. Jeśli parametr nie jest dołączony, użytkownik jest wyświetlany ogólny komunikat, który jest generowany przez punktu końcowego v2.0. Ten adres URL musi odpowiadać nazwie przekierowania, który zarejestrowane identyfikatory URI aplikacji w portalu rejestracji aplikacji.  |
 
-## Wylogowanie jednokrotne
+## <a name="single-sign-out"></a>Wylogowanie jednokrotne
 Jeśli przekierowanie użytkownika do `end_session_endpoint`, punktu końcowego v2.0 czyści sesji użytkownika z przeglądarki. Jednak użytkownik może nadal być zalogowany do innych aplikacji, które używają kont Microsoft do uwierzytelniania. Aby włączyć te aplikacje do podpisania użytkownika wychodzących jednocześnie v2.0 punktu końcowego wysyła żądanie HTTP GET do zarejestrowaną `LogoutUrl` wszystkich aplikacji, które użytkownik jest aktualnie zalogowany. Aplikacje należy odpowiedzieć na to żądanie przez wyczyszczenie wszelkich sesji, który identyfikuje użytkownika i zwracanie `200` odpowiedzi.  Jeśli chcesz limit obsługi funkcji logowania jednokrotnego do aplikacji, musisz zaimplementować takie `LogoutUrl` w kodzie aplikacji.  Można ustawić `LogoutUrl` z portalu rejestracji aplikacji.
 
-## Diagram protokołu: Token nabycia
+## <a name="protocol-diagram-token-acquisition"></a>Diagram protokołu: Token nabycia
 Wiele aplikacji sieci web należy nie tylko zalogować użytkownika w, ale również dostęp do usługi sieci web w imieniu użytkownika przy użyciu uwierzytelniania OAuth. W tym scenariuszu łączy OpenID Connect do uwierzytelniania użytkowników jednocześnie uzyskanie kodu autoryzacji, która umożliwia pobieranie tokenów dostępu, jeśli używasz przepływu kodu autoryzacji OAuth.
 
 Pełnego przepływu logowania i tokenu nabycia OpenID Connect wygląda podobnie do następnego diagramu. Opisano każdy krok szczegółowo w następnej sekcji tego artykułu.
 
 ![Protokołu OpenID Connect: Token nabycia](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-## Pobieranie tokenów dostępu
+## <a name="get-access-tokens"></a>Pobieranie tokenów dostępu
 Uzyskanie tokenów dostępu, należy zmodyfikować żądanie logowania:
 
 ```
@@ -228,7 +228,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 W tym zakresy uprawnień w żądaniu i za pomocą `response_type=id_token code`, punktu końcowego v2.0 gwarantuje, że użytkownik zgodził się na uprawnienia wskazanych w `scope` parametr zapytania. Zwraca kod autoryzacji do aplikacji z programem exchange dla tokenu dostępu.
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie z za pomocą `response_mode=form_post` wygląda podobnie do następującej:
 
 ```
@@ -245,7 +245,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Kod |Kod autoryzacji żądanej aplikacji. Aplikację można użyć kodu autoryzacji do żądania tokenu dostępu dla zasobu docelowego. Kod autoryzacji jest bardzo krótkim okresie. Zazwyczaj autoryzacji kod wygasa po upływie około 10 minut. |
 | state |Jeśli parametr Stan jest uwzględniony w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikacja powinna Sprawdź, czy wartości stan żądania i odpowiedzi są identyczne. |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może je odpowiednią obsługę. Odpowiedzi na błąd wygląda następująco:
 
 ```

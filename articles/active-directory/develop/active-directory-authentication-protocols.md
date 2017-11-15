@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Protokoły uwierzytelniania usługi Azure Active Directory
+# <a name="azure-active-directory-authentication-protocols"></a>Protokoły uwierzytelniania usługi Azure Active Directory
 Azure Active Directory (Azure AD) obsługuje niektóre z najczęściej używanych protokołów uwierzytelniania i autoryzacji. W tematach w tej sekcji opisano obsługiwane protokoły i ich implementacji w usłudze Azure AD. Tematy zawarte Przegląd obsługiwane typy oświadczeń, wprowadzenie do używania w metadanych Federacji, szczegółowe OAuth 2.0. i dokumentację referencyjną protokołu SAML 2.0 i w sekcji rozwiązywania problemów.
 
-## Protokoły uwierzytelniania artykułów i odwołania
+## <a name="authentication-protocols-articles-and-reference"></a>Protokoły uwierzytelniania artykułów i odwołania
 * [Ważne informacje dotyczące podpisywania klucza przerzucania w usłudze Azure AD](active-directory-signing-key-rollover.md) — Dowiedz się więcej na temat usługi Azure AD podpisywania okresach Przerzucanie klucza, zmiany można automatycznie zaktualizować klucza oraz omówienie aktualizacji najbardziej typowych scenariuszy aplikacji.
 * [Obsługiwane tokeny i oświadczenia](active-directory-token-and-claims.md) — więcej informacji dotyczących oświadczeń, w których usługa Azure AD wystawia tokeny.
 * [Metadane Federacji](active-directory-federation-metadata.md) — Dowiedz się, jak znaleźć i interpretować dokumentów metadanych, które generuje usługi Azure AD.
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) obsługuje niektóre z najczęściej używanyc
 * [Wywołania usług z przepływem On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md) — Dowiedz się, jak używać przepływu OAuth 2.0 On-Behalf-Of w wywołaniach usług.
 * [Referencyjne protokołu SAML](active-directory-saml-protocol-reference.md) — Dowiedz się więcej o rejestracji jednokrotnej i jednym SAML Sign-out profilów usługi Azure AD.
 
-## Zobacz też
+## <a name="see-also"></a>Zobacz też
 [Przewodnik dewelopera usługi Azure Active Directory](active-directory-developers-guide.md)
 
 [Przykłady kodu usługi Active Directory](active-directory-code-samples.md)

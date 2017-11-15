@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# V2.0 usługi Azure Active Directory i że przepływ poświadczeń klienta OAuth 2.0
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>V2.0 usługi Azure Active Directory i że przepływ poświadczeń klienta OAuth 2.0
 Można użyć [przyznania poświadczeń klienta OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), nazywane czasem *bokami dwa OAuth*, aby uzyskać dostęp do zasobów hostowanych w sieci web przy użyciu tożsamości aplikacji. Ten typ grant często służy do interakcji do serwera, które muszą zostać uruchomione w tle, bez natychmiastowego interakcji z użytkownikiem. Często aplikacje tego typu są określane jako *demony* lub *kont usługi*.
 
 > [!NOTE]
@@ -31,22 +31,22 @@ Można użyć [przyznania poświadczeń klienta OAuth 2.0](http://tools.ietf.org
 
 W bardziej typowego *bokami trzech OAuth*, aplikacja kliencka udzielono uprawnień do uzyskania dostępu do zasobu w imieniu określonego użytkownika. Uprawnienia delegowane przez użytkownika do aplikacji, zazwyczaj podczas [zgody](active-directory-v2-scopes.md) procesu. Jednak przepływu poświadczeń klienta, uprawnienia są przyznawane bezpośrednio do aplikacji. Użytkownik przedstawia aplikacji wymusza token do zasobu, zasobów, które aplikacja ma autoryzacji do wykonania akcji, a nie ma autoryzacji.
 
-## Diagram protokołu
+## <a name="protocol-diagram"></a>Diagram protokołu
 Przepływ poświadczeń klienta całego wygląda podobnie do następnego diagramu. Opisano poszczególne kroki w dalszej części tego artykułu.
 
 ![Przepływ poświadczeń klienta](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## Uzyskiwanie bezpośredniego autoryzacji
+## <a name="get-direct-authorization"></a>Uzyskiwanie bezpośredniego autoryzacji
 Aplikacja odbiera zwykle bezpośredniego autoryzacji dostępu do zasobu w jeden z dwóch sposobów: przez listy kontroli dostępu (ACL) do danego zasobu, albo przez przypisanie uprawnień aplikacji w usłudze Azure Active Directory (Azure AD). Te dwie metody są najbardziej rozpowszechnione w usłudze Azure AD, i zaleca ich dla klientów i zasobów, które wykonują klienta przepływ poświadczeń. Zasób można jednak zezwolić klientom w inny sposób. Każdy serwer zasobów można wybrać metodę najbardziej przydatny dla swojej aplikacji.
 
-### Listy kontroli dostępu
+### <a name="access-control-lists"></a>Listy kontroli dostępu
 Dostawca zasobów może wymuszać wyboru autoryzacji na podstawie listy identyfikatorów aplikacji wie i nieograniczony dostęp do określonego poziomu. Gdy zasób otrzymała token od punktu końcowego v2.0, można zdekodować token i wyodrębnić identyfikator aplikacji klienta z `appid` i `iss` oświadczeń. Następnie porównuje aplikacji z listy kontroli dostępu, który przechowuje. Szczegółowości ACL i metody mogą się znacznie różnić między zasobami.
 
 Jest typowych przypadkach użycia na potrzeby kontroli Uruchom testy dla aplikacji sieci web lub interfejs API sieci Web. Interfejs API sieci Web może udzielić tylko podzbioru pełnych uprawnień do określonego klienta. Aby uruchomić testy na trasie interfejsu API, należy utworzyć klienta testu, który uzyskuje tokenów z punktem końcowym v2.0, a następnie wysyła je do interfejsu API. Interfejs API następnie sprawdza listy ACL dla Identyfikatora aplikacji klient testowy dla pełnego dostępu do całej funkcji interfejsu API. Jeśli używasz tego rodzaju listy ACL, pamiętaj zweryfikować nie tylko wywołującego `appid` wartość. Również sprawdzić, czy `iss` wartość tokenu jest zaufany.
 
 Ten typ autoryzacji jest typowe dla demonów i kont usług, które wymagają dostępu do danych należących do użytkowników odbiorców, którzy mają osobistego konta Microsoft. Dla danych należących do organizacji firma Microsoft zaleca, możesz uzyskać wymagane zgody za pośrednictwem uprawnienia aplikacji.
 
-### Uprawnienia aplikacji
+### <a name="application-permissions"></a>Uprawnienia aplikacji
 Zamiast przy użyciu list kontroli dostępu, możesz użyć interfejsów API do udostępnienia zestaw uprawnień aplikacji. Uprawnienia aplikacji uzyskuje do aplikacji przez administratora organizacji i może służyć tylko dostęp do danych należących do organizacji i jej pracowników. Na przykład program Microsoft Graph udostępnia kilka aplikacji uprawnienia do wykonaj następujące czynności:
 
 * Odczytuj pocztę we wszystkich skrzynkach pocztowych
@@ -58,17 +58,17 @@ Aby uzyskać więcej informacji o uprawnieniach aplikacji, przejdź do [Microsof
 
 Aby użyć uprawnienia aplikacji w aplikacji, wykonaj czynności, które omówiono w kolejnych sekcjach.
 
-#### Żądanie uprawnienia w portalu rejestracji aplikacji
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Żądanie uprawnienia w portalu rejestracji aplikacji
 1. Przejdź do aplikacji w [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), lub [Utwórz aplikację](active-directory-v2-app-registration.md), jeśli nie jest jeszcze. Należy użyć co najmniej jeden klucz tajny aplikacji podczas tworzenia aplikacji.
 2. Zlokalizuj **bezpośrednie uprawnienia aplikacji** sekcji, a następnie Dodaj uprawnienia wymagane przez aplikację.
 3. **Zapisz** rejestracji aplikacji.
 
-#### Zalecane: Zalogować użytkownika do aplikacji
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Zalecane: Zalogować użytkownika do aplikacji
 Zazwyczaj podczas kompilowania aplikacji korzystającej z aplikacji uprawnienia aplikacji wymaga strony lub widok, w którym administrator zatwierdzi uprawnienia aplikacji. Ta strona może być częścią aplikacji logowania przepływu, część ustawień aplikacji lub może być dedykowany przepływu "connect". W wielu przypadkach warto dla aplikacji pokazać to "Połącz" widoku tylko wtedy, gdy użytkownik jest zalogowany za pomocą służbowego konta Microsoft.
 
 Jeśli logowania się użytkownika do aplikacji, można go zidentyfikować organizacji, do której należy użytkownik przed poprosić użytkownika o zatwierdzenie uprawnienia dostępu do aplikacji. Chociaż nie niezbędne, ułatwia tworzenie bardziej intuicyjne środowisko dla użytkowników. Aby zalogować się użytkownik, wykonaj naszych [samouczki protocol w wersji 2.0](active-directory-v2-protocols.md).
 
-#### Zażądaj uprawnień od administratora katalogu
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Zażądaj uprawnień od administratora katalogu
 Gdy wszystko jest gotowe zażądać uprawnień od administratora Twojej organizacji, można przekierować użytkownika do v2.0 *punktu końcowego zgody administratora*.
 
 ```
@@ -97,7 +97,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 W tym momencie usługi Azure AD wymusza, czy administrator dzierżawy może zalogować się do wykonania żądania. Administrator będzie musiał zatwierdzić wszystkie uprawnienia bezpośrednich zastosowań, które żądanej aplikacji w portalu rejestracji aplikacji.
 
-##### Odpowiedź oznaczająca Powodzenie
+##### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Jeśli administrator zatwierdza uprawnienia dla aplikacji, odpowiedź oznaczająca Powodzenie wygląda następująco:
 
 ```
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | state |Wartość, która znajduje się w żądaniu jest także zwracany w odpowiedzi tokenu. Można go ciąg ma zawartość. Stan jest używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
 | admin_consent |Ustaw **true**. |
 
-##### Odpowiedzi na błąd
+##### <a name="error-response"></a>Odpowiedzi na błąd
 Jeśli administrator nie zatwierdzenia uprawnień dla aplikacji, nie powiodło się odpowiedzi wygląda następująco:
 
 ```
@@ -124,10 +124,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Po otrzymaniu pomyślnej odpowiedzi z aplikacji inicjowania obsługi administracyjnej punktu końcowego, aplikację zyskały zażądała uprawnienia bezpośredniego stosowania. Teraz można żądać tokenu dla zasobu, który ma.
 
-## Uzyskaj token
+## <a name="get-a-token"></a>Uzyskaj token
 Po zostały nabyte niezbędne autoryzacji dla aplikacji, kontynuuj pobieranie tokenów dostępu do interfejsów API. Aby uzyskać token za pomocą klienta poświadczeń, Wyślij żądanie POST `/token` punktu końcowego v2.0:
 
-### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Wymagane |Klucz tajny aplikacji, generowany dla aplikacji w portalu rejestracji aplikacji. |
 | Typ grant_type |Wymagane |Musi być `client_credentials`. |
 
-### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
+### <a name="second-case-access-token-request-with-a-certificate"></a>W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -168,7 +168,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie wygląda następująco:
 
 ```
@@ -185,7 +185,7 @@ Odpowiedź oznaczająca Powodzenie wygląda następująco:
 | token_type |Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest `bearer`. |
 | expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błąd wygląda następująco:
 
 ```
@@ -210,7 +210,7 @@ Odpowiedzi na błąd wygląda następująco:
 | trace_id |Unikatowy identyfikator dla żądania, które mogą ułatwić rozwiązanie diagnostyki. |
 | correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
 
-## Użyj tokenu
+## <a name="use-a-token"></a>Użyj tokenu
 Teraz, gdy zostały nabyte token, użyj tokenu, aby wysyłać żądania do zasobu. Po wygaśnięciu tokenu, powtórz żądanie `/token` punktu końcowego można uzyskać tokenu dostępu świeże.
 
 ```
@@ -227,5 +227,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Przykład kodu
+## <a name="code-sample"></a>Przykład kodu
 Aby zapoznać się przykładem aplikacji czy implementuje poświadczeń klienta przyznać za pośrednictwem administratora zgody punktu końcowego, zobacz nasze [przykładowy kod demon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

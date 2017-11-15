@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# w wersji 2.0 protokołów - OAuth 2.0 & OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>w wersji 2.0 protokołów - OAuth 2.0 & OpenID Connect
 Punktu końcowego v2.0 można używać usługi Azure AD identity jako — usługa z branży standardowe protokoły OpenID Connect i OAuth 2.0.  Gdy usługa jest zgodny ze standardami, może to mieć niewielkie różnice między dwoma implementacjami tych protokołów.  Informacje w tym miejscu będzie przydatna, jeśli użytkownik chce wpisz swój kod, wysyłając bezpośrednio & obsługiwanie żądań HTTP lub użyj 3rd strona Otwórz źródło biblioteki, a nie przy użyciu jednej z naszych biblioteki typu open source.
 <!-- TODO: Need link to libraries above -->
 
@@ -30,7 +30,7 @@ Punktu końcowego v2.0 można używać usługi Azure AD identity jako — usług
 >
 >
 
-## Podstawy
+## <a name="the-basics"></a>Podstawy
 W niemal wszystkich przepływów OAuth i OpenID Connect obejmuje cztery strony programu exchange:
 
 ![Role uwierzytelniania OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -40,7 +40,7 @@ W niemal wszystkich przepływów OAuth i OpenID Connect obejmuje cztery strony p
 * **Klienta OAuth** jest aplikację identyfikowaną na podstawie jego identyfikatora aplikacji.  Zazwyczaj jest to strona, która użytkownik końcowy współdziała z, a żądania tokenów z serwera autoryzacji.  Klient musi otrzymać uprawnienia dostępu do zasobu przez właściciela zasobów.
 * **Serwer zasobów** jest, w którym znajduje się zasobów lub danych.  Relacje zaufania serwera autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta OAuth i używa elementu nośnego access_tokens zapewnienie może otrzymać dostęp do zasobu.
 
-## Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestracja aplikacji
 Każda aplikacja, która korzysta z punktu końcowego v2.0 musi być zarejestrowany w [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przed mogą współdziałać, za pomocą uwierzytelniania OAuth lub OpenID Connect.  Proces rejestracji aplikacji spowoduje zbieranie & przypisać kilka wartości do aplikacji:
 
 * **Identyfikator aplikacji** który unikatowo identyfikuje aplikację
@@ -49,7 +49,7 @@ Każda aplikacja, która korzysta z punktu końcowego v2.0 musi być zarejestrow
 
 Aby uzyskać więcej szczegółowych informacji, zapoznaj się z procedurą [rejestracji aplikacji](active-directory-v2-app-registration.md).
 
-## Punkty końcowe
+## <a name="endpoints"></a>Punkty końcowe
 Po zarejestrowaniu aplikacji komunikuje się z usługą Azure AD, wysyłając żądania do punktu końcowego v2.0:
 
 ```
@@ -68,12 +68,12 @@ Gdzie `{tenant}` można wykonać jedną z czterech różnych wartości:
 
 Aby uzyskać więcej informacji na temat interakcji z tymi punktami końcowymi wybierz poniżej typ danej aplikacji.
 
-## Tokeny
+## <a name="tokens"></a>Tokeny
 Implementacja v2.0 OAuth 2.0 i OpenID Connect należy zwiększone użycie tokenów elementu nośnego, łącznie z tokenów elementu nośnego reprezentowane jako tokenów Jwt. Token elementu nośnego jest tokenem zabezpieczającym lekkie, która udziela dostępu "bearer" do chronionego zasobu. W tym sensie "bearer" jest każda strona, która może ona powodować tokenu. Jeśli strona muszą najpierw zostać uwierzytelnione z usługą Azure AD do odbierania tokenu elementu nośnego, jeśli wymagane kroki nie są brane do zabezpieczania token w transmisji i przechowywania, można przechwycony i używane przez firmę niezamierzone. Chociaż w niektórych tokeny zabezpieczające wbudowany mechanizm uniemożliwia ich użycie przez osoby nieupoważnione, tokenów elementu nośnego nie mają ten mechanizm i musi być transportowane bezpiecznego kanału, takie jak zabezpieczeń warstwy transportu (HTTPS). Jeśli token elementu nośnego są przesyłane bez zabezpieczeń, man-in środkowej ataku można przez złośliwe stronę do uzyskania tokenu i użyć jej do nieautoryzowanego dostępu do chronionego zasobu. Te same zasady zabezpieczeń mają zastosowanie po zapisaniu lub buforowanie tokenów elementu nośnego do późniejszego użycia. Zawsze upewnij się, że aplikacja przesyła i przechowuje tokenów elementu nośnego w bezpieczny sposób. Aby uzyskać więcej zagadnienia dotyczące zabezpieczeń na tokenów elementu nośnego, zobacz [RFC 6750 sekcji 5](http://tools.ietf.org/html/rfc6750).
 
 Dalsze szczegółowe informacje o różnych typach tokenów używanych w punkcie końcowym v2.0 jest dostępna w [odwołania do tokenu punktu końcowego v2.0](active-directory-v2-tokens.md).
 
-## Protokoły
+## <a name="protocols"></a>Protokoły
 Jeśli wszystko jest gotowe wyświetlić niektóre przykładowe żądania, Rozpoczynanie pracy z jednego z poniższych samouczki.  Każda z nich odpowiada scenariusz, w szczególności uwierzytelniania.  Jeśli potrzebujesz pomocy przy ustaleniu, który jest prawo przepływu można wyewidencjonować [typy aplikacji, można tworzyć za pomocą v2.0](active-directory-v2-flows.md).
 
 * [Tworzenie przenośnych i aplikacji natywnej z protokołem OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

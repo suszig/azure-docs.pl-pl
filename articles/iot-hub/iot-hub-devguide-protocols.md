@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Odwołanie — wybierz protokół komunikacyjny
+# <a name="reference---choose-a-communication-protocol"></a>Odwołanie — wybierz protokół komunikacyjny
 
 Centrum IoT umożliwia skonfigurowanie urządzenia do używania następujące protokoły komunikacji po stronie urządzenia:
 
@@ -51,7 +51,7 @@ Po wybraniu użytkownika protokołu komunikacji po stronie urządzenia, należy 
 > [!WARNING]
 > Przy użyciu protokołu HTTPS, poszczególnych urządzeń należy sondować komunikatów chmury do urządzenia, co 25 minut lub więcej. Jednak podczas tworzenia, dopuszczalne jest do sondowania częściej niż co 25 minut.
 
-## Numery portów
+## <a name="port-numbers"></a>Numery portów
 
 Urządzenia mogą komunikować się z Centrum IoT na platformie Azure przy użyciu różnych protokołów. Zazwyczaj wybór protokół jest wymuszany przez określone wymagania rozwiązania. W poniższej tabeli wymieniono portów wychodzących, które musi być otwarte dla urządzenia można było użyć określonego protokołu:
 
@@ -66,7 +66,7 @@ Urządzenia mogą komunikować się z Centrum IoT na platformie Azure przy użyc
 Po utworzeniu Centrum IoT w regionie Azure, Centrum IoT przechowuje ten sam adres IP przez czas ich istnienia tego Centrum IoT. Jednak jeśli Microsoft przenosi Centrum IoT na jednostkę skalowania różnych utrzymanie jakości usług, następnie przypisano nowego adresu IP.
 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat sposobu Centrum IoT implementuje ten protokół MQTT, zobacz [komunikacja z Centrum IoT przy użyciu protokołu MQTT][lnk-mqtt-support].
 

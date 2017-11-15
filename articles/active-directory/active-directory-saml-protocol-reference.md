@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Jak Azure Active Directory korzysta z protokołu SAML
+# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Jak Azure Active Directory korzysta z protokołu SAML
 Azure Active Directory (Azure AD) protokół używa SAML 2.0 na potrzeby aplikacji zapewnić jednego środowiska logowania jednokrotnego dla użytkowników. [Rejestracji jednokrotnej](active-directory-single-sign-on-protocol-reference.md) i [jednym wylogowania](active-directory-single-sign-out-protocol-reference.md) SAML profilów usługi Azure AD wyjaśniają, jak SAML potwierdzeń, protokołów i powiązania są używane w usługę dostawcy tożsamości.
 
 Protokół SAML wymaga dostawcy tożsamości (Azure AD) i dostawcy usług (aplikacji) do wymiany informacji o sobie.
