@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory
 Ta strona zawiera pełną listę wszystkich dokumentów zapisywane o różnych funkcjach związanych z aplikacji w usłudze Azure Active Directory (Azure AD).
@@ -32,7 +32,7 @@ Poniższe są dobrym punkt wyjścia dla osób chcących po prostu krótki opis f
 |:---:| --- |
 | Wprowadzenie do zarządzania aplikacji problemy rozwiązuje usługa Azure AD |[Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | Przegląd różnych funkcji w usłudze Azure AD powiązany z włączaniem rejestracji jednokrotnej, określające, kto ma dostęp do aplikacji i jak użytkownicy uruchomią aplikacji |[Dostęp do aplikacji i logowanie jednokrotne w usłudze Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| Przeglądać inne czynności związane z integracji aplikacji usługi Azure AD |[Współdziałanie z aplikacjami usługi Azure Active Directory](active-directory-integrating-applications-getting-started.md)<br /><br />[Włączanie rejestracji jednokrotnej do aplikacji SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md) |
+| Przeglądać inne czynności związane z integracji aplikacji usługi Azure AD |[Współdziałanie z aplikacjami usługi Azure Active Directory](active-directory-integrating-applications-getting-started.md)<br /><br />[Włączanie rejestracji jednokrotnej do aplikacji SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md) |
 | Techniczne wyjaśnienie, w jaki aplikacje są reprezentowane w usłudze Azure AD |[Metody i przyczyny dodawania aplikacji do usługi Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Rozwiązywanie problemów z artykułów
@@ -80,8 +80,8 @@ Jeśli masz aplikacje w sieci prywatnej, które muszą być dostępne dla użytk
 |:---:| --- |
 | Omówienie serwera Proxy aplikacji usługi Azure AD oraz sposób jej działania |[Bezpieczny dostęp zdalny do aplikacji lokalnych](active-directory-application-proxy-get-started.md) |
 | Samouczki na sposób konfigurowania serwera Proxy aplikacji i jak opublikować pierwszej aplikacji |[Jak skonfigurować serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Jak zainstalować łącznik serwera Proxy aplikacji w trybie dyskretnym](active-directory-application-proxy-silent-installation.md)<br /><br />[Sposób publikowania aplikacji przy użyciu serwera Proxy aplikacji](active-directory-application-proxy-publish.md)<br /><br />[Jak korzystać z własnej nazwy domeny](active-directory-application-proxy-custom-domains.md) |
-| Jak włączyć jednego logowania i warunkowego dostępu dla aplikacji opublikowane przy użyciu serwera Proxy aplikacji |[Single-sign-on z serwerem Proxy aplikacji](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Dostęp warunkowy i serwera Proxy aplikacji](active-directory-application-proxy-conditional-access.md) |
-| Wskazówki dotyczące sposobu używania serwera Proxy aplikacji w następujących scenariuszach |[Jak obsługiwać aplikacje Native Client](active-directory-application-proxy-native-client.md)<br /><br />[Jak obsługiwać aplikacje obsługujące oświadczenia](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Jak obsługiwać aplikacji publikowanych w odrębnych sieci i lokalizacje](active-directory-application-proxy-connectors.md) |
+| Jak włączyć jednego logowania i warunkowego dostępu dla aplikacji opublikowane przy użyciu serwera Proxy aplikacji |[Single-sign-on z serwerem Proxy aplikacji](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Dostęp warunkowy i serwera Proxy aplikacji](application-proxy-enable-remote-access-sharepoint.md) |
+| Wskazówki dotyczące sposobu używania serwera Proxy aplikacji w następujących scenariuszach |[Jak obsługiwać aplikacje Native Client](active-directory-application-proxy-native-client.md)<br /><br />[Jak obsługiwać aplikacje obsługujące oświadczenia](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Jak obsługiwać aplikacji publikowanych w odrębnych sieci i lokalizacje](active-directory-application-proxy-connectors-azure-portal.md) |
 | Podręcznik rozwiązywania problemów dotyczących serwera Proxy aplikacji |[Przewodnik rozwiązywania problemów serwera Proxy aplikacji](active-directory-application-proxy-troubleshoot.md) |
 
 Serwer Proxy aplikacji jest dostępna dla wszystkich wersji programu Azure AD dla aplikacji do dziesięciu dla poszczególnych użytkowników. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) obsługuje aplikacje nieograniczone. Jeśli Twoja organizacja ma [Azure AD podstawowa](https://azure.microsoft.com/pricing/details/active-directory/) lub [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), a następnie możesz [używanie grup do udzielania dostępu do aplikacji](#managing-access-to-applications).
@@ -107,10 +107,9 @@ Po skonfigurowaniu rejestracji jednokrotnej do aplikacji i zasobów, można nast
 
 | Przewodnik artykułu |  |
 |:---:| --- |
-| Wprowadzenie do funkcji dostępu warunkowego oferowane przez usługi Azure AD, usługi Office 365 i Intune |[Zarządzanie ryzykiem przy użyciu dostępu warunkowego](active-directory-conditional-access.md) |
-| Sposób włączania dostępu warunkowego dla następujących typów zasobów |[Dostęp warunkowy dla aplikacji SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Dostęp warunkowy dla usługi Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Dostęp warunkowy do aplikacji lokalnych](active-directory-conditional-access.md)<br /><br />[Dostęp warunkowy do aplikacji lokalnych opublikowane za pośrednictwem serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-conditional-access.md) |
-
-| Jak zarejestrować urządzenia z usługą Azure Active Directory, aby włączyć zasady dostępu warunkowego opartego na urządzeniach | [Omówienie rejestracji urządzeń usługi Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Włączanie automatycznej rejestracji urządzeń dla domeny przyłączone do urządzeń z systemem Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Urządzeń kroki dla Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Urządzeń kroki dla systemu Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| Wprowadzenie do funkcji dostępu warunkowego oferowane przez usługi Azure AD, usługi Office 365 i Intune |[Zarządzanie ryzykiem przy użyciu dostępu warunkowego](active-directory-conditional-access-azure-portal.md) |
+| Sposób włączania dostępu warunkowego dla następujących typów zasobów |[Dostęp warunkowy dla aplikacji SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Dostęp warunkowy dla usługi Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Dostęp warunkowy do aplikacji lokalnych](active-directory-conditional-access-azure-portal.md)<br /><br />[Dostęp warunkowy do aplikacji lokalnych opublikowane za pośrednictwem serwera Proxy aplikacji usługi Azure AD](application-proxy-enable-remote-access-sharepoint.md) |
+| Jak zarejestrować urządzenia z usługą Azure Active Directory, aby włączyć zasady dostępu warunkowego opartego na urządzeniu |[Omówienie usługi Azure Active Directory rejestracji urządzenia](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Włączanie automatycznej rejestracji urządzeń dla domeny przyłączone do urządzeń z systemem Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Urządzeń kroki dla Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Urządzeń kroki dla systemu Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Sposób użycia aplikacji Authenticator firmy Microsoft na potrzeby weryfikacji dwuetapowej | [Uwierzytelniania firmy Microsoft](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ Aby ułatwić zarządzanie, kto ma dostęp do określonych zasobów, usługi Azu
 |:---:| --- |
 | Omówienie funkcji zarządzania dostęp do usługi Azure AD |[Wprowadzenie do zarządzania dostępem do aplikacji](active-directory-managing-access-to-apps.md)<br /><br />[Jak działa Zarządzanie dostępu w usłudze Azure AD](active-directory-manage-groups.md)<br /><br />[Jak używać grup do zarządzania dostępem do aplikacji SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Włącz samoobsługowe zarządzanie aplikacji i grup |[Zarządzanie aplikacjami samoobsługi](active-directory-self-service-application-access.md)<br /><br />[Zarządzanie grupami samoobsługi](active-directory-accessmanagement-self-service-group-management.md) |
-| Instrukcje dotyczące konfigurowania grup w usłudze Azure AD |[Tworzenie grup zabezpieczeń](active-directory-accessmanagement-manage-groups.md)<br /><br />[Jak wyznaczyć właścicielami grupy](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Jak używać grupie "Wszyscy użytkownicy"](active-directory-accessmanagement-dedicated-groups.md) |
-| Użyj grup dynamicznych, które automatycznie wypełnić członkostwa grupy przy użyciu reguł członkostwa na podstawie atrybutu |[Członkostwa w grupie dynamiczne: Zaawansowanych reguł](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Rozwiązywanie problemów z członkostwa w grupach dynamiczne](active-directory-accessmanagement-troubleshooting.md) |
+| Instrukcje dotyczące konfigurowania grup w usłudze Azure AD |[Tworzenie grup zabezpieczeń](active-directory-groups-create-azure-portal.md)<br /><br />[Jak wyznaczyć właścicielami grupy](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Jak używać grupie "Wszyscy użytkownicy"](active-directory-accessmanagement-dedicated-groups.md) |
+| Użyj grup dynamicznych, które automatycznie wypełnić członkostwa grupy przy użyciu reguł członkostwa na podstawie atrybutu |[Członkostwa w grupie dynamiczne: Zaawansowanych reguł](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Rozwiązywanie problemów z członkostwa w grupach dynamiczne](active-directory-accessmanagement-troubleshooting.md) |
 
 Zarządzanie dostępem na podstawie grupy aplikacji jest dostępna dla [Azure AD podstawowa](https://azure.microsoft.com/pricing/details/active-directory/) i [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Samoobsługowe zarządzanie grupami, zarządzanie aplikacjami samoobsługi i grupami dynamicznymi [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funkcji.
 

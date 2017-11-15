@@ -13,14 +13,14 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurowanie synchronizacji danych SQL (wersja zapoznawcza)
 Z tego samouczka dowiesz się sposobu konfigurowania synchronizacji danych SQL Azure, tworząc grupy synchronizacji hybrydowych, zawierającej wystąpienia zarówno usługi Azure SQL Database i programu SQL Server. Nowa grupa synchronizacji jest w pełni skonfigurowane i synchronizuje się zgodnie z harmonogramem, które można ustawić.
@@ -192,6 +192,83 @@ Po nowych członków grupy synchronizacji są tworzone i wdrażane, krok 3 **Kon
     ![Wybierz pola do synchronizacji](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Na koniec wybierz **zapisać**.
+
+## <a name="faq-about-setup-and-configuration"></a>Często zadawane pytania dotyczące instalacji i konfiguracji
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Częstotliwość synchronizacji danych można synchronizować dane? 
+Minimalna częstotliwość wynosi co pięć minut.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>Synchronizacja danych SQL pełni tworzenie i przydzielanie tabele?
+
+Jeśli w tabelach schematu synchronizacji nie są już tworzone w docelowej bazie danych, synchronizacja danych SQL (wersja zapoznawcza) powoduje utworzenie z kolumnami, które zostały wybrane. Jednak to zachowanie nie powoduje schematu pełnej rozdzielczości, z następujących powodów:
+
+-   Tylko wybrane kolumny są tworzone w tabeli docelowej. Jeśli niektóre kolumny w tabeli źródłowej nie są częścią grupy synchronizacji, nie są udostępnione te kolumny w tabeli docelowej.
+
+-   Indeksy są tworzone tylko dla wybranych kolumn. Indeks tabeli źródła zawiera kolumny, które nie są częścią grupy synchronizacji, te indeksy nie są udostępnione w tabeli docelowej.
+
+-   Indeksy w kolumnach typu XML nie są udostępnione.
+
+-   Sprawdź, czy ograniczenia nie są udostępnione.
+
+-   Istniejące wyzwalacze w tabelach źródła nie są udostępnione.
+
+-   Widoki i procedury składowane nie są tworzone w docelowej bazie danych.
+
+Z powodu tych ograniczeń zaleca się następujących czynności:
+-   W środowiskach produkcyjnych udostępnić schematu pełnej wierności samodzielnie.
+-   Dla wypróbowaniem usługi, funkcja automatycznego inicjowania obsługi synchronizacji danych SQL (wersja zapoznawcza) działa dobrze.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Dlaczego widzę tabel, które I nie może utworzyć?  
+Synchronizacja danych tworzy tabele w bazie danych śledzenia zmian. Nie należy usuwać je lub synchronizacji danych przestanie działać.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Moje dane jest zbieżne po synchronizacji?
+
+Niekoniecznie. Grupy synchronizacji przy użyciu koncentratora i trzy partnerzy (A, B i C) synchronizacje są koncentratora A, Centrum b i Centrum c. Jeśli zmiany do bazy danych A *po* koncentratora do synchronizacji, zmiany nie zapisane bazy danych B i C bazy danych do czasu następnego zadania synchronizacji.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Jak uzyskać zmiany schematu do grupy synchronizacji?
+
+Należy ręcznie wykonać zmiany schematu.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak wyeksportować i zaimportować bazę danych z opcją synchronizacji danych?
+Po wyeksportowaniu bazy danych jako `.bacpac` pliku i zaimportować plik, aby utworzyć nową bazę danych, należy wykonać następujące czynności dwa na synchronizację danych do nowej bazy danych:
+1.  Czyszczenie obiektów synchronizacji danych i tabel na **nową bazę danych** za pomocą [ten skrypt](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ten skrypt powoduje usunięcie wszystkich wymaganych obiektów synchronizacji danych z bazy danych.
+2.  Utwórz ponownie grupę synchronizacji z nową bazę danych. Jeśli stary grupy synchronizacji nie jest już potrzebny, usuń go.
+
+## <a name="faq-about-the-client-agent"></a>Często zadawane pytania dotyczące agenta klienta
+
+### <a name="why-do-i-need-a-client-agent"></a>Dlaczego muszę agenta klienta?
+
+Usługa synchronizacji danych SQL (wersja zapoznawcza) komunikuje się z bazy danych programu SQL Server za pośrednictwem agenta klienta. Ta funkcja zabezpieczeń uniemożliwiają bezpośrednią komunikację z bazami danych za zaporą. Po usługę synchronizacji danych SQL (wersja zapoznawcza) komunikuje się z agentem, tak więc przy użyciu szyfrowane połączeń i token unikatowy lub *klucz agenta*. Bazy danych programu SQL Server uwierzytelnienia agenta przy użyciu klucza ciągu i agent połączenia. Ten projekt zapewnia wysoki poziom zabezpieczeń danych.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Ile wystąpienia lokalnego agenta interfejsu użytkownika można uruchomić?
+
+Można uruchomić tylko jedno wystąpienie interfejsu użytkownika.
+
+### <a name="how-can-i-change-my-service-account"></a>Jak zmienić konto usługi?
+
+Po zainstalowaniu agenta klienta, jedynym sposobem, aby zmienić konto usługi jest Odinstaluj ją i zainstaluj nowego agenta klienta z nowego konta usługi.
+
+### <a name="how-do-i-change-my-agent-key"></a>Jak zmienić mój klucz agenta?
+
+Klucz agenta można tylko raz przez agenta. Nie można ponownie użyć, gdy należy usunąć, a następnie ponownie zainstaluj nowego agenta nie może być on używany przez wielu agentów. Jeśli musisz utworzyć nowy klucz dla istniejącego agenta, należy się upewnić, że ten sam klucz jest rejestrowana z agentem klienta i usługi synchronizacji danych SQL (wersja zapoznawcza).
+
+### <a name="how-do-i-retire-a-client-agent"></a>Jak wycofanie agenta klienta?
+
+Aby natychmiast unieważnia lub wycofanie agenta, ponownie wygenerować klucz jej w portalu, ale nie przesyłać go w Interfejsie użytkownika agenta. Trwa ponowne generowanie klucza unieważnia poprzedniego klucza niezależnie, jeśli agent odpowiedniego online lub offline.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Jak przenieść agenta klienta do innego komputera?
+
+Jeśli chcesz uruchomić lokalnego agenta z innego komputera niż aktualnie znajduje się na, wykonaj następujące czynności:
+
+1. Zainstaluj agenta na wybrany komputer.
+
+2. Zaloguj się do portalu synchronizacji danych SQL (wersja zapoznawcza) i ponownie wygenerować klucz agenta dla nowego agenta.
+
+3. Użyj nowego agenta interfejsu użytkownika, aby przesłać nowy klucz agenta.
+
+4. Zaczekaj, aż agenta klienta pobiera listę lokalnych baz danych, które zostały wcześniej zarejestrowane.
+
+5. Podaj poświadczenia bazy danych dla wszystkich baz danych zawierających jako niedostępny. Te bazy danych musi być dostępny z nowym komputerze, na którym jest zainstalowany agent.
 
 ## <a name="next-steps"></a>Następne kroki
 Gratulacje. Utworzono grupę synchronizacji, która zawiera zarówno wystąpienie bazy danych SQL, jak i bazy danych programu SQL Server.

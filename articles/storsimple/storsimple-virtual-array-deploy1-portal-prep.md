@@ -4,7 +4,7 @@ description: "Pierwszy samouczek, aby wdrożyć wirtualny tablicy StorSimple obe
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Wdrażanie tablicy wirtualne StorSimple — przygotowanie portalu Azure
 
@@ -32,7 +32,7 @@ Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia admi
 
 Informacje zawarte w tym artykule dotyczą wdrażania tablic wirtualnego StorSimple w portalu Azure i Microsoft Azure dla instytucji rządowych chmury.
 
-### <a name="get-started"></a>Rozpoczynanie pracy
+### <a name="get-started"></a>Rozpoczęcie pracy
 Przepływ pracy wdrażania składa się z przygotowanie portalu, udostępniania wirtualnego tablicy w środowisku zwirtualizowanym i zakończeniu instalacji. Aby rozpocząć pracę z wdrożeniem tablicy wirtualnego StorSimple jako serwer plików lub serwera iSCSI, należy odwoływać się do następujących zasobów tabelaryczne.
 
 #### <a name="deployment-articles"></a>Wdrażania
@@ -42,7 +42,7 @@ Aby wdrożyć tablica wirtualnego StorSimple, można znaleźć w następujących
 | **#** | **W tym kroku** | **Aby to zrobić...** | **I korzystać z tych dokumentów.** |
 | --- | --- | --- | --- |
 | 1. |**Konfigurowanie portalu Azure** |Tworzenie i konfigurowanie usługi Menedżer StorSimple urządzenia przed inicjowania obsługi administracyjnej dla tablicy wirtualne StorSimple. |[Przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Udostępnianie wirtualnych tablicy** |Dla funkcji Hyper-V udostępniania i Połącz z tablicą wirtualnego StorSimple na komputerze hosta z funkcją Hyper-V w systemie Windows Server 2012 R2, Windows Server 2012 lub Windows Server 2008 R2. <br></br> <br></br> Dla VMware udostępniania i Połącz z tablicą wirtualnego StorSimple, na komputerze hosta z systemem VMware ESXi 5.5 lub nowszym.<br></br> |[Udostępnianie wirtualnych tablicy w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Udostępnianie wirtualnych tablicy w środowisku programu VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Udostępnianie wirtualnych tablicy** |Dla funkcji Hyper-V udostępniania i Połącz z tablicą wirtualnego StorSimple na komputerze hosta z funkcją Hyper-V w systemie Windows Server 2012 R2, Windows Server 2012 lub Windows Server 2008 R2. <br></br> <br></br> Dla VMware udostępniania i nawiąż połączenie z tablicą wirtualnego StorSimple na komputerze hosta z systemem VMware ESXi 5.0, 5.5 lub 6.0.<br></br> |[Udostępnianie wirtualnych tablicy w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Udostępnianie wirtualnych tablicy w środowisku programu VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Konfigurowanie wirtualnego tablicy** |Dla serwera plików wykonywania początkowej konfiguracji, zarejestruj StorSimple serwera plików, a następnie przeprowadzić konfigurację urządzenia. Można następnie udostępnić udziałów SMB. <br></br> <br></br> Dla serwera iSCSI wykonywania początkowej konfiguracji, Zarejestruj serwer iSCSI StorSimple i ukończyć instalację na urządzeniu. Następnie można alokować woluminy iSCSI. |[Konfigurowanie wirtualnego tablicy jako serwer plików](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Konfigurowanie wirtualnego tablicy jako serwer iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Teraz można rozpocząć konfigurowanie portalu Azure.
@@ -70,7 +70,7 @@ Przed rozpoczęciem upewnij się, że:
 
 Przed wdrożeniem wirtualnego tablicy, upewnij się, że:
 
-* Masz dostęp do systemu hosta funkcji Hyper-V w systemie Windows Server 2008 R2 lub nowszym lub VMware (ESXi 5.5 lub nowszego), które mogą być używane do udostępniania urządzenia.
+* Masz dostęp do systemu hosta funkcji Hyper-V w systemie Windows Server 2008 R2 lub nowszym lub VMware (ESXi 5.0, 5.5 lub 6.0), które mogą być używane do udostępniania urządzenia.
 * System hosta jest w stanie dedykować następujących zasobów, aby udostępnić wirtualny tablica:
   
   * Co najmniej 4 rdzenie.
@@ -136,7 +136,7 @@ Wykonaj poniższe kroki w [portalu Azure](https://portal.azure.com/).
    
    * VHDX dla funkcji Hyper-V w systemie Windows Server 2012 lub nowszym
    * Wirtualnego dysku twardego funkcji Hyper-v w systemie Windows Server 2008 R2 lub nowszym
-   * VMDK VMWare ESXi 5.5 lub nowszy
+   * VMDK dla VMWare ESXi 5.0, 5.5 lub 6.0
 5. Pobierz i rozpakuj plik lokalny dysk, co Zanotuj którym znajduje się plik rozpakowane.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Krok opcjonalny: Konfigurowanie nowego konta magazynu dla usługi

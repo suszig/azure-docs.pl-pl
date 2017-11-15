@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure współpracy B2B usługi Active Directory — często zadawane pytania
 
@@ -29,7 +29,7 @@ Te usługi Azure Active Directory (Azure AD) biznesowych między firmami (B2B) w
 Nie. Funkcje współpracy B2B usługi AD platformy Azure są dostępne tylko w [portalu Azure](https://portal.azure.com) i [panelu dostępu](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Dlatego jest bardziej intuicyjne dla naszych gości współpracy B2B możemy dostosować stronę logowania?
-Absolutnie! Zobacz nasze [wpis w blogu o tej funkcji](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Aby uzyskać więcej informacji na temat dostosowywania stronę logowania Twojej organizacji, zobacz [dodać znakowanie firmowe do Zaloguj się i strony panelu dostępu](active-directory-add-company-branding.md).
+Absolutnie! Zobacz nasze [wpis w blogu o tej funkcji](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Aby uzyskać więcej informacji na temat dostosowywania stronę logowania Twojej organizacji, zobacz [dodać znakowanie firmowe do Zaloguj się i strony panelu dostępu](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Można B2B współpracy użytkownicy uzyskują dostęp do usługi SharePoint Online i OneDrive?
 Tak. Jednak jest możliwość wyszukiwania istniejących użytkowników Gość w usłudze SharePoint Online przy użyciu selektora osób **poza** domyślnie. Aby włączyć tę opcję, aby wyszukać istniejący użytkownicy gościa, należy ustawić **ShowPeoplePickerSuggestionsForGuestUsers** do **na**. Można włączyć to ustawienie na poziomie dzierżawy lub na poziomie zbioru witryn. To ustawienie można zmienić za pomocą polecenia cmdlet Set-SPOTenant i SPOSite zestawu. Z tych poleceń cmdlet elementy członkowskie umożliwia wyszukiwanie istniejących Goście w katalogu. Zmiany w zakresie dzierżawy nie wpływają na witryn usługi SharePoint Online, które zostały już zainicjowane.

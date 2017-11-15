@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu w usłudze Azure AD
 Zabezpieczanie uprzywilejowanego dostępu jest krytyczne pierwszy krok w celu ochrony zasobów biznesowych w organizacji modern. Uprzywilejowane konta są kontami, które Administruj i Zarządzaj systemów informatycznych. Osoby atakujące przez docelowe te konta do uzyskiwania dostępu do danych organizacji i systemów. Aby zabezpieczyć uprzywilejowanego dostępu, można odizolować kont i systemów ryzyka narażenia na złośliwy użytkownik.
@@ -66,7 +66,7 @@ Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza określo
 * Włącz [uwierzytelnianie wieloskładnikowe platformy Azure](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Włącz [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Włącz [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Włącz [kontroli dostępu warunkowego](../active-directory-conditional-access.md)
+* Włącz [kontroli dostępu warunkowego](../active-directory-conditional-access-azure-portal.md)
 
 Aby uzyskać więcej informacji na tworzeniu planu pełną zabezpieczeń, zobacz sekcję "obowiązki klienta i plan" [Microsoft Cloud Security dla architektów Enterprise](http://aka.ms/securecustomer) dokumentu. Aby uzyskać więcej informacji na angażowaniu usług firmy Microsoft z dowolnego z tych tematów, skontaktuj się z przedstawicielem firmy Microsoft lub odwiedź nasze [strony rozwiązania bezpieczeństwa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

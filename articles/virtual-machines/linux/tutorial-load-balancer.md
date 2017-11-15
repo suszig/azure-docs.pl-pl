@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak załadować saldo maszyn wirtualnych systemu Linux na platformie Azure, aby utworzyć aplikację wysokiej dostępności
 Równoważenie obciążenia sieciowego zapewnia wyższy poziom dostępności dzięki rozproszeniu przychodzące żądania między wieloma maszynami wirtualnymi. W tym samouczku opisano różne składniki usługi równoważenia obciążenia Azure dystrybucji ruchu, które zapewniają wysoką dostępność. Omawiane kwestie:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Gdy wszystkie trzy wirtualne karty sieciowe są tworzone, przejdź do kolejnego kroku
+
+
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
 ### <a name="create-cloud-init-config"></a>Tworzenie konfiguracji init chmury
-W poprzednich samouczek dotyczący [sposobu dostosowywania maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera](tutorial-automate-vm-deployment.md), wiesz, jak można zautomatyzować dostosowania maszyny Wirtualnej z inicjowaniem chmury. Można użyć tego samego pliku konfiguracji chmury init NGINX zainstalować i uruchomić prostej aplikacji Node.js "Hello World".
+W poprzednich samouczek dotyczący [sposobu dostosowywania maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera](tutorial-automate-vm-deployment.md), wiesz, jak można zautomatyzować dostosowania maszyny Wirtualnej z inicjowaniem chmury. Można użyć tego samego pliku konfiguracji chmury init NGINX zainstalować i uruchomić proste "Hello World" aplikacji Node.js w następnym kroku. Aby wyświetlić moduł równoważenia obciążenia w akcji na końcu samouczka dostęp do tej prostej aplikacji w przeglądarce sieci web.
 
 W bieżącym powłoki, Utwórz plik o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Wprowadź `sensible-editor cloud-init.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Następnie można wprowadzić publicznego adresu IP w przeglądarce sieci web. Pamiętaj — zajmuje kilka minut maszyn wirtualnych będzie gotowa, przed rozpoczęciem dystrybucji ruchu do nich usługi równoważenia obciążenia. Aplikacja jest wyświetlana, łącznie z nazwą hosta maszyny Wirtualnej dystrybuowanej usługi równoważenia obciążenia w ruchu, jak w poniższym przykładzie:
+Następnie można wprowadzić publicznego adresu IP w przeglądarce sieci web. Pamiętaj — zajmuje kilka minut dla maszyn wirtualnych będzie gotowa, przed rozpoczęciem dystrybucji ruchu do nich usługi równoważenia obciążenia. Aplikacja jest wyświetlana, łącznie z nazwą hosta maszyny Wirtualnej dystrybuowanej usługi równoważenia obciążenia w ruchu, jak w poniższym przykładzie:
 
 ![Uruchomionej aplikacji Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Aby wyświetlić rozpowszechniają ruchu pozostałych dwóch maszyn wirtualnych z tą aplikacją usługi równoważenia obciążenia można można życie odświeżania przeglądarki sieci web. Teraz można przeprowadzać konserwacji na maszynie Wirtualnej, takie jak instalowanie aktualizacji systemu operacyjnego lub wykonywania ponownego uruchomienia maszyny Wirtualnej.
 
+Aby wyświetlić listę maszyn wirtualnych z wirtualne karty sieciowe podłączone do usługi równoważenia obciążenia, użyj [Pokaż puli adresów równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/address-pool#show). Zapytania i odfiltrować identyfikator wirtualnej karty Sieciowej w następujący sposób:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+Wynik jest podobny do poniższego przykładu, który pokazuje, że wirtualnej karty Sieciowej dla maszyny Wirtualnej 2 nie jest już częścią puli adresów zaplecza:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Dodaj Maszynę wirtualną z usługą równoważenia obciążenia
 Po wykonaniu obsługi maszyny Wirtualnej, lub jeśli trzeba zwiększyć pojemność, można dodać maszyny Wirtualnej do puli adresów zaplecza z [az kart konfiguracji ip puli adresów sieciowych — Dodaj](/cli/azure/network/nic/ip-config/address-pool#add). W poniższym przykładzie dodano wirtualnej karty Sieciowej dla **myVM2** do *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Aby sprawdzić, czy wirtualną kartę Sieciową podłączoną do puli adresów zaplecza, użyj [Pokaż puli adresów równoważeniem obciążenia sieciowego az](/cli/azure/network/lb/address-pool#show) ponownie z poprzedniego kroku.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: często zadawane pytania (FAQ)
 Ten artykuł zawiera często zadawane pytania dotyczące usługi Azure Site Recovery. Jeśli masz pytania po przeczytaniu tego artykułu, opublikuj je na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ Aby chronić maszyny wirtualne VMware, należy posiadać program vSphere Hypervi
 Tak. Gdy używasz usługi Site Recovery do organizowania replikacji i trybu failover w biurach oddziałów, uzyskasz ujednoliconego aranżacji i widoku wszystkie obciążenia oddziałów w centralnej lokalizacji. Możesz z łatwością uruchomić tryb failover i zarządzać odzyskiwaniem po awarii wszystkich oddziałów z siedziby, bez konieczności odwiedzania oddziałów.
 
 ## <a name="pricing"></a>Cennik
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Co opłaty są naliczane podczas korzystania z usługi Azure Site Recovery?
-Gdy używasz usługi Site Recovery wiąże się z opłatami licencji usługi Site Recovery, usługi Azure storage, transakcji magazynu i transfer danych wychodzących. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/site-recovery).
-
-Licencja usługi Site Recovery jest dla każdego wystąpienia chronionych, w przypadku wystąpienia maszyny Wirtualnej lub serwerze fizycznym.
-
-- Jeśli dysk maszyny Wirtualnej są replikowane do konta magazynu w warstwie standardowa, usługa Azure storage jest wykorzystania magazynu. Na przykład jeśli rozmiar dysku źródłowego jest 1 TB i 400 GB jest używany, Usługa Site Recovery tworzy 1 TB wirtualnego dysku twardego na platformie Azure, ale magazynu naliczona opłata jest 400 GB (oraz ilość miejsca używanego dla dzienników replikacji).
-- Jeśli dysk maszyny Wirtualnej są replikowane do konta magazynu w warstwie premium, Azure storage jest rozmiaru zainicjowanego magazynu, zaokrąglone dla opcji najbliższej dysku magazynu premium. Na przykład jeśli rozmiar dysku źródłowego jest 50 GB, Usługa Site Recovery tworzy dysk 50 GB na platformie Azure oraz Azure mapuje to do najbliższej dysku magazynu premium (P10).  Koszty są obliczane na P10, a nie na rozmiar dysku 50 GB.  [Dowiedz się więcej](https://aka.ms/premium-storage-pricing).  Jeśli używasz magazyn w warstwie premium, konto magazynu w warstwie standardowa dla rejestrowania replikacji jest również wymagany i ilość miejsca magazynu w warstwie standardowa dla dzienników również jest on rozliczany.
-- Dyski nie są tworzone do testowania trybu failover lub awarię. Stan replikacji magazynu opłat w kategorii "stronicowych obiektów blob i dysku" zgodnie [Kalkulator cen magazynu](https://azure.microsoft.com/en-in/pricing/calculator/) poniesione. Opłaty te są oparte na magazyn typu premium/standard i nadmiarowość danych wpisz - LRS, GRS, RA-GRS itp.
-- Jeśli wybrano opcję, aby używać dysków zarządzanych w tryb failover, [opłat za dysków zarządzanych](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) po przejściu w tryb failover trybu failover i testowanie. Zarządzane dyski, które opłaty nie są stosowane podczas replikacji.
-- Jeśli nie wybrano opcji użycia dysków zarządzanych w tryb failover, Magazyn opłatami za z kategorii "stronicowych obiektów blob i dysku" jako każdego [Kalkulator cen magazynu](https://azure.microsoft.com/en-in/pricing/calculator/) poniesionych po pracy awaryjnej. Opłaty te są oparte na magazyn typu premium/standard i nadmiarowość danych wpisz - LRS, GRS, RA-GRS itp.
-- Transakcje magazynu są naliczane podczas replikacji stabilnego i regularnych operacji maszyny Wirtualnej po przejściu w tryb failover i testowania trybu failover. Ale opłaty te są bez znaczenia.
-
-Podczas testowania trybu failover, w których zostaną zastosowane koszty transakcji maszyny Wirtualnej, magazynowania, transfer danych wychodzących i magazynu są również poniesione koszty.
-
-
+Cennik pytania związane z, można znaleźć na stronie często zadawane pytania pod [cennik usługi Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Bezpieczeństwo
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Czy dane replikacji są wysyłane do usługi Site Recovery?

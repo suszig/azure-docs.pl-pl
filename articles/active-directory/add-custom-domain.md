@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Szybki Start: Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
 
@@ -78,7 +78,7 @@ Jeśli nie można zweryfikować niestandardowej nazwy domeny, spróbuj wykonać 
 Jeśli organizacja używa wielu niestandardowych nazw domen, takich jak "contoso.com" "czy" contosobank.com ", można dodać, maksymalnie 900 nazw domen. Kroki opisane w tym artykule może pomóc Dodaj wszystkie nazwy domeny.
 
 ### <a name="learn-more"></a>Dowiedz się więcej
-[Poglądowe omówienie niestandardowych nazw domen w usłudze Azure AD](active-directory-add-domain-concepts.md)
+[Poglądowe omówienie niestandardowych nazw domen w usłudze Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Zarządzanie niestandardowymi nazwami domen](active-directory-domains-manage-azure-portal.md)
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integracja z usługą Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Integracja z usługą Azure AD jest dostarczany z korzyści, które nie wymagaj�
 
 **Nietypowe logowania wykrywania.**  Usługi Azure AD procesów logowania ponad miliard dziennie, używając algorytmów uczenia maszynowego w celu wykrycia podejrzanych działań, a także powiadamiania administratorów IT o potencjalnych problemach.  Dzięki obsłudze logowania w usłudze Azure AD, aplikacja pobiera asysty tej ochrony. Dowiedz się więcej o [wyświetlanie raportów dostępu do usługi Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
-**Dostęp warunkowy.**  Oprócz uwierzytelnianie wieloskładnikowe, Administratorzy mogą wymagać określonych warunków zostać spełnione, aby użytkownicy mogą zalogować się do aplikacji.  Warunki, które można ustawić obejmują zakres adresów IP na urządzeniach klienckich, członkostwa w określonej grupie i stan urządzenia używane dla dostępu.  Dowiedz się więcej o [dostępu warunkowego w usłudze Azure Active Directory](../active-directory-conditional-access.md).
+**Dostęp warunkowy.**  Oprócz uwierzytelnianie wieloskładnikowe, Administratorzy mogą wymagać określonych warunków zostać spełnione, aby użytkownicy mogą zalogować się do aplikacji.  Warunki, które można ustawić obejmują zakres adresów IP na urządzeniach klienckich, członkostwa w określonej grupie i stan urządzenia używane dla dostępu.  Dowiedz się więcej o [dostępu warunkowego w usłudze Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Łatwość programowania
 **Standardowych protokołach branżowych.**  Firma Microsoft dokłada starań, aby obsługa standardy branżowe.  Usługi Azure AD obsługuje protokoły uwierzytelniania SAML 2.0, OpenID Connect 1.0 OAuth 2.0 i WS-Federation 1.2.  Interfejsu API programu Graph jest OData 4.0 zgodne.  Jeśli aplikacja już obsługuje protokoły SAML 2.0 lub OpenID Connect 1.0 federacyjnym w celu logowania się, włączenie obsługi usługi Azure AD może być prosta.  Dowiedz się więcej o [usługi Azure AD obsługiwane protokoły uwierzytelniania](active-directory-authentication-protocols.md).

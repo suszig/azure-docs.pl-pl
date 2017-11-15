@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: cf32ef4c80fa0ee68ce3dc1289467a419aab39c9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Wymagania wstępne usługi Azure Data Catalog
 
@@ -28,7 +28,7 @@ Należy zadbać o kilka rzeczy przed rozpoczęciem konfigurowania usługi Azure 
 ## <a name="azure-subscription"></a>Subskrypcja platformy Azure
 Aby skonfigurować usługi Data Catalog, musi być właścicielem lub współwłaściciel subskrypcji platformy Azure.
 
-Subskrypcje platformy Azure ułatwić organizowanie dostęp do zasobów usługi w chmurze, takich jak Data Catalog. Subskrypcje można także kontrolować sposób użycia zasobów jest zgłaszane, rozliczane i uregulowaniu płatności. Każda subskrypcja może mieć oddzielne ustawienia rozliczeń i płatności, więc można dodać subskrypcji i plany, które zależą od działów, projektów, biuro regionalne i tak dalej. Każda usługa w chmurze należy do subskrypcji, i musisz mieć subskrypcję przed skonfigurowaniem usługi Data Catalog. Aby dowiedzieć się więcej, zobacz artykuł [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-assign-admin-roles.md) (Zarządzanie kontami, subskrypcjami i rolami administracyjnymi).
+Subskrypcje platformy Azure ułatwić organizowanie dostęp do zasobów usługi w chmurze, takich jak Data Catalog. Subskrypcje można także kontrolować sposób użycia zasobów jest zgłaszane, rozliczane i uregulowaniu płatności. Każda subskrypcja może mieć oddzielne ustawienia rozliczeń i płatności, więc można dodać subskrypcji i plany, które zależą od działów, projektów, biuro regionalne i tak dalej. Każda usługa w chmurze należy do subskrypcji, i musisz mieć subskrypcję przed skonfigurowaniem usługi Data Catalog. Aby dowiedzieć się więcej, zobacz artykuł [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md) (Zarządzanie kontami, subskrypcjami i rolami administracyjnymi).
 
 ## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 Aby skonfigurować usługi Data Catalog, muszą być podpisane za pomocą konta użytkownika usługi Azure Active Directory (Azure AD).

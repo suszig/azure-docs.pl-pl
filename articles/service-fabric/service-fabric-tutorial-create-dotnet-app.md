@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tworzenie i wdrażanie aplikacji przy użyciu interfejsu API platformy ASP.NET Core sieci Web usługi frontonu i usługi stanowej zaplecza
 W tym samouczku wchodzi w jednej serii.  Zostanie sposób tworzenia aplikacji sieci szkieletowej usług Azure z interfejsu API platformy ASP.NET Core sieci Web frontonu i stanowe usługi zaplecza do przechowywania danych. Po zakończeniu, masz aplikację do głosowania z frontonu, który zapisuje wyniki głosowania stanowe usługi zaplecza w klastrze sieci web platformy ASP.NET Core. Jeśli nie chcesz ręcznie utworzyć aplikację do głosowania, możesz [pobrać kodu źródłowego](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) dla ukończona aplikacja i przejść od razu do [przeprowadzenie głosowania przykładowej aplikacji](#walkthrough_anchor).
@@ -66,7 +66,7 @@ Najpierw utwórz głosowania aplikacji za pomocą platformy ASP.NET Core fronton
    
    ![Wybieranie usługi sieci web ASP.NET w oknie dialogowym Nowy usługi](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Następna strona zawiera zestaw platformy ASP.NET Core szablonów projektu. W tym samouczku, wybierz **aplikacji sieci Web**. 
+6. Następna strona zawiera zestaw platformy ASP.NET Core szablonów projektu. W tym samouczku, wybierz **aplikacji sieci Web (MVC)**. 
    
    ![Wybierz typ projektu programu ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

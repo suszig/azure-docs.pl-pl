@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Za pomocą usługi Azure Machine Learning Workbench klasyfikacji obrazu
 
@@ -52,9 +52,11 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 4. Dedykowanego procesora GPU nie jest wymagana do wykonania w część 1, szkolenia SVM, jednak wymagana jest uściślenie z DNN opisanych w części 2. Jeśli brakuje silne procesora GPU, aby uczenia na wiele procesorów graficznych lub nie masz komputera z systemem Windows należy rozważyć przy użyciu platformy Azure głębokie Learning maszyny wirtualnej z systemem operacyjnym Windows. Zobacz [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) Przewodnik wdrożenia kliknij 1. Po wdrożeniu, połączenie z maszyną Wirtualną za pomocą Podłączania pulpitu zdalnego, zainstaluj istnieje Workbench i wykonywania kodu lokalnie z maszyny Wirtualnej.
 5. Różne bibliotek języka Python, takie jak OpenCV muszą być zainstalowane. Kliknij przycisk *Otwórz okno wiersza polecenia* z *pliku* menu Narzędzia Workbench i uruchom następujące polecenia, aby zainstalować te zależności:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl`Po pobraniu koło OpenCV z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (dokładnej nazwy pliku i wersja zmienić)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po pobraniu koło OpenCV z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (dokładnej nazwy pliku i wersja zmienić)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Rozwiązywania problemów / znanych błędów
 - Procesora GPU jest wymagany dla część 2, a w przeciwnym razie "Partii normalizacji szkolenia na Procesorze nie została jeszcze zaimplementowana", jest zgłaszany błąd podczas próby zaktualizowania DNN.
@@ -66,7 +68,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt workbench
 
 Aby utworzyć nowy projekt za pomocą tego przykładu jako szablon:
-1.  Otwórz Azure Machine Learning Workbench.
+1.  Otwórz program Azure Machine Learning Workbench.
 2.  Na **projekty** kliknij przycisk  **+**  podpisywania i wybierz **nowy projekt**.
 3.  W **Utwórz nowy projekt** okienka, wypełnij informacje dla nowego projektu.
 4.  W **szablony projektów wyszukiwania** pole wyszukiwania, wpisz "Obrazu klasyfikacji" i wybierz szablon.

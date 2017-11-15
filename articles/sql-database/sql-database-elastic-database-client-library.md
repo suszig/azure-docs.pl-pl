@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Tworzenie skalowalnych baz danych w chmurze
 Skalowanie w poziomie baz danych można łatwo osiągnąć za pomocą funkcji i narzędzi skalowalne bazy danych SQL Azure. W szczególności można użyć **biblioteki klienta elastycznej bazy danych** tworzenie i zarządzanie nimi skalowalnych w poziomie baz danych. Ta funkcja pozwala łatwo tworzyć aplikacje podzielonej przy użyciu setki —, a nawet tysiące — baz danych Azure SQL. [Zadania elastyczne](sql-database-elastic-jobs-powershell.md) mogą następnie służyć do pomocy ułatwiają zarządzanie tych baz danych.
 
-Aby zainstalować bibliotekę, przejdź do [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Aby zainstalować bibliotekę, przejdź do NuGet w [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Dokumentacja
 1. [Wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Skalowanie w poziomie aplikacji przy użyciu *dzielenia na fragmenty* przedstawi
 
 Ogólnie rzecz biorąc klientów przy użyciu narzędzi elastycznej bazy danych można oczekiwać, że uzyskać pełną funkcjonalność T-SQL podczas przesyłania operacji niezależnych lokalnego zamiast niezależnego fragmentu między operacje, które mają własne semantyki.
 
+
+
 ## <a name="next-steps"></a>Następne kroki
-Spróbuj [Przykładowa aplikacja](sql-database-elastic-scale-get-started.md) pokazano, które funkcje klienta. 
 
-Aby zainstalować bibliotekę, przejdź do [elastycznej bazy danych klienta biblioteki](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Biblioteka klienta usługi elastycznej bazy danych](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) — aby **zainstalować** biblioteki za pomocą NuGet.
 
-Aby uzyskać instrukcje na temat używania narzędzia do scalania podziału, zobacz [Omówienie narzędzia do scalania podziału](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md) — spróbuj **Przykładowa aplikacja** pokazuje, że funkcje klienta.
 
-[Biblioteki klienta elastycznej bazy danych jest teraz otworzyć pochodzenia!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/elastyczna db-tools](https://github.com/Azure/elastic-db-tools) — Biblioteka to oprogramowanie typu open source.
+    - Biblioteka klienta narzędzi elastycznej bazy danych umożliwia deweloperom tworzenie aplikacji, które implementuje i użyj wzorcem znanym jako dzielenia na fragmenty bazy danych w bazie danych SQL Azure ADO.NET.
 
-Użyj [elastycznej zapytania](sql-database-elastic-query-overview.md).
+- [Biblioteki klienta elastycznej bazy danych jest teraz otworzyć pochodzenia!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **wpis w blogu** o biblioteki klienta elastycznej bazy danych, z 2015/09/09.
 
-Biblioteka jest dostępny jako oprogramowanie typu open source na [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Omówienie zapytania elastycznej bazy danych SQL Azure](sql-database-elastic-query-overview.md) — umożliwia elastyczne zapytania.
+
+- [Przenoszenie danych między bazami danych w chmurze skalowalnych w poziomie](sql-database-elastic-scale-overview-split-and-merge.md) — instrukcje dotyczące używania **narzędzia do scalania podziału**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

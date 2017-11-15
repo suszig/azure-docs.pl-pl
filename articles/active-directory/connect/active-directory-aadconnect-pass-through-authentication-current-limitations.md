@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -38,7 +38,7 @@ Pełni są obsługiwane następujące scenariusze:
 
 Poniższe scenariusze są _nie_ obsługiwane:
 
-- Logowania użytkowników w starszych aplikacjach klienckich pakietu Office — pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania). Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania, ale również pomaga zabezpieczyć użytkownika kont przy użyciu narzędzia [dostępu warunkowego](../active-directory-conditional-access.md) funkcje takie jak uwierzytelnianie wieloskładnikowe (MFA).
+- Logowania użytkowników w starszych aplikacjach klienckich pakietu Office — pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania). Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania, ale również pomaga zabezpieczyć użytkownika kont przy użyciu narzędzia [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje takie jak uwierzytelnianie wieloskładnikowe (MFA).
 - Użytkownik logowania do usługi Skype dla firm klienta aplikacji, w tym usługi Skype dla firm 2016.
 - Użytkownik logowania do programu PowerShell w wersji 1.0. Zalecane jest, użyj programu PowerShell w wersji 2.0.
 - Usługi domenowe Azure AD.

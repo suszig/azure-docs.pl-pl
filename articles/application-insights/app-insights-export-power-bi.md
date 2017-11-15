@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Źródła danych usługi Power BI z usługi Application Insights
 [Power BI](http://www.powerbi.com/) jest pakiet narzędzia do analizy biznesowe, które ułatwiają analizowanie danych i udostępniać informacji. Pulpity nawigacyjne sformatowanego są dostępne na każdym urządzeniu. Można połączyć dane z wielu źródeł, takich jak analiza zapytania z [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Istnieją trzy metody zalecane eksportowania danych usługi Application Insights do usługi Power BI. Można ich używać oddzielnie lub razem.
 
 * [**Power BI karty** ](#power-pi-adapter) — skonfiguruj Tworzenie pulpitu nawigacyjnego dane telemetryczne z aplikacji. Wstępnie zdefiniowane zbiór wykresy, ale można dodać własne zapytania z innych źródeł.
-* [**Eksportuj zapytania analityczne** ](#export-analytics-queries) -pisać zapytania przy użyciu analizy i eksportowania ich do usługi Power BI. To zapytanie można umieścić na pulpicie nawigacyjnym, wraz z innymi danymi.
+* [**Eksportuj zapytania analityczne** ](#export-analytics-queries) -pisać zapytania przy użyciu analizy lub lejków użycia i eksportowania ich do usługi Power BI. To zapytanie można umieścić na pulpicie nawigacyjnym, wraz z innymi danymi.
 * [**Eksport ciągły i analiza strumienia** ](app-insights-export-stream-analytics.md) — proces ten obejmuje więcej pracy, aby skonfigurować. Jest przydatne, jeśli chcesz zachować dane przez dłuższy czas. W przeciwnym razie inne metody są zalecane.
 
 ## <a name="power-bi-adapter"></a>Power BI karty
@@ -48,7 +48,7 @@ Pulpit nawigacyjny, można edytować połączenie wykresów usługi Application 
 Po zaimportowaniu początkowej pulpit nawigacyjny i raporty nadal aktualizowane codziennie. Można kontrolować harmonogram odświeżania w zestawie danych.
 
 ## <a name="export-analytics-queries"></a>Zapytania analityczne eksportu
-Tej trasy pozwala na każde zapytanie Analytics, którą chcesz zapisać, a następnie wyeksportować który do pulpitu nawigacyjnego usługi Power BI. (Możesz dodać do pulpitu nawigacyjnego utworzone przez adapter.)
+Tej trasy pozwala na każde zapytanie Analytics, takich jak lub wyeksportować z użycia Lejki zapisu, a następnie wyeksportować który do pulpitu nawigacyjnego usługi Power BI. (Możesz dodać do pulpitu nawigacyjnego utworzone przez adapter.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>Jeden raz: Zainstaluj Power BI Desktop
 Aby zaimportować zapytanie usługi Application Insights, należy użyć tej wersji usługi Power BI. Ale następnie można opublikować go w sieci Web lub do swojego obszaru roboczego chmury usługi Power BI. 
@@ -82,10 +82,32 @@ Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Wybierz wizualizację](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Ręcznie odświeżyć raport w odstępach czasu, lub skonfigurowania zaplanowanego odświeżania na stronie opcji.
 
+### <a name="export-a-funnel"></a>Eksportuj rozdzielacz
+1. [Należy z lejka.](usage-funnels.md)
+2. Kliknij przycisk Power BI 
+
+   ![Przycisk usługi Power BI](./media/app-insights-export-power-bi/button.png)
+   
+3. Wybierz Power BI Desktop w **pobieranie danych, pustą zapytania** , a następnie w edytorze zapytań w obszarze **widoku** wybierz **zaawansowany Edytor zapytań**.
+
+   ![Puste zapytania](./media/app-insights-export-power-bi/blankquery.png)
+
+   Wklej wyeksportowanego skryptu języka M do zaawansowany Edytor zapytań. 
+
+   ![Zaawansowany edytor zapytań](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Wybierz elementy z zapytania i wybierz polecenie lejka wizualizacji
+
+   ![Wybierz sekwencję i lejka](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Zmień tytuł, aby był łatwy do rozpoznania i publikowanie raportu do obszaru roboczego chmury usługi Power BI. 
+
+   ![Zmień tytuł](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="401-or-403-unauthorized"></a>401 lub 403 bez autoryzacji 
-Może to nastąpić, jeśli refesh token nie został zaktualizowany. Spróbuj wykonać następujące kroki, aby upewnić się, że nadal mieć dostęp. Jeśli masz dostęp i refershing poświadczenia nie działa, otwórz bilet pomocy technicznej.
+Może to nastąpić, jeśli token odświeżania nie został zaktualizowany. Spróbuj wykonać następujące kroki, aby upewnić się, że nadal mieć dostęp. Jeśli masz dostęp i odświeżyć poświadczenia nie działa, otwórz bilet pomocy technicznej.
 
 1. Zaloguj się do portalu Azure i upewnij się, że ma dostęp do zasobu
 2. Spróbuj odświeżyć poświadczenia dla pulpitu nawigacyjnego

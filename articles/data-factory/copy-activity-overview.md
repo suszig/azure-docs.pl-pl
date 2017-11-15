@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: bb739d19be7aedf73f422faaa0f5f63a81633d07
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w fabryce danych Azure
 
@@ -65,6 +65,10 @@ Na przykład można wykonywać następujące działania kopiowania:
 * Skopiuj pliki w formacie tekstowym (CSV) z lokalnego systemu plików i zapisać w formacie Avro obiektów Blob platformy Azure.
 * Skopiuj pliki zip z lokalnego systemu plików, a następnie dekompresja ziemi do usługi Azure Data Lake Store.
 * Kopiowanie danych w formacie tekstowym skompresowane (CSV) GZip z obiektów Blob platformy Azure i zapisu do bazy danych SQL Azure.
+
+## <a name="supported-regions"></a>Obsługiwane regiony
+
+Usługa obsługującego działanie kopiowania jest dostępna globalnie w regionach i lokalizacji geograficznych wymienionych w [lokalizacji środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md#integration-runtime-location). Ogólnie dostępna topologia zapewnia przepływ danych wydajne, pozwalający na uniknięcie zwykle przeskoków między regionu. Zobacz [usług według regionu](https://azure.microsoft.com/regions/#services) dostępność fabryki danych i przenoszenie danych w regionie.
 
 ## <a name="configuration"></a>Konfiguracja
 
@@ -132,7 +136,7 @@ Następujący szablon działania kopiowania zawiera stanowi wyczerpującej listy
 | Dane wejściowe | Określ zestaw danych został utworzony wskazującą na źródło danych. Działanie kopiowania obsługuje tylko jeden danych wejściowych. | Tak |
 | dane wyjściowe | Określ zestaw danych został utworzony wskazującą na obiekt sink danych. Działanie kopiowania obsługuje tylko pojedynczego wyjścia. | Tak |
 | typeProperties | Grupa właściwości, aby skonfigurować działanie Kopiuj. | Tak |
-| Źródło | Określ typ źródła kopiowania i odpowiednie właściwości na temat pobierania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Tak |
+| źródło | Określ typ źródła kopiowania i odpowiednie właściwości na temat pobierania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Tak |
 | obiekt sink | Określ typ ujścia kopiowania i odpowiednie właściwości na temat zapisywania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Tak |
 | Translator | Określ mapowania kolumn jawne ze źródła do zbiornika. Ma zastosowanie, gdy domyślne zachowanie kopiowania nie może spełnić potrzeby.<br/><br/>Dowiedz się więcej szczegółów z [schemat i dane mapowania typu](copy-activity-schema-and-type-mapping.md). | Nie |
 | cloudDataMovementUnits | Określ powerfulness z [środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md) upoważnienie kopię danych.<br/><br/>Dowiedz się więcej szczegółów z [jednostki przepływu danych w chmurze](copy-activity-performance.md). | Nie |

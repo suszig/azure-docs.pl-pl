@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Zagadnienia dotyczące topologii sieci przy użyciu serwera Proxy usługi Azure Active Directory aplikacji
 
@@ -102,7 +102,7 @@ Chociaż ten artykuł koncentruje się umieszczanie łącznika, możesz równie�
 
 Organizacje są coraz, przenoszenie ich sieci w środowiskach hostowanych. Umożliwia to umieszczenie swoje aplikacje w środowisku hostowanej, która jest również częścią sieci firmowej i nadal mieścić się w domenie. W takim przypadku wzorców omówione w poprzednich sekcjach można zastosować do nowej lokalizacji aplikacji. Jeśli rozważasz tej opcji, zobacz [usług domenowych Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Ponadto należy wziąć pod uwagę organizowanie za pomocą łączników [grup łącznika](active-directory-application-proxy-connectors.md) do docelowej aplikacji, które znajdują się w różnych lokalizacjach i sieci. 
+Ponadto należy wziąć pod uwagę organizowanie za pomocą łączników [grup łącznika](active-directory-application-proxy-connectors-azure-portal.md) do docelowej aplikacji, które znajdują się w różnych lokalizacjach i sieci. 
 
 ## <a name="common-use-cases"></a>Typowe przypadki użycia
 
@@ -174,5 +174,5 @@ Można także rozważyć użycie jednego innego elementu variant w takiej sytuac
 
 - [Włączanie serwera Proxy aplikacji](active-directory-application-proxy-enable.md)
 - [Włączanie logowania jednokrotnego](active-directory-application-proxy-sso-using-kcd.md)
-- [Włączanie dostępu warunkowego](active-directory-application-proxy-conditional-access.md)
+- [Włączanie dostępu warunkowego](application-proxy-enable-remote-access-sharepoint.md)
 - [Rozwiązywanie problemów, które masz problem z serwerem Proxy aplikacji](active-directory-application-proxy-troubleshoot.md)

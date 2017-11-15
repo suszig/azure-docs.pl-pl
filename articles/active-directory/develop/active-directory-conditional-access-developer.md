@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów na potrzeby dostępu warunkowego dla usługi Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) oferuje kilka sposobów zabezpieczania aplikacji i u
 * Stosowanie Intune tylko zarejestrowane urządzenia dostępu do określonych usług
 * Ograniczenie lokalizacji użytkownika i adres IP z zakresów
 
-Aby uzyskać więcej informacji na pełne możliwości dostępu warunkowego, zobacz [dostępu warunkowego w klasycznym portalu Azure](../active-directory-conditional-access.md). 
+Aby uzyskać więcej informacji na pełne możliwości dostępu warunkowego, zobacz [dostępu warunkowego w klasycznym portalu Azure](../active-directory-conditional-access-azure-portal.md). 
 
 W tym artykule możemy skupić się na jakie dostępu warunkowego oznacza, że Deweloperzy tworzący aplikacje dla usługi Azure AD.  Zakłada się znajomość [pojedynczego](active-directory-integrating-applications.md) i [wielodostępne](active-directory-devhowto-multi-tenant-overview.md) aplikacji i [typowe wzorce uwierzytelniania](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ W szczególności następujące scenariusze wymagają kodu do obsługi dostępu 
 * Aplikacje jednej strony przy użyciu ADAL.js
 * Wywoływanie zasobu aplikacji sieci Web
 
-Dostęp warunkowy zasad można zastosować do aplikacji, ale mogą być również stosowane do interfejsu API sieci web uzyskuje dostęp do aplikacji. Aby dowiedzieć się więcej o sposobie konfigurowania zasad dostępu warunkowego, zobacz [wprowadzenie do korzystania z usługi Azure Active Directory dostępu warunkowego](../active-directory-conditional-access-azuread-connected-apps.md).
+Dostęp warunkowy zasad można zastosować do aplikacji, ale mogą być również stosowane do interfejsu API sieci web uzyskuje dostęp do aplikacji. Aby dowiedzieć się więcej o sposobie konfigurowania zasad dostępu warunkowego, zobacz [wprowadzenie do korzystania z usługi Azure Active Directory dostępu warunkowego](../active-directory-conditional-access-azure-portal-get-started.md).
 
 W zależności od scenariusza klient enterprise można zastosować i usuwać zasady dostępu warunkowego w dowolnym momencie.  Aplikację, aby kontynuować działanie po zastosowaniu nowych zasad, należy zaimplementować Obsługa "test". Poniższe przykłady przedstawiają żądania obsługi. 
 
@@ -218,7 +218,7 @@ Aby wypróbować ten scenariusz, zobacz nasze [przykładowy kod w imieniu — z 
 
 ## <a name="see-also"></a>Zobacz też
 
-* Aby dowiedzieć się więcej o możliwościach, zobacz [dostępu warunkowego w usłudze Azure AD](../active-directory-conditional-access.md).
+* Aby dowiedzieć się więcej o możliwościach, zobacz [dostępu warunkowego w usłudze Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Aby uzyskać przykłady kodu więcej Azure AD, zobacz [repozytorium Github przykładów kodu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Aby uzyskać więcej informacji na ADAL zestawu SDK i dostęp do dokumentacji, zobacz [przewodnik biblioteki](active-directory-authentication-libraries.md).
 * Aby dowiedzieć się więcej o scenariuszach z wieloma dzierżawcami, zobacz [jak do logowania użytkowników przy użyciu wzorca wielodostępne](active-directory-devhowto-multi-tenant-overview.md).

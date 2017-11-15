@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1ed4fab00d5304a25d28149e2ce9adcc3168fd
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: dodawanie i usuwanie roli użytkownika
-Z usługi Azure Active Directory (AD), administrator globalny (lub administrator firmy) można aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD. Jest to zrobić za pomocą poleceń cmdlet programu PowerShell, takie jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`. Można też używać klasycznego portalu Azure, zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
+Z usługi Azure Active Directory (AD), administrator globalny (lub administrator firmy) można aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD. Jest to zrobić za pomocą poleceń cmdlet programu PowerShell, takie jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`. Można też używać klasycznego portalu Azure, zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Aplikacja Azure AD Privileged Identity Management umożliwia administratorom ról uprzywilejowanych upewnij przypisań ról trwałe, jak również. Ponadto administratorzy ról uprzywilejowanych ułatwia użytkownikom **kwalifikujących się** dla ról administratora. Administrator kwalifikujących się może aktywować rolę, gdy potrzebują, a następnie ich uprawnienia wygasają po ich wszystko gotowe.
 

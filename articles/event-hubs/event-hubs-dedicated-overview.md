@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie usługi Event hubs w wersji dedykowanej
 
@@ -34,7 +34,7 @@ W poniższej tabeli porównano warstw dostępna usługa Event hubs. Oferta dedyk
 | Zasady dotyczące wydawców | Tak | Tak |   
 | Grupy odbiorców | 20 | 20 |
 | Powtarzanie komunikatu | Tak | Tak |
-| Maksymalna liczba jednostek przepływności | 20 (elastyczne do 100)   | 1 jednostka wydajności≈200 |
+| Maksymalna liczba jednostek przepływności | 20 (elastyczne do 100)   | 1 CU≈50 |
 | Połączenia obsługiwane przez brokera | 1000 włączone | 100 KB włączone |
 | Dodatkowe połączenia obsługiwane przez brokera | Tak | Tak |
 | Przechowywanie komunikatów | 1 dzień w cenie | Liczba uwzględnianych dni: do 7 |
@@ -48,18 +48,25 @@ Korzystając z dedykowanych centra zdarzeń, dostępne są następujące korzyś
 * Rozmiar komunikatu zwiększa 1 MB w porównaniu do 256 KB dla standardowych.
 * Zawsze powtarzalne wydajności.
 * Gwarancji wydajności, aby spełnić potrzeby serii.
-* Skalowalna od 1 do 8 pojemność jednostki (CU) — dostarczający zdarzenia służąca do milionów 2 na sekundę.
-  * CUs Zarządzanie skali dla dedykowanego centra zdarzeń, którym każdej aktualizacji zbiorczej można podać odpowiednikiem około 200 jednostek przepływności (TU).
+* Obejmuje [przechwytywania](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) funkcji usługi Azure Event hubs, aby zapewnić integrację z micro partii i długoterminowego przechowywania
 * Zero konserwacji: Firma Microsoft zarządzania równoważenia obciążenia, systemu operacyjnego aktualizacje, poprawki zabezpieczeń i partycjonowania.
-* Stałe, co miesiąc cennik.
+* Stałe cennik co godzinę.
+* Wiadomości przechowywania w górę do 7 dni z bez dodatkowych opłat
 
 Dedykowane centra zdarzeń spowoduje również usunięcie niektóre ograniczenia przepustowości Standard oferty. Jednostki przepływności w warstwie standardowa uprawnia do 1000 zdarzeń na sekundę lub 1 MB na sekundę na TU i double ilość ruch wychodzący ruch przychodzący. Liczby zdarzeń dotyczących komunikacji wyjściowej i oferty dedykowanych skalowania nie ma żadnych ograniczeń na transfer danych przychodzących. Te limity reguluje tylko wydajności przetwarzania zakupionych event hubs.
+
+To środowisko zastrzeżonych, dedykowane zapewnia innych funkcji, które są unikatowe dla tej warstwy takich jak:
+
+* Decydują o liczbie obszarów nazw w klastrze
+* Określ przepływności limitson każdego obszary nazw
+* Skonfiguruj liczbę centra zdarzeń w każdej przestrzeni nazw
+* Określić limit liczby partycji
 
 Ta usługa jest przeznaczona dla użytkowników dane telemetryczne największą i jest dostępny dla klientów z umową enterprise.
 
 ## <a name="how-to-onboard"></a>Jak dołączyć
 
-Dedykowane centra zdarzeń platformy jest oferowany przez umową enterprise o różnych rozmiarach CUs. Każdy CU udostępnia odpowiednik około 200 jednostek przepływności. Wydajność można skalować w górę lub w dół w ciągu miesiąca do własnych potrzeb, dodając lub usuwając CUs. Dedykowany plan jest unikatowa, w tym wystąpią bardziej praktyczne dołączania od zespołu produktu usługi Event Hubs można pobrać elastyczne wdrożenia, które jest odpowiednie dla Ciebie. 
+Wydajność można skalować w górę lub w dół w ciągu miesiąca do własnych potrzeb, dodając lub usuwając CUs. Dedykowany plan jest unikatowa, w tym wystąpią bardziej praktyczne dołączania od zespołu produktu usługi Event Hubs można pobrać elastyczne wdrożenia, które jest odpowiednie dla Ciebie. Dołączyć do tej jednostki SKU, skontaktuj się z pomocą (pomocy dotyczącej rozliczeń) [https://ms.portal.azure.com/#create/Microsoft.Support] lub przedstawicielem firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 Skontaktuj się z przedstawicielem handlowym firmy Microsoft lub Microsoft Support, aby uzyskać więcej informacji na temat pojemności dedykowanego centra zdarzeń. Można też uzyskać więcej informacji na temat usługi Event Hubs, przechodząc na stronę następujących łączy:

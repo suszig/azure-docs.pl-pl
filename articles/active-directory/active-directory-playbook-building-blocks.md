@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory dowód podręcznikowym koncepcji: bloki konstrukcyjne
 
@@ -99,10 +99,10 @@ Przybliżona godzina ukończone: 15 minut
 | Krok | Zasoby |
 | --- | --- |
 | Przejdź do portalu zarządzania usługi Azure AD | [Portal zarządzania usługi Azure AD — logo firmy](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Przekaż zasoby na stronie logowania (bohater logo, małego logo, etykiety itp.). Opcjonalnie Jeśli usługi AD FS, align sam zasoby z strony logowania usług AD FS | [Dodawanie znakowania firmowego do logowania i panelu dostępu stron: elementy dostosowywalne](active-directory-add-company-branding.md) |
+| Przekaż zasoby na stronie logowania (bohater logo, małego logo, etykiety itp.). Opcjonalnie Jeśli usługi AD FS, align sam zasoby z strony logowania usług AD FS | [Dodawanie znakowania firmowego do logowania i panelu dostępu stron: elementy dostosowywalne](customize-branding.md) |
 | Poczekaj kilka minut, aby zmiany w pełni obowiązywać |  |
 | Zaloguj się przy użyciu poświadczeń użytkownika fazy weryfikacji Koncepcji do https://myapps.microsoft.com |  |
-| Potwierdź wygląd i działanie w przeglądarce | [Dodawanie znakowania firmowego do logowania i panelu dostępu stron](active-directory-add-company-branding.md) |
+| Potwierdź wygląd i działanie w przeglądarce | [Dodawanie znakowania firmowego do logowania i panelu dostępu stron](customize-branding.md) |
 | Opcjonalnie można potwierdzić wyglądu i działania na innych urządzeniach |  |
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
@@ -379,7 +379,7 @@ Przybliżona godzina ukończone: 15 minut
 
 | Wymagania wstępne | Zasoby |
 | --- | --- |
-| Włącz zarządzanie samoobsługi hasła w dzierżawie. | [Azure Active Directory resetowania hasła dla administratorów IT](active-directory-passwords.md) |
+| Włącz zarządzanie samoobsługi hasła w dzierżawie. | [Azure Active Directory resetowania hasła dla administratorów IT](active-directory-passwords-update-your-own-password.md) |
 | Włączanie zapisywania zwrotnego haseł do zarządzania hasłami z lokalnymi. Uwaga wymaga określonej usługi Azure AD Connect wersji | [Wymagania wstępne dotyczące funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md) |
 | Zidentyfikuj użytkowników fazy weryfikacji koncepcji, które będą korzystać z tej funkcji i upewnij się, że są oni członkami grupy zabezpieczeń. Użytkownicy muszą być z systemem innym niż administratorzy pełni prezentować możliwości | [Dostosowanie: Zarządzanie hasłami AD platformy Azure: ograniczanie dostępu do resetowania hasła](active-directory-passwords-writeback.md) |
 

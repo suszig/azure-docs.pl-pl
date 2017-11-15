@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Uproszczenie pisanie aplikacji i zarządzanie nimi z sieci szkieletowej usług za pomocą programu Visual Studio
 Można zarządzać sieć szkieletowa usług Azure, aplikacji i usług za pomocą programu Visual Studio. Po wprowadzeniu [Konfigurowanie środowiska deweloperskiego](service-fabric-get-started.md), można użyć programu Visual Studio do tworzenia aplikacji usługi Service Fabric, Dodaj rejestru usług lub pakietu i wdrażania aplikacji w klastrze lokalnym programowanie.
@@ -32,7 +32,7 @@ Domyślnie wdrażania aplikacji zawierają następujące kroki w jednej operacji
 4. Usunąć wszystkie uruchomione wystąpienia aplikacji
 5. Tworzenie wystąpienia aplikacji
 
-W programie Visual Studio naciskając klawisz **F5** wdraża aplikację i Dołącz debuger do wszystkich wystąpień aplikacji. Można użyć **Ctrl + F5** do wdrożenia aplikacji bez debugowania, lub można opublikować do klastra lokalnego lub zdalnego za pomocą profilu publikowania. Aby uzyskać więcej informacji, zobacz [publikowania aplikacji do zdalnego klastra za pomocą programu Visual Studio](service-fabric-publish-app-remote-cluster.md).
+W programie Visual Studio naciskając klawisz **F5** wdraża aplikację i Dołącz debuger do wszystkich wystąpień aplikacji. Można użyć **Ctrl + F5** do wdrożenia aplikacji bez debugowania, lub można opublikować do klastra lokalnego lub zdalnego za pomocą profilu publikowania. 
 
 ### <a name="application-debug-mode"></a>Tryb debugowania aplikacji
 Visual Studio Udostępnij właściwość o nazwie **tryb debugowania aplikacji**, która kontroluje sposób Visual Studio do obsługi wdrażania aplikacji w ramach debugowania.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>To podejście wielowarstwowych zabezpieczeń hasła usługi Azure AD
 
@@ -37,7 +37,7 @@ Usługa Azure AD zapewnia następujące popularne podejścia do zabezpieczania h
 * Wymagania dotyczące złożoności hasła
 * Regularne i okresowe wygasanie haseł
 
-Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords.md).
+Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Zabezpieczenia hasła w usłudze Azure AD
 
@@ -74,7 +74,7 @@ W przypadku innych kont Microsoft ich ekranu wygląda podobnie do następującym
 
   ![Blokada konta Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords.md).
+Aby uzyskać informacje o resetowania w usłudze Azure Active Directory, zobacz temat [usługi Azure AD samodzielnego resetowania haseł dla specjalistów IT](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Jeśli jesteś administratorem usługi Azure AD, możesz użyć usługi [Windows Hello](https://www.microsoft.com/windows/windows-hello), aby całkowicie uniknąć tworzenia tradycyjnych haseł przez użytkowników.

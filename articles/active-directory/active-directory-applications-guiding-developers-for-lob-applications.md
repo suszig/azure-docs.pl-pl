@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Tworzenie aplikacji biznesowych z usługi Azure Active Directory
 Ten przewodnik zawiera omówienie tworzenia — biznesowych (LoB) aplikacji dla usługi Azure Active Directory (AD). Docelowa grupa odbiorców jest Administratorzy globalni usługi Active Directory/Office 365.
 
 ## <a name="overview"></a>Omówienie
-Tworzenie aplikacji zintegrowanych z usługą Azure AD pozwala użytkownikom w Twojej organizacji logowanie jednokrotne z usługą Office 365. W usłudze Azure AD umożliwia kontrolę nad zasady uwierzytelniania dla aplikacji, których aplikacja. Aby dowiedzieć się więcej na temat dostępu warunkowego i jak chronić aplikacje z uwierzytelnianiem wieloskładnikowym (MFA), zobacz [Konfigurowanie reguł dostępu](active-directory-conditional-access-azuread-connected-apps.md).
+Tworzenie aplikacji zintegrowanych z usługą Azure AD pozwala użytkownikom w Twojej organizacji logowanie jednokrotne z usługą Office 365. W usłudze Azure AD umożliwia kontrolę nad zasady uwierzytelniania dla aplikacji, których aplikacja. Aby dowiedzieć się więcej na temat dostępu warunkowego i jak chronić aplikacje z uwierzytelnianiem wieloskładnikowym (MFA), zobacz [Konfigurowanie reguł dostępu](active-directory-conditional-access-azure-portal-get-started.md).
 
 Rejestrowanie aplikacji do użycia usługi Azure Active Directory. Trwa rejestrowanie aplikacji oznacza, że deweloperów można używać usługi Azure AD do uwierzytelniania użytkowników i uzyskać dostęp do zasobów użytkownika, takie jak wiadomości e-mail, kalendarza i dokumentów.
 
@@ -57,7 +57,7 @@ Oto, co, administrator globalny, należy wykonać, aby pomóc deweloperom przygo
 * Pomiń domyślne środowisko zgody użytkownika
 
 ## <a name="configure-access-rules"></a>Skonfiguruj reguły dostępu
-Konfigurowanie reguł dla poszczególnych aplikacji dostępu do aplikacji SaaS. Można na przykład wymagać uwierzytelniania MFA lub tylko zezwolić na dostęp do użytkowników w zaufanych sieciach. Dla tego są one dostępne w dokumencie [Konfigurowanie reguł dostępu](active-directory-conditional-access-azuread-connected-apps.md).
+Konfigurowanie reguł dla poszczególnych aplikacji dostępu do aplikacji SaaS. Można na przykład wymagać uwierzytelniania MFA lub tylko zezwolić na dostęp do użytkowników w zaufanych sieciach. Dla tego są one dostępne w dokumencie [Konfigurowanie reguł dostępu](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Konfiguruje aplikację do wymagają przypisania użytkownika i Przypisz użytkowników
 Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji bez przypisywane. Jednak aplikacja udostępnia ról lub chcesz aplikacji na panelu dostępu użytkownika, należy włączyć przypisanie użytkownika.
@@ -76,8 +76,8 @@ Dla aplikacji, którym ufasz można uprościć czynności użytkowników przez z
 
 Aby uzyskać więcej informacji o zgodę użytkownika i zgody występują na platformie Azure, zobacz [integracji aplikacji z usługą Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Włącz bezpieczny dostęp zdalny do aplikacji lokalnych przy użyciu serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-get-started.md)
-* [Podgląd warunkowego dostępu na platformie Azure dla aplikacji SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+* [Podgląd warunkowego dostępu na platformie Azure dla aplikacji SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Zarządzanie dostępem do aplikacji z usługą Azure AD](active-directory-managing-access-to-apps.md)
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)

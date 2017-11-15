@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Rozwiązywanie problemów: Element usługi Active Directory jest lub jest niedostępna
 Wiele instrukcje dotyczące korzystania z funkcji usługi Azure Active Directory i usług rozpoczynać się od "Przejdź do portalu zarządzania Azure i kliknij polecenie **usługi Active Directory**." Ale co zrobić, jeśli nie ma elementu menu lub rozszerzenie usługi Active Directory lub jest on oznaczony **nie jest dostępny**? W tym temacie jest przeznaczona do pomocy. Opisuje warunki, w którym **usługi Active Directory** nie pojawia się lub jest niedostępna i wyjaśniono sposób kontynuować.
@@ -43,7 +43,7 @@ Element usługi Active Directory jest wyświetlany w menu nawigacji po lewej str
 
 Aby utworzyć przestrzeń nazw kontroli dostępu lub dostawcy uwierzytelniania wieloskładnikowego, kliknij przycisk **+ nowy** > **usługi aplikacji** > **usługi Active Directory**.
 
-Aby uzyskać uprawnienia administracyjne do katalogu, poproś administratora o Przypisz rolę administratora do swojego konta. Aby uzyskać więcej informacji, zobacz [przypisywanie ról administratorów](active-directory-assign-admin-roles.md).
+Aby uzyskać uprawnienia administracyjne do katalogu, poproś administratora o Przypisz rolę administratora do swojego konta. Aby uzyskać więcej informacji, zobacz [przypisywanie ról administratorów](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory nie jest dostępna
 Po kliknięciu **+ nowy** > **usługi aplikacji**, **usługi Active Directory** element będzie wyświetlany. W szczególności elementu usługi Active Directory jest wyświetlany, gdy funkcji usługi Active Directory, takich jak katalog, kontroli dostępu lub Dostawca uwierzytelniania MFA, są dostępne dla bieżącego użytkownika.
