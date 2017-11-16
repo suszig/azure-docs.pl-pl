@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Kontrolowanie aplikacji sieci Web platformy Azure przy użyciu usługi Azure Traffic Manager
 > [!NOTE]
@@ -49,7 +49,7 @@ Podczas przy użyciu usługi Azure Traffic Manager przy użyciu platformy Azure,
 * W przypadku wdrożeń w tym samym regionie, korzystających z aplikacji sieci Web w połączeniu z innej usługi w chmurze platformy Azure można połączyć oba typy punktów końcowych na potrzeby scenariuszy hybrydowych.
 * Można określić tylko jeden punkt końcowy aplikacji sieci web dla regionu w profilu. Po wybraniu aplikacji sieci web jako punktu końcowego dla regionu co pozostałe aplikacje sieci web, w tym regionie stają się niedostępne do wybrania dla tego profilu.
 * Punkty końcowe aplikacji sieci web, które można określić w profilu Menedżera ruchu Azure jest wyświetlany w obszarze **nazwy domen** sekcja na stronie konfiguracji dla aplikacji sieci web w profilu, ale nie ma można konfigurować.
-* Po dodaniu aplikacji sieci web do profilu, **adres URL witryny** na pulpicie nawigacyjnym w sieci Web strony portalu aplikacji wyświetla adresu URL domeny niestandardowej aplikacji sieci web, jeśli zdefiniowano jeden. W przeciwnym razie wyświetla adres URL profilu Menedżera ruchu (na przykład `contoso.trafficmgr.com`). Nazwa domeny bezpośrednie aplikacji sieci web i adres URL Menedżera ruchu są widoczne na stronie Konfigurowanie aplikacji sieci web w obszarze **nazwy domen** sekcji.
+* Po dodaniu aplikacji sieci web do profilu, **adres URL witryny** na pulpicie nawigacyjnym w sieci Web strony portalu aplikacji wyświetla adresu URL domeny niestandardowej aplikacji sieci web, jeśli zdefiniowano jeden. W przeciwnym razie wyświetla adres URL profilu Menedżera ruchu (na przykład `contoso.trafficmanager.net`). Nazwa domeny bezpośrednie aplikacji sieci web i adres URL Menedżera ruchu są widoczne na stronie Konfigurowanie aplikacji sieci web w obszarze **nazwy domen** sekcji.
 * Niestandardowa nazwa domeny działa zgodnie z oczekiwaniami, ale oprócz dodanie ich do aplikacji sieci web, musisz również skonfigurować mapy DNS, aby wskazywał adres URL Menedżera ruchu. Aby uzyskać informacje na temat sposobu konfigurowania domeny niestandardowej dla aplikacji sieci web platformy Azure, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi Azure witryny sieci web](app-service-web-tutorial-custom-domain.md).
 * Można dodawać tylko aplikacje sieci web, które są w trybie standard lub premium profilu Menedżera ruchu Azure.
 

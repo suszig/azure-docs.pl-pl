@@ -4,7 +4,7 @@ description: "Podręcznik rozwiązywania problemów dotyczących usług domenowy
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Usługi domenowe usługi Azure AD — przewodnik rozwiązywania problemów
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które można napotkać podczas konfigurowania lub administrowanie usług domenowych w usłudze Azure Active Directory (AD).
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Nie można włączyć usługi domenowe Azure AD dla katalogu usługi Azure AD
-Ta sekcja pomoże w rozwiązaniu błędy podczas próby włączenia usług domenowych Azure AD dla katalogu i jego nie powiedzie się lub pobiera ich "Wyłączone".
+Ta sekcja pomoże w rozwiązaniu błędy podczas próby włączenia usług domenowych Azure AD dla katalogu.
 
 Wybierz odpowiadające kroki rozwiązywania problemów napotkanych komunikat o błędzie.
 
@@ -81,7 +81,7 @@ Poniższy skrypt programu PowerShell umożliwia Znajdź aplikację i usuń go.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 

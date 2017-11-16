@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Resetowanie hasła lub szkoły
 
@@ -95,6 +95,27 @@ Skorzystaj z tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji za pomoc�
 3. Kliknij pozycję **Zmień hasło**
 4. Wprowadź stare hasło, ustaw i potwierdź nowe hasło, a następnie kliknij przycisk **Prześlij**
 
+## <a name="reset-password-at-login"></a>Resetowanie hasła podczas logowania
+
+Jeśli administrator włączył funkcje mogą teraz Zobacz link do **resetowania hasła** na ekranie logowania systemu Windows 10 spadek twórców aktualizacji.
+
+![LoginScreen][LoginScreen]
+
+Kliknięcie przycisku **resetowania hasła** link spowoduje otwarcie proces uruchamiania SSPR na ekranie logowania, dzięki czemu można zresetować hasło, bez konieczności logowania się uzyskać dostępu do normalnego doświadczenia opartych na sieci web.
+
+1. Potwierdź swój identyfikator użytkownika, a następnie kliknij przycisk **dalej**
+2. Wybierz i Potwierdź metody kontaktu na potrzeby weryfikacji. Pracownicy działu informatycznego może wymagać więcej weryfikacji i może być konieczne Powtórz ten krok ponownie, używając innego wyboru.
+
+   ![ContactMethod][ContactMethod]
+
+3. Na **utworzenie nowego hasła** wprowadź nowe hasło, potwierdź hasło, a następnie kliknij pozycję **dalej**. Sugerujemy, aby hasło miało długość od 8 do 16 znaków i zawierało wielkie i małe litery, cyfry oraz znaki specjalne.
+
+   ![ResetPassword][ResetPassword]
+
+4. Po wyświetleniu **Twoje hasło zostało zresetowane**, kliknij przycisk **Zakończ**
+
+Teraz uzyskanie dostępu do konta powinno być możliwe. Jeśli nie, skontaktuj się ze swoim działem IT w celu uzyskania dalszej pomocy.
+
 ## <a name="common-problems-and-their-solutions"></a>Typowe problemy i ich rozwiązania
 
  Poniżej przedstawiono niektóre typowe przypadki błąd i ich rozwiązania:
@@ -116,3 +137,6 @@ Skorzystaj z tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji za pomoc�
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Weryfikowanie danych uwierzytelniania"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Zmiana hasła"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Hasło zostało zresetowane"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 spadek twórców aktualizacji ekranu resetowania hasła łącza"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Weryfikowanie danych uwierzytelniania"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Zmiana hasła"

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 89c395d50d87db51cb2c502fe83490d104cd1c79
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a928344dfc41687c92e7845bc304a05122ab8a92
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Co to jest usługa Multi-Factor Authentication platformy Azure?
 Weryfikacja dwuetapowa to metoda uwierzytelniania, która wymaga więcej niż jednej metody weryfikacji i dodaje kluczową drugą warstwę zabezpieczeń do logowania użytkowników i transakcji. Działania, gdyż dowolne dwa lub więcej z następujących metod weryfikacji:
@@ -33,18 +33,18 @@ Weryfikacja dwuetapowa to metoda uwierzytelniania, która wymaga więcej niż je
 Azure Multi-Factor Authentication (MFA) to rozwiązanie firmy Microsoft służące do przeprowadzania weryfikacji dwuetapowej. Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Oferuje ona silne uwierzytelnianie za pośrednictwem różnych metod weryfikacji, w tym weryfikacji w trakcie rozmowy telefonicznej albo przy użyciu wiadomości SMS lub aplikacji mobilnej.
 
 ## <a name="why-use-azure-multi-factor-authentication"></a>Dlaczego warto używać usługi Azure Multi-Factor Authentication?
-Już dziś, więcej niż kiedykolwiek osoby coraz są połączone. W przypadku inteligentne telefony, tablety, komputery przenośne i komputery osoby mają różne sposoby na jak wkrótce połączenia i łączność w dowolnym momencie. Osoby mogą uzyskać dostęp do swoich kont i aplikacji z dowolnego miejsca, co oznacza, że można więcej pracy i obsługi klientów lepiej.
+Już dziś, więcej niż kiedykolwiek osoby coraz są połączone. W przypadku inteligentne telefony, tablety, komputery przenośne i komputery osoby mają wiele opcji, dostęp do swoich kont i aplikacji z dowolnego miejsca i łączność w dowolnym momencie.
 
-Uwierzytelnianie wieloskładnikowe platformy Azure jest łatwy w użyciu, skalowalne i niezawodne rozwiązanie, które oferuje druga metoda uwierzytelniania, użytkownicy są chronione przez cały czas.
+Uwierzytelnianie wieloskładnikowe platformy Azure jest łatwy w użyciu, skalowalne i niezawodne rozwiązanie, które oferuje drugi metoda uwierzytelniania, aby chronić użytkowników.
 
-| ![Łatwość użycia](./media/multi-factor-authentication/simple.png) | ![Skalowalność](./media/multi-factor-authentication/scalable.png) | ![Chronione przez cały czas](./media/multi-factor-authentication/protected.png) | ![Niezawodne](./media/multi-factor-authentication/reliable.png) |
+| ![Łatwość użycia](./media/multi-factor-authentication/simple.png) | ![Skalowalność](./media/multi-factor-authentication/scalable.png) | ![Chronione przez cały czas](./media/multi-factor-authentication/protected.png) | ![Niezawodność](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
 | **Łatwy w użyciu** |**Skalowalne** |**Chronione przez cały czas** |**Niezawodne** |
 
 * **Łatwy w użyciu** -Azure Multi-Factor Authentication jest prosta do konfigurowania i używania. Dodatkowa ochrona, dołączanego do usługi Azure Multi-Factor Authentication umożliwia użytkownikom zarządzanie swoimi własnymi urządzeniami. Najlepsze, w wielu przypadkach go można skonfigurować kilka prostych kliknięć.
 * **Skalowalne** — uwierzytelnianie wieloskładnikowe Azure korzysta z możliwości chmury i integruje się z lokalnymi AD i aplikacji niestandardowych. Ta ochrona jest nawet rozszerzony do dużego, kluczowych scenariuszy.
 * **Chronione przez cały czas** -Azure Multi-Factor Authentication udostępnia silnego uwierzytelniania za pomocą najwyższymi standardami branżowymi.
-* **Niezawodne** -gwarantujemy dostępność 99,9% Azure Multi-Factor Authentication. Usługa jest uznawana za niedostępną, gdy nie może otrzymywać lub przetwarzania żądania weryfikacji na potrzeby weryfikacji dwuetapowej.
+* **Niezawodne** -Microsoft gwarantuje dostępność usługi Azure Multi-Factor Authentication 99,9%. Usługa jest uznawana za niedostępną, gdy nie może otrzymywać lub przetwarzania żądania weryfikacji na potrzeby weryfikacji dwuetapowej.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 

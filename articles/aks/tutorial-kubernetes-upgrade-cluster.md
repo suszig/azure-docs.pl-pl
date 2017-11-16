@@ -1,6 +1,6 @@
 ---
-title: "Kubernertes na Azure samouczek — klastra aktualizacji | Dokumentacja firmy Microsoft"
-description: "Kubernertes na Azure samouczek — aktualizacji klastra"
+title: "Kubernetes na Azure samouczek — klastra aktualizacji | Dokumentacja firmy Microsoft"
+description: "Kubernetes na Azure samouczek — aktualizacji klastra"
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 59a93dcb2f5a19f2f04da8a49d26f2de29059bff
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: d0193e891c6c41687f1aaa3a8033bc71e85b10c3
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Uaktualnij Kubernetes w usłudze kontenera platformy Azure (AKS)
 
@@ -36,7 +36,7 @@ W tym samouczku część osiem osiem, trwa uaktualnianie klastra Kubernetes. Zad
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W samouczkach poprzedniej aplikacji zostało umieszczone w obraz kontenera, ten obraz przekazany do rejestru kontenera Azure i utworzyć klaster Kubernetes. W klastrze Kubernetes następnie uruchomienia aplikacji. 
+W samouczkach poprzedniej aplikacji zostało umieszczone w obraz kontenera, ten obraz przekazany do rejestru kontenera Azure i utworzyć klaster Kubernetes. W klastrze Kubernetes następnie uruchomienia aplikacji.
 
 Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./tutorial-kubernetes-prepare-app.md).
 
@@ -52,7 +52,7 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 Tutaj można zobaczyć, że bieżąca wersja węzła jest `1.7.7` i tej wersji `1.7.9`, `1.8.1`, i `1.8.2` są dostępne.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       AgentPoolVersion    AgentPoolUpgrades
+Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
 -------  ---------------  ---------------  -------------------  ------------------  -------------------
 default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```

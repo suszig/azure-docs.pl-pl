@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Zoptymalizować przepływność sieci maszyn wirtualnych platformy Azure
 
-Maszyny wirtualne platformy Azure (VM) ma domyślne ustawienia sieci, które mogą być optymalizowane więcej przepustowości sieci. W tym artykule opisano, jak zoptymalizować przepływność sieci systemu Microsoft Azure Windows oraz maszyn wirtualnych systemu Linux, łącznie z głównych dystrybucje, takich jak Ubuntu i CentOS Red Hat.
+Maszyny wirtualne platformy Azure (VM) ma domyślne ustawienia sieci, które mogą być optymalizowane więcej przepustowości sieci. W tym artykule opisano, jak zoptymalizować przepływność sieci systemu Microsoft Azure Windows oraz maszyn wirtualnych systemu Linux, łącznie z głównych dystrybucje, takich jak Ubuntu i CentOS, Red Hat.
 
 ## <a name="windows-vm"></a>Maszyna wirtualna z systemem Windows
 
@@ -33,7 +33,7 @@ Jeśli maszyna wirtualna systemu Windows jest obsługiwana z [przyspieszony siec
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Wprowadź następujące polecenie, aby włączyć funkcję RSS:
 
@@ -44,66 +44,79 @@ Jeśli maszyna wirtualna systemu Windows jest obsługiwana z [przyspieszony siec
 3. Potwierdź, że funkcja RSS jest włączona na maszynie wirtualnej, wprowadzając `Get-NetAdapterRss` polecenie ponownie. W przypadku powodzenia zwrócono następujący przykład danych wyjściowych:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Maszyny Wirtualnej systemu Linux
 
-Funkcja RSS jest zawsze włączona domyślnie w maszynie Wirtualnej systemu Linux platformy Azure. Jądra systemu Linux wydane od stycznia 2017 r obejmują nowe opcje optymalizacji sieci, które umożliwiają maszyny Wirtualnej systemu Linux w celu osiągnięcia wyższej przepustowości sieci.
+Funkcja RSS jest zawsze włączona domyślnie w maszynie Wirtualnej systemu Linux platformy Azure. Jądra systemu Linux wydane od października 2017 obejmują nowe opcje optymalizacji sieci, które umożliwiają maszyny Wirtualnej systemu Linux w celu osiągnięcia wyższej przepustowości sieci.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu o nowych wdrożeniach
 
-Aby uzyskać optymalizacji, najpierw zaktualizować najnowszą obsługiwaną wersję, począwszy od czerwca 2017, który jest:
+Jądro Ubuntu Azure zapewnia najlepszą wydajność sieci na platformie Azure i została jądra domyślnej od 21 września 2017 r. Aby pobrać ten jądra, najpierw zainstaluj najnowszą obsługiwaną wersję programu 16.04-LTS, zgodnie z poniższym opisem:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Po ukończeniu aktualizacji, wprowadź następujące polecenia, aby pobrać najnowsze jądra:
+Po zakończeniu tworzenia, wprowadź następujące polecenia, aby pobrać najnowsze aktualizacje. Te kroki są również działać dla aktualnie uruchomionych jądra Ubuntu Azure maszyn wirtualnych.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Następujący zestaw poleceń opcjonalnie może być przydatne dla istniejących wdrożeń Ubuntu, które mają już Azure jądra, ale które nie udało się dodatkowe aktualizacje z błędami.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Polecenie opcjonalne:
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure uaktualniania jądra dla istniejących maszyn wirtualnych
 
-`apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure w wersji zapoznawczej jądra
-> [!WARNING]
-> Ten jądra systemu Linux Azure w wersji zapoznawczej nie może mieć taki sam poziom dostępności i niezawodności jako obrazy Marketplace i zwolnij jądra, które są zwykle dostępności. Funkcja nie jest obsługiwane, mogą mieć ograniczone możliwości i nie może być tak niezawodna jak domyślnego jądra. Nie należy używać tego jądra dla obciążeń produkcyjnych.
-
-Instalując proponowanych jądra systemu Linux platformy Azure można osiągnąć znaczne przepustowość. Aby wypróbować ten jądra, Dodaj następujący wiersz do /etc/apt/sources.list
+Można osiągnąć znaczne przepustowość przez uaktualnienie do jądra systemu Linux platformy Azure. Aby sprawdzić, czy ta jądra, sprawdź wersję jądra.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
-Następnie uruchom następujące polecenia, jako element główny.
+Jeśli maszyna wirtualna nie ma Azure jądra, numer wersji zazwyczaj rozpoczyna się "4.4". W takich przypadkach uruchom następujące polecenia, jako element główny.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Aby uzyskać optymalizacji, najpierw zaktualizować najnowszą obsługiwaną wersję, począwszy od 2017 lipca, który jest:
+Aby uzyskać najnowsze funkcje optymalizacji, najlepiej utworzyć Maszynę wirtualną z najnowszej wersji obsługiwanych przez określenie następujących parametrów:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
-Po ukończeniu aktualizacji, należy zainstalować najnowsze usługi integracji systemu Linux (LIS).
-LIS, zaczynając od 4.2.2-2 jest optymalizacji przepływności. Wprowadź następujące polecenia, aby zainstalować usługi LIS:
+Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS).
+Optymalizacji przepływności jest LIS, zaczynając od 4.2.2-2, chociaż nowsze wersje zawierają dodatkowe ulepszenia. Wprowadź następujące polecenia, aby zainstalować najnowsze LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +126,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Aby uzyskać optymalizacji, najpierw zaktualizować najnowszą obsługiwaną wersję, począwszy od 2017 lipca, który jest:
+Aby uzyskać optymalizacji, najlepiej utworzyć Maszynę wirtualną z najnowszej wersji obsługiwanych przez określenie następujących parametrów:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
-Po ukończeniu aktualizacji, należy zainstalować najnowsze usługi integracji systemu Linux (LIS).
+Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS).
 Optymalizacji przepływności jest LIS, zaczynając od 4.2. Wprowadź następujące polecenia, aby pobrać i zainstalować LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

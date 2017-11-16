@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: richagi
+ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Raporty w uwierzytelnianie wieloskładnikowe platformy Azure
 
@@ -29,9 +29,9 @@ Usługa Azure Multi-Factor Authentication udostępnia kilka raportów, które mo
 |:--- |:--- |
 | Sposób użycia |Użycie raporty zawierają informacje na ogólne użycie, użytkownik Podsumowanie i szczegóły użytkownika. |
 | Stan serwera |Ten raport wyświetla stan serwerów usługi Multi-Factor Authentication skojarzonych z Twoim kontem. |
-| Historia zablokowanych użytkowników |Te raporty Pokaż historię żądań zablokowania lub odblokowania użytkowników. |
-| Historia pominiętych użytkowników |Pokazuje historię żądań ominięcia usługi Multi-Factor Authentication dla użytkownika numeru telefonu. |
-| Alert o oszustwie |Wyświetla historię alertów oszustwa przesłanych w określonym zakresie daty. |
+| Historia zablokowanego użytkownika |Te raporty Pokaż historię żądań zablokowania lub odblokowania użytkowników. |
+| Historia pominiętego użytkownika |Pokazuje historię żądań ominięcia usługi Multi-Factor Authentication dla użytkownika numeru telefonu. |
+| Alert oszustwa |Wyświetla historię alertów oszustwa przesłanych w określonym zakresie daty. |
 | W kolejce |Prezentuje listę raportów w kolejce do przetwarzania i ich stan. Po zakończeniu raportu zostanie podane łącze do pobrania lub wyświetlenia raportu. |
 
 ## <a name="view-reports"></a>Wyświetlanie raportów

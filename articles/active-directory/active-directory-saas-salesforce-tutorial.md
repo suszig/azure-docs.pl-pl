@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Samouczek: Integracji Azure Active Directory z usług Salesforce
 
@@ -121,9 +121,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Kliknij przycisk **zapisać** przycisku.
-
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Kliknij przycisk **zapisać** przycisk ![skonfigurować logowanie jednokrotne](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. Na **konfiguracji Salesforce** , kliknij przycisk **skonfigurować Salesforce** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.** 
 
@@ -154,7 +152,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     a. Aby uzyskać **nazwa** wpisz przyjazną nazwę dla tej konfiguracji. Wartość dla **nazwa** automatycznie wypełnić **Nazwa interfejsu API** pola tekstowego.
 
-    b. Wklej **identyfikator jednostki SMAL** wartości do **wystawcy** w Salesforce.
+    b. Wklej **identyfikator jednostki SAML** wartości do **wystawcy** w Salesforce.
 
     c. W **textbox identyfikator jednostki**, wpisz nazwę domeny witryny Salesforce przy użyciu następującego wzorca:
       

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługi w chmurze
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Klasyczna witryna Azure Portal](cloud-services-how-to-create-deploy.md)
->
->
-
 Azure portal udostępnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Utwórz niestandardowy*.
 
 W tym artykule wyjaśniono, jak utworzyć nową usługę w chmurze, a następnie użyj przy użyciu metody szybkie tworzenie **przekazać** Aby przekazać i wdrożyć pakiet usługi chmury na platformie Azure. Korzystając z tej metody, portalu Azure sprawia, że dostępne wygodne łącza ukończenia wszystkich wymagań w trakcie pracy. Jeśli wszystko jest gotowe do wdrożenia usługi w chmurze podczas jego tworzenia, możesz to zrobić zarówno w tym samym czasie przy użyciu Utwórz niestandardowy.

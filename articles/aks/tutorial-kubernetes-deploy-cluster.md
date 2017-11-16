@@ -1,5 +1,5 @@
 ---
-title: "Kubernertes na Azure samouczek — wdrażanie klastra | Dokumentacja firmy Microsoft"
+title: "Kubernetes na Azure samouczek — wdrażanie klastra | Dokumentacja firmy Microsoft"
 description: "Samouczek AKS — wdrażanie klastra"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 69dea4ab748d88d18cf01dc9b3fc1bdddd562681
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi kontenera platformy Azure (AKS)
 
@@ -52,7 +52,7 @@ Po zarejestrowaniu możesz teraz przystąpić do tworzenia klastra Kubernetes z 
 W poniższym przykładzie tworzony klaster o nazwie `myK8sCluster` w grupie zasobów o nazwie `myResourceGroup`. Ta grupa zasobów została utworzona w [samouczek poprzedniej](./tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 Po kilku minutach ukończeniu wdrożenia i informacji o wdrażaniu AKS w formacie json zwraca.

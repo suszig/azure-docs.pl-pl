@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/27/2016
+ms.date: 11/15/2017
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Użyj Menedżera zasobów uwierzytelniania interfejsu API do dostępu do subskrypcji
 ## <a name="introduction"></a>Wprowadzenie
-Jeśli jesteś deweloper oprogramowania, który musi utworzyć aplikację, która zarządza zasobami Azure klienta, w tym temacie przedstawiono sposób uwierzytelniania za pomocą interfejsów API usługi Azure Resource Manager i uzyskanie dostępu do zasobów w innych subskrypcji.
+Jeśli jesteś deweloper oprogramowania, który musi utworzyć aplikację, która zarządza zasobami Azure klienta, w tym artykule przedstawiono sposób uwierzytelniania za pomocą interfejsów API usługi Azure Resource Manager i uzyskanie dostępu do zasobów w innych subskrypcji.
 
 Aplikację można uzyskać dostęp do interfejsów API Menedżera zasobów kilka sposobów:
 
 1. **Użytkownik i uzyskania dostępu do aplikacji**: dla aplikacji, które uzyskują dostęp do zasobów w imieniu zalogowanego użytkownika. Ta metoda działa w przypadku aplikacji, takich jak aplikacje sieci web i narzędzia wiersza polecenia, które zajmują się tylko "interakcyjne Zarządzanie" zasobów platformy Azure.
 2. **Dostęp tylko do aplikacji**: dla aplikacji uruchamianych demon usługi i zaplanowanych zadań. Tożsamości aplikacji otrzymuje bezpośredni dostęp do zasobów. Ta metoda działa w przypadku aplikacji wymagających długoterminowej bezobsługowe dostępu (Instalacja nienadzorowana) na platformie Azure.
 
-Ten temat zawiera instrukcje krok po kroku, aby utworzyć aplikację, która jest stosowana w obu tych metod autoryzacji. Widoczny jest sposób wykonania poszczególnych kroków z interfejsu API REST lub C#. Kompletna aplikacja platformy ASP.NET MVC jest dostępna na [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Ten artykuł zawiera instrukcje krok po kroku, aby utworzyć aplikację, która jest stosowana w obu tych metod autoryzacji. Widoczny jest sposób wykonania poszczególnych kroków z interfejsu API REST lub C#. Kompletna aplikacja platformy ASP.NET MVC jest dostępna na [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Co to jest aplikacja sieci web
 Aplikacja sieci web:
@@ -37,11 +37,11 @@ Aplikacja sieci web:
 1. Logowania użytkownika w usłudze Azure.
 2. Pyta użytkownika w celu przyznania dostępu do aplikacji sieci web do Menedżera zasobów.
 3. Pobiera użytkownika + tokenu dostępu aplikacji do uzyskiwania dostępu do Menedżera zasobów.
-4. Używa tokenu (z kroku 3), aby wywołać Resource Manager i przypisać nazwy głównej usługi aplikacji do roli w subskrypcji, która zapewnia dostęp długoterminowej aplikacji do subskrypcji.
+4. Używa tokenu (z kroku 3) można przypisać nazwy głównej usługi aplikacji do roli w ramach subskrypcji. Ten krok umożliwia długoterminowe dostępu do aplikacji do subskrypcji.
 5. Pobiera token dostępu tylko do aplikacji.
 6. Używa tokenu (z kroku 5) do zarządzania zasobami w subskrypcji za pomocą Menedżera zasobów.
 
-Poniżej przedstawiono przepływ end-to-end aplikacji sieci web.
+Oto przepływu aplikacji sieci web.
 
 ![Przepływ uwierzytelniania usługi Resource Manager](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
@@ -68,7 +68,7 @@ Zarządzanie subskrypcjami połączone:
 ## <a name="register-application"></a>Zarejestrować aplikację
 Przed rozpoczęciem kodowania, należy zarejestrować aplikacji sieci web z usługi Azure Active Directory (AD). Rejestracja aplikacji tworzy centralnej tożsamości aplikacji w usłudze Azure AD. Przechowuje podstawowe informacje o aplikacji, takich jak identyfikator klienta OAuth, adresy URL odpowiedzi i poświadczenia, których aplikacja korzysta z uwierzytelniania i dostępu do interfejsów API usługi Azure Resource Manager. Rejestracja aplikacji rejestruje także różne delegowane uprawnienia, których aplikacja wymaga podczas uzyskiwania dostępu do APIs firmy Microsoft w imieniu użytkownika.
 
-Ponieważ aplikacja uzyskuje dostęp do innych subskrypcji, należy go skonfigurować jako aplikacji wielodostępnej. Aby przekazać sprawdzania poprawności, podaj domeny skojarzonych z usługą Azure Active Directory. Aby wyświetlić domeny skojarzone z usługą Azure Active Directory, zaloguj się do [klasyczny portal](https://manage.windowsazure.com). Wybierz w usłudze Azure Active Directory, a następnie wybierz **domen**.
+Ponieważ aplikacja uzyskuje dostęp do innych subskrypcji, należy go skonfigurować jako aplikacji wielodostępnej. Aby przekazać sprawdzania poprawności, podaj domeny skojarzonych z usługą Azure Active Directory. Aby wyświetlić domeny skojarzone z usługą Azure Active Directory, zaloguj się do portalu.
 
 Poniższy przykład pokazuje, jak zarejestrować aplikacji przy użyciu programu Azure PowerShell. Musi mieć najnowszą wersję programu Azure PowerShell, aby to polecenie mogło działać (sierpnia 2016).
 
@@ -89,24 +89,24 @@ Usługi Azure AD obsługuje również certyfikat poświadczeń dla aplikacji: ut
 
 Dla informacji o tworzeniu aplikacji AD przy użyciu certyfikatu znajduje się w temacie [użycia programu Azure PowerShell do tworzenia nazwy głównej usługi dostępu do zasobów](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) lub [Użyj wiersza polecenia platformy Azure można utworzyć nazwy głównej usługi dostępu do zasobów](resource-group-authenticate-service-principal-cli.md).
 
-## <a name="get-tenant-id-from-subscription-id"></a>Uzyskanie identyfikatora dzierżawy z identyfikatorem subskrypcji
-Do żądania tokenu, który może służyć do wywołania usługi Resource Manager, aplikacja musi znać identyfikator dzierżawy dzierżawy usługi Azure AD, obsługującym subskrypcji platformy Azure. Prawdopodobnie użytkownicy wiedzą, ich identyfikatorów subskrypcji, ale nie będzie wiadomo, ich dzierżawy identyfikatorów dla usługi Azure Active Directory. Uzyskanie identyfikatora dzierżawy przez użytkownika, należy poprosić użytkownika dla identyfikatora subskrypcji. Podaj ten identyfikator subskrypcji, wysyłając żądanie dotyczące subskrypcji:
+## <a name="get-tenant-id-from-subscription-id"></a>Uzyskanie Identyfikatora dzierżawy z Identyfikatorem subskrypcji
+Do żądania tokenu, który może służyć do wywołania usługi Resource Manager, aplikacja musi znać identyfikator dzierżawy dzierżawy usługi Azure AD, obsługującym subskrypcji platformy Azure. Prawdopodobnie użytkownicy wiedzą, ich identyfikatorów subskrypcji, ale nie będzie wiadomo, ich dzierżawy identyfikatorów dla usługi Azure Active Directory. Uzyskanie Identyfikatora dzierżawy przez użytkownika, należy poprosić użytkownika dla identyfikatora subskrypcji. Podaj subskrypcji IDENTYFIKATORA podczas wysyłania żądania dotyczące subskrypcji:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-Żądanie kończy się niepowodzeniem, ponieważ użytkownik nie zarejestrował jeszcze, ale można pobrać identyfikatora dzierżawy z odpowiedzi. W tym wyjątku pobrać identyfikator dzierżawcy z wartości nagłówka odpowiedzi dla **WWW-Authenticate**. Zobacz to implementacja [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metody.
+Żądanie kończy się niepowodzeniem, ponieważ użytkownik nie zarejestrował jeszcze, ale można pobrać Identyfikatora dzierżawy z odpowiedzi. W tym wyjątku pobrać identyfikator dzierżawcy z wartości nagłówka odpowiedzi dla **WWW-Authenticate**. Zobacz to implementacja [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metody.
 
 ## <a name="get-user--app-access-token"></a>Pobierz użytkownika + tokenu dostępu do aplikacji
 Aplikacja przekierowuje użytkownika do usługi Azure AD z OAuth 2.0 autoryzować żądania — uwierzytelnianie poświadczeń użytkownika i wrócić kod autoryzacji. Aplikacja korzysta z kodu autoryzacji, Uzyskaj token dostępu dla Menedżera zasobów. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoda tworzy żądania autoryzacji.
 
-W tym temacie przedstawiono żądania interfejsu API REST do uwierzytelnienia użytkownika. Umożliwia także biblioteki pomocnika do uwierzytelniania w kodzie. Aby uzyskać więcej informacji o tych bibliotek, zobacz [bibliotek uwierzytelniania usługi Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Aby uzyskać instrukcje dotyczące integrowania zarządzania tożsamością w aplikacji, zobacz [przewodnik dewelopera usługi Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+W tym artykule przedstawiono żądania interfejsu API REST do uwierzytelnienia użytkownika. Umożliwia także biblioteki pomocnika do uwierzytelniania w kodzie. Aby uzyskać więcej informacji o tych bibliotek, zobacz [bibliotek uwierzytelniania usługi Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Aby uzyskać instrukcje dotyczące integrowania zarządzania tożsamością w aplikacji, zobacz [przewodnik dewelopera usługi Azure Active Directory](../active-directory/active-directory-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Żądanie uwierzytelniania (OAuth 2.0)
 Wystawiać Open ID Connect/OAuth2.0 autoryzacji żądania do punktu końcowego autoryzacji usługi Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [kod autoryzacji żądania](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) tematu.
+Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [kod autoryzacji żądania](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) artykułu.
 
 Poniższy przykład przedstawia sposób żądania autoryzacji OAuth2.0:
 
@@ -119,7 +119,7 @@ Usługi Azure AD uwierzytelnia użytkownika, a w razie potrzeby pyta użytkownik
 ### <a name="auth-request-open-id-connect"></a>Żądanie uwierzytelniania (Open ID Connect)
 Jeśli chcesz nie tylko dostęp do usługi Azure Resource Manager w imieniu użytkownika, ale również umożliwiać użytkownikowi zalogować się do aplikacji przy użyciu konta usługi Azure AD, należy wydać Open ID autoryzować żądania połączenia. Z Open ID Connect aplikacja odbiera żądaniu z usługi Azure AD, która aplikacji można używać do logowania użytkownika.
 
-Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [wysłanie żądania rejestrowania](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) tematu.
+Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [wysłanie żądania rejestrowania](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) artykułu.
 
 Oto przykład Open ID Connect żądania jest:
 
@@ -136,7 +136,7 @@ Teraz, gdy aplikacja otrzymał kod autoryzacji z usługi Azure AD, nadszedł cza
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [kodu autoryzacji](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) tematu.
+Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [kodu autoryzacji](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artykułu.
 
 W poniższym przykładzie przedstawiono żądania tokenu grant kodu z poświadczeniami hasło:
 
@@ -203,7 +203,7 @@ Przykładem odpowiedzi, aby uzyskać uprawnienia użytkownika w subskrypcji jest
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-Uprawnienia interfejsu API zwraca wiele uprawnień. Wszystkie uprawnienia składa się z dozwolonych akcji (Akcje) i niedopuszczalne akcje (notactions). Jeśli jest obecna na liście dozwolonych akcji żadnych uprawnień i nie znajduje się na liście notactions te uprawnienia, użytkownik może wykonać tej operacji. **Microsoft.Authorization/RoleAssignments/Write** jest akcja management rights która udziela dostępu. Aplikacja musi przeanalizować wyniku uprawnienia do wyszukania dopasowanie wyrażenia regularnego w ciągu tej akcji w działaniach i notactions każdego uprawnienia.
+Uprawnienia interfejsu API zwraca wiele uprawnień. Wszystkie uprawnienia składają się z dozwolonych akcji (**akcje**) i niedopuszczalne akcje (**notactions**). Jeśli akcja jest obecna w dozwolonych akcji żadnych uprawnień i nie znajduje się w niezatwierdzonych akcje te uprawnienia, użytkownik może wykonać tej operacji. **Microsoft.Authorization/RoleAssignments/Write** jest akcja management rights która udziela dostępu. Aplikację należy przeanalizować wyniku uprawnienia do wyszukania dopasowanie wyrażenia regularnego w ciągu tej akcji w **akcje** i **notactions** każdego uprawnień.
 
 ## <a name="get-app-only-access-token"></a>Uzyskaj token dostępu tylko do aplikacji
 Teraz wiesz, czy użytkownik może przypisać dostęp do subskrypcji platformy Azure. Następne kroki są:
@@ -217,7 +217,7 @@ Oto bliżej w pierwszym kroku. Aby przypisać odpowiednie role RBAC tożsamości
 * Identyfikator obiektu tożsamości aplikacji w usłudze Active Directory Azure użytkownika
 * Identyfikator roli RBAC, wymaganych przez aplikację dla tej subskrypcji
 
-Podczas uwierzytelniania użytkownika z usługi Azure AD aplikacja tworzy obiekt główną usługi dla aplikacji w tej usłudze Azure AD. Azure umożliwia role RBAC ma być przypisany do nazwy główne usług uzyskać bezpośredni dostęp do odpowiednie aplikacje na zasobów platformy Azure. Ta akcja jest dokładnie Życzymy zrobić. Zapytania interfejsu API programu Graph usługi AD platformy Azure w celu ustalenia identyfikatora nazwy głównej usługi aplikacji w zalogowanego użytkownika przez usługi Azure AD.
+Podczas uwierzytelniania użytkownika z usługi Azure AD aplikacja tworzy obiekt główną usługi dla aplikacji w tej usłudze Azure AD. Azure umożliwia role RBAC ma być przypisany do nazwy główne usług uzyskać bezpośredni dostęp do odpowiednie aplikacje na zasobów platformy Azure. Ta akcja jest dokładnie, co chcesz zrobić. Zapytania interfejsu API programu Graph usługi AD platformy Azure w celu ustalenia identyfikatora nazwy głównej usługi aplikacji w zalogowanego użytkownika przez usługi Azure AD.
 
 Masz tylko token dostępu usługi Azure Resource Manager — należy uzyskać nowy token dostępu do wywołania interfejsu API programu Azure AD Graph. Każda aplikacja sieci Web w usłudze Azure AD ma uprawnienia do tworzenia zapytań własną obiekt główny usługi, więc token dostępu tylko do aplikacji jest wystarczająca.
 
@@ -228,7 +228,7 @@ Aby uwierzytelniać swoją aplikację i uzyskać token do interfejsu API Azure A
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metody przykładowej aplikacji ASP.net MVC pobiera dostęp tylko do aplikacji token dla interfejsu API programu Graph dla platformy .NET przy użyciu biblioteki uwierzytelniania usługi Active Directory.
 
-Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [żądania tokenu dostępu](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) tematu.
+Parametry ciągu zapytania, które są dostępne dla tego żądania są opisane w [żądania tokenu dostępu](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) artykułu.
 
 Oto przykład żądania tokenu przyznania poświadczeń klienta:
 
@@ -244,7 +244,7 @@ Oto przykład odpowiedzi dla poświadczeń klienta umożliwić token:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Pobrania ObjectId nazwy głównej usługi aplikacji w użytkownika usługi Azure AD
-Teraz, użyj tokenu na dostęp tylko do aplikacji zapytania [podmiotów zabezpieczeń usługi Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API w celu określenia identyfikatora obiektu w katalogu, nazwy głównej usługi aplikacji.
+Teraz, użyj tokenu na dostęp tylko do aplikacji zapytania [podmiotów zabezpieczeń usługi Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API w celu określenia Identyfikatora obiektu w katalogu, nazwy głównej usługi aplikacji.
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) metoda przykładowej aplikacji ASP.net MVC implementuje tego wywołania.
 
@@ -292,9 +292,9 @@ Nie trzeba wywołać tego interfejsu API w sposób ciągły. Po określeniu dobr
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
-Poniżej przedstawiono znane identyfikatory GUID często używane wbudowane role:
+Poniżej przedstawiono identyfikatory często używane wbudowane role:
 
-| Rola | Identyfikator GUID |
+| Rola | IDENTYFIKATOR GUID |
 | --- | --- |
 | Czytelnik |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Współautor |b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -302,8 +302,8 @@ Poniżej przedstawiono znane identyfikatory GUID często używane wbudowane role
 | Współautor sieci wirtualnej |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Współautor konta magazynu |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 | Współautor witryny sieci Web |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Współautor Plan sieci Web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-| SQL Server współautora |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+| Współautor planów sieci Web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Współautor serwera SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 | Współautor bazy danych SQL |9b7fa17d-e63e-47B0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>Przypisz rolę RBAC do aplikacji
@@ -353,7 +353,7 @@ Aby sprawdzić, czy aplikacja ma odpowiednie prawa dostępu na subskrypcji platf
 ## <a name="manage-connected-subscriptions"></a>Zarządzanie subskrypcjami połączonych
 Gdy odpowiednie role RBAC jest przypisany do głównej na subskrypcję usługi aplikacji, aplikacja może zachować monitorowania/zarządzanie przy użyciu tokenów dostępu tylko do aplikacji dla usługi Azure Resource Manager.
 
-Jeśli właściciel subskrypcji usuwa przypisanie roli aplikacji przy użyciu klasycznego portalu lub narzędzia wiersza polecenia, aplikacji nie będzie już mógł uzyskać dostępu do tej subskrypcji. W takim przypadku należy powiadomienia użytkownika Przerwano połączenie z subskrypcją z poza aplikacją i nadaj im opcję "Napraw" połączenie. "Napraw" po prostu ponownie utworzyć przypisania roli, który został usunięty w trybie offline.
+Jeśli właściciel subskrypcji usuwa przypisanie roli aplikacji za pomocą portalu lub narzędzia wiersza polecenia, aplikacji nie będzie już mógł uzyskać dostępu do tej subskrypcji. W takim przypadku należy powiadomienia użytkownika Przerwano połączenie z subskrypcją z poza aplikacją i nadaj im opcję "Napraw" połączenie. "Napraw" czy ponownie utworzyć przypisania roli, który został usunięty w trybie offline.
 
 Tak samo, jak włączono użytkownik mógł się połączyć subskrypcje aplikacji musi zezwolić użytkownikowi na odłączyć za subskrypcje. Z dostępu administracyjnego punktu widzenia Odłącz oznacza usunięcie przypisania roli mającą nazwę główną usługi aplikacji dla tej subskrypcji. Opcjonalnie każdy stan aplikacji dla subskrypcji mogą zostać usunięte za.
 Tylko użytkownicy mający uprawnienie zarządzania dla tej subskrypcji są w stanie rozłączenia subskrypcji.

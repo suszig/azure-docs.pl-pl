@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96c4ed88db5e24f439825aee5afe457a1e8c81d7
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Zachowaj stałej wirtualnego adresu IP dla usługi w chmurze Azure
-Po zaktualizowaniu usługi w chmurze, która jest hostowana na platformie Azure, konieczne może być upewnij się, że nie zmieniają się wirtualnego adresu IP (VIP) usługi. Wiele usług zarządzania domeny używa systemu nazw domen (DNS) do rejestracji nazw domen. DNS działa tylko wtedy, gdy adres VIP jest taka sama. Można użyć **Kreator publikowania** w narzędziach Azure, upewnij się, że adres VIP usługi w chmurze nie zmieniają podczas aktualizacji. Aby uzyskać więcej informacji o sposobie używania zarządzania DNS domeny dla usługi w chmurze, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze Azure](cloud-services/cloud-services-custom-domain-name.md).
+Po zaktualizowaniu usługi w chmurze, która jest hostowana na platformie Azure, konieczne może być upewnij się, że nie zmieniają się wirtualnego adresu IP (VIP) usługi. Wiele usług zarządzania domeny używa systemu nazw domen (DNS) do rejestracji nazw domen. DNS działa tylko wtedy, gdy adres VIP jest taka sama. Można użyć **Kreator publikowania** w narzędziach Azure, upewnij się, że adres VIP usługi w chmurze nie zmieniają podczas aktualizacji. Aby uzyskać więcej informacji o sposobie używania zarządzania DNS domeny dla usługi w chmurze, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze Azure](cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Publikowanie usługi w chmurze bez zmieniania ich adresów VIP
 Adres VIP usługi w chmurze jest przydzielony wdrażając najpierw go do platformy Azure w określonym środowisku, na przykład środowiska produkcyjnego. Adres VIP zmienia się tylko wtedy, gdy jawnie Usuń wdrożenie lub wdrożenie jest niejawnie usunięte przez proces wdrażania aktualizacji. Aby zachować adres VIP, nie można usuwać wdrożenia, a użytkownik powinien upewnić się, że program Visual Studio nie powoduje usunięcia wdrożenia automatycznie. 

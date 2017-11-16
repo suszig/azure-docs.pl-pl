@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi sieć szkieletowa Linux do sieci wirtualnej platformy Azure
 W tym samouczku wchodzi w jednej serii. Dowiesz się jak wdrażanie klastra usługi sieć szkieletowa usług systemu Linux w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu wiersza polecenia platformy Azure. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [tworzenie bezpiecznej klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,6 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 W tym samouczku dowiesz się, jak:
 > [!div class="checklist"]
 > * Tworzenie bezpiecznej klastra na platformie Azure
+> * [Skalowanie klastra przychodzący lub wychodzący](/service-fabric-tutorial-scale-cluster.md)
 > * [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne

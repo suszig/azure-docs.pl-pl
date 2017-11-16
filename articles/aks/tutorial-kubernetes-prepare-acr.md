@@ -1,5 +1,5 @@
 ---
-title: "Kubernertes na Azure samouczek — przygotowanie ACR | Dokumentacja firmy Microsoft"
+title: "Kubernetes na Azure samouczek — przygotowanie ACR | Dokumentacja firmy Microsoft"
 description: "Samouczek AKS — przygotowanie ACR"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Wdrażanie i użytkowanie rejestru kontenera platformy Azure
 
@@ -32,13 +32,13 @@ Rejestru kontenera platformy Azure (ACR) to Azure, prywatnego rejestru dla obraz
 > * Znakowanie obrazu kontener dla ACR
 > * Przekazywanie obrazu na ACR
 
-W kolejnych samouczkach tego wystąpienia ACR jest zintegrowana z klastrem Kubernetes w AKS. 
+W kolejnych samouczkach tego wystąpienia ACR jest zintegrowana z klastrem Kubernetes w AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W [poprzedniego samouczek](./tutorial-kubernetes-prepare-app.md), obrazu kontener został utworzony dla prostą aplikację Azure głosu. Jeśli nie utworzono obraz aplikacji Azure głosowania, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./tutorial-kubernetes-prepare-app.md).
 
-Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.20 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli). 
+Ten samouczek wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Wdrażanie rejestru kontenera platformy Azure
 
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Wypychanie obrazów do rejestru
 
-Wypychanie `azure-vote-front` obrazu w rejestrze. 
+Wypychanie `azure-vote-front` obrazu w rejestrze.
 
 Korzystając z następującego przykładu, Zamień nazwa ACR loginServer loginServer ze środowiska.
 

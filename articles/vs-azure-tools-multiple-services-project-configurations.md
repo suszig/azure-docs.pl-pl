@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Konfigurowanie projektu platformy Azure przy użyciu wielu konfiguracji usługi
 Projekt usługi w chmurze Azure zawiera dwa pliki konfiguracji: ServiceDefinition.csdef i pliku ServiceConfiguration.cscfg. Te pliki są spakować z aplikacją usługi chmury Azure i wdrażane na platformie Azure.
@@ -30,7 +30,7 @@ Azure Tools dla programu Microsoft Visual Studio Podaj strony właściwości, kt
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Informacje o podstawowej schematów dla definicji usługi i pliki konfiguracji usługi znajdują się w temacie [odwołanie do schematu](https://msdn.microsoft.com/library/azure/dd179398.aspx). Aby uzyskać więcej informacji na temat konfiguracji usługi, zobacz [sposobu skonfigurowania usługi w chmurze](cloud-services/cloud-services-how-to-configure.md).
+Informacje o podstawowej schematów dla definicji usługi i pliki konfiguracji usługi znajdują się w temacie [csdef schematu XML](cloud-services/schema-csdef-file.md) i [.cscfg schematu XML](cloud-services/schema-cscfg-file.md) artykułów. Aby uzyskać więcej informacji na temat konfiguracji usługi, zobacz [sposobu skonfigurowania usługi w chmurze](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Konfigurowanie właściwości roli
 Strony właściwości dla roli sieci web i roli proces roboczy są podobne, chociaż występują niewielkie różnice, wskazano w poniższych sekcjach.
@@ -88,7 +88,7 @@ Można użyć **Magazyn lokalny** strony właściwości do rezerwowania co najmn
 ## <a name="certificates-page"></a>Strona Certyfikaty
 Na **certyfikaty** strony, certyfikaty można skojarzyć z roli użytkownika. Certyfikaty, które można dodać może służyć do konfigurowania punktów końcowych HTTPS na **punkty końcowe** strony właściwości.
 
-**Certyfikaty** strony właściwości dodaje informacje o certyfikatach do konfiguracji usługi. Należy pamiętać, że certyfikaty nie są dostarczane z usługą; Certyfikaty musisz je oddzielnie na platformie Azure za pośrednictwem [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+**Certyfikaty** strony właściwości dodaje informacje o certyfikatach do konfiguracji usługi. Należy pamiętać, że certyfikaty nie są dostarczane z usługą; Certyfikaty musisz je oddzielnie na platformie Azure za pośrednictwem [portalu Azure](http://portal.azure.com).
 
 Aby skojarzyć certyfikatu z roli użytkownika, należy podać nazwę certyfikatu. Nazwa ta będzie używana do odwoływania się do certyfikatu podczas konfigurowania punktu końcowego HTTPS **punkty końcowe** strony właściwości. Następnie określ, czy magazyn certyfikatów jest **komputera lokalnego** lub **bieżącego użytkownika** i nazwę magazynu. Na koniec wprowadź odcisk palca certyfikatu. Jeśli certyfikat znajduje się w bieżącym User\Personal magazynu (Mój), możesz wprowadzić odcisk palca certyfikatu, wybierając certyfikat z listy wypełnione. Jeśli znajduje się ona w innej lokalizacji, należy ręcznie wprowadź wartość odcisku palca.
 

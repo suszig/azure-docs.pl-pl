@@ -13,13 +13,13 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 11/14/2017
 ms.author: billgib;genemi
-ms.openlocfilehash: e10a954ba57782f4f79131ab583b5a73edf4ba02
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Bilety Wingtip przykładowej bazy danych SQL Azure SaaS dzierżawy aplikacji — Zapraszamy!
 
@@ -37,9 +37,9 @@ Można zainstalować aplikację biletów Wingtip w subskrypcji platformy Azure w
 
 Kod aplikacji i skrypty zarządzania są wszystkie dostępne w witrynie GitHub:
 
-- **Aplikacją autonomiczną** modelu: *(przesyłanych w ciągu dni).*
-- **Bazy danych dla poszczególnych dzierżawców** modelu: [repozytorium WingtipSaaS](https://github.com/Microsoft/WingtipSaaS/).
-- **Wielodostępne podzielonej** modelu *hybrydowego*: *(przesyłanych w ciągu dni).*
+- **Aplikacją autonomiczną** modelu: [WingtipTicketsSaaS StandaloneApp repozytorium](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+- **Bazy danych dla poszczególnych dzierżawców** modelu: [repozytorium WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+- **Wielodostępne podzielonej** modelu: [repozytorium WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
 
 Ten sam kod jednej podstawowej aplikacji biletów Wingtip zostanie ponownie użyty dla wszystkich powyższych modeli wymienionych. Do uruchomienia projektów SaaS, można użyć kodu z usługi Github.
 
@@ -79,8 +79,6 @@ Ten model korzysta z aplikacji pojedynczej dzierżawy. Dlatego ten model wymaga 
 
 Można użyć tego modelu sprzedaży wystąpień aplikacji dla wielu różnych klientów, dla każdego klienta działać samodzielnie. Klient jest następnie tylko dzierżawy. Gdy baza danych programu przechowuje dane dla tylko jednego klienta, bazy danych przechowuje dane dla wielu klientów klienta.
 
-- *(Samouczków dla tego modelu zostanie opublikowana tutaj w ciągu kilku dni. Łącze będzie tutaj).*
-
 #### <a name="database-per-tenant"></a>Bazy danych dla każdego dzierżawcy
 
 ![Bazę danych na model dzierżawy][database-per-tenant-model-35d]
@@ -99,8 +97,7 @@ Ten model ma wiele dzierżaw w wystąpienie aplikacji. Ten model ma wiele dzier�
 
 Schemat każdej bazy danych zawiera identyfikator dzierżawy. Identyfikator dzierżawy jest nawet w tych baz danych, które przechowywane tylko jednego dzierżawcy.
 
-- *(Samouczków dla tego modelu zostanie opublikowana tutaj w ciągu kilku dni. Łącze będzie tutaj).*
-
+- [Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL][saas-multitenantdb-get-started-deploy-89i]
 
 
 
@@ -149,4 +146,7 @@ Samouczek artykułów dla każdego modelu obejmuje następujące scenariusze zar
 [saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
 
 [multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
+
+[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
+
 

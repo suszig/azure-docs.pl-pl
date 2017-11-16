@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Zarządzania zasobami Azure za pośrednictwem portalu
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Interfejs wiersza polecenia platformy Azure](xplat-cli-azure-resource-manager.md)
-> * [Portal](resource-group-portal.md) 
-> * [Interfejs API REST](resource-manager-rest-api.md)
-> 
-> 
 
-W tym temacie przedstawiono sposób użycia [portalu Azure](https://portal.azure.com) z [usługi Azure Resource Manager](resource-group-overview.md) do zarządzania zasobami platformy Azure. Aby dowiedzieć się więcej o wdrażaniu zasobów za pośrednictwem portalu, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](resource-group-template-deploy-portal.md).
-
-Obecnie nie wszystkie usługi obsługuje portalu lub Menedżera zasobów. W przypadku tych usług należy użyć [klasyczny portal](https://manage.windowsazure.com). Aby stan każdej usługi, zobacz [wykresu dostępności portalu Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+W tym artykule przedstawiono sposób użycia [portalu Azure](https://portal.azure.com) z [usługi Azure Resource Manager](resource-group-overview.md) do zarządzania zasobami platformy Azure. Aby dowiedzieć się więcej o wdrażaniu zasobów za pośrednictwem portalu, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Zarządzanie grupami zasobów
 
@@ -58,7 +49,7 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określaj
    
     ![Dodawanie kolumn](./media/resource-group-portal/add-columns.png)
 7. Aby dowiedzieć się więcej o wdrażaniu zasobów do nowej grupy zasobów, zobacz [wdrożenie zasobów z szablonami usługi Resource Manager i portalu Azure](resource-group-template-deploy-portal.md).
-8. Aby uzyskać szybki dostęp do grupy zasobów można przypiąć blok do pulpitu nawigacyjnego.
+8. Aby uzyskać szybki dostęp do grupy zasobów grupy zasobów można przypiąć do pulpitu nawigacyjnego.
    
     ![Grupa zasobów numeru PIN](./media/resource-group-portal/pin-group.png)
 9. Pulpit nawigacyjny Wyświetla grupy zasobów i jego zasoby. Można wybrać grupy zasobów albo jego zasobach można przejść do elementu.
@@ -71,12 +62,12 @@ Możliwość dodawania tagów do grup zasobów i zasobów w celu logicznego upor
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Monitorowanie zasobów
-Po wybraniu zasobu bloku zasobów przedstawia domyślne wykresów i tabel do monitorowania tego typu zasobu.
+Po wybraniu zasobu w portalu jest wyświetlany domyślny wykresów i tabel do monitorowania tego typu zasobu.
 
 1. Wybierz zasób i zwróć uwagę, **monitorowanie** sekcji. Zawiera wykresy, które mają zastosowanie do tego typu zasobu. Na poniższej ilustracji przedstawiono domyślne monitorowania danych dla konta magazynu.
    
     ![Pokaż monitorowania](./media/resource-group-portal/show-monitoring.png)
-2. Części bloku można przypiąć do pulpitu nawigacyjnego, wybierając wielokropek (...) powyżej sekcji. Można również dostosować rozmiar sekcji w bloku lub usuń go całkowicie. Na poniższej ilustracji przedstawiono sposób numer pin, dostosowywanie lub usunąć sekcji Procesora i pamięci.
+2. Sekcja można przypiąć do pulpitu nawigacyjnego, wybierając wielokropek (...) powyżej sekcji. Można również dostosować rozmiar sekcji lub usuń go całkowicie. Na poniższej ilustracji przedstawiono sposób numer pin, dostosowywanie lub usunąć sekcji Procesora i pamięci.
    
     ![sekcja numeru PIN](./media/resource-group-portal/pin-cpu-section.png)
 3. Po przypięciu sekcji do pulpitu nawigacyjnego, zobaczysz podsumowania na pulpicie nawigacyjnym. A, wybierając ją od razu przejście do szczegółów na temat danych.
@@ -92,7 +83,7 @@ Po wybraniu zasobu bloku zasobów przedstawia domyślne wykresów i tabel do mon
      Aby dowiedzieć się więcej o pracy z pulpitów nawigacyjnych, zobacz [tworzenie i udostępnianie pulpitów nawigacyjnych w portalu Azure](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Zarządzanie zasobami
-W bloku zasobu można zobaczyć opcje służące do zarządzania zasobu. Portal Wyświetla opcje zarządzania dla tego typu zasobu. Dostępne polecenia zarządzania u góry bloku zasobów i po lewej stronie.
+Podczas wyświetlania zasobów w portalu, zostanie wyświetlony opcje służące do zarządzania tym określonego zasobu.
 
 ![Zarządzanie zasobami](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Możesz przeglądać informacje o Twojej subskrypcji i zestawienia kosztów dla 
 
 ![subskrypcja](./media/resource-group-portal/select-subscription.png)
 
-W bloku subskrypcji zostanie wyświetlony ocena wydajności.
+Ocena wydajności zostanie wyświetlony.
 
 ![współczynnik spalania](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Po skonfigurowaniu grupy zasobów, można wyświetlić szablonu usługi Resource
 Aby uzyskać instrukcje, zobacz [szablonu eksportu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Usuń grupę zasobów lub zasobów
-Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w nim zawarte. Można również usunąć pojedynczych zasobów w grupie zasobów. Należy zachować ostrożność podczas usuwania grupy zasobów, ponieważ może być zasobów w innych grup zasobów, które są z nim połączone. Menedżer zasobów nie powoduje usunięcia połączonych zasobów, ale ich nie może działać poprawnie bez oczekiwanych zasobów.
+Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w nim zawarte. Można również usunąć pojedynczych zasobów w grupie zasobów. Usunięcie grupy zasobów, należy zachować ostrożność. Tej grupy zasobów może zawierać zasoby, które zależą od zasobów w innych grupach zasobów.
 
 ![Usuwanie grupy](./media/resource-group-portal/delete-group.png)
 

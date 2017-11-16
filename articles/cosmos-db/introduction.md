@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
 
@@ -44,6 +44,7 @@ Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia n
         * [Interfejs API bazy danych MongoDB](mongodb-introduction.md): Usługa bazy danych A MongoDB wbudowane DB rozwiązania Cosmos. Zgodny z istniejącej bazy danych MongoDB bibliotek, sterowniki, narzędzia i aplikacje.
         * [Tabela interfejsu API](table-introduction.md): Usługa bazy danych klucz wartość utworzone w celu zapewnienia możliwości premium aplikacji magazynem tabel Azure.
         * [(Gremlin) interfejsu API programu Graph](graph-introduction.md): następujące wbudowane usługi bazy danych wykresu [specyfikacji Apache TinkerPop](http://tinkerpop.apache.org/).
+        * [Interfejs API Cassandra](cassandra-introduction.md): magazynu klucz/wartość, w oparciu [Apache Cassandra](https://cassandra.apache.org/) implementacji. 
         * Dodatkowe dane modeli wkrótce!
 
 * **Elastycznie skalowana przepływność i przestrzeń dyskowa na żądanie, na całym świecie**
@@ -55,7 +56,7 @@ Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia n
     * Dla typowego elementu o wielkości 1 KB usługa Cosmos DB gwarantuje całościowe opóźnienie operacji odczytu poniżej 10 ms oraz indeksowanego zapisu poniżej 15 ms na poziomie 99 percentyla, w obrębie tego samego regionu świadczenia usługi Azure. Średnie opóźnienia są znacznie niższe (poniżej 5 ms).
 
 * **Zapewnienie dostępności na poziomie „zawsze włączona”**
-    * Dostępność na poziomie 99,99% w obrębie jednego regionu.
+    * dostępność 99,99% umowy SLA dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku swobodna spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych.
     * Możliwość wdrażania w dowolnej liczbie [regionów świadczenia usługi Azure](https://azure.microsoft.com/regions), aby uzyskać większą dostępność.
     * [Symulowanie awarii](regional-failover.md) co najmniej jednego regionu z gwarancją, że nie nastąpi utrata żadnych danych. 
 

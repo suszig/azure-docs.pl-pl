@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: anhoh
-ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API dla bazy danych MongoDB
 
@@ -27,24 +27,23 @@ ms.lasthandoff: 10/11/2017
 
 ![Azure rozwiązania Cosmos bazy danych: Baza danych MongoDB interfejsu API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Rozwiązania cosmos DB bazy danych może służyć do przechowywania danych dla aplikacji napisanych dla [MongoDB](https://docs.mongodb.com/manual/introduction/). Oznacza to, że przy użyciu istniejących [sterowniki](https://docs.mongodb.org/ecosystem/drivers/), aplikacji tworzonych na potrzeby bazy danych MongoDB mogą teraz komunikować się z rozwiązania Cosmos bazy danych i użyć bazy danych DB rozwiązania Cosmos zamiast bazy danych MongoDB. W wielu przypadkach można przełączać z przy użyciu bazy danych MongoDB do rozwiązania Cosmos bazy danych, zmieniając po prostu ciąg połączenia. Z tej funkcji, umożliwia łatwe tworzenie i uruchamianie aplikacji bazy danych MongoDB na platformie Azure w chmurze z dystrybucji globalne DB rozwiązania Cosmos Azure i [kompleksowe branży SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), kontynuując używanie znanych umiejętności Narzędzia i bazy danych mongodb.
+Azure DB rozwiązania Cosmos baz danych może służyć do przechowywania danych dla aplikacji napisanych dla [MongoDB](https://docs.mongodb.com/manual/introduction/). Ta funkcja oznacza, że przy użyciu istniejących [sterowniki](https://docs.mongodb.org/ecosystem/drivers/), aplikacji tworzonych na potrzeby bazy danych MongoDB mogą teraz komunikować się z bazy danych Azure rozwiązania Cosmos i użyć bazy danych DB rozwiązania Cosmos Azure zamiast bazy danych MongoDB. W wielu przypadkach można przełączać z przy użyciu bazy danych MongoDB do bazy danych Azure rozwiązania Cosmos, zmieniając po prostu ciąg połączenia. Z tej funkcji, umożliwia łatwe tworzenie i uruchamianie aplikacji bazy danych MongoDB na platformie Azure w chmurze z dystrybucji globalne DB rozwiązania Cosmos Azure i [kompleksowe SLA branży](https://azure.microsoft.com/support/legal/sla/cosmos-db), kontynuując używanie znanych umiejętności Narzędzia i bazy danych mongodb.
 
+**Zgodność z bazy danych MongoDB**: korzystania z istniejącej bazy danych MongoDB wiedzy, kod aplikacji i narzędziami bazy danych Azure rozwiązania Cosmos implementuje ten protokół przewodowy 3.4 bazy danych MongoDB (wersja 5) i obsługuje [potoku agregacji bazy danych MongoDB](mongodb-feature-support.md#aggregation-pipeline). Można tworzyć aplikacje przy użyciu bazy danych MongoDB i wdrożyć je do produkcji, używając w pełni zarządzana i globalnie rozproszone usługi bazy danych Azure rozwiązania Cosmos.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Jakie są zalety korzystania z bazy danych rozwiązania Cosmos Azure dla aplikacji bazy danych MongoDB?
 
-**Elastycznie skalowalne przepływność i Magazyn:** łatwe skalowanie bazy danych MongoDB do potrzeb aplikacji. Dane są przechowywane na dyskach półprzewodnikowych (SSD, solid-state drive) dla zapewnienia przewidywalnych, niskich opóźnień. Rozwiązania cosmos bazy danych obsługuje bazy danych MongoDB kolekcje, które można skalować do niemal nieograniczonego rozmiaru magazynu i udostępnionej przepływności. Można też elastycznie skalować rozwiązania Cosmos DB z przewidywalną wydajnością bezproblemowo wraz z rozwojem aplikacji. 
+**Elastycznie skalowalne przepływność i Magazyn:** spełniają wymagania aplikacji wymaga przez łatwe skalowanie w górę lub w dół bazy danych MongoDB. Dane są przechowywane na dyskach półprzewodnikowych (SSD) dla małych opóźnień przewidywalne. Azure DB rozwiązania Cosmos obsługuje bazy danych MongoDB kolekcje, które można skalować do niemal nieograniczonego rozmiaru magazynu i udostępnionej przepływności. W miarę wzrostu aplikacji usługę Azure Cosmos DB można bezproblemowo elastycznie skalować z przewidywalną wydajnością. 
 
-**W przypadku replikacji:** DB rozwiązania Cosmos niewidocznie są replikowane do wszystkich regionach jest skojarzony z Twoim kontem bazy danych MongoDB, umożliwiając tworzenie aplikacji, które wymagają globalny dostęp do danych, zapewniając wady i zalety między spójności, dostępność i wydajność, wszystkie odpowiednie gwarancje. Rozwiązania cosmos DB zapewnia przezroczysty tryb failover regionalnych, z wielu interfejsów API oraz możliwość elastycznie skalować przepływność i magazyn na całym świecie. Dowiedz się więcej w [globalnie dystrybucji danych](distribute-data-globally.md).
+**W przypadku replikacji:** bazy danych Azure rozwiązania Cosmos niewidocznie są replikowane do wszystkich regionach jest skojarzony z Twoim kontem bazy danych MongoDB, umożliwiając tworzenie aplikacji, które wymagają globalny dostęp do danych, zapewniając wady i zalety między spójności, dostępność i wydajność, wszystkie odpowiednie gwarancje. Usługa Azure Cosmos DB zawiera przezroczyste rozwiązania regionalnej pracy awaryjnej z międzyregionalnymi interfejsami API oraz możliwość elastycznego skalowania przepływności i magazynów na całym świecie. Dowiedz się więcej w [globalnie dystrybucji danych](distribute-data-globally.md).
 
-**Zgodność z bazy danych MongoDB**: korzystania z istniejącej bazy danych MongoDB wiedzy, kod aplikacji i narzędzi. Można tworzyć aplikacje przy użyciu bazy danych MongoDB i wdrożyć je w środowisku produkcyjnym za pomocą w pełni zarządzana usługa bazy danych rozwiązania Cosmos globalnie rozproszone.
+**Nie zarządzania serwerem**: nie masz, zarządzanie i skalowania bazy danych MongoDB. Azure DB rozwiązania Cosmos jest w pełni zarządzana usługa, co oznacza, że nie trzeba zarządzać infrastruktury ani maszyn wirtualnych. Azure DB rozwiązania Cosmos jest dostępna w 30 + [regiony platformy Azure](https://azure.microsoft.com/regions/services/).
 
-**Nie zarządzania serwerem**: nie masz, zarządzanie i skalowania bazy danych MongoDB. Rozwiązania cosmos bazy danych jest w pełni zarządzana usługa, co oznacza, że nie trzeba zarządzać infrastruktury ani maszyn wirtualnych. Rozwiązania cosmos bazy danych jest dostępna w 30 + [regiony platformy Azure](https://azure.microsoft.com/regions/services/).
+**Dostosowywalne poziomy spójności:** wybierz z pięciu dobrze zdefiniowane poziomy spójności w celu osiągnięcia optymalnego kompromisu między wydajnością a spójnością. Dla zapytań i operacji odczytu usługa Azure Cosmos DB oferuje pięć różnych poziomów spójności: „silna”, „powiązana nieaktualność”, „sesja”, „spójny prefiks” i „ostateczna”. Te szczegółowe, dokładnie zdefiniowane poziomy spójności umożliwiają ustalanie optymalnych kompromisów między spójnością, dostępnością i opóźnieniem. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności](consistency-levels.md).
 
-**Możliwość dostosowania poziomu spójności**: możliwość wyboru spośród pięciu dobrze zdefiniowanych poziomów spójności w celu osiągnięcia optymalnego kompromisu między wydajnością a spójnością. Dla zapytań i operacji odczytu bazy danych rozwiązania Cosmos oferuje pięć różne poziomy spójności: silne, nieaktualność, sesji, prefiks spójne i "ostateczna". Te szczegółowe, dokładnie zdefiniowane poziomy spójności umożliwiają ustalanie optymalnych kompromisów między spójnością, dostępnością i opóźnieniem. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności](consistency-levels.md).
+**Automatyczne indeksowanie**: Domyślnie bazy danych rozwiązania Cosmos Azure automatycznie indeksuje wszystkie właściwości w dokumentach w Twojej bazy danych MongoDB bazy danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych. Ponadto funkcja unikatowy indeks umożliwia ograniczenie unikatowości dla wszystkich pól dokumentu, które już są automatycznie indeksowane w usłudze Azure DB rozwiązania Cosmos.
 
-**Automatyczne indeksowanie**: domyślnie DB rozwiązania Cosmos automatycznie indeksuje wszystkie właściwości w dokumentach w Twojej bazy danych MongoDB bazy danych i nie oczekuje ani nie wymaga żadnego schematu lub tworzenia indeksów pomocniczych.
-
-**Klasy Enterprise** -DB rozwiązania Cosmos Azure obsługuje wiele replik lokalnych do dostarczania 99,99% dostępności i ochrony danych w wypadku niepowodzenia lokalne i regionalne. Azure DB rozwiązania Cosmos ma klasy enterprise [certyfikaty zgodności](https://www.microsoft.com/trustcenter) i funkcje zabezpieczeń. 
+**Klasy Enterprise**: bazy danych rozwiązania Cosmos Azure obsługuje wiele replik lokalnych do dostarczania 99,99% dostępności i ochrony danych w wypadku niepowodzenia lokalne i regionalne. Azure DB rozwiązania Cosmos ma klasy enterprise [certyfikaty zgodności](https://www.microsoft.com/trustcenter) i funkcje zabezpieczeń. 
 
 Dowiedz się więcej, w tym Azure piątek wideo z Scott Hanselman i Azure rozwiązania Cosmos DB główny Engineering Menedżer Kirill Gavrylyuk.
 
@@ -53,7 +52,7 @@ Dowiedz się więcej, w tym Azure piątek wideo z Scott Hanselman i Azure rozwi�
 
 ## <a name="how-to-get-started"></a>Jak zacząć
 
-Wykonaj poradniki Szybki Start bazy danych MongoDB, Utwórz konto DB rozwiązania Cosmos i migracji istniejącej aplikacji Mongo DB do użycia rozwiązania Cosmos DB, lub utworzyć nowy:
+Wykonaj poradniki Szybki Start bazy danych MongoDB, aby utworzyć konto bazy danych Azure rozwiązania Cosmos i migracji istniejącej aplikacji bazy danych MongoDB do używania bazy danych Azure rozwiązania Cosmos, lub utworzyć nowy:
 
 * [Migrowanie istniejących aplikacji sieci web Node.js bazy danych MongoDB](create-mongodb-nodejs.md).
 * [Tworzenie aplikacji sieci web interfejsu API bazy danych MongoDB z usług .NET i portalu Azure](create-mongodb-dotnet.md)

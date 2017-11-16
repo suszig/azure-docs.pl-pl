@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Projektowanie pierwszą bazę danych Azure SQL
 
-Baza danych SQL Azure to relacyjnej bazy danych — jako a usługa (DBaaS) w Microsoft Cloud ("Azure"). W tym samouczku, możesz dowiedzieć się, jak korzystać z portalu Azure i [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) do: 
+Baza danych SQL Azure to relacyjnej bazy danych — jako a usługa (DBaaS) w Microsoft Cloud (Azure). W tym samouczku, możesz dowiedzieć się, jak korzystać z portalu Azure i [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) do: 
 
 > [!div class="checklist"]
 > * Utwórz bazę danych w portalu Azure
@@ -177,8 +177,8 @@ Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssm
 Tworzenie schematu bazy danych z czterech tabel, które system zarządzania uczniów uczelni przy użyciu modelu [języka Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
 - Osoby
-- Plan
-- Dla użytkowników domowych
+- Kurs
+- Student/uczeń
 - System zarządzania uczniów uczelni modelu karty kredytowej
 
 Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Niektóre z tych tabel odwoływać się do kolumn w innych tabelach. Na przykład odwołuje się do tabeli uczniowie **PersonId** kolumny **osoby** tabeli. Badanie na diagramie, aby zrozumieć, jak tabele w tym samouczku są ze sobą powiązane. Aby omówiono sposób tworzenia tabel skuteczne bazy danych, zobacz [tworzenia tabel bazy danych skuteczne](https://msdn.microsoft.com/library/cc505842.aspx). Aby uzyskać informacje dotyczące wybierania typów danych, zobacz [typy danych](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).

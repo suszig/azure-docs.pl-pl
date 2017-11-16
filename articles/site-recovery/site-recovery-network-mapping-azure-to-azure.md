@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapowanie sieci między dwóch regionach platformy Azure
 
@@ -48,7 +48,7 @@ Tak samo postąpić, aby utworzyć mapowanie sieci z Azja południowo-wschodnia,
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapowanie sieci, podczas włączania replikacji
 
-Jeśli nie zostanie zrobione mapowanie sieci, gdy maszyny wirtualnej w przypadku pierwszego czasu formularza jeden region platformy Azure jest replikowana do innego, można wybrać sieć docelowa w ramach tego samego procesu. Usługa Site Recovery tworzy mapowania sieci z regionu źródła na region docelowy i region docelowy do regionu źródła na podstawie tego zaznaczenia.   
+Jeśli mapowanie sieci nie odbywa się podczas replikowania maszyny wirtualnej po raz pierwszy z jednego regionu Azure, a następnie wybierz pozycję sieci docelowej w ramach tego samego procesu. Usługa Site Recovery tworzy mapowania sieci z regionu źródła na region docelowy i region docelowy do regionu źródła na podstawie tego zaznaczenia.   
 
 ![Mapowanie sieci](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -80,7 +80,7 @@ Podsieci docelowej maszyny wirtualnej jest zaznaczone, na podstawie nazwy podsie
 Adres IP dla każdego interfejsu sieci docelowej maszyny wirtualnej jest wybierany w następujący sposób:
 
 ### <a name="dhcp"></a>DHCP
-Jeśli interfejs sieciowy źródłowej maszyny wirtualnej jest używany serwer DHCP, interfejsu sieci docelowej maszyny wirtualnej jest także ustawić jako DHCP.
+Jeśli interfejsu sieciowego dla źródłowej maszyny wirtualnej jest używany serwer DHCP, interfejsu sieci docelowej maszyny wirtualnej jest także ustawić jako DHCP.
 
 ### <a name="static-ip"></a>Statyczny adres IP
 Jeśli interfejs sieciowy źródłowej maszyny wirtualnej używa statycznego adresu IP, interfejsu sieci docelowej maszyny wirtualnej jest także ustawić do użycia statycznego adresu IP. Statyczny adres IP jest wybierany w następujący sposób:

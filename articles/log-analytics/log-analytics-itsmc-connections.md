@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT (wersja zapoznawcza)
-Ten artykuł zawiera informacje na temat łączenia usługi Zarządzanie usługami IT — produktów/z łącznika zarządzania usługi IT w OMS oraz centralne zarządzanie elementami pracy. Więcej informacji na temat łącznika zarządzania usługi IT, zobacz [omówienie](log-analytics-itsmc-overview.md).
+Ten artykuł zawiera informacje dotyczące połączenia usługi/produktów Zarządzanie usługami IT — aby IT usługi zarządzania łącznika (ITSMC) w OMS i centralne zarządzanie elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie ITSMC](log-analytics-itsmc-overview.md).
 
 Obsługiwane są następujące produktów/usług:
 
@@ -31,14 +31,13 @@ Obsługiwane są następujące produktów/usług:
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>Łączenie programu System Center Service Manager do usługi IT łącznika zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z łącznika zarządzania usługi IT w OMS produktu System Center Service Manager.
+Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z ITSMC w OMS produktu System Center Service Manager.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że są spełnione następujące wymagania wstępne:
 
-- Zainstalowany łącznik zarządzania usługi IT.
-Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Aplikacja sieci Web programu Service Manager (aplikacja sieci Web) jest wdrożone i skonfigurowane. Informacje dotyczące aplikacji sieci Web jest [tutaj](#create-and-deploy-service-manager-web-app-service).
 - Połączenia hybrydowe utworzone i skonfigurowane. Więcej informacji: [skonfiguruj hybrydowych połączenia](#configure-the-hybrid-connection).
 - Obsługiwane wersje programu Service Manager: 2012 R2 lub 2016.
@@ -46,7 +45,7 @@ Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi I
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
-Użyj poniższej procedury do połączenia wystąpienie programu System Center Service Manager do zarządzania łącznika usługi IT:
+ITSMC nawiązać połączenia z wystąpieniem programu System Center Service Manager, należy użyć następującej procedury:
 
 1. Przejdź do **OMS** >**ustawienia** > **połączone źródła**.
 2. Wybierz **łącznika Zarządzanie usługami IT —** kliknij **Dodawanie nowego połączenia**.
@@ -59,26 +58,26 @@ Użyj poniższej procedury do połączenia wystąpienie programu System Center S
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę dla wystąpienia programu System Center Service Manager, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Możesz użyć tej nazwy później skonfigurować elementy robocze w tym wystąpieniu / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia programu System Center Service Manager, który chcesz połączyć z ITSMC.  Możesz użyć tej nazwy później skonfigurować elementy robocze w tym wystąpieniu / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **programu System Center Service Manager**. |
 | **Adres URL serwera**   | Wpisz adres URL aplikacji sieci Web programu Service Manager. Więcej informacji na temat aplikacji sieci Web programu Service Manager jest [tutaj](#create-and-deploy-service-manager-web-app-service).
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, generowany (przy użyciu skryptu automatyczne) w celu uwierzytelniania aplikacji sieci Web. Więcej informacji na temat zautomatyzowanego skryptu [tutaj.](log-analytics-itsmc-service-manager-script.md)|
 | **Klucz tajny klienta**   | Wpisz klucz tajny klienta, generowany dla tego identyfikatora.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy pracy programu Service Manager, które mają być synchronizowane za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników. **Opcje:** incydenty, żądania zmiany.|
+| **Zakres synchronizacji danych**   | Wybierz elementy pracy programu Service Manager, które mają być synchronizowane za pośrednictwem ITSMC.  Pracy, te elementy są importowane do analizy dzienników. **Opcje:** incydenty, żądania zmiany.|
 | **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
 | **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
 
-Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
+**Gdy pomyślnie nawiązano połączenie i zsynchronizowane**:
 
 - Wybrane elementy robocze z programu Service Manager są importowane do OMS **analizy dzienników.** Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
 
-- Z usługą OMS można utworzyć zdarzenia z alertów OMS lub wyszukiwania dziennika, w tym wystąpieniu programu Service Manager.
+- Z usługą OMS można utworzyć zdarzenia z alertów OMS lub dziennik wyszukiwania lub alerty Azure, w tym wystąpieniu programu Service Manager.
 
-Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) i [Zarządzanie usługami IT — tworzenie elementów roboczych z alertów Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Tworzenie i wdrażanie aplikacji sieci web programu Service Manager
 
-Aby połączyć lokalnymi Service Manager z łącznika zarządzania usługi IT na OMS, firma Microsoft opracowała aplikacji sieci Web programu Service Manager w witrynie GitHub.
+Aby połączyć lokalnymi Service Manager z ITSMC na OMS, firma Microsoft opracowała aplikacji sieci Web programu Service Manager w witrynie GitHub.
 
 Aby skonfigurować aplikację sieci Web Zarządzanie usługami IT — dla programu Service Manager, wykonaj następujące czynności:
 
@@ -99,7 +98,7 @@ Uruchom skrypt, podając następujące wymagane szczegóły:
 
 Skrypt tworzy aplikacji sieci Web przy użyciu nazwy określonej (wraz z kilku dodatkowe ciągi go). Generuje on **adres URL aplikacji sieci Web**, **identyfikator klienta** i **klucz tajny klienta**.
 
-Zapisywanie wartości możesz użyć ich podczas tworzenia połączenia z łącznikiem zarządzania usługi IT.
+Zapisywanie wartości możesz użyć ich podczas tworzenia połączenia z ITSMC.
 
 **Sprawdź instalację aplikacji sieci Web**
 
@@ -109,7 +108,7 @@ Zapisywanie wartości możesz użyć ich podczas tworzenia połączenia z łącz
 
 ### <a name="configure-the-hybrid-connection"></a>Skonfiguruj połączenie hybrydowe
 
-Poniższa procedura umożliwia skonfigurowanie połączenie hybrydowe, które łączy wystąpienia programu Service Manager łącznik IT usługi zarządzania w OMS.
+Poniższa procedura umożliwia skonfigurowanie połączenie hybrydowe, które łączy wystąpienia programu Service Manager z ITSMC w OMS.
 
 1. Znajdź aplikację sieci Web programu Service Manager w obszarze **zasobów Azure**.
 2. Kliknij przycisk **ustawienia** > **sieci**.
@@ -161,7 +160,7 @@ Połączenia hybrydowe został pomyślnie połączony.
 ![połączenia hybrydowe powiodło się](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> Po hybrydowego tworzone jest połączenie, sprawdzić i przetestować połączenie, przechodząc na stronę wdrożonej aplikacji sieci Web programu Service Manager. Upewnij się, że połączenie zostanie nawiązane, przed podjęciem próby nawiązania połączenia łącznika zarządzania usługi IT w OMS.
+> Po hybrydowego tworzone jest połączenie, sprawdzić i przetestować połączenie, przechodząc na stronę wdrożonej aplikacji sieci Web programu Service Manager. Upewnij się, że połączenie zostanie nawiązane, przed podjęciem próby nawiązania połączenia ITSMC w OMS.
 
 Na poniższej ilustracji przedstawiono szczegóły połączenia:
 
@@ -169,13 +168,13 @@ Na poniższej ilustracji przedstawiono szczegóły połączenia:
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>Połączenie usługi ServiceNow z usługi IT łącznika zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z łącznika zarządzania usługi IT w OMS produktu usługi ServiceNow.
+Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z ITSMC w OMS produktu usługi ServiceNow.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że są spełnione następujące wymagania wstępne:
 
-- Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Usługi ServiceNow obsługiwane wersje — Fuji, serwera Geneva, Helsinkach.
 
 Administratorzy usługi ServiceNow należy wykonać następujące opcje w ich wystąpienia usługi ServiceNow:
@@ -185,7 +184,6 @@ Administratorzy usługi ServiceNow należy wykonać następujące opcje w ich wy
 
 
 ### <a name="connection-procedure"></a>**Procedura połączenia**
-
 Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
 
 1. Przejdź do **OMS** > **ustawienia** > **połączone źródła**.
@@ -200,25 +198,25 @@ Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia usługi ServiceNow, który chcesz połączyć z łącznikiem IT usługi zarządzania.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia usługi ServiceNow, który chcesz połączyć z ITSMC.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **ServiceNow**. |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji, który został utworzony w aplikacji usługi ServiceNow obsługuje połączenia z łącznikiem zarządzania usługi IT. Więcej informacji: [roli użytkownika aplikacji tworzenia usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji utworzony w aplikacji usługi ServiceNow obsługuje połączenie ITSMC. Więcej informacji: [roli użytkownika aplikacji tworzenia usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga**: nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w usługę.  |
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, który chcesz połączyć się łącznika zarządzania usługi IT. |
+| **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, który chcesz połączyć się ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany do uwierzytelniania protokołu OAuth2, który można wygenerować wcześniej.  Więcej informacji na temat generowania identyfikator klienta i klucz tajny: [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klucz tajny klienta**   | Wpisz klucz tajny klienta, generowany dla tego identyfikatora.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze usługi ServiceNow, które mają być synchronizowane z usługą OMS za pośrednictwem łącznika zarządzania usługi IT.  Wybrane wartości są importowane do analizy dzienników.   **Opcje:** zdarzenia i żądania zmiany.|
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze usługi ServiceNow, które mają być synchronizowane z usługą OMS za pośrednictwem ITSMC.  Wybrane wartości są importowane do analizy dzienników.   **Opcje:** zdarzenia i żądania zmiany.|
 | **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
 | **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
 
 
-Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
+**Gdy pomyślnie nawiązano połączenie i zsynchronizowane**:
 
 - Wybrane elementy z połączenia usługi ServiceNow są importowane do analizy dzienników OMS pracy.  Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
-- Można utworzyć zdarzenia, alerty i zdarzenia z alertów OMS lub dziennik wyszukiwania w tym wystąpieniu usługi ServiceNow.  
+- Można utworzyć zdarzenia, alerty i zdarzenia z alertów OMS lub dziennik wyszukiwania lub Azure alertów w tym wystąpieniu usługi ServiceNow.  
 
 
-Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) i [Zarządzanie usługami IT — tworzenie elementów roboczych z alertów Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Utworzenie roli użytkownika integracji usługi ServiceNow aplikacji
 
@@ -230,7 +228,7 @@ Użytkownik następującej procedury:
 
     Stan jest wyświetlany jako **nie zakończyć** Jeśli jeszcze rola użytkownika ma być utworzony.
 
-4.  W polach tekstowych obok **tworzenia integracji użytkownika**, wprowadź nazwę użytkownika dla użytkownika, który może łączyć się łącznika zarządzania usługi IT w OMS.
+4.  W polach tekstowych obok **tworzenia integracji użytkownika**, wprowadź nazwę użytkownika dla użytkownika, który może łączyć się ITSMC w OMS.
 5.  Wprowadź hasło dla tego użytkownika, a następnie kliknij przycisk **OK**.  
 
 >[!NOTE]
@@ -239,7 +237,7 @@ Użytkownik następującej procedury:
 
 Nowo utworzony użytkownik zostanie wyświetlony z domyślne role przypisane.
 
-Domyślne role:
+**Domyślne role**:
 - personalize_choices
 - import_transformer
 -   x_mioms_microsoft.user
@@ -262,14 +260,15 @@ Po pomyślnym utworzeniu użytkownika, stan **Sprawdź listę kontrolną instala
 
 ## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>Połącz Provance usługi IT łącznika zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Provance łącznika zarządzania usługi IT w OMS.
+Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Provance ITSMC w OMS.
+
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że są spełnione następujące wymagania wstępne:
 
 
-- Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance aplikacji powinny zostać zarejestrowane w usłudze Azure AD - oraz Identyfikatora klienta jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [jak skonfigurować uwierzytelnianie usługi active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Rola: Administrator.
@@ -289,32 +288,32 @@ Użyj poniższej procedury, aby utworzyć połączenie Provance:
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia Provance, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia Provance, który chcesz połączyć z ITSMC.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **Provance**. |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika, który może łączyć się łącznika zarządzania usługi IT.    |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika, który może łączyć się ITSMC.    |
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tokenów uwierzytelniania tylko, a nie są przechowywane w dowolnym miejscu w ramach usługi OMS. _|
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia Provance, który chcesz połączyć się łącznika zarządzania usługi IT. |
+| **Adres URL serwera**   | Wpisz adres URL wystąpienia Provance, który chcesz połączyć się ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta do uwierzytelniania połączenia, który można wygenerować wystąpienia Provance.  Więcej informacji na temat Identyfikatora klienta, zobacz [jak skonfigurować uwierzytelnianie usługi active directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze Provance, które mają być synchronizowane z usługą OMS za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany.|
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze Provance, które mają być synchronizowane z usługą OMS za pośrednictwem ITSMC.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany.|
 | **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
 | **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone.|
 
-Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
+**Gdy pomyślnie nawiązano połączenie i zsynchronizowane**:
 
 - Wybrane elementy robocze z połączenia Provance są importowane do OMS **analizy dzienników.**  Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
-- W tym wystąpieniu Provance można utworzyć zdarzenia i zdarzenia z alertów OMS lub dziennik wyszukiwania.
+- Można utworzyć zdarzenia i zdarzenia z alertów OMS lub dziennik wyszukiwania lub Azure alertów w tym wystąpieniu Provance.
 
-Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) i [Zarządzanie usługami IT — tworzenie elementów roboczych z alertów Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>Połącz Cherwell usługi IT łącznika zarządzania w OMS
 
-Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Cherwell łącznika zarządzania usługi IT w OMS.
+Poniższe sekcje zawierają szczegółowe informacje na temat nawiązać produktu Cherwell ITSMC w OMS.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że następujące wymagania wstępne zostały spełnione:
+Upewnij się, że są spełnione następujące wymagania wstępne:
 
-- Zainstalowany łącznik zarządzania usługi IT. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Wygenerowany identyfikator klienta. Więcej informacji: [generowania Identyfikatora klienta dla Cherwell](#generate-client-id-for-cherwell).
 - Rola: Administrator.
 
@@ -334,22 +333,22 @@ Użyj poniższej procedury, aby utworzyć połączenie Cherwell:
 
 | **Pole** | **Opis** |
 | --- | --- |
-| **Nazwa**   | Wpisz nazwę wystąpienia Cherwell, który chcesz połączyć z łącznikiem zarządzania usługi IT.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
+| **Nazwa**   | Wpisz nazwę wystąpienia Cherwell, który chcesz połączyć się ITSMC.  Ta nazwa można użyć w dalszej części OMS, podczas konfigurowania elementów roboczych w tym zarządzanie usługami IT — / wyświetlić szczegółowy dziennik analizy. |
 | **Wybierz typ połączenia**   | Wybierz **Cherwell.** |
-| **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell, który może łączyć się łącznika zarządzania usługi IT. |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell, który może łączyć się ITSMC. |
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** nazwę użytkownika i hasło są używane do generowania tylko tokeny uwierzytelniania i nie są przechowywane w dowolnym miejscu w usługę.|
-| **Adres URL serwera**   | Wpisz adres URL wystąpienia Cherwell, który chcesz połączyć się łącznika zarządzania usługi IT. |
+| **Adres URL serwera**   | Wpisz adres URL wystąpienia Cherwell, który chcesz połączyć się ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta do uwierzytelniania połączenia, który można wygenerować wystąpienia Cherwell.   |
-| **Zakres synchronizacji danych**   | Wybierz elementy robocze Cherwell, które mają być synchronizowane za pośrednictwem łącznika zarządzania usługi IT.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany. |
+| **Zakres synchronizacji danych**   | Wybierz elementy robocze Cherwell, które chcesz zsynchronizować za pośrednictwem ITSMC.  Pracy, te elementy są importowane do analizy dzienników.   **Opcje:** incydenty, żądania zmiany. |
 | **Synchronizowanie danych** | Wpisz liczbę ostatnich dni, które mają dane z. **Maksymalny limit**: 120 dni. |
 | **Utwórz nowy element konfiguracji w rozwiązaniu Zarządzanie usługami IT —** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie Zarządzanie usługami IT —. Po wybraniu pakietu OMS tworzy dotyczy konfiguracji (ci) jako elementy konfiguracji (w przypadku nieistniejących SIC) w obsługiwany system Zarządzanie usługami IT —. **Domyślna**: wyłączone. |
 
-Gdy pomyślnie nawiązano połączenie i zsynchronizowane:
+**Gdy pomyślnie nawiązano połączenie i zsynchronizowane**:
 
 - Wybrane elementy z tego połączenia Cherwell są importowane do analizy dzienników OMS pracy. Można wyświetlić podsumowanie tych elementów roboczych na kafelku łącznika zarządzania usługi IT.
-- Można utworzyć zdarzenia i zdarzeń w tym wystąpieniu Cherwell z usługą OMS. Więcej informacji: tworzenie elementów roboczych Zarządzanie usługami IT — OMS alertów i zarządzanie usługami IT — tworzenie elementach z dzienników OMS.
+- Można utworzyć zdarzenia i zdarzenia z alertów OMS lub dziennik wyszukiwania lub Azure alertów w tym wystąpieniu Cherwell.
 
-Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) i [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Więcej informacji: [Zarządzanie usługami IT — tworzenie elementów roboczych dla alertów OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Zarządzanie usługami IT — tworzenie elementów roboczych z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) i [Zarządzanie usługami IT — tworzenie elementów roboczych z alertów Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generuj identyfikator klienta dla Cherwell
 
@@ -364,7 +363,6 @@ Aby wygenerować identyfikator/klucz klienta dla Cherwell, użyj następującej 
 
 ## <a name="next-steps"></a>Następne kroki
  - [Tworzenie elementów roboczych Zarządzanie usługami IT — OMS alertów](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
-
  - [Tworzenie elementów roboczych Zarządzanie usługami IT — z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
-
-- [Widok analizy dzienników dla połączenia](log-analytics-itsmc-overview.md#using-the-solution)
+ - [Tworzenie elementów roboczych Zarządzanie usługami IT — Azure alertów](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Widok analizy dzienników dla połączenia](log-analytics-itsmc-overview.md#using-the-solution)

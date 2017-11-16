@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofanie poziomy wydajności S1, S2 i S3
 
@@ -44,7 +44,7 @@ Ten artykuł zawiera omówienie poziomów wydajności S1, S2 i S3 i opisano, jak
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Dlaczego są wydajności S1, S2 i S3 poziomy wycofana?
 
-Poziomy wydajności S1, S2 i S3 nie oferują elastyczność, która oferuje kolekcje interfejsu API usługi DocumentDB. S1, S2, poziomy wydajności S3, zarówno przepustowość i pojemność pamięci masowej zostały wstępnie ustawiony i nie zaproponował elastyczność. Azure DB rozwiązania Cosmos oferuje możliwość dostosowywania Twojej przepływność i Magazyn, oferuje znacznie większą elastyczność i możliwość skalować stosownie do potrzeb.
+Poziomy wydajności S1, S2 i S3 nie oferują elastyczność oferta kolekcje tego interfejsu API usługi DocumentDB. S1, S2, poziomy wydajności S3, zarówno przepustowość i pojemność pamięci masowej zostały wstępnie ustawiony i nie zaproponował elastyczność. Azure DB rozwiązania Cosmos oferuje możliwość dostosowywania Twojej przepływność i Magazyn, oferuje znacznie większą elastyczność i możliwość skalować stosownie do potrzeb.
 
 <a name="compare"></a>
 
@@ -71,7 +71,7 @@ Nothing, DB rozwiązania Cosmos obsługuje migrację dla Ciebie. Jeśli masz kol
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Jak mojej kolekcji ulegnie zmianie po migracji
 
-Jeśli masz kolekcji S1 zostaną poddane migracji do kolekcji jednej partycji o 400 RU/s przepustowości. 400 RU/s jest najniższa przepływność dostępne kolekcje z jedną partycją. Jednak koszt 400 RU/s w kolekcji jednej partycji około jest taki sam, jak zostały płatności z kolekcji S1 i 250 RU/s –, więc nie płatność za bardzo 150 RU/s dostępne.
+Jeśli masz kolekcji S1 zostaną poddane migracji do kolekcji jednej partycji o 400 RU/s przepustowości. 400 RU/s jest najniższa przepływność dostępne kolekcje z jedną partycją. Jednak koszt 400 RU/s w kolekcji jedną partycją wynosi około takie same jak zostały płatności z kolekcji S1 i 250 RU/s –, więc nie płatność za bardzo 150 RU/s dostępne.
 
 Jeśli masz kolekcji S2 zostaną poddane migracji do kolekcji jednej partycji z 1 K RU/s. Zostanie wyświetlone żadne zmiany do poziomu przepływności.
 
@@ -119,29 +119,29 @@ Można przeprowadzić migrację z poziomów wydajności S1, S2 i S3 do kolekcje 
 
 1. W [ **portalu Azure**](https://portal.azure.com), kliknij przycisk **bazy danych Azure rozwiązania Cosmos**, następnie wybierz konto bazy danych rozwiązania Cosmos do zmodyfikowania. 
  
-    Jeśli **bazy danych Azure rozwiązania Cosmos** jest nie na pasku przechodzenia kliknij >, przewiń do **baz danych**, wybierz pozycję **bazy danych Azure rozwiązania Cosmos**, a następnie wybierz konto usługi DocumentDB.  
+    Jeśli **bazy danych Azure rozwiązania Cosmos** jest nie na pasku przechodzenia kliknij >, przewiń do **baz danych**, wybierz pozycję **bazy danych Azure rozwiązania Cosmos**, a następnie wybierz konto.  
 
-2. W menu zasobów w obszarze **kontenery**, kliknij przycisk **skali**, wybierz kolekcję, aby zmodyfikować z listy rozwijanej, a następnie kliknij przycisk **warstwy cenowej**. Konta przy użyciu wstępnie zdefiniowanych przepływności mają warstwy cenowej S1, S2 lub S3.  W **wybierz warstwę cenową** bloku, kliknij przycisk **standardowe** Zmień przepływności zdefiniowane przez użytkownika, a następnie kliknij przycisk **wybierz** można zapisać zmiany.
+2. W menu zasobów w obszarze **kontenery**, kliknij przycisk **skali**, wybierz kolekcję, aby zmodyfikować z listy rozwijanej, a następnie kliknij przycisk **warstwy cenowej**. Konta przy użyciu wstępnie zdefiniowanych przepływności mają warstwy cenowej S1, S2 lub S3.  W **wybierz warstwę cenową** kliknij przycisk **standardowe** Zmień przepływności zdefiniowane przez użytkownika, a następnie kliknij przycisk **wybierz** można zapisać zmiany.
 
-    ![Zrzut ekranu przedstawiający miejsce zmienić wartość przepływności bloku ustawienia](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Zrzut ekranu przedstawiający miejsce zmienić wartość przepływności strony ustawień](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. W **skali** bloku **warstwy cenowej** jest zmieniana na **standardowe** i **przepływności (RU/s)** zostanie wyświetlone okno z wartością domyślną 400. Ustaw przepustowość w przedziale od 400 do 10 000 [jednostek żądania](request-units.md)/second (RU/s). **Szacowana kwota rachunku miesięczne** w dolnej części strony Aktualizacje automatyczne oszacować miesięczny koszt. 
+3. W **skali** strony, **warstwy cenowej** jest zmieniana na **standardowe** i **przepływności (RU/s)** domyślnie wyświetlane jest okno wartość 400. Ustaw przepustowość w przedziale od 400 do 10 000 [jednostek żądania](request-units.md)/second (RU/s). **Szacowana kwota rachunku miesięczne** w dolnej części strony Aktualizacje automatyczne oszacować miesięczny koszt. 
 
     >[!IMPORTANT] 
     > Po zapisaniu zmian i przenieść warstwa cenowa standardowa, nie można wycofać na poziomie wydajności S1, S2 lub S3.
 
 4. Kliknij przycisk **zapisać** Aby zapisać zmiany.
 
-    Jeśli okaże się, że potrzebujesz więcej przepływności (większe niż 10 000 RU/s) lub więcej pamięci masowej (większe niż 10GB) można utworzyć kolekcję partycjonowaną. Aby przeprowadzić migrację kolekcji jednej partycji do kolekcji podzielone na partycje, zobacz [migracji z jednej partycji do kolekcji partycjonowanych](documentdb-partition-data.md#migrating-from-single-partition).
+    Jeśli okaże się, że potrzebujesz więcej przepływności (większe niż 10 000 RU/s) lub więcej pamięci masowej (większe niż 10 GB) można utworzyć kolekcję partycjonowaną. Aby przeprowadzić migrację kolekcji jednej partycji do kolekcji podzielone na partycje, zobacz [migracji z jednej partycji do kolekcji partycjonowanych](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Zmiana na standardowe S1, S2 lub S3 może potrwać maksymalnie 2 minuty.
+    > Zmiana na standardowe S1, S2 lub S3 może zająć do dwóch minut.
     > 
     > 
 
 **Aby przeprowadzić migrację do kolekcje z jedną partycją przy użyciu zestawu .NET SDK**
 
-Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest przez nasze zestawy SDK. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu naszych [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
+Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest za pomocą zestawów SDK z bazy danych Azure rozwiązania Cosmos. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
 
 Oto fragment kodu dla zmiana przepływność kolekcji do 5000 jednostek żądań na sekundę:
     

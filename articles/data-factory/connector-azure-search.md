@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiowanie danych do indeksu usługi Azure Search przy użyciu fabryki danych Azure
 
@@ -51,7 +51,7 @@ Obsługiwane są następujące właściwości dla usługi Azure Search połączo
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 > [!IMPORTANT]
-> Podczas kopiowania danych z magazynu danych chmury do indeksu usługi Azure Search w usłudze Azure Search połączonej usługi, należy odwoływać się w środowisku uruchomieniowym integracji Azure z jawnym region connactVia. Ustaw obszar, który znajduje się usługi Azure Search. Dowiedz się więcej o [Azure integracji środowiska wykonawczego] (pojęcia — integracja runtime.md #azure integracji-środowiska wykonawczego).
+> Podczas kopiowania danych z magazynu danych chmury do indeksu usługi Azure Search w usłudze Azure Search połączonej usługi, należy odwoływać się w środowisku uruchomieniowym integracji Azure z jawnym region connactVia. Ustaw obszar, który znajduje się usługi Azure Search. Dowiedz się więcej o [środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Przykład:**
 

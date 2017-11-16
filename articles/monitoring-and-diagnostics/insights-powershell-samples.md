@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: robb
-ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21123299fbab59b388aacc4a802f3a9ec1d80632
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Przykładów dla platformy Azure Monitor PowerShell szybki start
 Ten artykuł przedstawia przykładowe polecenia programu PowerShell, aby ułatwić dostęp do funkcji Azure monitora. Azure Monitor pozwala automatycznego skalowania usługi w chmurze, maszyn wirtualnych i aplikacji sieci Web. Można też do wysyłania powiadomień o alertach, lub zadzwoń na podstawie wartości dane telemetryczne skonfigurowanych adresów URL sieci web.
@@ -155,7 +155,7 @@ W poniższej tabeli opisano parametry i wartości używane do utworzenia alertu 
 | Operator |GreaterThan |
 | Wartość progowa (liczba/s w tym metryki) |1 |
 | Rozmiar_okna (w formacie hh: mm:) |00:05:00 |
-| agregatora (Statystyka metryki, który używa w tym przypadku średnia liczba) |Średnia |
+| agregatora (Statystyka metryki, który używa w tym przypadku średnia liczba) |Średni |
 | niestandardowe wiadomości e-mail (tablicy ciągów) |'foo@example.com','bar@example.com' |
 | Wyślij wiadomość e-mail do właściciele, współautorzy i czytelnicy |-SendToServiceOwners |
 
@@ -202,7 +202,7 @@ Pełną listę dostępnych opcji `Get-AzureRmMetricDefinition` znajduje się w t
 
 ## <a name="create-and-manage-autoscale-settings"></a>Utwórz i Zarządzaj ustawieniami automatycznego skalowania
 Zasób (aplikacja sieci Web, maszyn wirtualnych, usługa w chmurze lub zestawu skalowania maszyn wirtualnych) może mieć tylko jedno ustawienie skalowania automatycznego skonfigurowane pod jego kątem.
-Jednak każdego ustawienia automatycznego skalowania może mieć wiele profilów. Na przykład jeden profil na podstawie wydajności skali i drugi dla profilu oparte na harmonogramie. Każdy profil może mieć wiele reguł skonfigurowane na nim. Aby uzyskać więcej informacji na temat skalowania automatycznego, zobacz [sposobu skalowania automatycznego aplikacji](../cloud-services/cloud-services-how-to-scale.md).
+Jednak każdego ustawienia automatycznego skalowania może mieć wiele profilów. Na przykład jeden profil na podstawie wydajności skali i drugi dla profilu oparte na harmonogramie. Każdy profil może mieć wiele reguł skonfigurowane na nim. Aby uzyskać więcej informacji na temat skalowania automatycznego, zobacz [sposobu skalowania automatycznego aplikacji](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Poniżej przedstawiono kroki, aby użyć:
 

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze Azure
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](cloud-services-custom-domain-name-portal.md)
-> * [Klasyczna witryna Azure Portal](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Podczas tworzenia usługi w chmurze Azure przypisuje go do poddomeną **cloudapp.net**. Na przykład jeśli usługi w chmurze ma nazwę "contoso", użytkownikom będzie można uzyskać dostępu do aplikacji przy użyciu adresu URL, takie jak http://contoso.cloudapp.net. Azure przypisuje wirtualny adres IP.
 
 Jednak pozwala również udostępnić aplikacji na własną nazwę domeny, takie jak **contoso.com**. W tym artykule wyjaśniono, jak zarezerwować lub skonfigurowania niestandardowej nazwy domeny dla ról sieci web usługi w chmurze.
@@ -62,7 +56,7 @@ Rekord CNAME mapuje *określonych* domeny, takie jak **contoso.com** lub **www.c
 > [!NOTE]
 > Ponieważ rekord jest zamapowana na statycznego adresu IP, nie może automatycznie rozwiązać zmian adres IP usługi w chmurze. Adres IP używany przez usługi w chmurze jest przydzielony przy pierwszym uruchomieniu wdrożenia do pustego gniazda (produkcyjnego lub przemieszczania.) Po usunięciu wdrożenia gniazda adres IP został wydany przez Azure i wszystkich przyszłych wdrożeń do gniazda, należy podać nowy adres IP.
 > 
-> Wygodnie adres IP miejsca danego wdrożenia (środowisko produkcyjne lub tymczasowe) jest trwały podczas wymiany między przemieszczania i wdrożeń produkcyjnych lub uaktualnianie w miejscu istniejącego wdrożenia. Aby uzyskać więcej informacji dotyczących wykonywania tych akcji, zobacz [sposobu zarządzania usługami w chmurze](cloud-services-how-to-manage.md).
+> Wygodnie adres IP miejsca danego wdrożenia (środowisko produkcyjne lub tymczasowe) jest trwały podczas wymiany między przemieszczania i wdrożeń produkcyjnych lub uaktualnianie w miejscu istniejącego wdrożenia. Aby uzyskać więcej informacji dotyczących wykonywania tych akcji, zobacz [sposobu zarządzania usługami w chmurze](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ W tym przykładzie pokazano tworzenie rekordu A dla domeny głównej. Jeśli chc
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Jak zarządzać usługi w chmurze](cloud-services-how-to-manage.md)
+* [Jak zarządzać usługi w chmurze](cloud-services-how-to-manage-portal.md)
 * [Jak zamapować zawartość usługi CDN na domenę niestandardową](../cdn/cdn-map-content-to-custom-domain.md)
 * [Konfiguracja ogólna usługi w chmurze](cloud-services-how-to-configure-portal.md).
 * Dowiedz się, jak [wdrażania usługi w chmurze](cloud-services-how-to-create-deploy-portal.md).

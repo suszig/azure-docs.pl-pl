@@ -4,7 +4,7 @@ description: "Więcej informacji na temat oprogramowania i wymagania sieciowe zw
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Wymagania systemowe macierzy wirtualnej StorSimple
 ## <a name="overview"></a>Omówienie
@@ -41,7 +41,10 @@ Wymagania dotyczące oprogramowania zawierają informacje obsługiwane przegląd
 | **Funkcja hypervisor** | **Wersja** |
 | --- | --- |
 | Funkcja Hyper-V |Windows Server 2008 R2 z dodatkiem SP1 lub nowszy |
-| VMware ESXi |5.5 i 6.0 |
+| VMware ESXi |5.0, 5.5 i 6.0 <br> (6.5 nie jest obsługiwana.) |
+
+> [!IMPORTANT]
+> Nie instaluj narzędzi VMware tablica wirtualnego StorSimple; Spowoduje to nieobsługiwaną konfiguracją.
 
 ### <a name="virtual-device-requirements"></a>Wymagania dotyczące urządzeń wirtualnych
 | **Składnik** | **Wymaganie** |
@@ -79,8 +82,8 @@ Następujące wymagania dotyczące oprogramowania dotyczą klientów protokołu 
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Nie Kopiuj i przechowywania plików chronionych przez system Windows System szyfrowania plików (EFS) do serwera plików tablicy wirtualnego StorSimple; Spowoduje to nieobsługiwaną konfiguracją. 
-> 
+> Nie Kopiuj i przechowywania plików chronionych przez system Windows System szyfrowania plików (EFS) do serwera plików tablicy wirtualnego StorSimple; Spowoduje to nieobsługiwaną konfiguracją.
+
 
 ### <a name="supported-storage-format"></a>Obsługiwany format przechowywania
 Jest obsługiwana tylko magazynu obiektów blob Azure bloku. Stronicowe obiekty BLOB nie są obsługiwane. Więcej informacji [o blokowe i stronicowe obiekty BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

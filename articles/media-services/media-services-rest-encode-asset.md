@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodowanie elementu zawartości przy użyciu standardu Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="overview"></a>Omówienie
-Aby dostarczyć wideo za pośrednictwem Internetu, trzeba skompresować nośniki. Pliki wideo cyfrowe są duże i może być zbyt duży, aby dostarczyć za pośrednictwem Internetu lub dla klientów urządzeń, aby wyświetlać się poprawnie. Kodowanie jest procesem kompresji audio i wideo, więc klienci mogą wyświetlać multimediów.
+Aby dostarczyć wideo za pośrednictwem Internetu, trzeba skompresować nośniki. Pliki wideo cyfrowe są duże i może być zbyt duża, aby dostarczyć za pośrednictwem Internetu lub dla klientów urządzeń, aby wyświetlać się poprawnie. Kodowanie jest procesem kompresji audio i wideo, więc klienci mogą wyświetlać multimediów.
 
 Zadania kodowania są jednym z najbardziej typowych operacji w usłudze Azure Media Services. Zadania kodowania są tworzone w celu konwertowania plików multimediów z jednego formatu kodowania na inny. Podczas kodowania, można użyć koder wbudowane usługi Media Services (Media Encoder Standard). Umożliwia także kodera świadczonych przez partnera usługi Media Services. Kodery innych firm są dostępne za pośrednictwem portalu Azure Marketplace. Można określić szczegółów kodowania zadań za pomocą ciągi ustawień wstępnych zdefiniowane dla kodera lub za pomocą plików konfiguracji wstępnie zdefiniowane. Aby wyświetlić typy ustawień, które są dostępne, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
@@ -265,6 +265,12 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
     . . .
 
 
+## <a name="advanced-encoding-features-to-explore"></a>Funkcje zaawansowane kodowanie do eksplorowania
+* [Sposób generowania miniatur](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Trwa generowanie miniatur podczas kodowania](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Filmy wideo przycięcia podczas kodowania](media-services-crop-video.md)
+* [Dostosowywanie ustawień predefiniowanych](media-services-custom-mes-presets-with-dotnet.md)
+* [Nakładki lub znak wodny wideo z obrazem](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

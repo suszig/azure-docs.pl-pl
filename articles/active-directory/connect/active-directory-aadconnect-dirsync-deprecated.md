@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uaktualnienia usługi synchronizacji usługi Windows Azure Active Directory i Azure synchronizacji usługi Active Directory
-Użycie programu Azure AD Connect to najlepszy sposób na połączenie katalogu lokalnego z usługami Azure AD i Office 365. Jest to doskonały moment na uaktualnienie do programu Azure AD Connect z narzędzia Windows Azure Active Directory Sync (DirSync) lub Azure AD Sync, ponieważ są one przestarzałe, a wsparcie dla nich zakończy się 13 kwietnia 2017 r.
+Użycie programu Azure AD Connect to najlepszy sposób na połączenie katalogu lokalnego z usługami Azure AD i Office 365. Jest to doskonały moment na uaktualnienie do programu Azure AD Connect Windows synchronizacji Azure Active Directory (DirSync) lub Azure AD Sync te narzędzia są teraz przestarzałe i nie są już obsługiwane począwszy od 13 kwietnia 2017 r.
 
-Narzędzia synchronizacji dwóch tożsamości, które zostały uznane za przestarzałe były oferowane dla klientów z pojedynczym lasem (DirSync) i dla wielu lasów i inne zaawansowane klientów (Azure AD Sync). Narzędzia te starsze zostały zamienione na pojedyncze rozwiązanie, która jest dostępna we wszystkich scenariuszach: Azure AD Connect. Oferuje nową funkcję, ulepszone funkcje i obsługę nowych scenariuszy. Aby można było kontynuować synchronizowanie danych tożsamości lokalnych z usługą Azure AD i Office 365, zdecydowanie zaleca się uaktualniania do programu Azure AD Connect.
+Narzędzia synchronizacji dwóch tożsamości, które zostały uznane za przestarzałe były oferowane dla klientów z pojedynczym lasem (DirSync) i dla wielu lasów i inne zaawansowane klientów (Azure AD Sync). Narzędzia te starsze zostały zamienione na pojedyncze rozwiązanie, która jest dostępna we wszystkich scenariuszach: Azure AD Connect. Oferuje nową funkcję, ulepszone funkcje i obsługę nowych scenariuszy. Aby można było kontynuować synchronizowanie danych tożsamości lokalnych z usługą Azure AD i Office 365, zdecydowanie zaleca się uaktualniania do programu Azure AD Connect. Microsoft nie gwarantuje te starsze wersje pracę po 31 grudnia 2017 r.
 
 W ostatniej wersji narzędzia DirSync został wydany w lipca 2014 i ostatniej wersji programu Azure AD Sync został wydany w maja 2015.
 

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralne zarządzanie Zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT (wersja zapoznawcza)
 
 ![Symbol łącznika usługi zarządzania IT](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-Łącznik zarządzania usługi IT udostępnia dwukierunkową integrację między obsługiwane usługi produktów zarządzania usługi IT (zarządzanie, usługami IT —) i analizy dzienników.  Za pośrednictwem tego połączenia można utworzyć zdarzenia i alerty lub zdarzenia w produkcie Zarządzanie usługami IT — na podstawie alertów analizy dziennika lub rekordów dziennika. Łącznik również importuje dane takie jak zdarzenia i żądania zmiany z produktu Zarządzanie usługami IT — do analizy dzienników OMS.
+Łącznik zarządzania usługi IT (ITSMC) zapewnia dwukierunkową integrację między obsługiwane usługi produktów zarządzania usługi IT (zarządzanie, usługami IT —) i analizy dzienników.  Za pośrednictwem tego połączenia można utworzyć zdarzenia i alerty lub zdarzenia w produkcie Zarządzanie usługami IT — na podstawie alertów lub rekordów dziennika analizy dzienników. Łącznik również importuje dane takie jak zdarzenia i żądania zmiany z produktu Zarządzanie usługami IT — do analizy dzienników OMS.
 
-Łącznik zarządzania usługi IT możesz:
+ITSMC można:
 
-  - Integracja operacyjnej alerty rozwiązaniami zarządzania zdarzeniami, w narzędziu Zarządzanie usługami IT — wybranych przez użytkownika.
+  - Integracja operacyjnej alerty z swoje praktyki zarządzania zdarzeniami w narzędziu Zarządzanie usługami IT — wybranych przez użytkownika.
     - Tworzenie elementów roboczych (na przykład alert, zdarzenie, zdarzenia) w zarządzanie usługami IT —, OMS alertów i za pomocą wyszukiwania dziennika.
     - Tworzenie elementów roboczych na podstawie alertów programu dziennika aktywności platformy Azure za pomocą akcji Zarządzanie usługami IT — w grupach akcji.
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/10/2017
 
 Dodaj rozwiązanie IT usługi zarządzania łącznika do obszaru roboczego analizy dzienników przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
 
-Łącznik zarządzania usługi IT kafelka, jak widać w galerii rozwiązań:
+Oto fragment ITSMC pojawi się w galerii rozwiązań:
 
 ![Łącznik kafelka](./media/log-analytics-itsmc/itsmc-solutions-tile.png)
 
@@ -51,14 +51,16 @@ Po pomyślnym dodaniu zobaczysz łącznika zarządzania usługi IT w obszarze **
 
 > [!NOTE]
 
-> Domyślnie łącznika zarządzania usługi IT odświeża dane połączenia raz w co 24 godziny. Aby odświeżyć tego połączenia danych natychmiast dla wszystkich edycji lub szablonu aktualizacje, które zostaną wprowadzone, kliknij przycisk Odśwież wyświetlana obok połączenia.
+> Domyślnie ITSMC odświeża dane połączenia raz w co 24 godziny. Aby odświeżyć tego połączenia danych natychmiast dla wszystkich edycji lub szablonu aktualizacje, które zostaną wprowadzone, kliknij przycisk "Odśwież", wyświetlane obok połączenia.
 
  ![Odśwież ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
 ## <a name="configuring-the-connection-with-your-itsm-software"></a>Konfigurowanie połączenia z oprogramowaniem Zarządzanie usługami IT —
 
-Łącznik rozwiązanie do zarządzania usługami IT obsługuje połączenia z **System Center Service Manager**, **ServiceNow**, **Provance**, i **Cherwell**. Skonfiguruj połączenie z
+ITSMC obsługuje połączenia z **System Center Service Manager**, **ServiceNow**, **Provance**, i **Cherwell**.
+
+Odpowiednie dla Ciebie, użyj następujących procedur:
 
 - [Program System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -70,17 +72,18 @@ Po pomyślnym dodaniu zobaczysz łącznika zarządzania usługi IT w obszarze **
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
 
-Po skonfigurowaniu łącznika zarządzania usługi IT z Zarządzanie usługami IT — szczegóły oprogramowania łącznik rozpoczyna zbieranie danych z połączonych Zarządzanie usługami IT — produktu lub usługi. W zależności od liczby zdarzeń i żądań zmiany w zarządzanie usługami IT — produktu lub usługi początkowej synchronizacji należy wykonać w kilka minut.
+Po skonfigurowaniu łącznika rozpoczyna zbieranie danych z połączonych Zarządzanie usługami IT — produktu lub usługi. W zależności od liczby zdarzenia i żądania zmiany w zarządzanie usługami IT — produktu lub usługi początkowej synchronizacji należy wykonać w kilka minut.
 
 > [!NOTE]
-> - Dane importowane z produktu Zarządzanie usługami IT — przez rozwiązanie łącznika zarządzania usługi IT pojawi się w analizy dzienników jako rekord dziennika typu **ServiceDesk_CL**.
-> - Rekord dziennika zawiera pole o nazwie **ServiceDeskWorkItemType_s**, która jest albo zdarzeniem lub żądaniem zmiany, dwa rodzaje danych zaimportowane z produktu Zarządzanie usługami IT —
+> - Dane importowane z produktu Zarządzanie usługami IT — przez rozwiązanie ITSMC pojawia się w analizy dzienników jako rekord dziennika typu **ServiceDesk_CL**.
+> - Rekord dziennika zawiera pole o nazwie **ServiceDeskWorkItemType_s**, która jest albo zdarzeniem lub żądaniem zmiany, dwa rodzaje danych zaimportowane z produktu Zarządzanie usługami IT —.
 
 ## <a name="data-synced-from-itsm-product"></a>Synchronizowane z produktu Zarządzanie usługami IT — danych
 Zdarzenia i żądania zmiany są synchronizowane z produktu Zarządzanie usługami IT — do obszaru roboczego analizy dzienników.
-Poniższe informacje przedstawiono przykładowe dane zebrane przez łącznik zarządzania usługami IT:
+Poniższe informacje przedstawiono przykłady danych zbieranych przez ITSMC:
 
 > [!NOTE]
+
 > W zależności od typu elementu roboczego zaimportowane do analizy dzienników **ServiceDesk_CL** zawiera następujące pola:
 
 **Element pracy:** **zdarzenia**  
@@ -99,7 +102,7 @@ ServiceDeskWorkItemType_s = "Zdarzenie"
 - Rozwiązany przez
 - Zamknięte przez
 - Element źródłowy
-- Przypisane do
+- Przypisano do
 - Kategoria
 - Tytuł
 - Opis
@@ -120,7 +123,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 - Utworzone przez
 - Zamknięte przez
 - Element źródłowy
-- Przypisane do
+- Przypisano do
 - Tytuł
 - Typ
 - Kategoria
@@ -131,7 +134,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 - Priorytet
 - Ryzyko
 - Wpływ
-- Przypisane do
+- Przypisano do
 - Data utworzenia
 - Data zamknięcia
 - Data ostatniej modyfikacji
@@ -160,7 +163,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | Category_s | Kategoria |
 | Title_s|  Krótki opis |
 | Description_s|  Uwagi |
-| CreatedDate_t|  Otwarte |
+| CreatedDate_t|  Otwierano |
 | ClosedDate_t| zamknięte|
 | ResolvedDate_t|Rozwiązane|
 | Computer (Komputer)  | element konfiguracji |
@@ -170,7 +173,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | Pole OMS | Zarządzanie usługami IT — pola |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
-| CreatedBy_s | Żądanie |
+| CreatedBy_s | Żądane przez |
 | ClosedBy_s | Zamknięte przez |
 | AssignedTo_s | Przypisane do  |
 | Title_s|  Krótki opis |
@@ -194,18 +197,20 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 
 ![Ekran analiza dziennika](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
 
-## <a name="it-service-management-connector--integration-with-other-oms-solutions"></a>Łącznik zarządzania usługami IT — Integracja z innych rozwiązań pakietu OMS
+## <a name="itsmc-integration-with-other-oms-solutions"></a>Integracja ITSMC z innych rozwiązań pakietu OMS
 
-Łącznik zarządzania usługi IT obecnie obsługuje integrację z rozwiązaniem mapy usługi.
+Zarządzanie usługami IT — łącznik obecnie obsługuje integrację z rozwiązaniem mapy usługi.
 
-Mapa usług automatycznie wykrywa składniki aplikacji w systemach Windows i Linux i mapuje komunikacji między usługami. Umożliwia ona przeglądać serwery jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej architekturze połączenia TCP z konfiguracji wymagane inne niż instalacji agenta. Więcej informacji: [mapy usługi](../operations-management-suite/operations-management-suite-service-map.md).
+Mapa usług automatycznie wykrywa składniki aplikacji w systemach Windows i Linux i mapuje komunikacji między usługami. Umożliwia ona przeglądać serwery jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej architekturze połączenia TCP z konfiguracji wymagane inne niż instalacji agenta.
+
+Więcej informacji: [mapy usługi](../operations-management-suite/operations-management-suite-service-map.md).
 
 Jeśli używasz również rozwiązania mapy usług, można wyświetlić elementy technicznej usług utworzone w rozwiązaniach Zarządzanie usługami IT —, jak pokazano w poniższym przykładzie:
 
 ![Integracja ServiceMap](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## <a name="create-itsm-work-items-for-oms-alerts"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — OMS alertów
 
-Zarządzanie usługami IT — łącznik rozwiązania w miejscu można skonfigurować OMS alerty, aby wyzwolić tworzenie elementów roboczych w połączonych Zarządzanie usługami IT — narzędzie w następujący sposób:
+Rozwiązanie ITSMC w miejscu można skonfigurować alerty OMS, aby wyzwolić tworzenie elementów roboczych w połączonych narzędzie Zarządzanie usługami IT —. Postępuj zgodnie z następującą procedurą:
 
 1. Z **wyszukiwania dziennika** okna, uruchom zapytania wyszukiwania dziennika, aby wyświetlić dane. Wyniki zapytania są źródłem dla elementów roboczych.
 2. W **wyszukiwania dziennika**, kliknij przycisk **alertu** otworzyć **Dodaj regułę alertu** strony.
@@ -228,11 +233,11 @@ Utworzono alert OMS są widoczne w obszarze **ustawienia**>**alerty**. Zarządza
 
 ## <a name="create-itsm-work-items-from-oms-logs"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — z dzienników OMS
 
-Elementy pracy można również utworzyć w połączonych źródeł Zarządzanie usługami IT — bezpośrednio z rekordu dziennika w następujący sposób:
+Można też utworzyć elementów roboczych w połączonych źródeł Zarządzanie usługami IT — bezpośrednio z rekordu dziennika. Postępuj zgodnie z następującą procedurą:
 
 1. Z **wyszukiwania dziennika**, wyszukaj wymagane dane, wybierz szczegóły, a następnie kliknij przycisk **Utwórz element roboczy**.
 
-    **Elementu roboczego Zarządzanie usługami IT — tworzenie** zostanie wyświetlone okno:
+    **Tworzenie elementu roboczego Zarządzanie usługami IT —** zostanie wyświetlone okno:
 
     ![Ekran analiza dziennika](media/log-analytics-itsmc/itsmc-work-items-from-oms-logs.png)
 
@@ -244,7 +249,7 @@ Elementy pracy można również utworzyć w połączonych źródeł Zarządzanie
   - **Wybierz połączenie**: Zarządzanie usługami IT — połączenie, w którym chcesz utworzyć ten element roboczy.
   - **Element roboczy**: typ elementu roboczego.
 
-3. Aby korzystać z istniejących szablonów elementów pracy zdarzenia, kliknij przycisk **tak** w obszarze **Generuj element pracy oparty na szablonie** opcji, a następnie kliknij przycisk **Utwórz**.
+3. Aby korzystać z istniejących szablonów elementów pracy zdarzenia, kliknij przycisk **tak** w obszarze **element roboczy Generowanie na podstawie szablonu** opcji, a następnie kliknij przycisk **Utwórz**.
 
     Lub:
 
@@ -252,51 +257,51 @@ Elementy pracy można również utworzyć w połączonych źródeł Zarządzanie
 
 4. Podaj odpowiednie wartości w **typ**, **wpływ**, **pilność**, **kategorii**, i **podkategorii** pola tekstowe, a następnie kliknij przycisk **Utwórz**.
 
-## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — alertów Azure
-Zarządzanie usługami IT — łącznika jest teraz zintegrowana z grupy akcji.
+## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — Azure alertów
+ITSMC jest zintegrowany z grupy akcji.
 
-[Grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md) umożliwiają moduły i wielokrotnego użytku z wyzwalają akcje dla alerty Azure. Zarządzanie usługami IT — akcji w grupy akcji tworzy elementy robocze w produkcie przy użyciu istniejącego rozwiązania łącznika Zarządzanie usługami IT — zarządzanie usługami IT —.
+[Grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md) umożliwiają moduły i wielokrotnego użytku z wyzwalają akcje dla alerty Azure. Przy użyciu akcji Zarządzanie usługami IT — Akcja grup, można utworzyć elementów roboczych w produkcie z istniejącego połączenia z rozwiązaniem łącznika Zarządzanie usługami IT — zarządzanie usługami IT —.
+
+Postępuj zgodnie z następującą procedurą:
 
 1. W portalu Azure kliknij **Monitor**.
-2. W okienku po lewej stronie kliknij **grupy akcji**.
+2. W okienku po lewej stronie kliknij **grupy akcji**. **Dodaj grupę akcji** zostanie wyświetlone okno.
 
-    ![Grupy akcji](media/log-analytics-itsmc/ActionGroups.png)
+    ![Grupy akcji](media/log-analytics-itsmc/action-groups.png)
 
 3. Podaj **nazwa** i **nazwa_skrócona** grupy działań. Wybierz **grupy zasobów** i **subskrypcji** której chcesz utworzyć grupy działań.
 
-    ![Szczegóły grupy akcji](media/log-analytics-itsmc/ActionGroupsDetail.png)
+    ![Szczegóły grupy akcji](media/log-analytics-itsmc/action-groups-details.png)
 
 4. Na liście akcji wybierz **Zarządzanie usługami IT —** z menu rozwijanego dla **typ akcji**. Podaj **nazwa** dla akcji, a następnie kliknij przycisk **Edytuj szczegóły**.
-5. Wybierz **subskrypcji** którym znajduje się obszar roboczy analizy dzienników. Wybierz **połączenia** tj nazwą łącznika Zarządzanie usługami IT — następuje nazwa obszaru roboczego. Na przykład "MyITSMMConnector(MyWorkspace)".
+5. Wybierz **subskrypcji** którym znajduje się obszar roboczy analizy dzienników. Wybierz **połączenia** name (nazwa łącznika Zarządzanie usługami IT —) następuje nazwa obszaru roboczego. Na przykład "MyITSMMConnector(MyWorkspace)".
 
-    ![Akcja Zarządzanie usługami IT — szczegóły](./media/log-analytics-itsmc/ITSMActionDetails.png)
+    ![Akcja Zarządzanie usługami IT — szczegóły](./media/log-analytics-itsmc/itsm-action-details.png)
 
 6. Wybierz **elementu roboczego** typu z menu rozwijanego.
-7. Wybierz korzystać z istniejących szablonów lub wypełnienie pól wymaganych przez produkt Zarządzanie usługami IT —.
-8. Kliknij przycisk **OK**.
+   Wybierz korzystać z istniejących szablonów lub wypełnienie pól wymaganych przez produkt Zarządzanie usługami IT —.
+7. Kliknij przycisk **OK**.
 
 Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, która ma akcję Zarządzanie usługami IT —. Gdy alert jest wyzwalane, element roboczy jest tworzony w narzędziu Zarządzanie usługami IT —.
 
 >[!NOTE]
->Obecnie tylko alerty dziennika aktywności obsługuje zarządzanie usługami IT — Akcja. Dla innych Azure alertów ta akcja jest pusta.
->
+
+> Obecnie tylko alerty dziennika aktywności obsługują zarządzanie usługami IT — Akcja. Zarządzanie usługami IT — akcja nie jest obsługiwana dla innych alertów platformy Azure.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Rozwiązywanie problemów z połączeniami Zarządzanie usługami IT — w OMS
 1.  Jeśli połączenie nie powiedzie się z poziomu interfejsu użytkownika połączenia źródła z **błąd podczas zapisywania połączenia** wiadomości, wykonaj następujące czynności:
- - W przypadku połączeń usługi ServiceNow, Cherwell i Provance
-    - Upewnij się, że poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.
-    - Sprawdź, czy masz wystarczające uprawnienia w produktu Zarządzanie usługami IT — do nawiązania połączenia.
- - W przypadku połączeń programu Service Manager
-     - Sprawdź, czy aplikacja sieci Web zostanie pomyślnie wdrożona i utworzeniu połączenia hybrydowego. Aby sprawdzić pomyślnym nawiązaniu połączenia z komputera lokalnego programu Service Manager, odwiedź adres URL aplikacji sieci Web zgodnie z opisem w dokumentacji dotyczącej wprowadzania [połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+ - W przypadku połączeń usługi ServiceNow, Cherwell i Provance — upewnij się, poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.
+        -Sprawdź, czy masz wystarczające uprawnienia w produktu Zarządzanie usługami IT — do nawiązania połączenia.
+ - W przypadku połączeń programu Service Manager-sprawdź, czy aplikacja sieci Web zostanie pomyślnie wdrożona i utworzeniu połączenia hybrydowego. Aby sprawdzić pomyślnym nawiązaniu połączenia z komputera lokalnego programu Service Manager, odwiedź adres URL aplikacji sieci Web zgodnie z opisem w dokumentacji dotyczącej wprowadzania [połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
 
 2.  Jeśli dane z usługi ServiceNow jest wprowadzenie nie zostały zsynchronizowane z analizy dzienników, upewnij się, że usługi ServiceNow, wystąpienie nie jest uśpiony. Wystąpień deweloperów usługi ServiceNow czasami Przejdź w stan uśpienia podczas bezczynności przez dłuższy okres. W przeciwnym wypadku zgłosić problem.
 3.  Jeśli alerty OMS wyzwalać, ale działa elementy nie są tworzone w produkcie Zarządzanie usługami IT — lub elementy konfiguracji nie są utworzone/połączone elementy robocze lub inne informacje ogólne, można znaleźć w następujących miejscach:
- -  **Rozwiązanie usługi zarządzania łącznika IT**: rozwiązanie zawiera podsumowanie połączeń/pracy elementów/komputerów itp. Kliknij przycisk przedstawiający Kafelek **stan łącznika**, która powoduje przejście do **wyszukiwania dziennika** z odpowiednimi zapytania. Przyjrzyj się rekordy dziennika z LogType_S jako błąd Aby uzyskać więcej informacji.
- - I wyświetlania informacji powiązanych z/błędy bezpośrednio w **wyszukiwania dziennika** stronę przy użyciu zapytania *typu = ServiceDeskLog_CL*.
+ -  ITSMC: Rozwiązanie zawiera podsumowanie połączeń/pracy elementów/komputerów itp. Kliknij przycisk przedstawiający Kafelek **stan łącznika**, która powoduje przejście do **wyszukiwania dziennika** z odpowiednimi zapytania. Przyjrzyj się rekordy dziennika z LogType_S jako błąd Aby uzyskać więcej informacji.
+ - **Zaloguj się wyszukiwania** strony: umożliwia wyświetlanie informacji powiązanych z/błędy bezpośrednio za pomocą zapytania *typu = ServiceDeskLog_CL*.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web programu Service Manager
-1.  Jeśli czoła problemów z wdrożeniem aplikacji sieci web, upewnij się, że masz wystarczające uprawnienia w wymienionych do tworzenia/wdrożenie zasobów subskrypcji.
+1.  W przypadku wystąpienia jakichkolwiek problemów z wdrażania aplikacji sieci web upewnij się, że masz wystarczające uprawnienia w wymienionych do tworzenia/wdrożenie zasobów subskrypcji.
 2.  Jeśli otrzymasz **"Obiekt odwołanie nie jest ustawione na wystąpienie obiektu"** błąd podczas uruchamiania [skryptu](log-analytics-itsmc-service-manager-script.md), upewnij się, że wprowadzono prawidłowe wartości w obszarze **Konfiguracja użytkownika** sekcji .
 3.  Nie można utworzyć przestrzeń nazw przekaźnik magistrali usług, upewnij się, że dostawca wymagany zasób jest zarejestrowany w subskrypcji. Jeśli nie jest zarejestrowany, należy ręcznie utworzyć przestrzeń nazw przekaźnik magistrali usług przy użyciu portalu Azure. Można również utworzyć go podczas [Tworzenie połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) z portalu Azure.
 

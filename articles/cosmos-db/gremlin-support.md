@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/10/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Pomoc techniczna platformy Azure wykres Gremlin DB rozwiązania Cosmos
 Obsługuje bazę danych systemu Azure rozwiązania Cosmos [Apache Tinkerpop](http://tinkerpop.apache.org) wykresu języka przechodzenie [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), która jest interfejs API programu Graph do tworzenia jednostek wykres i wykonywanie operacji zapytania wykresu. Język Gremlin służy do tworzenia jednostek graph (wierzchołki i krawędzi), zmodyfikuj właściwości w ramach tych jednostek, wykonywania zapytań i traversals i usuwania jednostek. 
 
-Azure DB rozwiązania Cosmos oferuje funkcje gotowe enterprise baz danych wykresu. W tym globalnych dystrybucji, niezależne skalowanie magazynu i przepływności, opóźnienia przewidywalną milisekund jednocyfrowej automatycznego indeksowania i umów SLA 99,99%. Ponieważ bazy danych rozwiązania Cosmos Azure obsługuje TinkerPop/Gremlin, możesz łatwo przeprowadzić migrację aplikacji napisanych przy użyciu innej bazy danych wykresu bez wprowadzania zmian w kodzie. Ponadto z obsługi Gremlin bazy danych rozwiązania Cosmos Azure bezproblemowo integruje się z włączony TinkerPop analytics platform takich jak [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure DB rozwiązania Cosmos oferuje funkcje gotowe enterprise baz danych wykresu. Obejmuje dystrybucji globalnych, niezależne skalowanie magazynu i przepływności, opóźnienia przewidywalną milisekund jednocyfrowej automatycznego indeksowania umów SLA, przeczytaj dostępności dla bazy danych kont spanning co najmniej dwóch regionach platformy Azure. Ponieważ bazy danych rozwiązania Cosmos Azure obsługuje TinkerPop/Gremlin, możesz łatwo przeprowadzić migrację aplikacji napisanych przy użyciu innej bazy danych wykresu bez wprowadzania zmian w kodzie. Ponadto z obsługi Gremlin bazy danych rozwiązania Cosmos Azure bezproblemowo integruje się z włączony TinkerPop analytics platform takich jak [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
 W tym artykule firma Microsoft stanowią Przewodnik Szybki Gremlin i wyliczania Gremlin funkcji i kroków, które są obsługiwane w wersji zapoznawczej obsługi interfejsu API programu Graph.
 

@@ -1,56 +1,67 @@
 ---
 title: "Tworzenie środowiska usługi Azure Time Series Insights | Microsoft Docs"
-description: "W tym samouczku dowiesz się, jak utworzyć środowisko usługi Time Series, połączyć je ze źródłem zdarzeń i przygotować się do analizowania danych zdarzeń w kilka minut."
-keywords: 
+description: "W tym artykule opisano, jak używać portalu Azure do tworzenia nowego środowiska Insights serii czasu."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: santoshb
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/18/2017
 ms.author: omravi
-ms.openlocfilehash: d8a3f79630868c83cd9fde6ea0c414e334a58e22
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Tworzenie nowego środowiska usługi Time Series Insights w witrynie Azure Portal
+W tym artykule opisano sposób tworzenia nowego środowiska Insights serii czasu przy użyciu portalu Azure.
 
-Środowisko usługi Time Series Insights jest zasobem platformy Azure, który umożliwia pozyskiwanie i magazynowanie danych. Klienci mogą aprowizować środowiska z uwzględnieniem wymaganej wydajności za pośrednictwem witryny Azure Portal.
+Czas serii Insights umożliwia rozpocząć wizualizowanie i badanie danych otrzymywanych przez centra IoT Azure i usługi Event Hubs w minutach, umożliwiając sobie zapytania dużych ilości danych w serii. czas w sekundach.  Została zaprojektowana w skali Internetu rzeczy (IoT), a może obsłużyć terabajtów danych.
 
 ## <a name="steps-to-create-the-environment"></a>Procedura tworzenia środowiska
-
-Aby utworzyć środowisko, wykonaj następujące kroki:
+Wykonaj następujące kroki, aby utworzyć środowisko:
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2.  Kliknij znak plus („+”) w lewym górnym rogu.
-3.  Wyszukaj nazwę „Time Series Insights” za pomocą pola wyszukiwania.
 
-  ![Tworzenie środowiska usługi Time Series Insights](media/get-started/getstarted-create-environment1.png)
+2.  Wybierz **+ nowy** przycisku.
 
-4.  Wybierz pozycję „Time Series Insights” i kliknij przycisk „Utwórz”.
+3.  Wybierz **Internetu rzeczy** kategorii, a następnie wybierz **Insights serii czas**.
 
-  ![Tworzenie grupy zasobów usługi Time Series Insights](media/get-started/getstarted-create-environment2.png)
+   ![Tworzenie środowiska usługi Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)
 
-5.  Podaj nazwę środowiska. Nazwa ta będzie reprezentować środowisko w [eksploratorze szeregów czasowych](https://insights.timeseries.azure.com).
-6.  Wybierz subskrypcję. Musi ona zawierać źródło zdarzeń. Usługa Time Series Insights może automatycznie wykrywać zasoby usługi Azure IoT Hub i centrum zdarzeń istniejące w tej samej subskrypcji.
-7.  Wybierz lub utwórz grupę zasobów. Grupa zasobów jest kolekcją używanych razem zasobów platformy Azure.
-8.  Wybierz lokalizację hostowania. Aby uniknąć przenoszenia danych między centrami danych, wybierz lokalizację, która zawiera źródło zdarzeń.
-9.  Wybierz warstwę cenową.
-10. Wybierz wydajność. Wydajność środowiska można zmienić po jego utworzeniu.
-11. Utwórz środowisko. Środowisko można również przypiąć do pulpitu nawigacyjnego, aby mieć do niego łatwy dostęp po każdym zalogowaniu.
+4.  Na **czasu serii Insights** wybierz pozycję **Utwórz**.
 
-  ![Przypinanie usługi Time Series Insights do pulpitu nawigacyjnego](media/get-started/getstarted-create-environment3.png)
+5. Wypełnij wymaganych parametrów. W poniższej tabeli opisano każdy parametr:
+   
+   ![Tworzenie grupy zasobów usługi Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)
+   
+   Ustawienie|Sugerowana wartość|Opis
+   ---|---|---
+   Nazwa środowiska | Unikatowa nazwa | Ta nazwa reprezentuje środowiska w [Eksploratorze serię czasu](https://insights.timeseries.azure.com)
+   Subskrypcja | Twoja subskrypcja | Jeśli masz wiele subskrypcji, wybierz subskrypcję, która najlepiej zawiera źródła zdarzenia. Usługa Time Series Insights może automatycznie wykrywać zasoby usługi Azure IoT Hub i centrum zdarzeń istniejące w tej samej subskrypcji.
+   Grupa zasobów | Utwórz nowy lub użyj istniejących | Grupa zasobów jest kolekcją używanych razem zasobów platformy Azure. Można wybrać istniejącą grupę zasobów, na przykład ten, który zawiera Centrum zdarzeń lub Centrum IoT. Lub utworzyć nowy, jeśli ten zasób nie jest powiązana z innych zasobów.
+   Lokalizacja | Najbliższej źródła zdarzeń | Najlepiej wybrać tej samej lokalizacji centrum danych, zawierający dane źródłowe zdarzeń w celu uniknięcia dodany kosztów przepustowości między regionu i między strefy i dodany czas oczekiwania, podczas przenoszenia danych poza region.
+   Warstwa cenowa | S1 | Wybierz przepustowość potrzebne. Najniższych kosztów i wydajności starter wybierz S1.
+   Pojemność | 1 | Pojemność jest mnożnik dotyczy prędkości wejściowej, pojemności, kosztów związanych z wybranej jednostki SKU.  Wydajność środowiska można zmienić po jego utworzeniu. Wybierz o pojemności 1 najniższych kosztów. 
+  
+6. Sprawdź **Przypnij do pulpitu nawigacyjnego** najlepiej łatwego dostępu do środowiska serii czasu w przyszłości.
+
+   ![Przypinanie usługi Time Series Insights do pulpitu nawigacyjnego](media/time-series-insights-get-started/3-pin-create.png)
+
+7. Wybierz **Utwórz** aby rozpocząć proces inicjowania obsługi administracyjnej. Może upłynąć kilka minut.
+
+8. Aby monitorować proces wdrażania, wybierz **powiadomienia** symbolu (ikonę dzwonka).
+
+   ![Obejrzyj powiadomień](media/time-series-insights-get-started/4-notifications.png)
+
+Jeśli wdrożenie zakończy się powodzeniem, można wybrać **przejdź do zasobu** można skonfigurować inne właściwości, ustawienia zabezpieczeń, używając danych zasad dostępu, dodać źródła zdarzeń, a także innych działaniach.
 
 ## <a name="next-steps"></a>Następne kroki
-
-* [Definiowanie zasad dostępu do danych](time-series-insights-data-access.md) umożliwiających uzyskiwanie dostępu do środowiska w [Portalu usługi Time Series Insights](https://insights.timeseries.azure.com)
-* [Tworzenie źródła zdarzeń](time-series-insights-add-event-source.md)
-* [Wysyłanie zdarzeń](time-series-insights-send-events.md) do źródła zdarzeń
+* [Definiowanie zasad dostępu danych](time-series-insights-data-access.md) do zabezpieczania środowiska.
+* [Dodawanie źródła zdarzeń Centrum zdarzeń](time-series-insights-how-to-add-an-event-source-eventhub.md) do środowiska Azure czas serii Insights. 
+* [Wysyłanie zdarzeń](time-series-insights-send-events.md) w źródle zdarzeń.
+* Wyświetl środowiska w [Eksplorator czasu serii Insights](https://insights.timeseries.azure.com).

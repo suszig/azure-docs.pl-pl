@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Zabezpieczenia bazy danych w usłudze Azure DB rozwiązania Cosmos
 
@@ -71,7 +71,7 @@ Umożliwia pracę na każdej z nich szczegółowo.
 |Integracja usługi Active directory (RBAC)| Można również zapewniają dostęp do konta bazy danych za pomocą kontroli dostępu (IAM) w portalu Azure, jak pokazano na zrzucie ekranu poniżej tej tabeli. IAM umożliwia kontroli dostępu opartej na rolach i integruje się z usługą Active Directory. Role wbudowane lub role niestandardowe można użyć dla użytkowników indywidualnych i grup, jak pokazano na poniższej ilustracji.|
 |Globalne replikacji|Azure DB rozwiązania Cosmos oferuje gotowe globalne dystrybucji, który umożliwia replikowanie danych do dowolnego centrów danych na całym świecie platformy Azure z kliknięcie przycisku. Globalne replikacji umożliwia globalne skalowanie i małych opóźnieniach dostęp do danych na całym świecie.<br><br>W kontekście zabezpieczeń globalnych replikacji temu ochronę danych przed regionalnymi awariami.<br><br>Dowiedz się więcej w [globalnie dystrybucji danych](distribute-data-globally.md).|
 |Regionalnej pracy w trybie Failover|Jeśli zostały zreplikowane dane w więcej niż jednego centrum danych, bazy danych rozwiązania Cosmos Azure automatycznie najedzie na operacje powinny centrum danych regionalnych przejścia do trybu offline. Można utworzyć listę regionów trybu failover przy użyciu regionów, w których dane są replikowane z określonymi priorytetami. <br><br>Dowiedz się więcej w [regionalnej pracy w trybie Failover w usłudze Azure DB rozwiązania Cosmos](regional-failover.md).|
-|Lokalnej replikacji|Nawet w ramach jednego centrum danych, bazy danych rozwiązania Cosmos Azure automatycznie replikuje dane dotyczące wysokiej dostępności, umożliwiając wybór [poziomy spójności](consistency-levels.md). Gwarantuje to [dostępność czas działania 99,99%](https://azure.microsoft.com/support/legal/sla/cosmos-db) i pochodzi z gwarancją finansowych - coś zapewniają żadnej innej usługi bazy danych.|
+|Lokalnej replikacji|Nawet w ramach jednego centrum danych, bazy danych rozwiązania Cosmos Azure automatycznie replikuje dane dotyczące wysokiej dostępności, umożliwiając wybór [poziomy spójności](consistency-levels.md). Gwarantuje to 99,99% [dostępność](https://azure.microsoft.com/support/legal/sla/cosmos-db) dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku z rozluźnić spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych.|
 |Automatyczne kopie zapasowe online|Azure DB rozwiązania Cosmos baz danych są regularnie wykonywana kopia zapasowa i przechowywane w magazynie georedundant. <br><br>Dowiedz się więcej w [automatyczne kopie zapasowe online i przywracania bazy danych Azure rozwiązania Cosmos](online-backup-and-restore.md).|
 |Przywracanie usuniętych danych|Automatyczne kopie zapasowe online może służyć do odzyskiwania danych mogą przypadkowo usunięto do ciągu 30 dni po zdarzeniu. <br><br>Dowiedz się więcej [automatyczne kopie zapasowe online i przywracania bazy danych Azure rozwiązania Cosmos](online-backup-and-restore.md)|
 |Ochrona i izolowanie danych poufnych|Wszystkie dane w regionach wymienionych w [nowości?](#whats-new) teraz jest szyfrowane, gdy.<br><br>Dane osobowe i innych poufnych danych mogą być izolowane do określonej kolekcji i odczytu i zapisu lub dostęp tylko do odczytu można ograniczyć do określonych użytkowników.|

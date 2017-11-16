@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -38,9 +38,9 @@ Próbkowania powoduje zmniejszenie kosztów ruchu i dane i pomaga uniknąć ogra
 ## <a name="types-of-sampling"></a>Typy pobierania próbek
 Istnieją trzy metody alternatywne próbkowania:
 
-* **Próbkowanie adaptacyjną** automatycznie dostosowuje ilość danych telemetrycznych wysłanych z zestawu SDK w aplikacji ASP.NET. Domyślnie z 2.0.0-beta3 v zestawu SDK. Obecnie dostępne dla platformy ASP.NET tylko telemetrii po stronie serwera. 
+* **Próbkowanie adaptacyjną** automatycznie dostosowuje ilość danych telemetrycznych wysłanych z zestawu SDK w aplikacji ASP.NET. Począwszy od zestawu SDK v 2.0.0-beta3 jest domyślna metoda pobierania próbek. Adaptacyjną próbkowania jest obecnie dostępny tylko dla telemetrii po stronie serwera ASP.NET. 
 * **Próbkowanie stałej stawki** zmniejsza ilość danych telemetrycznych wysłanych z serwera programu ASP.NET oraz z przeglądarki użytkownika. Możesz ustawić częstotliwość. Klient i serwer będzie synchronizować ich próbkowania tak, w wyszukiwania, można przechodzić między wyświetleń strony powiązane i żądań.
-* **Wprowadzanie próbkowania** działa w portalu Azure. Odrzuca niektóre dane telemetryczne, przychodzący z aplikacji, z szybkością ustawieniu. Nie zmniejszenie ruchu telemetrii, ale pomaga zachować w wykorzystaniu całego przydziału miesięcznego. Duży zaletą wprowadzanie próbkowania jest bez ponownego wdrażania aplikacji można ją ustawić, czy działa on jednakowo do wszystkich serwerów i klientów. 
+* **Wprowadzanie próbkowania** działa w portalu Azure. Odrzuca niektóre dane telemetryczne, przychodzący z aplikacji, na poziomie próbkowania zostanie ustawiona. Nie zmniejszenie ruchu danych telemetrycznych wysłanych z aplikacji, ale pomaga zachować w wykorzystaniu całego przydziału miesięcznego. Główną zaletą wprowadzanie próbkowania jest bez ponownego wdrażania aplikacji można ustawić częstotliwość próbkowania, czy działa on jednakowo do wszystkich serwerów i klientów. 
 
 W przypadku adaptacyjną lub stała częstotliwość próbkowania w operacji, wprowadzanie próbek jest wyłączone.
 
@@ -67,15 +67,19 @@ Wprowadzanie próbkowania nie działa podczas operacji SDK próbkowania adaptacy
 ## <a name="adaptive-sampling-at-your-web-server"></a>Adaptacyjną próbkowania na serwerze sieci web
 Adaptacyjną próbkowania jest dostępna dla aplikacji Insights zestawu SDK dla platformy ASP.NET v 2.0.0-beta3 i nowszych i jest domyślnie włączona. 
 
-Próbkowanie adaptacyjną wpływa na ilość danych telemetrycznych wysłanych z aplikacji serwera sieci web usługi Application Insights. Wolumin zostanie automatycznie dopasowana do pozostać w określonym maksymalna szybkość ruchu.
+Próbkowanie adaptacyjną wpływa na ilość danych telemetrycznych wysłanych z aplikacji serwera sieci web z punktem końcowym usługi Application Insights. Wolumin zostanie automatycznie dopasowana do pozostać w określonym maksymalna szybkość ruchu.
 
 Go nie działa niewielki dane telemetryczne, więc w debugowaniu aplikacji lub witryny sieci Web z użyciem niski nie będzie to mieć wpływ na.
 
-Uzyskanie wolumin docelowy, niektóre dane telemetryczne, generowane jest pomijany. Zachowując podobnie jak inne rodzaje próbkowania algorytm elementy powiązane dane telemetryczne. Na przykład gdy jest sprawdzanie telemetrii w wyszukiwania, będziesz mieć możliwość odnaleźć żądania dotyczące określonego wyjątku. 
+Aby osiągnąć wolumin docelowy, niektóre generowane dane telemetryczne odrzucone. Zachowując podobnie jak inne rodzaje próbkowania algorytm elementy powiązane dane telemetryczne. Na przykład gdy jest sprawdzanie telemetrii w wyszukiwania, będziesz mieć możliwość odnaleźć żądania dotyczące określonego wyjątku. 
 
 Metryka liczby takich jak liczby żądań i szybkość wyjątek są dostosowane do kompensacji próbkowania, tak aby pokazywały około poprawne wartości w Eksploratorze metryki.
 
-**Aktualizacja projektu NuGet** pakietów do najnowszej wersji *wersji wstępnej* wersji usługi Application Insights: kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, wybierz polecenie Zarządzaj pakietami NuGet Sprawdź **Include wstępna** i wyszukaj Microsoft.ApplicationInsights.Web. 
+### <a name="update-nuget-packages"></a>Aktualizację pakietów NuGet ###
+
+Aktualizację pakietów NuGet projektu do najnowszej wersji *wstępną* wersji usługi Application Insights. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, wybierz polecenie Zarządzaj pakietami NuGet Sprawdź **Uwzględnij wersję wstępną** i wyszukaj Microsoft.ApplicationInsights.Web. 
+
+### <a name="configuring-adaptive-sampling"></a>Konfigurowanie adaptacyjną pobierania próbek ###
 
 W [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), można dostosować kilku parametrów w `AdaptiveSamplingTelemetryProcessor` węzła. Dane pokazywane są wartościami domyślnymi:
 
@@ -116,7 +120,7 @@ W [ApplicationInsights.config](app-insights-configuration-with-applicationinsigh
 **Aby wyłączyć** adaptacyjną próbkowania, Usuń węzeł AdaptiveSamplingTelemetryProcessor z applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternatywa: Konfigurowanie adaptacyjną próbkowania w kodzie
-Zamiast dostosowywania próbkowania w pliku .config, możesz użyć kodu. Dzięki temu można określić funkcję wywołania zwrotnego, które jest wywoływane zawsze, gdy następuje także ponowna ocena próbkowania. Można to, na przykład, aby dowiedzieć się, jakie częstotliwość próbkowania jest używany.
+Zamiast ustawienie parametru próbkowania w pliku .config, można programowo ustawić te wartości. Dzięki temu można określić funkcję wywołania zwrotnego, które jest wywoływane zawsze, gdy następuje także ponowna ocena próbkowania. Można to, na przykład, aby dowiedzieć się, jakie częstotliwość próbkowania jest używany.
 
 Usuń `AdaptiveSamplingTelemetryProcessor` węzeł z pliku .config.
 
@@ -168,7 +172,7 @@ Usuń `AdaptiveSamplingTelemetryProcessor` węzeł z pliku .config.
 ## <a name="sampling-for-web-pages-with-javascript"></a>Próbkowania dla stron sieci web w języku JavaScript
 Można skonfigurować stron sieci web do pobierania próbek stałej stawki z dowolnego serwera. 
 
-Gdy użytkownik [skonfigurować stron sieci web dla usługi Application Insights](app-insights-javascript.md), zmodyfikować fragment kodu, który można pobrać z portalu Application Insights. (W aplikacjach ASP.NET, fragment zazwyczaj znajduje się w _Layout.cshtml.)  Wstaw wiersz, takich jak `samplingPercentage: 10,` przed klucza Instrumentacji:
+Gdy użytkownik [skonfigurować stron sieci web dla usługi Application Insights](app-insights-javascript.md), zmodyfikować fragment kodu JavaScript, który można pobrać z portalu Application Insights. (W aplikacjach ASP.NET, fragment zazwyczaj znajduje się w _Layout.cshtml.)  Wstaw wiersz, takich jak `samplingPercentage: 10,` przed klucza Instrumentacji:
 
     <script>
     var appInsights= ... 
@@ -191,13 +195,15 @@ W przypadku wartości procentowej pobierania próbek wybierz wartość procentow
 Włączenie próbkowania stałej stawki na serwerze, klientami a serwerem będzie synchronizować tak, w wyszukiwania, można przechodzić między wyświetleń strony powiązane i żądań.
 
 ## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>Stałej częstotliwość próbkowania dla witryn sieci web ASP.NET
-Stały częstotliwość próbkowania zmniejsza ruch wysyłany z serwera sieci web i przeglądarki sieci web. W przeciwieństwie do próbkowania adaptacyjną zmniejsza telemetrii według stałej stawki ustalanej określone przez użytkownika. Również synchronizacji klienta i serwera próbkowania, tak aby elementy powiązane są zachowywane — na przykład, jeśli przyjrzymy widoku strony w wyszukiwaniu mogły zostać odnalezione jego powiązanego żądania.
+Stały częstotliwość próbkowania zmniejsza ruch wysyłany z serwera sieci web i przeglądarki sieci web. W przeciwieństwie do próbkowania adaptacyjną zmniejsza telemetrii według stałej stawki ustalanej określone przez użytkownika. On również synchronizuje klienta i serwera próbkowania tak, aby elementy powiązane są zachowywane — na przykład po wyświetleniu widoku strony wyszukiwania można znaleźć jego powiązanego żądania.
 
-Algorytm próbkowania zachowuje elementy powiązane. Dla każdego żądania HTTP zdarzeń, go i jego zdarzenia powiązane są odrzucane albo przesyłane. 
+Algorytm próbkowania zachowuje elementy powiązane. Dla każdego żądania HTTP zdarzeń, żądania i jego zdarzenia powiązane są odrzucane albo przesyłane razem. 
 
 W Eksploratorze metryk stawki, takich jak liczby żądań i wyjątków są pomnożona przez współczynnik kompensacji próbkowania, dzięki czemu są one poprawne około.
 
-1. **Aktualizację pakietów NuGet projektu** do najnowszej wersji *wstępną* wersji usługi Application Insights. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, wybierz polecenie Zarządzaj pakietami NuGet Sprawdź **Uwzględnij wersję wstępną** i wyszukaj Microsoft.ApplicationInsights.Web. 
+### <a name="configuring-fixed-rate-sampling"></a>Konfigurowanie stałej stawki próbkowania ###
+
+1. **Aktualizację pakietów NuGet projektu** do najnowszej wersji *wstępną* wersji usługi Application Insights. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, wybierz polecenie Zarządzaj pakietami NuGet Sprawdź **Uwzględnij wersję wstępną** i wyszukaj Microsoft.ApplicationInsights.Web. 
 2. **Wyłącz adaptacyjną próbkowania**: W [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), usunąć lub komentarz `AdaptiveSamplingTelemetryProcessor` węzła.
    
     ```xml
@@ -233,7 +239,7 @@ W Eksploratorze metryk stawki, takich jak liczby żądań i wyjątków są pomno
 > 
 
 ### <a name="alternative-enable-fixed-rate-sampling-in-your-server-code"></a>Alternatywa: Włącz stałej częstotliwość próbkowania w kodzie serwera
-Zamiast ustawienie parametru próbkowania w pliku .config, możesz użyć kodu. 
+Zamiast ustawienie parametru próbkowania w pliku .config, można programowo ustawić te wartości. 
 
 *C#*
 
@@ -256,9 +262,9 @@ Zamiast ustawienie parametru próbkowania w pliku .config, możesz użyć kodu.
 ([Dowiedz się więcej o telemetrii procesorów](app-insights-api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>Kiedy należy używać próbkowania?
-Adaptacyjną próbkowania jest włączane automatycznie, jeśli używasz 2.0.0-beta3 wersji zestawu SDK platformy ASP.NET lub nowszym. Niezależnie od tego, jakiego używasz wersja zestawu SDK można użyć próbkowania wprowadzanie (w naszym serwera).
+Adaptacyjną próbkowania jest włączane automatycznie, jeśli używasz 2.0.0-beta3 wersji zestawu SDK platformy ASP.NET lub nowszym. Niezależnie od tego, która wersja zestawu SDK, należy użyć można włączyć próbkowania wprowadzanie umożliwia usługi Application Insights do próbkowania zebranych danych.
 
-Nie trzeba próbkowania dla większości aplikacji małych i średnich. Najbardziej przydatne informacje diagnostyczne i najbardziej dokładna statystyki są pobierane przez zbierania danych dotyczących wszystkich działań użytkownika. 
+Ogólnie rzecz biorąc dla większości aplikacji małych i średnich próbkowania nie jest potrzebny. Najbardziej przydatne informacje diagnostyczne i najbardziej dokładna statystyki są pobierane przez zbierania danych dotyczących wszystkich działań użytkownika. 
 
 Główne zalety próbkowania są następujące:
 
@@ -281,7 +287,7 @@ Główne zalety próbkowania są następujące:
 
 **Użyj adaptacyjną próbkowania:**
 
-W przeciwnym razie zalecamy adaptacyjną próbkowania. Ta opcja jest włączona domyślnie w ASP.NET server SDK, 2.0.0-beta3 wersji lub nowszym. Do niektórych minimalna częstotliwość nie redukują ruchu, nie będzie to miało wpływ na lokacji niskiego użycia.
+Jeśli warunki na użycie innych metod pobierania próbek nie są stosowane, zalecamy adaptacyjną próbkowania. Ta opcja jest włączona domyślnie w ASP.NET server SDK, 2.0.0-beta3 wersji lub nowszym. Go nie zmniejszy ruchu aż do osiągnięcia określonych minimalna częstotliwość, w związku z tym lokacjach niskiego użycia nie zostaną zmienione.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Jak sprawdzić, czy w operacji pobierania próbek
 Aby odnaleźć rzeczywiste próbkowania niezależnie od tego, gdzie zostały zastosowane, należy użyć [Analytics query](app-insights-analytics.md) takich jak ta:
@@ -330,7 +336,7 @@ Po stronie klienta (JavaScript) zestawu SDK uczestniczy w stałej częstotliwoś
 
 * Jednym ze sposobów jest próbkowania do uruchomienia z adaptacyjną, sprawdź, co Oceń to rozliczy na (zobacz powyżej pytanie), a następnie przejdź do stałej stawki próbkowania przy użyciu tego kursu. 
   
-    W przeciwnym razie trzeba odgadnąć. Analizowanie bieżącego użycia telemetrii w AI, przestrzegać wszelkich ograniczania przepustowości występuje i oszacowania ilości zbieranych danych telemetrycznych. Te trzy wejść, wraz z wybranej warstwy cenowej, sugerują, ile można zmniejszyć ilość zbieranych danych telemetrycznych. Jednak wzrost liczby użytkowników lub inne przesunięcia w woluminie danych telemetrycznych może unieważnić oszacować.
+    W przeciwnym razie trzeba odgadnąć. Analizowanie bieżącego użycia telemetrii w usłudze Application Insights, przestrzegać wszelkich ograniczania przepustowości występuje i oszacowania ilości zbieranych danych telemetrycznych. Te trzy wejść, wraz z wybranej warstwy cenowej, sugerują, ile można zmniejszyć ilość zbieranych danych telemetrycznych. Jednak wzrost liczby użytkowników lub inne przesunięcia w woluminie danych telemetrycznych może unieważnić oszacować.
 
 *Co się stanie, jeśli można skonfigurować wartości procentowej pobierania próbek zbyt niska?*
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Użycie rozwiązania mapy usługi w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Z mapy usługi można przeglądać serwery w taki sposób, który należy wziąć pod uwagę ich: jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej połączenia TCP architekturze, bez konieczności wykonywania konfiguracyjnych wymaganych innych niż instalację agenta.
@@ -231,16 +231,16 @@ Poniższa ilustracja jest szczegółowy widok zdarzenie Zmianakonfiguracji, któ
 Aby wyświetlić dane wydajności, może być konieczne [włączyć odpowiednie liczniki wydajności usługi Analiza dzienników](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Liczniki, które ma zostać włączony:
 
 W systemie Windows:
-- Procesor(*)\% czas procesora
-- Pamięć\% Zadeklarowane bajty w użyciu
-- Sieci karty (*) \Bytes wysłane/s
-- Sieci karty (*) \Bytes odebrane/s
+- Procesor(*)\\czas procesora (%)
+- Pamięć\\Zadeklarowane bajty w użyciu (%)
+- Sieci Adapter(*)\\bajty wysłane/s
+- Sieci Adapter(*)\\bajty odebrane/s
 
 Linux:
-- Procesor(*)\% czas procesora
-- Memory(*)\% użycie pamięci
-- Sieci karty (*) \Bytes wysłane/s
-- Sieci karty (*) \Bytes odebrane/s
+- Procesor(*)\\czas procesora (%)
+- Memory(*)\\% wykorzystanie pamięci
+- Sieci Adapter(*)\\bajty wysłane/s
+- Sieci Adapter(*)\\bajty odebrane/s
 
 Aby uzyskać dane dotyczące wydajności sieci, musi również włączono rozwiązania podczas transmisji danych 2.0 w Operations Management Suite.
  

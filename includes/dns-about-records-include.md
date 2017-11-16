@@ -8,7 +8,7 @@ Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy
 
 Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym często spotykanym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
 
-Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że [rekordy SPF są reprezentowane przy użyciu rekordu TXT](../articles/dns/dns-zones-records.md#spf-records).
+Usługa Azure DNS obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że [rekordy SPF są reprezentowane przy użyciu rekordu TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Zestawy rekordów
 

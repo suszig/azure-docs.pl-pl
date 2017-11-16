@@ -1,73 +1,101 @@
 ---
 title: "Jak dodać źródła zdarzenia Centrum IoT w środowisku Azure czas serii Insights | Dokumentacja firmy Microsoft"
-description: "W tym samouczku uwzględniono również sposób dodawania źródła zdarzenia połączoną z Centrum IoT w danym środowisku Insights serii czasu"
-keywords: 
+description: "W tym artykule opisano sposób dodawania źródła zdarzenia połączoną z Centrum IoT w danym środowisku Insights serii czasu"
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-iot-hub-event-source"></a>Jak dodać źródła zdarzenia Centrum IoT
-
-W tym samouczku uwzględniono również sposób przy użyciu portalu Azure Dodaj źródło zdarzenia, które odczytuje z Centrum IoT w danym środowisku Insights serii czasu.
+# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Jak dodać źródła zdarzenia Centrum IoT środowiska Insights serii czasu
+W tym artykule opisano, jak przy użyciu portalu Azure Dodaj źródło zdarzenia, które odczytuje dane z Centrum IoT w środowisku Insights serii czasu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+- Utwórz środowisko Insights serii czasu. Aby uzyskać więcej informacji, zobacz [utworzyć środowiska Azure czas serii Insights](time-series-insights-get-started.md) 
+- Tworzenie Centrum IoT. Aby uzyskać więcej informacji o centra IoT, zobacz [tworzenia Centrum IoT przy użyciu portalu Azure](../iot-hub/iot-hub-create-through-portal.md)
+- Centrum IoT musi wysyłane podczas zdarzenia aktywne wiadomości.
+- Utwórz dedykowanej grupy klientów w Centrum IoT dla środowiska szczegółowe informacje o czasie serii korzystać z. Każdego źródła zdarzeń Insights serii czasu musi mieć własną dedykowanej grupy klientów, które nie są współużytkowane z innym klientom. Jeśli wielu czytników korzystanie ze zdarzeń z tej samej grupy konsumentów, wszystkich czytelników prawdopodobnie błędy. Aby uzyskać więcej informacji, zobacz [Centrum IoT — przewodnik dewelopera](../iot-hub/iot-hub-devguide.md).
 
-Utworzono Centrum IoT i są zapisywania zdarzeń. Aby uzyskać więcej informacji o centra IoT, zobacz <https://azure.microsoft.com/services/iot-hub/>
+## <a name="add-a-new-event-source"></a>Dodaj nowe źródło zdarzeń
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-> [Grupy konsumentów] Każdego źródła zdarzeń Insights serii czasu musi mieć własną dedykowanej grupy klientów, które nie są współużytkowane z innym klientom. Jeśli wielu czytników korzystanie ze zdarzeń z tej samej grupy konsumentów, wszystkich czytelników prawdopodobnie błędy. Aby uzyskać więcej informacji, zobacz [Centrum IoT — przewodnik dewelopera](../iot-hub/iot-hub-devguide.md).
+2. Znajdź istniejące środowisko Insights serii czasu. Kliknij przycisk **wszystkie zasoby** w menu po lewej stronie portalu Azure. Wybierz środowisko usługi Time Series Insights.
 
-## <a name="choose-an-import-option"></a>Wybierz opcję importu
+3. W obszarze **topologia środowiska** kliknij pozycję **źródła zdarzeń**.
+   ![Zdarzenie źródeł + Dodaj](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
-Ustawienia dla źródła zdarzenia można wprowadzić ręcznie lub Centrum IoT można wybierać z centra IoT, które są dostępne dla Ciebie.
-W **opcję importu** selektora, wybierz jedną z następujących opcji:
+4. Kliknij przycisk **+ Dodaj**.
 
-* Podaj ustawienia Centrum IoT ręcznie
-* Użyj Centrum IoT z dostępnych subskrypcji
+5. Podaj **nazwa źródła zdarzenia** unikatowe dla tego środowiska Insights serii czasu, takich jak **strumienia zdarzeń**.
 
-### <a name="select-an-available-iot-hub"></a>Wybierz dostępny Centrum IoT
+   ![Wypełnij pierwsze trzy parametry w formularzu.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
 
-W poniższej tabeli opisano poszczególne opcje na karcie nowe źródło zdarzeń z jego opisem podczas wybierania dostępne Centrum IoT jako źródło zdarzenia:
+6. Wybierz **źródła** jako **Centrum IoT**.
 
-| NAZWA WŁAŚCIWOŚCI | OPIS |
-| --- | --- |
-| Nazwa źródła zdarzeń | Nazwa źródła zdarzenia. Ta nazwa musi być unikatowa w danym środowisku Insights serii czasu.
-| Element źródłowy | Wybierz **Centrum IoT** można utworzyć źródła zdarzeń Centrum IoT.
-| Identyfikator subskrypcji | Wybierz subskrypcję, w której utworzono to Centrum IoT.
-| Nazwa centrum IoT | Wybierz nazwę Centrum IoT.
-| Nazwa zasad Centrum IoT | Wybierz zasady dostępu współdzielonego, który można znaleźć na karcie Ustawienia Centrum IoT. Wszystkie zasady dostępu współdzielonego ma nazwę uprawnienia ustawić i klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *musi* ma **usługa połączyć** uprawnienia.
-| Grupy odbiorców Centrum IoT | Grupy odbiorców, które mają być odczytywane zdarzenia z Centrum IoT. Zdecydowanie zaleca się używania dedykowanej grupy klientów dla źródła zdarzeń.
+7. Wybierz odpowiednie **opcji importowania**. 
+   - Wybierz **Użyj Centrum IoT z dostępnych subskrypcji** gdy masz już istniejącą Centrum IoT na jednym z Twoich subskrypcji. Jest to najprostszy podejście.
+   - Wybierz **ustawienia Centrum IoT Podaj ręcznie** po Centrum IoT to zewnętrznych do subskrypcji lub chcesz wybrać opcje zaawansowane. 
 
-### <a name="provide-iot-hub-settings-manually"></a>Podaj ustawienia Centrum IoT ręcznie
+8. Jeśli wybrano **Użyj Centrum IoT z dostępnych subskrypcji** opcji w poniższej tabeli opisano każdy wymaganej właściwości:
 
-W poniższej tabeli opisano każdej właściwości w karcie nowe źródło zdarzeń z jej opis, wprowadzając ustawienia ręcznie:
+   ![Szczegóły Centrum subskrypcji i zdarzeń](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-| NAZWA WŁAŚCIWOŚCI | OPIS |
-| --- | --- |
-| Nazwa źródła zdarzeń | Nazwa źródła zdarzenia. Ta nazwa musi być unikatowa w danym środowisku Insights serii czasu.
-| Element źródłowy | Wybierz **Centrum IoT** można utworzyć źródła zdarzeń Centrum IoT.
-| Identyfikator subskrypcji | Subskrypcja, w której utworzono to Centrum IoT.
-| Grupa zasobów | Subskrypcja, w której utworzono to Centrum IoT.
-| Nazwa centrum IoT | Nazwa centrum IoT. Podczas tworzenia Centrum IoT należy też nadać mu nazwę
-| Nazwa zasad Centrum IoT | Zasady dostępu współdzielonego, można utworzyć na karcie Ustawienia Centrum IoT. Wszystkie zasady dostępu współdzielonego ma nazwę uprawnienia ustawić i klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *musi* ma **usługa połączyć** uprawnienia.
-| Klucz zasad Centrum IoT | Klucz dostępu współużytkowanego używany do uwierzytelniania dostępu do przestrzeni nazw usługi Service Bus. Wpisz tutaj klucz podstawowy lub pomocniczy.
-| Grupy odbiorców Centrum IoT | Grupy odbiorców, które mają być odczytywane zdarzenia z Centrum IoT. Zdecydowanie zaleca się używania dedykowanej grupy klientów dla źródła zdarzeń.
+   | Właściwość | Opis |
+   | --- | --- |
+   | Identyfikator subskrypcji | Wybierz subskrypcję, w której utworzono to Centrum IoT.
+   | Nazwa centrum IoT | Wybierz nazwę Centrum IoT.
+   | Nazwa zasad Centrum IoT | Wybierz zasady dostępu współdzielonego, który można znaleźć na karcie Ustawienia Centrum IoT. Wszystkie zasady dostępu współdzielonego ma nazwę uprawnienia ustawić i klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *musi* ma **usługa połączyć** uprawnienia.
+   | Klucz zasad Centrum IoT | Klucz jest wypełniana wstępnie.
+   | Grupy odbiorców Centrum IoT | Grupy odbiorców, które mają być odczytywane zdarzenia z Centrum IoT. Zdecydowanie zaleca się używania dedykowanej grupy klientów dla źródła zdarzeń.
+   | Format serializacji zdarzeń | Kod JSON jest dostępne tylko serializacji w chwili obecnej. Komunikaty zdarzeń musi być w następującym formacie, lub żadne dane nie mogą być odczytywane. |
+   | Nazwa właściwości sygnatury czasowej | Aby określić tę wartość, należy zrozumieć format komunikatu z danymi wiadomości wysyłane do Centrum IoT. Ta wartość jest **nazwa** właściwości określonego zdarzenia w danych wiadomości, który ma być używany jako znacznik czasu zdarzeń. Wartość jest rozróżniana wielkość liter. Jeśli pole pozostanie puste, **czasu umieścić w kolejce zdarzenia** w zdarzeniu źródła jest używany jako znacznik czasu zdarzeń. |
+
+9. Jeśli wybrano **ustawienia Centrum IoT Podaj ręcznie** opcji w poniższej tabeli opisano każdy wymaganej właściwości:
+
+   | Właściwość | Opis |
+   | --- | --- |
+   | Identyfikator subskrypcji | Subskrypcja, w której utworzono to Centrum IoT.
+   | Grupa zasobów | Nazwa grupy zasobów, w której utworzono to Centrum IoT.
+   | Nazwa centrum IoT | Nazwa centrum IoT. Podczas tworzenia Centrum IoT należy też nadać mu nazwę.
+   | Nazwa zasad Centrum IoT | Zasady dostępu współdzielonego, można utworzyć na karcie Ustawienia Centrum IoT. Wszystkie zasady dostępu współdzielonego ma nazwę uprawnienia ustawić i klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *musi* ma **usługa połączyć** uprawnienia.
+   | Klucz zasad Centrum IoT | Klucz dostępu współdzielonego, używany do uwierzytelniania dostępu do przestrzeni nazw usługi Service Bus. Wpisz tutaj klucz podstawowy lub pomocniczy.
+   | Grupy odbiorców Centrum IoT | Grupy odbiorców, które mają być odczytywane zdarzenia z Centrum IoT. Zdecydowanie zaleca się używania dedykowanej grupy klientów dla źródła zdarzeń.
+   | Format serializacji zdarzeń | Kod JSON jest dostępne tylko serializacji w chwili obecnej. Komunikaty zdarzeń musi być w następującym formacie, lub żadne dane nie mogą być odczytywane. |
+   | Nazwa właściwości sygnatury czasowej | Aby określić tę wartość, należy zrozumieć format komunikatu z danymi wiadomości wysyłane do Centrum IoT. Ta wartość jest **nazwa** właściwości określonego zdarzenia w danych wiadomości, który ma być używany jako znacznik czasu zdarzeń. Wartość jest rozróżniana wielkość liter. Jeśli pole pozostanie puste, **czasu umieścić w kolejce zdarzenia** w zdarzeniu źródła jest używany jako znacznik czasu zdarzeń. |
+
+10. Wybierz **Utwórz** można dodać nowego źródła zdarzenia.
+
+   ![Kliknięcie pozycji Utwórz](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+
+   Po utworzeniu źródła zdarzeń usługa Time Series Insights automatycznie rozpocznie przesyłanie strumieni danych do środowiska.
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Dodaj grupy odbiorców do Centrum IoT
+Grupy konsumentów są używane przez aplikacje w celu pobierania danych z usługą centra IoT Azure. Podaj dedykowanej grupy klientów, na potrzeby używania przez tego czasu serii Insights środowiska, niezawodnie odczytać danych z Centrum IoT.
+
+Aby dodać nowe grupy odbiorców do Centrum IoT, wykonaj następujące kroki:
+1. W portalu Azure zlokalizuj i Otwórz Centrum IoT.
+
+2. W obszarze **wiadomości** nagłówek, wybierz **punkty końcowe**. 
+
+   ![Dodaj grupy odbiorców](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. Wybierz **zdarzenia** punktu końcowego, a **właściwości** zostanie otwarta strona.
+
+4. W obszarze **grupy konsumentów** nagłówek, podaj nową nazwę unikatową dla grupy odbiorców. Użyj tej samej nazwie w środowisku Insights serii czasu podczas tworzenia nowego źródła zdarzenia.
+
+5. Wybierz **zapisać** Aby zapisać nową grupę odbiorców.
 
 ## <a name="next-steps"></a>Następne kroki
-
-1. Dodaj zasady dostępu do danych w środowisku [danych Definiowanie zasad dostępu](time-series-insights-data-access.md)
-1. Dostęp do środowiska w [portalu Insights serii czasu](https://insights.timeseries.azure.com)
+- [Definiowanie zasad dostępu danych](time-series-insights-data-access.md) do zabezpieczania danych.
+- [Wysyłanie zdarzeń](time-series-insights-send-events.md) w źródle zdarzeń.
+- Dostęp do środowiska w [Eksplorator czasu serii Insights](https://insights.timeseries.azure.com).

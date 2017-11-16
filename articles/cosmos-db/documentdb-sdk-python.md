@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Python rozwiązania Cosmos bazy danych Azure SDK: Informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -51,6 +51,9 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Ta wersja zestawu SDK wymaga najnowszej wersji emulatora DB rozwiązania Cosmos Azure dostępne do pobrania z https://aka.ms/cosmosdb-emulator.
+
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Poprawka błędu dla słownika agregacji.
 * Poprawka błędu dla przycinanie ukośniki łącza zasobów.
@@ -131,6 +134,7 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |10 listopada 2017 r. |--- |
 | [2.2.1](#2.2.1) |2017 wrz 29 |--- |
 | [2.2.0](#2.2.0) |10 maja 2017 |--- |
 | [2.1.0](#2.1.0) |01 maja 2017 r. |--- |

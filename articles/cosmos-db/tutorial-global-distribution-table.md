@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e9cb4b5b886cec46c0483287460c720855867f38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e75429d66a30bfc4588a3070e32d58eec0df4b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API tabeli
-
-W tym artykule zostanie przedstawiony sposób korzystać z portalu Azure do instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API tabeli (wersja zapoznawcza).
 
 W tym artykule opisano następujące zadania: 
 
@@ -36,13 +34,13 @@ W tym artykule opisano następujące zadania:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Łączenie z preferowanego regionu przy użyciu interfejsu API tabeli
 
-Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje klienckie można określić listy uporządkowanej preferencji regionów ma być używany do wykonywania operacji dokumentu. Można to zrobić przez ustawienie `TablePreferredLocations` wartości konfiguracji w pliku konfiguracyjnym aplikacji dla zestawu SDK usługi Magazyn Azure w wersji zapoznawczej. Na podstawie konfiguracji konta bazy danych Azure rozwiązania Cosmos, bieżącej dostępności regionalnych i na liście preferencji określone, optymalny punkt końcowy zostanie wybrany przez zestaw SDK magazynu Azure do wykonywania zapisu i operacji odczytu.
+Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje klienckie można określić listy uporządkowanej preferencji regionów ma być używany do wykonywania operacji dokumentu. Można to zrobić przez ustawienie `TablePreferredLocations` wartości konfiguracji w pliku app.config dla zestawu SDK usługi Azure rozwiązania Cosmos DB tabeli interfejsu API. Rozwiązania Cosmos DB tabeli interfejsu API zestawu SDK usługi Azure będzie Wybierz najlepsze punktu końcowego do komunikowania się z na podstawie konfiguracji konta, bieżącej dostępności regionalnych i listy podany preferencji.
 
 `TablePreferredLocations` Powinien zawierać rozdzielaną przecinkami listę preferowanych lokalizacji (podłączonej do wielu sieci) dla operacji odczytu. Każde wystąpienie klienta można określić podzbiór tych regionów, w preferowanej kolejności dla odczytów małe opóźnienia. Regionów muszą nosić przy użyciu ich [wyświetlane nazwy](https://msdn.microsoft.com/library/azure/gg441293.aspx), na przykład `West US`.
 
-Wszystkie operacje odczytu, które zostaną wysłane do pierwszy dostępny region w `TablePreferredLocations` listy. Jeśli żądanie kończy się niepowodzeniem, klient się nie powieść w dół na liście, aby następny region i tak dalej.
+Wszystkie operacje odczytu są wysyłane do pierwszy dostępny region w `TablePreferredLocations` listy. Jeśli żądanie kończy się niepowodzeniem, klient się nie powieść w dół na liście, aby następny region i tak dalej.
 
-Zestawu SDK podejmie próbę odczytu z określonych w regionów `TablePreferredLocations`. Tak, na przykład, jeśli konto bazy danych jest dostępne w trzech regionów, ale klient określa tylko dwóch regionach i do zapisu dla `TablePreferredLocations`, a następnie odczyty nie zostanie obsłużona poza region zapisu, nawet w przypadku pracy awaryjnej.
+Zestaw SDK podejmuje próbę odczytu z określonych w regionów `TablePreferredLocations`. Tak, na przykład, jeśli konto bazy danych jest dostępne w trzech regionów, ale klient określa tylko dwóch regionach i do zapisu dla `TablePreferredLocations`, a następnie odczyty nie zostanie obsłużona poza region zapisu, nawet w przypadku pracy awaryjnej.
 
 Zestaw SDK będzie automatycznie wysyłać zapisuje wszystkie dane w bieżącej zapisu regionu.
 
@@ -62,9 +60,5 @@ W tym samouczku wykonaniu następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API usługi DocumentDB
+> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API do tabeli bazy danych usługi Azure rozwiązania Cosmos
 
-Możesz teraz przejść do następnym samouczku, aby dowiedzieć się, jak opracowywać lokalnie przy użyciu emulatora lokalnej bazy danych Azure rozwiązania Cosmos.
-
-> [!div class="nextstepaction"]
-> [Opracowywanie lokalnie w emulatorze](local-emulator.md)

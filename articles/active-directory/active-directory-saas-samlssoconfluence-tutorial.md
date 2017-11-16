@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Samouczek: Integracji Azure Active Directory z logowania jednokrotnego SAML dla zlewiska przez rozpoznawania GmbH
 
@@ -169,26 +169,53 @@ W tej sekcji możesz włączyć usługi Azure AD rejestracji jednokrotnej w port
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. Na **konfiguracji wtyczki SingleSignOn SAML** kliknij przycisk **dodać dodatkowe dostawcy tożsamości** przycisk, aby skonfigurować ustawienia dostawcy tożsamości.
+16. Na **konfiguracji wtyczki SingleSignOn SAML** kliknij przycisk **Dodaj nowe IdP** przycisk, aby skonfigurować ustawienia dostawcy tożsamości.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. Wykonaj następujące kroki na tej stronie:
+17. Na **wybierz Twój dostawca tożsamości SAML** wykonaj następujące czynności:
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    a. Dodaj **nazwa** dostawcy tożsamości (np. usługi Azure AD).
+    a. Ustaw **usługi Azure AD** jako typ dostawców tożsamości.
     
-    b. Dodaj **opis** dostawcy tożsamości (np. usługi Azure AD).
+    b. Dodaj **nazwa** dostawcy tożsamości (np. usługi Azure AD).
+    
+    c. Dodaj **opis** dostawcy tożsamości (np. usługi Azure AD).
+    
+    d. Kliknij przycisk **Dalej**.
+    
+18. Na **konfiguracji dostawcy tożsamości** kliknij przycisk **dalej** przycisku.
 
-    c. Kliknij przycisk **XML** i wybierz **metadanych** pliku, który został pobrany z portalu Azure.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    d. Kliknij przycisk **obciążenia** przycisku.
+19. Na **Importowanie metadanych IdP SAML** wykonaj następujące czynności:
 
-    e. Odczytuje metadanych IdP i wypełni pola jako wyróżnione na zrzucie ekranu. 
-18. Kliknij przycisk **Zapisz ustawienia** przycisk, aby zapisać ustawienia.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. Kliknij przycisk **Załaduj plik** przycisk i wybierz plik XML metadanych pobranego w kroku 5.
+
+    b. Kliknij przycisk **importu** przycisku.
+    
+    c. Poczekaj chwilę import zakończy się pomyślnie.
+    
+    d. Kliknij przycisk **dalej** przycisku.
+    
+20. Na **atrybutu nazwy użytkownika i transformacja** kliknij przycisk **dalej** przycisku.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. Na **Tworzenie użytkownika i aktualizacji** kliknij przycisk **Zapisz & dalej** można zapisać ustawień.   
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. Na **przetestować ustawienia** kliknij przycisk **pominąć test & ręcznie skonfigurować** do pominie ten test użytkownika teraz. To w następnej sekcji zostanie wykonane i wymaga niektórych ustawień w portalu Azure. 
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. Podczas odczytywania okna dialogowego apprearing **pomijanie oznacza testu...** , kliknij przycisk **OK**.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
