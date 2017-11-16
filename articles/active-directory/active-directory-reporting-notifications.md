@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Powiadomienia o raportach usługi Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Jakie raporty generowanie powiadomień e-mail
@@ -47,5 +47,5 @@ Tak, aby wyłączyć powiadomienia dotyczące nietypowe logowania w klasycznym p
 ## <a name="whats-next"></a>Co dalej
 * Zastanawiasz się, jak zabezpieczeń, inspekcji i raporty dotyczące działań są dostępne? Zapoznaj się z [zabezpieczeń platformy Azure AD, inspekcji i raporty dotyczące działań](active-directory-view-access-usage-reports.md)
 * [Wprowadzenie do usługi Azure Active Directory — wersja Premium](active-directory-get-started-premium.md)
-* [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](active-directory-add-company-branding.md)
+* [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](customize-branding.md)
 

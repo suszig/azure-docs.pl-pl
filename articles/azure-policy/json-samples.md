@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Szablony zasad Azure
 
@@ -67,6 +67,7 @@ Poniższa tabela zawiera linki do szablony json dla zasad usługi Azure. Te przy
 | [Ustawienie wykrywania zagrożeń poziomu bazy danych inspekcji](scripts/audit-db-threat-det-setting.md) | Inspekcja zasady alertów zabezpieczeń bazy danych SQL, jeśli te zasady nie są skonfigurowane do określonego stanu. Można określić wartość, która wskazuje, czy wykrywanie zagrożeń jest włączone.  |
 | [Poziom programu SQL Server audit Inspekcja](scripts/audit-sql-ser-leve-audit-setting.md) | Inspekcja ustawienia inspekcji serwera SQL, jeśli te ustawienia są niezgodne z określonej wartości. Można określić wartość, która wskazuje, czy ustawienia inspekcji powinny być włączone lub wyłączone. |
 | [Inspekcja wykrywania zagrożeń poziomu serwera](scripts/audit-sql-ser-threat-det-setting.md) | Inspekcja zasady alertów zabezpieczeń bazy danych SQL, jeśli te zasady nie są skonfigurowane do określonego stanu. Można określić wartość, która wskazuje, czy wykrywanie zagrożeń jest włączone.  |
+| [Inspekcja żaden administrator usługi Azure Active Directory](scripts/audit-no-aad-admin.md) | Inspekcja po żaden administrator usługi Azure Active Directory przypisane do programu SQL server. |
 | [Dozwolone jednostki SKU bazy danych SQL](scripts/allowed-sql-db-skus.md) | Wymaga wersji zatwierdzonych używać bazy danych SQL. Należy określić tablicę dozwolonych identyfikatorów jednostki SKU lub tablicę dozwolonych nazw jednostki SKU. |
 |**Storage**||
 | [Dozwolone jednostki SKU dla konta magazynu i maszyny wirtualne](scripts/allowed-skus-storage.md) | Wymaga użycia zatwierdzone jednostki SKU konta magazynu i maszyn wirtualnych. Używa wbudowanych zasad w celu zapewnienia zatwierdzone jednostki SKU. Należy określić tablicę zatwierdzonych maszyn wirtualnych jednostki SKU i tablicę konta magazynu zatwierdzone jednostki SKU. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Logowanie użytkownika do uwierzytelniania przekazywanego Azure Active Directory
 
@@ -55,7 +55,7 @@ Możesz łączyć uwierzytelniania przekazywanego z [bezproblemowe logowanie jed
 
 - Obsługuje logowanie użytkownika do wszystkich aplikacji opartej na przeglądarce sieci web i aplikacje klienckie Microsoft Office, które używają [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga).
 - Nazwy logowania użytkowników może być albo lokalnymi domyślna nazwa użytkownika (`userPrincipalName`) lub inny atrybut skonfigurowane w programie Azure AD Connect (nazywane `Alternate ID`).
-- Funkcja bezproblemowo współdziała z [dostępu warunkowego](../active-directory-conditional-access.md) funkcje takie jak usługi Multi-Factor Authentication (MFA) do zabezpieczania użytkowników.
+- Funkcja bezproblemowo współdziała z [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje takie jak usługi Multi-Factor Authentication (MFA) do zabezpieczania użytkowników.
 - Zintegrowana z opartej na chmurze [zarządzania hasłami samoobsługi](../active-directory-passwords-overview.md), włączając funkcję zapisywania zwrotnego haseł do lokalnej usługi Active Directory i ochrona za pomocą hasła przy zakaz najczęściej używanych haseł.
 - Środowiska z wieloma lasami są obsługiwane, jeśli istnieją relacje zaufania lasu między z lasów usługi AD i Jeśli routing sufiksów nazw jest poprawnie skonfigurowany.
 - Jest bezpłatna funkcji i nie wymagają żadnych wersji płatnej usługi Azure AD z niego korzystać.

@@ -21,14 +21,14 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Protokół pojedynczego SAML wylogowania
+# <a name="single-sign-out-saml-protocol"></a>Protokół pojedynczego SAML wylogowania
 Azure Active Directory (Azure AD) obsługuje SAML 2.0 sieci web przeglądarce jeden profil wylogowania. Dla pojedynczego wylogowania działał prawidłowo **LogoutURL** dla aplikacji musi być jawnie zarejestrowana w usłudze Azure AD podczas rejestracji aplikacji. Usługi Azure AD używa LogoutURL przekierowywać użytkowników po ich wyrejestrowany.
 
 Ten diagram przedstawia przepływ pracy pojedynczy proces wylogowywania usługi Azure AD.
 
 ![Pojedynczy Wyloguj przepływu pracy](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## LogoutRequest
+## <a name="logoutrequest"></a>LogoutRequest
 Wysyła usługi chmury `LogoutRequest` komunikatu do usługi Azure AD, aby wskazać, że sesja została zakończona. Poniższy fragment przedstawiono przykładowe `LogoutRequest` elementu.
 
 ```
@@ -38,20 +38,20 @@ Wysyła usługi chmury `LogoutRequest` komunikatu do usługi Azure AD, aby wskaz
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
+### <a name="logoutrequest"></a>LogoutRequest
 `LogoutRequest` Element wysyłane do usługi Azure AD wymaga następujących atrybutów:
 
 * `ID`: Identyfikuje wylogowania żądania. Wartość `ID` nie powinny rozpoczynać się cyfrą. Typowy rozwiązaniem jest Dołącz **identyfikator** reprezentacji ciągu identyfikatora GUID.
 * `Version`: Wartość tego elementu, aby ustawić **2.0**. Ta wartość jest wymagana.
 * `IssueInstant`: W tym `DateTime` ciąg o wartości koordynować czasu uniwersalnego (UTC) i [obustronne formatu ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Usługi Azure AD oczekuje wartości tego typu, ale nie obsługuje wymuszania.
 
-### Wystawcy
+### <a name="issuer"></a>Wystawcy
 `Issuer` Element `LogoutRequest` musi dokładnie pasować **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle ta jest równa **identyfikator URI aplikacji** określonym podczas rejestracji aplikacji.
 
-### NameID
+### <a name="nameid"></a>NameID
 Wartość `NameID` elementu musi dokładnie odpowiadać `NameID` użytkownika, który jest wylogowany.
 
-## LogoutResponse
+## <a name="logoutresponse"></a>LogoutResponse
 Azure AD wysyła `LogoutResponse` w odpowiedzi na `LogoutRequest` elementu. Poniższy fragment przedstawiono przykładowe `LogoutResponse`.
 
 ```
@@ -63,13 +63,13 @@ Azure AD wysyła `LogoutResponse` w odpowiedzi na `LogoutRequest` elementu. Poni
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
+### <a name="logoutresponse"></a>LogoutResponse
 Azure AD zestawy `ID`, `Version` i `IssueInstant` wartości w `LogoutResponse` elementu. Ustawia również `InResponseTo` elementu na wartość `ID` atrybutu `LogoutRequest` ujawniająca odpowiedzi.
 
-### Wystawcy
+### <a name="issuer"></a>Wystawcy
 Usługi Azure AD ustawia tę wartość na `https://login.microsoftonline.com/<TenantIdGUID>/` gdzie <TenantIdGUID> jest identyfikator dzierżawcy dzierżawy usługi Azure AD.
 
 Aby obliczyć wartość `Issuer` element, należy użyć wartości **identyfikator URI aplikacji** podane podczas rejestracji aplikacji.
 
-### Stan
+### <a name="status"></a>Stan
 Używa usługi Azure AD `StatusCode` element `Status` elementu, aby wskazywać powodzenie lub niepowodzenie wylogowania. W przypadku awarii próby wylogowania `StatusCode` element może także zawierać niestandardowe komunikaty o błędach.

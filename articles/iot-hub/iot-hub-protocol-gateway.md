@@ -20,10 +20,10 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2017
 ---
-# Obsługa protokołów dodatkowych Centrum IoT
+# <a name="support-additional-protocols-for-iot-hub"></a>Obsługa protokołów dodatkowych Centrum IoT
 Centrum IoT Azure natywnie obsługuje komunikację za pośrednictwem protokołów MQTT, AMQP i HTTPS. W niektórych przypadkach urządzenia lub bramy pola nie może być może użyć jednej z tych standardowych protokołów i wymagają protokołu dostosowania. W takich przypadkach można użyć niestandardowych bramy. Niestandardowe bramy umożliwia dostosowanie protokołu punkty końcowe Centrum IoT przez mostkowanie ruchu do i z Centrum IoT. Można użyć [brama protokołu Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) jako brama niestandardowych umożliwiające dostosowanie protokołu IoT Hub.
 
-## Brama protokołu IoT Azure
+## <a name="azure-iot-protocol-gateway"></a>Brama protokołu IoT Azure
 Brama protokołu Azure IoT to platforma dostosowania protokołu, który jest przeznaczony dla wysokiej skali, komunikację dwukierunkową urządzenie z Centrum IoT. Brama protokołu jest przekazujące składnik, który akceptuje połączenia urządzenia za pośrednictwem określonego protokołu. Tworzy ono ruch do Centrum IoT za pośrednictwem protokołu AMQP 1.0. 
 
 Brama protokołu na platformie Azure w taki sposób, skalowalnej można wdrożyć za pomocą usługi Azure Service Fabric, roli proces roboczy usług Azure Cloud Services lub maszyn wirtualnych systemu Windows. Ponadto bramy protokołu można wdrożyć w środowiskach lokalnych, takich jak pole bram.
@@ -34,7 +34,7 @@ Karta MQTT przedstawiono również model programowania do tworzenia protokołu k
 
 Elastyczność brama protokołu Azure IoT i implementacji MQTT są zawarte w projekcie oprogramowania typu open source. Użyj projekt open source, aby dodać obsługę różnych protokołów i protokołów lub dostosowania wdrożenia dla danego scenariusza. 
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat brama protokołu Azure IoT i sposobu użycia, a następnie wdrożyć go jako część rozwiązania IoT, zobacz:
 
 * [Repozytorium brama protokołu IoT Azure w serwisie GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)

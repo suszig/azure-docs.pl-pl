@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Innej roli administracyjnej w usłudze Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ Można przypisywać użytkowników w organizacji, aby różne role administracyj
 > [!IMPORTANT]
 > Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule.
 
-Administrator globalny może aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD przy użyciu poleceń cmdlet programu PowerShell, takich jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`, lub za pośrednictwem klasycznego portalu zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
+Administrator globalny może aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD przy użyciu poleceń cmdlet programu PowerShell, takich jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`, lub za pośrednictwem klasycznego portalu zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) zarządza zasadami uprzywilejowanego dostępu dla użytkowników w usłudze Azure AD. PIM przypisuje użytkowników do co najmniej jedną rolę w usłudze Azure AD i można przypisać komuś trwale do roli lub kwalifikuje się do roli. Jeśli użytkownik jest trwale przypisana do roli lub aktywuje przypisania roli kwalifikujących się, a następnie ich zarządzania usługi Azure Active Directory, usługi Office 365 i innych aplikacji z uprawnienia przypisane do ich ról.
 
@@ -53,7 +53,7 @@ Zarządzanie tożsamościami uprzywilejowanymi umożliwia przypisywanie użytkow
 * **Administrator programu SharePoint** ma dostęp administracyjny do usługi SharePoint Online za pomocą Centrum administracyjnego usługi SharePoint Online i można wykonać prawie wszystkie zadania w usłudze SharePoint Online.
 * **Skype dla firm administratora** ma dostęp administracyjny do usługi Skype dla firm za pomocą programu Skype dla firm Centrum administracyjnego, a można wykonać prawie wszystkie zadania w programie Skype dla firm Online.
 
-Przeczytaj następujące artykuły, aby uzyskać więcej informacji na temat [przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles.md) i [przypisywanie ról administratora w usłudze Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Przeczytaj następujące artykuły, aby uzyskać więcej informacji na temat [przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles-azure-portal.md) i [przypisywanie ról administratora w usłudze Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

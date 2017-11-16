@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Usługi w celu wywołania usługi za pomocą delegowanego tożsamość użytkownika w imieniu — z przepływu
+# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Usługi w celu wywołania usługi za pomocą delegowanego tożsamość użytkownika w imieniu — z przepływu
 OAuth On-Behalf-Of 2.0, którego przepływ służy przypadek użycia, w którym aplikacja wywołuje usługi/składnika web API, który z kolei musi wywołać inny usługi/interfejs API sieci web. Będzie propagację uprawnień za pomocą łańcucha żądań i tożsamości użytkowników delegowanego. Dla usługi warstwy środkowej na wysyłanie żądań uwierzytelnionych usługi podrzędne należy go secure token dostępu z usługi Azure Active Directory (Azure AD), w imieniu użytkownika.
 
-## W imieniu — z diagram przepływu
+## <a name="on-behalf-of-flow-diagram"></a>W imieniu — z diagram przepływu
 Załóżmy, że użytkownik został uwierzytelniony w aplikacji przy użyciu [kodu autoryzacji protokołu OAuth 2.0 przyznać przepływu](active-directory-protocols-oauth-code.md). W tym momencie aplikacja ma token dostępu (token A) z oświadczeń użytkowników i zgody na dostęp do sieci web warstwy środkowej interfejsu API (interfejs API A). Teraz A interfejsu API musi wprowadzić żądania uwierzytelnionego podrzędne sieci web interfejsu API (interfejs API B).
 
 Czynności, które wykonują stanowią przepływu w imieniu-z i zostały wyjaśnione przy użyciu poniższym diagramie.
@@ -38,9 +38,9 @@ Czynności, które wykonują stanowią przepływu w imieniu-z i zostały wyjaśn
 4. Token B znajduje się w nagłówku autoryzacji żądania interfejsu API B.
 5. Dane zabezpieczonych zasobów jest zwracane przez interfejs API B.
 
-## Rejestrowanie aplikacji i usług w usłudze Azure AD
+## <a name="register-the-application-and-service-in-azure-ad"></a>Rejestrowanie aplikacji i usług w usłudze Azure AD
 Zarejestruj zarówno aplikacja klienta, jak i usługi warstwy środkowej w usłudze Azure AD.
-### Zarejestruj usługę warstwy środkowej
+### <a name="register-the-middle-tier-service"></a>Zarejestruj usługę warstwy środkowej
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku, kliknij na Twoim koncie i w obszarze **katalogu** wybierz dzierżawy usługi Active Directory, w którym chcesz zarejestrować aplikację.
 3. Polecenie **więcej usług** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
@@ -48,7 +48,7 @@ Zarejestruj zarówno aplikacja klienta, jak i usługi warstwy środkowej w usłu
 5. Wprowadź przyjazną nazwę dla aplikacji, a następnie wybierz typ aplikacji. Oparte na zestawie typu aplikacji adres URL lub przekierowania adres URL logowania do podstawowego adresu URL. Polecenie **Utwórz** do tworzenia aplikacji.
 6. Podczas nadal w portalu Azure, wybierz aplikację, a następnie kliknij przycisk na **ustawienia**. Z menu Ustawienia, wybierz **klucze** i Dodaj klucz — wybierz czas trwania klucza roku 1 lub 2 lata. Po zapisaniu tej strony, wartość klucza będzie wyświetlana, skopiuj i Zapisz wartość w bezpiecznym miejscu — należy ten klucz później, aby skonfigurować ustawienia aplikacji w implementacji — wartość tego klucza nie będą wyświetlane w ponownie ani pobieranie w inny sposób , dlatego należy zarejestrować się, gdy jest on widoczny w portalu Azure.
 
-### Rejestrowanie aplikacji klienta
+### <a name="register-the-client-application"></a>Rejestrowanie aplikacji klienta
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Na górnym pasku, kliknij na Twoim koncie i w obszarze **katalogu** wybierz dzierżawy usługi Active Directory, w którym chcesz zarejestrować aplikację.
 3. Polecenie **więcej usług** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
@@ -56,14 +56,14 @@ Zarejestruj zarówno aplikacja klienta, jak i usługi warstwy środkowej w usłu
 5. Wprowadź przyjazną nazwę dla aplikacji, a następnie wybierz typ aplikacji. Oparte na zestawie typu aplikacji adres URL lub przekierowania adres URL logowania do podstawowego adresu URL. Polecenie **Utwórz** do tworzenia aplikacji.
 6. Konfigurowanie uprawnień dla aplikacji - w menu Ustawienia, wybierz **wymagane uprawnienia** sekcji, kliknij pozycję **Dodaj**, następnie **wybierz interfejs API**i wpisz nazwę Usługa warstwy środkowej w polu tekstowym. Następnie kliknij **wybierz uprawnienia** i wybierz pozycję "dostępu *nazwa usługi*".
 
-### Skonfiguruj aplikacje klienckie znane
+### <a name="configure-known-client-applications"></a>Skonfiguruj aplikacje klienckie znane
 W tym scenariuszu usługa warstwy środkowej ma bez interakcji użytkownika, aby uzyskać zgodę użytkownika na dostęp do interfejsu API niższego rzędu. W związku z tym opcję, aby udzielić dostępu do interfejsu API niższego rzędu przedstawia wyprzedzeniem jako część zgody kroku podczas uwierzytelniania.
 Aby to osiągnąć, wykonaj poniższe kroki, aby jawnie powiązać rejestracji aplikacji klienckiej w usłudze Azure AD z rejestracją usługi warstwy środkowej, która scala zgody wymagane przez klienta i warstwy środkowej w jednym oknie dialogowym.
 1. Przejdź do rejestracji usługi warstwy środkowej, a następnie kliknij polecenie **manifestu** aby otworzyć Edytor manifestu.
 2. W manifeście, zlokalizuj `knownClientApplications` tablicy właściwości, a następnie Dodaj identyfikator klienta aplikacji klienckiej jako elementu.
 3. Zapisz plik manifestu, klikając pozycję Zapisz przycisku.
 
-## Usługi w celu żądania tokenu dostępu usługi
+## <a name="service-to-service-access-token-request"></a>Usługi w celu żądania tokenu dostępu usługi
 Żądania tokenu dostępu, aby HTTP POST do specyficznego dla dzierżawy punktu końcowego usługi Azure AD z następującymi parametrami.
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka zdecydował się były zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
 
-### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
 Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera następujące parametry:
 
 | Parametr |  | Opis |
@@ -84,7 +84,7 @@ Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawier
 | requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
 | Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Dla protokołu OpenID Connect, zakres **openid** musi być określona.|
 
-#### Przykład
+#### <a name="example"></a>Przykład
 Następujące POST protokołu HTTP żądania tokenu dostępu do interfejsu API sieci web https://graph.windows.net. `client_id` Identyfikuje usługę żądania tokenu dostępu.
 
 ```
@@ -103,7 +103,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
+### <a name="second-case-access-token-request-with-a-certificate"></a>W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
 Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera następujące parametry:
 
 | Parametr |  | Opis |
@@ -119,7 +119,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
-#### Przykład
+#### <a name="example"></a>Przykład
 Następujące POST protokołu HTTP żądania tokenu dostępu dla https://graph.windows.net interfejsu API sieci web przy użyciu certyfikatu. `client_id` Identyfikuje usługę żądania tokenu dostępu.
 
 ```
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Usługa do odpowiedzi tokenu dostępu usługi
+## <a name="service-to-service-access-token-response"></a>Usługa do odpowiedzi tokenu dostępu usługi
 Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
 
 | Parametr | Opis |
@@ -153,7 +153,7 @@ Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
 | żądaniu |Token żądanym identyfikatorem. Wywołanie usługi służy to do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. |
 | refresh_token |Token odświeżania dla tokenu żądany dostęp. Wywołanie usługi umożliwia żądania inny token dostępu po wygaśnięciu tokenu dostępu bieżącego ten token. |
 
-### Przykład odpowiedź sukcesu
+### <a name="success-response-example"></a>Przykład odpowiedź sukcesu
 W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu do interfejsu API sieci web https://graph.windows.net Powodzenie.
 
 ```
@@ -171,7 +171,7 @@ W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu 
 }
 ```
 
-### Przykład odpowiedzi błędu
+### <a name="error-response-example"></a>Przykład odpowiedzi błędu
 Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD podczas próby uzyskania tokenu dostępu dla interfejsu API podrzędne, jeśli zasady dostępu warunkowego, takich jak uwierzytelnianie wieloskładnikowe, ustaw w niej ma podrzędne interfejsu API. Usługi warstwy środkowej powinien powierzchni ten błąd do aplikacji klienckiej, aby aplikacja kliencka zapewniają interakcji użytkownika, aby spełniać zasady dostępu warunkowego.
 
 ```
@@ -186,17 +186,17 @@ Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD 
 }
 ```
 
-## Użyj tokenu dostępu, aby uzyskać dostępu do zabezpieczonych zasobów
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Użyj tokenu dostępu, aby uzyskać dostępu do zabezpieczonych zasobów
 Obecnie usługa warstwy środkowej może używać tokenu nabyte powyżej, aby uwierzytelnionego żądania podrzędnego sieci Web interfejsu API, ustawiając token w `Authorization` nagłówka.
 
-### Przykład
+### <a name="example"></a>Przykład
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat protokołu OAuth 2.0 i innym sposobem wykonania uwierzytelniania usług przy użyciu poświadczeń klienta.
 * [Usługi w celu uwierzytelniania usługi przy użyciu przyznania poświadczeń klienta OAuth 2.0 w usłudze Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 w usłudze Azure AD](active-directory-protocols-oauth-code.md)

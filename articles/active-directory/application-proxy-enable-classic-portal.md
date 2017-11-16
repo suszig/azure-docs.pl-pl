@@ -15,11 +15,11 @@ ms.date: 07/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d81e495b9cacbe81f375b09bfcad23aadb22e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="enable-application-proxy-in-the-classic-portal-and-download-connectors"></a>Włącz serwer Proxy aplikacji w portalu klasycznym i pobierania łączników
 W tym artykule przedstawiono procedurę włączania serwera proxy aplikacji usługi Microsoft Azure AD dla katalogu w chmurze w ramach usługi Azure AD.
@@ -94,4 +94,4 @@ Jeśli chcesz odinstalować łącznik, odinstaluj usługę łącznika i usługę
 ## <a name="next-steps"></a>Następne kroki
 Teraz można przystąpić do [publikowania aplikacji za pomocą serwera proxy aplikacji](active-directory-application-proxy-publish.md).
 
-Jeśli masz aplikacje znajdujące się w oddzielnych sieciach lub w różnych lokalizacjach, możesz zorganizować różne łączniki w jednostki logiczne za pomocą grup łączników. Dowiedz się więcej o [pracy z łącznikami serwera proxy aplikacji](active-directory-application-proxy-connectors.md).
+Jeśli masz aplikacje znajdujące się w oddzielnych sieciach lub w różnych lokalizacjach, możesz zorganizować różne łączniki w jednostki logiczne za pomocą grup łączników. Dowiedz się więcej o [pracy z łącznikami serwera proxy aplikacji](active-directory-application-proxy-connectors-azure-portal.md).

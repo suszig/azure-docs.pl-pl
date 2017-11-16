@@ -4,18 +4,10 @@
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
 ## [Rozszerzenia kodu VS dla szablonów](resource-manager-vscode-extension.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-
-# Przykłady
-## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
-
-## Interfejs wiersza polecenia platformy Azure
-### [Wdrażanie szablonu](resource-manager-samples-cli-deploy.md)
 
 # Instrukcje
 ## Tworzenie szablonów
@@ -68,10 +60,6 @@
 #### [Witryna Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
-
-## Ustawianie zasad zasobów
-### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
 
 ## Inspekcja
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)

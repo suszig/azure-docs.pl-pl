@@ -197,9 +197,6 @@
         - name: Autoryzowanie użytkowników na potrzeby widoków Ambari
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Zarządzanie uprawnieniami użytkowników na poziomach plików i folderów
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Zarządzanie
       items:
         - name: Planowanie pojemności klastra

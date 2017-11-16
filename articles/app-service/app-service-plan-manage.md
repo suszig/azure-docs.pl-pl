@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: b2305782fa4d8ca1bc90f239bc1f6ade0ff8fdc3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Zarządzanie plan usługi aplikacji na platformie Azure
 
@@ -56,7 +56,16 @@ W **Menu**, wyszukaj **planu usługi App Service** sekcji.
 
 Wybierz **planu usługi aplikacji zmiany** do rozpoczęcia procesu.
 
-**Zmień plan usługi aplikacji** otwiera **planu usługi aplikacji** selektora. Wybierz istniejący plan można przenieść tej aplikacji do. Wyświetlane są tylko plany w tej samej grupie zasobów i region. Jeśli utworzono plan usługi aplikacji w tej samej grupie zasobów i region, ale nie jest wyświetlana na liście, spróbuj odświeżyć stronę przeglądarki.
+**Zmień plan usługi aplikacji** otwiera **planu usługi aplikacji** selektora. Wybierz istniejący plan można przenieść tej aplikacji do. 
+
+> [!IMPORTANT] 
+> **Planu usługi aplikacji wybierz** strony są filtrowane według następujących kryteriów: 
+> - Istnieje w tej samej grupie zasobów 
+> - Istnieje w tym samym regionie geograficznym 
+> - Istnieje w tej samej przestrzeni sieci Web  
+> 
+> A _przestrzeni sieci Web_ jest konstrukcją logiczną w usłudze App Service, który definiuje grupę zasobów serwera. Region geograficzny (na przykład zachodnie stany USA) zawiera wiele webspaces Aby przydzielić klientów korzystających z usługi aplikacji. Obecnie zasobów usługi aplikacji — nie można przenieść między webspaces. 
+> 
 
 ![Selektor planu usługi aplikacji.][change]
 

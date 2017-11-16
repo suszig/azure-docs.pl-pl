@@ -13,14 +13,14 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z opcją synchronizacji danych SQL (wersja zapoznawcza)
 
@@ -78,38 +78,11 @@ Synchronizacja danych nie jest odpowiedni dla następujących scenariuszy:
     -   W przypadku wybrania *wins Centrum*, zmiany w Centrum zawsze zastąpienie zmian w elemencie członkowskim.
     -   W przypadku wybrania *wins elementu członkowskiego*, zmiany w zmian Zastąp elementów członkowskich w Centrum. Jeśli istnieje więcej niż jeden element członkowski, końcowa wartość zależy który element członkowski jest najpierw zsynchronizowane.
 
-## <a name="common-questions"></a>Często zadawane pytania
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Częstotliwość synchronizacji danych można synchronizować dane? 
-Minimalna częstotliwość wynosi co pięć minut.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Synchronizacja danych można używać do synchronizacji między lokalnymi baz danych serwera SQL tylko? 
-Nie bezpośrednio. Można zsynchronizować między bazami danych programu SQL Server lokalne pośrednio, jednak utworzenie Centrum bazy danych na platformie Azure, a następnie dodając lokalnych baz danych do grupy synchronizacji.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Można używać synchronizacji danych do inicjatora danych z bazy danych produkcyjnej do pustej bazy danych i następnie były synchronizowane? 
-Tak. Tworzenie schematu ręcznie w nowej bazy danych za pomocą skryptu go od oryginału. Po utworzeniu schemat, dodać tabele do grupy synchronizacji, skopiuj dane i zachować zsynchronizowane.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Dlaczego widzę tabel, które I nie może utworzyć?  
-Synchronizacja danych tworzy tabele w bazie danych śledzenia zmian. Nie należy usuwać je lub synchronizacji danych przestanie działać.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Otrzymano komunikat o błędzie, który powiedział "nie można wstawić wartości NULL do kolumny \<kolumny\>. Kolumna nie dopuszcza wartości null." Co to znaczy i jak można naprawić ten błąd? 
-Ten komunikat o błędzie wskazuje jeden z dwóch następujących problemów:
-1.  Może istnieć bez klucza podstawowego tabeli. Aby rozwiązać ten problem, należy dodać do wszystkich tabel, które są synchronizowanie klucza podstawowego.
-2.  Może być klauzuli WHERE w instrukcji CREATE INDEX. Synchronizacja nie obsługuje tego warunku. Aby rozwiązać ten problem, Usuń klauzuli WHERE lub ręcznie wprowadzić zmiany do wszystkich baz danych. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Jak synchronizacja danych obsługuje odwołania cykliczne? Oznacza to, gdy te same dane jest zsynchronizowany w wielu grupach synchronizacji i śledzi zmiany w związku z tym?
-Synchronizacja danych nie obsługuje odwołań cyklicznych. Pamiętaj uniknąć ich. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak wyeksportować i zaimportować bazę danych z opcją synchronizacji danych?
-Po wyeksportowaniu bazy danych jako `.bacpac` pliku i zaimportować plik, aby utworzyć nową bazę danych, należy wykonać następujące czynności dwa na synchronizację danych do nowej bazy danych:
-1.  Czyszczenie obiektów synchronizacji danych i tabel na **nową bazę danych** za pomocą [ten skrypt](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ten skrypt powoduje usunięcie wszystkich wymaganych obiektów synchronizacji danych z bazy danych.
-2.  Utwórz ponownie grupę synchronizacji z nową bazę danych. Jeśli stary grupy synchronizacji nie jest już potrzebny, usuń go.
-
 ## <a name="sync-req-lim"></a>Wymagania i ograniczenia
 
 ### <a name="general-requirements"></a>Wymagania ogólne
 
--   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli masz w tym celu Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
+-   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli należy zmienić wartość klucza podstawowego, Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
 
 -   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
 
@@ -150,6 +123,44 @@ Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do
 | Rozmiar wiersza danych w tabeli                                        | 24 mb                  |                             |
 | Interwał synchronizacji minimalna                                           | 5 minut              |                             |
 |||
+
+## <a name="faq-about-sql-data-sync"></a>Często zadawane pytania dotyczące synchronizacji danych SQL
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Ile kosztuje usługa synchronizacji danych SQL (wersja zapoznawcza)
+
+W wersji zapoznawczej jest bezpłatna dla samej usługi synchronizacji danych SQL (wersja zapoznawcza).  Jednak możesz nadal Naliczanie opłat za transfer danych do przenoszenia danych i wystąpienie bazy danych SQL. Aby uzyskać więcej informacji, zobacz [SQL Database — cennik](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Jakie regionów obsługi synchronizacji danych?
+
+Synchronizacja danych SQL (wersja zapoznawcza) jest dostępna we wszystkich regionach chmury publicznej.
+
+### <a name="is-a-sql-database-account-required"></a>Jest wymagane konto bazy danych SQL? 
+
+Tak. Musisz mieć konto bazy danych SQL do obsługi bazy danych koncentratora.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Synchronizacja danych można używać do synchronizacji między lokalnymi baz danych serwera SQL tylko? 
+Nie bezpośrednio. Można zsynchronizować między bazami danych programu SQL Server lokalne pośrednio, jednak utworzenie Centrum bazy danych na platformie Azure, a następnie dodając lokalnych baz danych do grupy synchronizacji.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Można używać synchronizacji danych do inicjatora danych z bazy danych produkcyjnej do pustej bazy danych i następnie były synchronizowane? 
+Tak. Tworzenie schematu ręcznie w nowej bazy danych za pomocą skryptu go od oryginału. Po utworzeniu schemat, dodać tabele do grupy synchronizacji, skopiuj dane i zachować zsynchronizowane.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Synchronizacja danych SQL należy używać kopii zapasowej i przywracanie baz danych?
+
+Nie zaleca się synchronizacja danych SQL (wersja zapoznawcza) umożliwia tworzenie kopii zapasowej danych. Nie można utworzyć kopię zapasową i przywrócić do określonego punktu w czasie, ponieważ synchronizacje synchronizacji danych SQL (wersja zapoznawcza) nie są numerów wersji. Ponadto synchronizacji danych SQL (wersja zapoznawcza) nie kopii zapasowej innych obiektów SQL, takich jak procedury składowane i nie szybko odpowiednikiem operacji przywracania.
+
+Dla jednego zalecane techniki tworzenia kopii zapasowych, zobacz [kopiowania bazy danych Azure SQL](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Sortowanie jest obsługiwane w synchronizacji danych SQL?
+
+Tak. Synchronizacja danych SQL obsługuje sortowanie w następujących scenariuszach:
+
+-   Jeśli synchronizacja wybranego schematu tabele nie są już w bazach danych Centrum lub elementu członkowskiego, a następnie po wdrożeniu grupy synchronizacji, usługa automatycznie tworzy odpowiadających jej tabel i kolumn z ustawień sortowania wybranych w bazach danych puste miejsce docelowe.
+
+-   Jeśli tabel, które można zsynchronizować już istnieje w bazach danych zarówno Centrum, jak i element członkowski, synchronizacji danych SQL musi mieć klucz podstawowy tego samego sortowania między bazami danych Centrum i element członkowski w celu pomyślnego wdrożenia grupy synchronizacji. Nie ma żadnych ograniczeń sortowania dla kolumn innych niż kolumny klucza podstawowego.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Federacyjnej jest obsługiwana w synchronizacji danych SQL?
+
+Główna baza danych Federacji może służyć usługi synchronizacji danych SQL (wersja zapoznawcza) nie podlega żadnym ograniczeniom. Nie można dodać punktu końcowego federacyjnych bazy danych do wersji bieżącej synchronizacji danych SQL (wersja zapoznawcza).
 
 ## <a name="next-steps"></a>Następne kroki
 

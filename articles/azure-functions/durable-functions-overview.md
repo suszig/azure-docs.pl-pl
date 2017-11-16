@@ -1,5 +1,5 @@
 ---
-title: "Omówienie funkcji trwałe - Azure"
+title: "Omówienie funkcji trwałe - Azure (wersja zapoznawcza)"
 description: "Wprowadzenie do funkcji trwałe rozszerzenie dla usługi Azure Functions."
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Omówienie funkcji trwałe (usługi Azure Functions)
+# <a name="durable-functions-overview-preview"></a>Omówienie funkcji trwałe (wersja zapoznawcza)
 
 *Funkcje trwałe* jest rozszerzeniem [usługi Azure Functions](functions-overview.md) i [zadań Webjob Azure](../app-service/web-sites-create-web-jobs.md) , która umożliwia pisanie stanowe funkcji w środowisku bez serwera. Rozszerzenie zarządza stanu, punkty kontrolne i ponownego uruchomienia dla Ciebie.
 
@@ -31,7 +31,7 @@ Rozszerzenie pozwala zdefiniować stanowe przepływów pracy w nowym typem funkc
 * One automatycznie punktu kontrolnego postępów zawsze, gdy funkcja oczekujące na. Stan lokalnego nigdy nie zostaną utracone, jeśli odtwarzania procesu lub ponownego uruchamiania maszyny Wirtualnej.
 
 > [!NOTE]
-> Trwałe funkcje zaawansowane rozszerzenie dla usługi Azure Functions i nie jest odpowiedni dla wszystkich aplikacji. Dalszej części tego artykułu założono, że silne znajomość [usługi Azure Functions](functions-overview.md) pojęcia i wyzwania zaangażowane w tworzenie aplikacji bez serwera.
+> Trwałe funkcji jest w wersji zapoznawczej i zaawansowane rozszerzenia dla usługi Azure Functions, który nie jest odpowiedni dla wszystkich aplikacji. Dalszej części tego artykułu założono, że silne znajomość [usługi Azure Functions](functions-overview.md) pojęcia i wyzwania zaangażowane w tworzenie aplikacji bez serwera.
 
 Pierwotnym zastosowaniem funkcji trwałe upraszcza koordynacji złożonych, stanowe problemów w aplikacjach niekorzystającą. W poniższych sekcjach opisano niektóre wzorce typowych aplikacji, które mogą korzystać z funkcji trwałe.
 
@@ -261,7 +261,7 @@ Istnieje wiele przydatnych danych strukturalnych pakowane w `customDimensions` w
 
 Ze względu na zachowanie powtarzania dyspozytora trwałe Framework zadań może spodziewać się wyświetlić wpisy dziennika nadmiarowe dla akcji powtórzony. Może to być przydatne do zrozumienie zachowania powtarzania aparatu core. [Diagnostyki](durable-functions-diagnostics.md) artykule przedstawiono przykładowe zapytania, które odfiltrowywania dzienniki powtarzania pozwala zobaczyć "w czasie rzeczywistym" dzienniki.
 
-## <a name="storage-and-scalability"></a>Magazyn i skalowalności
+## <a name="storage-and-scalability"></a>Magazyn i skalowalność
 
 Rozszerzenie funkcji trwałe używa usługi Azure Storage kolejek, tabel i obiektów blob do utrwalenia wykonywania historii stanu i wyzwalacza funkcji wykonywania. Domyślne konto magazynu dla funkcji aplikacji można używać, lub można skonfigurować oddzielnego konta magazynu. Możesz oddzielne konto z powodu ograniczenia przepływności magazynu. Kod orchestrator nie musi i nie powinien interakcji z obiektami w tych kont magazynu. Jednostki zarządzane bezpośrednio przez trwałe Framework zadań jako szczegóły implementacji.
 

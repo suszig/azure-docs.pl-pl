@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Wykaz danych Azure — często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Data Catalog.
@@ -53,11 +53,13 @@ Bezpłatna wersja Data Catalog jest ograniczona do 5000 zarejestrowanych zasobó
 
 Standard Edition Data Catalog obsługuje do 100 000 zarejestrowanych zasobów danych.
 
+Dowolnego obiektu zarejestrowany w wykazie danych, takich jak tabele, liczby widoków, plików i raportów, jako zasobów danych.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Co to są typy źródła i zasobów jego obsługiwane dane?
 Aby uzyskać listę aktualnie obsługiwanych źródeł danych, zobacz [DSR wykazu danych](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Jak zażądać pomocy technicznej przez inne źródło danych?
-Aby przesłać żądania funkcji i inne opinie, przejdź do [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Aby przesłać żądania funkcji i inne opinie, przejdź do [wykaz danych na forum opinii Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Jak rozpocząć pracę z wykazu danych?
 To najlepszy sposób, aby rozpocząć pracę, przechodząc do [wprowadzenie do korzystania z usługi Data Catalog](data-catalog-get-started.md). W tym artykule jest na trasie przegląd możliwości usługi.
@@ -65,7 +67,7 @@ To najlepszy sposób, aby rozpocząć pracę, przechodząc do [wprowadzenie do k
 ## <a name="how-do-i-register-my-data"></a>Jak zarejestrować dane?
 Aby zarejestrować dane w katalogu danych:
 1. W portalu Azure Data Catalog w **publikowania** obszaru, uruchom narzędzie rejestracji usługi Azure Data Catalog. 
-2. W aplikacji publikacji wykazu danych Zaloguj się przy użyciu tych samych poświadczeń umożliwia dostęp do portalu wykazu danych.
+2. W narzędziu rejestracji źródła danych usługi Data Catalog Zaloguj się przy użyciu tych samych poświadczeń umożliwia dostęp do portalu wykazu danych.
 3. Wybierz źródło danych i określonych zasobów, które chcesz zarejestrować.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Właściwości, które powoduje ona rozpakowania zasobów danych, które są zarejestrowane w?
@@ -84,7 +86,7 @@ Określone właściwości różnią się od źródła danych do źródła danych
 >
 
 > [!NOTE]
-> Dla źródeł danych, takich jak SQL Server Analysis Services ma najwyższej jakości **opis** właściwość Data Catalog publikowanie aplikacji wyodrębnia wartości tej właściwości. Relacyjnych baz danych programu SQL Server, w której brakuje najwyższej jakości **opis** właściwość Data Catalog publikowanie aplikacji wyodrębnianie wartości z **ms_description** rozszerzone właściwości obiekty i kolumn. Aby uzyskać więcej informacji, zobacz [przy użyciu właściwości rozszerzone w obiektach bazy danych](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Dla źródeł danych, takich jak SQL Server Analysis Services ma najwyższej jakości **opis** właściwości, narzędzia rejestracji źródła danych usługi Data Catalog wyodrębnia wartości tej właściwości. Relacyjnych baz danych programu SQL Server, w której brakuje najwyższej jakości **opis** właściwości narzędzia rejestracji źródła danych usługi Data Catalog wyodrębnianie wartości z **ms_description** rozszerzone właściwości obiekty i kolumn. Aby uzyskać więcej informacji, zobacz [przy użyciu właściwości rozszerzone w obiektach bazy danych](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ Po zarejestrowaniu zasoby z wykazu danych może być przez okres 5 – 10 sekund
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Jak dodawać adnotacje i uzupełnić metadane dla moich zarejestrowanych zasobów danych?
 Najprostszym sposobem zapewnienia metadanych zarejestrowanych zasobów jest wybierz element zawartości, w portalu wykazu danych, a następnie wprowadź wartości w okienku właściwości lub okienku schematu dla wybranego obiektu.
 
-Można też podać niektóre metadane, takie jak ekspertów i tagi, podczas procesu rejestracji. Wartości podane w Usługa publikowania w wykazie danych mają zastosowanie do wszystkich zasobów jest zarejestrowany w tym czasie. Zaznacz, aby wyświetlić obiekty ostatnio zarejestrowany w portalu dla dodatkowych adnotacji **Wyświetl Portal** przycisk na ekranie końcowym usługi Data Catalog publikowania aplikacji.
+Można też podać niektóre metadane, takie jak ekspertów i tagi, podczas procesu rejestracji. Wartości podane w Usługa publikowania w wykazie danych mają zastosowanie do wszystkich zasobów jest zarejestrowany w tym czasie. Zaznacz, aby wyświetlić obiekty ostatnio zarejestrowany w portalu dla dodatkowych adnotacji **Wyświetl Portal** przycisk na ekranie końcowym narzędzia rejestracji źródła danych wykazu danych.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Jak usunąć dane zarejestrowane obiekty?
 Można usunąć obiektu z usługi Data Catalog zaznaczając obiekt, w portalu, a następnie klikając polecenie **usunąć** przycisku. Usuwanie obiektu usuwa metadanych z wykazu danych, ale nie ma wpływu na źródle danych.
@@ -106,7 +108,7 @@ Ekspert jest osoba, która ma perspektywy informacji dotyczących obiektu danych
 Zgłaszanie problemów, udostępniać informacje i zadać pytania, przejdź do [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Katalog działa z innego źródła danych, które interesuje mnie?
-Aktywnie pracujemy nad dodanie większej liczby źródeł danych w wykazie danych. Jeśli chcesz Zobacz określonego źródła danych obsługiwane, sugerować go (lub głosowych działem pomocy technicznej, jeśli została już sugerowane), przechodząc do [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Aktywnie pracujemy nad dodanie większej liczby źródeł danych w wykazie danych. Jeśli chcesz Zobacz określonego źródła danych obsługiwane, sugerować go (lub głosowych działem pomocy technicznej, jeśli została już sugerowane), przechodząc do [wykaz danych na forum opinii Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Jak Azure Data Catalog powiązany jest Data Catalog w usłudze Power BI dla Office 365?
 Azure Data Catalog można traktować jako ewolucji wykaz danych w usłudze Power BI. Począwszy od spring 2017 r Azure Data Catalog służy do Włącz udostępnianie i odnajdywanie zapytań w programie Excel 2016 i dodatku Power Query dla programu Excel. Możliwości usługi Data Catalog w programie Excel są dostępne dla użytkowników z licencjami usługi Power BI Pro.
@@ -114,14 +116,18 @@ Azure Data Catalog można traktować jako ewolucji wykaz danych w usłudze Power
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Jakie uprawnienia należy zarejestrować zasobów za pomocą usługi Data Catalog?
 Aby uruchomić narzędzie rejestracji usługi Data Catalog, musisz mieć uprawnienia na źródło danych umożliwia odczytanie metadanych ze źródła. Aby dołączyć również Podgląd, musi mieć uprawnienia, które można odczytać danych z obiektów jest zarejestrowany.
 
+Wykaz danych umożliwia także administratorom wykazu ograniczyć, którzy użytkownicy i grupy może dodawać metadane do katalogu. Aby uzyskać dodatkowe informacje, zobacz [jak bezpieczny dostęp do katalogu danych i zasobów danych](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Wykaz danych będą dostępne dla lokalnego wdrożenia?
 Wykaz danych to usługa w chmurze, którego można używać zarówno w chmurze, jak i dla lokalnego źródła danych do dostarczania hybrydowego odnajdywanie źródła danych. Obecnie nie ma żadnych planów dla wersji usługi Data Catalog, która uruchamia lokalnie.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Czy można wyodrębnić metadanych więcej lub bardziej rozbudowane, ze źródeł danych, które można zarejestrować?
-Aktywnie pracujemy nad rozszerzyć możliwości usługi Data Catalog. Jeśli chcesz mieć dodatkowe metadane wyodrębnione ze źródła danych podczas rejestracji, sugerować go (lub głos go, jeśli została już sugerowane) w [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). W przyszłości firma Microsoft umożliwia innym firmom Dodawanie nowych typów źródła danych za pomocą rozszerzeń interfejsu API.
+Aktywnie pracujemy nad rozszerzyć możliwości usługi Data Catalog. Jeśli chcesz mieć dodatkowe metadane wyodrębnione ze źródła danych podczas rejestracji, sugerować go (lub głos go, jeśli została już sugerowane) w [wykaz danych na forum opinii Azure](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Jeśli chcesz uwzględnić kolumny/schematu metadanych, podglądy lub danych profilów dla źródeł danych, w którym metadanych nie jest wyodrębniany przez narzędzia rejestracji źródła danych, można użyć interfejsu API Data Catalog do dodania tych metadanych. Aby uzyskać dodatkowe informacje, zobacz [interfejsu API REST usługi Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Jak ograniczyć widoczność zarejestrowanych zasobów danych, tak aby tylko wybrani użytkownicy może wykrywać je?
-Wybierz zasoby danych w wykazie danych, a następnie kliknij przycisk **Przejmij na własność** przycisku. Właściciele zasobów danych w katalogu danych można zmienić ustawień widoczności albo zezwalająca wszystkim użytkownikom ograniczyć widoczność do określonych użytkowników lub odnajdywać zasoby należące do firmy.
+Wybierz zasoby danych w wykazie danych, a następnie kliknij przycisk **Przejmij na własność** przycisku. Właściciele zasobów danych w katalogu danych można zmienić ustawień widoczności albo zezwalająca wszystkim użytkownikom ograniczyć widoczność do określonych użytkowników lub odnajdywać zasoby należące do firmy. Aby uzyskać dodatkowe informacje, zobacz [zarządzać zasobami danych w usłudze Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Jak zaktualizować rejestracji dla zasobów danych, tak aby zmiany w źródle danych są uwzględniane w katalogu?
 Aby zaktualizować metadane dla zasobów danych, które są już zarejestrowane w katalogu, po prostu ponownie zarejestrować źródła danych, który zawiera zasoby. Żadnych zmian w źródle danych, takich jak kolumny są dodane lub usunięte z tabel lub widoków, są aktualizowane w katalogu, ale adnotacji dostarczone przez użytkowników są przechowywane.

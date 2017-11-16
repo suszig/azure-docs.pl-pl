@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
 Aktualizacje **Azure Data Catalog** są wydawane regularnie. Nie każdy wydanie obejmuje nowe funkcje dla użytkownika, ponieważ niektóre wersje są koncentruje się na możliwości usługi zaplecza. Ta strona przedstawia nowe możliwości dla użytkownika dodane do usługi Azure Data Catalog.
+
+## <a name="whats-new-for-november-2017"></a>Nowości dotyczące 2017 listopada 
+Począwszy od listopada 2017 następujące funkcje zostały dodane do wykazu danych Azure:
+
+* Obsługa łączenie bezpośrednio do firmy terminów w portalu wykazu danych. Użytkownicy, można skopiować łącza z słownik biznesowy i osadzić je w folderze dokumenty, wiadomości e-mail, raporty lub innych lokalizacji, aby połączyć się bezpośrednio do słownika definicja terminu.
+* Obsługa jednostki usługi Azure Active Directory. Administratorzy katalogu danych może autoryzować aplikacji klienckich za pomocą nazwy główne usług, aby uzyskać dostęp do katalogu, a uprawnienia można przyznać tych aplikacji określonych tak samo, jak przyznają uprawnienia dla użytkowników i grup zabezpieczeń. Aby uzyskać więcej informacji, zobacz [aplikacji i usług obiektów principal w usłudze Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Obsługa uwierzytelniania usługi Azure Active Directory podczas nawiązywania połączenia ze źródłami danych Azure SQL Database i Azure SQL Data Warehouse, za pomocą narzędzia rejestracji źródła danych wykazu danych. Aby uzyskać więcej informacji, zobacz [Użyj Azure uwierzytelnianie usługi Active Directory do uwierzytelniania przy użyciu bazy danych SQL lub SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Nowości dotyczące 2017 września 
 Począwszy od września 2017 r Azure Data Catalog dodano następujące funkcje:

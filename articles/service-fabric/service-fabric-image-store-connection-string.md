@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Zrozumienie ustawienie element ImageStoreConnectionString
 
@@ -44,7 +44,7 @@ Hosting magazynu obrazów w usłudze system w obrębie samego klastra eliminuje 
 
 Dostawcy systemu plików umożliwia zamiast usługi magazynu obrazu dla lokalnych klastrów jeden pole podczas tworzenia nieco szybciej bootstrap klastra. Różnica jest mała zwykle, ale jest przydatne optymalizacji dla większość osób podczas tworzenia. Istnieje możliwość wdrażania klastra lokalnego pole jednego z innych magazynów dostawcy typów również, ale zwykle nie istnieje przyczyna Aby to zrobić, ponieważ programowanie i testowanie przepływu pracy jest taka sama niezależnie od dostawcy. Niż tego użycia dostawcy systemu plików i magazynu Azure istnieje tylko do obsługi starszych wersji.
 
-Dlatego element ImageStoreConnectionString jest konfigurowalne, zazwyczaj użycia ustawieniem domyślnym. Podczas publikowania na platformie Azure za pośrednictwem [programu Visual Studio][12], parametr jest ustawiane automatycznie odpowiednio. Programowe wdrażanie klastrów hostowana na platformie Azure ciąg połączenia jest zawsze "fabric: magazynu ImageStore". Chociaż w razie wątpliwości, jego wartość zawsze można sprawdzić przez pobranie manifestu klastra przez [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), lub [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testowanie lokalnie i klastrów produkcyjnych powinno być zawsze konfigurowane korzysta z dostawcy usługi magazynu obrazów.
+Dlatego element ImageStoreConnectionString jest konfigurowalne, zazwyczaj użycia ustawieniem domyślnym. Podczas publikowania na platformie Azure za pomocą programu Visual Studio, parametr jest ustawiane automatycznie odpowiednio. Programowe wdrażanie klastrów hostowana na platformie Azure ciąg połączenia jest zawsze "fabric: magazynu ImageStore". Chociaż w razie wątpliwości, jego wartość zawsze można sprawdzić przez pobranie manifestu klastra przez [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), lub [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testowanie lokalnie i klastrów produkcyjnych powinno być zawsze konfigurowane korzysta z dostawcy usługi magazynu obrazów.
 
 ### <a name="next-steps"></a>Następne kroki
 [Wdrażanie i usunąć aplikacje przy użyciu programu PowerShell][10]
@@ -55,4 +55,4 @@ Dlatego element ImageStoreConnectionString jest konfigurowalne, zazwyczaj użyci
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

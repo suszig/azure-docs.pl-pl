@@ -1,5 +1,5 @@
 ---
-title: "Włącz lub wyłącz HTTPS na domeny niestandardowej Azure Content Delivery Network | Dokumentacja firmy Microsoft"
+title: "Skonfiguruj protokół HTTPS na domeny niestandardowej Azure Content Delivery Network | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak włączyć lub wyłączyć HTTPS na punkt końcowy usługi Azure CDN z domeny niestandardowej."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Włącz lub wyłącz HTTPS na Azure Content Delivery Network domeny niestandardowej
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Skonfiguruj protokół HTTPS na Azure Content Delivery Network domeny niestandardowej
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Obsługa protokołu HTTPS dla domen niestandardowych Microsoft Azure Content Delivery Network (CDN) umożliwia dostarczanie bezpieczne zawartości za pomocą protokołu SSL przy użyciu nazwy domeny w celu zwiększenia bezpieczeństwa danych podczas przesyłania. Przepływ pracy end-to-end, aby włączyć protokół HTTPS dla domeny niestandardowej jest uproszczone, za pomocą jednego kliknięcia aktywacji, pełnego zarządzania certyfikatami i wszystkie bez dodatkowych kosztów.
+Firma Microsoft obsługuje protokół HTTPS dla domen niestandardowych na platformie Azure sieci dostarczania zawartości (CDN). Z obsługą domeny niestandardowej HTTPS może zapewnić bezpieczne zawartości za pomocą protokołu SSL przy użyciu nazwy domeny w celu zwiększenia bezpieczeństwa danych podczas przesyłania. Przepływ pracy, aby włączyć protokół HTTPS dla domeny niestandardowej jest uproszczone, za pomocą jednego kliknięcia aktywacji i pełnego zarządzania certyfikatami, wszystkie bez dodatkowych kosztów.
 
-Bardzo ważne dla zapewnienia prywatności i integralności danych z wszystkich aplikacji sieci web poufnych danych przesyłanych jest. Użycie protokołu HTTPS gwarantuje, że poufne dane są szyfrowane, gdy są wysyłane przez internet. Zapewnia zaufania, uwierzytelniania i chroni przed atakami aplikacji sieci web. Domyślnie usługi Azure CDN obsługuje HTTPS na punktu końcowego usługi CDN. Na przykład w przypadku utworzenia punktu końcowego usługi CDN z usługi Azure CDN (takie jak `https://contoso.azureedge.net`), protokół HTTPS jest automatycznie włączone. Ponadto obsługa protokołu HTTPS domeny niestandardowej, umożliwia bezpieczne dostarczanie dla domeny niestandardowej (na przykład `https://www.contoso.com`) oraz. 
+Jest krytyczne, aby zapewnić prywatność i integralność danych poufnych danych aplikacji sieci web podczas przesyłania. Przy użyciu protokołu HTTPS, należy zapewnić, że poufne dane są szyfrowane, gdy są wysyłane przez internet. Zapewnia zaufania, uwierzytelniania i chroni przed atakami aplikacji sieci web. Domyślnie usługi Azure CDN obsługuje protokół HTTPS na punktu końcowego usługi CDN. Na przykład w przypadku utworzenia punktu końcowego usługi CDN z usługi Azure CDN (takie jak `https://contoso.azureedge.net`), protokół HTTPS jest automatycznie włączone. Ponadto z obsługą protokołu HTTPS domeny niestandardowej, można również włączyć bezpieczne dostarczanie dla domeny niestandardowej (na przykład `https://www.contoso.com`). 
 
 Niektóre z kluczowych atrybutów funkcję HTTPS są:
 
@@ -41,7 +41,7 @@ Niektóre z kluczowych atrybutów funkcję HTTPS są:
 
 ## <a name="enabling-https"></a>Włączanie protokołu HTTPS
 
-Aby włączyć protokół HTTPS, wykonaj następujące kroki:
+Aby włączyć protokół HTTPS na domenę niestandardową, wykonaj następujące kroki:
 
 ### <a name="step-1-enable-the-feature"></a>Krok 1: Włącz tę funkcję 
 
@@ -66,7 +66,7 @@ Aby włączyć protokół HTTPS, wykonaj następujące kroki:
 Po włączeniu HTTPS na domenę niestandardową, urząd certyfikacji (CA) firmy DigiCert weryfikuje prawo własności do domeny kontaktując się z jego rejestratorem zgodnie z domeny [WHOIS](http://whois.domaintools.com/) rejestratorem informacji. Skontaktuj się z zostało utworzone za pomocą adresu e-mail (przez ustawienie domyślne) lub numer telefonu wymienionych w rejestracji WHOIS. 
 
 >[!NOTE]
->Jeśli u swojego dostawcy DNS rekord certyfikatu urzędu autoryzacji (CAA), musi on zawierać DigiCert jako prawidłowego urzędu certyfikacji. Rekord CAA umożliwia właścicieli domeny z ich dostawców DNS, które urzędów certyfikacji są upoważnione do wystawiania certyfikatów dla danej domeny. Jeśli urząd certyfikacji otrzyma aby certyfikat dla domeny, która zawiera rekord CAA i urzędu certyfikacji nie jest wymieniony jako autoryzowanego wystawcę, jest zabronione wystawi certyfikat do tej domeny lub poddomeny.
+>Jeśli u swojego dostawcy DNS rekord certyfikatu urzędu autoryzacji (CAA), musi on zawierać DigiCert jako prawidłowego urzędu certyfikacji. Rekord CAA umożliwia właścicieli domeny z ich dostawców DNS, które urzędów certyfikacji są upoważnione do wystawiania certyfikatów dla danej domeny. Jeśli urząd certyfikacji otrzyma aby certyfikat dla domeny, która zawiera rekord CAA i urzędu certyfikacji nie jest wymieniony jako autoryzowanego wystawcę, jest zabronione wystawi certyfikat do tej domeny lub poddomeny. Informacje o zarządzaniu CAA rekordów, zobacz [rekordów Zarządzanie CAA](https://support.dnsimple.com/articles/manage-caa-record/). Narzędzia rekordu CAA, zobacz [pomocnika rekordu CAA](https://sslmate.com/caa/).
 
 ![Rekord WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
@@ -82,7 +82,7 @@ Powinien zostać wyświetlony wiadomości e-mail za kilka minut, podobnie do pon
     
 ![Domeny weryfikacji w wiadomości e-mail](./media/cdn-custom-ssl/domain-validation-email.png)
 
-Po kliknięciu łącza zatwierdzenia nastąpi przekierowanie do następującej postaci online zatwierdzenia: 
+Po kliknięciu łącza zatwierdzenia są kierowane do następującej postaci online zatwierdzenia: 
     
 ![Formularz Sprawdzanie poprawności domeny](./media/cdn-custom-ssl/domain-validation-form.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Wyłączanie protokołu HTTPS
 
-Po włączeniu HTTPS, można je później wyłączyć. Aby wyłączyć protokół HTTPS, wykonaj następujące kroki:
+Po włączeniu HTTPS na domenę niestandardową, można je później wyłączyć. Aby wyłączyć protokół HTTPS, wykonaj następujące kroki:
 
 ### <a name="step-1-disable-the-feature"></a>Krok 1: Wyłączanie funkcji 
 

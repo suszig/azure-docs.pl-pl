@@ -4,7 +4,7 @@ description: "W tym samouczku drugi w tablicy wirtualnego StorSimple wdrażania 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Wdrażanie tablicy wirtualnego StorSimple - Provision w środowisku programu VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek zawiera opis sposobu udostępniania i Połącz z tablicą wirtualnego StorSimple, na komputerze hosta z systemem VMware ESXi 5.5 lub nowszym. Ten artykuł dotyczy wdrożenia tablice wirtualnego StorSimple w portalu Azure i w chmurze Microsoft Azure dla instytucji rządowych.
+Ten samouczek zawiera opis sposobu udostępniania i Połącz z tablicą wirtualnego StorSimple na komputerze hosta z systemem VMware ESXi 5.0, 5.5 lub 6.0. Ten artykuł dotyczy wdrożenia tablice wirtualnego StorSimple w portalu Azure i w chmurze Microsoft Azure dla instytucji rządowych.
 
 Potrzebne są uprawnienia administratora, aby udostępnić i nawiązać połączenia z urządzeniem wirtualnym. Inicjowania obsługi administracyjnej i początkowej instalacji może zająć około 10 minut, aby zakończyć.
 
 ## <a name="provisioning-prerequisites"></a>Wymagania wstępne dotyczące inicjowania obsługi administracyjnej
-Dostępne są następujące wymagania wstępne dotyczące udostępniania urządzenia wirtualnego na komputerze hosta z systemem VMware ESXi 5.5 lub nowszego.
+Dostępne są następujące wymagania wstępne dotyczące udostępniania urządzenia wirtualnego na komputerze hosta z systemem VMware ESXi 5.0, 5.5 lub w wersji 6.0.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Usługa Menedżer urządzeń StorSimple
 Przed rozpoczęciem upewnij się, że:
@@ -64,7 +64,7 @@ Do obsługi administracyjnej i połączyć urządzenie wirtualne, należy wykona
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Krok 1: Upewnij się, że system hosta spełnia wymagania minimalne urządzenia wirtualnego
 Aby utworzyć urządzenie wirtualne, będą potrzebne:
 
-* Dostęp na komputerze hosta z systemem VMware ESXi Server 5.5 lub nowszym.
+* Dostęp do systemu hosta z systemem VMware ESXi Server 5.0, 5.5 lub 6.0.
 * VMware vSphere klienta w systemie zarządzania hosta ESXi.
 
   * Co najmniej 4 rdzenie.
@@ -183,6 +183,9 @@ Wykonaj poniższe kroki, aby udostępnić w funkcji hypervisor, Twoje urządzeni
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Maszyna wirtualna jest teraz udostępniony. Następnym krokiem jest zasilania na tym komputerze i uzyskać adres IP.
+
+> [!NOTE]
+> Firma Microsoft zaleca nie zainstalowanie narzędzi VMware na wirtualnych tablica (jak udostępnione powyżej). Instalacja narzędzi VMware spowoduje nieobsługiwaną konfiguracją.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Krok 3: Uruchom urządzenie wirtualne i Uzyskaj adres IP
 Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim.

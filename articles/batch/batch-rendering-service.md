@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Wprowadzenie do usługi Batch Rendering
 
@@ -91,7 +91,7 @@ Określone wersje udostępnionych licencji są następujące:
 
 ### <a name="custom-images"></a>Obrazy niestandardowe
 
-Usługa Azure Batch umożliwia podanie własnego niestandardowego obrazu. Przy użyciu tej opcji możesz skonfigurować swoją maszynę wirtualną z odpowiednimi aplikacjami w określonych wersjach, których potrzebujesz. Aby uzyskać więcej informacji, zobacz [Use a custom image to create a pool of virtual machines (Używanie obrazu niestandardowego do tworzenia puli maszyn wirtualnych)](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Należy pamiętać, że firmy Autodesk i Chaos Group zmodyfikowały aplikacje Arnold i V-Ray, odpowiednio, na potrzeby weryfikacji własnej usługi licencjonowania. Musisz się upewnić, że masz wersje tych aplikacji z tą pomocą techniczną, w przeciwnym razie licencjonowanie na podstawie opłaty za użycie nie będzie działać. Ta weryfikacja licencji nie jest wymagana dla aplikacji Maya lub 3ds Max, ponieważ bieżące opublikowane wersje nie wymagają serwera licencji podczas uruchamiania bezobsługowego (w trybie wsadowym/wiersza polecenia). Jeśli nie masz pewności, jak korzystać z tej opcji, skontaktuj się z działem pomocy technicznej platformy Azure.
+Usługa Azure Batch umożliwia podanie własnego niestandardowego obrazu. Przy użyciu tej opcji możesz skonfigurować swoją maszynę wirtualną z odpowiednimi aplikacjami w określonych wersjach, których potrzebujesz. Aby uzyskać więcej informacji, zobacz [Use a custom image to create a pool of virtual machines (Używanie obrazu niestandardowego do tworzenia puli maszyn wirtualnych)](https://docs.microsoft.com/azure/batch/batch-custom-images). Należy pamiętać, że firmy Autodesk i Chaos Group zmodyfikowały aplikacje Arnold i V-Ray, odpowiednio, na potrzeby weryfikacji własnej usługi licencjonowania. Musisz się upewnić, że masz wersje tych aplikacji z tą pomocą techniczną, w przeciwnym razie licencjonowanie na podstawie opłaty za użycie nie będzie działać. Ta weryfikacja licencji nie jest wymagana dla aplikacji Maya lub 3ds Max, ponieważ bieżące opublikowane wersje nie wymagają serwera licencji podczas uruchamiania bezobsługowego (w trybie wsadowym/wiersza polecenia). Jeśli nie masz pewności, jak korzystać z tej opcji, skontaktuj się z działem pomocy technicznej platformy Azure.
 
 ## <a name="options-for-submitting-a-render-job"></a>Opcje przesyłania zadania renderowania
 
@@ -101,7 +101,7 @@ W zależności od używanej aplikacji 3D istnieją różne opcje przesyłania za
 
 W aplikacji Maya możesz użyć:
 
-- [Wtyczki usługi Batch dla aplikacji Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Wtyczki usługi Batch dla aplikacji Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - Aplikacji klasycznej [BatchLabs](https://azure.github.io/BatchLabs)
 - [Interfejsu wiersza polecenia szablonów usługi Batch](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ W aplikacji 3ds Max możesz użyć:
 
 Szablony 3ds Max Batch Labs umożliwiają renderowanie scen aplikacji VRay i Arnold przy użyciu usługi renderowania usługi Azure Batch. Istnieją dwie odmiany szablonu dla aplikacji VRay i Arnold: jeden dla standardowych scen i jeden dla bardziej złożonych scen, które wymagają pliku ścieżki aplikacji 3ds Max do zasobów i tekstur (plik mxp). Aby uzyskać więcej informacji o szablonach aplikacji 3ds Max Batch Labs, zobacz repozytorium [Dane aplikacji BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) w usłudze GitHub.
 
-Ponadto możesz użyć [zestawu SDK języka Python usługi Batch](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial), aby zintegrować usługę renderowania z istniejącym potokiem.
+Ponadto możesz użyć [zestawu SDK języka Python usługi Batch](https://docs.microsoft.com/azure/batch/batch-python-tutorial), aby zintegrować usługę renderowania z istniejącym potokiem.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Korzystanie z wtyczki usługi Batch dla programu Maya do przesyłania zadania renderowania

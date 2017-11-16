@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Udostępnianie pulpitów nawigacyjnych Azure przy użyciu kontroli dostępu opartej na rolach
 Po skonfigurowaniu pulpitu nawigacyjnego, można ją opublikować i udostępnić go innym użytkownikom w organizacji. Możesz zezwolić na wyświetlanie pulpitu nawigacyjnego za pomocą usługi Azure [kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md). Przypisanie użytkownika lub grupy użytkowników do roli, a ta rola definiuje, czy tym użytkownikom można wyświetlać lub modyfikować opublikowane pulpitu nawigacyjnego. 
@@ -35,7 +35,7 @@ Z opartej na rolach kontroli dostępu (RBAC), można przypisać użytkowników d
 
 * subskrypcja
 * grupa zasobów
-* Zasobów
+* zasób
 
 Uprawnienia, które można przypisać są dziedziczone z subskrypcji do zasobu. Opublikowane pulpit nawigacyjny jest zasobem. W związku z tym mogą już mieć użytkowników przypisanych do ról dla subskrypcji, które również działać opublikowanych pulpitu nawigacyjnego. 
 
@@ -44,7 +44,7 @@ Oto przykład.  Załóżmy, że masz subskrypcję platformy Azure i różnych cz
 Jednak można również przypisaniem uprawnień do grupy zasobów, która zawiera kilka pulpity nawigacyjne lub pojedynczego pulpitu nawigacyjnego. Na przykład może zdecydować, że grupy użytkowników powinny mieć ograniczone uprawnienia w subskrypcji, ale szerszy dostęp do określonego pulpitu nawigacyjnego. Tych użytkowników, możesz przypisać rolę dla tego pulpitu nawigacyjnego. 
 
 ## <a name="publish-dashboard"></a>Publikowanie pulpitu nawigacyjnego
-Załóżmy, że zakończono konfigurowanie pulpitu nawigacyjnego, który chcesz udostępnić grupy użytkowników w ramach subskrypcji. Poniższe kroki przedstawiać dostosowane grupę o nazwie menedżerów magazynu, ale niezależnie od chcesz można nazwę grupy. Aby uzyskać informacje o tworzeniu grupy usługi Active Directory i dodawanie użytkowników do tej grupy, zobacz [Zarządzanie grupami w usłudze Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Załóżmy, że zakończono konfigurowanie pulpitu nawigacyjnego, który chcesz udostępnić grupy użytkowników w ramach subskrypcji. Poniższe kroki przedstawiać dostosowane grupę o nazwie menedżerów magazynu, ale niezależnie od chcesz można nazwę grupy. Aby uzyskać informacje o tworzeniu grupy usługi Active Directory i dodawanie użytkowników do tej grupy, zobacz [Zarządzanie grupami w usłudze Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. Na pulpicie nawigacyjnym, wybierz **udziału**.
    

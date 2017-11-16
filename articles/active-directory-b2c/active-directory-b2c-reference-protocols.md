@@ -20,14 +20,14 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Usługi Azure AD B2C: Protokoły uwierzytelniania
+# <a name="azure-ad-b2c-authentication-protocols"></a>Usługi Azure AD B2C: Protokoły uwierzytelniania
 Usługa Azure Active Directory B2C (Azure AD B2C) zapewnia tożsamości jako usługa dla aplikacji dzięki obsłudze dwóch standardowych protokołach branżowych: OpenID Connect i OAuth 2.0. Usługa jest zgodny ze standardami, ale dwóch implementacjami tych protokołów mogą mieć niewielkie różnice. 
 
 Informacje przedstawione w tym przewodniku jest przydatne, jeśli wpisz swój kod bezpośrednio wysyłając i obsługi żądań HTTP, a nie za pomocą biblioteki typu open source. Firma Microsoft zaleca czytać tę stronę, aby przejść do szczegółów każdego z protokołów. Ale jeśli już znasz usługi Azure AD B2C, można przejść bezpośrednio do [podręczniki protokołu](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
-## Podstawy
+## <a name="the-basics"></a>Podstawy
 Każda aplikacja, która używa usługi Azure AD B2C musi być zarejestrowana w katalogu usługi B2C w [portalu Azure](https://portal.azure.com). Proces rejestracji aplikacji polega na zgromadzeniu kilku wartości i przypisaniu ich do aplikacji:
 
 * **Identyfikator aplikacji** który w sposób unikatowy identyfikuje aplikację.
@@ -53,14 +53,14 @@ W prawie wszystkie przepływy OAuth i OpenID Connect cztery strony są związane
 
 * **Serwer zasobów** jest, w którym znajduje się zasobów lub danych. Zaufany serwer autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta OAuth. Używa również tokenów elementu nośnego dostępu, aby upewnić się, można otrzymać dostęp do zasobu.
 
-## Zasady
+## <a name="policies"></a>Zasady
 Można przypuszczać, że zasady usługi Azure AD B2C są najważniejszych funkcji usługi. Usługa Azure AD B2C rozszerza standardowych protokołów uwierzytelniania OAuth 2.0 i OpenID Connect dzięki zastosowaniu zasad. Umożliwiają one usługi Azure AD B2C przeprowadzenie znacznie bardziej niż prostego uwierzytelniania i autoryzacji. 
 
 Zasady pełni opisano funkcje tożsamości użytkownika, w tym rejestrację, logowanie i profilu edycji. Zasady można zdefiniować w administracyjnej interfejsu użytkownika. Mogą one wykonywane za pomocą parametru zapytania specjalne w żądania uwierzytelniania HTTP. 
 
 Zasady nie są standardowe funkcje OAuth 2.0 i OpenID Connect, więc należy poświęcić czas na ich zrozumienie. Aby uzyskać więcej informacji, zobacz [przewodniku zasad usługi Azure AD B2C](active-directory-b2c-reference-policies.md).
 
-## Tokeny
+## <a name="tokens"></a>Tokeny
 Wdrażanie usługi Azure AD B2C OAuth 2.0 i OpenID Connect sprawia, że zwiększone użycie tokenów elementu nośnego, łącznie z tokenów elementu nośnego, które są reprezentowane jako tokenów sieci web JSON (Jwt). Token elementu nośnego jest tokenem zabezpieczającym lekkie, która udziela dostępu "bearer" do chronionego zasobu.
 
 Przenoszącej jest każda strona, która może ona powodować tokenu. Usługi Azure AD muszą najpierw zostać uwierzytelnione strona przed może odbierać tokenu elementu nośnego. Ale jeśli wymagane kroki nie są brane do zabezpieczania token w transmisji i przechowywania, może być przechwycony i używane przez niezamierzone strony.
@@ -73,7 +73,7 @@ Dla elementu nośnego dodatkowe zagadnienia dotyczące tokenu zabezpieczeń, zob
 
 Więcej informacji na temat różnych typów tokenów, które są używane w usłudze Azure AD B2C są dostępne w [odwołania do tokenu usługi Azure AD](active-directory-b2c-reference-tokens.md).
 
-## Protokoły
+## <a name="protocols"></a>Protokoły
 Gdy wszystko jest gotowe do przejrzenia niektórych żądań przykładzie, można uruchomić z jednym z następujących samouczków. Każdy odpowiada scenariusz, w szczególności uwierzytelniania. Jeśli potrzebujesz pomocy przy ustaleniu, które przebieg jest odpowiednie dla Ciebie, zapoznaj się [typy aplikacji, można tworzyć za pomocą usługi Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Tworzenie aplikacji mobilnych i natywnego przy użyciu protokołu OAuth 2.0](active-directory-b2c-reference-oauth-code.md)

@@ -20,12 +20,12 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Azure protokołu przekazywania połączeń hybrydowych
+# <a name="azure-relay-hybrid-connections-protocol"></a>Azure protokołu przekazywania połączeń hybrydowych
 Przekazywania Azure to jedna z kolumn klucza możliwości platformy Azure Service Bus. Nowy *połączeń hybrydowych* możliwość przekazywania jest bezpieczne, protokołu open zmiany, na podstawie HTTP i protokołu WebSockets. Zastępuje ona poprzedniego jednakowo o nazwie *usługi BizTalk Services* funkcji, który został utworzony na podstawie zastrzeżonym protokołem. Integrację usługi aplikacji Azure połączeń hybrydowych było możliwe będzie działać jako — jest.
 
 Połączeń hybrydowych umożliwia strumienia dwukierunkowe, binarnych komunikacji między dwiema aplikacjami sieciowym, w których jedną lub obie strony może znajdować się za NAT lub zaporą. W tym artykule opisano interakcje przekazywania połączeń hybrydowych nawiązywania połączeń klientów w odbiornik i ról nadawcy i jak odbiorników akceptować nowych połączeń po stronie klienta.
 
-## Model interakcji
+## <a name="interaction-model"></a>Model interakcji
 Przekazywania połączeń hybrydowych łączy dwie strony zapewniając punkt spotkania w chmurze Azure, który zarówno strony mogą odnaleźć i nawiązać połączenie z punktu widzenia własnych sieci. Tego punktu spotkania nazywa się "Połączenia hybrydowego" w tym i innych dokumentacji interfejsy API, a także w portalu Azure. Punkt końcowy usługi połączeń hybrydowych było możliwe jest określana jako "Usługa" dla pozostałej części tego artykułu. Model interakcji leans na nomenklaturę wyznaczane przez wiele innych sieci interfejsów API.
 
 Brak odbiornika, najpierw wskazuje gotowości do obsługi połączeń przychodzących, a następnie akceptuje, zgodnie z ich odbierania. Z drugiej strony Brak połączenia klienta, który łączy do odbiornika, oczekiwano takiego połączenia akceptację ustalania ścieżki komunikacja dwukierunkowa.
@@ -35,46 +35,46 @@ Każdy model komunikacji obsługiwanych przez przekaźnik ma albo strony wykonyw
 
 Programy po obu stronach połączenia są nazywane "klientów", ponieważ są one klientów do usługi. Czeka, który akceptuje połączenia klienta jest "odbiornika" lub jest określany jako "roli odbiornika." Klienta, który inicjuje nowe połączenie do odbiornika za pomocą usługi jest nazywany "sender" lub "rolą nadawcy."
 
-### Odbiornik interakcji
+### <a name="listener-interactions"></a>Odbiornik interakcji
 Odbiornik ma cztery interakcji z usługą; w dalszej części tego artykułu zamieszczone w tej sekcji opisano wszystkie szczegóły danych przesyłanych w sieci.
 
-#### Nasłuchiwanie
+#### <a name="listen"></a>Nasłuchiwanie
 Aby wskazać gotowość do usługi, która jest odbiornik gotowy do akceptowania połączeń, tworzy wychodzące połączenia obiektu WebSocket. Uzgadnianie połączenia przyjmuje nazwę połączenie hybrydowe skonfigurowany na przestrzeń nazw przekazywania i token zabezpieczający, który przyznaje "Nasłuchiwania" zgodny z nazwą.
 Gdy protokół WebSocket jest akceptowane przez usługę, rejestracja została zakończona i ustalonych sieci web protokołu WebSocket jest utrzymywane jako "kanał kontrolny" włączania wszystkich kolejnych interakcji. Usługa umożliwia połączenie hybrydowe maksymalnie 25 równoczesnych odbiorników. W przypadku co najmniej dwa odbiorniki aktywnego połączenia przychodzące są równoważone między je w kolejności losowej. odpowiedni dystrybucji nie jest gwarantowana.
 
-#### Zaakceptuj
+#### <a name="accept"></a>Zaakceptuj
 Po otwarciu nowego połączenia w usłudze nadawcy usługa wybierze i powiadamia jednej aktywnej odbiorników na połączenia hybrydowego. To powiadomienie jest wysyłane do odbiornika za pośrednictwem kanału open kontroli jako wiadomość JSON zawierający adres URL punktu końcowego protokołu WebSocket, który odbiornika należy nawiązać połączenie do akceptowania połączeń.
 
 Adres URL może i mogą być używane bezpośrednio przez odbiornik bez konieczności wykonywania dodatkowych działań.
 Dane zakodowane jest prawidłowa tylko krótki okres czasu, zasadniczo tak długo, jak nadawca jest gotowa oczekiwania dla połączenia nawiązane end-to-end można, ale maksymalnie 30 sekund. Adres URL można używać tylko dla jednego pomyślnego połączenia. Natychmiast po nawiązaniu połączenia obiektu WebSocket z adresem URL spotkania wszystkich dalszych działań w tym protokołu WebSocket jest przekazywany z i do nadawcy, bez konieczności interwencji lub interpretacji przez usługę.
 
-#### Renew
+#### <a name="renew"></a>Renew
 Token zabezpieczający, który musi być używany do rejestrowania odbiornika i obsługa kanał kontrolny może wygaśnie, gdy odbiornika jest aktywny. Wygaśnięcia tokenu nie ma wpływu na bieżące połączenia, ale powodować kanału kontroli ma być przerwane przez usługę w lub wkrótce po chwili wygaśnięcia. Operacja "odnowić" jest komunikat JSON, który odbiornika można wysyłać do Zamień token skojarzony z kanału kontroli, tak aby kanał kontrolny mogą być obsługiwane przez dłuższy czas.
 
-#### Ping
+#### <a name="ping"></a>Ping
 Jeśli kanał kontrolny pozostanie bezczynny przez długi czas pośredników w taki sposób, takie jak obciążenia równoważenia lub NAT może porzucić połączenie TCP. Operacja "ping" pozwala uniknąć który wysyłając niewielką ilość danych w kanale, który przypomina o tym, wszyscy członkowie trasę sieciową, która ma być aktywne połączenie i służy również jako "na żywo" testu dla odbiornika. Jeśli polecenie ping nie powiedzie się, kanał kontrolny należy traktować jako bezużyteczne i odbiornika powinni połączyć się ponownie.
 
-### Nadawca interakcji
+### <a name="sender-interaction"></a>Nadawca interakcji
 Nadawca ma tylko jeden interakcji z usługą: nawiązuje połączenie.
 
-#### Połączenie
+#### <a name="connect"></a>Połączenie
 Operacja "Połącz" otwiera WebSocket w usłudze podanie nazwy połączenia hybrydowego i (opcjonalnie, ale wymagane domyślnie) tokenu zabezpieczeń przyznania uprawnień "Send" w ciągu zapytania. Usługa użyje odbiornika w sposób opisany wcześniej, a odbiornik tworzy połączenie spotkania, który jest połączony z tym protokołu WebSocket. Po zaakceptowaniu żądania WebSocket wszystkich dalszych interakcji, w tym protokołu WebSocket są połączone odbiornika.
 
-### Interakcja podsumowania
+### <a name="interaction-summary"></a>Interakcja podsumowania
 Wynik tego modelu interakcji jest, czy klient nadawcy pochodzą poza uzgadnianie z WebSocket "Wyczyść", która jest połączona z odbiornik i wymaga nie dalsze preambles lub przygotowania. Ten model umożliwia praktycznie dowolnego istniejącego implementacja klienta WebSocket łatwo korzystać z usługi połączeń hybrydowych było możliwe, podając adres URL poprawnie skonstruowany do ich warstwy klienta protokołu WebSocket.
 
 Połączenie WebSocket, który odbiornika uzyskuje się za pośrednictwem interakcji Akceptuj spotkania również jest czysty i można przekazać do istniejącej implementacji serwera protokołu WebSocket z niektórych minimalnego abstrakcji dodatkowe odróżniająca między operacjami "Akceptuj" w ich ramach odbiorników sieci lokalnej i połączeń hybrydowych było możliwe operacje zdalnego "Akceptuj".
 
-## Odwołanie do protokołu
+## <a name="protocol-reference"></a>Odwołanie do protokołu
 
 W tej sekcji opisano interakcji protokołu opisanych powyżej.
 
 Wszystkie połączenia obiektu WebSocket są wykonane na porcie 443 uaktualnienie z 1.1 HTTPS, który jest powszechnie usunięte przez niektóre framework WebSocket lub interfejsu API. Opis w tym miejscu jest przechowywana implementacji neutralne, bez sugerowanie dla określonej platformy.
 
-### Protokół odbiornika
+### <a name="listener-protocol"></a>Protokół odbiornika
 Protokół odbiornika składa się z dwóch gestów połączenia i trzy operacje dotyczące komunikatów.
 
-#### Połączenie kanału kontroli odbiornika
+#### <a name="listener-control-channel-connection"></a>Połączenie kanału kontroli odbiornika
 Kanał kontrolny jest otwarty z tworzenia połączenia obiektu WebSocket:
 
 ```
@@ -109,7 +109,7 @@ Wyłączenie połączenia obiektu WebSocket celowo przez usługę po jego zosta�
 | 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
 | 1011 |Wystąpił problem w usłudze. |
 
-### Zaakceptuj uzgadniania
+### <a name="accept-handshake"></a>Zaakceptuj uzgadniania
 "Zaakceptuj" powiadomienie jest wysyłane przez usługę do odbiornika w kanale kontroli uprzednio ustanowionym w jako wiadomość JSON do ramki protokołu WebSocket. Brak odpowiedzi na tę wiadomość nie istnieje.
 
 Komunikat zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następujące właściwości w tym momencie:
@@ -118,7 +118,7 @@ Komunikat zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następuj�
 * **Identyfikator** — Unikatowy identyfikator dla tego połączenia. Jeśli identyfikator został podany przez klienta nadawcy, jest nadawca podana wartość, w przeciwnym razie wartość wygenerowana przez system.
 * **connectHeaders** — wszystkie nagłówki HTTP, które zostały dostarczone z punktem końcowym przekazywania przez nadawcę, który obejmuje również protokół WebSocket s i nagłówków rozszerzeń-s-protokołu WebSocket.
 
-#### Akceptowanie komunikatu
+#### <a name="accept-message"></a>Akceptowanie komunikatu
 
 ```json
 {                                                           
@@ -136,7 +136,7 @@ Komunikat zawiera obiekt JSON o nazwie "Zaakceptuj", który definiuje następuj�
 
 Adres URL zawarty w wiadomości JSON jest używany przez odbiornik do ustanawiania protokołu WebSocket dla akceptowanie lub odrzucanie gniazda nadawcy.
 
-#### Akceptowania gniazda
+#### <a name="accepting-the-socket"></a>Akceptowania gniazda
 Aby zaakceptować, odbiornika ustanawia połączenie obiektu WebSocket na podany adres.
 
 Jeśli wiadomość "Zaakceptuj" przenosi `Sec-WebSocket-Protocol` nagłówka, oczekuje się, że odbiornika akceptuje tylko protokół WebSocket Jeśli obsługuje tego protokołu. Ponadto ustawia nagłówek ustalonych protokołu WebSocket.
@@ -173,7 +173,7 @@ Po ustanowieniu połączenia serwera zamknięty, protokół WebSocket kiedy nada
 | 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
 | 1011 |Wystąpił problem w usłudze. |
 
-#### Odrzucanie gniazda
+#### <a name="rejecting-the-socket"></a>Odrzucanie gniazda
 Odrzucanie gniazda po sprawdzeniu komunikat "Zaakceptuj" wymaga uzgadniania podobny kod stanu i opis stanu komunikacji przyczynę odrzucenia może przepływać do nadawcy.
 
 Protokół wyboru tych elementów w tym miejscu jest użycie uzgadniania protokołu WebSocket (opracowaną w celu zakończenia w stanie błędu zdefiniowanych), aby implementacjach klienta odbiornika mogą w dalszym ciągu polegać na kliencie protokołu WebSocket i nie trzeba stosować dodatkowe, bez systemu operacyjnego klienta HTTP.
@@ -194,12 +194,12 @@ Po zakończeniu poprawnie, to uzgadnianie celowo kończy się niepowodzeniem z k
 | 403 |Dostęp zabroniony |Adres URL jest nieprawidłowy. |
 | 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
 
-### Odbiornik odnowienia tokenu
+### <a name="listener-token-renewal"></a>Odbiornik odnowienia tokenu
 Gdy token odbiornika jest wygaśnie, go można zastąpić, wysyłając wiadomość SMS ramki za pośrednictwem kanału kontroli ustanowionych z usługą. Komunikat zawiera obiekt JSON o nazwie `renewToken`, który definiuje następującą właściwość w tym czasie:
 
 * **Token** — tokenu dostępu udostępnionego magistrali usługi prawidłowy, zakodowane w adresie URL dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **nasłuchiwania** prawo.
 
-#### komunikat renewToken
+#### <a name="renewtoken-message"></a>komunikat renewToken
 
 ```json
 {                                                                                                                                                                        
@@ -215,7 +215,7 @@ W przypadku niepowodzenia weryfikacji tokenu dostępu, a usługa w chmurze zamyk
 | --- | --- |
 | 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
 
-## Protokół nadawcy
+## <a name="sender-protocol"></a>Protokół nadawcy
 Protokół nadawcy jest identyczne jak odbiornik zostanie nawiązane.
 Celem jest maksymalną przezroczystość WebSocket end-to-end. Adres do nawiązania połączenia jest taki sam, jak w przypadku odbiornika, ale "Akcja" różni się i token musi różne uprawnienia:
 
@@ -262,7 +262,7 @@ Wyłączenie połączenia obiektu WebSocket celowo przez usługę po została po
 | 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
 | 1011 |Wystąpił problem w usłudze. |
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)
 * [Wprowadzenie do programu .NET](relay-hybrid-connections-dotnet-get-started.md)

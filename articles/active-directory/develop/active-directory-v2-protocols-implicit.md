@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Protokoły - źródła przy użyciu niejawnego przepływu w wersji 2.0
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protokoły - źródła przy użyciu niejawnego przepływu w wersji 2.0
 Z punktem końcowym v2.0 można zalogować się użytkowników do aplikacji jednej strony z konta osobiste oraz pracy/służbowego firmy Microsoft.  Jednej strony i innych aplikacji JavaScript, które działają głównie w kilka interesujące będzie wymagał uwierzytelniania w przypadku krój przeglądarki:
 
 * Właściwości zabezpieczeń te aplikacje są znacznie różni się od tradycyjnych serwera aplikacji sieci web.
@@ -39,12 +39,12 @@ Jednak jeśli użytkownik nie chce używać biblioteki w jednej strony aplikacji
 > 
 > 
 
-## Diagram protokołu
+## <a name="protocol-diagram"></a>Diagram protokołu
 Niejawne całego logowania przepływu wygląda następująco — poszczególne kroki opisano szczegółowo poniżej.
 
 ![OpenId Connect ścieżek](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## Wyślij żądanie logowania
+## <a name="send-the-sign-in-request"></a>Wyślij żądanie logowania
 Początkowo zalogowania się użytkownika do aplikacji, możesz wysłać [OpenID Connect](active-directory-v2-protocols-oidc.md) żądania autoryzacji i get `id_token` z punktem końcowym v2.0:
 
 ```
@@ -84,7 +84,7 @@ W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wykonani
 
 Po przyznaje zgody i uwierzytelnia użytkownika, punktu końcowego v2.0 zwróci odpowiedzi do aplikacji na wskazany `redirect_uri`, za pomocą metody określonej w `response_mode` parametru.
 
-#### Odpowiedź oznaczająca Powodzenie
+#### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie przy użyciu `response_mode=fragment` i `response_type=id_token+token` wygląda podobnie do następującego podziałami wierszy dla czytelności:
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | żądaniu |Żądaniu, żądany przez aplikację. Żądaniu służy do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika.  Więcej informacji na temat id_tokens i ich zawartość znajduje się w [odwołania do tokenu punktu końcowego v2.0](active-directory-v2-tokens.md). |
 | state |Jeśli parametr Stan jest uwzględniony w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikacja powinna Sprawdź, czy wartości stan żądania i odpowiedzi są identyczne. |
 
-#### Odpowiedzi na błąd
+#### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` dzięki aplikacji można je odpowiednią obsługę:
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | error |Ciąg kodu błędu, który może służyć do klasyfikowania typy błędów występujących i może służyć do reagowania na błędy. |
 | error_description |Komunikat o błędzie, które mogą ułatwić dewelopera Określ przyczynę błędu uwierzytelniania. |
 
-## Sprawdź poprawność żądaniu
+## <a name="validate-the-idtoken"></a>Sprawdź poprawność żądaniu
 Tylko odbieranie żądaniu nie jest wystarczająca do uwierzytelnienia użytkownika; Musisz zweryfikować podpisu w żądaniu i sprawdzić oświadczenia w tokenie na wymagania dotyczące Twojej aplikacji.  Korzysta z punktu końcowego v2.0 [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdź, czy są prawidłowe.
 
 Możesz zweryfikować `id_token` w kliencie kod, ale popularną praktyką jest wysłanie `id_token` do serwera wewnętrznej bazy danych i wykonywać sprawdzanie poprawności.  Po upewnieniu się podpis żądaniu, istnieje kilka oświadczeń, który trzeba będzie można zweryfikować.  Zobacz [odwołania do tokenu v2.0](active-directory-v2-tokens.md) uzyskać więcej informacji, łącznie z [sprawdzania poprawności tokenów](active-directory-v2-tokens.md#validating-tokens) i [ważne informacje dotyczące podpisywania klucza przerzucania](active-directory-v2-tokens.md#validating-tokens).  Firma Microsoft zaleca korzystające z biblioteki do analizowania i weryfikowania tokenów — Brak co najmniej jeden dostępny dla większości języków i platform.
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji dotyczących oświadczeń w żądaniu, zobacz [o
 
 Po zweryfikowaniu całkowicie żądaniu, można rozpocząć sesji z użytkownikiem i użyć oświadczeń w żądaniu, aby uzyskać informacje o użytkowniku w aplikacji.  Te informacje można służyć do wyświetlania rekordów, autoryzacje itp.
 
-## Pobieranie tokenów dostępu
+## <a name="get-access-tokens"></a>Pobieranie tokenów dostępu
 Teraz, kiedy się zalogowano użytkownika aplikacji jednej strony, możesz też uzyskać tokenów dostępu do wywoływania interfejsów API, zabezpieczone przez usługę Azure AD, takich jak sieci web [Microsoft Graph](https://graph.microsoft.io).  Nawet jeśli masz już tokenu przy użyciu `token` response_type, korzystając tej metody można uzyskać tokeny do dodatkowych zasobów bez konieczności przekierowuje użytkownika do logowania się ponownie.
 
 W normalnym przepływie OpenID Connect/OAuth, możesz to zrobić przy żądaniu skierowanym do v2.0 `/token` punktu końcowego.  Jednak punktu końcowego v2.0 nie obsługuje żądań CORPS, więc wywołań AJAX do pobrania i tokenów odświeżania jest poza pytanie.  Zamiast tego można przepływu niejawnego w ukrytym iframe pobrać nowe tokeny dla innych interfejsów API sieci web: 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 Podziękowania dla `prompt=none` , tego żądania zostanie albo powiedzie się albo natychmiast zakończyć się niepowodzeniem i wróć do aplikacji.  Odpowiedź oznaczająca Powodzenie zostaną wysłane do aplikacji na wskazany `redirect_uri`, za pomocą metody określonej w `response_mode` parametru.
 
-#### Odpowiedź oznaczająca Powodzenie
+#### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie przy użyciu `response_mode=fragment` wygląda jak:
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
 | Zakres |Token dostępu jest nieprawidłowy dla zakresów. |
 
-#### Odpowiedzi na błąd
+#### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` dzięki aplikacji można je odpowiednią obsługę.  W przypadku liczby `prompt=none`, będzie oczekiwany błąd:
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 Jeśli ten błąd jest wyświetlany w żądaniu iframe, użytkownik interakcyjnie zalogować się ponownie do pobrania nowego tokenu.  Można obsłużyć tego przypadku w dowolnie wybrany sposób sens dla aplikacji.
 
-## Odświeżanie tokenów
+## <a name="refreshing-tokens"></a>Odświeżanie tokenów
 Zarówno `id_token`s i `access_token`s wygaśnie po krótkim czasie, więc aplikacji muszą być przygotowane, aby odświeżyć te tokeny okresowo.  Aby odświeżyć albo typ tokenu, można wykonać tego samego żądania ukryte iframe powyższego przy użyciu `prompt=none` parametr do kontrolowania zachowania usługi Azure AD.  Jeśli chcesz otrzymywać nową `id_token`, należy użyć `response_type=id_token` i `scope=openid`, a także `nonce` parametru.
 
-## Wyślij żądanie logowania
+## <a name="send-a-sign-out-request"></a>Wyślij żądanie logowania
 OpenIdConnect `end_session_endpoint` umożliwia aplikacji wysyłanie żądań do punktu końcowego v2.0, aby zakończyć sesję użytkownika i wyczyszczenie plików cookie, ustawione przez punktu końcowego v2.0.  Pełni logowania użytkownika z aplikacji sieci web, aplikacji należy zakończyć sesję użytkownika (zwykle przez wyczyszczenie pamięci podręcznej tokenu lub usunięcie plików cookie), a następnie przekierować przeglądarkę, aby:
 
 ```

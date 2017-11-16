@@ -16,14 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Zarządzanie dostępem do zasobów przy użyciu grup usługi Azure Active Directory
-Azure Active Directory (Azure AD) to kompleksowe tożsamościami i dostępem zarządzania rozwiązanie, które oferuje niezawodny zestaw funkcji do zarządzania dostępem do lokalnego i aplikacje w chmurze i zasobów w tym usługi online firmy Microsoft, takich jak usługi Office 365 i World aplikacji SaaS innych niż Microsoft. Ten artykuł zawiera omówienie, ale jeśli chcesz rozpocząć używanie programu Azure AD grup od razu, postępuj zgodnie z instrukcjami [Zarządzanie grupami zabezpieczeń w usłudze Azure AD](active-directory-accessmanagement-manage-groups.md). Jeśli chcesz zobaczyć, jak można użyć programu PowerShell do zarządzania grupami w usłudze Azure Active directory można znaleźć więcej informacji, zobacz [polecenia cmdlet usługi Azure Active Directory dla grupy zarządzania](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD) to kompleksowe tożsamościami i dostępem zarządzania rozwiązanie, które oferuje niezawodny zestaw funkcji do zarządzania dostępem do lokalnego i aplikacje w chmurze i zasobów w tym usługi online firmy Microsoft, takich jak usługi Office 365 i World aplikacji SaaS innych niż Microsoft. Ten artykuł zawiera omówienie, ale jeśli chcesz rozpocząć używanie programu Azure AD grup od razu, postępuj zgodnie z instrukcjami [Zarządzanie grupami zabezpieczeń w usłudze Azure AD](active-directory-groups-create-azure-portal.md). Jeśli chcesz zobaczyć, jak można użyć programu PowerShell do zarządzania grupami w usłudze Azure Active directory można znaleźć więcej informacji, zobacz [polecenia cmdlet usługi Azure Active Directory dla grupy zarządzania](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Aby korzystać z usługi Azure Active Directory, potrzebne jest konto platformy Azure. Jeśli nie masz konta, możesz [Załóż bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Właściciel grupy może także udostępnić tej grupy dla żądań samoobsługi
 ## <a name="getting-started-with-access-management"></a>Wprowadzenie do zarządzania dostępem
 Chcesz zacząć? Należy spróbować niektórych podstawowych zadań, które można wykonać za pomocą grup usługi Azure AD. Użyj tych funkcji, aby zapewnić specjalne dostępu różne grupy użytkowników dla różnych zasobów w organizacji. Poniżej przedstawiono listę podstawowych pierwsze kroki.
 
-* [Tworzenie prostego zasadę, aby skonfigurować dynamiczne zarządzanie członkostwem w grupie](active-directory-accessmanagement-manage-groups.md)
+* [Tworzenie prostego zasadę, aby skonfigurować dynamiczne zarządzanie członkostwem w grupie](active-directory-groups-create-azure-portal.md)
 * [Zarządzanie dostępem do aplikacji SaaS przy użyciu grupy](active-directory-accessmanagement-group-saasapps.md)
 * [Udostępnianie grupy dla użytkownika samoobsługi](active-directory-accessmanagement-self-service-group-management.md)
 * [Trwa synchronizowanie grupy lokalnej na platformie Azure za pomocą usługi Azure AD Connect](active-directory-aadconnect.md)
@@ -75,8 +75,8 @@ Chcesz zacząć? Należy spróbować niektórych podstawowych zadań, które mo�
 ## <a name="next-steps"></a>Następne kroki
 Teraz, możesz zrozumienie podstaw zarządzania dostępem poniżej przedstawiono niektóre dodatkowe zaawansowanych możliwości dostępne w usłudze Azure Active Directory dotyczące zarządzania dostępem do aplikacji i zasobów.
 
-* [Tworzenie zaawansowanych reguł przy użyciu atrybutów](active-directory-accessmanagement-groups-with-advanced-rules.md)
-* [Zarządzanie grupami zabezpieczeń w usłudze Azure AD](active-directory-accessmanagement-manage-groups.md)
+* [Tworzenie zaawansowanych reguł przy użyciu atrybutów](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Zarządzanie grupami zabezpieczeń w usłudze Azure AD](active-directory-groups-create-azure-portal.md)
 * [Konfigurowanie grupy dedykowane w usłudze Azure AD](active-directory-accessmanagement-dedicated-groups.md)
 * [Interfejs API Graph odwołania dla grup](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md)

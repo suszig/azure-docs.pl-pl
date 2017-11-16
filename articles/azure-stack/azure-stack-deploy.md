@@ -3,8 +3,8 @@ title: "Wymagania wstępne wdrożenia stosu Development Kit platformy Azure | Do
 description: "Wyświetl wymagania środowiska i sprzętowe dla Azure stosu Development Kit (operatorowi chmury)."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
@@ -40,7 +40,7 @@ Przed wdrożeniem [Azure stosu Development Kit](azure-stack-poc.md), upewnij si�
 
 \*Konieczne będzie większa niż zalecana pojemność, jeśli planowane jest dodanie wiele [elementów marketplace](azure-stack-download-azure-marketplace-item.md) z platformy Azure.
 
-**Konfiguracja stacji dysków danych:** wszystkie dyski danych muszą być tego samego typu (wszystkie SAS lub wszystkie SATA) i pojemności. Jeśli używane są dyski SAS, stacje dysków muszą być dołączone za pomocą pojedynczej ścieżki (nie jest zapewniana obsługa funkcji MPIO, obsługa wielościeżkowa).
+**Konfiguracja dysku danych:** wszystkich dysków z danymi musi być tego samego typu (wszystkie skojarzenia zabezpieczeń, wszystkie SATA lub wszystkich NVMe) i pojemności. Jeśli używane są dyski SAS, stacje dysków muszą być dołączone za pomocą pojedynczej ścieżki (nie jest zapewniana obsługa funkcji MPIO, obsługa wielościeżkowa).
 
 **Opcje konfiguracji karty HBA**
 
@@ -56,6 +56,7 @@ Przed wdrożeniem [Azure stosu Development Kit](azure-stack-poc.md), upewnij si�
 * SSD RAID (jeśli typ nośnika jest nieokreślony/nieznany\*)
 * SSD SATA + HDD SATA
 * SSD SAS + HDD SAS
+* NVMe
 
 \*Kontrolerów RAID bez możliwości przekazujący nie można rozpoznać typu nośnika. Takie kontrolery oznaczą zarówno dyski HDD, jak i dyski SSD jako nieokreślone. W takim przypadku dysk SSD będzie używany jako magazyn trwały zamiast buforowania urządzeń. W związku z tym wdrożeniem development kit na tych dyskach SSD.
 

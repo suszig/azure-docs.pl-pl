@@ -21,19 +21,19 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# Autoryzowanie dostępu do aplikacji sieci Web przy użyciu protokołu OAuth 2.0 i usługi Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autoryzowanie dostępu do aplikacji sieci Web przy użyciu protokołu OAuth 2.0 i usługi Azure Active Directory
 Azure Active Directory (Azure AD) używa protokołu OAuth 2.0 do autoryzowania dostępu do aplikacji sieci web i interfejsów API sieci web w dzierżawie usługi Azure AD. Ten przewodnik jest niezależny od języka i opisuje sposób wysyłania i odbierania wiadomości HTTP bez przy użyciu dowolnej z naszych bibliotekach open source.
 
 Przepływu kodu autoryzacji protokołu OAuth 2.0 jest opisany w [sekcji 4.1 specyfikacji protokołu OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Służy do wykonywania uwierzytelniania i autoryzacji w większości typów aplikacji, w tym aplikacje sieci web, a natywnie zainstalowane aplikacje.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## Przepływ autoryzacji OAuth 2.0
+## <a name="oauth-20-authorization-flow"></a>Przepływ autoryzacji OAuth 2.0
 Na wysokim poziomie przepływ całego autoryzacji dla aplikacji wygląda nieco następująco:
 
 ![Przepływu kodu autoryzacji OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## Kod autoryzacji żądania
+## <a name="request-an-authorization-code"></a>Kod autoryzacji żądania
 Przepływu kodu autoryzacji rozpoczyna się od klienta kierowanie użytkownikowi `/authorize` punktu końcowego. W tym żądaniu klient wskazuje uprawnień wymaganych do uzyskania dostępu przez użytkownika. Punkty końcowe protokołu OAuth 2.0 ze strony aplikacji w klasycznym portalu Azure, można uzyskać w **Wyświetl punkty końcowe** przycisk w szufladzie dolnej.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wyrażenia zgody na uprawnienia wskazanych w `scope` parametr zapytania. Po uwierzytelnia i udziela zgody użytkownika usługi Azure AD wysyła odpowiedź do aplikacji w `redirect_uri` adresu w żądaniu.
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie może wyglądać następująco:
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Unikatowa wartość, która identyfikuje bieżącą sesję użytkownika. Ta wartość jest identyfikatorem GUID, ale powinien być traktowany jako wartość przezroczystości, która została przekazana bez badania. |
 | state |Jeśli parametr Stan jest uwzględniony w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Jest dobrym rozwiązaniem dla aplikacji, aby zweryfikować, że wartości stan żądania i odpowiedzi są identyczne, przed użyciem odpowiedzi. Ułatwia to wykrywanie [atakami opartymi na fałszowanie żądań między witrynami (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) względem klienta. |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` , dzięki czemu aplikacja może je odpowiednią obsługę.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Bardziej szczegółowy opis błędu. Ten komunikat nie ma być przyjazny dla użytkownika końcowego. |
 | state |Wartość stanu jest losowo generowany-ponownie wartość, która jest wysłanych w żądaniu i zwracany w odpowiedzi, aby zapobiec fałszerstwie żądania międzywitrynowego (CSRF). |
 
-#### Kody błędów dla błędów punktu końcowego autoryzacji
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Kody błędów dla błędów punktu końcowego autoryzacji
 W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w `error` parametr odpowiedzi na błąd.
 
 | Kod błędu: | Opis | Akcja klienta |
@@ -111,7 +111,7 @@ W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w
 | temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
 | invalid_resource |Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD lub nie została poprawnie skonfigurowana. |Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
 
-## Użyj kodu autoryzacji do żądania tokenu dostępu
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Użyj kodu autoryzacji do żądania tokenu dostępu
 Teraz, gdy zostały nabyte kod autoryzacji i mieć odpowiednie uprawnienia udzielone przez użytkownika, możesz zrealizować kod tokenu dostępu do żądanego zasobu, poprzez wysłanie żądania POST do `/token` punktu końcowego:
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**.
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Usługi Azure AD zwraca token dostępu po pomyślnej odpowiedzi. Aby zminimalizować wywołania sieci z aplikacji klienckiej i ich skojarzonych opóźnienia, aplikacja kliencka powinna buforowane tokenów dostępu przez okres istnienia tokenu, który określono w odpowiedzi protokołu OAuth 2.0. Aby ustalić okres istnienia tokenu, użyj `expires_in` lub `expires_on` wartości parametrów.
 
 Jeśli zasobu interfejsu API sieci web zwraca `invalid_token` kodu błędu, może to oznaczać, że zasób stwierdził, że token utracił ważność. Jeśli czas zegara klienta i zasobów są różne (znane jako "czas pochylenia"), zasobu warto rozważyć token wygaśnie, zanim token jest wyczyszczone z pamięci podręcznej klienta. W takim przypadku należy wyczyścić tokenu z pamięci podręcznej, nawet jeśli jest nadal w jego obliczeniowej okres istnienia.
@@ -174,7 +174,7 @@ Odpowiedź oznaczająca Powodzenie może wyglądać następująco:
 | refresh_token |Token odświeżania OAuth 2.0. Aplikacja może używać tego tokenu uzyskanie tokenów dostępu dodatkowe po wygaśnięciu bieżącego tokenu dostępu.  Odśwież tokeny są to długotrwałe i pozwala zachować dostęp do zasobów przez dłuższy czas. |
 | żądaniu |Niepodpisane JSON Web Token (JWT). Aplikacji base64Url może zdekodować segmentów tego tokenu do żądania informacji dotyczących użytkownika, który jest zalogowany. Można je wyświetlić i pamięci podręcznej wartości aplikacji, ale nie należy polegać na nich autoryzacji lub granic zabezpieczeń. |
 
-### Oświadczenia tokenu JWT
+### <a name="jwt-token-claims"></a>Oświadczenia tokenu JWT
 Token JWT wartości `id_token` parametr może zostać odczytany na następujących oświadczenia:
 
 ```
@@ -219,7 +219,7 @@ Aby uzyskać więcej informacji dotyczących tokenów sieci web JSON, zobacz [Sp
 | nazwy UPN |Główna nazwa użytkownika użytkownika. |
 | VER |Wersja. Wersja tokenu JWT, zwykle 1.0. |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Błędy programu endpoint wystawiania tokenu są kody błędów HTTP, ponieważ klient wywołuje punkt końcowy wydawania tokenów bezpośrednio. Oprócz kod stanu HTTP punktu końcowego usługi Azure AD wydawania tokenów zwraca dokument JSON z obiektami, które opisują błędu.
 
 Przykładowa odpowiedź błędu może wyglądać następująco:
@@ -246,7 +246,7 @@ Przykładowa odpowiedź błędu może wyglądać następująco:
 | trace_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce. |
 | correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
 
-#### Kody stanu HTTP
+#### <a name="http-status-codes"></a>Kody stanu HTTP
 Poniższa tabela zawiera listę kodów stanu HTTP, które zwraca punkt końcowy wydawania tokenów. W niektórych przypadkach kod błędu jest wystarczająca do opisywania odpowiedzi, ale jeśli występują błędy, należy przeanalizować towarzyszący dokument JSON i sprawdź, czy jego kod błędu.
 
 | Kod HTTP | Opis |
@@ -256,7 +256,7 @@ Poniższa tabela zawiera listę kodów stanu HTTP, które zwraca punkt końcowy 
 | 403 |Autoryzacja nie powiodła się. Na przykład użytkownik nie ma uprawnień dostępu do zasobu. |
 | 500 |Wystąpił błąd wewnętrzny w usłudze. Ponów żądanie. |
 
-#### Kody błędów dla punktu końcowego tokena błędów
+#### <a name="error-codes-for-token-endpoint-errors"></a>Kody błędów dla punktu końcowego tokena błędów
 | Kod błędu: | Opis | Akcja klienta |
 | --- | --- | --- |
 | invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie |
@@ -268,17 +268,17 @@ Poniższa tabela zawiera listę kodów stanu HTTP, które zwraca punkt końcowy 
 | interaction_required |Żądanie wymaga interakcji z użytkownikiem. Na przykład krok dodatkowego uwierzytelniania jest wymagany. | Zamiast żądanie nieinterakcyjnym spróbuj ponownie z żądaniem interakcyjne autoryzacji dla tego samego zasobu. |
 | temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
 
-## Użyj tokenu dostępu, dostęp do zasobu
+## <a name="use-the-access-token-to-access-the-resource"></a>Użyj tokenu dostępu, dostęp do zasobu
 Teraz, zostały pomyślnie uzyskano `access_token`, użyć tokenu w żądaniach wysyłanych do interfejsów API sieci Web, w tym `Authorization` nagłówka. [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specyfikacji wyjaśniono, jak uzyskać dostęp do chronionych zasobów za pomocą tokenów bearer w żądaniach HTTP.
 
-### Przykładowe żądanie
+### <a name="sample-request"></a>Przykładowe żądanie
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Zabezpieczonych zasobów, które implementuje kody stanu HTTP problem RFC 6750. Jeśli nie ma poświadczeń uwierzytelniania lub brak tokenu żądania odpowiedź zawiera `WWW-Authenticate` nagłówka. Gdy żądanie nie powiodło się, serwer zasobów odpowie kod stanu HTTP i kod błędu.
 
 Poniżej przedstawiono przykładowy odpowiedzi nie powiodło się, gdy żądanie klienta nie obejmuje tokenu elementu nośnego:
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Błąd parametrów
+#### <a name="error-parameters"></a>Błąd parametrów
 | Parametr | Opis |
 | --- | --- |
 | authorization_uri |Identyfikator URI (fizycznych punktu końcowego) serwera autoryzacji. Ta wartość jest także używana jako klucz wyszukiwania, aby uzyskać więcej informacji o serwerze z punktu końcowego odnajdywania. <p><p> Klient musi sprawdzić, czy serwer autoryzacji jest zaufany. Zasób jest chroniony przez usługę Azure AD, jest wystarczające do zweryfikowania, że adres URL rozpoczyna się od https://login.microsoftonline.com lub innej nazwy hosta, który obsługuje usługę Azure AD. Zasób specyficznego dla dzierżawy zawsze powinna zwrócić identyfikatora URI autoryzacji specyficznego dla dzierżawy. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Bardziej szczegółowy opis błędu. Ten komunikat nie ma być przyjazny dla użytkownika końcowego. |
 | resource_id |Zwraca unikatowy identyfikator zasobu. Aplikacja kliencka może użyć tego identyfikatora jako wartość `resource` parametr podczas żądania tokenu dla zasobu. <p><p> Ważne jest, aby aplikacja klienta sprawdzić tę wartość, w przeciwnym razie złośliwe usługi będzie mógł wywołać **"podniesienia uprawnień"** ataków <p><p> Jest zalecana strategia zapobiegania atak do sprawdzenia, czy `resource_id` podstawowy adres URL interfejsu API sieci Web odpowiada, do której uzyskuje dostęp. Na przykład, jeśli jest uzyskiwany https://service.contoso.com/data `resource_id` może być htttps://service.contoso.com/. Aplikacja kliencka musi odrzucania `resource_id` nie zaczynające się od podstawowego adresu URL, chyba że jest to niezawodny sposób alternatywnych można zweryfikować identyfikatora. |
 
-#### Kody błędów schematu elementu nośnego
+#### <a name="bearer-scheme-error-codes"></a>Kody błędów schematu elementu nośnego
 Specyfikacja RFC 6750 definiuje następujące błędy zasobów korzystających z nagłówka WWW-Authenticate i schematu elementu nośnego w odpowiedzi.
 
 | Kod stanu HTTP | Kod błędu: | Opis | Akcja klienta |
@@ -306,7 +306,7 @@ Specyfikacja RFC 6750 definiuje następujące błędy zasobów korzystających z
 | 403 |insufficient_scope |Token dostępu zawiera personifikacji wymaganych uprawnień do dostępu do zasobu. |Wysłanie nowego żądania autoryzacji do punktu końcowego autoryzacji. Jeśli odpowiedź zawiera parametr zakresu, należy użyć wartości zakresu żądania do zasobu. |
 | 403 |insufficient_access |Podmiot tokenu nie ma uprawnień, które są wymagane do uzyskania dostępu do zasobu. |Monituj użytkownika, aby korzystała z innego konta lub poproś o uprawnienia do określonego zasobu. |
 
-## Odświeżanie tokeny dostępu
+## <a name="refreshing-the-access-tokens"></a>Odświeżanie tokeny dostępu
 Tokeny dostępu są krótkim okresie i musi zostać odświeżona po wygaśnięciu, aby kontynuować, uzyskiwanie dostępu do zasobów. Można odświeżać `access_token` poprzez przesłanie innego `POST` żądanie `/token` punktu końcowego, ale ten czas, zapewniając `refresh_token` zamiast `code`.
 
 Odśwież tokenów nie ma określonego okresy istnienia. Zwykle okresy istnienia tokenów odświeżania są stosunkowo długo. Jednak w niektórych przypadkach tokenów odświeżania wygaśnie, były odwołane lub Brak wystarczających uprawnień dla żądanej akcji. Aplikacja musi oczekiwać i błędy zwrócone przez punkt końcowy wydawania tokenów poprawnie obsłużyć.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Odpowiedź oznaczająca Powodzenie
+### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie tokenu będą wyglądać jak:
 
 ```
@@ -352,7 +352,7 @@ Odpowiedź oznaczająca Powodzenie tokenu będą wyglądać jak:
 | ' access_token ' |Nowy token dostępu, którego zażądano. |
 | refresh_token |Nowe refresh_token OAuth 2.0, który może służyć do żądania nowe tokeny dostępu po wygaśnięciu w tej odpowiedzi. |
 
-### Odpowiedzi na błąd
+### <a name="error-response"></a>Odpowiedzi na błąd
 Przykładowa odpowiedź błędu może wyglądać następująco:
 
 ```

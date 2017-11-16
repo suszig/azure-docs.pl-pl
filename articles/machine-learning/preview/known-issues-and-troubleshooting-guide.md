@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -84,8 +84,21 @@ Podczas pracy w konsoli usługi Azure ML Workbench można również wysłać nam
 
 - Biblioteka RevoScalePy jest obsługiwana tylko w systemach Windows i Linux (w kontenerach Docker). Nie jest obsługiwana na macOS.
 
-## <a name="delete-experimentation-account"></a>Usuwanie konta eksperymenty
-Można użyć interfejsu wiersza polecenia, aby usunąć konto eksperymenty, ale musisz usunąć obszary robocze podrzędnych i projekty podrzędne w tych obszarach roboczych podrzędnych najpierw.
+## <a name="cant-update-workbench"></a>Nie można zaktualizować Workbench
+Gdy dostępna jest nowa aktualizacja, na stronie głównej aplikacji Workbench wyświetla komunikat informujący o nowych aktualizacji. Powinny pojawić się wskaźnika aktualizacji znajdujących się w lewym dolnym rogu aplikacji ikonę dzwonka. Kliknij badge i użyj Kreatora Instalatora, aby zainstalować aktualizację. Jeśli nie widzisz powiadomienia, spróbuj ponownie uruchomić aplikację. Jeśli nadal nie widać powiadomienie o aktualizacji po ponownym uruchomieniu, może być kilka przyczyn.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Uruchamiasz Workbench z przypiętych skrót na pasku zadań
+Może już zainstalowano aktualizację. Jednak nadal wskazuje przypiętych skrót do starego bitów na dysku. Można to sprawdzić, przechodząc do `%localappdata%/AmlWorkbench` folder i sprawdź, czy masz zainstalowaną najnowszą wersję i sprawdź właściwość przypiętych skrótów, aby zobaczyć, których wskazuje. Zweryfikowane, po prostu usuń stare skrótów, uruchom Workbench z Start menu i opcjonalnie utworzyć nowy skrót przypiętych na pasku zadań.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Zainstalowano Workbench za pomocą łącza "Zainstaluj Workbench uczenie Maszynowe Azure" na DSVM systemu Windows
+Niestety jest nie łatwe poprawkę na tym typie. Należy wykonać następujące kroki, aby usunąć zainstalowane usługi bits i Pobierz najnowszą wersję Instalatora do zainstalowania świeża Workbench: 
+   - Usuń folder`C:\Users\<Username>\AppData\Local\amlworkbench`
+   - Usuń skryptu`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
+   - Pobierz https://aka.ms/azureml-wb-msi Instalatora i zainstaluj ponownie.
+
+## <a name="cant-delete-experimentation-account"></a>Nie można usunąć konta eksperymenty
+Można użyć interfejsu wiersza polecenia, aby usunąć konto eksperymenty, ale musisz usunąć obszary robocze podrzędnych i projekty podrzędne w tych obszarach roboczych podrzędnych najpierw. W przeciwnym razie zostanie wyświetlony błąd.
 
 ```azure-cli
 # delete a project
@@ -100,9 +113,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Możesz także usunąć projektów i obszarów roboczych z poziomu aplikacji Workbench.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Nie można otworzyć pliku, jeśli projekt w usłudze OneDrive
+Jeśli masz twórców spadek 10 usługi Windows Update, a projektu jest tworzony w folderze lokalnym zamapowane do usługi OneDrive, może się okazać, że nie można otworzyć dowolny plik w Workbench. Jest to spowodowane usterki wprowadzone przez aktualizację twórców spadek, która powoduje niepowodzenie w folderze OneDrive kodu node.js. Błąd zostanie naprawiony wkrótce przez usługę Windows update, ale do tego czasu, nie twórz projekty w folderze OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Nazwa pliku zbyt długo w systemie Windows
-Jeśli używa się Workbench w systemie Windows, można napotkać w domyślny limit długości nazwy maksymalną pliku 260 znaków, które można powierzchni jako nieco błąd błąd "system nie może odnaleźć określonej ścieżki". Można zmodyfikować ustawienie klucza rejestru, aby umożliwić znacznie dłużej nazwa ścieżki pliku. Przegląd [w tym artykule](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) Aby uzyskać więcej informacji na temat ustawiania _MAX_PATH_ klucza rejestru.
+Jeśli używasz narzędzia Workbench w systemie Windows może działać na domyślny limit długości nazwy maksymalną pliku 260 znaków, które można powierzchni jako błąd "system nie może odnaleźć określonej ścieżki". Można zmodyfikować ustawienie klucza rejestru, aby umożliwić znacznie dłużej nazwa ścieżki pliku. Przegląd [w tym artykule](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) Aby uzyskać więcej informacji na temat ustawiania _MAX_PATH_ klucza rejestru.
 
 ## <a name="docker-error-read-connection-refused"></a>Błąd docker "do odczytu: połączenie zostało odrzucone"
 Podczas wykonywania przed lokalnego kontenera Docker, czasami może pojawić następujący błąd: 

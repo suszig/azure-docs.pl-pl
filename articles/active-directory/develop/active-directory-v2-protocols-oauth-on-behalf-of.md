@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# V2.0 usługi Azure Active Directory i przepływu OAuth 2.0 On-Behalf-Of
+# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>V2.0 usługi Azure Active Directory i przepływu OAuth 2.0 On-Behalf-Of
 OAuth On-Behalf-Of 2.0, którego przepływ służy przypadek użycia, w którym aplikacja wywołuje usługi/składnika web API, który z kolei musi wywołać inny usługi/interfejs API sieci web. Będzie propagację uprawnień za pomocą łańcucha żądań i tożsamości użytkowników delegowanego. Dla usługi warstwy środkowej na wysyłanie żądań uwierzytelnionych usługi podrzędne należy go secure token dostępu z usługi Azure Active Directory (Azure AD), w imieniu użytkownika.
 
 > [!NOTE]
@@ -29,7 +29,7 @@ OAuth On-Behalf-Of 2.0, którego przepływ służy przypadek użycia, w którym 
 >
 >
 
-## Diagram protokołu
+## <a name="protocol-diagram"></a>Diagram protokołu
 Załóżmy, że użytkownik został uwierzytelniony w aplikacji przy użyciu [kodu autoryzacji protokołu OAuth 2.0 przyznać przepływu](active-directory-v2-protocols-oauth-code.md). W tym momencie aplikacja ma token dostępu (token A) z oświadczeń użytkowników i zgody na dostęp do sieci web warstwy środkowej interfejsu API (interfejs API A). Teraz A interfejsu API musi wprowadzić żądania uwierzytelnionego podrzędne sieci web interfejsu API (interfejs API B).
 
 Czynności, które wykonują stanowią przepływu w imieniu-z i zostały wyjaśnione przy użyciu poniższym diagramie.
@@ -47,7 +47,7 @@ Czynności, które wykonują stanowią przepływu w imieniu-z i zostały wyjaśn
 > W tym scenariuszu usługa warstwy środkowej ma bez interakcji użytkownika, aby uzyskać zgodę użytkownika na dostęp do interfejsu API niższego rzędu. W związku z tym opcję, aby udzielić dostępu do interfejsu API niższego rzędu są prezentowane wiedzieli, jako część zgody kroku podczas uwierzytelniania.
 >
 
-## Usługi w celu żądania tokenu dostępu usługi
+## <a name="service-to-service-access-token-request"></a>Usługi w celu żądania tokenu dostępu usługi
 Żądania tokenu dostępu, aby HTTP POST do specyficznego dla dzierżawy punktu końcowego v2.0 usługi Azure AD z następującymi parametrami.
 
 ```
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka zdecydował się były zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
 
-### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
 Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera następujące parametry:
 
 | Parametr |  | Opis |
@@ -68,7 +68,7 @@ Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawier
 | Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Aby uzyskać więcej informacji, zobacz [zakresy](active-directory-v2-scopes.md).|
 | requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
 
-#### Przykład
+#### <a name="example"></a>Przykład
 Następujące POST protokołu HTTP żądania tokenu dostępu z `user.read` zakres dla interfejsu API sieci web https://graph.microsoft.com.
 
 ```
@@ -86,7 +86,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
+### <a name="second-case-access-token-request-with-a-certificate"></a>W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
 Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera następujące parametry:
 
 | Parametr |  | Opis |
@@ -101,7 +101,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
-#### Przykład
+#### <a name="example"></a>Przykład
 Następujące POST protokołu HTTP żądania tokenu dostępu z `user.read` zakres https://graph.microsoft.com interfejsu API sieci web przy użyciu certyfikatu.
 
 ```
@@ -120,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Usługa do odpowiedzi tokenu dostępu usługi
+## <a name="service-to-service-access-token-response"></a>Usługa do odpowiedzi tokenu dostępu usługi
 Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
 
 | Parametr | Opis |
@@ -131,7 +131,7 @@ Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
 | ' access_token ' |Żądany dostęp token. Wywołanie usługi umożliwia ten token uwierzytelniania w usłudze odbierania. |
 | refresh_token |Token odświeżania dla tokenu żądany dostęp. Wywołanie usługi umożliwia żądania inny token dostępu po wygaśnięciu tokenu dostępu bieżącego ten token. |
 
-### Przykład odpowiedź sukcesu
+### <a name="success-response-example"></a>Przykład odpowiedź sukcesu
 W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu do interfejsu API sieci web https://graph.microsoft.com Powodzenie.
 
 ```
@@ -145,7 +145,7 @@ W poniższym przykładzie przedstawiono odpowiedzi na żądanie tokenu dostępu 
 }
 ```
 
-### Przykład odpowiedzi błędu
+### <a name="error-response-example"></a>Przykład odpowiedzi błędu
 Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD podczas próby uzyskania tokenu dostępu dla interfejsu API podrzędne, jeśli zasady dostępu warunkowego, takich jak uwierzytelnianie wieloskładnikowe, ustaw w niej ma podrzędne interfejsu API. Usługi warstwy środkowej powinien powierzchni ten błąd do aplikacji klienckiej, aby aplikacja kliencka zapewniają interakcji użytkownika, aby spełniać zasady dostępu warunkowego.
 
 ```
@@ -160,17 +160,17 @@ Odpowiedzi na błąd jest zwracany przez punkt końcowy tokenu usługi Azure AD 
 }
 ```
 
-## Użyj tokenu dostępu, aby uzyskać dostępu do zabezpieczonych zasobów
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Użyj tokenu dostępu, aby uzyskać dostępu do zabezpieczonych zasobów
 Obecnie usługa warstwy środkowej może używać tokenu nabyte powyżej, aby uwierzytelnionego żądania podrzędnego sieci Web interfejsu API, ustawiając token w `Authorization` nagłówka.
 
-### Przykład
+### <a name="example"></a>Przykład
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat protokołu OAuth 2.0 i innym sposobem wykonania uwierzytelniania usług przy użyciu poświadczeń klienta.
 * [Przyznanie poświadczeń klienta OAuth 2.0 w usłudze Azure AD w wersji 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 w usłudze Azure AD w wersji 2.0](active-directory-v2-protocols-oauth-code.md)

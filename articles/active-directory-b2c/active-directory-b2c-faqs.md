@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.
@@ -57,7 +57,7 @@ Nie można obsługiwać aplikacji z dowolnego miejsca (w chmurze lub lokalnie). 
 Przed otwarciem usługi Azure AD B2C w menu po lewej stronie portalu Azure, musisz przełączyć się do katalogu, którą chcesz zarządzać.  Przełącz katalogi, klikając swoją tożsamość w prawym górnym rogu portalu Azure, a następnie wybierz katalog na liście rozwijanej, która pojawia się.  Aby uzyskać szczegółowe instrukcje wraz z obrazów, zobacz [przejdź do ustawień usługi Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Jak dostosować weryfikacyjnych wiadomości e-mail (zawartość i "od:" pole) wysyłane przez usługę Azure AD B2C?
-Można użyć [firmowe funkcji](../active-directory/active-directory-add-company-branding.md) Aby dostosować zawartość weryfikacyjnych wiadomości e-mail. W szczególności można dostosować te dwa elementy wiadomości e-mail:
+Można użyć [firmowe funkcji](../active-directory/customize-branding.md) Aby dostosować zawartość weryfikacyjnych wiadomości e-mail. W szczególności można dostosować te dwa elementy wiadomości e-mail:
 
 * **Banner Logo**: wyświetlany w prawym dolnym rogu.
 * **Kolor tła**: wyświetlaną u góry.
@@ -98,9 +98,9 @@ Przeczytaj ten artykuł o [tożsamości zewnętrznych](../active-directory/activ
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Jakie raportowania i inspekcji funkcje usługi Azure AD B2C oferuje? Są one takie same jak Azure AD Premium?
 Nie, usługi Azure AD B2C obsługuje ten sam zestaw raportów, jako Azure AD Premium. Istnieje jednak wiele commonalities:
 
-* Raporty dotyczące logowania zawierają rejestr każdego logowania z obniżonych szczegółów.
-* Raporty dotyczące inspekcji są dostępne w portalu Azure w ramach usługi Azure Active Directory > dzienników inspekcji działania > Wybierz B2C oraz Zastosuj filtry zgodnie z potrzebami. Obejmuje zarówno aktywność administratora, jak i działanie aplikacji. 
-* Raport użycia, obejmujących liczby użytkowników, liczba logowań i wolumin MFA jest dostępna na [użycia interfejsu API raportowania](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Zaloguj się w raportach** są dostępne tylko w portalu Azure (Azure Active Directory > działania > logowania) i nie są dostępne za pośrednictwem interfejsu API programu Graph. Udostępniają one rejestr każdego logowania z obniżonych szczegółów.
+* **Raporty dotyczące inspekcji** są dostępne tylko w portalu Azure (Azure Active Directory > działania > Dzienniki inspekcji) i nie są dostępne za pośrednictwem interfejsu API programu Graph. Obejmują one zarówno aktywność administratora, jak i działanie aplikacji. 
+* **Raporty użycia** są dostępne za pośrednictwem tylko [użycia interfejsu API raportowania](active-directory-b2c-reference-usage-reporting-api.md) i nie są dostępne za pośrednictwem portalu Azure. Obejmują one liczbę użytkowników, liczba logowań i wolumin MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Czy można zlokalizować interfejsu użytkownika obsługiwanych przez usługę Azure AD B2C stron? Jakich języków są obsługiwane?
 Tak!  Przeczytaj informacje o [dostosowywania języka](active-directory-b2c-reference-language-customization.md), która znajduje się w publicznej wersji zapoznawczej.  Firma Microsoft udostępnia tłumaczenia dla 36 języków, można zmienić dowolny ciąg, w zależności od potrzeb.

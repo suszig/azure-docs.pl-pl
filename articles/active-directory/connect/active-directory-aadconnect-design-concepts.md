@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Zagadnienia dotyczące projektowania
 Celem tego tematu jest do opisywania obszarów, które muszą być uważane za pośrednictwem podczas projektu implementacji programu Azure AD Connect. Ten temat jest nowości w niektórych obszarach i tych pojęć krótko opisano w innych tematach również.
@@ -172,7 +172,7 @@ Załóżmy, że wdrożono Azure AD Connect z włączoną funkcją ConsistencyGui
 
 ![Dodawanie nowych katalogów do istniejącego wdrożenia](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD logowania
+## <a name="azure-ad-sign-in"></a>Logowanie się w usłudze Azure AD
 Podczas integracji katalogu lokalnego z usługą Azure AD, ważne jest, aby zrozumieć, jak ustawienia synchronizacji wpływa na sposób użytkownik zostanie uwierzytelniony. Usługi Azure AD używa userPrincipalName (UPN) w celu uwierzytelnienia użytkownika. Jednak po zsynchronizowaniu użytkowników, musisz wybrać atrybut służący do wartości userPrincipalName uważnie.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Wybieranie atrybutu userPrincipalName
@@ -191,7 +191,7 @@ Jan jest użytkownikiem w domenie contoso.com. Ma Jan do użycia z lokalną nazw
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>UPN dla usługi Azure AD i lokalnej obsługi routingu domen
 Niektóre organizacje mają nierutowalny domen, takich jak contoso.local lub prostego domen jak contoso. Nie jest możliwe zweryfikować domeny bez obsługi routingu w usłudze Azure AD. Azure AD Connect można synchronizację zweryfikowanej domeny w usłudze Azure AD. Podczas tworzenia katalogu usługi Azure AD, tworzy domenę routingu, która staje się domyślną domenę usługi Azure AD na przykład contoso.onmicrosoft.com. W związku z tym staje się zweryfikowanie innej domeny routingu w takiej sytuacji, w przypadku, gdy nie chcesz synchronizować domyślnej domeny onmicrosoft.com.
 
-Odczyt [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-add-domain.md) uzyskać więcej informacji dotyczących dodawania i weryfikowania domeny.
+Odczyt [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-domains-add-azure-portal.md) uzyskać więcej informacji dotyczących dodawania i weryfikowania domeny.
 
 Wykrywa Azure AD Connect, jeśli są uruchomione w środowisku domeny bez obsługi routingu i będzie odpowiednio ostrzegać z wyprzedzeniem korzystanie z ustawień ekspresowych. Jeśli pracujesz w domenie bez obsługi routingu, następnie prawdopodobnie nazwy UPN użytkowników zbyt ma sufiksy bez obsługi routingu. Na przykład, jeśli używane do uruchamiania contoso.local, Azure AD Connect sugeruje można użyć ustawienia niestandardowe, a nie przy użyciu ustawień ekspresowych. Za pomocą ustawień niestandardowych, będą mogli określać atrybut, które mają być używane jako nazwy UPN do logowania do platformy Azure po zsynchronizowaniu użytkowników do usługi Azure AD.
 

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Usługa Azure Active Directory B2C: Dostosowywanie interfejsu użytkownika (UI) usługi Azure AD B2C
 
 Środowisko użytkownika jest podstawowym w aplikacji klientów.  Zwiększ bazę swoich klientów przez obsługuje tworzenie użytkownika, korzystając z wygląd i działanie oznakowanie. Usługa Azure Active Directory B2C (Azure AD B2C) umożliwia dostosowanie edycji profilu rejestracji, logowania, i stron z formantem pikseli idealny resetowania hasła.
 
 > [!NOTE]
-> Funkcja dostosowania interfejsu użytkownika strony opisane w tym artykule nie dotyczy tylko zasad logowania, jego towarzyszący stronę resetowania hasła i sprawdzania wiadomości e-mail.  Użyj tych funkcji [firmowe funkcji](../active-directory/active-directory-add-company-branding.md) zamiast tego.
+> Funkcja dostosowania interfejsu użytkownika strony opisane w tym artykule nie dotyczy tylko zasad logowania, jego towarzyszący stronę resetowania hasła i sprawdzania wiadomości e-mail.  Użyj tych funkcji [firmowe funkcji](../active-directory/customize-branding.md) zamiast tego.
 >
-> Podobnie jeśli użytkownik intiates edytowanie profilu zasad *przed* zalogowaniu użytkownik zostanie przekierowany do strony, który można dostosować za pomocą [firmowe funkcji](../active-directory/active-directory-add-company-branding.md).
+> Podobnie jeśli użytkownik intiates edytowanie profilu zasad *przed* zalogowaniu użytkownik zostanie przekierowany do strony, który można dostosować za pomocą [firmowe funkcji](../active-directory/customize-branding.md).
 
 W tym artykule omówiono następujące tematy:
 

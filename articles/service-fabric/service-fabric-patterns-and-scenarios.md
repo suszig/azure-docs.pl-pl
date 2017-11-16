@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Scenariusze i wzorce sieci szkieletowej usług
 Jeśli rozważasz usługę kompilowania dużych mikrousług przy użyciu usługi Azure Service Fabric, Dowiedz się od ekspertów, którzy zaprojektowany i zbudowany ta platforma jako usługa (PaaS). Wprowadzenie do architektury właściwe, a następnie Dowiedz się, jak zoptymalizować zasobów dla aplikacji. [Usługi sieć szkieletowa Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) plan odpowiedzi na pytania najczęściej zadawane przez klientów rzeczywistych scenariuszy sieci szkieletowej usług i aplikacji.
@@ -98,4 +98,4 @@ Uzyskaj odpowiedzi na pytanie "Dlaczego kontenery?" Więcej informacji na temat 
 </table>
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już o wzorce sieci szkieletowej usług i scenariusze, Dowiedz się więcej o sposobie [tworzenia i zarządzania klastrami](service-fabric-deploy-anywhere.md), [migracji aplikacji usługi w chmurze do sieci szkieletowej usług](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [— Konfiguracja ciągłego dostarczania](service-fabric-set-up-continuous-integration.md), i [wdrażanie kontenerów](service-fabric-containers-overview.md).
+Teraz, kiedy znasz już o wzorce sieci szkieletowej usług i scenariusze, Dowiedz się więcej o sposobie [tworzenia i zarządzania klastrami](service-fabric-deploy-anywhere.md), [migracji aplikacji usługi w chmurze do sieci szkieletowej usług](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [— Konfiguracja ciągłego dostarczania](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), i [wdrażanie kontenerów](service-fabric-containers-overview.md).

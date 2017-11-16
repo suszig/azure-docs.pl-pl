@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testowanie rozwiązania z symulowanego urządzenia
 
@@ -39,6 +39,10 @@ W poniższej tabeli przedstawiono dane ligthbulb raportów w chmurze jako strumi
 | Nazwa   | Wartości      |
 | ------ | ----------- |
 | Stan | "na" "wyłączone" |
+| online | wartość true, false |
+
+> [!NOTE]
+> **Online** wartość telemetrii jest obowiązkowa w przypadku wszystkich symulowane typów.
 
 *Metody*
 
@@ -267,7 +271,11 @@ Aby przetestować **żarówka** typu urządzenia, należy najpierw przetestować
 
 Do testowania i debugowania zmiany lokalnie, zobacz [omówienie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Konfigurowanie projektu, aby skopiować nowe **żarówka** plików urządzeń do katalogu wyjściowego.
+Konfigurowanie projektu, aby skopiować nowe **żarówka** plików urządzeń do katalogu wyjściowego:
+
+* Jeśli używasz programu Visual Studio, upewnij się, Dodaj trzy nowe pliki żarówka utworzony w poprzedniej sekcji, aby **usług** projektu w rozwiązaniu. Następnie użyj **Eksploratora rozwiązań** do oznaczania ich ma zostać skopiowany do katalogu wyjściowego.
+
+* Jeśli używasz programu Visual Studio Code, otwórz **Services.csproj** pliku, a następnie dodaj trzy nowe pliki żarówka utworzony w poprzedniej sekcji. Zobacz istniejące wpisy pliku modelu urządzenia w **Services.csproj** pliku jako przykłady.
 
 Aby przetestować nowe urządzenie w rozwiązaniu wdrożone, zobacz jedną z opcji:
 

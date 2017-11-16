@@ -1,6 +1,6 @@
 ---
-title: "Klastrowanie wystąpienia SCS SAP (A) w klastrze trybu Failover z systemem Windows przy użyciu klastra udostępniony dysk na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Klastrowanie wystąpienia SCS SAP (A) w klastrze trybu Failover z systemem Windows przy użyciu klastra udostępnionego dysku"
+title: "Klaster z wystąpieniem SAP ASCS/SCS w klastrze trybu failover systemu Windows na platformie Azure przy użyciu udostępnionego dysku klastra | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak klaster z wystąpieniem SAP ASCS/SCS klastra trybu failover z systemem Windows za pomocą udostępnionego dysku klastra."
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7706b6f0adce89775f1cb3cffb102510772a101
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d9eec2d28b436b97cbdaaf4e0e5f154a6ef15fe8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -185,92 +185,96 @@ ms.lasthandoff: 10/27/2017
 > ![Windows][Logo_Windows] Windows
 >
 
-# <a name="clustering-sap-ascs-instance-on-windows-failover-cluster-using-cluster-shared-disk-on-azure"></a>Klastrowanie wystąpienia SCS SAP (A) w klastrze trybu Failover z systemem Windows przy użyciu klastra udostępniony dysk na platformie Azure
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klaster SAP ASCS/SCS wystąpienia klastra trybu failover z systemem Windows przy użyciu udostępnionego dysku klastra w systemie Azure
 
-Windows Server Failover Clustering jest podstawą SAP ASCS/SCS instalacji wysokiej dostępności i bazami danych w systemie Windows.
+Klaster pracy awaryjnej systemu Windows Server jest podstawą SAP ASCS/SCS instalacji wysokiej dostępności i bazami danych w systemie Windows.
 
-Klaster trybu failover to grupa 1 + n niezależnych serwerów (węzłów), które współpracują ze sobą w celu zwiększenia dostępności aplikacji i usług. W przypadku awarii węzła usługi Windows Server Failover Clustering oblicza liczbę błędów, które mogą wystąpić przy zachowaniu dobrej kondycji klastra zapewnienie aplikacji i usług. Istnieje możliwość z kworum różne tryby osiągnięcia klastra trybu failover.
+Klaster trybu failover to grupa 1 + n niezależnych serwerów (węzłów), które współpracują ze sobą w celu zwiększenia dostępności aplikacji i usług. W przypadku awarii węzła klastra trybu failover systemu Windows Server oblicza liczbę błędów, które mogą wystąpić i zachować dobrej kondycji klastra zapewnienie aplikacji i usług. Istnieje możliwość z kworum różne tryby osiągnięcia klastra trybu failover.
 
-## <a name="prerequisite"></a>Wymagania wstępne
-Upewnij się przejrzeć te dokumenty przed rozpoczęciem o tym dokumencie:
+## <a name="prerequisites"></a>Wymagania wstępne
+Przed rozpoczęciem zadań w tym artykule, przejrzyj następujący artykuł:
 
-* [Architektura wysoką dostępność maszyn wirtualnych platformy Azure i scenariusze dla programu SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
-
-## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server awaryjnej na platformie Azure
-
-W porównaniu do bez systemu operacyjnego wdrożenia kompletnego stanu lub prywatnej chmury, maszyn wirtualnych Azure wymaga wykonania dodatkowych kroków do skonfigurowania klastra trybu Failover systemu Windows Server. Podczas tworzenia klastra, należy ustawić kilka adresów IP i nazwy hostów wirtualnych dla wystąpienia programu SAP ASCS/SCS.
-
-### <a name="name-resolution-in-azure-and-cluster-virtual-host-name"></a>Rozpoznawanie nazw w Azure i klastrem nazwy hostów wirtualnych
-
-Chmury Azure platforma nie oferuje opcję, aby skonfigurować wirtualne adresy IP, takie jak adresy IP zmiennoprzecinkowych. Należy rozwiązań alternatywnych, aby skonfigurować wirtualny adres IP do zasobu klastra w chmurze. Platforma Azure ma **wewnętrznego modułu równoważenia obciążenia** w usłudze równoważenia obciążenia Azure. Wewnętrzne usługi równoważenia obciążenia klientów osiągnąć klastra za pośrednictwem wirtualnego adresu IP klastra. Należy wdrożyć wewnętrznego modułu równoważenia obciążenia w grupie zasobów, która zawiera węzły klastra. Następnie należy skonfigurować wszystkie niezbędne portu przekazywania reguły z badaniem porty wewnętrznego modułu równoważenia obciążenia. Klienci mogą łączyć się za pomocą nazwy hostów wirtualnych. Serwer DNS rozpoznaje adres IP klastra, a port dojść modułu równoważenia obciążenia wewnętrznego przekazywania do aktywnego węzła klastra.
-
-![Rysunek 1: Windows Server Failover Clustering konfiguracji platformy Azure bez udostępnionego dysku][sap-ha-guide-figure-1001]
-
-_**Rysunek 1.** Windows Server Failover Clustering konfiguracji na platformie Azure, bez udostępnionego dysku_
-
-### <a name="sap-ascs-ha-with-cluster-shared-disks"></a>HA SCS SAP (A) z klastrem udostępnione dyski
-Na **Windows**, **SAP (A) SCS** wystąpienie zawiera nie tylko **usługi centralnej SAP**, **serwer komunikatów SAP**, i  **procesy serwera umieścić**, ale także **hosta globalne SAP** pliki używane do przechowywania plików centralnej dla całego systemu SAP.
-
-W związku z tym mamy następujące dwa składniki wystąpienia SCS SAP (A):
-
-* **Usługi centralnej SAP** z:
-    * Dwa **procesów**, wiadomość i umieścić w kolejce serwera, i **< () SCSVirtualHostName >** umożliwiają dostęp do tych dwóch procesów
-    * **Struktura pliku** S:\usr\sap\\&lt;SID&gt;\(A) SCS<InstanceNumber>
+* [Scenariusze dla programu SAP NetWeaver i Azure architektura wysokiej dostępności maszyny wirtualnej][sap-high-availability-architecture-scenarios]
 
 
-* **GLOBALNE hosta SAP** pliki z **udziału plików sapmnt**:
-    * **Struktura pliku** S:\usr\sap\\&lt;SID&gt;\SYS\....
-    * **udział plików sapmnt**, które umożliwia dostęp do tych globalne S:\usr\sap\\&lt;identyfikatora SID&gt;\SYS\.. pliki przy użyciu ścieżki UNC:
+## <a name="windows-server-failover-clustering-in-azure"></a>Awaryjnej systemu Windows Server na platformie Azure
 
-     \\\\< () SCSVirtualHostName > \sapmnt\\&lt;SID&gt;\SYS\....
+W porównaniu do wdrożenia bez systemu operacyjnego lub prywatnej chmury, maszynach wirtualnych platformy Azure wymaga dodatkowych kroków, aby skonfigurować klaster pracy awaryjnej systemu Windows Server. Podczas tworzenia klastra, należy ustawić kilka adresów IP i nazwy hostów wirtualnych dla wystąpienia programu SAP ASCS/SCS.
+
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Rozpoznawanie nazw w usłudze Azure i nazwę hosta wirtualnego klastra
+
+Chmury Azure platforma nie oferuje opcję, aby skonfigurować wirtualne adresy IP, takie jak adresy IP zmiennoprzecinkowych. Należy rozwiązań alternatywnych, aby skonfigurować wirtualny adres IP do zasobu klastra w chmurze. 
+
+Usługa równoważenia obciążenia Azure udostępnia *wewnętrznego modułu równoważenia obciążenia* dla platformy Azure. Z wewnętrznego modułu równoważenia obciążenia klienci osiągnąć klastra za pośrednictwem wirtualnego adresu IP klastra. 
+
+Wdróż wewnętrznego modułu równoważenia obciążenia w grupie zasobów, która zawiera węzły klastra. Następnie należy skonfigurować wszystkie niezbędne portu przekazywania reguł za pomocą sondy porty wewnętrznego modułu równoważenia obciążenia. Klienci mogą łączyć się za pomocą nazwy hostów wirtualnych. Serwer DNS rozpoznaje adres IP klastra, a port dojść modułu równoważenia obciążenia wewnętrznego przekazywania do aktywnego węzła klastra.
+
+![Rysunek 1: System Windows awaryjnej konfiguracji platformy Azure bez udostępnionego dysku][sap-ha-guide-figure-1001]
+
+_**Rysunek 1.** konfiguracji platformy Azure bez udostępnionego dysku awaryjnej systemu Windows Server_
+
+### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS HA z dyskami udostępnionego klastra
+W systemie Windows z wystąpieniem SAP ASCS/SCS zawiera usługi centralnej SAP, serwer komunikatów SAP, procesy serwera umieścić w kolejce i pliki globalne hosta SAP. Pliki globalne hosta SAP przechowywać pliki centralnej całego systemu SAP.
+
+Wystąpienie programu SAP ASCS/SCS zawiera następujące składniki:
+
+* SAP centralnej usługi:
+    * Dwa procesy, wiadomości i umieścić serwer i < ASCS/SCS nazwa hosta wirtualnego >, która umożliwia dostęp do tych dwóch procesów.
+    * Plik struktury: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numer wystąpienia\>
 
 
-![Rysunek 2: Procesy struktury plików i udział plików sapmnt hosta GLOBALNEGO wystąpienia SCS SAP (A)][sap-ha-guide-figure-8001]
+* Pliki globalne hosta SAP:
+    * Plik struktury: S:\usr\sap\\&lt;SID&gt;\SYS\....
+    * Udział plików sapmnt, która umożliwia dostęp do tych globalne S:\usr\sap\\&lt;identyfikatora SID&gt;\SYS\... plików przy użyciu następującej ścieżki UNC:
 
-_**Rysunek 2.** procesów, struktury plików i udziały plików sapmnt hosta GLOBALNEGO wystąpienia SCS SAP (A)_
+     \\\\< nazwa hosta wirtualnego ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\....
 
-W ustawieniach wysokiej dostępności, możemy są klastrowanie wystąpień SCS SAP (A). Używamy **udostępnionych dysków w klastrze** (dysk S:\ w naszym przykładzie), należy umieścić pliki SAP (A) SCS i SAP globalne hosta.
 
-![Rysunek 3: SAP () SCS HA architektury z udostępnionego dysku][sap-ha-guide-figure-8002]
+![Rysunek 2: Procesy, struktury plików i udziały plików sapmnt hosta globalnego wystąpienia SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Rysunek 3.** SAP () SCS HA architektury z udostępnionego dysku_
+_**Rysunek 2.** procesów, struktury plików i udziały plików sapmnt hosta globalnego wystąpienia SAP ASCS/SCS_
+
+W ustawieniach wysokiej dostępności, należy umieścić w klastrze SAP ASCS/SCS wystąpień. Używamy *udostępnionych dysków w klastrze* (dysk S, w tym przykładzie), umieścić ASCS/SCS programu SAP i SAP globalnej obsługi plików.
+
+![Rysunek 3: SAP ASCS/SCS HA architektury z udostępnionego dysku][sap-ha-guide-figure-8002]
+
+_**Rysunek 3.** architektury SAP ASCS/SCS HA z udostępnionego dysku_
 
 > [!IMPORTANT]
->Ponieważ te dwa składniki uruchamiane w ramach tego samego wystąpienia SCS SAP (A):
->* Taki sam **< () SCSVirtualHostName >** służy do komunikatu SAP dostępu i umieścić w kolejce procesy serwera, a także pliki SAP globalne hosta za pośrednictwem udziału plików sapmnt.
->* Taki sam **klastra udostępnionego dysku S:\**  jest udostępniana między nimi
+> Uruchom te dwa składniki w ramach tego samego wystąpienia SAP ASCS/SCS:
+>* < ASCS/SCS host wirtualny nazwę > służy dostępu do procesów SAP komunikat i umieścić w kolejce serwera i SAP pliki globalne hosta za pośrednictwem udziału plików sapmnt.
+>* Tego samego klastra udostępnionego dysku, który S jest udostępniana między nimi.
 >
 
 
-![Rysunek 4: SAP () SCS HA architektury z udostępnionego dysku][sap-ha-guide-figure-8003]
+![Rysunek 4: SAP ASCS/SCS HA architektury z udostępnionego dysku][sap-ha-guide-figure-8003]
 
-_**Rysunek 4:** SAP () SCS HA architektury z udostępnionego dysku_
+_**Rysunek 4:** architektury SAP ASCS/SCS HA z udostępnionego dysku_
 
-### <a name="shared-disk-in-azure-with-sios-datakeeper"></a>Udostępniony dysk na platformie Azure z SIOS DataKeeper
+### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Udostępnione dyski na platformie Azure SIOS DataKeeper
 
 Należy klastra magazynu udostępnionego dla wystąpienia programu SAP ASCS/SCS wysokiej dostępności.
 
 Oprogramowanie innych firm SIOS DataKeeper Cluster Edition umożliwia utworzenie magazynu dublowanej, która symuluje magazyn udostępniony klastra. Rozwiązanie SIOS zapewnia Replikacja synchroniczna danych w czasie rzeczywistym.
 
-Można utworzyć zasobu udostępnionego dysku klastra, wykonaj następujące czynności:
+Aby utworzyć zasób udostępnionego dysku dla klastra:
 
-1. Dodatkowy dysk należy dołączyć do poszczególnych maszyn wirtualnych (VM) w konfiguracji klastra systemu Windows.
+1. Dodatkowy dysk należy dołączyć do każdej maszyny wirtualnej w konfiguracji klastra systemu Windows.
 2. Uruchamianie SIOS DataKeeper Cluster Edition w obu węzłach maszyny wirtualnej.
-3. Skonfiguruj SIOS DataKeeper Cluster Edition, aby go odzwierciedla zawartość woluminu dodatkowy dysk dołączony ze źródłowej maszyny wirtualnej, aby wielkość dodatkowy dysk dołączony docelowej maszyny wirtualnej. SIOS DataKeeper abstracts lokalnych woluminów źródłowych i docelowych, a następnie je do systemu Windows Server Failover Clustering jako jeden dysk udostępniony.
+3. Skonfiguruj SIOS DataKeeper Cluster Edition, aby go odzwierciedla zawartość woluminu dodatkowy dysk dołączony ze źródłowej maszyny wirtualnej, aby wielkość dodatkowy dysk dołączony docelowej maszyny wirtualnej. SIOS DataKeeper abstracts lokalnych woluminów źródłowych i docelowych, a następnie je do trybu failover systemu Windows Server klastrowanie jako jeden dysk udostępniony.
 
 Uzyskaj więcej informacji [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Rysunek 5: Konfiguracja systemu Windows Server Failover Clustering na platformie Azure z SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Rysunek 5: Windows Server awaryjnej konfiguracji platformy Azure z SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Rysunek 5.** konfiguracji klastra trybu Failover systemu Windows Server na platformie Azure z SIOS DataKeeper_
+_**Rysunek 5.** konfiguracji platformy Azure z SIOS DataKeeper awaryjnej systemu Windows_
 
 > [!NOTE]
-> Nie potrzebujesz wysokiej dostępności z niektórych produktów, bazami danych, takich jak SQL Server udostępnione dyski. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika z lokalnego dysku jednego węzła klastra na lokalny dysk innego węzła klastra. W takim przypadku konfiguracji klastra systemu Windows nie wymaga udostępnionego dysku.
+> Nie potrzebujesz wysokiej dostępności z niektórych produktów, bazami danych, takich jak SQL Server udostępnione dyski. SQL Server AlwaysOn replikuje plików danych i dziennika systemu DBMS z lokalnego dysku jednego węzła klastra na lokalny dysk innego węzła klastra. W takim przypadku konfiguracji klastra systemu Windows nie wymaga udostępnionego dysku.
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Azure przygotowanie infrastruktury do programu SAP HA przy użyciu klastra trybu Failover systemu Windows i udostępnionego dysku dla wystąpienia SCS SAP (A)][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Przygotowanie infrastruktury platformy Azure dla programu SAP HA za pomocą klastra pracy awaryjnej systemu Windows i udostępnionego dysku dla wystąpienia programu SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [SAP NetWeaver HA instalacji klastra pracy awaryjnej systemu Windows i udostępnionego dysku dla wystąpienia SCS SAP (A)][sap-high-availability-installation-wsfc-shared-disk]
+* [Instalowanie programu SAP NetWeaver HA klastra pracy awaryjnej systemu Windows i udostępnionego dysku dla wystąpienia programu SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

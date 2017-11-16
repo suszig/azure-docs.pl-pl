@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Zabezpieczeń w usłudze Azure Data Lake Store
 Wiele przedsiębiorstw są korzystanie z analizy danych big data szczegółowe informacje biznesowe ułatwić im podejmowanie decyzji inteligentne. Organizacja może mieć środowisko złożone i podlegającymi ochronie, z coraz większa liczba różnych użytkowników. Jest ważne dla organizacji upewnić się, że ważnych danych biznesowych jest bezpieczniejsza, przechowywane z odpowiedniego poziomu udzielono dostępu do poszczególnych użytkowników. Azure Data Lake Store ułatwia spełnia te wymagania dotyczące zabezpieczeń. W tym artykule, więcej informacji na temat funkcji zabezpieczeń w usłudze Data Lake Store, w tym:
@@ -56,7 +56,7 @@ Należy pamiętać, że chociaż role są przypisane do zarządzania kontami, ni
 | --- | --- | --- | --- |
 | Nie przypisanej roli. |Brak |Wystawianych przez listy kontroli dostępu |Użytkownik nie można użyć portalu Azure lub poleceń cmdlet programu Azure PowerShell, aby przeglądać usługi Data Lake Store. Użytkownik może użyć tylko narzędzia wiersza polecenia. |
 | Właściciel |Wszystkie |Wszystkie |Rola właściciela jest administratora. Tej roli mogą zarządzać wszystkim i ma pełny dostęp do danych. |
-| Czytelnik |tylko do odczytu |Wystawianych przez listy kontroli dostępu |Rolę czytelnika mogą przeglądać wszystko dotyczące zarządzania kontami, takie jak użytkownik jest przypisany do roli. Rolę czytelnika nie wprowadzać zmian. |
+| Czytelnik |Tylko do odczytu |Wystawianych przez listy kontroli dostępu |Rolę czytelnika mogą przeglądać wszystko dotyczące zarządzania kontami, takie jak użytkownik jest przypisany do roli. Rolę czytelnika nie wprowadzać zmian. |
 | Współautor |Wszystkie z wyjątkiem dodawania i usuwania ról |Wystawianych przez listy kontroli dostępu |Rola współautora można zarządzać niektórych aspektów konta, takich jak wdrożenia i tworzenie i Zarządzanie alertami. Rola współautora nie można dodać lub usunąć role. |
 | Administrator dostępu użytkowników |Dodawanie i usuwanie ról |Wystawianych przez listy kontroli dostępu |Rola Administrator dostępu użytkowników można zarządzać użytkownikowi dostęp do konta. |
 
@@ -65,7 +65,7 @@ Aby uzyskać instrukcje, zobacz [przypisać użytkowników lub grup zabezpiecze�
 ### <a name="using-acls-for-operations-on-file-systems"></a>Przy użyciu listy ACL dla operacji w systemach plików
 Data Lake Store jest systemem plików hierarchiczna jak Hadoop Distributed pliku System (HDFS) i obsługuje [listy ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Kontroluje odczytu (r), zapisu (w) i wykonywania (x) uprawnienia do zasobów dla właściciela roli, grupy Właściciele i dla innych użytkowników i grup. W publicznej wersji zapoznawczej usługi Data Lake Store (bieżąca wersja) listy ACL można włączyć w folderze głównym, podfolderach i w poszczególnych plikach. Aby uzyskać więcej informacji na temat sposobu działania list kontroli dostępu w kontekście usługi Data Lake Store, zobacz [Kontrola dostępu w usłudze Data Lake Store](data-lake-store-access-control.md).
 
-Firma Microsoft zaleca definiować listy ACL dla wielu użytkowników za pomocą [grup zabezpieczeń](../active-directory/active-directory-accessmanagement-manage-groups.md). Dodawanie użytkowników do grupy zabezpieczeń, a następnie przypisz list ACL dla pliku lub folderu do tej grupy zabezpieczeń. Jest to przydatne, gdy chcesz zapewnić dostęp niestandardowy, ponieważ jest ograniczona do dodawania maksymalnie dziewięć wpisy dla niestandardowych dostępu. Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć dane przechowywane w usłudze Data Lake Store przy użyciu grup zabezpieczeń usługi Azure Active Directory, zobacz [Przypisz użytkowników lub grupy zabezpieczeń jako listy kontroli dostępu w systemie plików usługi Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Firma Microsoft zaleca definiować listy ACL dla wielu użytkowników za pomocą [grup zabezpieczeń](../active-directory/active-directory-groups-create-azure-portal.md). Dodawanie użytkowników do grupy zabezpieczeń, a następnie przypisz list ACL dla pliku lub folderu do tej grupy zabezpieczeń. Jest to przydatne, gdy chcesz zapewnić dostęp niestandardowy, ponieważ jest ograniczona do dodawania maksymalnie dziewięć wpisy dla niestandardowych dostępu. Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć dane przechowywane w usłudze Data Lake Store przy użyciu grup zabezpieczeń usługi Azure Active Directory, zobacz [Przypisz użytkowników lub grupy zabezpieczeń jako listy kontroli dostępu w systemie plików usługi Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
 ![Lista dostępu standardowe i niestandardowe](./media/data-lake-store-security-overview/adl.acl.2.png "listy dostępu standardowe i niestandardowe")
 

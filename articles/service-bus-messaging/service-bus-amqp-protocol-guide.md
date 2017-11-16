@@ -20,13 +20,13 @@ ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/09/2017
 ---
-# Protokołu AMQP 1.0 w przewodniku protokołu usługi Azure Service Bus i usługi Event Hubs
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Protokołu AMQP 1.0 w przewodniku protokołu usługi Azure Service Bus i usługi Event Hubs
 
 1.0 protokołu zaawansowane usługi kolejkowania komunikatów jest standardowe protokoły ramek i transfer asynchronicznie, bezpiecznego i niezawodnego przesyłania komunikatów między dwiema stronami. Jest podstawowy protokół Azure Service Bus Messaging i usługi Azure Event Hubs. Obie te usługi również obsługuje protokół HTTPS. Zastrzeżonym protokołem SBMP, który jest również obsługiwany jest obecnie wycofywane na rzecz protokołu AMQP.
 
 Protokołu AMQP 1.0 jest wynikiem współpraca z branży szerokie zgromadzone dostawców oprogramowania pośredniczącego, takie jak Microsoft i Red Hat z wieloma użytkownikami oprogramowanie pośredniczące obsługi wiadomości, takie jak Morgan Chase JP reprezentujący branży usług finansowych. Forum normalizacji techniczne dla specyfikacji protokołu i rozszerzenie protokołu AMQP jest OASIS i został osiągnięty posiadanie zatwierdzania międzynarodowe standardem ISO/IEC 19494.
 
-## Cele
+## <a name="goals"></a>Cele
 
 W tym artykule krótko zawiera podsumowanie podstawowych pojęciach protokołu AMQP 1.0 wiadomości specyfikacji wraz z zestawem małych specyfikacji rozszerzenia projektu, które są aktualnie zatwierdzony w Komisji techniczne OASIS AMQP oraz wyjaśniono, jak usługi Azure Service Bus implementuje i tworzy z tymi specyfikacjami.
 
@@ -38,7 +38,7 @@ W poniższych kwestii przyjęto założenie, zarządzania połączenia protokoł
 
 Omawiając zaawansowanych możliwości usługi Azure Service Bus, takich jak przeglądanie wiadomości lub zarządzania sesjami, te funkcje zostały omówione w kategoriach protokołu AMQP, ale także jako warstwowych pseudo-implementacji u góry tego zakładanego abstrakcji interfejsu API.
 
-## Co to jest AMQP?
+## <a name="what-is-amqp"></a>Co to jest AMQP?
 
 Protokół AMQP jest protokołem ramek i transferu. Ramek oznacza zawiera struktury, dla strumieni danych binarnych, które wpływają w żadnym kierunku połączenia sieciowego. Struktura zapewnia nakreślenia różne bloków danych o nazwie *ramki*, aby być wymieniane między połączonych stron. Możliwości transferu upewnij się, ustanowić udostępnione opis o kiedy ramki są przekazywane, a podczas transferów uznaje się pełną zarówno komunikującymi się Stronami.
 
@@ -48,13 +48,13 @@ Protokół może służyć do symetrycznego komunikacji peer-to-peer, interakcji
 
 Protokół AMQP 1.0 ma być rozszerzalny, umożliwiające dalsze specyfikacje w celu zwiększenia jego możliwości. Specyfikacje trzy rozszerzenia omówiony w niniejszym dokumencie ilustrację. Do komunikacji w ramach istniejącej infrastruktury protokołu HTTPS/Websocket, gdzie Konfigurowanie portów TCP protokołu AMQP natywnych może być trudne Specyfikacja powiązania definiuje sposób warstwy protokołu AMQP przez protokół WebSockets. Do interakcji z infrastrukturą obsługi wiadomości w czasie żądania/odpowiedzi do celów zarządzania lub w celu zapewnienia zaawansowanych funkcji, specyfikacji protokołu AMQP zarządzania definiuje wymagana interakcja podstawowe w nim elementów podstawowych. Integracji modelu autoryzacji federacyjnych Specyfikacja oświadczenia na podstawie zabezpieczeń protokołu AMQP definiuje sposób skojarzenia i odnawiania tokenów autoryzacji skojarzone z łącza.
 
-## Podstawowe scenariusze protokołu AMQP
+## <a name="basic-amqp-scenarios"></a>Podstawowe scenariusze protokołu AMQP
 
 W tej sekcji opisano podstawowe sposoby użycia protokołu AMQP 1.0 z usługi Azure Service Bus, w tym tworzenie połączeń, sesje i linki i transferu wiadomości do i z jednostek usługi Service Bus, takich jak kolejki, tematy i subskrypcje.
 
 Specyfikacja protokołu AMQP 1.0 jest najczęściej wiarygodne źródło, aby dowiedzieć się więcej na temat działania protokołu AMQP, ale specyfikację zostało zapisane dokładnie Przewodnik wdrożenia, a nie uczy protokołu. W tej sekcji koncentruje się na wprowadzenie tyle terminologii zgodnie z potrzebami dla opisujące, jak Usługa Service Bus używa protokołu AMQP 1.0. Aby uzyskać bardziej obszerne protokołu AMQP, a także szersze omówienie protokołu AMQP 1.0, możesz przejrzeć [tego kursu wideo][this video course].
 
-### Połączenia i sesji
+### <a name="connections-and-sessions"></a>Połączenia i sesji
 
 Protokół AMQP wymaga komunikacji programy *kontenery*; te zawierają *węzłów*, które są jednostkami komunikacji wewnątrz tych kontenerach. Kolejki mogą być takie węzła. Protokół AMQP umożliwia Multipleksowanie, dzięki pojedynczego połączenia mogą być używane dla wielu ścieżek komunikacji między węzłami. na przykład jednocześnie klienta aplikacji otrzymywać jednej kolejki i wysyłanie do innej kolejki przez to samo połączenie sieciowe.
 
@@ -81,7 +81,7 @@ Obecnie usługa Azure Service Bus używa dokładnie jednej sesji dla każdego po
 
 Połączenia, kanałów i sesje są tymczasowych. Jeśli połączenie podstawowe zwija połączeń, musi przywróciła tunelu TLS, kontekst autoryzacji SASL i sesji.
 
-### Linki
+### <a name="links"></a>Linki
 
 Protokół AMQP przesyła komunikaty za pośrednictwem łącza. Łącze jest ścieżką komunikacji utworzonych w sesji, która umożliwia przesyłania komunikatów w jednym kierunku; Negocjowanie stanu transferu jest za pośrednictwem łącza i dwukierunkową między stronami połączonych.
 
@@ -97,7 +97,7 @@ W usłudze Service Bus węzła odpowiada bezpośrednio kolejki, tematu, subskryp
 
 Klient nawiązujący połączenie jest również wymagane do używania nazwy węzła lokalnego do tworzenia łączy; Magistrala usług nie jest przetestowanego o te nazwy węzła i nie zinterpretowane. Stosy klienta protokołu AMQP 1.0 zazwyczaj korzystają ze schematu aby mieć pewność, które te nazwy węzłów tymczasowych są unikatowe w zakresie klienta.
 
-### Transfery
+### <a name="transfers"></a>Transfery
 
 Po ustanowieniu łącza można przesyłać komunikaty za pośrednictwem tego łącza. W protokołu AMQP, transfer jest wykonywane z gestów jawne protokołu ( *transferu* performative) który przenosi wiadomości od nadawcy do odbiorcy za pośrednictwem łącza. Przeniesienie została ukończona, gdy jej "rozliczenia", co oznacza, że obie strony zostało ustanowione udostępnionego zrozumienia wyniku tego przeniesienia.
 
@@ -117,7 +117,7 @@ W efekcie usługi Service Bus i usługi Event Hubs obsługuje "co najmniej raz" 
 
 Kompensacji możliwy duplikat wysyła, Usługa Service Bus obsługuje wykrywania duplikatów jako opcjonalna funkcja w kolejek i tematów. Wykrywanie duplikatów rejestruje identyfikatory komunikat komunikaty przychodzące w oknie czasu zdefiniowanych przez użytkownika, a następnie dyskretnie porzuca wszystkie wiadomości wysyłane z takich samych identyfikatorów wiadomości w tym samym oknie.
 
-### Przepływ sterowania
+### <a name="flow-control"></a>Przepływ sterowania
 
 Oprócz model kontroli przepływu na poziomie sesji wspomnianej wcześniej każde łącze ma własną model kontroli przepływu. Sterowanie przepływem poziomu sesji uniemożliwia konieczności obsługi zbyt wiele ramek na po sterowanie przepływem na poziomie łącza umieszcza aplikacji odpowiedzialnym za liczbę komunikatów, które chce obsługiwać z łącza, a gdy kontenera.
 
@@ -141,49 +141,49 @@ Podsumowując w poniższych sekcjach schematyczny omówienie przepływu performa
 
 Strzałki w poniższej tabeli oznaczają kierunek przepływu performative.
 
-#### Tworzenie odbiornika wiadomości
+#### <a name="create-message-receiver"></a>Tworzenie odbiornika wiadomości
 
 | Klient | Service Bus |
 | --- | --- |
 | --> dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**odbiornika**,<br/>Źródło = {nazwa jednostki}<br/>docelowy = {identyfikator klienta link}<br/>) |Klient dołącza do jednostki jako odbiornik |
 | Dołączanie jej końcu łącza odpowiedzi usługi Service Bus |<--dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**nadawcy**,<br/>Źródło = {nazwa jednostki}<br/>docelowy = {identyfikator klienta link}<br/>) |
 
-#### Tworzenie nadawcy wiadomości
+#### <a name="create-message-sender"></a>Tworzenie nadawcy wiadomości
 
 | Klient | Service Bus |
 | --- | --- |
 | --> dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**nadawcy**,<br/>Źródło = {klienta łącza id}<br/>docelowy = {nazwa jednostki}<br/>) |Żadna akcja ze strony |
 | Żadna akcja ze strony |<--dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**odbiornika**,<br/>Źródło = {klienta łącza id}<br/>docelowy = {nazwa jednostki}<br/>) |
 
-#### Tworzenie nadawcy wiadomości (błąd)
+#### <a name="create-message-sender-error"></a>Tworzenie nadawcy wiadomości (błąd)
 
 | Klient | Service Bus |
 | --- | --- |
 | --> dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**nadawcy**,<br/>Źródło = {klienta łącza id}<br/>docelowy = {nazwa jednostki}<br/>) |Żadna akcja ze strony |
 | Żadna akcja ze strony |<--dołączyć ()<br/>Nazwa = {Nazwa łącza}<br/>Obsługa = {dojścia liczbowych},<br/>Rola =**odbiornika**,<br/>Źródło o wartości null,<br/>docelowy = null<br/>)<br/><br/><--odłączyć ()<br/>Obsługa = {dojścia liczbowych},<br/>zamknięte =**true**,<br/>błąd = {informacje o błędzie}<br/>) |
 
-#### Komunikat o zamykaniu odbiornik/nadawcy
+#### <a name="close-message-receiversender"></a>Komunikat o zamykaniu odbiornik/nadawcy
 
 | Klient | Service Bus |
 | --- | --- |
 | --> odłączyć ()<br/>Obsługa = {dojścia liczbowych},<br/>zamknięte =**true**<br/>) |Żadna akcja ze strony |
 | Żadna akcja ze strony |<--odłączyć ()<br/>Obsługa = {dojścia liczbowych},<br/>zamknięte =**true**<br/>) |
 
-#### Wyślij (Powodzenie)
+#### <a name="send-success"></a>Wyślij (Powodzenie)
 
 | Klient | Service Bus |
 | --- | --- |
 | --> transfer (<br/>Identyfikator dostawy = {dojścia liczbowych},<br/>tag dostarczania = {binary dojścia}<br/>rozliczenia =**false**,, więcej =**false**,<br/>Stan =**null**,<br/>Wznów =**false**<br/>) |Żadna akcja ze strony |
 | Żadna akcja ze strony |<--(dyspozycji<br/>Rola odbiornik,<br/>najpierw = {identyfikator dostawy}<br/>ostatnio = {identyfikator dostawy}<br/>rozliczenia =**true**,<br/>Stan =**zaakceptowane**<br/>) |
 
-#### Wyślij (błąd)
+#### <a name="send-error"></a>Wyślij (błąd)
 
 | Klient | Service Bus |
 | --- | --- |
 | --> transfer (<br/>Identyfikator dostawy = {dojścia liczbowych},<br/>tag dostarczania = {binary dojścia}<br/>rozliczenia =**false**,, więcej =**false**,<br/>Stan =**null**,<br/>Wznów =**false**<br/>) |Żadna akcja ze strony |
 | Żadna akcja ze strony |<--(dyspozycji<br/>Rola odbiornik,<br/>najpierw = {identyfikator dostawy}<br/>ostatnio = {identyfikator dostawy}<br/>rozliczenia =**true**,<br/>Stan =**odrzucone**()<br/>błąd = {informacje o błędzie}<br/>)<br/>) |
 
-#### Receive
+#### <a name="receive"></a>Receive
 
 | Klient | Service Bus |
 | --- | --- |
@@ -191,7 +191,7 @@ Strzałki w poniższej tabeli oznaczają kierunek przepływu performative.
 | Żadna akcja ze strony |< transfer ()<br/>Identyfikator dostawy = {dojścia liczbowych},<br/>tag dostarczania = {binary dojścia}<br/>rozliczenia =**false**,<br/>więcej =**false**,<br/>Stan =**null**,<br/>Wznów =**false**<br/>) |
 | --> dyspozycji)<br/>Rola =**odbiornika**,<br/>najpierw = {identyfikator dostawy}<br/>ostatnio = {identyfikator dostawy}<br/>rozliczenia =**true**,<br/>Stan =**zaakceptowane**<br/>) |Żadna akcja ze strony |
 
-#### Odbieranie komunikatu wielu
+#### <a name="multi-message-receive"></a>Odbieranie komunikatu wielu
 
 | Klient | Service Bus |
 | --- | --- |
@@ -201,11 +201,11 @@ Strzałki w poniższej tabeli oznaczają kierunek przepływu performative.
 | Żadna akcja ze strony |< transfer ()<br/>Identyfikator dostawy = {dojścia liczbowych + 2},<br/>tag dostarczania = {binary dojścia}<br/>rozliczenia =**false**,<br/>więcej =**false**,<br/>Stan =**null**,<br/>Wznów =**false**<br/>) |
 | --> dyspozycji)<br/>Rola odbiornik,<br/>najpierw = {identyfikator dostawy}<br/>ostatnio = {identyfikator dostawy + 2},<br/>rozliczenia =**true**,<br/>Stan =**zaakceptowane**<br/>) |Żadna akcja ze strony |
 
-### Komunikaty
+### <a name="messages"></a>Komunikaty
 
 W poniższych sekcjach opisano właściwości z sekcji standardowy komunikat protokołu AMQP, które są używane przez usługi Service Bus oraz sposobu mapowania ich w zestawie interfejsu API usługi Service Bus.
 
-#### nagłówek
+#### <a name="header"></a>nagłówek
 
 | Nazwa pola | Sposób użycia | Nazwa interfejsu API |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ W poniższych sekcjach opisano właściwości z sekcji standardowy komunikat pro
 | pierwszy przejmującą |- |- |
 | Liczba dostarczania |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### properties
+#### <a name="properties"></a>properties
 
 | Nazwa pola | Sposób użycia | Nazwa interfejsu API |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ W poniższych sekcjach opisano właściwości z sekcji standardowy komunikat pro
 | grupy sekwencji |Licznik identyfikowanie Sekwencja względna liczba wiadomości w sesji. Ignorowane przez magistralę usług. |Nie jest dostępny za pośrednictwem interfejsu API usługi Service Bus. |
 | Odpowiedz do grupy identyfikator |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## Zaawansowane możliwości usługi Service Bus
+## <a name="advanced-service-bus-capabilities"></a>Zaawansowane możliwości usługi Service Bus
 
 W tej sekcji omówiono zaawansowanych możliwości usługi Azure Service Bus, które są oparte na wersji roboczej rozszerzeń protokołu AMQP, obecnie opracowywane w Komisji techniczne OASIS dla protokołu AMQP. Usługa Service Bus implementuje najnowsze wersje tych projektów i przyjmuje zmiany wprowadzone w jak te wersje robocze osiągnąć standardowych.
 
@@ -242,7 +242,7 @@ W tej sekcji omówiono zaawansowanych możliwości usługi Azure Service Bus, kt
 > 
 > 
 
-### Protokół AMQP zarządzania
+### <a name="amqp-management"></a>Protokół AMQP zarządzania
 
 Specyfikacja zarządzania AMQP jest pierwszy rozszerzenia projektu omówionych w tym artykule. Określenie tej wartości definiuje zestaw protokołów w warstwie ponad protokołu AMQP, które umożliwiają zarządzanie interakcji z infrastrukturą obsługi wiadomości za pośrednictwem protokołu AMQP. Specyfikacja definiuje ogólne operacje takie jak *utworzyć*, *odczytu*, *aktualizacji*, i *usunąć* zarządzania jednostek w infrastrukturze obsługi wiadomości i zestaw operacji zapytania.
 
@@ -263,7 +263,7 @@ Wymiany komunikatów protokołu zarządzania i do wszystkich protokołów, któr
 
 Usługi Service Bus nie zawiera obecnie implementacji funkcji podstawowych specyfikacji zarządzania, ale wzorzec żądań i odpowiedzi w specyfikacji zarządzania jest podstawowym dla funkcji oświadczenia na podstawie zabezpieczeń i prawie wszystkie zaawansowane funkcje omówione w poniższych sekcjach.
 
-### Autoryzacji opartej na oświadczeniach
+### <a name="claims-based-authorization"></a>Autoryzacji opartej na oświadczeniach
 
 Projekt specyfikacji protokołu AMQP oświadczeń — na podstawie-autoryzacji (CBS) oparty na wzorcu żądanie/odpowiedź specyfikacji zarządzania i opisano model uogólniony korzystania z protokołu AMQP tokenów zabezpieczeń.
 
@@ -316,7 +316,7 @@ Po nawiązaniu połączenia i sesji podłączania łącza do *$cbs* węzła i wy
 
 Klient jest następnie odpowiedzialny za rejestrowanie informacji o wygaśnięciu tokenu. Po wygaśnięciu tokenu usługi Service Bus niezwłocznie porzuca wszystkie linki połączenia na odpowiednie jednostki. Aby tego uniknąć, klienta można zastąpić token dla węzła nową w dowolnym momencie za pośrednictwem wirtualnej *$cbs* węzła zarządzania o tej samej *put token* gestu i bez pobierania kategoriach ruch ładunku w różnych łączy.
 
-## Następne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat protokołu AMQP, skorzystaj z następujących łączy:
 

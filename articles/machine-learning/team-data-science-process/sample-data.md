@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: e56c9e74c3413f8780295678273ea2ba06caad77
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Przykładowe dane w kontenerów obiektów blob platformy Azure, programu SQL Server i program Hive tabel
-Ten dokument linki do tematów, który opisano przykładowe dane, które są przechowywane w jednym z trzech różnych lokalizacji platformy Azure:
+Ten dokument łącza do artykułów, które opisano, jak przykładowe dane, które są przechowywane w jednym z trzech różnych miejscach Azure:
 
 * **Dane w kontenerze obiektów blob platformy Azure** jest próbkowany przez programowo ją pobrać i następnie pobierania próbek z przykładowy kod języka Python.
 * **Dane programu SQL Server** jest próbkować za pomocą programy SQL i język programowania Python. 

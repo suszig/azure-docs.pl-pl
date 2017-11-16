@@ -107,7 +107,7 @@
 ## [Rozliczenia](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Zasoby
-## [Limity przydziału i ograniczenia platformy Azure](../../azure-subscription-service-limits.md)
+## [Limity przydziału i ograniczenia platformy Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Regiony platformy Azure](https://azure.microsoft.com/regions/)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
