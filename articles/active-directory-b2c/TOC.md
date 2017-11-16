@@ -90,6 +90,7 @@
 ## Dokumentacja
 ### [Informacje o wersji](active-directory-b2c-developer-notes-custom.md)
 ### [Dostawcy sesji logowania jednokrotnego](active-directory-b2c-reference-sso-custom.md)
+### [Dostosowywanie języka](active-directory-b2c-language-customization-custom.md)
 ### [Definicja struktury zaufania](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Dokumentacja

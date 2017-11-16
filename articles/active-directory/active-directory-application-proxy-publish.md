@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19f52181a2847ab52029adac4d58e402a76d5f30
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -97,7 +97,7 @@ Aby usunąć aplikację, zaznacz ją na liście, a następnie kliknij polecenie 
 ## <a name="next-steps"></a>Następne kroki
 * [Publikowanie aplikacji przy użyciu własnej nazwy domeny](active-directory-application-proxy-custom-domains.md)
 * [Włączanie logowania jednokrotnego](active-directory-application-proxy-sso-using-kcd.md)
-* [Włączanie dostępu warunkowego](active-directory-application-proxy-conditional-access.md)
+* [Włączanie dostępu warunkowego](application-proxy-enable-remote-access-sharepoint.md)
 * [Praca z aplikacjami obsługującymi oświadczenia](active-directory-application-proxy-claims-aware-apps.md)
 
 Aby zapoznać się z najnowszymi informacjami i aktualizacjami, zobacz [blog dotyczący serwera proxy aplikacji](http://blogs.technet.com/b/applicationproxyblog/)

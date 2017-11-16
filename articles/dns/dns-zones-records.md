@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Przegląd stref DNS i rekordów
 
@@ -54,6 +54,16 @@ W usłudze Azure DNS czas wygaśnięcia jest określany dla zestawu rekordów, a
 Usługa DNS platformy Azure obsługuje [rekordy z użyciem symboli wieloznacznych](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Symbol wieloznaczny rekordów są zwracane w odpowiedzi na każde zapytanie o pasującej nazwie (chyba że istnieje lepsze dopasowanie pochodzące zestawu rekordów bez symboli wieloznacznych). Usługa DNS platformy Azure obsługuje zestawy rekordów z użyciem symboli wieloznacznych dla wszystkich typów rekordów z wyjątkiem NS i SOA.
 
 Aby utworzyć zestaw rekordów symboli wieloznacznych, użyj nazwy zestawu rekordów "\*". Można również również użyć nazwy z '\*"jako jego skrajnej lewej etykiecie, na przykład"\*.foo ".
+
+### <a name="caa-records"></a>Rejestruje CAA
+
+Rejestruje CAA Zezwalaj właścicieli domeny określić, które urzędy certyfikacji (CA) są autoryzowane do wystawiania certyfikatów dla danej domeny. Dzięki temu urzędy certyfikacji w celu uniknięcia źle wystawianie certyfikatów w pewnych okolicznościach. Rejestruje CAA ma trzy właściwości:
+* **Flagi**: jest liczbą całkowitą z zakresu od 0 do 255, używany do reprezentowania flagi stanu krytycznego, który ma specjalne znaczenie na [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tag**: ciąg ASCII, co może być jedną z następujących czynności:
+    * **problem**: Użyj, jeśli chcesz określić urzędów certyfikacji, które mogą wystawiać certyfikaty (wszystkie typy)
+    * **issuewild**: Użyj, jeśli chcesz określić urzędów certyfikacji, które mogą wystawiać certyfikaty (tylko certyfikaty symboli wieloznacznych)
+    * **iodef**: Określ adres e-mail lub nazwa hosta, do którego urzędy certyfikacji mogą wyświetlać powiadomienia dla nieautoryzowanych certyfikatów problem żądań
+* **Wartość**: wartość dla konkretnego znacznika wybranego
 
 ### <a name="cname-records"></a>Rekordy CNAME
 

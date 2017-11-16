@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web Java i MySQL na platformie Azure
 
@@ -397,7 +397,7 @@ Podczas odświeżania aplikacji, **tworzony** kolumny jest teraz widoczne. Podcz
 
 Podczas wykonywania aplikacji Java w usłudze Azure App Service można uzyskać dzienniki konsoli potoku bezpośrednio do terminalu. W ten sposób można uzyskać tego samego komunikaty diagnostyczne w celu ułatwienia debugowania błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dziennika, użyj [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/appservice/web/log#tail) polecenie w powłoce chmury.
+Aby rozpocząć przesyłanie strumieniowe dziennika, użyj [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) polecenie w powłoce chmury.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

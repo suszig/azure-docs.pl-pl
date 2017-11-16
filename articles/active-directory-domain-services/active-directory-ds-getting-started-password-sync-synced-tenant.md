@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: fb5e1e6f03c47afc8eba5f469a985a38c0e542d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b658bc91723c8384b91eb62e8506c82aa5112509
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Włączanie synchronizacji haseł w usługach Azure Active Directory Domain Services
 W poprzednich zadaniach włączono usługi Azure Active Directory Domain Services dla dzierżawy usługi Azure Active Directory (Azure AD). Kolejnym krokiem jest włączenie synchronizacji skrótów poświadczeń wymaganych do uwierzytelniania NT LAN Manager (NTLM) i Kerberos w usługach Azure AD Domain Services. Po skonfigurowaniu synchronizacji poświadczeń użytkownik może zalogować się do domeny zarządzanej przy użyciu poświadczeń firmowych.
@@ -62,7 +62,7 @@ Instrukcje dotyczące instalowania programu Azure AD Connect są dostępne w art
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Włączanie synchronizacji skrótów poświadczeń NTLM i Kerberos w usłudze Azure AD
 Uruchom następujący skrypt programu PowerShell w każdym lesie usługi AD. Skrypt włącza synchronizację skrótów haseł protokołów NTLM i Kerberos dla wszystkich użytkowników lokalnych z Twoją dzierżawą usługi Azure AD. Skrypt inicjuje również pełną synchronizację w programie Azure AD Connect.
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
 $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
 Import-Module adsync  

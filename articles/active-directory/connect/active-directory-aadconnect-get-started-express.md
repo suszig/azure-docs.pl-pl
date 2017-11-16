@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
 Użyj **ustawień ekspresowych** programu Azure AD Connect, jeśli używasz topologii z jednym lasem oraz [synchronizacji haseł](active-directory-aadconnectsync-implement-password-synchronization.md) na potrzeby uwierzytelniania. **Ustawienia ekspresowe** to opcja domyślna używana w przypadku najbardziej typowych scenariuszy wdrożenia. Wystarczy kilka kliknięć, aby rozszerzyć katalog lokalny do chmury.
@@ -39,7 +39,7 @@ Możesz zobaczyć te czynności w praktyce, korzystając z sekcji [Filmy wideo](
    ![Łączenie z usługą Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Jeśli wystąpi błąd lub problem z łącznością, zobacz [Rozwiązywanie problemów z łącznością](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Możesz wprowadzić domenę w formacie NetBios lub FQDN, czyli FABRIKAM\administrator lub fabrikam.com\administrator. Kliknij przycisk **Dalej**.  
    ![Łączenie z usługami AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Strona [**Konfiguracja logowania w usłudze Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) będzie wyświetlana tylko w przypadku, gdy nie ukończono [weryfikowania domen](../active-directory-add-domain.md) w ramach [wymagań wstępnych](active-directory-aadconnect-prerequisites.md).
+7. Strona [**Konfiguracja logowania w usłudze Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) będzie wyświetlana tylko w przypadku, gdy nie ukończono [weryfikowania domen](../active-directory-domains-add-azure-portal.md) w ramach [wymagań wstępnych](active-directory-aadconnect-prerequisites.md).
    ![Niezweryfikowane domeny](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
    Jeśli zobaczysz tę stronę, sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**. Upewnij się, że używane domeny zostały zweryfikowane w usłudze Azure AD. Po zweryfikowaniu domen kliknij symbol Odśwież.
 8. Na ekranie Wszystko gotowe do skonfigurowania kliknij pozycję **Zainstaluj**.

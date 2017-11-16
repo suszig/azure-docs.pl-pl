@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Należy wybrać usługi w chmurze lub coś innego?
 Usługi w chmurze Azure jest wybór dla Ciebie? Platforma Azure oferuje różne modele hostingu uruchamiania aplikacji. Każda z nich zapewnia inny zestaw usług, więc co wybierzesz zależy od tego, dokładnie co próbujesz wykonać.
@@ -43,14 +43,14 @@ Nie korzysta z usług IIS i uruchamia autonomiczny Twojej aplikacji.
 
 Prosta aplikacja może na przykład użyć tylko jednego rolę sieci web, obsługująca witryny sieci Web. Bardziej złożonych aplikacji może używać roli sieci web do obsługi żądań przychodzących od użytkowników, a następnie przekaż te żądania na rolę procesu roboczego do przetwarzania. (Można użyć tej komunikacji [usługi Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) lub [kolejek Azure](../storage/common/storage-introduction.md).)
 
-Jak sugeruje powyższej ilustracji, wszystkie maszyny wirtualne w jednej aplikacji uruchomić w tej samej usłudze w chmurze. Użytkownikom dostępu aplikacji za pomocą pojedynczego publicznego adresu IP, z żądaniami automatyczne ładowanie równoważone między maszynami wirtualnymi aplikacji. Platforma [skaluje i wdraża](cloud-services-how-to-scale.md) maszyn wirtualnych w aplikacji usługi w chmurze w taki sposób, który pozwala uniknąć pojedynczy punkt awarii sprzętowej.
+Jak sugeruje powyższej ilustracji, wszystkie maszyny wirtualne w jednej aplikacji uruchomić w tej samej usłudze w chmurze. Użytkownikom dostępu aplikacji za pomocą pojedynczego publicznego adresu IP, z żądaniami automatyczne ładowanie równoważone między maszynami wirtualnymi aplikacji. Platforma [skaluje i wdraża](cloud-services-how-to-scale-portal.md) maszyn wirtualnych w aplikacji usługi w chmurze w taki sposób, który pozwala uniknąć pojedynczy punkt awarii sprzętowej.
 
 Mimo że działają na maszynach wirtualnych jest pamiętać, że usługi w chmurze zapewnia PaaS, nie IaaS. W tym miejscu jest jednym ze sposobów można traktować go: Z IaaS, takich jak maszyny wirtualne Azure należy najpierw utworzyć i skonfigurować środowisko aplikacja działa w, a następnie wdrożyć aplikację w tym środowisku. Wszystko jest odpowiedzialny za zarządzanie znacznie tego world funkcji, takich jak wdrażanie nowych poprawioną wersji systemu operacyjnego w każdej maszyny Wirtualnej. W PaaS natomiast jest tak, jakby środowisko już istnieje. Wszystko, co należy zrobić, jest wdrażanie aplikacji. Zarządzanie platformy, którą jest uruchamiany na, takich jak wdrażanie nowej wersji systemu operacyjnego jest już obsługiwane.
 
 ## <a name="scaling-and-management"></a>Skalowanie i zarządzanie
 Usługi w chmurze nie Tworzenie maszyn wirtualnych. Zamiast tego Podaj pliku konfiguracji, który informuje Azure, ile ma się, takich jak **trzy wystąpienia ról sieci web** i **dwa wystąpienia roli procesu roboczego**, i platformy utworzy je.  Wybierz nadal [jaki rozmiar](cloud-services-sizes-specs.md) tych kopii maszyn wirtualnych powinny być, ale nie jawnie tworzyć je samodzielnie. Jeśli aplikacja musi obsługiwać większe obciążenie, może poprosić o więcej maszyn wirtualnych, a system Azure utworzy tych wystąpień. Jeśli zmniejsza obciążenie, można zamknąć te wystąpienia i Zatrzymaj płatności dla nich.
 
-Aplikacja usługi w chmurze jest zwykle udostępniane użytkownikom za pośrednictwem dwuetapowego procesu. Projektant pierwszy [przekazuje aplikacji](cloud-services-how-to-create-deploy.md) do obszaru przemieszczania platformy. Gdy Projektant jest gotowy do Utwórz aplikację na żywo, przejdą do portalu Azure można zamienić przemieszczania z produkcji. To [przełączanie między tymczasowych i produkcyjnych](cloud-services-nodejs-stage-application.md) może odbywać się bez przestojów, co pozwala uruchomionej aplikacji można uaktualnić do nowej wersji bez zakłócania jego użytkowników.
+Aplikacja usługi w chmurze jest zwykle udostępniane użytkownikom za pośrednictwem dwuetapowego procesu. Projektant pierwszy [przekazuje aplikacji](cloud-services-how-to-create-deploy-portal.md) do obszaru przemieszczania platformy. Gdy Projektant jest gotowy do Utwórz aplikację na żywo, przejdą do portalu Azure można zamienić przemieszczania z produkcji. To [przełączanie między tymczasowych i produkcyjnych](cloud-services-nodejs-stage-application.md) może odbywać się bez przestojów, co pozwala uruchomionej aplikacji można uaktualnić do nowej wersji bez zakłócania jego użytkowników.
 
 ## <a name="monitoring"></a>Monitorowanie
 Usługi w chmurze zapewnia również monitorowanie. Podobnie jak maszyny wirtualne Azure wykryje nie powiodło się serwerze fizycznym i ponowne uruchomienie maszyn wirtualnych, które były uruchomione na tym serwerze, na nowych komputerach. Jednak usługi w chmurze wykrywa również nie powiodło się maszyn wirtualnych i aplikacji, nie tylko na awarie sprzętowe. W przeciwieństwie do maszyn wirtualnych składa się z agentem wewnątrz każdej roli sieci web i proces roboczy, a więc jest w stanie uruchomić nowych maszyn wirtualnych i wystąpień aplikacji w przypadku wystąpienia awarii.
