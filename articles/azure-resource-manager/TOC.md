@@ -4,18 +4,10 @@
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
 ## [Rozszerzenia kodu VS dla szablonów](resource-manager-vscode-extension.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-
-# Przykłady
-## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Wdrażanie szablonu](resource-manager-samples-powershell-deploy.md)
-
-## Interfejs wiersza polecenia platformy Azure
-### [Wdrażanie szablonu](resource-manager-samples-cli-deploy.md)
 
 # Instrukcje
 ## Tworzenie szablonów
