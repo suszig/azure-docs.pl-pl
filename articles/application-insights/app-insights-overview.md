@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>Co to jest usługa Application Insights?
-Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji sieci Web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje ona zaawansowane narzędzia analityczne, dzięki którym możesz diagnozować problemy i zrozumieć sposób korzystania z aplikacji przez użytkowników.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i J2EE, hostowanych lokalnie lub w chmurze. Integruje się z procesu opracowywania oprogramowania, a ma punkty połączenia do różnych narzędzi programistycznych. Można go monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z Centrum programu Visual Studio Mobile i platforma HockeyApp.
+Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji sieci Web na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Obejmuje ona zaawansowane narzędzia analityczne, dzięki którym możesz diagnozować problemy i zrozumieć sposób korzystania z aplikacji przez użytkowników.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i J2EE, hostowanych lokalnie lub w chmurze. Integruje się z procesu opracowywania oprogramowania, a ma punkty połączenia do różnych narzędzi programistycznych. Można go monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z Centrum aplikacji programu Visual Studio i platforma HockeyApp.
 
 ![Udostępnia wykresy statystyki działań użytkownika lub przejście do szczegółów określonych zdarzeń.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Istnieje kilka sposobów, aby rozpocząć. Zacznij od tego, co najlepiej sprawdz
   * [Node.js](app-insights-nodejs.md)
   * [Inne platformy](app-insights-platforms.md)
 * **[Instrumentacja stron sieci Web](app-insights-javascript.md)** dla widoku strony, wywołań AJAX i innych telemetrii po stronie klienta.
-* **[Analizowanie użycia aplikacji mobilnej](app-insights-mobile-center-quickstart.md)**  dzięki integracji z programem Visual Studio Mobile Center.
+* **[Analizowanie użycia aplikacji mobilnej](app-insights-mobile-center-quickstart.md)**  dzięki integracji z programem Visual Studio aplikacji Center.
 * **[Testy dostępności](app-insights-monitor-web-app-availability.md)** — regularnie używaj polecenia ping dla witryny sieci Web z naszych serwerów.
 
 

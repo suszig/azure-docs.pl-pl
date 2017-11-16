@@ -1,5 +1,5 @@
 ---
-title: "Omówienie usługi Azure Cloud powłoki (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Omówienie powłoki chmury Azure | Dokumentacja firmy Microsoft"
 description: "Omówienie powłoki chmury Azure."
 services: 
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: juluk
-ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="overview-of-azure-cloud-shell-preview"></a>Omówienie powłoki chmury Azure (wersja zapoznawcza)
+# <a name="overview-of-azure-cloud-shell"></a>Omówienie powłoki w chmurze Azure
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
 Udostępnia było wybrać środowisko powłoki, który najlepiej odpowiada sposobu pracy.
 Użytkownicy systemu Linux mogą wybrać korzystanie z powłoki Bash, zaś użytkownicy systemu Windows mogą wybrać środowisko PowerShell.
@@ -33,7 +33,7 @@ Wykorzystanie Bash lub programu PowerShell z listy rozwijanej selektora powłoki
 
 ![Bash w powłoce chmury](media/overview/overview-bash-pic.png)
 
-![PowerShell w chmurze powłoki](media/overview/overview-ps-pic.png)
+![PowerShell w chmurze powłoki (wersja zapoznawcza)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Funkcje
 ### <a name="browser-based-shell-experience"></a>Środowisko powłoki przeglądarki
@@ -42,19 +42,22 @@ Zapewniają powłoki chmury wykorzystać do pracy autonomiczne z komputera lokal
 
 ### <a name="choice-of-preferred-shell-experience"></a>Wybór preferowanego powłoki środowisko
 Usługa Azure Cloud Shell zapewnia elastyczność wyboru powłoki, która najlepiej pasuje do sposobu, w jaki pracujesz.
-Użytkownicy systemu Linux mogą wybrać korzystanie z powłoki Bash, zaś użytkownicy systemu Windows mogą wybrać środowisko PowerShell.
+Użytkowników systemu Linux można wybrać opcję Bash w powłoce chmury podczas włączyć użytkowników systemu Windows dla programu PowerShell w chmurze powłoki (wersja zapoznawcza).
 
-### <a name="pre-configured-azure-workstation"></a>Wstępnie skonfigurowane Azure stacji roboczej
-Powłoki chmury jest wstępnie zainstalowane z popularnych narzędzi wiersza polecenia i język obsługuje, dzięki czemu można pracować szybciej.
+### <a name="authenticated-and-configured-azure-workstation"></a>Uwierzytelniony i skonfigurowane Azure stacji roboczej
+Chmury powłoki pochodzi zarządzanego przez firmę Microsoft, dzięki wstępnie zainstalować go z popularnych narzędzi wiersza polecenia i język obsługuje, dzięki czemu można pracować szybciej. Ponadto powłoki chmury bezpiecznie uwierzytelnia automatycznie dla natychmiastowy dostęp do zasobów za pomocą poleceń cmdlet Azure CLI w wersji 2.0 lub Azure PowerShell.
 
-Wyświetl listę narzędzi Pełny dla [Bash środowisko](features.md#tools) i [środowiska PowerShell.](features-powershell.md#tools)
+Wyświetl listę narzędzi Pełny dla [Bash środowisko](features.md#tools) i [środowiska PowerShell (wersja zapoznawcza).](features-powershell.md#tools)
 
-### <a name="automatic-authentication"></a>Automatyczne uwierzytelnianie
-Chmura powłoki bezpiecznie uwierzytelnia automatycznie w każdej sesji dla natychmiastowy dostęp do zasobów za pomocą poleceń cmdlet Azure CLI w wersji 2.0 lub Azure PowerShell.
+### <a name="multiple-access-points"></a>Wiele punktów dostępu
+Oprócz powłoki chmurze są dostępne w portalu Azure jest również dostępny od:
+* [Dokumentację platformy Azure "Wypróbuj" 2.0 interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Aplikacji mobilnej Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Rozszerzenie kodu programu Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-file-storage"></a>Łączenie z magazynem plików Azure
+### <a name="connect-your-azure-files-storage"></a>Łączenie z magazynem plików Azure
 Chmury maszyn powłoki są tymczasowe i w związku z tym wymagają udział plików Azure można zainstalować jako `clouddrive` do utrwalenia $Home katalogu.
-Na pierwszego uruchomienia powłoki chmury monituje o Utwórz zasób grupy, konto magazynu i udziału plików w Twoim imieniu. To jest jednorazowe kroku i być automatycznie dołączane do wszystkich sesji. Jeden udział pliku można zamapować i będzie używana przez Bash i programu PowerShell w chmurze powłoki.
+Na pierwszego uruchomienia powłoki chmury monituje o Utwórz zasób grupy, konto magazynu i udziału plików w Twoim imieniu. To jest jednorazowe kroku i być automatycznie dołączane do wszystkich sesji. Jeden udział pliku można zamapować i będzie używana przez Bash i programu PowerShell w chmurze powłoki (wersja zapoznawcza).
 
 #### <a name="create-new-storage"></a>Tworzenie nowego magazynu
 ![](media/overview/basic-storage.png)
@@ -86,18 +89,18 @@ Listę rozwijaną są filtrowane przypisany region powłoki w chmurze i kont/glo
 * Chmura powłoki przypisano na jednym komputerze na konto użytkownika
 * Uprawnienia zostały ustawione jako zwykłych użytkowników systemu Linux (Bash)
 
-Dowiedz się więcej o funkcjach [Bash w chmurze powłoki](features.md) i [programu PowerShell w chmurze powłoki](features-powershell.md).
+Dowiedz się więcej o funkcjach [Bash w chmurze powłoki](features.md) i [programu PowerShell w chmurze powłoki (wersja zapoznawcza)](features-powershell.md).
 
 ## <a name="examples"></a>Przykłady
 * Korzystanie ze skryptów do automatyzacji zadań zarządzania platformy Azure
 * Jednocześnie zarządzania zasobami Azure za pośrednictwem portalu Azure i narzędzi wiersza polecenia platformy Azure
 * Test-Drive poleceń cmdlet Azure CLI w wersji 2.0 lub Azure PowerShell
 
-Wypróbuj te przykłady w poradniki Szybki Start dla [Bash w chmurze powłoki](quickstart.md) i [programu PowerShell w chmurze powłoki](quickstart-powershell.md).
+Wypróbuj te przykłady w poradniki Szybki Start dla [Bash w chmurze powłoki](quickstart.md) i [programu PowerShell w chmurze powłoki (wersja zapoznawcza)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Cennik
 Komputer, na którym powłoki chmury jest wolne, wymaga wstępnie posiadania zainstalowany udział plików Azure. Koszty przechowywania regularne mają zastosowanie.
 
-## <a name="supported-browsers"></a>Obsługiwane przeglądarki
-Powłoka w chmurze jest zalecane Chrome, Edge i przeglądarki Safari.
-Powłoka chmury jest obsługiwana dla programu Chrome, Firefox Safari, IE i krawędzi, powłoki chmury podlega ustawieniom konkretnej przeglądarki.
+## <a name="next-steps"></a>Następne kroki
+[Bash w chmurze powłoki szybkiego startu](quickstart.md)
+[programu PowerShell w chmurze powłoki (wersja zapoznawcza) — Szybki Start](quickstart-powershell.md)

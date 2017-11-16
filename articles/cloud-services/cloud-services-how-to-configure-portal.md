@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Jak skonfigurować usługi w chmurze
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](cloud-services-how-to-configure-portal.md)
-> * [Klasyczna witryna Azure Portal](cloud-services-how-to-configure.md)
->
->
-
 Najczęściej używane ustawienia dla usługi w chmurze można skonfigurować w portalu Azure. Jeśli wolisz bezpośrednio aktualizować pliki konfiguracji, pobierz odpowiedni plik, a następnie przekaż jego zaktualizowaną wersję i zaktualizuj usługę w chmurze, wprowadzając zmiany w konfiguracji. W obu przypadkach aktualizacje konfiguracji są przekazywane do wszystkich wystąpień ról.
 
 Można również zarządzać wystąpień role usługi w chmurze lub pulpit zdalny do nich.
@@ -77,9 +71,9 @@ Zamiast **ustawienia** > **reguły alertów**, możesz kliknąć jeden z metryki
 W tym miejscu można dostosować wykres używane z kafelka lub dodać reguły alertów.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Ponowne uruchomienie komputera, odtworzenia z obrazu lub pulpitu zdalnego
-W tej chwili nie można skonfigurować przy użyciu pulpitu zdalnego **portalu Azure**. Jednak można skonfigurować go za pośrednictwem [klasycznego portalu Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), lub za pomocą [programu Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Możesz skonfigurować pulpitu zdalnego za pośrednictwem [portalu Azure (ustawienia pulpitu zdalnego)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), lub za pomocą [programu Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Najpierw kliknij w wystąpieniu usługi chmury.
+Ponowne uruchomienie, odtworzenia z obrazu lub zdalnego do usługi w chmurze, kliknij przycisk dla wystąpienia usługi w chmurze.
 
 ![Wystąpienie usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/18/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78bd45f7f71fd25e351d4e9b922a6a3f171437fd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Rozwiązywanie problemów dotyczących wdrożenia z wystąpień kontenera platformy Azure
 
-W tym artykule przedstawiono sposób rozwiązywania problemów w przypadku wdrażania kontenerów do wystąpień kontenera platformy Azure. Omówiono także niektóre typowe problemy, które może napotkać.
+W tym artykule przedstawiono sposób rozwiązywania problemów w przypadku wdrażania kontenerów do wystąpień kontenera platformy Azure. Omówiono także niektóre typowe problemy, które możesz napotkać.
 
-## <a name="getting-diagnostic-events"></a>Pobieranie zdarzeń diagnostycznych
+## <a name="get-diagnostic-events"></a>Zdarzenia diagnostyczne
 
 Aby wyświetlić dzienniki w kodzie aplikacji w kontenerze, można użyć [dzienniki kontenera az](/cli/azure/container#logs) polecenia. Jednak jeśli Twoje kontenera nie pomyślnie wdrożone, należy przejrzeć informacje diagnostyczne dostarczone przez dostawcę zasobów wystąpień kontenera platformy Azure. Aby wyświetlić zdarzenia z kontenera, uruchom następujące polecenie:
 
@@ -91,7 +91,7 @@ Dane wyjściowe zawiera właściwości core z kontenera, wraz z wdrożenia zdarz
 
 Istnieje kilka typowych problemów z tego konta dla większości błędy we wdrożeniu.
 
-### <a name="unable-to-pull-image"></a>Nie można ściągania obrazu
+## <a name="unable-to-pull-image"></a>Nie można ściągania obrazu
 
 W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azure ponowi próbę niektórych okres przed niepowodzeniem po pewnym czasie. Jeśli obraz nie może być pobierane, wyświetlane są zdarzenia podobne do następujących:
 
@@ -123,75 +123,54 @@ W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azu
 
 Aby rozwiązać, usunięcie kontenera i ponów próbę wdrożenia, płatności zamknięcie uwagi prawidłowo wpisana nazwa obrazu.
 
-### <a name="container-continually-exits-and-restarts"></a>Kontener stale kończy działanie i uruchamia ponownie
+## <a name="container-continually-exits-and-restarts"></a>Kontener stale kończy działanie i uruchamia ponownie
 
-Obecnie wystąpień kontenera Azure obsługuje tylko długotrwałe usług. Jeśli z kontenera uruchamia uzupełniania i wyjściach, automatycznie uruchamia ponownie i zostanie ponownie uruchomione. W takim przypadku zdarzeń, takich jak następujące po są wyświetlane. Należy pamiętać, że kontener uruchamia, a następnie szybko ponownego uruchomienia. Interfejs API wystąpień kontenera zawiera `retryCount` właściwość, która pokazuje, ile razy w określonym kontenerze została uruchomiona ponownie.
+Jeśli Twoje kontenera jest uruchamiane w celu ukończenia i automatyczne ponowne uruchomienie, może być konieczne ustawić [ponowne uruchomienie zasad](container-instances-restart-policy.md) z **OnFailure** lub **nigdy**. Jeśli określisz **OnFailure** i nadal Zobacz ciągłe ponowne uruchomienie, może wystąpić problem z aplikacją lub skrypt wykonywany w kontenerze sieci.
 
-```bash
-"events": [
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:55+00:00",
-    "lastTimestamp": "2017-08-03T22:23:22+00:00",
-    "message": "Pulling: pulling image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:23:23+00:00",
-    "message": "Pulled: Successfully pulled image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Created: Created container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Started: Started container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Created: Created container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Started: Started container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 13,
-    "firstTimestamp": "2017-08-03T22:21:59+00:00",
-    "lastTimestamp": "2017-08-03T22:24:36+00:00",
-    "message": "BackOff: Back-off restarting failed container",
-    "type": "Warning"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:22:13+00:00",
-    "lastTimestamp": "2017-08-03T22:22:13+00:00",
-    "message": "Created: Created container with id 72e347e891290e238135e4a6b3078748ca25a1275dbbff30d8d214f026d89220",
-    "type": "Normal"
-  },
-  ...
+Interfejs API wystąpień kontenera zawiera `restartCount` właściwości. Aby sprawdzić liczbę ponownych uruchomień kontenera, można użyć [Pokaż kontenera az](/cli/azure/container#az_container_show) w 2.0 interfejsu wiersza polecenia platformy Azure. W poniższych przykładowe dane wyjściowe (który został obcięty do skrócenia), zobacz `restartCount` właściwości na końcu danych wyjściowych.
+
+```json
+...
+ "events": [
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:06+00:00",
+     "lastTimestamp": "2017-11-13T21:20:06+00:00",
+     "message": "Pulling: pulling image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Pulled: Successfully pulled image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Created: Created container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Started: Started container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   }
+ ],
+ "previousState": null,
+ "restartCount": 0
+...
+}
 ```
 
 > [!NOTE]
-> Większość obrazów kontener dla dystrybucje systemu Linux ustawić powłoki, takie jak bash, jako domyślne polecenie. Ponieważ powłoki samodzielnie nie jest usługą długotrwałe, kontenery natychmiast zamknąć i dzielą się na pętli ponownego uruchomienia.
+> Większość obrazów kontener dla dystrybucje systemu Linux ustawić powłoki, takie jak bash, jako domyślne polecenie. Ponieważ powłoki samodzielnie nie jest usługą długotrwałe, kontenery natychmiast zamknąć i dzielą się na pętli ponownego uruchomienia, gdy skonfigurowana przy użyciu domyślnego **zawsze** ponowne uruchomienie zasad.
 
-### <a name="container-takes-a-long-time-to-start"></a>Kontener zajmuje dużo czasu do uruchomienia
+## <a name="container-takes-a-long-time-to-start"></a>Kontener zajmuje dużo czasu do uruchomienia
 
 Jeśli Twoje kontenera zajmuje dużo czasu można uruchomić, ale ostatecznie zakończy się powodzeniem, przyjrzeć rozmiar obrazu kontenera. Ponieważ wystąpień kontenera platformy Azure pobiera kontener obrazu na żądanie, czas uruchamiania, które występują jest bezpośrednio powiązana z jego rozmiaru.
 
@@ -212,7 +191,7 @@ Klucz do przechowywania małych rozmiary obrazów jest zapewnienie, że ostatecz
 
 Inny sposób, aby zmniejszyć wpływ ściągania obrazu na czas uruchamiania programu kontenera jest hosta obrazu kontenera, w tym samym regionie, w którym zamierzasz używać wystąpień kontenera Azure za pomocą rejestru kontenera platformy Azure. Skraca lokalizacji sieciowej, która obraz kontenera musi podróży, znacznie skrócić czas pobierania.
 
-### <a name="resource-not-available-error"></a>Zasób nie jest dostępny błąd
+## <a name="resource-not-available-error"></a>Zasób nie jest dostępny błąd
 
 Z powodu różnych regionalnych zasobów obciążenia na platformie Azure, zostanie zgłoszony następujący błąd podczas próby wdrożenia wystąpień kontenera:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Przykłady stosowania szkieletu Azure enterprise
 W tym temacie przedstawiono przykłady sposobu przedsiębiorstwa można zaimplementować zalecenia dotyczące [szkieletu Azure enterprise](resource-manager-subscription-governance.md). Aby zilustrować najlepsze rozwiązania dotyczące typowych scenariuszy używa fikcyjnej firmy o nazwie Contoso.
@@ -68,14 +68,14 @@ Dave ma następujące wymagania dotyczące zarządzania zasobami subskrypcji:
 * Jest on dane z kosztami. W związku z tym chce zapobiec właściciele aplikacji tworzenia niepotrzebnie kosztowne maszyn wirtualnych.  
 * Ponieważ ta aplikacja obsługuje deweloperów w wiele jednostek biznesowych, chce tagu każdego zasobu z właścicielem jednostki i aplikacji biznesowych. Przy użyciu tych tagów, ETS można naliczać opłaty odpowiednie zespołów.
 
-Tworzy następujące [zasad Menedżera zasobów](resource-manager-policy.md):
+Tworzy następujące [zasady Azure](../azure-policy/azure-policy-introduction.md):
 
 | Pole | Efekt | Opis |
 | --- | --- | --- |
 | location |Inspekcji |Przeprowadź inspekcję tworzenia zasobów w dowolnym regionie |
-| type |Odmów |Tworzenie maszyn wirtualnych serii G Odmów |
-| tags |Odmów |Wymagaj tag właściciel aplikacji |
-| tags |Odmów |Wymagaj tag Centrum kosztu |
+| type |odrzuć |Tworzenie maszyn wirtualnych serii G Odmów |
+| tags |odrzuć |Wymagaj tag właściciel aplikacji |
+| tags |odrzuć |Wymagaj tag Centrum kosztu |
 | tags |Dołącz |Dołącz nazwy tagu **jednostką biznesową** , wartość tagu **ETS** do wszystkich zasobów |
 
 ### <a name="resource-tags"></a>Tagi zasobów
@@ -98,14 +98,14 @@ Tworzy on następujące zasoby:
 | --- | --- | --- |
 | Virtual Network |wewnętrzna sieć wirtualna |Używane z aplikacją BitBucket i jest połączony za pośrednictwem usługi do sieci firmowej firmy Contoso.  Podsieć (`bitbucket`) udostępnia aplikacji z określonych przestrzeni adresów IP |
 | Virtual Network |sieć wirtualna zewnętrzne |Dostępne dla przyszłych aplikacji, które wymagają publicznych punktów końcowych |
-| Grupy zabezpieczeń sieci |Grupa nsg bitbucket |Zapewnia, że ataku to obciążenie jest zminimalizowany przez zezwala na połączenia tylko na porcie 443 dla podsieci, gdzie znajduje się aplikacja (`bitbucket`) |
+| Sieciowa grupa zabezpieczeń |Grupa nsg bitbucket |Zapewnia, że ataku to obciążenie jest zminimalizowany przez zezwala na połączenia tylko na porcie 443 dla podsieci, gdzie znajduje się aplikacja (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Blokowania zasobów
 Dave rozpoznaje, że łączność z siecią firmową firmy Contoso wewnętrzna sieć wirtualna musi być zabezpieczony przed dowolny skrypt wayward lub przypadkowym usunięciem.
 
 Tworzy następujące [Blokada zasobu](resource-group-lock-resources.md):
 
-| Typ blokady: | Zasób | Opis |
+| Typ blokady | Zasób | Opis |
 | --- | --- | --- |
 | **CanNotDelete** |wewnętrzna sieć wirtualna |Uniemożliwia użytkownikom usuwanie sieci wirtualnej lub podsieci, ale nie uniemożliwia dodanie nowych podsieci |
 
@@ -126,7 +126,7 @@ Dave logowania witrynie Enterprise Portal Azure i widzi dział łańcucha dostaw
 | Użyj subskrypcji | Nazwa |
 | --- | --- |
 | Opracowywanie zawartości |Programowanie ResearchDevelopment LoyaltyCard SupplyChain firmy Contoso |
-| Produkcji |Contoso SupplyChain operacji LoyaltyCard produkcji |
+| Produkcja |Contoso SupplyChain operacji LoyaltyCard produkcji |
 
 ### <a name="policies"></a>Zasady
 Dave Alicja omówiono w nim aplikacji i określenie, że ta aplikacja służy tylko klienci w Ameryce Północnej regionie.  Alicja i jej zespół planowanie na potrzeby tworzenia aplikacji środowiska usługi aplikacji Azure i Azure SQL. One może być konieczne utworzenie maszyn wirtualnych podczas programowania.  Alicja chce upewnij się, że jej deweloperzy mają zasoby, które są niezbędne do eksplorowania i badanie problemów bez ściąganie w ETS.
@@ -143,9 +143,9 @@ Dla **subskrypcji produkcji**, tworzenia następujące zasady:
 
 | Pole | Efekt | Opis |
 | --- | --- | --- |
-| location |Odmów |Odmów tworzenia zasobów poza centrami danych stany USA |
-| tags |Odmów |Wymagaj tag właściciel aplikacji |
-| tags |Odmów |Wymagaj działu tag |
+| location |odrzuć |Odmów tworzenia zasobów poza centrami danych stany USA |
+| tags |odrzuć |Wymagaj tag właściciel aplikacji |
+| tags |odrzuć |Wymagaj działu tag |
 | tags |Dołącz |Dołącz tag do każdej z grup zasobów, która wskazuje środowiska produkcyjnego |
 
 Nie ograniczaj typ jednostki sku utworzone przez użytkownika w środowisku produkcyjnym.
@@ -173,14 +173,14 @@ Dla **subskrypcji produkcji**, tworzenia:
 | Typ zasobu | Nazwa | Opis |
 | --- | --- | --- |
 | Virtual Network |sieć wirtualna zewnętrzne |Obsługuje aplikację lojalność karty i nie jest podłączony bezpośrednio do firmy Contoso ExpressRoute. Kod spoczywa bezpośrednio z usługami PaaS za pośrednictwem ich systemu kodu źródłowego |
-| Grupy zabezpieczeń sieci |Grupa nsg loyaltycard |Zapewnia, że ataku to obciążenie jest zminimalizowany, zezwalając tylko komunikatu przychodzącego na porcie TCP 443.  Contoso również bada dodatkową ochronę za pomocą zapory aplikacji sieci Web |
+| Sieciowa grupa zabezpieczeń |Grupa nsg loyaltycard |Zapewnia, że ataku to obciążenie jest zminimalizowany, zezwalając tylko komunikatu przychodzącego na porcie TCP 443.  Contoso również bada dodatkową ochronę za pomocą zapory aplikacji sieci Web |
 
 ### <a name="resource-locks"></a>Blokowania zasobów
 Dave Alicja przyznaje i dodaną do blokowania zasobów na niektóre z kluczowych zasobów w środowisku zapobiega przypadkowemu usunięciu podczas wypychania wadliwe kodu.
 
 Tworzenia następującej blokady:
 
-| Typ blokady: | Zasób | Opis |
+| Typ blokady | Zasób | Opis |
 | --- | --- | --- |
 | **CanNotDelete** |sieć wirtualna zewnętrzne |Aby uniemożliwić osobom usunięcie podsieci lub sieci wirtualnej. Blokady nie uniemożliwia dodanie nowych podsieci |
 

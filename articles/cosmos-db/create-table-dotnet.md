@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji .NET usługi Azure Cosmos DB za pomocą interfejsu API tabel | Microsoft Docs"
-description: "Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB przy użyciu platformy .NET"
+title: "Szybki Start: Tabela interfejsu API z platformą .NET — rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
+description: "Ta opcja szybkiego startu przedstawia sposób użycia interfejsu API Azure rozwiązania Cosmos DB tabeli do tworzenia aplikacji z portalu Azure i .NET"
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -8,24 +8,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quickstart connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 9b1d41fe185f4c3d5fdce13ab8f0136bc961f013
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Tworzenie aplikacji .NET za pomocą interfejsu API tabel
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API platformy .NET i Azure rozwiązania Cosmos bazy danych 
+
+Ta opcja szybkiego startu przedstawia sposób użycia języka Java i Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) do tworzenia aplikacji w klonowania przykład z usługi GitHub. Tego przewodnika Szybki Start również pokazano, jak utworzyć konto bazy danych Azure rozwiązania Cosmos oraz sposobie używania Eksploratora danych do tworzenia tabel i jednostek w sieci web portalu Azure.
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
-
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB i tworzenia tabeli w ramach konta przy użyciu witryny Azure Portal. Następnie napiszemy kod umożliwiający wstawianie, aktualizowanie i usuwanie jednostek oraz uruchomimy kilka zapytań przy użyciu nowego pakietu NuGet [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (wersja zapoznawcza). Ta biblioteka ma takie same klasy i podpisy metod jak publiczny [zestaw SDK usługi Windows Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage), ale ma również możliwość łączenia się z kontami usługi Azure Cosmos DB przy użyciu [interfejsu API tabel](table-introduction.md) (wersja zapoznawcza). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +48,7 @@ Teraz możesz dodać dane do swojej nowej tabeli za pomocą Eksploratora danych.
 1. W Eksploratorze danych rozwiń węzeł **sample-table**, kliknij pozycję **Jednostki**, a następnie kliknij przycisk **Dodaj jednostkę**.
 
    ![Tworzenie nowych jednostek w Eksploratorze danych w witrynie Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Teraz dodaj dane do pól wartości PartitionKey i RowKey, a następnie kliknij przycisk **Dodaj jednostkę**.
+2. Teraz Dodaj PartitionKey wartości pól oraz RowKey wartości pola danych i kliknij przycisk **Dodaj jednostki**.
 
    ![Ustawianie klucza partycji i klucza wiersza dla nowej jednostki](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -58,92 +58,63 @@ Teraz możesz dodać dane do swojej nowej tabeli za pomocą Eksploratora danych.
 
 Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminalu usługi Git, na przykład git bash, i za pomocą polecenia `cd` przejdź do katalogu roboczego.  
-
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    cd "C:\git-samples"
     ```
 
-3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
+2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
 
-## <a name="review-the-code"></a>Przeglądanie kodu
-
-Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik Program.cs i zobacz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
-
-* Obiekt CloudTableClient został zainicjowany.
-
-    ```csharp
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```bash
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-* Tworzenie nowej tabeli, jeśli nie istnieje.
-
-    ```csharp
-    CloudTable table = tableClient.GetTableReference("people");
-    table.CreateIfNotExists();
-    ```
-
-* Pewne czynności są wykonywane przy użyciu tabeli `TableOperation` klasy.
-
-   ```csharp
-   TableOperation insertOperation = TableOperation.Insert(item);
-   table.Execute(insertOperation);
-   ```
-   
-   ```csharp
-   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
-   table.Execute(retrieveOperation);
-   ```
-   
-   ```csharp
-   TableOperation deleteOperation = TableOperation.Delete(items[i]);
-   table.Execute(deleteOperation);
-   ```
-
+3. Następnie otwórz plik rozwiązania TableStorage w programie Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz dokonamy aktualizacji informacji o parametrach połączenia, dzięki czemu aplikacja będzie mogła komunikować się z usługą Azure Cosmos DB. 
+Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Dzięki temu aplikacja do komunikacji z bazą danych hostowanej. 
 
-1. W programie Visual Studio otwórz plik app.config. 
+1. W [portalu Azure](http://portal.azure.com/), kliknij przycisk **ciąg połączenia**. 
 
-2. W witrynie [Azure Portal](http://portal.azure.com/) w menu nawigacji usługi Azure Cosmos DB po lewej stronie kliknij pozycję **Parametry połączenia**. Następnie w nowym okienku kliknij przycisk kopiowania parametrów połączenia. 
+    Przyciski Kopiuj po prawej stronie ekranu do skopiuj parametry połączenia podstawowej.
 
-    ![Wyświetlanie i kopiowanie punktu końcowego i klucza konta w okienku Parametry połączenia](./media/create-table-dotnet/keys.png)
+    ![Wyświetl i skopiuj parametry połączenia podstawowej w okienku parametry połączenia](./media/create-table-dotnet/connection-string.png)
 
-3. Wklej tę wartość do pliku app.config jako wartość elementu PremiumStorageConnectionString. 
+2. W programie Visual Studio Otwórz plik App.config. 
 
-    `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
+3. Ponieważ ten samouczek nie korzysta z emulatora magazynu, usuń znaczniki komentarza StorageConnectionString na wiersz 8 ujmij w komentarz StorageConnectionString w wierszu 7. 
 
-    Możesz pozostawić ciąg StandardStorageConnectionString bez zmian.
+3. Wklej wartość podstawowe parametry połączenia do wartości StorageConnectionString w wierszu 8. 
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    Wiersz 8 powinna wyglądać podobnie do
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+4. Zapisz plik App.config.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
-## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
+## <a name="build-and-deploy-the-app"></a>Tworzenie i wdrażanie aplikacji
 
-1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **PremiumTableGetStarted** w **Eksploratorze rozwiązań**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
+1. W programie Visual Studio, kliknij prawym przyciskiem myszy **TableStorage** projektu w **Eksploratora rozwiązań** , a następnie kliknij przycisk **Zarządzaj pakietami NuGet**. 
 
-2. W polu **Przeglądaj** pakietu NuGet wpisz *WindowsAzure.Storage-PremiumTable*.
+2. W polu **Przeglądaj** wpisz *Microsoft.Azure.CosmosDB.Table*.
 
-3. Zaznacz pole wyboru **Uwzględnij wersję wstępną**. 
+3. Z wyników, należy zainstalować **Microsoft.Azure.CosmosDB.Table** biblioteki. Spowoduje to zainstalowanie pakietu interfejsu API Azure rozwiązania Cosmos DB tabeli, a także wszystkie zależności.
 
-4. Z zestawu wyników zainstaluj bibliotekę **WindowsAzure.Storage-PremiumTable**. Spowoduje to zainstalowanie wersji zapoznawczej pakietu interfejsu API tabel usługi Azure Cosmos DB oraz wszystkich zależności. Należy pamiętać, że jest to inny pakiet NuGet niż pakiet usługi Windows Azure Storage używany przez magazyn Tabel platformy Azure. 
+4. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
 
-5. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+    W oknie konsoli wyświetla dane w tabeli dodawane do nowej tabeli bazy danych w usłudze Azure DB rozwiązania Cosmos.
 
-    W oknie konsoli wyświetlane są dane dodane, pobrane, wyszukane, zastąpione i usunięte z tabeli. Po zakończeniu działania skryptu naciśnij dowolny klawisz, aby zamknąć okno konsoli. 
-    
-    ![Dane wyjściowe konsoli Szybkiego startu](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
-
-6. Jeśli chcesz zobaczyć nowe jednostki w Eksploratorze danych, po prostu zakomentuj wiersze 188–208 w pliku program.cs, tak aby nie zostały usunięte, a następnie ponownie uruchom przykład. 
-
-    Możesz teraz powrócić do Eksploratora danych, kliknąć przycisk **Odśwież**, rozwinąć tabelę **osób** i kliknąć przycisk **Jednostki**, a następnie pracować z nowymi danymi. 
-
-    ![Nowe jednostki w Eksploratorze danych](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
+    Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
@@ -151,15 +122,12 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start: 
-
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia tabeli za pomocą Eksploratora danych i uruchamiania aplikacji.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
 
 > [!div class="nextstepaction"]
-> [Tworzenie zapytań za pomocą interfejsu API tabel](tutorial-query-table.md)
+> [Importowanie danych z tabeli do interfejsu API tabeli](table-import.md)
 

@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 5783101e48fa31e3248f65eb5806ccde33a83d5e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Apache Spark przesyłania strumieniowego (DStream) przykład: Kafka (wersja zapoznawcza) w usłudze HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark przesyłania strumieniowego (DStream) przykład: Kafka w usłudze HDInsight
 
 Dowiedz się, jak używać Spark Apache Spark do transmisji danych do lub wychodzący Kafka Apache na HDInsight przy użyciu DStreams. W tym przykładzie użyto notesu Jupyter w klastrze Spark.
 > [!NOTE]
@@ -43,9 +43,9 @@ Podczas tworzenia sieci wirtualnej platformy Azure, Kafka, i Spark klastrów rę
 
 1. Poniższy przycisk umożliwia logowanie do platformy Azure i otwórz szablon w portalu Azure.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Szablon usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
+    Szablon usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
     > [!WARNING]
     > Aby zapewnić dostępność platformy Kafka w usłudze HDInsight, klaster musi zawierać co najmniej trzy węzły procesu roboczego. Ten szablon umożliwia tworzenie klastra Kafka, który zawiera trzy węzłów procesu roboczego.
@@ -60,7 +60,7 @@ Podczas tworzenia sieci wirtualnej platformy Azure, Kafka, i Spark klastrów rę
 
     * **Lokalizacja**: Wybierz lokalizację lokalizacji geograficznej blisko.
 
-    * **Podstawowa nazwa klastra**: Ta wartość jest używana jako nazwa podstawowa platformy Spark i Kafka klastrów. Na przykład wprowadzenie **hdi** tworzy Spark klastra o nazwie spark hdi__ i Kafka klastra o nazwie **kafka hdi**.
+    * **Podstawowa nazwa klastra**: Ta wartość jest używana jako nazwa podstawowa platformy Spark i Kafka klastrów. Na przykład wprowadzenie **hdi** tworzy klaster Spark o nazwie __spark hdi__ i Kafka klastra o nazwie **kafka hdi**.
 
     * **Nazwa użytkownika logowania klastra**: nazwa użytkownika administratora klastrów platformy Spark i Kafka.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Interfejs API Graph w .NET opracowywania
 Azure DB rozwiązania Cosmos jest usługa globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
@@ -53,7 +53,6 @@ Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.
 
 > [!TIP]
 > * Masz już konto bazy danych rozwiązania Cosmos Azure? Jeśli tak, przejdź do [konfigurowanie rozwiązania Visual Studio](#SetupVS)
-> * Czy miał konto usługi Azure DocumentDB? Jeśli tak, Twoje konto jest kontem bazy danych Azure rozwiązania Cosmos i możesz przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS).  
 > * Jeśli używasz emulatora usługi Azure rozwiązania Cosmos bazy danych, wykonaj kroki opisane w temacie [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) skonfigurować emulatora i przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ W portalu Azure, przejdź do swojego konta bazy danych rozwiązania Cosmos platf
 
 Skopiuj identyfikator URI z portalu i wklej go za pośrednictwem `Endpoint` we właściwości punktu końcowego powyżej. Następnie skopiuj podstawowy klucz z portalu i wklej ją do `AuthKey` właściwości powyżej. 
 
-! [Zrzut ekranu przedstawiający portal Azure używany przez samouczek tworzenia aplikacji C#. Pokazuje bazy danych Azure rozwiązania Cosmos konta, przyciskiem KLUCZE wyróżnionym w nawigacji bazy danych Azure rozwiązania Cosmos i wartości URI oraz PRIMARY KEY wyróżnionym w bloku klucze] [klucze] 
+![Zrzut ekranu przedstawiający portal Azure używany przez samouczek tworzenia aplikacji C#. Pokazuje bazy danych Azure rozwiązania Cosmos konta, przyciskiem KLUCZE wyróżnionym w nawigacji bazy danych Azure rozwiązania Cosmos i wartości URI oraz PRIMARY KEY wyróżnionym w bloku klucze](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Utwórz wystąpienie obiektu DocumentClient 
 Następnie utwórz nowe wystąpienie klasy **DocumentClient**.  

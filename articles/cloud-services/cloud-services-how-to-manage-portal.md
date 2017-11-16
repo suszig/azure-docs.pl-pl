@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Jak zarządzać usługi w chmurze
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](cloud-services-how-to-manage-portal.md)
-> * [Klasyczna witryna Azure Portal](cloud-services-how-to-manage.md)
->
->
-
 W **usługi w chmurze (klasyczne)** obszaru Azure portalu, można zaktualizować roli usługi lub wdrożenie, podwyższyć poziom wdrożenia etapowego do środowiska produkcyjnego, połączyć zasoby z usługi w chmurze, tak aby widoczne zależności między zasobami i zasoby są skalowane ze sobą i usunąć usługi w chmurze lub wdrożenia.
 
 Więcej informacji na temat skalowania usługi w chmurze [tutaj](cloud-services-how-to-scale-portal.md).

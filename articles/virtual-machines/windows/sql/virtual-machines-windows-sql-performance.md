@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines
 
@@ -113,7 +113,7 @@ Dla maszyn wirtualnych, które obsługują magazyn w warstwie Premium (serii DS,
 
   * Jeśli nie używasz magazyn w warstwie Premium (wszystkie scenariusze tworzenia/testowania), zalecane jest dodanie maksymalna liczba dysków danych obsługiwane przez użytkownika [rozmiar maszyny Wirtualnej](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i użyj rozkładanie.
 
-* **Buforowanie zasad**: dysków z danymi dla magazyn w warstwie Premium, Włącz odczytu buforowanie na dyskach danych hosting tylko danych plików i bazy danych TempDB. Jeśli nie używasz magazyn w warstwie Premium, nie należy włączać buforowania na wszelkich dyskach danych. Aby uzyskać instrukcje dotyczące konfigurowania dysku buforowania, zobacz następujące tematy: [AzureOSDisk zestaw](https://msdn.microsoft.com/library/azure/jj152847) i [AzureDataDisk zestawu](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **Buforowanie zasad**: dysków z danymi dla magazyn w warstwie Premium, Włącz odczytu buforowanie na dyskach danych hosting tylko danych plików i bazy danych TempDB. Jeśli nie używasz magazyn w warstwie Premium, nie należy włączać buforowania na wszelkich dyskach danych. Aby uzyskać instrukcje dotyczące konfiguracji pamięci podręcznej dysku zobacz następujące tematy. Dla klasycznego modelu wdrażania (ASM): [AzureOSDisk zestaw](https://msdn.microsoft.com/library/azure/jj152847) i [AzureDataDisk zestawu](https://msdn.microsoft.com/library/azure/jj152851.aspx). Dla modelu wdrażania usługi Azure Resource Manager: [AzureRMOSDisk zestaw](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) i [AzureRMVMDataDisk zestawu](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Zatrzymaj usługę programu SQL Server, zmieniając ustawienie pamięci podręcznej dysków maszyny Wirtualnej platformy Azure, aby uniknąć ewentualne uszkodzenia bazy danych.

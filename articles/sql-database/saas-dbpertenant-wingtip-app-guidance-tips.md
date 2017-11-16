@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Pobierz i odblokować skrypty Wingtip SaaS
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Pobierz i odblokować Wingtip biletów SaaS bazę danych na skryptów dzierżawy
 
 Zawartość pliku wykonywalnego (skrypty, biblioteki dll) mogą być blokowane przez system Windows, gdy pliki zip są pobierane z zewnętrznego źródła i wyodrębnione. Podczas wyodrębniania pliku zip skrypty ***wykonaj poniższe kroki, aby odblokować plik zip przed wyodrębniania***. Dzięki temu można uruchamiać skrypty.
 
-1. Przejdź do [repozytorium github Wingtip SaaS](https://github.com/Microsoft/WingtipSaaS).
+1. Przejdź do [Wingtip biletów SaaS bazy danych dla repozytorium GitHub dzierżawy](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Kliknij przycisk **klonowania lub pobierania**.
 3. Kliknij przycisk **Pobierz ZIP** i Zapisz plik.
-4. Kliknij prawym przyciskiem myszy **WingtipSaaS master.zip** pliku, a następnie wybierz **właściwości**.
+4. Kliknij prawym przyciskiem myszy **WingtipTicketsSaaS-DbPerTenant-master.zip** pliku, a następnie wybierz **właściwości**.
 5. Na **ogólne** wybierz opcję **Odblokuj**.
 6. Kliknij przycisk **OK**.
 7. Wyodrębnij pliki.
 
-Skrypty znajdują się w *... \\Wzorca WingtipSaaS\\modułów uczenia* folderu.
+Skrypty znajdują się w *... \\Modułów uczenia* folderu.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Praca z skryptów programu PowerShell Wingtip SaaS
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Baza danych SaaS biletów Wingtip na dzierżawy skryptów programu PowerShell
 
 Maksymalne wykorzystanie próbki należy przejść do podanego skryptów. Użyj punktów przerwania i krok za pomocą skryptów, sprawdzając szczegóły dotyczące implementowania różnych wzorców SaaS. Aby łatwo krok po kroku podany skryptów i modułów do zrozumienia najlepsze, zaleca się używanie [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -73,10 +73,10 @@ Wskazówki dotyczące eksplorowania i krokowe wykonywanie skryptów programu Pow
 
 Użyj [programu SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) połączenia i przeglądanie serwerów aplikacji i baz danych.
 
-Wdrożenie początkowo ma dwa serwery bazy danych SQL, aby nawiązać połączenie — *tenants1 -&lt;użytkownika&gt;*  serwera i *katalogu -&lt;użytkownika&gt;*  serwera. W celu zapewnienia połączenia pomyślne demonstracyjnej, oba serwery mają [reguły zapory](sql-database-firewall-configure.md) stosowanie wszystkich adresów IP za pośrednictwem.
+Wdrożenie początkowo ma dwa serwery bazy danych SQL, aby nawiązać połączenie — *tenants1-dpt -&lt;użytkownika&gt;*  serwera i *katalogu-dpt -&lt;użytkownika&gt;* serwera. W celu zapewnienia połączenia pomyślne demonstracyjnej, oba serwery mają [reguły zapory](sql-database-firewall-configure.md) stosowanie wszystkich adresów IP za pośrednictwem.
 
 
-1. Otwórz aplikację *SSMS* i połącz się z serwerem *tenants1-&lt;Użytkownik&gt;.database.windows.net*.
+1. Otwórz *SSMS* i połącz się z *tenants1-dpt -&lt;użytkownika&gt;. database.windows.net* serwera.
 2. Kliknij kolejno opcje **Połącz** > **Aparat bazy danych...** :
 
    ![serwer wykazu](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ Wdrożenie początkowo ma dwa serwery bazy danych SQL, aby nawiązać połączen
 
    ![połączenie](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. Powtórz kroki 2 i 3 i połącz się z serwerem *catalog-&lt;Użytkownik&gt;.database.windows.net*.
+4. Powtórz kroki 2 i 3 i połącz się z *katalogu-dpt -&lt;użytkownika&gt;. database.windows.net* serwera.
 
 
 Po pomyślnym nawiązaniu połączenia powinny być widoczne oba serwery. Listy baz danych może być różne w zależności od dzierżawcy, które zostały udostępnione.
@@ -96,5 +96,5 @@ Po pomyślnym nawiązaniu połączenia powinny być widoczne oba serwery. Listy 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie aplikacji Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)
+[Wdrażania bazy danych SaaS biletów Wingtip każdej dzierżawy aplikacji](saas-dbpertenant-get-started-deploy.md)
 

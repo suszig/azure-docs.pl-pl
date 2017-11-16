@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: kmouss
-ms.openlocfilehash: d47b8ab2cd6391e937fe7f9ba6eded3b89fe2c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
-W przypadku klientów z Software Assurance Azure hybrydowego korzyści dla systemu Windows Server umożliwia użyć lokalnego licencji systemu Windows Server i uruchamiania maszyn wirtualnych Windows Azure taniego. Azure hybrydowego korzyści dla systemu Windows Server służy do wdrażania nowych maszyn wirtualnych za pomocą dowolnego obrazu platformy systemu Windows Server lub niestandardowych obrazów systemu Windows obsługiwane przez platformę Azure. Tak długo, jak obraz nie zawiera dodatkowe oprogramowanie, takie jak SQL Server lub obrazów marketplace innych firm. W tym artykule przechodzi przez kroki wdrażania nowych maszyn wirtualnych z Azure hybrydowego korzyści dla systemu Windows Server. Aby uzyskać więcej informacji na temat Azure hybrydowego korzyści dla systemu Windows Server zobacz oszczędności kosztów i licencjonowania, [strony licencjonowania Azure hybrydowego korzyści dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+W przypadku klientów z Software Assurance Azure hybrydowego korzyści dla systemu Windows Server umożliwia użyć lokalnego licencji systemu Windows Server i uruchamiania maszyn wirtualnych Windows Azure taniego. Azure hybrydowego korzyści dla systemu Windows Server służy do wdrażania nowych maszyn wirtualnych za pomocą dowolnego obrazu platformy systemu Windows Server lub niestandardowych obrazów systemu Windows obsługiwane przez platformę Azure. W tym artykule przechodzi przez kroki dotyczące sposobu wdrażania nowych maszyn wirtualnych z Azure hybrydowego korzyści dla systemu Windows Server oraz sposób aktualizowania istniejących działających maszyn wirtualnych. Aby uzyskać więcej informacji na temat Azure hybrydowego korzyści dla systemu Windows Server zobacz oszczędności kosztów i licencjonowania, [strony licencjonowania Azure hybrydowego korzyści dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!IMPORTANT]
 > Począwszy od 2017-9/11 została wycofana starszych obrazów [Centrum] systemu Windows Server, które zostały opublikowane w przypadku klientów z umowy Enterprise Agreement w witrynie Azure Marketplace, użyj standardowych systemu Windows Server z opcją "Zaoszczędzić" w portalu Azure hybrydowego korzyści dla System Windows Server. Aby uzyskać więcej informacji, zapoznaj się to [artykułu.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
 
 > [!NOTE]
-> Azure hybrydowego korzyści dla systemu Windows Server nie można używać z maszyn wirtualnych, które są pobierane dla dodatkowego oprogramowania, takich jak SQL Server lub dowolny z obrazów marketplace innych firm. Błąd 409 takich jak: zmiana właściwości "LicenseType" jest niedozwolony. Jeśli Konwertuj maszynę Wirtualną serwera systemu Windows, która ma dodatkowe oprogramowanie kosztów. 
+> Przy użyciu Azure hybrydowego korzyści dla systemu Windows Server z maszynami wirtualnymi, które są pobierane dla dodatkowego oprogramowania, takich jak SQL Server lub dowolny obrazów marketplace innej firmy jest rozwijane. Jeśli błąd 409 takich jak: zmiana właściwości "LicenseType" jest niedozwolony. następnie próbujesz konwertować lub wdrażania nowego systemu Windows Server maszynę Wirtualną, która ma koszt, dodatkowego oprogramowania, które może nie być obsługiwana w tym regionie.
 >
 
 
@@ -42,10 +42,11 @@ Istnieje kilka sposobów maszyn wirtualnych systemu Windows za pomocą korzyści
 
 1. Można wdrożyć maszyn wirtualnych z jednego z dostarczonych [obrazów systemu Windows Server w witrynie Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. Możesz [przekazać niestandardowe wirtualna](#upload-a-windows-vhd) i [wdrażanie przy użyciu szablonu usługi Resource Manager](#deploy-a-vm-via-resource-manager) lub [programu Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+3. Można przełączyć i konwersji istniejącej maszyny Wirtualnej między systemem z korzyści hybrydowe usługi Azure lub Zapłać koszt na żądanie w systemie Windows Server
 4. Można także wdrożyć skali maszyny wirtualnej ustawić z Azure hybrydowego korzyści dla systemu Windows Server
 
 > [!NOTE]
-> Konwertowanie istniejącej maszyny wirtualnej lub skalowania maszyny wirtualnej może korzystać z Azure hybrydowego korzyści dla systemu Windows Server nie jest obecnie obsługiwany
+> Konwertowanie istniejących skalowania maszyn wirtualnych, które są skonfigurowane do korzystania z Azure hybrydowego korzyści dla systemu Windows Server nie jest obsługiwany.
 >
 
 ## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>Wdrażanie maszyny Wirtualnej z obrazu systemu Windows Server z witryny Marketplace
@@ -61,6 +62,26 @@ Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy
 
 ### <a name="portal"></a>Portal
 Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy użyciu portalu Azure](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) i wybierz opcję użycia istniejącej licencji systemu Windows Server.
+
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Konwertuj istniejącą maszynę Wirtualną przy użyciu Azure hybrydowego korzyści dla systemu Windows Server
+Jeśli masz istniejącą maszynę Wirtualną, którą chcesz przekonwertować przeprowadzać Azure hybrydowego korzyści dla systemu Windows Server, można zaktualizować typu licencji maszyny Wirtualnej w następujący sposób:
+
+### <a name="convert-to-using-azure-hybrid-benefit-for-windows-server"></a>Konwertuj na użyciu Azure hybrydowego korzyści dla systemu Windows Server
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="convert-back-to-pay-as-you-go"></a>Konwertuj do płatności zgodnie z rzeczywistym
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="portal"></a>Portal
+Z portalu bloku maszyny Wirtualnej można zaktualizować maszyny Wirtualnej do użycia korzystać hybrydowe platformy Azure, wybierając opcję "Konfiguracja" i ustaw opcję "korzystać hybrydowe platformy Azure"
 
 ## <a name="upload-a-windows-server-vhd"></a>Przekazywanie wirtualnego dysku twardego Windows Server
 Aby wdrożyć Maszynę wirtualną systemu Windows Server na platformie Azure, należy najpierw utworzyć wirtualny dysk twardy zawiera podstawowe kompilacji systemu Windows. Tego wirtualnego dysku twardego, należy odpowiednio przygotować za pomocą programu Sysprep przed przekazaniem go do platformy Azure. Możesz [Dowiedz się więcej na temat wirtualnego dysku twardego wymagań i procesu Sysprep](upload-generalized-managed.md) i [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Utwórz kopię zapasową maszyny Wirtualnej przed uruchomieniem programu Sysprep. 
@@ -78,7 +99,6 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 
 Można również uzyskać więcej informacji [przekazywanie wirtualnego dysku twardego do procesu systemu Azure](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
-
 
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>Wdróż Maszynę wirtualną za pomocą szablonu usługi Resource Manager
 W szablonach usługi Resource Manager dodatkowy parametr `licenseType` musi być określona. Możesz przeczytać dodatkowe informacje [tworzenia szablonów usługi Azure Resource Manager](../../resource-group-authoring-templates.md). Po utworzeniu dysk VHD przekazany do platformy Azure, Edytuj szablon Menedżera zasobów, aby dołączyć typ licencji w ramach dostawcy obliczeń i wdrażania szablonu w zwykły:
@@ -100,7 +120,6 @@ New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -
 ```
 
 Możesz przeczytać bardziej opisowe Przewodnik na temat różnych kroków do [Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Sprawdź, czy maszyna wirtualna jest wykorzystania asysty licencjonowania
 Po wdrożeniu maszyny Wirtualnej za pomocą obu programu PowerShell szablonu usługi Resource Manager lub portalu, możesz sprawdzić typu licencji z `Get-AzureRmVM` w następujący sposób:
@@ -161,7 +180,9 @@ W ramach maszyny wirtualnej zestawu skalowania maszyny wirtualnej szablonów Res
 Możesz również [tworzenie i wdrażanie zestaw skali maszyny wirtualnej](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) i ustaw właściwość LicenseType
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj więcej na temat [licencjonowania Azure hybrydowego korzyści dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Przeczytaj więcej na temat [jak zaoszczędzić z asysty hybrydowego Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server szczegółowe wskazówki dotyczące licencjonowania](http://go.microsoft.com/fwlink/?LinkId=859786)
 
 Dowiedz się więcej o [przy użyciu szablonów usługi Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

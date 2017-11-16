@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie tabeli danych przy użyciu interfejsu API tabeli (wersja zapoznawcza)?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie tabeli danych przy użyciu interfejsu API tabeli
 
-Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) (wersja zapoznawcza) obsługuje OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) zapytań dotyczących danych klucz wartość (tabeli).  
+Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) obsługuje OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) zapytań dotyczących danych klucz wartość (tabeli).  
 
 W tym artykule opisano następujące zadania: 
 
@@ -38,13 +38,13 @@ Zapytania w tym artykule, skorzystaj z poniższego przykładu `People` tabeli:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jan | Jeff@contoso.com| 425-555-0104 | 
 
-Ponieważ bazy danych Azure rozwiązania Cosmos jest zgodny z interfejsami API magazynu tabel Azure, zobacz [badania tabel i jednostek] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) Aby uzyskać więcej informacji na temat sposobu zapytania przy użyciu tabeli INTERFEJS API. 
+Zobacz [badania tabel i jednostek] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) Aby uzyskać więcej informacji na temat sposobu zapytania przy użyciu interfejsu API tabeli. 
 
-Aby uzyskać więcej informacji na możliwości premium, które oferuje bazy danych rozwiązania Cosmos Azure, zobacz [bazy danych Azure rozwiązania Cosmos: API tabeli](table-introduction.md) i [opracowanie przy użyciu interfejsu API tabeli w programie .NET](tutorial-develop-table-dotnet.md). 
+Aby uzyskać więcej informacji na możliwości premium, które oferuje bazy danych rozwiązania Cosmos Azure, zobacz [interfejsu API Azure rozwiązania Cosmos DB tabeli](table-introduction.md) i [opracowanie przy użyciu interfejsu API tabeli w programie .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dla tych zapytań do pracy musi mieć konto bazy danych Azure rozwiązania Cosmos i danych jednostki w kontenerze. Nie masz żadnego z tych? Zakończenie [szybkiego startu 5 minutową](https://aka.ms/acdbtnetqs) lub [samouczek developer](https://aka.ms/acdbtabletut) Tworzenie konta usługi i umieścić w bazie danych.
+Dla tych zapytań do pracy musi mieć konto bazy danych Azure rozwiązania Cosmos i danych jednostki w kontenerze. Nie masz żadnego z tych? Zakończenie [szybkiego startu 5 minutową](create-table-dotnet.md) lub [samouczek developer](tutorial-develop-table-dotnet.md) Tworzenie konta usługi i umieścić w bazie danych.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Zapytanie dotyczące PartitionKey i RowKey
 Ponieważ właściwości PartitionKey i RowKey tworzą klucza podstawowego jednostki, aby zidentyfikować jednostki można użyć następującej składni specjalne: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 W tym samouczku wykonaniu następujących czynności:
 
 > [!div class="checklist"]
-> * Przedstawiono sposób tworzenia zapytań przy użyciu interfejsu API tabeli (wersja zapoznawcza) 
+> * Przedstawiono sposób tworzenia zapytań przy użyciu interfejsu API tabeli
 
 Możesz teraz przejść do następnym samouczku informacje na temat dystrybucji danych globalnie.
 
 > [!div class="nextstepaction"]
-> [Globalny dystrybucji danych](tutorial-global-distribution-documentdb.md)
+> [Globalny dystrybucji danych](tutorial-global-distribution-table.md)

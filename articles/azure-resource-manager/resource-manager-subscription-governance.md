@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Szkieletu Azure enterprise — ładu przetestowanego subskrypcji
 Przedsiębiorstwa są coraz bardziej przyjmowanie chmury publicznej, elastyczność i elastyczność. Są one przy użyciu sile z chmury do generowania przychodu lub optymalizacji zasobów w firmie. Microsoft Azure udostępnia wiele różnych usług czy przedsiębiorstwa można grupować jak bloków konstrukcyjnych w celu rozwiązania szerokiej gamy obciążeń i aplikacji. 
@@ -89,7 +89,7 @@ Pierwszy słupka z szkieletu jest nazewnictwa standardów. Dobrze zaprojektowane
 > Poprzedniego wskazówki ułatwiające implementację spójnej konwencji nazewnictwa.
 
 ## <a name="policies-and-auditing"></a>Zasady i inspekcji
-Drugi słupka z szkieletu obejmuje utworzenie [zasady usługi Azure Resource Manager](resource-manager-policy.md) i [dziennik inspekcji](resource-group-audit.md). Zasady usługi Resource Manager umożliwiają zarządzanie ryzykiem na platformie Azure. Można zdefiniować zasady, zapewniając suwerenności danych przez ograniczenie, wymuszanie lub inspekcji pewne akcje. 
+Drugi słupka z szkieletu obejmuje utworzenie [zasady Azure](../azure-policy/azure-policy-introduction.md) i [dziennik inspekcji](resource-group-audit.md). Zasady usługi Resource Manager umożliwiają zarządzanie ryzykiem na platformie Azure. Można zdefiniować zasady, zapewniając suwerenności danych przez ograniczenie, wymuszanie lub inspekcji pewne akcje. 
 
 * Zasada jest domyślnie **Zezwalaj** systemu. Definiowanie i przypisywanie zasad z zasobami, które Odmów lub inspekcję akcji zasobów jest kontrolowanie akcji.
 * Zasady są opisane w definicjach zasad w języku definicji zasad (warunki, jeżeli to).

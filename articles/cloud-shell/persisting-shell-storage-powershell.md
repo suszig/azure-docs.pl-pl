@@ -1,5 +1,5 @@
 ---
-title: "Utrwalanie plików w powłoce chmury Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Utrwalanie plików w programie PowerShell w powłoce chmury Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
 description: "Wskazówki dotyczące jak powłoki chmury Azure będzie się powtarzał plików."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Jak działa powłoki chmury
-Powłoka chmury będzie się powtarzał plików za pomocą następujących metod: 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Sposób działania programu PowerShell w powłoce chmury Azure (wersja zapoznawcza)
+PowerShell w chmurze powłoki (wersja zapoznawcza) będzie się powtarzał plików za pomocą następujących metod: 
 * Instalowanie udziału plików określony jako `clouddrive` w Twojej `$Home` katalogu interakcji bezpośredniego udziału plików.
 
 ## <a name="list-cloud-drive-file-shares"></a>Udziały plików na dysku w chmurze listy

@@ -1,32 +1,31 @@
 ---
 title: "Jak skalować środowiska Azure czas serii Insights | Dokumentacja firmy Microsoft"
-description: "W tym samouczku opisano sposób skalowania środowiska Azure czas serii Insights"
-keywords: 
+description: "W tym artykule opisano sposób skalowania środowiska Azure czas serii Insights. Użyj portalu Azure, aby zwiększyć lub zmniejszyć pojemność w cenową jednostki SKU."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Jak skalować środowiska Insights serii czasu
 
-W tym samouczku uwzględniono również sposób skalowania środowiska Insights serii czasu.
+W tym artykule opisano sposób zmiany możliwości środowiska środowiska Insights serii czasu przy użyciu portalu Azure. Pojemność jest mnożnik stosowane do prędkości wejściowej, pojemności, kosztów związanych z Twojej wybranej jednostki Sku. 
 
-> [!NOTE]
-> Skalowania w górę różnych typów jednostki sku nie jest dozwolone. Nie można przekonwertować w środowisku zawierającym S1 Sku środowisku S2.
+Aby zwiększyć lub zmniejszyć pojemność w danym cenową jednostki Sku, można użyć portalu Azure. 
+
+Jednak zmiana warstwy cenowej jednostka SKU nie jest dozwolona. Na przykład środowisko z S1 cennik SKU nie można przekonwertować na S2 lub na odwrót. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Szybkość wejściowych S1 SKU i pojemności
 
@@ -42,14 +41,23 @@ W tym samouczku uwzględniono również sposób skalowania środowiska Insights 
 | 1 | 10 GB (10 milionów zdarzeń) | 300 GB (300 milionów zdarzeń) na miesiąc |
 | 10 | 100 GB (100 milionów zdarzeń) | 3 TB (zdarzenia miliard 3) na miesiąc |
 
-Możliwości skalowania liniowo, więc sku S1, o pojemności 2 obsługuje 2 GB (2 milionów) zdarzeń według dnia służąca szybkość i 60 GB (60 miliona zdarzeń) w miesiącu.
+Możliwości skalowania liniowo, więc SKU S1 o pojemności 2 obsługuje 2 GB (2 milionów) zdarzenia według dnia służąca szybkość i 60 GB (60 miliona zdarzeń) na miesiąc.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Zmiana wydajności środowiska
+## <a name="change-the-capacity-of-your-environment"></a>Zmiana wydajności środowiska
+1. W portalu Azure Znajdź i zaznacz środowiska Insights serii czasu. 
 
-1. W portalu Azure wybierz środowisko, której pojemność chcesz zmienić.
-1. W obszarze Ustawienia kliknij przycisk Konfiguruj.
-1. Za pomocą suwaka pojemności wybierz wydajności, który spełnia wymagania ceny wejściowych i pojemności magazynu.
+2. W obszarze **ustawienia** nagłówek, wybierz **Konfiguruj**.
+
+   ![Configure.PNG](media/scale-your-environment/configure.png)
+
+3. Dostosuj **pojemności** suwak, aby wybrać wydajności, który spełnia wymagania ceny wejściowych i pojemności magazynu. Powiadomienie **prędkości wejściowej**, **pojemności**, i **szacowany koszt** aktualizacji dynamicznie, aby wyświetlić wpływu zmiany. 
+
+   ![Suwak](media/scale-your-environment/slider.png)
+
+   Alternatywnie możesz wpisać numer mnożnik pojemności w polu tekstowym po prawej stronie suwaka. 
+
+4. Wybierz **zapisać** skalowania środowiska. Wskaźnik postępu jest wyświetlany, dopóki zmiana zostaje zatwierdzona, na chwilę. 
 
 ## <a name="next-steps"></a>Następne kroki
-
-* Sprawdź, czy nowe pojemności jest wystarczające, aby zapobiec ograniczania. Aby uzyskać więcej informacji, zobacz *środowisku może być pobieranie ograniczany* sekcji [tutaj](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Sprawdź, czy nowe pojemności jest wystarczające, aby zapobiec ograniczania](time-series-insights-diagnose-and-solve-problems.md).

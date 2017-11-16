@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Zarządzanie tożsamościami i dostępem kontrolować najlepszych rozwiązań dotyczących zabezpieczeń
 Rozważ wiele tożsamości jako nową warstwę granic zabezpieczeń przejęcia tej roli z tradycyjnego perspektywy skoncentrowane sieci. Ten rozwój pivot głównej dla uwagi bezpieczeństwa i inwestycje pochodzą z faktu, że stały się coraz bardziej porowaty strefy sieci i obrony ten obwód nie może być tak skuteczne, jak ich raz zostały przed rozbicie [BYOD ](http://aka.ms/byodcg) urządzenia i aplikacje w chmurze.
@@ -115,7 +115,7 @@ Wykorzystywanie [usługi Azure Resource Manager](../azure-resource-manager/resou
 
 Organizacje, które nie są kontrolowanie sposobu tworzenia zasobów są bardziej narażony na użytkowników, którzy mogą nadużyć usługi przez utworzenie więcej zasobów niż jest to wymagane. Wzmacnianie ochrony procesu tworzenia zasobu jest ważnym krokiem do zabezpieczania scenariusza z wieloma dzierżawcami.
 
-Dowiedz się więcej na temat tworzenia zasad za pomocą Menedżera zasobów Azure, przeczytaj artykuł [używanie zasad do zarządzania zasobami i kontrola dostępu](../azure-resource-manager/resource-manager-policy.md).
+Dowiedz się więcej na temat tworzenia zasad za pomocą Menedżera zasobów Azure, przeczytaj artykuł [co to jest Azure zasad?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Przewodnik deweloperów wykorzystać możliwości tożsamości dla aplikacji SaaS
 Tożsamość użytkownika będzie można użyć w wielu scenariuszach, gdy użytkownicy uzyskują dostęp do [aplikacji SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) którego można zintegrować z lokalnymi lub katalogu w chmurze. Najpierw i, zalecane jest deweloperom użycie bezpiecznego metodologii stworzono te aplikacje, takie jak [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Usługi Azure AD upraszcza uwierzytelniania dla deweloperów, podając tożsamości jako usługa, obsługuje protokoły przemysłowe oraz protokoły takich jak [OAuth 2.0](http://oauth.net/2/) i [OpenID Connect](http://openid.net/connect/), a także typu open source biblioteki dla różnych platform.

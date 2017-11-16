@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 Ten artykuł ułatwia zarządzanie Azure Multi-Factor Authentication, skoro masz działa prawidłowo.  Obejmuje ona różnych tematów, które ułatwiają maksymalne wykorzystanie usługi Azure Multi-Factor Authentication.  Nie wszystkie te funkcje są dostępne w każdej wersji Azure Multi-Factor Authentication.
@@ -54,7 +54,7 @@ Jeśli masz jednej z poniższych licencji służy strona Ustawienia usługi MFA:
 Aby uzyskać dostęp do portalu zarządzania usługi MFA za pośrednictwem strony Ustawienia usługi MFA, zaloguj się do klasycznego portalu Azure jako administrator, a następnie wybierz opcję Active Directory. Kliknij katalog, a następnie kliknij kartę **Konfiguracja**. W sekcji uwierzytelniania wieloskładnikowego wybierz pozycję **Zarządzaj ustawieniami usługi**. Na dole strony ustawień usługi MFA kliknij link **Przejdź do portalu**.
 
 
-## <a name="fraud-alert"></a>Alert o oszustwie
+## <a name="fraud-alert"></a>Alert oszustwa
 Alert o oszustwie można konfigurować i skonfigurować, aby użytkownicy mogą raportować fałszywych próbuje uzyskać dostęp do swoich zasobów.  Użytkownicy mogą raportować oszustwo w aplikacji mobilnej lub przez telefon.
 
 ### <a name="set-up-fraud-alert"></a>Konfigurowanie oszustwa
@@ -308,7 +308,7 @@ Gdy użytkownicy rejestrują swoje konta dla usługi MFA, decydują ich metodę 
 |:--- |:--- |
 | Połączenie z telefonem |Umieszcza wykonywane automatyczne połączenie głosowe. Użytkownik odbierze połączenie i naciska klawisz # na klawiaturze telefonu w celu uwierzytelnienia. Ten numer telefonu nie jest zsynchronizowany do lokalnej usługi Active Directory. |
 | SMS na telefon |Wysyła wiadomość tekstową zawierającą kod weryfikacyjny. Użytkownik jest monitowany o odpowiedź na tekst wiadomości z kodu weryfikacyjnego lub wprowadź kod weryfikacyjny w interfejsie logowania. |
-| Powiadomienia za pomocą aplikacji mobilnej |Wysyła powiadomienia wypychanego na telefonie lub zarejestrowanym urządzeniem. Użytkownik wyświetla powiadomienie i wybiera **Sprawdź** aby ukończyć weryfikację. <br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Powiadomienie przez aplikację mobilną |Wysyła powiadomienia wypychanego na telefonie lub zarejestrowanym urządzeniem. Użytkownik wyświetla powiadomienie i wybiera **Sprawdź** aby ukończyć weryfikację. <br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Kod weryfikacyjny z aplikacji mobilnej |Aplikacja Microsoft Authenticator generuje nowy kod OATH weryfikacji co 30 sekund. Użytkownik wprowadza ten kod weryfikacyjny w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Jak włączyć/wyłączyć metody uwierzytelniania

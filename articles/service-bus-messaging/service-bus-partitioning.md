@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;hillaryc
-ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: sethm
+ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 Usługa Azure Service Bus jest stosowana w wielu brokerów komunikat do przetwarzania komunikatów i wiele magazynów obsługi komunikatów do przechowywania komunikatów. Konwencjonalne kolejka lub temat są obsługiwane przez brokera pojedynczej wiadomości i przechowywane w jeden Magazyn obsługi komunikatów. Usługa Service Bus *partycje* włączyć kolejek i tematów, lub *jednostki do obsługi komunikatów*, aby być dzielony na partycje w wielu brokerzy wiadomości i magazyny obsługi komunikatów. Oznacza to, że ogólną przepustowość partycjonowane jednostki nie jest już ograniczone przez wydajność brokera komunikatów pojedynczego lub magazynie obsługi komunikatów. Ponadto tymczasowego awaria magazynie obsługi komunikatów nie renderować partycjonowanej kolejka lub temat niedostępny. Partycjonowane kolejek i tematów może zawierać wszystkich zaawansowanych funkcji usługi Service Bus, takie jak obsługa transakcji i sesje.
@@ -37,9 +37,9 @@ Gdy klient chce otrzymywać wiadomość z kolejki podzielonym na partycje lub su
 
 Nie ma żadnych dodatkowych kosztów przy wysyłaniu wiadomości lub odbierania wiadomości z kolejki podzielonym na partycje lub temat.
 
-## <a name="enable-partitioning"></a>Włącz partycjonowania
+## <a name="enable-partitioning"></a>Włącz partycjonowanie
 
-Aby używać partycjonowanej kolejek i tematów z usługi Azure Service Bus, korzystanie z zestawu SDK platformy Azure w wersji 2,2 lub nowszej, lub określ `api-version=2013-10` w HTTP żądania.
+Aby używać partycjonowanej kolejek i tematów z usługi Azure Service Bus, korzystanie z zestawu SDK platformy Azure w wersji 2,2 lub nowszej, lub określ `api-version=2013-10` lub nowszej w Twoich żądań HTTP.
 
 ### <a name="standard"></a>Standardowa
 
@@ -63,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatywnie można utworzyć kolejki podzielonym na partycje lub tematu w [portalu Azure] [ Azure portal] lub w programie Visual Studio. Podczas tworzenia kolejki lub tematu w portalu, **włączyć partycjonowania** opcję kolejka lub temat **Utwórz** bloku jest domyślnie zaznaczone. Tylko można wyłączyć tę opcję w jednostce warstwy standardowa; w warstwie Premium Partycjonowanie jest zawsze włączone. W programie Visual Studio, kliknij przycisk **włączyć partycjonowania** checkbox w **nową kolejkę** lub **nowy temat** okno dialogowe.
+Alternatywnie można utworzyć kolejki podzielonym na partycje lub tematu w [portalu Azure] [ Azure portal] lub w programie Visual Studio. Podczas tworzenia kolejki lub tematu w portalu, **włączyć partycjonowania** opcję kolejka lub temat **Utwórz** okno dialogowe jest domyślnie zaznaczone. Tylko można wyłączyć tę opcję w jednostce warstwy standardowa; w warstwie Premium Partycjonowanie jest zawsze włączone. W programie Visual Studio, kliknij przycisk **włączyć partycjonowania** checkbox w **nową kolejkę** lub **nowy temat** okno dialogowe.
 
 ## <a name="use-of-partition-keys"></a>Użycie kluczy partycji
 Gdy komunikat jest dodawanych do kolejki w podzielonym na partycje kolejka lub temat, usługi Service Bus sprawdza obecności klucza partycji. Jeśli zostanie znaleziony, wybiera fragmentu na podstawie tego klucza. Jeśli nie znajdzie klucza partycji, wybiera fragmentu na podstawie wewnętrznego algorytmu.
@@ -82,7 +82,7 @@ W zależności od scenariusza inny komunikat właściwości są używane jako kl
 ### <a name="not-using-a-partition-key"></a>Nie używa klucza partycji
 W przypadku braku klucza partycji usługi Service Bus dystrybuuje wiadomości w okrężne do wszystkie fragmenty partycjonowanej kolejka lub temat. Wybrany fragment jest niedostępny, usługi Service Bus przypisuje komunikat różnych fragmentu. W ten sposób wysyłania powiedzie się niezależnie od tymczasowej niedostępności magazynie obsługi komunikatów. Jednak nie będzie osiągnąć gwarantuje kolejność, który zawiera klucz partycji.
 
-Aby uzyskać bardziej szczegółowym omówieniem zależności między dostępności (nie klucza partycji) i spójności (przy użyciu klucza partycji), zobacz [w tym artykule](../event-hubs/event-hubs-availability-and-consistency.md). Te informacje dotyczą jednakowo partycjonowane jednostki magistrali usług i partycji usługi Event Hubs.
+Aby uzyskać bardziej szczegółowym omówieniem zależności między dostępności (nie klucza partycji) i spójności (przy użyciu klucza partycji), zobacz [w tym artykule](../event-hubs/event-hubs-availability-and-consistency.md). Te informacje dotyczą jednakowo partycjonowane jednostki magistrali usług.
 
 Aby zapewnić usługi Service Bus wystarczająco dużo czasu można umieścić w kolejce wiadomości do fragmentu innego [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] wartość określoną przez klienta, który wysyła wiadomości musi być większa od 15 sekund. Zalecane jest, aby ustawić [OperationTimeout] [ OperationTimeout] właściwości wartość domyślna wynosząca 60 sekund.
 
@@ -127,14 +127,14 @@ Usługa Service Bus obsługuje komunikat automatycznego przesyłania dalej z, ab
 
 ## <a name="considerations-and-guidelines"></a>Zagadnienia i wskazówki
 * **Funkcje wysokiej spójności**: Jeśli jednostki korzysta z funkcji, takich jak sesje, wykrywania duplikatów lub jawne kontrolę nad kluczem partycjonowania, a następnie operacje obsługi wiadomości zawsze są kierowane do określonego fragmenty. Jeśli występują dowolne z fragmentów dużego natężenia ruchu sieciowego lub odpowiedni magazyn jest zła, te operacje kończą się niepowodzeniem, i zmniejsza dostępności. Generalnie spójności jest nadal znacznie wyższa niż niepartycjonowany jednostki; tylko podzestaw ruchu wystąpiły problemy, a nie cały ruch. Aby uzyskać więcej informacji, zobacz [Omówienie dostępności i spójności](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Zarządzanie**: należy wykonać operacji, takich jak tworzenie, Update i Delete na wszystkie fragmenty jednostki. Jeśli wszystkie fragment jest zła może spowodować błędy do tych operacji. Dla operacji Get informacje takie jak liczba wiadomości musi być agregowana z wszystkie fragmenty. Jeśli wszystkie fragment jest zła, stan dostępności jednostki został zgłoszony jako ograniczone.
+* **Zarządzanie**: należy wykonać operacji, takich jak tworzenie, Update i Delete na wszystkie fragmenty jednostki. Jeśli wszystkie fragment jest zła, może to spowodować błędy do tych operacji. Dla operacji Get informacje takie jak liczba wiadomości musi być agregowana z wszystkie fragmenty. Jeśli wszystkie fragment jest zła, stan dostępności jednostki został zgłoszony jako ograniczone.
 * **Niska scenariuszy komunikat**: dla takich scenariuszy, szczególnie w przypadku, gdy przy użyciu protokołu HTTP, może zajść potrzeba wykonania wielu operacji pobrania w celu uzyskania wszystkie komunikaty. Dla żądania odbierania fronton wykonuje receive na wszystkie fragmenty i przechowuje wszystkie odpowiedzi. Żądania odbierania kolejnych w ramach tego samego połączenia będzie korzystać z tej pamięci podręcznej i odbierania opóźnienia będzie niższa. Jednak jeśli masz wiele połączeń lub za pomocą protokołu HTTP, który ustanawia nowego połączenia dla każdego żądania. W efekcie nie ma żadnej gwarancji, że będzie on trafić w tym samym węźle. Jeśli wszystkie istniejące wiadomości są zablokowane i są przechowywane w innej frontonu, operacja receive zwraca **null**. Po pewnym czasie wygaśnięcia wiadomości i może odbierać je ponownie. Utrzymanie aktywności HTTP jest zalecane.
-* **Przeglądaj/Peek wiadomości**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) nie zawsze zwraca liczbę wiadomości określona w [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount) właściwości. Istnieją dwie typowe powody to. Jedną z przyczyn jest to, że zagregowane rozmiar kolekcji komunikatów przekracza maksymalny rozmiar 256 KB. Inną przyczyną jest to, że jeśli kolejka lub temat ma [właściwości parametr EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) ustawioną **true**, partycji może nie mieć wystarczającej ilości komunikaty, aby ukończyć żądanej liczby komunikatów. Ogólnie rzecz biorąc, jeśli aplikacja chce otrzymywać określoną liczbę wiadomości, powinna wywołać [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) aż pobiera tej liczby wiadomości, lub nie ma żadnych więcej komunikatów do wglądu. Aby uzyskać więcej informacji, przykłady kodu, w tym temacie [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) lub [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).
+* **Przeglądaj/Peek wiadomości**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) nie zawsze zwraca liczbę wiadomości określona w [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) właściwości. Istnieją dwie typowe powody to. Jedną z przyczyn jest to, że zagregowane rozmiar kolekcji komunikatów przekracza maksymalny rozmiar 256 KB. Inną przyczyną jest to, że jeśli kolejka lub temat ma [właściwości parametr EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) ustawioną **true**, partycji może nie mieć wystarczającej ilości komunikaty, aby ukończyć żądanej liczby komunikatów. Ogólnie rzecz biorąc, jeśli aplikacja chce otrzymywać określoną liczbę wiadomości, powinna wywołać [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) aż pobiera tej liczby wiadomości, lub nie ma żadnych więcej komunikatów do wglądu. Aby uzyskać więcej informacji, przykłady kodu, w tym temacie [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) lub [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) dokumentacji interfejsu API.
 
 ## <a name="latest-added-features"></a>Najnowsze funkcje dodane
 * Dodawanie lub usuwanie reguł jest teraz obsługiwana przez partycjonowane jednostki. Inne niż niepartycjonowany jednostki, te operacje nie są obsługiwane w transakcji. 
 * Protokół AMQP jest teraz obsługiwana do wysyłania i odbierania wiadomości do i z partycjonowane jednostki.
-* Protokół AMQP jest teraz obsługiwana przez następujące operacje: [wysyłania partii](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_BrokeredMessage__), [odbierania partii](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ReceiveBatch_System_Int32_), [Receive numer porządkowy](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Receive_System_Int64_), [wgląd](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Peek), [ Odnów blokady](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_RenewMessageLock_System_Guid_), [zaplanować komunikat](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ScheduleMessageAsync_Microsoft_ServiceBus_Messaging_BrokeredMessage_System_DateTimeOffset_), [Anuluj zaplanowane wiadomość](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_CancelScheduledMessageAsync_System_Int64_), [Dodaj regułę](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Usuń regułę](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Sesji odnawiania blokady](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_RenewLock), [stanu sesji zestaw](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_), [stanu sesji Get](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_GetState), i [wyliczyć sesji](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessionsAsync).
+* Protokół AMQP jest teraz obsługiwana przez następujące operacje: [wysyłania partii](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch), [odbierania partii](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch), [Receive numer porządkowy](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [wgląd](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), [ Odnów blokady](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock), [zaplanować komunikat](/dotnet/api/microsoft.servicebus.messaging.queueclient.schedulemessageasync), [Anuluj zaplanowane wiadomość](/dotnet/api/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync), [Dodaj regułę](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Usuń regułę](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Sesji odnawiania blokady](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock), [stanu sesji zestaw](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate), [stanu sesji Get](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate), i [wyliczyć sesji](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Ograniczenia partycjonowane jednostki
 Obecnie Usługa Service Bus nakłada następujące ograniczenia partycjonowanej kolejek i tematów:
@@ -143,20 +143,20 @@ Obecnie Usługa Service Bus nakłada następujące ograniczenia partycjonowanej 
 * Usługa Service Bus umożliwia obecnie maksymalnie 100 partycjonowanej kolejki i tematy na przestrzeń nazw. Każdy partycjonowanej kolejka lub temat, liczy się przydziału 10 000 jednostek na przestrzeń nazw (nie ma zastosowania do warstwy Premium).
 
 ## <a name="next-steps"></a>Następne kroki
-Zawiera omówienie [obsługi protokołu AMQP 1.0 dla usługi Service Bus podzielona na partycje, kolejek i tematów] [ AMQP 1.0 support for Service Bus partitioned queues and topics] Aby dowiedzieć się więcej na temat partycjonowania jednostek obsługi komunikatów. 
+Przeczytaj informacje o podstawowych pojęciach protokołu AMQP 1.0 wiadomości w specyfikacja [przewodnik protokołu AMQP 1.0](service-bus-amqp-protocol-guide.md).
 
 [Service Bus architecture]: service-bus-architecture.md
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnablePartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md

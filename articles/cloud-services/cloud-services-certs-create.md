@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Omówienie certyfikatów dla usług w chmurze Azure
 Certyfikaty są używane na platformie Azure do usługi w chmurze ([usługi certyfikatów](#what-are-service-certificates)) i do uwierzytelniania z interfejsem API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates) przy użyciu klasycznego portalu Azure i nie z systemem innym niż Klasyczny portal Azure). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak do [utworzyć](#create) i [wdrażanie](#deploy) je do platformy Azure.
 
 Certyfikaty używane na platformie Azure są x.509 v3 certyfikatów i może być podpisany przez inny zaufanego certyfikatu lub można je podpisem. Certyfikatu z podpisem własnym jest podpisany przez jego własnej twórcy, w związku z tym nie jest zaufany domyślnie. W większości przeglądarek, można zignorować ten problem. Należy używać tylko certyfikaty z podpisem własnym podczas tworzenia i testowania usługi w chmurze. 
 
-Certyfikaty używane przez usługę Azure może zawierać prywatnej lub klucza publicznego. Certyfikaty mają odcisku palca, które pozwala zidentyfikować je w sposób jednoznaczny. Odciskiem palca jest używany w Azure [pliku konfiguracyjnego](cloud-services-configure-ssl-certificate.md) do identyfikowania należy używać który certyfikatów usługi w chmurze. 
+Certyfikaty używane przez usługę Azure może zawierać prywatnej lub klucza publicznego. Certyfikaty mają odcisku palca, które pozwala zidentyfikować je w sposób jednoznaczny. Odciskiem palca jest używany w Azure [pliku konfiguracyjnego](cloud-services-configure-ssl-certificate-portal.md) do identyfikowania należy używać który certyfikatów usługi w chmurze. 
 
 ## <a name="what-are-service-certificates"></a>Co to są certyfikaty usługi?
 Usługi certyfikatów są dołączone do usługi w chmurze i komunikacja zabezpieczona do i z usługi. Na przykład jeśli wdrożono rolę sieci web, czy chcesz dostarczyć certyfikat, który może uwierzytelniać narażonych punkt końcowy HTTPS. Usługi certyfikatów, zdefiniowane w definicji usługi, są automatycznie wdrażane na maszynę wirtualną, która jest uruchomione wystąpienie roli użytkownika. 
@@ -41,7 +41,7 @@ Usługi certyfikatów mogą być zarządzana oddzielnie od usługi i mogą być 
 Certyfikaty zarządzania pozwalają do uwierzytelniania w klasycznym modelu wdrażania. Wiele programów i narzędzia (np. programu Visual Studio lub zestawu Azure SDK) korzystały z tych certyfikatów można zautomatyzować konfigurowanie i wdrażanie różnych usług platformy Azure. Te nie są naprawdę związane z usługami w chmurze. 
 
 > [!WARNING]
-> Ostrożnie! Te typy certyfikatów umożliwiają każdego, kto jest uwierzytelniany w usłudze ich do zarządzania subskrypcją, które są skojarzone. 
+> Ostrożnie. Te typy certyfikatów umożliwiają każdego, kto jest uwierzytelniany w usłudze ich do zarządzania subskrypcją, które są skojarzone. 
 > 
 > 
 
@@ -93,7 +93,7 @@ Istnieje wiele stron w Internecie, które opisano, jak to zrobić w programie II
 [To](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artykuł opisuje sposób tworzenia certyfikatów przy użyciu protokołu SSH.
 
 ## <a name="next-steps"></a>Następne kroki
-[Przekaż certyfikat usługi do klasycznego portalu Azure](cloud-services-configure-ssl-certificate.md) (lub [portalu Azure](cloud-services-configure-ssl-certificate-portal.md)).
+[Przekaż certyfikat usługi do portalu Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Przekaż [certyfikat interfejsu API zarządzania](../azure-api-management-certs.md) do klasycznego portalu Azure. Portalu Azure do uwierzytelniania nie korzysta z certyfikatów zarządzania.
 

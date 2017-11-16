@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Włączanie połączeń usług pulpitu zdalnego dla roli usług w chmurze Azure
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Klasyczna witryna Azure Portal](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Program Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Pulpit zdalny umożliwia dostęp do pulpitu z poziomu roli uruchomionej w systemie Azure. Podłączanie pulpitu zdalnego umożliwia rozwiązywanie problemów i diagnozowanie problemów z aplikacją, gdy jest on uruchomiony.
 
@@ -47,7 +44,7 @@ Portalu Azure używa metody rozszerzenia usług pulpitu zdalnego, więc można w
     ![Pulpit zdalny usługi w chmurze](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Wszystkie wystąpienia roli zostanie ponownie uruchomiony, gdy najpierw włączyć pulpitu zdalnego i kliknij przycisk OK (znacznikiem wyboru). Aby uniknąć ponownego uruchomienia systemu, certyfikat używany do szyfrowania hasła musi być instalowany w roli. Aby uniknąć ponownego uruchomienia, [Prześlij certyfikat usługi w chmurze](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) , a następnie wróć do tego okna dialogowego.
+   > Wszystkie wystąpienia roli zostanie ponownie uruchomiony, gdy najpierw włączyć pulpitu zdalnego i kliknij przycisk OK (znacznikiem wyboru). Aby uniknąć ponownego uruchomienia systemu, certyfikat używany do szyfrowania hasła musi być instalowany w roli. Aby uniknąć ponownego uruchomienia, [Prześlij certyfikat usługi w chmurze](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) , a następnie wróć do tego okna dialogowego.
    >
    >
 3. W **ról**, wybierz rolę, aby zaktualizować lub wybierz **wszystkie** dla wszystkich ról.
@@ -70,5 +67,5 @@ Po włączeniu ról usług pulpitu zdalnego może zainicjować połączenie bezp
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Jak skonfigurować usługi w chmurze](cloud-services-how-to-configure.md)
+[Jak skonfigurować usługi w chmurze](cloud-services-how-to-configure-portal.md)
 [usług w chmurze — często zadawane pytania — pulpitu zdalnego](cloud-services-faq.md)

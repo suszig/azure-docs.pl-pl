@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Samouczek: Integracji Azure Active Directory z logowania jednokrotnego SAML dla Jira przez rozpoznawania GmbH
 
@@ -159,27 +159,53 @@ W tej sekcji możesz włączyć usługi Azure AD rejestracji jednokrotnej w port
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. Na **konfiguracji wtyczki SingleSignOn SAML** kliknij przycisk **dodać dodatkowe dostawcy tożsamości** przycisk, aby skonfigurować ustawienia dostawcy tożsamości.
+14. Na **konfiguracji wtyczki SingleSignOn SAML** kliknij przycisk **Dodaj nowe IdP** przycisk, aby skonfigurować ustawienia dostawcy tożsamości.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Wykonaj następujące kroki na tej stronie:
+15. Na **wybierz Twój dostawca tożsamości SAML** wykonaj następujące czynności:
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Dodaj **nazwa** dostawcy tożsamości (np. usługi Azure AD).
+    a. Ustaw **usługi Azure AD** jako typ dostawców tożsamości.
     
-    b. Dodaj **opis** dostawcy tożsamości (np. usługi Azure AD).
+    b. Dodaj **nazwa** dostawcy tożsamości (np. usługi Azure AD).
+    
+    c. Dodaj **opis** dostawcy tożsamości (np. usługi Azure AD).
+    
+    d. Kliknij przycisk **Dalej**.
+    
+16. Na **konfiguracji dostawcy tożsamości** kliknij przycisk **dalej** przycisku.
 
-    c. Kliknij przycisk **XML** i wybierz **metadanych** pliku, który został pobrany z portalu Azure.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Kliknij przycisk **obciążenia** przycisku.
+17. Na **Importowanie metadanych IdP SAML** wykonaj następujące czynności:
 
-    e. Odczytuje metadanych IdP i wypełni pola jako wyróżnione na zrzucie ekranu. 
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Kliknij przycisk **Zapisz ustawienia** przycisk, aby zapisać ustawienia.
+    a. Kliknij przycisk **Załaduj plik** przycisk i wybierz plik XML metadanych pobranego w kroku 5.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Kliknij przycisk **importu** przycisku.
+    
+    c. Poczekaj chwilę import zakończy się pomyślnie.
+    
+    d. Kliknij przycisk **dalej** przycisku.
+    
+18. Na **atrybutu nazwy użytkownika i transformacja** kliknij przycisk **dalej** przycisku.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. Na **Tworzenie użytkownika i aktualizacji** kliknij przycisk **Zapisz & dalej** można zapisać ustawień.   
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. Na **przetestować ustawienia** kliknij przycisk **pominąć test & ręcznie skonfigurować** do pominie ten test użytkownika teraz. To w następnej sekcji zostanie wykonane i wymaga niektórych ustawień w portalu Azure. 
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. Podczas odczytywania okna dialogowego apprearing **pomijanie oznacza testu...** , kliknij przycisk **OK**.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmisja strumieniowa za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów na żywo
 ## <a name="overview"></a>Omówienie
 W usłudze Azure Media Services *kanału* reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. Kanał otrzymuje na żywo wejściowych strumieni w jeden z dwóch sposobów:
 
-* Koder na żywo lokalnymi wysyła wielokrotnej szybkości transmisji bitów RTMP lub Smooth Streaming (pofragmentowany MP4) strumienia do kanału, który nie jest włączony do przeprowadzania kodowania na żywo w usłudze Media Services. Pozyskiwane strumienie są przekazywane za pośrednictwem kanałów bez dalszego przetwarzania. Ta metoda jest wywoływana *przekazywanego*. Można użyć następujących koderów na żywo, które mają wielokrotnej szybkości transmisji bitów Smooth Streaming jako dane wyjściowe: nośników w programie Excel, Ateme Wyobraź sobie komunikacji, Envivio, Cisco i Elemental. Następujące kodery na żywo ma RTMP jako dane wyjściowe: Adobe Flash Media na żywo koder Telestream Wirecast, Haivision, Teradek i TriCaster. Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie jest włączona dla kodowanie na żywo, ale nie jest to zalecane. Usługi Media Services dostarcza strumień do klientów, którzy żądają go.
+* Koder na żywo lokalnymi wysyła wielokrotnej szybkości transmisji bitów RTMP lub Smooth Streaming (pofragmentowany MP4) strumienia do kanału, który nie jest włączony do przeprowadzania kodowania na żywo w usłudze Media Services. Pozyskiwane strumienie są przekazywane za pośrednictwem kanałów bez dalszego przetwarzania. Ta metoda jest wywoływana *przekazywanego*. Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie jest włączona dla kodowanie na żywo, ale nie jest to zalecane. Usługi Media Services dostarcza strumień do klientów, którzy żądają go.
 
   > [!NOTE]
   > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie wygaśnięcia przesyłania strumieniowego.
@@ -34,13 +34,13 @@ W usłudze Azure Media Services *kanału* reprezentuje potok przetwarzania zawar
 
 Począwszy od Media Services 2.10 wersji, podczas tworzenia kanału, można określić sposób kanału do odbierania strumień wejściowy. Można również określić, czy kanał, do przeprowadzania kodowania na żywo strumienia. Dostępne są dwie opcje:
 
-* **Przekazuj**: podać tę wartość, jeśli planujesz używać na lokalny koder na żywo, mające strumienia wielokrotnej szybkości transmisji bitów (strumień przekazujące) jako dane wyjściowe. W takim przypadku strumienia przychodzącego przechodzi do danych wyjściowych bez żadnych kodowania. Jest to zachowanie kanału przed wprowadzeniem 2.10. Ten temat zawiera szczegółowe informacje o pracy z kanałami tego typu.
-* **Kodowanie na żywo**: Wybierz tę wartość, jeśli planujesz używać usługi Media Services do kodowania transmisji strumieniowej na żywo pojedynczej szybkości transmisji bitów w strumieniu wielokrotnej szybkości transmisji bitów. Należy pamiętać, który pozostawienie kodowanie na żywo kanału **systemem** stanu będą naliczane opłaty rozliczeń. Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenie transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. Usługi Media Services dostarcza strumień do klientów, którzy żądają go.
+* **Przekazuj**: podać tę wartość, jeśli planujesz używać kodera na żywo lokalnego ma strumień wielokrotnej szybkości transmisji bitów (strumień przekazujące) jako dane wyjściowe. W takim przypadku strumienia przychodzącego przechodzi do danych wyjściowych bez żadnych kodowania. Jest to zachowanie kanału przed wprowadzeniem 2.10. Ten artykuł zawiera szczegółowe informacje o pracy z kanałami tego typu.
+* **Kodowanie na żywo**: Wybierz tę wartość, jeśli planujesz używać usługi Media Services do kodowania transmisji strumieniowej na żywo pojedynczej szybkości transmisji bitów w strumieniu wielokrotnej szybkości transmisji bitów. Pozostawienie kanału kodowania na żywo w **systemem** stanu ponosi rozliczeń opłat. Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenie transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. Usługi Media Services dostarcza strumień do klientów, którzy żądają go.
 
 > [!NOTE]
-> W tym temacie omówiono atrybuty kanałów, które nie są włączone kodowanie na żywo. Aby uzyskać informacje dotyczące pracy z kanałami obsługującymi kodowanie na żywo, zobacz [transmisja strumieniowa na żywo przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
+> W tym artykule opisano atrybuty kanałów, które nie są włączone kodowanie na żywo. Aby uzyskać informacje dotyczące pracy z kanałami obsługującymi kodowanie na żywo, zobacz [transmisja strumieniowa na żywo przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Informacji o koderów lokalnych zalecane znajduje się w temacie [zalecane koderów lokalnych](media-services-recommended-encoders.md).
 
 Poniższy diagram przedstawia transmisji strumieniowej na żywo przepływu pracy, który używa na lokalny koder na żywo RTMP o różnych szybkościach transmisji bitów lub pofragmentowany MP4 (Smooth Streaming) strumieni jako dane wyjściowe.
 
@@ -94,7 +94,7 @@ Za pomocą dodatkowej adres URL należy poprawić trwałości i odporność na u
 
 - Wiele koderów za pomocą kodera każdego Wypychanie do dedykowanych punktu:
 
-    W tym scenariuszu zawiera zarówno koder i pozyskiwania nadmiarowości. W tym scenariuszu encoder1 Wypychanie do podstawowego adresu URL i encoder2 Wypychanie do dodatkowej adresu URL. W przypadku awarii kodera innych koder można zachować wysyłanie danych. Nadmiarowość danych mogą być obsługiwane, ponieważ usługi Media Services nie rozłączy głównych i dodatkowych adresów URL w tym samym czasie. W tym scenariuszu założono, że koderów są synchronizowane czasu i podaj dokładnie tych samych danych.  
+    W tym scenariuszu zawiera zarówno koder i wysyła strumień nadmiarowości. W tym scenariuszu encoder1 Wypychanie do podstawowego adresu URL i encoder2 Wypychanie do dodatkowej adresu URL. W przypadku awarii kodera innych koder można zachować wysyłanie danych. Nadmiarowość danych mogą być obsługiwane, ponieważ usługi Media Services nie rozłączy głównych i dodatkowych adresów URL w tym samym czasie. W tym scenariuszu założono, że koderów są synchronizowane czasu i podaj dokładnie tych samych danych.  
 
 - Wiele koderów o podwójnej precyzji Wypychanie do głównych i dodatkowych adresów URL:
 
@@ -124,7 +124,7 @@ Konfigurowanie kanału danych wyjściowych i ustawiając FragmentsPerSegment na 
 
 Możesz również zmienić wartość interwału klatki kluczowej przez ustawienie właściwości KeyFrameInterval na ChanneInput. Jeśli ustawisz jawnie KeyFrameInterval, HLS segmentu stosunek pakowania, obliczonego FragmentsPerSegment za pomocą reguł opisanych powyżej.  
 
-Jeśli musisz jawnie ustawić KeyFrameInterval i FragmentsPerSegment, Media Services użyje wartości, które można ustawić.
+Jeśli musisz jawnie ustawić KeyFrameInterval i FragmentsPerSegment, Media Services używa wartości, które można ustawić.
 
 #### <a name="allowed-ip-addresses"></a>Dozwolonych adresów IP
 Można zdefiniować adresy IP, które mogą publikować pliki wideo w tym kanale. Dozwolonych adresów IP można określić jedną z następujących czynności:
@@ -133,7 +133,7 @@ Można zdefiniować adresy IP, które mogą publikować pliki wideo w tym kanale
 * Zakres IP, który korzysta z adresu IP i maski podsieci CIDR (na przykład 10.0.0.1/22)
 * Zakres IP, który korzysta z adresu IP i maski podsieci dziesiętną kropkami (na przykład 10.0.0.1(255.255.252.0))
 
-Adresy IP nie są określone, jeśli nie ma żadnych definicji reguły, żaden adres IP będzie dozwolona. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
+Adresy IP nie są określone, jeśli nie ma żadnych definicji reguły, żaden adres IP nie jest dozwolone. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
 
 ### <a name="channel-preview"></a>Podgląd kanału
 #### <a name="preview-urls"></a>Adresy URL w wersji zapoznawczej
@@ -144,7 +144,7 @@ Po utworzeniu kanału możesz uzyskać adres URL w wersji zapoznawczej. Aby móc
 Obecnie strumienia w wersji zapoznawczej mogą być dostarczane tylko w pofragmentowane MP4 (Smooth Streaming) formacie, bez względu na określony typ danych wejściowych. Można użyć [Smooth Streaming Monitor kondycji](http://smf.cloudapp.net/healthmonitor) player do testowania smooth stream. Umożliwia także player, który znajduje się w portalu Azure, aby wyświetlić strumienia.
 
 #### <a name="allowed-ip-addresses"></a>Dozwolonych adresów IP
-Można zdefiniować adresy IP, które mogą łączyć się z punktem końcowym w wersji zapoznawczej. Jeżeli nie określono żadnych adresów IP, mogą być dowolnego adresu IP. Dozwolonych adresów IP można określić jedną z następujących czynności:
+Można zdefiniować adresy IP, które mogą łączyć się z punktem końcowym w wersji zapoznawczej. Jeżeli nie określono żadnych adresów IP, adres IP jest dozwolone. Dozwolonych adresów IP można określić jedną z następujących czynności:
 
 * Pojedynczy adres IP (np. 10.0.0.1)
 * Zakres IP, który korzysta z adresu IP i maski podsieci CIDR (na przykład 10.0.0.1/22)
@@ -154,13 +154,13 @@ Można zdefiniować adresy IP, które mogą łączyć się z punktem końcowym w
 Informacje dla kanału danych wyjściowych, zobacz [interwał klatki kluczowej](#keyframe_interval) sekcji.
 
 ### <a name="channel-managed-programs"></a>Programy zarządzane przez kanał
-Kanał jest skojarzony z programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają programami. Relacja kanału i programu jest bardzo podobny do tradycyjnych multimediach, gdzie kanał ma stały strumień zawartości, a program obejmuje niektóre zdarzenia czasowe na tym kanale.
+Kanał jest skojarzony z programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają programami. Relacja kanału i programu jest podobny do tradycyjnych multimediach, gdzie kanał ma stały strumień zawartości, a program obejmuje niektóre zdarzenia czasowe na tym kanale.
 
-Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum**. Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny dla klientów zakres cofania odtwarzania pliku od bieżącego momentu transmisji na żywo. Programy mogą być transmitowane w określonym czasie, ale zawartość, która wykracza poza długość okna, jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
+Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum**. Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny maksymalną liczbę klientów można wyszukiwać Wstecz w czasie z bieżącej pozycji na żywo. Programy mogą być transmitowane w określonym czasie, ale zawartość, która wykracza poza długość okna, jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
 
 Każdy program jest skojarzony z zasobem służący do przechowywania zawartości przesyłanej strumieniowo. Zasób jest mapowana do bloku kontenera obiektów blob na koncie magazynu Azure, a pliki w elementach zawartości są przechowywane jako obiekty BLOB w tym kontenerze. Aby opublikować program, więc klienci mogą wyświetlić strumienia, należy utworzyć Lokalizator OnDemand dla skojarzonego elementu zawartości. Lokalizator ten służy do tworzenia adresu URL przesyłania strumieniowego, który można udostępnić klientom.
 
-Kanał obsługuje maksymalnie trzy jednocześnie uruchomione programy, dzięki czemu można tworzyć wiele archiwów tego samego strumienia przychodzącego. Można publikowanie i archiwizację różnych części wydarzenia, zgodnie z potrzebami. Na przykład załóżmy, że z wymaganiami biznesowymi potrzebna jest archiwizacja sześciu godzin programu, ale do emisji przeznaczonych jest tylko ostatnich 10 minut. W tym celu należy utworzyć dwa jednocześnie uruchomione programy. Jeden z programów jest skonfigurowany Archiwizacja sześciu godzin zdarzenia, ale program nie został opublikowany. Inny program jest ustawiony w celu archiwizacji 10 minut, a ten program zostanie opublikowany.
+Kanał obsługuje maksymalnie trzy jednocześnie uruchomione programy, dzięki czemu można tworzyć wiele archiwów tego samego strumienia przychodzącego. Można publikowanie i archiwizację różnych części wydarzenia, zgodnie z potrzebami. Na przykład załóżmy, że z wymaganiami biznesowymi potrzebna jest archiwizacja sześciu godzin programu, ale do emisji przeznaczonych jest tylko ostatnich 10 minut. W tym celu należy utworzyć dwa jednocześnie uruchomione programy. Jeden z programów jest skonfigurowany do archiwizacji sześciu godzin zdarzenia, ale program nie został opublikowany. Inny program jest ustawiony w celu archiwizacji 10 minut, a ten program zostanie opublikowany.
 
 Nie należy używać ponownie istniejących programów dla nowych zdarzeń. Zamiast tego należy utworzyć nowy program dla każdego zdarzenia. Uruchom program, gdy wszystko jest gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
 
@@ -210,8 +210,8 @@ Oto inne kwestie związane z pracą z kanałów i powiązanych składników:
 
 * Za każdym razem, gdy skonfigurujesz kodera na żywo, wywołaj **zresetować** metody w kanale. Zanim je zresetujesz kanału, należy zatrzymać program. Po zresetowaniu kanału, ponownie uruchom program.
 * Kanał można zatrzymać tylko wtedy, gdy jest on **systemem** stanu i wszystkie programy na kanale zostały zatrzymane.
-* Domyślnie można dodać tylko 5 kanały do konta usługi Media Services. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
-* Są rozliczane tylko wtedy, gdy kanał w **systemem** stanu. Aby uzyskać więcej informacji, zapoznaj się [kanału stanów i rozliczeń](media-services-live-streaming-with-onprem-encoders.md#states) sekcji.
+* Domyślnie tylko pięć kanałów można dodać do konta usługi Media Services. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
+* Są rozliczane tylko wtedy, gdy kanał w **systemem** stanu. Aby uzyskać więcej informacji, zobacz [kanału stanów i rozliczeń](media-services-live-streaming-with-onprem-encoders.md#states) sekcji.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -220,7 +220,9 @@ Oto inne kwestie związane z pracą z kanałów i powiązanych składników:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Powiązane tematy
-[Specyfikacja pozyskiwania Azure Media Services MP4 pofragmentowane na żywo](media-services-fmp4-live-ingest-overview.md)
+[Koderów lokalnych zalecane](media-services-recommended-encoders.md)
+
+[Azure Media Services pofragmentowane MP4 życie pozyskiwania specyfikacji](media-services-fmp4-live-ingest-overview.md)
 
 [Omówienie usługi Azure Media Services i typowe scenariusze](media-services-overview.md)
 

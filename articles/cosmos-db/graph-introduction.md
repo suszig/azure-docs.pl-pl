@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API programu Graph
 
@@ -44,7 +44,7 @@ Udostępnia interfejs API Graph Azure rozwiązania Cosmos bazy danych:
 - Elastyczne Skalowanie pamięci masowej i przepływność z mniej niż 10 ms odczytu opóźnienia i mniej niż 15 ms na 99-ty percentyl.
 - Automatyczne indeksowanie z dostępności błyskawicznych zapytania.
 - Dostosowywalne poziomy spójności.
-- Kompleksowe SLA, w tym dostępności 99,99%.
+- Kompleksowe SLA, w tym o dostępności 99,99% umowy SLA dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku z swobodna spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych.
 
 Aby zapytania bazy danych Azure rozwiązania Cosmos, można użyć [Apache TinkerPop](http://tinkerpop.apache.org) wykresu języka przechodzenie [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), lub tak jak inne systemy wykres TinkerPop zgodnego [Apache Spark GraphX](spark-connector-graph.md).
 

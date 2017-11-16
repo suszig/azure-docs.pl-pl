@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń maszyny Wirtualnej Azure
 
@@ -47,7 +47,7 @@ Artykuł sprawdza następujące najlepsze rozwiązania zabezpieczeń maszyny Wir
 
 ## <a name="vm-authentication-and-access-control"></a>Maszyna wirtualna uwierzytelniania i kontroli dostępu
 
-Pierwszym środkiem ochrony maszyny Wirtualnej jest zapewnienie, że tylko autoryzowani użytkownicy będą mogli skonfigurować nowe maszyny wirtualne. Można użyć [zasady usługi Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) nawiązywania konwencje dla zasobów w organizacji, tworzenie zasad niestandardowych i zastosować te zasady do zasobów, takich jak [grup zasobów](../azure-resource-manager/resource-group-overview.md).
+Pierwszym środkiem ochrony maszyny Wirtualnej jest zapewnienie, że tylko autoryzowani użytkownicy będą mogli skonfigurować nowe maszyny wirtualne. Można użyć [zasady Azure](../azure-policy/azure-policy-introduction.md) nawiązywania konwencje dla zasobów w organizacji, tworzenie zasad niestandardowych i zastosować te zasady do zasobów, takich jak [grup zasobów](../azure-resource-manager/resource-group-overview.md).
 
 Maszyny wirtualne, które należą do grupy zasobów naturalnie dziedziczą jego zasadami. Mimo że firma Microsoft zaleca to rozwiązanie do zarządzania maszynami wirtualnymi, można także kontrolować dostęp do poszczególnych zasad maszyny Wirtualnej za pomocą [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md).
 

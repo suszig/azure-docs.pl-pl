@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: raprasa
-ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatyczne tworzenie kopii zapasowej online i przywracania bazy danych Azure rozwiązania Cosmos
 Azure DB rozwiązania Cosmos automatycznie wykonuje kopie zapasowe wszystkich danych w regularnych odstępach czasu. Automatycznego tworzenia kopii zapasowych woluminów bez wpływu na wydajność i dostępność operacji w bazie danych. Kopie zapasowe są przechowywane oddzielnie w innej usłudze magazynu, a te kopie zapasowe globalnie są replikowane w celu odporność regionalnej awarii. Automatyczne kopie zapasowe są przeznaczone dla scenariuszy przypadkowego usunięcia z kontenera DB rozwiązania Cosmos i później wymagają danych odzyskiwania lub rozwiązanie odzyskiwania po awarii.  
@@ -27,7 +27,7 @@ Azure DB rozwiązania Cosmos automatycznie wykonuje kopie zapasowe wszystkich da
 W tym artykule rozpoczyna się od szybkie drużyn danych nadmiarowości i dostępności w bazie danych rozwiązania Cosmos, a następnie omówiono tworzenie kopii zapasowych. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Wysoka dostępność rozwiązania Cosmos DB — podsumowanie
-Rozwiązania cosmos bazy danych została zaprojektowana jako [globalnie rozproszone](distribute-data-globally.md) — umożliwia skalowanie przepływności w różnych regionach platformy Azure oraz zasad zmiennych przezroczysty wielu interfejsów API i pracy awaryjnej. Jako ofertę bazy danych systemu [dostępności 99,99% SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), wszystkie operacje zapisu w bazie danych rozwiązania Cosmos są trwale zatwierdzone na dyskach lokalnych przez kworum replik w obrębie centrum danych lokalnych przed potwierdzeniem do klienta. Należy pamiętać, że wysokiej dostępności rozwiązania Cosmos DB korzysta z magazynu lokalnego i działa niezależnie od wszelkich technologie magazynu zewnętrznego. Ponadto jeśli konta bazy danych jest skojarzony z więcej niż jeden region platformy Azure, programu zapisy są replikowane za pomocą innych regionów, a także. Aby skalować przepływność i dostępu do danych w małych opóźnień, może mieć wiele regionów skojarzonych z Twoim kontem bazy danych, według uznania w trybie odczytu. W każdym regionie odczytu () danych trwale jest trwała dla zestawu replik.  
+Rozwiązania cosmos bazy danych została zaprojektowana jako [globalnie rozproszone](distribute-data-globally.md) — umożliwia skalowanie przepływności w różnych regionach platformy Azure oraz zasad zmiennych przezroczysty wielu interfejsów API i pracy awaryjnej. Oferuje DB rozwiązania Cosmos Auzre [dostępności 99,99% SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku z rozluźnić spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych. Wszystkie operacje zapisu w usłudze Azure DB rozwiązania Cosmos są trwale zatwierdzone na dyskach lokalnych przez kworum replik w obrębie centrum danych lokalnych przed potwierdzeniem do klienta. Należy pamiętać, że wysokiej dostępności rozwiązania Cosmos DB korzysta z magazynu lokalnego i działa niezależnie od wszelkich technologie magazynu zewnętrznego. Ponadto jeśli konta bazy danych jest skojarzony z więcej niż jeden region platformy Azure, programu zapisy są replikowane za pomocą innych regionów, a także. Aby skalować przepływność i dostępu do danych w małych opóźnień, może mieć wiele regionów skojarzonych z Twoim kontem bazy danych, według uznania w trybie odczytu. W każdym regionie odczytu () danych trwale jest trwała dla zestawu replik.  
 
 Jak pokazano na poniższym diagramie, jeden kontener DB rozwiązania Cosmos jest [poziomie partycjonowanej](partition-data.md). "Partycji" jest oznaczona okrąg na poniższym diagramie, a każda partycja jest zyskuje dużą dostępność za pośrednictwem zestawu replik. To jest lokalne dystrybucji w pojedynczym regionie Azure (wskazywane przez oś X). Ponadto każda partycja (z jego odpowiedniego zestawu replik) jest globalnie dystrybuowane w różnych regionach skojarzonych z Twoim kontem bazy danych (na przykład, w tym ilustracji trzech regionach — wschodnie stany USA, zachodnie stany USA i Indie środkowe). "Ustaw partycji" jest globalnie rozproszone jednostki składającej się z wielu kopii danych w każdym regionie (wskazywane przez osi Y). Priorytet można przypisać do regionów skojarzonych z Twoim kontem bazy danych i bazy danych rozwiązania Cosmos niewidocznie przejdzie w tryb failover następny region w przypadku awarii. Można też ręcznie symulujące pracę awaryjną do testowania dostępności end-to-end aplikacji.  
 

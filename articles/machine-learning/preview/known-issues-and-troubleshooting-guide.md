@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -85,7 +85,11 @@ Podczas pracy w konsoli usługi Azure ML Workbench można również wysłać nam
 - Biblioteka RevoScalePy jest obsługiwana tylko w systemach Windows i Linux (w kontenerach Docker). Nie jest obsługiwana na macOS.
 
 ## <a name="cant-update-workbench"></a>Nie można zaktualizować Workbench
-Gdy dostępna jest nowa aktualizacja, na stronie głównej aplikacji Workbench wyświetla komunikat informujący o nowych aktualizacji. Powinny pojawić się wskaźnika aktualizacji znajdujących się w lewym dolnym rogu aplikacji ikonę dzwonka. Kliknij badge i użyj Kreatora Instalatora, aby zainstalować aktualizację. Jeśli nie widzisz powiadomienia, spróbuj ponownie uruchomić aplikację. Jeśli nadal nie widać powiadomienie o aktualizacji po ponownym uruchomieniu, może być kilka przyczyn.
+Gdy dostępna jest nowa aktualizacja, na stronie głównej aplikacji Workbench wyświetla komunikat informujący o nowych aktualizacji. Powinny pojawić się wskaźnika aktualizacji znajdujących się w lewym dolnym rogu aplikacji ikonę dzwonka. Kliknij badge i użyj Kreatora Instalatora, aby zainstalować aktualizację. 
+
+![Aktualizacja obrazu](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Jeśli nie widzisz powiadomienia, spróbuj ponownie uruchomić aplikację. Jeśli nadal nie widać powiadomienie o aktualizacji po ponownym uruchomieniu, może być kilka przyczyn.
 
 ### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Uruchamiasz Workbench z przypiętych skrót na pasku zadań
 Może już zainstalowano aktualizację. Jednak nadal wskazuje przypiętych skrót do starego bitów na dysku. Można to sprawdzić, przechodząc do `%localappdata%/AmlWorkbench` folder i sprawdź, czy masz zainstalowaną najnowszą wersję i sprawdź właściwość przypiętych skrótów, aby zobaczyć, których wskazuje. Zweryfikowane, po prostu usuń stare skrótów, uruchom Workbench z Start menu i opcjonalnie utworzyć nowy skrót przypiętych na pasku zadań.

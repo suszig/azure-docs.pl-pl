@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sprint-1---november-2017"></a>Wypalenie w 1 - listopada 2017 r. 
+# <a name="sprint-1---november-2017"></a>Przebieg 1 — listopad 2017 
 
 **Numer wersji: 0.1.1710.31013**
 
@@ -122,7 +122,7 @@ Poniżej znajduje się lista szczegółowe aktualizacji w obszarze każdego skł
 
 ### <a name="operationalization"></a>Operationalization
 - Usługa sieci Web "wynik" w nazwie już nie kończy się niepowodzeniem.
-- Użytkownik może teraz utworzyć środowisko wdrożenia tylko właściciel dostęp do grupy zasobów platformy Azure. Właściciel dostęp do całej subskrypcji nie jest już potrzebne.
+- Użytkownik może teraz utworzyć środowiska wdrażania właśnie współautora dostęp do grupy zasobów platformy Azure lub subskrypcji. Właściciel dostęp do całej subskrypcji nie jest już potrzebne.
 - Operationalization CLI teraz ma kartę automatycznego uzupełniania w systemie Linux.
 - Usługa konstrukcji obrazów obsługuje teraz tworzenia obrazów urządzeń/usługi Azure IoT.
 

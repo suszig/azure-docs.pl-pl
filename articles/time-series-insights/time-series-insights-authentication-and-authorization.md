@@ -1,29 +1,26 @@
 ---
-title: "Konfigurowanie uwierzytelniania i autoryzacji dla niestandardowych aplikacji, która wywołuje interfejs API Azure czas serii Insights | Dokumentacja firmy Microsoft"
-description: "W tym samouczku przedstawiono sposób konfigurowania uwierzytelniania i autoryzacji dla niestandardowych aplikacji, która wywołuje interfejs API Azure czas serii Insights"
-keywords: 
+title: "Jak skonfigurować uwierzytelnianie i autoryzacja aplikacji niestandardowej do wywołania interfejsu API Azure czas serii Insights | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób konfigurowania uwierzytelniania i autoryzacji dla niestandardowych aplikacji, która wywołuje interfejs API Azure czas serii szczegółowych informacji."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja interfejsu API usługi Azure czas serii Insights
 
-W tym artykule wyjaśniono, jak skonfigurować niestandardową aplikację, która wywołuje interfejs API Azure czas serii szczegółowych informacji.
+W tym artykule opisano sposób konfigurowania uwierzytelniania i autoryzacji używany w niestandardowych aplikacji, która wywołuje interfejs API Azure czas serii szczegółowych informacji.
 
 ## <a name="service-principal"></a>Nazwy głównej usługi
 
@@ -102,11 +99,9 @@ Poniżej przedstawiono szczegółowy opis kroków:
     string accessToken = token.AccessToken;
     ```
 
+Użyj aplikacji identyfikator i klucz do uwierzytelniania w usłudze Azure czas serii wgląd w aplikacji. 
+
 ## <a name="next-steps"></a>Następne kroki
-
-Użyj aplikacji identyfikator i klucz w aplikacji. Aby uzyskać przykładowy kod, który wywołuje interfejs API czasu serii szczegółowe informacje, zobacz [zapytania na danych przy użyciu języka C#](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Zobacz też
-
-* [Zapytania interfejsu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) dla pełną dokumentację interfejsu API zapytania
-* [Tworzenie nazwy głównej usługi w portalu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Aby uzyskać przykładowy kod, który wywołuje interfejs API czasu serii szczegółowe informacje, zobacz [zapytania na danych przy użyciu języka C#](time-series-insights-query-data-csharp.md).
+- Aby uzyskać informacje referencyjne interfejsu API, zobacz [dokumentacja interfejsu API zapytania](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Tworzenie nazwy głównej usługi w portalu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)

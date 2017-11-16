@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory i uwierzytelniania wieloskładnikowego: ochrony danych osobowych z formantami tożsamościami i dostępem
 
@@ -121,23 +121,23 @@ Aby wdrożyć usługę MFA w chmurze Azure, należy najpierw go włączyć, a na
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Jak włączyć Azure, aby używać usługi MFA?
 
-Jeśli użytkownicy mają licencje, które obejmują usługi Azure Multi-Factor Authentication, nie ma nic, które należy wykonać, aby włączyć usługi Azure MFA. Jeśli nie, należy utworzyć dostawcę uwierzytelniania wieloskładnikowego w katalogu. W tym celu wykonaj następujące kroki:
+Jeśli użytkownicy mają licencje, które obejmują usługi Azure Multi-Factor Authentication, po prostu należy skonfigurować usługę Azure MFA na na podstawie grupy lub użytkownika. 
 
-1. Wybierz **usługi Active Directory** w klasycznym portalu Azure (zalogowany jako administrator).
+![Użytkownicy włączone uwierzytelnianie MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Wybierz **dostawców uwierzytelniania wieloskładnikowego.**
+Jeśli obecnie nie masz licencji, które muszą przejść przez proces określania najodpowiedniejszy typ wdrożenia dla danego scenariusza. Można uruchomić, analizując artykuł [wybrać rozwiązania Azure Multi-Factor Autehntication](../multi-factor-authentication/multi-factor-authentication-get-started.md). Jeśli zdecydujesz, należy utworzyć serwer Multi-Factor Authentication. Można uruchomić, wykonując następujące czynności:
 
-3. Wybierz **nowy** , a następnie w obszarze **usługi aplikacji** wybierz **dostawcy uwierzytelniania wieloskładnikowego.**
+1. Wybierz **usługi Active Directory** w portalu Azure (zalogowany jako administrator).
 
-4. Wybierz **szybkie tworzenie.**
+2. Wybierz **serwera usługi MFA**
 
-5. W polu wprowadź nazwę i wybierz model użycia (dla uwierzytelniania lub każdego włączonego użytkownika).
+3. Określ wartość limitu czasu. 
 
-6. Wybierz katalog, z którym jest skojarzony dostawca usługi MFA.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Kliknij przycisk **Utwórz**.
+4. Kliknij przycisk **Zapisz**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+W tym oknie również mieć możliwość pobrania serwera usługi MFA. Można uzyskać dodatkowe szczegóły dotyczące rozmiaru i Zaplanuj wdrożenie, przeglądając artykuł [wprowadzenie do korzystania z serwera usługi Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Aby uzyskać dodatkowe instrukcje na temat zarządzania dostawcy uwierzytelniania wieloskładnikowego, zobacz [wprowadzenie do korzystania z dostawcy usługi Azure Multi-Factor Authentication.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Aby włączyć uwierzytelnianie wieloskładnikowe przez zmianę stanu użytkowni
 5. Zaznacz pole wyboru obok nazwy użytkownika.
 6. Po prawej stronie w obszarze Szybkie kroki wybierz **włączyć**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Potwierdź wybór w otwartym oknie podręcznym.  Użytkownicy, dla których włączono usługę MFA, zostanie poproszony o zarejestrować przy następnym zalogowaniu.
 

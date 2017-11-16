@@ -29,7 +29,7 @@ W Bash, istniejących udziałów plików wyświetlany obraz 5 GB utworzone autom
 ![Ustawienia grupy zasobów](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Ogranicz tworzenie zasobów przy użyciu zasad zasobów platformy Azure
-Konta magazynu, utworzone w chmurze powłoki są oznaczane `ms-resource-usage:azure-cloud-shell`. Jeśli chcesz uniemożliwić użytkownikom tworzenie kont magazynu w chmurze powłoki, Utwórz [zasad zasobów platformy Azure dla tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) wyzwolenia przy tym konkretnym elementem tag.
+Konta magazynu, utworzone w chmurze powłoki są oznaczane `ms-resource-usage:azure-cloud-shell`. Jeśli chcesz uniemożliwić użytkownikom tworzenie kont magazynu w chmurze powłoki, Utwórz [zasad zasobów platformy Azure dla tagów](../articles/azure-policy/json-samples.md) wyzwolenia przy tym konkretnym elementem tag.
 
 ## <a name="supported-storage-regions"></a>Regiony obsługiwanego magazynu
 Skojarzone konta musi znajdować się w tym samym regionie co maszyny powłoki w chmurze, która jest instalowanie, ich do magazynu Azure.

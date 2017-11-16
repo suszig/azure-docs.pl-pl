@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
 
@@ -74,6 +74,11 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
   * Grupa zasobów — Utwórz grupę zasobów lub użyć istniejącego.
   * Lokalizacja — należy wybrać [obsługiwany region](#regions).
   * Warstwy cenowej — wybierz bezpłatna
+  
+  >[!NOTE]
+  >Obwód usługi expressroute może być w dowolnym miejscu na świecie i nie musi znajdować się w tym samym regionie co obszaru roboczego.
+  >
+
 
   ![Obszar roboczy](.\media\how-to-npm\4.png)<br><br>
 4. Kliknij przycisk **OK** Aby zapisać i wdrożyć ustawienia szablonu. Po weryfikuje szablonu, kliknij przycisk **Utwórz** do wdrożenia w obszarze roboczym.
@@ -174,7 +179,7 @@ Aby uzyskać więcej informacji na temat grupy NSG, zobacz [grup zabezpieczeń s
 >
 >
 
-Przed rozpoczęciem za pomocą funkcji monitorowania ExpressRoute programu NPM, należy zażądać do białej z obszaru roboczego. [Kliknij tutaj, aby przejść do strony, a następnie wypełnij formularz żądania](https://go.microsoft.com/fwlink/?linkid=862263). (Wskazówki: chcesz otworzyć to łącze w nowym oknie lub na karcie). Listę dozwolonych podobnej może potrwać dzień roboczy lub więcej. Po zakończeniu listę dozwolonych podobnej otrzymasz wiadomość e-mail.
+Przed rozpoczęciem za pomocą funkcji monitorowania ExpressRoute programu NPM, należy zażądać do białej z obszaru roboczego. [Kliknij tutaj, aby przejść do strony, a następnie wypełnij formularz żądania](https://aka.ms/npmcohort). (Wskazówki: chcesz otworzyć to łącze w nowym oknie lub na karcie). Listę dozwolonych podobnej może potrwać dzień roboczy lub więcej. Po zakończeniu listę dozwolonych podobnej otrzymasz wiadomość e-mail.
 
 ## <a name="setupmonitor"></a>Krok 5: Konfigurowanie NPM do monitorowania usługi ExpressRoute
 

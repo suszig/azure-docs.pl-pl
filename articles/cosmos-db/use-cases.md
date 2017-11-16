@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia bazy danych Azure rozwiązania Cosmos
 Ten artykuł zawiera omówienie kilka typowe przypadki użycia dla bazy danych Azure rozwiązania Cosmos.  Zalecenia przedstawione w tym artykule służyć jako punktu wyjścia podczas opracowywania aplikacji DB rozwiązania Cosmos.   
@@ -39,7 +39,7 @@ Azure DB rozwiązania Cosmos jest globalne rozproszone i wiele modeli bazy danyc
 
 Poniżej przedstawiono niektóre atrybuty bazy danych Azure rozwiązania Cosmos, wchodzące nadają się do wysokiej wydajności aplikacji za pomocą ambicji globalnego.
 
-* Azure DB rozwiązania Cosmos natywnie partycje danych wysokiej dostępności i skalowalności. Azure DB rozwiązania Cosmos oferuje 99,99% gwarancje dostępności, przepływności, małych opóźnień i spójności.
+* Azure DB rozwiązania Cosmos natywnie partycje danych wysokiej dostępności i skalowalności. Azure DB rozwiązania Cosmos oferuje 99,99% gwarancje dostępności, przepływności, małych opóźnień i spójności na wszystkich kontach jednym regionie i wszystkich kont w przypadku swobodna spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych.
 * Azure DB rozwiązania Cosmos ma magazynu SSD kopii wraz z czasem odpowiedzi kolejności z milisekund małe opóźnienia.
 * Azure Obsługa rozwiązania Cosmos w DB poziomy spójności, takie jak prefiks ostateczna, spójne, sesji i nieaktualność umożliwia pełną elastyczność i niski współczynnik wydajności kosztów. Żadna usługa bazy danych oferuje tylu elastyczność jako bazy danych Azure rozwiązania Cosmos w poziomy spójności. 
 * Azure DB rozwiązania Cosmos ma elastyczne przyjaznych dla danych modelu cen, który gazomierzy pamięci masowej i przepływność niezależnie.

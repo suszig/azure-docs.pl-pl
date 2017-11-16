@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 44c87b00f4fc63dbfd45a07d9a8cddc5eaf1a65c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów, aby uniemożliwić nieoczekiwane zmiany 
 Jako administrator może być konieczne zablokować subskrypcji, grupy zasobów lub zasobów uniemożliwić innym użytkownikom w organizacji przypadkowo usuwanie i modyfikowanie kluczowych zasobów. Można ustawić poziom blokady **CanNotDelete** lub **tylko do odczytu**. 
@@ -168,6 +168,6 @@ W żądaniu obejmują obiekt JSON, który określa właściwości blokady.
 * Aby uzyskać więcej informacji na temat pracy z blokowania zasobów, zobacz [blokady w dół Your Azure zasobów](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * Aby dowiedzieć się więcej na temat logicznie organizowania zasobów, zobacz [przy użyciu tagów do organizowania zasobów](resource-group-using-tags.md)
 * Aby zmienić grupę zasobów, zasób znajduje się w, zobacz [przenoszenia zasobów do nowej grupy zasobów](resource-group-move-resources.md)
-* Ograniczenia i konwencje można stosować w subskrypcji z niestandardowych zasad. Aby uzyskać więcej informacji, zobacz [Use Policy to manage resources and control access](resource-manager-policy.md) (Zarządzanie zasobami i kontrola dostępu przy użyciu zasad).
+* Ograniczenia i konwencje można stosować w subskrypcji z niestandardowych zasad. Aby uzyskać więcej informacji, zobacz [co to jest Azure zasad?](../azure-policy/azure-policy-introduction.md).
 * Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
 

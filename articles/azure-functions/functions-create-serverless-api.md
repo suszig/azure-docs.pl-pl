@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Utwórz interfejs API niekorzystającą przy użyciu usługi Azure Functions
 
@@ -67,7 +67,7 @@ Następnie należy przetestować funkcję wyświetlić go do pracy z nowego powi
 
 ## <a name="proxies-overview"></a>Omówienie serwerów proxy
 
-W następnej sekcji zostanie powierzchni interfejsu API za pośrednictwem serwera proxy. Azure funkcje serwera proxy jest funkcja w wersji zapoznawczej, który służy do przesyłania żądań do innych zasobów. Zdefiniuj punkt końcowy HTTP, podobnie jak wyzwalacza HTTP, ale zamiast pisania kodu do wykonania, gdy jest wywoływana tego punktu końcowego, podaj adres URL do zdalnego wdrożenia. Umożliwia utworzenie wielu źródeł interfejsu API w jednym powierzchni interfejsu API, który ułatwia klientom korzystać. Jest to szczególnie przydatne, jeśli chcesz skompilować jako mikrousług interfejsu API.
+W następnej sekcji zostanie powierzchni interfejsu API za pośrednictwem serwera proxy. Azure proxy funkcji służy do przekazywania żądań do innych zasobów. Zdefiniuj punkt końcowy HTTP, podobnie jak wyzwalacza HTTP, ale zamiast pisania kodu do wykonania, gdy jest wywoływana tego punktu końcowego, podaj adres URL do zdalnego wdrożenia. Umożliwia utworzenie wielu źródeł interfejsu API w jednym powierzchni interfejsu API, który ułatwia klientom korzystać. Jest to szczególnie przydatne, jeśli chcesz skompilować jako mikrousług interfejsu API.
 
 Serwer proxy może wskazywać dowolnego zasobu HTTP, takie jak:
 - Stan usługi Funkcje Azure 
@@ -75,7 +75,7 @@ Serwer proxy może wskazywać dowolnego zasobu HTTP, takie jak:
 - Kontenery docker w [usługi aplikacji w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Inne obsługiwane interfejsu API
 
-Aby dowiedzieć się więcej na temat serwerów proxy, zobacz [Praca z serwerów proxy funkcji Azure (wersja zapoznawcza)].
+Aby dowiedzieć się więcej na temat serwerów proxy, zobacz [Praca z serwerów proxy funkcji Azure].
 
 ## <a name="create-your-first-proxy"></a>Tworzenie pierwszego serwera proxy
 
@@ -97,7 +97,7 @@ Powtórz kroki, aby [tworzenia aplikacji funkcji](https://docs.microsoft.com/azu
 ### <a name="creating-a-proxy-on-the-frontend"></a>Tworzenie serwera proxy na frontonie
 
 1. Przejdź z powrotem do aplikacji funkcji serwera sieci Web w portalu.
-1. W obszarze nawigacji po lewej stronie, kliknij znak "+" obok "Serwery proxy (wersja zapoznawcza)".
+1. W obszarze nawigacji po lewej stronie, kliknij znak "+" obok "Proxy".
     ![Tworzenie serwera proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Użyj ustawień serwera proxy, jak określono w tabeli. 
 
@@ -187,9 +187,9 @@ W tym samouczku przedstawiono sposób tworzenia i dostosowywania interfejsu API 
 Następujące informacje mogą być pomocne podczas opracowywania dalsze interfejsu API:
 
 - [Azure powiązania HTTP funkcje i elementu webhook](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Praca z serwerów proxy funkcji Azure (wersja zapoznawcza)]
+- [Praca z serwerów proxy funkcji Azure]
 - [Dokumentowanie funkcje interfejsu API Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Praca z serwerów proxy funkcji Azure (wersja zapoznawcza)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Praca z serwerów proxy funkcji Azure]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

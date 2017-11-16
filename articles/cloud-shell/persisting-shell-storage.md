@@ -1,5 +1,5 @@
 ---
-title: "Są przechowywane pliki Bash w powłoce chmury Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Bash w powłoce chmury Azure są przechowywane pliki | Dokumentacja firmy Microsoft"
 description: "Wskazówki dotyczące sposobu Bash w powłoce chmury Azure będzie się powtarzał plików."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Jak działa magazynu w chmurze powłoki 
-Powłoka w chmurze będzie się powtarzał plików za pomocą obu z następujących metod: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Jak działa Bash w magazynie w chmurze powłoki 
+Bash w powłoce chmurze będzie się powtarzał plików za pomocą obu z następujących metod: 
 * Tworzenie obrazu dysku z Twojej `$Home` katalogu, aby zachować całą zawartość w katalogu. Obraz dysku jest zapisywany w udziale określony plik jako `acc_<User>.img` w `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, i automatycznie synchronizuje zmiany. 
 * Instalowanie udziału plików określony jako `clouddrive` w Twojej `$Home` katalogu interakcji bezpośredniego udziału plików. `/Home/<User>/clouddrive`jest mapowany na `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-[Szybki Start powłoki chmury](quickstart.md) <br>
-[Więcej informacji na temat usługi Magazyn plików Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bash w chmurze powłoki — Szybki Start](quickstart.md) <br>
+[Informacje na temat magazynowania pliki programu Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Więcej informacji na temat tagów magazynu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -1,6 +1,6 @@
 ---
 title: "Szybki start — Azure Application Insights | Microsoft Docs"
-description: "Instrukcje można szybko skonfigurować aplikację mobilną do monitorowania za pomocą usługi Application Insights i Mobile Center"
+description: "Instrukcje można szybko skonfigurować aplikacji mobilnej do monitorowania za pomocą Centrum aplikacji i usługi Application Insights"
 services: application-insights
 keywords: 
 author: numberbycolors
@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a8af65a9a9f31200f833a47f811ae50a0a9d2f9b
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-analyzing-your-mobile-app-with-mobile-center-and-application-insights"></a>Uruchom analizowanie aplikacji mobilnej z Centrum Mobile i usługi Application Insights
+# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Uruchom analizowanie aplikacji mobilnej z Centrum aplikacji i usługi Application Insights
 
-Ta opcja szybkiego startu przeprowadzi Cię przez łączenie wystąpienia Mobile Center aplikacji do usługi Application Insights. Z usługi Application Insights można zapytania, segmentu, filtrować i analizowania telemetrii z bardziej zaawansowanych narzędzi niż jest dostępne z [Analytics](https://docs.microsoft.com/mobile-center/analytics/) usługi mobilnej Centrum.
+Ta opcja szybkiego startu przeprowadzi Cię przez łączenie wystąpienia aplikacji Centrum aplikacji do usługi Application Insights. Z usługi Application Insights można zapytania, segmentu, filtrować i analizowania telemetrii z bardziej zaawansowanych narzędzi niż jest dostępne z [Analytics](https://docs.microsoft.com/mobile-center/analytics/) usługi Centrum aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,11 +29,11 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
  
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="onboard-to-mobile-center"></a>Dołączyć Center Mobile
+## <a name="onboard-to-app-center"></a>Dołączyć do Centrum aplikacji
 
-Zanim użyjesz usługi Application Insights z aplikacją mobilną, należy dołączyć aplikację, aby [Mobile Center](https://docs.microsoft.com/mobile-center/). Usługa Application Insights nie odbiera dane telemetryczne z aplikacji mobilnej bezpośrednio. Zamiast tego aplikacja wysyła dane telemetryczne zdarzenia niestandardowe Center Mobile. Następnie Mobile Center stale eksportuje kopie tych zdarzeń niestandardowych w usłudze Application Insights zdarzenia są odbierane.
+Zanim użyjesz usługi Application Insights z aplikacją mobilną, należy dołączyć aplikację, aby [Centrum aplikacji](https://docs.microsoft.com/mobile-center/). Usługa Application Insights nie odbiera dane telemetryczne z aplikacji mobilnej bezpośrednio. Zamiast tego aplikacja wysyła dane telemetryczne zdarzenia niestandardowe Centrum aplikacji. Następnie Centrum aplikacji stale eksportuje kopie tych zdarzeń niestandardowych w usłudze Application Insights zdarzenia są odbierane.
 
-Dołączyć aplikacji, użyć szybkiego startu Mobile Center dla każdej platformy obsługuje Twojej aplikacji. Utwórz oddzielne wystąpienia Mobile Center dla każdej platformy:
+Dołączyć aplikacji, użyć szybkiego startu Centrum aplikacji dla każdej platformy obsługuje Twojej aplikacji. Tworzenie oddzielnych wystąpień Centrum aplikacji dla każdej platformy:
 
 * [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
 * [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
@@ -43,27 +43,27 @@ Dołączyć aplikacji, użyć szybkiego startu Mobile Center dla każdej platfor
 
 ## <a name="track-events-in-your-app"></a>Śledź zdarzenia w aplikacji
 
-Aplikację po dołączać do Centrum Mobile musi zostać zmodyfikowane w celu wysyłania danych telemetrycznych zdarzenie niestandardowe przy użyciu zestawu SDK Center Mobile. Niestandardowe zdarzenia są jedynym typem telemetrii Mobile Center, które są eksportowane do usługi Application Insights.
+Aplikację po dołączać do Centrum aplikacji musi zostać zmodyfikowane w celu wysyłania danych telemetrycznych zdarzenie niestandardowe przy użyciu zestawu SDK Centrum aplikacji. Niestandardowe zdarzenia są jedynym typem dane telemetryczne aplikacji Centrum jest eksportowane do usługi Application Insights.
 
-Aby wysłać zdarzeń niestandardowych z aplikacjami systemu iOS, należy użyć `trackEvent` lub `trackEvent:withProperties` metody w zestawie SDK Center Mobile. [Dowiedz się więcej na temat śledzenia zdarzeń z aplikacjami systemu iOS.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+Aby wysłać zdarzeń niestandardowych z aplikacjami systemu iOS, należy użyć `trackEvent` lub `trackEvent:withProperties` metody w zestawie SDK Centrum aplikacji. [Dowiedz się więcej na temat śledzenia zdarzeń z aplikacjami systemu iOS.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-Aby wysłać zdarzeń niestandardowych z aplikacji systemu Android, należy użyć `trackEvent` metody w zestawie SDK Center Mobile. [Dowiedz się więcej na temat śledzenia zdarzeń z aplikacji systemu Android.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+Aby wysłać zdarzeń niestandardowych z aplikacji systemu Android, należy użyć `trackEvent` metody w zestawie SDK Centrum aplikacji. [Dowiedz się więcej na temat śledzenia zdarzeń z aplikacji systemu Android.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
 
-Aby wysłać niestandardowych zdarzeń z innych platform aplikacji, należy użyć `trackEvent` metod w ich zestawów SDK Center Mobile.
+Aby wysłać niestandardowych zdarzeń z innych platform aplikacji, należy użyć `trackEvent` metod w ich zestawów SDK Centrum aplikacji.
 
-Aby upewnić się, zdarzenia niestandardowe są otrzymywane, przejdź do **zdarzenia** w obszarze **Analytics** części Mobile Center. Może upłynąć kilka minut dla zdarzeń wyświetlani z, gdy są one wysyłane z aplikacji.
+Aby upewnić się, zdarzenia niestandardowe są otrzymywane, przejdź do **zdarzenia** w obszarze **Analytics** sekcji w Centrum aplikacji. Może upłynąć kilka minut dla zdarzeń wyświetlani z, gdy są one wysyłane z aplikacji.
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
-Gdy wysyła zdarzeń niestandardowych aplikacji i te zdarzenia są odbierane przez Centrum Mobile, musisz utworzyć zasobu usługi Application Insights typu Center Mobile w portalu Azure:
+Gdy wysyła zdarzeń niestandardowych aplikacji i te zdarzenia są odbierane przez Centrum aplikacji, musisz utworzyć zasobu usługi Application Insights dla typu Centrum aplikacji w portalu Azure:
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Wybierz pozycję **Nowy**  >  **Monitorowanie i zarządzanie**  >  **Application Insights**.
@@ -75,7 +75,7 @@ Gdy wysyła zdarzeń niestandardowych aplikacji i te zdarzenia są odbierane prz
     | Ustawienia        |  Wartość           | Opis  |
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Niektóre globalnie unikatowa wartość, takich jak "moja_aplikacja iOS" | Nazwa identyfikująca monitorowaną aplikację |
-   | **Typ aplikacji** | Aplikacja Centrum Mobile | Typ monitorowanej aplikacji |
+   | **Typ aplikacji** | Aplikacja Centrum aplikacji | Typ monitorowanej aplikacji |
    | **Grupa zasobów**     | Nową grupę zasobów lub istniejącego menu | Grupy zasobów, w którym ma zostać utworzony nowy zasób usługi Application Insights |
    | **Lokalizacja** | Lokalizacja, z menu | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
@@ -87,7 +87,7 @@ Jeśli aplikacja obsługuje wiele platform (systemy iOS, Android, itp.), najlepi
 
 W Twojej nowy zasób usługi Application Insights na **omówienie** strony **Essentials** sekcji u góry, skopiuj klucz instrumentacji dla tego zasobu.
 
-W wystąpieniu Mobile Center dla aplikacji:
+W wystąpieniu Centrum aplikacji dla aplikacji:
 
 1. Na **ustawienia** kliknij przycisk **wyeksportować**.
 2. Wybierz **wyeksportować nowy**, wybierz **usługi Application Insights**, następnie kliknij przycisk **Dostosuj**.
@@ -96,13 +96,13 @@ W wystąpieniu Mobile Center dla aplikacji:
 
 Pamiętaj, aby Powtórz ten proces dla każdej platformy obsługuje Twojej aplikacji.
 
-Raz [wyeksportować](https://docs.microsoft.com/mobile-center/analytics/export) ma wartość up, każde zdarzenie niestandardowe odebranych przez Centrum Mobile jest kopiowana do usługi Application Insights. Może upłynąć kilka minut dla zdarzeń w celu osiągnięcia usługi Application Insights, więc jeśli nie były wyświetlane, oczekiwania nieco diagnozowania dalsze.
+Raz [wyeksportować](https://docs.microsoft.com/mobile-center/analytics/export) ustawiono skonfigurowaniu każdego zdarzenia niestandardowe przekazanej aplikacji Centrum jest kopiowana do usługi Application Insights. Może upłynąć kilka minut dla zdarzeń w celu osiągnięcia usługi Application Insights, więc jeśli nie były wyświetlane, oczekiwania nieco diagnozowania dalsze.
 
-Daje więcej danych po raz pierwszy łączą, najnowsze 48 godzin niestandardowych zdarzeń w Centrum Mobile automatycznie są eksportowane do usługi Application Insights.
+Zapewniają więcej danych po raz pierwszy łączą, najnowszych 48 godzin niestandardowych zdarzeń w Centrum aplikacji są automatycznie eksportowane do usługi Application Insights.
 
 ## <a name="start-monitoring-your-app"></a>Rozpocznij monitorowanie aplikacji
 
-Usługi Application Insights można zapytania, segmentu, filtrować i analizować dane telemetryczne niestandardowe zdarzenie z aplikacji innych niż te narzędzia analizy, które zapewnia Mobile Center.
+Usługi Application Insights można zapytania, segmentu, filtrować i analizować dane telemetryczne niestandardowe zdarzenie z aplikacji, poza narzędzia analizy Centrum aplikacji firmy.
 
 1. **Zapytania niestandardowe zdarzenie telemetrii.** Z usługi Application Insights **omówienie** wybierz pozycję **Analytics**. 
 
@@ -131,7 +131,7 @@ Usługi Application Insights można zapytania, segmentu, filtrować i analizowa�
 
    ![Ikona narzędzie Użytkownicy](./media/app-insights-mobile-center-quickstart/users-icon.png)
 
-   Narzędzie Użytkownicy pokazuje liczbę użytkowników aplikacji kliknięty niektórych przycisków, odwiedzi niektóre ekrany lub wykonać żadnych działań, które są śledzone jako zdarzenie przy użyciu zestawu SDK Center Mobile. Jeśli chcesz już zostały w sposób segmentu i filtrowania zdarzeń Mobile Center, narzędzie użytkowników jest doskonałym wyborem.
+   Narzędzie Użytkownicy pokazuje liczbę użytkowników aplikacji kliknięty niektórych przycisków, odwiedzi niektóre ekrany lub wykonać żadnych działań, które są śledzone jako zdarzenie z zestawem SDK Centrum aplikacji. Jeśli chcesz już zostały w sposób segmentu i filtrowanie aplikacji Centrum zdarzeń, narzędzie użytkowników jest doskonałym wyborem.
 
    ![Narzędzie użytkowników](./media/app-insights-mobile-center-quickstart/users.png) 
 
@@ -152,11 +152,11 @@ Usługi Application Insights można zapytania, segmentu, filtrować i analizowa�
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie chcesz kontynuować korzystanie z usługi Application Insights z Centrum Mobile, wyłącz eksportu w Centrum Mobile i usuwanie zasobu usługi Application Insights. Mogą uniemożliwić obciążane dalsze przez usługę Application Insights dla tego zasobu.
+Jeśli nie chcesz kontynuować z Centrum aplikacji przy użyciu usługi Application Insights, wyłączyć eksportu w Centrum aplikacji oraz usuwanie zasobu usługi Application Insights. Mogą uniemożliwić obciążane dalsze przez usługę Application Insights dla tego zasobu.
 
-Aby wyłączyć eksportu w Centrum Mobile:
+Aby wyłączyć eksportu w Centrum aplikacji:
 
-1. W Centrum Mobile przejdź do **ustawienia** i wybierz polecenie **wyeksportować**.
+1. W Centrum aplikacji, przejdź do **ustawienia** i wybierz polecenie **wyeksportować**.
 2. Kliknij pozycję Eksportuj usługi Application Insights, aby usunąć, a następnie kliknij przycisk **usunąć eksportu** u dołu i potwierdź.
 
 Aby usunąć zasób usługi Application Insights:

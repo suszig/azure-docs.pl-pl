@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 11/09/2017
 ms.author: genli
-ms.openlocfilehash: 2ce497146abf664b0084cd96963523812f166e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurowanie i zarządzanie problemy dotyczące usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -181,6 +181,19 @@ Przy użyciu jednej z metod powyżej, odpowiednich certyfikatów (*.pfx) dla okr
 ## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Jak dodać tagi do usługi w chmurze Azure 
 
 Usługi w chmurze jest zasobem klasycznego. Tylko zasoby utworzone za pomocą tagów pomocy technicznej usługi Azure Resource Manager. Nie można zastosować tagi Classic zasoby, takie jak usługi w chmurze. 
+
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Jakie są nadchodzących możliwości usługi w chmurze w portalu Azure, które ułatwiają zarządzanie i monitorowanie aplikacji?
+
+* Możliwość generuje nowy certyfikat dla protokołu RDP (Remote Desktop) będzie dostępna wkrótce. Alternatywnie możesz uruchomić ten skrypt:
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Wybieranie obiektów blob lub lokalnej dla Twoich csdef i cscfg przekazać lokalizacji będzie dostępna wkrótce. Przy użyciu [AzureDeployment nowy](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), można ustawić wartości w każdej lokalizacji.
+* Możliwość monitorowania metryki na poziomie wystąpienia. Dostępne są dodatkowe funkcje monitorowania [jak usługi w chmurze Monitor](cloud-services-how-to-monitor.md).
+
 
 ## <a name="how-to-enable-http2-on-cloud-services-vm"></a>Jak włączyć HTTP/2 na maszynie Wirtualnej usługi w chmurze?
 

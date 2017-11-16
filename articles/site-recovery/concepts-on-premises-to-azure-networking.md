@@ -1,6 +1,6 @@
 ---
-title: "Łączenie z maszyn wirtualnych po przejściu w tryb failover Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Sieć wskazówki dotyczące łączenia na maszynach wirtualnych Azure po pracy awaryjnej z lokalnych z usługą Azure Site Recovery"
+title: "Skonfigurować adresy IP, aby połączyć po przejściu w tryb failover Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Zawiera opis sposobu konfigurowania adresu IP, adresy połączyć się z maszynami wirtualnymi Azure po pracy awaryjnej z lokalnych z usługą Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-azure"></a>Łączenie z maszyn wirtualnych po pracy awaryjnej na platformie Azure
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Skonfiguruj adresowanie nawiązania połączenia po przejściu w tryb failover Azure IP
 
 W tym artykule opisano wymagania sieciowe dotyczące połączenia z maszyn wirtualnych platformy Azure, po użyciu [usługi Azure Site Recovery](site-recovery-overview.md) usługi dla replikacji i trybu failover na platformie Azure.
 

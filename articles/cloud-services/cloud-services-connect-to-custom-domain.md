@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Łączenie role usługi w chmurze Azure z niestandardowego kontrolera domeny AD hostowana na platformie Azure
 Sieć wirtualną (VNet) zostanie najpierw skonfigurowanie na platformie Azure. Następnie dodamy kontroler domeny usługi Active Directory (obsługiwanych na maszynie wirtualnej platformy Azure) do sieci wirtualnej. Następnie firma Microsoft będzie Dodaj istniejące role usługi w chmurze do wstępnie utworzone sieci wirtualnej, a następnie podłącz je do kontrolera domeny.
@@ -128,7 +128,7 @@ Następnie należy dodać do nowej sieci wirtualnej wdrożenia usługi chmury. A
 </ServiceConfiguration>
 ```
 
-Następnie skompilowanie projektu usługi w chmurze i wdrożyć go na platformie Azure. Aby uzyskać pomoc dotyczącą wdrażania pakietu usługi w chmurze na platformie Azure, zobacz [sposobu tworzenia i wdrażania usługi w chmurze](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Następnie skompilowanie projektu usługi w chmurze i wdrożyć go na platformie Azure. Aby uzyskać pomoc dotyczącą wdrażania pakietu usługi w chmurze na platformie Azure, zobacz [sposobu tworzenia i wdrażania usługi w chmurze](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Połącz się z domeną role sieć web/proces roboczy.
 Po wdrożeniu projekt usługi w chmurze na platformie Azure nawiązać niestandardowej domeny AD za pomocą rozszerzenia domeny AD wystąpienia roli. Dodaj rozszerzenie AD domeny do istniejącego wdrożenia usługi w chmurze i przyłączania do domeny niestandardowe, wykonaj następujące polecenia w programie PowerShell:

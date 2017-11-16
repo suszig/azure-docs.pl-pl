@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Zarządzanie wolumin ceny i danych w usłudze Application Insights
 
@@ -110,7 +110,7 @@ Application Insights opłaty są dodawane do rachunku platformy Azure. Można wy
 Istnieją trzy sposoby, w których jest ograniczony woluminu w przypadku wysłania danych:
 
 * **Próbkowanie:** mechanizm ten może służyć zmniejszyć ilość danych telemetrycznych wysłanych z klienta i serwera aplikacji, z minimalnym zakłócenia metryki. To jest podstawowym narzędziem konieczne dostrojenie ilości danych. Dowiedz się więcej o [próbkowania funkcji](app-insights-sampling.md). 
-* **Dzienny limit:** podczas tworzenia zasobu usługi Application Insights z portalu Azure, to ma ustawioną wartość 500 GB/dzień. Domyślnie podczas tworzenia zasobu usługi Application Insights z programu Visual Studio jest mały (tylko 32,3 MB/dzień) jest przeznaczony tylko do testowania faciliate. W takim przypadku jest przeznaczony, użytkownik zostanie podniesiony codzienne centralnych zasad dostępu przed wdrożeniem aplikacji w środowisku produkcyjnym. Maksymalny limit jest 500 GB/dzień, chyba że żądanych maksymalną wyższą dla aplikacji dużego natężenia ruchu sieciowego. Zachować ostrożność podczas ustawiania codzienne centralnych zasad dostępu, zgodnie z celem powinno być **do nigdy nie osiągnęła limit dzienny**, ponieważ spowoduje utratę danych do końca dnia i nie w celu monitorowania danej aplikacji. Aby go zmienić, użyj codzienne bloku zakończenia woluminu połączone z bloku Zarządzanie woluminami danych (zobacz poniżej). Należy zauważyć, że niektóre typy subskrypcji środki, nie może zostać użyty dla usługi Application Insights. Jeśli subskrypcja jest objęta limitem wydatków, codzienne bloku zakończenia będzie mieć instrukcje jak ją usunąć i włączyć codzienne WPR wygenerowany poza 32,3 MB/dzień.  
+* **Dzienny limit:** podczas tworzenia zasobu usługi Application Insights z portalu Azure, to ma ustawioną wartość 100 GB/dzień. Domyślnie podczas tworzenia zasobu usługi Application Insights z programu Visual Studio jest mały (tylko 32,3 MB/dzień) jest przeznaczony tylko do testowania faciliate. W takim przypadku jest przeznaczony, użytkownik zostanie podniesiony codzienne centralnych zasad dostępu przed wdrożeniem aplikacji w środowisku produkcyjnym. Maksymalny limit jest 1000 GB/dzień, chyba że żądanych maksymalną wyższą dla aplikacji dużego natężenia ruchu sieciowego. Zachować ostrożność podczas ustawiania codzienne centralnych zasad dostępu, zgodnie z celem powinno być **do nigdy nie osiągnęła limit dzienny**, ponieważ spowoduje utratę danych do końca dnia i nie w celu monitorowania danej aplikacji. Aby go zmienić, użyj codzienne bloku zakończenia woluminu połączone z bloku Zarządzanie woluminami danych (zobacz poniżej). Należy zauważyć, że niektóre typy subskrypcji środki, nie może zostać użyty dla usługi Application Insights. Jeśli subskrypcja jest objęta limitem wydatków, codzienne bloku zakończenia będzie mieć instrukcje jak ją usunąć i włączyć codzienne WPR wygenerowany poza 32,3 MB/dzień.  
 * **Ograniczanie:** ogranicza szybkość transmisji do 32 KB zdarzeń na sekundę, średnio ponad 1 minutę. 
 
 

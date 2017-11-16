@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak używać Azure zarządzanych tożsamości usługi (publicznej wersji zapoznawczej) w aplikacji usługi i usługi Azure Functions
 
@@ -103,7 +103,7 @@ Brak prostego protokołu REST do uzyskania tokenu usługi aplikacji i usługi Az
 
 ### <a name="asal"></a>Za pomocą biblioteki Microsoft.Azure.Services.AppAuthentication dla platformy .NET
 
-Dla aplikacji .NET oraz funkcji Najprostszym sposobem pracy za pomocą tożsamości zarządzanych usług jest za pomocą pakietu Microsoft.Azure.Services.AppAuthentication. Ta biblioteka również umożliwia testowanie kodu lokalnie na komputerze deweloperskim, przy użyciu konta użytkownika z [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) lub zintegrowane uwierzytelnianie usługi Active Directory. W tej sekcji przedstawiono, jak rozpocząć pracę z biblioteką.
+Dla aplikacji .NET oraz funkcji Najprostszym sposobem pracy za pomocą tożsamości zarządzanych usług jest za pomocą pakietu Microsoft.Azure.Services.AppAuthentication. Ta biblioteka będzie pozwalają również do testowania kodu lokalnie na komputerze deweloperskim, przy użyciu konta użytkownika z programu Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), lub zintegrowane uwierzytelnianie usługi Active Directory. Aby uzyskać więcej informacji na temat opcji wdrożenia lokalnego z tej biblioteki, zobacz [odwołania Microsoft.Azure.Services.AppAuthentication]. W tej sekcji przedstawiono, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) i [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) pakietów NuGet do aplikacji.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Aby dowiedzieć się więcej na temat Microsoft.Azure.Services.AppAuthentication i operacje, takie, zobacz [usługi aplikacji i KeyVault próbki MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Aby dowiedzieć się więcej na temat Microsoft.Azure.Services.AppAuthentication i operacje, takie, zobacz [odwołania Microsoft.Azure.Services.AppAuthentication] i [usługi aplikacji i KeyVault z platformą .NET MSI Przykładowe](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>Przy użyciu protokołu REST
 
@@ -132,7 +132,7 @@ Za pomocą tożsamości zarządzanych usług aplikacji ma dwie zmienne środowis
 > [!div class="mx-tdBreakAll"]
 > |Nazwa parametru|W|Opis|
 > |-----|-----|-----|
-> |Zasobów|Zapytanie|Identyfikator URI zasobu zasobu usługi AAD, dla którego mają być uzyskiwane tokenu.|
+> |zasób|Zapytanie|Identyfikator URI zasobu zasobu usługi AAD, dla którego mają być uzyskiwane tokenu.|
 > |wersja interfejsu API|Zapytanie|Wersja interfejsu API token do użycia. "2017-09-01" jest obecnie jedyna obsługiwana wersja.|
 > |klucz tajny|Nagłówek|Wartość zmiennej środowiskowej MSI_SECRET.|
 
@@ -144,7 +144,7 @@ Pomyślne odpowiedź 200 OK zawiera treść JSON z następującymi właściwośc
 > |-------------|----------|
 > |' access_token '|Żądany dostęp token. Wywołanie usługi sieci web umożliwia ten token uwierzytelniania przyjęcia usługi sieci web.|
 > |expires_on|Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów.|
-> |Zasobów|Identyfikator URI aplikacji odbierającej usługi sieci web.|
+> |zasób|Identyfikator URI aplikacji odbierającej usługi sieci web.|
 > |token_type|Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest elementu nośnego. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[odwołania Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452

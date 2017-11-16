@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos
 Aplikacje mobilne najbardziej potrzebne do przechowywania danych w chmurze i bazy danych Azure rozwiązania Cosmos jest bazą danych chmury dla aplikacji mobilnych. Zawiera wszystko, co jest wymagane przez dewelopera przenośnych. Pełni zarządzana baza danych jest jako usługa, która może obsłużyć na żądanie. Uruchamiać danych do aplikacji w sposób przezroczysty, wszędzie tam, gdzie użytkownicy znajdują się na całym świecie. Za pomocą [Azure rozwiązania Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), można włączyć Xamarin aplikacji mobilnych na bezpośrednią interakcję z bazy danych z rozwiązania Cosmos platformy Azure, bez warstwy środkowej.
@@ -31,7 +31,7 @@ Azure DB rozwiązania Cosmos oferuje następujące kluczowe funkcje dla dewelope
 ![Możliwości rozwiązania Cosmos bazy danych platformy Azure dla aplikacji mobilnych](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
 * Zaawansowana zapytania dotyczące danych schematu. Azure DB rozwiązania Cosmos przechowuje dane jako schematu dokumentów JSON w kolekcjach heterogenicznych. Zapewnia ona [zapytania bogaty i szybkie](documentdb-sql-query.md) bez konieczności martwić się o schematów lub indeksów.
-* Szybkie przepływności. Trwa tylko kilka milisekund do odczytywania i zapisywania dokumentów z bazy danych Azure rozwiązania Cosmos. Deweloperzy można określić przepustowość, które są im potrzebne, i bazy danych Azure rozwiązania Cosmos honoruje go SLA 99,99%.
+* Szybkie przepływności. Trwa tylko kilka milisekund do odczytywania i zapisywania dokumentów z bazy danych Azure rozwiązania Cosmos. Deweloperzy można określić przepustowość, które są im potrzebne i bazy danych Azure rozwiązania Cosmos honoruje go z umowy SLA dostępności 99,99% dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku z swobodna spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych .
 * Skala nieograniczona. Kolekcji bazy danych Azure rozwiązania Cosmos [rosnąć w miarę wzrastania aplikacji](partition-data.md). Można uruchomić z rozmiar danych w małych i przepływności setki żądań na sekundę. Kolekcji odpowiednio do petabajtów danych i dowolnie dużą przepływność setki miliony żądań na sekundę.
 * Globalnie rozproszone. Użytkownicy aplikacji mobilnej są w podróży, często całym świecie. Azure DB rozwiązania Cosmos jest [globalnie rozproszoną bazę danych](distribute-data-globally.md). Kliknij mapę, aby dane były dostępne dla użytkowników.
 * Wbudowane sformatowanego autoryzacji. Z bazy danych rozwiązania Cosmos platformy Azure, można łatwo zaimplementować popularnych wzorców, takich jak [danych użytkownika](https://aka.ms/documentdb-xamarin-todouser) lub wielodostępnego udostępnionych danych bez kodu złożonych autoryzacji niestandardowej.

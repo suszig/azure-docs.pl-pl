@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 105dc8a17d0bf8862b772ad241f4522e4c658095
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e962016a96cbbdafabc512b055248900b2c68a69
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Jak można zresetować usług pulpitu zdalnego lub jego hasło logowania na maszynie wirtualnej systemu Windows
-Jeśli nie można połączyć z maszyną wirtualną (VM) systemu Windows, można zresetować hasła administratora lokalnego lub zresetowanie konfiguracji usługi pulpitu zdalnego. Aby zresetować hasło, można użyć portalu Azure lub rozszerzenia dostępu do maszyny Wirtualnej w programie Azure PowerShell. Jeśli używasz programu PowerShell, upewnij się, że masz [najnowsze modułu PowerShell zainstalowany i skonfigurowany](/powershell/azure/overview) i jest zalogowany do subskrypcji platformy Azure. Możesz również [wykonaj te kroki dla maszyn wirtualnych utworzonych za pomocą klasycznego modelu wdrożenia](reset-rdp.md).
+Jeśli nie można połączyć z maszyną wirtualną (VM) systemu Windows, można zresetować hasła administratora lokalnego lub zresetowanie konfiguracji usługi pulpitu zdalnego. Aby zresetować hasło, można użyć portalu Azure lub rozszerzenia dostępu do maszyny Wirtualnej w programie Azure PowerShell. Jeśli używasz programu PowerShell, upewnij się, że masz [najnowsze modułu PowerShell zainstalowany i skonfigurowany](/powershell/azure/overview) i jest zalogowany do subskrypcji platformy Azure. Możesz również [wykonaj te kroki dla maszyn wirtualnych utworzonych za pomocą klasycznego modelu wdrożenia](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Sposoby resetowania konfiguracji lub poświadczeń
 Można zresetować usług pulpitu zdalnego i poświadczenia na kilka różnych sposobów, w zależności od potrzeb:

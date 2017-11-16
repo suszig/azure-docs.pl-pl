@@ -1,5 +1,5 @@
 ---
-title: "Jak używać tożsamości zarządzanych usługi Azure w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+title: "Użyj Azure zarządzanych tożsamości usługi na serwerze usługi Azure API Management | Dokumentacja firmy Microsoft"
 description: "Dowiedz się jak używać tożsamości zarządzanych usługi Azure w usłudze API Management"
 services: api-management
 documentationcenter: 
@@ -11,22 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 70bf207cc173caf7d8cae3c4c9111ee2f427405b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-azure-api-management"></a>Jak używać tożsamości zarządzanych usługi Azure w usłudze Azure API Management
+# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Użyj tożsamości usługi Azure zarządzanych w usłudze Azure API Management
 
 > [!Note]
 > Zarządzane tożsamości usługi dla usługi Azure API Management jest obecnie w przeglądzie.
 
-W tym temacie przedstawiono sposób tworzenia tożsamości usługi zarządzanej dla wystąpienia usługi API Management oraz sposób uzyskiwać dostęp do innych zasobów. Tożsamość usługi zarządzanej generowane przez usługi Azure Active Directory (AAD) umożliwia łatwe do wystąpienia interfejsu API zarządzania i bezpieczny dostęp do zasobów innych chronionych usługi AAD, takich jak usługi Azure Key Vault. Ta tożsamość usługi zarządzanej jest zarządzany przez usługę Azure i nie trzeba zapewniać ani obrócić żadnych kluczy tajnych. Więcej informacji o tożsamości usługi zarządzania Azure, zobacz [Omówienie usług zarządzanych przez tożsamości](../active-directory/msi-overview.md).
+W tym artykule przedstawiono sposób tworzenia tożsamości usługi zarządzanej dla wystąpienia usługi API Management oraz sposób uzyskiwać dostęp do innych zasobów. Tożsamość usługi zarządzanej generowane przez usługę Azure Active Directory (Azure AD) pozwala łatwo i bezpiecznie inne usługi Azure AD zasoby z chronionymi transakcjami, takie jak usługi Azure Key Vault dostępu do wystąpienia interfejsu API zarządzania. Ta tożsamość usługi zarządzanej jest zarządzany przez usługę Azure i nie trzeba zapewniać ani obrócić żadnych kluczy tajnych. Aby uzyskać więcej informacji o tożsamości usługi zarządzania Azure, zobacz [zarządzane tożsamość usługi Azure zasobów](../active-directory/msi-overview.md).
 
-## <a name="creating-an-api-management-instance-with-an-identity-using-an-azure-resource-manager-template"></a>Utworzenie wystąpienia interfejsu API zarządzania przy użyciu tożsamości za pomocą szablonu usługi Azure Resource Manager
+## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Utwórz wystąpienie interfejsu API zarządzania przy użyciu tożsamości za pomocą szablonu usługi Resource Manager
 
-Wystąpienie interfejsu API zarządzania można utworzyć przy użyciu tożsamości przez uwzględnienie następujących właściwości w definicji zasobu. 
+Można utworzyć wystąpienia interfejsu API zarządzania przy użyciu tożsamości przez uwzględnienie następujących właściwości w definicji zasobu: 
 
 ```json
 "identity" : {
@@ -34,9 +34,9 @@ Wystąpienie interfejsu API zarządzania można utworzyć przy użyciu tożsamo�
 }
 ```
 
-Ta wartość informuje Azure do tworzenia i zarządzania tożsamościami dla swojego wystąpienia usługi API Management. 
+Ta właściwość określa, że Azure do tworzenia i zarządzania tożsamościami dla swojego wystąpienia usługi API Management. 
 
-Na przykład pełny szablon może wyglądać następujące czynności:
+Na przykład Pełna szablonu usługi Azure Resource Manager może wyglądać następujące czynności:
 
 ```json
 {
@@ -109,13 +109,13 @@ Na przykład pełny szablon może wyglądać następujące czynności:
 }
 ```
 
-## <a name="obtaining-a-certificate-from-azure-key-vault"></a>Uzyskiwanie certyfikatu z usługi Azure Key Vault
+## <a name="obtain-a-certificate-from-azure-key-vault"></a>Uzyskaj certyfikat z magazynu kluczy Azure
 
-Poniższym przykładzie pokazano, jak uzyskać certyfikat z magazynu kluczy Azure. Ten przewodnik zawiera następujące czynności:
+Poniższy przykład pokazuje, jak można uzyskać certyfikatu z usługi Azure Key Vault. Ten przewodnik zawiera następujące czynności:
 
-* Utwórz wystąpienie interfejsu API zarządzania przy użyciu tożsamości
-* Zaktualizuj zasady dostępu do wystąpienia usługi Azure Key Vault i Zezwalaj wystąpienia interfejsu API zarządzania uzyskanie kluczy tajnych z niego
-* Aktualizuj wystąpienie interfejsu API zarządzania przez ustawienie niestandardowej nazwy domeny przy użyciu certyfikatu z wystąpienia usługi Key Vault
+1. Utwórz wystąpienie interfejsu API zarządzania przy użyciu tożsamości.
+2. Aktualizowanie zasad dostępu do wystąpienia usługi Azure Key Vault i pozwolić wystąpienia interfejsu API zarządzania uzyskanie kluczy tajnych z niego.
+3. Aktualizuj wystąpienie interfejsu API zarządzania przez ustawienie niestandardowej nazwy domeny za pomocą certyfikatu z wystąpienia usługi Key Vault.
 
 > [!Important]
 > Jeśli nie podano wersji obiektu certyfikatu, zarządzanie interfejsami API automatycznie uzyskać nowsza wersja certyfikatu po przekazaniu do magazynu kluczy. 
@@ -245,7 +245,8 @@ Poniższym przykładzie pokazano, jak uzyskać certyfikat z magazynu kluczy Azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o tożsamości zarządzanych usługi Azure
-  * [Omówienie tożsamość usługi zarządzanej](../active-directory/msi-overview.md)
-  * [Zobacz więcej szablonów usługi Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
+Dowiedz się więcej o Azure zarządzanych tożsamości usługi:
+
+* [Zarządzane tożsamości usługi dla zasobów platformy Azure](../active-directory/msi-overview.md)
+* [Szablony usługi Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
 

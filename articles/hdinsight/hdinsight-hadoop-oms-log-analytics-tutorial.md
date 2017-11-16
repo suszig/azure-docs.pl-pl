@@ -13,54 +13,53 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Analiza dzienników Azure umożliwia monitorowanie klastrów usługi HDInsight (wersja zapoznawcza)
+# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Analiza dzienników Azure umożliwia monitorowanie klastrów usługi HDInsight
 
-W tym artykule możesz dowiedzieć się, jak na potrzeby monitorowania operacji klastrów usługi HDInsight Hadoop Analiza dzienników Azure.
+Dowiedz się, jak używać usługi Analiza dzienników Azure do monitorowania działania klastra usługi Hadoop w usłudze HDInsight.
 
-Analiza dzienników jest usługą [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) który monitoruje chmury i lokalnych środowiskach utrzymywać ich dostępności i wydajności. Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł. 
+[Zaloguj się Analytics](../log-analytics/log-analytics-overview.md) to usługa w [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) który monitoruje chmury i lokalnych środowiskach utrzymywać ich dostępności i wydajności. Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Przed rozpoczęciem tego samouczka musisz dysponować subskrypcją platformy Azure. Zobacz [Utwórz bezpłatne konto platformy Azure już dzisiaj](https://azure.microsoft.com/free).
 
 * **Klaster Azure HDInsight**. Obecnie można użyć Azure OMS z następujące typy klastrów usługi HDInsight:
-    * Usługa Hadoop
-    * platforma Spark
+
+    * Hadoop
     * HBase
-    * Storm
+    * Zapytanie interakcyjne
     * Kafka
-    * Interakcyjne gałęzi
+    * platforma Spark
+    * Storm
 
     Aby uzyskać instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight, zobacz [Rozpoczynanie pracy z usługą Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-
 * **Obszar roboczy analizy dzienników**. Ten obszar roboczy można traktować jako unikatowy środowiska analizy dzienników z własnych danych repozytorium, źródła danych i rozwiązania. Musi mieć jeden taki obszar roboczy już utworzone, które można skojarzyć z klastrami Azure HDInsight. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego analizy dzienników](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
-## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>Konfigurowanie klastra usługi HDInsight do używania usługi Analiza dzienników Azure
+## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Konfigurowanie klastra usługi HDInsight, aby użyć analizy dzienników
 
 W tej sekcji skonfigurujesz istniejącego klastra usługi HDInsight Hadoop do użycia z obszarem roboczym usługi Analiza dzienników Azure do monitorowania, zadań, dzienników debugowania itd.
 
-1. W portalu Azure, w lewym okienku kliknij **klastrów usługi HDInsight**, a następnie kliknij nazwę klastra, aby skonfigurować usługi Analiza dzienników Azure.
-
-2. W bloku klastra, w lewym okienku kliknij **monitorowanie**.
-
-3. W okienku po prawej stronie kliknij **włączyć**, a następnie wybierz istniejący obszar roboczy analizy dzienników. Kliknij pozycję **Zapisz**.
+1. Otwórz klaster usługi HDInsight w portalu Azure.
+2. W okienku po lewej stronie kliknij **monitorowanie**.
+3. W okienku po prawej stronie kliknij **włączyć**, wybierz istniejący obszar roboczy analizy dzienników, a następnie kliknij przycisk **zapisać**.
 
     ![Włącz monitorowanie klastrów usługi HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Włącz monitorowanie klastrów usługi HDInsight")
 
-4. Gdy klaster jest skonfigurowany do używania analizy dzienników dla monitorowania, zobacz **Otwórz pulpit nawigacyjny OMS** opcji u góry karty. Kliknij przycisk.
+    Może potrwać kilka minut, aby zapisać ustawienia.  Po zakończeniu widzi **Otwórz pulpit nawigacyjny OMS** przycisk u góry. 
 
     ![Otwórz pulpit nawigacyjny OMS](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS Otwórz pulpit nawigacyjny")
 
-5. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia platformy Azure. Użytkownik jest kierowany do pulpitu nawigacyjnego OMS firmy Microsoft.
+5. Kliknij przycisk **OMS Otwórz pulpit nawigacyjny**.
+6. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia platformy Azure.
 
     ![Portal Operations Management Suite](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "portal usługi Operations Management Suite")
 

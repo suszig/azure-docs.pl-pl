@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Środowisko Azure Functions hosting planów porównania
 
-## <a name="introduction"></a>Wprowadzenie
-
 Można uruchomić usługi Azure Functions w dwóch różnych trybach: plan zużycia i plan usługi aplikacji Azure. Plan zużycie automatycznie przydzieli moc obliczeniową, gdy kod działa, skaluje się wymagane do obsługi obciążenia, a następnie skalowany w dół, gdy kodu nie jest uruchomiona. Tak nie trzeba płacić za maszyny wirtualne w stanie bezczynności i nie trzeba było wydajność rezerwowa z wyprzedzeniem. Ten artykuł skupia się na plan zużycie [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikacji. Aby uzyskać szczegółowe informacje dotyczące sposobu działania plan usługi aplikacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Hosting systemu Linux jest obecnie dostępny tylko na plan usługi aplikacji.
 
 Jeśli nie znasz usługi Azure Functions, zobacz [Azure Functions — omówienie](functions-overview.md).
 
@@ -55,7 +56,7 @@ Plan zużycie jest domyślny plan hostingu i oferuje następujące korzyści:
 
 ## <a name="app-service-plan"></a>Plan usługi App Service
 
-W planie usługi aplikacji — warstwa aplikacji funkcji Uruchom na dedykowanych maszynach wirtualnych na Basic, Standard, Premium i izolowane jednostki SKU, podobnie jak aplikacje sieci Web, aplikacje interfejsu API i aplikacje mobilne. Dedykowanych maszyn wirtualnych są przydzielone do aplikacji usługi aplikacji, co oznacza, że na hoście funkcji zawsze działa.
+W planie usługi aplikacji — warstwa aplikacji funkcji Uruchom na dedykowanych maszynach wirtualnych na Basic, Standard, Premium i izolowane jednostki SKU, podobnie jak aplikacje sieci Web, aplikacje interfejsu API i aplikacje mobilne. Dedykowanych maszyn wirtualnych są przydzielone do aplikacji usługi aplikacji, co oznacza, że na hoście funkcji zawsze działa. Plany usługi App Service obsługuje Linux.
 
 Należy wziąć pod uwagę plan usługi aplikacji w następujących przypadkach:
 - Masz istniejący, niedostatecznie maszyn wirtualnych, które zostały już uruchomione inne wystąpienia usługi aplikacji.
@@ -63,6 +64,7 @@ Należy wziąć pod uwagę plan usługi aplikacji w następujących przypadkach:
 - Potrzebujesz więcej opcji procesora CPU lub pamięci niż jest podana w planie zużycia.
 - Musisz uruchomić dłużej niż maksymalny czas wykonywania dozwolone na użycie planu (10 minut).
 - Wymagane funkcje, które są dostępne tylko na plan usługi aplikacji, takie jak obsługa środowiska usługi aplikacji, łączność w sieci Wirtualnej lub sieć VPN i większych rozmiarów maszyn wirtualnych. 
+- Aby uruchomić aplikację funkcji w systemie Linux, lub chcesz wyrazić niestandardowego obrazu, na którym należy uruchamiać swoje funkcje.
 
 Maszyna wirtualna oddziela kosztów od liczby wykonaniami, czas wykonywania i używanej pamięci. W związku z tym nie będzie płacisz więcej niż koszt wystąpienia maszyny Wirtualnej, które zostało przydzielone. Aby uzyskać szczegółowe informacje dotyczące sposobu działania plan usługi aplikacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

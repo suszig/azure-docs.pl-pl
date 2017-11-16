@@ -1,14 +1,21 @@
-Teraz możesz użyć Eksploratora danych, aby utworzyć tabelę i dodać dane do swojej bazy danych. 
+Można teraz używać narzędzia Eksplorator danych w portalu Azure, można utworzyć bazy danych i tabeli. 
 
-1. W witrynie Azure Portal w menu nawigacyjnym kliknij pozycję **Eksplorator danych (wersja zapoznawcza)**. 
-2. W bloku Eksplorator danych kliknij pozycję **Nowa tabela**, a następnie wypełnij stronę, korzystając z poniższych informacji.
+1. Kliknij przycisk **Eksploratora danych** > **nową tabelę**. 
+    
+    **Dodaj tabelę** obszar jest wyświetlany po prawej, konieczne może być przewiń w prawo, aby go wyświetlić.
 
     ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
+
+2. W **Dodaj tabelę** wprowadź ustawienia dla nowej tabeli.
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
     Identyfikator tabeli|sample-table|Identyfikator nowej tabeli. W przypadku nazw tabel obowiązują takie same wymagania dotyczące znaków, jak dla identyfikatorów baz danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków `/ \ # ?` ani mieć spacji na końcu.
-    Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
-    Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować w górę [przepływność](../articles/cosmos-db/request-units.md), aby zmniejszyć opóźnienie.
+    Pojemność magazynu| Stała (10 GB)|Zmień wartość na **stałe (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
+    Przepływność|400 jednostek żądania|Zmień przepływność 400 jednostek żądań na sekundę (RU/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.
 
-3. Po wypełnieniu formularza kliknij przycisk **OK**.
+    Kliknij przycisk **OK**.
+
+    Eksplorator danych wyświetla nową bazę danych i tabeli.
+
+    ![Eksplorator danych, wyświetlanie nowej bazy danych i kolekcji w portalu Azure](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

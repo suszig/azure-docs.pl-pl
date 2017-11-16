@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57d9ebc5a9689a6f1d48464aa20ffdc7fa61b00f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -34,7 +34,7 @@ Najlepsze środowisko są uzyskiwane przez zainstalowanie usługi Application In
 
     ![Skopiuj skrypt do Nagłówek strony wzorcowej sieci web.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Kod aplikacji mobilnej:** Mobile Center SDK umożliwia zbieranie zdarzeń z aplikacji, a następnie wysyła kopie tych zdarzeń do usługi Application Insights do analizy przez [czynności przedstawione w tym przewodniku](app-insights-mobile-center-quickstart.md).
+3. **Kod aplikacji mobilnej:** Center zestawu SDK aplikacji umożliwia zbieranie zdarzeń z aplikacji, a następnie wysyła kopie tych zdarzeń do usługi Application Insights do analizy przez [czynności przedstawione w tym przewodniku](app-insights-mobile-center-quickstart.md).
 
 4. **Pobierz dane telemetryczne:** uruchomić projekt w trybie debugowania na kilka minut, a następnie sprawdź wyniki w bloku omówienie w usłudze Application Insights.
 

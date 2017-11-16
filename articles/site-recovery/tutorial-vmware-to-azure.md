@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnej
 
@@ -85,20 +85,14 @@ Serwer konfiguracji maszyny Wirtualnej powinny być wysokiej dostępności maszy
 Upewnij się, że zegar jest zsynchronizowany z czasem serwera na serwerze konfiguracji maszyny Wirtualnej.
 Czas musi być synchronizowane w ciągu 15 minut. Jeśli różnica czasu jest większy niż 15 minut, instalacja zakończy się niepowodzeniem.
 
-Upewnij się, że serwer konfiguracji maszyny Wirtualnej można uzyskać dostępu do tych adresów URL:
+Upewnij się, że serwer konfiguracji można uzyskać dostępu do tych adresów URL:
 
-- *. accesscontrol.windows.net. Służy do kontrolowania dostępu i zarządzania tożsamościami.
-- *. backup.windowsazure.com. Służy do transferowania i koordynacji danych replikacji.
-- *. blob.core.windows.net. Służy do uzyskiwania dostępu do konta magazynu przechowującego zreplikowane dane.
-- *. hypervrecoverymanager.windowsazure.com. Służy do wykonywania operacji i koordynacji zarządzania replikacją.
-- Time.nist.gov i time.windows.com. Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Wszystkie reguły zapory oparte na adresie IP powinna zezwalać na komunikację z platformą Azure.
 
-Adresy URL dla chmury Azure Government:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.
+    - Zezwalaj na zakresy adresów IP dla regionu Azure Twojej subskrypcji i zachodnie stany USA (używanych do zarządzania tożsamości i kontroli dostępu).
 
 Wszystkie reguły zapory oparte na adresie IP powinien zezwalają na komunikację z [zakresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)i porty 443 (HTTPS) i 9443 (replikacja danych). Pamiętaj umożliwić zakresów adresów IP dla regionu Azure Twojej subskrypcji i zachodnie stany USA (używanych do kontroli dostępu i zarządzania tożsamościami).
 
@@ -187,7 +181,7 @@ Wybierz i zweryfikować zasobów docelowych.
 2. Określ, czy docelowy modelu wdrażania jest oparte na Menedżera zasobów albo klasycznego.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
-   ![docelowy](./media/tutorial-vmware-to-azure/storage-network.png)
+   ![Obiekt docelowy](./media/tutorial-vmware-to-azure/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
 

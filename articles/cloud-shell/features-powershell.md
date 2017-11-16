@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Funkcje i narzędzia dla [Bash](features.md) jest również dostępna.
 
-PowerShell w chmurze powłoki jest uruchamiana `Windows Server 2016`.
+Uruchamia programu PowerShell w chmurze powłoki (wersja zapoznawcza) na `Windows Server 2016`.
 
 ## <a name="features"></a>Funkcje
 
 ### <a name="secure-automatic-authentication"></a>Bezpieczne uwierzytelnianie automatyczne
 
-PowerShell w chmurze powłoki bezpiecznie i automatycznie służy do uwierzytelniania dostępu do konta dla programu Azure PowerShell.
+PowerShell w chmurze powłoki (wersja zapoznawcza) bezpiecznie i automatycznie służy do uwierzytelniania dostępu do konta dla programu Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Pliki trwałości między sesjami
 
@@ -45,7 +45,7 @@ Ponieważ każde żądanie dla powłoki chmury jest przydzielanie tymczasowa mas
 
 ### <a name="azure-drive-azure"></a>Dysku platformy Azure (Azure:)
 
-Środowiska PowerShell w chmurze powłoki rozpoczyna się w stacji Azure (`Azure:`).
+PowerShell w chmurze powłoki (wersja zapoznawcza) rozpoczyna się w stacji Azure (`Azure:`).
 Dysków Azure umożliwia łatwe odnajdowanie i nawigacja zasobów platformy Azure, takich jak obliczeniowych, sieci, itp. magazyn podobny do nawigacji systemu plików.
 Można nadal używać znanych [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) nimi zarządzać.
 Wszelkie zmiany wprowadzone do zasobów platformy Azure, albo bezpośrednio w portalu Azure lub za pomocą poleceń cmdlet programu PowerShell systemu Azure, są natychmiast odzwierciedlone w dysku platformy Azure.
@@ -109,6 +109,6 @@ Te polecenia są wbudowane obsługę zdalną środowiska PowerShell i wymaga po�
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Szybki Start przy użyciu programu PowerShell w chmurze powłoki](quickstart-powershell.md)
+[Szybki Start przy użyciu programu PowerShell w chmurze powłoki (wersja zapoznawcza)](quickstart-powershell.md)
 
 [Więcej informacji na temat programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

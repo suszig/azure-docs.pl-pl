@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integracja przedsiębiorstwa z transformacji XML
 ## <a name="overview"></a>Omówienie
@@ -50,6 +50,11 @@ Teraz, że zostały wykonane szczególną uwagę wymagania wstępne, jest czas, 
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Wybierz **transformacji XML** akcji   
 6. Dodanie pliku XML **zawartości** który transformacji. Można używać danych XML pojawi się w żądaniu HTTP jako **zawartości**. W tym przykładzie wybierz treści żądania HTTP, która wyzwoliła aplikacji logiki.
+
+   > [!NOTE]
+   > Upewnij się, że zawartość **transformacji XML** XML. Jeśli zawartość nie jest w formacie XML lub jest zakodowany w formacie base64, należy określić wyrażenia, który przetwarza zawartość. Na przykład można użyć [funkcje](logic-apps-workflow-definition-language.md#functions), takiej jak ```@base64ToBinary``` dekodowania zawartości lub ```@xml``` przetwarzania zawartości w formacie XML.
+ 
+
 7. Wybierz nazwę **mapy** chcesz używać do wykonywania transformacji. Mapa musi być już na koncie integracji. W poprzednim kroku już udzielił Ci dostęp do aplikacji logiki do swojego konta integracji zawierającego mapy.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Zapisz swoją pracę  

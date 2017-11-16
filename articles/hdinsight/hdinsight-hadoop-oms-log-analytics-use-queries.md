@@ -13,21 +13,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 8fe91bed69a1c06367346041d8caba4aaee4c82a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4ee80826a710bde9483d130a4d1c986a72645ca
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Analiza dzienników Azure zapytania do monitorowania klastrów usługi HDInsight (wersja zapoznawcza)
+# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Analiza dzienników Azure zapytania do monitorowania klastrów usługi HDInsight
 
-W tym artykule przyjrzymy się niektóre scenariusze dotyczące sposobu używania usługi Analiza dzienników Azure z klastrami Azure HDInsight. Są trzy najbardziej typowych scenariuszy:
+Poznać niektóre podstawowe scenariusze dotyczące sposobu używania usługi Analiza dzienników Azure do monitorowania klastrów usługi HDInsight Azure:
 
-* Analizowanie metrykę klastra usługi HDInsight w OMS
-* Wyszukiwanie komunikatów dziennika określone dla klastrów usługi HDInsight
-* Tworzenie na podstawie zdarzeń występujących w klastry alertów
+* [Analizowanie metrykę klastra usługi HDInsight](#analyze-hdinsight-cluster-metrics)
+* [Wyszukiwanie określonego dziennika komunikatów](#search-for-specific-log-messages)
+* [Utwórz alerty zdarzeń](#create-alerts-for-tracking-events)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,53 +35,54 @@ W tym artykule przyjrzymy się niektóre scenariusze dotyczące sposobu używani
 
 * Należy dodać rozwiązania do zarządzania specyficznych dla klastra usługi HDInsight z obszarem roboczym pakietu OMS zgodnie z opisem w [rozwiązań do zarządzania klastra Dodaj HDInsight do analizy dzienników](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
-## <a name="analyze-hdinsight-cluster-metrics-in-oms"></a>Analizowanie metrykę klastra usługi HDInsight w OMS
+## <a name="analyze-hdinsight-cluster-metrics"></a>Analizowanie metrykę klastra usługi HDInsight
 
-W tej sekcji możemy wykonywania kroków do wyszukiwania określonych metryk dla klastra usługi HDInsight.
+Dowiedz się, jak wyszukiwanie określonych metryk dla klastra usługi HDInsight.
 
-1. Otwórz pulpit nawigacyjny OMS. W portalu Azure, otwórz blok klastra usługi HDInsight, który skojarzone z usługi Analiza dzienników Azure, kliknij kartę monitorowanie, a następnie kliknij pozycję **Otwórz pulpit nawigacyjny OMS**.
+1. Otwórz klaster usługi HDInsight, który został skojarzony z Azure Log Analytics w portalu Azure.
+2. Kliknij przycisk **monitorowanie**, a następnie kliknij przycisk **Otwórz pulpit nawigacyjny OMS**.
 
     ![Otwórz pulpit nawigacyjny OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS Otwórz pulpit nawigacyjny")
 
-2. Na pulpicie nawigacyjnym OMS z ekranu głównego, kliknij przycisk **wyszukiwania dziennika**.
+2. Kliknij przycisk **wyszukiwania dziennika** w menu po lewej stronie.
 
     ![Otwórz dziennik wyszukiwania](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Otwórz dziennik wyszukiwania")
 
-3. W oknie Dziennik wyszukiwania w **tutaj wyszukiwania Begin** polu tekstowym `*` aby wyszukać wszystkie metryki wszystkie dostępne metryki dla wszystkich klastrów HDInsight skonfigurowana do używania usługi Analiza dzienników Azure. Naciśnij klawisz ENTER.
+3. Wpisz poniższe zapytanie w polu wyszukiwania, aby wyszukać wszystkie metryki wszystkie dostępne metryki dla wszystkich klastrów HDInsight skonfigurowany tak, aby Analiza dzienników Azure, a następnie naciśnij klawisz **ENTER**.
+
+        `search *` 
 
     ![Wyszukaj wszystkie metryki](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Wyszukaj wszystkie metryki")
 
-4. Powinny pojawić się dane wyjściowe podobne do następujących.
+    Dane wyjściowe są następującą postać:
 
     ![Wyszukaj wszystkie wyniki metryki](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Wyszukaj wszystkie metryki danych wyjściowych.")
 
-5. W lewym okienku w obszarze **typu** kategorii, wyszukiwania, a metryki, które chcesz odnajdywać dogłębną analizę. Ten samouczek umożliwia pobranie `metrics_resourcemanager_queue_root_default_CL`. Zaznacz pole wyboru odpowiadające metrykę, a następnie kliknij przycisk **Zastosuj**.
+5. W lewym okienku w obszarze **typu**, wybierz metrykę, które chcesz odnajdywać dogłębną analizę, a następnie kliknij przycisk **Zastosuj**. Poniższy zrzut ekranu przedstawia `metrics_resourcemanager_queue_root_default_CL` wybrany typ. 
 
     > [!NOTE]
     > Może zajść potrzeba kliknięcia przycisku **[+] więcej** przycisk, aby znaleźć metryki, którego szukasz. Ponadto **Zastosuj** przycisku jest w dolnej części listy, więc musi przewiń go wyświetlać.
     > 
     >    
-    Zwróć uwagę, że zapytanie w polu tekstowym teraz zmienia się do przedstawionego w polu wyróżnione na poniższym zrzucie ekranu:
+
+    Zwróć uwagę, że zapytanie w polu tekstowym zmienia do przedstawionego w polu wyróżnione na poniższym zrzucie ekranu:
 
     ![Wyszukaj określonych metryk](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "wyszukiwanie określonych metryk")
 
-6. Użytkownik może teraz głębiej do szczegółów tej określonej metryki. Na przykład można dostosować teraz istniejące dane wyjściowe na podstawie średniej zasoby używane w 10-minutowych interwałach według nazwy klastra. Wpisz poniższe zapytanie w polu tekstowym zapytania.
+6. Aby wyświetlić elementy podrzędne tego określonej metryki. Na przykład można dostosować istniejące dane wyjściowe na podstawie średniej zasoby używane w 10-minutowych interwałach według nazwy klastra za pomocą następującej kwerendy:
 
-        * (Type=metrics_resourcemanager_queue_root_default_CL) | measure avg(UsedAMResourceMB_d) by ClusterName_s interval 10minute
+        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
-    ![Wyszukaj określonych metryk](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-more-specific-metrics.png "wyszukiwanie określonych metryk")
+7. Zamiast uściślenie na podstawie średniej zasoby używane, możesz użyć następującego zapytania uściślić wyniki na podstawie, gdy użyte zasoby maksymalną (a także percentyl 90 i 95) w oknie 10 minut:
 
-7. Zamiast uściślenie na podstawie średniej zasoby używane, możesz użyć następującego zapytania uściślić wyniki na podstawie, gdy użyte zasoby maksymalną (a także percentyl 90 i 95) w oknie 10 minut.
+        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
 
-        * (Type=metrics_resourcemanager_queue_root_default_CL) | measure max(UsedAMResourceMB_d) , pct95(UsedAMResourceMB_d), pct90(UsedAMResourceMB_d)  by ClusterName_s interval 10minute
+## <a name="search-for-specific-log-messages"></a>Wyszukiwanie określonego dziennika komunikatów
 
-    ![Wyszukaj określonych metryk](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-more-specific-metrics-1.png "wyszukiwanie określonych metryk")
+Dowiedz się, jak wyglądają komunikaty o błędach podczas określonego okna czasowego. Kroki opisane w tym miejscu są tylko jeden przykład, w jaki sposób można przyjeździe komunikat o błędzie można są zainteresowani. Można użyć dowolnej właściwości, która jest dostępna wyszukać błędy, które próbujesz odnaleźć.
 
-## <a name="search-for-specific-log-messages-in-hdinsight-clusters"></a>Wyszukiwanie komunikatów dziennika określonych w klastrach usługi HDInsight
-
-W tej sekcji możemy przeprowadzenie kroki, aby wyglądały określonego okna czasowego komunikaty o błędach. Kroki opisane w tym miejscu są tylko jeden przykład, w jaki sposób można przyjeździe komunikat o błędzie można są zainteresowani. Można użyć dowolnej właściwości, która jest dostępna wyszukać błędy, które próbujesz odnaleźć.
-
-1. Otwórz pulpit nawigacyjny OMS. W portalu Azure, otwórz blok klastra usługi HDInsight, który skojarzone z usługi Analiza dzienników Azure, kliknij kartę monitorowanie, a następnie kliknij pozycję **Otwórz pulpit nawigacyjny OMS**.
+1. Otwórz klaster usługi HDInsight, który został skojarzony z Azure Log Analytics w portalu Azure.
+2. Kliknij przycisk **monitorowanie**, a następnie kliknij **Otwórz pulpit nawigacyjny OMS**.
 
     ![Otwórz pulpit nawigacyjny OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS Otwórz pulpit nawigacyjny")
 
@@ -89,44 +90,39 @@ W tej sekcji możemy przeprowadzenie kroki, aby wyglądały określonego okna cz
 
     ![Otwórz dziennik wyszukiwania](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Otwórz dziennik wyszukiwania")
 
-3. W oknie Dziennik wyszukiwania w **tutaj wyszukiwania Begin** polu tekstowym `"Error"` (ze znakami cudzysłowu) do wyszukania wszystkich komunikatów o błędach dla wszystkich klastrów HDInsight skonfigurowana do używania usługi Analiza dzienników Azure. Naciśnij klawisz ENTER.
+3. Typ następujące zapytanie, aby wyszukać wszystkie komunikaty o błędach dla wszystkich klastrów HDInsight skonfigurowana do używania usługi Analiza dzienników Azure, a następnie naciśnij **ENTER**. 
 
-    ![Wyszukaj wszystkie błędy](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors.png "wyszukiwanie wszystkich błędów")
+         search "Error"
 
-4. Powinny pojawić się dane wyjściowe podobne do następujących.
+    Powinna pojawić się dane wyjściowe podobne do następujących danych wyjściowych:
 
     ![Wyszukaj wszystkie dane wyjściowe błędów](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Wyszukaj wszystkie błędy danych wyjściowych")
 
-5. W lewym okienku w obszarze **typu** kategorii, wyszukiwania typu błąd, który chcesz wyświetlić dogłębną analizę. Ten samouczek umożliwia pobranie `log_sparkappsexecutors_CL`. Zaznacz pole wyboru odpowiadające metrykę, a następnie kliknij przycisk **Zastosuj**.
+5. W lewym okienku w obszarze **typu** kategorii, typ błędu, który chcesz wyświetlić dogłębną analizę, a następnie kliknij przycisk **Zastosuj**.  Należy zauważyć, że wyniki są wprowadzono ulepszenia Pokaż tylko błąd wybranego typu.
+7. Możesz przejść głębiej do szczegółów tego błędu listy za pomocą opcji dostępnych w okienku po lewej stronie. Na przykład: 
 
-    ![Wyszukaj określonych błędów](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error.png "wyszukiwanie określonego błędu")
+    - Aby wyświetlić komunikaty o błędach z węzłem procesu roboczego określonych:
 
-        
-6. Należy zauważyć, że teraz zmiany pokazano w poniższym polu wyróżnione oraz wyniki zapytania w polu tekstowym są precyzyjnych tylko w celu wyświetlenia błędu wybranego typu.
+        ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "wyszukiwania dla określonych błędów w danych wyjściowych")
 
-    ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-output.png "wyszukiwania dla określonych błędów w danych wyjściowych")
+    - Aby wyświetlić błąd wystąpił w określonym czasie:
 
-7. Użytkownik może teraz szczegółowej analizy w ramach tej listy błędu za pomocą opcji dostępnych w okienku po lewej stronie. Na przykład można dostosować kwerendę tylko przyjrzeć się komunikaty o błędach z węzłem procesu roboczego określone.
+        ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "wyszukiwania dla określonych błędów w danych wyjściowych")
 
-    ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "wyszukiwania dla określonych błędów w danych wyjściowych")
-
-8. Można dodatkowo stref w na czas uważasz, że wystąpił błąd, wybierając odpowiedni czas w lewym okienku.
-
-    ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "wyszukiwania dla określonych błędów w danych wyjściowych")
-
-9. Jesteś teraz do określonego błędu, którego szukasz. Możesz kliknąć **[+] Pokaż więcej** aby przyjrzeć się komunikat błędu.
+9. Aby wyświetlić szczegóły błędu. Możesz kliknąć **[+] Pokaż więcej** aby przyjrzeć się komunikat błędu.
 
     ![Wyszukaj określone błędy w danych wyjściowych](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "wyszukiwania dla określonych błędów w danych wyjściowych")
 
-## <a name="create-alerts-to-track-events"></a>Tworzenie alertów do śledzenia zdarzeń
+## <a name="create-alerts-for-tracking-events"></a>Utwórz alerty dla zdarzenia śledzenia
 
 Pierwszy krok w celu utworzenia alertu jest na zapytania oparte na zostanie wyzwolony alert. Dla uproszczenia umożliwia Użyj następującego zapytania, który zawiera listę wszystkich nieudanych aplikacji uruchamianych w klastrach HDInsight.
 
-    * (Typ = metrics_resourcemanager_queue_root_default_CL) AppsFailed_d > 0 
+    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
 Można użyć dowolnego zapytania, który ma być tworzony alert.
 
-1. Otwórz pulpit nawigacyjny OMS. W portalu Azure, otwórz blok klastra usługi HDInsight, który skojarzone z usługi Analiza dzienników Azure, kliknij kartę monitorowanie, a następnie kliknij pozycję **Otwórz pulpit nawigacyjny OMS**.
+1. Otwórz klaster usługi HDInsight, który został skojarzony z Azure Log Analytics w portalu Azure.
+2. Kliknij przycisk **monitorowanie**, a następnie kliknij przycisk **Otwórz pulpit nawigacyjny OMS**.
 
     ![Otwórz pulpit nawigacyjny OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "OMS Otwórz pulpit nawigacyjny")
 
@@ -134,7 +130,11 @@ Można użyć dowolnego zapytania, który ma być tworzony alert.
 
     ![Otwórz dziennik wyszukiwania](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Otwórz dziennik wyszukiwania")
 
-3. W oknie wyszukiwania dziennika w **tutaj wyszukiwania Begin** tekst Wklej zapytanie, na którym chcesz utworzyć alert, naciśnij klawisz ENTER, a następnie kliknij pozycję **Alert** przycisku.
+3. Uruchom następującą kwerendę, na którym chcesz utworzyć alert, a następnie naciśnij klawisz **ENTER**.
+
+        metrics_resourcemanager_queue_root-default-CL | where AppsFailed_d > 0
+
+4. Kliknij przycisk **alertu** górnej części strony.
 
     ![Wprowadź zapytanie w celu utworzenia alertu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "wprowadź zapytanie w celu utworzenia alertu")
 
@@ -142,7 +142,7 @@ Można użyć dowolnego zapytania, który ma być tworzony alert.
 
     ![Wprowadź zapytanie w celu utworzenia alertu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "wprowadź zapytanie w celu utworzenia alertu")
 
-    W tym zrzucie ekranu pokazano tylko wyślemy wiadomość e-mail z powiadomieniem, jeśli kwerenda alertu pobiera wyjściowych.
+    Zrzut ekranu przedstawia konfigurację do wysyłania powiadomień e-mail, gdy kwerenda alertu zwraca dane wyjściowe.
 
 5. Możesz także edytować lub usunąć istniejącego alertu. Aby to zrobić, z dowolnej strony w portalu OMS kliknij **ustawienia** ikony.
 

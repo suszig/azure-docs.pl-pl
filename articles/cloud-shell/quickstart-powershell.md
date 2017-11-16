@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Szybki Start dla środowiska PowerShell w chmurze Azure powłoki
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Szybki Start dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
 Ten dokument zawiera szczegóły dotyczące używania programu PowerShell w chmurze powłoki w [portalu Azure](https://aka.ms/PSCloudPreview).
 
@@ -227,7 +227,7 @@ Można także przechodzić do `virtualMachines` katalogu pierwszej i uruchom `En
 
 ### <a name="discover-webapps"></a>Odnajdywanie WebApps
 
-Wprowadzając w `WebApps` folderze można łatwo przejść zasobów magazynu
+Wprowadzając w `WebApps` folderze można łatwo przejść zasobów aplikacji sieci web
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -266,7 +266,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="list-available-commands"></a>Listę dostępnych poleceń.
 
-W obszarze `Azure` dysku, wpisz `Get-AzureRmCommand` można pobrać kontekstu określonych poleceń Azure.
+W obszarze `Azure` dysku, wpisz `Get-AzureRmCommand` uzyskać poleceń Azure specyficznej dla kontekstu.
 
 Alternatywnie możesz za pomocą `Get-Command *azurerm* -Module AzureRM.*` Aby sprawdzić dostępne polecenia platformy Azure.
 
@@ -282,7 +282,7 @@ Typ `Get-Help` Aby uzyskać informacje dotyczące programu PowerShell w powłoce
 PS Azure:\> Get-Help
 ```
 
-Dla danego polecenia można nadal wykonywać Get-Help, a następnie polecenia cmdlet, na przykład
+Dla danego polecenia można nadal wykonywać następuje polecenia cmdlet Get-Help.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Użyj Azure File Storage do przechowywania danych
 
-Można utworzyć skrypt, powiedz `helloworld.ps1`i zapisz go do Twojego clouddrive go używać w wielu sesjach powłoki.
+Można utworzyć skrypt, powiedz `helloworld.ps1`i zapisać go do Twojego `CloudDrive` go używać w wielu sesjach powłoki.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Jak utworzyć profil, zapoznaj się [profile o][profile].
 
 ## <a name="use-git"></a>Przy użyciu narzędzia Git
 
-Klonowanie repozytorium git w CloudShell, musisz utworzyć [osobisty token dostępu] [ githubtoken] i używać go jako nazwy użytkownika. Raz masz z tokenu, klonowanie repozytorium w następujący sposób:
+Klonowanie repozytorium git w powłoce chmury, musisz utworzyć [osobisty token dostępu] [ githubtoken] i używać go jako nazwy użytkownika. Raz masz z tokenu, klonowanie repozytorium w następujący sposób:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Ponieważ sesje w CloudShell nie zostaną utrwalone po wyrejestrowaniu lub limit czasu sesji, nie istnieje w pliku config Git podczas następnego logowania. Aby zachować konfigurację Git, musisz zapisać Twoje .gitconfig do Twojej `CloudDrive` i skopiuj go lub utworzyć łącza symbolicznego podczas `CloudShell` pobiera uruchomiona. Poniższy fragment kodu w Twojej profile.ps1 używać do tworzenia łącza symbolicznego do `CloudDrive`.
+Ponieważ sesje w powłoce chmury nie zostaną utrwalone po wyrejestrowaniu lub limit czasu sesji, nie istnieje w pliku config Git podczas następnego logowania. Aby zachować konfigurację Git, musisz zapisać Twoje .gitconfig do Twojej `CloudDrive` i skopiuj go lub utworzyć łącza symbolicznego, gdy uruchamiana pobiera powłoki chmury. Poniższy fragment kodu w Twojej profile.ps1 używać do tworzenia łącza symbolicznego do `CloudDrive`.
 
  ``` PowerShell
  

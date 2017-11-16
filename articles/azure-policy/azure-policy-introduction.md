@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure zasady?
 
@@ -51,7 +51,7 @@ W zasadach Azure oferujemy niektórych wbudowanych zasad, które są domyślnie 
 
 Można przypisać dowolnej z tych zasad za pośrednictwem portalu Azure, programu PowerShell lub wiersza polecenia platformy Azure.
 
-Aby dowiedzieć się więcej na temat struktury definicje zasad, Szukaj w tym artykule - [struktura definicji zasad](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Aby dowiedzieć się więcej na temat struktury definicje zasad, Szukaj w tym artykule - [struktura definicji zasad](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Przypisania zasad
 
@@ -68,7 +68,7 @@ Parametry są zdefiniowane/tworzone podczas tworzenia definicji zasad. Jeśli pa
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Aby uzyskać więcej informacji na temat parametrów zasad, zobacz [Przegląd zasad zasobów — parametry](../azure-resource-manager/resource-manager-policy.md#parameters).
+Aby uzyskać więcej informacji na temat parametrów zasad, zobacz [Przegląd zasad zasobów — parametry](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Inicjatywy definicji
 Definicja inicjatywy jest kolekcja definicji zasad, które są dostosowane do osiągnięcia pojedynczej celem nadrzędna. Definicje inicjatywy uprościć zarządzanie i przypisywanie definicje zasad. Uprościć ich grupowanie zestawu zasad jako jedną pojedynczy element. Na przykład można utworzyć inicjatywą zatytułowany **Włączanie monitorowania w Centrum zabezpieczeń Azure**, mając na celu monitorować wszystkie dostępne zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure.

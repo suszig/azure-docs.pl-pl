@@ -1,6 +1,6 @@
 ---
-title: "Magazyn tabel Azure SDK dla języka Python | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wszystkiego o magazynu tabel Azure SDK dla języka Python, w tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji."
+title: "Rozwiązania Cosmos Azure DB tabeli interfejsu API dla języka Python | Dokumentacja firmy Microsoft"
+description: "Dowiedz się wszystkiego o rozwiązania Cosmos DB tabeli interfejsu API Azure tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>Magazyn tabel Azure SDK dla języka Python: informacje o wersji i zasoby
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB tabeli interfejsu API zestawu SDK dla języka Python: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -37,6 +39,10 @@ ms.lasthandoff: 11/06/2017
 
 
 ## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Ogólnie zlecenia
+
 ### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
 * Zestaw SDK w wersji wstępnej
 
@@ -49,6 +55,7 @@ Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do b
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |15 listopada 2017 r. |--- |
 | [0.37.1](#0.37.1) |05 października 2017 r. |--- |
 
 

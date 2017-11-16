@@ -14,20 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f47e5dfb174a0c7b99111485cee74eb01df665c7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>Jak używać magazynu tabel Azure za pomocą języka Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Omówienie
 W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu usługi Magazyn tabel Azure. Przykłady są napisane w języku Java i użyj [Azure Storage SDK for Java][Azure Storage SDK for Java]. Omówione scenariusze obejmują **tworzenie**, **wyświetlania**, i **usuwanie** tabel, a także **wstawianie**, **zapytań**, **modyfikowanie**, i **usuwanie** jednostek w tabeli. Aby uzyskać więcej informacji o tabelach zobacz [następne kroki](#Next-Steps) sekcji.
 
-Uwaga: Zestaw SDK jest dostępny dla deweloperów, którzy korzystają z usługi Azure Storage na urządzeniach z systemem Android. Aby uzyskać więcej informacji, zobacz [zestawu SDK usługi Magazyn Azure dla systemu Android][Azure Storage SDK for Android].
+> [!NOTE]
+> Zestaw SDK jest dostępny dla deweloperów, którzy korzystają z usługi Azure Storage na urządzeniach z systemem Android. Aby uzyskać więcej informacji, zobacz [zestawu SDK usługi Magazyn Azure dla systemu Android][Azure Storage SDK for Android].
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,7 +72,11 @@ String storageConnectionString =
 Poniższe przykłady założono użycie jednej z tych dwóch metod można pobrać parametry połączenia magazynu.
 
 ## <a name="how-to-create-a-table"></a>Porady: Tworzenie tabeli
-A **CloudTableClient** obiektu pozwala pobierać obiekty odwołania do tabel i jednostek. Poniższy kod tworzy **CloudTableClient** obiektu i używa go do tworzenia nowego **CloudTable** obiekt, który reprezentuje tabeli o nazwie "osoby". (Uwaga: istnieją dodatkowe sposoby tworzenia **CloudStorageAccount** obiektów; Aby uzyskać więcej informacji, zobacz **CloudStorageAccount** w [odwołania do zestawu SDK klienta magazynu Azure].)
+A **CloudTableClient** obiektu pozwala pobierać obiekty odwołania do tabel i jednostek. Poniższy kod tworzy **CloudTableClient** obiektu i używa go do tworzenia nowego **CloudTable** obiekt, który reprezentuje tabeli o nazwie "osoby". 
+
+> [!NOTE]
+> Istnieją dodatkowe sposoby tworzenia **CloudStorageAccount** obiektów; Aby uzyskać więcej informacji, zobacz **CloudStorageAccount** w [odwołania do zestawu SDK klienta magazynu Azure].)
+>
 
 ```java
 try

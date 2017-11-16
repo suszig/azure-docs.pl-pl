@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Praca z serwerów proxy funkcji Azure (wersja zapoznawcza)
-
-> [!NOTE] 
-> Proxy funkcji platformy Azure jest obecnie w przeglądzie. Jest bezpłatne w wersji zapoznawczej, ale standardowych funkcji rozliczeń dotyczy wykonaniami serwera proxy. Aby uzyskać więcej informacji, zobacz [cennik usługi Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+# <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
 W tym artykule opisano sposób konfigurowania i pracować z serwerów proxy funkcji platformy Azure. Dzięki tej funkcji można określić punkty końcowe na aplikację funkcji, które zostały zaimplementowane przez inny zasób. Umożliwia te serwery proxy Podziel dużych interfejsu API na wiele aplikacji funkcji (tak jak to architektura mikrousługi), prezentując pojedynczą powierzchnię interfejsu API dla klientów jednocześnie.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Standardowe funkcje rozliczeń dotyczy wykonaniami serwera proxy. Aby uzyskać więcej informacji, zobacz [cennik usługi Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Utwórz serwer proxy
 

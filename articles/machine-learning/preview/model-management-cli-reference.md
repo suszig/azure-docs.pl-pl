@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Odwołanie do modelu administracyjnego interfejsu wiersza polecenia
 
@@ -69,6 +69,8 @@ Argumenty lokalnego:
                      the active MLC env.
 
 **Konfigurowanie środowiska wdrażania**
+
+Polecenia instalacji wymagane jest posiadanie współautora dostępu do subskrypcji. Jeśli nie masz potrzebny jest co najmniej współautora dostęp do grupy zasobów, które są wdrażane do. Aby zrobić to drugie, należy określić nazwę grupy zasobów jako część za pomocą polecenia Instalatora `-g` flagę. 
 
 Dostępne są dwie opcje wdrożenia: *lokalnego* i *klastra*. Ustawienie `--cluster` (lub `-c`) Flaga umożliwia wdrożenie klastra, który inicjuje klastrem usługi ACS. Podstawowa konfiguracja ma następującą składnię:
 

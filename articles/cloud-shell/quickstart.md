@@ -1,5 +1,5 @@
 ---
-title: "Bash w chmurze Azure powłoki (wersja zapoznawcza) — Szybki Start | Dokumentacja firmy Microsoft"
+title: "Bash w powłoki w chmurze Azure — Szybki Start | Dokumentacja firmy Microsoft"
 description: "Szybki Start dla Bash w powłoce chmury"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Szybki Start dla Bash w chmurze Azure powłoki
 
@@ -30,7 +30,7 @@ Ten dokument zawiera szczegóły dotyczące używania Bash w powłoce chmury Azu
 ## <a name="start-cloud-shell"></a>Uruchom powłokę chmury
 1. Uruchom **powłoki chmury** w górnym menu nawigacyjnym portalu Azure <br>
 ![](media/quickstart/shell-icon.png)
-2. Wybierz subskrypcję, aby utworzyć konto magazynu i udziału plików na platformę Azure
+2. Wybierz subskrypcję, aby utworzyć konto magazynu i udostępniać pliki programu Microsoft Azure
 3. Wybierz opcję "Utwórz magazyn"
 
 > [!TIP]
@@ -59,7 +59,7 @@ Tworzenie maszyny Wirtualnej systemu Ubuntu w nowej grupy zasobów. Azure CLI 2.
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Klucze publiczne i prywatne używane do uwierzytelniania maszyny Wirtualnej są umieszczane w `/User/.ssh/id_rsa` i `/User/.ssh/id_rsa.pub` przez Azure CLI 2.0 domyślnie. Folderu .ssh jest utrwalona w obrazie 5 GB na udział dołączonych plików na platformę Azure.
+> Klucze publiczne i prywatne używane do uwierzytelniania maszyny Wirtualnej są umieszczane w `/User/.ssh/id_rsa` i `/User/.ssh/id_rsa.pub` przez Azure CLI 2.0 domyślnie. Folderu .ssh jest utrwalona w obrazie 5 GB na dołączonych udział plików Azure.
 
 Nazwa użytkownika na tej maszynie Wirtualnej zostanie nazwy użytkownika używane w chmurze powłoki ($User@Azure:).
 
@@ -79,4 +79,4 @@ Uruchom polecenie `az group delete -n MyRG`
 ## <a name="next-steps"></a>Następne kroki
 [Więcej informacji na temat plików utrwalanie dla Bash w powłoce chmury](persisting-shell-storage.md) <br>
 [Więcej informacji na temat usługi Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Więcej informacji na temat usługi Magazyn plików Azure](../storage/files/storage-files-introduction.md) <br>
+[Dowiedz się więcej o magazyn plików Azure](../storage/files/storage-files-introduction.md) <br>

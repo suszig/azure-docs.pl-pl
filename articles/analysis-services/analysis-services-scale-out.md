@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowalne usług Azure Analysis Services
 
@@ -32,7 +32,7 @@ Z skalowalnego w poziomie można utworzyć pulę zapytania z replikami dodatkowe
 
 Niezależnie od liczby replik zapytania, znajdującym się w puli zapytania obciążenia przetwarzaniem danych nie są dystrybuowane między replikami zapytania. Pojedynczy serwer służy jako serwer przetwarzania. Zapytanie replik służyć tylko kwerend dotyczących modeli synchronizowane między każdej replice w puli zapytania. 
 
-Po zakończeniu operacji przetwarzania odbywa się synchronizacja między serwerem przetwarzania i serwery repliki zapytania. Automatyzacja operacji przetwarzania, należy skonfigurować synchronizację, po pomyślnym ukończeniu operacji przetwarzania.
+Po zakończeniu operacji przetwarzania odbywa się synchronizacja między serwerem przetwarzania i serwery repliki zapytania. Automatyzacja operacji przetwarzania, należy skonfigurować synchronizację, po pomyślnym ukończeniu operacji przetwarzania. Można wykonać synchronizację ręcznie w portalu lub przy użyciu programu PowerShell lub interfejsu API REST.
 
 > [!NOTE]
 > Skalowalny w poziomie jest dostępna dla serwerów w standardowej warstwie cenowej. Jest on rozliczany każdej repliki zapytania w tym samym poziomie jak serwer.
@@ -58,12 +58,10 @@ Po zakończeniu operacji przetwarzania odbywa się synchronizacja między serwer
 
 Modele tabelaryczne na podstawowym serwerze są synchronizowane z serwerów repliki. Po ukończeniu synchronizacji rozpocznie się puli zapytania dystrybucja zapytania przychodzące między serwery replik. 
 
-### <a name="powershell"></a>PowerShell
-Użyj [AzureRmAnalysisServicesServer zestaw](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) polecenia cmdlet. Określ `-Capacity` wartość parametru > 1.
 
 ## <a name="synchronization"></a>Synchronizacja 
 
-Podczas obsługi administracyjnej nowych replik kwerendy usług Azure Analysis Services automatycznie replikuje modeli we wszystkich replik. Można także przeprowadzić ręczną synchronizację. Podczas przetwarzania modeli, należy wykonać synchronizację, więc aktualizacje są synchronizowane między replikami zapytania.
+Podczas obsługi administracyjnej nowych replik kwerendy usług Azure Analysis Services automatycznie replikuje modeli we wszystkich replik. Można również wykonać ręczną synchronizację za pomocą portalu lub interfejsu API REST. Podczas przetwarzania modeli, należy wykonać synchronizację, więc aktualizacje są synchronizowane między repliki zapytania.
 
 ### <a name="in-azure-portal"></a>W portalu Azure
 
@@ -72,18 +70,22 @@ W **omówienie** > modelu > **modelu Synchronizuj**.
 ![Suwak skalowalnego w poziomie](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>Interfejs API REST
+Użyj **synchronizacji** operacji.
 
-Synchronizacji modelu   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Synchronizacji modelu   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Pobierz stan synchronizacji modelu  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Pobierz stan synchronizacji  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Aby można było uruchomić synchronizacji w programie PowerShell, [aktualizacji do najnowszej](https://github.com/Azure/azure-powershell/releases) modułu AzureRM 5.01 lub nowszej. Użyj [AzureAnalysisServicesInstance synchronizacji](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Połączenia
 
 Na stronie Przegląd serwera istnieją dwie nazwy serwera. Jeśli jeszcze nie skonfigurowano skalowalnego w poziomie serwera, obie nazwy serwera działa w ten sam. Po skonfigurowaniu skalowalnego w poziomie serwera, należy określić nazwę serwera odpowiedniej w zależności od typu połączenia. 
 
-Dla połączeń klienckich przez użytkownika końcowego, takie jak Power BI Desktop, Excel i aplikacji niestandardowych, użyj **nazwy serwera**. 
+Dla połączeń klienckich przez użytkownika końcowego, takich jak Power BI Desktop, Excel i niestandardowych aplikacji, użyj **nazwy serwera**. 
 
 SSMS, narzędzi SSDT i parametry połączenia w programie PowerShell, użyj funkcji platformy Azure, aplikacji i obiektach AMO, **nazwy serwera zarządzania**. Nazwa serwera zarządzania obejmuje specjalnego `:rw` kwalifikator (odczytu i zapisu). Wszystkie operacje przetwarzania odbywa się na serwerze zarządzania.
 
