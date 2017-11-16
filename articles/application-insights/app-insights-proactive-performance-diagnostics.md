@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Inteligentne wykrywanie - anomalii wydajności
 
@@ -67,7 +67,7 @@ Wiadomości e-mail o inteligentne wykrywania anomalii wydajności mogą zawiera�
 
 ## <a name="faq"></a>Często zadawane pytania
 
-* *Tak guys przeglądania danych?*
+* *Tak pracownicy firmy Microsoft przyjrzeć się dane?*
   * Nie. Usługa jest całkowicie automatyczne. Tylko otrzymasz powiadomień. Twoje dane są [prywatnej](app-insights-data-retention-privacy.md).
 * *Czy można analizować wszystkie dane zebrane przez usługę Application Insights?*
   * Nie w chwili obecnej. Obecnie możemy analizowanie żądania czas reakcji i czas odpowiedzi zależności czas ładowania. Analiza dodatkowe metryki znajduje się na naszych zaległości wyszukiwania do przodu.

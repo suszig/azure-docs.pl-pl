@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Wykonywanie operacji interfejsu API Azure rozwiązania Cosmos DB tabeli przy użyciu programu Azure PowerShell 
 
@@ -47,7 +47,7 @@ Po zainstalowaniu programu Azure PowerShell lub zaktualizowaniu, należy zainsta
 Install-Module AzureRmStorageTable
 ```
 
-Podczas interfejsu API Azure rozwiązania Cosmos DB tabeli jest w wersji zapoznawczej, należy zainstalować jego zestawów lokalnie, aby używać tych poleceń cmdlet programu PowerShell. Aby uzyskać instrukcje, jak to zrobić, zobacz [modułu PowerShell tabel magazynu Menedżera zasobów Azure dla rozwiązania Cosmos tabel bazy danych](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Następnie zainstaluj zestawy Azure DB rozwiązania Cosmos lokalnie, aby używać tych poleceń cmdlet programu PowerShell. Aby uzyskać instrukcje, jak to zrobić, zobacz [modułu PowerShell tabel magazynu Menedżera zasobów Azure dla rozwiązania Cosmos tabel bazy danych](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 Wypróbowanie następujących czynnościach, musisz mieć konto bazy danych Azure DB rozwiązania Cosmos. Jeśli nie masz jeszcze jeden tworzenia rozwiązania Cosmos Azure nowej bazy danych konta przy użyciu [portalu Azure](https://portal.azure.com). Aby uzyskać pomoc przy tworzeniu nowego konta bazy danych, zobacz [bazy danych Azure rozwiązania Cosmos: Tworzenie konta bazy danych](create-table-dotnet.md#create-a-database-account).
 

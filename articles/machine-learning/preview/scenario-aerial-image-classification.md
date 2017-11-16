@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>Klasyfikacja satelitarnej obrazu
 
@@ -133,6 +133,11 @@ Teraz utworzymy konta magazynu, że hosty projektu pliki, które muszą być dos
     Zarejestruj wartość `key1` jako klucza magazynu w następujące polecenie, a następnie uruchom polecenie do przechowywania wartości.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Tworzenie udziału plików o nazwie `baitshare` na koncie magazynu przy użyciu następującego polecenia:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. W w ulubionym edytorze tekstów, obciążenia `settings.cfg` plik z projektu usługi Azure Machine Learning Workbench podkatalogu "Code" i Wstaw nazwę konta magazynu i klucz wskazane. Zapisz i Zamknij `settings.cfg` pliku.
 1. Jeśli nie zostało to jeszcze zrobione, Pobierz i zainstaluj [AzCopy](http://aka.ms/downloadazcopy) narzędzia. Sprawdź, czy plik wykonywalny AzCopy jest na ścieżce systemowej, wpisując "AzCopy" i naciskając klawisz Enter, aby wyświetlić jego dokumentacji.
