@@ -107,9 +107,6 @@
         - name: Zarządzanie klastrami
           href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
-        - name: Zarządzanie uprawnieniami użytkowników
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Analizowanie danych big data
       items:
         - name: Analizowanie przy użyciu dodatku Power Query
@@ -188,9 +185,6 @@
           maintainContext: true
         - name: Autoryzowanie użytkowników na potrzeby widoków Ambari
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: Zarządzanie uprawnieniami użytkowników na poziomach plików i folderów
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Zarządzanie
       items:

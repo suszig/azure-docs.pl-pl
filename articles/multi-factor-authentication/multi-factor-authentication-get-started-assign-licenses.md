@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86e8e5ce183d11a76fb679da0e6c707383ce86d0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48f6ca268630524dab6d239621a7824faaa67849
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Przypisywanie użytkownikom licencji usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility
 Jeśli zakupiono licencję usługi Azure MFA, usługi Azure AD w wersji Premium lub pakietu Enterprise Mobility Suite, nie trzeba tworzyć dostawcy usługi Multi-Factor Authentication. Po przypisaniu licencji użytkownikom będzie można umożliwić im korzystanie z usługi MFA.
@@ -42,4 +42,4 @@ Jeśli zakupiono licencję usługi Azure MFA, usługi Azure AD w wersji Premium 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zobacz [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-what-is.md) (Co to jest licencjonowanie usługi Microsoft Azure Active Directory?)
+- Aby uzyskać więcej informacji, zobacz [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-whatis-azure-portal.md) (Co to jest licencjonowanie usługi Microsoft Azure Active Directory?)

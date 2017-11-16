@@ -69,10 +69,6 @@
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
 
-## Ustawianie zasad zasobów
-### [Co to są zasady zasobów?](resource-manager-policy.md)
-### [Konwencje nazewnictwa](resource-manager-policy-naming-convention.md)
-
 ## Inspekcja
 ### [Wyświetlanie dzienników aktywności](resource-group-audit.md)
 ### [Wyświetlanie operacji wdrażania](resource-manager-deployment-operations.md)

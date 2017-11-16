@@ -24,9 +24,6 @@
   items:
     - name: Zarządzanie klastrami
       href: apache-domain-joined-manage.md
-    - name: Zarządzanie uprawnieniami użytkowników
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Dokumentacja
   items:
     - name: Przykłady kodu

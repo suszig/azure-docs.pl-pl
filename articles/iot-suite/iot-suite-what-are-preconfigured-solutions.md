@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 
@@ -90,7 +90,7 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania ob
 
 * [Azure IoT Hub](../iot-hub/index.md). Umożliwia ona dwukierunkowe przesyłanie komunikatów między urządzeniami a chmurą i działa jako brama chmury i innych kluczowych usług Pakietu IoT. Usługa ta pozwala odbierać komunikaty z urządzeń na dużą skalę i wysyłać polecenia do urządzeń. Usługa ta umożliwia także [zarządzanie urządzeniami](../iot-hub/iot-hub-device-management-overview.md). Na przykład możesz skonfigurować jedno lub większą liczbę urządzeń połączonych z tą usługą, przeprowadzić ich ponowny rozruch lub je zresetować do ustawień fabrycznych.
 * [Azure Event Hubs](../event-hubs/index.md). Ta usługa umożliwia wprowadzanie dużej liczby zdarzeń do chmury. Zobacz [Porównanie Centrum IoT Azure i usługi Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
-* [Azure Time Series Insights](../time-series-insights/index.md). Wstępnie skonfigurowane rozwiązania używają tej usługi do analizowania i wyświetlania danych telemetrycznych z urządzeń.
+* [Azure Time Series Insights](../time-series-insights/index.yml). Wstępnie skonfigurowane rozwiązania używają tej usługi do analizowania i wyświetlania danych telemetrycznych z urządzeń.
 * [Azure Container Service](../container-service/index.yml). Ta usługa obsługuje mikrousługi i zarządza nimi we wstępnie skonfigurowanych rozwiązaniach.
 * Usługi [Azure Cosmos DB](../cosmos-db/index.yml) i [Azure Storage](../storage/index.yml) obsługują przechowywanie danych.
 * [Azure Stream Analytics](../stream-analytics/index.md). Wstępnie skonfigurowane rozwiązanie do konserwacji predykcyjnej korzysta z tej usługi w celu przetwarzania przychodzących danych telemetrycznych, przeprowadzania agregacji danych i wykrywania zdarzeń. To wstępnie skonfigurowane rozwiązanie używa również analizy strumienia do przetwarzania komunikatów informacyjnych, które zawierają metadane lub odpowiedzi urządzeń na wysyłane polecenia.

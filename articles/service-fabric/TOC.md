@@ -250,8 +250,6 @@
 ### [Debugowanie usługi Java w programie Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Lokalne monitorowanie i diagnozowanie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Wdrażanie usług API Management i Service Fabric na platformie Azure](service-fabric-api-management-quick-start.md)
-
 ## Migrowanie z usług Cloud Services
 ### [Porównanie usług Cloud Services i Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migracja do usługi Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-#### [Program Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Uaktualnianie aplikacji
@@ -281,11 +278,8 @@
 ##### [Podczas obciążeń](service-fabric-testability-workload-tests.md)
 ##### [Przy użyciu scenariuszy testowania](service-fabric-testability-scenarios.md)
 ##### [Przy użyciu interfejsów API przechodzenia węzłów](service-fabric-node-transition-apis.md)
-#### [Testowanie obciążenia aplikacji](service-fabric-vso-load-test.md)
 
-### Konfiguracja integracji ciągłej
-#### [Konfiguracja integracji ciągłej za pomocą usługi VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux Java application using Jenkins (Wdrażanie aplikacji Java systemu Linux przy użyciu narzędzia Jenkins)](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Deploy your Linux Java application using Jenkins (Wdrażanie aplikacji Java systemu Linux przy użyciu narzędzia Jenkins)](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Tworzenie klastrów i zarządzanie nimi
 ### Klastry na platformie Azure
@@ -319,21 +313,6 @@
 ### [Wizualizacja klastra](service-fabric-visualizing-your-cluster.md)
 ### [Nawiązywanie połączenia z zabezpieczonym klastrem](service-fabric-connect-to-secure-cluster.md)
 ### [Stosowanie poprawek do węzłów klastra](service-fabric-patch-orchestration-application.md)
-
-### Organizowanie zasobów klastra i zarządzanie nimi
-#### [Omówienie usługi Resource Manager dla klastra](service-fabric-cluster-resource-manager-introduction.md)
-#### [Architektura usługi Resource Manager dla klastra](service-fabric-cluster-resource-manager-architecture.md)
-#### [Opisywanie klastra](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Omówienie grup aplikacji](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Konfigurowanie ustawień usługi Resource Manager dla klastra](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Metryki dotyczące użycia zasobów](service-fabric-cluster-resource-manager-metrics.md)
-#### [Korzystanie z koligacji usług](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Zasady rozmieszczania usług](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Zarządzanie klastrem](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Defragmentacja klastra](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Równoważenie klastra](service-fabric-cluster-resource-manager-balancing.md)
-#### [Ograniczanie przepływności](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Przenoszenie usług](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Monitorowanie i diagnozowanie
 ### OMS
