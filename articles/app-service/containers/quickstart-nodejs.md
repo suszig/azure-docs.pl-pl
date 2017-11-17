@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web Node.js w usłudze Azure App Service w systemie Linux
 
@@ -78,11 +78,11 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Tworzenie aplikacji sieci web przy użyciu wbudowanych obrazu
+## <a name="create-a-web-app"></a>Utwórz aplikację sieci Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ przy użyciu unikatowej nazwy aplikacji.
+Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ nazwą aplikacji sieci web.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ Przykładowy kod Node.js działa w aplikacji sieci web przy użyciu wbudowanych 
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
-Za pomocą edytora tekstów otwórz plik `index.js` w aplikacji Node.js i wprowadź niewielką zmianę w tekście w wywołaniu `response.end`:
+W katalogu lokalnym, otwórz `index.js` plików w aplikacji Node.js i wprowadzić niewielkie zmiany w tekście w wywołaniu `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

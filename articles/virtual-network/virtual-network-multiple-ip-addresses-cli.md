@@ -1,10 +1,10 @@
 ---
-title: "Maszyny Wirtualnej z wielu IP adresów 2.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można przypisać wiele adresów IP do maszyny wirtualnej z wykorzystaniem 2.0 interfejsu wiersza polecenia platformy Azure | Menedżer zasobów."
+title: "Adresy maszynę Wirtualną za pomocą wielu IP przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak można przypisać wiele adresów IP do maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure (CLI)."
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Przypisz wielu adresów IP do maszyn wirtualnych za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Przypisz wielu adresów IP do maszyn wirtualnych przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-W tym artykule opisano sposób tworzenia maszyny wirtualnej (VM) za pośrednictwem modelu wdrażania usługi Azure Resource Manager przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure. Nie można przypisać wiele adresów IP do zasobów została utworzona za pośrednictwem klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, przeczytaj [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
+W tym artykule opisano sposób tworzenia maszyny wirtualnej (VM) za pośrednictwem modelu wdrażania usługi Azure Resource Manager przy użyciu wiersza polecenia platformy Azure. Nie można przypisać wiele adresów IP do zasobów została utworzona za pośrednictwem klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, przeczytaj [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Utwórz maszynę Wirtualną z wielu adresów IP
 
-Można wykonać tego zadania przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure (w tym artykule) lub [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Zmień wartości, zgodnie z potrzebami, dla danego środowiska. Czynności, które wykonują wyjaśniono, jak utworzyć przykładowy maszyny Wirtualnej z wielu adresów IP, zgodnie z opisem w scenariuszu. Zmienianie wartości zmiennej "" i typy adresów IP zgodnie z wymaganiami implementacji. 
+Czynności, które wykonują wyjaśniono, jak można utworzyć maszyny wirtualnej w przykładzie z wielu adresów IP, zgodnie z opisem w scenariuszu. Zmienianie wartości zmiennej "" i typy adresów IP, zgodnie z wymaganiami, implementacji. 
 
 1. Zainstaluj [Azure CLI 2.0](/cli/azure/install-az-cli2) Jeśli nie masz już zainstalowany.
 2. Tworzenie SSH publiczne i prywatne parę kluczy dla maszyn wirtualnych systemu Linux, wykonując kroki opisane w [tworzenie SSH publiczne i prywatne parę kluczy dla maszyn wirtualnych systemu Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Szyfrowania dynamicznego: Skonfiguruj zasady autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Microsoft Azure Media Services umożliwia dostarczanie zawartości (dynamicznie) szyfrowany za pomocą Standard AES (Advanced Encryption) (przy użyciu kluczy szyfrowania 128-bitowe) i PlayReady lub Widevine DRM. Usługi Media Services udostępnia usługę dostarczania kluczy i licencje PlayReady/Widevine do autoryzowanych klientów.
 
 Jeśli chcesz dla usługi Media Services zaszyfrować element zawartości, należy skojarzyć klucza szyfrowania (**CommonEncryption** lub **EnvelopeEncryption**) z elementu zawartości (zgodnie z opisem [tutaj](media-services-rest-create-contentkey.md)), a także skonfigurować zasady autoryzacji klucza (zgodnie z opisem w tym artykule).
@@ -184,9 +184,6 @@ Odpowiedź:
 W tej sekcji opisano sposób tworzenia zasady autoryzacji klucza zawartości i skojarz ją z klucz zawartości. Zasady autoryzacji opisano, jakie wymagania autoryzacji muszą być spełnione do określenia, czy użytkownik jest autoryzowany do odbierania klucza (na przykład, czy lista "klucz weryfikacji" zawiera klucz, który został podpisany token, z).
 
 Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wymagań autoryzacji tokenu. Plik XML konfiguracji ograniczenia tokenu musi być zgodna z następującego schematu XML.
-
-> [!NOTE]
-> Token ograniczenia zasad autoryzacji klucza zawartości nie jest jeszcze dostępna w usłudze.
 
 
 #### <a id="schema"></a>Ograniczenia tokenu schematu
@@ -428,9 +425,14 @@ Dodaj AuthorizationPolicy ContentKey, jak pokazano [tutaj](#AddAuthorizationPoli
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
+
+
+> [!NOTE]
+> Ograniczenia adresów IP na zasady autoryzacji klucza zawartości nie jest jeszcze dostępna w usłudze.
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
@@ -445,7 +447,7 @@ Dodaj AuthorizationPolicy ContentKey, jak pokazano [tutaj](#AddAuthorizationPoli
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Prześlij opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

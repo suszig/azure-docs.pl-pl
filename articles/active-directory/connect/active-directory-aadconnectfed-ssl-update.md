@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aktualizuj certyfikat protokołu SSL dla farmę serwerów usługi Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule opisano, jak Azure AD Connect umożliwia zaktualizowanie certyfikatu SSL dla farmę serwerów usługi Active Directory Federation Services (AD FS). Narzędzie Azure AD Connect pozwalają łatwo aktualizować certyfikat SSL do farmy usług AD FS, nawet jeśli nie jest użytkownik logowania wybrano metodę usług AD FS.
 
 Można wykonać całą operację aktualizowania certyfikat protokołu SSL dla farmy usług AD FS we wszystkich federacyjnych i serwerach Proxy aplikacji sieci Web (WAP) w trzy proste kroki:
@@ -36,7 +36,7 @@ Można wykonać całą operację aktualizowania certyfikat protokołu SSL dla fa
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Farmy usług AD FS**: Upewnij się, że farmę usług AD FS jest systemem Windows Server 2012 R2 lub nowszym.
-* **Azure AD Connect**: Upewnij się, że wersja programu Azure AD Connect jest 1.1.443.0 lub nowszym. Użyjesz zadania **aktualizacja AD FS certyfikat**.
+* **Azure AD Connect**: Upewnij się, że wersja programu Azure AD Connect jest 1.1.553.0 lub nowszej. Użyjesz zadania **aktualizacja AD FS certyfikat**.
 
 ![Zadanie aktualizacji protokołu SSL](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
@@ -78,7 +78,7 @@ W następnym kroku wybierz serwery, które wymagają certyfikatów SSL, zaktuali
 
 Po zakończeniu konfigurowania Azure AD Connect wyświetla komunikat, który wskazuje stan aktualizacji i udostępnia opcję, aby sprawdzić logowanie usług AD FS.
 
-![Kończenie konfiguracji](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
+![Ukończono konfigurację](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
 
 ## <a name="faqs"></a>Często zadawane pytania
 

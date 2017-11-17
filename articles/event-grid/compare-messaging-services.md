@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Wybór między usługami Azure, których dostarczania komunikatów
 
@@ -28,25 +28,21 @@ Mimo że mają pewnych podobieństw każdej usługi jest przeznaczony dla konkre
 
 Jest to ważna różnica zauważyć między usług dostarczających zdarzenia i usług, które dostarczenia komunikatu.
 
-### <a name="event"></a>Wydarzenie
+### <a name="event"></a>Zdarzenie (event)
 
 Zdarzenie jest lekki powiadomienie z informacją o akcji lub zmiana stanu. Dane zdarzenia zawiera informacje o co się stało, ale nie ma danych, który wywołał zdarzenie. Na przykład zdarzenia powiadamia subskrybentów plik utworzono. Może on zawierać ogólne informacje o pliku, ale nie zawiera w samym pliku. Ogólnie rzecz biorąc zdarzenia wyzwolenia procedury obsługi zdarzeń do działania w czasie rzeczywistym.
 
-Siatka zdarzeń jest Usługa zdarzeń.
+### <a name="message"></a>Wiadomość
 
-### <a name="message"></a>Komunikat
-
-Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane lub przechowywane w innym miejscu. Komunikat zawiera dane, która wyzwoliła potok wiadomości. Ten komunikat może być nic handlu elektronicznego celu telemetrii użytkownika. W odróżnieniu od powiadomienie o zdarzeniu wydawcy komunikat może spodziewać się odpowiedzi. Na przykład komunikat zawiera dane pierwotne, ale oczekuje następnej części systemu, aby utworzyć plik z tych danych. 
-
-Centra zdarzeń i usługi Service Bus są usługi obsługi wiadomości.
+Komunikat jest nieprzetworzone dane utworzone przez usługę mają być używane lub przechowywane w innym miejscu. Komunikat zawiera dane, która wyzwoliła potok wiadomości. Ten komunikat może być nic handlu elektronicznego celu telemetrii użytkownika. W odróżnieniu od powiadomienie o zdarzeniu wydawcy komunikat może spodziewać się odpowiedzi. Na przykład komunikat zawiera dane pierwotne, ale oczekuje następnej części systemu, aby utworzyć plik z tych danych.
 
 ## <a name="comparison-of-services"></a>Porównanie usług
 
 | Usługa | Przeznaczenie | Typ | Kiedy stosować |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reaktywne programowania | Wydarzenie | Reagowanie na zmiany stanu |
-| Usługa Event Hubs | Dane big data potoku | Komunikat | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
-| Service Bus | Enterprise wysokiej wartości do obsługi komunikatów | Komunikat | Kolejność przetwarzania i transakcji finansowych |
+| Event Grid | Reaktywne programowania | Rozkład zdarzeń | Reagowanie na zmiany stanu |
+| Usługa Event Hubs | Dane big data potoku | Zdarzenie przesyłania strumieniowego | Dane telemetryczne i przesyłanie strumieniowe danych rozproszonych |
+| Service Bus | Enterprise wysokiej wartości do obsługi komunikatów | Wiadomość | Kolejność przetwarzania i transakcji finansowych |
 
 ### <a name="event-grid"></a>Event Grid
 
@@ -62,7 +58,7 @@ Ma następującą charakterystykę:
 
 ### <a name="event-hubs"></a>Usługa Event Hubs
 
-Usługa Azure Event Hubs jest potoku danych big data. Ułatwia on przechwytywania, przechowywania i powtarzania danych strumienia danych telemetrycznych i zdarzeń. Dane mogą pochodzić z wielu źródeł współbieżnych. Centra zdarzeń umożliwia telemetrii i zdarzeń danych będą dostępne w różnych usługach infrastruktury i analiza strumienia przetwarzania. Jest ona dostępna jako strumienie danych lub partie powiązane zdarzenia. Ta usługa udostępnia jedno rozwiązanie, która umożliwia pobieranie danych szybkiego przetwarzania w czasie rzeczywistym, a także powtarzane powtarzania przechowywanych danych pierwotnych.
+Usługa Azure Event Hubs jest potoku danych big data. Ułatwia on przechwytywania, przechowywania i powtarzania danych strumienia danych telemetrycznych i zdarzeń. Dane mogą pochodzić z wielu źródeł współbieżnych. Centra zdarzeń umożliwia telemetrii i zdarzeń danych będą dostępne w różnych usługach infrastruktury i analiza strumienia przetwarzania. Jest ona dostępna jako strumienie danych lub partie powiązane zdarzenia. Ta usługa udostępnia jedno rozwiązanie, która umożliwia pobieranie danych szybkiego przetwarzania w czasie rzeczywistym, a także powtarzane powtarzania przechowywanych danych pierwotnych. Go przechwycić dane przesyłane strumieniowo do pliku do przetwarzania i analizy.
 
 Ma następującą charakterystykę:
 
@@ -72,6 +68,8 @@ Ma następującą charakterystykę:
 ### <a name="service-bus"></a>Service Bus
 
 Usługa Service Bus jest przeznaczony dla tradycyjnych przedsiębiorstw. Te aplikacje przedsiębiorstwa wymagają transakcji, porządkowanie, wykrywania duplikatów i natychmiastowe spójności. Usługi Service Bus umożliwia aplikacjom native chmurze zapewnia niezawodne stanu zarządzania przejścia dla procesów biznesowych. Podczas obsługi komunikatów wysokiej wartości, które nie mogą być utracone ani zduplikowany, należy użyć usługi Azure Service Bus. Usługi Service Bus również ułatwia wysokiej bezpiecznej komunikacji między hybrydowych rozwiązań w chmurze i mogą łączyć z istniejącymi systemami lokalnymi do rozwiązań w chmurze.
+
+Usługa Service Bus jest obsługiwane przez brokera obsługi komunikatów systemu. Przechowuje komunikaty w "brokerze" (na przykład kolejki), aż strona odbierająca jest gotowa do odbierania wiadomości.
 
 Ma następującą charakterystykę:
 

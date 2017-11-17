@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 08c501b9132bb21f47f099725d1fad5556befb4c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: da0446a62c5d254aa92e6673de034852044bc052
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Wdrażanie usługi Azure IoT krawędzi na symulowane urządzenie w systemie Windows — podglądu
 
@@ -38,18 +38,18 @@ Ten samouczek zakłada, że używasz komputera lub maszyny wirtualnej z systemem
 3. Zainstaluj [Python 2.7 w systemie Windows] [ lnk-python] i upewnij się, możesz użyć polecenia pip.
 4. Uruchom następujące polecenie, aby pobrać skryptu kontroli IoT krawędzi.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Kontenery systemu Windows lub Linux kontenerów, można uruchomić Azure IoT krawędzi. Aby użyć kontenery systemu Windows, należy uruchomić:
->    * Windows 10 twórców spadku zaktualizować, lub
->    * Windows Server (kompilacja 16299) 1709, lub
+> Kontenery systemu Windows lub Linux kontenerów, można uruchomić Azure IoT krawędzi. Jeśli korzystasz z jedną z następujących wersji systemu Windows, możesz użyć kontenery systemu Windows:
+>    * Aktualizacja spadek twórców systemu Windows 10
+>    * Windows Server 1709 (kompilacja 16299)
 >    * Windows IoT Core (16299 kompilacji) na urządzenia z systemem x64
 >
-> Dla systemu Windows IoT Core, postępuj zgodnie z instrukcjami [zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core][lnk-install-iotcore]. W przeciwnym razie po prostu [skonfigurować Docker na używanie kontenerów Windows][lnk-docker-containers]i opcjonalnie zweryfikować Twoje wymagania wstępne przy użyciu następującego polecenia programu powershell:
->    ```
+> Dla systemu Windows IoT Core, postępuj zgodnie z instrukcjami [zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core][lnk-install-iotcore]. W przeciwnym razie po prostu [skonfigurować Docker na używanie kontenerów Windows][lnk-docker-containers]. Użyj następującego polecenia, aby zweryfikować Twoje wymagania wstępne:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -73,28 +73,28 @@ Zarejestruj urządzenia IoT z nowo utworzonego Centrum IoT.
 Zainstaluj i uruchom środowiska uruchomieniowego Azure IoT Edge na urządzeniu. 
 ![Zarejestruj urządzenie][5]
 
-Środowisko uruchomieniowe krawędzi IoT jest wdrażana na wszystkich urządzeniach IoT krawędzi. Zawiera dwa moduły. Najpierw agenta krawędzi IoT ułatwia wdrażanie i monitorowanie modułów na urządzeniu IoT krawędzi. Po drugie Centrum IoT krawędzi zarządza komunikacji między modułami na urządzeniu IoT krawędzi i między urządzeniami a Centrum IoT. 
+Środowisko uruchomieniowe krawędzi IoT jest wdrażana na wszystkich urządzeniach IoT krawędzi. Zawiera dwa moduły. **IoT krawędź agent** ułatwia wdrażanie i monitorowanie modułów na urządzeniu IoT krawędzi. **Centrum IoT krawędzi** zarządza komunikacji między modułami na urządzeniu IoT krawędzi i między urządzeniami a Centrum IoT. Po skonfigurowaniu środowiska uruchomieniowego na nowe urządzenia tylko agent krawędzi IoT rozpocznie się na początku. Centrum IoT krawędzi jest dostarczany później, podczas wdrażania modułu. 
 
 
-Aby zainstalować i uruchomić środowiska uruchomieniowego krawędzi IoT, wykonaj następujące kroki:
+Konfigurowanie środowiska uruchomieniowego z parametrów połączenia urządzenia IoT krawędzi z poprzedniej sekcji.
 
-1. Konfigurowanie środowiska uruchomieniowego z parametrów połączenia urządzenia IoT krawędzi z poprzedniej sekcji.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Uruchom środowisko uruchomieniowe.
 
-1. Uruchom środowisko uruchomieniowe.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Sprawdź Docker, aby zobaczyć, czy agent krawędzi IoT jest uruchomiony jako moduł.
 
-1. Sprawdź Docker, aby zobaczyć, czy agent krawędzi IoT jest uruchomiony jako moduł.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![Zobacz edgeAgent w Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Wdrażanie modułu
 
@@ -108,11 +108,21 @@ Zarządzanie urządzeniem krawędzi IoT Azure w chmurze, aby wdrożyć moduł, k
 
 W tego przewodnika Szybki Start utworzyć nowe urządzenie brzegowe IoT, a na nim zainstalowany środowiska uruchomieniowego IoT krawędzi. Następnie użyto portalu Azure do umieszczenia krawędzi IoT modułu do uruchomienia na urządzeniu bez konieczności zmiany na urządzeniu. W takim przypadku moduł, który zostanie przypisany tworzy dane środowiska, używanego programu samouczków. 
 
-Wyświetl komunikaty wysyłane z modułu tempSensor:
+Otwórz wiersz polecenia na komputerze z uruchomionym symulowane urządzenie ponownie. Upewnij się, że moduł wdrożonych w chmurze jest uruchomiona na urządzeniu IoT krawędzi. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![Wyświetl trzech modułów na urządzeniu](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Wyświetl komunikaty wysyłane z modułu tempSensor do chmury. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![Wyświetlanie danych z modułu](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Można również wyświetlić dane telemetryczne, wysyła urządzenia przy użyciu [narzędzia explorer Centrum IoT][lnk-iothub-explorer]. 
 

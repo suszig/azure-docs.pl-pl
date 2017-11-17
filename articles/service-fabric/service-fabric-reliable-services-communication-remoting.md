@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Komunikacji zdalnej usługi z usługami Reliable Services
 Dla usług, które nie są związane z protokołu komunikacyjnego konkretnego lub stosu, takie jak WebAPI, Windows Communication Foundation (WCF) lub innych osób, w ramach niezawodnej usługi udostępnia mechanizm komunikacji zdalnej szybkie i łatwe Konfigurowanie zdalnego wywołania procedury dla usługi.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 W ramach usług zdalnych propaguje wyjątków zgłaszanych na usługę do klienta. Logika sposób obsługi wyjątków po stronie klienta przy użyciu `ServiceProxy` bezpośrednio może obsłużyć wyjątki, które usługa zgłasza wyjątek.
 
 ## <a name="service-proxy-lifetime"></a>Okres istnienia usługi serwera Proxy
-Tworzenie ServiceProxy jest lekki operacji, aby użytkownicy mogli tworzyć tyle zgodnie z zapotrzebowaniem. Serwer Proxy usługi mogą być ponownie używane tak długo, jak użytkownicy muszą ją. Jeśli Api zdalne zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego obiektu pośredniczącego. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania interfejsu API, mamy wewnętrzny Sprawdź, czy komunikacji klient jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji. Dlatego jeśli wystąpi wyjątek, użytkownicy nie muszą utworzyć ponownie serviceproxy.
+Tworzenie ServiceProxy jest lekkie operacji, aby użytkownicy mogli tworzyć dowolną liczbę potrzebnych im. Tak długo, jak użytkownicy muszą ją można ponownie użyć wystąpienia serwera Proxy usługi. Jeśli zdalne wywołanie procedury zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych, firma Microsoft wewnętrznie Sprawdź, czy klient komunikacji jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji w razie potrzeby. Dlatego jeśli wystąpi wyjątek, użytkownicy nie trzeba ponownie utworzyć serviceproxy, ale jest to zrobione przezroczysty.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Okres istnienia ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) fabryki, która tworzy proxy dla różnych usług zdalnych interfejsów. Jeśli używasz ServiceProxy.Create interfejsu API tworzenia serwera proxy, framework tworzy pojedyncze ServiceProxyFactory.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) jest fabrykę tworzącą wystąpień serwera proxy dla różnych usług zdalnych interfejsów. Jeśli używasz interfejsu api `ServiceProxy.Create` tworzenia serwera proxy, framework utworzy pojedynczą ServiceProxy.
 Warto utworzyć jedną ręcznie, gdy trzeba zastąpić [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) właściwości.
-Fabryka jest kosztowna operacja. ServiceProxyFactory przechowuje w pamięci podręcznej klienta komunikacji.
+Tworzenie fabryki jest kosztowna operacja. ServiceProxyFactory przechowuje wewnętrznej pamięci podręcznej klienta komunikacji.
 Najlepszym rozwiązaniem jest pamięci podręcznej ServiceProxyFactory tak długo, jak to możliwe.
 
 ## <a name="remoting-exception-handling"></a>Obsługa wyjątków komunikacji zdalnej

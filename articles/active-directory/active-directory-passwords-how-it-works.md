@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobsługowe Resetowanie w usłudze Azure AD nowości haseł
 
@@ -58,7 +58,7 @@ Strony resetowania odczytu kolejnych kroków, aby dowiedzieć się więcej o log
 
 Jeśli włączono SSPR, musisz wybrać co najmniej jeden z następujących opcji dla metod uwierzytelniania. Czasami słyszysz tych opcji, określany jako "bramy". Zdecydowanie zaleca się, wybierz co najmniej dwóch metod uwierzytelniania, dzięki czemu użytkownicy mają większą elastyczność.
 
-* Adres e-mail
+* Wiadomość e-mail
 * Telefon komórkowy
 * Telefon biurowy
 * Pytania zabezpieczające
@@ -183,7 +183,7 @@ Aby włączyć tę opcję, użytkownik, który jest włączony do resetowania ha
 Po wyłączeniu wymagają rejestracji użytkownicy mogą nadal ręcznie zarejestrować swoje informacje kontaktowe. Mogą one albo odwiedź [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) lub wybierz **rejestru w celu resetowania haseł** łącze w obszarze **profilu** kartę w panelu dostępu.
 
 > [!NOTE]
-> Użytkownicy mogą odrzucić portalu rejestracji resetowania haseł, wybierając **anulować** lub zamykania okna. Ale będą oni musieli podać zarejestrować zawsze, gdy zalogują się w aż do chwili zakończenia ich rejestracji.
+> Użytkownicy mogą odrzucić portalu rejestracji resetowania haseł, wybierając **anulować** lub zamykania okna. Ale są monitowani o zarejestrować zawsze, gdy zalogują się w aż do chwili zakończenia ich rejestracji.
 >
 > Nie przerwać połączenie użytkownika, jeśli jest już zarejestrowany.
 
@@ -209,6 +209,17 @@ Przykład: Istnieją cztery Administratorzy w środowisku. Administrator A Reset
 
 Jeśli musisz zainstalować, skonfigurować i włączyć Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wygaszone, następnie zapisywania zwrotnego nie został poprawnie skonfigurowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Zapisywanie zwrotne][Writeback]
+
+Ta strona zawiera szybkie stan zapisywania zwrotnego lokalnej klienta jeden z następujących komunikatów o błędach są wyświetlane na podstawie bieżącej konfiguracji:
+
+* Klient funkcji zapisywania zwrotnego lokalnej jest uruchomiona.
+* Usługi Azure AD jest w trybie online i jest połączona z lokalnego klienta zapisywania zwrotnego. Jednak prawdopodobnie zainstalowana wersja programu Azure AD Connect jest nieaktualny. Należy wziąć pod uwagę [uaktualnianie programu Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) aby upewnić się, czy masz najnowsze funkcje łączności i ważnych poprawek.
+* Niestety, firma Microsoft nie może sprawdzić stan klienta lokalnego zapisywania zwrotnego ponieważ zainstalowana wersja programu Azure AD Connect jest nieaktualny. [Uaktualnij usługi Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) Aby móc sprawdzić stan połączenia.
+* Niestety prawdopodobnie nie nie może połączyć się z klienta lokalnego zapisywania zwrotnego w tej chwili. [Rozwiązywanie problemów z usługi Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) próby odzyskania połączenia.
+* Niestety nie można nawiązać lokalnej klienta zapisywania zwrotnego, ponieważ nie został poprawnie skonfigurowany funkcji zapisywania zwrotnego haseł. [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) próby odzyskania połączenia.
+* Niestety prawdopodobnie nie nie może połączyć się z klienta lokalnego zapisywania zwrotnego w tej chwili. Może to być spowodowane problemami z tymczasowego po naszej stronie. Jeśli problem będzie się powtarzać, [Rozwiązywanie problemów z programu Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) próby odzyskania połączenia.
+
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zapisywania zwrotnego haseł do katalogu lokalnego
 
 Ten formant określa, czy zapisywanie zwrotne haseł jest włączony dla tego katalogu. W przypadku zapisywania zwrotnego na, wskazuje stan lokalną usługą zapisywania zwrotnego. Jest to przydatne, jeśli chcesz tymczasowo wyłączyć funkcję zapisywania zwrotnego haseł, bez konieczności ponownej konfiguracji usługi Azure AD Connect.
@@ -233,7 +244,7 @@ Resetowanie hasła i zmiany są w pełni obsługiwane na wszystkich konfiguracji
 Do przetestowania tego scenariusza, przejdź do http://passwordreset.microsoftonline.com jeden z tych użytkowników z firm partnerskich. Jeśli dysponują alternatywny adres e-mail lub uwierzytelniania wiadomości e-mail zdefiniowanych resetowania haseł działa zgodnie z oczekiwaniami.
 
 > [!NOTE]
-> Konta Microsoft, którym udzielono dostępu dla gości do dzierżawy usługi Azure AD, takich jak Hotmail.com, Outlook.com lub innych osobistych adresów e-mail, nie będą mogli używać usługi Azure AD SSPR. Należy do zresetowania swojego hasła, korzystając z informacji zamieszczonych w [po nie logowania się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artykułu.
+> Konta Microsoft, którym udzielono dostępu dla gości do dzierżawy usługi Azure AD, takich jak Hotmail.com, Outlook.com lub innych osobistych adresów e-mail, nie będą mogli używać usługi Azure AD SSPR. Potrzebuje do zresetowania swojego hasła, korzystając z informacji zamieszczonych w [po nie logowania się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -253,3 +264,4 @@ Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za poś
 * [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Dostępne metody uwierzytelniania w usłudze Azure AD i wymagane ilości"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Lokalne konfigurację funkcji zapisywania zwrotnego haseł integracji i informacje dotyczące rozwiązywania problemów"

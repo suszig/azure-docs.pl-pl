@@ -1,6 +1,6 @@
 ---
 title: Rozmiar maszyny Wirtualnej systemu Linux platformy Azure - HPC | Dokumentacja firmy Microsoft
-description: "Wyświetla listę różnych rozmiarów dostępnych Linux komputerowych o wysokiej wydajności maszyn wirtualnych na platformie Azure."
+description: "Wyświetla listę różnych rozmiarów dostępnych Linux komputerowych o wysokiej wydajności maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie Vcpu, dysków z danymi i karty sieciowe, a także przepustowości przepływności i sieć magazynu rozmiarów w tej serii."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 31a1ac1f58f52abd2d62e95a2de1a42ce678c43c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Wysoka wydajność obliczeniowe rozmiarów maszyn wirtualnych
 

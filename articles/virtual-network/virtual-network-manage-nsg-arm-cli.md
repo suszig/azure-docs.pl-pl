@@ -1,10 +1,10 @@
 ---
-title: "Zarządzanie grupami zabezpieczeń sieci - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zarządzać przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) 2.0 grup zabezpieczeń sieci."
+title: "Zarządzanie grupami zabezpieczeń sieci - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zarządzać grupami zabezpieczeń sieci przy użyciu interfejsu wiersza polecenia platformy Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Zarządzanie grupami zabezpieczeń sieci przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Zarządzanie grupami zabezpieczeń sieci przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania 
-
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia: 
-
-- [Interfejs wiersza polecenia platformy Azure w wersji 1.0](virtual-network-manage-nsg-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami 
-- [Azure CLI 2.0](#View-existing-NSGs) -naszej nowej generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów (w tym artykule)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
 
 ## <a name="prerequisite"></a>Wymagania wstępne
 Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Wyświetlanie istniejących grup NSG
 Aby wyświetlić listę grup NSG w określonej grupy zasobów, uruchom [lista nsg sieci az](/cli/azure/network/nsg#list) z `-o table` format wyjściowy:
@@ -89,13 +80,13 @@ Oczekiwane dane wyjściowe:
 
 ## <a name="view-nsg-associations"></a>Wyświetlanie NSG powiązań
 
-Aby wyświetlić zasobów **NSG frontonu** grupa NSG jest skojarzony z uruchomiony `az network nsg show` polecenia w sposób przedstawiony poniżej. 
+Aby wyświetlić zasobów **frontonu NSG** grupa NSG jest skojarzony z uruchomiony `az network nsg show` polecenia: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Wyszukaj **Networkinterface** i **podsieci** właściwości, jak pokazano poniżej:
+Wyszukaj **Networkinterface** i **podsieci** właściwości, jak pokazano w poniższym przykładzie danych wyjściowych:
 
 ```json
 [
@@ -117,7 +108,7 @@ Wyszukaj **Networkinterface** i **podsieci** właściwości, jak pokazano poniż
 ]
 ```
 
-W powyższym przykładzie grupy NSG nie jest skojarzony z żadnych interfejsów sieciowych (NIC) i jest on skojarzony z podsiecią o nazwie **frontonu**.
+W poprzednim przykładzie, grupa NSG nie jest skojarzony z żadnych interfejsów sieciowych (NIC) i jest on skojarzony z podsiecią o nazwie **frontonu**.
 
 ## <a name="add-a-rule"></a>Dodawanie reguły
 Można dodać, dzięki czemu reguły **przychodzących** ruch do portu **443** z dowolnej maszyny do **frontonu NSG** NSG, wprowadź następujące polecenie:
@@ -160,7 +151,7 @@ Oczekiwane dane wyjściowe:
 ```
 
 ## <a name="change-a-rule"></a>Zmień reguły
-Aby zmienić reguły utworzone powyżej, aby zezwalać na ruch przychodzący z **Internet** , uruchom [aktualizacja reguły nsg sieci az](/cli/azure/network/nsg/rule#update) polecenia:
+Aby zmienić reguły utworzone wcześniej, aby zezwalać na ruch przychodzący z **Internet** , uruchom [aktualizacja reguły nsg sieci az](/cli/azure/network/nsg/rule#update) polecenia:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ W danych wyjściowych `networkSecurityGroup` klucz ma podobny dla wartości:
   ```
 
 ## <a name="delete-an-nsg"></a>Usuwanie grupy NSG
-Grupy NSG można usuwać tylko, jeśli nie został skojarzony z żadnym zasobem. Aby usunąć grupy NSG, wykonaj poniższe kroki.
+Grupy NSG można usuwać tylko, jeśli nie został skojarzony z żadnym zasobem. Aby usunąć grupy NSG, wykonaj następujące kroki:
 
 1. Aby sprawdzić zasoby skojarzone grupy NSG, uruchom `azure network nsg show` pokazane [skojarzenia grup NSG widoku](#View-NSGs-associations).
 2. Jeśli grupa NSG jest skojarzona z dowolnej karty interfejsu sieciowego, uruchom `azure network nic set` pokazane [skojarzenie grupy NSG z karty Sieciowej](#Dissociate-an-NSG-from-a-NIC) dla poszczególnych kart sieciowych. 

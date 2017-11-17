@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Przykład wskazówki infrastruktury platformy Azure dla maszyn wirtualnych systemu Windows
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-W tym artykule przedstawiono zbudowaniu przykład infrastruktury aplikacji. Firma Microsoft szczegółowo projektowania infrastruktury dla prostego sklepu online, która gromadzi wszystkie wskazówki i decyzji dotyczących konwencji nazewnictwa, zestawów dostępności, sieci wirtualnych i usług równoważenia obciążenia i faktycznie wdrażania maszyn wirtualnych (VM).
+W tym artykule przedstawiono zbudowaniu przykład infrastruktury aplikacji. Firma Microsoft szczegółowo projektowania infrastruktury dla prostego Sklep internetowy zgromadzono wskazówki i decyzji dotyczących konwencji nazewnictwa, zestawów dostępności, sieci wirtualnych i usług równoważenia obciążenia i faktycznie wdrażania maszyn wirtualnych (VM).
 
 ## <a name="example-workload"></a>Przykładowe obciążenie
-Firma Adventure Works Cycles chce utworzyć aplikację sklep online na platformie Azure, która składa się z:
+Firma Adventure Works Cycles chce utworzyć aplikację sklepu online na platformie Azure, która składa się z:
 
 * Dwa serwery IIS z frontonu w warstwa sieci web klienta
 * Przetwarzanie danych i zamówień w warstwie aplikacji dwóch serwerów usług IIS
@@ -55,7 +55,7 @@ Projekt wynikowy musi uwzględniać:
 Wszystkie powyższe wykonaj te konwencji nazewnictwa:
 
 * Adventure Works Cycles używa **[obciążenia IT]-[lokalizacja]-[zasobów platformy Azure]** jako prefiksu
-  * Na przykład "**azos**" (magazyn Azure On-line) jest nazwą obciążenia IT i "**użyj**" (wschodnie stany USA 2) to lokalizacja
+  * Na przykład "**azos**" (magazyn Azure Online) jest nazwą obciążenia IT i "**użyj**" (wschodnie stany USA 2) to lokalizacja
 * W sieciach wirtualnych za pomocą AZOS-użycie-VN**[numer]**
 * Zestawy dostępności używać azos-Użyj — jako-**[rola]**
 * Nazwy maszyn wirtualnych użyć azos-Użyj-vm -**[vmname]**
@@ -112,7 +112,7 @@ Ta konfiguracja obejmuje:
 
 * Tylko w chmurze sieci wirtualnej z dwoma podsieciami (frontonu i wewnętrznej bazy danych)
 * Dyskach platformy Azure zarządzanego z dyskami w wersjach Standard i Premium
-* Cztery zestawy dostępności, jeden dla każdej warstwy magazynu online
+* Cztery zestawy dostępności, jeden dla każdej warstwy sklepu online
 * Maszyny wirtualne w czterech warstwach
 * Zestaw o zrównoważonym obciążeniu zewnętrznych dla ruchu w sieci web z protokołem HTTPS z Internetu na serwerach sieci web
 * Zestaw dla ruchu w sieci web niezaszyfrowane z serwerów sieci web na serwery aplikacji o zrównoważonym obciążeniu wewnętrzny

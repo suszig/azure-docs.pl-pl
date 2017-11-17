@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 51c06d838c5ed6286dfb99ea25faaaf33bad5f3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebf07218a6b356d71af51383ac85933ec63b543b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Samouczek: Integracji Azure Active Directory z usługi Zendesk
 
@@ -63,15 +63,15 @@ Aby skonfigurować integrację usługi Zendesk w usłudze Azure Active Directory
 
 1. W  **[Azure Portal](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![Usługa Active Directory][1]
+    ![Active Directory][1]
 
 2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Aplikacje][2]
+    ![aplikacji][2]
     
 3. Kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Aplikacje][3]
+    ![aplikacji][3]
 
 4. W polu wyszukiwania wpisz **Zendesk**.
 
@@ -116,7 +116,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     a. W **adres URL logowania** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://<subdomain>.zendesk.com`
 
-    b. W **identyfikator** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://<subdomain>.zendesk.com`
+    b. W **identyfikator** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`<subdomain>.zendesk.com`
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i adres URL identyfikatora, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej usługi Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) uzyskać te wartości. 

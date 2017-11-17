@@ -1,6 +1,6 @@
 ---
 title: "IT usługi łącznika zarządzania w programie Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Użyj łącznika zarządzania usługi IT, aby centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT — w Azure Log Analytics i szybkie rozwiązywanie problemów."
+description: "Ten artykuł zawiera omówienie IT usługi zarządzania łącznika (ITSMC) i informacje o sposobie używania tego rozwiązania, aby centralnie monitorować i zarządzać nimi Zarządzanie usługami IT — elementów roboczych w analizy dzienników OMS i szybkie rozwiązywanie problemów."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralne zarządzanie Zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT (wersja zapoznawcza)
 
 ![Symbol łącznika usługi zarządzania IT](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-Łącznik zarządzania usługi IT (ITSMC) zapewnia dwukierunkową integrację między obsługiwane usługi produktów zarządzania usługi IT (zarządzanie, usługami IT —) i analizy dzienników.  Za pośrednictwem tego połączenia można utworzyć zdarzenia i alerty lub zdarzenia w produkcie Zarządzanie usługami IT — na podstawie alertów lub rekordów dziennika analizy dzienników. Łącznik również importuje dane takie jak zdarzenia i żądania zmiany z produktu Zarządzanie usługami IT — do analizy dzienników OMS.
+Łącznik zarządzania usługi IT (ITSMC) zapewnia dwukierunkową integrację między obsługiwane usługi produktów zarządzania usługi IT (zarządzanie, usługami IT —) i analizy dzienników.  Za pośrednictwem tego połączenia można utworzyć zdarzenia i alerty lub zdarzenia w produkcie Zarządzanie usługami IT — na podstawie analizy dzienników alerty, rekordów dziennika lub alerty platformy Azure. Łącznik również importuje dane takie jak zdarzenia i żądania zmiany z produktu Zarządzanie usługami IT — do analizy dzienników OMS.
 
 ITSMC można:
 
@@ -56,11 +56,11 @@ Po pomyślnym dodaniu zobaczysz łącznika zarządzania usługi IT w obszarze **
  ![Odśwież ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Konfigurowanie połączenia z oprogramowaniem Zarządzanie usługami IT —
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Konfigurowanie połączenia ITSMC z Zarządzanie usługami IT — produktów/usług
 
 ITSMC obsługuje połączenia z **System Center Service Manager**, **ServiceNow**, **Provance**, i **Cherwell**.
 
-Odpowiednie dla Ciebie, użyj następujących procedur:
+Użyj następujących procedur jako odpowiednie dla Ciebie:
 
 - [Program System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -101,16 +101,16 @@ ServiceDeskWorkItemType_s = "Zdarzenie"
 - Utworzone przez
 - Rozwiązany przez
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
 - Kategoria
-- Tytuł
+- Stanowisko
 - Opis
 - Data utworzenia
 - Data zamknięcia
 - Data rozwiązania
 - Data ostatniej modyfikacji
-- Computer (Komputer)
+- Komputer
 
 
 **Element pracy:** **żądania zmiany**
@@ -122,9 +122,9 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 - Identyfikator technicznej usługi
 - Utworzone przez
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
-- Tytuł
+- Stanowisko
 - Typ
 - Kategoria
 - Stan
@@ -144,7 +144,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 - Data rozpoczęcia pracy
 - Data zakończenia pracy
 - Opis
-- Computer (Komputer)
+- Komputer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dane wyjściowe dla zdarzenia usługi ServiceNow
 
@@ -166,7 +166,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | CreatedDate_t|  Otwierano |
 | ClosedDate_t| zamknięte|
 | ResolvedDate_t|Rozwiązane|
-| Computer (Komputer)  | element konfiguracji |
+| Komputer  | element konfiguracji |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dane wyjściowe dla usługi ServiceNow żądania zmiany
 
@@ -191,7 +191,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | WorkStartDate_t  | Rzeczywista data rozpoczęcia |
 | WorkEndDate_t | Rzeczywista data zakończenia|
 | Description_s | Opis |
-| Computer (Komputer)  | Element konfiguracji |
+| Komputer  | Element konfiguracji |
 
 **Przykładowy ekran analizy dzienników dla danych Zarządzanie usługami IT —:**
 
@@ -258,6 +258,7 @@ Można też utworzyć elementów roboczych w połączonych źródeł Zarządzani
 4. Podaj odpowiednie wartości w **typ**, **wpływ**, **pilność**, **kategorii**, i **podkategorii** pola tekstowe, a następnie kliknij przycisk **Utwórz**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie elementów roboczych Zarządzanie usługami IT — Azure alertów
+
 ITSMC jest zintegrowany z grupy akcji.
 
 [Grupy akcji](../monitoring-and-diagnostics/monitoring-action-groups.md) umożliwiają moduły i wielokrotnego użytku z wyzwalają akcje dla alerty Azure. Przy użyciu akcji Zarządzanie usługami IT — Akcja grup, można utworzyć elementów roboczych w produkcie z istniejącego połączenia z rozwiązaniem łącznika Zarządzanie usługami IT — zarządzanie usługami IT —.
@@ -286,7 +287,7 @@ Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, k
 
 >[!NOTE]
 
-> Obecnie tylko alerty dziennika aktywności obsługują zarządzanie usługami IT — Akcja. Zarządzanie usługami IT — akcja nie jest obsługiwana dla innych alertów platformy Azure.
+> Obecnie tylko alerty dziennika aktywności obsługuje zarządzanie usługami IT — akcja, Azure inne alerty nie obsługują to.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Rozwiązywanie problemów z połączeniami Zarządzanie usługami IT — w OMS

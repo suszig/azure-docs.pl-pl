@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optymalizacja wydajności za pomocą technologii w pamięci w bazie danych SQL
 
@@ -118,8 +118,6 @@ Jednak zmiana wersji na starszą warstwy cenowej może niekorzystnie wpłynąć 
 
 *Zmiana wersji na starszą Basic/standard*: OLTP w pamięci nie jest obsługiwane w bazach danych w warstwie standardowa lub Basic. Ponadto nie można przenieść bazę danych, która zawiera wszystkie obiekty OLTP w pamięci do warstwy standardowa lub Basic.
 
-Przed obniżyć bazy danych na podstawowy/Standard, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkich modułów skompilowanych w sposób macierzysty T-SQL.
-
 Brak programowy sposób zrozumieć, czy dany bazy danych obsługuje OLTP w pamięci. Można wykonywać następujące zapytanie języka Transact-SQL:
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Jeśli zapytanie zwraca **1**, OLTP w pamięci jest obsługiwana w tej bazie danych.
 
+Przed obniżyć bazy danych na podstawowy/Standard, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkich modułów skompilowanych w sposób macierzysty T-SQL. Następujące kwerendy Zidentyfikuj wszystkie obiekty, które muszą zostać usunięte przed bazy danych można zmienić na standardowy/Basic:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Zmiana wersji na starszą do dolnej warstwy Premium*: dane w tabelach zoptymalizowanych pod kątem pamięci musi mieścić się w pamięci OLTP w pamięci, która jest skojarzona z warstwy cenowej bazy danych lub jest dostępny w puli elastycznej. Jeśli użytkownik próbuje zmniejszyć warstwę cenową lub przenieść bazę danych do puli, która nie ma wystarczająco dużo dostępnego magazynu OLTP w pamięci, kończy się niepowodzeniem.
 

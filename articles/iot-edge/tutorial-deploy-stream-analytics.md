@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Stream Analytics jako moduł krawędzi IoT — w wersji preview
 
@@ -62,13 +62,16 @@ W tej sekcji utworzysz zadanie usługi analiza strumienia Azure pobierają dane 
     ![Nowe konto magazynu][1]
 
 3. W portalu Azure przejdź do konta magazynu, który został właśnie utworzony. Kliknij przycisk **Przeglądaj obiekty BLOB** w obszarze **usługa Blob**. 
-1. Utwórz nowy kontener dla modułu ASA do przechowywania danych. Ustaw poziom dostępu _kontenera_. Kliknij przycisk **OK**.
+4. Utwórz nowy kontener dla modułu ASA do przechowywania danych. Ustaw poziom dostępu _kontenera_. Kliknij przycisk **OK**.
 
     ![Ustawienia magazynu][10]
 
-1. W portalu Azure, przejdź do **Utwórz zasób** > **Internetu rzeczy** i wybierz **zadania usługi analiza strumienia**.
+5. W portalu Azure, przejdź do **Utwórz zasób** > **Internetu rzeczy** i wybierz **zadania usługi analiza strumienia**.
 
-1. Wprowadź nazwę, **wybierz "Krawędzi" jako środowisko macierzyste** i użyj pozostałe wartości domyślne.  Kliknij przycisk **Utwórz**.
+6. Wprowadź nazwę, wybierz **krawędzi** jako środowisko macierzyste i użyj pozostałe wartości domyślne.  Kliknij przycisk **Utwórz**.
+
+    >[!NOTE]
+    >Obecnie są ograniczonej liczby regionach, które obsługują ASA zadania na krawędzi IoT. Wybierz jedną z następujących jako lokalizację: środkowe stany USA, zachodnie centralnej nam, północno-środkowe stany, wschodnie stany USA, Kanada Wschodnia, Japonia Wschodnia, Wschodnia Azja, Europa Północna, Wielka Brytania Południowa, Australia Wschodnia, Brazylia Południowa. 
 
     ![Utwórz ASA][5]
 

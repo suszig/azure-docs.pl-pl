@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Synchronizacja programu Azure AD Connect: opis użytkowników, grup i kontaktów
 Istnieje kilka przyczyn dlaczego może mieć wiele lasów usługi Active Directory i istnieje kilka topologii rozmieszczania. Typowe modele zawierają wdrażania konta zasobów i lasów sync'ed usługi GAL po połączeniu & nabycia. Ale nawet w przypadku modeli czystego, modele hybrydowe wspólnej również. Domyślna konfiguracja synchronizacji Azure AD Connect nie przyjmuje żadnego określonego modelu, ale w zależności od tego, jak dopasowywaniu użytkowników zostało wybrane w podręczniku instalacji, można zaobserwować różne zachowania.
@@ -42,17 +42,17 @@ Ważne informacje, które należy zwrócić uwagę podczas synchronizowania grup
 
 * Aby zsynchronizować grupy usługi Active Directory do usługi Azure AD jako grupę z włączoną obsługą poczty:
 
-    * Jeśli grupy *proxyAddress* atrybut jest pusty, jego *poczty* atrybut musi mieć wartość, lub 
+    * Jeśli grupy *proxyAddress* atrybut jest pusty, jego *poczty* atrybut musi mieć wartość
 
-    * Jeśli grupy *proxyAddress* atrybut jest pusty, musi ona także zawierać wartość adres serwera proxy SMTP podstawowego (oznaczony wielkie **SMTP** prefiks). Oto kilka przykładów:
+    * Jeśli grupy *proxyAddress* atrybut jest pusty, musi zawierać co najmniej jedną wartość adres serwera proxy SMTP. Oto kilka przykładów:
     
-      * Grupy usługi Active Directory, w których atrybut proxyAddress ma wartość *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* nie będzie włączoną obsługą poczty w usłudze Azure AD. Nie ma podstawowego adresu SMTP.
-      
-      * Grupy usługi Active Directory, w których atrybut proxyAddress zawiera wartości *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* nie będzie włączoną obsługą poczty w usłudze Azure AD. Zawiera adres smtp, ale nie jest podstawową.
+      * Grupy usługi Active Directory, w których atrybut proxyAddress ma wartość *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* nie będzie włączoną obsługą poczty w usłudze Azure AD. Nie ma adresu SMTP.
       
       * Grupy usługi Active Directory, w których atrybut proxyAddress zawiera wartości *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* będzie można z włączoną obsługą poczty w usłudze Azure AD.
+      
+      * Grupy usługi Active Directory, w których atrybut proxyAddress zawiera wartości *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* będzie także włączoną obsługą poczty w usłudze Azure AD.
 
-## <a name="contacts"></a>Kontakty
+## <a name="contacts"></a>Osoby kontaktowe
 Kontakty reprezentujący użytkownika w innym lesie jest posiadanie wspólnej po połączeniu & nabycia gdzie rozwiązania usługi GALSync jest mostkowanie co najmniej dwa lasy usługi programu Exchange. Skontaktuj się z pomocą obiektów jest zawsze przyłączania z obszaru łącznika do metaverse przy użyciu atrybutu poczty. Jeśli istnieje już kontaktu obiektu lub użytkownika z tym samym adresem poczty, obiekty są połączone ze sobą. Te ustawienia zostaną skonfigurowane w regule **w z usługi Active Directory — kontakt Join**. Istnieje również reguły o nazwie **w z usługi Active Directory — skontaktuj się z wspólnej** przepływu atrybutu z atrybutem metaverse **sourceObjectType** o stałej **skontaktuj się z**. Ta reguła ma pierwszeństwo bardzo niskich tak więc jeśli dowolny obiekt użytkownika jest dołączony do tego samego obiektu metaverse, a następnie reguły **w z usługi Active Directory — typowe użytkownika** przyczyniają się wartość użytkownika z tym atrybutem. Z tą regułą tego atrybutu będzie mieć wartość kontaktu, jeśli żaden użytkownik nie został dołączony i wartość użytkownika, jeśli znaleziono co najmniej jednego użytkownika.
 
 Do obsługi obiektu do usługi Azure AD, wychodzącą regułę **Out do usługi AAD — skontaktuj się z Join** spowoduje utworzenie obiektu kontaktu, jeśli atrybut metaverse **sourceObjectType** ma ustawioną wartość **skontaktuj się z**. Jeśli ten atrybut ma ustawioną **użytkownika**, następnie reguły **Out do usługi AAD — użytkownik przyłączyć** zamiast tego utworzyć obiektu user.

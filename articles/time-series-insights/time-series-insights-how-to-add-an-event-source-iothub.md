@@ -11,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 29b617422810480f5f8cbcd5b78ebe8605734bbf
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Jak dodać źródła zdarzenia Centrum IoT środowiska Insights serii czasu
 W tym artykule opisano, jak przy użyciu portalu Azure Dodaj źródło zdarzenia, które odczytuje dane z Centrum IoT w środowisku Insights serii czasu.
@@ -64,8 +64,8 @@ W tym artykule opisano, jak przy użyciu portalu Azure Dodaj źródło zdarzenia
 
    | Właściwość | Opis |
    | --- | --- |
-   | Identyfikator subskrypcji | Subskrypcja, w której utworzono to Centrum IoT.
-   | Grupa zasobów | Nazwa grupy zasobów, w której utworzono to Centrum IoT.
+   | Identyfikator subskrypcji | Subskrypcja, w której ta utworzono Centrum IoT.
+   | Grupa zasobów | Nazwa grupy zasobów, w której ta utworzono Centrum IoT.
    | Nazwa centrum IoT | Nazwa centrum IoT. Podczas tworzenia Centrum IoT należy też nadać mu nazwę.
    | Nazwa zasad Centrum IoT | Zasady dostępu współdzielonego, można utworzyć na karcie Ustawienia Centrum IoT. Wszystkie zasady dostępu współdzielonego ma nazwę uprawnienia ustawić i klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *musi* ma **usługa połączyć** uprawnienia.
    | Klucz zasad Centrum IoT | Klucz dostępu współdzielonego, używany do uwierzytelniania dostępu do przestrzeni nazw usługi Service Bus. Wpisz tutaj klucz podstawowy lub pomocniczy.

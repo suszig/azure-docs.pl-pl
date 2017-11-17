@@ -1,5 +1,5 @@
 ---
-title: Azure wyzwalacza czasomierza funkcje | Dokumentacja firmy Microsoft
+title: Azure wyzwalacza czasomierza funkcji
 description: "Zrozumienie, jak używać czasomierza Wyzwalacze w funkcji Azure."
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure wyzwalacza czasomierza funkcji
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-W tym artykule opisano sposób konfigurowania i wyzwalaczy czasomierza kodu w usługi Azure Functions. Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu. 
-
-Wyzwalacz czasomierza obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.
+W tym artykule opisano sposób pracy z wyzwalaczy czasomierza w usługi Azure Functions. Wyzwalacz czasomierza umożliwia uruchamianie funkcji zgodnie z harmonogramem. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Przykład
 
-## <a name="timer-trigger"></a>Wyzwalacz czasomierza
-Wyzwalacz czasomierza funkcji używa następujący obiekt JSON w `bindings` tablicy function.json:
+Zapoznaj się z przykładem specyficzny dla języka:
+
+* [Prekompilowane C#](#trigger---c-example)
+* [Skryptu C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>Przykład C#
+
+W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) co pięć minut:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Przykładowy skrypt w języku C#
+
+W poniższym przykładzie przedstawiono wyzwalacza bazującego na czasomierzu powiązanie w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja zapisuje dziennik wskazującą, czy to wywołanie funkcji jest z powodu wystąpienia brakujących harmonogramu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-Wartość `schedule` jest [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) zawierających te sześć pola: 
+Oto kod skryptu C#:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>Przykład F #
+
+W poniższym przykładzie przedstawiono wyzwalacza bazującego na czasomierzu powiązanie w *function.json* pliku i [funkcji skryptu języka F #](functions-reference-fsharp.md) używającą powiązania. Funkcja zapisuje dziennik wskazującą, czy to wywołanie funkcji jest z powodu wystąpienia brakujących harmonogramu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Oto kod skryptu języka F #:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>Przykład JavaScript
+
+W poniższym przykładzie przedstawiono wyzwalacza bazującego na czasomierzu powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja zapisuje dziennik wskazującą, czy to wywołanie funkcji jest z powodu wystąpienia brakujących harmonogramu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Oto kod skryptu języka F #:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Atrybuty dla prekompilowanego C#
+
+Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+Konstruktor atrybutu ma wyrażenie CRON, jak pokazano w poniższym przykładzie:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Można określić `TimeSpan` zamiast wyrażenia CRON, gdy funkcja aplikacja działa w plan usługi aplikacji (nie plan zużycie).
+
+## <a name="configuration"></a>Konfiguracja
+
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `TimerTrigger` atrybutu.
+
+|Właściwość Function.JSON | Właściwość atrybutu |Opis|
+|---------|---------|----------------------|
+|**Typ** | Brak | Musi być równa "timerTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Kierunek** | Brak | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
+|**Nazwa** | Brak | Nazwa zmiennej, która reprezentuje obiekt czasomierza w kodzie funkcji. | 
+|**Harmonogram**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona  **%**  znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>Format usługi CRON 
+
+A [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) dla usługi Azure Functions czasomierza wyzwalacza obejmuje sześć pola: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Wiele wyrażeń cron możesz znaleźć online Pomiń `{second}` pola. Po skopiowaniu jednego z nich, należy dostosować nadmiarowe `{second}` pola. Aby uzyskać szczegółowe przykłady, zobacz [zaplanować przykłady](#examples) poniżej.
+>Wiele wyrażeń CRON możesz znaleźć online Pomiń `{second}` pola. Po skopiowaniu jednego z nich, Dodaj brakujące `{second}` pola.
+
+### <a name="cron-time-zones"></a>Strefy czasowe usługi CRON
 
 Domyślna strefa czasowa używane w wyrażeniach CRON jest uniwersalny czas koordynowany (UTC). Aby wymusić wyrażenie CRON oparte na innej strefie czasowej, Utwórz nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE`. Ustaw wartość na nazwę odpowiednie strefy czasowej, jak pokazano w [indeksu strefy czasowej Microsoft](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o n
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>Przykłady usługi CRON
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Przykłady harmonogramu
-Poniżej przedstawiono niektóre przykłady można użyć dla wyrażeń CRON `schedule` właściwości. 
+Oto kilka przykładów CRON wyrażeń, które można użyć wyzwalacza czasomierza w funkcji platformy Azure. 
 
 Aby wyzwolić co pięć minut:
 
@@ -110,9 +224,8 @@ Aby wyzwolić na 9:30 AM każdy dzień tygodnia:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Użycie
 
-## <a name="trigger-usage"></a>Użycie wyzwalacza
 Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji. Następujący kod JSON jest przykład reprezentację obiekt czasomierza. 
 
 ```json
@@ -127,68 +240,14 @@ Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Skalowanie w poziomie
 
-## <a name="trigger-sample"></a>Przykładowe wyzwalacza
-Załóżmy, że masz następujące wyzwalacza czasomierza `bindings` tablicy function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Zobacz próbka specyficzny dla języka, która odczytuje obiekt czasomierza, aby zobaczyć, czy działa późne.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Przykładowe wyzwalacza w języku C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Przykładowe wyzwalacza w języku F # #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Przykładowe wyzwalacza w środowisku Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+Wyzwalacz czasomierza obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.
 
 ## <a name="next-steps"></a>Następne kroki
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Przejdź do szybkiego startu, który korzysta z wyzwalacza bazującego na czasomierzu](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)
