@@ -1,6 +1,6 @@
 ---
 title: "Obsługiwane połączenia z łącznikiem zarządzania usługi IT w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT w Azure Log Analytics, aby centralnie monitorować i zarządzać nimi Zarządzanie usługami IT — elementów roboczych."
+description: "Ten artykuł zawiera informacje o sposobie łączenia z IT usługi zarządzania łącznika (ITSMC) w OMS Log Analytics, aby centralnie monitorować i zarządzać nimi elementy robocze Zarządzanie usługami IT — zarządzanie usługami IT — produktów/usług."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT (wersja zapoznawcza)
-Ten artykuł zawiera informacje dotyczące połączenia usługi/produktów Zarządzanie usługami IT — aby IT usługi zarządzania łącznika (ITSMC) w OMS i centralne zarządzanie elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie ITSMC](log-analytics-itsmc-overview.md).
+Ten artykuł zawiera informacje dotyczące połączenia usługi/produktów Zarządzanie usługami IT — aby IT usługi zarządzania łącznika (ITSMC) w OMS i centralne zarządzanie elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie](log-analytics-itsmc-overview.md).
 
-Obsługiwane są następujące produktów/usług:
+Obsługiwane są następujące Zarządzanie usługami IT — produktów/usług. Wybierz produkt, aby wyświetlić szczegółowe informacje o tym, jak nawiązać ITSMC produktu.
 
 - [Program System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [Usługi ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Połączenia hybrydowe został pomyślnie połączony.
 
 > Po hybrydowego tworzone jest połączenie, sprawdzić i przetestować połączenie, przechodząc na stronę wdrożonej aplikacji sieci Web programu Service Manager. Upewnij się, że połączenie zostanie nawiązane, przed podjęciem próby nawiązania połączenia ITSMC w OMS.
 
-Na poniższej ilustracji przedstawiono szczegóły połączenia:
+Na poniższej ilustracji próbki przedstawiono szczegóły połączenia:
 
 ![Testowanie połączenia hybrydowego](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

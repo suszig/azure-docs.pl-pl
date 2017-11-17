@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Rozszerzenie diagnostycznych Linux służy do monitorowania, metryki i dzienniki
 
@@ -127,7 +127,7 @@ Ten zestaw informacji o konfiguracji zawiera poufne informacje, które powinny b
 }
 ```
 
-Nazwa | Wartość
+name | Wartość
 ---- | -----
 storageAccountName | Nazwa konta magazynu, w którym dane są zapisywane przez rozszerzenie.
 storageAccountEndPoint | (opcjonalnie) Punkt końcowy identyfikowanie chmury, w której istnieje konto magazynu. Jeśli to ustawienie jest nieobecne, LAD domyślnie chmurze publicznej Azure `https://core.windows.net`. Aby korzystać z konta magazynu platformy Azure w Niemczech, Azure dla instytucji rządowych lub chińskiej wersji platformy Azure, w związku z tym Ustaw tę wartość.
@@ -319,7 +319,7 @@ Nazwa wyświetlana | Etykieta (w języku określonym przez ustawienie skojarzone
 
 CounterSpecifier jest umownym identyfikatorem. Konsumenci metryki, Azure portalu wykresów, takich jak i alerty funkcji, użyj counterSpecifier jako "klucza", który identyfikuje metrykę lub wystąpienia metryki. Aby uzyskać `builtin` metryki, zalecane jest użycie counterSpecifier wartości, które zaczynają się od `/builtin/`. Określone wystąpienie metryki są zbierane, firma Microsoft zaleca się, że możesz dołączyć do wartości counterSpecifier identyfikator wystąpienia. Oto niektóre przykłady:
 
-* `/builtin/Processor/PercentIdleTime`-Bezczynności uśredniona wszystkich rdzeni
+* `/builtin/Processor/PercentIdleTime`-Bezczynności uśredniona wszystkie Vcpu
 * `/builtin/Disk/FreeSpace(/mnt)`-Wolnego miejsca w systemie plików w katalogu/mnt
 * `/builtin/Disk/FreeSpace`— Wolne miejsce uśredniona wszystkie zainstalowane systemy plików
 
@@ -424,7 +424,7 @@ Dostawca metryki wbudowane jest źródłem szeroką gamę użytkowników najbard
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>wbudowane metryki dla klasy procesora
 
-Klasa procesora metryk udostępnia informacje na temat użycia procesora w maszynie Wirtualnej. Podczas agregowania wartości procentowych, wynikiem jest średnią przez wszystkie procesory. W dwa podstawowe maszyny Wirtualnej Jeśli jeden rdzeń był zajęty 100% i innych był bezczynny, 100% zgłoszone PercentIdleTime jest 50. Jeśli każda core 50% zajęte przez ten sam okres, zgłoszone również będą 50. W cztery podstawowe maszyny Wirtualnej z jednego rdzenia 100% jest zajęty i innych bezczynny zgłoszone PercentIdleTime jest 75.
+Klasa procesora metryk udostępnia informacje na temat użycia procesora w maszynie Wirtualnej. Podczas agregowania wartości procentowych, wynikiem jest średnią przez wszystkie procesory. Na maszynie Wirtualnej z dwoma vCPU Jeśli jeden vCPU był zajęty 100% i innych był bezczynny, 100% zgłoszone PercentIdleTime będzie 50. Jeśli każda vCPU 50% zajęte przez ten sam okres, zgłoszone również będą 50. W czterech vCPU maszyny Wirtualnej, z jedną vCPU 100% zajęty i innych bezczynny zgłoszone PercentIdleTime jest 75.
 
 Licznik | Znaczenie
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Czas czynnego wartość procentowa działania w trybie u
 
 Pierwsze cztery liczniki powinien Suma, umożliwiającej 100%. Ostatnich trzech również liczniki Suma do 100%; Suma PercentProcessorTime, PercentIOWaitTime i PercentInterruptTime ich podziału.
 
-Uzyskanie pojedynczego metrykę zagregowane we wszystkich procesorów, wartość `"condition": "IsAggregate=TRUE"`. Aby uzyskać metryki dla określonego procesora, takich jak drugi procesor logiczny z czterech podstawowych maszyny Wirtualnej, należy ustawić `"condition": "Name=\\"1\\""`. Numery procesorów logicznych znajdują się w zakresie `[0..n-1]`.
+Uzyskanie pojedynczego metrykę zagregowane we wszystkich procesorów, wartość `"condition": "IsAggregate=TRUE"`. Uzyskanie metryki dla określonego procesora, takich jak drugi procesor logiczny vCPU cztery maszyny wirtualnej, należy ustawić `"condition": "Name=\\"1\\""`. Numery procesorów logicznych znajdują się w zakresie `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>wbudowane metryki dla klasy pamięci
 

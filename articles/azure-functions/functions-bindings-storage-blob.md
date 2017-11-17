@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure powiązania magazynu obiektów Blob funkcji
 
@@ -189,9 +189,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
-|**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. Wyjątki w [użycia](#trigger---usage) sekcji. |
-|**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji. | 
+|**Typ** | Brak | należy wybrać opcję `blobTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Kierunek** | Brak | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. Wyjątki w [użycia](#trigger---usage) sekcji. |
+|**Nazwa** | Brak | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji. | 
 |**Ścieżka** | **BlobPath** |Kontener do monitorowania.  Może być [wzorzec nazwy obiektu blob](#trigger-blob-name-patterns). | 
 |**połączenia** | **Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
 
@@ -309,7 +309,7 @@ Zapoznaj się z przykładem specyficzny dla języka:
 
 ### <a name="input--output---c-example"></a>Dane wejściowe & e wyjściowe — przykład C#
 
-Poniżej przedstawiono przykład [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcja, która korzysta z jednego wejścia i dwa powiązania obiektu blob danych wyjściowych. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
+Poniżej przedstawiono przykład [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcja, która używa wyzwalacz obiektów blob i dwa powiązania obiektu blob danych wyjściowych. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Dane wejściowe & e wyjściowe — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
+W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob tekstu. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
 
 W *function.json* pliku `queueTrigger` metadanych jest używana do określenia nazwy obiektów blob w `path` właściwości:
 
@@ -380,7 +380,7 @@ W *function.json* pliku `queueTrigger` metadanych jest używana do określenia n
 Oto kod skryptu C#:
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>Dane wejściowe & e wyjściowe — przykład JavaScript
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* plików i [kod JavaScript] (funkcje — odwołanie node.md), która używa powiązania. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
+W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* plików i [kod JavaScript] (funkcje — odwołanie node.md), która używa powiązania. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
 
 W *function.json* pliku `queueTrigger` metadanych jest używana do określenia nazwy obiektów blob w `path` właściwości:
 
@@ -464,12 +464,12 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
-|**Kierunek** | Nie dotyczy | Należy wybrać opcję `in` dla powiązania wejściowego lub limit czasu dla powiązania danych wyjściowych. Wyjątki w [użycia](#input--output---usage) sekcji. |
-|**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
+|**Typ** | Brak | należy wybrać opcję `blob`. |
+|**Kierunek** | Brak | Należy wybrać opcję `in` dla powiązania wejściowego lub limit czasu dla powiązania danych wyjściowych. Wyjątki w [użycia](#input--output---usage) sekcji. |
+|**Nazwa** | Brak | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
 |**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
-|Nie dotyczy | **Dostęp** | Wskazuje, czy będzie można odczytu lub zapisu. |
+|Brak | **Dostęp** | Wskazuje, czy będzie można odczytu lub zapisu. |
 
 ## <a name="input--output---usage"></a>Dane wejściowe & e wyjściowe — użycie
 

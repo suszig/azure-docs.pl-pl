@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie powłoki w chmurze Azure
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
@@ -82,12 +82,12 @@ Listę rozwijaną są filtrowane przypisany region powłoki w chmurze i kont/glo
 [Informacje na temat magazynowania powłoki chmury aktualizowanie udziałów plików i przekazywanie pobierania plików.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Pojęcia
-* Powłoka działa na tymczasowej maszyny na sesji, poszczególnych użytkowników w chmurze
+* Powłoka działa na hoście tymczasowego na sesji, konkretnych użytkowników w chmurze
 * Chmura powłoki upłynie limit czasu po upływie 20 minut bez interaktywnego działania
-* Powłoka chmury można uzyskać tylko z udziałem plików dołączone
-* Chmury powłoki używa tego samego udziału plików dla Bash i programu PowerShell
+* Udziału plików, który ma zostać zainstalowany wymaga powłoki chmury
+* Chmura powłoki używa tego samego udziału plików dla Bash i programu PowerShell
 * Chmura powłoki przypisano na jednym komputerze na konto użytkownika
-* Uprawnienia zostały ustawione jako zwykłych użytkowników systemu Linux (Bash)
+* Uprawnienia zostały ustawione jako zwykły użytkownik w Bash systemu Linux
 
 Dowiedz się więcej o funkcjach [Bash w chmurze powłoki](features.md) i [programu PowerShell w chmurze powłoki (wersja zapoznawcza)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Wypróbuj te przykłady w poradniki Szybki Start dla [Bash w chmurze powłoki](q
 Komputer, na którym powłoki chmury jest wolne, wymaga wstępnie posiadania zainstalowany udział plików Azure. Koszty przechowywania regularne mają zastosowanie.
 
 ## <a name="next-steps"></a>Następne kroki
-[Bash w chmurze powłoki szybkiego startu](quickstart.md)
-[programu PowerShell w chmurze powłoki (wersja zapoznawcza) — Szybki Start](quickstart-powershell.md)
+[Bash w chmurze powłoki Szybki Start](quickstart.md) <br>
+[PowerShell w chmurze powłoki (wersja zapoznawcza) — Szybki Start](quickstart-powershell.md)

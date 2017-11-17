@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Jak skalować środowiska Insights serii czasu
 
-W tym artykule opisano sposób zmiany możliwości środowiska środowiska Insights serii czasu przy użyciu portalu Azure. Pojemność jest mnożnik stosowane do prędkości wejściowej, pojemności, kosztów związanych z Twojej wybranej jednostki Sku. 
+W tym artykule opisano sposób zmiany możliwości środowiska środowiska Insights serii czasu przy użyciu portalu Azure. Pojemność jest mnożnik stosowane do prędkości wejściowej, pojemności, kosztów związanych z Twojej wybranej jednostki SKU. 
 
-Aby zwiększyć lub zmniejszyć pojemność w danym cenową jednostki Sku, można użyć portalu Azure. 
+Aby zwiększyć lub zmniejszyć pojemność w danym cenową jednostki SKU, można użyć portalu Azure. 
 
 Jednak zmiana warstwy cenowej jednostka SKU nie jest dozwolona. Na przykład środowisko z S1 cennik SKU nie można przekonwertować na S2 lub na odwrót. 
 
@@ -46,7 +46,7 @@ Możliwości skalowania liniowo, więc SKU S1 o pojemności 2 obsługuje 2 GB (2
 ## <a name="change-the-capacity-of-your-environment"></a>Zmiana wydajności środowiska
 1. W portalu Azure Znajdź i zaznacz środowiska Insights serii czasu. 
 
-2. W obszarze **ustawienia** nagłówek, wybierz **Konfiguruj**.
+2. Wybierz z menu w danym środowisku czasu serii Insighs **Konfiguruj**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

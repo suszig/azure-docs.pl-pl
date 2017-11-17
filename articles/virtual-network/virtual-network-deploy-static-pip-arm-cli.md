@@ -1,10 +1,10 @@
 ---
-title: "Utwórz maszynę Wirtualną z statycznego publicznego adresu IP - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć Maszynę wirtualną za pomocą statycznego publicznego adresu IP za pomocą interfejsu wiersza polecenia platformy Azure (CLI) 2.0."
+title: "Utwórz maszynę Wirtualną z statycznego publicznego adresu IP - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć Maszynę wirtualną za pomocą statycznego publicznego adresu IP za pomocą interfejsu wiersza polecenia platformy Azure (CLI)."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Utwórz maszynę Wirtualną z statycznego publicznego adresu IP za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Utwórz maszynę Wirtualną z statycznego publicznego adresu IP za pomocą wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami
 
 ## <a name = "create"></a>Tworzenie maszyny Wirtualnej
 
-Można wykonać tego zadania przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure (w tym artykule) lub [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Wartości "" dla zmiennych w kolejnych krokach tworzenie zasobów przy użyciu ustawień z tego scenariusza. Zmień wartości, zgodnie z potrzebami, dla danego środowiska.
+Wartości "" dla zmiennych w kolejnych krokach tworzenie zasobów przy użyciu ustawień z tego scenariusza. Zmień wartości, zgodnie z potrzebami, dla danego środowiska.
 
 1. Zainstaluj [Azure CLI 2.0](/cli/azure/install-az-cli2) Jeśli nie masz już zainstalowany.
 2. Tworzenie SSH publiczne i prywatne parę kluczy dla maszyn wirtualnych systemu Linux, wykonując kroki opisane w [tworzenie SSH publiczne i prywatne parę kluczy dla maszyn wirtualnych systemu Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Dostosowywanie ustawień klastra sieci szkieletowej usług i zasady uaktualniania sieci szkieletowej
 Ten dokument zawiera informacje dotyczące dostosować różne ustawienia sieci szkieletowej i sieci szkieletowej uaktualniania zasad dla klastra usługi sieć szkieletowa usług. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
@@ -340,8 +340,8 @@ Poniżej znajduje się lista sieci szkieletowej ustawień, które można dostoso
 ### <a name="section-name-faultanalysisservice"></a>Nazwa sekcji: FaultAnalysisService
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub krótki opis** |
 | --- | --- | --- | --- |
-| Wartość TargetReplicaSetSize |Int, domyślna to 0 |Niedozwolone|NOT_PLATFORM_UNIX_START TargetReplicaSetSize dla FaultAnalysisService. |
-| MinReplicaSetSize |Int, domyślna to 0 |Niedozwolone|MinReplicaSetSize dla FaultAnalysisService. |
+| Wartość TargetReplicaSetSize |Int, domyślna to 0 |Statyczny|NOT_PLATFORM_UNIX_START TargetReplicaSetSize dla FaultAnalysisService. |
+| MinReplicaSetSize |Int, domyślna to 0 |Statyczny|MinReplicaSetSize dla FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Czas w sekundach, domyślna to 60 minut|Statyczny|Określ zakres czasu w sekundach. ReplicaRestartWaitDuration dla FaultAnalysisService. |
 | QuorumLossWaitDuration | Czas w sekundach, domyślnie jest MaxValue |Statyczny|Określ zakres czasu w sekundach. QuorumLossWaitDuration dla FaultAnalysisService. |
 | StandByReplicaKeepDuration| Czas w sekundach, jest domyślną (60*24*7) minut |Statyczny|Określ zakres czasu w sekundach. StandByReplicaKeepDuration dla FaultAnalysisService. |
@@ -389,9 +389,9 @@ Poniżej znajduje się lista sieci szkieletowej ustawień, które można dostoso
 ### <a name="section-name-imagestoreservice"></a>Nazwa sekcji: ImageStoreService
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub krótki opis** |
 | --- | --- | --- | --- |
-| Enabled (Włączony) |Wartość logiczna, wartość domyślna to false |Statyczny|Flaga włączone dla ImageStoreService. Domyślnie: false |
-| Wartość TargetReplicaSetSize | Int, domyślna to 7 |Niedozwolone|TargetReplicaSetSize dla ImageStoreService. |
-| MinReplicaSetSize | Int, domyślna to 3 |Niedozwolone|MinReplicaSetSize dla ImageStoreService. |
+| Włączono |Wartość logiczna, wartość domyślna to false |Statyczny|Flaga włączone dla ImageStoreService. Domyślnie: false |
+| Wartość TargetReplicaSetSize | Int, domyślna to 7 |Statyczny|TargetReplicaSetSize dla ImageStoreService. |
+| MinReplicaSetSize | Int, domyślna to 3 |Statyczny|MinReplicaSetSize dla ImageStoreService. |
 | ReplicaRestartWaitDuration | Czas w sekundach, wartość domyślna to 60.0 * 30 |Statyczny|Określ zakres czasu w sekundach. ReplicaRestartWaitDuration dla ImageStoreService. |
 | QuorumLossWaitDuration | Czas w sekundach, domyślnie jest MaxValue |Statyczny| Określ zakres czasu w sekundach. QuorumLossWaitDuration dla ImageStoreService. |
 | StandByReplicaKeepDuration | Czas w sekundach, domyślna to 3600.0 * 2 |Statyczny| Określ zakres czasu w sekundach. StandByReplicaKeepDuration dla ImageStoreService. |
@@ -414,8 +414,8 @@ Poniżej znajduje się lista sieci szkieletowej ustawień, które można dostoso
 ### <a name="section-name-upgradeorchestrationservice"></a>Nazwa sekcji: UpgradeOrchestrationService
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub krótki opis** |
 | --- | --- | --- | --- |
-| Wartość TargetReplicaSetSize |Int, domyślna to 0 |Niedozwolone|TargetReplicaSetSize dla UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, domyślna to 0 |Niedozwolone|MinReplicaSetSize dla UpgradeOrchestrationService.
+| Wartość TargetReplicaSetSize |Int, domyślna to 0 |Statyczny |TargetReplicaSetSize dla UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, domyślna to 0 |Statyczny |MinReplicaSetSize dla UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Czas w sekundach, domyślna to 60 minut|Statyczny| Określ zakres czasu w sekundach. ReplicaRestartWaitDuration dla UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Czas w sekundach, domyślnie jest MaxValue |Statyczny| Określ zakres czasu w sekundach. QuorumLossWaitDuration dla UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Czas w sekundach, domyślna to 60*24*7 minut |Statyczny| Określ zakres czasu w sekundach. StandByReplicaKeepDuration dla UpgradeOrchestrationService. |
@@ -536,8 +536,8 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | Operację FileContent |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu magazynu klienta transferu plików (zewnętrznych do klastra). |
 | FileDownload |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń rozpoczęcia pobierania pliku obrazu klienta magazynu, które zostały (zewnętrznych do klastra). |
 | InternalList |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy plików klienta (wewnętrzny). |
-| Usuwanie |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracje zabezpieczeń dla obrazu magazynu operację usuwania klienta. |
-| Upload |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja przekazywania klienta. |
+| Usuń |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracje zabezpieczeń dla obrazu magazynu operację usuwania klienta. |
+| Przekaż |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja przekazywania klienta. |
 | GetStagingLocation |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu magazynu klienta tymczasowej lokalizacji pobierania. |
 | GetStoreLocation |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu przechowywać Pobieranie lokalizacji magazynu klienta. |
 | NodeControl |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla uruchamiania; zatrzymywanie; i ponowne uruchamianie węzłów. |
@@ -555,7 +555,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | StartClusterConfigurationUpgrade |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje StartClusterConfigurationUpgrade na partycji. |
 | GetUpgradesPendingApproval |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje GetUpgradesPendingApproval na partycji. |
 | StartApprovedUpgrades |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje StartApprovedUpgrades na partycji. |
-| Ping |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń klienta polecenia ping. |
+| Polecenie ping |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń klienta polecenia ping. |
 | Zapytanie |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń dla zapytań. |
 | NameExists |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Sprawdza, czy konfiguracja zabezpieczeń dla identyfikatora URI nazewnictwa istnienia. |
 | EnumerateSubnames |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń dla identyfikatora URI nazewnictwa wyliczenia. |
@@ -570,7 +570,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | GetUpgradeStatus |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń sondowania stanu uaktualniania aplikacji. |
 | GetFabricUpgradeStatus |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń sondowania stan uaktualnienia klastra. |
 | InvokeInfrastructureQuery |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Badania infrastruktury zadań konfiguracji zabezpieczeń. |
-| List |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy pliku klienta. |
+| Lista |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy pliku klienta. |
 | Funkcji resetpartitionload modułu |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń resetowania obciążenia failoverUnit. |
 | Toggleverboseserviceplacementhealthreporting modułu | ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń przełączanie pełne ServicePlacement HealthReporting. |
 | GetPartitionDataLossProgress | ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Pobiera postępu dla wywołania interfejsu api invoke utraty danych. |

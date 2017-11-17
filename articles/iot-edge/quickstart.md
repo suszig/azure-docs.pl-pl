@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Szybki Start: Wdrażanie modułu pierwszy krawędzi IoT z portalu Azure do urządzenia z systemem Windows — w wersji preview
 
@@ -94,6 +94,8 @@ Sprawdź Docker, aby zobaczyć, czy agent krawędzi IoT jest uruchomiony jako mo
 docker ps
 ```
 
+![Zobacz edgeAgent w Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>Wdrażanie modułu
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 W tego przewodnika Szybki Start utworzyć nowe urządzenie brzegowe IoT, a na nim zainstalowany środowiska uruchomieniowego IoT krawędzi. Następnie użyto portalu Azure do umieszczenia krawędzi IoT modułu do uruchomienia na urządzeniu bez konieczności zmiany na urządzeniu. W takim przypadku moduł, który zostanie przypisany tworzy dane środowiska, używanego programu samouczków. 
 
-Wyświetl komunikaty wysyłane z modułu tempSensor:
+Otwórz wiersz polecenia na komputerze z uruchomionym symulowane urządzenie ponownie. Upewnij się, że moduł wdrożonych w chmurze jest uruchomiona na urządzeniu IoT krawędzi. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![Wyświetl trzech modułów na urządzeniu](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Wyświetl komunikaty wysyłane z modułu tempSensor do chmury. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![Wyświetlanie danych z modułu](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Można również wyświetlić dane telemetryczne, wysyła urządzenia przy użyciu [narzędzia explorer Centrum IoT][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
@@ -122,7 +134,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 Wiesz, jak wdrożyć moduł krawędzi IoT urządzenia IoT. Teraz spróbuj wdrażanie różnych typów usług Azure modułów, dzięki czemu można analizować dane na krawędzi. 
 
 * [Wdrażanie funkcji platformy Azure jako moduł](tutorial-deploy-function.md)
-* [Wdrażanie usługi Azure Stream Analytics jako moduł](tutorial-deploy-stream-analytics.md)
+* [Wdrażanie usługi Azure Stream Analytics jako modułu](tutorial-deploy-stream-analytics.md)
 * [Wdrożyć własny kod jako moduł](tutorial-csharp-module.md)
 
 

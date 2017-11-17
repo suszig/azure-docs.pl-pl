@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Odzyskiwanie bazy danych Azure SQL przy użyciu kopii zapasowych bazy danych automatycznych
 Baza danych SQL oferuje następujące opcje bazy danych odzyskiwania przy użyciu [automatyczne kopie zapasowe bazy danych](sql-database-automated-backups.md) i [kopie zapasowe w przechowywania długoterminowego](sql-database-long-term-retention.md). Można przywrócić z kopii zapasowej bazy danych, aby:
@@ -54,7 +54,14 @@ Czas odzyskiwania Przywracanie bazy danych przy użyciu kopii zapasowych automat
 * Liczba przywracania równoczesnych żądań przetwarzanych w docelowym regionie. 
   
   Dla bardzo dużych i/lub aktywnej bazy danych przywracania może zająć kilka godzin. Jeśli istnieje długimi awaria w regionie, jest to możliwe, że ma dużą liczbę żądań geograficzne przetwarzanych przez innych regionów. Gdy istnieje wiele żądań, czasu odzyskiwania może zwiększyć dla baz danych w tym regionie. Pełne przywracanie większości baz danych w ciągu 12 godzin.
-  
+
+W ramach jednej subskrypcji jest przesłane i przystąpiła pewne ograniczenia liczby żądań równoczesnych przywracania (w tym punkcie w czasie przywracania, przywracania geograficznie i przywrócenie z kopii zapasowej przechowywania długoterminowego):
+|  | **Maksymalna liczba jednoczesnych żądań przetwarzanych** | **Maksymalna liczba jednoczesnych żądań przesyłaniu** |
+| :--- | --: | --: |
+|Pojedyncza baza danych (dla subskrypcji)|10|60|
+|Puli elastycznej (dla każdej puli)|4|200|
+||||
+
 Nie ma żadnych wbudowanych funkcji do zbiorczego przywracania. [Bazy danych SQL Azure: pełne odzyskiwanie serwera](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) skrypt jest przykładem jedną z metod wykonasz to zadanie.
 
 > [!IMPORTANT]
@@ -136,7 +143,7 @@ Jak już wspomniano, oprócz portalu Azure programowo przy użyciu programu Azur
 |  | |
 
 ### <a name="rest-api"></a>Interfejs API REST
-| Interfejs API | Opis |
+| API | Opis |
 | --- | --- |
 | [REST (createMode = odzyskiwania)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Przywraca bazę danych |
 | [GET, Utwórz lub zaktualizuj stan bazy danych](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Zwraca informacje o stanie podczas operacji przywracania |

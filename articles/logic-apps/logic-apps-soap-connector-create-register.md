@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Utwórz i zarejestruj łączniki SOAP w aplikacjach logiki platformy Azure
 
@@ -150,10 +150,16 @@ Aby udostępnić użytkownikom zewnętrznym poza te granice, na przykład wszysc
 
 ## <a name="faq"></a>Często zadawane pytania
 
+**Pytanie:** jest SOAP łącznik ogólnie dostępna (GA)? </br>
+**A:** SOAP łącznik jest w **Podgląd**, i nie zostało GA usługi.
+
+**Pytanie:** istnieją żadnych ograniczeń i znane problemy dotyczące łącznika SOAP? </br>
+**Odpowiedź:** tak, zobacz [ograniczenia łącznika SOAP i znane problemy](../api-management/api-management-api-import-restrictions.md#wsdl).
+
 **Pytanie:** istnieją żadnych limitów dla łączników niestandardowych? </br>
 **Odpowiedź:** tak, zobacz [łącznik niestandardowy ogranicza tutaj](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
-## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
+## <a name="get-support"></a>Uzyskaj pomoc techniczną
 
 * Obsługa tworzenia i dołączania lub do żądania funkcji, które nie są dostępne w kreatorze Rejestracja, skontaktuj się z [ condevhelp@microsoft.com ](mailto:condevhelp@microsoft.com). Firma Microsoft monitoruje tego konta na problemów i pytania deweloperów i kieruje je do odpowiednich zespołu.
 

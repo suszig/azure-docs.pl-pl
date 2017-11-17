@@ -9,11 +9,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47fb6f01eff8827179fbfa9e67ad3b901c8cdf94
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnozowanie i rozwiązywanie problemów w środowisku Insights serii czasu
 
@@ -61,7 +61,7 @@ Ogólny zrozumieć sposób działania spłaszczania logiki, zobacz [kształtów 
 Aby usunąć opóźnienie, zwiększyć pojemność jednostki SKU środowiska. Aby uzyskać więcej informacji, zobacz [sposób skalowania środowiska czasu serii Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Możliwa przyczyna początkowej B: wprowadzanie danych historycznych powoduje powolne wejściowych
-Jeśli łączysz istniejące źródło zdarzenia jest prawdopodobne, że z Centrum IoT i Centrum zdarzeń zawiera już dane w nim. Środowisko rozpoczyna ściąganie danych z początku okres przechowywania komunikatów źródło zdarzenia.
+Jeśli łączysz istniejące źródło zdarzenia jest prawdopodobne, że Centrum IoT Hub lub zdarzenie zawiera już dane w nim. Środowisko rozpoczyna ściąganie danych z początku okres przechowywania komunikatów źródło zdarzenia.
 
 To zachowanie jest zachowaniem domyślnym i nie może zostać zastąpiona. Można Uwzględnij, ograniczania i może upłynąć trochę czasu, aby odnaleźć wprowadzania danych historycznych.
 

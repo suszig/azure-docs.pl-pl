@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Zarządzanie plan usługi aplikacji na platformie Azure
 
@@ -58,7 +58,7 @@ Wybierz **planu usługi aplikacji zmiany** do rozpoczęcia procesu.
 
 **Zmień plan usługi aplikacji** otwiera **planu usługi aplikacji** selektora. Wybierz istniejący plan można przenieść tej aplikacji do. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **Planu usługi aplikacji wybierz** strony są filtrowane według następujących kryteriów: 
 > - Istnieje w tej samej grupie zasobów 
 > - Istnieje w tym samym regionie geograficznym 
@@ -82,7 +82,7 @@ Można znaleźć **aplikacji w klonowania** w **narzędzi programistycznych** cz
 
 ## <a name="scale-an-app-service-plan"></a>Skalowanie planu usługi aplikacji
 
-Aby skalować ah planu usługi aplikacji do warstwy cenowej, zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md).
+Aby skalować usługę aplikacji planu do warstwy cenowej, zobacz [skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md).
 
 Aby skalować w poziomie liczbę wystąpień aplikacji, zobacz [skalowanie liczby wystąpień ręcznie lub automatycznie](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

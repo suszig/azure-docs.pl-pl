@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Usługa Azure Stream Analytics na krawędzi IoT (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Ta funkcja jest dostępna w wersji zapoznawczej. Nie zaleca się użycie w środowisku produkcyjnym.
  
-Azure Stream Analytics (ASA) na krawędzi IoT umożliwia deweloperom wdrażanie niemal czasie rzeczywistym bliżej analitycznych analizy urządzenia IoT, tak aby ich odblokowania pełną wartość dane generowane przez urządzenie. Przeznaczone dla klientów wymagających małe opóźnienia, odporności, efektywne wykorzystanie przepustowości i zgodności, przedsiębiorstwa mogą teraz wdrożyć logikę kontroli bliski operacji przemysłowych i uzupełniają analizy danych Big Data w chmurze.  
-Usługa Azure Stream Analytics na krawędzi IoT jest uruchamiany w ramach [Azure IoT krawędzi](https://azure.microsoft.com/campaigns/iot-edge/) framework oraz wdrażania i zarządzania ASA zadań mogą być przeprowadzane przy użyciu Centrum IoT po utworzeniu zadania w ASA.
+Azure Stream Analytics (ASA) na krawędzi IoT umożliwia deweloperom wdrażanie niemal czasie rzeczywistym bliżej analitycznych analizy urządzenia IoT, tak aby ich odblokowania pełną wartość dane generowane przez urządzenie. Przeznaczone dla małych opóźnieniach, odporności, efektywne wykorzystanie przepustowości i zgodności, przedsiębiorstwa mogą teraz wdrażać logiki kontroli bliski operacji przemysłowych oraz uzupełnienia analizy danych Big Data w chmurze.  
+Usługa Azure Stream Analytics na krawędzi IoT jest uruchamiany w ramach [Azure IoT krawędzi](https://azure.microsoft.com/campaigns/iot-edge/) framework. Gdy zadanie jest tworzony w ASA, deploym zadania i zarządzać nimi ASA przy użyciu Centrum IoT.
 Ta funkcja jest dostępna w wersji zapoznawczej, jeśli masz pytania lub opinie możesz użyć [badanie](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) do kontaktowania się z zespołu produktu. 
 
 ## <a name="scenarios"></a>Scenariusze
-![Diagram ogólny](media/stream-analytics-edge/ASAedge_highlevel.png) poniżej przedstawiono kilka typowych scenariuszy dla których ma zastosowanie szczególnie ASA uruchomionej na krawędzi:
-* **Polecenie małe opóźnienia i kontroli**: na przykład produkcyjnym bezpieczeństwa systemy są wymagane do danych operacyjnych, z bardzo niskim opóźnieniem. Z ASA na krawędzi IoT można analizować dane czujników w pobliżu czasu rzeczywistego i polecenia problem podczas wykrywania anomalii zatrzymania maszyny lub wyzwalacza alertów.
+![Diagram ogólny](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Polecenie małe opóźnienia i kontroli**: na przykład produkcyjnym bezpieczeństwa systemów musi odpowiadać na danych operacyjnych z bardzo niskim opóźnieniem. Z ASA na krawędzi IoT można przeanalizować czujnik dane prawie w czasie rzeczywistym i wydania poleceń podczas wykrywania anomalii, aby zatrzymać maszynę lub wyzwoliły alertów.
 *   **Ograniczona łączność z chmurą**: misji ważnych systemów, takich jak urządzenia zdalnego wyszukiwania, połączonych zbiorników lub platformy przechodzenia na wyższy poziom, należy do analizowania i reagowania na danych, nawet wtedy, gdy łączność chmury jest przerywana. ASA logika przesyłania strumieniowego działa niezależnie od łączność sieciową i są dostępne, co możesz wysłać do chmury dla dalszego przetwarzania lub magazynu.
 * **Ograniczona przepustowość**: ilość danych utworzone przez aparaty jet lub połączonych samochodów może być taki duży, że dane muszą być filtrowane lub wstępnie przetworzyć przed jej wysłaniem do chmury. Przy użyciu ASA, możesz filtrować i agregowanie danych, które muszą być wysyłane do chmury.
 * **Zgodność**: zgodność z przepisami może wymagać określonych danych lokalnie anonimowe lub agregowana przed wysłaniem do chmury. Z ASA możesz 

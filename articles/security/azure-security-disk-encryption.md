@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS
 Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suwerenności danych i umożliwia sterowanie platformy Azure hostowanej danych za pomocą wielu zaawansowanych technologii szyfrowania, sterowania i zarządzania kluczami szyfrowania, inspekcji i kontroli dostępu do danych. Klienci Azure zapewnia elastyczność wyboru rozwiązania, które będzie najlepiej odpowiadać ich potrzeb biznesowych. W tym dokumencie firma Microsoft podstawowe informacje na temat nowego rozwiązania technologii "Szyfrowania dysków Azure dla systemu Windows i Linux IaaS maszyny Wirtualnej na" Aby chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Papieru zapewnia napotka szczegółowe wskazówki dotyczące sposobu używania funkcji szyfrowania dysków Azure w tym obsługiwane scenariusze i użytkownika.
@@ -26,7 +26,7 @@ Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suw
 > [!NOTE]
 > Zastosowanie niektórych zaleceń zamieszczonych może zwiększyć danych, sieci i użycia zasobów obliczeniowych, co powoduje dodatkowych kosztów licencji lub subskrypcji.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Szyfrowanie dysków Azure jest nową możliwość, która pomaga szyfrowania dysków maszyny wirtualnej systemu Windows i Linux IaaS. Szyfrowanie dysków Azure korzysta ze standardu branżowego [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funkcji systemu Windows i [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funkcji systemu Linux w celu zapewnienia szyfrowania woluminów systemu operacyjnego i dysków z danymi. Rozwiązanie jest zintegrowany z [usługi Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) ułatwiają kontrolowanie i zarządzanie nimi klucze szyfrowania dysku i kluczy tajnych w magazynie kluczy subskrypcji. Rozwiązanie zapewnia również, że wszystkie dane na dyskach maszyny wirtualnej są szyfrowane, gdy w magazynie Azure.
 
 Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS, jest teraz w **ogólnej dostępności** we wszystkich regionach publicznej platformy Azure i regiony AzureGov standardowe maszyn wirtualnych i maszyn wirtualnych z magazyn w warstwie premium.
@@ -149,6 +149,7 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
 | Ubuntu | 14.04.5-DAILY-LTS | Dysk systemu operacyjnego i danych |
 | Ubuntu | 12.10 | Dysk z danymi |
 | Ubuntu | 12.04 | Dysk z danymi |
+| RHEL | 7.4 | Dysk systemu operacyjnego i danych |
 | RHEL | 7.3 | Dysk systemu operacyjnego i danych |
 | RHEL | LVM 7.3 | Dysk systemu operacyjnego i danych |
 | RHEL | 7.2 | Dysk systemu operacyjnego i danych |
@@ -1102,7 +1103,7 @@ I zmień wszystkich wystąpień:
 ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
-na
+do
 ```
     if [ 1 ]; then
 ```

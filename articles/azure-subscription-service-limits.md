@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 823ae2dbb2f0cbff9d9b6db21fadbbbc1d2afe36
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usługi Azure, przydziały i ograniczenia
 Ten dokument przedstawia niektóre z najczęściej limity Microsoft Azure, nazywane również przydziałów. Ten dokument obecnie nie obejmuje wszystkich usług platformy Azure. Wraz z upływem czasu listy zostanie rozwinięty, a zaktualizowane, aby pokrywał się z platformy.
@@ -126,6 +126,20 @@ W poniższej tabeli przedstawiono funkcje i limity podstawowa, standardowa i Pre
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+### <a name="virtual-machine-disk-limits"></a>Limity dysku maszyny wirtualnej 
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+#### <a name="managed-virtual-machine-disks"></a>Dyski zarządzane maszyny wirtualnej
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Dyski maszyny wirtualnej niezarządzanej
+
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
 ### <a name="networking-limits"></a>Limity sieci
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -168,22 +182,6 @@ Aby uzyskać więcej informacji na temat ograniczeń usługi pliki Azure, zobacz
 
 #### <a name="azure-table-storage-limits"></a>Limity magazynu tabel platformy Azure
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
-
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Limity dysku maszyny wirtualnej
-[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
-
-Zobacz [rozmiarów maszyn wirtualnych](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dodatkowe szczegóły.
-
-#### <a name="managed-virtual-machine-disks"></a>Dyski zarządzane maszyny wirtualnej
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
-
-#### <a name="unmanaged-virtual-machine-disks"></a>Dyski maszyny wirtualnej niezarządzanej
-
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ### <a name="cloud-services-limits"></a>Limity usługi w chmurze
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]

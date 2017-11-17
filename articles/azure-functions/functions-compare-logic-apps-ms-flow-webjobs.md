@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Wybieranie między przepływem, aplikacjami logiki, funkcjami a zadaniami WebJob
 W tym artykule porównuje i zachowanie różni się od następujących usług w chmurze firmy Microsoft, które można rozwiązać wszystkie problemy integracji i automatyzować procesy biznesowe:
@@ -34,7 +34,7 @@ Wszystkie te usługi są przydatne, gdy "przyklejanie" ze sobą różnych system
 
 <a name="flow"></a>
 
-## <a name="flow-vs-logic-apps"></a>Przepływ programu vs. Logic Apps
+## <a name="flow-vs-logic-apps"></a>Przepływ programu vs. Aplikacje logiki
 Można omówimy Flow firmy Microsoft i usługi Azure Logic Apps razem ponieważ są one zarówno *pierwszej konfiguracji* usług integracji. One ułatwiają tworzenie procesów i przepływów pracy oraz integrują się z różnych aplikacji SaaS i enterprise. 
 
 * Przepływ bazuje na Logic Apps
@@ -45,14 +45,14 @@ Przepływ upoważnia do wykonywania prostych integracji roboczych pakietu office
 
 Poniższa tabela ułatwia określenie, czy przepływ lub Logic Apps jest najlepsze dla danego integracji.
 
-|  | Ruch | Logic Apps |
+|  | Ruch | Aplikacje logiki |
 | --- | --- | --- |
-| Grupy odbiorców |Pracownicy biura, użytkownicy biznesowi |Informatycy i deweloperzy |
+| Odbiorcy |Pracownicy biura, użytkownicy biznesowi |Informatycy i deweloperzy |
 | Scenariusze |Samoobsługi |Krytycznym |
 | Narzędzie do projektowania |W przeglądarce i przenośnych, aplikacja, tylko interfejsu użytkownika |W przeglądarce i [programu Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [widok Kod](../logic-apps/logic-apps-author-definitions.md) dostępne |
 | DevOps |Ad-hoc, tworzenie w środowisku produkcyjnym |Źródło kontroli, testowania, obsługi i automatyzacji oraz możliwości zarządzania w [zarządzania zasobami Azure](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Środowisko pracy administratora |[https://Flow.microsoft.com](https://flow.microsoft.com) |[https://Portal.Azure.com](https://portal.azure.com) |
-| Bezpieczeństwo |Standardowe rozwiązania: [suwerenności danych](https://wikipedia.org/wiki/Technological_Sovereignty), [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) dla poufnych danych, itp. |Zapewnienie bezpieczeństwa systemu Azure: [zabezpieczeń Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centrum zabezpieczeń](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)itd. |
+| Zabezpieczenia |Standardowe rozwiązania: [suwerenności danych](https://wikipedia.org/wiki/Technological_Sovereignty), [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) dla poufnych danych, itp. |Zapewnienie bezpieczeństwa systemu Azure: [zabezpieczeń Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centrum zabezpieczeń](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)itd. |
 
 <a name="function"></a>
 
@@ -81,12 +81,12 @@ W poniższej tabeli przedstawiono różnice w funkcjach i zadań Webjob:
 | Skalowanie |Skalowanie configurationless |Skalowanie planu usługi aplikacji |
 | Cennik |Płatności użycia lub w ramach planu usługi aplikacji |Część planu usługi aplikacji |
 | Typ uruchomienia |wyzwalane, zaplanowane (za pomocą czasomierza wyzwalacz) |wyzwalane, ciągłego, zaplanowane |
-| Wyzwalacz zdarzenia |[Czasomierz](functions-bindings-timer.md), [rozwiązania Cosmos Azure DB](functions-bindings-documentdb.md), [usługi Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, zapas czasu)](functions-bindings-http-webhook.md), [aplikacji mobilnych w usłudze Azure App Service](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [usługi Azure Service Bus](functions-bindings-service-bus.md), [magazynu Azure](functions-bindings-storage-blob.md) |[Usługa Azure Storage](functions-bindings-storage-blob.md), [usługi Azure Service Bus](functions-bindings-service-bus.md) |
+| Wyzwalacz zdarzenia |[Czasomierz](functions-bindings-timer.md), [rozwiązania Cosmos Azure DB](functions-bindings-documentdb.md), [usługi Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, zapas czasu)](functions-bindings-http-webhook.md), [aplikacji mobilnych w usłudze Azure App Service](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [obiektów blob i kolejek usługi Azure Storage](functions-bindings-storage-blob.md), [tematów i kolejek usługi Azure Service Bus](functions-bindings-service-bus.md) |[Azure magazynu kolejek i obiektów blob](functions-bindings-storage-blob.md), [tematów i kolejek usługi Azure Service Bus](functions-bindings-service-bus.md) |
 | Programowanie w przeglądarce |Obsługiwane |Nieobsługiwane |
 | C# |Obsługiwane |Obsługiwane |
 | F# |Obsługiwane |Nieobsługiwane |
 | JavaScript |Obsługiwane |Obsługiwane |
-| Java |Obsługiwane | Nieobsługiwane |
+| Java |Podgląd | Nieobsługiwane |
 | Bash |Eksperymentalne |Obsługiwane |
 | Skryptów systemu Windows (cmd, bat) |Eksperymentalne |Obsługiwane |
 | PowerShell |Eksperymentalne |Obsługiwane |

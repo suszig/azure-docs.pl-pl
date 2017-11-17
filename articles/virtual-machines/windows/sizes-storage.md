@@ -1,6 +1,6 @@
 ---
 title: Rozmiary maszyny Wirtualnej systemu Windows Azure - magazynu | Dokumentacja firmy Microsoft
-description: "Wyświetla listę rozmiarów innego magazynu zoptymalizowanych pod kątem dostępnej dla maszyn wirtualnych systemu Windows na platformie Azure."
+description: "Wyświetla listę rozmiarów innego magazynu zoptymalizowanych pod kątem dostępnej dla maszyn wirtualnych systemu Windows na platformie Azure. Wyświetla informacje o liczbie Vcpu, dysków z danymi i karty sieciowe, a także przepustowości przepływności i sieć magazynu rozmiarów w tej serii."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 1d3b703dc753d1e0cf515ac70d23be2c4acfc715
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6275a31affc7ff15579f5665bd2b48a13803288d
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Storage zoptymalizowana rozmiarów maszyn wirtualnych
 

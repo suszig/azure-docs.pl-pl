@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d60c898225b944801504f38d536262134a31e021
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions  
 Azure Functions to rozwiązanie umożliwiające łatwe uruchamianie małych fragmentów kodu („funkcji”) w chmurze. Możesz napisać tylko kod rozwiązujący aktualny problem, nie martwiąc się o całą aplikację ani infrastrukturę do jej uruchomienia. Funkcje programowanie może być jeszcze wydajniejsze i można użyć język programowania wyboru, takich jak C#, F #, Node.js, Java lub PHP. Płać tylko za czas działania kodu — platforma Azure jest skalowana zgodnie z potrzebami. Środowisko Azure Functions umożliwia tworzenie [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) aplikacji w systemie Microsoft Azure.
@@ -31,7 +31,7 @@ W tym temacie przedstawiono ogólne omówienie usługi Azure Functions. Jeśli c
 ## <a name="features"></a>Funkcje
 Oto niektóre najważniejsze funkcje funkcje:
 
-* **Wybór języka** — funkcje zapisu przy użyciu języka C#, F #, Node.js, Java, PHP, partii, bash lub dowolnego pliku wykonywalnego.
+* **Wybór języka** — funkcje zapisu przy użyciu wybór języka C#, F # lub języka Javascript. Zobacz [obsługiwanych języków](supported-languages.md) innych opcji.
 * **Model cenowy płatności za użycie** — płać tylko za czas działania kodu. Zapoznaj się z opcjami planu hostingowego zużycia w [sekcji cennika](#pricing).  
 * **Korzystaj z własnych zależności** — środowisko Functions obsługuje rozwiązania NuGet i NPM, dzięki czemu można używać ulubionych bibliotek.  
 * **Zintegrowane zabezpieczenia** — ochrona funkcji wyzwalanych przez protokół HTTP za pośrednictwem dostawców uwierzytelniania OAuth, takich jak Azure Active Directory, Facebook, Google, Twitter i konto Microsoft.  

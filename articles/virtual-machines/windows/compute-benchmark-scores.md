@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Obliczenia bazy danych wyników testów porównawczych dla maszyn wirtualnych systemu Windows
 Następujące wyniki testu porównawczego SPECInt Pokaż wydajności obliczeniowej dla zestawienia maszyny Wirtualnej platformy Azure wysokiej wydajności z systemem Windows Server. Wyniki testu porównawczego obliczeniowe są także dostępne dla [maszyn wirtualnych systemu Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ Następujące wyniki testu porównawczego SPECInt Pokaż wydajności obliczeniow
 | Warstwie standardowa_h16mr |16 |2 |Procesor Intel Xeon E5-2667 v3 @ 3,2 GHz |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>O SPECint
-Numery systemu Windows zostały obliczone, uruchamiając [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint był uruchamiany przy użyciu opcji szybkości podstawowej (SPECint_rate2006) z jednej kopii na podstawowe. SPECint składa się z 12 testy w oddzielnych, każdy trzykrotne uruchomienie, biorąc wartość mediany każdego testu i wagi je do utworzenia złożonego wynik. Te testy zostały uruchomione następnie między wieloma maszynami wirtualnymi, aby zapewnić średnie wyniki wyświetlane.
+Numery systemu Windows zostały obliczone, uruchamiając [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint był uruchamiany z jednej kopii na vCPU przy użyciu opcji szybkości podstawowej (SPECint_rate2006). SPECint składa się z 12 testy w oddzielnych, każdy trzykrotne uruchomienie, biorąc wartość mediany każdego testu i wagi je do utworzenia złożonego wynik. Te testy zostały uruchomione następnie między wieloma maszynami wirtualnymi, aby zapewnić średnie wyniki wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 * Pojemność, dysku szczegóły i dodatkowe uwagi dotyczące wybierania rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Zarządzanie dyskami Azure z wiersza polecenia platformy Azure
 
@@ -61,7 +61,7 @@ Po utworzeniu maszyny wirtualnej platformy Azure, dwa dyski są automatycznie do
 
 ## <a name="azure-data-disks"></a>Dyski danych Azure
 
-Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z danymi. Dyski danych używanego w sytuacji, gdy wymagane jest trwałe i szybko reagowały pamięci masowej. Każdy dysk danych ma maksymalną pojemność 1 terabajt. Rozmiar maszyny wirtualnej Określa, jak wiele dysków z danymi może zostać dołączony do maszyny Wirtualnej. Dla każdej podstawowej maszyny Wirtualnej można dołączyć danych dwóch dysków. 
+Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z danymi. Dyski danych używanego w sytuacji, gdy wymagane jest trwałe i szybko reagowały pamięci masowej. Każdy dysk danych ma maksymalną pojemność 1 terabajt. Rozmiar maszyny wirtualnej Określa, jak wiele dysków z danymi może zostać dołączony do maszyny Wirtualnej. Dla każdej maszyny Wirtualnej vCPU można dołączyć danych dwóch dysków. 
 
 ### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi dla maszyny Wirtualnej
 

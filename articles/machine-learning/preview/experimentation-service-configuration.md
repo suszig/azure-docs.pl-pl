@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurowanie usługi Azure Machine Learning eksperymenty usługi
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Azure Machine Learning eksperymenty usługi umożliwia danych służące do wykonywania eksperymentów, ich przy użyciu usługi Azure Machine Learning wykonywania i uruchom możliwości zarządzania. Zapewnia to struktura agile eksperymenty z szybkiego iteracji. Azure Machine Learning Workbench służy do uruchomienia z lokalnych przebiegów na tym komputerze i zapewnia łatwe ścieżkę skalowania w górę i innych środowiskach, takich jak zdalny maszyn wirtualnych nauki danych z procesora GPU lub systemem Spark w usłudze Hdinsight.
 
 Usługa eksperymenty zaprojektowano pod kątem dostarczanie izolowanym, powtarzalnych i spójne uruchomień eksperymentów. Pomaga zarządzać celów obliczeń środowisk wykonywania i uruchom konfiguracje. Przy użyciu usługi Azure Machine Learning Workbench wykonywania i możliwości zarządzania wykonywania, można łatwo przenosić między różnych środowiskach. 
@@ -220,6 +220,8 @@ _**Omówienie zdalnego maszyny wirtualnej wykonanie skryptu Python:**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Uruchamianie skryptu w klastrze usługi HDInsight
 HDInsight to platforma popularnych analizy danych big data obsługi Apache Spark. Workbench umożliwia eksperymenty danych big Data z użyciem klastrów HDInsight Spark. 
+
+>! [UWAGA] Klaster usługi HDInsight, musisz użyć obiektów Blob platformy Azure jako magazynu głównego. Przy użyciu usługi Azure Data Lake magazynu nie jest jeszcze obsługiwany.
 
 Można utworzyć cel obliczeń i uruchomić konfigurację klastra Spark w usłudze HDInsight przy użyciu następującego polecenia:
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Wdrożenie SAP S/4HANA lub BW/4HANA na platformie Azure
 W tym artykule opisano sposób wdrażania S/4HANA na platformie Azure przy użyciu biblioteki urządzenia chmury SAP (SAP CAL) 3.0. Aby wdrożyć inne SAP HANA rozwiązań, takich jak BW/4HANA, wykonaj te same kroki.
@@ -95,7 +95,7 @@ Pomyślnie utworzono konto SAP CAL, które jest w stanie:
 Teraz można rozpocząć wdrażanie S/4HANA w subskrypcji użytkownika na platformie Azure.
 
 > [!NOTE]
-Przed kontynuowaniem należy sprawdzić, czy przydziały Azure core dla maszyn wirtualnych platformy Azure H serii. W tej chwili SAP CAL używa H serii maszyn wirtualnych Azure do wdrożenia niektórych rozwiązań opartych na SAP HANA. Subskrypcji platformy Azure może nie mieć żadnych przydziały core serii H H serii. Jeśli tak, może być konieczne skontaktuj się z pomocą techniczną platformy Azure można pobrać przydziału co najmniej 16 rdzeni H serii.
+Przed kontynuowaniem należy sprawdzić, czy Azure vCPU przydziały dla maszyn wirtualnych platformy Azure H serii. W tej chwili SAP CAL używa H serii maszyn wirtualnych Azure do wdrożenia niektórych rozwiązań opartych na SAP HANA. Subskrypcji platformy Azure może nie mieć żadnych przydziały vCPU H-Series H serii. Jeśli tak, może być konieczne skontaktuj się z pomocą techniczną platformy Azure można pobrać przydziału co najmniej 16 Vcpu H serii.
 
 > [!NOTE]
 Podczas wdrażania rozwiązania na platformie Azure w SAP CAL, może się okazać, że można wybrać tylko jeden region platformy Azure. Aby wdrożyć w regionach platformy Azure, innego niż zasugerowany przez SAP CAL, należy kupić subskrypcję CAL z programu SAP. Należy również otworzyć wiadomość z SAP Twoje konto CAL włączone do dostarczania w regionach platformy Azure innych niż początkowo sugerowane.

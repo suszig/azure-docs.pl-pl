@@ -1,17 +1,17 @@
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Step 1: Navigate to the virtual network gateway
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Krok 1: Przejdź do bramy sieci wirtualnej
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.
+1. W [portalu Azure](https://portal.azure.com), przejdź do **wszystkie zasoby**. 
+2. Aby otworzyć blok bramy sieci wirtualnej, przejdź do bramy sieci wirtualnej, który chcesz usunąć i kliknij ją.
 
-### <a name="step-2-delete-connections"></a>Step 2: Delete connections
+### <a name="step-2-delete-connections"></a>Krok 2: Usuwanie połączeń
 
-1. On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.
-2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
-3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
+1. W bloku dla bramy sieci wirtualnej, kliknij **połączeń** Aby wyświetlić wszystkie połączenia z bramą.
+2. Kliknij przycisk **"..."** w wierszu nazwę połączenia, następnie wybierz **usunąć** z listy rozwijanej.
+3. Kliknij przycisk **tak** aby upewnić się, że chcesz usunąć połączenie. Jeśli masz wiele połączeń, należy usunąć każdego połączenia.
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>Step 3: Delete the virtual network gateway
+### <a name="step-3-delete-the-virtual-network-gateway"></a>Krok 3: Usuń bramę sieci wirtualnej
 
-Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
+Należy pamiętać, że jeśli konfigurację P2S do tej sieci wirtualnej oprócz konfiguracji S2S, usuwanie bramy sieci wirtualnej zostanie automatycznie Odłącz wszystkich klientów P2S bez ostrzeżenia.
 
-1. On the virtual network gateway blade, click **Overview**.
-2. On the **Overview** blade, click **Delete** to delete the gateway.
+1. W bloku bramy sieci wirtualnej, kliknij **omówienie**.
+2. Na **omówienie** bloku, kliknij przycisk **usunąć** można usunąć bramy.

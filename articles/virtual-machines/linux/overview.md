@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure i Linux
 Microsoft Azure to wciąż rozrastający się zbiór zintegrowanych publicznego usług bazy danych analizy, maszyny wirtualne, mobilnych, sieci, magazynu, w tym chmury i sieci web&mdash;nadaje się doskonale dla hostingu rozwiązań.  Microsoft Azure to skalowalna platforma obliczeniowa, która pozwala na płacenie tylko za używane usługi, z których można korzystać w dowolnej chwili — bez konieczności inwestowania w sprzęt lokalny.  Platforma Azure jest gotowa wraz z Tobą do skalowania rozwiązań tak, aby sprostać wymaganiom klientów.
@@ -53,7 +53,7 @@ Podczas wdrażania maszyny Wirtualnej na platformie Azure mają być wybierz roz
 Poniżej przedstawiono podstawowe wskazówki dotyczące wybierania rozmiar maszyny Wirtualnej z jednego z naszych serii (A, D, DS, G i GS).
 * A-series maszyny wirtualne są nasze wartość cenach klasy podstawowej maszyn wirtualnych dla lekkich obciążeń i scenariusze tworzenia/testowania. Są powszechnie dostępne we wszystkich regionach i mogą połączyć i używać wszystkie standardowe zasoby dostępne dla maszyn wirtualnych.
 * A-series (A8 - A11) są specjalne obliczeń znacznym konfiguracje odpowiedni w przypadku wysokiej wydajności obliczeniowej klastra.
-* Maszyny wirtualne serii D są zaprojektowane do uruchamiania aplikacji wymagających większej mocy obliczeniowej i wydajności dysków tymczasowych. Maszyny wirtualne serii D zapewniają szybsze procesory, większą ilość pamięci na rdzeń i dyski półprzewodnikowe (SSD) dla dysków tymczasowych.
+* Maszyny wirtualne serii D są zaprojektowane do uruchamiania aplikacji wymagających większej mocy obliczeniowej i wydajności dysków tymczasowych. Maszyny wirtualne serii D zapewniają szybsze procesory, większą ilość pamięci na procesor wirtualny vCPU i dyski półprzewodnikowe (SSD) dla dysków tymczasowych.
 * Dv2 serii jest najnowsza wersja naszych D-series, funkcje większe możliwości procesora CPU. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Jest on oparty na najnowszej generacji 2.4 v3® GHz Intel Xeon E5-2673 procesora (Haskell) i 2.0 technologii zwiększanie wyniku Turbo firmy Intel, można przejść do 3,2 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 * Maszyny wirtualne z serii G oferują największą ilość pamięci i są uruchamiane na hostach z procesorami z rodziny Intel Xeon E5 V3.
 
@@ -71,7 +71,7 @@ Azure wprowadza obsługę [init chmury](http://cloud-init.io/) przez większoś�
 
 * [Za pomocą init chmurze na maszynach wirtualnych systemu Linux platformy Azure](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="quotas"></a>Przydziały
+## <a name="quotas"></a>Limity
 Każda subskrypcja platformy Azure ma domyślne limity przydziału w miejscu, które może mieć wpływ na wdrożenie dużej liczby maszyn wirtualnych dla projektu. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region.  Limity przydziału może zostać wywołane szybko i łatwo zgłaszając bilet pomocy technicznej żąda limit zwiększyć.  Aby uzyskać więcej informacji na temat limitów przydziału:
 
 * [Ograniczenia usługi subskrypcji platformy Azure](../../azure-subscription-service-limits.md)

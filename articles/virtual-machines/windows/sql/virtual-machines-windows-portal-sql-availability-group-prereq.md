@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Spełnić wymagania wstępne dotyczące tworzenia zawsze włączonych grup dostępności na maszynach wirtualnych Azure
 
@@ -189,7 +189,7 @@ W poniższej tabeli przedstawiono ustawienia dla tych dwóch maszyn:
 | **Publiczny adres IP** |*Tej samej nazwy co maszyna wirtualna* |
 | **Grupy zabezpieczeń sieci** |*Tej samej nazwy co maszyna wirtualna* |
 | **Zestaw dostępności** |adavailabilityset </br>**Odporność domen**: 2</br>**Aktualizowanie domeny**: 2|
-| **Diagnostyka** |Enabled (Włączony) |
+| **Diagnostyka** |Włączono |
 | **Konto magazynu diagnostyki** |*Automatycznie utworzone* |
 
    >[!IMPORTANT]
@@ -313,8 +313,8 @@ W następnych krokach konfigurowania kont usługi Active Directory. W poniższej
 
 | |Konto instalacji<br/> |SQLServer 0 <br/>Konto programu SQL Server i usługi agenta SQL |SQLServer-1<br/>Konto programu SQL Server i usługi agenta SQL
 | --- | --- | --- | ---
-|**Imię** |Instalowanie |SQLSvc1 | SQLSvc2
-|**SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
+|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
+|**SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
 
 Poniższe kroki umożliwiają utworzenie poszczególnych kont.
 
@@ -368,7 +368,7 @@ Następnie należy utworzyć trzy maszyny wirtualne — dwóch maszyn wirtualnyc
 | --- | --- | --- | --- |
 | Wybierz element galerii odpowiednie |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise w systemie Windows Server 2016** |**SQL Server 2016 SP1 Enterprise w systemie Windows Server 2016** |
 | Konfiguracja maszyny wirtualnej **podstawy** |**Nazwa** = fsw klastra<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Nazwa** sqlserver-0 =<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |**Nazwa** sqlserver-1<br/>**Nazwa użytkownika** = administrator domeny<br/>**Hasło** = Contoso! 0000<br/>**Subskrypcja** = subskrypcji<br/>**Grupa zasobów** = SQL-HA-zarządcy zasobów<br/>**Lokalizacja** = Twojej lokalizacji platformy azure |
-| Konfiguracja maszyny wirtualnej **rozmiaru** |**ROZMIAR** = DS1\_V2 (1 rdzeń, 3.5 GB) |**ROZMIAR** = DS2\_V2 (2 rdzenie, 7 GB)</br>Rozmiar musi obsługiwać magazynu SSD (obsługi dysków Premium. )) |**ROZMIAR** = DS2\_V2 (2 rdzenie, 7 GB) |
+| Konfiguracja maszyny wirtualnej **rozmiaru** |**ROZMIAR** = DS1\_V2 (1 vCPU, 3.5 GB) |**ROZMIAR** = DS2\_V2 (2 Vcpu, 7 GB)</br>Rozmiar musi obsługiwać magazynu SSD (obsługi dysków Premium. )) |**ROZMIAR** = DS2\_V2 (2 Vcpu, 7 GB) |
 | Konfiguracja maszyny wirtualnej **ustawienia** |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |**Magazyn**: Użyj zarządzanego dysków.<br/>**Sieć wirtualna** = autoHAVNET<br/>**Podsieci** = sqlsubnet(10.1.1.0/24)<br/>**Publiczny adres IP** wygenerowanej automatycznie.<br/>**Grupy zabezpieczeń sieci** = Brak<br/>**Monitorowanie diagnostyki** = włączone<br/>**Konto magazynu diagnostyki** = Użyj konta usługi storage automatycznie generowanych<br/>**Zestaw dostępności** = sqlAvailabilitySet<br/> |
 | Konfiguracja maszyny wirtualnej **ustawienia programu SQL Server** |Nie dotyczy |**Łączność z serwerem SQL** = Private (w ramach sieci wirtualnej)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela, 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja magazynu kluczy Azure** = wyłączone |**Łączność z serwerem SQL** = Private (w ramach sieci wirtualnej)<br/>**Port** = 1433<br/>**Uwierzytelnianie SQL** = wyłączone<br/>**Konfiguracja magazynu** = ogólne<br/>**Automatyczne stosowanie poprawek** = niedziela, 2:00<br/>**Automatyczne kopie zapasowe** = wyłączone</br>**Integracja magazynu kluczy Azure** = wyłączone |
 

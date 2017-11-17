@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
-ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Zarządzanie aplikacją sieci szkieletowej usług Azure przy użyciu interfejsu wiersza polecenia Azure Service Fabric
 
@@ -24,7 +24,7 @@ Dowiedz się, jak tworzyć i usuwać aplikacje, które są uruchomione w klastrz
 
 * Ma gotowa do wdrożenia pakietu aplikacji sieci szkieletowej usług. Aby uzyskać więcej informacji o sposobie pakiet aplikacji i autor, przeczytaj o [model aplikacji usługi sieć szkieletowa](service-fabric-application-model.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Aby wdrożyć nową aplikację, wykonaj następujące kroki:
 
@@ -133,7 +133,7 @@ sfctl application delete --application-id TestEdApp
 Po usunięciu aplikacji można anulować udostępnienia typ aplikacji, jeśli nie są już potrzebne. Wstrzymał obsługi administracyjnej typ aplikacji, użyj następującego polecenia:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 Nazwa typu i wersji typu muszą być zgodne, nazwa i wersja w manifeście aplikacji wcześniej zainicjowana.

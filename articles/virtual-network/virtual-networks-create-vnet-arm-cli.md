@@ -1,10 +1,10 @@
 ---
-title: Tworzenie sieci wirtualnej - Azure CLI 2.0 | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure."
+title: Tworzenie sieci wirtualnej - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Utwórz sieć wirtualną przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Utwórz sieć wirtualną przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca tworzenie zasobów za pomocą modelu wdrożenia usługi Resource Manager. Aby dowiedzieć się więcej o różnicach między dwoma modelami, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informacje na temat modeli wdrażania platformy Azure).
 
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
-
-- [Interfejs wiersza polecenia platformy Azure w wersji 1.0](virtual-networks-create-vnet-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami
-- [Azure CLI 2.0](#create-a-virtual-network) -naszej nowej generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów (w tym artykule) "
- 
-    Sieć wirtualną można również utworzyć w usłudze Resource Manager przy użyciu innych narzędzi albo za pośrednictwem klasycznego modelu wdrożenia, wybierając inną opcję z poniższej listy:
+Można również utworzyć sieć wirtualną za pomocą Menedżera zasobów przy użyciu innych narzędzi lub Utwórz sieć wirtualną przy użyciu klasycznego modelu wdrażania, wybierając inną opcję z poniższej listy:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu 
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Aby utworzyć sieć wirtualną przy użyciu 2.0 interfejsu wiersza polecenia Azure, wykonaj następujące kroki:
+Aby utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
 1. Instalowanie i Konfigurowanie r [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login).
 

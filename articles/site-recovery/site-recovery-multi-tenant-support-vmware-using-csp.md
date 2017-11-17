@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Obsługa wielu dzierżawców w usłudze Azure Site Recovery replikację maszyn wirtualnych VMware do platformy Azure za pośrednictwem dostawcy usług Kryptograficznych
 
@@ -50,7 +50,7 @@ Jak pokazano na powyższym diagramie, każdy klient ma na serwerze zarządzania 
 Wymaganie izolacji danych wymaga, że wszystkie informacje poufne infrastruktury (na przykład dostęp do poświadczeń) ujawnione dzierżawcom. Z tego powodu zaleca się pozostawienie wszystkie składniki serwera zarządzania, w obszarze wyłączną kontrolę partnera. Składniki serwera zarządzania są:
 * Serwer konfiguracji (CS)
 * Serwer przetwarzania (PS)
-* Główny serwer docelowy (MT) 
+* Główny serwer docelowy (MT)
 
 PS skalowalnego w poziomie jest również pod kontrolą partnera.
 
@@ -82,7 +82,7 @@ Procedura dostępu do konta vCenter jest następująca:
 
     * **Zadania**: Tworzenie zadania, zadania aktualizacji
 
-    * **Maszyna wirtualna**: 
+    * **Maszyna wirtualna**:
         * Konfiguracja > wszystkie
         * Interakcja > odpowiedzi na pytanie, połączenie z urządzeniem, skonfiguruj dysków CD, konfigurowanie dyskietka, wyłącz zasilanie, zainstaluj narzędzia VMware
         * Spis > Utwórz na podstawie istniejących, Utwórz nowy, zarejestruj, wyrejestrować
@@ -138,8 +138,8 @@ Wymagania wstępne maszyny Wirtualnej są takie same, jak opisano w [dokumentacj
 
 ### <a name="step-1-create-a-tenant-account"></a>Krok 1: Tworzenie konta dzierżawy
 
-1. Za pomocą [Microsoft Partner Center](https://partnercenter.microsoft.com/), zaloguj się do swojego konta dostawcy usług Kryptograficznych. 
- 
+1. Za pomocą [Microsoft Partner Center](https://partnercenter.microsoft.com/), zaloguj się do swojego konta dostawcy usług Kryptograficznych.
+
 2. Na **pulpitu nawigacyjnego** menu, wybierz opcję **klientów**.
 
     ![Łącze klientów Centrum partnerskiego firmy Microsoft](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ Wymagania wstępne maszyny Wirtualnej są takie same, jak opisano w [dokumentacj
 
     ![Strona przeglądu](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Po utworzeniu konta dzierżawy, zostanie wyświetlona strona potwierdzenia, wyświetlanie szczegółów domyślnego konta i hasła dla tej subskrypcji. 
+    Po utworzeniu konta dzierżawy, zostanie wyświetlona strona potwierdzenia, wyświetlanie szczegółów domyślnego konta i hasła dla tej subskrypcji.
 
 7. Zapisz informacje i Zmień hasło później w razie potrzeby za pomocą usługi Azure logowania strony portalu.  
- 
+
     Te informacje można udostępniać dzierżawy, ponieważ jest lub można tworzyć i udostępniać oddzielne konto, jeśli jest to konieczne.
 
 ### <a name="step-2-access-the-tenant-account"></a>Krok 2: Dostęp do konta dzierżawy
 
-Subskrypcji dzierżawcy mogą dostęp za pośrednictwem pulpitu nawigacyjnego Centrum partnerskiego firmy Microsoft, zgodnie z opisem w temacie "krok 1: utworzenie konta dzierżawy." 
+Subskrypcji dzierżawcy mogą dostęp za pośrednictwem pulpitu nawigacyjnego Centrum partnerskiego firmy Microsoft, zgodnie z opisem w temacie "krok 1: utworzenie konta dzierżawy."
 
 1. Przejdź do **klientów** strony, a następnie kliknij nazwę konta dzierżawy.
 
 2. Na **subskrypcje** strony konta dzierżawy, można monitorować istniejące subskrypcje konta i dodawać więcej subskrypcji, zgodnie z wymaganiami. Aby zarządzać dzierżawcy operacji odzyskiwania po awarii, wybierz **wszystkie zasoby (Azure portal)**.
 
     ![Łącze wszystkie zasoby](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Kliknięcie przycisku **wszystkie zasoby** udziela dostępu do subskrypcji platformy Azure dzierżawcy. Dostęp można sprawdzić, klikając łącze usługi Azure Active Directory u góry po prawej z portalu Azure.
 
     ![Azure Active Directory łącza](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Subskrypcji dzierżawcy mogą dostęp za pośrednictwem pulpitu nawigacyjnego Ce
 Można teraz wykonywać wszystkie operacje usługi site recovery dla dzierżawcy za pośrednictwem portalu Azure i zarządzanie operacjami odzyskiwania po awarii. Dostęp subskrypcji dzierżawcy za pośrednictwem dostawcy usług Kryptograficznych dla odzyskiwania po awarii zarządzanych, wykonaj proces opisany wcześniej.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Krok 3: Wdrażanie zasobów do subskrypcji dzierżawcy
-1. W portalu Azure Utwórz grupę zasobów, a następnie wdrożyć na zwykły proces magazynu usług odzyskiwania. 
- 
+1. W portalu Azure Utwórz grupę zasobów, a następnie wdrożyć na zwykły proces magazynu usług odzyskiwania.
+
 2. Pobierz klucz rejestracji magazynu.
 
 3. Zarejestruj CS dla dzierżawcy przy użyciu klucza rejestracji magazynu.

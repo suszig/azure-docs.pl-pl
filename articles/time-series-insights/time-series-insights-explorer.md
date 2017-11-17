@@ -3,7 +3,7 @@ title: "Eksplorowanie danych za pomocą Eksploratora Azure czas serii Insights |
 description: "W tym artykule opisano, jak szybko wyświetlić widok globalne dane big i sprawdzić poprawności środowiska IoT za pomocą Eksploratora Azure czas serii wgląd w przeglądarce sieci web."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Eksplorator Insights serii czasu
 Ten artykuł opisuje różne funkcje i opcje dostępne w aplikacji sieci web explorer Insights serii czasu. Umożliwia explorer czasu serii wgląd w przeglądarce sieci web tworzenie wizualizacji danych.
@@ -50,10 +50,10 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
       - **Podziel przez**: Ta lista rozwijana zawiera kolumny podzielone na kategorie (ciągi)
       - Można włączyć interpolacji krok, Pokaż minimalne i maksymalne i dostosować osi y, z Panelu sterowania dalej, aby zmierzyć.  Ponadto można dostosować, czy dane wyświetlane jest liczba, średnia lub sumę danych.
       - Można dodać do pięciu postanowienia do wyświetlenia na tej samej osi x.  Użyj **kopiowania rozwijanej** przycisk, aby dodać dodatkowe termin lub kliknij przycisk **Dodaj** przycisk, aby dodać nowego warunku.
+     
+        ![Panel Edytor warunków](media/time-series-insights-explorer/explorer2.png)
 
-      ![Panel Edytor warunków](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predykat**: Predykat umożliwia szybkie filtrowanie zdarzeń przy użyciu zestawu operandy wymienionych poniżej. Jeśli wyszukiwania, wybierając klikając, predykatu zostanie automatycznie aktualizacji na podstawie tego wyszukiwania.  Operand obsługiwane typy:
+      - **Predykat**: Predykat umożliwia szybkie filtrowanie zdarzeń przy użyciu zestawu operandy wymienionych poniżej. Jeśli wyszukiwania, wybierając klikając, predykatu zostanie automatycznie aktualizacji na podstawie tego wyszukiwania.      Operand obsługiwane typy:
 
          |Operacja  |Obsługiwane typy  |Uwagi  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
 Teraz już wspomniano różnych funkcji i opcji dostępnych w aplikacji sieci web explorer Insights serii czasu. 
 
 ## <a name="next-steps"></a>Następne kroki
-[Diagnozowanie i rozwiązywanie problemów w środowisku Insights serii czasu](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnozowanie i rozwiązywanie problemów w środowisku Insights serii czasu](time-series-insights-diagnose-and-solve-problems.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Przewodnik programowania w usłudze Event Hubs
 
@@ -28,9 +28,9 @@ W tym artykule opisano kilka typowych scenariuszy w pisanie kodu przy użyciu us
 
 Zdarzenia są wysyłane do Centrum zdarzeń za pomocą metody POST protokołu HTTP lub przy użyciu połączenia protokołu AMQP 1.0. Wybór, który ma zostać użyty, gdy zależy od konkretnego scenariusza. Połączenia protokołu AMQP 1.0 są mierzone jako połączenia obsługiwane przez brokera w Service Bus i są bardziej odpowiednie w scenariuszach z częstymi większymi ilościami wiadomości oraz wymaganiami dotyczącymi krótszych opóźnień, ponieważ zapewniają trwały kanał obsługi komunikatów.
 
-Centra Event Hubs są tworzone i zarządzane przy użyciu klasy [NamespaceManager][]. W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji protokołu AMQP, przez który zdarzenia są wysyłane do Centrum zdarzeń. [EventData][] klasy reprezentuje zdarzenie i jest używana do publikowania komunikatów do Centrum zdarzeń. Ta klasa zawiera treść, niektóre metadane i informacje nagłówka zdarzenia. Inne właściwości są dodawane do [EventData][] obiektów, kiedy przechodzi on przez Centrum zdarzeń.
+Można utworzyć i zarządzać nimi za pomocą usługi Event Hubs [NamespaceManager][] klasy. W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji protokołu AMQP, przez który zdarzenia są wysyłane do Centrum zdarzeń. [EventData][] klasy reprezentuje zdarzenie i jest używana do publikowania komunikatów do Centrum zdarzeń. Ta klasa zawiera treść, niektóre metadane i informacje nagłówka zdarzenia. Inne właściwości są dodawane do [EventData][] obiektów, kiedy przechodzi on przez Centrum zdarzeń.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpocznij pracę
 
 Klasy platformy .NET, które obsługują usługę Event Hubs, są udostępniane w zestawie Microsoft.ServiceBus.dll. Najprostszym sposobem odwołania do interfejsu API usługi Service Bus i skonfigurowania aplikacji ze wszystkimi zależnościami usługi Service Bus jest pobranie [pakietu NuGet usługi Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Alternatywnie można użyć [konsoli menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
@@ -57,7 +57,7 @@ Wszystkie operacje tworzenia usług Event Hubs, w tym metoda [CreateEventHubIfNo
 [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) klasa zawiera szczegółowe informacje o Centrum zdarzeń, w tym reguły autoryzacji, interwał przechowywania komunikatów, identyfikatory partycji, stan i ścieżkę. Ta klasa służy do aktualizacji metadanych w Centrum zdarzeń.
 
 ## <a name="create-an-event-hubs-client"></a>Tworzenie klienta usługi Event Hubs
-Podstawowe klasy do interakcji z usługą Event Hubs jest [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Ta klasa udostępnia zarówno funkcje nadawcy, jak i odbiornika. Można utworzyć wystąpienie tej klasy przy użyciu metody [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create), jak pokazano w poniższym przykładzie.
+Podstawowe klasy do interakcji z usługą Event Hubs jest [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Ta klasa udostępnia zarówno funkcje nadawcy, jak i odbiornika. Można utworzyć wystąpienie tej klasy przy użyciu [Utwórz](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) metody, jak pokazano w poniższym przykładzie:
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -77,14 +77,14 @@ Parametry połączenia będą w tym samym formacie, w jakim są wyświetlane w p
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
-Na koniec istnieje również możliwość utworzenia obiektu [EventHubClient][] z wystąpienia klasy [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory), jak pokazano w poniższym przykładzie.
+Na koniec istnieje również możliwość utworzenia [EventHubClient][] obiekt z [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) wystąpienie, jak pokazano w poniższym przykładzie:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
 
-Należy pamiętać, że dodatkowe obiekty [EventHubClient][] utworzone za pomocą wystąpienia fabryki obsługi komunikatów będą ponownie używały tego samego podstawowego połączenia TCP. Z tego względu te obiekty mają limit przepływności po stronie klienta. Metoda [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) ponownie używa pojedynczej fabryki obsługi wiadomości. Jeśli potrzebujesz bardzo wysokiej przepływności od jednego nadawcy, możesz utworzyć wiele fabryk komunikatów i jeden obiekt [EventHubClient][] z każdej fabryki obsługi komunikatów.
+Należy pamiętać, że dodatkowe [EventHubClient][] obiekty utworzone na podstawie wystąpienia fabryki obsługi komunikatów ponownie użyć tego samego podstawowego połączenia TCP. Z tego względu te obiekty mają limit przepływności po stronie klienta. Metoda [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) ponownie używa pojedynczej fabryki obsługi wiadomości. Jeśli potrzebujesz bardzo wysokiej przepływności od jednego nadawcy, możesz utworzyć wiele fabryk komunikatów i jeden obiekt [EventHubClient][] z każdej fabryki obsługi komunikatów.
 
 ## <a name="send-events-to-an-event-hub"></a>Wysyłanie zdarzeń do Centrum zdarzeń
 Wysyłanie zdarzeń do Centrum zdarzeń przez utworzenie [EventData][] wystąpienia i wysłanie go za pomocą [wysyłania](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) metody. Ta metoda przyjmuje jeden [EventData][] parametru wystąpienia i synchronicznie wysyła go do Centrum zdarzeń.
@@ -97,9 +97,9 @@ Klasa [EventData][] ma właściwość [PartitionKey][] umożliwiającą nadawcy 
 
 ### <a name="availability-considerations"></a>Zagadnienia dotyczące dostępności
 
-Użycie klucza partycji jest opcjonalne, a użytkownik powinien zastanów się, czy należy użyć jednej. W wielu przypadkach przy użyciu klucza partycji jest dobrym rozwiązaniem, jeśli zdarzenie kolejność jest ważna. Użycie klucza partycji, partycje wymagają dostępności w jednym węźle, a awarii wraz z upływem czasu; na przykład podczas obliczania ponownego uruchomienia węzłów i poprawki. W efekcie ustawiony identyfikator partycji i tej partycji przestanie być dostępny dla jakiegoś powodu, próba dostępu do danych w tej partycji zakończy się niepowodzeniem. Jeśli najważniejszych jest wysoka dostępność, nie należy określać klucz partycji. w takim przypadku zdarzenia zostaną wysłane na partycje przy użyciu modelu okrężnego opisanych powyżej. W tym scenariuszu utworzysz jawną wyboru między dostępności (Brak Identyfikatora partycji) i spójności (przypinanie zdarzenia do Identyfikatora partycji).
+Użycie klucza partycji jest opcjonalne, a użytkownik powinien zastanów się, czy należy użyć jednej. W wielu przypadkach przy użyciu klucza partycji jest dobrym rozwiązaniem, jeśli zdarzenie kolejność jest ważna. Użycie klucza partycji, partycje wymagają dostępności w jednym węźle, a awarii wraz z upływem czasu; na przykład podczas obliczania ponownego uruchomienia węzłów i poprawki. W efekcie ustawiony identyfikator partycji i tej partycji przestanie być dostępny dla jakiegoś powodu, próba dostępu do danych w tej partycji zakończy się niepowodzeniem. Jeśli najważniejszych jest wysoka dostępność, nie należy określać klucz partycji. w takim przypadku zdarzenia są wysyłane na partycje przy użyciu modelu okrężnego opisanych powyżej. W tym scenariuszu utworzysz jawną wyboru między dostępności (Brak Identyfikatora partycji) i spójności (przypinanie zdarzenia do Identyfikatora partycji).
 
-Kolejnym zagadnieniem jest obsługa opóźnienia w przetwarzaniu zdarzeń. W niektórych przypadkach może być lepszym rozwiązaniem danych i ponów próbę, niż można spróbować i nadąża z przetwarzaniem, który może powodować opóźnienia dalszego przetwarzania podrzędnego. Na przykład z giełdowych lepiej jest oczekiwania pełną aktualne dane, ale w czatu na żywo lub scenariusza VOIP raczej trzeba danych szybko, nawet jeśli nie jest ukończone.
+Kolejnym zagadnieniem jest obsługa opóźnienia w przetwarzaniu zdarzeń. W niektórych przypadkach może być lepszym rozwiązaniem danych i ponów próbę niż próbować nadąża z przetwarzaniem, co może potencjalnie spowodować dalsze opóźnienia w przetwarzaniu podrzędnym. Na przykład z giełdowych lepiej jest oczekiwania pełną aktualne dane, ale w czatu na żywo lub scenariusza VOIP raczej trzeba danych szybko, nawet jeśli nie jest ukończone.
 
 Podany w tych scenariuszach te zagadnienia dotyczące dostępności, możesz wybrać jedną z powodu następującego błędu strategii obsługi:
 
@@ -111,13 +111,13 @@ Podany w tych scenariuszach te zagadnienia dotyczące dostępności, możesz wyb
 Aby uzyskać więcej informacji i omówienie kompromis między dostępności i spójności zobacz [dostępności i spójności w usłudze Event Hubs](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Operacje wysyłania partii zdarzeń
-Wysyłanie zdarzeń w partiach może znacznie zwiększyć przepływność. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) ma metodę **IEnumerable** parametr typu [EventData][] i wysyła całą partię jako operacją niepodzielną do Centrum zdarzeń.
+Wysyłanie zdarzeń w partiach może pomóc zwiększyć przepustowość. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) ma metodę **IEnumerable** parametr typu [EventData][] i wysyła całą partię jako operacją niepodzielną do Centrum zdarzeń.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB dla zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta.
+Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Wysyłanie asynchroniczne i wysyłanie na dużą skalę
 Możesz również wysłać zdarzenia do Centrum zdarzeń asynchronicznie. Wysyłanie asynchroniczne może zwiększyć szybkość, z jaką klient jest w stanie wysyłać zdarzenia. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) są dostępne w wersjach asynchronicznych, które zwracają obiekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Ta technika może zwiększyć przepływność, jednak może również spowodować, że klient będzie kontynuować wysyłanie zdarzeń nawet wtedy, gdy jest ograniczany przez usługę Event Hubs, co może skutkować błędami klienta lub utratą komunikatów, jeśli metoda nie została poprawnie zaimplementowana. Dodatkowo można użyć właściwości [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) na kliencie do sterowania opcjami ponawiania prób klienta.
@@ -132,10 +132,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) zwraca [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) obiekt, czy można użyć do publikowania zdarzeń partycji Centrum konkretnego zdarzenia.
 
 ## <a name="event-consumers"></a>Odbiorcy zdarzeń
-Usługa Event Hubs ma dwa podstawowe modele użycia zdarzeń: odbiorniki bezpośrednie i abstrakcje wyższego poziomu, takie jak klasa [EventProcessorHost][]. Odbiorniki bezpośrednie są odpowiedzialne za własną koordynację dostępu do partycji w obrębie grupy odbiorców.
+Usługa Event Hubs ma dwa podstawowe modele użycia zdarzeń: odbiorniki bezpośrednie i abstrakcje wyższego poziomu, takie jak klasa [EventProcessorHost][]. Bezpośrednie odbiorcy są odpowiedzialne za własną koordynację dostępu do partycji w obrębie *grupy odbiorców*. Grupy odbiorców jest widok (stan, pozycja lub przesunięcie) do Centrum zdarzeń podzielonym na partycje.
 
 ### <a name="direct-consumer"></a>Bezpośredni odbiorca
-Najbardziej bezpośrednim sposobem odczytu z partycji w obrębie grupy odbiorców jest użycie klasy [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver). Aby utworzyć wystąpienie tej klasy, należy użyć wystąpienia klasy [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). W poniższym przykładzie należy określić identyfikator partycji podczas tworzenia odbiornika dla grupy odbiorców.
+Najbardziej bezpośrednim sposobem odczytu z partycji jest użycie [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) klasy. Aby utworzyć wystąpienie tej klasy, należy użyć wystąpienia klasy [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). W poniższym przykładzie należy określić identyfikator partycji podczas tworzenia odbiornika dla grupy odbiorców:
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -158,7 +158,7 @@ while(receive)
 
 W odniesieniu do określonej partycji komunikaty są odbierane w kolejności, w jakiej zostały wysłane do Centrum zdarzeń. Przesunięcie jest tokenem ciągu służącym do identyfikowania komunikatów w partycji.
 
-Należy zauważyć, że pojedyncza partycja w obrębie grupy odbiorców w żadnym momencie nie może mieć połączonych więcej niż 5 współbieżnych czytników. Gdy czytniki nawiązują połączenie lub rozłączają się, ich sesje mogą pozostać aktywne przez kilka minut, zanim usługa rozpozna, że zostały odłączone. W tym czasie ponowne połączenie się z partycją może zakończyć się niepowodzeniem. Aby uzyskać kompletny przykład pisania aplikacji bezpośredniego odbiornika usługi Event hubs, zobacz [odbiorniki bezpośrednie centra zdarzeń](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) próbki.
+Należy pamiętać, że jedna partycja nie może mieć więcej niż 5 współbieżnych czytników połączone w dowolnym momencie. Gdy czytniki nawiązują połączenie lub rozłączają się, ich sesje mogą pozostać aktywne przez kilka minut, zanim usługa rozpozna, że zostały odłączone. W tym czasie ponowne połączenie się z partycją może zakończyć się niepowodzeniem. Aby uzyskać kompletny przykład pisania aplikacji bezpośredniego odbiornika usługi Event hubs, zobacz [odbiorniki bezpośrednie centra zdarzeń](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) próbki.
 
 ### <a name="event-processor-host"></a>Host procesora zdarzeń
 Klasa [EventProcessorHost][] przetwarza dane z usługi Event Hubs. Podczas tworzenia czytników zdarzeń na platformie .NET należy używać tej implementacji. Klasa [EventProcessorHost][] udostępnia bezpieczne wątkowo, wieloprocesowe, bezpieczne środowisko uruchomieniowe dla implementacji procesora zdarzeń, które umożliwia także tworzenie punktów kontrolnych i zarządzanie dzierżawą partycji.
@@ -169,16 +169,16 @@ Aby używać klasy [EventProcessorHost][], można zaimplementować interfejs [IE
 * [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
 * [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
 
-Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [EventProcessorHost][], podając odpowiednie parametry Centrum zdarzeń. Następnie wywołaj metodę [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1), aby zarejestrować swoją implementację interfejsu [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) w środowisku uruchomieniowym. W tym momencie host będzie podejmować próby uzyskania dzierżawy na każdej partycji w Centrum zdarzeń za pomocą "zachłannego" algorytmu. Te dzierżawy będą trwać przez dany przedział czasu, a następnie muszą być odnowione. W miarę jak nowe węzły, w tym przypadku wystąpienia procesów roboczych, przechodzą w tryb online, umieszczają rezerwacje dzierżawy i z czasem obciążenie przesuwa się między węzłami, ponieważ każdy próbuje uzyskać więcej dzierżaw.
+Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [EventProcessorHost][], podając odpowiednie parametry Centrum zdarzeń. Następnie wywołaj metodę [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1), aby zarejestrować swoją implementację interfejsu [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) w środowisku uruchomieniowym. W tym momencie host podejmie próbę uzyskania dzierżawy na każdej partycji w Centrum zdarzeń za pomocą "zachłannego" algorytmu. Te dzierżawy trwać przez dany przedział czasu, a następnie muszą być odnowione. W miarę jak nowe węzły, w tym przypadku wystąpienia procesów roboczych, przechodzą w tryb online, umieszczają rezerwacje dzierżawy i z czasem obciążenie przesuwa się między węzłami, ponieważ każdy próbuje uzyskać więcej dzierżaw.
 
 ![Host procesora zdarzeń](./media/event-hubs-programming-guide/IC759863.png)
 
-W miarę upływu czasu zostaje ustalona równowaga. Ta dynamiczna funkcja umożliwia zastosowanie skalowania automatycznego na podstawie procesora CPU do odbiorców, zarówno w celu skalowania w górę, jak i w dół. Ponieważ usługa Event Hubs nie obsługuje bezpośredniej koncepcji liczby komunikatów, średnie wykorzystanie procesora CPU jest często najlepszym mechanizmem mierzenia skali zaplecza lub odbiorcy. Jeśli wydawcy zaczną publikować więcej zdarzeń, niż odbiorcy mogą przetworzyć, zwiększenie użycia procesora CPU przez odbiorców może służyć do powodowania automatycznego skalowania liczby wystąpień procesu roboczego.
+W miarę upływu czasu zostaje ustalona równowaga. Ta dynamiczna funkcja umożliwia zastosowanie skalowania automatycznego na podstawie procesora CPU do odbiorców, zarówno w celu skalowania w górę, jak i w dół. Ponieważ usługa Event Hubs nie ma bezpośredniej koncepcji liczby komunikatów, średnie wykorzystanie procesora CPU jest często najlepszym mechanizmem mierzenia wstecz skali zaplecza lub odbiorcy. Jeśli wydawcy zaczną publikować więcej zdarzeń, niż odbiorcy mogą przetworzyć, zwiększenie użycia procesora CPU przez odbiorców może służyć do powodowania automatycznego skalowania liczby wystąpień procesu roboczego.
 
 Klasa [EventProcessorHost][] implementuje również mechanizm tworzenia punktów kontrolnych oparty na usłudze Azure Storage. Ten mechanizm przechowuje przesunięcie na podstawie partycji, dzięki czemu każdy odbiorca może określić, jaki był ostatni punkt kontrolny od poprzedniego odbiorcy. Ponieważ partycje przechodzą między węzłami za pośrednictwem dzierżaw, jest to mechanizm synchronizacji, który ułatwia przesunięcie obciążenia.
 
 ## <a name="publisher-revocation"></a>Odwołanie wydawcy
-Oprócz zaawansowanych funkcji środowiska wykonawczego [EventProcessorHost][], usługa Event Hubs umożliwia odwołanie wydawcy w celu zablokowania dostępu określonych wydawców do wysyłania zdarzeń do Centrum zdarzeń. Te funkcje są szczególnie przydatne, jeśli zostały naruszone zabezpieczenia tokenu wydawcy lub aktualizacja oprogramowania powoduje nieuprawnione zachowanie wydawcy. W takich sytuacjach dla tożsamości wydawcy, która jest częścią jego tokenu sygnatury dostępu współdzielonego, można zablokować dostęp do publikowania zdarzeń.
+Oprócz zaawansowanych funkcji środowiska wykonawczego [EventProcessorHost][], usługa Event Hubs umożliwia odwołanie wydawcy w celu zablokowania dostępu określonych wydawców do wysyłania zdarzeń do Centrum zdarzeń. Funkcje te są przydatne, jeśli naruszono bezpieczeństwo tokenu wydawcy lub aktualizacja oprogramowania powoduje nieuprawnione zachowanie wydawcy. W takich sytuacjach dla tożsamości wydawcy, która jest częścią jego tokenu sygnatury dostępu współdzielonego, można zablokować dostęp do publikowania zdarzeń.
 
 Aby uzyskać więcej informacji o odwołaniu wydawcy i sposobie wysyłania zdarzeń do usługi Event Hubs jako wydawca, zobacz przykład [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Bezpieczne publikowanie na dużą skalę w usłudze Event Hubs).
 

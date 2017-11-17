@@ -7,6 +7,9 @@ Jedną z kluczowych możliwości usługi Azure IoT krawędzi jest możliwość w
 1. W **nazwa** wprowadź `tempSensor`. 
 1. W **identyfikatora URI obrazu** wprowadź `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Pozostaw bez zmian innych ustawień, a następnie wybierz **zapisać**.
+
+   ![Zapisz modułu krawędzi IoT po wprowadzeniu nazwy i identyfikatora URI obrazu](./media/iot-edge-deploy-module/name-image.png)
+
 1. W **Dodaj moduły** krok, wybierz opcję **dalej**.
 1. W **określić trasy** krok, wybierz opcję **dalej**.
 1. W **szablon przeglądu** krok, wybierz opcję **przesyłania**.

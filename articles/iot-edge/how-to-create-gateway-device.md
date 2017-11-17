@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e1337ddf5ed84a06a62e2faa198f3e8fb49bc3bd
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c9f71a7e95ea8c1b2cbd9b74ef20f9b0342d00f8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-an-iot-edge-gateway-device-to-process-data-from-other-iot-devices---preview"></a>Tworzenie urządzenia bramy IoT do przetwarzania danych przez inne urządzenia IoT — w wersji preview
 
@@ -46,7 +46,7 @@ Koncentratora krawędzi, który jest zainstalowany na wszystkich urządzeniach k
 >[!NOTE]
 >Obecnie podrzędne urządzenia nie będą mogły używać przekazywania pliku, podczas łączenia za pośrednictwem bramy IoT krawędzi.
 
-Po podłączeniu urządzenia do bramy krawędzi IoT przy użyciu zestawu SDK urządzenia Azure IoT należy:
+Po podłączeniu urządzenia do bramy usługi IoT krawędzi przy użyciu zestawu SDK urządzenia Azure IoT należy:
 
 * Instalowanie podrzędne urządzenia przy użyciu parametrów połączenia, odwołujący się do nazwy hosta urządzenia bramy; i
 * Upewnij się, że urządzenie podrzędne ufa certyfikat używany do akceptowania połączeń przez urządzenie bramy.
@@ -68,7 +68,9 @@ Spowoduje to rozwiązanie umożliwiający wszystkich urządzeniach można używa
 
 Możesz użyć przykładu środowiska Powershell i skrypty powłoki systemowej opisanych w [Zarządzanie przykładowy certyfikat urzędu certyfikacji] [ lnk-ca-scripts] do wygenerowania z podpisem własnym **właściciela Centrum IoT urzędu certyfikacji** i certyfikaty urządzeń podpisany z nim.
 
-1. Wykonaj krok 1 z [Zarządzanie przykładowy certyfikat urzędu certyfikacji] [ lnk-ca-scripts] zainstalować skrypty.
+1. Wykonaj krok 1 z [Zarządzanie przykładowy certyfikat urzędu certyfikacji] [ lnk-ca-scripts] zainstalować skrypty. Upewnij się, że sklonowana `modules-preview` gałęzi:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Wykonaj kroki od 2 do generowania **właściciela Centrum IoT urzędu certyfikacji**, ten plik będzie używany przez urządzenia podrzędne można zweryfikować połączenia.
 
 Użyj poniższych instrukcji, aby wygenerować certyfikat dla urządzenia bramy.
@@ -77,7 +79,7 @@ Użyj poniższych instrukcji, aby wygenerować certyfikat dla urządzenia bramy.
 
 * Uruchom `./certGen.sh create_edge_device_certificate myGateway` można utworzyć nowego certyfikatu z urządzenia.  
   Spowoduje to utworzenie.\certs\new-edge-device.* pliki zawierające klucz publiczny i PFX oraz.\private\new-edge-device.key.pem zawierający klucz prywatny urządzenia.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem`Aby uzyskać klucz publiczny.
+* W `certs` katalogu Uruchom `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` uzyskanie całego łańcucha klucza publicznego urządzenia.
 * `./private/new-edge-device.cert.pem`zawiera klucz prywatny urządzenia.
 
 #### <a name="powershell"></a>PowerShell
@@ -135,7 +137,7 @@ Podrzędne urządzenie może być dowolną aplikację przy użyciu [urządzenia 
 
 Najpierw aplikacji podrzędne urządzenie ma ufać **właściciela Centrum IoT urzędu certyfikacji** certyfikatu w celu weryfikowania połączeń TLS do urządzenia bramy. Ten krok, zwykle można przeprowadzić na dwa sposoby: na poziomie systemu operacyjnego lub (w przypadku niektórych języków) na poziomie aplikacji.
 
-Na przykład aplikacji .NET można dodać następujący fragment kodu zaufania certyfikatu w formacie PEM składowanych w ścieżce `certPath`.
+Na przykład aplikacji .NET można dodać następujący fragment kodu zaufania certyfikatu w formacie PEM składowanych w ścieżce `certPath`. Jeśli za pomocą skryptu powyżej ścieżki będą się odwoływać `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) lub `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -145,8 +147,6 @@ Na przykład aplikacji .NET można dodać następujący fragment kodu zaufania c
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Należy pamiętać, że przykładowe skrypty powyżej generuje klucz publiczny w pliku `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) lub `RootCA.pem` (Powershell).
 
 Wykonanie tego kroku na poziomie systemu operacyjnego różni się od systemu Windows i między dystrybucje systemu Linux.
 
@@ -176,6 +176,8 @@ Podczas implementowania bramę nieprzezroczyste, modułu translację protokołu 
 
 Podczas implementowania przezroczysty bramy, moduł tworzy wiele wystąpień klienta urządzenia IoT Hub, przy użyciu parametrów połączenia dla podrzędnego urządzeń.
 
+[Azure IoT krawędzi Modbus modułu] [ lnk-modbus-module] jest otwarta implementacja modułu protokołu karty nieprzezroczyste bramy.
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zrozumieć wymagania i narzędzi do tworzenia modułów krawędzi IoT][lnk-module-dev].
@@ -191,4 +193,5 @@ Podczas implementowania przezroczysty bramy, moduł tworzy wiele wystąpień kli
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Jak rozwiązywać problemy z samoobsługowego resetowania hasła
 
@@ -59,7 +59,7 @@ Jeśli występują problemy z samoobsługowego resetowania hasła, elementy, kt�
 
 | **Błąd** | Rozwiązanie |
 | --- | --- |
-| Katalog nie jest włączona w celu resetowania haseł **administrator nie włączył można użyć tej funkcji** | Przełącznik **samodzielnego resetowania hasła usługi włączone** flaga **grupy** lub **każdy** i kliknij przycisk **Zapisz** |
+| Katalog nie jest włączona w celu resetowania haseł **administrator nie włączył można użyć tej funkcji** | Przełącznik **samodzielnego resetowania hasła usługi włączone** flaga **wybrane** lub **wszystkie** i kliknij przycisk **Zapisz** |
 | Użytkownik nie ma usługi Azure AD Premium lub podstawowa licencją **administrator nie włączył można użyć tej funkcji** | Może to nastąpić, jeśli nie masz usługi Azure AD Premium lub podstawowa licencją administratorowi wykonywanie operacji. <br> Ten problem można rozwiązać przez przypisywanie licencji do konta administratora w danym przy użyciu tego artykułu [przypisać, sprawdź i rozwiąż problemy z licencjami](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Błąd podczas przetwarzania żądania | Może to być spowodowane przez wiele problemów, ale zazwyczaj ten błąd jest spowodowany przez albo problem dotyczący usługi awarii lub konfiguracji. Jeśli zostanie wyświetlony ten błąd jest wywierania wpływu na firmę, skontaktuj się z pomocy technicznej firmy Microsoft, aby uzyskać dodatkową pomoc. |
 
@@ -67,7 +67,7 @@ Jeśli występują problemy z samoobsługowego resetowania hasła, elementy, kt�
 
 | **Błąd** | Rozwiązanie |
 | --- | --- |
-| Katalog nie jest włączona w celu resetowania haseł. | Przełącznik **samodzielnego resetowania hasła usługi włączone** flaga **grupy** lub **każdy** i kliknij przycisk **Zapisz** |
+| Katalog nie jest włączona w celu resetowania haseł. | Przełącznik **samodzielnego resetowania hasła usługi włączone** flaga **wybrane** lub **wszystkie** i kliknij przycisk **Zapisz** |
 | Użytkownik nie ma usługi Azure AD Premium lub podstawowa przypisanej licencji | Może to nastąpić, jeśli nie masz usługi Azure AD Premium lub podstawowa licencją administratorowi wykonywanie operacji. <br> Ten problem można rozwiązać przez przypisywanie licencji do konta administratora w danym przy użyciu tego artykułu [przypisać, sprawdź i rozwiąż problemy z licencjami](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Katalog jest włączona w celu resetowania haseł, ale użytkownik ma brakujące lub nieprawidłowo sformułowany informacje dotyczące uwierzytelniania | Upewnij się, że użytkownik ma prawidłowo sformułowany dane kontaktowe w pliku w katalogu przed kontynuowaniem. Aby uzyskać więcej informacji na ten temat, zobacz artykuł [dane używane przez usługi Azure AD samoobsługowego resetowania hasła](active-directory-passwords-data.md). |
 | Katalog jest włączona w celu resetowania haseł, ale użytkownik ma tylko jeden element danych, skontaktuj się z pomocą na plik, gdy zasady są ustawione na wymagają dwa kroki weryfikacji | Upewnij się, które użytkownik ma co najmniej dwóch metod kontaktu poprawnie skonfigurowana (przykład: telefon komórkowy **i** telefon biurowy) przed kontynuowaniem. |
@@ -270,14 +270,14 @@ Aby pomóc poprawnie, poprosimy Podaj tak szczegółowe, jak to możliwe, podcza
 
 Poniższe linki dają dostęp do dodatkowych informacji dotyczących resetowania haseł za pomocą usługi Azure AD
 
-* [Jak wykonać pomyślne wdrożenie SSPR?](active-directory-passwords-best-practices.md)
+* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
-* [Masz pytanie Licencjonowanie?](active-directory-passwords-licensing.md)
-* [Jakie dane są używane przez SSPR i jakie dane powinny można wypełnić dla użytkowników?](active-directory-passwords-data.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jakie są opcje zasad z SSPR?](active-directory-passwords-policy.md)
-* [Co to jest funkcji zapisywania zwrotnego haseł i dlaczego I interesujących go?](active-directory-passwords-writeback.md)
-* [Jak zgłosić w działaniu w SSPR](active-directory-passwords-reporting.md)
-* [Co to są wszystkie opcje w SSPR i do czego ich znaczenie?](active-directory-passwords-how-it-works.md)
-* [Masz pytania, na które nie objęte gdzieś else](active-directory-passwords-faq.md)
+* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)
+* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-reporting.md)
+* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
+* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)

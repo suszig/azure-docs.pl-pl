@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell
 
@@ -293,7 +293,7 @@ Poniższa tabela kategoryzuje rozmiary do przypadków użycia.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Zastosowania ogólne         |DSv2, Dv2, DS, D, Av2, A0 7| Zrównoważonym Procesora do pamięci. Nadaje się doskonale dla deweloperów i testowania i w małych, średnich rozwiązania aplikacji i danych.  |
 | Optymalizacja pod kątem obliczeń      | FS, F             | Wysoka Procesora do pamięci. Nadaje się do aplikacji średnia ruchu, urządzeń sieciowych i procesów wsadowych.        |
-| Optymalizacja pod kątem pamięci       | GS, G, DSv2, DS, Dv2, D   | Wysoka pamięci do core. Doskonałe rozwiązanie dla relacyjnych baz danych, średnich i dużych pamięci podręcznych i analiza w pamięci.                 |
+| Optymalizacja pod kątem pamięci       | GS, G, DSv2, DS, Dv2, D   | Wysoka pamięci do-procesora CPU. Doskonałe rozwiązanie dla relacyjnych baz danych, średnich i dużych pamięci podręcznych i analiza w pamięci.                 |
 | Optymalizacja pod kątem magazynu       | Ls                | Wysoka przepływność dysku i operacje we/wy. Idealne rozwiązanie w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
 | Procesory GPU           | WIRTUALIZACJĄ SIECI, NC            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych.       |
 | Wysoka wydajność | H-A8 11          | Nasze najbardziej zaawansowanych Procesora maszyny wirtualne z interfejsami opcjonalne wysokiej przepustowości sieci (RDMA). 
@@ -344,11 +344,11 @@ Maszyny Wirtualnej platformy Azure może mieć jedną z wielu stany zasilania. T
 | Stan zasilania | Opis
 |----|----|
 | Uruchamianie | Wskazuje, że maszyna wirtualna zostanie uruchomiona. |
-| Działanie | Wskazuje, że maszyna wirtualna jest uruchomiona. |
+| Uruchomione | Wskazuje, że maszyna wirtualna jest uruchomiona. |
 | Zatrzymywanie | Wskazuje, że maszyna wirtualna jest zatrzymywana. | 
-| Zatrzymane | Wskazuje, czy maszyna wirtualna jest zatrzymana. Należy pamiętać, że maszyny wirtualne w stanie zatrzymania nadal naliczenie opłat za obliczenia.  |
+| Zatrzymano | Wskazuje, czy maszyna wirtualna jest zatrzymana. Należy pamiętać, że maszyny wirtualne w stanie zatrzymania nadal naliczenie opłat za obliczenia.  |
 | Cofanie przydziału | Wskazuje, że cofana jest maszyny wirtualnej. |
-| Cofnięcie przydziału | Wskazuje, że maszyna wirtualna jest całkowicie usunięte z funkcji hypervisor, ale nadal dostępne w płaszczyźnie formantu. Maszyny wirtualne w stanie Deallocated nie naliczenie opłat za obliczenia. |
+| Cofnięto przydział | Wskazuje, że maszyna wirtualna jest całkowicie usunięte z funkcji hypervisor, ale nadal dostępne w płaszczyźnie formantu. Maszyny wirtualne w stanie Deallocated nie naliczenie opłat za obliczenia. |
 | - | Wskazuje, że stan zasilania maszyny wirtualnej jest nieznany. |
 
 ### <a name="find-power-state"></a>Znajdź stan zasilania
@@ -390,7 +390,7 @@ Jeśli chcesz zachować maszyny wirtualnej w stanie elastycznie, użyj parametru
 Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 ```
 
-### <a name="delete-resource-group"></a>Usuwanie grupy zasobów
+### <a name="delete-resource-group"></a>Usuń grupę zasobów
 
 Usunięcie grupy zasobów powoduje usunięcie wszystkie zasoby zawarte w ciągu.
 

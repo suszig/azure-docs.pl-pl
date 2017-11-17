@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Uruchamianie zadania konteneryzowanych w wystąpień kontenera platformy Azure
 
@@ -147,7 +147,7 @@ Wiersz polecenia można określić podczas tworzenia wystąpienia kontenera, aby
 
 Na przykład masz kontenera przykład analizować tekstu innego niż *osady* , określając inną wiersza polecenia. Wykonywane przez kontener, skrypt w języku Python *wordcount.py*akceptuje jako argument adresu URL i będzie przetwarzać zawartości tej strony, zamiast domyślnej.
 
-Na przykład, aby określić trzy najważniejsze pięciu litery słowa *Romeo i Juliet*:
+Na przykład, aby określić 3 pierwszych pięciu litery słowa *Romeo i Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ Dane wyjściowe:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
+### <a name="persist-task-output"></a>Utrwalanie dane wyjściowe zadania
 
 Aby uzyskać więcej informacji na temat zachować dane wyjściowe z kontenerów, które mogły zostać wykonane, zobacz [instalowanie udziału plików na platformę Azure z wystąpień kontenera Azure](container-instances-mounting-azure-files-volume.md).
 

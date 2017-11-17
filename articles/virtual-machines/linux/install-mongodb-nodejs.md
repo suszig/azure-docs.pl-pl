@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Jak zainstalować i skonfigurować bazy danych MongoDB na Maszynę wirtualną systemu Linux przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure
 [Bazy danych MongoDB](http://www.mongodb.org) jest popularnych open source, wysokiej wydajności bazę danych NoSQL. W tym artykule przedstawiono sposób instalowania i konfigurowania bazy danych MongoDB na Maszynę wirtualną systemu Linux na platformie Azure przy użyciu modelu wdrażania Menedżera zasobów. Przykłady są wyświetlane szczegóły tego jak do:
@@ -163,7 +163,7 @@ Można utworzyć klastra złożonych podzielonej bazy danych MongoDB, korzystaj�
 * [Bazy danych MongoDB dzielenia na fragmenty klastra na CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Wdrażanie tego złożonych klastra podzielonej bazy danych MongoDB wymaga więcej niż 20 rdzenie, co jest typowe domyślnej liczby rdzeni na region na subskrypcję. Otwórz żądanie pomocy technicznej platformy Azure do zwiększenia Twojej liczby rdzeni.
+> Wdrażanie klastra podzielonej to złożony bazy danych MongoDB wymaga więcej niż 20 Vcpu, co jest typowe domyślnej liczby vCPU na region na subskrypcję. Otwórz żądanie pomocy technicznej platformy Azure, aby zwiększyć liczbę sieci vCPU.
 
 Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* regionu. Wprowadź własne wartości w następujący sposób:
 

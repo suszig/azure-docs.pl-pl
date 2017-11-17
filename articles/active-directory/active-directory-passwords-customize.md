@@ -1,6 +1,6 @@
 ---
 title: 'Dostosowywanie: Azure AD SSPR | Dokumentacja firmy Microsoft'
-description: "Dostosowywanie opcji dla usługi Azure AD samodzielnego resetowania hasła usługi"
+description: "Zresetuj opcje dostosowywania dla usługi Azure AD samoobsługi hasła"
 services: active-directory
 keywords: 
 documentationcenter: 
@@ -16,94 +16,103 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e8cf0ce8ed154a7e42b885e605dcdf37827a6447
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Dostosowywanie funkcji usługi Azure AD dla samoobsługowego resetowania hasła
+# <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Dostosowywanie funkcji usługi Azure AD dla samoobsługowego resetowania hasła
 
-Specjaliści IT, które chcą wdrożyć Samoobsługowe Resetowanie hasła można dostosować środowiska, aby dopasować użytkowników.
+Informatycy, którzy mają zostać wdrożone samoobsługowego resetowania hasła (SSPR) w usłudze Azure Active directory (Azure AD) można dostosować środowisko odpowiada potrzebom użytkownika.
 
-## <a name="customize-the-contact-your-administrator-link"></a>Dostosowywanie kontaktu link do administratora
+## <a name="customize-the-contact-your-administrator-link"></a>Dostosowywanie łącze "Skontaktuj się z administratorem"
 
-Nawet jeśli nie włączono funkcji SSPR portal resetowania użytkownicy nadal "Skontaktuj się z administratorem" łącze hasło.  Kliknięcie tego łącza wiadomości e-mail z prośbą o pomoc w odniesieniu do zmiany hasła administratorami lub wysyła użytkowników do adresu URL, który określisz. Firma Microsoft zaleca, ustaw tę inną takie jak adres e-mail lub witrynę sieci Web użytkownikom są używane do korzystania z pomocy technicznej.
+Nawet jeśli nie włączono funkcji SSPR, użytkownicy nadal mają łącze "Skontaktuj się z administratorem" hasło portal resetowania. Jeśli użytkownik wybierze ten link jej albo:
+   * Wiadomości e-mail z administratorami w Twojej organizacji i zapyta, aby uzyskać pomoc w odniesieniu do zmiany hasła użytkownika. 
+   * Wysyła użytkowników na adres URL określony dla pomocy. 
+
+Zalecane ustawienie tego kontaktu inny, takie jak adres e-mail lub witryny sieci Web, który użytkownicy już używać dla pytań.
 
 ![Skontaktuj się z][Contact]
 
-Ten adres e-mail jest wysyłane do następujących adresatów w następującej kolejności:
+Kontaktowy adres e-mail są wysyłane do następujących adresatów w następującej kolejności:
 
 1. Jeśli **hasło administratora** rola jest przypisywana, administratorów z tej roli są powiadomienia.
-2. Jeśli hasło administratorów nie ma przypisanych, następnie Administratorzy z **użytkownika administratora** są powiadamiani o roli
-3. Jeśli żaden z poprzednich role zostały przypisane, następnie **Administratorzy globalni** są powiadamiani o
+2. Jeśli hasło administratorów nie ma przypisanych, następnie Administratorzy z **użytkownika administratora** są powiadamiani o roli.
+3. Jeśli żaden z poprzednich ról nie ma przypisanych, a następnie **Administratorzy globalni** wyświetlone odpowiednie powiadomienie.
 
 We wszystkich przypadkach są powiadamiani o maksymalnie 100 adresatów.
 
-Aby dowiedzieć się więcej o różnych administrator ról i przypisywania im można znaleźć w dokumencie [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+Aby dowiedzieć się więcej o rolach administratora różnych i jak przypisać je, zobacz [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
-### <a name="disable-contact-your-administrator-emails"></a>Wyłącz skontaktuj się z administratorem wiadomości e-mail
+### <a name="disable-contact-your-administrator-emails"></a>Wyłączanie "Skontaktuj się z administratorem" wiadomości e-mail
 
-Jeśli Twoja organizacja nie chce żądań resetowania Administratorzy otrzymywać powiadomienia o hasło, można włączyć następującą konfigurację
+Jeśli Twoja organizacja nie ma być powiadamiany żądań resetowania administratorów o hasło, możesz włączyć następującej konfiguracji:
 
-* Włącz samoobsługowego resetowania haseł dla wszystkich użytkowników końcowych. Ta opcja jest w obszarze **resetowania hasła > właściwości**.
-    * Jeśli nie chcesz, aby użytkownikom na resetowanie własnych haseł, można określić zakres dostępu do pustej grupy **nie zaleca się opcja**.
-* Dostosowywanie link pomocy technicznej, aby podać adres URL sieci web lub mailto: adres, który użytkownicy mogą używać, aby uzyskać pomoc. Ta opcja jest w obszarze **resetowania hasła > dostosowania > niestandardowe pomoc techniczna e-mail lub adres URL**.
+* Włącz samoobsługowego resetowania haseł dla wszystkich użytkowników końcowych. Ta opcja jest w obszarze **resetowania hasła** > **właściwości**.
+  
+  Jeśli nie chcesz resetować swoje hasła użytkowników można zakresu dostępu do pustej grupy. *Nie zalecamy tej opcji.*
+* Dostosowywanie link pomocy technicznej, aby podać adres URL sieci web lub mailto: adres, który użytkownicy mogą używać, aby uzyskać pomoc. Ta opcja jest w obszarze **resetowania hasła** > **dostosowywania** > **niestandardowe pomoc techniczna e-mail lub adres URL**.
 
-## <a name="customize-adfs-sign-in-page-for-sspr"></a>Dostosowywanie strony logowania usług AD FS dla usługi SSPR
+## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Dostosowywanie strony logowania usług AD FS dla usługi SSPR
 
-Administratorzy usług AD FS można dodać łącza do strony przy użyciu wskazówek znaleźć w artykule w ich logowania [dodawanie opisu strony logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
+Administratorzy usługi Active Directory Federation Services (AD FS) można dodać łącza do ich strony logowania przy użyciu wskazówek w [dodawanie opisu strony logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description) artykułu.
 
-Za pomocą polecenia znajdujący się na serwerze usług AD FS dodaje łącze do strony logowania usług AD FS, dzięki czemu użytkownicy mogą wprowadzić hasło samoobsługi resetowania bezpośrednio przepływu pracy.
+Aby dodać łącze do strony logowania usług AD FS, wpisz następujące polecenie na serwerze usług AD FS. Użytkownicy mogą ta strona umożliwia wprowadź SSPR przepływu pracy.
 
 ``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
-## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Dostosowywanie logowania i dostępu do panelu Wygląd i działanie
+## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Dostosowywanie logowania dostępu i stronę panelu Wygląd i działanie
 
-Gdy użytkownicy uzyskują dostęp do strony logowania, można dostosować logo, które pojawia się wraz z obrazem strony logowania, aby dopasować znakowaniu firmy.
+Można dostosować stronę logowania. Można dodać logo, które pojawia się wraz z obrazem spełniającym znakowaniu firmy.
 
-Elementy te są wyświetlane w następujących okolicznościach:
+Wybrane grafiki są przedstawione w następujących okolicznościach:
 
-* Po użytkownik wpisuje swoją nazwę użytkownika
-* Użytkownik uzyskuje dostęp do adresu url dostosowane
-    * Przez przekazanie "godz. pracy" strony, takich jak "https://login.microsoftonline.com/?whr=contoso.com" resetowania parametr hasło
-    * Przez przekazanie "nazwa_użytkownika" Parametr hasło strony resetowania, tak samo, jak "https://login.microsoftonline.com/?username=admin@contoso.com"
+* Gdy użytkownik wprowadzi swoją nazwę użytkownika
+* Jeśli użytkownik uzyskuje dostęp do niestandardowych adresu URL:
+    * Przez przekazanie *godz. pracy* strony, takich jak "https://login.microsoftonline.com/?whr=contoso.com" resetowania parametr hasło
+    * Przez przekazanie *username* parametr hasło zresetować strony, tak samo, jak "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 ### <a name="graphics-details"></a>Szczegóły grafiki
 
-Następujące ustawienia pozwalają na zmiany wizualne cechy strony logowania i znajduje się w obszarze **usługi Azure Active Directory**, **firmy znakowania**, **znakowanie firmowe do edycji**
+Użyj następujących ustawień, aby zmienić właściwości visual strony logowania. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**:
 
-* Obraz strony logowania powinien być PNG lub JPG pliku 1420 x 1200 pikseli i nie większa niż 500KB. Firma Microsoft zaleca, aby wartość była około 200 KB w celu uzyskania najlepszych wyników.
-* Kolor tła strony logowania jest używany podczas połaczeń dużymi opóźnieniami i musi być w formacie szesnastkowym RGB.
-* Transparent obraz powinien być pikseli 60 x 280 plik PNG lub JPG i nie większa niż 10 KB.
-* Kwadratowe logo (normalne i ciemnego motywu) PNG lub JPG 240 x 240 (rozmiar) nie większą niż 10 KB.
+* Obraz strony logowania powinien być plikiem .png lub .jpg 1420 x 1200 pikseli i nie większą niż 500 KB. Aby uzyskać najlepsze wyniki zaleca się pozostawienie jej około 200 KB.
+* Kolor tła strony logowania jest używany w przypadku połączeń z dużymi opóźnieniami i musi być w formacie szesnastkowym RGB.
+* Obraz transparentu powinien być plikiem .png lub .jpg 60 x 280 pikseli i być większe niż 10 KB.
+* Kwadratowe logo (normalne i ciemnego motywu) powinien być plikiem .png lub .jpg 240 x 240 pikseli (rozmiar) i nie większą niż 10 KB.
 
 ### <a name="sign-in-text-options"></a>Opcje logowania tekstu
 
-Następujące ustawienia pozwalają na dodawanie tekstu do strony logowania istotne dla Twojej organizacji. Te ustawienia można znaleźć w **usługi Azure Active Directory**, **firmy znakowania**, **znakowanie firmowe do edycji**
+Użyj następujących ustawień, aby dodać tekst do strony logowania, która jest odpowiednia dla Twojej organizacji. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**:
 
-* **Wskazówka nazwy użytkownika** zastępuje tekst przykład someone@example.com na coś bardziej odpowiednie dla użytkowników, zaleca, aby pozostawić domyślne podczas obsługi użytkowników wewnętrznych i zewnętrznych
-* **Tekst strony logowania** maksymalnie 256 znaków. Ten tekst jest wyświetlany wszędzie logowanie użytkowników online i w środowisku Azure AD Join w systemie Windows 10. Użyj tego tekstu warunków użytkowania, instrukcje i wskazówki dla użytkowników. **Każda osoba, która jest zobacz stronę logowania, więc nie zawierają żadnych poufnych informacji.**
+* **Wskazówka nazwy użytkownika**: zastępuje tekst przykład  *someone@example.com*  na coś bardziej odpowiednie dla użytkowników. Zaleca się pozostawienie wskazówka domyślna w przypadku obsługi użytkowników wewnętrznych i zewnętrznych.
+* **Tekst strony logowania**: może zawierać maksymalnie 256 znaków. Ten tekst jest wyświetlany wszędzie tam, gdzie użytkownicy logują się w trybie online i w środowisku Azure AD dołączanie do miejsca pracy w systemie Windows 10. Użyj tego tekstu warunków użytkowania, instrukcje i wskazówki dla użytkowników. 
 
-### <a name="keep-me-signed-in-disabled"></a>Wylogowuj mnie wyłączone
+   >[!IMPORTANT]
+   >Każda osoba, która jest widoczny Twojej strony logowania, więc nie oferują żadnych poufnych informacji.
+   >
 
-Opcji "Zachowaj wylogowuj mnie wyłączone" umożliwia użytkownikom wylogować po zamknięciu i ponownie otworzyć ich okna przeglądarki. Ta opcja nie będzie mieć wpływu okresy istnienia sesji. To ustawienie znajduje się w obszarze **usługi Azure Active Directory > firmy znakowania > Edytuj firmowe**.
+### <a name="the-keep-me-signed-in-disabled-setting"></a>Ustawienie "Zachowaj wylogowuj mnie wyłączone"
 
-Niektóre funkcje pakietu Office 2010 i SharePoint Online zależy od użytkownicy będą mogli przeprowadzić zaznacz to pole wyboru. Ukrycie tę opcję, użytkownicy mogą pobrać dodatkowe i nieoczekiwane logowania monitów.
+Z **wylogowuj mnie wyłączone** opcji użytkowników można wylogować po zamknięciu i ponownie otworzyć ich okna przeglądarki. Ta opcja nie wpływa na okres istnienia sesji. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**.
+
+Niektóre funkcje pakietu Office 2010 i SharePoint Online zależy od możliwości użytkowników zaznacz to pole wyboru. Ukrycie tę opcję, użytkownicy mogą uzyskać dodatkowe i nieoczekiwane logowania monitów.
 
 ### <a name="directory-name"></a>Nazwa katalogu
 
-Można zmienić atrybutu nazwy w obszarze **usługi Azure Active Directory > właściwości** pokazanie organizacji przyjazną nazwę widoczne w portalu i automatyczne komunikację. Ta opcja jest najbardziej widoczne w formularzu zautomatyzowane wiadomości e-mail w kolejnych formularzach
+Można zmienić atrybutu nazwy katalogu, w obszarze **usługi Azure Active Directory** > **właściwości**. Można wyświetlić organizacji przyjazną nazwę, która jest widoczna w portalu i automatyczne komunikacji. Ta opcja jest najbardziej widoczne w zautomatyzowane wiadomości e-mail, formularzy, które należy wykonać:
 
-* Przyjazna nazwa w wiadomości e-mail "Microsoft w imieniu pokaz firmy CONTOSO"
-* Wiersz tematu wiadomości e-mail "CONTOSO demonstracyjna konta e-mail kod weryfikacyjny"
+* Przyjazna nazwa w wiadomości e-mail, na przykład "Microsoft imieniu pokaz firmy CONTOSO"
+* Wiersz tematu wiadomości e-mail, na przykład "CONTOSO demonstracyjna konta e-mail kod weryfikacyjny"
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
-* [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
-* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
+* [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
+* [Masz pytanie licencjonowania?](active-directory-passwords-licensing.md)
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)

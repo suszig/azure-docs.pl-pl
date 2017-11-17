@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+Obliczenia bazy danych zoptymalizowanych rozmiarów maszyn wirtualnych mają wysoki współczynnik pamięć Procesora i są odpowiednie dla serwerów sieci web średnia ruchu, urządzenia sieciowe, procesów wsadowych i serwerów aplikacji. Ten artykuł zawiera informacje o liczbie Vcpu, dysków z danymi i karty sieciowe, a także przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania.
+
 Seria Fsv2 opiera się na procesor Intel® Xeon® Platynowa 8168 częstotliwości podstawowej core 2.7 GHz i częstotliwości maksymalną turbo jednordzeniowy 3.7 GHz. Instrukcje Intel® AVX — 512, które są nowe na skalowalnych procesory Intel, zapewni maksymalnie 2 X wzrost wydajności przetwarzania wektor obciążeń na pojedyncze i Podwójna precyzja operacji zmiennoprzecinkowych. Innymi słowy są naprawdę fast dla dowolnego obciążeń obliczeniowych. 
 
 W dolnym godzinową cennika serii Fsv2 jest wartością najlepsze w wydajności cen portfolio Azure oparta na platformie Azure obliczeniowe jednostki (ACU) na vCPU. 
@@ -14,7 +16,7 @@ Seria Fs ma magazyn w warstwie Premium i wszystkie zalety serii F.
 
 ACU: 195-210
 
-| Rozmiar             | w vCPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
+| Rozmiar             | w vCPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Średnia                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Średnia                                       |
@@ -29,7 +31,7 @@ ACU: 195-210
 
 ACU: 210–250
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_F1s |1 |2 |4 |4 |4000 / 32 (12) |3200 / 48 |2 / 750 |
 | Standardowa_F2s |2 |4 |8 |8 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
@@ -48,7 +50,7 @@ MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
 ACU: 210–250
 
-| Rozmiar         | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
+| Rozmiar         | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standardowa_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
 | Standardowa_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |

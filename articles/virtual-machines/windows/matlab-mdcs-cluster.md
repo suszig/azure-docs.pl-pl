@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Tworzenie klastrów serwera przetwarzania danych rozproszonych MATLAB na maszynach wirtualnych Azure
 Maszyny wirtualne Microsoft Azure umożliwia utworzenie co najmniej jeden klaster serwera Computing rozproszone MATLAB do uruchamiania obciążeń MATLAB równoległych obliczeniowych. Zainstaluj oprogramowanie serwera przetwarzania danych rozproszonych MATLAB na maszynie Wirtualnej jako obrazu podstawowego i przy użyciu szablonu Azure szybkiego startu skryptu programu Azure PowerShell (dostępne na [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) do wdrażania i zarządzania klastrem. Po wdrożeniu Połącz się z klastrem do uruchamiania obciążeń.
@@ -32,7 +32,7 @@ Przy użyciu maszyn wirtualnych platformy Azure, można utworzyć klastry serwer
 * **Komputer kliencki** — należy komputer kliencki z systemem Windows do komunikowania się z Azure i klastrem serwera przetwarzania rozproszonego MATLAB po wdrożeniu.
 * **Program Azure PowerShell** — zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) go zainstalować na komputerze klienckim.
 * **Subskrypcja platformy Azure** — Jeśli nie masz subskrypcji, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut. W przypadku dużych klastrów rozważ z subskrypcji lub inne opcje zakupu.
-* **Limit przydziału rdzeni** — może być konieczne zwiększyć przydział core do wdrożenia klastra dużych lub więcej niż jednym klastrze MATLAB rozproszonego przetwarzania danych serwera. Aby zwiększyć przydział, [otwarcia żądania pomocy technicznej online klienta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) bez dodatkowych opłat.
+* **przydział Vcpu** — może być konieczne zwiększyć przydział vCPU do wdrożenia klastra dużych lub więcej niż jednym klastrze MATLAB rozproszonego przetwarzania danych serwera. Aby zwiększyć przydział, [otwarcia żądania pomocy technicznej online klienta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) bez dodatkowych opłat.
 * **Licencje MATLAB, przybornika przetwarzanie równoległe i serwera przetwarzania danych rozproszonych MATLAB** -skrypty przyjęto założenie, że [MathWorks hostowanej License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) jest używany dla wszystkich licencji.  
 * **Oprogramowanie serwera przetwarzania rozproszonego MATLAB** — zostanie zainstalowana na maszynie Wirtualnej, która będzie służyć jako podstawowy obraz maszyny Wirtualnej dla maszyn wirtualnych klastra.
 
@@ -62,7 +62,7 @@ MATLAB klienta węzła, węzeł MATLAB harmonogramu zadań i węzłów serwera p
 * Do korzystania z klastra, nawiązać przez pulpit zdalny na węźle klienta. Ten klient MATLAB jest uruchamiany na węźle klienta.
 * Węzeł Klient ma udziału plików, które są dostępne dla wszystkich pracowników.
 * Menedżer licencji hostowanej MathWorks służy do kontroli licencji oprogramowania MATLAB.
-* Domyślnie jednego serwera przetwarzania danych rozproszonych MATLAB procesu roboczego na podstawowe zostało utworzone w procesie roboczym maszyn wirtualnych, ale można określić dowolną liczbę.
+* Domyślnie jednego serwera przetwarzania danych rozproszonych MATLAB procesu roboczego na vCPU zostało utworzone w procesie roboczym maszyn wirtualnych, ale można określić dowolną liczbę.
 
 ## <a name="use-an-azure-based-cluster"></a>Używanie klastra bazujących na platformie Azure
 Jako inne typy klastrów serwerów rozproszonych obliczeniowych MATLAB, należy użyć Menedżera profilu klastra w kliencie MATLAB (na kliencie maszyny Wirtualnej) aby utworzyć profil klastra MATLAB harmonogramu zadań.
