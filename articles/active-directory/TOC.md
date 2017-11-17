@@ -72,8 +72,7 @@
 
 ## [Zarządzanie grupami i członkami](active-directory-manage-groups.md)
 ### Zarządzanie grupami
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Portal klasyczny](active-directory-accessmanagement-manage-groups.md)
+#### [Witryna Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Zarządzanie członkami grup](active-directory-groups-members-azure-portal.md)
 ### [Zarządzenie właścicielami grup](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,8 +92,7 @@
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Polecenia cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Tworzenie reguł zaawansowanych
-#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Portal klasyczny](active-directory-accessmanagement-groups-with-advanced-rules.md)
+#### [Witryna Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurowanie grup samoobsługi](active-directory-accessmanagement-self-service-group-management.md)
 ### [Rozwiązywanie problemów](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
 ### [Samoobsługowe resetowanie haseł — zobacz, jak to działa](active-directory-passwords-how-it-works.md)
 ### [Podręcznik wdrażania samoobsługowego resetowania haseł](active-directory-passwords-best-practices.md)
+### [SSPR i Windows 10](active-directory-passwords-login.md)
 ### [Zasady samoobsługowego resetowania haseł](active-directory-passwords-policy.md)
 ### [Dostosowywanie samoobsługowego resetowania haseł](active-directory-passwords-customize.md)
 ### [Wymagania dotyczące danych związane z samoobsługowym resetowaniem haseł](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Korzystanie z portalu klasycznego
 ##### [Pobieranie łączników](application-proxy-enable-classic-portal.md)
 ##### [Publikowanie aplikacji](active-directory-application-proxy-publish.md)
-##### [Korzystanie z łączników](active-directory-application-proxy-connectors.md)
-##### [Dostęp warunkowy](active-directory-application-proxy-conditional-access.md)
+##### [Korzystanie z łączników](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Dostęp warunkowy](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Zarządzanie aplikacjami w przedsiębiorstwie
 #### [Przypisywanie użytkowników](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Zarządzanie logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-sso.md)
 #### [Zaawansowane podpisywanie certyfikatów dla aplikacji SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Ukrywanie aplikacji innych firm w środowisku użytkownika](active-directory-coreapps-hide-third-party-app.md)
+### [Konfigurowanie automatycznego przyspieszenia logowania za pomocą zasad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
 #### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Zarządzanie swoim katalogiem
 ### [Program Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Niestandardowe nazwy domen
-#### [Omówienie](active-directory-add-domain-concepts.md)
+#### [Omówienie](active-directory-domains-manage-azure-portal.md)
 #### [Zarządzanie nazwami domen](active-directory-domains-manage-azure-portal.md)
-##### [Portal klasyczny](active-directory-add-manage-domain-names.md)
 ### [Administrowanie własnym katalogiem](active-directory-administer.md)
 ### [Wiele katalogów](active-directory-licensing-directory-independence.md)
 ### [Rejestracja samoobsługowa](active-directory-self-service-signup.md)

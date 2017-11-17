@@ -20,7 +20,7 @@
 ## [Instalowanie i konfigurowanie bramy danych lokalnych](analysis-services-gateway-install.md)
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
-## [Konfigurowanie zapytania repliki skalowalnego w poziomie](analysis-services-scale-out.md)
+## [Konfigurowanie zwiększania skali w poziomie](analysis-services-scale-out.md)
 ## [Łączenie z programem Excel](analysis-services-connect-excel.md)
 ## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
 ## [Tworzenie pliku odc](analysis-services-odc.md)

@@ -3,7 +3,6 @@
 
 # Wprowadzenie
 
-## [Wybieranie jednostki SKU](search-sku-tier.md)
 ## [Tworzenie usługi](search-create-service-portal.md)
 ## [Tworzenie indeksu](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Samouczki
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Synonimy .NET — wersja zapoznawcza](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Tworzenie na platformie .NET](search-howto-dotnet-sdk.md)
+## [Synonimy — wersja zapoznawcza na platformie .NET](search-synonyms-tutorial-sdk.md)
+## [Indeksator danych SQL na platformie .NET](search-indexer-tutorial.md)
+## [Przewodnik po portalu](search-get-started-portal.md)
 ## [Wyszukiwanie danych z częściową strukturą](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Poznawanie interfejsu API REST](search-fiddler.md)
 
 # Instrukcje
 
 ## Planowanie i projektowanie
+### [Wybieranie jednostki SKU](search-sku-tier.md)
 ### [Limity usługi](search-limits-quotas-capacity.md)
 ### [Skalowalność usługi](search-capacity-planning.md)
 ### [Wzorce projektowe aplikacji wielodostępnych](search-modeling-multitenant-saas-applications.md)
 ## Programowanie
 ### [Wersje interfejsu API](search-api-versions.md)
+### [Tworzenie na platformie Node.js](search-get-started-nodejs.md)
+### [Tworzenie w języku Java](search-get-started-java.md)
 ### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)

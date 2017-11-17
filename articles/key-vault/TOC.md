@@ -14,6 +14,9 @@
 ### [Limity usługi](key-vault-service-limits.md)
 ### [Klucze chronione przez moduł HSM](key-vault-hsm-protected-keys.md)
 ### [Migracja do programu .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Zapisywanie wpisów tajnych aplikacji internetowych](vs-secure-secret-appsettings.md)
+### [Uwierzytelnianie usługi przy użyciu platformy .NET](service-to-service-authentication.md)
+
 ### Omówienia
 #### [Środowiska zabezpieczeń](key-vault-ovw-security-worlds.md)
 #### [Usuwanie nietrwałe](key-vault-ovw-soft-delete.md)

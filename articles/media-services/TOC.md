@@ -106,7 +106,8 @@
 
 ## [Przesyłanie strumieniowe na żywo](media-services-manage-channels-overview.md)
 ### [Kodery lokalne](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [Zalecane kodery lokalne](media-services-recommended-encoders.md)
+#### [Witryna Azure Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Transmisja strumieniowa na żywo z użyciem kodera w chmurze](media-services-manage-live-encoder-enabled-channels.md)
 #### [Witryna Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Koder Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Obsługa operacji długotrwałych](media-services-dotnet-long-operations.md)
 ### [Specyfikacja odbierania podzielonej zawartości na żywo w formacie MP4](media-services-fmp4-live-ingest-overview.md)
+
+## [Przycinanie zawartości](media-services-azure-media-clipper-overview.md)
+### [Wprowadzenie do usługi Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Ładowanie zasobów do usługi Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Konfigurowanie niestandardowych skrótów klawiaturowych](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Przesyłanie zadań przycinania](media-services-azure-media-clipper-submit-job.md)
+### [Witryna Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Ochrona](media-services-content-protection-overview.md)
 ### [Konfigurowanie ochrony zawartości w witrynie Azure Portal](media-services-portal-protect-content.md)

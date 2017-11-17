@@ -15,7 +15,7 @@
   items:
     - name: Tworzenie klastra maszyn wirtualnych przy użyciu modułów Terraform
       href: terraform-create-vm-cluster-module.md
-    - name: Tworzenie klastra maszyn wirtualnych przy użyciu usługi Cloud Shell
+    - name: Tworzenie klastra maszyn wirtualnych przy użyciu programu Terraform i HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Aprowizowanie zestawu skalowania maszyn wirtualnych przy użyciu infrastruktury
       href: terraform-create-vm-scaleset-network-disks-hcl.md

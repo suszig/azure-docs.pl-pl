@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Łączenie z maszyną wirtualną
           href: connect-logon.md
-        - name: Korzystanie z licencjonowania AHUB
+        - name: Używanie licencji korzyści użycia hybrydowego platformy Azure
           href: hybrid-use-benefit-licensing.md
         - name: Korzystanie z praw hostingu wielodostępnego dla systemu Windows 10
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Tworzenie magazynu kluczy
           href: key-vault-setup.md
+    - name: Ochrona maszyn wirtualnych
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Tworzenie kopii zapasowej pojedynczej maszyny wirtualnej
+          items:
+            - name: Azure Portal
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Tworzenie kopii zapasowej wielu maszyn wirtualnych
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Zarządzanie maszynami wirtualnymi
       items:
         - name: Typowe zadania programu PowerShell
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Monitorowanie metadanych
           href: instance-metadata-service.md
+        - name: Włączanie wirtualizacji zagnieżdżonej
+          href: nested-virtualization.md
     - name: Korzystanie z obrazów
       items:
         - name: Znajdowanie obrazów i korzystanie z nich

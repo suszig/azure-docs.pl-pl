@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
 ### [Dodawanie domeny niestandardowej do punktu końcowego usługi CDN](cdn-map-content-to-custom-domain.md)
-### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
+### [Konfigurowanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ## Optymalizowanie zawartości
 ### [Omówienie optymalizacji](cdn-optimization-overview.md)
 ####[Optymalizacja dużych plików](cdn-large-file-optimization.md)
