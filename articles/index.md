@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 featureFlags: clicktale
-ms.openlocfilehash: 72583761a5e19c5585f760b919a664597fb51f7e
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 787b7c5dde571ae4f17354981a58957b3111aa20
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -689,7 +689,7 @@ ms.lasthandoff: 11/09/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
                                                 <p>Wyszukiwanie klipów wideo w usłudze Bing</p>
                                             </a>
@@ -846,6 +846,12 @@ ms.lasthandoff: 11/09/2017
                                             <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1091,7 +1097,7 @@ ms.lasthandoff: 11/09/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Usługa Azure Active Directory dla deweloperów</p>
                                             </a>
@@ -2304,6 +2310,25 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Tworzenie obszaru roboczego usługi Azure Databricks z klastrami Spark</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>   
+                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2690,7 +2715,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Wiadomości Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Wyszukiwanie klipów wideo w usłudze Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Wyszukiwanie klipów wideo w usłudze Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Wyszukiwanie w Internecie (Bing)</a>
@@ -3160,7 +3185,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługa Azure Active Directory dla deweloperów</h3>
-                                                    <p>Skalowalne, międzyplatformowe uwierzytelnianie dla aplikacji mobilnych i witryn internetowych</p>
+                                                    <p>Bezpieczne, międzyplatformowe uwierzytelnianie dla interfejsów API internetowych, mobilnych i zaplecza</p>
                                                 </div>
                                             </div>
                                         </div>

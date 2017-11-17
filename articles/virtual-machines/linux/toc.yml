@@ -143,6 +143,17 @@
               href: ssh-from-windows.md
             - name: Szczegółowe procedury
               href: create-ssh-keys-detailed.md
+    - name: Ochrona maszyn wirtualnych
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Tworzenie kopii zapasowej pojedynczej maszyny wirtualnej
+          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Tworzenie kopii zapasowej wielu maszyn wirtualnych
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Przywracanie dysku
+          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Przywracanie pojedynczych plików
+          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Zarządzanie maszynami wirtualnymi
       items:
         - name: Typowe zadania interfejsu wiersza polecenia

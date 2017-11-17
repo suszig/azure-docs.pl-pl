@@ -34,32 +34,21 @@
 #### [Instalowanie programu .NET w roli usługi w chmurze przy użyciu zadania](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurowanie pulpitu zdalnego
-#### [Witryna Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Portal klasyczny](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Wdrażanie
-### Tworzenie i wdrażanie usługi w chmurze w portalu
-#### [Witryna Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Portal klasyczny](cloud-services-how-to-create-deploy.md)
+### [Tworzenie i wdrażanie usługi w chmurze w portalu](cloud-services-how-to-create-deploy-portal.md)
 ### [Tworzenie pustego kontenera usługi w chmurze w programie PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Konfigurowanie niestandardowej nazwy domeny
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Portal klasyczny](cloud-services-custom-domain-name.md)
+### [Konfigurowanie niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md)
 ### [Testowanie wdrażania usługi w chmurze (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
 
 ## Zarządzanie usługą
-### Typowe zadania zarządzania
-#### [Witryna Azure Portal](cloud-services-how-to-manage-portal.md)
-#### [Portal klasyczny](cloud-services-how-to-manage.md)
-### Konfigurowanie usługi w chmurze
-#### [Witryna Azure Portal](cloud-services-how-to-configure-portal.md)
-#### [Portal klasyczny](cloud-services-how-to-configure.md)
+### [Typowe zadania zarządzania](cloud-services-how-to-manage-portal.md)
+### [Konfigurowanie usługi w chmurze](cloud-services-how-to-configure-portal.md)
 ### [Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation](automation-manage-cloud-services.md)
-### Konfigurowanie automatycznego skalowania
-#### [Witryna Azure Portal](cloud-services-how-to-scale-portal.md)
-#### [Portal klasyczny](cloud-services-how-to-scale.md)
+### [Konfigurowanie automatycznego skalowania](cloud-services-how-to-scale-portal.md)
 ### [Zarządzanie zasobami platformy Azure przy użyciu języka Python](cloud-services-python-how-to-use-service-management.md)
 
 ### [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Zarządzanie certyfikatami
 ### [Certyfikaty usług w chmurze i zarządzania](cloud-services-certs-create.md)
-### Konfigurowanie protokołu SSL 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Portal klasyczny](cloud-services-configure-ssl-certificate.md)
+### [Konfigurowanie protokołu SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Monitorowanie
 ### [Monitorowanie usługi w chmurze](cloud-services-how-to-monitor.md)

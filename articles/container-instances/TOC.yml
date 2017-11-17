@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: Wdrażanie z usługi Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Uruchamianie zadań konteneryzowanych
+      href: container-instances-restart-policy.md
     - name: Rozwiązywanie problemów z wdrożeniami
       href: container-instances-troubleshooting.md
 - name: Dokumentacja

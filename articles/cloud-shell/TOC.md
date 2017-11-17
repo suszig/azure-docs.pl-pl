@@ -14,6 +14,9 @@
 ## [Magazyn trwały programu PowerShell](persisting-shell-storage-powershell.md)
 ## [Korzystanie z okna](using-the-shell-window.md)
 
+# Przykłady
+## [Wdrażanie zasobów platformy Azure przy użyciu programu Terraform w powłoce Bash](example-terraform-bash.md)
+
 # [Cennik](pricing.md)
 
 # [Rozwiązywanie problemów](troubleshooting.md)

@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: Korzystanie z narzędzi programu Visual Studio Code dla sztucznej inteligencji
       href: quickstart-visual-studio-tools.md
+    - name: Używanie zestawu narzędzi sztucznej inteligencji usługi Azure IoT Edge
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Konfigurowanie środowiska obliczeniowego
       items:
         - name: Konfigurowanie eksperymentowania
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: Wdrażanie usługi internetowej
           href: model-management-service-deploy.md
+        - name: Wdrażanie na urządzeniu usługi IoT Edge
+          href: deploy-to-iot-edge-device.md
         - name: Używanie usługi internetowej
           href: model-management-consumption.md
         - name: Zbieranie danych modelu
