@@ -11,6 +11,8 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Zasoby
   items:
+    - name: Często zadawane pytania
+      href: frequently-asked-questions-databricks.md
     - name: Dokumentacja usługi Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Harmonogram działania dla platformy Azure
