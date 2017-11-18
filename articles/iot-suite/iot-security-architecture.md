@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 925bada91216b98175fb725e7aba6a31f305839d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Architektura zabezpieczeń Internetu rzeczy
 Podczas projektowania systemu, ważne jest zrozumienie potencjalnych zagrożeń dla tego systemu, a Dodaj odpowiednie zabezpieczenia w związku z tym system został zaprojektowany i zaprojektowana. Jest szczególnie ważne projektowania produktu od początku z myślą o bezpieczeństwie Opis ułatwia sposób atakujący może być w stanie naruszyć bezpieczeństwo systemu, upewnij się, że odpowiednie środki zaradcze znajdują się w miejscu od początku. 
@@ -88,7 +88,7 @@ Aby zoptymalizować najlepszych rozwiązań dotyczących zabezpieczeń, zaleca s
 * Bramy, w chmurze i
 * Usługi.
 
-Strefy są szerokie sposób posegmentować rozwiązania; każdej strefy ma często wymagania danych i uwierzytelniania i autoryzacji. Strefy można również w celu odizolowania uszkodzenia i ograniczyć wpływ niski zaufania strefy na wyższe zaufania strefy.
+Strefy są szerokie sposób posegmentować rozwiązania; każdej strefy ma często wymagania danych i uwierzytelniania i autoryzacji. Strefy można służyć do uszkodzenia izolacji i ograniczyć wpływ niski zaufania strefy na wyższe zaufania strefy.
 
 Każdej strefy są rozdzielone przez granicę zaufania, który jest rejestrowany jako linia kropkowana red na poniższym diagramie. Reprezentuje przejście informacje o i danych z jednego źródła do innego. Podczas tego przejścia danych może podlegać Spoofing, Tampering, Repudiation, ujawnienie informacji, odmowa usługi i podniesienie uprawnień (krok).
 
