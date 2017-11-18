@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu poleceń cmdlet AzureRM.RecoveryServices.Backup
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Przywracanie maszyny Wirtualnej platformy Azure
-Ma klucza różnicy między przywracanie maszyny Wirtualnej przy użyciu portalu Azure i przywracanie maszyny Wirtualnej przy użyciu programu PowerShell. Przy użyciu programu PowerShell operacja przywracania została zakończona, po utworzeniu dyski i informacje o konfiguracji z punktu odzyskiwania.
+Ma klucza różnicy między przywracanie maszyny Wirtualnej przy użyciu portalu Azure i przywracanie maszyny Wirtualnej przy użyciu programu PowerShell. Przy użyciu programu PowerShell operacja przywracania została zakończona, po utworzeniu dyski i informacje o konfiguracji z punktu odzyskiwania. Jeśli chcesz przywrócić lub odzyskać kilka plików z kopii zapasowej maszyny Wirtualnej platformy Azure, zobacz [pliku sekcji odzyskiwania](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > Operacja przywracania nie powoduje utworzenia maszyny wirtualnej.
@@ -507,6 +507,76 @@ Po przywróceniu dyski te kroki umożliwiają tworzenie i konfigurowanie maszyny
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Przywracanie plików z kopii zapasowej maszyny Wirtualnej Azure
+
+Oprócz przywracaniu dysków, można przywrócić pojedyncze pliki z kopii zapasowej maszyny Wirtualnej platformy Azure. Przywracanie plików funkcji daje dostęp do wszystkich plików w punkcie odzyskiwania i może zarządzać nimi za pomocą Eksploratora plików w sposób jak normalne pliki.
+
+Podstawowe kroki, aby przywrócić plik z kopii zapasowej maszyny Wirtualnej platformy Azure są:
+
+* Wybierz maszynę Wirtualną
+* Wybierz punkt odzyskiwania
+* Zainstaluj dyskach punktu odzyskiwania
+* Skopiuj wymagane pliki
+* Odinstaluj obraz dysku
+
+
+### <a name="select-the-vm"></a>Wybierz maszynę Wirtualną
+Aby uzyskać obiekt programu PowerShell, który identyfikuje element prawo kopii zapasowej, uruchom z kontenera w magazynie, a metodą w dół hierarchii obiektów. Aby wybrać kontener, który reprezentuje maszyny Wirtualnej, użyj  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  polecenia cmdlet i przekazać do  **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  polecenia cmdlet.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Wybierz punkt odzyskiwania
+Użyj  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  polecenia cmdlet, aby wyświetlić listę wszystkich punktów odzyskiwania dla kopii zapasowej elementu. Następnie wybierz punkt odzyskiwania, aby przywrócić. Jeśli nie wiesz, którego punktu odzyskiwania chcesz użyć, jest dobrym rozwiązaniem, aby wybrać najnowszych RecoveryPointType = punktu AppConsistent na liście.
+
+W poniższym skrypcie zmiennej **$rp**, jest tablicą punkty odzyskiwania dla wybranego elementu kopii zapasowej z ostatnich siedmiu dni. Tablica jest sortowany w kolejności odwrotnej czasu z najnowszego punktu odzyskiwania pod indeksem 0. Użyj standardowych indeksowanie tablicy środowiska PowerShell i wybierz punkt odzyskiwania. W tym przykładzie $rp [0] wybiera najnowszego punktu odzyskiwania.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Zainstaluj dyskach punktu odzyskiwania
+
+Użyj  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  polecenia cmdlet, aby uzyskać skrypt do zainstalowania na dyskach punktu odzyskiwania.
+
+> [!NOTE]
+> Dyski są instalowane jako dołączone dyski iSCSI do komputera, na którym skrypt jest uruchamiany. Dlatego jest niemal natychmiastowe i nie wpływa negatywnie jakichkolwiek opłat
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Uruchom skrypt na komputerze, w której mają zostać odzyskane pliki. Należy podać hasło pokazanym powyżej można wykonać skryptu. Po są dołączone dyski, należy użyć w Eksploratorze plików systemu Windows, aby przejrzeć nowe woluminy i pliki. Więcej informacji można znaleźć w [pliku dokumentacją dotyczącą odzyskiwania](backup-azure-restore-files-from-vm.md)
+
+### <a name="unmount-the-disks"></a>Odinstaluj dyski
+Gdy wymagane pliki zostaną skopiowane, odinstaluj dyski za pomocą  **[AzureRmRecoveryServicesBackupRPMountScript Wyłącz](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  polecenia cmdlet. Jest to zdecydowanie zalecane, ponieważ pozwala sprawdzić, usunięcie dostępu do plików punkt odzyskiwania
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli wolisz współpracować z zasobów platformy Azure przy użyciu programu PowerShell, zobacz artykuł programu PowerShell, [wdrażanie i zarządzanie kopia zapasowa systemu Windows Server](backup-client-automation.md). Jeśli zarządzasz kopii zapasowych programu DPM, zapoznaj się z artykułem [wdrażanie i zarządzanie kopii zapasowej programu DPM](backup-dpm-automation.md). Mieć obu tych artykułach wersji dla wdrożenia usługi Resource Manager oraz wdrożenia klasycznego.  

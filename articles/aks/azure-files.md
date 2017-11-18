@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Korzystanie z Kubernetes plików platformy Azure
 
-Aplikacje kontenera na podstawie często muszą uzyskać dostęp do utrwalenia danych w woluminie danych zewnętrznych. Usługa pliki Azure może służyć jako ten magazyn danych zewnętrznych. Szczegóły tego artykułu przy użyciu plików Azure jako wolumin Kubernetes usługi kontenera platformy Azure.
+Aplikacje kontenera często muszą uzyskać dostęp do utrwalenia danych w woluminie danych zewnętrznych. Usługa pliki Azure może służyć jako ten magazyn danych zewnętrznych. Szczegóły tego artykułu przy użyciu plików Azure jako wolumin Kubernetes usługi kontenera platformy Azure.
 
 Aby uzyskać więcej informacji na woluminach Kubernetes, zobacz [woluminów Kubernetes][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Tworzenie udziału plików
+## <a name="create-an-azure-file-share"></a>Tworzenie udziału plików na platformę Azure
 
-Istniejący już udział plików Azure może służyć z usługi kontenera platformy Azure. Jeśli potrzebujesz go utworzyć, użyj następujący zestaw poleceń.
-
-Utwórz grupę zasobów do udziału plików platformy Azure przy użyciu [Tworzenie grupy az] [ az-group-create] polecenia. Grupa zasobów konta magazynu i klaster Kubernetes musi znajdować się w tym samym regionie.
+Przed użyciem udział plików Azure jako wolumin Kubernetes, należy utworzyć konto usługi Azure Storage i udziału plików. Poniższy skrypt może służyć do wykonania tych zadań. Zwróć uwagę, lub zaktualizuj wartości parametrów, niektóre z nich są potrzebne podczas tworzenia woluminu Kubernetes.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Użyj [Tworzenie konta magazynu az] [ az-storage-create] polecenie, aby utworzyć konto usługi Azure Storage. Nazwa konta magazynu musi być unikatowa. Zaktualizuj wartość `--name` argumentu z unikatową wartość.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Użyj [listy kluczy konta magazynu az ] [ az-storage-key-list] poleceniu, aby uzyskać klucza magazynu. Zaktualizuj wartość `--account-name` argument nazwy konta magazynu unikatowy.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Zwróć uwagę jedna z wartości klucza, jest on używany w kolejnych krokach.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Użyj [utworzyć udział magazynu az] [ az-storage-share-create] polecenie, aby utworzyć udział plików Azure. Aktualizacja `--account-key` wartości z wartością zbierane w ostatnim kroku.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Utwórz klucz tajny Kubernetes
 
-Kubernetes wymaga poświadczeń dostępu do udziału plików. Zamiast przechowywania nazwy konta magazynu Azure i kluczy z każdej pod, jest ona przechowywana raz w [klucz tajny Kubernetes] [ kubernetes-secret] i odwołuje się każdego woluminu pliki Azure. 
+Kubernetes wymaga poświadczeń dostępu do udziału plików. Te poświadczenia są przechowywane w [klucz tajny Kubernetes][kubernetes-secret], który odwołuje się podczas tworzenia Kubernetes pod.
 
-Wartości w manifeście tajny Kubernetes musi być kodowany w standardzie base64. Użyj następujących poleceń, aby zwrócić wartości zakodowany.
+Podczas tworzenia Kubernetes poufne, tajne wartości muszą być kodowany w standardzie base64.
 
-Po pierwsze kodowanie nazwy konta magazynu. Zastąp `storage-account` z nazwą konta magazynu Azure.
+Po pierwsze kodowanie nazwy konta magazynu. W razie potrzeby Zastąp `$AKS_PERS_STORAGE_ACCOUNT_NAME` o nazwie konto magazynu Azure.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Następnie jest wymagany klucz dostępu do konta magazynu. Uruchom następujące polecenie, aby zwrócić kluczu zakodowanego. Zastąp `storage-key` z kluczem zebrane w poprzednim kroku
+Następnie należy zakodować klucz konta magazynu. W razie potrzeby Zastąp `$STORAGE_KEY` z nazwą klucza konta magazynu Azure.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Utwórz plik o nazwie `azure-secret.yml` i skopiuj następujące yaml programu. Aktualizacja `azurestorageaccountname` i `azurestorageaccountkey` wartości z base64 zakodowanych wartości pobierane w ostatnim kroku.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Użyj [zastosować kubectl] [ kubectl-apply] polecenie, aby utworzyć klucz tajny.
+Użyj [utworzyć kubectl] [ kubectl-create] polecenie, aby utworzyć klucz tajny.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Instalowanie udziału plików jako wolumin
 
-Można zainstalować na udział plików Azure w sieci pod przez skonfigurowanie woluminu w jego specyfikację. Utwórz nowy plik o nazwie `azure-files-pod.yml` z następującą zawartość. Aktualizacja `share-name` nazwa nadana plików Azure udostępnianie.
+Można zainstalować na udział plików Azure w sieci pod przez skonfigurowanie woluminu w jego specyfikację. Utwórz nowy plik o nazwie `azure-files-pod.yml` z następującą zawartość. Aktualizacja `aksshare` nazwa nadana plików Azure udostępnianie.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Więcej informacji o woluminach Kubernetes za pomocą usługi pliki Azure.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

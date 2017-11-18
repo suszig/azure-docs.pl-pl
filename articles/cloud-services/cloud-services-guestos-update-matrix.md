@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: ad23a38800a282b81d95eb5b15b218d86d3c0bc9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2017
@@ -88,7 +88,7 @@ Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
-| WA-GOŚCIA-OS-5.12_201710-01 |8 listopada 2017 r. |Post 5.14 |TBD |
+| WA-GOŚCIA-OS-5.12_201710-02 |8 listopada 2017 r. |Post 5.14 |TBD |
 | WA-GOŚCIA-OS-5.11_201709-01 |6 października 2017 r. |Post 5.13 |TBD |
 | WA-GOŚCIA-OS-5.10_201708-01 |24 sierpnia 2017 r. |Post 5.12 |TBD |
 |~~WA-GOŚCIA-OS-5.9_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -134,7 +134,7 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
-| WA-GOŚCIA-OS-3.54_201710-01 |8 listopada 2017 r. |Post 3.56 |TBD |
+| WA-GOŚCIA-OS-3.54_201710-02 |8 listopada 2017 r. |Post 3.56 |TBD |
 | WA-GOŚCIA-OS-3.53_201709-01 |6 października 2017 r. |Post 3,55 |TBD |
 | WA-GOŚCIA-OS-3.52_201708-01 |24 sierpnia 2017 r. |Post 3.54 |TBD |
 |~~WA-GOŚCIA-OS-3.51_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -157,7 +157,7 @@ Zainstalowany program .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
-| WA-GOŚCIA-OS-2.67_201710-01 |8 listopada 2017 r. |Post 2,69 |TBD |
+| WA-GOŚCIA-OS-2.67_201710-02 |8 listopada 2017 r. |Post 2,69 |TBD |
 | WA-GOŚCIA-OS-2.66_201709-01 |6 października 2017 r. |Post 2.68 |TBD |
 | WA-GOŚCIA-OS-2.65_201708-01 |24 sierpnia 2017 r. |Post 2.67 |TBD |
 |~~WA-GOŚCIA-OS-2.64_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |

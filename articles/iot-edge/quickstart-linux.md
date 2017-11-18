@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Szybki Start: Wdrażanie modułu pierwszy krawędzi IoT z portalu Azure na urządzeniu z systemem Linux — w wersji preview
 
@@ -66,24 +66,26 @@ Tworzenie tożsamości urządzenia symulowane urządzenie, dzięki czemu może k
 Środowisko uruchomieniowe krawędzi IoT jest wdrażana na wszystkich urządzeniach IoT krawędzi. Zawiera dwa moduły. Najpierw agenta krawędzi IoT ułatwia wdrażanie i monitorowanie modułów na urządzeniu IoT krawędzi. Po drugie Centrum IoT krawędzi zarządza komunikacji między modułami na urządzeniu IoT krawędzi i między urządzeniami a Centrum IoT. 
 
 Na komputerze, na którym będzie uruchamiane urządzenie brzegowe IoT Pobierz skrypt kontroli krawędzi IoT:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Skonfiguruj środowisko uruchomieniowe za pomocą parametrów połączenia urządzenia IoT krawędzi z poprzedniej sekcji:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Uruchom środowisko uruchomieniowe:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Docker wyboru, aby zobaczyć, czy agent krawędzi IoT jest uruchomiony jako moduł:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Zobacz edgeAgent w Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Wdrażanie modułu
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 W tego przewodnika Szybki Start utworzyć nowe urządzenie brzegowe IoT, a na nim zainstalowany środowiska uruchomieniowego IoT krawędzi. Następnie użyto portalu Azure do umieszczenia krawędzi IoT modułu do uruchomienia na urządzeniu bez konieczności zmiany na urządzeniu. W takim przypadku moduł, który zostanie przypisany tworzy dane środowiska, używanego programu samouczków. 
 
-Wyświetl komunikaty wysyłane z modułu tempSensor:
+Otwórz wiersz polecenia na komputerze z uruchomionym symulowane urządzenie ponownie. Upewnij się, że moduł wdrożonych w chmurze jest uruchomiona na urządzeniu IoT krawędzi:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Wyświetl trzech modułów na urządzeniu](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Wyświetl komunikaty wysyłane z modułu tempSensor do chmury:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![Wyświetlanie danych z modułu](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Można również wyświetlić dane telemetryczne, wysyła urządzenia przy użyciu [narzędzia explorer Centrum IoT][lnk-iothub-explorer]. 
 
@@ -115,7 +127,7 @@ Wiesz, jak wdrożyć moduł krawędzi IoT urządzenia IoT. Teraz spróbuj wdraż
 
 * [Wdrożyć własny kod jako moduł](tutorial-csharp-module.md)
 * [Wdrażanie funkcji platformy Azure jako moduł](tutorial-deploy-function.md)
-* [Wdrażanie usługi Azure Stream Analytics jako moduł](tutorial-deploy-stream-analytics.md)
+* [Wdrażanie usługi Azure Stream Analytics jako modułu](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Images -->

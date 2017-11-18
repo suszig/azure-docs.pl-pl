@@ -9,12 +9,12 @@ ms.reviewer:
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 7c7f93278d7020f1a20054934cfd6b34ce002c26
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: cc4053ac2be7e3a7a45da9a2a55f32f68bd9e3a0
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Co to jest podgląd z migracji bazy danych Azure?
 Usługa Azure bazy danych migracji jest pełni zarządzana usługa zaprojektowana w celu umożliwienia bezproblemowego migracji z wielu źródeł bazy danych do platformy Azure danych z minimalnym czasem przestojów. Usługa jest obecnie w wersji zapoznawczej, z programistycznych koncentruje się na:
@@ -24,8 +24,16 @@ Usługa Azure bazy danych migracji jest pełni zarządzana usługa zaprojektowan
 - Dalsze inwestycje w bez tarcia migracji.
 
 ## <a name="use-familiar-tools"></a>Wykorzystanie znanych narzędzi
-Usługa Azure migracji bazy danych integruje się niektóre funkcje w istniejących narzędzi i usług firmy Microsoft.  Zapewnia klientom z rozwiązaniem kompleksowe, wysokiej dostępności. Korzysta z usługi migracji bazy danych Azure [Asystenta migracji danych](http://aka.ms/dma) zapewnienie oceny raportów.  Zalecenia te informacje pomocne przy zmiany, które są wymagane przed wykonaniem migracji. To umożliwia przeprowadzanie korekty, wszelkie wymagane. Gdy wszystko będzie gotowe do rozpoczęcia procesu migracji usługi migracji bazy danych Azure wykonuje wszystkie skojarzone czynności. Mogą wyzwalać i zapomnij migracji projektów z spokój umysłu wiedzy proces korzysta z najlepszych rozwiązań ustaleniami firmy Microsoft. 
+Usługa Azure bazy danych migracji integruje się niektórych funkcji naszych istniejących narzędzi i usług.  Zapewnia klientom z rozwiązaniem kompleksowe, wysokiej dostępności. Używane przez usługę [Asystenta migracji danych](http://aka.ms/dma) do generowania raportów do oceny, które przedstawienia rekomendowanych do przeprowadzenia zmiany wymagane przed wykonaniem migracji. To umożliwia przeprowadzanie korekty, wszelkie wymagane. Gdy wszystko będzie gotowe do rozpoczęcia procesu migracji usługi migracji bazy danych Azure wykonuje wszystkie skojarzone kroki. Można uruchomić i zapomni swoje projekty migracji z poczucie zdanie, wiedząc, że proces korzysta z najlepszych rozwiązań, zgodnie z ustaleniami firmy Microsoft.
 
+## <a name="regional-availabilty-during-public-preview"></a>Regionalne availabilty publicznej wersji zapoznawczej
+W publicznej wersji zapoznawczej usługi Azure migracji bazy danych jest obecnie dostępna w następujących regionach:
+- Wschodnie stany USA
+- Środkowo-południowe stany USA
+- Zachodnie stany USA
+- Brazylia Południowa
+- Europa Zachodnia
+- Europa Północna
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie usługi z migracji bazy danych Azure przy użyciu portalu Azure](quickstart-create-data-migration-service-portal.md).
+- [Utwórz wystąpienie usługi migracji bazy danych Azure przy użyciu portalu Azure](quickstart-create-data-migration-service-portal.md).

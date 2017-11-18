@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 5eade2b85737f9c381f6292a78fc5407398e2b9c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API języka Java i Azure rozwiązania Cosmos bazy danych
 
@@ -87,9 +87,20 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
    ![Wyświetlanie i kopiowanie informacji o ciągu wymagane połączenie z okienka parametry połączenia](./media/create-table-java/connection-string.png)
 
-2. Otwórz plik config.properties i skopiować właściwości parametrów połączenia wymagane do pliku konfiguracji.
+2. Skopiuj podstawowy parametry połączenia za pomocą przycisku Kopiuj po prawej stronie.
 
-3. Zapisz plik config.properties.
+3. Otwórz config.properties z folderu C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+
+5. W komentarz wiersz jedną i Usuń komentarz linii dwa. Pierwsze dwa wiersze powinna wyglądać następująco.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. Wklej podstawowe parametry połączenia z portalu do wartości StorageConnectionString w wierszu 2. Jeśli punkt końcowy część ciągu połączenia używa documents.azure.com, popraw tej części, aby zamiast niej używać table.cosmosdb.azure.com.
+
+7. Zapisz plik config.properties.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 

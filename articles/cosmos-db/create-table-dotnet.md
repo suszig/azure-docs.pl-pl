@@ -3,7 +3,7 @@ title: "Szybki Start: Tabela interfejsu API z platformą .NET — rozwiązania C
 description: "Ta opcja szybkiego startu przedstawia sposób użycia interfejsu API Azure rozwiązania Cosmos DB tabeli do tworzenia aplikacji z portalu Azure i .NET"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/16/2017
+ms.author: mimig
+ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API platformy .NET i Azure rozwiązania Cosmos bazy danych 
 
@@ -84,15 +84,16 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 2. W programie Visual Studio Otwórz plik App.config. 
 
-3. Ponieważ ten samouczek nie korzysta z emulatora magazynu, usuń znaczniki komentarza StorageConnectionString na wiersz 8 ujmij w komentarz StorageConnectionString w wierszu 7. 
-
-3. Wklej wartość podstawowe parametry połączenia do wartości StorageConnectionString w wierszu 8. 
+3. Ponieważ ten samouczek nie korzysta z emulatora magazynu, usuń znaczniki komentarza StorageConnectionString na wiersz 8 ujmij w komentarz StorageConnectionString w wierszu 7. Wiersz 7 i 8 powinna wyglądać następująco:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Wiersz 8 powinna wyglądać podobnie do
+4. Wklej podstawowe parametry połączenia z portalu na wartość StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów. Jeśli punkt końcowy używa documents.azure.com, zmienić table.cosmosdb.azure.com tej części. 
+
+    Wiersz 8 powinna wyglądać podobnie do:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -110,11 +111,25 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 3. Z wyników, należy zainstalować **Microsoft.Azure.CosmosDB.Table** biblioteki. Spowoduje to zainstalowanie pakietu interfejsu API Azure rozwiązania Cosmos DB tabeli, a także wszystkie zależności.
 
-4. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+4. Otwórz BasicSamples.cs i Dodaj punkt przerwania 30 wiersz i wiersz 52.
 
-    W oknie konsoli wyświetla dane w tabeli dodawane do nowej tabeli bazy danych w usłudze Azure DB rozwiązania Cosmos.
+5. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
 
-    Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie.
+    W oknie konsoli wyświetla dane w tabeli dodawane do nowej tabeli bazy danych w usłudze Azure DB rozwiązania Cosmos. 
+    
+    Jeśli wystąpi błąd o zależnościach, zobacz [Rozwiązywanie problemów](table-sdk-dotnet.md#troubleshooting).
+
+    Po trafieniu punktu przerwania w pierwszym wrócić do Eksploratora danych w portalu Azure i rozwiń tabeli pokaz * i kliknij przycisk **jednostek**. **Jednostek** karta po prawej stronie zawiera nową jednostkę, która została dodana, należy zwrócić uwagę ten numer telefonu użytkownika jest 425-555-0101.
+    
+6. Zamknij kartę jednostek w Eksploratorze danych.
+    
+7. Kontynuuj uruchomić aplikację do następnego punktu przerwania.
+
+    Po trafieniu punktu przerwania wrócić do portalu kliknij pozycję jednostek ponownie, aby otworzyć kartę jednostek i należy pamiętać, że numer telefonu został zaktualizowany do 425-555-0105.
+
+8. W oknie konsoli naciśnij klawisze CTRL + C, aby zakończyć wykonywanie aplikacji. 
+
+    Teraz można wrócić do Eksploratora danych i dodać lub zmodyfikować entitites i wykonywania zapytań o dane.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 

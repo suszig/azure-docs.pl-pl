@@ -1,6 +1,6 @@
 ---
-title: "Usługa migracji bazy danych Azure używany do migracji migracji programu SQL Server do usługi Azure SQL Database | Dokumentacja firmy Microsoft"
-description: "Dowiedz się przeprowadzić migrację z lokalnie programu SQL Server do bazy danych SQL Azure przy użyciu usługi migracji bazy danych Azure."
+title: "Migrowanie serwera SQL z bazą danych SQL Azure za pomocą usługi migracji bazy danych Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się przeprowadzić migrację z lokalnej instalacji programu SQL Server do bazy danych SQL Azure za pomocą usługi migracji bazy danych Azure."
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/09/2017
-ms.openlocfilehash: 70127b09e64ea4f19de437297498bdf78d415b99
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrowanie serwera SQL z bazą danych Azure SQL
 Usługa Azure bazy danych migracji umożliwia migrację bazy danych z lokalnego wystąpienia programu SQL Server do bazy danych SQL Azure. W tym samouczku, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 (lub nowszym) z bazą danych SQL Azure za pomocą usługi Azure migracji bazy danych w bazie danych.
@@ -25,28 +25,29 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Oceń lokalnej bazy danych przy użyciu Asystenta migracji danych.
 > * Migrowanie schematu próbki za pomocą Asystenta migracji danych.
 > * Utwórz wystąpienie usługi migracji bazy danych Azure.
-> * Tworzenie projektu migracji usługi migracji bazy danych Azure.
+> * Utwórz projekt migracji za pomocą usługi Azure migracji bazy danych.
 > * Uruchom migrację.
 > * Monitoruj migrację.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do ukończenia tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka, musisz:
 
-- [SQL Server 2016 lub nowszego](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja)
-- Protokół TCP/IP jest domyślnie wyłączona, z instalacją programu SQL Server Express. Włącz go, wykonując [instrukcje w tym artykule](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Aby skonfigurować Twoje [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Wystąpienie bazy danych SQL Azure. Można utworzyć wystąpienia bazy danych SQL Azure, wykonując szczegółowo w artykule [tworzenie bazy danych Azure SQL w portalu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
-- [Dane migracji Asystenta](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 lub nowszym.
-- Usługa Azure bazy danych migracji wymaga utworzony przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia połączenie lokacja lokacja z serwerami lokalnymi źródła przy użyciu sieci Wirtualnej [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [ Sieć VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Poświadczenia użyte do nawiązania połączenia źródła wystąpienia programu SQL Server musi mieć [serwera kontroli](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) uprawnienia.
-- Poświadczenia użyte do nawiązania połączenia docelowego wystąpienia bazy danych SQL Azure wymagane uprawnienie bazy danych kontroli z docelowymi bazami danych bazy danych SQL Azure.
-- Zapora systemu Windows musi być otwarty, aby umożliwić uzyskiwanie dostępu do źródła programu SQL Server z usługi migracji bazy danych Azure.
+- Pobieranie i instanll [programu SQL Server 2016 lub nowszego](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja).
+- Włącz protokół TCP/IP, które jest domyślnie wyłączone podczas instalacji programu SQL Server Express przez postępując zgodnie z instrukcjami w artykule [włączyć lub wyłączyć protokół sieciowy serwera](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Konfigurowanie sieci [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Utwórz wystąpienie wystąpienia bazy danych SQL Azure, co zrobić, wykonując szczegółowo w artykule [tworzenie bazy danych Azure SQL w portalu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Pobierz i zainstaluj [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 lub nowszym.
+- Tworzenie sieci Wirtualnej dla usługi Azure migracji bazy danych przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia połączenie lokacja lokacja z serwerami lokalnymi źródła przy użyciu [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Upewnij się, że poświadczenia użyte do nawiązania połączenia źródła wystąpienia programu SQL Server [serwera kontroli](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) uprawnienia.
+- Sprawdź, czy poświadczenia użyte do nawiązania połączenia docelowego wystąpienia bazy danych SQL Azure mają uprawnienia bazy danych kontroli na docelowymi bazami danych Azure SQL.
+- Otwórz Zaporę systemu Windows tak, aby umożliwić uzyskiwanie dostępu do źródła programu SQL Server z usługi migracji bazy danych Azure.
 
 ## <a name="assess-your-on-premises-database"></a>Oceny lokalnej bazy danych
-Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure, należy dokonać oceny problemy blokujące, które mogą uniemożliwić migracji bazy danych SQL Server. Po pobraniu i zainstalowaniu v3.3 Asystenta migracji danych, wykonaj czynności opisane w artykule [wykonywania oceny migracji programu SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) przeprowadzenie lokalnej bazy danych do oceny. Podsumowanie kroki wymagane są następujące:
+Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure, należy dokonać oceny problemy blokujące, które mogą uniemożliwić migracji bazy danych SQL Server. W danych migracji Asystenta v3.3 lub nowszym, wykonaj czynności opisane w artykule [wykonywania oceny migracji programu SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) przeprowadzenie lokalnej bazy danych do oceny. Podsumowanie kroki wymagane są następujące:
 1.  W Asystencie migracji danych wybierz ikonę Nowy (+), a następnie wybierz **oceny** typu projektu.
 2.  Określić nazwę projektu w **typ serwera źródła** pole tekstowe, wybierz **programu SQL Server**, a następnie w **typ serwer docelowy** pole tekstowe, wybierz **Azure SQL Baza danych**.
 3.  Wybierz **Utwórz** Aby utworzyć projekt.
+
     Oceniając źródłowej bazy danych programu SQL Server, migracja do bazy danych SQL Azure, możesz wybrać jedną lub obie następujące typy raportów oceny:
     - Sprawdzenie zgodności bazy danych
     - Sprawdzanie parzystości funkcji
@@ -54,7 +55,7 @@ Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Ser
     Domyślnie są zaznaczone obu typów raportów.
 4.  W Asystencie migracji danych na **opcje** ekranu wybierz **dalej**.
 5.  Na **Wybierz źródła** ekranu w **Połącz z serwerem** okno dialogowe, podaj szczegóły połączenia z serwerem SQL, a następnie wybierz **Connect**.
-6.  Wybierz **AdventureWorks2012**, wybierz pozycję **Dodaj**, a następnie wybierz **Start oceny**.
+6.  W **Dodaj źródła** okno dialogowe, wybierz opcję **AdventureWorks2012**, wybierz pozycję **Dodaj**, a następnie wybierz **Start oceny**.
 
     Po zakończeniu oceny wyniki są wyświetlane jak pokazano na poniższym rysunku:
 
@@ -63,20 +64,19 @@ Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Ser
     Bazy danych SQL Azure oceny zidentyfikować problemy z blokowaniem migracji i problemów parzystość funkcji.
 
 7.  Przejrzyj wyniki oceny do rozwiązywania problemów parzystość funkcji i problemy z blokowaniem migracji wybranie określonych opcji.
-    - Kategoria parzystość funkcji programu SQL Server zapewnia rozbudowany zestaw zaleceń, alternatywnych metod dostępne w Azure i ograniczające zagrożenie kroki ułatwiają planowanie nakład pracy w projektach migracji.
-    - Kategoria problemy ze zgodnością zapewnia częściowo lub nieobsługiwane funkcje odzwierciedlające problemy ze zgodnością, które mogłyby zablokować migracja lokalnych baz danych programu SQL Server do baz danych SQL Azure. Podawane są również zalecenia ułatwiające rozwiązanie tych problemów.
+    - **Parzystość funkcji programu SQL Server** kategorii zapewnia rozbudowany zestaw zaleceń, dostępnej na platformie Azure, alternatywnych metod i zmniejszenia kroki, aby ułatwić planowanie nakład pracy w projektach migracji.
+    - **Problemy ze zgodnością** kategorii identyfikuje częściowo obsługiwane i nieobsługiwane funkcje, które odzwierciedlać problemy ze zgodnością może uniemożliwić Migrowanie baz danych programu SQL Server lokalną bazą danych SQL Azure. Podawane są również zalecenia ułatwiające rozwiązanie tych problemów.
 
 
 ## <a name="migrate-the-sample-schema"></a>Migrowanie schematu próbki
-Po stwierdzeniu, że wybrana baza danych odpowiednimi kandydatami do migracji do bazy danych SQL Azure, użyć Asystenta migracji danych do migracji schematu do bazy danych SQL Azure w potrafisz oceny.
+Po wykonaniu potrafisz oceny i spełnione, że wybrana baza danych są odpowiednimi kandydatami do migracji do usługi Azure SQL Database, korzystanie z Asystenta migracji danych do migracji schematu do bazy danych SQL Azure.
 
 > [!NOTE]
-> Przed utworzeniem projektu migracji Asystenta migracji danych w, należy się upewnić, że już zapewnieniu bazy danych Azure SQL określone wymagania wstępne. Do celów tego samouczka, nazwa bazy danych SQL Azure zakłada się, że **AdventureWorks2012**, ale można określić nazwę inaczej w razie potrzeby.
+> Przed utworzeniem projektu migracji w Asystenta migracji danych, należy się upewnić, że już zapewnieniu bazy danych Azure SQL określone w wymaganiach wstępnych. Do celów tego samouczka, nazwa bazy danych SQL Azure zakłada się, że **AdventureWorksAzure**, ale można określić nazwę inaczej w razie potrzeby.
 
 Aby przeprowadzić migrację **AdventureWorks2012** schematu z bazą danych SQL Azure, wykonaj następujące czynności:
 
-1.  Uruchamianie Asystenta migracji danych.
-2.  Wybierz ikonę Nowy (+), a następnie w obszarze **typ projektu**, wybierz pozycję **migracji**.
+1.  W Asystencie migracji danych wybierz ikonę Nowy (+), a następnie w obszarze **typ projektu**, wybierz pozycję **migracji**.
 3.  Określić nazwę projektu w **typ serwera źródła** pole tekstowe, wybierz **programu SQL Server**, a następnie w **typ serwer docelowy** pole tekstowe, wybierz **Azure SQL Baza danych**.
 4.  W obszarze **zakresu migracji**, wybierz pozycję **tylko schemat**.
 
@@ -88,7 +88,7 @@ Aby przeprowadzić migrację **AdventureWorks2012** schematu z bazą danych SQL 
 6.  W Asystencie migracji danych Określ szczegóły połączenia źródła dla programu SQL Server, wybierz **Connect**, a następnie wybierz **AdventureWorks2012** bazy danych.
 
     ![Szczegóły połączenia źródła Asystenta migracji danych](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
-7.  Wybierz **dalej**w obszarze **Połącz z serwerem docelowym**, określ szczegóły połączenia docelowej bazy danych Azure SQL, wybierz **Connect**, a następnie wybierz **AdventureWorks2012** bazy danych można było wstępnie tworzyć w bazie danych Azure SQL.
+7.  Wybierz **dalej**w obszarze **Połącz z serwerem docelowym**, określ szczegóły połączenia docelowej bazy danych Azure SQL, wybierz **Connect**, a następnie wybierz **AdventureWorksAzure** bazy danych można było wstępnie tworzyć w bazie danych Azure SQL.
 
     ![Szczegóły połączenia z docelowym Asystenta migracji danych](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 8.  Wybierz **dalej** aby przejść do **wybierz obiekty** ekran, na którym można określić obiektów schematu w **AdventureWorks2012** bazy danych, które muszą zostać wdrożone na platformie Azure Baza danych SQL.
@@ -103,8 +103,21 @@ Aby przeprowadzić migrację **AdventureWorks2012** schematu z bazą danych SQL 
 
     ![Wdrażanie schematu](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
+## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
+1. Zaloguj się do portalu Azure, wybierz opcję **wszystkie usługi**, a następnie wybierz **subskrypcje**.
+ 
+   ![Pokaż portalu subskrypcji](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
+       
+2. Wybierz subskrypcję, w którym chcesz utworzyć wystąpienia usługi migracji bazy danych Azure, a następnie wybierz **dostawców zasobów**.
+ 
+    ![Pokaż dostawców zasobów](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
+3.  Wyszukiwanie do migracji, a następnie po prawej stronie **Microsoft.DataMigration**, wybierz pozycję **zarejestrować**.
+ 
+    ![Rejestrowanie dostawcy zasobów](media\tutorial-sql-server-to-azure-sql\portal-register-resource-provider.png)    
+
+
 ## <a name="create-an-instance"></a>Tworzenie wystąpienia
-1.  Zaloguj się do portalu Azure, wybierz opcję **+ Utwórz zasób**, wyszukaj usługi migracji bazy danych Azure, a następnie wybierz **usługi migracji bazy danych Azure** z listy rozwijanej.
+1.  W portalu Azure wybierz **+ Utwórz zasób**, wyszukaj usługi migracji bazy danych Azure, a następnie wybierz **usługi migracji bazy danych Azure** z listy rozwijanej.
 
     ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\portal-marketplace.png)
 2.  Na **usługi migracji bazy danych Azure (wersja zapoznawcza)** ekranu wybierz **Utwórz**.
@@ -113,7 +126,7 @@ Aby przeprowadzić migrację **AdventureWorks2012** schematu z bazą danych SQL 
   
 3.  Na **bazy danych migracji usługi** ekranu, określ nazwę usługi, subskrypcja sieci wirtualnej i warstwę cenową.
 
-    Aby uzyskać więcej informacji na kosztów i warstwy cenowej zobacz stronę cenową.
+    Aby uzyskać więcej informacji na kosztów i warstwy cenowej, zobacz [cennikiem](https://aka.ms/dms-pricing).
 
      ![Skonfiguruj ustawienia wystąpienia usługi migracji bazy danych Azure](media\tutorial-sql-server-to-azure-sql\dms-settings.png)
 
@@ -188,7 +201,7 @@ Po utworzeniu usługi znalezienie go w portalu Azure, a następnie utwórz proje
 
 7.  Wybierz **uruchamiania migracji** do uruchomienia działania migracji, a następnie wybierz **Odśwież** informacje dotyczące bieżącego stanu.
 
-    ![Stan działania](media\tutorial-sql-server-to-azure-sql\dms-activity-status.png)
+    ![Stan aktywności](media\tutorial-sql-server-to-azure-sql\dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>Monitoruj migrację
 1. Wybierz działanie migracji, aby sprawdzić stan działania.

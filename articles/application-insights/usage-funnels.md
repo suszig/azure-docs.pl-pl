@@ -12,35 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d55207784390a68a3b4d87f7a3d4773491d08b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Wykryj, jak klienci używają aplikacji z rozdzielaczy Application Insights
 
 Opis klientów są największe znaczenie dla Twojej firmy. Jeśli aplikacja obejmuje kilka etapów, musisz wiedzieć, jeśli większość klientów postępu są przez cały proces lub są one zakończenia procesu w pewnym momencie. Przejście przez kilka czynności w aplikacji sieci web nazywa się "lejka". Rozdzielaczy Application Insights umożliwia uzyskać wgląd w użytkowników i monitor kursy wymiany krok po kroku. 
 
-## <a name="get-started-with-the-funnels-blade"></a>Rozpoczynanie pracy z bloku Lejki
-Najprostszym sposobem, aby dowiedzieć się więcej o Lejki jest przeprowadzenie jednak przykładem. Poniższe ilustracje wykazanie, że kroki właściciele firm handlu elektronicznego zajmie się sposób interakcji klientów z aplikacją sieci web.  
-
-### <a name="create-your-funnel"></a>Utwórz użytkownika lejka.
-Przed utworzeniem sieci lejka należy zdecydować się na pytanie, które chcesz odpowiedzieć. Można na przykład wiedzieć, ilu użytkowników Wyświetlanie przez stronę główną, kliknij na anonsu. W tym przykładzie właściciele firmy Fabrikam Fiber zapoznać się odsetek klientów, którzy tworzą zakupu po dodaniu elementów do ich koszyk w ciągu ostatniego miesiąca.
+## <a name="create-your-funnel"></a>Utwórz użytkownika lejka.
+Przed utworzeniem sieci lejka należy zdecydować się na pytanie, które chcesz odpowiedzieć. Na przykład można wiedzieć, ilu użytkowników jest wyświetlana strona główna profil klienta wyświetlania i tworzenia biletu. W tym przykładzie właściciele firmy Fabrikam Fiber zapoznać się odsetek klientów, którzy pomyślnie utworzyć bilet klienta.
 
 Poniżej przedstawiono kroki, które podejmują tworzenia ich lejka.
 
-1. Kliknij przycisk Nowy blok lejki.
-1. Wybierz przedział czasu "Ostatni miesiąc" z **zakres czasu** listy rozwijanej. 
-1. Wybierz **stronę produktu** zdarzenia z **krok 1** listy rozwijanej. 
-1. Wybierz **Dodaj do koszyka** zdarzenia z **krok 2** listy rozwijanej.
-1. Wybierz **kliknij zakupu** zdarzenia z **kroku 3** listy rozwijanej.
+1. Kliknij przycisk Nowy narzędzie lejki.
+1. Wybierz przedział czasu "Ostatnich 90 dni" z **zakres czasu** listy rozwijanej. Wybierz opcję "Mój Lejki" lub "Udostępniania Lejki"
+1. Wybierz **indeksu** zdarzenia z **krok 1** listy rozwijanej. 
+1. Wybierz **klienta** zdarzenia z **krok 2** listy rozwijanej.
+1. Wybierz **Utwórz** zdarzenia z **kroku 3** listy rozwijanej.
 1. Dodaj nazwę do lejka i kliknij przycisk **zapisać**.
 
-Poniższa ilustracja przedstawia się, że generuje Lejki bloku danych. W tym miejscu Fabrikam właścicieli widoczny w zeszłym tygodniu 22.7% dla klientów, którzy dodać element do ich koszyk ukończone zakupu. Można również sprawdzić 1% klientów kliknięty anonsu, aby odwiedzić stronę produktu i 20% klientów wylogowany po zakończeniu ich zakupu.
+Poniższa ilustracja przedstawia się, że dane narzędzie Lejki generuje. W tym miejscu Fabrikam właścicieli znajduje się w ciągu ostatnich 90 dni, 54.3% dla klientów, którzy odwiedzona strona główna utworzenia biletu klienta. Można również sprawdzić czy pochodzi 2.7k klientów do indeksu strony głównej, może to wskazywać problem odświeżania.
 
 
-![Blok Lejki z danymi](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Narzędzie Lejki z danymi](./media/app-insights-understand-usage-patterns/funnel1.png)
+
+### <a name="funnel-features"></a>Funkcje lejka
+1. Jeśli jest próbkowany aplikacji, zostanie wyświetlony Baner próbkowania. Kliknięcie na banerze spowoduje otwarcie okienka kontekstu poinstruowanie jak wyłączyć próbkowania. 
+2. Możesz wyeksportować z lejka do [usługi Power BI](app-insights-export-power-bi.md).
+3. Kliknij krok, aby uzyskać bardziej szczegółowe po prawej stronie. 
+4. Konwersja historycznych pokazuje konwersji w ciągu ostatnich 90 dni. 
+5. Zrozumienie użytkownikom lepsze, przechodząc do narzędzia do użytkowników z lejki. Każdy krok zapewni możesz wyselekcjonowanych filtry użytkowników. 
 
 ## <a name="next-steps"></a>Następne kroki
   * [Przegląd wykorzystania](app-insights-usage-overview.md)

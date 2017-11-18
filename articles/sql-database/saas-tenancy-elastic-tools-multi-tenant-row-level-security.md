@@ -1,5 +1,5 @@
 ---
-title: "Aplikacje wielodostępne z narzędzi elastycznej bazy danych i zabezpieczenia na poziomie wiersza"
+title: "Aplikacje wielodostępne kontrola dostępu i narzędzi elastycznej bazy danych | Dokumentacja firmy Microsoft"
 description: "Użyj narzędzi elastycznej bazy danych z zabezpieczeniami na poziomie wiersza, aby skompilować aplikację z warstwą danych wysokiej skalowalności."
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
@@ -13,38 +13,42 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 11/16/2017
 ms.author: thmullan;torsteng
-ms.openlocfilehash: b85673c7f0e8176a1700e55fe2ce33b7c191828a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplikacje wielodostępne z narzędzi elastycznej bazy danych i zabezpieczenia na poziomie wiersza
-[Narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md) i [zabezpieczeń na poziomie wiersza](https://msdn.microsoft.com/library/dn765131) oferują zaawansowany zestaw możliwości elastyczne i wydajne skalowanie warstwy danych wielodostępnych aplikacji z bazy danych SQL Azure. Aby uzyskać więcej informacji, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS przy użyciu usługi Azure SQL Database](saas-tenancy-app-design-patterns.md) Aby uzyskać więcej informacji. 
 
-W tym artykule przedstawiono sposób używania tych technologii jednocześnie do tworzenia aplikacji z warstwą danych skalowalnej obsługuje wielodostępne odłamków, za pomocą **ADO.NET SqlClient** i/lub **programu Entity Framework**.  
+[Narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md) i [zabezpieczeń na poziomie wiersza] [ rls] współpracują w celu włączenia skalowania warstwy danych wielodostępnych aplikacji z bazy danych SQL Azure. Ze sobą te technologie pomocne w tworzeniu aplikacji, która ma warstwy danych wysokiej skalowalności. Warstwa danych obsługuje wielodostępne odłamków i wykorzystuje **ADO.NET SqlClient** lub **Entity Framework**. Aby uzyskać więcej informacji, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS przy użyciu usługi Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-* **Narzędzi elastycznej bazy danych** umożliwia deweloperom skalowania warstwy danych aplikacji za pośrednictwem standardowych dzielenia na fragmenty rozwiązania przy użyciu zestawu .NET bibliotek i szablony usługi Azure. Zarządzanie odłamków z za pomocą biblioteki klienta elastycznej bazy danych pozwala zautomatyzować i uprościć wiele zadań infrastrukturalne zwykle skojarzone z dzielenia na fragmenty. 
-* **Wiersz poziomu zabezpieczeń** umożliwia deweloperom przechowywania danych dla wielu dzierżawców w tej samej bazy danych za pomocą zasad zabezpieczeń, aby odfiltrować wiersze, które nie należą do dzierżawy wykonywanie zapytania. Scentralizowany dostęp logiki odświeżania w bazie danych, a nie w aplikacji upraszcza konserwację i zmniejsza ryzyko błędu ścieżce bazowej kodu aplikacji rozwoju. 
+- **Narzędzi elastycznej bazy danych** umożliwia deweloperom skalowania warstwy danych z rozwiązaniami standardowe dzielenia na fragmenty, przy użyciu bibliotek .NET i szablony usługi Azure. Zarządzanie za pomocą odłamków [elastycznej bazy danych klienta biblioteki] [ s-d-elastic-database-client-library] pomaga zautomatyzować i uprościć wiele zadań infrastrukturalne zwykle skojarzone z dzielenia na fragmenty.
+- **Wiersz poziomu zabezpieczeń** umożliwia deweloperom bezpiecznie przechowywać dane dla wielu dzierżawców w tej samej bazy danych. Zasady zabezpieczeń zabezpieczenia na poziomie wiersza odfiltrować wiersze, które nie należą do dzierżawy wykonywanie zapytania. Scentralizowany logiki filtru w bazie danych upraszcza konserwację i zmniejsza ryzyko błędu zabezpieczeń. Alternatywą dla jednostki uzależnionej na wszystkich kod klienta w celu zabezpieczenia enfore jest ryzykowne.
 
-Razem z tych funkcji, aplikacji mogą korzystać z koszt zyski oszczędności i wydajności, dane są przechowywane dla wielu dzierżawców w bazie danych sam identyfikator niezależnego fragmentu. W tym samym czasie aplikacji nadal ma możliwość oferuje izolowanym, pojedynczego dzierżawcy fragmentów dla dzierżawcy "premium", którzy wymagają bardziej rygorystyczne gwarancji wydajności, ponieważ odłamków wielodostępne gwarantuje dystrybucji równy zasobów między dzierżawcami.  
+Przy użyciu tych funkcji ze sobą, aplikacja może przechowywać dane dla wielu dzierżawców w bazie danych sam identyfikator niezależnego fragmentu. Kosztuje mniej dla każdego dzierżawcy podczas dzierżawcami współużytkują bazę danych. Jeszcze tej samej aplikacji można również umożliwiają jego dzierżaw premium płatność za swoje własne dedykowane niezależnych pojedynczej dzierżawy. Korzyścią izolacji pojedynczej dzierżawy jest lepszych gwarancji wydajności. W bazie danych pojedynczej dzierżawy nie ma żadnych innych dzierżawy konkurowanie o zasoby.
 
-Krótko mówiąc, elastyczne bazy danych biblioteki klienta [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md) interfejsów API automatycznie łączyć dzierżaw poprawny identyfikator niezależnego fragmentu bazy danych zawierającej klucz dzielenia na fragmenty (zazwyczaj "TenantId"). Po nawiązaniu połączenia zasady zabezpieczeń zabezpieczenia na poziomie wiersza w bazie danych zapewnia, że dzierżawców można tylko dostęp do wierszy zawierających ich identyfikatora dzierżawcy. Zakłada się, że wszystkie tabele zawierają kolumnę TenantId wskazują wiersze, które należą do każdego dzierżawcy. 
+Celem jest korzystanie z biblioteki klienta elastycznej bazy danych [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md) interfejsów API automatyczne łączenie się poprawny identyfikator niezależnego fragmentu bazy danych z każdej danej dzierżawy. Tylko jeden identyfikator niezależnego fragmentu zawiera konkretną wartość TenantId dla danej dzierżawy. TenantId jest *klucza dzielenia na fragmenty*. Po nawiązaniu połączenia zasady zabezpieczeń zabezpieczenia na poziomie wiersza w bazie danych zapewnia, że danej dzierżawy mają dostęp do tylko te wiersze danych, które zawierają jego identyfikatora dzierżawcy.
+
+> [!NOTE]
+> Identyfikator dzierżawy może składać się z więcej niż jedną kolumnę. Dla wygody jest rozważania, przyjęto założenie nieformalnego TenantId pojedynczej kolumny.
 
 ![Architektura aplikacji obsługi blogów][1]
 
 ## <a name="download-the-sample-project"></a>Pobierz przykładowy projekt
+
 ### <a name="prerequisites"></a>Wymagania wstępne
-* Za pomocą programu Visual Studio (2012 lub nowszy) 
-* Utwórz trzy bazy danych SQL Azure 
-* Pobierz przykładowy projekt: [elastyczne narzędzia bazy danych dla bazy danych SQL Azure - odłamków wielodostępne](http://go.microsoft.com/?linkid=9888163)
-  * Wprowadź informacje dla baz danych na początku **Program.cs** 
 
-Ten projekt rozszerza opisanych w [elastyczne narzędzia bazy danych dla bazy danych SQL Azure - Entity Framework integracji](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) przez dodanie obsługi wielodostępne niezależnego fragmentu bazy danych. Tworzenia prostej aplikacji konsolowej do tworzenia blogów i wpisów, z czterech dzierżawców i dwóch niezależnych wielodostępnych baz danych jak pokazano na powyższym diagramie. 
+- Za pomocą programu Visual Studio (2012 lub nowszy) 
+- Utwórz trzy bazy danych SQL Azure 
+- Pobierz przykładowy projekt: [elastyczne narzędzia bazy danych dla bazy danych SQL Azure - odłamków wielodostępne](http://go.microsoft.com/?linkid=9888163)
+  - Wprowadź informacje dla baz danych na początku **Program.cs** 
 
-Skompiluj i uruchom aplikację. Używa do ładowania menedżera map niezależnego fragmentu narzędzi elastycznej bazy danych i uruchom następujące testy: 
+Ten projekt rozszerza opisanych w [elastyczne narzędzia bazy danych dla bazy danych SQL Azure - Entity Framework integracji](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) przez dodanie obsługi wielodostępne niezależnego fragmentu bazy danych. Projekt tworzy prostej aplikacji konsolowej tworzenia blogów i wpisów. Projekt zawiera cztery dzierżawców, a także dwóch niezależnych wielodostępnych baz danych. Na powyższym diagramie przedstawiono tę konfigurację. 
+
+Skompiluj i uruchom aplikację. Tego uruchomienia używa do ładowania menedżera map niezależnego fragmentu narzędzi elastycznej bazy danych, a następnie wykonuje następujące testy: 
 
 1. Przy użyciu programu Entity Framework i LINQ, Utwórz nowy blog, a następnie Wyświetl wszystkie blogi dla każdego dzierżawcy
 2. Za pomocą ADO.NET SqlClient, wyświetlić wszystkie blogi dla dzierżawy
@@ -52,41 +56,58 @@ Skompiluj i uruchom aplikację. Używa do ładowania menedżera map niezależneg
 
 Powiadomienie, że ponieważ zabezpieczenia na poziomie wiersza nie została jeszcze włączona w bazach danych niezależnego fragmentu, tych testów ujawnia problem: dzierżawcy będą mogli zobaczyć blogów, które nie należą do nich, a aplikacja nie będzie mógł Wstawianie blogu dla niewłaściwego dzierżawcy. W dalszej części tego artykułu opisano, jak rozwiązać te problemy przez wymuszania izolacji dzierżawców odświeżania. Istnieją dwa kroki: 
 
-1. **Warstwy aplikacji**: modyfikowanie kodu aplikacji, aby zawsze ustawić bieżącego identyfikatora dzierżawcy w SESSION_CONTEXT po otwarciu połączenia. Przykładowy projekt zawiera już zostało to zrobione. 
-2. **Warstwa danych**: Tworzenie zasad zabezpieczeń zabezpieczenia na poziomie wiersza każdego niezależnego fragmentu bazy danych oparte na TenantId przechowywane w SESSION_CONTEXT wierszy filtru. Należy to zrobić dla każdego użytkownika niezależnych baz danych, w przeciwnym razie wierszy w wielu dzierżawcy fragmentów nie są filtrowane. 
+1. **Warstwy aplikacji**: modyfikowanie kodu aplikacji, aby zawsze ustawić bieżącego identyfikatora dzierżawcy w sesji\_KONTEKSTU po otwarciu połączenia. Przykładowy projekt już ustawia TenantId w ten sposób. 
+2. **Warstwa danych**: Tworzenie zasad zabezpieczeń zabezpieczenia na poziomie wiersza w każdej bazy danych niezależnych do filtru wierszy oparty na TenantId przechowywanych w sesji\_KONTEKSTU. Tworzenie zasad dla każdej z baz danych niezależnego fragmentu, w przeciwnym razie wierszy w wielu dzierżawcy fragmentów nie są filtrowane. 
 
-## <a name="step-1-application-tier-set-tenantid-in-the-sessioncontext"></a>Warstwy aplikacji w kroku 1): Ustaw TenantId w SESSION_CONTEXT
-Po nawiązaniu połączenia z bazą danych niezależnych przy użyciu routingu interfejsów API zależne od danych biblioteki klienta elastycznej bazy danych, aplikacji nadal należy sprawdzić bazy danych, które TenantId używa tego połączenia, aby zabezpieczenia na poziomie wiersza zasady zabezpieczeń można odfiltrować wierszy należące do innych dzierżawców. Zalecanym sposobem przekazać te informacje jest przechowywanie bieżącego identyfikatora dzierżawy dla tego połączenia w [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Uwaga: Możesz też użyć [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), ale SESSION_CONTEXT jest lepszym rozwiązaniem, ponieważ jest łatwiejsza w użyciu, zwraca wartość NULL, domyślnie i obsługuje pary klucz wartość.)
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Warstwy aplikacji: zestaw TenantId w sesji\_KONTEKSTU
+
+Najpierw należy nawiązać niezależnego fragmentu bazy danych przy użyciu interfejsów API routingu zależne od danych biblioteki klienta elastycznej bazy danych. Aplikacja nadal należy wskazać bazy danych które identyfikatora dzierżawcy jest przy użyciu połączenia. Identyfikatora dzierżawy określa, że zasady zabezpieczeń zabezpieczenia na poziomie wiersza wiersze, które muszą odfiltrowane jako należące do innych dzierżawców. Przechowywanie bieżącego identyfikatora dzierżawcy w [sesji\_KONTEKSTU](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) połączenia.
+
+Zamiast sesji\_KONTEKSTU jest użycie [KONTEKSTU\_informacji](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ale sesji\_kontekst jest lepszym rozwiązaniem. SESJA\_kontekst jest łatwiejsza w użyciu, domyślnie zwraca wartość NULL i obsługuje pary klucz wartość.
 
 ### <a name="entity-framework"></a>Entity Framework
-Dla aplikacji za pomocą programu Entity Framework, najprostszym podejście jest skonfigurowanie SESSION_CONTEXT w zastąpienie ElasticScaleContext opisanego w [danych zależne od routingu przy użyciu EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Przed powrotem połączenia przeprowadzana za pośrednictwem routingu zależne od danych, należy tworzyć i wykonywać SqlCommand, która ustawia "TenantId" w SESSION_CONTEXT do shardingKey określony dla tego połączenia. Dzięki temu wystarczy raz napisać kod, aby ustawić SESSION_CONTEXT. 
 
-```
+Dla aplikacji za pomocą programu Entity Framework, najprostszym podejście jest skonfigurowanie sesji\_KONTEKSTU w zastąpienie ElasticScaleContext opisanego w [danych zależne od routingu przy użyciu EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Tworzenie i wykonywanie SqlCommand, która ustawia dla identyfikatora dzierżawcy w sesji\_kontekst shardingKey określony dla połączenia. Następnie wróć połączenia przeprowadzana za pośrednictwem zależne od danych routingu. Dzięki temu wystarczy raz napisać kod, aby ustawić sesji\_KONTEKSTU. 
+
+```csharp
 // ElasticScaleContext.cs 
-// ... 
-// C'tor for data-dependent routing. This call opens a validated connection routed to the proper 
-// shard by the shard map manager. Note that the base class c'tor call fails for an open connection 
-// if migrations need to be done and SQL credentials are used. This is the reason for the  
-// separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards. 
+// Constructor for data-dependent routing.
+// This call opens a validated connection that is routed to the
+// proper shard by the shard map manager.
+// Note that the base class constructor call fails for an open connection 
+// if migrations need to be done and SQL credentials are used.
+// This is the reason for the separation of constructors.
+// ...
 public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-    : base(OpenDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */)
+    : base(
+        OpenDDRConnection(shardMap, shardingKey, connectionStr),
+        true)  // contextOwnsConnection
 {
 }
 
-public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)
+public static SqlConnection OpenDDRConnection(
+    ShardMap shardMap,
+    T shardingKey,
+    string connectionStr)
 {
-    // No initialization
+    // No initialization.
     Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-    // Ask shard map to broker a validated connection for the given key
+    // Ask shard map to broker a validated connection for the given key.
     SqlConnection conn = null;
     try
     {
-        conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
+        conn = shardMap.OpenConnectionForKey(
+            shardingKey,
+            connectionStr,
+            ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey
+        // to enable Row-Level Security filtering.
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
+        cmd.CommandText =
+            @"exec sp_set_session_context
+                @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
         cmd.ExecuteNonQuery();
 
@@ -98,20 +119,20 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
         {
             conn.Dispose();
         }
-
         throw;
     }
 } 
 // ... 
 ```
 
-Teraz SESSION_CONTEXT jest ustawiany automatycznie z określonego identyfikatora dzierżawcy przy każdym wywołaniu ElasticScaleContext: 
+Teraz sesji\_KONTEKSTU jest ustawiany automatycznie z określonego identyfikatora dzierżawcy przy każdym wywołaniu ElasticScaleContext: 
 
-```
+```csharp
 // Program.cs 
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
+    using (var db = new ElasticScaleContext<int>(
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
     {     
         var query = from b in db.Blogs
                     orderby b.Name
@@ -127,26 +148,33 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
-Dla aplikacji za pomocą ADO.NET SqlClient Zalecanym podejściem jest tworzenie funkcji otoki wokół ShardMap.OpenConnectionForKey() ustawiający automatycznie "TenantId" w SESSION_CONTEXT do poprawne TenantId przed zwróceniem połączenia. Aby upewnić się, że SESSION_CONTEXT ma zawsze wartość, należy otworzyć tylko połączeń za pomocą tej funkcji otoki.
 
-```
+Dla aplikacji za pomocą ADO.NET SqlClient Utwórz funkcję otoki wokół metody ShardMap.OpenConnectionForKey. Otoki automatycznie ustawione dla identyfikatora dzierżawcy w sesji mają\_kontekst do bieżącego identyfikatora dzierżawcy przed zwróceniem połączenia. Zapewnienie, sesji\_KONTEKSTU ma zawsze wartość, należy otworzyć tylko połączeń za pomocą tej funkcji otoki.
+
+```csharp
 // Program.cs
+// Wrapper function for ShardMap.OpenConnectionForKey() that
+// automatically sets SESSION_CONTEXT with the correct
+// tenantId before returning a connection.
+// As a best practice, you should only open connections using this method
+// to ensure that SESSION_CONTEXT is always set before executing a query.
 // ...
-
-// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with the correct
-// tenantId before returning a connection. As a best practice, you should only open connections using this 
-// method to ensure that SESSION_CONTEXT is always set before executing a query.
-public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
+public static SqlConnection OpenConnectionForTenant(
+    ShardMap shardMap, int tenantId, string connectionStr)
 {
     SqlConnection conn = null;
     try
     {
-        // Ask shard map to broker a validated connection for the given key
-        conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
+        // Ask shard map to broker a validated connection for the given key.
+        conn = shardMap.OpenConnectionForKey(
+            tenantId, connectionStr, ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey
+        // to enable Row-Level Security filtering.
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
+        cmd.CommandText =
+            @"exec sp_set_session_context
+                @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", tenantId);
         cmd.ExecuteNonQuery();
 
@@ -158,23 +186,25 @@ public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenan
         {
             conn.Dispose();
         }
-
         throw;
     }
 }
 
 // ...
 
-// Example query via ADO.NET SqlClient
-// If row-level security is enabled, only Tenant 4's blogs are listed
+// Example query via ADO.NET SqlClient.
+// If row-level security is enabled, only Tenant 4's blogs are listed.
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 {
-    using (SqlConnection conn = OpenConnectionForTenant(sharding.ShardMap, tenantId4, connStrBldr.ConnectionString))
+    using (SqlConnection conn = OpenConnectionForTenant(
+        sharding.ShardMap, tenantId4, connStrBldr.ConnectionString))
     {
         SqlCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"SELECT * FROM Blogs";
 
-        Console.WriteLine("--\nAll blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
+        Console.WriteLine(@"--
+All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
+
         SqlDataReader reader = cmd.ExecuteReader();
         while (reader.Read())
         {
@@ -185,75 +215,88 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ```
 
-## <a name="step-2-data-tier-create-row-level-security-policy"></a>Warstwa danych kroku 2): Tworzenie zasad zabezpieczeń na poziomie wiersza
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Warstwa danych: Tworzenie zasad zabezpieczeń na poziomie wiersza
+
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Tworzenie zasad zabezpieczeń, aby filtrować wiersze, które mogą uzyskiwać dostęp do każdego dzierżawcy
-Teraz, gdy aplikacja jest ustawienie SESSION_CONTEXT z bieżącego identyfikatora dzierżawcy przed wykonaniem kwerendy, zabezpieczenia na poziomie wiersza zasady zabezpieczeń można filtrować zapytania i wykluczyć wiersze, które mają różne identyfikatora dzierżawcy.  
 
-Kontrola dostępu jest zaimplementowana w T-SQL: logika dostępu definiuje funkcję zdefiniowaną przez użytkownika i zasady zabezpieczeń powiązanie tej funkcji z dowolną liczbę tabel. Dla tego projektu funkcja sprawdza, czy aplikacji (zamiast innego użytkownika SQL) jest połączona z bazą danych, i że TenantId przechowywane w SESSION_CONTEXT TenantId danego wiersza. Predykat filtru umożliwia wiersze spełniające te warunki, które przechodzą przez filtr dla zapytania SELECT, UPDATE i DELETE; predykat bloku uniemożliwia wiersze, które naruszają te warunki przed wstawione lub zaktualizowane i. Jeśli nie ustawiono SESSION_CONTEXT, zwraca wartość NULL ani żadnych wierszy są widoczne lub możliwe do wstawienia. 
+Teraz, gdy aplikacja jest ustawienie sesji\_KONTEKSTU za pomocą bieżącego identyfikatora dzierżawcy przed wykonaniem kwerendy, można filtrować zasady zabezpieczeń zabezpieczenia na poziomie wiersza, zapytań i Wyklucz wiersze, które mają różne identyfikatora dzierżawcy.  
 
-Aby włączyć zabezpieczenia na poziomie wiersza, należy wykonać T-SQL na wszystkich odłamków przy użyciu programu Visual Studio (SSDT), SSMS lub skrypt programu PowerShell dołączony do projektu (lub jeśli używasz [zadania elastyczne bazy danych](sql-database-elastic-jobs-overview.md), służy do automatyzacji wykonywania tego T-SQL na wszystkich odłamków): 
+Kontrola dostępu jest zaimplementowana w języku Transact-SQL. Logika dostępu definiuje funkcję zdefiniowaną przez użytkownika, a zasady zabezpieczeń wiąże tę funkcję na dowolną liczbę tabel. Dla tego projektu:
 
-```
-CREATE SCHEMA rls -- separate schema to organize RLS objects 
+1. Funkcja sprawdza, czy aplikacja jest połączony z bazą danych i przechowywanie TenantId w sesji\_KONTEKSTU identyfikatora dzierżawcy danego wiersza jest zgodna.
+    - Aplikacja jest połączony, zamiast innego użytkownika SQL.
+
+2. Predykat filtru umożliwia wierszy, które spełnia filtru TenantId do przekazywania do SELECT, UPDATE i usuwanie kwerend.
+    - Predykat bloku zapobiega wierszy, które nie są filtr z wstawione lub zaktualizowane.
+    - Jeśli SESJA\_KONTEKSTU nie został ustawiony, funkcja zwraca wartość NULL i nie ma wierszy widocznych lub możliwe do wstawienia. 
+
+Aby włączyć zabezpieczenia na poziomie wiersza na wszystkich fragmentów, należy wykonać T-SQL przy użyciu programu Visual Studio (SSDT), SSMS lub skrypt programu PowerShell dołączony do projektu. Lub jeśli używasz [zadania elastyczne bazy danych](sql-database-elastic-jobs-overview.md), można zautomatyzować wykonywanie tego T-SQL na wszystkich fragmentów.
+
+```sql
+CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
 GO
 
 CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
     RETURNS TABLE     
     WITH SCHEMABINDING
 AS
-    RETURN SELECT 1 AS fn_accessResult          
-        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
+    RETURN SELECT 1 AS fn_accessResult
+        -- Use the user in your application’s connection string.
+        -- Here we use 'dbo' only for demo purposes!
+        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo')
+        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId;
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts;
 GO 
 ```
 
 > [!TIP]
-> Bardziej złożone projektów, które trzeba dodać predykat na setki tabel można użyć procedury przechowywane pomocnika, która automatycznie generuje zasady zabezpieczeń, dodawanie predykat dla wszystkich tabel w schemacie. Aby uzyskać więcej informacji, zobacz [zastosowania zabezpieczeń na poziomie wiersza do wszystkich tabel - pomocnika skryptu (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
-> 
-> 
+> W złożonych projektu, który może być konieczne jest dodanie predykat na setki tabel, która może być niewygodny. Brak procedury przechowywane pomocnika, która automatycznie generuje zasady zabezpieczeń i dodaje predykat dla wszystkich tabel w schemacie. Aby uzyskać więcej informacji, zobacz blogu w [zastosowania zabezpieczeń na poziomie wiersza do wszystkich tabel - pomocnika skryptu (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
-Teraz po uruchomieniu aplikacji przykładowej ponownie dzierżaw widoczne tylko wiersze, które należą do nich. Ponadto aplikacja nie można wstawić wierszy, które należą do dzierżawcy innych niż ten, który jest aktualnie połączony z niezależnego fragmentu bazy danych i nie można zaktualizować widocznych wierszy, które mają różne identyfikatora dzierżawcy. Jeśli aplikacja próbuje zrobić, DbUpdateException jest wywoływane.
+Teraz po uruchomieniu aplikacji przykładowej ponownie dzierżaw widoczne tylko wiersze, które należą do nich. Ponadto aplikacja nie można wstawić wierszy, które należą do innych niż aktualnie połączony z bazą danych niezależnych dzierżawcy. Ponadto aplikacja nie można zaktualizować identyfikatora dzierżawcy w wszystkie wiersze, które mogą być widoczne. Jeśli aplikacja próbuje zrobić, DbUpdateException jest wywoływane.
 
-Jeśli później Dodaj nową tabelę zmodyfikowane zasady zabezpieczeń i Dodaj filtr i zablokować predykaty w nowej tabeli: 
+Jeśli później Dodaj nową tabelę zmienić zasady zabezpieczeń, aby dodać predykatów filtru i bloku je w nowej tabeli.
 
-```
+```sql
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable;
 GO 
 ```
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Dodaj domyślne ograniczenia, aby automatycznie wypełnić TenantId dla operacji wstawienia
-Możesz też zaznaczyć ograniczeniu domyślnym w każdej tabeli, aby automatycznie wypełnić TenantId o wartości przechowywanych obecnie we SESSION_CONTEXT podczas wstawiania wierszy. Na przykład: 
 
-```
--- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
+Możesz też zaznaczyć ograniczeniu domyślnym w każdej tabeli, aby automatycznie wypełnić TenantId o wartości przechowywane w sesji\_kontekście podczas wstawiania wierszy. Przykładem jest zgodna. 
+
+```sql
+-- Create default constraints to auto-populate TenantId with the
+-- value of SESSION_CONTEXT for inserts.
 ALTER TABLE Blogs     
     ADD CONSTRAINT df_TenantId_Blogs      
-    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO
 
 ALTER TABLE Posts     
     ADD CONSTRAINT df_TenantId_Posts      
-    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO 
 ```
 
 Teraz aplikacji nie trzeba określać identyfikatora dzierżawcy podczas wstawiania wierszy: 
 
-```
+```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    using (var db = new ElasticScaleContext<int>(
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
     {
-        var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
+        // The default constraint sets TenantId automatically!
+        var blog = new Blog { Name = name };
         db.Blogs.Add(blog);     
         db.SaveChanges();   
     } 
@@ -261,15 +304,17 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Użycie domyślne ograniczenia dla projektu programu Entity Framework, zaleca się, że kolumna identyfikatora dzierżawcy nie zostanie uwzględniony w modelu danych EF. Jest to spowodowane zapytania programu Entity Framework automatyczne określanie wartości domyślnych, które zastępują domyślne ograniczenia utworzone w T-SQL używających SESSION_CONTEXT. Aby użyć domyślnego ograniczenia w przykładowy projekt, na przykład, należy usunąć TenantId z DataClasses.cs (i wykonywania Add-Migration w konsoli Menedżera pakietów) i użyj T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. Dzięki temu podczas wstawiania danych, EF automatycznie dostarczyć niepoprawne wartości domyślne. 
-> 
-> 
+> Jeśli jest używane domyślne ograniczenia projektu programu Entity Framework, zaleca się że *nie* zawierać kolumny identyfikatora dzierżawcy w modelu danych EF. To zalecenie wynika Entity Framework automatycznie kwerendy podaj wartości domyślne, które zastępują domyślne ograniczenia utworzone w T-SQL korzystających z sesji\_KONTEKSTU.
+> Aby użyć domyślnego ograniczenia w przykładowy projekt, na przykład, należy usunąć TenantId z DataClasses.cs (i wykonywania Add-Migration w konsoli Menedżera pakietów) i użyj T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. Dzięki temu podczas wstawiania danych, EF automatycznie dostarczyć niepoprawne wartości domyślne.
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcjonalnie) Włącz "administratora" można uzyskać dostępu do wszystkich wierszy
-Niektóre aplikacje warto utworzyć "administratora" kto mogą uzyskiwać dostęp do wszystkich wierszy, na przykład, aby włączyć raportowanie dla wszystkich dzierżawców w odłamków wszystkich lub do wykonywania operacji podziału/Merge na odłamków obejmujących przesuwanie wierszy dzierżawy między bazami danych. Aby włączyć tę opcję, należy utworzyć nowego użytkownika SQL ("superuser" w tym przykładzie) w każdym niezależnego fragmentu bazy danych. Następnie należy zmienić zasady zabezpieczeń z nowej funkcji predykatu, która umożliwia użytkownikom dostęp do wszystkich wierszy:
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcjonalnie) Włącz *administratora* można uzyskać dostępu do wszystkich wierszy
 
-```
--- New predicate function that adds superuser logic
+Niektóre aplikacje może być konieczne utworzenie *administratora* kto ma dostęp do wszystkich wierszy. Administratora może włączyć raportowania we wszystkich dzierżawców na wszystkich fragmentów. Lub administratora może wykonać operacji scalania podziału na odłamków obejmujących przesuwanie wierszy dzierżawy między bazami danych.
+
+Aby włączyć administratora, utworzenie nowego użytkownika SQL (`superuser` w tym przykładzie) w każdym niezależnego fragmentu bazy danych. Następnie należy zmienić zasady zabezpieczeń z nowej funkcji predykatu, która umożliwia użytkownikom dostęp do wszystkich wierszy. Dalej znajduje się takiej funkcji.
+
+```sql
+-- New predicate function that adds superuser logic.
 CREATE FUNCTION rls.fn_tenantAccessPredicateWithSuperUser(@TenantId int)
     RETURNS TABLE
     WITH SCHEMABINDING
@@ -277,44 +322,50 @@ AS
     RETURN SELECT 1 AS fn_accessResult 
         WHERE 
         (
-            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- note, should not be dbo!
+            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- Replace 'dbo'.
             AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
         ) 
         OR
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('superuser')
-        )
+        );
 GO
 
--- Atomically swap in the new predicate function on each table
+-- Atomically swap in the new predicate function on each table.
 ALTER SECURITY POLICY rls.tenantAccessPolicy
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
-    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
+    ALTER BLOCK  PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts,
-    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
+    ALTER BLOCK  PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts;
 GO
 ```
 
 
 ### <a name="maintenance"></a>Konserwacji
-* **Dodawanie nowych odłamków**: wykonanie skryptu T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na wszelkich nowych fragmentów, w przeciwnym razie kwerendy dotyczące tych fragmentów nie są filtrowane.
-* **Dodawanie nowych tabel**: Dodaj predykatu filtru i bloku je do zasad zabezpieczeń na wszystkich odłamków zawsze, gdy nowa tabela została utworzona, w przeciwnym razie kwerendy w nowej tabeli nie są filtrowane. Ten można zautomatyzować za pomocą wyzwalacza DDL, zgodnie z opisem w [zastosowania zabezpieczeń na poziomie wiersza automatycznie na nowo utworzony tabele (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+
+- **Dodawanie nowych odłamków**: wykonanie skryptu T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na wszelkich nowych fragmentów, w przeciwnym razie kwerendy dotyczące tych fragmentów nie są filtrowane.
+- **Dodawanie nowych tabel**: dodanie predykatu filtru i bloku zasady zabezpieczeń na wszystkich odłamków nowa tabela została utworzona. W przeciwnym razie zapytań w nowej tabeli nie są filtrowane. To dodawanie można zautomatyzować za pomocą wyzwalacza DDL, zgodnie z opisem w [zastosowania zabezpieczeń na poziomie wiersza automatycznie na nowo utworzony tabele (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Podsumowanie
-Narzędzi elastycznej bazy danych i zabezpieczenia na poziomie wiersza mogą być używane razem do skalowania aplikacji warstwy danych o obsługę zarówno wielodostępnych i pojedynczego dzierżawcy fragmentów. Wielodostępne odłamków może służyć do przechowywania danych wydajniej (szczególnie w przypadkach, gdy mają tylko kilka wierszy danych w dużej liczby dzierżawców), podczas jednego dzierżawcy fragmentów może służyć do obsługi dzierżawców premium z bardziej rygorystyczne wydajności i izolacja wymagania.  Aby uzyskać więcej informacji, zobacz [informacje dotyczące zabezpieczeń na poziomie wiersza](https://msdn.microsoft.com/library/dn765131). 
+
+Narzędzi elastycznej bazy danych i zabezpieczenia na poziomie wiersza mogą być używane razem do skalowania aplikacji warstwy danych o obsługę zarówno wielodostępnych i pojedynczego dzierżawcy fragmentów. Wielodostępne odłamków może służyć do przechowywania danych bardziej efektywnie. Takie zwiększenie efektywności jest widoczny, gdzie wiele dzierżaw mieć tylko kilka wierszy danych. Pojedynczego dzierżawcy fragmentów może obsługiwać dzierżaw premium, których bardziej rygorystyczne wydajności i wymagania dotyczące izolacji.  Aby uzyskać więcej informacji, zobacz [informacje dotyczące zabezpieczeń na poziomie wiersza][rls].
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Co to jest puli elastycznej platformy Azure?](sql-database-elastic-pool.md)
-* [Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)](sql-database-elastic-scale-introduction.md)
-* [Wzorce projektowe dla wielodostępnych aplikacji SaaS wykorzystujących usługę Azure SQL Database](saas-tenancy-app-design-patterns.md)
-* [Uwierzytelnianie w aplikacjach wielodostępnych za pomocą usługi Azure AD i OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-* [Aplikacja Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+- [Co to jest puli elastycznej platformy Azure?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)](sql-database-elastic-scale-introduction.md)
+- [Wzorce projektowe dla wielodostępnych aplikacji SaaS wykorzystujących usługę Azure SQL Database](saas-tenancy-app-design-patterns.md)
+- [Uwierzytelnianie w aplikacjach wielodostępnych za pomocą usługi Azure AD i OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Aplikacja Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Pytania i żądania funkcji
-Odpowiedzi na pytania, dotrzeć do nas na [forum bazy danych SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i funkcja żądań, dodaj je do [forum opinii bazy danych SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
+Odpowiedzi na pytania, skontaktuj się z nami na [forum bazy danych SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). I dodać wszystkie żądania funkcji, aby [forum opinii bazy danych SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
+[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
 

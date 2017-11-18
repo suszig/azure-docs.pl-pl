@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejąć niezarządzane katalogu jako administrator w usłudze Azure Active Directory
 W tym artykule opisano dwa sposoby przejąć nazwy domeny DNS w niezarządzanych katalogu w usłudze Azure Active Directory (Azure AD). Gdy użytkownik samoobsługi tworzy konto dla usługi w chmurze, która używa usługi Azure AD, są dodawane do niezarządzanego Azure AD directory oparte na ich domenę poczty e-mail. Aby uzyskać więcej informacji o samoobsługi lub signup "wirusa" dla usługi, zobacz [co to jest subskrypcji samoobsługowej usługi Azure Active Directory?]()
@@ -67,7 +67,7 @@ Po ukończeniu powyższych kroków jesteś teraz administratorem globalnym dzier
   
 6. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym dla dzierżawy usługi Azure AD.
   
-7. Wybierz **nazwy domen**, następnie dodać nazwy domeny. Będzie konieczne podanie rekordów TXT usługi DNS, aby zweryfikować własność nazwy domeny. 
+7. Wybierz **niestandardowych nazw domen**, następnie dodać nazwy domeny. Będzie konieczne podanie rekordów TXT usługi DNS, aby zweryfikować własność nazwy domeny. 
   
   ![domeny dodane do usługi Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   

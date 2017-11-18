@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: de0222d897ed2cf94be98501c39385ac88f866fc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Jak można odłączyć dysku danych od maszyny wirtualnej systemu Linux
 
@@ -35,28 +35,25 @@ Jeśli chcesz użyć danych znajdujących się na tym dysku, możesz dołączyć
 ## <a name="detach-a-data-disk-using-cli-20"></a>Odłączyć dysku danych przy użyciu interfejsu wiersza polecenia 2.0
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 Odłączony dysk pozostaje w magazynie, lecz nie jest już dołączony do maszyny wirtualnej.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Odłączanie dysku danych przy użyciu portalu
-1. W Centrum w portalu, wybierz **maszyn wirtualnych**.
+1. W menu po lewej stronie wybierz **maszyn wirtualnych**.
 2. Wybierz maszynę wirtualną, która ma dysk danych, aby odłączyć, a następnie kliknij przycisk **zatrzymać** można cofnąć alokacji maszyny Wirtualnej.
-3. W bloku maszyny wirtualnej, wybierz **dysków**.
-4. W górnej części **dysków** bloku, wybierz opcję **Edytuj**.
-5. W **dysków** bloku do prawej krawędzi dysk z danymi, które chcesz odłączyć, kliknij przycisk ![obraz przycisku Detach](./media/detach-disk/detach.png) odłączyć przycisku.
-5. Po usunięciu dysk, kliknij przycisk Zapisz w górnej części bloku.
-6. W bloku maszyny wirtualnej, kliknij przycisk **omówienie** , a następnie kliknij przycisk **Start** na górze bloku, aby ponownie uruchomić maszyny Wirtualnej.
+3. W okienku maszyny wirtualnej, wybierz **dysków**.
+4. W górnej części **dysków** okienku wybierz **Edytuj**.
+5. W **dysków** okienku po prawej dysku danych, który chcesz odłączyć, kliknij przycisk ![obraz przycisku Detach](./media/detach-disk/detach.png) odłączyć przycisku.
+5. Po usunięciu dysk, kliknij przycisk Zapisz w górnej części okienka.
+6. W okienku maszyny wirtualnej, kliknij **omówienie** , a następnie kliknij przycisk **Start** przycisk w górnej części okienka, aby ponownie uruchomić maszyny Wirtualnej.
 
 Odłączony dysk pozostaje w magazynie, lecz nie jest już dołączony do maszyny wirtualnej.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Następne kroki

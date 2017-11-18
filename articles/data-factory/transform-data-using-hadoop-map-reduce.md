@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania MapReduce z Hadoop w usłudze fabryka danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ Zobacz [Pig](transform-data-using-hadoop-pig.md) i [Hive](transform-data-using-h
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ Zobacz [Pig](transform-data-using-hadoop-pig.md) i [Hive](transform-data-using-h
 | className         | Nazwa klasy do wykonania         | Tak      |
 | jarLinkedService  | Odwołanie do połączonej usługi magazynu Azure są używane do przechowywania plików Jar. Jeśli nie określisz tej połączonej usługi, usługi połączonej magazynu Azure, zdefiniowane w połączonej usłudze HDInsight jest używany. | Nie       |
 | jarFilePath       | Podaj ścieżkę do plików Jar przechowywanych w usłudze Azure Storage odwołuje się jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Tak      |
-| jarlibs           | Podaj ścieżkę do plików bibliotekę Jar odwołuje się zadania przechowywanych w magazynie Azure odwołuje się jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Nie       |
+| jarlibs           | Ciąg tablicy ścieżki do plików biblioteki Jar odwołuje się zadania przechowywanych w magazynie Azure zdefiniowane w jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Nie       |
 | getDebugInfo      | Określa, kiedy pliki dziennika są kopiowane do magazynu Azure używanego przez klaster usługi HDInsight (lub) określonym przez jarLinkedService. Dozwolone wartości: None, zawsze lub niepowodzenie. Wartość domyślna: Brak. | Nie       |
 | Argumenty         | Określa tablicę argumentów dla zadania usługi Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
 | Definiuje           | Określ parametry jako pary klucz wartość dla odwołania do skryptu Hive. | Nie       |

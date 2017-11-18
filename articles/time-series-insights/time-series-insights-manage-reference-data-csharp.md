@@ -12,20 +12,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 140789122dcc66e01b05ad81791bc3ca54e4f42c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C#
 
-W tym artykule opisano w C# przykładowym kodzie można skompilować do zarządzania danymi odwołanie do użytku w środowisku Azure czas serii Insights.
+W tym temacie opisano w C# przykładowym kodzie można skompilować do zarządzania danymi odwołanie do użytku w środowisku Azure czas serii Insights.
 
-Upewnij się, że przed kompilowania i uruchamiania przykładowy kod są wykonywane następujące czynności:
-1. Utworzono odwołanie do zestawu danych, za pomocą [w tym artykule](time-series-insights-add-reference-data-set.md).
+Wykonaj następujące kroki, aby skompilować i uruchomić przykładowy kod:
+1. [Utwórz zestaw danych odwołania](time-series-insights-add-reference-data-set.md).
 
-2. Skonfiguruj tokenu dostępu na potrzeby przez aplikację do autoryzacji w usłudze. Upewnij się, że token są uzyskiwane przez interfejs API usługi Azure Active Directory. Token ten powinien zostać przekazany w `Authorization` nagłówku każdego żądania interfejsu API zapytania. Do konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md) artykułu.
+2. Skonfiguruj tokenu dostępu autoryzacji dla aplikacji. Upewnij się, że token są uzyskiwane przez interfejs API usługi Azure Active Directory. Należy przekazać ten token w `Authorization` nagłówku każdego żądania zapytania interfejsu API. 
+ 
+   Aby uzyskać informacje dotyczące sposobu konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md).
 
 3. Edytuj przykładowy kod zastąpić stałe przykład, wyznaczoną na **DUMMY #**, pobliżu początku kodu. 
 
@@ -232,5 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-> [!div class="nextstepaction"]
-> Aby uzyskać pełną dokumentację interfejsu API REST, zobacz [odwołania API danych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Dane referencyjne interfejsu API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

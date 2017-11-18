@@ -14,32 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: c0a4f337c055f4b62d986e2a3c3ce7b962aceae9
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 661f24e1271b3f16fddc6426c94464dd8b388f18
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Pobieranie narzędzia Azure stosu z usługi GitHub
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-**Narzędzia AzureStack** to repozytorium GitHub obsługującego moduły programu PowerShell do zarządzania i wdrażanie zasobów Azure stosu. Jeśli planujesz nawiązać połączenie z siecią VPN, możesz pobrać te moduły programu PowerShell Azure stosu Development Kit lub klient zewnętrznych z systemem Windows. Aby uzyskać te narzędzia, klonowanie repozytorium GitHub lub pobrać **AzureStack narzędzia** folderu. 
-
-Klonowanie repozytorium, Pobierz [Git dla systemu Windows](https://git-scm.com/download/win), otwórz wiersz polecenia i uruchom następujący skrypt:
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-Aby pobrać folder Narzędzia, uruchom następujący skrypt:
+**Narzędzia AzureStack** to repozytorium GitHub obsługującego moduły programu PowerShell do zarządzania i wdrażanie zasobów Azure stosu. Jeśli planujesz nawiązać połączenie z siecią VPN, możesz pobrać te moduły programu PowerShell Azure stosu Development Kit lub klient zewnętrznych z systemem Windows. Aby uzyskać te narzędzia, klonowanie repozytorium GitHub lub pobrać **AzureStack narzędzia** folderu za pomocą następującego skryptu:
 
 ```PowerShell
 # Change directory to the root directory. 

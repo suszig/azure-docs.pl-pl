@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi Windows Fabric w sieci wirtualnej platformy Azure
-W tym samouczku wchodzi w jednej serii. Dowiesz się jak wdrażanie klastra usługi sieć szkieletowa usług systemu Windows w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu programu PowerShell. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra.  Aby utworzyć klaster systemu Linux za pomocą interfejsu wiersza polecenia Azure, zobacz [tworzenia bezpiecznych klastrów systemu Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+W tym samouczku wchodzi w jednej serii. Dowiesz się sposób wdrażania klastra usługi sieć szkieletowa usług z systemem Windows w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu programu PowerShell. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra.  Aby utworzyć klaster systemu Linux za pomocą interfejsu wiersza polecenia Azure, zobacz [tworzenia bezpiecznych klastrów systemu Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -47,6 +47,22 @@ Przed rozpoczęciem tego samouczka:
 
 Poniższe procedury tworzenia klastra usługi sieć szkieletowa pięcioma węzłami. Aby obliczyć kosztów ponoszonych przez uruchomienie klastra sieci szkieletowej usług Azure używana [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/).
 
+## <a name="introduction"></a>Wprowadzenie
+W tym samouczku wdraża klaster pięć węzłów w typie jednego węzła w sieci wirtualnej na platformie Azure.
+
+[Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Klastrów można skalować do tysięcy komputerów. Komputer lub maszynę Wirtualną, która jest częścią klastra jest nazywany węzłem. Każdy węzeł przypisano nazwę węzła (ciąg). Węzły mają właściwości, takie jak właściwości umieszczania.
+
+Typ węzła definiuje rozmiar, numer i właściwości dla zestawu maszyn wirtualnych w klastrze. Każdy typ węzła zdefiniowanym jest skonfigurowany jako [zestaw skali maszyny wirtualnej](/azure/virtual-machine-scale-sets/), zasobów umożliwia wdrażanie i zarządzanie kolekcją maszyny wirtualne jako zestaw rozwiązań usługi obliczenia Azure. Każdy typ węzła następnie można skalować w lub w dół niezależnie, mają różne zestawy otwartych portów i może mieć metryki pojemności różnych. Typy węzłów są używane do definiowania ról dla zestawu węzłów klastra, takie jak "fronton" lub "wewnętrzna baza danych".  Klaster może mieć więcej niż jeden typ węzła, ale typ węzła podstawowego musi mieć co najmniej pięć maszyn wirtualnych dla klastrów produkcyjnych (lub co najmniej trzech maszyn wirtualnych w klastrach testu).  [Usługi systemowe platformy Service Fabric](service-fabric-technical-overview.md#system-services) są umieszczane w węzłach tego typu węzła podstawowego.
+
+## <a name="cluster-capacity-planning"></a>Planowanie pojemności klastra
+W tym samouczku wdraża pięć węzłów w typie jednego węzła klastra.  Wszystkie wdrożenia klastra produkcyjnego planowania pojemności jest ważnym krokiem. Poniżej przedstawiono niektóre czynności, które należy uwzględnić w ramach tego procesu.
+
+- Liczba węzłów typy potrzeb klastra 
+- Właściwości każdego typu węzła (na przykład rozmiar, podstawowy skierowane do Internetu i liczba maszyn wirtualnych)
+- Niezawodność i trwałość właściwości klastra
+
+Aby uzyskać więcej informacji, zobacz [zagadnienia związane z planowaniem pojemności klastra](service-fabric-cluster-capacity.md).
+
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logowanie do platformy Azure i wyboru subskrypcji
 W tym przewodniku korzysta z programu Azure PowerShell. Po ponownym uruchomieniu nowej sesji programu PowerShell, zaloguj się do konta platformy Azure i wybierz subskrypcję, przed wykonaniem polecenia platformy Azure.
  
@@ -68,7 +84,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>Wdrażanie topologii sieci
-Następnie skonfiguruj topologii sieci, do którego będzie można wdrożyć API Management i klaster sieci szkieletowej usług. [Network.json] [ network-arm] szablonu usługi Resource Manager jest skonfigurowany, aby utworzyć sieć wirtualną (VNET), a także grupy zabezpieczeń podsieci i sieci (NSG) dla sieci szkieletowej usług oraz podsieci i NSG dla interfejsu API zarządzania . Dowiedz się więcej o sieci wirtualnych, podsieci i grup NSG [tutaj](../virtual-network/virtual-networks-overview.md).
+Następnie skonfiguruj topologii sieci, do którego będzie można wdrożyć API Management i klaster sieci szkieletowej usług. [Network.json] [ network-arm] szablonu usługi Resource Manager jest skonfigurowany, aby utworzyć sieć wirtualną (VNET), a także grupy zabezpieczeń podsieci i sieci (NSG) dla sieci szkieletowej usług oraz podsieci i NSG dla interfejsu API zarządzania . Zarządzanie interfejsami API jest wdrażana w dalszej części tego samouczka. Dowiedz się więcej o sieci wirtualnych, podsieci i grup NSG [tutaj](../virtual-network/virtual-networks-overview.md).
 
 [Network.parameters.json] [ network-parameters-arm] plik parametrów zawiera nazwy podsieci i grup NSG, wdrażających do interfejsu API zarządzania i sieci szkieletowej usług.  Zarządzanie interfejsami API zostało wdrożone w [następujących samouczek](service-fabric-tutorial-deploy-api-management.md). Ten przewodnik dla wartości parametrów, które nie muszą zostać zmienione. Szablony Menedżera zasobów sieci szkieletowej usług użyć tych wartości.  Jeśli wartości są modyfikowane w tym miejscu, należy je zmodyfikować w innych szablonów Menedżera zasobów używanych w tym samouczku i [samouczek wdrażania interfejsu API zarządzania](service-fabric-tutorial-deploy-api-management.md). 
 

@@ -3,26 +3,26 @@ title: "Dodaj niestandardową domenę do usługi Azure AD | Dokumentacja firmy M
 description: "Wyjaśniono, jak dodać niestandardową domenę w usłudze Azure Active Directory."
 services: active-directory
 author: curtand
-manager: femila
+manager: michael.tillman
 ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/14/2017
 ms.author: curtand
-ms.reviewer: jsnow
+ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 27e7449f039da8f7661d113999e1c4e5d76c3cf6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Szybki Start: Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory
 
-Każdy katalog usługi Azure AD jest dostarczany z początkową nazwę domeny w postaci *domainname*. onmicrosoft.com. Nie można zmienić ani usunąć z początkowej nazwy domeny, ale można dodać nazwę domeny firmowej do usługi Azure AD oraz. Twoja organizacja ma prawdopodobnie innych nazw domen używane biznesowe i użytkowników, którzy Zaloguj się przy użyciu nazwy domeny firmowej. Dodawanie niestandardowych nazw domen do usługi Azure AD umożliwia przypisywanie nazw użytkowników w katalogu, które są znajome dla użytkowników, takich jak "alice@contoso.com." zamiast "Alicja @*<domain name>*. onmicrosoft.com". Proces jest prosty:
+Każdy katalog usługi Azure AD jest dostarczany z początkową nazwę domeny w postaci *domainname*. onmicrosoft.com. Nie można zmienić ani usunąć z początkowej nazwy domeny, ale można dodać nazwę domeny firmowej do usługi Azure AD oraz. Twoja organizacja ma prawdopodobnie innych nazw domen używane biznesowe i użytkowników, którzy Zaloguj się przy użyciu nazwy domeny firmowej. Dodawanie niestandardowych nazw domen do usługi Azure AD umożliwia przypisywanie nazw użytkowników w katalogu, które są znajome dla użytkowników, takich jak "alice@contoso.com." zamiast "Alicja @*nazwy domeny*. onmicrosoft.com". Proces jest prosty:
 
 1. Dodawanie niestandardowej nazwy domeny do katalogu
 2. Dodawanie wpisu DNS dla nazwy domeny w rejestratorze nazw domen
@@ -30,11 +30,11 @@ Każdy katalog usługi Azure AD jest dostarczany z początkową nazwę domeny w 
 
 ## <a name="add-the-custom-domain-name-to-your-directory"></a>Dodawanie niestandardowej nazwy domeny do katalogu
 1. Zaloguj się do [portalu Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Po lewej stronie, wybierz **nazwy domen**.
-3. Na  ***nazwa katalogu* -nazwy domen**, wybierz pozycję **Dodaj**.
+2. Po lewej stronie, wybierz **niestandardowych nazw domen**.
+3. Wybierz **Dodaj domenę niestandardową**.
    
-   ![Wybierz polecenie Dodaj](./media/active-directory-domains-add-azure-portal/add-command.png)
-5. Na **nazwy domeny**, wprowadź nazwę domeny niestandardowej w polu, takie jak "contoso.com", a następnie wybierz **Dodawanie domeny**. Należy uwzględnić rozszerzenie .com, .net lub inne rozszerzenie najwyższego poziomu.
+   ![Wybierz polecenie Dodaj](./media/add-custom-domain/add-custom-domain.png)
+5. Na **niestandardowych nazw domen**, wprowadź nazwę domeny niestandardowej w polu, takie jak "contoso.com", a następnie wybierz **Dodawanie domeny**. Należy uwzględnić rozszerzenie .com, .net lub inne rozszerzenie najwyższego poziomu.
 6. Na ***domainname*** (Nowa nazwa domeny jest tytuł), zebraniu informacji wpisu DNS do użycia w przyszłości można zweryfikować nazwy domeny niestandardowej w usłudze Azure AD.
    
    ![Pobierz informacje wpisu DNS](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
@@ -51,17 +51,15 @@ Następnym krokiem do korzystania z niestandardowej nazwy domeny w usłudze Azur
 ## <a name="verify-the-custom-domain-name-in-azure-ad"></a>Weryfikowanie niestandardowej nazwy domeny w usłudze Azure AD
 Po dodaniu wpisu DNS można przystąpić do weryfikowania nazwy domeny w usłudze Azure AD. Nazwa domeny można sprawdzić tylko wtedy, gdy zostaną rozpropagowane rekordów DNS. Propagacja często zajmuje tylko kilka sekund, ale czasami może potrwać godzinę lub dłużej. Jeśli weryfikacja nie zadziała za pierwszym razem, spróbuj ponownie później.
 
-1. Zaloguj się do [usługi Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym katalogu.
-2. Po lewej stronie, wybierz **nazwy domen**.
-3. Na  ***nazwa katalogu* -nazwy domen**, wybierz pozycję **nazwy domeny Dodaj** polecenia. 
-  ![Wybierz polecenie Dodaj](./media/active-directory-domains-add-azure-portal/add-command.png)
-3. Na  ***nazwa katalogu* -nazwy domen**, wybierz nazwę niezweryfikowanej domeny, który chcesz zweryfikować.
-4. Na ***domainname*** (wybranej nazwy domeny jest tytuł), wybierz **Sprawdź** do zakończenia weryfikacji.
+1. Zaloguj się do [usługi Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym dla dzierżawy.
+2. Wybierz **niestandardowych nazw domen**.
+3. Wybierz nazwę niezweryfikowanej domeny, który chcesz zweryfikować.
+4. Sprawdź wpisy i wybierz **Sprawdź** do zakończenia weryfikacji.
 
 Teraz możesz [przypisać nazwy użytkowników, które zawierają niestandardową nazwę domeny](active-directory-users-create-azure-portal.md). Można tworzyć konta użytkowników w chmurze lub aktualizacji poprzednio zsynchronizowanych lokalnych informacji o koncie użytkownika, przy użyciu niestandardowej nazwy domeny. Możesz również zmienić synchronizowane konta użytkownika domeny sufiks informacji przy użyciu [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) lub [interfejsu API programu Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
-> Można sumują się do maksymalnie 900 nazw domeny zarządzanej. Jeśli chcesz skonfigurować wszystkie domeny dla Federacji lokalnego z usługą Active Directory, można dodać maksymalnie do 450 nazwy domeny w każdym katalogu. Aby uzyskać więcej informacji, zobacz [federacyjnym i nazwy domeny zarządzanej](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+> Można sumują się do maksymalnie 900 nazw domeny zarządzanej. Jeśli konfigurujesz wszystkie domeny dla Federacji lokalnego z usługą Active Directory, możesz dodać maksymalnie do 450 nazwy domeny w każdym katalogu. Aby uzyskać więcej informacji, zobacz [federacyjnym i nazwy domeny zarządzanej](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Jeśli nie można zweryfikować niestandardowej nazwy domeny, spróbuj wykonać następujące kroki:
@@ -74,10 +72,9 @@ Jeśli nie można zweryfikować niestandardowej nazwy domeny, spróbuj wykonać 
   Jeśli nie masz dostępu do aktualizowania rekordów DNS domeny w rejestrze nazw domen, udostępnij wpis DNS osobie lub zespołowi w organizacji, którzy mają taki dostęp, i poproś o dodanie wpisu DNS.
 3. **Usuń nazwę domeny z innego katalogu w usłudze Azure AD**. Nazwę domeny można weryfikować tylko w jednym katalogu. Jeśli nazwa domeny jest obecnie zweryfikowana w innym katalogu, nie można zweryfikować w katalogu nowe do momentu usunięcia ich na jeden z nich. Aby dowiedzieć się więcej na temat usuwania nazw domen, przeczytaj artykuł [Zarządzanie niestandardowymi nazwami domen](active-directory-domains-manage-azure-portal.md).    
 
-## <a name="add-more-custom-domain-names"></a>Dodawanie niestandardowych nazw domen
-Jeśli organizacja używa wielu niestandardowych nazw domen, takich jak "contoso.com" "czy" contosobank.com ", można dodać, maksymalnie 900 nazw domen. Kroki opisane w tym artykule może pomóc Dodaj wszystkie nazwy domeny.
+Powtórz kroki opisane w tym artykule, aby dodać poszczególnych nazwa domeny.
 
-### <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Dowiedz się więcej
 [Poglądowe omówienie niestandardowych nazw domen w usłudze Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Zarządzanie niestandardowymi nazwami domen](active-directory-domains-manage-azure-portal.md)

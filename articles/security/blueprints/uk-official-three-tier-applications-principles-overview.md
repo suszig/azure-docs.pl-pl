@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
-ms.openlocfilehash: bbf58215a4d236c70bf988cbfa1c8491055b5183
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0be18e2c2354ea8f766eb48db793c906e565a201
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Omówienie zasad zabezpieczeń chmury Centrum zabezpieczeń przez National
 
 
 > [!NOTE]
-> Te zasady zabezpieczeń są definiowane przez National Centrum zabezpieczeń przez (NCSC). Zapoznaj się NCSC dokumentację, aby uzyskać informacje o procedurach testowych i wskazówki dotyczące każdej zasady zabezpieczeń.
+> Te zasady zabezpieczeń są definiowane przez UK National przez zabezpieczeń Centrum (NCSC). Zapoznaj się z [dokumentacji NCSC](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) informacji na temat testowania procedury i wskazówki dotyczące każdej zasady zabezpieczeń.
 
 
 
@@ -435,3 +435,12 @@ Z oferty IaaS i PaaS jest odpowiedzialny za istotne aspekty zabezpieczeń danych
 |---|---|
 | **Klienta** | Szablony usługi Azure Resource Manager i towarzyszące zasobów, które obejmuje ten plan Azure wykonaj podejście obrony zabezpieczeń zabezpieczeń. W celu zapewnienia zgodności z zasadą dalsza konfiguracja jest wymagana przez klienta do użycia w środowisku produkcyjnym (np. oprogramowanie do zarządzania bazą danych, wdrażanie aplikacji sieci web). |
 | **Dostawca&nbsp;(Microsoft&nbsp;Azure)** | Nie dotyczy |
+
+## <a name="disclaimer"></a>Zrzeczenie odpowiedzialności
+
+ - Ten dokument jest tylko do celów informacyjnych. MICROSOFT NIE UDZIELA ŻADNYCH GWARANCJI, WYRAŹNYCH, DOROZUMIANYCH LUB USTAWOWYCH, ODNOŚNIE DO INFORMACJI W TYM DOKUMENCIE. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i innymi odwołaniami do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Klienci odczytu ten dokument ponosi ryzyko związane z użyciem jej.
+ - Ten dokument nie zawiera klientów z żadnych praw do jakiejkolwiek własności intelektualnej w dowolnym produktem firmy Microsoft lub rozwiązania.
+ - Klienci mogą kopiować i używać tego dokumentu do celów referencyjnych wewnętrzny.
+ - Zastosowanie niektórych zaleceń zamieszczonych w tym dokumencie może spowodować zwiększenie danych, sieci lub użycia zasobów obliczeniowych na platformie Azure i może zwiększyć Azure kosztów licencji lub subskrypcji klienta.
+ - Taka architektura ma służyć jako podstawę do klientów dopasować do swoich specyficznych wymagań i nie powinna być używana jako — znajduje się w środowisku produkcyjnym.
+ - Ten dokument został utworzony jako odwołanie i nie należy używać do definiowania oznacza, że wszystkie za pomocą których klient może spełniać określone wymagania i przepisami. Klienci powinien poszukuje prawne z organizacji w implementacjach klienta zatwierdzone.

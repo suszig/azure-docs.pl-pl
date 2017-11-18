@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik terminów Centrum IoT
 W tym artykule wymieniono niektóre typowe terminy używane w artykułach Centrum IoT.
@@ -37,7 +37,7 @@ W tym artykule wymieniono niektóre typowe terminy używane w artykułach Centru
 Brak _urządzenia zestawów SDK_ dostępne dla wielu języków, które umożliwiają tworzenie [aplikacji dla urządzeń](#device-app) który interakcję z Centrum IoT. Samouczki Centrum IoT pokazują, jak używać tych zestawy SDK urządzenia. Kod źródłowy i uzyskać więcej informacji o urządzeniu zestawów SDK można znaleźć w tej witrynie GitHub [repozytorium](https://github.com/Azure/azure-iot-sdks).
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-Krawędź IoT umożliwia pisanie aplikacji, umożliwiające urządzeniom podłączonym bramy do komunikowania się z [Centrum IoT](#iot-hub). Samouczki krawędzi IoT pokazują, jak używać tej usługi. Kod źródłowy i uzyskać więcej informacji o krawędzi IoT Azure można znaleźć w tej witrynie GitHub [repozytorium](https://github.com/Azure/iot-edge).
+Azure IoT krawędzi przenosi analytics chmury oraz niestandardową logikę biznesową urządzenia tak, aby Twoja organizacja może skupić się na informacje biznesowe, zamiast zarządzania danymi. Włącz rozwiązanie, aby skalować naprawdę Konfigurowanie oprogramowania IoT, wdrożenia go na urządzeniach za pośrednictwem standardowych kontenery i monitorowanie jej z chmury. Wprowadzenie do samouczka pokazujący sposób instalowania i używania usługi Azure IoT krawędzi na [Linux](../iot-edge/tutorial-simulate-device-linux.md) lub [Windows](../iot-edge/tutorial-simulate-device-windows.md) urządzenia.
 
 ## <a name="azure-iot-service-sdks"></a>Zestawy Azure IoT usługi SDK
 Brak _usługi SDK_ dostępne dla wielu języków, które umożliwiają tworzenie [zaplecza aplikacji](#back-end-app) który interakcję z Centrum IoT. Samouczki Centrum IoT pokazują, jak używać tych zestawów SDK usługi. Kod źródłowy i uzyskać więcej informacji na temat zestawów SDK usługi można znaleźć w tej witrynie GitHub [repozytorium](https://github.com/Azure/azure-iot-sdks).
@@ -189,7 +189,7 @@ Można użyć z zaplecza rozwiązania [zadania](iot-hub-devguide-jobs.md) na pla
 [Interfejsu API REST zadania](https://docs.microsoft.com/rest/api/iothub/jobapi) umożliwia zarządzanie [zadania](#job) uruchomiona w Centrum IoT.
 
 ## <a name="module"></a>Moduł
-W [Azure IoT krawędzi](iot-hub-linux-iot-edge-get-started.md), [modułu](iot-hub-linux-iot-edge-get-started.md) jest składnikiem, który wykonuje określone zadanie. Zadania mogą obejmować wprowadzania komunikatu z urządzenia, przekształcanie wiadomości lub wysyłania komunikatu do Centrum IoT. Broker jest odpowiedzialny za przesyłanie dalej wiadomości między modułami. Azure IoT krawędzi obejmuje zestaw modułów próbki. Można również utworzyć niestandardowe moduły.
+W [Azure IoT krawędzi](../iot-edge/tutorial-simulate-device-linux.md), [modułu](../iot-edge/iot-edge-modules.md) jest składnikiem, który wykonuje określone zadanie. Zadania mogą obejmować wprowadzania komunikatu z urządzenia, przekształcanie wiadomości lub wysyłania komunikatu do Centrum IoT. Broker jest odpowiedzialny za przesyłanie dalej wiadomości między modułami. Azure IoT krawędzi obejmuje zestaw modułów próbki. Można również utworzyć niestandardowe moduły.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) jest jeden z komunikatów protokołów, które [Centrum IoT](#iot-hub) obsługuje do komunikowania się z urządzeniami. Aby uzyskać więcej informacji na temat protokoły obsługi komunikatów, które obsługuje Centrum IoT, zobacz [wysyłania i odbierania wiadomości z Centrum IoT](iot-hub-devguide-messaging.md).

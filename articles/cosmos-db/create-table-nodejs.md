@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API środowiska Node.js i Azure rozwiązania Cosmos bazy danych
 
@@ -74,8 +74,6 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
-
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Dzięki temu aplikacja do komunikacji z bazą danych hostowanej. 
@@ -84,7 +82,9 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     ![Wyświetlanie i kopiowanie informacji o ciągu wymagane połączenie z okienka parametry połączenia](./media/create-table-nodejs/connection-string.png)
 
-2. Otwórz plik app.config i skopiować właściwości parametrów połączenia wymagane do pliku konfiguracji.
+2. Skopiuj podstawowy parametry połączenia za pomocą przycisku Kopiuj po prawej stronie.
+
+3. Otwórz plik app.config i wkleić wartość connectionString w wierszu trzech. Jeśli punkt końcowy część ciągu połączenia używa documents.azure.com, popraw tej części, aby zamiast niej używać table.cosmosdb.azure.com.
 
 3. Zapisz plik app.config.
 
@@ -94,14 +94,19 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 1. W oknie terminalu git `cd` do folderu magazynu tabeli java-getting-started.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. W usłudze git okno terminalu, uruchom następujące polecenia, aby uruchomić uruchomienie aplikacji Java.
+2. Uruchom następujące polecenie, aby zainstalować [azure], [uuid węzła], [nconf] i [async] moduły lokalnie również jako, aby zapisać wpis ich do pliku package.json
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. W usłudze git okno terminalu, uruchom następujące polecenia, aby uruchomić uruchomienie aplikacji węzła.
+
+    ```
     node ./tableSample.js 
     ```
 

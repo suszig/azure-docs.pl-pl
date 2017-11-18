@@ -3,8 +3,6 @@
 > * [Symulowane urządzenie w środowisku .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Symulowane urządzenie w środowisku Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Symulowane urządzenie w środowisku Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
-> * [Symulowana brama usługi IoT Edge w systemie Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
-> * [Symulowana brama usługi IoT Edge w systemie Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
 > * [Zestaw DevKit AZ3166 usługi IoT z programem VS Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Urządzenie Raspberry Pi w środowisku Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Urządzenie Raspberry Pi w środowisku Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -14,4 +12,3 @@
 > * [Urządzenie Adafruit Feather HUZZAH ESP8266 w środowisku IDE Arduino](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Urządzenie Sparkfun ESP8266 Thing Dev w środowisku IDE Arduino](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Urządzenie Adafruit Feather M0 w środowisku IDE Arduino](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-> * [Konfigurowanie urządzenia Intel NUC jako bramy usługi IoT](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)

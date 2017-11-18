@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzanie zasadami podstawowe dla laboratorium w usłudze Azure DevTest Labs
 
-Azure DevTest Labs umożliwia kontrolowanie kosztów i zminimalizować odpady w Twojej labs przez Zarządzanie zasadami (ustawienia) dla każdego laboratorium. W tym artykule Rozpoczynanie pracy z zasadami dowiedzieć, jak ustawić dwa najważniejszych zasad — ograniczenie liczby maszyn wirtualnych (VM), które zostały utworzone lub żądane przez pojedynczego użytkownika i konfigurując automatyczne zamykanie. Aby wyświetlić temat ustawiania każdych zasad laboratorium, zapoznaj się z artykułem [Definiowanie zasad laboratorium w usłudze Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs umożliwia kontrolowanie kosztów i zminimalizować odpady w Twojej labs przez Zarządzanie zasadami (ustawienia) dla każdego laboratorium. W tym artykule Rozpoczynanie pracy z zasadami dowiedzieć, jak ustawić dwa najważniejszych zasad — ograniczenie liczby maszyn wirtualnych (VM), które zostały utworzone lub żądane przez pojedynczego użytkownika i konfigurując automatyczne zamykanie. Aby wyświetlić sposób ustawiania każdych zasad laboratorium, zobacz [Definiowanie zasad laboratorium w usłudze Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Uzyskiwanie dostępu do zasad laboratorium w usłudze Azure DevTest Labs
 Poniższe kroki informacje pomocne przy konfigurowaniu zasad dla laboratorium w usłudze Azure DevTest Labs:
@@ -37,9 +37,9 @@ Aby wyświetlić i zmienić zasady dla laboratorium, wykonaj następujące kroki
 
 1. Wybierz **konfiguracji i zasadach**.
 
-    ![Blok ustawień zasad](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Okienko ustawień zasad](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. **Konfiguracji i zasadach** blok zawiera menu Ustawienia, które można określić. W tym artykule przedstawiono tylko ustawienia **maszyn wirtualnych dla użytkownika** i **automatyczne zamykanie**. Aby dowiedzieć się więcej o pozostałych ustawień, zobacz [zarządzanie wszystkimi zasadami dla laboratorium w usłudze Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. **Konfiguracji i zasadach** okienko zawiera menu Ustawienia, które można określić. W tym artykule przedstawiono tylko ustawienia **maszyn wirtualnych dla użytkownika**, **automatyczne zamykanie**, i **Auto-start**. Aby dowiedzieć się więcej o pozostałych ustawień, zobacz [zarządzanie wszystkimi zasadami dla laboratorium w usłudze Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## <a name="set-virtual-machines-per-user"></a>Zestaw maszyn wirtualnych dla użytkownika
 Zasady dla **maszyn wirtualnych dla użytkownika** można określić maksymalną liczbę maszyn wirtualnych, które mogą zostać utworzone przez użytkownika. Jeśli użytkownik próbuje utworzyć lub oświadczeń maszyny Wirtualnej, gdy limit użytkowników zostały spełnione, komunikat o błędzie wskazuje, że maszyna wirtualna nie może być utworzony przejęte. 
@@ -57,7 +57,7 @@ Zasady dla **maszyn wirtualnych dla użytkownika** można określić maksymalną
 ## <a name="set-auto-shutdown"></a>Ustaw automatyczne zamykanie
 Zasady automatycznego zamykania pozwala zminimalizować odpady laboratorium, umożliwiając umożliwia określenie czasu zamykania maszyn wirtualnych w tym laboratorium.
 
-1. W laboratorium **konfiguracji i zasadach** bloku, wybierz opcję **automatyczne zamykanie**.
+1. W laboratorium **konfiguracji i zasadach** okienku wybierz **automatyczne zamykanie**.
    
     ![Automatyczne zamykanie](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -65,16 +65,18 @@ Zasady automatycznego zamykania pozwala zminimalizować odpady laboratorium, umo
 
 1. Po włączeniu tych zasad, określ czas (i strefy czasowej) do zamykania wszystkich maszyn wirtualnych w bieżącym laboratorium.
 
-1. Określ **tak** lub **nr** opcji wysyłania powiadomień 15 minut przed upływem czasu określonego automatyczne zamykanie. Jeśli określisz **tak**, wprowadź punktu końcowego adresu URL elementu webhook do odbioru powiadomienia. Aby uzyskać więcej informacji na temat elementów webhook, zobacz [tworzenia elementu webhook lub funkcja interfejsu API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Określ **tak** lub **nr** opcji wysyłania powiadomień 15 minut przed upływem czasu określonego automatyczne zamykanie. Jeśli wybierzesz **tak**, wprowadź końcowy adres URL elementu webhook lub określanie miejscu powiadomienie, aby można opublikować lub wysyłane adres e-mail. Użytkownik otrzymuje powiadomienie i jest możliwość opóźnienia zamknięcia systemu.
+
+   Aby uzyskać więcej informacji na temat elementów webhook, zobacz [tworzenia elementu webhook lub funkcja interfejsu API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Wybierz pozycję **Zapisz**.
 
-    Domyślnie po włączeniu tych zasad dotyczy wszystkich maszyn wirtualnych w bieżącym laboratorium. Aby usunąć tego ustawienia z określonej maszyny Wirtualnej, otwórz blok maszyny Wirtualnej i zmień jego **automatyczne zamykanie** ustawienie 
+Domyślnie po włączeniu tych zasad dotyczy wszystkich maszyn wirtualnych w bieżącym laboratorium. Aby usunąć tego ustawienia z określonej maszyny Wirtualnej, otwórz okienko zarządzania maszyny Wirtualnej i zmień jego **automatyczne zamykanie** ustawienie.
 
 ## <a name="set-auto-start"></a>Ustaw automatyczne uruchamianie
 Zasady automatycznego uruchamiania pozwala określić, kiedy mają być uruchamiane maszyny wirtualne w bieżącym laboratorium.  
 
-1. W laboratorium **konfiguracji i zasadach** bloku, wybierz opcję **Auto-start**.
+1. W laboratorium **konfiguracji i zasadach** okienku wybierz **Auto-start**.
    
     ![Automatyczne uruchamianie](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -84,8 +86,8 @@ Zasady automatycznego uruchamiania pozwala określić, kiedy mają być uruchami
 
 4. Wybierz pozycję **Zapisz**.
 
-    Po włączeniu tych zasad nie została automatycznie zastosowana do żadnej maszyny wirtualnej w bieżącym laboratorium. Aby zastosować to ustawienie do określonej maszyny Wirtualnej, otwórz blok maszyny Wirtualnej i zmień jego **Auto-start** ustawienie 
+Po włączeniu tych zasad nie została automatycznie zastosowana do żadnej maszyny wirtualnej w bieżącym laboratorium. Aby zastosować to ustawienie do istniejącej maszyny Wirtualnej, otwórz okienko zarządzania maszyny Wirtualnej i zmień jego **Auto-start** ustawienie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Definiowanie zasad laboratorium w usłudze Azure DevTest Labs](devtest-lab-set-lab-policy.md) — informacje o sposobie modyfikowania innych zasad laboratorium 
+- [Definiowanie zasad laboratorium w usłudze Azure DevTest Labs](devtest-lab-set-lab-policy.md) — informacje o sposobie modyfikowania innych zasad laboratorium.

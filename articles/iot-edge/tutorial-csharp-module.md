@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb7674d8c292e7d571a94ac4625b0858a90704b3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Tworzenie i wdrażanie modułu krawędzi IoT C# w symulowane urządzenie — w wersji preview
 
@@ -35,7 +35,6 @@ Moduł IoT krawędzi, który możesz utworzyć w tym samouczku filtruje temperat
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Rozszerzenie krawędzi IoT Azure dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (Można zainstalować rozszerzenia z panelu rozszerzeń w Visual Studio Code.)
 * [C# dla rozszerzenia Visual Studio Code (obsługiwane przez OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (Można zainstalować rozszerzenia z panelu rozszerzeń w Visual Studio Code.)
-* Rozszerzenie krawędzi IoT Azure dla programu Visual Studio Code
 * [Docker](https://docs.docker.com/engine/installation/). Community Edition (CE) dla danej platformy jest wystarczająca dla tego samouczka. Upewnij się, że można zainstalować na komputerze, który należy uruchomić na kodzie VS.
 * [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Wdrażanie klastra usługi sieć szkieletowa Linux do sieci wirtualnej platformy Azure
 W tym samouczku wchodzi w jednej serii. Dowiesz się jak wdrażanie klastra usługi sieć szkieletowa usług systemu Linux w istniejącej sieci wirtualnej platformy Azure (VNET) i podrzędna net przy użyciu wiersza polecenia platformy Azure. Po zakończeniu, masz działającą w chmurze, które można wdrożyć aplikacji do klastra. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [tworzenie bezpiecznej klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -45,6 +45,22 @@ Przed rozpoczęciem tego samouczka:
 - Zainstaluj [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 Poniższe procedury tworzenia klastra usługi sieć szkieletowa pięcioma węzłami. Aby obliczyć kosztów ponoszonych przez uruchomienie klastra sieci szkieletowej usług Azure używana [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Wprowadzenie
+W tym samouczku wdraża klaster pięć węzłów w typie jednego węzła w sieci wirtualnej na platformie Azure.
+
+[Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Klastrów można skalować do tysięcy komputerów. Komputer lub maszynę Wirtualną, która jest częścią klastra jest nazywany węzłem. Każdy węzeł przypisano nazwę węzła (ciąg). Węzły mają właściwości, takie jak właściwości umieszczania.
+
+Typ węzła definiuje rozmiar, numer i właściwości dla zestawu maszyn wirtualnych w klastrze. Każdy typ węzła zdefiniowanym jest skonfigurowany jako [zestaw skali maszyny wirtualnej](/azure/virtual-machine-scale-sets/), zasobów umożliwia wdrażanie i zarządzanie kolekcją maszyny wirtualne jako zestaw rozwiązań usługi obliczenia Azure. Każdy typ węzła następnie można skalować w lub w dół niezależnie, mają różne zestawy otwartych portów i może mieć metryki pojemności różnych. Typy węzłów są używane do definiowania ról dla zestawu węzłów klastra, takie jak "fronton" lub "wewnętrzna baza danych".  Klaster może mieć więcej niż jeden typ węzła, ale typ węzła podstawowego musi mieć co najmniej pięć maszyn wirtualnych dla klastrów produkcyjnych (lub co najmniej trzech maszyn wirtualnych w klastrach testu).  [Usługi systemowe platformy Service Fabric](service-fabric-technical-overview.md#system-services) są umieszczane w węzłach tego typu węzła podstawowego.
+
+## <a name="cluster-capacity-planning"></a>Planowanie pojemności klastra
+W tym samouczku wdraża pięć węzłów w typie jednego węzła klastra.  Wszystkie wdrożenia klastra produkcyjnego planowania pojemności jest ważnym krokiem. Poniżej przedstawiono niektóre czynności, które należy uwzględnić w ramach tego procesu.
+
+- Liczba węzłów typy potrzeb klastra 
+- Właściwości każdego typu węzła (na przykład rozmiar, podstawowy skierowane do Internetu i liczba maszyn wirtualnych)
+- Niezawodność i trwałość właściwości klastra
+
+Aby uzyskać więcej informacji, zobacz [zagadnienia związane z planowaniem pojemności klastra](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logowanie do platformy Azure i wyboru subskrypcji
 W tym przewodniku korzysta z wiersza polecenia platformy Azure. Po ponownym uruchomieniu nowej sesji, zaloguj się do konta platformy Azure i wybierz subskrypcję, przed wykonaniem polecenia platformy Azure.

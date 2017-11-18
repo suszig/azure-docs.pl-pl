@@ -10,7 +10,7 @@
 | Czas procesora CPU (dzień)<sup>6</sup> |60 minut |240 minut |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
 | Pamięć (1 godz.) |1024 MB na plan usługi aplikacji |1024 MB dla aplikacji |Nie dotyczy |Nie dotyczy |Nie dotyczy |
 | Przepustowość |165 MB |Nieograniczone, [szybkości transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/) Zastosuj |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |
-| Architektura aplikacji |32-bitowy |32-bitowy |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
+| Architektura aplikacji |32-bitowa |32-bitowa |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
 | Dla każdego wystąpienia w sieci Web Sockets<sup>7</sup> |5 |35 |350 |Nieograniczona liczba |Nieograniczona liczba |
 | Współbieżne [debugera połączeń](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) według aplikacji |1 |1 |1 |5 |5 |
 | [poddomeny azurewebsites.NET FTP/S i protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
@@ -18,7 +18,7 @@
 | Domena niestandardowa [Obsługa protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Nieograniczone połączeń SNI SSL |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |
 | Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |
 | [Zawsze włączone](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Zaplanowane kopie zapasowe](../articles/app-service/web-sites-backup.md) | | | |Raz dziennie |Co 5 minut<sup>8</sup> |
+| [Zaplanowane kopie zapasowe](../articles/app-service/web-sites-backup.md) | | | |12 na dzień |Co 5 minut<sup>8</sup> |
 | [Automatyczne skalowanie](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [Zadania Webjob](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Harmonogram systemu Azure](https://azure.microsoft.com/services/scheduler/) obsługuje | |X |X |X |X |
