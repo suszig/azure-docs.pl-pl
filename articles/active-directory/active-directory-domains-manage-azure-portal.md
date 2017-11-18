@@ -4,7 +4,7 @@ description: "Pojęcia dotyczące zarządzania i kwestie dotyczące zarządzania
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Zarządzanie niestandardowych nazw domen w usłudze Azure Active Directory
 Nazwa domeny jest ważnym elementem identyfikator wiele zasobów katalogu: wchodzi w skład użytkownika nazwy lub adresu e-mail dla użytkownika, część adresu w grupie i może być częścią aplikacji identyfikator URI aplikacji. Zasób w usłudze Azure Active Directory (Azure AD) może zawierać nazwy domeny, który już jest weryfikowany jako należących do katalogu, który zawiera zasób. Tylko administrator globalny może wykonywać zadania zarządzania domeny w usłudze Azure AD.
@@ -29,18 +29,18 @@ Podczas tworzenia katalogu z początkowej nazwy domeny, takie jak "contoso.onmic
 
 1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
 2. Wybierz **usługi Azure Active Directory**.
-   
-   ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Wybierz **nazwy domen**.
-4. Wybierz nazwę domeny, który chcesz utworzyć domenę podstawową.
+3. Wybierz **niestandardowych nazw domen**.
+     
+   ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Wybierz nazwę domeny, która ma być domeną podstawową.
 5. Wybierz **Ustaw jako podstawowy** polecenia. Potwierdź wybór po wyświetleniu monitu.
    
-   ![Wprowadź nazwę domeny głównej](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Wprowadź nazwę domeny głównej](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Można zmienić nazwę domeny głównej dla katalogu jako zweryfikowanej domeny niestandardowej, która nie jest zintegrowany. Zmiana domeny podstawowej dla katalogu nie spowoduje zmiany nazwy użytkownika dla wszystkich istniejących użytkowników.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Dodawanie niestandardowych nazw domen do usługi Azure AD
-> Można sumują się do maksymalnie 900 nazw domeny zarządzanej. Jeśli chcesz skonfigurować wszystkie domeny dla federacji z lokalną usługą Active Directory, można dodać maksymalnie do 450 nazwy domeny w każdym katalogu. Aby uzyskać więcej informacji, zobacz [federacyjnym i nazwy domeny zarządzanej](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Dodawanie niestandardowych nazw domen do dzierżawy usługi Azure AD
+Można sumują się do maksymalnie 900 nazw domeny zarządzanej. W przypadku konfigurowania wszystkich domen w federacji z lokalną usługą Active Directory, można dodać maksymalnie do 450 nazwy domeny w każdym katalogu. Aby uzyskać więcej informacji, zobacz [federacyjnym i nazwy domeny zarządzanej](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Dodawanie poddomen domeny niestandardowej
 Jeśli chcesz dodać nazwy domen trzeciego poziomu, takie jak "europe.contoso.com" do katalogu, należy najpierw dodać i zweryfikować domeny drugiego poziomu, np. contoso.com. Poddomeny zostanie automatycznie zweryfikowane przez usługę Azure AD. Aby wyświetlić zweryfikowaniu poddomeny, który właśnie został dodany, Odśwież stronę w przeglądarce, która zawiera listę domen.

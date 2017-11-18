@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a1d364b0dcb70998b390d0d96bcd1e439617e493
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja interfejsu API usługi Azure czas serii Insights
 
@@ -26,13 +26,13 @@ W tym artykule opisano sposób konfigurowania uwierzytelniania i autoryzacji uż
 
 W tej sekcji opisano sposób konfigurowania aplikacji na dostęp do interfejsu API Insights serii czasu w imieniu aplikacji. Aplikację można następnie zapytania na danych lub publikować dane referencyjne w środowisku czasu serii Insights z poświadczeń aplikacji, a nie poświadczenia użytkownika.
 
-Jeśli masz aplikację, która wymaga na czas dostępu Insights serii należy skonfigurować aplikację usługi Azure Active Directory i przypisać zasady dostępu do danych w środowisku Insights serii czasu. Ta metoda jest preferowana, na którym uruchomiono aplikację z poświadczeniami użytkownika, ponieważ:
+Jeśli masz aplikację, która musi czas dostępu Insights serii, należy skonfigurować aplikację usługi Azure Active Directory i przypisać zasady dostępu do danych w środowisku Insights serii czasu. Ta metoda jest preferowana, na którym uruchomiono aplikację z poświadczeniami użytkownika, ponieważ:
 
-* Można przypisać uprawnienia do tożsamości aplikacji, które różnią się od własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone do dokładnie co aplikacja powinna wykonać. Na przykład można zezwolić aplikacji na odczytywanie tylko dane w określonym środowisku Insights serii czasu.
+* Można przypisać uprawnienia do tożsamości aplikacji, które różnią się od własnych uprawnień. Te uprawnienia są zazwyczaj ograniczone tylko co aplikacja wymaga. Na przykład można zezwolić aplikacji na odczytywanie tylko dane w określonym środowisku Insights serii czasu.
 * Nie trzeba zmienić poświadczenia aplikacji, jeśli zmiana Twoje obowiązki.
 * Certyfikat i klucz aplikacji umożliwia automatyzację uwierzytelniania po uruchomieniu skryptu instalacji nienadzorowanej.
 
-W tym artykule przedstawiono sposób wykonywania tych kroków za pośrednictwem portalu Azure. Głównie aplikacji pojedynczej dzierżawy, gdzie aplikacja jest przeznaczona do uruchamiania w tylko jednej z organizacji. Aplikacje pojedynczej dzierżawy jest zazwyczaj używana dla aplikacji — biznesowych, które są uruchamiane w Twojej organizacji.
+W tym temacie przedstawiono sposób wykonywania tych kroków za pośrednictwem portalu Azure. Głównie aplikacji pojedynczej dzierżawy, gdzie aplikacja jest przeznaczona do uruchamiania w tylko jednej z organizacji. Aplikacje pojedynczej dzierżawy jest zazwyczaj używana dla aplikacji — biznesowych, które są uruchamiane w Twojej organizacji.
 
 Przepływ instalacji składa się z trzech ogólne kroki:
 
@@ -103,5 +103,7 @@ Użyj aplikacji identyfikator i klucz do uwierzytelniania w usłudze Azure czas 
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby uzyskać przykładowy kod, który wywołuje interfejs API czasu serii szczegółowe informacje, zobacz [zapytania na danych przy użyciu języka C#](time-series-insights-query-data-csharp.md).
-- Aby uzyskać informacje referencyjne interfejsu API, zobacz [dokumentacja interfejsu API zapytania](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Tworzenie nazwy głównej usługi w portalu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Aby uzyskać informacje referencyjne interfejsu API, zobacz [dokumentacja interfejsu API zapytania](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Tworzenie jednostki usługi](../azure-resource-manager/resource-group-create-service-principal-portal.md)

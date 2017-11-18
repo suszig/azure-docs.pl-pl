@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Niestandardowe dzienniki w analizy dzienników
 Źródło danych niestandardowe dzienniki w analizy dzienników umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemami Windows i Linux. Wiele aplikacji rejestrowania informacji w plikach tekstowych zamiast standardowych usług rejestrowania, takich jak dziennika zdarzeń systemu Windows lub Syslog.  Po zebraniu danych, można przeanalizować każdego rekordu w dzienniku w poszczególnych polach przy użyciu [pola niestandardowe](log-analytics-custom-fields.md) funkcji analizy dzienników.
@@ -56,10 +56,6 @@ Możesz uruchomić przekazywanie próbce dziennika niestandardowego.  Kreator pr
 
 Jeśli jest używany ogranicznik sygnatury czasowej, właściwość TimeGenerated każdego rekordu przechowywane w OMS zostaną wypełnione z daty/godziny, określony dla tego wpisu w pliku dziennika.  Jeśli jest używany nowy ogranicznik wiersza, TimeGenerated jest wypełniane przy użyciu daty i godziny, aby analizy dzienników pobrane wpis.
 
-> [!NOTE]
-> Analiza dzienników traktuje obecnie zbierane z dziennika przy użyciu ogranicznik znacznik czasu jako czas UTC daty/godziny.  To wkrótce zostanie zmieniona do używania strefę czasową na agencie.
->
->
 
 1. Kliknij przycisk **Przeglądaj** i przejdź do przykładowy plik.  Należy pamiętać, że może to przycisk może być oznaczony jako **wybierz plik** w niektórych przeglądarkach.
 2. Kliknij przycisk **Dalej**.

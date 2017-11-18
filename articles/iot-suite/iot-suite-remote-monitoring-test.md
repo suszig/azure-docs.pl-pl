@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testowanie rozwiązania z symulowanego urządzenia
 
@@ -177,7 +177,7 @@ Najprostszym sposobem tworzenia nowego typu urządzenia w symulacji mikrousługi
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      }
+      },
     }
     ```
 
@@ -307,12 +307,12 @@ Następujących krokach przedstawiono sposób wyszukiwania plików, które defin
 1. Jeśli nie zostało to jeszcze zrobione, użyj następującego polecenia, można sklonować **symulacji urządzenia** repozytorium GitHub na komputerze lokalnym:
 
     ```cmd/sh
-    git clone https://github.com/Azure/device-simulation-dotnet.git
+    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Dla każdego typu urządzenia jest plikiem JSON modelu i skojarzone skrypty w `Services/data/devicemodels` folderu. Plików, które definiują symulowane **Chłodnica** są typu urządzenia:
-    * `Services/data/devicemodels/chiller-01.json`
-    * `Services/data/devicemodels/scripts/chiller-01-state.js`
+1. Dla każdego typu urządzenia jest plikiem JSON modelu i skojarzone skrypty w `data/devicemodels` folderu. Plików, które definiują symulowane **Chłodnica** są typu urządzenia:
+    * `data/devicemodels/chiller-01.json`
+    * `data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Określ nowy typ telemetrii
 

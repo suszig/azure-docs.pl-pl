@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 00043293eb57768f0117e912bb67f02d088934f3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Skalować rozwiązania IoT hub
 Centrum IoT Azure może obsługiwać do milionów równocześnie połączonych urządzeń. Aby uzyskać więcej informacji, zobacz [Centrum IoT cennik][lnk-pricing]. Każda jednostka Centrum IoT umożliwia pewną liczbę wiadomości codzienne.
@@ -55,10 +55,10 @@ Podczas jednego centrum IoT można skalować do milionów urządzeń, czasami ro
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
-* [Symuluje urządzenia Azure IoT krawędzi][lnk-iotedge]
+* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

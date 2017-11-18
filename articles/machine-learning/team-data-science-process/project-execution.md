@@ -11,29 +11,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
-ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1015a9f24ca2c175ff367b1748f05bb3e464457f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="execution-of-data-science-projects"></a>Wykonanie projektów analizy danych
 
-W tym dokumencie opisano, jak naukowca danych można wykonać projektu analizy danych w systematyczne, niepoddany kontroli wersji i sposób współpracy w zespole projektu za pomocą [proces nauki danych zespołu](overview.md) (TDSP). TDSP jest opracowanym przez firmę Microsoft, zapewniająca strukturalnych sekwencji działań do wykonania wydajne rozwiązania oparte na chmurze analizy predykcyjnej. Aby schematem ról pracowników i ich skojarzonych zadań, które są obsługiwane przez zespół nauki danych standaryzacji w tym procesie, zobacz [proces nauki danych zespołu ról i zadań](roles-tasks.md). 
+W tym dokumencie opisano, jak deweloperzy wykonywać projektu analizy danych w systematyczne, niepoddany kontroli wersji i sposób współpracy w zespole projektu za pomocą [proces nauki danych zespołu](overview.md) (TDSP). TDSP jest opracowanym przez firmę Microsoft, zapewniająca strukturalnych sekwencji działań do wykonania wydajne rozwiązania oparte na chmurze analizy predykcyjnej. Aby schematem ról pracowników i ich skojarzonych zadań, które są obsługiwane przez zespół nauki danych standaryzacji w tym procesie, zobacz [proces nauki danych zespołu ról i zadań](roles-tasks.md). 
 
-Ten temat zawiera instrukcje dotyczące sposobu: 
+Ten artykuł zawiera instrukcje dotyczące sposobu: 
 
-1. czy **planowanie przebiegu** dla elementów roboczych związane z projektem.<br> Jeśli użytkownik nie zna planowanie przebiegu, szczegóły poniżej i ogólne informacje można znaleźć [tutaj](https://en.wikipedia.org/wiki/Sprint_(software_development) "tutaj"). 
+1. czy **planowanie przebiegu** dla elementów roboczych związane z projektem.<br> Jeśli użytkownik nie zna planowanie przebiegu, można znaleźć szczegółowe informacje ogólne i [tutaj](https://en.wikipedia.org/wiki/Sprint_(software_development) "tutaj"). 
 2. **Dodawanie elementów roboczych** do przebiegów.
 3. **połączyć elementy robocze z kodowania działania** śledzone przez git.
 4. czy **Przegląd kodu**. 
 
+> [!NOTE]
+> Kroki niezbędne do skonfigurowania środowiska zespołu TDSP, za pomocą programu Visual Studio Team Services (VSTS) są opisane w następujących zbiór instrukcji. Określa sposób wykonać te zadania z programu VSTS, ponieważ jest to implementowania TDSP firmy Microsoft.  Jeśli zdecydujesz się na używanie programu VSTS, elementy (3) i (4) na poprzedniej liście są korzyści, które otrzymujesz w sposób naturalny. Jeśli inny kod obsługujący platformy jest używany dla tej grupy, zadania, które muszą zostać wykonane przez realizacji zespołu zwykle nie należy zmieniać. Jednak sposób do wykonania tych zadań ma być różne. Na przykład element w sekcji sześciu, **Link elementu roboczego z gałęzi git**, nie może być łatwym znajduje się na usługi VSTS.
+>
+>
 
->[AZURE.NOTE] Firma Microsoft przedstawiają kroki niezbędne do konfigurowania środowiska zespołu TDSP przy użyciu programu Visual Studio Team Services (VSTS) w następujący zestaw instrukcji. Określono sposobu wykonywania tych zadań z programu VSTS, ponieważ sposób wprowadzania TDSP firmy Microsoft. Elementy [3] i [4] na poprzedniej liście są korzyści, które można uzyskać naturalnie, jeśli chcesz użyć programu VSTS. Jeśli inny kod obsługujący platformy jest używany dla tej grupy, zadania, które muszą zostać wykonane przez realizacji zespołu zwykle nie należy zmieniać. Jednak sposób do wykonania tych zadań ma być różne. Na przykład element w sekcji sześciu, **Link elementu roboczego z gałęzi git**, nie może być łatwym znajduje się na usługi VSTS.
-
-Na poniższym rysunku przedstawiono typowe przebiegu planowania, kodowanie i przepływu pracy z kontroli źródła wymagane w przypadku implementowania projektu nauki danych:
+Na poniższym rysunku przedstawiono typowe przebiegu planowania, kodowanie i związane z kontroli źródła przepływu pracy w realizacji projektu nauki danych:
 
 ![1](./media/project-execution/project-execution-1-project-execute.png)
 
@@ -53,9 +55,15 @@ Wypalenie w ramach planowania w TDSP, istnieją cztery typy często używanych *
 - **Zadanie**: zadania są elementy pracy można przypisać kodu lub dokument lub innych działań, które należy wykonać w celu przeprowadzenia określonego wątku. Na przykład zadania w wątku *pobierania danych* można:
     -  Uzyskiwanie poświadczeń programu SQL Server 
     -  Przekazywanie danych do usługi SQL Data Warehouse. 
-- **Błąd**: błędy zazwyczaj odwoływać się do poprawki, które są potrzebne dla istniejącego kodu lub które są wykonywane po zakończeniu zadania. Może on eskalować obecności wątku lub zadanie, jeśli ten błąd jest spowodowany przez odpowiednio Brak etapów lub zadania. 
+- **Błąd**: błędy zazwyczaj odwoływać się do poprawki, które są potrzebne dla istniejącego kodu lub które są wykonywane po zakończeniu zadania. Jeśli ten błąd jest spowodowany przez odpowiednio Brak etapów lub zadań, można przekazać do artykułu lub zadania. 
 
->[AZURE.NOTE] Firma Microsoft finansowania zewnętrznego pojęcia, funkcje, wątki, zadań i błędów z zarządzania kodu oprogramowania (SCM), który ma być używany podczas analizy danych. One może różnić się nieznacznie od ich z konwencjonalnej definicje SCM.
+> [!NOTE]
+> Pojęcia dotyczące pobierają są funkcje, wątki, zadań i błędów z zarządzania kodu oprogramowania (SCM), który ma być używany podczas analizy danych. One może różnić się nieznacznie od ich z konwencjonalnej definicje SCM.
+>
+>
+
+Analityków danych może bezpiecznie więcej przy użyciu szablonu usługi Agile, w szczególności wyrównany z TDSP etapy cyklu życia. Z tym pamiętać został utworzony szablon planowania przebiegu pochodnych Agile, gdzie Epics itp. wątki są zastępowane etapy cyklu życia TDSP lub substages. Dokumentacja na temat tworzenia Agile szablonu znajduje się [tutaj](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
+
 
 ##  2. <a name='SprintPlanning-2'></a>Planowanie przebiegu 
 
@@ -74,7 +82,7 @@ Aby dołączyć funkcji zaległości, kliknij przycisk **zaległości** --> **fu
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Kliknij dwukrotnie funkcja, do której został utworzony. Wypełnij opisy, przypisz członków zespołu dla tej funkcji i ustaw planowania parametrów dla tej funkcji. 
+Kliknij dwukrotnie funkcji, który został utworzony. Wypełnij opisy, przypisz członków zespołu dla tej funkcji i ustaw planowania parametrów dla tej funkcji. 
 
 Ta funkcja może także połączyć z repozytorium projektu. Kliknij przycisk **Dodaj** w obszarze **programowanie** sekcji. Po zakończeniu edycji funkcji, kliknij przycisk **Zapisz i Zamknij** aby zakończyć.
 
@@ -196,7 +204,7 @@ Można także użyć następujących poleceń Git gałąź pracy do swojej gał�
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Eksploracja danych interaktywnych, analizy i raportowania narzędzia (IDEAR)
 
-To narzędzie oparte na języku znaczników markdown R zapewnia elastyczne i interaktywne narzędzia do oceny i Eksploruj zestawów danych. Użytkownicy mogą szybko generować raporty z zestawu danych z minimalnym kodowania. Użytkownicy mogą kliknąć przycisk, aby wyeksportować wyniki eksploracji zauważa interaktywne narzędzia do raportu końcowego, które mogą zostać dostarczone do klientów lub umożliwia podjęcie decyzji, na które zmienne, aby uwzględnić w kroku kolejnych modelowania.
+To narzędzie oparte na języku znaczników markdown R zapewnia elastyczne i interaktywne narzędzia do oceny i Eksploruj zestawów danych. Użytkownicy mogą szybko generować raporty z zestawu danych z minimalnym kodowania. Użytkownicy mogą kliknąć przycisk, aby wyeksportować wyniki eksploracji interaktywne narzędzia do raportu końcowego, które mogą zostać dostarczone do klientów lub umożliwia podjęcie decyzji, na które zmienne, aby uwzględnić w kroku kolejnych modelowania.
 
 W tej chwili narzędzie działa tylko na ramek danych w pamięci. Plik .yaml jest potrzebne do określania parametrów zestawu danych do eksplorowania. Aby uzyskać więcej informacji, zobacz [IDEAR w narzędzia do analizy danych TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -229,7 +237,7 @@ Dane nauki grupy Menedżerowie, zespołu potencjalnych klientów i projektu pote
 
 Informacje na temat tworzenia pulpitów nawigacyjnych usługi Power BI i raportów do śledzenia działań repozytorium Git i elementami pracy po podłączeniu dane programu VSTS z usługą Power BI, zobacz [tworzenia usługi Power BI pulpity nawigacyjne i raporty](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Poniżej przedstawiono dwa pulpity nawigacyjne prosty przykład, które budujemy śledzenia działań Git i elementów roboczych. W pierwszym przykładzie pulpitu nawigacyjnego działania zobowiązań git są wyświetlane według różnych użytkowników w różnych terminach i na różnych repozytoriów. Użytkownik może łatwo kątami te, które chcesz filtrować.
+Poniżej przedstawiono dwa pulpity nawigacyjne prosty przykład, które są przeznaczone do śledzenia działań Git i elementów roboczych. W pierwszym przykładzie pulpitu nawigacyjnego działania zobowiązań git są wyświetlane według różnych użytkowników w różnych terminach i na różnych repozytoriów. Użytkownik może łatwo kątami te, które chcesz filtrować.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -240,6 +248,6 @@ W drugim przykładzie pulpitu nawigacyjnego są prezentowane elementów roboczyc
  
 ## <a name="next-steps"></a>Następne kroki
 
-Pełne end-to-end wskazówki, które pokazują wszystkie kroki procesu **określonych scenariuszy** podawane są również. Wymieniono i połączone z opisami miniatur w [wskazówki przykład](walkthroughs.md) tematu. Pokazują one sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
+Pełne end-to-end wskazówki, które pokazują wszystkie kroki procesu **określonych scenariuszy** podawane są również. Wymieniono i połączone z opisami miniatur w [wskazówki przykład](walkthroughs.md) artykułu. Pokazują one sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
 
 Przykłady wykonywania czynności w procesie nauki zespołu danych korzystających z usługi Azure Machine Learning Studio można znaleźć [z ML Azure](http://aka.ms/datascienceprocess) ścieżkę szkoleniową.

@@ -1,499 +1,463 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z usługi ServiceNow | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usługi ServiceNow i usługi ServiceNow Express."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usługi ServiceNow."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
-ms.assetid: 1d8eb99e-8ce5-4ba4-8b54-5c3d9ae573f6
+ms.reviewer: joflore
+ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b25e2184296182687d49b798e5e5a9a2d623c6e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Samouczek: Integracji Azure Active Directory z usługi ServiceNow
-Z tego samouczka dowiesz się Integrowanie usługi ServiceNow i Express usługi ServiceNow z usługą Azure Active Directory (Azure AD).
 
-Integrowanie usługi ServiceNow i Express usługi ServiceNow z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się Integrowanie usługi ServiceNow z usługą Azure Active Directory (Azure AD).
 
-* Można kontrolować w usłudze Azure AD, kto ma dostęp do usługi ServiceNow oraz usługi ServiceNow Express
-* Umożliwia użytkownikom automatycznie pobrać zalogowane usługi ServiceNow i usługi ServiceNow Express (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+Integrowanie usługi ServiceNow z usługą Azure AD zapewnia następujące korzyści:
+
+- Można kontrolować w usłudze Azure AD, który ma dostęp do usługi ServiceNow.
+- Umożliwia użytkownikom automatycznie pobrać podpisany w przypadku usługi ServiceNow (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby skonfigurować integrację usługi Azure AD z usługi ServiceNow i Express usługi ServiceNow, potrzebne są następujące elementy:
 
-* Subskrypcję usługi Azure AD
-* Dla usługi ServiceNow, wystąpienie lub dzierżawy usługi ServiceNow, wersja Calgary lub nowszej
-* Usługi ServiceNow Express, wystąpienie usługi ServiceNow Express, wersja Helsinkach lub nowszej
-* Dzierżawca usługi ServiceNow musi mieć [wielu pojedynczy znak na dodatek dostawcy](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) włączone. Można to zrobić [przesyłanie żądania obsługi](https://hi.service-now.com). 
+Aby skonfigurować integrację usługi Azure AD z usługi ServiceNow, potrzebne są następujące elementy:
+
+- Subskrypcję usługi Azure AD
+- Dla usługi ServiceNow, wystąpienie lub dzierżawy usługi ServiceNow, wersja Calgary lub nowszej
+- Usługi ServiceNow Express, wystąpienie usługi ServiceNow Express, wersja Helsinkach lub nowszej
+- Dzierżawca usługi ServiceNow musi mieć [wielu pojedynczy znak na dodatek dostawcy](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) włączone. Można to zrobić [przesyłanie żądania obsługi](https://hi.service-now.com).
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
-> 
-> 
 
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
-* Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
-* Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
+- Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
 1. Dodawanie usługi ServiceNow z galerii
-2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne dla usługi ServiceNow lub usługi ServiceNow Express
+2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
 ## <a name="adding-servicenow-from-the-gallery"></a>Dodawanie usługi ServiceNow z galerii
-Aby skonfigurować integrację usługi ServiceNow lub Express usługi ServiceNow z usługą Azure AD, należy dodać usługi ServiceNow z galerii do listy zarządzanych aplikacji SaaS. 
+Aby skonfigurować integrację usługi ServiceNow z usługą Azure AD, należy dodać usługi ServiceNow z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać usługi ServiceNow z galerii, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
-   
-    ![Usługa Active Directory][1]
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
-    ![Aplikacje][2]
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
-   
-    ![Aplikacje][3]
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
-   
-    ![Aplikacje][4]
-6. W polu wyszukiwania wpisz **ServiceNow**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_01.png)
-7. W okienku wyników wybierz **ServiceNow**, a następnie kliknij przycisk **Complete** można dodać aplikację.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_02.png)
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-W tej sekcji możesz skonfigurować i test usługi Azure AD rejestracji jednokrotnej z usługi ServiceNow lub Express usługi ServiceNow w oparciu o nazwie "Britta Simona" użytkownika testowego.
+    ![Przycisk usługi Azure Active Directory][1]
+
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+
+    ![Blok aplikacje przedsiębiorstwa][2]
+    
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+
+    ![Nowy przycisk aplikacji][3]
+
+4. W polu wyszukiwania wpisz **ServiceNow**, wybierz pozycję **ServiceNow** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+
+    ![Usługi ServiceNow na liście wyników](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
+
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi ServiceNow w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
 Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w ServiceNow jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w usługi ServiceNow musi się.
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w usługi ServiceNow. Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi ServiceNow, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej dla usługi ServiceNow](#configuring-azure-ad-single-sign-on-for-servicenow)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Konfigurowanie usługi Azure AD logowania jednokrotnego usługi ServiceNow Express](#configuring-azure-ad-single-sign-on-for-servicenow-express)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-4. **[Tworzenie użytkownika testowego usługi ServiceNow](#creating-a-servicenow-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta ServiceNow połączonego z jej reprezentacji usługi Azure AD.
-5. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-6. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+Usługi ServiceNow, przypisywanie wartości **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-> [!NOTE]
-> Jeśli chcesz skonfigurować usługi ServiceNow pominąć krok 2. Podobnie jeśli chcesz skonfigurować usługi ServiceNow Express pominąć krok 1.
-> 
-> 
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z usługi ServiceNow, należy wykonać poniższe bloki konstrukcyjne:
 
-### <a name="configuring-azure-ad-single-sign-on-for-servicenow"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej dla usługi ServiceNow
-1. W klasycznym portalu usługi Azure AD na **ServiceNow** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować rejestrację jednokrotną** okna dialogowego.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749323.png "skonfigurować logowanie jednokrotne")
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej dla usługi ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Konfigurowanie usługi Azure AD logowania jednokrotnego usługi ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+4. **[Tworzenie użytkownika testowego usługi ServiceNow](#create-a-servicenow-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta ServiceNow połączonego z usługi Azure AD reprezentację użytkownika.
+5. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+6. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-2. Na **jak chcesz użytkownikom zalogować się do usługi ServiceNow** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749324.png "skonfigurować logowanie jednokrotne")
+### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej dla usługi ServiceNow
 
-3. Na **Konfigurowanie ustawień aplikacji** wykonaj następujące czynności:
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/IC769497.png "skonfigurować adres URL aplikacji")
-   
-    a. w **usługi ServiceNow na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji usługi ServiceNow zgodnie ze wzorcem: `https://<instance-name>.service-now.com`.
-   
-    b. W **identyfikator** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji usługi ServiceNow zgodnie ze wzorcem: `https://<instance-name>.service-now.com`.
-   
-    c. Kliknij przycisk **Dalej**
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne do aplikacji usługi ServiceNow.
 
-4. Aby program Azure AD automatycznie konfigurować usługi ServiceNow dla uwierzytelniania opartego na SAML, wprowadź Twojej nazwy wystąpienia usługi ServiceNow, nazwa użytkownika i hasło administratora w **automatycznie skonfigurować logowanie jednokrotne** tworzą, a następnie kliknij przycisk  *Skonfiguruj*. Należy pamiętać, że podana nazwa użytkownika administratora musi mieć **security_admin** rola przypisana w usługi ServiceNow tej pracy. W przeciwnym razie, aby ręcznie skonfigurować usługi ServiceNow przy użyciu usługi Azure AD jako dostawca tożsamości SAML, kliknij przycisk **ręcznie skonfigurować aplikację do logowania jednokrotnego**, następnie kliknij przycisk **dalej** i wykonaj następujące czynności .
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "skonfigurować adres URL aplikacji")
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z usługi ServiceNow, wykonaj następujące czynności:**
 
-5. Na **skonfigurować logowanie jednokrotne w ServiceNow** kliknij przycisk **pobierania certyfikatu**, Zapisz plik certyfikatu lokalnie na komputerze.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749325.png "skonfigurować logowanie jednokrotne")
+1. W portalu Azure na **ServiceNow** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-6. Logowanie do aplikacji usługi ServiceNow jako administrator.
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-7. Aktywuj *integracja — wiele pojedynczego logowania Instalatora dostawcy* wtyczki dalej wykonaj czynności:
-   
-    a. W okienku nawigacji po lewej stronie, przejdź do **definicji systemu** sekcji, a następnie kliknij przycisk **wtyczek**.
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "aktywowanie wtyczki")
-   
-    b. Wyszukaj *integracja — wiele pojedynczego logowania Instalatora dostawcy*.
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "aktywowanie wtyczki")
-   
-    c. Wybierz wtyczki. Rigth kliknij i zaznacz **Aktywuj/Upgrade**.
-   
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+ 
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_samlbase.png)
+
+3. Na **adresy URL i domeny usługi ServiceNow** sekcji, wykonaj następujące czynności:
+
+    ![Adresy URL i domeny usługi ServiceNow z jednym informacje logowania jednokrotnego](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
+
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<instance-name>.service-now.com/navpage.do`
+
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<instance-name>.service-now.com`
+
+    > [!NOTE] 
+    > Wartości te nie są prawdziwe. Musisz zaktualizować te wartości z rzeczywisty adres URL logowania i identyfikator, który znajduje się w dalszej części tego samouczka.
+
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
+
+6. Aby wygenerować **metadanych** adres url, wykonaj następujące czynności:
+
+    a. Kliknij przycisk **rejestracji aplikacji**.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
+
+    b. Kliknij przycisk **punkty końcowe** otworzyć **punkty końcowe** okno dialogowe.
+    
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
+    
+    c. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
+
+    d. Teraz przejdź do **ServiceNow** właściwości i skopiuj **identyfikator aplikacji** przy użyciu **kopiowania** przycisk i wklej go do Notatnika.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/appid.png)
+
+    e. Generowanie **adres URL metadanych** przy użyciu następującego wzorca: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Skopiuj wartość wygenerowany w programie Notatnik jako adres URL, które będą używane w dalszej części samouczka metadanych.
+
+7. Jedno kliknięcie skonfigurować usługę została podana dla usługi ServiceNow oznacza to, aby na platformie Azure AD automatycznie skonfigurować usługi ServiceNow dla uwierzytelniania opartego na SAML. Aby włączyć tę usługę, przejdź do **konfiguracji usługi ServiceNow** kliknij **skonfigurować usługi ServiceNow** można otworzyć Konfigurowanie logowania jednokrotnego okna.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
+
+8. Wprowadź nazwę wystąpienia usługi ServiceNow, nazwa użytkownika i hasło administratora w **Konfigurowanie logowania jednokrotnego** tworzą, a następnie kliknij przycisk **Konfiguruj teraz**. Należy pamiętać, że podana nazwa użytkownika administratora musi mieć **security_admin** rola przypisana w usługi ServiceNow tej pracy. W przeciwnym razie, aby ręcznie skonfigurować usługi ServiceNow przy użyciu usługi Azure AD jako dostawca tożsamości SAML, kliknij przycisk **ręcznie skonfigurować logowanie jednokrotne** i skopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z sekcji krótkimi opisami.
+
+    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/configure.png "skonfigurować adres URL aplikacji")
+
+9. Zaloguj się do aplikacji usługi ServiceNow jako administrator.
+
+10. Aktywuj **integracja — wiele pojedynczego logowania Instalatora dostawcy** wtyczki dalej wykonaj czynności:
+
+    a. W okienku nawigacji po lewej stronie Wyszukaj **definicji systemu** sekcji na pasku wyszukiwania, a następnie kliknij przycisk **wtyczek**.
+
+    ![Aktywowanie wtyczki](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "aktywowanie wtyczki")
+
+     b. Wyszukaj **integracja — wiele pojedynczego logowania Instalatora dostawcy**.
+
+     ![Aktywowanie wtyczki](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "aktywowanie wtyczki")
+
+    c. Wybierz wtyczki. Kliknij prawym przyciskiem myszy i wybierz **Aktywuj/Upgrade**.
+
     d. Kliknij przycisk **Aktywuj** przycisku.
 
-8. W okienku nawigacji po lewej stronie kliknij **właściwości**.  
-   
+11. W okienku nawigacji po lewej stronie Wyszukaj **dostawcy usługi logowania jednokrotnego** sekcji na pasku wyszukiwania, a następnie kliknij przycisk **właściwości**.
+
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "skonfigurować adres URL aplikacji")
 
-9. Na **wiele właściwości logowania jednokrotnego dostawcy** okna dialogowego, wykonaj następujące czynności:
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "skonfigurować adres URL aplikacji")
-   
+12. Na **wiele właściwości logowania jednokrotnego dostawcy** okna dialogowego, wykonaj następujące czynności:
+
+    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "skonfigurować adres URL aplikacji")
+
     a. Jako **włączyć wiele dostawcy logowania jednokrotnego**, wybierz pozycję **tak**.
-   
-    b. Jako **włączania rejestrowania debugowania uzyskano wiele dostawcy logowania jednokrotnego integracji**, wybierz pozycję **tak**.
-   
-    c. W **tabeli pole użytkownika, który...**  pole tekstowe, typ **nazwa_użytkownika**.
-   
-    d. Kliknij pozycję **Zapisz**.
 
-10. W okienku nawigacji po lewej stronie kliknij **certyfikaty x509**.
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "skonfigurować logowanie jednokrotne")
+    b. Jako **włączyć automatyczne importowanie użytkowników z wszystkich dostawców tożsamości do tabeli użytkownika**, wybierz pozycję **tak**.
 
-11. Na **certyfikatów X.509** okna dialogowego, kliknij przycisk **nowy**.
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "skonfigurować logowanie jednokrotne")
+    c. Jako **debugowania Włącz rejestrowanie dla wielu dostawcy logowania jednokrotnego integracji**, wybierz pozycję **tak**.
 
-12. Na **certyfikatów X.509** okna dialogowego, wykonaj następujące czynności:
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "skonfigurować logowanie jednokrotne")
-    
-     a. Kliknij przycisk **Nowy**.
-    
-     b. W **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: **TestSAML2.0**).
-    
-     c. Wybierz **Active**.
-    
-     d. Jako **Format**, wybierz pozycję **PEM**.
-    
-     e. Jako **typu**, wybierz pozycję **zaufania certyfikatów magazynu**.
-    
-     f. Otwórz w Notatniku Twojego certyfikatu szyfrowania Base64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu PEM** pola tekstowego.
-    
-     g. Kliknij przycisk **aktualizacji**.
+    d. W **tabeli pole użytkownika, który...**  pole tekstowe, typ **nazwa_użytkownika**.
 
-13. W okienku nawigacji po lewej stronie kliknij **dostawców tożsamości**.
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "skonfigurować logowanie jednokrotne")
+    e. Kliknij pozycję **Zapisz**.
 
-14. Na **dostawców tożsamości** okna dialogowego, kliknij przycisk **nowy**:
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "skonfigurować logowanie jednokrotne")
+13. W okienku nawigacji po lewej stronie Wyszukaj **dostawcy usługi logowania jednokrotnego** sekcji na pasku wyszukiwania, a następnie kliknij przycisk **certyfikaty x509**.
 
-15. Na **dostawców tożsamości** okna dialogowego, kliknij przycisk **aktualizację1 SAML2?**:
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "skonfigurować logowanie jednokrotne")
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "skonfigurować logowanie jednokrotne")
 
-16. W oknie dialogowym właściwości aktualizację1 SAML2 wykonaj następujące czynności:
-    
-     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "skonfigurować logowanie jednokrotne")
+14. Na **certyfikatów X.509** okna dialogowego, kliknij przycisk **nowy**.
 
-    a. w **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: **SAML 2.0**).
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694974.png "skonfigurować logowanie jednokrotne")
 
-    b. W **pole użytkownika** pole tekstowe, typ **e-mail** lub **nazwa_użytkownika**, w zależności od pole, które jest używane do unikatowego identyfikowania użytkowników w danym wdrożeniu usługi ServiceNow. 
+15. Na **certyfikatów X.509** okna dialogowego, wykonaj następujące czynności:
 
-    > [!NOTE] 
-    > Można configue usługi Azure AD, aby emitować identyfikator użytkownika usługi Azure AD (główna nazwa użytkownika) lub adres e-mail jako unikatowy identyfikator w tokenie SAML, przechodząc do **ServiceNow > atrybuty > logowanie jednokrotne** sekcji klasyczny Portal Azure Portal i mapowanie odpowiednie pola **nameidentifier** atrybutu. Wartość przechowywana wybranego atrybutu w usłudze Azure AD (np. główna nazwa użytkownika) musi odpowiadać wartości przechowywane w usługi ServiceNow wprowadzony w polu (np. nazwa_użytkownika)
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "skonfigurować logowanie jednokrotne")
 
-    c. W klasycznym portalu usługi Azure AD, skopiuj **identyfikator dostawcy tożsamości** wartość, a następnie wklej ją do **adres URL dostawcy tożsamości** pola tekstowego.
+    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (na przykład: **TestSAML2.0**).
 
-    d. W klasycznym portalu usługi Azure AD, skopiuj **adres URL żądania uwierzytelniania** wartość, a następnie wklej ją do **AuthnRequest dostawcy tożsamości** pola tekstowego.
+    b. Wybierz **Active**.
 
-    e. W klasycznym portalu usługi Azure AD, skopiuj **pojedynczy adres URL usługi Sign-Out** wartość, a następnie wklej ją do **SingleLogoutRequest dostawcy tożsamości** pola tekstowego.
+    c. Jako **Format**, wybierz pozycję **PEM**.
 
-    f. W **strony głównej usługi ServiceNow** tekstowym, wpisz adres URL strony głównej wystąpienia usługi ServiceNow.
+    d. Jako **typu**, wybierz pozycję **zaufania certyfikatów magazynu**.
 
-    > [!NOTE] 
-    > Na stronie głównej wystąpienia usługi ServiceNow jest złączeniem Twojej **adres URL dzierżawy ServieNow** i **/navpage.do** (np.:`https://fabrikam.service-now.com/navpage.do`).
+    e. Otwórz z certyfikatu szyfrowania Base64 pobrany z platformy Azure w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu PEM** pola tekstowego.
 
-    g. W **identyfikator podmiot / wystawca** pole tekstowe, wpisz adres URL dzierżawy usługi ServiceNow.
+     f. Kliknij przycisk **przesłać**.
 
-    h. W **URL odbiorców** tekstowym, wpisz adres URL dzierżawy usługi ServiceNow. 
+16. W okienku nawigacji po lewej stronie kliknij **dostawców tożsamości**.
 
-    i. W **powiązanie protokołu IDP SingleLogoutRequest** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:2.0:bindings:HTTP-przekierowania**.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "skonfigurować logowanie jednokrotne")
 
-    j. W polu tekstowym zasad NameID wpisz **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: nieokreślony**.
+17. Na **dostawców tożsamości** okna dialogowego, kliknij przycisk **nowy**.
 
-    k. Anuluj wybór **utworzyć AuthnContextClass**.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694977.png "skonfigurować logowanie jednokrotne")
 
-    l. W **metody AuthnContextClassRef**, typ `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Jest to potrzebne tylko w przypadku organizacji tylko w chmurze. Jeśli używasz lokalnych usług AD FS lub usługę MFA dla uwierzytelniania, a następnie ta wartość nie należy konfigurować. 
+18. Na **dostawców tożsamości** okna dialogowego, kliknij przycisk **aktualizację1 SAML2?**.
 
-    m. W **pochylanie zegara** pole tekstowe, typ **60**.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694978.png "skonfigurować logowanie jednokrotne")
 
-    n. Jako **pojedynczy znak na skrypt**, wybierz pozycję **MultiSSO_SAML2_Update1**.
+19. W oknie dialogowym właściwości aktualizację1 SAML2 wykonaj następujące czynności:
 
-    o. Jako **x509 certyfikatu**, wybierz certyfikat został utworzony w poprzednim kroku.
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/idp.png "skonfigurować logowanie jednokrotne")
 
-    p. Kliknij przycisk **przesłać**. 
+    a. Wybierz **adres URL** opcji **Importuj metadane dostawcy tożsamości** okno dialogowe.
 
-1. W klasycznym portalu usługi Azure AD, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij **dalej**. 
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "skonfigurować logowanie jednokrotne")
+    b. Wprowadź **adres URL metadanych** wygenerowane z portalu Azure.
 
-2. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "skonfigurować logowanie jednokrotne")
+    c. Kliknij przycisk **Importuj**.
 
-### <a name="configuring-azure-ad-single-sign-on-for-servicenow-express"></a>Konfigurowanie usługi Azure AD jednokrotnej usługi ServiceNow Express
-1. W klasycznym portalu usługi Azure AD na **ServiceNow** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować rejestrację jednokrotną** okna dialogowego.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749323.png "skonfigurować logowanie jednokrotne")
+20. Adres URL metadanych IdP odczytuje i wypełnienie wszystkich pól informacji.
 
-2. Na **jak chcesz użytkownikom zalogować się do usługi ServiceNow** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749324.png "skonfigurować logowanie jednokrotne")
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "skonfigurować logowanie jednokrotne")
 
-3. Na **Konfigurowanie ustawień aplikacji** wykonaj następujące czynności:
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/IC769497.png "skonfigurować adres URL aplikacji")
-   
-    a. w **usługi ServiceNow na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji usługi ServiceNow zgodnie ze wzorcem: `https://<instance-name>.service-now.com`.
-   
-    b. W **adres URL wystawcy** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji usługi ServiceNow zgodnie ze wzorcem `https://<instance-name>.service-now.com`.
-   
-    c. Kliknij przycisk **Dalej**
+    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (na przykład **SAML 2.0**).
 
-4. Kliknij przycisk **ręcznie skonfigurować aplikację do logowania jednokrotnego**, następnie kliknij przycisk **dalej** i wykonaj następujące kroki.
-   
-    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "skonfigurować adres URL aplikacji")
+    b. W **pole użytkownika** pole tekstowe, typ **e-mail** lub **nazwa_użytkownika**, w zależności od pole, które jest używane do unikatowego identyfikowania użytkowników w danym wdrożeniu usługi ServiceNow.
 
-5. Na **skonfigurować logowanie jednokrotne w ServiceNow** kliknij przycisk **pobierania certyfikatu**, Zapisz plik certyfikatu lokalnie na komputerze, a następnie kliknij przycisk **dalej**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC749325.png "skonfigurować logowanie jednokrotne")
+    > [!NOTE]
+    > Można skonfigurować usługi Azure AD, aby emitować identyfikator użytkownika usługi Azure AD (główna nazwa użytkownika) lub adres e-mail jako unikatowy identyfikator w tokenie SAML, przechodząc do **ServiceNow > atrybuty > logowanie jednokrotne** części portalu Azure mapowania odpowiednie pola i **nameidentifier** atrybutu. Wartość przechowywana wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi odpowiadać wartości przechowywane w usługi ServiceNow wprowadzone pola (na przykład nazwa_użytkownika)
 
-6. Logowanie do aplikacji usługi ServiceNow Express jako administrator.
+    c. Kopiuj **strony głównej usługi ServiceNow** wartość, wklej go w **adres URL logowania** textbox w **ServiceNow domeny i adres URL** sekcji z portalu Azure.
 
-7. W okienku nawigacji po lewej stronie kliknij **rejestracji jednokrotnej**.  
-   
+    > [!NOTE]
+    > Na stronie głównej wystąpienia usługi ServiceNow jest złączeniem Twojej **adres URL dzierżawy ServieNow** i **/navpage.do** (na przykład:`https://fabrikam.service-now.com/navpage.do`).
+
+    d. Kopiuj **identyfikator jednostki / wystawcy** wartość, wklej go w **identyfikator** textbox w **ServiceNow domeny i adres URL** sekcji z portalu Azure.
+
+     e. W obszarze **x509 certyfikatu**, zawiera listę certyfikat został utworzony w poprzednim kroku.
+
+### <a name="configure-azure-ad-single-sign-on-for-servicenow-express"></a>Konfigurowanie usługi Azure AD jednokrotnej usługi ServiceNow Express
+
+1. W portalu Azure na **ServiceNow** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+
+    ![Konfigurowanie rejestracji jednokrotnej][4]
+
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_samlbase.png)
+
+3. Na **adresy URL i domeny usługi ServiceNow** sekcji, wykonaj następujące czynności:
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
+
+    a. W **adres URL logowania** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://<instance-name>.service-now.com/navpage.do`
+
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<instance-name>.service-now.com`
+
+    > [!NOTE]
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta usługi ServiceNow](https://www.servicenow.com/support/contact-support.html) uzyskać te wartości.
+
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
+
+6. Jedno kliknięcie skonfigurować usługę została podana dla usługi ServiceNow oznacza to, aby na platformie Azure AD automatycznie skonfigurować usługi ServiceNow dla uwierzytelniania opartego na SAML. Aby włączyć tę usługę, przejdź do **konfiguracji usługi ServiceNow** kliknij **skonfigurować usługi ServiceNow** można otworzyć Konfigurowanie logowania jednokrotnego okna.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
+
+7. Wprowadź nazwę wystąpienia usługi ServiceNow, nazwa użytkownika i hasło administratora w **Konfigurowanie logowania jednokrotnego** tworzą, a następnie kliknij przycisk **Konfiguruj teraz**. Należy pamiętać, że podana nazwa użytkownika administratora musi mieć **security_admin** rola przypisana w usługi ServiceNow tej pracy. W przeciwnym razie, aby ręcznie skonfigurować usługi ServiceNow przy użyciu usługi Azure AD jako dostawca tożsamości SAML, kliknij przycisk **ręcznie skonfigurować logowanie jednokrotne** i skopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z sekcji krótkimi opisami.
+
+    ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/configure.png "skonfigurować adres URL aplikacji")
+
+8. Zaloguj się do aplikacji usługi ServiceNow Express jako administrator.
+
+9. W okienku nawigacji po lewej stronie kliknij **rejestracji jednokrotnej**.
+
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "skonfigurować adres URL aplikacji")
 
-8. Na **rejestracji jednokrotnej** okna dialogowego, kliknij ikonę konfiguracji w prawym górnym rogu i ustaw następujące właściwości:
-   
+10. Na **rejestracji jednokrotnej** okna dialogowego, kliknij ikonę konfiguracji w prawym górnym rogu i ustaw następujące właściwości:
+
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "skonfigurować adres URL aplikacji")
-   
+
     a. Przełącz **włączyć wiele dostawcy logowania jednokrotnego** z prawej strony.
-   
+    
     b. Przełącz **debugowania Włącz rejestrowanie dla wielu dostawcy logowania jednokrotnego integracji** z prawej strony.
-   
+    
     c. W **tabeli pole użytkownika, który...**  pole tekstowe, typ **nazwa_użytkownika**.
-9. Na **rejestracji jednokrotnej** okna dialogowego, kliknij przycisk **Dodaj nowy certyfikat**.
-   
+
+11. Na **rejestracji jednokrotnej** okna dialogowego, kliknij przycisk **Dodaj nowy certyfikat**.
+
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "skonfigurować logowanie jednokrotne")
-10. Na **certyfikatów X.509** okna dialogowego, wykonaj następujące czynności:
-    
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "skonfigurować logowanie jednokrotne")
-    
-    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: **TestSAML2.0**).
-    
+
+12. Na **certyfikatów X.509** okna dialogowego, wykonaj następujące czynności:
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "skonfigurować logowanie jednokrotne")
+
+    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (na przykład: **TestSAML2.0**).
+
     b. Wybierz **Active**.
-    
+
     c. Jako **Format**, wybierz pozycję **PEM**.
-    
+
     d. Jako **typu**, wybierz pozycję **zaufania certyfikatów magazynu**.
-    
-    e. Utwórz plik kodowany w standardzie Base64 z pobranego certyfikatu.
-    
-    > [!NOTE]
-    > Aby uzyskać więcej informacji, zobacz [sposób konwertowania binarne certyfikatu do pliku tekstowego](http://youtu.be/PlgrzUZ-Y1o).
-    > 
-    > 
-    
-    f. Otwórz w Notatniku Twojego certyfikatu szyfrowania Base64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu PEM** pola tekstowego.
-    
-    g. Kliknij przycisk **aktualizacji**.
-11. Na **rejestracji jednokrotnej** okna dialogowego, kliknij przycisk **Dodaj nowe IdP**.
-    
+
+    e. Otwórz z certyfikatu szyfrowania Base64 pobrany z portalu Azure w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu PEM** pola tekstowego.
+
+    f. Kliknij przycisk **aktualizacji**
+
+13. Na **rejestracji jednokrotnej** okna dialogowego, kliknij przycisk **Dodaj nowe IdP**.
+
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "skonfigurować logowanie jednokrotne")
-12. Na **Dodaj nowego dostawcę tożsamości** okna dialogowego, w obszarze **Konfigurowanie dostawcy tożsamości**, wykonaj następujące czynności:
-    
+
+14. Na **Dodaj nowego dostawcę tożsamości** okna dialogowego, w obszarze **Konfigurowanie dostawcy tożsamości**, wykonaj następujące czynności:
+
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "skonfigurować logowanie jednokrotne")
 
-    a. w **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: **SAML 2.0**).
+    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (na przykład: **SAML 2.0**).
 
-    b. W klasycznym portalu usługi Azure AD, skopiuj **identyfikator dostawcy tożsamości** wartość, a następnie wklej ją do **adres URL dostawcy tożsamości** pola tekstowego.
+    b. W **adres URL dostawcy tożsamości** pól, Wklej wartość **identyfikator dostawcy tożsamości** którego została skopiowana z portalu Azure.
+    
+    c. W **AuthnRequest dostawcy tożsamości** pól, Wklej wartość **adres URL żądania uwierzytelniania** , które zostały skopiowane z portalu Azure.
 
-    c. W klasycznym portalu usługi Azure AD, skopiuj **adres URL żądania uwierzytelniania** wartość, a następnie wklej ją do **AuthnRequest dostawcy tożsamości** pola tekstowego.
-
-    d. W klasycznym portalu usługi Azure AD, skopiuj **pojedynczy adres URL usługi Sign-Out** wartość, a następnie wklej ją do **SingleLogoutRequest dostawcy tożsamości** pola tekstowego.
+    d. W **SingleLogoutRequest dostawcy tożsamości** pól, Wklej wartość **pojedynczy adres URL usługi Sign-Out** którego została skopiowana z portalu Azure
 
     e. Jako **certyfikat dostawcy tożsamości**, wybierz certyfikat został utworzony w poprzednim kroku.
 
+15. Kliknij przycisk **Zaawansowane ustawienia**, a następnie w obszarze **dodatkowe właściwości dostawcy tożsamości**, wykonaj następujące czynności:
 
-1. Kliknij przycisk **Zaawansowane ustawienia**, a następnie w obszarze **dodatkowe właściwości dostawcy tożsamości**, wykonaj następujące czynności:
-   
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "skonfigurować logowanie jednokrotne")
-   
+
     a. W **powiązanie protokołu IDP SingleLogoutRequest** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:2.0:bindings:HTTP-przekierowania**.
-   
-    b. W **zasad NameID** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: nieokreślony**.    
-   
-    c. W **metody AuthnContextClassRef**, typ **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
-   
+
+    b. W **zasad NameID** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: nieokreślony**.
+
+    c. W **metody AuthnContextClassRef**, typ `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
+
     d. Anuluj wybór **utworzyć AuthnContextClass**.
 
-2. W obszarze **dodatkowe właściwości dostawcy usług**, wykonaj następujące czynności:
-   
+16. W obszarze **dodatkowe właściwości dostawcy usług**, wykonaj następujące czynności:
+
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "skonfigurować logowanie jednokrotne")
-   
+
     a. W **strony głównej usługi ServiceNow** tekstowym, wpisz adres URL strony głównej wystąpienia usługi ServiceNow.
-   
+
     > [!NOTE]
-    > Na stronie głównej wystąpienia usługi ServiceNow jest złączeniem Twojej **adres URL dzierżawy ServieNow** i **/navpage.do** (np.: `https://fabrikam.service-now.com/navpage.do`).
-    > 
-    > 
-   
+    > Na stronie głównej wystąpienia usługi ServiceNow jest złączeniem Twojej **adres URL dzierżawy ServieNow** i **/navpage.do** (na przykład: `https://fabrikam.service-now.com/navpage.do`).
+
     b. W **identyfikator podmiot / wystawca** pole tekstowe, wpisz adres URL dzierżawy usługi ServiceNow.
-   
-    c. W **identyfikatora URI odbiorców** tekstowym, wpisz adres URL dzierżawy usługi ServiceNow. 
-   
+
+    c. W **identyfikatora URI odbiorców** tekstowym, wpisz adres URL dzierżawy usługi ServiceNow.
+
     d. W **pochylanie zegara** pole tekstowe, typ **60**.
-   
+
     e. W **pole użytkownika** pole tekstowe, typ **e-mail** lub **nazwa_użytkownika**, w zależności od pole, które jest używane do unikatowego identyfikowania użytkowników w danym wdrożeniu usługi ServiceNow.
-   
+
     > [!NOTE]
-    > Można configue usługi Azure AD, aby emitować identyfikator użytkownika usługi Azure AD (główna nazwa użytkownika) lub adres e-mail jako unikatowy identyfikator w tokenie SAML, przechodząc do **ServiceNow > atrybuty > logowanie jednokrotne** sekcji klasyczny Portal Azure Portal i mapowanie odpowiednie pola **nameidentifier** atrybutu. Wartość przechowywana wybranego atrybutu w usłudze Azure AD (np. główna nazwa użytkownika) musi odpowiadać wartości przechowywane w usługi ServiceNow wprowadzony w polu (np. nazwa_użytkownika)
-    > 
-    > 
-   
-    f. Kliknij pozycję **Zapisz**. 
+    > Można skonfigurować usługi Azure AD, aby emitować identyfikator użytkownika usługi Azure AD (główna nazwa użytkownika) lub adres e-mail jako unikatowy identyfikator w tokenie SAML, przechodząc do **ServiceNow > atrybuty > logowanie jednokrotne** części portalu Azure mapowania odpowiednie pola i **nameidentifier** atrybutu. Wartość przechowywana wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi odpowiadać wartości przechowywane w usługi ServiceNow wprowadzone pola (na przykład nazwa_użytkownika)
 
-3. W klasycznym portalu usługi Azure AD, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij **dalej**. 
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "skonfigurować logowanie jednokrotne")
+    f. Kliknij pozycję **Zapisz**.
 
-4. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "skonfigurować logowanie jednokrotne")
+> [!TIP]
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Konfigurowanie Inicjowanie obsługi użytkowników
-Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników usługi Active Directory do usługi ServiceNow Inicjowanie obsługi użytkowników.
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:
-1. W klasycznym portalu Azure Management na **ServiceNow** strona integracji aplikacji, kliknij przycisk **skonfigurować Inicjowanie obsługi użytkowników**. 
-   
-    ![Inicjowanie obsługi użytkowników](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Inicjowanie obsługi użytkowników")
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
-2. Na **wprowadź swoje poświadczenia usługi ServiceNow, aby umożliwić inicjowanie obsługi użytkowników automatyczne** Podaj następujące ustawienia konfiguracji:
-   
-     a. W **nazwy wystąpienia usługi ServiceNow** tekstowym, wpisz nazwę wystąpienia usługi ServiceNow.
-   
-     b. W **nazwa użytkownika administratora usługi ServiceNow** tekstowym, wpisz nazwę konta administratora usługi ServiceNow.
-   
-     c. W **hasło administratora usługi ServiceNow** tekstowym, wpisz hasło dla tego konta.
-   
-     d. Kliknij przycisk **zweryfikować** Aby zweryfikować konfigurację.
-   
-     e. Kliknij przycisk **dalej** przycisk, aby otworzyć **następne kroki** strony.
-   
-     f. Jeśli chcesz udostępnić wszystkim użytkownikom na tę aplikację, wybierz opcję "**automatycznie obsługiwać wszystkie konta użytkowników w katalogu do tej aplikacji**". 
-   
-    ![Następne kroki](./media/active-directory-saas-servicenow-tutorial/IC698804.png "następne kroki")
-   
-     g. Na **następne kroki** kliknij przycisk **Complete** Aby zapisać konfigurację.
-
-### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-W tej sekcji utworzysz użytkownika testowego w klasycznym portalu o nazwie Simona Britta.
-
-![Tworzenie użytkowników usługi Azure AD][20]
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_09.png) 
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-servicenow-tutorial/create_aaduser_01.png)
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_03.png) 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png) 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-servicenow-tutorial/create_aaduser_02.png)
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_05.png) 
-   
-    a. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
-   
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
-   
-    c. Kliknij przycisk **Dalej**.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
-   
-   ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_06.png) 
-   
-   a. W **imię** pole tekstowe, typ **Britta**.  
-   
-   b. W **nazwisko** pole tekstowe, typ **Simona**.
-   
-   c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-   
-   d. W **roli** listy, wybierz **użytkownika**.
-   
-   e. Kliknij przycisk **Dalej**.
+    ![Przycisk Dodaj](./media/active-directory-saas-servicenow-tutorial/create_aaduser_03.png)
 
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_07.png) 
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_08.png) 
-   
-    a. Zanotuj wartość **nowe hasło**.
-   
-    b. Kliknij przycisk **Complete** (Zakończ).   
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png)
 
-### <a name="creating-a-servicenow-test-user"></a>Tworzenie użytkownika testowego usługi ServiceNow
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w usługi ServiceNow. W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w usługi ServiceNow. Jeśli nie wiadomo, jak dodać użytkownika w ramach konta usługi ServiceNow lub usługi ServiceNow Express, skontaktuj się z zespołem pomocy technicznej usługi ServiceNow.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-W tej sekcji można włączyć Simona Britta na udostępnienie jej do usługi ServiceNow za pomocą usługi Azure rejestracji jednokrotnej.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-![Przypisz użytkownika][200] 
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+
+    d. Kliknij przycisk **Utwórz**.
+ 
+### <a name="create-a-servicenow-test-user"></a>Tworzenie użytkownika testowego usługi ServiceNow
+
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w usługi ServiceNow. Jeśli nie wiadomo, jak dodać użytkownika w ramach konta usługi ServiceNow lub usługi ServiceNow Express, skontaktuj się z [zespołem pomocy technicznej usługi ServiceNow klienta](https://www.servicenow.com/support/contact-support.html)
+
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do usługi ServiceNow.
+
+![Przypisanie roli użytkownika][200] 
 
 **Aby przypisać Simona Britta usługi ServiceNow, wykonaj następujące czynności:**
 
-1. W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+
     ![Przypisz użytkownika][201] 
 
 2. Na liście aplikacji zaznacz **ServiceNow**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_10.png) 
 
-3. W menu u góry kliknij **użytkowników**.
-   
-    ![Przypisz użytkownika][203] 
+    ![Łącze usługi ServiceNow na liście aplikacji](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_app.png)  
 
-4. Na liście wszystkich użytkowników, wybierz **Simona Britta**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
-   
-    ![Przypisz użytkownika][205]
+    ![Łącze "Użytkownicy i grupy"][202]
 
-### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+
+    ![W okienku Dodaj przydziału][203]
+
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+    
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
+
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
 Po kliknięciu kafelka usługi ServiceNow w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi ServiceNow.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
+
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -504,16 +468,10 @@ Po kliknięciu kafelka usługi ServiceNow w panelu dostępu użytkownik powinien
 [3]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_04.png
 
-
-[5]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_05.png
-[6]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-servicenow-tutorial/tutorial_general_050.png
-[10]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_060.png
-[11]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_070.png
-[20]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
+

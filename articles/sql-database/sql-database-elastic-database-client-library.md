@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Tworzenie skalowalnych baz danych w chmurze
 Skalowanie w poziomie baz danych można łatwo osiągnąć za pomocą funkcji i narzędzi skalowalne bazy danych SQL Azure. W szczególności można użyć **biblioteki klienta elastycznej bazy danych** tworzenie i zarządzanie nimi skalowalnych w poziomie baz danych. Ta funkcja pozwala łatwo tworzyć aplikacje podzielonej przy użyciu setki —, a nawet tysiące — baz danych Azure SQL. [Zadania elastyczne](sql-database-elastic-jobs-powershell.md) mogą następnie służyć do pomocy ułatwiają zarządzanie tych baz danych.
 
-Aby zainstalować bibliotekę, przejdź do NuGet w [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Aby pobrać:
+* .NET w wersji biblioteki, zobacz [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* wersja języka Java biblioteki, zobacz [Maven centralnym repozytorium](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Dokumentacja
 1. [Wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md)
 2. [Elastyczne funkcje bazy danych](sql-database-elastic-scale-introduction.md)
 3. [Zarządzanie mapami fragmentów](sql-database-elastic-scale-shard-map-management.md)
-4. [Migrowanie istniejących baz danych do skalowalnego w poziomie](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migrowanie istniejących baz danych do skalowania w poziomie](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Routing zależny od danych](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Wiele niezależnych zapytań](sql-database-elastic-scale-multishard-querying.md)
 7. [Dodawanie niezależnych, za pomocą narzędzi elastycznej bazy danych](sql-database-elastic-scale-add-a-shard.md)
@@ -50,7 +52,7 @@ Skalowanie w poziomie aplikacji przy użyciu *dzielenia na fragmenty* przedstawi
 - **Zarządzanie mapy niezależnego fragmentu**: utworzono specjalne bazy danych o nazwie "Menedżer mapy niezależnego fragmentu". Zarządzanie mapy niezależnego fragmentu jest zdolność do zarządzania metadane dotyczące jego odłamków aplikacji. Deweloperzy mogą używać tej funkcji do rejestrowania baz danych jako odłamków, opisu mapowania poszczególnych dzielenia na fragmenty kluczy lub kluczy zakresów do tych baz danych i Obsługa metadanych jako numer i kompozycji baz danych rozwoju środowisko w celu odzwierciedlenia zmian pojemności. Bez biblioteki klienta elastycznej bazy danych konieczne będzie poświęcają mnóstwo czasu pisanie kodu zarządzania podczas wdrażania dzielenia na fragmenty. Aby uzyskać więcej informacji, zobacz [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md).
 
 - **Routing zależnych danych**: Wyobraź sobie żądanie do aplikacji. Oparte na wartości klucza dzielenia na fragmenty żądania, aplikacja musi określić prawidłową bazę danych na podstawie wartości klucza. Otwiera połączenie z bazą danych do przetwarzania żądania. Routing zależnych danych zapewnia możliwość otwierania połączenia przy użyciu jednego wywołania łatwe do mapy niezależnych aplikacji. Routing zależnych danych był inny obszar kodu infrastruktury, który jest teraz objęte funkcje biblioteki klienta elastycznej bazy danych. Aby uzyskać więcej informacji, zobacz [danych zależnych routingu](sql-database-elastic-scale-data-dependent-routing.md).
-- **Wiele niezależnych kwerendy (MSQ)**: badania wielu niezależnych działa, gdy żądanie obejmuje odłamków kilka (lub wszystkie). Zapytania wielu niezależnych wykonuje ten sam kod T-SQL na wszystkich odłamków lub zbiór fragmentów. Wyniki z uczestniczących odłamków są scalane w ogólnej zestawu, używając semantyki UNION ALL wyników. Funkcji za pośrednictwem biblioteki klienta obsługuje wiele zadań, takich jak: Zarządzanie połączeniami, zarządzanie wątkami, obsługa błędów i pośrednich wyników przetwarzania. MSQ można badać setki fragmentów. Aby uzyskać więcej informacji, zobacz [zapytań wielu niezależnych](sql-database-elastic-scale-multishard-querying.md).
+- **Wiele niezależnych kwerendy (MSQ)**: badania wielu niezależnych działa, gdy żądanie obejmuje odłamków kilka (lub wszystkie). Zapytania wielu niezależnych wykonuje ten sam kod T-SQL na wszystkich odłamków lub zbiór fragmentów. Wyniki z uczestniczących odłamków są scalane w ogólnej zestawu, używając semantyki UNION ALL wyników. Funkcji za pośrednictwem biblioteki klienta obsługuje wiele zadań, takich jak: Zarządzanie połączeniami, zarządzanie wątkami Obsługa błędów i pośrednich wyników przetwarzania. MSQ można badać setki fragmentów. Aby uzyskać więcej informacji, zobacz [zapytań wielu niezależnych](sql-database-elastic-scale-multishard-querying.md).
 
 Ogólnie rzecz biorąc klientów przy użyciu narzędzi elastycznej bazy danych można oczekiwać, że uzyskać pełną funkcjonalność T-SQL podczas przesyłania operacji niezależnych lokalnego zamiast niezależnego fragmentu między operacje, które mają własne semantyki.
 
@@ -58,15 +60,11 @@ Ogólnie rzecz biorąc klientów przy użyciu narzędzi elastycznej bazy danych 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Biblioteka klienta usługi elastycznej bazy danych](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) — aby **zainstalować** biblioteki za pomocą NuGet.
+- Biblioteka klienta usługi elastycznej bazy danych ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) — aby **Pobierz** biblioteki.
 
 - [Wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md) — spróbuj **Przykładowa aplikacja** pokazuje, że funkcje klienta.
 
-- [Github, Azure/elastyczna db-tools](https://github.com/Azure/elastic-db-tools) — Biblioteka to oprogramowanie typu open source.
-    - Biblioteka klienta narzędzi elastycznej bazy danych umożliwia deweloperom tworzenie aplikacji, które implementuje i użyj wzorcem znanym jako dzielenia na fragmenty bazy danych w bazie danych SQL Azure ADO.NET.
-
-- [Biblioteki klienta elastycznej bazy danych jest teraz otworzyć pochodzenia!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **wpis w blogu** o biblioteki klienta elastycznej bazy danych, z 2015/09/09.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) — aby wkład do kodu.
 - [Omówienie zapytania elastycznej bazy danych SQL Azure](sql-database-elastic-query-overview.md) — umożliwia elastyczne zapytania.
 
 - [Przenoszenie danych między bazami danych w chmurze skalowalnych w poziomie](sql-database-elastic-scale-overview-split-and-merge.md) — instrukcje dotyczące używania **narzędzia do scalania podziału**.

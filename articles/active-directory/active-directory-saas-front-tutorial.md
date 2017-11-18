@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Samouczek: Integracji Azure Active Directory z przodu
 
@@ -104,66 +104,60 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Na **Front domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **IDP** inicjowane tryb:
+3. Na **Front domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.frontapp.com`
 
     b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
-
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z rzeczywistego identyfikatora, adres URL odpowiedzi i adres URL logowania, które opisano szczegółowo w dalszej części samouczka lub skontaktuj się z [zespołem pomocy technicznej klienta Front](mailto:support@frontapp.com) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z rzeczywistego identyfikatora i adres URL odpowiedzi które opisano szczegółowo w dalszej części samouczka lub skontaktuj się z [zespołem pomocy technicznej klienta Front](mailto:support@frontapp.com) uzyskać te wartości. 
 
-5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Kliknij przycisk **zapisać** przycisku.
+5. Kliknij przycisk **zapisać** przycisku.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Na **konfiguracji frontonu** kliknij **skonfigurować Front** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na **konfiguracji frontonu** kliknij **skonfigurować Front** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Logowanie do przodu dzierżawy z uprawnieniami administratora.
+7. Logowanie do przodu dzierżawy z uprawnieniami administratora.
 
-9. Przejdź do **ustawień (koło zębate ikonę na dole po lewej stronie paska bocznego) > Preferencje**.
+8. Przejdź do **ustawień (koło zębate ikonę na dole po lewej stronie paska bocznego) > Preferencje**.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Kliknij przycisk **rejestracji jednokrotnej** łącza.
+9. Kliknij przycisk **rejestracji jednokrotnej** łącza.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Wybierz **SAML** na liście rozwijanej **rejestracji jednokrotnej**.
+10. Wybierz **SAML** na liście rozwijanej **rejestracji jednokrotnej**.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. W **punktu wejścia** pole tekstowe umieścić wartość elementu **pojedynczy znak na adres URL usługi** z Kreatora konfiguracji aplikacji usługi Azure AD.
+11. W **punktu wejścia** pole tekstowe umieścić wartość elementu **pojedynczy znak na adres URL usługi** z Kreatora konfiguracji aplikacji usługi Azure AD.
     
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Otwórz z pobranego **Certificate(Base64)** plików w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu podpisywania** pola tekstowego.
+12. Otwórz z pobranego **Certificate(Base64)** plików w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu podpisywania** pola tekstowego.
     
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Na **ustawień dostawcy usług** sekcji, wykonaj następujące czynności:
+13. Na **ustawień dostawcy usług** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Skopiuj wartość **identyfikator jednostki** i wklej ją do **identyfikator** textbox w **Front domeny i adres URL** sekcji w portalu Azure.
 
-    b. Skopiuj wartość **adres URL usługi ACS** i wklej ją do **adres URL logowania** textbox w **Front domeny i adres URL** sekcji w portalu Azure.
+    b. Skopiuj wartość **adres URL usługi ACS** i wklej ją do **adres URL odpowiedzi** textbox w **Front domeny i adres URL** sekcji w portalu Azure.
     
-15. Kliknij przycisk **zapisać** przycisku.
+14. Kliknij przycisk **zapisać** przycisku.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

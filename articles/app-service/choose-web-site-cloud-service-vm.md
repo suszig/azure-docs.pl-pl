@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Usługa Azure App Service, maszyn wirtualnych, sieci szkieletowej usług i usługi w chmurze porównania
 ## <a name="overview"></a>Omówienie
@@ -48,7 +48,7 @@ W poniższej tabeli porównano możliwości usługi App Service, usługi w chmur
 | Dostęp do usług, takich jak usługi Service Bus, magazynu, baza danych SQL |X |X |X |X | |
 | Witryna sieci web hosta lub warstwy usługi sieci web architektury wielowarstwowe |X |X |X |X | |
 | Host warstwy środkowej architektury wielowarstwowe |X |X |X |X |Aplikacje sieci web usługi aplikacji można łatwo hosta warstwę środkową interfejsu API REST i [Webjob](http://go.microsoft.com/fwlink/?linkid=390226) funkcji może zawierać zadań przetwarzania w tle. Można uruchamiać zadań Webjob w dedykowanej witrynie sieci Web do osiągnięcia niezależne skalowalność dla warstwy. |
-| Obsługa zintegrowanego MySQL jako usługa |X |X |X | |Usługi w chmurze można zintegrować MySQL jako usługa, za pośrednictwem jego ClearDB oferty, ale nie jako część przepływu pracy portalu Azure. |
+| Obsługa zintegrowanego MySQL jako usługa |X |X | | | |
 | Obsługę programów ASP.NET i classic ASP, Node.js, PHP, Python |X |X |X |X |Sieć szkieletowa usług obsługuje tworzenie frontonu sieci web przy użyciu [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) lub dowolnego typu aplikacji (Node.js, Java itp.) można wdrożyć jako [pliku wykonywalnego gościa](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Skalowanie w poziomie do wielu wystąpień bez ponownego wdrażania |X |X |X |X |Maszyny wirtualne można skalować w poziomie do wielu wystąpień, ale usługi działające na nich musi być przystosowana do obsługi tej skalowalnych w poziomie. Należy skonfigurować usługę równoważenia obciążenia do rozsyłania żądań na komputerach i utworzyć grupy koligacji, aby zapobiec jednoczesnych ponowne uruchomienie wszystkich wystąpień z powodu błędów konserwacji lub sprzętu. |
 | Obsługa protokołu SSL |X |X |X |X |Dla aplikacji sieci web usługi aplikacji protokół SSL dla nazwy domeny niestandardowej jest obsługiwana tylko dla trybu Basic i Standard. Aby dowiedzieć się, jak przy użyciu protokołu SSL z aplikacjami sieci web, zobacz [Konfigurowanie certyfikatu SSL dla witryny sieci Web platformy Azure](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Usługa aplikacji Azure to doskonałe rozwiązanie do obsługi firmowej witryn s
 * Integracja z usługą Active Directory
 
 ### <a id="iis6"></a>Masz IIS6 aplikacji uruchomionej w systemie Windows Server 2003.
-Usługa aplikacji Azure ułatwia uniknąć kosztów infrastruktury skojarzone z Migrowanie starszych aplikacji usług IIS 6. Firma Microsoft opracowała [migracji szczegółowe wskazówki i narzędzi migracji łatwy w użyciu](https://www.movemetowebsites.net/) umożliwiające sprawdzenie zgodności i odszukaj wszelkie zmiany, które należy wprowadzić. Integracja z programu Visual Studio, TFS i narzędziom CMS ułatwia wdrażanie aplikacji usług IIS 6 bezpośrednio do chmury. Po wdrożeniu Azure Portal udostępnia narzędzia niezawodne funkcje zarządzania, które umożliwiają można skalować w dół, aby zarządzać kosztami i maksymalnie spełniają wymaganie niezbędne. Narzędzie migracji można:
+Usługa aplikacji Azure ułatwia uniknąć kosztów infrastruktury skojarzone z Migrowanie starszych aplikacji usług IIS 6. Firma Microsoft opracowała [migracji szczegółowe wskazówki i narzędzi migracji łatwy w użyciu](https://www.migratetoazure.net/) umożliwiające sprawdzenie zgodności i odszukaj wszelkie zmiany, które należy wprowadzić. Integracja z programu Visual Studio, TFS i narzędziom CMS ułatwia wdrażanie aplikacji usług IIS 6 bezpośrednio do chmury. Po wdrożeniu Azure Portal udostępnia narzędzia niezawodne funkcje zarządzania, które umożliwiają można skalować w dół, aby zarządzać kosztami i maksymalnie spełniają wymaganie niezbędne. Narzędzie migracji można:
 
 * Szybkie i łatwe migrowanie starszych aplikacji sieci web systemu Windows Server 2003 do chmury.
 * Zdecydować się na pozostaw dołączone SQL bazy danych lokalnej do tworzenia aplikacji hybrydowych.
@@ -174,7 +174,6 @@ Aby zacząć korzystać z opcji wybranych aplikacji, zobacz następujące zasoby
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

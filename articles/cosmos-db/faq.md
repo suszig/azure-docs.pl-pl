@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -431,7 +431,7 @@ Azure DB rozwiązania Cosmos ustawia domyślny przepływności z kontenera, w za
 Pojęcie przepływności zostało wyjaśnione w dokumencie [jednostek żądania w usłudze Azure DB rozwiązania Cosmos](request-units.md) artykułu. Przepływność dla tabeli jest dystrybuowana do podstawowej partycji fizycznej jednakowo.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Co to jest domyślna RU/s, tabeli, gdy został utworzony za pomocą CQL? Co zrobić, jeśli należy je zmienić?
-Azure DB rozwiązania Cosmos używa jednostki żądania na sekundę (RU/s) jako walutę zapewniające przepływności. Tabele utworzone przy użyciu CQL ma 400 RU. Możesz zmienić RU w portalu do 10 000 RU. Jeśli potrzebujesz więcej niż 10 000 RU w prywatnej wersji zapoznawczej — można utworzyć go najpierw z portalu. Lub jeśli mają tę możliwość dla CQL - Połącz z nami na [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure DB rozwiązania Cosmos używa jednostki żądania na sekundę (RU/s) jako walutę zapewniające przepływności. Tabele utworzone przy użyciu CQL ma 400 RU. Możesz zmienić RU w portalu. 
 
 CQL
 ```

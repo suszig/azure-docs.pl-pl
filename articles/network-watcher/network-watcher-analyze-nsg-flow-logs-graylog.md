@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Zarządzanie danymi i analizowanie dzienników przepływu grupy zabezpieczeń sieci na platformie Azure przy użyciu obserwatora sieciowego i Graylog
 
@@ -148,9 +148,9 @@ Logstash służy do spłaszczenia dzienniki przepływu formatu JSON do poziomu p
     ```
 W pliku config Logstash podane składa się z trzech części: dane wejściowe, filtrów i danych wyjściowych. Źródło danych wejściowych dzienników, które przetwarzają Logstash wyznacza sekcji wejściowej — w takim przypadku zamierzamy Użyj Azure blog wejściowych wtyczki (zainstalowany w następnych krokach) umożliwiający dostęp do przepływ grupy zabezpieczeń sieci dzienniki JSON przechowywane w magazynie obiektów blob.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+Sekcji filtra spłaszcza następnie każdego pliku dziennika przepływu tak, aby każda krotka poszczególnych przepływu i jego właściwości staje się oddzielne zdarzenie Logstash.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Na koniec sekcji Wyjście przekazuje każdego zdarzenia Logstash serwerowi Graylog. Do konkretnej musi, zmodyfikuj plik konfiguracji Logstash, zgodnie z wymaganiami.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

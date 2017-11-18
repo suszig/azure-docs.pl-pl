@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działania wyszukiwania w fabryce danych Azure
 Działanie Lookup może być używane do odczytywania lub wyszukiwania rekordu/nazwy tabeli/wartości z dowolnego źródła zewnętrznego. Do tych danych wyjściowych mogą także odwoływać się kolejne działania. 
@@ -53,6 +53,9 @@ Ten potok zawiera dwa działania: **odszukać** i **kopiowania**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -232,8 +235,8 @@ Ta baza danych Azure SQL zawiera dane, które ma zostać skopiowany do magazynu 
 ## <a name="type-properties"></a>Właściwości typu
 Nazwa | Opis | Typ | Wymagane
 ---- | ----------- | ---- | --------
-Zestaw danych | Atrybut zestawu danych jest zapewnienie odwołania do zestawu danych do wyszukiwania. Obecnie typy obsługiwanych zestawu danych to:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | pary klucz wartość | Tak
-Źródło | Właściwości źródła specyficzne dla zestawu danych, taki jak źródło działania kopiowania | Para klucza i wartości | Nie
+Zestaw danych | Atrybut zestawu danych jest zapewnienie odwołania do zestawu danych do wyszukiwania. Obecnie typy obsługiwanych zestawu danych to:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Para klucza i wartości | Tak
+źródło | Właściwości źródła specyficzne dla zestawu danych, taki jak źródło działania kopiowania | Para klucza i wartości | Nie
 firstRowOnly | Zwraca pierwszy wiersz lub wszystkie wiersze. | Wartość logiczna | Nie
 
 ## <a name="next-steps"></a>Następne kroki

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfigurowanie i zarządzanie często zadawane pytania dotyczące aplikacji sieci Web na platformie Azure
 
@@ -319,4 +319,4 @@ Można również określić określonych dynamiczną i statyczną MIME typy, kt�
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Jak migracji ze środowiska lokalnego do usługi App Service?
 
-Aby dokonać migracji lokacji z serwerów sieci web systemu Windows i Linux do usługi App Service, można użyć Asystenta migracji usługi aplikacji Azure. Narzędzie do migracji tworzy aplikacje sieci web i baz danych na platformie Azure, zgodnie z potrzebami, a następnie publikuje zawartości. Aby uzyskać więcej informacji, zobacz [Asystenta migracji usługi aplikacji Azure](https://www.movemetothecloud.net/).
+Aby dokonać migracji lokacji z serwerów sieci web systemu Windows i Linux do usługi App Service, można użyć Asystenta migracji usługi aplikacji Azure. Narzędzie do migracji tworzy aplikacje sieci web i baz danych na platformie Azure, zgodnie z potrzebami, a następnie publikuje zawartości. Aby uzyskać więcej informacji, zobacz [Asystenta migracji usługi aplikacji Azure](https://www.migratetoazure.net/).

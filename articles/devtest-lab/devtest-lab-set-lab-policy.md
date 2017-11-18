@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzanie wszystkimi zasadami dla laboratorium w usłudze Azure DevTest Labs
 
@@ -79,7 +79,9 @@ Automatyczne zamykanie zasad pomaga zminimalizować odpady laboratorium, umożli
 
 1. Po włączeniu tych zasad, określ czas (i strefy czasowej) do zamykania wszystkich maszyn wirtualnych w bieżącym laboratorium.
 
-1. Określ **tak** lub **nr** opcji wysyłania powiadomień 15 minut przed upływem czasu określonego automatyczne zamykanie. Jeśli określisz **tak**, dla której ogłaszanie lub wysyłane powiadomienia Wprowadź końcowy adres URL elementu webhook lub adres e-mail. Aby uzyskać więcej informacji na temat elementów webhook, zobacz [tworzenia elementu webhook lub funkcja interfejsu API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Określ **tak** lub **nr** opcji wysyłania powiadomień 15 minut przed upływem czasu określonego automatyczne zamykanie. Jeśli wybierzesz **tak**, wprowadź końcowy adres URL elementu webhook lub adres e-mail, określając miejscu powiadomienie, aby można opublikować lub wysyłane. Użytkownik otrzymuje powiadomienie i jest możliwość opóźnienia zamknięcia systemu.
+
+   Aby uzyskać więcej informacji na temat elementów webhook, zobacz [tworzenia elementu webhook lub funkcja interfejsu API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Wybierz pozycję **Zapisz**.
 

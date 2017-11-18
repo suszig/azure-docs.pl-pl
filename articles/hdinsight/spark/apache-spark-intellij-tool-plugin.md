@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Zestaw narzędzi platformy Azure dla IntelliJ umożliwia tworzenie aplikacji Spark dla klastra usługi HDInsight
 
@@ -168,8 +168,8 @@ Aby uzyskać instrukcje instalacji, zobacz [zainstalować zestaw narzędzi platf
       
       Aby dowiedzieć się, jak uzyskać dostępu do danych wyjściowych zadania, zobacz "dostępu i zarządzania klastrami Spark w usłudze HDInsight przy użyciu zestawu narzędzi platformy Azure dla IntelliJ" sekcji w dalszej części tego artykułu.
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Uruchom lub debugowanie aplikacji Spark Scala w klastrze Spark w usłudze HDInsight
-Zalecamy również innym sposobem przesyłanie aplikacji Spark dla klastra. Możesz to zrobić przez ustawienie parametrów **konfiguracji uruchomienia/debugowania** IDE. Aby uzyskać więcej informacji, zobacz [zdalne debugowanie aplikacji Spark w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight 
+Zalecamy również innym sposobem przesyłanie aplikacji Spark dla klastra. Należy również ustawić parametrów w **konfiguracji uruchomienia/debugowania** IDE. Aby uzyskać więcej informacji, zobacz [debugowanie aplikacji Spark lokalnie lub zdalnie w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Dostęp i zarządzania klastrami Spark w usłudze HDInsight przy użyciu zestawu narzędzi platformy Azure dla IntelliJ
 Różne operacje można wykonywać za pomocą narzędzi Azure for IntelliJ.
@@ -211,50 +211,6 @@ Domyślnie zestaw narzędzi platformy Azure dla IntelliJ wymieniono klastry Spar
 1. W Eksploratorze Azure, kliknij prawym przyciskiem myszy **Azure** węzła głównego, a następnie wybierz **Zarządzaj subskrypcjami**. 
 
 2. W oknie dialogowym, wyczyść pola wyboru obok subskrypcje, które nie mają dostępu, a następnie wybierz **Zamknij**. Możesz też wybrać **Wyloguj** Aby wylogować się z subskrypcją platformy Azure.
-
-## <a name="run-a-spark-scala-application-locally"></a>Uruchamianie aplikacji Spark Scala lokalnie
-Zestaw narzędzi platformy Azure dla IntelliJ umożliwia uruchamianie aplikacji Spark Scala lokalnie na stacji roboczej. Aplikacje zazwyczaj nie potrzebują dostępu do zasobów klastra, takich jak kontenery magazynu i można uruchomić i przetestować je lokalnie.
-
-### <a name="prerequisite"></a>Wymagania wstępne
-Gdy używasz lokalnych aplikacji Spark Scala na komputerze z systemem Windows, można uzyskać wyjątku, zgodnie z objaśnieniem w [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje, ponieważ brakuje WinUtils.exe w systemie Windows. 
-
-Aby rozwiązać ten problem, [Pobierz plik wykonywalny](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) do lokalizacji, takie jak **C:\WinUtils\bin**. Następnie należy dodać zmienną środowiskową **HADOOP_HOME**, a następnie ustaw wartość zmiennej **C\WinUtils**.
-
-### <a name="run-a-local-spark-scala-application"></a>Uruchamianie aplikacji Spark Scala lokalnej
-1. Uruchom IntelliJ IDEA i tworzenia projektu. 
-
-2. W **nowy projekt** okno dialogowe, wykonaj następujące czynności:
-   
-    a. Wybierz **HDInsight** > **Spark dla próbki uruchamiania lokalnego HDInsight (Scala)**.
-
-    b. W **narzędzia kompilacji** listy, wybierz jedną z następujących czynności, w zależności od potrzeb:
-
-      * **Maven**, obsługę języka Scala Kreator tworzenia projektu
-      * **SBT**, do zarządzania zależności i budowania projektu języka Scala
-
-    ![Okno dialogowe nowego projektu](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. Wybierz **dalej**.
- 
-4. W następnym oknie wykonaj następujące czynności:
-   
-    a. Wprowadź nazwę projektu i lokalizację.
-
-    b. W **SDK projektu** listy rozwijanej wybierz wersję Java, która jest nowsza niż wersja 1.7.
-
-    c. W **wersji Spark** listy rozwijanej wybierz wersję języka Scala, którego chcesz używać: Scala 2.11.x dla platformy Spark w wersji 2.0 lub Scala 2.10.x dla wersji 1.6 Spark.
-
-    ![Okno dialogowe nowego projektu](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. Wybierz pozycję **Finish** (Zakończ).
-
-6. Przykładowy kod dodaje szablonu (**LogQuery**) w obszarze **src** folderu, który można uruchomić lokalnie na komputerze.
-   
-    ![Lokalizacja LogQuery](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. Kliknij prawym przyciskiem myszy **LogQuery** aplikacji, a następnie wybierz **Uruchom "LogQuery"**. Na **Uruchom** kartę na dole pojawić się dane wyjściowe, takie jak następujące:
-   
-   ![Aplikacji Spark lokalnego wynik uruchomienia](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Konwertowanie istniejących aplikacji IntelliJ IDEA do użycia narzędzi Azure for IntelliJ
 Możesz przekształcić istniejącą Spark Scala aplikacji utworzonej w IntelliJ IDEA, aby był zgodny z narzędzi Azure dla IntelliJ. Następnie można wtyczki przesyłania aplikacji do klastra Spark w usłudze HDInsight.

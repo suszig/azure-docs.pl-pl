@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Wprowadzenie do platformy Microsoft Azure
 Microsoft Azure to platforma aplikacji firmy Microsoft dla chmury publicznej.  Celem tego artykułu jest zapewniają podstawę dla zrozumienia podstaw dotyczących platformy Azure, nawet jeśli nie wiesz nic o chmury obliczeniowej.
@@ -77,7 +77,7 @@ Jedną z najbardziej typowych rzeczy, które użytkownicy wykonują w chmurze je
 
 Jest to dokładnie, aplikacje sieci Web udostępnia. Ten model obliczeń oferuje środowisko sieci web zarządzanej, za pomocą portalu zarządzania Azure, a także interfejsów API. Można przenieść istniejącą aplikację witryny sieci Web do aplikacji sieci Web bez zmian lub można utworzyć nową bezpośrednio w chmurze. Po uruchomieniu witryna sieci Web, można dodawać lub usuń wystąpienia dynamicznie, zależne aplikacje sieci Web Azure w celu zrównoważenia obciążenia żądaniami między nimi. Aplikacje platformy Azure oferuje zarówno udostępnionego opcja, w którym witryny sieci Web jest uruchomiona na maszynie wirtualnej z innymi lokacjami, i standardowych opcji, która zezwala na witryny do uruchomienia na jego własnej maszynie Wirtualnej. Standardowa opcja umożliwia również zwiększenie rozmiaru (mocy obliczeniowej) swoich wystąpień, w razie potrzeby.
 
-Do tworzenia aplikacji aplikacje sieci Web obsługuje .NET, PHP, Node.js, Java i Python oraz bazy danych SQL i MySQL (od ClearDB, partnera firmy Microsoft) dla relacyjnego magazynu. Udostępnia także wbudowaną obsługę dla kilku popularnych aplikacji, w tym WordPress, Joomla i Drupal. Celem jest zapewnienie ekonomicznych, skalowalnych i szeroko użyteczny platformę do tworzenia witryn sieci Web i aplikacji sieci web w chmurze publicznej.
+Do tworzenia aplikacji aplikacje sieci Web obsługuje .NET, PHP, Node.js, Java i Python oraz bazy danych SQL i bazy danych platformy Azure dla programu MySQL dla relacyjnego magazynu. Udostępnia także wbudowaną obsługę dla kilku popularnych aplikacji, w tym WordPress, Joomla i Drupal. Celem jest zapewnienie ekonomicznych, skalowalnych i szeroko użyteczny platformę do tworzenia witryn sieci Web i aplikacji sieci web w chmurze publicznej.
 
 **Scenariusze aplikacji sieci Web**
 

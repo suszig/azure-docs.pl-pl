@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie nimi wydajności podzielonej bazy danych Azure SQL wielodostępne w wielodostępnych aplikacji SaaS
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Symulowanie użycia bazy danych podzielonej wielodostępne uruchamiając generator podana obciążenia
 > * Monitorowanie bazy danych jako odpowiada wzrost obciążenia
 > * Skalowanie w górę bazy danych w odpowiedzi na obciążenie zwiększona bazy danych
-> * Udostępnianie nowej dzierżawy w własną bazę danych
+> * Zapewnij dzierżawcy w bazie danych pojedynczej dzierżawy
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
@@ -51,11 +51,11 @@ Zarządzanie wydajnością bazy danych polega na zbieraniu danych dotyczących w
 * Aby uniknąć konieczności ręcznego monitorować wydajność, jest najbardziej efektywne **ustawić alerty, które są wyzwalane w razie Zabłąkana baz danych poza normalne zakresy**.
 * Aby odpowiedzieć na krótkoterminowych wahań poziomu wydajności bazy danych, **poziom jednostek dtu w warstwie można skalować w górę lub w dół**. W przypadku tego wahań na podstawie regularnych lub przewidywalną **skalowania bazy danych można zaplanować zautomatyzowane**. Na przykład skalowanie w dół może nastąpić, kiedy przewidywane jest niskie obciążenie — w nocy lub podczas weekendów.
 * Odpowiedź do długoterminowego wahań lub zmiany w dzierżawcami, **poszczególnych dzierżawców można przenosić do innych bazy danych**.
-* Odpowiedzieć na krótkoterminowa wzrost *poszczególnych* obciążenia dzierżawcy **poszczególnych dzierżawców można pobierane z bazy danych i przypisane poziom wydajności poszczególnych**. Po zmniejsza obciążenie dzierżawcy mogą być zwracane następnie do bazy danych wielu dzierżawców. Jeśli jest to znane z wyprzedzeniem, dzierżawców można przenieść pre-emptively upewnij się, że baza danych ma zawsze zasoby, które są niezbędne i uniknąć wpływu na innych dzierżawców w bazie danych wielodostępnej. Jeśli takie wymaganie jest przewidywalne, na przykład w przypadku oczekiwania na wzmożone zakupy biletów na popularną imprezę, wówczas takie działanie funkcji zarządzania można uwzględnić w aplikacji.
+* Odpowiedzieć na krótkoterminowej wzrost *poszczególnych* obciążenia dzierżawcy **poszczególnych dzierżawców można pobierane z bazy danych i przypisane poziom wydajności poszczególnych**. Po zmniejsza obciążenie dzierżawcy mogą być zwracane następnie do bazy danych wielu dzierżawców. Jeśli jest to znane z wyprzedzeniem, dzierżawców można przenieść pre-emptively upewnij się, że baza danych ma zawsze zasoby, które są niezbędne i uniknąć wpływu na innych dzierżawców w bazie danych wielodostępnej. Jeśli takie wymaganie jest przewidywalne, na przykład w przypadku oczekiwania na wzmożone zakupy biletów na popularną imprezę, wówczas takie działanie funkcji zarządzania można uwzględnić w aplikacji.
 
-Witryna [Azure Portal](https://portal.azure.com) udostępnia wbudowane funkcje monitorowania i alertów dla większości zasobów. Bazy danych SQL jest dostępna w bazach danych, monitorowanie i alerty. Ten wbudowaną funkcję monitorowania i alertów jest określonych zasobów, dlatego jest łatwe w użyciu dla małej liczby zasobów, ale nie jest wygodną podczas pracy z wielu zasobów.
+Witryna [Azure Portal](https://portal.azure.com) udostępnia wbudowane funkcje monitorowania i alertów dla większości zasobów. Bazy danych SQL jest dostępna w bazach danych, monitorowanie i alerty. Ten wbudowaną funkcję monitorowania i alertów jest określonych zasobów, dlatego jest łatwe w użyciu dla małej liczby zasobów, ale nie jest wygodne, podczas pracy z wielu zasobów.
 
-W scenariuszach dużych którym pracujesz z wielu zasobów [analizy dzienników (OMS)](https://azure.microsoft.com/services/log-analytics/) mogą być używane. Jest to oddzielne usługa Azure, która udostępnia analityka w porównaniu z emitowany dzienniki diagnostyczne i dane telemetryczne zebrane w obszarze roboczym analizy dzienników. Analiza dzienników może zbierać dane telemetryczne z wielu usług i służyć do wykonywania zapytań i Ustaw alerty.
+Dla dużych scenariuszy, w którym pracujesz z wielu zasobów, [analizy dzienników (OMS)](https://azure.microsoft.com/services/log-analytics/) mogą być używane. Jest to oddzielne usługa Azure, która udostępnia analityka w porównaniu z emitowany dzienniki diagnostyczne i dane telemetryczne zebrane w obszarze roboczym analizy dzienników. Analiza dzienników może zbierać dane telemetryczne z wielu usług i służyć do wykonywania zapytań i Ustaw alerty.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Pobieranie kodu źródłowego aplikacji Wingtip biletów SaaS wielodostępne w bazie danych i skryptów
 
@@ -71,7 +71,7 @@ Jeśli już po uprzednim udostępnieniu partii dzierżaw w poprzednich instrukcj
 1. Ustaw zmienną **$DemoScenario** = **1**, _Provision a batch of tenants_ (Aprowizacja partii dzierżaw)
 1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
-Skrypt zostanie wdrożona 17 dzierżaw w bazie danych wielodostępne za kilka minut. 
+Skrypt wdraża 17 dzierżaw w bazie danych wielodostępne za kilka minut. 
 
 *TenantBatch nowy* skrypt tworzy nowi dzierżawcy z dzierżawcą unikatowy kluczy w ramach bazy danych podzielonej wielodostępnych i inicjuje je z typem nazwę i miejsce dzierżawy. Jest to zgodne z sposób aplikacja udostępnia nową dzierżawę. 
 
@@ -95,7 +95,7 @@ Generator obciążenia stosuje obciążenie *syntetyczne* wyłącznie do proceso
 Wingtip biletów SaaS wielodostępne w bazie danych jest to aplikacja SaaS i rzeczywistych obciążenie aplikacji SaaS jest zazwyczaj sporadyczne i nieprzewidywalnych. Aby to zasymulować, generator w sposób losowy obciąża wszystkie dzierżawy. Kilka minut są wymagane dla wzorca obciążenia się, więc uruchomienie generatora obciążenia 3 – 5 minut przed podjęciem próby wykonania do monitorowania obciążenia w poniższych sekcjach.
 
 > [!IMPORTANT]
-> Generator obciążenia działa jako serię zadań w przypadku nowe okno programu PowerShell. Po zamknięciu sesji zatrzymuje generator obciążenia. Generator obciążenia pozostaje w *wywoływania zadania* stanu, w którym generuje obciążenie nowi dzierżawcy, które są udostępniane po rozpoczęciu generatora. Użyj *Ctrl-C* powoduje zatrzymanie wywoływania nowe zadania i zamknięcie skryptu. Generator obciążenia będzie nadal działać, ale tylko na istniejący dzierżawcy.
+> Generator obciążenia działa jako serię zadań w nowym oknie programu PowerShell. Po zamknięciu sesji zatrzymuje generator obciążenia. Generator obciążenia pozostaje w *wywoływania zadania* stanu, w którym generuje obciążenie nowi dzierżawcy, które są udostępniane po rozpoczęciu generatora. Użyj *Ctrl-C* powoduje zatrzymanie wywoływania nowe zadania i zamknięcie skryptu. Generator obciążenia będzie nadal działać, ale tylko na istniejący dzierżawcy.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Monitorowanie użycia zasobów przy użyciu portalu Azure
 
@@ -120,9 +120,9 @@ Ustawić alert w bazie danych, które wyzwala na \>75% wykorzystania w następuj
 1. Podaj nazwę, taką jak **Wysoki poziom jednostek DTU**,
 1. Ustaw następujące wartości:
    * **Metryka = procent użycia jednostek DTU**
-   * **Warunek = większa niż**.
+   * **Warunek = większa niż**
    * **Próg = 75**.
-   * **Okres = W ciągu ostatnich 30 minut**.
+   * **Okres = w ciągu ostatnich 30 minut**
 1. Dodaj adres e-mail do *email(s) dodatkowe administratora* polu i kliknij przycisk **OK**.
 
    ![ustawianie alertu](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -153,7 +153,7 @@ Bazy danych pozostają w trybie online i są w pełni dostępne podczas całego 
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Udostępnianie nowej dzierżawy w własną bazę danych 
 
-Podzielonej modelu wielodostępnym pozwala wybrać, czy do udostępnienia nowej dzierżawy w bazie danych wielodostępne równolegle z innymi dzierżawcami lub zainicjować dzierżawcy w bazie danych własnych. Aprowizując dzierżawcy w własną bazę danych, korzysta z izolacji związane z oddzielnej bazy danych, co umożliwia zarządzanie wydajność tej dzierżawy, niezależnie od innych użytkowników, Przywróć tę dzierżawę, niezależnie od innych, itp. Na przykład można umieścić bezpłatnych wersji próbnych lub regularnych klientów w bazie danych z wieloma dzierżawcami i premium klienci w poszczególnych bazach danych.  Jeśli izolowane pojedynczej dzierżawy baz danych są tworzone są wciąż można zarządzać zbiorczo w puli elastycznej, aby optymalizować koszty zasobów.
+Podzielonej modelu wielodostępnym pozwala wybrać, czy do udostępnienia nowej dzierżawy w bazie danych wielodostępne równolegle z innymi dzierżawcami lub zainicjować dzierżawcy w bazie danych własnych. Aprowizując dzierżawcy w własną bazę danych, korzysta z izolacji związane z oddzielnej bazy danych, co umożliwia zarządzanie wydajność tej dzierżawy, niezależnie od innych użytkowników, Przywróć tę dzierżawę, niezależnie od innych, itp. Na przykład można umieścić bezpłatnych wersji próbnych lub regularnych klientów w bazie danych z wieloma dzierżawcami i premium klienci w poszczególnych bazach danych.  Jeśli tworzone są izolowane pojedynczej dzierżawy baz danych, ich można nadal będą zarządzane wspólnie w puli elastycznej, aby optymalizować koszty zasobów.
 
 Jeśli już przydzielona nowej dzierżawy w własną bazę danych, Pomiń następnych kilku krokach.
 
@@ -195,7 +195,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Symulowanie użycia bazy danych podzielonej wielodostępne uruchamiając generator podana obciążenia
 > * Monitorowanie bazy danych jako odpowiada wzrost obciążenia
 > * Skalowanie w górę bazy danych w odpowiedzi na obciążenie zwiększona bazy danych
-> * Udostępnianie nowej dzierżawy w własną bazę danych
+> * Zapewnij dzierżawcy w bazie danych pojedynczej dzierżawy
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizowanie danych w wielu w chmurze i lokalnych baz danych z opcją synchronizacji danych SQL (wersja zapoznawcza)
 
@@ -80,16 +80,6 @@ Synchronizacja danych nie jest odpowiedni dla następujących scenariuszy:
 
 ## <a name="sync-req-lim"></a>Wymagania i ograniczenia
 
-### <a name="general-requirements"></a>Wymagania ogólne
-
--   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli należy zmienić wartość klucza podstawowego, Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
-
--   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
-
--   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([) lub prawo kwadratowa nawiasu (]).
-
--   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Zagadnienia ogólne
 
 #### <a name="eventual-consistency"></a>Spójność ostateczna
@@ -98,7 +88,19 @@ Ponieważ synchronizacji danych na podstawie wyzwalacza, nie gwarantuje spójno�
 #### <a name="performance-impact"></a>Wpływ na wydajność
 Używa synchronizacji danych wstawiania, aktualizowania i usuwania wyzwalaczy do śledzenia zmian. Tworzy tabele w bazie danych użytkownika, śledzenie zmian. Te działania śledzenia zmiany mają wpływ na obciążenie bazy danych. Ocenia warstwę usługi i uaktualnienia, jeśli to konieczne.
 
+### <a name="general-requirements"></a>Wymagania ogólne
+
+-   Każda tabela musi mieć klucz podstawowy. Nie zmieniaj wartości klucza podstawowego w dowolnym wierszu. Jeśli należy zmienić wartość klucza podstawowego, Usuń wiersz i utwórz ją ponownie przy użyciu nowej wartości klucza podstawowego. 
+
+-   Musi być włączona izolacji migawki. Aby uzyskać więcej informacji, zobacz [izolację migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Ogólne ograniczenia
+
+-   Tabela nie może mieć kolumnę tożsamości, która nie jest kluczem podstawowym.
+
+-   Nazwy obiektów (baz danych, tabel i kolumn) nie może zawierać znaków drukowalnych kropki (.), lewego nawiasu kwadratowego ([) lub prawo kwadratowa nawiasu (]).
+
+-   Azure uwierzytelniania usługi Active Directory nie jest obsługiwane.
 
 #### <a name="unsupported-data-types"></a>Nieobsługiwane typy danych
 

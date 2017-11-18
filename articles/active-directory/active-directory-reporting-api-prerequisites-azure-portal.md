@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Wymagania wstępne dotyczące raportowania interfejsu API usługi Azure AD dostęp
 
@@ -37,7 +37,7 @@ Aby uzyskać dostęp do danych raportowania za pośrednictwem interfejsu API, na
 Aby przygotować dostęp do interfejsu API raportowania, należy:
 
 1. Rejestrowanie aplikacji 
-2. Udzielanie uprawnień 
+2. Udziel uprawnień 
 3. Zbierz ustawienia konfiguracji 
 
 Pytania, problemy lub opinie, użyj funkcji [pliku biletu pomocy technicznej](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
@@ -55,7 +55,7 @@ Aby skonfigurować dostęp raportowania interfejsu API usługi Azure AD do katal
 
 **Aby zarejestrować aplikację usługi Azure Active Directory:**
 
-1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory**.
    
     ![Zarejestrować aplikację](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -80,7 +80,7 @@ Aby skonfigurować dostęp raportowania interfejsu API usługi Azure AD do katal
     d. Kliknij przycisk **Utwórz**. 
 
 
-## <a name="grant-permissions"></a>Udzielanie uprawnień 
+## <a name="grant-permissions"></a>Udziel uprawnień 
 
 Celem tego etapu jest udzielić aplikacji **odczytuj dane katalogu** uprawnień do **Windows Azure Active Directory** interfejsu API.
 
@@ -129,11 +129,11 @@ Te wartości są wymagane podczas konfigurowania wywołania interfejsu API rapor
 
 **Aby uzyskać nazwy domeny:**
 
-1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory**.
    
     ![Zarejestrować aplikację](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Na **usługi Azure Active Directory** bloku, kliknij przycisk **nazwy domen**.
+2. Na **usługi Azure Active Directory** bloku, kliknij przycisk **niestandardowych nazw domen**.
 
     ![Zarejestrować aplikację](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Te wartości są wymagane podczas konfigurowania wywołania interfejsu API rapor
 
 **Aby uzyskać identyfikator klienta aplikacji:**
 
-1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory**.
    
     ![Zarejestrować aplikację](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Aby uzyskać klucz tajny klienta aplikacji, musisz utworzyć nowy klucz i zapisa
 
 **Aby uzyskać klucz tajny klienta aplikacji:**
 
-1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W [portalu Azure](https://portal.azure.com), w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory**.
    
     ![Zarejestrować aplikację](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

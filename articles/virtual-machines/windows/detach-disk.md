@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bbbd31313db44d32a829e9e4c6c9b5fd9c0e533e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Jak można odłączyć dysku danych od maszyny wirtualnej systemu Windows
 Gdy już nie potrzebujesz dysku danych dołączonego do maszyny wirtualnej, możesz go łatwo odłączyć. Usuwa dysk od maszyny wirtualnej, ale nie powoduje usunięcia go z magazynu.
@@ -32,29 +32,30 @@ Gdy już nie potrzebujesz dysku danych dołączonego do maszyny wirtualnej, moż
 Jeśli chcesz użyć danych znajdujących się na tym dysku, możesz dołączyć go ponownie do tej samej lub innej maszyny wirtualnej.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Odłączanie dysku danych przy użyciu portalu
-1. W Centrum w portalu, wybierz **maszyn wirtualnych**.
+
+1. W menu po lewej stronie wybierz **maszyn wirtualnych**.
 2. Wybierz maszynę wirtualną, która ma dysk danych, aby odłączyć, a następnie kliknij przycisk **zatrzymać** można cofnąć alokacji maszyny Wirtualnej.
-3. W bloku maszyny wirtualnej, wybierz **dysków**.
-4. W górnej części **dysków** bloku, wybierz opcję **Edytuj**.
-5. W **dysków** bloku do prawej krawędzi dysk z danymi, które chcesz odłączyć, kliknij przycisk ![obraz przycisku Detach](./media/detach-disk/detach.png) odłączyć przycisku.
-5. Po usunięciu dysk, kliknij przycisk Zapisz w górnej części bloku.
-6. W bloku maszyny wirtualnej, kliknij przycisk **omówienie** , a następnie kliknij przycisk **Start** na górze bloku, aby ponownie uruchomić maszyny Wirtualnej.
+3. W okienku maszyny wirtualnej, wybierz **dysków**.
+4. W górnej części **dysków** okienku wybierz **Edytuj**.
+5. W **dysków** okienku po prawej dysku danych, który chcesz odłączyć, kliknij przycisk ![obraz przycisku Detach](./media/detach-disk/detach.png) odłączyć przycisku.
+5. Po usunięciu dysk, kliknij przycisk **zapisać** górnej części okienka.
+6. W okienku maszyny wirtualnej, kliknij **omówienie** , a następnie kliknij przycisk **Start** przycisk w górnej części okienka, aby ponownie uruchomić maszyny Wirtualnej.
 
 
 
 Odłączony dysk pozostaje w magazynie, lecz nie jest już dołączony do maszyny wirtualnej.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Odłączyć dysku danych przy użyciu programu PowerShell
-W tym przykładzie pierwsze polecenie pobiera maszyny wirtualnej o nazwie **MyVM07** w **RG11** za pomocą polecenia cmdlet Get-AzureRmVM grupy zasobów. Polecenie przechowuje maszynę wirtualną w **$VirtualMachine** zmiennej.
+W tym przykładzie pierwsze polecenie pobiera maszyny wirtualnej o nazwie **MyVM07** w **RG11** grupy zasobów przy użyciu [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) polecenia cmdlet i zapisuje go w **$VirtualMachine** zmiennej.
 
-Drugie polecenie usuwa dysku danych o nazwie DataDisk3 z maszyny wirtualnej.
+Drugi wiersz usuwa dysku danych o nazwie DataDisk3 z maszyny wirtualnej przy użyciu [AzureRmVMDataDisk Usuń](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) polecenia cmdlet.
 
-Polecenia końcowego aktualizuje stan maszyny wirtualnej, aby ukończyć proces usuwania dysk z danymi.
+Trzeci wiersz aktualizuje stan maszyny wirtualnej przy użyciu [AzureRmVM aktualizacji](/powershell/module/azurerm.compute/update-azurermvm) polecenia cmdlet, aby ukończyć proces usuwania dysk z danymi.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 ```
 
 Aby uzyskać więcej informacji, zobacz [AzureRmVMDataDisk Usuń](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).

@@ -1,6 +1,6 @@
 ---
-title: O dyskach i wirtualne dyski twarde dla maszyn wirtualnych systemu Linux, Microsoft Azure | Dokumentacja firmy Microsoft
-description: "Podstawowe informacje na temat dysków i wirtualne dyski twarde dla maszyn wirtualnych systemu Linux na platformie Azure."
+title: Temat dysku magazynu dla maszyn wirtualnych systemu Linux programu Microsoft Azure | Dokumentacja firmy Microsoft
+description: "Poznaj podstawy magazynu dysków i wirtualne dyski twarde dla maszyn wirtualnych systemu Linux na platformie Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: be5f09af275142590ec6ade02562e914d5726e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55898806024a9f0562b32e7bdd990fd7dfd8d2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>O dyskach i wirtualne dyski twarde dla maszyn wirtualnych systemu Linux platformy Azure
+# <a name="about-disk-storage-for-azure-linux-vms"></a>Temat dysku magazynu dla maszyn wirtualnych systemu Linux platformy Azure
 Podobnie jak dowolnego innego komputera maszynach wirtualnych platformy Azure używać dysków jako miejsce do przechowywania systemu operacyjnego, aplikacji i danych. Wszystkie maszyny wirtualne platformy Azure są co najmniej dwa dyski — dysk systemu operacyjnego Linux i dysku tymczasowym. Dysk systemu operacyjnego jest tworzony z obrazu, a zarówno dysku systemu operacyjnego i obrazu są faktycznie wirtualnych dysków twardych (VHD) przechowywane w koncie magazynu platformy Azure. Maszyny wirtualne mogą także mieć co najmniej jeden dysk danych, które są także przechowywane jako wirtualne dyski twarde. 
 
 W tym artykule firma Microsoft będzie porozmawiać na temat różnych zastosowań dysków, a następnie omówiono różne typy dysków, można tworzyć i używać. W tym artykule jest również dostępny do [maszyn wirtualnych Windows](../windows/about-disks-and-vhds.md).
@@ -59,6 +59,6 @@ Można dodać dysków z danymi do maszyny wirtualnej w dowolnym momencie przez *
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dołączenie dysku](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dodać dodatkowy magazyn dla maszyny Wirtualnej.
-* [Należy skonfigurować oprogramowanie RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nadmiarowości.
-* [Przechwytywanie maszyny wirtualnej systemu Linux](./classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) , można szybko wdrożyć dodatkowe maszyny wirtualne.
+* [Utwórz migawkę](snapshot-copy-managed-disk.md).
+* [Konwertuj na dyskach zarządzanych](convert-unmanaged-to-managed-disks.md).
 

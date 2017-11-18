@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Słownik dewelopera usługi Azure Active Directory
 Ten artykuł zawiera definicje dla niektórych podstawowe koncepcje dla deweloperów usługi Azure Active Directory (AD), które są przydatne podczas nauki opracowywanie aplikacji dla usługi Azure AD.
@@ -33,6 +33,9 @@ Tokeny dostępu są czasami określane jako "Użytkownik + aplikacja" lub "App t
 * [Udzielania autoryzacji "Poświadczeń klienta"](#authorization-grant), klient zawiera wyłącznie uwierzytelnianie działa bez właściciela zasobu uwierzytelniania/autoryzacji, więc tokenu można czasami określane jako token "Tylko do aplikacji".
 
 Zobacz [odwołania do usługi Azure AD tokenu] [ AAD-Tokens-Claims] więcej szczegółów.
+
+## <a name="application-id-client-id"></a>Identyfikator aplikacji (identyfikator klienta)
+Unikatowy identyfikator usługi Azure AD problemy rejestracji aplikacji, który identyfikuje określoną aplikację i skojarzony konfiguracji.  Ten identyfikator aplikacji ([identyfikator klienta](https://tools.ietf.org/html/rfc6749#page-15)) jest używany podczas uwierzytelniania żądań i jest dostarczane do bibliotek uwierzytelniania w czasie opracowywania. Identyfikator aplikacji (identyfikator klienta) nie jest klucz tajny. 
 
 ## <a name="application-manifest"></a>Manifest aplikacji
 Funkcja dostarczonych przez [portalu Azure][AZURE-portal], która tworzy reprezentację JSON Konfiguracja tożsamości aplikacji, używane jako mechanizm aktualizacji skojarzone [ Aplikacja] [ AAD-Graph-App-Entity] i [ServicePrincipal] [ AAD-Graph-Sp-Entity] jednostek. Zobacz [opis manifestu aplikacji usługi Azure Active Directory] [ AAD-App-Manifest] więcej szczegółów.
@@ -174,7 +177,7 @@ Podobnie jak obiekt główny usługi jest używana do reprezentowania wystąpien
 Typ [aplikacji klienckiej](#client-application) , który jest wykonywany całego kodu na serwerze sieci web i może działać jako klient "poufne dane" przez bezpieczne przechowywanie swoich poświadczeń na serwerze. Zobacz [OAuth2 klienta typów i profile] [ OAuth2-Client-Types] więcej szczegółów.
 
 ## <a name="next-steps"></a>Następne kroki
-[Przewodnik dewelopera usługi Azure AD] [ AAD-Dev-Guide] portalu można użyć dla wdrożenia usługi Azure AD wszystkich powiązanych tematów, w tym omówienie [integracji aplikacji] [ AAD-How-To-Integrate] i podstawy [uwierzytelniania usługi Azure AD i scenariusze obsługiwane uwierzytelniania][AAD-Auth-Scenarios].
+[Przewodnik dewelopera usługi Azure AD] [ AAD-Dev-Guide] jest strony docelowej, można użyć dla wdrożenia usługi Azure AD wszystkich powiązanych tematów, w tym omówienie [integracji aplikacji] [ AAD-How-To-Integrate] i podstawy [uwierzytelniania usługi Azure AD i scenariusze obsługiwane uwierzytelniania][AAD-Auth-Scenarios].  Możesz również znaleźć przykłady kodu i samouczki dotyczące sposobu uzyskiwania szybkiego skonfigurowania i uruchomienia na [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Użyj poniższej sekcji komentarzy, aby wyrazić swoją opinię i pomóc nam dostosować i kształtu zawartość, włącznie z żądaniami dostępność nowych definicji lub aktualizowania istniejących!
 

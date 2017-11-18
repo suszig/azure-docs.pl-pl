@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Usługa Azure IoT Hub wprowadzenie samouczki
 
@@ -46,13 +46,6 @@ Podłącz urządzenia IoT lub bramy do Centrum IoT Azure. Można wybrać urządz
 | M0 Adafruit piór              | [Arduino][M0_Ard]              |
 | Symulowane urządzenie na komputerze           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [języka Python][Sim_Pyth] |
 | Symulator urządzeń online         | [Pi malinowe (Node.js)][Ol_Sim] |
-
-Ponadto można użyć brama brzegowa IoT umożliwiające urządzeniom na łączenie z Centrum IoT:
-
-| Urządzenie bramy               | Język programowania | Platforma         |
-|------------------------------|----------------------|------------------|
-| NUC firmy Intel (model DE3815TYKE) | C                    | [Rzeka knie systemu Linux][NUC_Lnx] |
-| Symulowane bramy            | C                    | [Linux][Sim_Lnx], [systemu Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

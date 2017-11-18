@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Wdrażanie funkcji platformy Azure jako moduł krawędzi IoT — w wersji preview
 Aby wdrożyć kod, który implementuje logiki biznesowej bezpośrednio do urządzenia IoT krawędzi, możesz użyć funkcji Azure. W tym samouczku przedstawiono sposób tworzenia i wdrażania funkcji Azure filtrujące dane czujników na symulowane urządzenie brzegowe IoT utworzoną w programie IoT Edge Azure wdrożenia symulowanego urządzenia na [Windows] [ lnk-tutorial1-win]lub [Linux] [ lnk-tutorial1-lin] samouczki. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:     
@@ -141,7 +141,7 @@ Poniższe kroki pokazują, jak utworzyć funkcję krawędzi IoT przy użyciu pro
 1. Utwórz obraz Docker.
     1. W kodzie VS explorer, kliknij przycisk **Docker** folderu, aby go otworzyć. Następnie wybierz folder dla danej platformy kontenera albo **linux x64** lub **windows nano**. 
     2. Kliknij prawym przyciskiem myszy **plik Dockerfile** plik i kliknij przycisk **krawędzi IoT Tworzenie modułu Docker obrazu**. 
-    3. W **wybierz Folder** wybierz opcję **Docker/linux — x64** folder, a następnie kliknij przycisk **wybierz Folder jako EXE_DIR**. 
+    3. W **wybierz Folder** polu, przejdź do folderu projektu **funkcji FilterFunction**i kliknij przycisk **wybierz Folder jako EXE_DIR**. 
     4. W polu tekstowym wyskakujących w górnej części okna kodu programu VS wprowadź nazwę obrazu. Na przykład `<docker registry address>/filterfunction:latest`, gdzie *adresu rejestru docker* jest Identyfikatorem Docker, jeśli używasz Centrum Docker lub jest podobny do `<your registry name>.azurecr.io`, jeśli używasz rejestru kontenera platformy Azure.
  
 4. Zaloguj się do Docker. W terminalu zintegrowane wprowadź następujące polecenie: 

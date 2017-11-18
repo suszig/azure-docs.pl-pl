@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
 Gdy [portalu Azure] zapewnia pełny zestaw narzędzi do tworzenia i testowania usługi Azure Functions, wielu deweloperów preferowane środowisko rozwoju lokalnego. Środowisko Azure Functions ułatwia opracowanie i przetestowanie funkcji na komputerze lokalnym przy użyciu edytora kodu ulubionych i narzędzia deweloperskie lokalnego. Funkcji mogą wyzwalać zdarzeń na platformie Azure, a Twoje C# i funkcji JavaScript można debugować na komputerze lokalnym. 
 
 Jeśli program Visual Studio C# dewelopera usługi Azure Functions także są [integruje się z programem Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Nie można mieszać lokalne działania projektowe z portalu Programowanie w tej samej aplikacji funkcji. Podczas tworzenia i publikowania funkcji z lokalnym projektu nie należy zachować lub zmodyfikować kod projektu w portalu.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Zainstaluj usługę Azure Functions podstawowe narzędzia
 
