@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentacja usługi Azure Databricks (wersja zapoznawcza)
 metadata:
   title: Dokumentacja usługi Azure Databricks — samouczki | Microsoft Docs
-  description: 'Dowiedz się, jak używać usługi Databricks na platformie Microsoft Azure.'
+  description: 'Dowiedz się, jak używać usługi Azure Databricks, korzystając z przewodnika Szybki start i innych podanych tutaj linków. Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure.'
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: 'Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure. Usługa Databricks, zaprojektowana wspólnie z twórcami usługi Apache Spark, jest zintegrowana z platformą Azure w celu zapewnienia konfigurowania jednym kliknięciem, usprawnionych przepływów pracy oraz interakcyjnego obszaru roboczego, który umożliwia współpracę między analitykami danych, inżynierami danych i analitykami biznesowymi. Dowiedz się, jak używać usługi Azure Databricks, korzystając z przewodnika Szybki start i innych podanych tutaj linków.'
+  description: 'Dowiedz się, jak używać usługi Azure Databricks, korzystając z przewodnika Szybki start i innych podanych tutaj linków. Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure. Usługa Databricks, zaprojektowana wspólnie z twórcami usługi Apache Spark, jest zintegrowana z platformą Azure w celu zapewnienia konfigurowania jednym kliknięciem, usprawnionych przepływów pracy oraz interakcyjnego obszaru roboczego, który umożliwia współpracę między analitykami danych, inżynierami danych i analitykami biznesowymi.'
 sections:
   - title: 5-minutowe przewodniki Szybki start
     items:

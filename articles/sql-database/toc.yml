@@ -370,6 +370,8 @@
           items:
             - name: Wdrażanie aplikacji przykładowej
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Aprowizowanie dzierżaw
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Monitorowanie wydajności bazy danych
               href: saas-multitenantdb-performance-monitoring.md
             - name: Uruchamianie zapytań ad hoc
