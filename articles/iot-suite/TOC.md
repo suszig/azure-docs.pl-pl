@@ -3,7 +3,7 @@
 ## [Porównanie opcji usługi Azure IoT](iot-suite-options.md)
 ## [Omówienie wstępnie skonfigurowanych rozwiązań](iot-suite-what-are-preconfigured-solutions.md)
 
-# Wprowadzenie
+# Rozpoczynanie pracy
 ## Zdalne monitorowanie
 ### [Wdrażanie wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-deploy.md)
 ### [Obsługa wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-explore.md)
@@ -25,11 +25,8 @@
 ###### [Symulowane dane](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Korzystanie z rzeczywistych czujników](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Wdrażanie aktualizacji oprogramowania układowego](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Łączenie bramy Intel NUC
-##### [Symulowane dane](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Korzystanie z rzeczywistego czujnika](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Instrukcje
+### Przewodniki z instrukcjami
 #### Podłączanie symulowanego urządzenia
 ##### [C w systemie Windows](iot-suite-v1-connecting-devices.md)
 ##### [C w systemie Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Omówienie rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md)
 ### [Przewodnik po rozwiązaniu połączonej fabryki](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Instrukcje
+# Przewodniki z instrukcjami
 ## Zdalne monitorowanie
 ### [Wykonywanie zaawansowanego monitorowania](iot-suite-remote-monitoring-monitor.md)
 ### [Używanie reguł do wykrywania problemów](iot-suite-remote-monitoring-automate.md)
