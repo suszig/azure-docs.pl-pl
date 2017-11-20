@@ -6,6 +6,7 @@
 ## [Rejestracja przy użyciu konta usługi Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Rejestracja w usłudze Office 365 przy użyciu konta platformy Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organizowanie zasobów przy użyciu grup zarządzania](billing-enterprise-mgmt-group-overview.md)
+## [Oszczędzanie pieniędzy dzięki wystąpieniom zarezerwowanym maszyn wirtualnych](billing-save-compute-costs-reservations.md)
 ## [Limity przydziału i ograniczenia](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Instrukcje
@@ -17,9 +18,13 @@
 ### [Understand terms on your usage (Omówienie terminów występujących w informacjach o użyciu)](billing-understand-your-usage.md)
 ### [Omówienie opłat za usługi zewnętrzne](billing-understand-your-azure-marketplace-charges.md)
 ### [Omówienie mapowania miernika bezpłatnej usługi](billing-understand-free-service-meter-mapping.md)
+### [Koszty wystąpień zarezerwowanych maszyn wirtualnych z systemem Windows](billing-reserved-instance-windows-software-costs.md)
+### [Opis stosowania rabatów dotyczących wystąpień zarezerwowanych maszyn wirtualnych](billing-understand-vm-reservation-charges.md)
 ### [Omówienie limitu wydatków](billing-spending-limit.md)
 ### [Ustawianie alertów dotyczących rozliczeń](billing-set-up-alerts.md)
 ### [Rozwiązywanie problemów dotyczących zaległego salda](billing-azure-subscription-past-due-balance.md)
+### [Opis stosowania wystąpień zarezerwowanych w przypadku płatności zgodnie z rzeczywistym użyciem](billing-understand-reserved-instance-usage.md)
+### [Opis stosowania wystąpień zarezerwowanych w przypadku przedsiębiorstwa](billing-understand-reserved-instance-usage-ea.md)
 
 ## Zarządzanie subskrypcjami
 ### [Zarządzanie rolami administratorów](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Aktualizowanie informacji o płatności](billing-how-to-change-credit-card.md)
 ### [Łączenie dzierżawy usługi Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Płatność za subskrypcje przy użyciu faktury](billing-how-to-pay-by-invoice.md)
+## [Zarządzanie wystąpieniami zarezerwowanymi maszyn wirtualnych](billing-manage-reserved-vm-instance.md)
 ## Rozwiązywanie problemów
 ### [Problemy dotyczące rejestrowania](https://support.microsoft.com/en-us/help/4042959)
 ### [Odrzucona karta](https://support.microsoft.com/en-us/help/4042960)

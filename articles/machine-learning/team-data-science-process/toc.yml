@@ -29,8 +29,14 @@
       href: project-ic-tasks.md
 - name: Struktura projektu
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Realizacja projektu
-  href: project-execution.md
+- name: Planowanie i realizacja projektu
+  items:
+    - name: Planowanie projektu
+      href: team-data-science-process-project-templates.md
+    - name: Realizacja projektu
+      items:
+        - name: Projekty dotyczące danych do celów naukowych
+          href: project-execution.md
 - name: Przykłady
   href: walkthroughs.md
   items:
