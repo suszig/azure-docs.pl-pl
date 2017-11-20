@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -84,7 +84,7 @@ Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poni
 
 - **Urządzenie wirtualne**: urządzenie wirtualne to maszyna wirtualna, na której zwykle działa aplikacja sieci, taka jak zapora. Aby dowiedzieć się więcej o różnych wstępnie skonfigurowanych sieciowych urządzeniach wirtualnych, które możesz wdrożyć w sieci wirtualnej, zobacz witrynę [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Podczas tworzenia trasy z typem przeskoku **Urządzenie wirtualne** należy określić także adres IP następnego przeskoku. Adresem IP może być:
 
-    - [Prywatny adres IP](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) interfejsu sieciowego dołączonego do maszyny wirtualnej. Każdy interfejs sieciowy dołączony do maszyny wirtualnej, która przesyła dalej ruch sieciowy do adresu innego niż własny, musi mieć w tym celu włączoną opcję *Włącz przekazywanie IP* platformy Azure. To ustawienie wyłącza sprawdzanie przez platformę Azure elementu źródłowego i docelowego interfejsu sieciowego. Dowiedz się więcej o tym, jak [włączyć przekazywanie IP dla interfejsu sieciowego](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Chociaż pozycja *Włącz przekazywanie IP* to ustawienie platformy Azure, włączenie przekazywania IP w ramach systemu operacyjnego maszyny wirtualnej może być konieczne, aby maszyna wirtualna przekazywała dalej ruch między interfejsami sieciowymi. Aby ustalić wymagane ustawienia maszyny wirtualnej, zobacz dokumentację swojego systemu operacyjnego lub aplikacji sieciowej.
+    - [Prywatny adres IP](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) interfejsu sieciowego dołączonego do maszyny wirtualnej. Każdy interfejs sieciowy dołączony do maszyny wirtualnej, która przesyła dalej ruch sieciowy do adresu innego niż własny, musi mieć w tym celu włączoną opcję *Włącz przekazywanie IP* platformy Azure. To ustawienie wyłącza sprawdzanie przez platformę Azure elementu źródłowego i docelowego interfejsu sieciowego. Dowiedz się więcej o tym, jak [włączyć przekazywanie IP dla interfejsu sieciowego](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Chociaż pozycja *Włącz przekazywanie adresu IP* to ustawienie platformy Azure, włączenie przekazywania adresu IP w ramach systemu operacyjnego maszyny wirtualnej może być konieczne, aby urządzenie przekazywało dalej ruch między prywatnymi adresami IP przypisanami do interfejsów sieciowych platformy Azure. Jeśli urządzenie musi kierować ruch do publicznego adresu IP, ruch musi zostać przekierowany przy użyciu serwera proxy albo adres sieciowy musi przetłumaczyć prywatny adres IP źródła na własny prywatny adres IP, który następnie platforma Azure tłumaczy przy użyciu adresu sieciowego na publiczny adres IP przed wysłaniem ruchu do Internetu. Aby ustalić wymagane ustawienia maszyny wirtualnej, zobacz dokumentację swojego systemu operacyjnego lub aplikacji sieciowej. Aby lepiej zrozumieć połączenia wychodzące na platformie Azure, zobacz [Understanding outbound connections (Opis połączeń wychodzących)](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Wdróż urządzenie wirtualne w podsieci innej niż ta, gdzie są wdrożone zasoby, które są przesyłane przez urządzenie wirtualne. Wdrożenie urządzenia wirtualnego w tej samej podsieci, a następnie zastosowanie tabeli tras do podsieci, która kieruje ruch przez urządzenie wirtualne, może spowodować zapętlenie tras, w którym ruch nigdy nie opuszcza podsieci.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory
 Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę Azure Data Factory do zapewnienia następujących możliwości integracji danych w różnych środowiskach sieciowych:
@@ -85,7 +85,7 @@ Jeśli chcesz przeprowadzić integrację danych bezpiecznie w środowisku sieci 
 ### <a name="compute-resource-and-scaling"></a>Zasoby obliczeniowe i skalowanie
 Infrastrukturę Integration Runtime (Self-hosted) należy zainstalować na maszynie lokalnej lub maszynie wirtualnej w sieci prywatnej. Aktualnie obsługujemy uruchamianie środowisk IR (Self-hosted) w systemie operacyjnym Windows.  
 
-W celu zapewnienia wysokiej dostępności i skalowalności można zmienić skalowanie środowiska IR (Self-hosted), łącząc wystąpienie logiczne z wieloma maszynami lokalnymi w trybie aktywny-aktywny.  Więcej informacji można znaleźć w temacie przewodnika How to create and configure self-hosted IR (Jak utworzyć i skonfigurować samodzielnie hostowane środowisko IR).
+W celu zapewnienia wysokiej dostępności i skalowalności można zmienić skalowanie środowiska IR (Self-hosted), łącząc wystąpienie logiczne z wieloma maszynami lokalnymi w trybie aktywny-aktywny.  Więcej informacji można znaleźć w artykule przewodnika How to create and configure self-hosted IR (Jak utworzyć i skonfigurować samodzielnie hostowane środowisko IR).
 
 ## <a name="azure-ssis-integration-runtime"></a>Infrastruktura Azure SSIS Integration Runtime
 Aby zmniejszyć i przenieść obecne obciążenie SSIS, można utworzyć środowisko IR Azure-SSIS w celu natywnego wykonywania pakietów SSIS.
@@ -96,7 +96,7 @@ Aby zmniejszyć i przenieść obecne obciążenie SSIS, można utworzyć środow
 ### <a name="compute-resource-and-scaling"></a>Zasoby obliczeniowe i skalowanie
 Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych platformy Azure, których przeznaczeniem jest uruchamianie pakietów SSIS. Można użyć własnego serwera bazy danych Azure SQL Database lub wystąpienia zarządzanego (prywatna wersja zapoznawcza) do hostowania katalogu projektów SSIS/pakietów (SSISDB), który zostanie do niego przyłączony. Możesz skalować moc obliczeniową, określając rozmiar węzłów, a także liczbę węzłów w klastrze. Kosztem pracy produktu Azure-SSIS Integration Runtime można zarządzać, uruchamiając go i zatrzymując zgodnie z potrzebami.
 
-Więcej informacji można znaleźć w temacie przewodnika How to create and configure Azure-SSIS IR (Jak utworzyć i skonfigurować środowisko IR Azure-SSIS).  Po utworzeniu możesz wdrażać istniejące pakiety SSIS i zarządzać nimi praktycznie bez zmian, przy użyciu znanych narzędzi, takich jak SQL Server Data Tools (SSDT) i SQL Server Management Studio (SSMS), co przypomina lokalne zastosowanie SSIS.
+Więcej informacji można znaleźć w artykule przewodnika How to create and configure Azure-SSIS IR (Jak utworzyć i skonfigurować środowisko Azure-SSIS IR).  Po utworzeniu możesz wdrażać istniejące pakiety SSIS i zarządzać nimi praktycznie bez zmian, przy użyciu znanych narzędzi, takich jak SQL Server Data Tools (SSDT) i SQL Server Management Studio (SSMS), co przypomina lokalne zastosowanie SSIS.
 
 Aby uzyskać więcej informacji o środowisku uruchomieniowym Azure-SSIS, zobacz następujące artykuły: 
 
@@ -123,7 +123,7 @@ Na poniższym diagramie przedstawiono dwa przykłady działania kopiowania:
 ![Które środowisko IR wybrać](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Lokalizacja środowiska Integration Runtime
-Lokalizacja usługi Data Factory to miejsce, w którym przechowywane są metadane fabryki danych i gdzie inicjowane jest wyzwalanie potoku. Obecnie obsługiwane lokalizacje usługi Data Factory to Wschodnie stany USA i Wschodnie stany USA 2. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych. Zachowanie to jest wykonywane przez środowisko IR dostępne globalnie w wielu regionach, co zapewnia zgodność danych, wydajność i niższe koszty wyjścia z sieci.
+Lokalizacja usługi Data Factory to miejsce, w którym przechowywane są metadane fabryki danych i gdzie inicjowane jest wyzwalanie potoku. Obecnie obsługiwane lokalizacje usługi Data Factory to Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych. Zachowanie to jest wykonywane przez środowisko IR dostępne globalnie w wielu regionach, co zapewnia zgodność danych, wydajność i niższe koszty wyjścia z sieci.
 
 Lokalizacja IR definiuje lokalizację zaplecza obliczeniowego i w praktyce lokalizację, w której wykonywane jest przenoszenie danych, wysyłanie działania i wykonywanie pakietu SSIS. Lokalizacja IR może różnić się od lokalizacji fabryki danych, do której należy. Na poniższym diagramie przedstawiono ustawienia lokalizacji usługi Data Factory i jej czasy uruchomienia integracji:
 

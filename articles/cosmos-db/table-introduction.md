@@ -2,7 +2,7 @@
 title: "Wprowadzenie do interfejsu API tabel usługi Azure Cosmos DB | Microsoft Docs"
 description: "Dowiedz się, jak korzystać z usługi Azure Cosmos DB i popularnych interfejsów API MongoDB OSS w celu przechowywania ogromnych wolumenów danych typu klucz-wartość i wykonywania zapytań na tych danych przy zachowaniu małych opóźnień."
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
-ms.author: arramac
-ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/15/2017
+ms.author: mimig1
+ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do interfejsu API tabel usługi Azure Cosmos DB
 
-Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel (w wersji zapoznawczej) dla aplikacji korzystających z usługi Azure Table Storage, które wymagają funkcji warstwy Premium, takich jak:
+Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel dla aplikacji korzystających z usługi Azure Table Storage, które wymagają funkcji warstwy Premium, takich jak:
 
 * [Gotowa do użytku dystrybucja globalna](distribute-data-globally.md).
 * [Dedykowana przepływność](partition-data.md) na całym świecie.
@@ -39,9 +39,9 @@ Zalecamy obejrzenie poniższego wideo, w którym Aravind Ramachandran wyjaśnia,
 > 
 
 ## <a name="table-offerings"></a>Oferty dotyczące tabel
-Jeśli obecnie używasz usługi Azure Table Storage, po przejściu na wersję zapoznawczą usługi Azure Cosmos DB z interfejsem API tabel uzyskasz następujące korzyści:
+Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania z interfejsu API tabel usługi Azure Cosmos DB uzyskasz następujące korzyści:
 
-| | Azure Table Storage | Usługa Azure Cosmos DB: interfejs API tabel (wersja zapoznawcza) |
+| | Azure Table Storage | Interfejs API tabel usługi Azure Cosmos DB |
 | --- | --- | --- |
 | Opóźnienie | Niewielkie, ale brak górnych granic opóźnienia. | Milisekundowe opóźnienie odczytu i zapisu oraz odczyt o opóźnieniu <10 ms i zapis o opóźnieniu <15 ms w 99. percentylu, w dowolnej skali, w dowolnym miejscu na świecie. |
 | Przepływność | Zmienny model przepływności. Tabele mają limit skalowalności 20 000 operacji/s. | Wysoka skalowalność dzięki [dedykowanej zarezerwowanej przepływności na tabelę](request-units.md), gwarantowanej umowami SLA. Konta nie mają górnego limitu przepływności i obsługują >10 milionów operacji/s na tabelę. |
@@ -50,9 +50,9 @@ Jeśli obecnie używasz usługi Azure Table Storage, po przejściu na wersję za
 | Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. Aparat bazy danych usługi Azure Cosmos DB obsługuje wartości zagregowane, rozwiązania geoprzestrzenne i sortowanie. |
 | Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md), równoważących dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji. |
 | Cennik | Optymalizacja pod kątem magazynu. | Optymalizacja pod kątem przepływności. |
-| Umowy SLA | Dostępność na poziomie 99,99%. | Dostępność na poziomie 99,99% w jednym regionie oraz możliwość dodania kolejnych regionów w celu podniesienia dostępności. [Wiodące w branży, kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dotyczące ogólnej dostępności. |
+| Umowy SLA | Dostępność na poziomie 99,99%. | Umowa SLA gwarantująca dostępność na poziomie co najmniej 99,99% dla wszystkich kont w obrębie jednego regionu i wszystkich kont w wielu regionach w przypadku rozluźnionej spójności, a także dostępność do odczytu na poziomie co najmniej 99,999% dla wszystkich kont bazy danych w wielu regionach w ramach [wiodących w branży, kompleksowych umów SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dotyczących ogólnej dostępności. |
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Utwórz konto usługi Azure Cosmos DB w witrynie [Azure Portal](https://portal.azure.com). Następnie zapoznaj się z naszym [przewodnikiem Szybki Start dotyczącym korzystania z interfejsu API tabel przy użyciu programu .NET](create-table-dotnet.md). 
 
@@ -64,5 +64,7 @@ Oto kilka wskazówek ułatwiających rozpoczęcie pracy:
 * [Wykonywanie zapytań dotyczących danych tabel przy użyciu interfejsu API tabel](tutorial-query-table.md)
 * [Dowiedz się, jak skonfigurować dystrybucję globalną usługi Azure Cosmos DB przy użyciu interfejsu API tabel](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB — interfejs API tabel dla platformy .NET](table-sdk-dotnet.md)
-
+* [Azure Cosmos DB — interfejs API tabel dla platformy Java](table-sdk-java.md)
+* [Azure Cosmos DB — interfejs API tabel dla platformy Node.js](table-sdk-nodejs.md)
+* [Azure Cosmos DB — zestaw SDK tabel dla języka Python](table-sdk-python.md)
 
