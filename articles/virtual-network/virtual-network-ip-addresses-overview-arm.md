@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Typy adresów IP i metody alokacji na platformie Azure
 
@@ -145,29 +145,22 @@ Prywatne adresy IP są tworzone przy użyciu adresy IPv4 lub IPv6. Prywatne adre
 
 ### <a name="allocation-method"></a>Metoda alokacji
 
-Prywatny adres IP jest przydzielany z zakresu adresów w podsieci, do której zasób jest dołączony. Zakres adresów samej podsieci jest częścią zakresu adresów sieci wirtualnej.
+Prywatny adres IP jest przydzielany z zakresu adresów w podsieci sieci wirtualnej, w której wdrożono zasób. Istnieją dwie metody przydzielania prywatnego adresu IP:
 
-Istnieją dwie metody przydzielania prywatnego adresu IP: *dynamiczna* i *statyczna*. Domyślną metodą alokacji jest metoda *dynamiczna*, gdzie adres IP jest przydzielany automatycznie z podsieci zasobu (przy użyciu protokołu DHCP). Ten adres IP może się zmieniać, gdy zatrzymujesz i uruchamiasz zasób.
-
-Możesz ustawić metodę alokacji jako *statyczną*, aby zapewnić, że adres IP pozostaje bez zmian. W przypadku wybrania metody *statycznej* musisz również podać prawidłowy adres IP, który jest częścią podsieci zasobu.
-
-Statyczne prywatne adresy IP są powszechnie używane do:
-
-* Maszyn wirtualnych, które działają jako kontrolery domeny lub serwery DNS.
-* Zasobów, które wymagają reguł zapory korzystających z adresów IP.
-* Zasoby dostępne dla innych aplikacji/zasobów za pomocą adresu IP.
+- **Dynamiczna**: platforma Azure rezerwuje pierwsze cztery adresy w każdym zakresie adresów podsieci i nie przydziela adresów. Platforma Azure przypisuje następny dostępny adres do zasobu z zakresu adresów podsieci. Jeśli na przykład zakres adresów podsieci to 10.0.0.0/16, a adresy 10.0.0.0.4–10.0.0.14 zostały już przypisane (.0–.3 są zarezerwowane), platforma Azure przypisuje do zasobu adres 10.0.0.15. Metoda dynamiczna to domyślna metoda alokacji. Po przypisaniu dynamiczne adresy IP są zwalniane, tylko jeśli interfejs sieciowy zostanie usunięty, przypisany do innej podsieci w tej samej sieci wirtualnej, lub metoda alokacji zostanie zmieniona na Statyczna i zostanie podany inny adres IP. Domyślnie platforma Azure przypisuje poprzedni adres dynamicznie przypisany jako adres statyczny po zmianie metody alokacji z dynamicznej na statyczną.
+- **Statyczna**: Ty wybierasz i przypisujesz adres z zakresu adresów podsieci. Możesz przypisać dowolny adres z zakresu adresów podsieci, który nie jest jednym z pierwszych czterech adresów w zakresie adresów podsieci i nie jest aktualnie przypisany do żadnego innego zasobu w podsieci. Adresy statyczne są zwalniane tylko w przypadku usunięcia interfejsu sieciowego. Jeśli zmienisz metodę alokacji na statyczną, platforma Azure dynamicznie przypisze wcześniej przypisany statyczny adres IP jako adres dynamiczny, nawet jeśli adres nie jest następnym dostępnym adresem w zakresie adresów podsieci. Adres zmieni się także, jeśli interfejs sieciowy zostanie przypisany do innej podsieci w tej samej sieci wirtualnej, ale aby przypisać interfejs sieciowy do innej podsieci, musisz najpierw zmienić metodę alokacji ze statycznej na dynamiczną. Po przypisaniu interfejsu sieciowego do innej podsieci możesz zmienić metodę alokacji z powrotem na statyczną i przypisać adres IP z zakresu adresów nowej podsieci.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 
-Prywatny adres IP jest przypisywany do **interfejsu sieciowego** maszyny wirtualnej z systemem [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Jeśli maszyna wirtualna ma wiele interfejsów sieciowych, prywatny adres IP jest przypisywany do każdego interfejsu sieciowego. Metodę alokacji dla interfejsu sieciowego możesz określić jako dynamiczną lub statyczną.
+Co najmniej jeden prywatny adres IP jest przypisywany do **interfejsu sieciowego** maszyny wirtualnej z systemem [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Metodę alokacji dla każdego prywatnego adresu IP możesz określić jako dynamiczną lub statyczną.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Wewnętrzne rozpoznawanie nazwy hosta DNS (dla maszyn wirtualnych)
 
 Wszystkie maszyny wirtualne platformy Azure są domyślnie skonfigurowane z [serwerami DNS zarządzanymi przez platformę Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), chyba że jawnie skonfigurujesz niestandardowe serwery DNS. Te serwery DNS zapewniają rozpoznawanie nazw wewnętrznych maszyn wirtualnych znajdujących się w tej samej sieci wirtualnej.
 
-Podczas tworzenia maszyny wirtualnej mapowanie nazwy hosta na jego prywatny adres IP jest dodawane do serwerów DNS zarządzanych przez platformę Azure. W przypadku maszyny wirtualnej z wieloma interfejsami sieciowymi nazwa hosta jest mapowana na prywatny adres IP głównego interfejsu sieciowego.
+Podczas tworzenia maszyny wirtualnej mapowanie nazwy hosta na jego prywatny adres IP jest dodawane do serwerów DNS zarządzanych przez platformę Azure. W przypadku maszyny wirtualnej z wieloma interfejsami sieciowymi lub wieloma konfiguracjami adresów IP dla interfejsu sieciowego nazwa hosta jest mapowana na prywatny adres IP głównej konfiguracji adresu IP dla głównego interfejsu sieciowego.
 
-Maszyny wirtualne skonfigurowane przy użyciu serwerów DNS zarządzanych przez platformę Azure będą mogły rozpoznać nazwy hostów wszystkich maszyn wirtualnych w ramach ich sieci wirtualnej według ich prywatnych adresów IP.
+Maszyny wirtualne skonfigurowane przy użyciu serwerów DNS zarządzanych przez platformę Azure będą mogły rozpoznać nazwy hostów wszystkich maszyn wirtualnych w ramach ich sieci wirtualnej według ich prywatnych adresów IP. Aby rozpoznawać nazwy hostów maszyn wirtualnych w połączonych sieciach wirtualnych, musisz używać niestandardowego serwera DNS.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Wewnętrzne moduły równoważenia obciążenia (ILB) i bramy aplikacji
 

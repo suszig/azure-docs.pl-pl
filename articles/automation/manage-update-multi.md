@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn wirtualnych platformy Azure
+# <a name="manage-updates-for-multiple-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn
 
-Rozwiązanie Update Management pozwala zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure.
-Na koncie usługi [Azure Automation](automation-offering-get-started.md) można szybko dołączać maszyny wirtualne, oceniać stan dostępnych aktualizacji, planować instalację wymaganych aktualizacji oraz przeglądać wyniki wdrożenia w celu sprawdzenia, czy aktualizacje zostały pomyślnie zastosowane do wszystkich maszyn wirtualnych, dla których włączono rozwiązanie Update Management.
+Rozwiązanie Update Management pozwala zarządzać aktualizacjami i poprawkami dla maszyn z systemami Windows i Linux.
+Z poziomu konta usługi [Azure Automation](automation-offering-get-started.md) można szybko dołączać maszyny, oceniać stan dostępnych aktualizacji, planować instalację wymaganych aktualizacji oraz przeglądać wyniki wdrożenia w celu sprawdzenia, czy aktualizacje zostały pomyślnie zastosowane do wszystkich maszyn wirtualnych, dla których włączono rozwiązanie Update Management.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

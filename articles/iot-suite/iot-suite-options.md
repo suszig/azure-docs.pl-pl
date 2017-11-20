@@ -1,6 +1,6 @@
 ---
 title: "Opcje usługi Microsoft Azure IoT | Microsoft Docs"
-description: "Wybierz sposób implementowania rozwiązania Azure IoT przy użyciu Pakietu IoT, rozwiązania IoT Central lub usługi IoT Hub."
+description: "Wybierz sposób implementowania rozwiązania IoT, przy użyciu Pakietu IoT Azure, rozwiązania Microsoft IoT Central lub usługi Azure IoT Hub."
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Porównanie opcji rozwiązania Azure IoT
 
@@ -33,18 +33,18 @@ Aby umożliwić zaimplementowanie tej architektury, rozwiązanie Azure IoT oferu
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Usługa Azure IoT Hub to podstawowe rozwiązanie platformy jako usługi dostępne w ramach platformy Azure, z którego korzysta zarówno usługa IoT Central, jak i Pakiet IoT. Usługa IoT Hub umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i rozwiązaniem w chmurze. Usługa IoT Hub ułatwia spełnienie wymagań dotyczących implementacji IoT, takich jak:
+Usługa Azure IoT Hub to podstawowe rozwiązanie platformy jako usługi dostępne w ramach platformy Azure, z którego korzysta zarówno usługa Microsoft IoT Central, jak i Pakiet IoT Azure. Usługa IoT Hub umożliwia bezpieczną i niezawodną dwukierunkową komunikację między milionami urządzeń IoT i rozwiązaniem w chmurze. Usługa IoT Hub ułatwia spełnienie wymagań dotyczących implementacji IoT, takich jak:
 
 * Utrzymywanie łączności zapewniającej przepływ dużej ilości danych między urządzeniami i zarządzanie nimi.
 * Pozyskiwanie dużej ilości danych telemetrycznych.
 * Sterowanie urządzeniami i kontrola nad nimi.
 * Wymuszanie zabezpieczeń urządzeń.
 
-## <a name="compare-iot-suite-and-iot-central"></a>Porównanie Pakietu IoT i rozwiązania IoT Central
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Porównanie Pakietu IoT Azure i usługi Microsoft IoT Central
 
-Wybór produktu IoT Azure to decydujący etap planowania rozwiązania IoT. IoT Hub jest autonomiczną usługą platformy Azure, która sama nie zapewnia kompleksowego rozwiązania IoT. Usługa IoT Hub może służyć jako punkt początkowy dla dowolnego rozwiązania IoT. Aby z niej korzystać, nie trzeba używać Pakietu IoT Azure ani rozwiązania Microsoft IoT Central. Zarówno Pakiet IoT, jak i rozwiązanie IoT Central używają usługi IoT Hub razem z innymi usługami platformy Azure. W poniższej tabeli przedstawiono podsumowanie najważniejszych różnic między Pakietem IoT i usługą IoT Central, aby ułatwić wybór rozwiązania najbardziej odpowiedniego do konkretnych wymagań:
+Wybór produktu IoT Azure to decydujący etap planowania rozwiązania IoT. IoT Hub jest autonomiczną usługą platformy Azure, która sama nie zapewnia kompleksowego rozwiązania IoT. Usługa IoT Hub może służyć jako punkt początkowy dla dowolnego rozwiązania IoT. Aby z niej korzystać, nie trzeba używać Pakietu IoT Azure ani rozwiązania Microsoft IoT Central. Zarówno Pakiet IoT Azure, jak i rozwiązanie Microsoft IoT Central używają usługi IoT Hub razem z innymi usługami platformy Azure. W poniższej tabeli przedstawiono podsumowanie najważniejszych różnic między Pakietem IoT Azure i usługą Microsoft IoT Central, aby ułatwić wybór rozwiązania najbardziej odpowiedniego dla konkretnych wymagań:
 
-|                        | Pakiet IoT | IoT Central |
+|                        | Pakiet IoT Azure | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Podstawowe zastosowanie | Przyspieszenie opracowania niestandardowych rozwiązań IoT wymagających maksymalnej elastyczności. | Skrócenie czasu wprowadzenia na rynek prostych rozwiązań IoT, które nie wymagają znaczącego dostosowania usług. |
 | Dostęp do podstawowych usług PaaS          | Dostęp do podstawowych usług platformy Azure, możliwość zarządzania nimi i zastępowania ich w razie potrzeb. | SaaS. W pełni zarządzane rozwiązanie, podstawowe usługi nie są widoczne. |
@@ -63,6 +63,6 @@ Podjęcie decyzji, którego produktu użyć w celu zbudowania rozwiązania IoT, 
 
 W zależności od wybranego produktu i podejścia sugerowane dalsze czynności są następujące:
 
-* **Pakiet IoT**: [Co to są wstępnie skonfigurowane rozwiązania usługi Azure IoT?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Pakiet IoT Azure**: [Co to są wstępnie skonfigurowane rozwiązania usługi Azure IoT?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Omówienie usługi Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md).

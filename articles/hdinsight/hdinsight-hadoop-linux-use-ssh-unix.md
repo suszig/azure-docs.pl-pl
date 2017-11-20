@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Hadoop) przy użyciu protokołu SSH
 
@@ -48,26 +48,24 @@ Usługa HDInsight może używać systemu Linux (Ubuntu) jako systemu operacyjneg
 > [!TIP]
 > Po pierwszym połączeniu z usługą HDInsight Twój klient SSH może wyświetlić ostrzeżenie, że nie można ustalić autentyczności hosta. Po wyświetleniu monitu wybierz opcję „tak”, aby dodać hosta do listy zaufanych serwerów klienta SSH.
 >
-> Jeśli wcześniej miało miejsce połączenie z serwerem o takiej samej nazwie, może pojawić się ostrzeżenie, że przechowywany klucz hosta nie odpowiada kluczowi hosta serwera. Klient SSH może w takim przypadku odmówić połączenia się z klastrem. W dokumentacji klienta SSH można znaleźć informacje, jak usunąć istniejący wpis dla nazwy serwera.
+> Jeśli wcześniej miało miejsce połączenie z serwerem o takiej samej nazwie, może pojawić się ostrzeżenie, że przechowywany klucz hosta nie odpowiada kluczowi hosta serwera. W dokumentacji klienta SSH można znaleźć informacje, jak usunąć istniejący wpis dla nazwy serwera.
 
 ## <a name="ssh-clients"></a>Klienci SSH
 
 Systemy Linux, Unix i macOS obejmują polecenia `ssh` i `scp`. Klient `ssh` jest najczęściej używany do tworzenia zdalnej sesji wiersza polecenia za pomocą systemu Linux lub Unix. Klient `scp` służy do bezpiecznego kopiowania plików między klientem użytkownika a systemem zdalnym.
 
-System Microsoft Windows domyślnie nie udostępnia żadnych klientów SSH. Klienci `ssh` i `scp` są dostępni dla systemu Windows za pośrednictwem następujących pakietów:
+System Microsoft Windows domyślnie nie instaluje żadnych klientów SSH. Klienci `ssh` i `scp` są dostępni dla systemu Windows za pośrednictwem następujących pakietów:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): usługa Cloud Shell zapewnia środowisko powłoki Bash w przeglądarce i polecenia `ssh`, `scp` oraz inne typowe polecenia systemu Linux.
+* Klient OpenSSH (wersja beta): w aktualizacji systemu Fall Creators Update wybierz opcję __Ustawienia__ > __Aplikacje i funkcje__ > __Zarządzaj funkcjami opcjonalnymi__ > __Dodaj funkcję__ i wybierz pozycję __Klient OpenSSH__. 
+
+    > [!NOTE]
+    > Jeśli polecenia `ssh` i `scp` nie są dostępne w programie PowerShell po włączeniu tej funkcji, wyloguj się, a następnie zaloguj ponownie.
 
 * [Powłoka Bash w systemie Ubuntu w systemie Windows 10](https://msdn.microsoft.com/commandline/wsl/about): polecenia `ssh` i `scp` są dostępne za pośrednictwem powłoki Bash w wierszu polecenia systemu Windows.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): usługa Cloud Shell zapewnia środowisko powłoki Bash w przeglądarce i polecenia `ssh`, `scp` oraz inne typowe polecenia systemu Linux.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): polecenia `ssh` i `scp` są dostępne za pośrednictwem wiersza polecenia GitBash.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) polecenia `ssh` i `scp` są dostępne za pośrednictwem wiersza polecenia powłoki GitHub Shell. W rozwiązaniu GitHub Desktop można skonfigurować wiersz polecenia dla powłoki Git Shell, wybierając funkcję Bash, wiersz polecenia systemu Windows lub program PowerShell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): obecnie zespół ds. programu PowerShell pracuje nad przeniesieniem pakietu OpenSSH do systemu Windows. Dodatkowo są udostępniane wersje testowe.
-
-    > [!WARNING]
-    > Pakiet OpenSSH zawiera składnik serwera SSH — `sshd`. Składnik ten pozwala uruchomić w systemie serwer SSH i umożliwia innym osobom połączenie się z tym serwerem. Nie konfiguruj tego składnika ani nie otwieraj portu 22, chyba że chcesz hostować w systemie serwer SSH. Składnik ten nie jest wymagany do komunikowania się z usługą HDInsight.
 
 Dostępnych jest również kilka graficznych klientów SSH, takich jak [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) i [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Mimo że ci klienci umożliwiają nawiązywanie połączeń z usługą HDInsight, proces łączenia się jest inny niż w przypadku narzędzia `ssh`. Aby uzyskać więcej informacji, zobacz dokumentację graficznego klienta, którego używasz.
 
@@ -116,7 +114,7 @@ W trakcie procesu tworzenia kluczy zostaną wyświetlone monity o podanie inform
 Konta SSH mogą być chronione przy użyciu hasła. Podczas łączenia się z usługą HDInsight przy użyciu protokołu SSH pojawia się monit o podanie hasła.
 
 > [!WARNING]
-> W przypadku protokołu SSH nie zalecamy korzystania z uwierzytelniania za pomocą hasła. Hasła można złamać i są one podatne na ataki siłowe. Zamiast tego zalecamy używanie [kluczy SSH w celu uwierzytelniania](#sshkey).
+> W przypadku protokołu SSH firma Microsoft nie zaleca korzystania z uwierzytelniania za pomocą hasła. Hasła można złamać i są one podatne na ataki siłowe. Zamiast tego zalecamy używanie [kluczy SSH w celu uwierzytelniania](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>Tworzenie klastrów usługi HDInsight przy użyciu hasła
 
@@ -176,7 +174,7 @@ Węzły procesu roboczego i węzły dozorcy nie są dostępne bezpośrednio z In
 
         ssh sshuser@wn0-myhdi
 
-    Aby pobrać listę nazw domen węzłów w klastrze, zobacz artykuł [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Zarządzanie usługą HDInsight przy użyciu interfejsu API REST Ambari).
+    Aby pobrać listę nazw węzłów, zobacz artykuł [Manage HDInsight by using the Ambari REST API (Zarządzanie usługą HDInsight przy użyciu interfejsu API REST Ambari)](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 Jeśli konto SSH jest zabezpieczone przy użyciu __hasła__, wprowadź hasło podczas nawiązywania połączenia.
 

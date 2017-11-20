@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory
  
@@ -76,7 +76,7 @@ Usługa Azure Data Factory w wersji 2 opiera się na oryginalnej usłudze przeno
 
 Po wydaniu wersji 1 dowiedzieliśmy się, że klienci muszą projektować kompleksowe scenariusze integracji danych hybrydowych, które wymagają przenoszenia i przetwarzania danych w chmurze, lokalnie i na maszynach wirtualnych w chmurze. Wymagania te wprowadziły potrzebę przekazywania i przetwarzania danych w bezpiecznych środowiskach sieci wirtualnych oraz ich skalowania wraz z mocą obliczeniową na żądanie.
 
-Potoki danych stały się kluczową częścią analityki biznesowej, w związku z czym dostrzegliśmy, że te krytyczne działania związane z danymi wymagają elastycznych harmonogramów, obsługujących przyrostowe obciążenia danych oraz uruchamianie wyzwalane przez zdarzenia. Co więcej, wraz ze wzrostem złożoności tych operacji rosną także wymagania wobec usługi, dotyczące obsługi typowych paradygmatów przepływów pracy, w tym gałęzi, pętli i przetwarzania warunkowego.
+Potoki danych stały się kluczową częścią analityki biznesowej, w związku z czym dostrzegliśmy, że te krytyczne działania związane z danymi wymagają elastycznych harmonogramów, obsługujących przyrostowe obciążenia danych oraz uruchamianie wyzwalane przez zdarzenia. Co więcej, wraz ze wzrostem złożoności tych operacji rosną także wymagania wobec usługi dotyczące obsługi typowych paradygmatów przepływów pracy, w tym gałęzi, pętli i przetwarzania warunkowego.
 
 Wersja 2 umożliwia migrowanie istniejących pakietów SSIS do chmury. Nowa funkcja „Integration Runtimes” pozwala na przeniesienie pakietu SSIS w postaci usługi platformy Azure zarządzanej przez usługę ADF. Wprowadzenie funkcji SSIS IR w wersji 2 umożliwia wykonywanie, monitorowanie i tworzenie pakietów SSIS oraz zarządzanie nimi w chmurze.
 
@@ -173,11 +173,11 @@ Aby uzyskać więcej informacji o pojęciach związanych z usługą Data Factory
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Obecnie fabryki danych można tworzyć w regionach Wschodnie stany USA oraz Wschodnie stany USA 2. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych.
+Obecnie można tworzyć fabryki danych w regionach Wschodnie stany USA, Wschodnie stany USA 2 oraz Europa Zachodnia. Jednak fabryka danych może mieć dostęp do magazynów danych i usług obliczeniowych w innych regionach świadczenia usługi Azure, aby przenosić dane między magazynami danych lub przetwarzać dane przy użyciu usług obliczeniowych.
 
 Sama usługa Azure Data Factory nie przechowuje żadnych danych. Usługa umożliwia tworzenie opartych na danych przepływów pracy do aranżowania przenoszenia danych między obsługiwanymi magazynami danych oraz przetwarzania danych przy użyciu usług obliczeniowych w innych regionach lub w środowisku lokalnym. Umożliwia także monitorowanie przepływów pracy i zarządzanie nimi przy użyciu zarówno mechanizmów programowych, jak i interfejsu użytkownika.
 
-Chociaż usługa Data Factory jest dostępna tylko w regionach Wschodnie stany USA i Wschodnie stany USA 2, to usługa zapewniająca przenoszenie danych w usłudze Data Factory jest dostępna globalnie w kilku regionach. Jeśli magazyn danych znajduje się za zaporą, dane są przenoszone przez bramę zarządzania danymi zainstalowaną w środowisku lokalnym.
+Mimo iż usługa Data Factory jest dostępna tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia, usługa zapewniająca przenoszenie danych w usłudze Data Factory jest dostępna globalnie w kilku regionach. Jeśli magazyn danych znajduje się za zaporą, dane są przenoszone przez bramę zarządzania danymi zainstalowaną w środowisku lokalnym.
 
 Załóżmy na przykład, że środowiska obliczeniowe, takie jak klaster usługi Azure HDInsight i usługa Azure Machine Learning, są uruchamiane z regionu Europa Zachodnia. Można utworzyć i wykorzystać wystąpienie usługi Azure Data Factory w regionie Europa Północna oraz użyć go do planowania zadań wykonywanych w środowiskach obliczeniowych w regionie Europa Zachodnia. Wyzwolenie zadania w środowisku obliczeniowym zajmuje usłudze Data Factory kilka milisekund, ale czas uruchomienia zadania w środowisku obliczeniowym nie zmienia się.
 
