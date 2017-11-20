@@ -32,6 +32,7 @@
 ### [Konfigurowanie parametrów wejściowych elementu Runbook](automation-runbook-input-parameters.md)
 ### [Obsługa błędów w graficznych elementach Runbook](automation-runbook-graphical-error-handling.md)
 ### [Śledzenie zadania elementu Runbook](automation-runbook-execution.md)
+### [Tworzenie zadania obserwatora](automation-watchers-tutorial.md)
 ### [Zmienianie ustawień elementu Runbook](automation-runbook-settings.md)
 ### [Zarządzanie danymi usługi Azure Automation](automation-managing-data.md)
 ### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)

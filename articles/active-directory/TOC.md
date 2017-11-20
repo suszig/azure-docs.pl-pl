@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -248,12 +248,12 @@
 ## Zarządzanie swoim katalogiem
 ### [Program Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Niestandardowe nazwy domen
-#### [Omówienie](active-directory-domains-manage-azure-portal.md)
-#### [Zarządzanie nazwami domen](active-directory-domains-manage-azure-portal.md)
+#### [Szybki start](add-custom-domain.md)
+#### [Dodawanie niestandardowych nazw domen](active-directory-domains-manage-azure-portal.md)
 ### [Administrowanie własnym katalogiem](active-directory-administer.md)
 ### [Wiele katalogów](active-directory-licensing-directory-independence.md)
 ### [Rejestracja samoobsługowa](active-directory-self-service-signup.md)
-#### [Przejmowanie katalogu niezarządzanego](domains-admin-takeover.md)
+### [Przejmowanie katalogu niezarządzanego](domains-admin-takeover.md)
 ### [Roaming stanu dla przedsiębiorstw](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Włączanie](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Ustawienia zasad grupy](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
