@@ -1,5 +1,5 @@
 ---
-title: "Kopiowanie danych lokalnych do chmury przy użyciu usługi Azure Data Factory | Microsoft Docs"
+title: "Kopiowanie danych z programu SQL Server do usługi Blob Storage przy użyciu usługi Azure Data Factory | Microsoft Docs"
 description: "Dowiedz się, jak skopiować dane z lokalnego magazynu danych do chmury na platformie Azure przy użyciu własnego środowiska Integration Runtime w usłudze Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 24a4255a23f0b9b9da5d8c3cefeefb8fe250f2f1
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="tutorial-copy-data-between-on-premises-and-cloud"></a>Samouczek: Kopiowanie danych między środowiskiem lokalnym i chmurą
+# <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Samouczek: Kopiowanie danych z lokalnego programu SQL Server do usługi Azure Blob Storage
 W tym samouczku użyjesz programu Azure PowerShell, aby utworzyć potok fabryki danych, który kopiuje dane z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage. Utworzysz własne środowisko Integration Runtime (IR) usługi Azure Data Factory i użyjesz go w celu zintegrowania lokalnych magazynów danych oraz magazynów danych w chmurze.  Aby dowiedzieć się więcej o zastosowaniu innych narzędzi/zestawów SDK do tworzenia fabryki danych, zapoznaj się z samouczkami [Szybki start](quickstart-create-data-factory-dot-net.md).
 
 Ten artykuł nie zawiera szczegółowego wprowadzenia do usługi Data Factory. Aby zapoznać się z wprowadzeniem do usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md). 
@@ -31,7 +31,7 @@ Ten samouczek obejmuje następujące procedury:
 
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.
-> * Tworzenie własnego środowiska Integration Runtime.
+> * Utwórz własne środowisko Integration Runtime.
 > * Tworzenie połączonych zestawów programu SQL Server i usługi Azure Storage. 
 > * Tworzenie zestawów danych programu SQL Server i usługi Azure Blob.
 > * Tworzenie potoku z działaniem kopiowania do przenoszenia danych.
