@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08e59fda2ea439b2272121cf8bfee76fe4f96fc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie tabeli interfejsu API programu .NET
 
@@ -88,7 +88,7 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
 2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
@@ -99,24 +99,32 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. W [portalu Azure](http://portal.azure.com/), kliknij przycisk **ciąg połączenia**. 
 
-    Przyciski Kopiuj po prawej stronie ekranu do skopiowania ciąg połączenia.
+    Przyciski Kopiuj po prawej stronie ekranu do skopiuj parametry połączenia podstawowej.
 
     ![Wyświetl i skopiuj parametry połączenia w okienku parametry połączenia](./media/create-table-dotnet/connection-string.png)
 
 2. W programie Visual Studio otwórz plik app.config. 
 
-3. Wklej wartość parametrów połączenia w pliku app.config jako wartość CosmosDBStorageConnectionString. 
+3. Ponieważ ten samouczek nie korzysta z emulatora magazynu, usuń znaczniki komentarza StorageConnectionString na wiersz 8 ujmij w komentarz StorageConnectionString w wierszu 7. Wiersz 7 i 8 powinna wyglądać następująco:
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Aby użyć tej aplikacji z magazynem tabel Azure, musisz zmienić parametry połączenia w `app.config file`. Użyj nazwy konta jako nazwa tabeli konta i klucz jako klucz podstawowy magazyn Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. Wklej podstawowe parametry połączenia z portalu na wartość StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów.
+   
+    > [!IMPORTANT]
+    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli. 
     >
 
-4. Zapisz plik app.config.
+    Wiersz 8 powinna wyglądać podobnie do:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. Zapisz plik app.config.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
@@ -316,12 +324,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego samouczka.   
-
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu.  
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

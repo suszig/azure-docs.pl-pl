@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Dodawanie uwierzytelniania do aplikacji systemu Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ W tym samouczku można dodać uwierzytelniania do listy zadań projektu Szybki S
 
 Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikacji. Dzięki temu system uwierzytelniania przekierować z powrotem do aplikacji po zakończeniu procesu uwierzytelniania. W tym samouczku używamy schemat adresu URL _appname_ w ciągu. Można jednak użyć dowolnego wybranego schematu URL. Powinien być unikatowy w aplikacji mobilnej. Aby włączyć przekierowywanie po stronie serwera:
 
-1. W [portalu Azure] wybierz usługę aplikacji.
+1. W [portalu Azure], wybierz usługę aplikacji.
 
 2. Kliknij przycisk **uwierzytelniania / autoryzacji** opcji menu.
 
@@ -50,7 +50,7 @@ Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikac
 
      Ten wyjątek spowodowany aplikacja próbuje uzyskać dostęp zaplecza jako nieuwierzytelniony użytkownik, ale *TodoItem* tabeli teraz wymaga uwierzytelniania.
 
-Następnie należy zaktualizować aplikację do uwierzytelniania użytkowników przed wysłaniem żądania zasobów z zaplecza aplikacji mobilnej. 
+Następnie należy zaktualizować aplikację do uwierzytelniania użytkowników przed wysłaniem żądania zasobów z zaplecza aplikacji mobilnej.
 
 ## <a name="add-authentication-to-the-app"></a>Dodawanie uwierzytelniania do aplikacji
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Teraz, aby ukończyć w tym samouczku uwierzytelnianie podstawowe, należy wzią
 
 <!-- URLs. -->
 [Rozpoczynanie pracy z usługą Mobile Apps]: app-service-mobile-android-get-started.md
+[portalu Azure]: https://portal.azure.com/

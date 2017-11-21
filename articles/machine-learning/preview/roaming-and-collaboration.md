@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming i współpracy w konsoli usługi Azure Machine Learning Workbench
 Ten dokument przeprowadzi Cię przez jak Azure Machine Learning Workbench może pomóc są przekazywane projektów między maszyny, a także Włącz współpracy z członków zespołu. 
@@ -28,10 +28,14 @@ Po drugie, dostęp do [Visual Studio Team System](https://www.visualstudio.com) 
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Utwórz nowy projekt usługi Azure Machine Learning
 Uruchom usługi Azure Machine Learning Workbench i Utwórz nowy projekt (na przykład _iris_). Wypełnij **adres URL repozytorium GIT Visualstudio.com** pole tekstowe z prawidłowym adresem URL repozytorium Git programu VSTS. 
->[!IMPORTANT]
->Tworzenie projektu nie powiedzie się, jeśli nie masz dostęp do odczytu/zapisu w repozytorium Git i repozytorium Git nie jest pusta, tj. zawiera ona już gałęzi głównej.
+
+> [!IMPORTANT]
+> Jeśli wybierzesz szablon projektu puste, jeśli repozytorium Git, możesz wybrać już jest OK _wzorca_ gałęzi. Po prostu klonów Azure ML _wzorca_ gałęzi lokalnie, a następnie dodaj `aml_config` folderu i inne pliki metadanych do folderu lokalnego projektu projektu. Ale jeśli wybierzesz innego szablonu projektu z repozytorium Git nie mogą już mieć _wzorca_ gałęzi, lub zostanie wyświetlony komunikat o błędzie. Alternatywą jest użycie `az ml project create` narzędzia wiersza polecenia, aby utworzyć projekt i podać `--force` przełącznika. Usuwa pliki na oryginalnym głównej gałęzi i Zamień nowe pliki w wybranego szablonu.
 
 Po utworzeniu projektu, należy przesłać kilka działa na wszystkie skrypty w projekcie. Ta akcja zatwierdza stan projektu w gałęzi Historia uruchomień zdalnego repozytorium Git. 
+
+> [!NOTE] 
+> Tylko skrypt jest wykonywany wyzwalacz zatwierdzeń do gałęzi Historia uruchomień. Dane Przygotowywanie wykonywania uruchomień notesu nie wyzwalacza migawki projektu w gałęzi Historia uruchomień lub.
 
 Jeśli ustawienia uwierzytelniania Git, możesz również jawnie działają w gałęzi głównej lub utworzyć nową gałąź. 
 
@@ -71,7 +75,8 @@ Na macOS jest w tym miejscu:`/home/<username>/Documents/AzureML`
 
 W przyszłym wydaniu planujemy rozszerzają funkcje umożliwiające wybranie folderu docelowego. 
 
->Należy pamiętać, nawiązały istnieje folder w katalogu uczenie Maszynowe Azure ma dokładnie samą nazwę jak projekt, pobierania kończy się niepowodzeniem. Trwa raz należy zmienić nazwę istniejącego folderu w celu obejścia tego problemu.
+> [!NOTE]
+> W przypadku folderu w katalogu uczenie Maszynowe Azure ma dokładnie samą nazwę jak projekt, nie powiedzie się pobieranie. Trwa raz należy zmienić nazwę istniejącego folderu w celu obejścia tego problemu.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Pobrany projektu 

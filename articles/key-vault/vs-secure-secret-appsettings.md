@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61540aeb0f1ac7c55b064c81494208e58aeaa2e0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpiecznie zapisać ustawienia tajne aplikacji dla aplikacji sieci web
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 W tym artykule opisano, jak bezpiecznie zapisać ustawienia konfiguracji tajne aplikacji dla aplikacji platformy Azure.
 
 Tradycyjnie wszystkich sieci web konfigurację aplikacji, które ustawienia są zapisywane w plikach konfiguracji, takich jak plik Web.config. Takie rozwiązanie prowadzi do ewidencjonowanie tajny ustawienia, takie jak chmury poświadczeń dla systemów kontroli źródła publiczny, takich jak Github. W tym samym czasie może być trudne do postępuj zgodnie z zaleceniami dotyczącymi zabezpieczeń ze względu na obciążenie, aby zmienić kod źródłowy i ponownie skonfigurować ustawienia środowiska deweloperskiego.
@@ -156,7 +156,7 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
     </configSections>
     <configBuilders>
         <builders>
-            <add name="KeyVault" vaultName="Test911" clientId="13c7e116-eb8d-4c12-920a-0093e5f6e33e" clientSecret="8EnMWiciE0wNinNGW7mbylZ3BnaNu7ZeafaC3x+wdCc=" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```

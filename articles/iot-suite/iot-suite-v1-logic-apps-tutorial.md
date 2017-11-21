@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Samouczek: Łączenie aplikacji logiki do rozwiązania Azure IoT pakiet monitorowania zdalnego wstępnie
 [Pakiet IoT Microsoft Azure] [ lnk-internetofthings] zdalnego wstępnie skonfigurowane rozwiązanie monitorujące, jest to dobry sposób na szybkie rozpoczęcie pracy z zestawem funkcji na trasie exemplifies rozwiązania IoT. W tym samouczku przedstawiono sposób dodawania aplikacji logiki do firmy Microsoft Azure IoT pakietu zdalne monitorowanie wstępnie skonfigurowanych rozwiązań. Te kroki pokazują, jak może potrwać jeszcze bardziej rozwiązania IoT, łącząc go z procesu biznesowego.
@@ -33,7 +33,7 @@ Przed rozpoczęciem tego samouczka, wykonaj następujące czynności:
 
 Do ukończenia tego samouczka, potrzebujesz programu Visual Studio 2015 lub Visual Studio 2017 r, aby zmodyfikować akcje w wewnętrznej wstępnie skonfigurowane rozwiązanie.
 
-Zakładając, że została już przydzielona zdalne monitorowanie wstępnie skonfigurowane rozwiązanie, przejdź do grupy zasobów dla rozwiązania w [portalu Azure][lnk-azureportal]. Grupa zasobów ma taką samą nazwę jak nazwa rozwiązania została wybrana opcja podczas obsługi administracyjnej zdalnego rozwiązanie monitorowania. W grupie zasobów zostaną wyświetlone wszystkie aprowizowane zasoby platformy Azure rozwiązania z wyjątkiem aplikacji usługi Azure Active Directory, który można znaleźć w klasycznym portalu Azure. Poniższy zrzut ekranu przedstawia przykład **grupy zasobów** bloku zdalnego monitorowania wstępnie skonfigurowane rozwiązanie:
+Zakładając, że została już przydzielona zdalne monitorowanie wstępnie skonfigurowane rozwiązanie, przejdź do grupy zasobów dla rozwiązania w [portalu Azure][lnk-azureportal]. Grupa zasobów ma taką samą nazwę jak nazwa rozwiązania została wybrana opcja podczas obsługi administracyjnej zdalnego rozwiązanie monitorowania. W tej grupie zasobów zostaną wyświetlone wszystkie aprowizowane zasoby platformy Azure rozwiązania. Poniższy zrzut ekranu przedstawia przykład **grupy zasobów** bloku zdalnego monitorowania wstępnie skonfigurowane rozwiązanie:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API platformy .NET i Azure rozwiązania Cosmos bazy danych 
 
@@ -34,6 +34,10 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pob
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
+
+> [!IMPORTANT] 
+> Musisz utworzyć nowe konto tabeli interfejsu API do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli. Konta interfejsu API Tabela utworzona w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -91,7 +95,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Wklej podstawowe parametry połączenia z portalu na wartość StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów. Jeśli punkt końcowy używa documents.azure.com, zmienić table.cosmosdb.azure.com tej części. 
+4. Wklej podstawowe parametry połączenia z portalu na wartość StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów. 
+
+    > [!IMPORTANT]
+    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli. 
+    > 
 
     Wiersz 8 powinna wyglądać podobnie do:
 
@@ -99,7 +107,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Zapisz plik App.config.
+5. Zapisz plik App.config.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 

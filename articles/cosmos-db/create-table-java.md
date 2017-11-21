@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API języka Java i Azure rozwiązania Cosmos bazy danych
 
@@ -43,6 +43,10 @@ Ponadto:
     * W systemie Ubuntu możesz uruchomić polecenie `sudo apt-get install git`, aby zainstalować usługę Git.
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
+
+> [!IMPORTANT] 
+> Musisz utworzyć nowe konto tabeli interfejsu API do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli. Konta interfejsu API Tabela utworzona w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -98,7 +102,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. Wklej podstawowe parametry połączenia z portalu do wartości StorageConnectionString w wierszu 2. Jeśli punkt końcowy część ciągu połączenia używa documents.azure.com, popraw tej części, aby zamiast niej używać table.cosmosdb.azure.com.
+6. Wklej podstawowe parametry połączenia z portalu do wartości StorageConnectionString w wierszu 2. 
+
+    > [!IMPORTANT]
+    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli.
+    >
 
 7. Zapisz plik config.properties.
 

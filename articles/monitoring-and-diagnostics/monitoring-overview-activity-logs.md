@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorowanie aktywności subskrypcji z dziennika aktywności platformy Azure
 **Dziennika aktywności platformy Azure** jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym zakresie danych z usługi Azure Resource Manager danych operacyjnych do aktualizacji na zdarzenia kondycji usługi. Dziennik aktywności była wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki", ponieważ zdarzenia płaszczyzny kontroli Raporty Kategoria administracyjna dla subskrypcji. Korzystając z dziennika aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do zasobów w ramach subskrypcji. Można także zrozumienie stanu operacji i inne odpowiednie właściwości. Dziennik nie zawiera operacje odczytu (GET) lub operacji dla zasobów korzystających z klasycznego / modelu "RDFE".
@@ -49,7 +49,8 @@ Dziennik zawiera kilka kategorii danych. Aby uzyskać szczegółowe informacje n
 * **Alert** — ta kategoria zawiera rekord wszystkich aktywacji Azure alertów. Przykładem typu zdarzenia, które widać w tej kategorii jest "procent użycia procesora CPU na myVM została ponad 80 dla ostatnich 5 minut." Z różnymi systemami Azure ma alertów koncepcji — można zdefiniować regułę jakiegoś i otrzymasz powiadomienie, gdy warunki reguły są zgodne. Zawsze Azure obsługiwanego typu alertu "aktywuje," lub warunki są spełnione, aby wygenerować powiadomienie, rekord aktywacji jest również przypisany do tej kategorii dziennik aktywności.
 * **Funkcja automatycznego skalowania** — ta kategoria zawiera rekord wszystkie zdarzenia związane z operacji skalowania automatycznego aparatu oparte na wszystkie ustawienia skalowania automatycznego zdefiniowane w ramach subskrypcji. Przykładem typu zdarzenia, które widać w tej kategorii jest "Skalowania automatycznego skalowania w górę akcja nie powiodła się". Przy użyciu automatycznego skalowania, można automatycznie skalować w poziomie lub skalowanie liczby wystąpień w typie zasobów obsługiwanych na podstawie czasu dnia i/lub obciążenia () dane przy użyciu ustawienia skalowania automatycznego. Po spełnieniu warunków do skalowania w górę lub w dół, start i Zakończono powodzeniem lub niepowodzeniem zdarzenia są rejestrowane w tej kategorii.
 * **Zalecenie** — ta kategoria zawiera zalecenia zdarzenia z określonych typów zasobów, takich jak witryny sieci web i serwerami programu SQL Server. Zdarzenia te oferują zalecenia dotyczące lepsze wykorzystanie zasobów. Jeśli masz zasoby, które Emituj zalecenia tylko odbierać zdarzenia tego typu.
-* **Zasady zabezpieczeń i kondycja zasobów** -tych kategorii nie zawierają żadnych zdarzeń; są one zarezerwowane do użytku w przyszłości.
+* **Zabezpieczenia** — ta kategoria zawiera rekord wszystkie alerty wygenerowane przez Centrum zabezpieczeń Azure. Przykładem typu zdarzenia, które widać w tej kategorii jest "podejrzane podwójne rozszerzenie pliku wykonywane".
+* **Zasady i kondycja zasobów** -tych kategorii nie zawierają żadnych zdarzeń; są one zarezerwowane do użytku w przyszłości.
 
 ## <a name="event-schema-per-category"></a>Schemat zdarzenia według kategorii
 [Zobacz ten artykuł, aby zrozumieć schematu zdarzeń dziennika aktywności według kategorii.](monitoring-activity-log-schema.md)

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 29da65c5629c08635b4df1aa78386675152bb0cb
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure Content Delivery Network z tokenu uwierzytelniania
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/18/2017
 
 ## <a name="overview"></a>Omówienie
 
-Token uwierzytelniania jest mechanizm, który pozwala zapobiec obsługująca zasoby do nieautoryzowanego klientów sieci dostarczania zawartości (CDN) platformy Azure. Token uwierzytelniania jest zazwyczaj wykonywane zapobiegające "hotlinking" zawartości, w którym różne witryny sieci Web, często tablica wiadomości, używa zasobów bez uprawnienia. Hotlinking może mieć wpływ na koszty dostarczania zawartości. Przez włączenie token uwierzytelniania w sieci CDN w warstwie, żądania są uwierzytelniani przez krawędzi CDN POP przed CDN oferuje zawartość. 
+Token uwierzytelniania jest mechanizm, który pozwala zapobiec obsługująca zasoby do nieautoryzowanego klientów sieci dostarczania zawartości (CDN) platformy Azure. Token uwierzytelniania jest zazwyczaj wykonywane zapobiegające "hotlinking" zawartości, w którym różne witryny sieci Web, takich jak tablica wiadomości, używa zasobów bez uprawnienia. Hotlinking może mieć wpływ na koszty dostarczania zawartości. Przez włączenie token uwierzytelniania w sieci CDN w warstwie, żądania są uwierzytelniani przez serwer graniczny CDN przed CDN oferuje zawartość. 
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -60,7 +60,7 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
 
     ![Przycisk Zarządzaj profil CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Umieść kursor nad **HTTP dużych**, a następnie kliknij przycisk **Token uwierzytelniania** w wysuwane okno. Można następnie ustawić klucza szyfrowania i szyfrowania parametrów w następujący sposób:
+2. Umieść kursor nad **HTTP dużych**, następnie kliknij przycisk **Token uwierzytelniania** w wysuwane okno. Można następnie ustawić klucza szyfrowania i szyfrowania parametrów w następujący sposób:
 
     1. Utwórz co najmniej jeden klucz szyfrowania. Klucz szyfrowania jest rozróżniana wielkość liter i może zawierać dowolną kombinację znaków alfanumerycznych. Inne rodzaje znaków, łącznie ze spacjami, nie są dozwolone. Maksymalna długość to 250 znaków. Aby upewnić się, że klucze szyfrowania są losowe, zaleca się, że można je utworzyć za pomocą [narzędzia biblioteki OpenSSL](https://www.openssl.org/). 
 
@@ -115,26 +115,28 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
        >    </ul>
        > </tr>
        > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>Zezwala na żądania, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są odrzucane. Użyj [numerów kierunkowych](https://msdn.microsoft.com/library/mt761717.aspx) i oddziel je przecinkami. Na przykład, jeśli chcesz zezwolić na dostęp tylko Stany Zjednoczone i Francja, wprowadź `US,FR`.</td>
+       > </tr>
+       > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Odrzucanie żądań, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są dozwolone. Użyj numerów kierunkowych krajów i oddziel je przecinkami. Na przykład, jeśli chcesz odmówić dostępu w Stanach Zjednoczonych i Francja, wprowadź `US, FR`.</td>
+       >    <td>Odrzucanie żądań, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są dozwolone. Użyj numerów kierunkowych krajów i oddziel je przecinkami. Na przykład, jeśli chcesz odmówić dostępu w Stanach Zjednoczonych i Francja, wprowadź `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
-       >    <td>Tylko zezwala na żądania pochodzące z określonej odwołania. Odwołania określa adres URL strony sieci web, który jest połączony z żądanych zasobów. Nie dołączaj protokołu w wartości parametru odwołania.>    
-       >    Następujące dane wejściowe są dozwolone dla wartości parametru:
+       >    <td>Tylko zezwala na żądania pochodzące z określonej odwołania. Odwołania określa adres URL strony sieci web, który jest połączony z żądanych zasobów. Nie dołączaj protokołu w wartości parametru.>    
+       >    Dopuszczalne są następujące typy danych wejściowych:
        >    <ul>
        >       <li>Nazwa hosta lub nazwa hosta i ścieżkę.</li>
        >       <li>Wiele odwołań. Aby dodać wiele odwołań, każdy odwołania należy oddzielić przecinkami. Jeśli wartość odwołania, ale informacje odwołania nie są wysyłane w żądania z powodu konfiguracji przeglądarki, żądanie zostanie odrzucone domyślnie.</li> 
        >       <li>Żądania z brakującymi informacji odwołania. Aby zezwolić na te typy żądań, wprowadź tekst "Brak" lub wartość pustą.</li> 
-       >       <li>Domeny podrzędne. Aby umożliwić poddomen, wprowadź znak gwiazdki (\*). Na przykład, aby umożliwić wszystkich poddomen `consoto.com`, wprowadź `*.consoto.com`.</li>
+       >       <li>Domeny podrzędne. Aby umożliwić poddomen, wprowadź znak gwiazdki (\*). Na przykład, aby umożliwić wszystkich poddomen `contoso.com`, wprowadź `*.contoso.com`.</li>
        >    </ul> 
-       >    W poniższym przykładzie przedstawiono dane wejściowe, aby zezwolić na dostęp dla żądań z `www.consoto.com`, wszystkimi domenami podrzędnymi w `consoto2.com`i żądań z pustą lub Brak odwołań: 
-       > 
-       >    ![Przykład ec_ref_allow CDN](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+       >    Na przykład, aby zezwolić na dostęp dla żądań z `www.contoso.com`, wszystkimi domenami podrzędnymi w `contoso2.com`, i żądań z pustą lub Brak odwołań, wprowadź `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Odrzucanie żądań z określonego odwołania. Implementacja jest taka sama, jak parametr ec_ref_allow.</td>
+       >    <td>Odrzucanie żądań z określonego odwołania. Implementacja jest taka sama jak <b>ec_ref_allow</b> parametru.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
@@ -146,21 +148,23 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Ogranicza dostęp do żądającego określonego adresu IP. Obsługiwane są protokoły IPV4 i IPV6. Można określić na pojedyncze żądanie adres IP lub podsieć IP. Na przykład: `11.22.33.0/22`</td>
+       >    <td>Ogranicza dostęp do żądającego określonego adresu IP. Obsługiwane są protokoły IPV4 i IPV6. Można określić na pojedyncze żądanie adres IP lub podsieć IP. Na przykład `11.22.33.0/22`.</td>
        > </tr>
        > </table>
 
     5. Po zakończeniu wprowadzania wartości parametrów szyfrowania klucza szyfrowania (jeśli zostały utworzone podstawowego i zapasowego klucza) wybierz z **szyfrowania klucza** listy.
     
-    6. Wybierz wersję szyfrowania z **wersja szyfrowania** listy: **V2** w wersji 2 lub **V3** w wersji 3 (zalecane). Następnie kliknij przycisk **Szyfruj** do wygenerowania tokenu.
+    6. Wybierz wersję szyfrowania z **wersja szyfrowania** listy: **V2** w wersji 2 lub **V3** w wersji 3 (zalecane). 
+
+    7. Kliknij przycisk **Szyfruj** do wygenerowania tokenu.
 
     Po wygenerowaniu tokenu, jest on wyświetlany w **wygenerowany Token** pole. Korzystanie z tokenu, dołącza go jako ciąg zapytania do końca pliku w ścieżce URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    7. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz klucz szyfrowania do użycia z **odszyfrować klucza** listy, a następnie kliknij przycisk **odszyfrować**.
+    8. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz klucz szyfrowania do użycia z **odszyfrować klucza** listy, a następnie kliknij przycisk **odszyfrować**.
 
     Po token jest odszyfrowywany, jego parametrów są wyświetlane w **oryginalnych parametrów** pole.
 
-    8. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz **włączone**, wybierz kod odpowiedzi z **kod odpowiedzi** listy, a następnie kliknij przycisk **zapisać**. Dla niektórych kodów odpowiedzi, to należy także podać adres URL strony błędu w **wartość nagłówka** pole. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. 
+    9. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz **włączone**, a następnie wybierz kod odpowiedzi z **kod odpowiedzi** listy. Następnie kliknij przycisk **zapisać**. Dla niektórych kodów odpowiedzi, to należy także podać adres URL strony błędu w **wartość nagłówka** pole. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. 
 
 3. W obszarze **HTTP dużych**, kliknij przycisk **aparatu reguł**. Aparat reguł służy do definiowania ścieżki, aby zastosować funkcję, włączyć funkcję uwierzytelniania tokenu i włączyć dodatkowe funkcje tokenu związane z uwierzytelnianiem. Aby uzyskać więcej informacji, zobacz [odwołania aparat reguł](cdn-rules-engine-reference.md).
 

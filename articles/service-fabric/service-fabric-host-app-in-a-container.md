@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Wdrażanie aplikacji .NET w kontenerze systemu Windows Azure sieci szkieletowej usług
 
@@ -39,11 +39,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 4. Zainstaluj [programu Azure PowerShell][link-azure-powershell-install]
 5. Zainstaluj [rozszerzenie ciągłego dostarczania narzędzi dla programu Visual Studio 2017 r.][link-visualstudio-cd-extension]
 6. Utwórz [subskrypcji platformy Azure] [ link-azure-subscription] i [konto usługi Visual Studio Team Services][link-vsts-account]. 
-7. [Tworzenie klastra na platformie Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Tworzenie klastra na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Tworzenie klastra na platformie Azure
+Sieć szkieletowa usług aplikacje uruchamiane w klastrze, zestaw połączonych z siecią maszyn wirtualnych lub fizycznych. [Konfiguracja klastra sieci szkieletowej usług działających na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) przed utworzeniem i wdrożeniem aplikacji. Podczas tworzenia klastra, wybierz jednostki SKU, obsługujący uruchomionych kontenerów (np. Windows Server Datacenter 2016 z kontenerami).
 
 ## <a name="containerize-the-application"></a>Containerize aplikacji
 
-Teraz, gdy masz [klastra sieci szkieletowej usług jest uruchomiona na platformie Azure](service-fabric-tutorial-create-cluster-azure-ps.md) można przystąpić do tworzenia i wdrażania konteneryzowanych aplikacji. Uruchomienia aplikacji w kontenerze, należy dodać **Obsługa Docker** do projektu programu Visual Studio. Po dodaniu **Obsługa Docker** do aplikacji, to dwa wiele problemów. Najpierw _plik Dockerfile_ zostanie dodany do projektu. Ten nowy plik opisano kontenera obraz ma zostać utworzony. Następnie po drugie, nowy _rozwiązania docker compose_ projekt zostanie dodany do rozwiązania. Nowy projekt zawiera kilka rozwiązania docker compose plików. Pliki rozwiązania docker compose może służyć do opisywania działanie kontenera.
+Teraz, gdy masz klastra sieci szkieletowej usług działających na platformie Azure możesz przystąpić do tworzenia i wdrażania konteneryzowanych aplikacji. Uruchomienia aplikacji w kontenerze, należy dodać **Obsługa Docker** do projektu programu Visual Studio. Po dodaniu **Obsługa Docker** do aplikacji, to dwa wiele problemów. Najpierw _plik Dockerfile_ zostanie dodany do projektu. Ten nowy plik opisano kontenera obraz ma zostać utworzony. Następnie po drugie, nowy _rozwiązania docker compose_ projekt zostanie dodany do rozwiązania. Nowy projekt zawiera kilka rozwiązania docker compose plików. Pliki rozwiązania docker compose może służyć do opisywania działanie kontenera.
 
 Więcej informacji na temat pracy z [programu Visual Studio Tools kontenera][link-visualstudio-container-tools].
 

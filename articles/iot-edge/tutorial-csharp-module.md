@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f93cfcdffd79b4cccdbd5f7c67ec42499bf7628c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Tworzenie i wdrażanie modułu krawędzi IoT C# w symulowane urządzenie — w wersji preview
 
@@ -123,7 +123,7 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
             Console.WriteLine("Desired property change:");
             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-            if (desiredProperties["TemperatureThreshold"].exists())
+            if (desiredProperties["TemperatureThreshold"]!=null)
                 temperatureThreshold = desiredProperties["TemperatureThreshold"];
 
         }
@@ -226,7 +226,7 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
         
         Aby znaleźć nazwę użytkownika, hasło i zaloguj się za serwer do użycia w tym poleceniu, przejdź do [Azure portal] (https://portal.azure.com). Z **wszystkie zasoby**, kliknij Kafelek przypadku kontenera platformy Azure otworzyć jego właściwości, a następnie kliknij przycisk **klucze dostępu**. Skopiuj wartości w **Username**, **hasło**, i **logowania serwera** pola. Sould serwera logowania mieć postać: `<your registry name>.azurecr.io`.
 
-3. Wypchnij obrazu do repozytorium Docker. Użyj **widok | Polecenie palety... | Krawędź: Wypychane IoT krawędzi modułu Docker obrazu** menu polecenie, a następnie wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz używany w kroku 1.c.
+3. Wypchnij obrazu do repozytorium Docker. Użyj **widok | Polecenie palety... | Krawędź: Wypychane IoT krawędzi modułu Docker obrazu** menu polecenie, a następnie wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz używany w kroku 1.d.
 
 ## <a name="add-registry-credentials-to-edge-runtime-on-your-edge-device"></a>Dodawanie poświadczeń rejestru do środowiska wykonawczego Edge na urządzeniu krawędzi
 Dodaj poświadczenia do rejestru do środowiska wykonawczego Edge na komputerze, na którym są uruchomione Twoje urządzenie brzegowe. Daje dostęp do środowiska uruchomieniowego do pobierania kontenera. 

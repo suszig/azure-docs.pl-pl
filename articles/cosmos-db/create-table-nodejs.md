@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API środowiska Node.js i Azure rozwiązania Cosmos bazy danych
 
@@ -38,6 +38,10 @@ Ponadto:
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
+
+> [!IMPORTANT] 
+> Musisz utworzyć nowe konto tabeli interfejsu API do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli. Konta interfejsu API Tabela utworzona w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 2. Skopiuj podstawowy parametry połączenia za pomocą przycisku Kopiuj po prawej stronie.
 
-3. Otwórz plik app.config i wkleić wartość connectionString w wierszu trzech. Jeśli punkt końcowy część ciągu połączenia używa documents.azure.com, popraw tej części, aby zamiast niej używać table.cosmosdb.azure.com.
+3. Otwórz plik app.config i wkleić wartość connectionString w wierszu trzech. 
+
+    > [!IMPORTANT]
+    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli.
+    >
 
 3. Zapisz plik app.config.
 

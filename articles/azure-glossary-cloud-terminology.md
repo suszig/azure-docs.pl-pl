@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: słownik terminów w chmurze na platformie Azure
 
@@ -87,13 +87,13 @@ Cennik, uznania i powiązane z nią postanowienia mające zastosowanie do subskr
 Zobacz [strony szczegółów platformy Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-Portalu sieci web bezpiecznego, używany do wdrażania i zarządzania usługami Azure.  Istnieją dwa portale: [portalu Azure](http://portal.azure.com/) i [klasyczny portal](http://manage.windowsazure.com/). Niektóre usługi są dostępne w obu portalach, podczas gdy inne są dostępne tylko w jednej lub drugiej. [Wykresu dostępności portalu Azure](https://azure.microsoft.com/features/azure-portal/availability/) listy usług, które są dostępne w portalu, które.
+Portalu sieci web bezpiecznego, używany do wdrażania i zarządzania usługami Azure.
 
-## <a name="region"></a>Region
+## <a name="region"></a>region
 Obszar wewnątrz geograficznie, które nie nie cross national obramowania i zawiera co najmniej jeden centrów danych. Cennik usługi regionalne i typów ofert są widoczne na poziomie regionu. Region jest zwykle skojarzone z innego regionu, który może być do kilku mil kilkuset optymalizacji. Regionalne pary może służyć jako mechanizm dla środowisk wysokiej dostępności i odzyskiwania po awarii. Nazywane także *lokalizacji*.  
 Zobacz [regiony platformy Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Zasobów
+## <a name="resource"></a>zasób
 Element, który jest częścią rozwiązania Azure. Każda usługa Azure umożliwiają wdrażanie różnych typów zasobów, takich jak bazy danych lub maszyn wirtualnych.   
 Zobacz [Omówienie usługi Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 

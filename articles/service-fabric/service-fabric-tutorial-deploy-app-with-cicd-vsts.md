@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Wdrażanie aplikacji przy użyciu elementu konfiguracji/CD do klastra sieci szkieletowej usług
 W tym samouczku jest częścią trzy serii i zawiera opis sposobu konfigurowania ciągłej integracji i wdrażania aplikacji sieci szkieletowej usług Azure przy użyciu programu Visual Studio Team Services.  Istniejącej aplikacji usługi sieć szkieletowa jest potrzebna, aplikacji utworzony w [tworzenia aplikacji .NET](service-fabric-tutorial-create-dotnet-app.md) służy jako przykład.
@@ -45,7 +45,7 @@ Przed rozpoczęciem tego samouczka:
 - [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) i zainstaluj **Azure programowanie** i **ASP.NET i sieć web development** obciążeń.
 - [Zainstaluj zestaw SDK sieci szkieletowej usług](service-fabric-get-started.md)
 - Tworzenie aplikacji usługi Service Fabric, na przykład przez [tego samouczka](service-fabric-tutorial-create-dotnet-app.md). 
-- Tworzenie klastra sieci szkieletowej usług systemu Windows na platformie Azure, na przykład przez [tego samouczka](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Tworzenie klastra sieci szkieletowej usług systemu Windows na platformie Azure, na przykład przez [tego samouczka](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Utwórz [konta usługi Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Pobierz aplikację przykładową głosowania

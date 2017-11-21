@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Śledzenie zmian w oprogramowaniu w Twoim środowisku z rozwiązaniem do śledzenia zmian
 
@@ -44,7 +44,7 @@ Poniższe kroki umożliwiają konfigurowanie plików na komputerach z systemem L
 4. Kliknij pozycję **Zapisz**.  
 
 > [!NOTE]
-> Linux pliku śledzenia ma dodatkowe możliwości, w tym katalogu śledzenia, recrusion za pośrednictwem katalogów i symboli wieloznacznych śledzenia.
+> Linux pliku śledzenia ma dodatkowe możliwości, w tym katalogu śledzenia rekursji za pośrednictwem katalogów i symboli wieloznacznych śledzenia.
 
 ### <a name="configure-windows-files-to-track"></a>Konfiguruj pliki systemu Windows do śledzenia
 Poniższe kroki umożliwiają konfigurowanie plików na komputerach z systemem Windows.
@@ -69,7 +69,7 @@ Poniższe kroki umożliwiają konfigurowanie klucze rejestru, aby śledzić na k
    * **Plik** (raport metadanych pliku — rozmiar, Data modyfikacji, skrót itp.)
    * **Katalog** (katalogu metadanych raportu — rozmiar, Data modyfikacji itp.)
 2. **Łącza** (Obsługa systemu Linux łącza symbolicznego odwołania do innych plików lub katalogów)
-   * **Ignoruj** (Ignoruj łączy symbolicznych podczas recurions, aby nie dołączać plików/katalogów, do których odwołuje się)
+   * **Ignoruj** (Ignoruj łączy symbolicznych podczas rekursji, aby nie dołączać plików/katalogów, do których odwołuje się)
    * **Postępuj zgodnie z** (wykonaj łączy symbolicznych podczas rekursji, aby obejmować plików/katalogów, do których odwołuje się)
    * **Zarządzanie** (wykonaj łączy symbolicznych i zmień traktowanie zwrócony zawartości)
 
@@ -96,14 +96,18 @@ Inne ograniczenia:
 * Gdy ruch sieciowy jest duże, rejestruje zmiany może potrwać maksymalnie sześć godzin do wyświetlenia.
 * Jeśli zmodyfikujesz konfiguracji, gdy komputer jest wyłączony, komputer opublikować zmian plików, które należały do poprzedniej konfiguracji.
 
+### <a name="known-issues"></a>Znane problemy
+Rozwiązanie śledzenia zmian jest obecnie następujące problemy:
+* Poprawki, aktualizacje nie są zbierane dla systemu Windows 10 twórców Update i Windows Server 2016 Core RS3 maszyn.
+
 ## <a name="change-tracking-data-collection-details"></a>Zmień szczegóły kolekcji danych śledzenia
 Śledzenie zmian zbiera dane spisu oprogramowania i metadanych usługi systemu Windows przy użyciu agentów, które zostało włączone.
 
 W poniższej tabeli przedstawiono metody zbierania danych i inne szczegółowe informacje o jak dane są zbierane dla śledzenia zmian.
 
-| Platformy | Bezpośrednie agenta | Agent programu Operations Manager | Agent systemu Linux | Azure Storage | Wymagane programu Operations Manager? | Danych agenta programu Operations Manager są wysyłane za pośrednictwem grupy zarządzania | Częstotliwość kolekcji |
+| Platformy | Bezpośrednie agenta | Agent programu Operations Manager | Agent systemu Linux | Azure Storage | Wymagane programu Operations Manager? | Danych agenta programu Operations Manager są wysyłane za pośrednictwem grupy zarządzania | Częstotliwość zbierania |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| System Windows i Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut do 50 minut w zależności od typu zmiany. Więcej informacji można znaleźć w tabeli poniżej. |
+| System Windows i Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut do 50 minut w zależności od typu zmiany. Aby uzyskać więcej informacji Wyświetl poniższej tabeli. |
 
 
 W poniższej tabeli przedstawiono częstotliwość zbierania danych dla typów zmian.
