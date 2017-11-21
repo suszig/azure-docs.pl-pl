@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platforma poziomu generowania zdarzeń i dzienników
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Należy monitorować na poziomie platformy, aby ustalić, czy sprzęt i klastra są działa zgodnie z oczekiwaniami. Sieć szkieletowa usług można zachować aplikacje uruchomione podczas awarii sprzętu, ale nadal konieczne zdiagnozować, czy błąd występuje w aplikacji lub podstawowej infrastruktury. Należy również monitorować klastrów lepiej planowania pojemności, pomoc w podejmowaniu decyzji dotyczących dodawania i usuwania sprzętu.
 
-Usługa Service Fabric realizuje pięciu różnych dziennika kanały out-of box następujące zdarzenia generowane przez:
-
-* Kanał operacyjne: wysokiego poziomu operacje wykonywane przez sieć szkieletowa usług i klastra, w tym zdarzenia dotyczące węzła przygotowanie Nowa aplikacja jest wdrażana, lub rz, Uaktualnij wycofywania itp.
+Usługa Service Fabric realizuje następujące dziennika kanały out-of box:
+* Kanał operacyjne: wysokiego poziomu operacje wykonywane przez sieć szkieletowa usług i klastra, w tym zdarzenia dotyczące powtarzający się węzeł, nowej aplikacji wdrażany lub uaktualniania wycofywania itp.
 * Kanał operacyjne — szczegółowe: raportów o kondycji i decyzje dotyczące równoważenia obciążenia
-* Kanał wiadomości & danych: dzienniki krytyczne i zdarzenia generowane w naszym wiadomości (obecnie tylko ReverseProxy) i ścieżki danych (modeli niezawodne usługi)
+* Kanał wiadomości & danych: dzienniki krytyczne i zdarzenia generowane w wiadomości (obecnie tylko ReverseProxy) i ścieżki danych (modeli niezawodne usługi)
 * Kanał wiadomości & danych - szczegółowe: pełne kanału, który zawiera wszystkie dzienniki niekrytyczne z danych i komunikatów w klastrze (ten kanał jest bardzo duża liczba zdarzeń)   
+
+Oprócz tych istnieją dwa strukturalnych kanały źródła zdarzeń, a także dzienniki, które zbieramy do celów pomocy technicznej.
 * [Niezawodne zdarzenia usług](service-fabric-reliable-services-diagnostics.md): określonych zdarzeń modelu programowania
 * [Niezawodne zdarzenia podmiotów](service-fabric-reliable-actors-diagnostics.md): Programowanie określonych zdarzeń modelu i liczniki wydajności
 * Obsługiwać dzienniki: dzienniki systemu wygenerowany przez sieć szkieletowa usług tylko do użycia przez nas podczas dostarczania pomocy technicznej

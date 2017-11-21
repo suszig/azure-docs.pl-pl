@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
-ms.openlocfilehash: 9781fc75b3820a9248e495ccd63870c06472fa20
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure API tabeli bazy danych rozwiązania Cosmos dla środowiska Node.js: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/15/2017
 |**Pobierz zestaw SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Dokumentacja interfejsu API**|[Dokumentacji interfejsu API środowiska node.js](http://azure.github.io/azure-storage-node/)|
 |**Przyczyniają się do zestawu SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+
+> [!IMPORTANT]
+> Jeśli utworzono konto tabeli interfejsu API w wersji zapoznawczej, Utwórz [nowe konto interfejsu API tabeli](create-table-dotnet.md#create-a-database-account) do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli.
+>
 
 ## <a name="release-notes"></a>Informacje o wersji
 

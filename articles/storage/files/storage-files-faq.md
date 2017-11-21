@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: renash
-ms.openlocfilehash: 871fc85d0b406d2de35a79eb2906ff2d6ada9570
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Często zadawane pytania dotyczące usługi pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne za pośrednictwem standardu branżowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (znanej także jako Common Internet File System, lub CIFS). Udziały plików platformy Azure można zainstalować w chmurze lub lokalnie wdrożeń systemu Windows, Linux i macOS jednocześnie. Możesz również buforować udziały plików platformy Azure na komputerach z systemem Windows Server przy użyciu synchronizacji plików Azure (wersja zapoznawcza) zapewniania szybkiego dostępu bliski gdzie dane są używane.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/07/2017
 Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji usługi pliki Azure, łącznie z użyciem synchronizacji plików Azure przy użyciu plików Azure. Jeśli nie widzisz odpowiedź na swoje pytanie, użytkownik może skontaktuj się z nami za pośrednictwem następujących kanałów (w kolejności rosnące):
 
 1. W sekcji komentarzy w tym artykule.
-2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
 3. [Azure pliki UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie pomocy technicznej, w portalu Azure na **pomocy** wybierz opcję **Pomoc i obsługa techniczna** przycisk, a następnie wybierz **nowy obsługuje żądania**.
 
@@ -112,7 +112,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
         | A | Archiwum | Wskazuje, że plik kopii zapasowych za pomocą oprogramowania kopii zapasowej. Ten atrybut jest zawsze ustawiony, niezależnie od tego, czy plik jest warstwowej lub pełni przechowywane na dysku. |
         | P | Plik rozrzedzony | Wskazuje, że plik jest plik rozrzedzony. Plik rozrzedzony jest specjalistyczną odmianą pliku, który oferuje NTFS na efektywne wykorzystanie, gdy plik na dysku strumienia przede wszystkim jest pusta. Synchronizacja programu Azure pliku używa plików rozrzedzonych, ponieważ warstwowej w pełni lub częściowo przypomnieć pliku. W pełni warstwowych pliku strumienia pliku są przechowywane w chmurze. W pliku częściowo odwołane, że plik znajduje się już na dysku. Jeśli plik jest w pełni przypomnieć na dysku, synchronizacji plików Azure konwertuje go z pliku rozrzedzonego zwykły plik. |
         | L | Punkt ponownej analizy | Wskazuje, że plik ma punkt ponownej analizy. Punkt ponownej analizy to specjalne wskaźnika do użycia przez filtru systemu plików. Synchronizacja programu Azure pliku używa punktów ponownej analizy w celu zdefiniowania do synchronizacji plików Azure filtru systemu plików (StorageSync.sys) chmurze lokalizację przechowywania pliku. W ten sposób realizowany bezproblemowy dostęp. Użytkownicy nie muszą znać synchronizacji plików Azure jest używana lub jak uzyskać dostęp do plików w udziale plików na platformę Azure. Gdy pełni przypomina plik, synchronizacji plików Azure usuwa punktu ponownej analizy z pliku. |
-        | O | W trybie offline | Wskazuje, że niektóre lub wszystkie zawartość pliku nie są zapisywane na dysku. Pełni przypomina plik, synchronizacji plików Azure usuwa tego atrybutu. |
+        | O | Offline | Wskazuje, że niektóre lub wszystkie zawartość pliku nie są zapisywane na dysku. Pełni przypomina plik, synchronizacji plików Azure usuwa tego atrybutu. |
 
         ![Okno dialogowe właściwości pliku, z wybraną kartą szczegóły](media/storage-files-faq/azure-file-sync-file-attributes.png)
         

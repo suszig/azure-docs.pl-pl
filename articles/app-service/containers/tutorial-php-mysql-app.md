@@ -16,10 +16,10 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web PHP i MySQL na platformie Azure
 
@@ -332,7 +332,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
+### <a name="configure-database-settings"></a>Konfiguruj ustawienia bazy danych
 
 W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia.
 

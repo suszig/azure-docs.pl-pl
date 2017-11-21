@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 16c9926d44f972d2b38028cb6ab1420de6b60533
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitor kontenery systemu Windows w sieci szkieletowej usług za pomocą pakietu OMS
 
@@ -34,7 +34,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka, wykonaj następujące czynności:
-- Klaster na platformie Azure, lub [utworzyć w tym samouczku](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Klaster na platformie Azure, lub [utworzyć w tym samouczku](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Wdrażanie aplikacji konteneryzowanych do niego](service-fabric-host-app-in-a-container.md)
 
 ## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Konfigurowanie OMS z klastrem w szablonie usługi Resource Manager

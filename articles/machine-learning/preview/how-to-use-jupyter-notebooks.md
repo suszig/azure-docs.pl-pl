@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Jak używać notesu Jupyter w konsoli usługi Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench obsługuje eksperymenty nauki interaktywnych danych za pośrednictwem jego integracji notesu Jupyter. W tym artykule opisano sposób efektywnie wykorzystać tę funkcję, aby zwiększyć szybkość i jakość eksperymenty nauki Twoje dane interakcyjne.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- [Instalowanie i tworzenie usługi Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Instalowanie i tworzenie usługi Azure Machine Learning](quickstart-installation.md).
 - Należy zapoznać się z [notesu Jupyter](http://jupyter.org/), ponieważ w tym artykule nie jest o nauczania sposób użycia Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Architektura notesu Jupyter

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Zarządzanie urządzeniami przy użyciu portalu Azure
 
@@ -32,7 +32,30 @@ W tym temacie:
 
 - Dostarcza informacji na temat zarządzania urządzeniami przy użyciu portalu Azure
 
+## <a name="manage-devices"></a>Zarządzanie urządzeniami 
 
+Azure portal udostępnia centralne miejsce do zarządzania urządzeniami. Możesz przejść do tego miejsca firmy przy użyciu [bezpośredniego łącza](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) lub ręcznie wykonaj następujące czynności:
+
+1. Uwagi na [portalu Azure](https://portal.azure.com) jako administrator.
+
+2. Lewy pasek nawigacyjny, wybierz polecenie **usługi Active Directory**.
+
+    ![Konfiguruj ustawienia urządzeń](./media/device-management-azure-portal/01.png)
+
+3. W **Zarządzaj** kliknij **urządzeń**.
+
+    ![Konfiguruj ustawienia urządzeń](./media/device-management-azure-portal/11.png)
+ 
+**Urządzeń** umożliwia:
+
+- Konfigurowanie ustawień zarządzania urządzeniami
+
+- Znajdź urządzenia
+
+- Wykonywanie zadań zarządzania urządzeniami
+
+- Przejrzyj zarządzania urządzeniami, związane z dziennika inspekcji  
+  
 
 ## <a name="configure-device-settings"></a>Konfiguruj ustawienia urządzeń
 
@@ -207,7 +230,7 @@ Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dan
 - Działanie
 - Zakres dat
 - Obiekt docelowy
-- Zainicjowane przez (aktora)
+- Zainicjowane przez (aktor)
 
 Oprócz filtrów możesz wyszukać wybrane wpisy.
 

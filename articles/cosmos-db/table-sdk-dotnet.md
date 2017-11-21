@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 943e0849b03debaa47022b5cb6d0df43d82ac230
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure rozwiązania Cosmos interfejs API .NET tabeli bazy danych: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -35,13 +35,17 @@ ms.lasthandoff: 11/18/2017
 |**Samouczek**|[Azure rozwiązania Cosmos bazy danych: Tworzenie tabeli interfejsu API programu .NET](tutorial-develop-table-dotnet.md)|
 |**Bieżąca platforma obsługiwane**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
+> [!IMPORTANT]
+> Jeśli utworzono konto tabeli interfejsu API w wersji zapoznawczej, Utwórz [nowe konto interfejsu API tabeli](create-table-dotnet.md#create-a-database-account) do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli.
+>
+
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Ogólnie zlecenia
 
 ### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
-* Wersja zapoznawcza początkowej
+* Początkowa wersja zapoznawcza
 
 ## <a name="release-and-retirement-dates"></a>Wersja i wycofania dat
 Firma Microsoft udostępnia powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
@@ -64,6 +68,7 @@ Jeśli komunikat o błędzie
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
+
 Podczas próby użycia pakietu Microsoft.Azure.CosmosDB.Table NuGet, masz dwie opcje do rozwiązania problemu:
 
 * Użyj konsoli Zarządzanie pakietu do zainstalowania pakietu Microsoft.Azure.CosmosDB.Table i jego zależności. Aby to zrobić, wpisz następujące polecenie w konsoli Menedżera pakietów do rozwiązania. 
@@ -74,6 +79,7 @@ Podczas próby użycia pakietu Microsoft.Azure.CosmosDB.Table NuGet, masz dwie o
 * Używając preferowanego narzędzia zarządzania pakietu Nuget, zainstaluj pakiet Microsoft.Azure.Storage.Common Nuget przed zainstalowaniem Microsoft.Azure.CosmosDB.Table.
 
 ## <a name="faq"></a>Często zadawane pytania
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też

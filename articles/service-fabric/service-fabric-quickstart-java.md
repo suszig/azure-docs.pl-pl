@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-java-application"></a>Tworzenie aplikacji Java
 Sieć szkieletowa usług Azure to platforma systemów rozproszonych wdrażania i zarządzania nimi mikrousług i kontenerów. 
@@ -83,7 +83,7 @@ Aby wdrożyć aplikację do klastra na platformie Azure, Utwórz własnego klast
 
 Klastry testowe to bezpłatne, działające przez ograniczony czas klastry usługi Service Fabric hostowane na platformie Azure. Są one uruchamiane przez zespół usługi sieć szkieletowa, gdzie każda osoba, która wdrażania aplikacji i Dowiedz się więcej o platformie. Aby uzyskać dostęp do klastra testowego, [postępuj zgodnie z instrukcjami](http://aka.ms/tryservicefabric). 
 
-Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie pierwszego klastra usługi Service Fabric na platformie Azure](service-fabric-get-started-azure-cluster.md).
+Aby uzyskać informacje o tworzeniu własnego klastra, zobacz [tworzenia klastra usługi sieć szkieletowa usług Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Usługa frontonu sieci web jest skonfigurowane do nasłuchiwania na porcie 8080 dla ruchu przychodzącego. Upewnij się, że port w klastrze został otwarty. Jeśli używasz klastra strona ten port jest otwarty.

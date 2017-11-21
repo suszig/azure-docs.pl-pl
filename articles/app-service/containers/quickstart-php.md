@@ -16,10 +16,10 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Tworzenie aplikacji sieci web PHP w usłudze App Service w systemie Linux
 
@@ -71,7 +71,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Utwórz aplikację sieci Web
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 

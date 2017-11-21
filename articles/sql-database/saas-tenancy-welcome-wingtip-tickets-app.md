@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Bilety Wingtip przykładowej bazy danych SQL Azure SaaS dzierżawy aplikacji — Zapraszamy!
+# <a name="the-wingtip-tickets-saas-application"></a>Aplikacja SaaS biletów Wingtip
 
-Witamy w aplikacji dzierżawy biletów Wingtip przykładowej bazy danych SQL Azure SaaS i jego samouczki. Dzierżawy bazy danych odwołuje się do trybu izolacji danych, w którym aplikacja zapewnia klientom, którzy płacą ma być obsługiwana w aplikacji. Za pośrednictwem uprościć w tej chwili, albo każdy klient ma całej bazy danych do samego siebie lub współużytkuje bazy danych z innego klienta.
+Taki sam *biletów Wingtip* aplikacja jest wdrażana w każdej z trzech próbek. Aplikacja jest zdarzenie proste wyświetlania i tworzenia biletów aplikacji SaaS przeznaczonych dla małych miejsc - theaters klubów, itp. Każda właściwość jest dzierżawy aplikacji i ma własne dane: miejscową szczegóły listę zdarzeń, klientów, zamówienia biletu itp.  Aplikacja, wraz z samouczki i skrypty zarządzania ilustrację scenariusza SaaS end-to-end. W tym dzierżaw inicjowania obsługi administracyjnej, monitorowanie i zarządzanie wydajności, zarządzania schematu i dzierżawy między raportowania i analiz.
 
-## <a name="wingtip-tickets-app"></a>Wingtip biletów aplikacji
+## <a name="three-saas-application-patterns"></a>Trzy wzorce aplikacji SaaS
 
-Przykładowa aplikacja biletów Wingtip ilustruje skutków modeli dzierżawy innej bazy danych w projekcie i zarządzania wielodostępnych aplikacji SaaS. Samouczki towarzyszący bezpośrednio opisano te same skutki. Bilety Wingtip jest oparty na bazie danych SQL Azure.
+Trzy wersje aplikacji są dostępne; Każdy Eksploruje wzorzec dzierżawy innej bazy danych w bazie danych SQL Azure.  Pierwszy używa aplikacji pojedynczej dzierżawy przy użyciu izolowanego bazy danych jednego dzierżawcy. W drugiej zastosowano aplikację o wielu dzierżawców z bazy danych dla każdego dzierżawcy. Trzeci przykładzie użyto aplikacji wielodostępnych podzielonej wielodostępnych baz danych.
 
-Bilety Wingtip przeznaczony do obsługi różnych scenariuszy projektowania i zarządzania, które są używane przez klientów SaaS rzeczywistego. Wzorce użycia, która wynika z nich są uwzględnione w Wingtip biletów.
+![Trzy wzorce dzierżawy][image-three-tenancy-patterns]
 
-Można zainstalować aplikację biletów Wingtip w subskrypcji platformy Azure w ciągu pięciu minut. Instalacja obejmuje Wstawianie dane przykładowe dla wielu dzierżawców. Aplikacji i skrypty zarządzania dla wszystkich modeli można zainstalować bezpiecznie ponieważ instalacje interakcji lub nie koliduje ze sobą.
+ Każda próbka zawiera wzorce zarządzania, którego można użyć w swojej aplikacji i skrypty zarządzania i samouczki przedstawiających zakres projektu.  Każda próbka wdraża w czasie krótszym tego pięć minut.  Wszystkie trzy może być wdrożone side-by-side, więc można porównać w projektowania i zarządzania.
 
-#### <a name="code-in-github"></a>Kod w serwisie Github
+## <a name="standalone-application-pattern"></a>Wzorzec aplikacji autonomicznych
 
-Kod aplikacji i skrypty zarządzania są wszystkie dostępne w witrynie GitHub:
+Wzorzec aplikacji autonomicznej używa aplikacji pojedynczej dzierżawy z pojedynczej dzierżawy bazy danych dla każdego dzierżawcy. Poszczególni dzierżawcy aplikacja jest wdrażana w grupie oddzielnych zasobów platformy Azure. To może być w subskrypcji przez dostawcę usług lub subskrypcji dzierżawcy i zarządzane przez dostawcę w imieniu dzierżawcy. Ten wzorzec zapewnia największą izolacji dzierżawców, ale jest zazwyczaj najbardziej kosztowne, ponieważ nie ma możliwość udostępniania zasobów między wieloma dzierżawcami.
 
-- **Aplikacją autonomiczną** modelu: [WingtipTicketsSaaS StandaloneApp repozytorium](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- **Bazy danych dla poszczególnych dzierżawców** modelu: [repozytorium WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- **Wielodostępne podzielonej** modelu: [repozytorium WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Zapoznaj się z [samouczki] [ docs-tutorials-for-wingtip-sa] i kodu w witrynie GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-Ten sam kod jednej podstawowej aplikacji biletów Wingtip zostanie ponownie użyty dla wszystkich powyższych modeli wymienionych. Do uruchomienia projektów SaaS, można użyć kodu z usługi Github.
+## <a name="database-per-tenant-pattern"></a>Bazy danych dla każdej dzierżawy wzorca
 
+Bazy danych na wzorzec dzierżawy obowiązuje dla dostawców usług, które są związane z izolacji dzierżawców i chcesz uruchomić scentralizowanej usługi, która umożliwia oszczędne korzystanie z zasobów udostępnionych. Baza danych została utworzona dla każdego miejsca lub dzierżawy, a wszystkie bazy danych są zarządzane centralnie. Pule elastyczne, aby zapewnić ekonomiczne i zarządzanie łatwe wydajności, która wykorzystuje wzorców obciążenia nieprzewidywalne dzierżawcy mogą być hostowane bazy danych. Bazy danych katalogu posiada mapowanie między dzierżawców i ich baz danych. To mapowanie odbywa się przy użyciu niezależnego fragmentu mapy funkcji do zarządzania [elastycznej bazy danych klienta biblioteki](sql-database-elastic-database-client-library.md), który umożliwia zarządzanie wydajność połączenia do aplikacji.
 
+Zapoznaj się z [samouczki] [ docs-tutorials-for-wingtip-dpt] i kodu w witrynie GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Modele dzierżawy głównej bazy danych
+## <a name="sharded-multi-tenant-database-pattern"></a>Wzorzec podzielonej wielodostępne bazy danych.
 
-Bilety Wingtip jest zdarzeniem wyświetlania i tworzenia biletów aplikacji SaaS. Wingtip udostępnia usługi, które są wymagane przez miejsc. Poniższe elementy dotyczą każdego miejsce:
+Wielodostępne baz danych są uwzględniane dla usługodawców wyszukiwanie niższy koszt dzierżawy i OK izolacji mniejsze dzierżawy. Ten wzorzec umożliwia pakowania dużej liczby dzierżawców do pojedynczej bazy danych, obniżenie kosztów na dla dzierżawy. NEAR nieskończone skala jest możliwe przez podanie dzierżawcy między wieloma bazy danych.  Katalog bazy danych ponownie mapuje dzierżawcy do baz danych.  
 
-- Płaci użytkownik ma być obsługiwana w aplikacji.
-- Jest *dzierżawy* w Wingtip.
-- Zdarzenia hostów. Obejmuje następujące zdarzenia:
-    - Ceny biletu.
-    - Sprzedaży biletów.
-    - Klienci, którzy kupić biletów.
+Ten wzorzec umożliwia także modelu hybrydowych, w którym można zoptymalizować kosztu z wieloma dzierżawcami w bazie danych lub Optymalizuj dla izolacji z pojedynczej dzierżawy w ich własnych bazy danych. Wybór będzie możliwe na podstawie dzierżawy przez dzierżawy, albo gdy dzierżawa jest udostępnione lub nowszej, bez wpływu na aplikację.
 
-Aplikacja, wraz z samouczki i skrypty zarządzania ilustrację całego scenariusza SaaS. Scenariusz obejmuje wykonywanie następujących czynności:
-
-- Inicjowanie obsługi dzierżawców.
-- Monitorowanie i zarządzanie wydajnością.
-- Zarządzanie schematu.
-- Dzierżawcy między raportowania i analiz.
-
-Te działania są udostępniane w dowolnej skali jest wymagana.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Przykłady kodu dla każdego modelu dzierżawy
-
-Wyróżniony są zestaw modeli aplikacji. Jednak inne implementacje można mieszać elementy co najmniej dwa modele.
-
-#### <a name="standalone-app-model"></a>Model aplikacji autonomicznych
-
-![Model aplikacji autonomicznych][standalone-app-model-62s]
-
-Ten model korzysta z aplikacji pojedynczej dzierżawy. Dlatego ten model wymaga tylko jedną bazę danych i przechowuje dane tylko jednego dzierżawcy. Dzierżawca korzysta z pełnej izolacji od innych dzierżaw w bazie danych.
-
-Można użyć tego modelu sprzedaży wystąpień aplikacji dla wielu różnych klientów, dla każdego klienta działać samodzielnie. Klient jest następnie tylko dzierżawy. Gdy baza danych programu przechowuje dane dla tylko jednego klienta, bazy danych przechowuje dane dla wielu klientów klienta.
-
-#### <a name="database-per-tenant"></a>Bazy danych dla każdego dzierżawcy
-
-![Bazę danych na model dzierżawy][database-per-tenant-model-35d]
-
-Ten model ma wiele dzierżaw w wystąpienie aplikacji. Jeszcze dla każdego nowego dzierżawcy innej bazy danych jest przydzielona do użycia tylko przez nowym dzierżawcą.
-
-Ten model zapewnia izolację pełnej bazy danych dla każdego dzierżawcy. Usługa bazy danych SQL Azure ma wiedzy dokonanie wiarygodne tego modelu.
-
-- [Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL] [ saas-dbpertenant-wingtip-app-overview-15d] -ma więcej informacji na temat tego modelu.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Podzielonej wielodostępnych baz danych, hybrydowego
-
-![Podzielonej wielodostępne bazy danych modelu, hybrydowego][sharded-multitenantdb-model-hybrid-79m]
-
-Ten model ma wiele dzierżaw w wystąpienie aplikacji. Ten model ma wiele dzierżaw w niektórych lub wszystkich jej baz danych. Ten model jest prawidłowa dla oferty różnych warstwach usług, dzięki czemu klienci może zwrócić więcej jeśli wartość pełnej izolacji bazy danych.
-
-Schemat każdej bazy danych zawiera identyfikator dzierżawy. Identyfikator dzierżawy jest nawet w tych baz danych, które przechowywane tylko jednego dzierżawcy.
-
-- [Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Samouczki dotyczące każdego modelu dzierżawy
-
-Każdy model dzierżawy jest udokumentowany przez następujące czynności:
-
-- Zestaw samouczek artykułów.
-- Kod źródłowy jest przechowywane w repozytorium Github, mający na celu modelu:
-    - Kod aplikacji Wingtip biletów.
-    - Kod skryptu scenariuszy zarządzania.
-
-#### <a name="tutorials-for-management-scenarios"></a>Samouczki dotyczące scenariuszy zarządzania
-
-Samouczek artykułów dla każdego modelu obejmuje następujące scenariusze zarządzania:
-
-- Dzierżawca inicjowania obsługi administracyjnej.
-- Monitorowanie wydajności i zarządzania.
-- Zarządzanie schematu.
-- Dzierżawcy między raportowania i analiz.
-- Przywracanie jednego dzierżawcy do wcześniejszego punktu w czasie.
-- Odzyskiwanie sprawności systemu po awarii.
-
-
+Zapoznaj się z [samouczki] [ docs-tutorials-for-wingtip-mt] i kodu w witrynie GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL] [ saas-dbpertenant-wingtip-app-overview-15d] -ma więcej informacji na temat tego modelu.
+#### <a name="conceptual-descriptions"></a>Opisy pojęć
 
-- [Wielodostępne SaaS bazy danych dzierżawców wzorców][multi-tenant-saas-database-tenancy-patterns-60p]
+- Bardziej szczegółowy opis wzorce dzierżawy aplikacji znajduje się w temacie [SaaS wielodostępne bazy danych wzorce dzierżawy][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Samouczki i kod
+
+- Autonomiczny aplikacji:
+    - [Samouczki dla aplikacji autonomicznych][docs-tutorials-for-wingtip-sa].
+    - [Kod dla autonomicznego w serwisie Github][github-code-for-wingtip-sa].
+
+- Bazy danych dla poszczególnych dzierżawców:
+    - [Samouczki dotyczące bazy danych dla poszczególnych dzierżawców][docs-tutorials-for-wingtip-dpt].
+    - [Kod dla bazy danych dla każdego dzierżawcy w serwisie Github][github-code-for-wingtip-dpt].
+
+- Podzielonej wielodostępne:
+    - [Samouczki dotyczące podzielonej wielodostępne][docs-tutorials-for-wingtip-mt].
+    - [Kod dla podzielonej wielodostępne w serwisie Github][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Model aplikacji autonomicznych"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Trzy wzorce dzierżawy."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Bazę danych na model dzierżawy"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Podzielonej wielodostępne bazy danych modelu, hybrydowego"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

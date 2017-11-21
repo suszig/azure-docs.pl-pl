@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 228f3153f47e0b147688fe958a767660976b08be
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Korzystanie z Pulpitu zdalnego do łączenia się z maszyną wirtualną systemu Linux na platformie Microsoft Azure
 > [!IMPORTANT] 
@@ -49,18 +49,23 @@ Połącz do maszyny Wirtualnej systemu Linux za pomocą `putty`i zainstaluj `Gno
 
 Ubuntu użyć:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 Dla OpenSUSE użyj polecenia:
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## <a name="install-xrdp"></a>Zainstaluj xrdp
 Ubuntu użyć:
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 Dla OpenSUSE użyj polecenia:
 
@@ -69,15 +74,18 @@ Dla OpenSUSE użyj polecenia:
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Uruchom xrdp i skonfiguruj xdrp w górę rozruchu
 Dla OpenSUSE użyj polecenia:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
 Ubuntu xrdp zostanie uruchomiona i włączone na rozruchowego automatycznie po zakończeniu instalacji.
 
@@ -86,22 +94,29 @@ Ponieważ bieżąca wersja xrdp nie obsługuje Gnome pulpitu dla wersji Ubuntu p
 
 Aby zainstalować `xfce`, użyj tego polecenia:
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 Następnie Włącz `xfce` za pomocą tego polecenia:
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Przeprowadź edycję pliku konfiguracji `/etc/xrdp/startwm.sh`:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 Dodaj wiersz `xfce4-session` przed wierszem `/etc/X11/Xsession`.
 
 Aby ponownie uruchomić usługę xrdp, należy użyć to:
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Połączenie z maszyną Wirtualną systemu Linux z komputera z systemem Windows
 Na maszynie z systemem Windows uruchom klienta pulpitu zdalnego i wprowadź nazwę DNS maszyny Wirtualnej systemu Linux. Przejdź do pulpitu nawigacyjnego maszyny wirtualnej w portalu Azure i kliknij przycisk `Connect` nawiązywania połączenia z maszyną Wirtualną systemu Linux. W takim przypadku można wyświetlić okno logowania:

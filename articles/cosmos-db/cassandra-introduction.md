@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Wprowadzenie do Apache Cassandra interfejsu API dla rozwiązania Cosmos Azure DB
 
@@ -78,7 +78,7 @@ Jeśli masz już subskrypcję platformy Azure, możesz je założyć wziąć udz
 
     Po przesłaniu żądania stan zmienia się na **oczekują na zatwierdzenie** w okienku konta. 
 
-Po przesłaniu żądania, poczekaj na powiadomienie e-mail, żądanie zostanie zatwierdzone. Nie jest konieczne tworzenie biletu pomocy technicznej, aby ukończyć żądanie. Żądania zostanie zweryfikowana w kolejności, w jakiej zostały odebrane. 
+Po przesłaniu żądania, poczekaj na powiadomienie e-mail, żądanie zostanie zatwierdzone. Ze względu na dużą liczbę żądań otrzymasz powiadomienie w ciągu tygodnia. Nie jest konieczne tworzenie biletu pomocy technicznej, aby ukończyć żądanie. Żądania zostanie zweryfikowana w kolejności, w jakiej zostały odebrane. 
 
 ## <a name="how-to-get-started"></a>Jak zacząć
 Po przyłączeniu program w wersji zapoznawczej, wykonaj quickstarts Cassandra interfejsu API, aby utworzyć aplikację przy użyciu interfejsu API Cassandra:
