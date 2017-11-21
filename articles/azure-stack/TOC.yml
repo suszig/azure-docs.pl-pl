@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Publikowanie punktów końcowych
           href: azure-stack-integrate-endpoints.md
+        - name: Monitorowania zewnętrznych
+          href: azure-stack-integrate-monitor.md
         - name: Bezpieczeństwo
           href: azure-stack-integrate-security.md
     - name: Zarządzanie
