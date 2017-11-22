@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Tworzenie bazy danych grafów przy użyciu języka Java i witryny Azure Portal
 
@@ -72,13 +72,19 @@ Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby 
 
 Teraz przejdźmy do pracy z kodem. Załóżmy sklonować aplikacji interfejsu API programu Graph, z serwisu GitHub, Ustaw ciąg połączenia i uruchom go. Zobaczysz, jak łatwo jest pracować programowo z danymi.  
 
-1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej.  
+1. Otwórz wiersz polecenia, Utwórz nowy folder o nazwie przykłady git, a następnie Zamknij wiersz polecenia.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
+3. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Teraz przejdźmy do pracy z kodem. Załóżmy sklonować aplikacji interfejsu AP
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, można przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z `Program.java` pliku w folderze C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. W przeciwnym razie możesz przejść od razu do [zaktualizować parametry połączenia](#update-your-connection-string). 
+Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, można przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z `Program.java` pliku w folderze C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. W przeciwnym razie możesz przejść od razu do [zaktualizować parametry połączenia](#update-your-connection-information). 
 
 * Element `Client` języka Gremlin jest inicjowany z poziomu konfiguracji w pliku `src/remote.yaml`.
 
@@ -148,11 +154,23 @@ Teraz wróć do portalu Azure, aby uzyskać informacje o połączeniu i skopiuj 
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. W oknie terminalu usługi Git wpisz polecenie `mvn package`, aby zainstalować wymagane pakiety języka Java.
+2. W oknie terminalu git Użyj następującego polecenia w celu zainstalowania wymaganych pakietów języka Java.
 
-3. W oknie terminalu git Uruchom `mvn exec:java -D exec.mainClass=GetStarted.Program` można uruchomić aplikacji w języku Java.
+   ```
+   mvn package
+   ```
 
-    W oknie terminalu zostaną wyświetlone wierzchołki dodawane do grafu. Po zatrzymuje program, przełącz się do portalu Azure w przeglądarce internetowej. 
+3. W oknie terminalu git Użyj następującego polecenia do uruchomienia aplikacji Java.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    W oknie terminalu zostaną wyświetlone wierzchołki dodawane do grafu. 
+    
+    Jeśli występują błędy przekroczenia limitu czasu, sprawdź, czy zaktualizowane informacje o połączeniu poprawnie w [zaktualizuj informacje o połączeniu](#update-your-connection-information), a także spróbuj ponownie uruchomić ostatnie polecenie. 
+    
+    Po zatrzymuje program, naciśnij klawisz Enter, następnie przejdź do portalu Azure w przeglądarce internetowej. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Przeglądanie i dodawanie przykładowych danych
@@ -200,11 +218,11 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
 
 10. Kliknij przycisk **OK**. 
 
-11. Kliknij przycisk **Zastosuj filtr** przy użyciu domyślnego `g.V()` filtr, aby wyświetlić wszystkie wartości na wykresie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
+11. Kliknij przycisk **Zastosuj filtr** przycisk przy użyciu domyślnego `g.V()` filtr, aby wyświetlić wszystkie wartości na wykresie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
 
     W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie korzysta z Eksploratora danych `g.V()` można pobrać wszystkich wierzchołków na wykresie. Można ją zmienić na inny [zapytania wykres](tutorial-query-graph.md), takich jak `g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków na wykresie w formacie JSON. Zmiana filtru, Zmień filtr z powrotem do `g.V()` i kliknij przycisk **Zastosuj filtr** Aby ponownie wyświetlić wszystkie wyniki.
 
-12. Teraz możemy połączyć użytkowników rakesh i ashley. Upewnij się, że użytkownik **ashley** został wybrany na liście **Wyniki**, a następnie kliknij przycisk edycji obok pozycji **Cele** u dołu po prawej. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości**.
+12. Teraz możemy połączyć użytkowników rakesh i ashley. Upewnij się, **Monika** wybrano **wyniki** listy, a następnie kliknij przycisk Edytuj **cele** w prawym dolnym. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości**.
 
    ![Zmiana celu wierzchołka w grafie](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

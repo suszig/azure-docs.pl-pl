@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Tworzenie bazy danych dokumentów przy użyciu języka Java i witryny Azure Portal
 
@@ -97,13 +97,19 @@ Na tym kończy się pracę w Eksploratorze danych. Przed możemy przejść do pr
 
 Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej. 
+1. Otwórz wiersz polecenia, Utwórz nowy folder o nazwie przykłady git, a następnie Zamknij wiersz polecenia.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby zmienić do nowego folderu, aby zainstalować przykładową aplikację. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze.
+3. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. W oknie terminalu usługi Git wpisz polecenie `mvn package`, aby zainstalować wymagane pakiety języka Java.
+2. W oknie terminalu git Użyj następującego polecenia w celu zainstalowania wymaganych pakietów języka Java.
 
-3. W oknie terminalu git Uruchom `mvn exec:java -D exec.mainClass=GetStarted.Program` można uruchomić aplikacji Java.
+    ```
+    mvn package
+    ```
 
-    Okno terminalu wyświetla powiadomienie, że FamilyDB bazy danych została utworzona. Naciśnij klawisz, aby utworzyć kolekcję, następnie przejdź do Eksploratora danych, i zobaczysz, że teraz zawiera FamilyDB bazy danych.
+3. W oknie terminalu git Użyj następującego polecenia do uruchomienia aplikacji Java.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    Okno terminalu wyświetla powiadomienie, że FamilyDB bazy danych została utworzona. 
     
-    Nadal klawiszy, aby utworzyć dokumentów, a następnie wykonaj zapytanie.
+4. Naciśnij dowolny klawisz, aby utworzyć kolekcję. 
+
+5. Wrócić do Eksploratora danych i zobaczysz, że teraz zawiera FamilyDB bazy danych.
+    
+6. Nadal naciśnij klawisze w oknie konsoli, aby kod tworzenie dokumentów i wykonywać zapytania.
     
     W końcu program wszystkie zasoby z tej aplikacji są usuwane z Twojego konta, aby nie poniesiesz żadnych dodatkowych opłat. 
 

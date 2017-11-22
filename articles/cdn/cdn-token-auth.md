@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure Content Delivery Network z tokenu uwierzytelniania
 
@@ -96,12 +96,12 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
-       >    <td>Przypisuje czas wygaśnięcia tokenu, po którym token jest ważny. Żądań przesłanych po czas wygaśnięcia nie są dozwolone. Ten parametr używa sygnatury czasowej systemu Unix, opartym na liczba sekund od standardowego epoka `1/1/1970 00:00:00 GMT`. (Umożliwia konwersję pomiędzy (czas standardowy) i czas Unix można użyć narzędzia online).> 
+       >    <td>Przypisuje czas wygaśnięcia tokenu, po którym token jest ważny. Żądań przesłanych po czas wygaśnięcia nie są dozwolone. Sygnatura czasowa systemu Unix, opartym na liczba sekund od standardowego epoka Unix używa tego parametru `1/1/1970 00:00:00 GMT`. (Umożliwia konwersję pomiędzy (czas standardowy) i czas Unix można użyć narzędzia online).> 
        >    Na przykład, jeśli chcesz, aby token do wygaśnięcia na `12/31/2016 12:00:00 GMT`, wprowadź wartość sygnatury czasowej systemu Unix, `1483185600`. 
        > </tr>
        > <tr>
        >    <td><b>ec_url_allow</b></td> 
-       >    <td>Umożliwia dostosowanie tokenów do określonego zasobu lub ścieżki. Go ogranicza dostęp do żądania, którego adres URL rozpoczynać się od określonej ścieżki względnej. Adresy URL jest rozróżniana wielkość liter. Wprowadź wiele ścieżek, oddziel przecinkami poszczególnych ścieżek. W zależności od wymagań można skonfigurować różne wartości, aby zapewnić różne poziomy dostępu.> 
+       >    <td>Umożliwia dostosowanie tokenów do określonego zasobu lub ścieżki. Go ogranicza dostęp do żądania, którego adres URL rozpoczynać się od określonej ścieżki względnej. Adresy URL jest rozróżniana wielkość liter. Dane wejściowe wiele ścieżek, Oddziel poszczególne ścieżki przecinkami; nie należy dodawać spacji. W zależności od wymagań można skonfigurować różne wartości, aby zapewnić różne poziomy dostępu.> 
        >    Na przykład dla adresu URL `http://www.mydomain.com/pictures/city/strasbourg.png`, te żądania są dozwolone w przypadku następujących argumentów: 
        >    <ul>
        >       <li>Wartość wejściowa `/`: wszystkie żądania są dozwolone.</li>
@@ -116,11 +116,11 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
        > </tr>
        > <tr>
        >    <td><b>ec_country_allow</b></td> 
-       >    <td>Zezwala na żądania, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są odrzucane. Użyj [numerów kierunkowych](https://msdn.microsoft.com/library/mt761717.aspx) i oddziel je przecinkami. Na przykład, jeśli chcesz zezwolić na dostęp tylko Stany Zjednoczone i Francja, wprowadź `US,FR`.</td>
+       >    <td>Zezwala na żądania, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są odrzucane. Użyj dwuliterowych [normy ISO 3166 numer kierunkowy kraju](https://msdn.microsoft.com/library/mt761717.aspx) dla każdego kraju i oddziel je przecinkami; nie dodają spację. Na przykład, jeśli chcesz zezwolić na dostęp tylko Stany Zjednoczone i Francja, wprowadź `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Odrzucanie żądań, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są dozwolone. Użyj numerów kierunkowych krajów i oddziel je przecinkami. Na przykład, jeśli chcesz odmówić dostępu w Stanach Zjednoczonych i Francja, wprowadź `US,FR`.</td>
+       >    <td>Odrzucanie żądań, które pochodzą z co najmniej jeden określony krajów. Żądania, które pochodzą z innych krajów są dozwolone. Implementacja jest taka sama jak <b>ec_country_allow</b> parametru. Jeśli kod kraju znajduje się w obu <b>ec_country_allow</b> i <b>ec_country_deny</b> parametrów, <b>ec_country_allow</b> parametr ma pierwszeństwo.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
@@ -128,27 +128,27 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
        >    Dopuszczalne są następujące typy danych wejściowych:
        >    <ul>
        >       <li>Nazwa hosta lub nazwa hosta i ścieżkę.</li>
-       >       <li>Wiele odwołań. Aby dodać wiele odwołań, każdy odwołania należy oddzielić przecinkami. Jeśli wartość odwołania, ale informacje odwołania nie są wysyłane w żądania z powodu konfiguracji przeglądarki, żądanie zostanie odrzucone domyślnie.</li> 
-       >       <li>Żądania z brakującymi informacji odwołania. Aby zezwolić na te typy żądań, wprowadź tekst "Brak" lub wartość pustą.</li> 
+       >       <li>Wiele odwołań. Aby dodać wiele odwołań, oddziel każdy odwołania przecinkami; nie należy dodawać spacji. Jeśli wartość odwołania, ale informacje odwołania nie są wysyłane w żądania z powodu konfiguracji przeglądarki, żądanie zostanie odrzucone domyślnie.</li> 
+       >       <li>Żądania z informacjami odwołania brakujący lub pusty. Domyślnie <b>ec_ref_allow</b> parametru blokuje tych typów żądań. Aby zezwolić na te żądania, wprowadź tekst, "Brak", lub wartość pusta (przy użyciu przecinek końcowy).</li> 
        >       <li>Domeny podrzędne. Aby umożliwić poddomen, wprowadź znak gwiazdki (\*). Na przykład, aby umożliwić wszystkich poddomen `contoso.com`, wprowadź `*.contoso.com`.</li>
-       >    </ul> 
+       >    </ul>     
        >    Na przykład, aby zezwolić na dostęp dla żądań z `www.contoso.com`, wszystkimi domenami podrzędnymi w `contoso2.com`, i żądań z pustą lub Brak odwołań, wprowadź `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Odrzucanie żądań z określonego odwołania. Implementacja jest taka sama jak <b>ec_ref_allow</b> parametru.</td>
+       >    <td>Odrzucanie żądań z określonego odwołania. Implementacja jest taka sama jak <b>ec_ref_allow</b> parametru. Jeśli odwołania znajduje się w obu <b>ec_ref_allow</b> i <b>ec_ref_deny</b> parametrów, <b>ec_ref_allow</b> parametr ma pierwszeństwo.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
-       >    <td>Zezwala na żądania od wybranego protokołu. Na przykład HTTP lub HTTPS.</td>
+       >    <td>Zezwala na żądania od wybranego protokołu. Prawidłowe wartości to `http`, `https`, lub `http,https`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_proto_deny</b></td>
-       >    <td>Odrzucanie żądań z wybranego protokołu. Na przykład HTTP lub HTTPS.</td>
+       >    <td>Odrzucanie żądań z wybranego protokołu. Implementacja jest taka sama jak <b>ec_proto_allow</b> parametru. Jeśli protokół znajduje się w obu <b>ec_proto_allow</b> i <b>ec_proto_deny</b> parametrów, <b>ec_proto_allow</b> parametr ma pierwszeństwo.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Ogranicza dostęp do żądającego określonego adresu IP. Obsługiwane są protokoły IPV4 i IPV6. Można określić na pojedyncze żądanie adres IP lub podsieć IP. Na przykład `11.22.33.0/22`.</td>
+       >    <td>Ogranicza dostęp do żądającego określonego adresu IP. Obsługiwane są protokoły IPV4 i IPV6. Można określić adres IP pojedynczego żądania lub adresy IP skojarzone z określonej podsieci. Na przykład `11.22.33.0/22` umożliwia żądań z adresów IP 11.22.32.1 do 11.22.35.254.</td>
        > </tr>
        > </table>
 
@@ -160,11 +160,11 @@ Poniższy schemat opisano, jak Azure CDN weryfikuje żądanie klienta, gdy token
 
     Po wygenerowaniu tokenu, jest on wyświetlany w **wygenerowany Token** pole. Korzystanie z tokenu, dołącza go jako ciąg zapytania do końca pliku w ścieżce URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz klucz szyfrowania do użycia z **odszyfrować klucza** listy, a następnie kliknij przycisk **odszyfrować**.
+    8. Opcjonalnie można sprawdzić za pomocą narzędzia odszyfrowywania token tak, aby wyświetlić parametry Twojego tokenu. Wklej wartość tokenu w **Token do odszyfrowywania** pole. Wybierz klucz szyfrowania do użycia z **odszyfrować klucza** listy, a następnie kliknij przycisk **odszyfrować**.
 
     Po token jest odszyfrowywany, jego parametrów są wyświetlane w **oryginalnych parametrów** pole.
 
-    9. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz **włączone**, a następnie wybierz kod odpowiedzi z **kod odpowiedzi** listy. Następnie kliknij przycisk **zapisać**. Dla niektórych kodów odpowiedzi, to należy także podać adres URL strony błędu w **wartość nagłówka** pole. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. 
+    9. Opcjonalnie można dostosować typ kod odpowiedzi, który jest zwracany, gdy żądanie zostanie odrzucone. Wybierz **włączone**, następnie wybierz kod odpowiedzi z **kod odpowiedzi** listy. **Nazwa nagłówka** jest automatycznie ustawiana **lokalizacji**. Kliknij przycisk **zapisać** do zaimplementowania nowy kod odpowiedzi. Dla niektórych kodów odpowiedzi, to należy także podać adres URL strony błędu w **wartość nagłówka** pole. **403** kod odpowiedzi (zabroniony) jest domyślnie zaznaczona. 
 
 3. W obszarze **HTTP dużych**, kliknij przycisk **aparatu reguł**. Aparat reguł służy do definiowania ścieżki, aby zastosować funkcję, włączyć funkcję uwierzytelniania tokenu i włączyć dodatkowe funkcje tokenu związane z uwierzytelnianiem. Aby uzyskać więcej informacji, zobacz [odwołania aparat reguł](cdn-rules-engine-reference.md).
 

@@ -16,9 +16,8 @@
 ### [4- Monitorowanie i diagnozowanie](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Konteneryzowanie istniejącej aplikacji .NET
-### [1- Create a secure cluster on Azure (1. Tworzenie bezpiecznego klastra na platformie Azure)](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Deploy a .NET app using Docker Compose (2. Wdrażanie aplikacji .NET przy użyciu narzędzia Docker Compose)](service-fabric-host-app-in-a-container.md)
-### [3— Monitorowanie kontenera](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1 —Wdrażanie aplikacji .NET przy użyciu narzędzia Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2 — Monitorowanie kontenera](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Tworzenie aplikacji kontenera systemu Linux
 ### [1 — Tworzenie obrazów kontenerów](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Tworzenie klastrów i zarządzanie nimi
 ### Klastry na platformie Azure
 #### Przycisk Utwórz
-##### [Tworzenie pierwszego klastra na platformie Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Witryna Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Skalowanie

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd321531c99f14e93d8cab2acb7844ae79be2158
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Informacje o połączeniach wychodzących na platformie Azure
 
@@ -72,18 +72,21 @@ Należy się upewnić, czy maszyny Wirtualnej może odbierać żądań sondy kon
 
 ## <a name="snatexhaust"></a>Zarządzanie wyczerpania SNAT
 
-Porty efemeryczne używane na potrzeby SNAT są zużywalnymi zasobami, zgodnie z opisem w [autonomiczny maszynę Wirtualną za pomocą żaden adres publiczny adres IP na poziomie wystąpienia](#standalone-vm-with-no-instance-level-public-ip-address) i [równoważeniem obciążenia maszyny Wirtualnej z żaden adres publiczny adres IP na poziomie wystąpienia](#standalone-vm-with-no-instance-level-public-ip-address).  
+Porty efemeryczne używane na potrzeby SNAT są zużywalnymi zasobami, zgodnie z opisem w [autonomiczny maszynę Wirtualną za pomocą żaden adres publiczny adres IP na poziomie wystąpienia](#standalone-vm-with-no-instance-level-public-ip-address) i [równoważeniem obciążenia maszyny Wirtualnej z żaden adres publiczny adres IP na poziomie wystąpienia](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Jeśli znasz się inicjowanie wiele połączeń wychodzących do tego samego miejsca docelowego, niepowodzeniem połączeń wychodzących, lub obserwować zalecana przy pomocy technicznej są wyczerpujące porty SNAT, masz kilka opcji ogólnych środki zaradcze.  Przejrzyj te opcje i zdecydować, co to jest najlepsze w przypadku danego scenariusza.  Jest możliwe jeden lub więcej może ułatwić zarządzanie tego scenariusza.
+Jeśli znasz się inicjowanie wiele połączeń wychodzących do tego samego adresu IP i port, obserwować niepowodzeniem połączenia wychodzące lub zalecana przy pomocy technicznej są wyczerpujące porty SNAT, masz kilka opcji ogólnych środki zaradcze.  Przejrzyj te opcje i zdecydować, co to jest najlepsze w przypadku danego scenariusza.  Jest możliwe jeden lub więcej może ułatwić zarządzanie tego scenariusza.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Przypisz publicznego adresu IP wystąpienia poziomu do każdej maszyny Wirtualnej
-Spowoduje to zmianę Twojego scenariusza [poziomie wystąpienia publicznego adresu IP do maszyny Wirtualnej](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Wszystkie porty efemeryczne publicznego adresu IP używane dla każdej maszyny Wirtualnej są dostępne dla maszyny Wirtualnej (w przeciwieństwie do scenariuszy, w którym porty efemeryczne publicznego adresu IP są udostępniane wszystkie maszyny Wirtualnej skojarzone z puli zaplecza odpowiednich).
+### <a name="modify-application-to-reuse-connections"></a>Modyfikowanie aplikacji do ponownego użycia połączenia 
+Można zmniejszyć zapotrzebowanie na porty efemeryczne używane w przypadku SNAT ponowne użycie połączenia w aplikacji.  Jest to szczególnie istotne dla protokołów, takich jak HTTP/1.1, gdzie jest to wyraźnie obsługiwane.  I innych protokołów przy użyciu protokołu HTTP jako transportu (np. REST) mogą korzystać z kolei.  Ponowne użycie zawsze jest lepszym rozwiązaniem niż poszczególnych, atomic połączeń TCP dla każdego żądania.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Modyfikowanie aplikacji do korzystania z puli połączeń
-Można zmniejszyć zapotrzebowanie na porty efemeryczne używane w przypadku SNAT puli połączeń w aplikacji.  Dodatkowe przepływy do tego samego miejsca docelowego będą korzystać z dodatkowych portów.  Ponowne użycie tego samego przepływu dla wielu żądań wiele żądań zużyje jeden port.
+Można wdrożyć połączenia buforowanie schemat w aplikacji, które żądania są dystrybuowane wewnętrznie przez ustalony zbiór połączeń (każdego ponowne użycie w miarę możliwości).  Ponowne użycie tego samego przepływu dla wielu żądań wiele żądań będą korzystać z jednego portu zamiast dodatkowe przepływy do tego samego miejsca docelowego, korzystanie z dodatkowych portów i wiodące w pełni warunki.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Modyfikowanie aplikacji do korzystania z mniej aktywnego Logika ponawiania
 Można zmniejszyć zapotrzebowanie na porty efemeryczne przy użyciu mniej agresywne logiki ponawiania próby.  Po wyczerpaniu porty efemeryczne używane na potrzeby SNAT, bez zanikania i wycofywania wyczerpania Przyczyna logikę do utrwalenia ponowi próbę aktywnego lub atak metodą force.  Porty efemeryczne ma 4-minutowy limit czasu bezczynności (nie można dostosować), a jeśli ponowne próby są zbyt agresywnie, wyczerpanie ma możliwość wyczyszczone samodzielnie.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Przypisz publicznego adresu IP wystąpienia poziomu do każdej maszyny Wirtualnej
+Spowoduje to zmianę Twojego scenariusza [poziomie wystąpienia publicznego adresu IP do maszyny Wirtualnej](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Wszystkie porty efemeryczne publicznego adresu IP używane dla każdej maszyny Wirtualnej są dostępne dla maszyny Wirtualnej (w przeciwieństwie do scenariuszy, w którym porty efemeryczne publicznego adresu IP są udostępniane wszystkie maszyny Wirtualnej skojarzone z puli zaplecza odpowiednich).  Brak możliwości wziąć pod uwagę, takie jak dodatkowych kosztów adresów IP i potencjalnego wpływu listę dozwolonych podobnej dużą liczbę pojedyncze adresy IP.
 
 ## <a name="limitations"></a>Ograniczenia
 

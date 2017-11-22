@@ -10,17 +10,22 @@ ms.reviewer: elioda
 ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Wdrażanie usługi Azure IoT krawędzi na symulowane urządzenie w systemie Linux — podglądu
 
 Krawędź IoT Azure umożliwia przeprowadzanie analizy i przetwarzania danych na urządzeniach, zamiast do dystrybuowania wszystkich danych w chmurze. Samouczki krawędzi IoT przedstawiają sposób wdrażania różnego rodzaju moduły skompilowane z usług Azure lub kodu niestandardowego, ale najpierw należy urządzenia do testowania. 
 
-Ten samouczek przedstawia tworzenie symulowane urządzenie brzegowe IoT, następnie wdrażania moduł, który generuje dane czujników. Omawiane kwestie:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+1. Tworzenie Centrum IoT
+2. Zarejestruj urządzenia IoT
+3. Uruchom środowisko uruchomieniowe krawędzi IoT
+4. Wdrażanie modułu
 
 ![Architektura samouczka][2]
 

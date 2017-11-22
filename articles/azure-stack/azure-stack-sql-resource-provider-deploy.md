@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych SQL Microsoft Azure stosu
 
@@ -30,7 +30,7 @@ Użyj karty dostawcy zasobów programu SQL Server do udostępnienia baz danych j
 
 Dostawca zasobów nie obsługuje wszystkie funkcje zarządzania bazy danych z [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/). Na przykład elastyczne pule baz danych oraz możliwość automatycznego wybierania numeru wydajność bazy danych w górę i w dół nie są dostępne. Jednak podobnie Obsługa ma dostawcy zasobów tworzenia, odczytu, aktualizacji i usuwania operacji (CRUD). Interfejs API nie jest zgodny z bazy danych SQL.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Architektura karty dostawcy zasobów serwera SQL
+## <a name="sql-resource-provider-adapter-architecture"></a>Architektura karty dostawcy zasobów SQL
 Dostawca zasobów składa się z trzech składników:
 
 - **Karta Dostawca zasobów SQL maszyny Wirtualnej**, który jest maszyną wirtualną systemu Windows z usługami dostawcy.
@@ -50,6 +50,9 @@ Należy utworzyć jeden (lub więcej) serwerów SQL lub zapewniają dostęp do z
     b. W systemach z wieloma węzłami host musi być systemu, w którym można uzyskać dostępu do uprzywilejowanych punktu końcowego.
 
 3. [Pobierz plik plików binarnych dostawcy zasobów SQL](https://aka.ms/azurestacksqlrp) i wykonywanie samorozpakowujący się plik typu wyodrębnienie zawartości do katalogu tymczasowego.
+
+    > [!NOTE]
+    > W przypadku uruchamiania na stosie Azure tworzenia 20170928.3 lub wcześniej, [pobrać tę wersję](https://aka.ms/azurestacksqlrp1709).
 
 4. Certyfikat główny stos Azure są pobierane z punktu końcowego uprzywilejowanych. ASDK, aby uzyskać certyfikat z podpisem własnym jest tworzony w ramach tego procesu. Wieloma węzłami trzeba podać odpowiedni certyfikat.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
@@ -141,27 +153,25 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszyst
       ![Sprawdź wdrożenie SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Usunięcie dostawcy zasobów karty SQL
+## <a name="remove-the-sql-resource-provider-adapter"></a>Usuń kartę Dostawca zasobów SQL
 
 Aby usunąć dostawcę zasobów, konieczne jest najpierw usunąć wszelkie zależności.
 
-1. Upewnij się, że oryginalne pakiet wdrożeniowy, który został pobrany dla tej wersji dostawcy zasobów.
+1. Upewnij się, że oryginalne pakiet wdrożeniowy, który został pobrany dla tej wersji karty dostawcy zasobów SQL.
 
 2. Od dostawcy zasobów (nie powoduje usunięcia danych), należy usunąć wszystkie bazy danych użytkownika. To zadanie należy wykonać przez siebie użytkowników.
 
-3. Administrator musi usunąć serwerami hostingu z karty SQL
+3. Administrator, należy usunąć serwerami hostingu z karty dostawcy zasobów SQL
 
-4. Administrator, należy usunąć wszystkie plany odwołujące się do karty SQL.
+4. Administrator, należy usunąć wszystkie plany odwołujące się do karty dostawcy zasobów SQL.
 
-5. Administrator musi usunąć wszystkie jednostki SKU i przydziały skojarzona z kartą SQL.
+5. Administrator musi usunąć wszystkie jednostki SKU i przydziały skojarzonego z karty dostawcy zasobów SQL.
 
 6. Uruchom ponownie skrypt wdrożenia z odinstalować parametru, punktów końcowych usługi Azure Resource Manager, DirectoryTenantID i poświadczenia dla konta administratora usługi.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
+[Dodaj serwery Hosting](azure-stack-sql-resource-provider-hosting-servers.md) i [Tworzenie baz danych](azure-stack-sql-resource-provider-databases.md).
 
 Spróbuj innych [usług PaaS](azure-stack-tools-paas-services.md) jak [dostawcy zasobów serwer MySQL](azure-stack-mysql-resource-provider-deploy.md) i [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md).

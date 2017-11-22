@@ -5,7 +5,7 @@
 
 # Wprowadzenie
 
-## [Samouczek dla początkujących](sql-data-warehouse-get-started-tutorial.md)
+## [Ładowanie danych — samouczek](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Elastyczne zapytanie — samouczek](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
 ## [Zarządzanie](sql-data-warehouse-overview-manage.md)
