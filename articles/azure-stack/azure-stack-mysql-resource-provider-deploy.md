@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -40,13 +40,14 @@ Ta wersja nie jest już tworzy wystąpienie MySQL. Należy je utworzyć i zapewn
 - Utwórz serwer MySQL dla Ciebie
 - Pobieranie i wdrażanie serwera MySQL z witryny Marketplace.
 
-! [UWAGA] Zainstalowana na stosie Azure wielowęzłowego serwerów hosta muszą być tworzone z subskrypcji dzierżawcy. Nie można ich utworzyć z subskrypcji domyślny dostawca. Innymi słowy muszą one zostać utworzone w portalu dzierżawcy lub w sesji programu PowerShell z odpowiednią nazwą logowania. Wszystkie serwery hostingu maszyn wirtualnych mogą być obciążane i musi mieć odpowiednie licencje. Administrator usługi może być właścicielem tej subskrypcji.
+> [!NOTE]
+> Zainstalowana na stosie Azure wielowęzłowego serwerów hosta muszą być tworzone z subskrypcji dzierżawcy. Nie można ich utworzyć z subskrypcji domyślny dostawca. Innymi słowy muszą one zostać utworzone w portalu dzierżawcy lub w sesji programu PowerShell z odpowiednią nazwą logowania. Wszystkie serwery hostingu maszyn wirtualnych mogą być obciążane i musi mieć odpowiednie licencje. Administrator usługi może być właścicielem tej subskrypcji.
 
 ### <a name="required-privileges"></a>Wymagane uprawnienia
 Konto system musi mieć następujące uprawnienia:
 
 1.  Baza danych: Utwórz, Porzuć
-2.  Nazwa użytkownika: Tworzenie, ustawić, porzucić, przydzielić, odwołać
+2.  Logowania: Tworzenie, ustawić, porzucić, przydzielić, odwołać
 
 ## <a name="deploy-the-resource-provider"></a>Wdrażanie dostawcy zasobów
 
@@ -60,6 +61,9 @@ Konto system musi mieć następujące uprawnienia:
     b. W systemach z wieloma węzłami host musi być systemu, w którym można uzyskać dostępu do uprzywilejowanych punktu końcowego.
 
 3. [Pobierz plik plików binarnych dostawcy zasobów MySQL](https://aka.ms/azurestackmysqlrp) i wykonywanie samorozpakowujący się plik typu wyodrębnienie zawartości do katalogu tymczasowego.
+
+    > [!NOTE]
+    > W przypadku uruchamiania na stosie Azure tworzenia 20170928.3 lub wcześniej, [pobrać tę wersję](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Certyfikat główny stos Azure są pobierane z punktu końcowego uprzywilejowanych. ASDK, aby uzyskać certyfikat z podpisem własnym jest tworzony w ramach tego procesu. Wieloma węzłami trzeba podać odpowiedni certyfikat.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>Parametry DeployMySqlProvider.ps1
 
+### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
 Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszystkich parametrów sprawdzania poprawności zakończy się niepowodzeniem, zostanie wyświetlony monit podaj wymaganych pól.
 
 | Nazwa parametru | Opis | Wartość domyślna lub komentarz |
@@ -153,7 +162,7 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszyst
 W zależności od szybkości wydajności i pobierania systemu instalacja może zająć zaledwie 20 minut lub tak długo, jak kilka godzin. Jeśli blok MySQLAdapter nie jest dostępna, Odśwież z portalu administratora.
 
 > [!NOTE]
-> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść, i zobaczysz komunikat o błędzie na ekranie i w pliku dziennika. Wdrożenie próba zostanie ponowiona z kroku się niepowodzeniem. Systemy, które nie spełnia zalecanych wymagań pamięci i vCPU nie można wdrożyć MySQL RP.
+> Jeśli instalacja wymaga więcej niż 90 minut, może nie powieść, i zobaczysz komunikat o błędzie na ekranie i w pliku dziennika. Wdrożenie próba zostanie ponowiona z kroku się niepowodzeniem. Systemy, które nie spełnia zalecanych wymagań pamięci i podstawowe nie można wdrożyć MySQL RP.
 
 
 
@@ -189,14 +198,15 @@ W zależności od szybkości wydajności i pobierania systemu instalacja może z
     - wydajność bazy danych
     - Automatyczne kopie zapasowe
     - Zarezerwuj serwerów o wysokiej wydajności dla poszczególnych działów
-    - i tak dalej.
-    Nazwa jednostki SKU powinien odzwierciedlać właściwości, dzięki czemu dzierżaw odpowiednio umieszczać swoje bazy danych. Wszystkie serwery hostingu w jednostce SKU powinny mieć takie same możliwości.
+ 
 
-    ![Utwórz MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+Nazwa jednostki SKU powinien odzwierciedlać właściwości, dzięki czemu dzierżaw odpowiednio umieszczać swoje bazy danych. Wszystkie serwery hostingu w jednostce SKU powinny mieć takie same możliwości.
+
+![Utwórz MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-Jednostki SKU może potrwać do godziny mają być wyświetlane w portalu. Nie można utworzyć bazy danych, dopóki nie zostanie utworzona jednostka SKU.
+> Jednostki SKU może potrwać do godziny mają być wyświetlane w portalu. Nie można utworzyć bazy danych, dopóki nie zostanie utworzona jednostka SKU.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Aby przetestować wdrożenie, należy utworzyć pierwszą bazę danych MySQL
@@ -231,17 +241,17 @@ Jednostki SKU może potrwać do godziny mają być wyświetlane w portalu. Nie m
 Dodaj pojemność przez dodanie dodatkowych serwerów MySQL w portalu Azure stosu. Dodatkowe serwery można dodać do nowej lub istniejącej jednostki SKU. Upewnij się, że właściwości serwera są takie same.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Udostępnianie dzierżawcom baz danych MySQL
+## <a name="make-mysql-databases-available-to-tenants"></a>Udostępnij dzierżawcom baz danych MySQL
 Tworzenie planów i oferty, aby udostępnić baz danych MySQL dla dzierżawców. Dodaj usługę Microsoft.MySqlAdapter, dodać przydział itp.
 
 ![Tworzenie planów i ofert do dołączenia bazy danych](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Aktualizowanie hasła administracyjnego
+## <a name="update-the-administrative-password"></a>Zaktualizuj hasło administracyjne
 Hasło można modyfikować, zmieniając go pierwszym wystąpieniu serwera MySQL. Przejdź do **zasobów administracyjnych** &gt; **Hosting serwerów MySQL** &gt; i kliknij na serwerze hostingu. W Panelu ustawień kliknij hasła.
 
 ![Zaktualizuj hasło administratora](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Usunięcie dostawcy zasobów karty MySQL
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Usuń kartę Dostawca zasobów MySQL
 
 Aby usunąć dostawcę zasobów, konieczne jest najpierw usunąć wszelkie zależności.
 
@@ -263,6 +273,5 @@ Aby usunąć dostawcę zasobów, konieczne jest najpierw usunąć wszelkie zale�
 
 
 ## <a name="next-steps"></a>Następne kroki
-
 
 Spróbuj innych [usług PaaS](azure-stack-tools-paas-services.md) jak [dostawcy zasobów programu SQL Server](azure-stack-sql-resource-provider-deploy.md) i [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md).

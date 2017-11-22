@@ -10,15 +10,22 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9c9bf2df078bfebb23ad549c7053f12b62fab59b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Wdrażanie usługi Azure IoT krawędzi na symulowane urządzenie w systemie Windows — podglądu
 
-Usługa Azure IoT krawędzi przenosi mocy chmury urządzeń Internetu rzeczy (IoT). Ten samouczek przeprowadzi Cię przez proces tworzenia symulowane urządzenie brzegowe IoT, które generuje dane czujników. Omawiane kwestie:
+Krawędź IoT Azure umożliwia przeprowadzanie analizy i przetwarzania danych na urządzeniach, zamiast do dystrybuowania wszystkich danych w chmurze. Samouczki krawędzi IoT przedstawiają sposób wdrażania różnego rodzaju moduły skompilowane z usług Azure lub kodu niestandardowego, ale najpierw należy urządzenia do testowania. 
+
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+1. Tworzenie Centrum IoT
+2. Zarejestruj urządzenia IoT
+3. Uruchom środowisko uruchomieniowe krawędzi IoT
+4. Wdrażanie modułu
 
 ![Architektura samouczka][2]
 

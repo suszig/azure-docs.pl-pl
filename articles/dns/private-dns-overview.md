@@ -3,8 +3,8 @@ title: "Za pomocą usługi Azure DNS dla domen prywatnej | Dokumentacja firmy Mi
 description: "Przegląd prywatnej DNS obsługującego usługę w systemie Microsoft Azure."
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jennoc
 editor: 
 ms.assetid: 
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
-ms.openlocfilehash: ed47a9d850995aaf9e78bfde8b6a5fd80dc36918
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/20/2017
+ms.author: kumud
+ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Za pomocą usługi Azure DNS dla domen prywatnych
 System nazw domen lub DNS, jest odpowiedzialny za tłumaczenia (lub rozpoznawania) nazwę usługi na adres IP. Usługa DNS platformy Azure to Usługa hostingu domen DNS, rozpoznawania nazw przy użyciu infrastruktury Microsoft Azure.  Oprócz internetowy domen DNS usługi Azure DNS teraz obsługuje również prywatnej domen DNS jako funkcja w wersji zapoznawczej.  
@@ -35,18 +35,18 @@ Usługa DNS platformy Azure zapewnia niezawodne, bezpieczne usługę DNS do zarz
 
 * **Użyj wszystkie popularne typy rekordów DNS.**  Usługa DNS platformy Azure obsługuje rekordów A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT.
 
-* **Zarządzanie rekordu automatyczne nazwy hosta.** Wraz z hosting niestandardowych rekordów DNS, Azure zostanie automatycznie Obsługa rekordów nazwy hosta dla maszyn wirtualnych w określonej sieci wirtualnych.  Dzięki temu można zoptymalizować nazwy domeny, które umożliwia bez konieczności tworzenia niestandardowych rozwiązań DNS lub modyfikowania aplikacji.
+* **Zarządzanie rekordu automatyczne nazwy hosta.** Wraz z hosting niestandardowych rekordów DNS, Azure automatycznie obsługuje rejestruje nazwę hosta dla maszyn wirtualnych w określonej sieci wirtualnych.  Dzięki temu można zoptymalizować nazwy domeny, które umożliwia bez konieczności tworzenia niestandardowych rozwiązań DNS lub modyfikowania aplikacji.
 
-* **Rozpoznawanie nazwy hosta między sieciami wirtualnymi.** W przeciwieństwie do nazw hosta dostarczone do usługi Azure prywatne stref DNS może być udostępniane między sieciami wirtualnymi.  Ta funkcja upraszcza granic sieci i usług odnajdywania scenariuszy, takich jak sieci wirtualnej komunikacji równorzędnej.
+* **Rozpoznawanie nazwy hosta między sieciami wirtualnymi.** W odróżnieniu od nazwy hosta dostarczone do usługi Azure prywatnej stref DNS może być udostępniane między sieciami wirtualnymi.  Ta funkcja upraszcza granic sieci i usług odnajdywania scenariuszy, takich jak sieci wirtualnej komunikacji równorzędnej.
 
-* **Znanych narzędzi i środowisko użytkownika.** Aby skrócić czas nauki, to nową ofertę używa już ustalonym narzędzi usługi Azure DNS (środowiska PowerShell, interfejsu API REST usługi Resource Manager szablonów) i pomocy technicznej zostaną dodane do portalu i interfejsu wiersza polecenia tak szybko, jak to możliwe.
+* **Znanych narzędzi i środowisko użytkownika.** Aby skrócić czas nauki, to nową ofertę używa już ustalonym narzędzi usługi Azure DNS (środowiska PowerShell, interfejsu API REST usługi Resource Manager szablonów).
 
 * **Obsługa w systemie DNS typu horizon podziału.** Usługa DNS platformy Azure umożliwia tworzenie stref o takiej samej nazwie, która rozwiązać do różnych odpowiedzi z sieci wirtualnej i z publicznej sieci Internet.  Typowy scenariusz w DNS typu horizon podziału jest zapewnienie dedykowanych wersji usługi do użytku w Twojej sieci wirtualnej.
 
 
 ## <a name="pricing"></a>Cennik
 
-Strefy DNS prywatnego będzie bezpłatne zarządzanej wersji zapoznawczej. Na anonsu ogólnej dostępności ta funkcja użyje opartej na użyciu modelu cenowego podobne do istniejącej usługi Azure DNS oferty. 
+Strefy DNS prywatnego jest bezpłatne zarządzanej wersji zapoznawczej. Podczas ogólnej dostępności tej funkcji będą używać opartej na użyciu modelu cenowego podobne do istniejącej usługi Azure DNS oferty. 
 
 
 ## <a name="next-steps"></a>Następne kroki

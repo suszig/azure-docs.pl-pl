@@ -50,22 +50,6 @@ Podczas ustanawiania bezpiecznego połączenia TLS z Centrum IoT, urządzenia Io
 ## <a name="securing-the-connection"></a>Zabezpieczanie połączenia
 Połączenie z Internetem urządzenia IoT i Centrum IoT jest zabezpieczone przy użyciu standardowego zabezpieczeń TLS (Transport Layer). Usługa Azure IoT obsługuje [protokołu TLS 1.2][lnk-tls12], protokołu TLS 1.1 i TLS 1.0, w tej kolejności. Obsługa protokołu TLS 1.0 jest zapewniana tylko zgodności z poprzednimi wersjami. Zaleca się użyć protokołu TLS 1.2, ponieważ zapewnia najwyższy poziom zabezpieczeń.
 
-Pakiet Azure IoT obsługuje następujące mechanizmy szyfrowania, w tej kolejności.
-
-| Mechanizmy szyfrowania | długość |
-| --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 secp384r1 ECDH (0xc028) (korektora FS 7680 bits RSA) |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 secp256r1 ECDH (0xc027) (korektora FS 3072 bits RSA) |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (korektora FS 7680 bits RSA) |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (korektora FS 3072 bits RSA) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>Zabezpieczanie chmury
 Centrum IoT Azure umożliwia określenie [zasady kontroli dostępu w] [ lnk-protocols] dla każdego klucza zabezpieczeń. Aby udzielić dostępu do poszczególnych punkty końcowe Centrum IoT używa następujący zestaw uprawnień. Uprawnienia ograniczyć dostęp do Centrum IoT, w oparciu o funkcje.
 

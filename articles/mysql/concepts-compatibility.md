@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodny z bazą danych Azure dla programu MySQL
+W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z bazą danych Azure dla programu MySQL.
+
 ## <a name="mysql-drivers"></a>Sterowniki MySQL
 Bazy danych platformy Azure dla programu MySQL używa najpopularniejszych wersja community na świecie bazy danych MySQL. W związku z tym jest zgodny z różnych języków i sterowniki programowania. Celem jest zapewnienie pomocy technicznej trzy najnowsze wersje sterowników MySQL i kontynuować działania z autorów społeczność typu open source, stale zwiększające funkcjonalność i użyteczność sterowników MySQL. Lista sterowników, które zostały przetestowane i jest zgodny z bazą danych Azure MySQL 5.6 i 5.7 znajduje się w poniższej tabeli:
 

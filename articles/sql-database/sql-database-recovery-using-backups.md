@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Odzyskiwanie bazy danych Azure SQL przy użyciu kopii zapasowych bazy danych automatycznych
 Baza danych SQL oferuje następujące opcje bazy danych odzyskiwania przy użyciu [automatyczne kopie zapasowe bazy danych](sql-database-automated-backups.md) i [kopie zapasowe w przechowywania długoterminowego](sql-database-long-term-retention.md). Można przywrócić z kopii zapasowej bazy danych, aby:
@@ -80,7 +80,7 @@ Wszystkie warstwy lub wydajności poziomu usługi, a jako pojedynczej bazy danyc
 
 Zazwyczaj należy przywrócić bazę danych do wcześniejszego stanu na potrzeby odzyskiwania. Po tej czynności można traktować jako zamiennik oryginalnej bazy danych przywróconej bazy danych lub użyj go, aby pobrać dane, a następnie zaktualizuj oryginalnej bazy danych. 
 
-* ***Baza danych zamiany:*** Jeśli przywróconej bazy danych służy jako serwer zamienny dla oryginalnej bazy danych, należy sprawdzić poziom wydajności i/lub warstwy usług są odpowiednie i skalować bazy danych, jeśli to konieczne. Można zmienić nazwy oryginalnej bazy danych, a następnie nadaj przywróconej bazy danych oryginalną nazwę w T-SQL przy użyciu polecenia ALTER DATABASE. 
+* ***Baza danych zamiany:*** Jeśli przywróconej bazy danych służy jako serwer zamienny dla oryginalnej bazy danych, należy sprawdzić poziom wydajności i/lub warstwy usług są odpowiednie i skalować bazy danych, jeśli to konieczne. Można zmienić nazwy oryginalnej bazy danych, a następnie nadaj przywróconej bazy danych w oryginalnej nazwy przy użyciu [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) polecenia T-SQL. 
 * ***Odzyskiwanie danych:*** Jeśli planujesz do pobierania danych z przywróconej bazy danych, aby odzyskać sprawność po błędzie użytkownika lub aplikacji, należy zapisać i wykonywanie skryptów odzyskiwania danych niezbędnych do wyodrębniania danych z przywróconej bazy danych do oryginalnej bazy danych. Choć operacja przywracania może zająć dużo czasu, przywracanej bazy danych jest widoczna na liście bazy danych w trakcie procesu przywracania. Po usunięciu bazy danych podczas przywracania operacja przywracania została anulowana i nie są naliczane opłaty bazy danych, która nie została ukończona, przywracania. 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -143,7 +143,7 @@ Jak już wspomniano, oprócz portalu Azure programowo przy użyciu programu Azur
 |  | |
 
 ### <a name="rest-api"></a>Interfejs API REST
-| API | Opis |
+| Interfejs API | Opis |
 | --- | --- |
 | [REST (createMode = odzyskiwania)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Przywraca bazę danych |
 | [GET, Utwórz lub zaktualizuj stan bazy danych](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Zwraca informacje o stanie podczas operacji przywracania |
