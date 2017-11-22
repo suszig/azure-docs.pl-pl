@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Zarządzanie schematem dzierżaw
               href: saas-multitenantdb-schema-management.md
+            - name: Proces ETL na potrzeby analizy
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Tworzenie aplikacji
       items:
         - name: C i C++
