@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 34d04fdc5e509aea22c96d04063e4845408ce92b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="planning-pl"></a>Planowanie (PL)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-    
-    
-
-# <a name="planning-pl"></a>Planowanie (PL)
 
 ## <a name="nist-800-53-control-pl-1"></a>Formant NIST 800 53 PL-1
 

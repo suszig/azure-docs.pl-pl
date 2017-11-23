@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Tworzenie aplikacji Java
 Sieć szkieletowa usług Azure to platforma systemów rozproszonych wdrażania i zarządzania nimi mikrousług i kontenerów. 
@@ -147,5 +147,5 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Skalowalny w poziomie aplikacji w różnych węzłach
 
 * Dowiedz się więcej o [debugowanie usług na języku Java za pomocą programu Eclipse](service-fabric-debugging-your-application-java.md)
-* Dowiedz się więcej o [Konfigurowanie danej integreation ciągłe wdrażanie przy użyciu Wpięć](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* Dowiedz się więcej o [Konfigurowanie danej integreation ciągłe wdrażanie przy użyciu Wpięć](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Wyewidencjonowanie innych [przykłady Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

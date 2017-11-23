@@ -1,207 +1,191 @@
 ---
-title: "Samouczek: Integracji Azure Active Directory z zespołową | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Praca w zespole."
+title: 'Samouczek: Integracji Azure Active Directory z Teamwork.com | Dokumentacja firmy Microsoft'
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Samouczek: Integracji Azure Active Directory z zespołową
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Samouczek: Integracji Azure Active Directory z Teamwork.com
 
-Z tego samouczka dowiesz się integrowanie pracę z usługą Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Teamwork.com z usługi Azure Active Directory (Azure AD).
 
-Integrowanie pracę z usługą Azure AD zapewnia następujące korzyści:
+Integracja z usługą Azure AD Teamwork.com zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do wszystkich członków zespołu
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do wszystkich członków zespołu (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu zarządzania Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Teamwork.com.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Teamwork.com (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z zespołowej, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Teamwork.com, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- Praca w zespole jednokrotnego włączone subskrypcji
-
+- Teamwork.com logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
-- Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
-- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
-
+- Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie pracę z galerii
+1. Dodawanie Teamwork.com z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Dodawanie Teamwork.com z galerii
+Aby skonfigurować integrację usługi Azure AD Teamwork.com, należy dodać Teamwork.com z galerii do listy zarządzanych aplikacji SaaS.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Dodawanie pracę z galerii
-Aby skonfigurować integrację pracę z usługą Azure AD, należy dodać pracę z galerii do listy zarządzanych aplikacji SaaS.
+**Aby dodać Teamwork.com z galerii, wykonaj następujące czynności:**
 
-**Aby dodać pracę z galerii, wykonaj następujące czynności:**
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-1. W  **[portalu zarządzania Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
-
-    ![Usługa Active Directory][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
 2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Aplikacje][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Aplikacje][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **zespołową**.
+4. W polu wyszukiwania wpisz **Teamwork.com**, wybierz pozycję **Teamwork.com** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com na liście wyników](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. W panelu wyników wybierz **zespołową**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Teamwork.com w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Teamwork.com jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Teamwork.com musi się.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zespołową w oparciu o nazwie "Britta Simona" użytkownika testowego.
+W Teamwork.com, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w zespołowej jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w zespołowej musi się.
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Teamwork.com, należy wykonać poniższe bloki konstrukcyjne:
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w zespołowej.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Teamwork.com](#create-a-teamworkcom-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Teamwork.com połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zespołowej, należy wykonać poniższe bloki konstrukcyjne:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zespołową](#creating-a-teamwork-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta zespołową połączonego z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Teamwork.com.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Teamwork.com, wykonaj następujące czynności:**
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure i skonfigurować logowanie jednokrotne w aplikacji zespołowej.
+1. W portalu Azure na **Teamwork.com** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z zespołowej, wykonaj następujące czynności:**
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-1. W portalu zarządzania Azure na **zespołową** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
-
-    ![Konfigurowanie rejestracji jednokrotnej][4]
-
-2. Na **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** Włącz funkcji logowania jednokrotnego.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. Na **zespołową domeny i adres URL** sekcji w **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.teamwork.com`
+3. Na **Teamwork.com domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![Adresy URL i domeny Teamwork.com pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.teamwork.com`
 
     > [!NOTE] 
-    > Należy pamiętać, że nie jest rzeczywistą wartość. Należy zaktualizować tę wartość rzeczywista logowania na adres URL. Skontaktuj się z [zespołem pomocy technicznej zespołową](mailto:support@teamwork.com) aby zyskać tę wartość. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej Teamwork.com](mailto:support@teamwork.com) aby zyskać tę wartość. 
 
-4. Na **certyfikat podpisywania SAML** kliknij **Utwórz nowy certyfikat**.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. Na **Tworzenie nowego świadectwa** okna dialogowego, kliknij ikonę kalendarza i wybierz **Data wygaśnięcia**. Następnie kliknij przycisk **zapisać** przycisku.
+5. Kliknij przycisk **zapisać** przycisku.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. Na **certyfikat podpisywania SAML** wybierz opcję **uaktywnić nowego świadectwa** i kliknij przycisk **zapisać** przycisku.
+6. Skonfigurować logowanie jednokrotne w **Teamwork.com** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej Teamwork.com](mailto:support@teamwork.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-7. W oknie podręcznym **certyfikat przerzucania** okna, kliknij przycisk **OK**.
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
-8. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
-
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z [zespołem pomocy technicznej zespołową](mailto:support@teamwork.com) i udostępnia je z pobranego **metadanych**.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu zarządzania Azure o nazwie Simona Britta.
-
-![Tworzenie użytkowników usługi Azure AD][100]
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **portalu zarządzania Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
-    
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-3. W górnej części okna dialogowego kliknij **Dodaj** otworzyć **użytkownika** okna dialogowego.
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+
+    ![Przycisk Dodaj](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
+
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
+
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    a. W **nazwa** wpisz **BrittaSimon**.
+
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
+
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+
+    d. Kliknij przycisk **Utwórz**.
  
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Tworzenie użytkownika testowego Teamwork.com
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
- 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w Teamwork.com. Praca z [zespołem pomocy technicznej Teamwork.com](mailto:support@teamwork.com) Aby dodać użytkowników do platformy Teamwork.com. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej.
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Teamwork.com.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+![Przypisanie roli użytkownika][200] 
 
-    d. Kliknij przycisk **Utwórz**. 
+**Aby przypisać Simona Britta Teamwork.com, wykonaj następujące czynności:**
 
-
-
-### <a name="creating-a-teamwork-test-user"></a>Tworzenie użytkownika testowego zespołową
-
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w zespołowej. We współpracy z [zespołem pomocy technicznej zespołową](mailto:support@teamwork.com) Aby dodać użytkowników na platformie Praca w zespole.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-
-W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udostępnienie jej do wszystkich członków zespołu.
-
-![Przypisz użytkownika][200] 
-
-**Aby przypisać Simona Britta zespołowej, wykonaj następujące czynności:**
-
-1. Otwórz widok aplikacji w portalu zarządzania Azure, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **zespołową**.
+2. Na liście aplikacji zaznacz **Teamwork.com**.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![Łącze Teamwork.com na liście aplikacji](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![Przypisz użytkownika][202] 
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Przypisz użytkownika][203]
+    ![W okienku Dodaj przydziału][203]
 
 5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
@@ -209,14 +193,12 @@ W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania 
 
 7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
     
-
-
-### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka zespołową w panelu dostępu należy powinien pobrać automatycznie zalogowane do aplikacji Praca w zespole.
-
+Po kliknięciu kafelka Teamwork.com w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Teamwork.com.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -238,3 +220,4 @@ Po kliknięciu kafelka zespołową w panelu dostępu należy powinien pobrać au
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

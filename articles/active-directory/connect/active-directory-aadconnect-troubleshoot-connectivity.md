@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Rozwiązywanie problemów z łącznością z programem Azure AD Connect
 W tym artykule opisano, jak działa połączenie między Azure AD Connect i Azure AD i jak rozwiązywać problemy z połączeniem. Te problemy najprawdopodobniej będzie można przejrzeć w środowisku z serwerem proxy.
@@ -40,7 +40,7 @@ Serwer proxy musi mieć również odpowiednie adresy URL otwarty. Oficjalna list
 
 Tych adresów URL Poniższa tabela jest absolutne minimum systemu od zera, aby można było połączyć się z usługą Azure AD w ogóle. Ta lista nie zawiera żadnych opcjonalne funkcje, takie jak zapisywanie zwrotne haseł lub Azure AD Connect Health. Jest on opisanych tutaj pomagające w rozwiązywaniu problemów ukończenie początkowej konfiguracji.
 
-| ADRES URL | Port | Opis |
+| Adres URL | Port | Opis |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Używany do pobierania listy CRL. |
 | \*. verisign.com |HTTP/80 |Używany do pobierania listy CRL. |
@@ -92,8 +92,11 @@ Jeśli serwer proxy nie jest skonfigurowane poprawnie, jest wyświetlany komunik
 
 | Błąd | Tekst błędu | Komentarz |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) został otwarty. |
+| 403 |Zabroniony |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) został otwarty. |
 | 407 |Wymagane jest uwierzytelnianie serwera proxy |Wymagany serwer proxy logowania i żaden nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie skonfigurowane w pliku machine.config. Upewnij się, że korzystasz z konta domeny dla użytkownika kreatora i konta usługi. |
+
+### <a name="proxy-idle-timeout-setting"></a>Ustawienie limitu czasu bezczynności serwera proxy
+Gdy Azure AD Connect wysyła żądanie eksportu do usługi Azure AD, Azure AD może potrwać do 5 minut do przetwarzania żądania przed wygenerowaniem odpowiedzi. Może to nastąpić, zwłaszcza, jeśli istnieje wiele obiektów grupy z członkostwa w grupach dużych zawarte w tym samym żądaniu eksportu. Upewnij się, że limit czasu bezczynności serwera Proxy jest skonfigurowany tak, aby większa niż 5 minut. W przeciwnym wypadku problem niestabilne połączenie z usługą Azure AD można zaobserwować na serwerze programu Azure AD Connect.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Wzorzec komunikacji między Azure AD Connect i Azure AD
 Jeśli zostały wykonane następujące kroki poprzedniego i nadal nie można połączyć, może w tym momencie uruchomić, analizując dzienniki sieci. W tej sekcji jest dokumentowanie wzorca normalnego i pomyślne łączność. Jest również wyświetlanie listy typowych śledzi czerwony, które może być ignorowane podczas czytania dzienniki sieci.
@@ -107,7 +110,7 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 
 **Łączenie z usługą Azure AD**
 
-| Time | ADRES URL |
+| Time | Adres URL |
 | --- | --- |
 | 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
@@ -118,7 +121,7 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 
 **Konfigurowanie**
 
-| Time | ADRES URL |
+| Time | Adres URL |
 | --- | --- |
 | 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
@@ -134,7 +137,7 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 
 **Początkowej synchronizacji**
 
-| Time | ADRES URL |
+| Time | Adres URL |
 | --- | --- |
 | 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
 | 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |

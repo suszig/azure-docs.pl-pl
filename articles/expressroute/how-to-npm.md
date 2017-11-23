@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
 
@@ -96,7 +96,7 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
 1. Na **konfiguracji monitora wydajności sieci — strona instalacji TCP** dla zasobu, w **zainstalować agentów OMS** kliknij agenta, który odpowiada procesora i pobierania serwera plik Instalatora.
 
   >[!NOTE]
-  >Agent systemu Linux nie jest obecnie obsługiwany w przypadku połączeń ExpressRoute monitorowania.
+  >Musi być zainstalowany agent w systemie Windows Server (2008 z dodatkiem SP1 lub nowszym). Monitorowanie przy użyciu systemu operacyjnego Windows pulpitu i systemu operacyjnego Linux obwody usługi ExpressRoute nie jest obsługiwane. 
   >
   >
 2. Następnie skopiuj **identyfikator obszaru roboczego** i **klucz podstawowy** do Notatnika.
@@ -105,6 +105,8 @@ Jeśli korzystasz już z Monitora wydajności sieci do monitorowania innych obie
   ![Skrypt programu PowerShell](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Zainstaluj agenta monitorowania na każdym serwerze monitorowania
+
+Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połączenia ExpressRoute (tj. w infrastrukturze lokalnej, sieci wirtualnych platformy Azure) nadmiarowości. Aby zainstalować agentów, wykonaj następujące kroki:
 
 1. Uruchom **Instalator** do zainstalowania agenta na każdym serwerze, który ma być używany do monitorowania usługi ExpressRoute. Używanego do monitorowania serwera może być maszyny Wirtualnej lub lokalnymi i musi mieć dostęp do Internetu. Należy zainstalować co najmniej jeden lokalny agent i jednego agenta w każdym segmencie sieci, które mają być monitorowane na platformie Azure.
 2. Na **powitalnej** kliknij przycisk **dalej**.

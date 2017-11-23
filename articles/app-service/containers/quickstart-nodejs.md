@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web Node.js w usłudze Azure App Service w systemie Linux
 
@@ -33,8 +33,8 @@ Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows 
 
 Aby ukończyć ten przewodnik Szybki Start:
 
-* [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-* [Zainstaluj środowisko Node.js i menedżer NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
+* <a href="https://nodejs.org/" target="_blank">Zainstaluj środowisko Node.js i menedżer NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -78,7 +78,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Utwórz aplikację sieci Web
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 

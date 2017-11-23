@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobsługowe Resetowanie w usłudze Azure AD nowości haseł
 
@@ -58,7 +58,7 @@ Strony resetowania odczytu kolejnych kroków, aby dowiedzieć się więcej o log
 
 Jeśli włączono SSPR, musisz wybrać co najmniej jeden z następujących opcji dla metod uwierzytelniania. Czasami słyszysz tych opcji, określany jako "bramy". Zdecydowanie zaleca się, wybierz co najmniej dwóch metod uwierzytelniania, dzięki czemu użytkownicy mają większą elastyczność.
 
-* Wiadomość e-mail
+* Adres e-mail
 * Telefon komórkowy
 * Telefon biurowy
 * Pytania zabezpieczające
@@ -207,7 +207,7 @@ Przykład: Istnieją cztery Administratorzy w środowisku. Administrator A Reset
 
 ## <a name="on-premises-integration"></a>Integracja z lokalnymi
 
-Jeśli musisz zainstalować, skonfigurować i włączyć Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wygaszone, następnie zapisywania zwrotnego nie został poprawnie skonfigurowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback).
+Jeśli musisz zainstalować, skonfigurować i włączyć Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wygaszone, następnie zapisywania zwrotnego nie został poprawnie skonfigurowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Zapisywanie zwrotne][Writeback]
 
@@ -217,7 +217,7 @@ Ta strona zawiera szybkie stan zapisywania zwrotnego lokalnej klienta jeden z na
 * Usługi Azure AD jest w trybie online i jest połączona z lokalnego klienta zapisywania zwrotnego. Jednak prawdopodobnie zainstalowana wersja programu Azure AD Connect jest nieaktualny. Należy wziąć pod uwagę [uaktualnianie programu Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) aby upewnić się, czy masz najnowsze funkcje łączności i ważnych poprawek.
 * Niestety, firma Microsoft nie może sprawdzić stan klienta lokalnego zapisywania zwrotnego ponieważ zainstalowana wersja programu Azure AD Connect jest nieaktualny. [Uaktualnij usługi Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) Aby móc sprawdzić stan połączenia.
 * Niestety prawdopodobnie nie nie może połączyć się z klienta lokalnego zapisywania zwrotnego w tej chwili. [Rozwiązywanie problemów z usługi Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) próby odzyskania połączenia.
-* Niestety nie można nawiązać lokalnej klienta zapisywania zwrotnego, ponieważ nie został poprawnie skonfigurowany funkcji zapisywania zwrotnego haseł. [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) próby odzyskania połączenia.
+* Niestety nie można nawiązać lokalnej klienta zapisywania zwrotnego, ponieważ nie został poprawnie skonfigurowany funkcji zapisywania zwrotnego haseł. [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback) próby odzyskania połączenia.
 * Niestety prawdopodobnie nie nie może połączyć się z klienta lokalnego zapisywania zwrotnego w tej chwili. Może to być spowodowane problemami z tymczasowego po naszej stronie. Jeśli problem będzie się powtarzać, [Rozwiązywanie problemów z programu Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) próby odzyskania połączenia.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zapisywania zwrotnego haseł do katalogu lokalnego
@@ -248,12 +248,12 @@ Do przetestowania tego scenariusza, przejdź do http://passwordreset.microsofton
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za pośrednictwem usługi Azure AD:
+Poniższe artykuły zawierają dodatkowe informacje dotyczące resetowania haseł za pomocą usługi Azure AD:
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
 * [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-* [Masz pytanie licencjonowania?](active-directory-passwords-licensing.md)
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)

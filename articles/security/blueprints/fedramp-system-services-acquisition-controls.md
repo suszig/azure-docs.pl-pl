@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: fcb8b6a0a88e70419a1f87ccd1ed9bd524dec57c
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-services-acquisition-sa"></a>System i nabywania usług (SA)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-    
-    
-
-# <a name="system-and-services-acquisition-sa"></a>System i nabywania usług (SA)
 
 ## <a name="nist-800-53-control-sa-1"></a>Formant NIST 800 53 SA-1
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatycznie skalować skali maszyny wirtualnej w portalu Azure
 Podczas tworzenia zestawu skalowania, należy zdefiniować liczba wystąpień maszyn wirtualnych, które chcesz uruchomić. Twoje żądanie aplikacji zmian, można automatycznie zwiększyć lub zmniejszyć liczbę wystąpień maszyn wirtualnych. Możliwość skalowania automatycznego umożliwia nadąża z popyt lub reagowania na zmiany wydajności aplikacji w całym cyklu życia aplikacji.
@@ -34,7 +34,7 @@ Aby utworzyć zasady automatycznego skalowania, należy istniejącej maszyny wir
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Tworzenie reguły automatycznie skalować w poziomie
 Jeśli Twoje żądanie aplikacji zwiększa, obciążenie wystąpień maszyn wirtualnych w skali sieci ustawić zwiększa. Jeśli ta zwiększone obciążenie jest spójne, a nie tylko krótki żądanie, można skonfigurować reguł skalowania automatycznego, aby zwiększyć liczbę wystąpień maszyny Wirtualnej w zestawie skalowania. Gdy te wystąpień maszyn wirtualnych są tworzone i wdrożonych aplikacji, zestaw skali rozpoczyna Dystrybuuj ruch do nich za pośrednictwem usługi równoważenia obciążenia. Można określić, jakie metryk do monitorowania, takie jak procesor CPU lub dysku, jak długo obciążenia aplikacji muszą spełniać podany próg i ustaw liczbę wystąpień maszyny Wirtualnej, aby dodać do skali.
 
-1. Otwórz Azure portalu i wybierz pozycję **grup zasobów** z menu po lewej stronie rozmiaru pulpitu nawigacyjnego.
+1. Otwórz Azure portalu i wybierz pozycję **grup zasobów** z menu po lewej stronie pulpitu nawigacyjnego.
 2. Wybierz grupę zasobów, która zawiera zestaw skalowania, a następnie wybierz Twoje zestaw skalowania z listy zasobów.
 3. Wybierz **skalowanie** z menu po lewej stronie skali Ustaw okna. Kliknij przycisk, aby **Włączanie automatycznego skalowania**:
 
@@ -48,13 +48,13 @@ Jeśli Twoje żądanie aplikacji zwiększa, obciążenie wystąpień maszyn wirt
     
     | Parametr              | Wyjaśnienie                                                                                                         | Wartość          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Agregacja czasu*     | Określa, jak zebranych metryk powinny być agregowane dla celów analizy.                                                | Średnia        |
-    | *Nazwa metryki*          | Metryki wydajności do monitorowania i zastosować skali ustawić akcje.                                                   | Procent procesora CPU |
-    | *Statystyka ziarno czasu* | Określa, jak metryki zbierane w poszczególnych ziarno czasu powinien agregowane dla celów analizy.                             | Średnia        |
+    | *Agregacja czasu*     | Określa, jak zebranych metryk powinny być agregowane dla celów analizy.                                                | Średni        |
+    | *Nazwa metryki*          | Metryki wydajności do monitorowania i zastosować skali ustawić akcje.                                                   | Procentowe użycie procesora CPU |
+    | *Statystyka ziarno czasu* | Określa, jak metryki zbierane w poszczególnych ziarno czasu powinien agregowane dla celów analizy.                             | Średni        |
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                     | Więcej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 70             |
     | *Czas trwania*             | Ilość czasu monitorowane przed wartości metryki i próg są porównywane.                                   | 10 minut     |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ procent przez |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ wartość procentową o |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                            | 20             |
     | *Cool w dół (w minutach)*  | Ilość czasu oczekiwania przed reguła została zastosowana ponownie, aby akcji skalowania automatycznego ma czas zaczęły obowiązywać. | 5 minut      |
 
@@ -77,7 +77,7 @@ Na wieczorem lub w weekendy Twoje żądanie aplikacji mogą się zmniejszyć. Je
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                      | Mniej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 30             |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz procent przez |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz wartość procentową o |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                             | 20             |
 
 3. Aby utworzyć regułę, wybierz **Dodaj**

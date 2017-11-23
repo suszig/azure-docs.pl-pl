@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Zwiększenie wydajności przez kompresowanie plików w usłudze Azure CDN
 Kompresja jest to prosta i skuteczna metoda zwiększenia szybkości transferu plików i zwiększyć strony obciążenia wydajność przez zmniejszenie rozmiaru pliku przed wysłaniem go z serwera. Zmniejsza kosztów przepustowości i zapewnia bardziej odpowiednie dla użytkowników.
@@ -100,7 +100,7 @@ Te tabele zawierają opis usługi Azure CDN kompresji zachowanie dla każdego sc
 > * Być większa niż 128 bajtów.
 > * Być mniejszy niż 1 MB.
 > 
-> Obsługuje te profile **gzip** (GNU zip), **deflate**, **bzip2**, lub **br** kodowania (Brotli). Brotli kodowania, kompresji odbywa się tylko na krawędzi. W przeglądarce klienta/musi wysłać żądania do kodowania Brotli i skompresowanego zasobów musi mieć skompresowane po stronie źródła najpierw. 
+> Obsługuje te profile **gzip** (GNU zip), **deflate**, **bzip2**, lub **br** kodowania (Brotli). Brotli kodowania, kompresji musi odbywać się w źródle. W przeglądarce klienta/musi wysłać żądania do kodowania Brotli i skompresowanego zasobów musi mieć skompresowane po stronie źródła najpierw. 
 
 > [!IMPORTANT]
 > Aby uzyskać **Azure CDN from Akamai** profile, wszystkie pliki kwalifikują się do kompresji. Niemniej jednak plik musi być typ MIME, który został [skonfigurowane kompresji](#enabling-compression).

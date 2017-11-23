@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.openlocfilehash: 52cd6de5b6caa215ff1726d3099cb7c49576774f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Dlatego chcesz Dowiedz się więcej o sieci szkieletowej usług?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Sieć szkieletowa usług ma dużej powierzchni, jednak i jest dużo, aby dowiedzieć się więcej.  Ten artykuł przedstawia streszczenie sieci szkieletowej usług oraz podstawowe koncepcje programowania modeli, cyklem życia aplikacji, testowania, klastrami i monitorowanie kondycji. Odczyt [omówienie](service-fabric-overview.md) i [co to są mikrousług?](service-fabric-overview-microservices.md) wprowadzenie i jak sieci szkieletowej usług może służyć do tworzenia mikrousług. W tym artykule nie zawiera pełną listę zawartości, ale łącze do omówienie i pobieranie rozpoczęte artykułów dla każdej części sieci szkieletowej usług. 
@@ -103,7 +103,7 @@ A [pliku wykonywalnego gościa](service-fabric-deploy-existing-app.md) jest istn
 ## <a name="application-lifecycle"></a>Cykl życia aplikacji
 Ponieważ z innych platform, aplikacji w sieci szkieletowej usług zwykle przechodzi przez następujących faz: projekt, rozwoju, testowania, wdrożenia, uaktualniania, obsługi i usuwania. Sieć szkieletowa usług zawiera najwyższej jakości pomoc techniczną dla pełnej aplikacji cyklem życia aplikacji w chmurze, od projektowania do wdrożenia, codziennego zarządzania i konserwacji do likwidacji ostatecznego. Model usługi umożliwia kilku różnych ról niezależnie uczestniczyć w cyklu życia aplikacji. [Cykl życia aplikacji usługi sieć szkieletowa](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i jak są używane przez różne role w etapy cyklu życia aplikacji sieci szkieletowej usług. 
 
-Cykl życia całej aplikacji można zarządzać za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [interfejsów API języka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/system.fabric._application_management_client), i [interfejsów API REST](/rest/api/servicefabric/). Można także skonfigurować ciągłej integracji/ciągłego potoki wdrożenia za pomocą narzędzi takich jak [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) lub [Wpięć](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+Cykl życia całej aplikacji można zarządzać za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [interfejsów API języka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/system.fabric._application_management_client), i [interfejsów API REST](/rest/api/servicefabric/). Można także skonfigurować ciągłej integracji/ciągłego potoki wdrożenia za pomocą narzędzi takich jak [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) lub [Wpięć](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 W poniższym filmie Microsoft Virtual Academy opisano sposób zarządzania cyklu użytkowania Twojej aplikacji:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 059576e28b0b74700b5e4fbad06e74606c893af7
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-communications-protection-sc"></a>System i ochronę komunikacji (SC)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-    
-    
-
-# <a name="system-and-communications-protection-sc"></a>System i ochronę komunikacji (SC)
 
 ## <a name="nist-800-53-control-sc-1"></a>NIST 800 53 kontroli SC-1
 

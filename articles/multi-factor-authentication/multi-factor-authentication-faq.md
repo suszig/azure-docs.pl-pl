@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 Często zadawane pytania odpowiedzi na często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication i korzystanie z usługi Multi-Factor Authentication. Go dzieli się na pytania dotyczące usługi ogólnie rzecz biorąc, rozliczeń modeli, możliwości użytkowników i rozwiązywania problemów.
@@ -95,7 +95,7 @@ Jeśli katalog zawiera *na uwierzytelnianie* dostawcy usługi Azure Multi-Factor
 
 **Pytanie: czy Moja organizacja ma używać do synchronizacji tożsamości do użycia usługi Azure Multi-Factor Authentication?**
 
-Jeśli Twoja organizacja korzysta z modelu rozliczeń na podstawie zużycia, Azure Active Directory jest opcjonalny, ale nie jest wymagane. Jeśli dostawcy usługi MFA nie jest połączony z dzierżawy usługi Azure AD, można wdrożyć tylko serwera usługi Azure Multi-Factor Authentication lub zestawu SDK usługi Azure Multi-Factor Authentication lokalną.
+Jeśli Twoja organizacja korzysta z modelu rozliczeń na podstawie zużycia, Azure Active Directory jest opcjonalny, ale nie jest wymagane. Dostawcy usługi MFA nie jest połączony z dzierżawy usługi Azure AD, można wdrażać tylko lokalne serwera usługi Azure Multi-Factor Authentication.
 
 Ponieważ licencje są dodawane do dzierżawy usługi Azure AD, gdy zakupu i przypisać je do użytkowników w katalogu usługi Azure Active Directory jest wymagana dla modelu licencji.
 

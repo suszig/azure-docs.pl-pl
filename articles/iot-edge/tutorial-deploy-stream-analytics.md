@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Stream Analytics jako moduł krawędzi IoT — w wersji preview
 
@@ -68,10 +68,10 @@ W tej sekcji utworzysz zadanie usługi analiza strumienia Azure pobierają dane 
 
 5. W portalu Azure, przejdź do **Utwórz zasób** > **Internetu rzeczy** i wybierz **zadania usługi analiza strumienia**.
 
-6. Wprowadź nazwę, wybierz **krawędzi** jako środowisko macierzyste i użyj pozostałe wartości domyślne.  Kliknij przycisk **Utwórz**.
+2. Wprowadź nazwę, wybierz **krawędzi** jako środowisko macierzyste i użyj pozostałe wartości domyślne.  Kliknij przycisk **Utwórz**.
 
     >[!NOTE]
-    >Obecnie są ograniczonej liczby regionach, które obsługują ASA zadania na krawędzi IoT. Wybierz jedną z następujących jako lokalizację: środkowe stany USA, zachodnie centralnej nam, północno-środkowe stany, wschodnie stany USA, Kanada Wschodnia, Japonia Wschodnia, Wschodnia Azja, Europa Północna, Wielka Brytania Południowa, Australia Wschodnia, Brazylia Południowa. 
+    >Obecnie ASA zadania na krawędzi IoT nie są obsługiwane w regionie nam zachodnie 2. Wybierz inną lokalizację.
 
     ![Utwórz ASA][5]
 

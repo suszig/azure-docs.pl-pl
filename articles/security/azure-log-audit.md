@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Rejestrowanie platformy Azure i inspekcji
 ## <a name="introduction"></a>Wprowadzenie
@@ -209,7 +209,7 @@ Rejestrowane są następujące typy żądań uwierzytelnionych i anonimowe.
 
 
 
-| Uwierzytelniony  | Anonimowe|
+| Uwierzytelnione  | Anonimowe|
 | :------------- | :-------------|
 | Liczba pomyślnych żądań | Liczba pomyślnych żądań |
 |Nieudane żądania, w tym limitu czasu, ograniczania przepustowości sieci, autoryzacji i innych błędów | Żądania przy użyciu dostępu sygnatury dostępu Współdzielonego, włącznie z żądaniami nie powiodło się i pomyślne |
@@ -362,7 +362,7 @@ Istnieją cztery różne sposoby [zbieranie dzienników i metryki dla usług Azu
 |Usługi poznawcze|    Microsoft.CognitiveServices/<br>accounts|       Diagnostyka|||
 |Data Lake analytics|   Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostyka|||
 |Data Lake store|   Microsoft.DataLakeStore/<br>accounts|   Diagnostyka|||
-|Przestrzeń nazw Centrum zdarzeń|   Microsoft.EventHub/<br>Przestrzenie nazw|  Diagnostyka|    Diagnostyka||
+|Przestrzeń nazw centrum zdarzeń|   Microsoft.EventHub/<br>Przestrzenie nazw|  Diagnostyka|    Diagnostyka||
 |Centra IoT|  Microsoft.Devices/<br>IotHubs||     Diagnostyka||
 |Usługa Key Vault| Microsoft.KeyVault/<br>magazynów|  Diagnostyka  || [KeyVault analityka](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
 |Moduły równoważenia obciążenia|    Microsoft.Network/<br>loadBalancers|    Diagnostyka|||
@@ -371,7 +371,7 @@ Istnieją cztery różne sposoby [zbieranie dzienników i metryki dla usług Azu
 |Grupy zabezpieczeń sieci|   Microsoft.Network/<br>networksecuritygroups|Diagnostyka||   [Grupy zabezpieczeń sieci Azure analityka](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Magazyny odzyskiwania|   Microsoft.RecoveryServices/<br>magazynów|||[Usługa Azure Recovery usługi Analytics (wersja zapoznawcza)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Usługi wyszukiwania|   Microsoft.Search/<br>searchServices|    Diagnostyka|    Diagnostyka||
-|Przestrzeń nazw magistrali usług| Microsoft.ServiceBus/<br>Przestrzenie nazw|    Diagnostyka|Diagnostyka|    [Analiza magistrali usług (wersja zapoznawcza)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Przestrzeń nazw Service Bus | Microsoft.ServiceBus/<br>Przestrzenie nazw|    Diagnostyka|Diagnostyka|    [Analiza magistrali usług (wersja zapoznawcza)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Magazyn||    [Usługa sieci szkieletowej Analytics (wersja zapoznawcza)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>serwery /<br>bazy danych||       Diagnostyka||
 ||Microsoft.Sql/<br>serwery /<br>elasticPools||||

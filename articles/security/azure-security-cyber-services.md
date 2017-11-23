@@ -4,7 +4,7 @@ description: "Artykuł zawiera wprowadzenie o usługach firmy Microsoft dotyczą
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Usługi w bezpieczeństwa
-Microsoft Services zapewnia kompleksowe podejścia do zabezpieczeń, tożsamości i bezpieczeństwa. Microsoft Services zawiera tablicę, zabezpieczenia i tożsamość usługi przez strategii, planowania, wdrażania i pracownikiem pomocy technicznej, co może pomóc w naszych klientów korporacyjnych wdrożenia rozwiązań zabezpieczeń kompleksowe, które są wyrównane z ich celów strategicznych.
+Microsoft Services zapewnia kompleksowe podejścia do zabezpieczeń, tożsamości i bezpieczeństwa. Microsoft Services zawiera tablicę bezpieczeństwo i tożsamość usługi przez strategii, planowania, wdrażania i pracownikiem pomocy technicznej. Te usługi ułatwia przedsiębiorstwom (klientom) wdrożenia rozwiązań zabezpieczeń kompleksowe, które są wyrównane z ich celów strategicznych.
 
 Bezpośredni dostęp do produktu zespoły deweloperów możemy tworzyć rozwiązania, które integrują i zwiększyć bezpieczeństwo najnowsze i możliwości tożsamości naszych produktów w celu ochrony działalności biznesowej i innowacji dysku klienta firmy Microsoft.
 

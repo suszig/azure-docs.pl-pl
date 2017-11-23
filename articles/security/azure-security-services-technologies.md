@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Usługi zabezpieczeń platformy Azure i technologii
 W naszych rozmów z aktualnych i przyszłych klientów platformy Azure jest firma Microsoft często zadawane "masz listę wszystkich zabezpieczeń związane z usług i technologii, które platforma Azure ma oferować?"
 
-Rozumiemy, że podczas oceniania techniczne opcje dostawcy usług chmury, jest pomocne listę dostępnych, której można wyświetlić w dół w przypadku bardziej czas jest odpowiednie dla Ciebie.
+Ocena możliwości dostawcy usług chmury, warto te informacje.
 
 Poniżej znajduje się dążenia początkowej zapewnienie listy. Wraz z upływem czasu tej listy zmieniać i powiększać, podobnie jak Azure. Listy uporządkowane i listy kategorii również będzie rosnąć wraz z upływem czasu. Upewnij się sprawdzić tę stronę na bieżąco na bieżąco na naszych usług związanych z zabezpieczeniami i technologii.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Używanie bibliotek klas .NET z usługi Azure Functions
 
@@ -37,7 +37,7 @@ Ten artykuł zawiera następujące wymagania wstępne:
 
 W programie Visual Studio Utwórz nowy projekt usługi Azure Functions. Tworzy nowy szablon projektu pliki *host.json* i *local.settings.json*. Możesz [Dostosowywanie ustawień środowiska uruchomieniowego usługi Azure Functions w host.json](functions-host-json.md). 
 
-Plik *local.settings.json* przechowuje ustawienia Azure funkcje podstawowe narzędzia, parametry połączenia i ustawień aplikacji. Aby dowiedzieć się więcej na temat jego struktury, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md#local-settings).
+Plik *local.settings.json* przechowuje ustawienia Azure funkcje podstawowe narzędzia, parametry połączenia i ustawień aplikacji. Aby dowiedzieć się więcej na temat jego struktury, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Atrybut FunctionName
 

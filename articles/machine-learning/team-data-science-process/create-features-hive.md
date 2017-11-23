@@ -4,7 +4,7 @@ description: "Przykłady zapytań Hive, które generują funkcje w danych przech
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań Hive
-Ten dokument przedstawia sposób tworzenia funkcji danych przechowywanych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Te zapytania Hive Użyj osadzonych Hive funkcje zdefiniowane przez użytkownika (UDF), skryptów, dla której są dostarczane.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji danych klastra usługi Hadoop przy użyciu zapytań programu Hive
+Ten dokument przedstawia sposób tworzenia funkcji danych przechowywanych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Te zapytania Hive funkcji osadzonych Hive User-Defined (UDF), skryptów, dla której są dostarczane.
 
 Operacje potrzebne do utworzenia funkcje mogą być pamięci. Wydajność zapytań programu Hive staje się ważniejsze w takich przypadkach i można zwiększyć przez dostrajanie określonych parametrów. Dostrajanie parametrów została szczegółowo opisana w sekcji końcowego.
 
@@ -63,7 +63,7 @@ Często jest przydatne do obliczania częstotliwości poziomów podzielone na ka
 
 
 ### <a name="hive-riskfeature"></a>Ryzyko podzielone na kategorie zmiennych w klasyfikacji binarnej
-W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na kategorie zmiennych w funkcje numeryczne modeli używany tylko zająć funkcje numeryczne. Jest to realizowane przez zamianę każdy poziom nieliczbowy zagrożenie liczbowych. W tej sekcji przedstawiono pewne ogólne zapytań programu Hive obliczające wartości ryzyka (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
+W klasyfikacji binarnej zmienne podzielone na kategorie nieliczbowy musi konwertowane na funkcje numeryczne, po modelach tylko używane mieć funkcje numeryczne. Ta konwersja odbywa się przez zastąpienie każdy poziom nieliczbowy liczbowych ryzyka. W tej sekcji przedstawiono pewne ogólne zapytań programu Hive obliczające wartości ryzyka (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -134,34 +134,44 @@ Pola, które są używane w tym zapytaniu są współrzędne GPS odbiór i dropo
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Równania matematyczne, które obliczyć odległość między dwoma współrzędne GPS można znaleźć w <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">skryptów typu ruchome</a> lokacji utworzone przez Lapisu Peterowi. W języku Javascript, jego funkcji `toRad()` jest po prostu *lat_or_lon*pi/180 *, który Konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest zakres lub długość geograficzną. Ponieważ gałąź nie zawiera funkcji `atan2`, ale udostępnia funkcję `atan`, `atan2` funkcji jest implementowany przez `atan` funkcji w powyższym zapytaniu gałęzi przy użyciu definicji w <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Równania matematyczne, które obliczyć odległość między dwoma współrzędne GPS można znaleźć w <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">skryptów typu ruchome</a> lokacji utworzone przez Lapisu Peterowi. W języku Javascript, ta funkcja `toRad()` jest po prostu *lat_or_lon*pi/180 *, który Konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest zakres lub długość geograficzną. Ponieważ gałąź nie zawiera funkcji `atan2`, ale udostępnia funkcję `atan`, `atan2` funkcji jest implementowany przez `atan` funkcji w powyższym zapytaniu gałęzi przy użyciu definicji w <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Tworzenie obszaru roboczego](./media/create-features-hive/atan2new.png)
 
 Pełną listę gałęzi funkcji UDF embedded znajdują się w **wbudowanych funkcji** sekcji na <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Tematy zaawansowane: parametry Hive strojenia poprawy szybkości zapytania
-Domyślne ustawienia parametru gałęzi klastra może nie być odpowiednie dla zapytań Hive i dane, które są przetwarzania zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy mogą dostosować które poprawić wydajność zapytań programu Hive. Użytkownicy muszą dodać parametr strojenia kwerendy przed zapytania przetwarzania danych.
+## <a name="tuning"></a>Tematy zaawansowane: parametry strojenia gałęzi do zwiększenia szybkości zapytania
+Domyślne ustawienia parametru gałęzi klastra może nie być odpowiednie dla zapytań Hive i dane, które są przetwarzania zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy można dostosować w celu poprawy wydajności zapytań programu Hive. Użytkownicy muszą dodać parametr strojenia kwerendy przed zapytania przetwarzania danych.
 
-1. **Miejsce na stercie Java**: dla zapytań obejmujących dołączenie dużych zestawów danych lub przetwarzania rekordów długi **kończy się wolne miejsce na stercie** jest jednym z typowych błędów. Można to dostroić przez ustawienie parametrów *mapreduce.map.java.opts* i *mapreduce.task.io.sort.mb* do żądanej wartości. Oto przykład:
+1. **Miejsce na stercie Java**: dla zapytań obejmujących dołączenie dużych zestawów danych lub przetwarzania rekordów długi **kończy się wolne miejsce na stercie** jest jednym z typowych błędów. Tego błędu można uniknąć przez ustawienie parametrów *mapreduce.map.java.opts* i *mapreduce.task.io.sort.mb* do żądanej wartości. Oto przykład:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Ten parametr przydziela 4GB pamięci, aby miejsce na stercie Java i powoduje sortowanie efektywniejsze przez przydzielanie większej ilości pamięci. Należy dobrze gry z tych przydziałów, jeśli istnieją wszystkie zadania błędy związane z miejsca na stercie.
 
-1. **Rozmiaru bloku systemu plików DFS**: ten parametr określa najmniejsza jednostka danych przechowywanych w systemie plików. Na przykład jeśli rozmiar bloku systemu plików DFS jest 128MB, a następnie żadnych danych o rozmiarze mniejsza i maksymalnie 128MB są przechowywane w jeden blok danych, który jest większy niż 128MB przydzielony dodatkowe bloki. Wybieranie rozmiaru bloku bardzo małych powoduje duże koszty Hadoop, ponieważ nazwa węzła ma przetwarzać wiele żądań więcej można znaleźć odpowiedniego bloku odnoszące się do pliku. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
-   
+1. **Rozmiaru bloku systemu plików DFS**: ten parametr określa najmniejsza jednostka danych przechowywanych w systemie plików. Na przykład jeśli rozmiar bloku systemu plików DFS jest 128 MB, a następnie żadnych danych o rozmiarze mniejsza i maksymalnie 128 MB są przechowywane w jeden blok. Przydzielony dodatkowe bloki danych, który jest większy niż 128 MB. 
+2. Wybieranie mały rozmiar bloku powoduje duże koszty Hadoop, ponieważ nazwa węzła ma przetwarzać wiele żądań więcej można znaleźć odpowiedniego bloku odnoszące się do pliku. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
+
         set dfs.block.size=128m;
+
 2. **Optymalizacja operacji tworzenia sprzężenia w gałęzi**: podczas operacji łączenia w ramach mapy/Zmniejsz zazwyczaj miejsce w fazie Zmniejsz czasami znaczne zyski można osiągnąć poprzez zaplanowanie sprzężenia w fazie mapy (zwane również "mapjoins"). Aby skierować gałąź, aby to zrobić, jeśli to możliwe, należy ustawić:
    
-        set hive.auto.convert.join=true;
+       set hive.auto.convert.join=true;
+
 3. **Określanie liczby mapowań do gałęzi**: podczas Hadoop zezwala użytkownikowi na określenie liczby reduktory, liczba mapowań jest zwykle nie jest ustawiony przez użytkownika. Lewy, umożliwiający pewien stopień kontroli tego numeru jest wybranie zmienne Hadoop *mapred.min.split.size* i *mapred.max.split.size* jako rozmiar map zadań zależy od:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Zazwyczaj wartość domyślną *mapred.min.split.size* ma wartość 0, z *mapred.max.split.size* jest **Long.MAX** i *dfs.block.size* to 64MB. Jak możemy stwierdzić, podany rozmiar danych dostrajanie parametrów "ustawienia" ich pozwala nam dostosować liczbę mapowań używane.
-4. Kilka innych kolejnych **zaawansowane opcje** Hive optymalizacji wydajności są wymienione poniżej. Te umożliwiają skonfigurowanie pamięć przydzielona do mapowania i zmniejszyć zadań i mogą być przydatne w Dostosowywanie wydajności. Sprawdź należy pamiętać, że *mapreduce.reduce.memory.mb* nie może być większa niż rozmiar pamięci fizycznej w każdym węźle procesu roboczego klastra usługi Hadoop.
+    Zwykle wartość domyślna:
+    
+    - *mapred.min.split.SIZE* ma wartość 0, który z
+    - *mapred.max.split.SIZE* jest **Long.MAX** i 
+    - *DFS.Block.SIZE* to 64 MB.
+
+    Jak możemy stwierdzić, podany rozmiar danych dostrajanie parametrów "ustawienia" ich pozwala nam dostosować liczbę mapowań używane.
+
+4. Poniżej przedstawiono kilka innych kolejnych **zaawansowane opcje** optymalizacji wydajności Hive. Te umożliwiają skonfigurowanie pamięć przydzielona do mapowania i zmniejszyć zadań i mogą być przydatne w Dostosowywanie wydajności. Należy pamiętać, że *mapreduce.reduce.memory.mb* nie może być większa niż rozmiar pamięci fizycznej w każdym węźle procesu roboczego klastra usługi Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

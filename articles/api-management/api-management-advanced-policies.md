@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Zarządzanie interfejsami API zaawansowane zasady
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -258,7 +258,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
 |limit czasu = "int"|Interwał limitu czasu w sekundach przed wywołaniem usługi wewnętrznej bazy danych nie powiedzie się.|Nie|Brak limitu czasu|  
-|Wykonaj przekierowania = "true &#124; false"|Określa, czy przekierowania z usługi wewnętrznej bazy danych są następuje bramy lub zwracany do obiektu wywołującego.|Nie|wartość false|  
+|Wykonaj przekierowania = "true &#124; false"|Określa, czy przekierowania z usługi wewnętrznej bazy danych są następuje bramy lub zwracany do obiektu wywołującego.|Nie|fałsz|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -268,26 +268,26 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   **Zakresy zasad:** wszystkich zakresów  
   
 ##  <a name="LimitConcurrency"></a>Limit współbieżności  
- `limit-concurrency` Zasad uniemożliwia objętego zasad wykonywania przez więcej niż określoną liczbę żądań w danym momencie. Po przekroczeniu progu, nowe żądania są dodawane do kolejki, do kolejki maksymalną długość. Po wyczerpania kolejki nowe żądania nie powiedzie się natychmiast.
+ `limit-concurrency` Zasad uniemożliwia objętego zasad wykonywania przez więcej niż określoną liczbę żądań w danym momencie. Po przekroczeniu tej liczby, nowe żądania nie powiedzie się bezpośrednio z kodem stanu zbyt wiele żądań 429.
   
 ###  <a name="LimitConcurrencyStatement"></a>Deklaracja zasad  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Przykłady  
   
-####  <a name="ChooseExample"></a>Przykład  
+#### <a name="example"></a>Przykład  
  W poniższym przykładzie pokazano sposób ograniczyć liczbę przekazywany do wewnętrznej bazy danych na podstawie wartości zmiennej kontekstu żądania.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |---------------|-----------------|--------------|--------------|  
 |key|Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Może być współużytkowane przez wiele zasad.|Tak|Nie dotyczy|  
 |Maksymalna liczba|Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wprowadzać zasady.|Tak|Nie dotyczy|  
-|timeout|Liczba całkowita. Wyrażenie jest dozwolone. Określa liczbę sekund, żądanie powinno czekać z wprowadź zakres przed niepowodzeniem z "429 zbyt wiele żądań"|Nie|Infinity|  
-|Maksymalna kolejki|Liczba całkowita. Wyrażenie jest dozwolone. Określa długość maksymalna kolejki. Żądań przychodzących w trakcie wprowadzania tych zasad, zostanie zakończony z "429 zbyt wiele żądań" natychmiast po wyczerpaniu kolejki.|Nie|Infinity|  
   
-###  <a name="ChooseUsage"></a>Użycie  
+### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
@@ -457,7 +455,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
 |Warunek|Logiczna literał lub [wyrażenie](api-management-policy-expressions.md) określenie ponownych prób powinna zostać zatrzymana (`false`) lub nadal (`true`).|Tak|Nie dotyczy|  
-|Liczba|Liczba dodatnia określająca maksymalną liczbę ponownych prób.|Tak|Nie dotyczy|  
+|liczba|Liczba dodatnia określająca maksymalną liczbę ponownych prób.|Tak|Nie dotyczy|  
 |interval|Liczba dodatnia, w sekundach, określając oczekiwania interwału ponawiania prób.|Tak|Nie dotyczy|  
 |Maksymalny interwał|Liczba dodatnia, w sekundach określający maksymalną poczekaj interwał między ponownymi próbami. Służy do implementowania algorytm wykładnicze ponów próbę.|Nie|Nie dotyczy|  
 |delta|Liczba dodatnia, w sekundach, określając przyrost interwału oczekiwania. Służy do zaimplementowania algorytmów liniowej i wykładniczej ponów próbę.|Nie|Nie dotyczy|  
@@ -575,7 +573,7 @@ status code and media type. If no example or schema found, the content is empty.
 |adres URL|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
-|Treści|Treść żądania.|Nie|  
+|treść|Treść żądania.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
@@ -654,7 +652,7 @@ status code and media type. If no example or schema found, the content is empty.
 |adres URL|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
-|Treści|Treść żądania.|Nie|  
+|treść|Treść żądania.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
@@ -663,7 +661,7 @@ status code and media type. If no example or schema found, the content is empty.
 |tryb = "string"|Określa, czy jest to nowe żądanie lub kopię bieżącego żądania. W trybie wychodzących tryb = kopiowania nie inicjuje treści żądania.|Nie|Nowy|  
 |Nazwa zmiennej odpowiedzi = "string"|Jeśli nie istnieje `context.Response` jest używany.|Nie|Nie dotyczy|  
 |limit czasu = "int"|Interwał limitu czasu w sekundach przed wywołaniem do adresu URL nie powiedzie się.|Nie|60|  
-|Ignoruj błąd|Jeśli wartość PRAWDA, a wyniki żądania w błąd:<br /><br /> — Jeśli nazwa zmiennej odpowiedzi został określony, będzie zawierać wartości null.<br />— Jeśli nie określono odpowiedzi zmienna nazwy, kontekstu. Żądanie nie zostanie zaktualizowany.|Nie|wartość false|  
+|Ignoruj błąd|Jeśli wartość PRAWDA, a wyniki żądania w błąd:<br /><br /> — Jeśli nazwa zmiennej odpowiedzi został określony, będzie zawierać wartości null.<br />— Jeśli nie określono odpowiedzi zmienna nazwy, kontekstu. Żądanie nie zostanie zaktualizowany.|Nie|fałsz|  
 |name|Określa nazwę nagłówka do ustawienia.|Tak|Nie dotyczy|  
 |istnieje akcja|Określa, jakie działania w sytuacji, gdy nagłówek został już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override - zastępuje wartość istniejący nagłówek.<br />-skip — nie zastępuje istniejącą wartość nagłówka.<br />-dołączania - dołącza wartość do istniejącej wartości nagłówka.<br />-Usunięcie — usuwa nagłówek z żądania.<br /><br /> Jeśli wartość `override` powoduje rejestrowanie wiele wpisów o takiej samej nazwie w nagłówku ustawiany zgodnie ze wszystkich zapisów (które zostaną wyświetlone wiele razy); zostanie ustawiona tylko wartości wyświetlane w wynikach.|Nie|zastąpienie|  
   
@@ -936,7 +934,7 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|Źródło|Literał ciągu zrozumiały dla przeglądarki śledzenia i Określanie źródła komunikatu.|Tak|Nie dotyczy|  
+|źródło|Literał ciągu zrozumiały dla przeglądarki śledzenia i Określanie źródła komunikatu.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -1003,7 +1001,7 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|dla|Określa, czy `wait` czeka zasady dla wszystkich zasad bezpośrednio podrzędne być wykonane lub tylko jeden. Dozwolone wartości to:<br /><br /> -   `all`-Poczekaj, aż wszystkie zasady bezpośrednio podrzędne do ukończenia<br />-wszelkie - poczekaj dowolne zasady bezpośrednio podrzędne zakończyć. Po zakończeniu pierwszego zasad bezpośrednio podrzędne `wait` kończy zasad i wykonywania innych zasad bezpośrednio podrzędne zostanie zakończony.|Nie|Wszystkie|  
+|dla|Określa, czy `wait` czeka zasady dla wszystkich zasad bezpośrednio podrzędne być wykonane lub tylko jeden. Dozwolone wartości to:<br /><br /> -   `all`-Poczekaj, aż wszystkie zasady bezpośrednio podrzędne do ukończenia<br />-wszelkie - poczekaj dowolne zasady bezpośrednio podrzędne zakończyć. Po zakończeniu pierwszego zasad bezpośrednio podrzędne `wait` kończy zasad i wykonywania innych zasad bezpośrednio podrzędne zostanie zakończony.|Nie|Wszystko|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

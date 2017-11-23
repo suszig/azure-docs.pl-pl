@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: d4f1816e19b7cc145d3c7c983b8ead906e10d151
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="contingency-planning-cp"></a>Rozwiązanie przydatne planowania (CP)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-
-# <a name="contingency-planning-cp"></a>Rozwiązanie przydatne planowania (CP)
 
 ## <a name="nist-800-53-control-cp-1"></a>Formant NIST 800 53 CP-1
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfigurowanie i zarządzanie często zadawane pytania dotyczące aplikacji sieci Web na platformie Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Pracujemy nad aktualizacji Menedżera połączeń hybrydowych, aby rozwiązać ten problem. Aby obejść, zobacz [połączeń hybrydowych błąd z programem SQL Server: System.OverflowException: operacji arytmetycznej nastąpiło przepełnienie w czasie](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+Wyjątek spowodowane przez problem przy użyciu hybrydowego połączenia Menedżera który odwałania został rozwiązany. Upewnij się, [aktualizacji Menedżera połączeń hybrydowych](https://go.microsoft.com/fwlink/?LinkID=841308) Aby rozwiązać ten problem.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Jak dodać lub edytować reguły ponownego zapisywania adresów URL?
 

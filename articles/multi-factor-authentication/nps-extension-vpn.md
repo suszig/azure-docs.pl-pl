@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych na platformie Azure
 
@@ -108,7 +108,7 @@ Aby uzyskać informacje o instalowaniu roli usług zasad sieciowych i dostępu u
 
 ### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
-Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub subskrypcji usługi Multi-Factor Authentication. Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
+Licencja jest wymagane uwierzytelnianie wieloskładnikowe Azure i jest dostępny za pośrednictwem usługi Azure AD Premium, Enterprise Mobility + zabezpieczeń lub licencji autonomicznej usługi Multi-Factor Authentication. Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. Aby uzyskać więcej informacji, zobacz [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Do celów testowych, możesz użyć subskrypcji wersji próbnej.
 
 ### <a name="windows-server-software"></a>Oprogramowanie Windows Server
 

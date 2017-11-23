@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-advanced-threat-detection"></a>Wykrywanie zagrożeń zaawansowane Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -88,7 +88,7 @@ Przykłady niektórych metod, które mogą ułatwić ochronę tożsamości usłu
 
 Z [usługi Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure),
 
-![Azure AD Privileged Identity Management](./media/azure-threat-detection/azure-threat-detection-fig2.png)
+![Usługa Azure AD Privileged Identity Management](./media/azure-threat-detection/azure-threat-detection-fig2.png)
 
 Możesz zarządzanie, sterowanie i monitorowanie dostępu w organizacji. Dotyczy to również dostępu do zasobów usługi Azure AD i innych usług online firmy Microsoft, takich jak Office 365 lub Microsoft Intune.
 
@@ -351,7 +351,7 @@ Wykrywanie anomalii interfejsu API to rozwiązanie wydajny i efektywny dla szero
 
 -   Grup analiz biznesowych, chcesz monitorować biznesowe wskaźniki KPI dotyczące (takie jak sprzedaż, opinie klientów, cennik) nietypowe ruchu w czasie rzeczywistym.
 
-### <a name="cloud-app-security"></a>Usługa cloud App Security
+### <a name="cloud-app-security"></a>Cloud App Security
 
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) jest składnikiem krytycznym stosu zabezpieczeń w chmurze firmy Microsoft. To kompleksowe rozwiązanie, które mogą pomóc Twojej organizacji, w przypadku przejścia do w pełni korzystać z promise aplikacji w chmurze, ale można przechowywać w kontroli dzięki ulepszonemu wglądowi w działanie. Pomaga również zwiększenia ochrony danych krytycznych w aplikacjach w chmurze.
 
@@ -368,7 +368,7 @@ Z narzędzia, które ułatwiają odkrywanie tle IT, ocenie ryzyka egzekwowanie z
 
  </tr>
  <tr>
-   <td>Formant</td>
+   <td>Kontrolka</td>
    <td>Ogranicz ryzyko przez skonfigurowanie zasad i alertów, aby osiągnąć maksymalną kontrolę ruchu sieciowego w chmurze. Usługa Cloud App Security umożliwia migrować użytkowników do chmury bezpiecznej, oficjalnie zaakceptowanych aplikacji alternatyw.</td>
 
  </tr>
@@ -378,14 +378,14 @@ Z narzędzia, które ułatwiają odkrywanie tle IT, ocenie ryzyka egzekwowanie z
 
  </tr>
  <tr>
-   <td>Formant</td>
+   <td>Kontrolka</td>
    <td>Ogranicz ryzyko przez skonfigurowanie zasad i alertów, aby osiągnąć maksymalną kontrolę ruchu sieciowego w chmurze. Usługa Cloud App Security umożliwia migrować użytkowników do chmury bezpiecznej, oficjalnie zaakceptowanych aplikacji alternatyw.</td>
 
  </tr>
 </table>
 
 
-![Usługa cloud App Security](./media/azure-threat-detection/azure-threat-detection-fig14.png)
+![Cloud App Security](./media/azure-threat-detection/azure-threat-detection-fig14.png)
 
 Usługa cloud App Security integruje widoczności z chmurą przez
 

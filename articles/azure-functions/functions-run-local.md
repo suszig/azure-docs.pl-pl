@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
@@ -86,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>Tworzenie projektu funkcji lokalnej
 
-Podczas uruchamiania lokalnego, projekt funkcji jest katalog zawierający pliki [host.json](functions-host-json.md) i [local.settings.json](#local-settings). Ten katalog jest odpowiednikiem aplikacji funkcji na platformie Azure. Aby dowiedzieć się więcej na temat struktury folderów usługi Azure Functions, zobacz [przewodnik dla deweloperów usługi Azure Functions](functions-reference.md#folder-structure).
+Podczas uruchamiania lokalnego, projekt funkcji jest katalog zawierający pliki [host.json](functions-host-json.md) i [local.settings.json](#local-settings-file). Ten katalog jest odpowiednikiem aplikacji funkcji na platformie Azure. Aby dowiedzieć się więcej na temat struktury folderów usługi Azure Functions, zobacz [przewodnik dla deweloperów usługi Azure Functions](functions-reference.md#folder-structure).
 
 W oknie terminalu lub z wiersza polecenia Uruchom następujące polecenie, aby utworzyć projekt i lokalne repozytorium Git:
 
@@ -105,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Aby utworzyć projekt bez lokalnego repozytorium Git, użyj `--no-source-control [-n]` opcji.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>Plik ustawień lokalnych
 

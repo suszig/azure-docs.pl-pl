@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b22ad29e593a9293a98acebca065f19ab2d9d5be
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -139,7 +139,7 @@ Można włączyć lub wyłączyć następujące rodzaje dzienników:
 
 -   Rejestrowanie serwera — informacje o transakcjach HTTP przy użyciu rozszerzonym formacie W3C dziennika plików w sieci Web. Jest to przydatne podczas określania ogólnego metryki lokacji, takie jak liczba żądań obsłużonych lub liczbę żądań pochodzą z określonego adresu IP.
 
-#### <a name="application-diagnostics"></a>Usługa Application diagnostics
+#### <a name="application-diagnostics"></a>Diagnostyka aplikacji
 [Usługa Application diagnostics](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) umożliwia przechwytywanie informacji generowanych przez aplikację sieci web. Aplikacje ASP.NET mogą używać [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) klasy do rejestrowania informacji w dzienniku diagnostyki aplikacji. W diagnostyce aplikacji istnieją dwa główne typy zdarzeń, tych związanych z wydajnością i powiązane z awariami i błędami aplikacji. Awarie i błędy można podzielić na problemy dotyczące łączności, bezpieczeństwa i niepowodzenie. Problemy dotyczące awarii zazwyczaj są związane z problem z kodu aplikacji.
 
 W diagnostyce aplikacji można wyświetlać zdarzenia pogrupowane w następujący sposób:

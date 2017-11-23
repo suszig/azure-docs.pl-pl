@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: bc96221abf62677b53df43daa44a925ac5792043
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Wdrażanie i Eksploruj podzielonej aplikacji wielodostępnych, która używa bazy danych SQL Azure
 
@@ -120,7 +120,7 @@ Aplikacja prezentuje miejsca, takie jak sale koncertowe, kluby jazzowe i kluby s
 Centralnego **Centrum zdarzeń** zawiera listę łącza do dzierżawców w ramach określonego wdrożenia.
 
 1. Otwórz *Centrum zdarzeń* w przeglądarce sieci web:
-    - http://events.Wingtip. &lt;Użytkownika&gt;. trafficmanager.net &nbsp; *(zamiast wartości użytkownika danego wdrożenia).*
+    - http://events.Wingtip-MT.&lt;użytkownika&gt;. trafficmanager.net &nbsp; *(zamiast wartości użytkownika danego wdrożenia).*
 
     ![centrum zdarzeń](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Centralnego **Centrum zdarzeń** zawiera listę łącza do dzierżawców w ramac
 
 Aby kontrolować dystrybucję żądań przychodzących, aplikacja używa [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Zdarzenia stron, które są specyficzne dla dzierżawy, Uwzględnij nazwę dzierżawy w adresie URL. Adresy URL także zawierać wartość określonego użytkownika i odpowiada temu formatowi:
 
-- http://events.Wingtip. &lt;Użytkownika&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.Wingtip-MT.&lt;użytkownika&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Analizuje nazwę dzierżawcy z adresu URL i skróty go w celu utworzenia klucz, aby uzyskiwać dostęp za pomocą katalogu aplikacji zdarzenia [zarządzania mapy niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md). Katalog mapuje klucz dzierżawcy lokalizacji bazy danych. **Centrum zdarzeń** zawiera listę wszystkich dzierżawców, które są zarejestrowane w wykazie. **Centrum zdarzeń** używa rozszerzonych metadanych w katalogu można pobrać nazwy dzierżawcy skojarzonej z każdego mapowania do utworzenia adresów URL.
 
@@ -156,7 +156,7 @@ Można ponownie uruchomić sesji generator obciążenia, aby użyć wartości in
 
 Początkowe wdrożenie obejmuje trzy próbki dzierżaw w *Tenants1* bazy danych. Utwórz innego dzierżawcę, aby zobaczyć, jak ma to wpływ wdrożonej aplikacji. W tym kroku możesz szybko utworzyć nową dzierżawę.
 
-1. Otwórz... \\Learning Modules\Provision i wykaz\\*ProvisionTenants.ps1 pokaz* w *programu PowerShell ISE*.
+1. Otwórz... \\Learning Modules\ProvisionTenants\\*ProvisionTenants.ps1 pokaz* w *programu PowerShell ISE*.
 2. Naciśnij klawisz **F5** do uruchomienia skryptu (pozostaw wartości domyślne dla teraz).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Podzielonej modelu wielodostępnym pozwala wybrać, czy do udostępnienia nowej 
 
 Teraz możemy udostępnić innej dzierżawy to czas w własną bazę danych.
 
-1. W... \\Modułów uczenia\\udostępniania i wykaz\*ProvisionTenants.ps1* demonstracyjnej, zmodyfikuj *$TenantName* do **Salsa wierzbowate**, *$VenueType*  do **taniec** i *$Scenario* do **2**.
+1. W... \\Modułów uczenia\\ProvisionTenants\\*ProvisionTenants.ps1 pokaz*, zmodyfikuj *$TenantName* do **Salsa wierzbowate**,  *$VenueType* do **taniec** i *$Scenario* do **2**.
 
 2. Naciśnij klawisz **F5** ponownie uruchomić skrypt.
     - Ten klawisz F5 inicjuje nowej dzierżawy w oddzielnej bazy danych. Baza danych i dzierżawcy są rejestrowane w katalogu. Następnie przeglądarce otworzy stronę zdarzenia dzierżawy.
@@ -239,7 +239,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Wyświetlanie wykorzystania puli w celu monitorowania aktywności dzierżawy
 > - Usuwanie przykładowych zasobów w celu zakończenia ich rozliczania
 
-Teraz spróbuj [samouczek udostępniania i wykaz](sql-database-saas-tutorial-provision-and-catalog.md).
+Teraz spróbuj [samouczek dzierżaw udostępniania](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

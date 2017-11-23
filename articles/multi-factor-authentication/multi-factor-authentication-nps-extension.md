@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5dae5ef260d975e00d3bdaa9aff73fd5807bb839
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ebd6109fdae00da9e6dc1fc456573327d521e7e9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integracja istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ Rozszerzenia serwera NPS jest przeznaczona do pracy z istniejącej infrastruktur
 
 ### <a name="licenses"></a>Licencje
 
-Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA jest dostępny dla klientów z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub subskrypcji usługi MFA). Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. 
+Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA jest dostępny dla klientów z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub licencji autonomicznej usługi MFA). Na podstawie zużycia licencji dla usługi Azure MFA, takich jak dla każdego użytkownika lub uwierzytelnianie licencji na nie są zgodne z rozszerzeniem serwera NPS. 
 
 ### <a name="software"></a>Oprogramowanie
 
@@ -67,7 +67,7 @@ Te biblioteki są automatycznie instalowane z rozszerzeniem.
 
 Microsoft Azure Active Directory modułu dla środowiska Windows PowerShell jest zainstalowany, jeśli nie jest już obecny za pomocą skryptu konfiguracji uruchomienia w ramach procesu instalacji. Nie istnieje potrzeba do zainstalowania tego modułu wcześniejsze, jeśli nie jest już zainstalowany.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Wszyscy przy użyciu rozszerzenia zasad Sieciowych musi być synchronizowane z usługi Azure Active Directory za pomocą usługi Azure AD Connect, a musi być zarejestrowana w usłudze MFA.
 
@@ -189,7 +189,7 @@ Po włączeniu usługi MFA dla klienta RADIUS przy użyciu rozszerzenia zasad Si
 
 Jeśli masz użytkowników, którzy nie są rejestrowane w usłudze MFA, można określić, co się dzieje podczas próby uwierzytelnienia. Użyj ustawienia rejestru *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA* do sterowania zachowaniem funkcji. To ustawienie nie ma opcji konfiguracji pojedynczego:
 
-| Klucz | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nieustawione (równoważne TRUE) |
 

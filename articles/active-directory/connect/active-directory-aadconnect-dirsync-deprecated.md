@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8982cc0153bb4554c84e2cac504c23fb7e65ec15
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uaktualnienia usługi synchronizacji usługi Windows Azure Active Directory i Azure synchronizacji usługi Active Directory
 Użycie programu Azure AD Connect to najlepszy sposób na połączenie katalogu lokalnego z usługami Azure AD i Office 365. Jest to doskonały moment na uaktualnienie do programu Azure AD Connect Windows synchronizacji Azure Active Directory (DirSync) lub Azure AD Sync te narzędzia są teraz przestarzałe i nie są już obsługiwane począwszy od 13 kwietnia 2017 r.
@@ -36,7 +36,7 @@ Azure AD Connect jest zastępuje narzędzie DirSync i Azure AD Sync. Łączy wsz
 | --- | --- |
 | 13 kwietnia 2016 r. |Windows Azure Active Directory synchronizacji ("DirSync") i Microsoft Azure synchronizacji usługi Active Directory ("Azure AD Sync") są ogłoszone jako przestarzałe. |
 | 13 kwietnia 2017 r. |Obsługa kończy się. Klientów nie będą już mogli otworzyć sprawę pomocy technicznej bez przeprowadzenia uaktualnienia do programu Azure AD Connect. |
-|31 grudnia 2017 r.|Usługi Azure AD, nie będzie akceptował komunikację z systemu Windows Azure Active Directory synchronizacji ("DirSync") i Microsoft Azure synchronizacji usługi Active Directory ("Azure AD Sync").
+|31 grudnia 2017 r.|Usługi Azure AD mogą już nie akceptują komunikację od systemu Windows Azure Active Directory synchronizacji ("DirSync") i Microsoft Azure synchronizacji usługi Active Directory ("Azure AD Sync").
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Temat przechodzenia do usługi Azure AD Connect
 Jeśli używasz narzędzia DirSync, istnieją dwa sposoby, możesz uaktualnić: uaktualnienia i równoległych wdrożeń w miejscu. Uaktualnienie w miejscu jest zalecane dla większości klientów i czy masz ostatnie operacyjnego i mniej niż 50 000 obiektów. W pozostałych przypadkach zaleca się przeprowadzić wdrożenie równoległe, w którym konfiguracji narzędzia DirSync jest przenoszona do nowego serwera z systemem Azure AD Connect.
@@ -59,10 +59,10 @@ Jeśli chcesz zobaczyć, jak przeprowadzić uaktualnienie w miejscu z narzędzia
 Również wysłano powiadomienia do klientów za pomocą usługi Azure AD Connect przy użyciu numeru kompilacji 1.0. \*.0 (przy użyciu wersji pre-1.1). Firma Microsoft zaleca klientom aktualne informacje o wersji Azure AD Connect. [Automatyczne uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md) funkcja wprowadzona w wersji 1.1 ułatwia zawsze mieć najnowszej wersji programu Azure AD Connect.
 
 **Pytanie: stop będzie DirSync/usługi Azure AD Sync pracuje 13 kwietnia 2017?**  
-Narzędzie DirSync/usługi Azure AD Sync będą nadal działać na kwietnia 2017 13.  Jednak usługi Azure AD, nie będzie akceptował komunikację z narzędzia DirSync/usługi Azure AD Sync na 2017 31 grudnia.
+Narzędzie DirSync/usługi Azure AD Sync będą nadal działać na kwietnia 2017 13.  Jednak usługi Azure AD może już akceptować komunikację z narzędzia DirSync/usługi Azure AD Sync po 2017 31 grudnia.
 
 **Pytanie: które wersje narzędzia DirSync można uaktualnić z?**  
-Możliwe jest uaktualnienie z dowolnej wersji narzędzia DirSync aktualnie używany.
+Możliwe jest uaktualnienie z dowolnej wersji narzędzia DirSync aktualnie używany. Należy pamiętać, że w miejscu uaktualnienie z narzędzia DirSync do programu Azure AD Connect nie jest obsługiwane po 2017 31 grudnia. Klienci, którzy są przy użyciu narzędzia DirSync po tej dacie i chcesz przenieść do programu Azure AD Connect może być zamiast tego wykonaj nową instalację programu Azure AD Connect.
 
 **Pytanie: jak Azure AD Connector dla usługi FIM/MIM?**  
 Łącznik usługi Azure AD dla programu FIM/MIM ma **nie** zostały ogłoszone jako przestarzałe. W **funkcja blokowania**; dodaje się nie nowych funkcji i odbiera nie poprawki. Firma Microsoft zaleca klientów za jego pomocą ma zostać przeniesiona z jej do usługi Azure AD Connect. Zdecydowanie zaleca się nie uruchomić wszystkie wdrożenia nowej używa go. Ten łącznik będą ogłaszane przestarzałe w przyszłości.

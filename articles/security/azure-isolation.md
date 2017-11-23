@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej systemu Azure
 ##  <a name="introduction"></a>Wprowadzenie
@@ -71,7 +71,7 @@ Użytkownicy, grupy i aplikacje z katalogu mogą zarządzać zasobami w subskryp
 
 Diagnostyka i konserwacyjnych modelu operacyjnego infrastruktury używającego systemu podniesienia uprawnień w czasie jest wymagany i używać. Azure AD Privileged Identity Management (PIM) pojęcia związane z kwalifikujących się uprawnień administratora. [Administratorzy kwalifikujących się](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) powinna być użytkowników, które wymagają uprzywilejowanego dostępu teraz, a następnie, ale nie każdego dnia. Rola jest nieaktywny, dopóki użytkownik będzie potrzebował dostępu, a następnie zakończyć proces aktywacji i stają się aktywne administratora dla wstępnie określoną ilość czasu.
 
-![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
+![Usługa Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
 Usługa Azure Active Directory obsługuje każdego dzierżawcy w jego własnej kontenerze chronionych, zasady i uprawnienia do oraz w kontenerze wyłącznie własnością i zarządzane przez dzierżawcę.
 
