@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co to jest usługa Azure SQL Database? 
 
@@ -133,7 +133,7 @@ Funkcja [dynamicznego maskowania danych w bazie danych SQL](sql-database-dynamic
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integracja usługi Azure Active Directory z uwierzytelnianiem wieloskładnikowym
 
-Usługa SQL Database umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft dzięki funkcji [integracji usługi Azure Active Directory](sql-database-aad-authentication.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Usługa Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](sql-database-ssms-mfa-authentication.md) (MFA, Multi-Factor Authentication) w celu zwiększenia bezpieczeństwa danych i aplikacji, korzystając z procesu jednokrotnego logowania.
+Usługa SQL Database umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft dzięki funkcji [integracji usługi Azure Active Directory](sql-database-aad-authentication.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Usługa Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](sql-database-ssms-mfa-authentication.md) (MFA), aby zwiększyć bezpieczeństwo danych i aplikacji podczas obsługi jednego procesu logowania.
 
 ### <a name="compliance-certification"></a>Certyfikacja zgodności
 

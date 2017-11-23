@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Szybkie wdrażanie samoobsługowego resetowania haseł w usłudze Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 Funkcja samoobsługowego resetowania haseł pozwala administratorom IT w prosty sposób dać użytkownikom możliwość resetowania lub odblokowywania ich haseł lub kont. System obejmuje szczegółowe raporty pozwalające śledzić, kiedy użytkownicy korzystają z systemu, oraz powiadomienia ostrzegające o jego nieprawidłowym użyciu lub nadużyciach związanych z zabezpieczeniami.
 
-W tym przewodniku założono, że masz już działającą dzierżawę usługi Azure Active Directory (Azure AD) w wersji próbnej lub licencjonowanej. Jeśli potrzebujesz pomocy przy konfigurowaniu usługi Azure AD, zobacz [Wprowadzenie do usługi Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+W tym przewodniku założono, że masz już działającą dzierżawę usługi Azure Active Directory (Azure AD) w wersji próbnej lub licencjonowanej. Jeśli potrzebujesz pomocy przy konfigurowaniu usługi Azure AD, zobacz [Wprowadzenie do usługi Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Włączanie funkcji samoobsługowego resetowania haseł dla dzierżawy usługi Azure AD
 
@@ -73,7 +73,7 @@ Aby włączyć synchronizację lokalnych tożsamości z usługą Azure AD, musis
 
 * [Uaktualnienie z programu DirSync lub Azure AD Sync do programu Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych](./connect/active-directory-aadconnect-get-started-express.md)
-* [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym
+* [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym
 
 ### <a name="on-premises-policy-change"></a>Zmienianie zasad lokalnych
 

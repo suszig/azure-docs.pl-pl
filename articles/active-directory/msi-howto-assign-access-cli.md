@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: bryanla
-ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1535d3e94846ae8fa7c277bbdd0005f5d5313caa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Przypisywanie dostępu zarządzane tożsamości usługi (MSI) do zasobów przy użyciu wiersza polecenia platformy Azure
 
@@ -27,7 +27,7 @@ Po skonfigurowaniu zasobów platformy Azure z Instalatora MSI, możesz zapewnić
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, masz trzy opcje:
 

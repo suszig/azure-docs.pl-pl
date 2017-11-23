@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: a2138d0b99ed57cb78b99e3785f7192c1a323ba5
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f43ec5bdbf32c3f7c4c1fb3a5aae8367bd050fc9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Umożliwia dostęp do usługi Azure Storage za pomocą poświadczeń sygnatury dostępu Współdzielonego wirtualna zarządzane tożsamości usługi systemu Windows
 
@@ -33,7 +33,11 @@ Sygnatury dostępu Współdzielonego usługi pozwala, aby przyznać ograniczony 
 > * Przyznać uprawnienia do konta magazynu SAS w Menedżerze zasobów maszyny Wirtualnej 
 > * Uzyskaj token dostępu przy użyciu tożsamości maszyny Wirtualnej i przy jego użyciu pobrać sygnatury dostępu Współdzielonego z Menedżera zasobów 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

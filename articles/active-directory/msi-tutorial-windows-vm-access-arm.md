@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: 17c2e72603715b5704fa56e18f68d531a1e44a53
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: c87bbff414ba2212ebb3cab1d784d9f3ce133735
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Umożliwia dostęp do Menedżera zasobów systemu Windows maszyny Wirtualnej zarządzane usługi tożsamości (MSI)
 
@@ -30,8 +30,11 @@ Ten samouczek pokazuje, jak włączyć zarządzane tożsamości usługi (MSI) dl
 > * Przyznać uprawnienia maszyny Wirtualnej do grupy zasobów w usłudze Azure Resource Manager 
 > * Uzyskaj token dostępu przy użyciu tożsamości maszyny Wirtualnej i użyć go do wywołania usługi Azure Resource Manager
 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).

@@ -4,7 +4,7 @@ description: "Jak utworzyć funkcje dla danych przechowywanych w kontenerze obie
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Tworzenie funkcji dla danych usługi Azure Blob Storage za pomocą usługi Panda
 Ten dokument przedstawia sposób tworzenia funkcji dla danych przechowywanych w użyciu kontenera obiektów blob platformy Azure [Pandas](http://pandas.pydata.org/) pakiet języka Python. Po zwijania jak załadować dane do ramki danych Panda, widoczny jest sposób generowania podzielone na kategorie funkcji za pomocą skryptów języka Python z wartościami wskaźnik i binning funkcji.
@@ -31,7 +31,7 @@ To **menu** linki do tematów opisujących sposób tworzenia funkcji dla danych 
 W tym artykule założono, że utworzono konto magazynu obiektów blob platformy Azure i przechowywanych danych istnieje. Aby uzyskać instrukcje, aby skonfigurować konto, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Ładowanie danych do ramki danych Pandas
-Aby eksplorować i manipulowania zestawu danych, musi zostać pobrana od źródła obiektu blob do pliku lokalnego, który może zostać załadowana w ramce Pandas danych. Poniżej przedstawiono kroki do wykonania w przypadku tej procedury:
+Aby eksplorować i manipulowania zestawu danych, pobrana z źródłowego obiektu blob do pliku lokalnego. Następnie załadować do Pandas ramki danych. Poniżej przedstawiono kroki do wykonania w przypadku tej procedury:
 
 1. Pobieranie danych z usługi Azure blob z następujący przykładowy kod języka Python za pomocą usługi blob. Zastąp zmienną w poniższym kodzie z określonymi wartościami:
    
@@ -60,7 +60,7 @@ Teraz można przystąpić do eksplorowania danych oraz do generowania funkcji dl
 ## <a name="blob-featuregen"></a>Funkcja generowania
 W dwóch następnych sekcjach pokazano, jak Generowanie podzielone na kategorie funkcje wartościami wskaźnik i binning za pomocą skryptów języka Python.
 
-### <a name="blob-countfeature"></a>Funkcja generowania na podstawie wartości wskaźnika
+### <a name="blob-countfeature"></a>Generowanie funkcji na podstawie wartości wskaźnika
 Podzielone na kategorie funkcji można utworzyć w następujący sposób:
 
 1. Należy sprawdzić rozkład kolumny podzielone na kategorie:
@@ -80,7 +80,7 @@ Podzielone na kategorie funkcji można utworzyć w następujący sposób:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Funkcja generowania binning
-Podczas generowania binned funkcje, możemy wykonać następujące czynności:
+Podczas generowania binned funkcji, wykonać następujące czynności:
 
 1. Dodanie sekwencji kolumn do bin kolumny liczbowej
    
@@ -93,8 +93,8 @@ Podczas generowania binned funkcje, możemy wykonać następujące czynności:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Zapisywanie danych ponownie do obiektów blob platformy Azure i korzystanie w usłudze Azure Machine Learning
-Po zostały przedstawione danych i utworzyć niezbędne funkcje, możesz przekazać dane (próbkowany lub featurized) do platformy Azure blob i używać go w usłudze Azure Machine Learning, wykonując następujące kroki: należy pamiętać, że w usłudze Azure Machine Learning Studio również można tworzyć dodatkowe funkcje.
+## <a name="sql-featuregen"></a>Zapisywania danych do obiektów blob platformy Azure, aby pobrać go w usłudze Azure Machine Learning
+Do pracy z danymi w usłudze Azure Machine Learning, która ma zostały przedstawione, próbkowany lub featurized przekazać dane obiektów blob platformy Azure. Dodatkowe funkcje mogą być tworzone w usłudze Azure Machine Learning Studio również. W poniższej procedurze pokazano, jak przekazywać dane:
 
 1. Zapis ramki danych do pliku lokalnego
    

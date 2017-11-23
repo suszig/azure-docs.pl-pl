@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronizacja programu Azure AD Connect: brany pod uwagę i zadania operacyjne
 Celem tego tematu jest do opisywania zadań operacyjnych synchronizacji usługi Azure AD Connect.
@@ -33,6 +33,11 @@ Tryb przejściowy może służyć do kilka scenariuszy, w tym:
 Z serwerem w trybie przejściowym można wprowadzić zmiany w konfiguracji i Podgląd zmian przed wprowadzeniem serwera active. Można też uruchomić pełny import i pełną synchronizację, aby sprawdzić wszystkie zmiany oczekuje przed ich wprowadzeniem do środowiska produkcyjnego.
 
 Podczas instalacji, możesz wybrać serwer będzie **Tryb przejściowy**. Ta akcja powoduje, że serwer jest active importowania i synchronizacji, ale nie działa on żadnych eksportów. Serwer w trybie przejściowym nie jest uruchomiona, synchronizacja haseł lub zapisywania zwrotnego haseł, nawet jeśli te funkcje są wybrane podczas instalacji. Po wyłączeniu trybu przejściowego serwer rozpoczyna eksportowanie, umożliwia synchronizację haseł i włącza funkcję zapisywania zwrotnego haseł.
+
+> [!NOTE]
+> Załóżmy, że masz Azure AD Connect z włączoną funkcją synchronizacji skrótu hasła. Po włączeniu trybu przejściowego Zatrzymuje serwer, który synchronizacji haseł zostanie zmieniony z lokalnej usługi AD. Po wyłączeniu trybu przejściowego serwera wznawia synchronizowanie zmian haseł, z którym ostatnio przerwał. Jeśli serwer jest w trybie przejściowym przez dłuższy czas, może upłynąć trochę czasu na serwerze zsynchronizować wszystkie zmiany hasła, które wystąpiły w czasie.
+>
+>
 
 Nadal można wymusić eksportu przy użyciu Menedżera usługi synchronizacji.
 

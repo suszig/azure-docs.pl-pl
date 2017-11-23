@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Wyniki analizy
 
@@ -49,8 +49,6 @@ Po wykrycia problemu spadku wydajności z wielu metryki obserwowanych za pomocą
 
 Metryki używane do mierzenia i wykrywania problemów z wydajnością bazy danych są oparte na czas trwania kwerendy, limit czasu żądania czasy oczekiwania nadmiernego i błędami żądania. Aby uzyskać więcej informacji o metrykach, zobacz [metryki wykrywania](sql-database-intelligent-insights.md#detection-metrics) sekcji tego dokumentu.
 
-## <a name="degradations-detected"></a>Wykryto degradations
-
 Identyfikuje bazy danych SQL degradations wydajności są rejestrowane w dzienniku diagnostyki inteligentnego wpisów, które składają się z następującymi właściwościami:
 
 | Właściwość             | Szczegóły              |
@@ -64,36 +62,49 @@ Identyfikuje bazy danych SQL degradations wydajności są rejestrowane w dzienni
 | Analiza głównych przyczyn | Przyczyna analizy problem wskazany w formacie czytelnym dla człowieka. Niektóre szczegółowe informacje może zawierać zalecenie poprawy wydajności, gdy jest to możliwe. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Problemy dotyczące stanu cyklu: "Active", "Sprawdzanie" i "Zakończ"
-
 Problemy z wydajnością, które są rejestrowane w dzienniku diagnostyki są oznaczone jeden z trzech stanów życia problem: "Active", "Sprawdzanie" i "Zakończ". Po wydajności zostanie wykryty problem, i jak długo ma uznała jako obecny przez wbudowane narzędzie analizy bazy danych SQL, problem jest oznaczony jako "Aktywny". Gdy problem jest uważany za skorygowane, sprawdza i stan problemu zostanie zmieniona na "Sprawdzanie". Po bazy danych SQL wbudowane narzędzie analizy uwzględnia rozwiązać problem, stan problemu z flagą "Zakończ".
 
 ## <a name="use-intelligent-insights"></a>Użyj inteligentnego Insights
 
-Analiza dzienników Azure, Azure Event Hubs i usługi Azure Storage, możesz wysłać dziennika diagnostyki inteligentnego szczegółowych informacji. Aby uzyskać więcej informacji, zobacz [metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych](sql-database-metrics-diag-logging.md). Po wysłaniu dziennika do jednego z następujących elementów docelowych dziennika można niestandardowe alerty i monitorowania Programowanie przy użyciu Microsoft lub narzędzi innych firm. 
+Inteligentnego Insights jest dziennika diagnostyki inteligentne wydajności. Może zostać zintegrowana z innymi produktami wykorzystania i określone aplikacje takie usługi Analiza dzienników Azure, Azure Event Hubs i magazynu Azure lub innych firm produktów. 
 
-Aby uzyskać więcej informacji dotyczących rozwiązywania problemów przy użyciu usługi inteligentnego Insights wydajności bazy danych SQL, zobacz [problemy z wydajnością rozwiązywanie problemów z bazą danych SQL Azure z informacjami dotyczącymi inteligentnego](sql-database-intelligent-insights-troubleshoot-performance.md).
+Inteligentnego Insights oraz analiza dzienników Azure jest zwykle używane do wyświetlania szczegółowych danych za pośrednictwem przeglądarki sieci web i prawdopodobnie jednym z najprostszych sposobów przygotowanie podstaw przy użyciu produktu. Inteligentnego Insights wraz z usługi Azure Event Hubs jest zwykle umożliwia konfigurowanie niestandardowych monitorowania oraz alertów scenariuszy. Inteligentnego insights wraz z usługą Azure storage jest zwykle używana do tworzenia niestandardowych aplikacji, takie jest na przykład raportów niestandardowych lub prawdopodobnie Archiwizacja danych i pobierania.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Wbudowane analizy inteligentnego wgląd w usłudze analizy dzienników 
+Integracja inteligentnego szczegółowych informacji z innymi produktami Analiza dzienników Azure, Azure Event Hub, magazynu Azure lub produktów innych firm do użycia przez odbywa się za pośrednictwem pierwszego Włączanie Insights inteligentnego dzienniku (SQLInsights), a następnie konfigurując Insights inteligentnego rejestrować dane przesyłane strumieniowo do jednego z tych produktów. Aby uzyskać więcej informacji na temat włączania rejestrowania inteligentnego Insights i skonfigurować dane dziennika strumieniowe przesyłanie odbierającą produktu, zobacz [metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych](sql-database-metrics-diag-logging.md). 
 
-Rozwiązania analizy dzienników umożliwia raportowanie i możliwości alertów na górze diagnostyki inteligentnego Insights rejestrowanie danych. W poniższym przykładzie przedstawiono raportu inteligentnego wgląd w module analiz SQL Azure:
+Omówienie praktyczne przy użyciu inteligentnego szczegółowych informacji z usługi Analiza dzienników Azure oraz typowe scenariusze użytkowania Zobacz osadzonego wideo:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Insights inteligentnego możliwości wykrywania i rozwiązywania problemów z wydajnością bazy danych SQL. Aby można było używać inteligentnego Insights Rozwiązywanie problemów z wydajnością bazy danych SQL, zobacz [problemy z wydajnością rozwiązywanie problemów z bazą danych SQL Azure z informacjami dotyczącymi inteligentnego](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Konfigurowanie inteligentnego Insights z analizy dzienników 
+
+Zaloguj się Analytics rozwiązanie zapewnia raportowania i alerty możliwości u góry inteligentnego szczegółowych danych dziennika diagnostyki danych.
+
+Aby używać inteligentnego Insights z analizy dzienników, skonfigurować dane dziennika inteligentnego Insights być przesłana strumieniowo do analizy dzienników, zobacz [metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych](sql-database-metrics-diag-logging.md). 
+
+W poniższym przykładzie przedstawiono raportu inteligentnego wgląd w module analiz SQL Azure:
 
 ![Raport Insights inteligentnego](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Po skonfigurowaniu dziennika diagnostyki inteligentnego wgląd do transmisji danych do analizy SQL można [monitorować bazy danych SQL za pomocą analizy SQL](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Niestandardowej integracji inteligentnego Insights dziennika
-
-Aby uzyskać więcej informacji na niestandardowe alerty oraz ich monitorowania Programowanie przy użyciu Microsoft lub innych narzędzi, zobacz [użycie dziennika diagnostycznego wydajności bazy danych usługi inteligentnego Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Konfigurowanie inteligentnego szczegółowych informacji z usługi Event Hubs
 
-- Aby skonfigurować inteligentnego wgląd do strumienia zdarzeń dziennika do usługi Event Hubs, zobacz [dzienników diagnostycznych strumienia Azure do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Aby użyć niestandardowe monitorowanie i alerty usługi Event Hubs, zobacz [co należy zrobić metryki i informacji diagnostycznych loguje usługi Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Aby używać inteligentnego szczegółowych informacji z usługi Event Hubs, skonfigurować inteligentnego Insights dziennika dane przesyłane strumieniowo do usługi Event Hubs, zobacz [dzienników diagnostycznych strumienia Azure do usługi Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Aby skonfigurować niestandardowe monitorowanie i alerty za pomocą usługi Event Hubs, zobacz [co należy zrobić metryki i informacji diagnostycznych loguje usługi Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Konfigurowanie inteligentnego szczegółowych informacji z magazynu
 
-- Aby skonfigurować inteligentnego wgląd do przechowania magazynu, zobacz [strumienia do usługi Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Aby używać inteligentnego szczegółowych informacji z magazynu, należy skonfigurować inteligentnego szczegółowych informacji dziennika dane przesyłane strumieniowo do magazynu, zobacz [strumienia do usługi Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Niestandardowej integracji inteligentnego Insights dziennika
+
+Aby skorzystać inteligentnego Insights z narzędzi innych firm lub do monitorowania rozwoju i alertów niestandardowych, zobacz [użycie dziennika diagnostycznego wydajności bazy danych usługi inteligentnego Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Metryki wykrywania
 

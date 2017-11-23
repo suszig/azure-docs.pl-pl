@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: f1f51f59a86c7815b5a18aa84dfb315345debcd9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Umożliwia dostęp do usługi Azure Key Vault Windows wirtualna zarządzane usługi tożsamości (MSI) 
 
@@ -33,8 +33,11 @@ Omawiane kwestie:
 > * Przyznać uprawnienia maszyny Wirtualnej do klucza tajnego przechowywane w magazynie kluczy 
 > * Uzyskaj token dostępu przy użyciu tożsamości maszyny Wirtualnej i przy jego użyciu można pobrać klucza tajnego z magazynu kluczy 
 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
