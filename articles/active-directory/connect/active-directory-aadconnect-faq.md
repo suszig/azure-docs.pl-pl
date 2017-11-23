@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Często zadawane pytania dotyczące usługi Azure Active Directory Connect
 
@@ -43,10 +43,16 @@ Całe oprogramowanie sieciowe, urządzenia fizyczne lub czymkolwiek innym, któr
 **Pytanie: czy domeny drugiego poziomu (jednej etykiety domen) obsługiwane?**  
 Nie, usługi Azure AD Connect nie obsługuje lokalnymi lasami/domenami przy użyciu drugiego poziomu.
 
+**Pyt.: czy lasów domenom AD rozłącznego obsługiwane?**  
+Nie, usługi Azure AD Connect nie obsługuje lokalnymi lasami zawierający rozłączne przestrzenie nazw.
+
 **Pytanie: czy "kropkami" o nazwie NetBios obsługiwane?**  
 Nie, usługi Azure AD Connect nie obsługuje lokalnymi lasami/domenami, których nazwa NetBios zawiera kropkę "." w nazwie.
 
-## <a name="federation"></a>Federacyjna
+**Pytanie: jest czysty środowisko IPv6 obsługiwane?**  
+Nie, usługi Azure AD Connect nie obsługuje czystego środowiska protokołu IPv6.
+
+## <a name="federation"></a>Federacja
 **Pytanie: co należy zrobić, jeśli otrzymuję wiadomość e-mail, który monit o odnawiania certyfikatu usługi Office 365**  
 Użyj wskazówek opisaną w [odnawiania certyfikatów](active-directory-aadconnect-o365-certs.md) temacie dotyczące sposobu odnawiania certyfikatu.
 

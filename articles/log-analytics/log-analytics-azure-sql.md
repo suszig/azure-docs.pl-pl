@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -29,6 +29,11 @@ Rozwiązanie analiza SQL Azure w Azure Log Analytics zbiera i wizualizuje ważne
 Obecnie to rozwiązanie w wersji zapoznawczej obsługuje maksymalnie 150 000 baz danych SQL Azure i 5000 SQL pule elastyczne według obszaru roboczego.
 
 Rozwiązanie analiza SQL Azure, takich jak inne dostępne dla analizy dzienników pomaga monitorować i otrzymywanie powiadomień o kondycji zasobów platformy Azure — w takim przypadku baza danych SQL Azure. Baza danych SQL Azure Microsoft to usługa skalowalne relacyjnej bazy danych, który umożliwia znanych funkcji programu SQL Server podobny do aplikacji działających w chmurze Azure. Analizy dzienników umożliwia zbieranie, skorelowania i wizualizacji danych strukturalnych i bez struktury.
+
+Omówienie praktyczne przy użyciu rozwiązania analizy SQL Azure oraz typowe scenariusze użytkowania Zobacz osadzonego wideo:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Połączone źródła
 
@@ -115,7 +120,7 @@ Dla każdej perspektywy umożliwia podsumowania subskrypcji, serwer puli elastyc
 
 ### <a name="intelligent-insights-report"></a>Raport Insights inteligentnego
 
-Wszystkie zebrane inteligentnego szczegółowe informacje można wizualizowane i dostępne za pośrednictwem perspektywy szczegółowych informacji. 
+Baza danych SQL Azure [Insights inteligentnego](../sql-database/sql-database-intelligent-insights.md) informuje Cię o tym, co dzieje z wydajność bazy danych. Wszystkie zebrane inteligentnego szczegółowe informacje można wizualizowane i dostępne za pośrednictwem perspektywy szczegółowych informacji.
 
 ![Insights Analytics Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

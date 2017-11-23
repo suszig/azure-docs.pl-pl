@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 4f2445f1166ae24afb1c6b2a81cf02176593fdaa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="access-control-ac"></a>Kontrola dostępu (AC)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-    
-    
-
-# <a name="access-control-ac"></a>Kontrola dostępu (AC)
 
 ## <a name="nist-800-53-control-ac-1"></a>Formant NIST 800 53 AC-1
 

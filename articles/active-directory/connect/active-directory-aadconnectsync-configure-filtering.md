@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Za pomocą filtrowania, można kontrolować obiekty, które są wyświetlane w usłudze Azure Active Directory (Azure AD) z katalogu lokalnego. Domyślna konfiguracja pobiera wszystkie obiekty we wszystkich domenach w lesie skonfigurowanym. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkowników przy użyciu usługi Office 365 obciążeń, takich jak Exchange Online i Skype dla firm, korzystać z pełną globalnej listy adresowej, wysyłać wiadomości e-mail i wywołać Wszyscy. W konfiguracji domyślnej zostałyby to samo środowisko korzystania, które zostałyby implementacja lokalnego programu Exchange lub Lync.
@@ -296,7 +296,14 @@ Teraz nadszedł czas, aby ponownie włączyć harmonogramu.
 ## <a name="group-based-filtering"></a>Filtrowanie na podstawie grupy
 Można skonfigurować filtrowanie na podstawie grupy po raz pierwszy zainstalować Azure AD Connect przy użyciu [instalacji niestandardowej](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Jest on przeznaczony do wdrożenia pilotażowego, w którym ma niewielki zestaw obiektów, które mają być synchronizowane. Po wyłączeniu filtrowanie na podstawie grupy, nie można włączyć ponownie. Ma ona *nieobsługiwane* umożliwia filtrowanie na podstawie grupy w konfiguracji niestandardowej. Jest obsługiwana tylko do tej funkcji można skonfigurować przy użyciu Kreatora instalacji. Po zakończeniu pracy programu pilotażowego, następnie użyj jednej z innych opcji filtrowania w tym temacie. Korzystając z filtrowanie oparte na jednostce Organizacyjnej w połączeniu z filtrowanie na podstawie grupy, jednostką organizacyjną, w którym znajdują się grupie i jej elementów członkowskich należy dołączyć.
 
-Podczas synchronizowania wiele lasów usługi AD, można skonfigurować filtrowanie na podstawie grupy, określając inną grupę przez każdy łącznik AD. W razie potrzeby do synchronizowania użytkownika AD jeden las i tego samego użytkownika zawiera co najmniej bardziej odpowiednie FSP (obcego podmiotu zabezpieczeń) obiektów w innych lasach AD, należy upewnić się, że obiekt użytkownika i jego odpowiednimi obiektami FSP w oparte na grupach filtrowania zakresu. Jeśli co najmniej jeden z obiektów FSP są wyłączone przez filtrowanie na podstawie grupy, obiekt użytkownika nie będą synchronizowane z usługą Azure AD.
+Podczas synchronizowania wiele lasów usługi AD, można skonfigurować filtrowanie na podstawie grupy, określając inną grupę przez każdy łącznik AD. W razie potrzeby do synchronizowania użytkownika AD jeden las i tego samego użytkownika zawiera co najmniej odpowiadającego więcej obiektów w innych lasach AD, należy upewnić się, że obiekt użytkownika i wszystkie odpowiednie obiekty w ramach oparte na grupach filtrowania zakresu. Przykłady:
+
+* Masz użytkownika w jednym lesie, który ma odpowiedni obiekt FSP (obcego podmiotu zabezpieczeń) w innym lesie. Zarówno do obiektów musi być w oparte na grupach filtrowanie zakresu. W przeciwnym razie użytkownik nie będą synchronizowane z usługą Azure AD.
+
+* Masz użytkownika w jednym lesie, który ma odpowiadającego mu konta zasobu (np. połączona Skrzynka pocztowa) w innym lesie. Ponadto skonfigurowano Azure AD Connect, aby połączyć użytkownika z konta zasobu. Zarówno do obiektów musi być w oparte na grupach filtrowanie zakresu. W przeciwnym razie użytkownik nie będą synchronizowane z usługą Azure AD.
+
+* Masz użytkownika w jednym lesie, który ma odpowiednie poczty kontaktu w innym lesie. Co więcej skonfigurowaniu usługi Azure AD Connect, aby połączyć użytkownika z kontakt poczty. Zarówno do obiektów musi być w oparte na grupach filtrowanie zakresu. W przeciwnym razie użytkownik nie będą synchronizowane z usługą Azure AD.
+
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.

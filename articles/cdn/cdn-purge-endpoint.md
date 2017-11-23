@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Przeczyszczanie punktu końcowego usługi Azure CDN
 ## <a name="overview"></a>Omówienie
@@ -68,7 +68,7 @@ W tym samouczku przedstawiono przeczyszczanie zasoby ze wszystkich węzłów kra
     ![Przeczyść przycisku](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Żądania przeczyszczenia zająć około 2 – 3 minuty do przetworzenia z **Azure CDN from Verizon** (Standard i Premium), a około 7 minut z **Azure CDN from Akamai**.  Usługi Azure CDN ma limit współbieżnych 50 przeczyścić żądań w danym momencie. 
+> Żądania przeczyszczenia zająć około 2 – 3 minuty do przetworzenia z **Azure CDN from Verizon** (Standard i Premium), a około 7 minut z **Azure CDN from Akamai**.  Usługi Azure CDN ma limit współbieżnych 50 przeczyścić żądań w danym czasie na poziomie profilu. 
 > 
 > 
 

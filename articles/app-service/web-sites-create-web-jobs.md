@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
-ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Uruchom zadania w tle z zadań Webjob w usłudze Azure App Service
 
@@ -36,7 +36,7 @@ Zestaw SDK zadań Webjob Azure pozwala z zadań Webjob uprościć wiele zadań p
 W poniższej tabeli opisano różnice między *ciągłego* i *wyzwalane* zadań Webjob.
 
 
-|Ciągłe  |Wywołany  |
+|Ciągłe  |Wyzwolone  |
 |---------|---------|
 | Uruchamiany natychmiast po utworzeniu zadania WebJob. Aby zakończenie zadania, programów lub skryptów zazwyczaj wykonuje pracę w pętli nieskończonej. Jeśli zadanie zakończone, można uruchomić go ponownie. | Zostanie uruchomiony tylko wtedy, gdy wyzwalana ręcznie lub zgodnie z harmonogramem. |
 | Działa we wszystkich wystąpieniach, których używa aplikacja sieci web. Opcjonalnie można ograniczyć zadania WebJob do pojedynczego wystąpienia. |Równoważenie obciążenia działa w pojedynczym wystąpieniu wybierające dla platformy Azure.|
@@ -120,8 +120,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nazwa** | myTriggeredWebJob | Nazwa, która jest unikatowa w obrębie aplikacji usługi aplikacji. Musi rozpoczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_".|
    | **Przekazywanie pliku** | ConsoleApp.zip | A *zip* plik, który zawiera plik wykonywalny lub skrypt, a także wszelkie pliki pomocnicze potrzebne do uruchomienia tego programu lub skryptu. Obsługiwane typy plików plik wykonywalny lub skrypt są wymienione w [obsługiwanych typów plików](#acceptablefiles) sekcji. |
-   | **Typ** | Wywołany | [Typy zadań WebJob](#webjob-types) są opisane w tym artykule. |
-   | **Wyzwalacze** | Ręcznie | |
+   | **Typ** | Wyzwolone | [Typy zadań WebJob](#webjob-types) są opisane w tym artykule. |
+   | **Wyzwalacze** | Ręczne | |
 
 4. Kliknij przycisk **OK**.
 
@@ -131,7 +131,7 @@ when making changes in one don't forget the other two.
 
 7. Aby uruchomić zadania WebJob, kliknij prawym przyciskiem myszy jego nazwę na liście, a następnie kliknij przycisk **Uruchom**.
    
-    ![Uruchom zadanie WebJob](./media/web-sites-create-web-jobs/runondemand.png)
+    ![Uruchamianie zadania WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a>Utwórz zaplanowane zadania WebJob
 
@@ -158,8 +158,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nazwa** | myScheduledWebJob | Nazwa, która jest unikatowa w obrębie aplikacji usługi aplikacji. Musi rozpoczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_". |
    | **Przekazywanie pliku** | ConsoleApp.zip | A *zip* plik, który zawiera plik wykonywalny lub skrypt, a także wszelkie pliki pomocnicze potrzebne do uruchomienia tego programu lub skryptu. Obsługiwane typy plików plik wykonywalny lub skrypt są wymienione w [obsługiwanych typów plików](#acceptablefiles) sekcji. |
-   | **Typ** | Wywołany | [Typy zadań WebJob](#webjob-types) są opisane w tym artykule. |
-   | **Wyzwalacze** | Zaplanowane | Podczas planowania działała prawidłowo, należy włączyć funkcję zawsze włączone. Zawsze włączone jest dostępna tylko w podstawowa, standardowa i Premium warstw cenowych.|
+   | **Typ** | Wyzwolone | [Typy zadań WebJob](#webjob-types) są opisane w tym artykule. |
+   | **Wyzwalacze** | Zaplanowano | Podczas planowania działała prawidłowo, należy włączyć funkcję zawsze włączone. Zawsze włączone jest dostępna tylko w podstawowa, standardowa i Premium warstw cenowych.|
    | **Wyrażenie usługi CRON** | 0 0/20 * * * * | [Wyrażenia CRON](#cron-expressions) są opisane w poniższej sekcji. |
 
 4. Kliknij przycisk **OK**.

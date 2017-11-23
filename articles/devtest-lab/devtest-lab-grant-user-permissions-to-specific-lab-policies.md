@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Przyznawanie uprawnień użytkownikom zasad określonych laboratorium
 ## <a name="overview"></a>Omówienie
@@ -87,9 +87,9 @@ W poprzednim przykładzie **AllowedVmSizesInLab** zasady są używane. Można u�
 ## <a name="next-steps"></a>Następne kroki
 Raz użytkownikowi nie zostały przyznane użytkownikowi uprawnień do laboratorium określone zasady, poniżej przedstawiono niektóre warto rozważyć poniższe kroki:
 
-* [Secure access to a lab](devtest-lab-add-devtest-user.md) (Zabezpieczanie dostępu do laboratorium).
-* [Set lab policies](devtest-lab-set-lab-policy.md) (Ustawianie zasad laboratorium).
-* [Create a lab template](devtest-lab-create-template.md) (Tworzenie szablonu laboratorium).
-* [Create custom artifacts for your VMs](devtest-lab-artifact-author.md) (Tworzenie niestandardowych artefaktów dla maszyn wirtualnych).
-* [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md) (Dodawanie maszyny wirtualnej z artefaktami do laboratorium).
+* [Bezpieczny dostęp do laboratorium](devtest-lab-add-devtest-user.md)
+* [Zestaw zasad laboratorium](devtest-lab-set-lab-policy.md)
+* [Tworzenie szablonu laboratorium](devtest-lab-create-template.md)
+* [Tworzenie niestandardowych artefaktów dla maszyn wirtualnych](devtest-lab-artifact-author.md)
+* [Dodaj Maszynę wirtualną w laboratorium](devtest-lab-add-vm.md)
 

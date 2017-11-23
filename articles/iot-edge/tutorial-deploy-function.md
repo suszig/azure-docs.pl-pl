@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Wdrażanie funkcji platformy Azure jako moduł krawędzi IoT — w wersji preview
 Aby wdrożyć kod, który implementuje logiki biznesowej bezpośrednio do urządzenia IoT krawędzi, możesz użyć funkcji Azure. W tym samouczku przedstawiono sposób tworzenia i wdrażania funkcji Azure filtrujące dane czujników na symulowane urządzenie brzegowe IoT utworzoną w programie IoT Edge Azure wdrożenia symulowanego urządzenia na [Windows] [ lnk-tutorial1-win]lub [Linux] [ lnk-tutorial1-lin] samouczki. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:     
@@ -129,7 +129,7 @@ Poniższe kroki pokazują, jak utworzyć funkcję krawędzi IoT przy użyciu pro
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```

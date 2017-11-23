@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 W przypadku klientów z Software Assurance Azure hybrydowego korzyści dla systemu Windows Server umożliwia użyć lokalnego licencji systemu Windows Server i uruchamiania maszyn wirtualnych Windows Azure taniego. Azure hybrydowego korzyści dla systemu Windows Server służy do wdrażania nowych maszyn wirtualnych za pomocą dowolnego obrazu platformy systemu Windows Server lub niestandardowych obrazów systemu Windows obsługiwane przez platformę Azure. W tym artykule przechodzi przez kroki dotyczące sposobu wdrażania nowych maszyn wirtualnych z Azure hybrydowego korzyści dla systemu Windows Server oraz sposób aktualizowania istniejących działających maszyn wirtualnych. Aby uzyskać więcej informacji na temat Azure hybrydowego korzyści dla systemu Windows Server zobacz oszczędności kosztów i licencjonowania, [strony licencjonowania Azure hybrydowego korzyści dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ W przypadku klientów z Software Assurance Azure hybrydowego korzyści dla syste
 >
 
 > [!NOTE]
-> Przy użyciu Azure hybrydowego korzyści dla systemu Windows Server z maszynami wirtualnymi, które są pobierane dla dodatkowego oprogramowania, takich jak SQL Server lub dowolny obrazów marketplace innej firmy jest rozwijane. Jeśli błąd 409 takich jak: zmiana właściwości "LicenseType" jest niedozwolony. następnie próbujesz konwertować lub wdrażania nowego systemu Windows Server maszynę Wirtualną, która ma koszt, dodatkowego oprogramowania, które może nie być obsługiwana w tym regionie.
+> Przy użyciu Azure hybrydowego korzyści dla systemu Windows Server z maszynami wirtualnymi, które są pobierane dla dodatkowego oprogramowania, takich jak SQL Server lub dowolny obrazów marketplace innej firmy jest rozwijane. Jeśli błąd 409 takich jak: zmiana właściwości "LicenseType" jest niedozwolony. następnie próbujesz konwertować lub wdrażania nowego systemu Windows Server maszynę Wirtualną, która ma koszt, dodatkowego oprogramowania, które może nie być obsługiwana w tym regionie. Tej samej, jeśli próbuje wyglądać Konfiguracja portalu opcja wykonywania konwersji i nie może uzyskać go dla tej maszyny Wirtualnej.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portal
 Z portalu bloku maszyny Wirtualnej można zaktualizować maszyny Wirtualnej do użycia korzystać hybrydowe platformy Azure, wybierając opcję "Konfiguracja" i ustaw opcję "korzystać hybrydowe platformy Azure"
+
+> [!NOTE]
+> Jeśli nie widzisz opcji Przełącz "hybrydowe platformy Azure korzyści" w obszarze "Konfiguracja" to, że konwersja nie jest jeszcze obsługiwane dla wybranego typu maszyny Wirtualnej (na przykład utworzony przez Maszynę wirtualną z niestandardowego obrazu lub obraz, który ma dodatkowe oprogramowanie płatną, takie jak SQL Server lub Azure Marketplace oprogramowania innych firm).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Przekazywanie wirtualnego dysku twardego Windows Server
 Aby wdrożyć Maszynę wirtualną systemu Windows Server na platformie Azure, należy najpierw utworzyć wirtualny dysk twardy zawiera podstawowe kompilacji systemu Windows. Tego wirtualnego dysku twardego, należy odpowiednio przygotować za pomocą programu Sysprep przed przekazaniem go do platformy Azure. Możesz [Dowiedz się więcej na temat wirtualnego dysku twardego wymagań i procesu Sysprep](upload-generalized-managed.md) i [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Utwórz kopię zapasową maszyny Wirtualnej przed uruchomieniem programu Sysprep. 
@@ -180,12 +184,14 @@ W ramach maszyny wirtualnej zestawu skalowania maszyny wirtualnej szablonów Res
 Możesz również [tworzenie i wdrażanie zestaw skali maszyny wirtualnej](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) i ustaw właściwość LicenseType
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj więcej na temat [jak zaoszczędzić z asysty hybrydowego Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Przeczytaj więcej na temat [jak zaoszczędzić z asysty hybrydowe platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server szczegółowe wskazówki dotyczące licencjonowania](http://go.microsoft.com/fwlink/?LinkId=859786)
+Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server szczegółowe wskazówki dotyczące licencjonowania](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Dowiedz się więcej o [przy użyciu szablonów usługi Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Dowiedz się więcej o [szablonów za pomocą Menedżera zasobów](../../azure-resource-manager/resource-group-overview.md)
 
-Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server i usługi Azure Site Recovery upewnij migrowanie aplikacji Azure jeszcze bardziej ekonomiczne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server i usługi Azure Site Recovery upewnij migrowanie aplikacji Azure jeszcze bardziej ekonomiczne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Dowiedz się więcej o [systemu Windows 10 na platformie Azure z prawem Hosting wielodostępnej](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Przeczytaj więcej na temat [— często zadawane pytania](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

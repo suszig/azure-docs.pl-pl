@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Najlepsze rozwiązania sieci platformy Azure
-Microsoft Azure umożliwia podłączenie maszyn wirtualnych i urządzenia do innych urządzeń sieciowych, umieszczając je w sieciach wirtualnych platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcja sieci wirtualnej, która umożliwia łączenie z karty interfejsu sieci wirtualnej do sieci wirtualnej, aby umożliwić opartych na protokole TCP/IP komunikację między urządzeniami sieciowymi włączone. Azure maszyny wirtualne podłączone do sieci wirtualnej platformy Azure będą mogli nawiązać połączenia z urządzeń w tej samej sieci wirtualnej Azure, różnych sieciach wirtualnych platformy Azure, w Internecie lub nawet w sieci lokalnej.
+Microsoft Azure umożliwia podłączenie maszyn wirtualnych i urządzenia do innych urządzeń sieciowych, umieszczając je w sieciach wirtualnych platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcję umożliwia łączenie z karty interfejsu sieci wirtualnej do sieci wirtualnej, aby umożliwić opartych na protokole TCP/IP komunikację między urządzeniami sieciowymi włączone. Azure maszyny wirtualne podłączone do sieci wirtualnej platformy Azure będą mogli nawiązać połączenia z urządzeń w tej samej sieci wirtualnej Azure, różnych sieciach wirtualnych platformy Azure, w Internecie lub nawet w sieci lokalnej.
 
 W tym artykule omówiono kolekcja najlepszych rozwiązań dotyczących zabezpieczeń sieci platformy Azure. Następujące najlepsze rozwiązania są uzyskiwane z wiemy z doświadczenia z platformy Azure w sieci i jej klientów, takich jak samodzielnie.
 
@@ -50,9 +50,9 @@ Azure sieci najlepsze rozwiązania omówione w tym artykule obejmują:
 * Rozszerzanie centrum danych na platformie Azure
 
 ## <a name="logically-segment-subnets"></a>Logicznie segmentu podsieci
-[Sieci wirtualnych platformy Azure](https://azure.microsoft.com/documentation/services/virtual-network/) są podobne do sieci LAN w sieci lokalnej. W założeniu sieci wirtualnej platformy Azure jest utworzenie pojedynczej prywatny adres przestrzennych sieci IP na którym można umieścić wszystkie Twoje [maszyny wirtualne Azure](https://azure.microsoft.com/services/virtual-machines/). Prywatnych przestrzeni adresów IP dostępne są w klasy A (10.0.0.0/8), klasy B (172.16.0.0/12) i Klasa C zakresów (192.168.0.0/16).
+[Sieci wirtualnych platformy Azure](https://azure.microsoft.com/documentation/services/virtual-network/) są podobne do sieci LAN w sieci lokalnej. W założeniu sieci wirtualnej platformy Azure jest utworzenie pojedynczej prywatny adres przestrzennych sieci IP na którym można umieścić wszystkie Twoje [maszyny wirtualne Azure](https://azure.microsoft.com/services/virtual-machines/). Prywatnych przestrzeni adresów IP dostępne w klasy A (10.0.0.0/8) klasy B (172.16.0.0/12) i zakresy klasy C (192.168.0.0/16).
 
-Podobnie jak co zrobić lokalnie, można podzielić większą przestrzeń adresów w podsieci. Można użyć [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) na podstawie zasad podsieci można utworzyć podsieci.
+Podobnie jak co zrobić lokalnie, należy podzielić większą przestrzeń adresową na podsieci. Można użyć [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) na podstawie zasad podsieci można utworzyć podsieci.
 
 Routing między podsieciami nastąpi automatycznie i nie trzeba ręcznie skonfigurować tabele routingu. Jednak domyślne ustawienie zakłada, że bez kontroli dostępu do sieci między podsieciami, utworzone w sieci wirtualnej platformy Azure. Aby można było utworzyć kontroli dostępu do sieci między podsieciami, należy umieścić coś między podsieciami.
 
@@ -74,7 +74,7 @@ Trasy systemowe domyślne są przydatne w przypadku wielu wdrożeń, istnieją r
 Zaleca się skonfigurowanie trasy zdefiniowane przez użytkownika podczas wdrażania urządzenia zabezpieczeń sieci wirtualnej, które będzie są omawiane w późniejszym najlepszym rozwiązaniem.
 
 > [!NOTE]
-> Trasy zdefiniowane przez użytkownika nie są wymagane i tras systemowych domyślne będą działać w większości przypadków.
+> Trasy zdefiniowane przez użytkownika nie są wymagane i tras systemowych domyślne działa w większości przypadków.
 >
 >
 
@@ -82,7 +82,7 @@ Dowiedz się więcej o trasy zdefiniowane przez użytkownika i sposobach ich kon
 
 ## <a name="enable-forced-tunneling"></a>Włączanie tunelowania wymuszonego
 Aby lepiej zrozumieć tunelowania wymuszonego, warto dowiedzieć się, jakie "podział tunelowania".
-Najbardziej typowym przykładem tunelowanie podzielone jest widoczna przy użyciu połączeń VPN. Wyobraź sobie ustanowić połączenie sieci VPN z pokoju hoteli do sieci firmowej. To połączenie umożliwia łączenie się z zasobami w sieci firmowej, a cała komunikacja z zasobami w sieci firmowej przechodzi przez tunel VPN.
+Najbardziej typowym przykładem tunelowanie podzielone jest widoczna przy użyciu połączeń VPN. Wyobraź sobie ustanowić połączenie sieci VPN z pokoju hoteli do sieci firmowej. To połączenie zezwala na dostęp do firmowych zasobów i cała komunikacja z sieci firmowej go za pośrednictwem tunelu VPN.
 
 Co się stanie, jeśli chcesz nawiązać połączenia z zasobami przez Internet? Po włączeniu tunelowania podzielonego tych połączeń, przejdź bezpośrednio do Internetu, a nie za pośrednictwem tunelu VPN. Niektóre ekspertów zabezpieczeń należy wziąć pod uwagę to potencjalne ryzyko i dlatego zaleca się, że tunelowanie podzielone wyłączone i wszystkich połączeń, te kierowanego do Internetu i te przeznaczonych dla zasobów firmowych, go za pośrednictwem tunelu VPN. Zaletą tej czynności jest następnie wymuszenie połączenia z Internetem za pośrednictwem sieci firmowej urządzeń zabezpieczeń, które nie będą wielkość liter, jeśli klient sieci VPN połączony z Internetem poza tunel VPN.
 
@@ -144,10 +144,9 @@ Poufności, integralności i dostępności (CIA) obejmują Triada współczesnyc
 Dostępność można traktować jako o dostępności i wydajności. Jeśli usługa nie działa, informacje są niedostępne. Jeśli więc niska, aby uniemożliwić korzystanie z tej danych wydajności, możemy należy rozważyć danych jest niedostępna. W związku z tym z punktu widzenia zabezpieczeń, musimy wykonać niezależnie od możemy upewnij się, że naszych usług mają optymalnej dostępności i wydajności.
 Metoda popularnych i skuteczne używana w celu zwiększenia dostępności i wydajności jest użycie, równoważenia obciążenia. Równoważenie obciążenia sieciowego jest metoda dystrybucji ruchu sieciowego na serwerach, które są częścią usługi. Na przykład jeśli masz serwerów frontonu sieci web jako część usługi umożliwia równoważenia obciążenia dystrybuowanie ruchu między wiele serwerów frontonu sieci web.
 
-Tej dystrybucji ruchu sieciowego zwiększa dostępność, ponieważ jeśli jeden z serwerów sieci web staje się niedostępny, usługi równoważenia obciążenia zatrzyma wysyłania ruchu do tego serwera i przekierować ruch do serwerów, które są nadal w trybie online. Równoważenie obciążenia sieciowego pomaga również wydajności, ponieważ procesor, sieci i pamięci, że obciążenie obsługująca żądania jest dystrybuowana do wszystkich obciążenia zrównoważonym serwerów.
+Tej dystrybucji ruchu sieciowego zwiększa dostępność, ponieważ jeśli jeden z serwerów sieci web jest niedostępna, usługi równoważenia obciążenia przestanie wysyłać ruch do tego serwera, a następnie go przekierowuje do serwerów, które są nadal w trybie online. Równoważenie obciążenia sieciowego pomaga również wydajności, ponieważ procesor, sieci i pamięci, że obciążenie obsługująca żądania jest dystrybuowana do wszystkich obciążenia zrównoważonym serwerów.
 
-Zaleca się, że zostanie zastosowana równoważenia obciążenia zawsze można się odpowiednie dla Twojej usługi. Będzie można rozwiązać właściwości w poniższych sekcjach.
-Na poziomie sieci wirtualnej platformy Azure Azure zapewnia z trzech podstawowych ładowania równoważenia opcje:
+Zaleca się, że zostanie zastosowana równoważenia obciążenia zawsze można się odpowiednie dla Twojej usługi. Będzie można rozwiązać właściwości w następujących sekcjach: na poziomie sieci wirtualnej platformy Azure, platforma Azure udostępnia z trzech podstawowych ładowania równoważenia opcje:
 
 * Równoważenie obciążenia oparte na protokole HTTP
 * Zewnętrzne Równoważenie obciążenia
@@ -162,7 +161,7 @@ Zalecamy, aby użytkownik nam brama aplikacji w usłudze Azure po:
 * Aplikacje, które mają być narzut korzystając z bramy aplikacji w warstwie bezpłatna farmach serwerów sieci web z kończenia żądań SSL [odciążania SSL](https://f5.com/glossary/ssl-offloading) funkcji.
 * Aplikacje, takie jak sieci dostarczania zawartości, które wymagają się, że wiele żądań HTTP na tego samego połączenia protokołu TCP długotrwałe być kierowane lub załadować zrównoważonym do różnych serwerów zaplecza.
 
-Aby dowiedzieć się więcej o sposobie działania usługi Azure Application Gateway i używania go w ramach wdrożeń, przeczytaj artykuł [omówienie bramy aplikacji](../application-gateway/application-gateway-introduction.md).
+Aby dowiedzieć się więcej o sposobie działania usługi Azure Application Gateway i używania go w ramach wdrożeń, przeczytaj artykuł na temat [omówienie bramy aplikacji](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="external-load-balancing"></a>Zewnętrzne Równoważenie obciążenia
 Równoważenie obciążenia zewnętrznych ma miejsce, gdy połączenia przychodzące z Internetu jest równoważone między serwerów znajdujących się w sieci wirtualnej platformy Azure. Azure zewnętrznej usługi równoważenia obciążenia zapewnia tej możliwości i zalecane jest użycie jej nie wymagają trwałe sesje lub odciążanie protokołu SSL.
@@ -173,10 +172,10 @@ Firma Microsoft zaleca użycie zewnętrznego równoważenia obciążenia zawsze 
 
 Aby dowiedzieć się więcej na temat sposobu działania Azure zewnętrzną usługą równoważenia obciążenia oraz sposób jego wdrażania przeczytaj artykuł [rozpocząć tworzenie Internet ukierunkowane modułu równoważenia obciążenia w Menedżerze zasobów przy użyciu programu PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## <a name="internal-load-balancing"></a>Wewnętrzne Równoważenie obciążenia
+## <a name="internal-load-balancing"></a>Wewnętrzny moduł równoważenia obciążenia
 Równoważenie obciążenia wewnętrznego jest podobny do równoważenia obciążenia zewnętrznych i używa ten sam mechanizm załadować saldo połączeń z serwerami za ich. Jedyna różnica polega na tym, że moduł równoważenia obciążenia w tym przypadku akceptowania połączeń z maszyn wirtualnych, które nie są dostępne w Internecie. W większości przypadków połączeń, które są akceptowane Równoważenie obciążenia sieciowego są inicjowane przez urządzenia w sieci wirtualnej platformy Azure.
 
-Firma Microsoft zaleca użycie wewnętrzne Równoważenie obciążenia dla scenariuszy, które będą korzystać z tej możliwości, takie jak konieczność załadowania saldo połączeń z serwerami SQL lub wewnętrznej sieci web.
+Firma Microsoft zaleca użycie wewnętrzne Równoważenie obciążenia dla scenariuszy, które korzystają z tej możliwości, takie jak konieczność załadowania saldo połączeń z serwerami SQL lub wewnętrznej sieci web.
 
 Aby dowiedzieć się więcej na temat sposobu działania wewnętrznego równoważenia obciążenia Azure i jak można ją wdrożyć, przeczytaj artykuł [rozpocząć tworzenie przy użyciu programu PowerShell do wewnętrznego modułu równoważenia obciążenia](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -119,7 +119,7 @@ W poniższej tabeli podsumowano Obsługa konfiguracji sieci w różnych scenariu
 --- | --- | ---
 Tworzenie zespołu kart sieciowych | Tak<br/><br/>Nieobsługiwane, gdy są replikowane maszyny fizycznej| Tak
 SIECI VLAN | Tak | Tak
-IPv4 | Tak | Tak
+Protokół IPv4 | Tak | Tak
 Protokół IPv6 | Nie | Nie
 
 ### <a name="guest-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej gościa
@@ -127,7 +127,7 @@ Protokół IPv6 | Nie | Nie
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 Tworzenie zespołu kart sieciowych | Nie | Nie
-IPv4 | Tak | Tak
+Protokół IPv4 | Tak | Tak
 Protokół IPv6 | Nie | Nie
 Statyczny adres IP (z systemem Windows) | Tak | Tak
 Statyczny adres IP (Linux) | Tak <br/><br/>Maszyny wirtualnej jest skonfigurowana do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
@@ -138,13 +138,14 @@ Obsługa wielu kart Sieciowych | Tak | Tak
 **Sieć platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Tak | Tak
-ILB | Tak | Tak
+Wewnętrzny moduł równoważenia obciążenia | Tak | Tak
 ELB | Tak | Tak
 Traffic Manager | Tak | Tak
 Obsługa wielu kart Sieciowych | Tak | Tak
 Zastrzeżony adres IP | Tak | Tak
-IPv4 | Tak | Tak
+Protokół IPv4 | Tak | Tak
 Zachowaj źródłowy adres IP | Tak | Tak
+Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne) | Nie | Nie
 
 
 ## <a name="support-for-storage"></a>Obsługa magazynu
@@ -188,9 +189,11 @@ GRS | Tak | Tak
 RA-GRS | Tak | Tak
 Magazynu chłodnego | Nie | Nie
 Magazynu gorącego| Nie | Nie
+Obiekty BLOB typu Block | Nie | Nie
 Szyfrowanie rest(SSE)| Tak | Tak
 Premium Storage | Tak | Tak
 Import/Eksport usługi | Nie | Nie
+Wirtualne sieci punktów końcowych usługi (usługi Azure Storage zapory i sieci wirtualne) skonfigurowany na docelowy magazyn konta, lub buforować używanych do przechowywania danych replikacji konta magazynu | Nie | Nie
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Obsługa konfiguracji obliczeń platformy Azure
@@ -208,7 +211,7 @@ Możesz wdrożyć usługę Site Recovery, aby replikować maszyny wirtualne i se
 **Jednostki** | **Wymagania** | **Szczegóły**
 --- | --- | ---
 **System operacyjny gościa** | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
-**Architektura systemu operacyjnego gościa** | 64-bitowych | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
+**Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Rozmiar dysku systemu operacyjnego** | 2048 GB, jeśli jest replikowana **maszyn wirtualnych VMware lub serwerów fizycznych do platformy Azure**.<br/><br/>Maksymalnie 2048 GB dla **funkcji Hyper-V generacji 1** maszyn wirtualnych.<br/><br/>Maksymalnie 300 GB dla **maszyn wirtualnych funkcji Hyper-V generacji 2**.  | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Liczba dysków systemu operacyjnego** | 1 | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Liczba dysków danych** | Replikowanie 64 lub mniej, jeśli **maszyn wirtualnych VMware do platformy Azure**; 16 lub mniej przypadku replikowania **maszyn wirtualnych funkcji Hyper-V w systemie Azure** | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane

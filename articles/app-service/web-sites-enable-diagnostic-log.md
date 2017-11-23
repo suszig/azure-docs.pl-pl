@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostyki dla aplikacji sieci web w usłudze aplikacji Azure
 ## <a name="overview"></a>Omówienie
@@ -34,18 +34,18 @@ Aplikacje sieci web usługi aplikacji udostępniają funkcje diagnostyczne dla r
 ### <a name="web-server-diagnostics"></a>Diagnostyka serwera sieci Web
 Można włączyć lub wyłączyć następujące rodzaje dzienników:
 
-* **Szczegółowe rejestrowanie błędów** — szczegółowe informacje o błędzie kodów stanu HTTP, które wskazania błędu (kod stanu 400 lub nowszej). Może zawierać informacje, które mogą pomóc ustalić, dlaczego serwer zwrócił kod błędu.
-* **Nie powiodło się żądanie śledzenia** — szczegółowe informacje dotyczące żądań zakończonych niepowodzeniem, w tym śladu używane do przetwarzania żądania oraz godzinę w poszczególnych składników składników usług IIS. Może to być przydatne, jeśli chcesz zwiększyć wydajność witryny lub określić, co powoduje określonego błędu HTTP do zwrócenia.
-* **Rejestrowanie serwera w sieci Web** — informacje o transakcjach HTTP przy użyciu [rozszerzonym formacie W3C dziennika pliku](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Jest to przydatne podczas określania ogólnego metryki lokacji, takie jak liczba żądań obsłużonych lub liczbę żądań pochodzą z określonego adresu IP.
+* **Szczegółowe rejestrowanie błędów** — szczegółowe informacje o błędzie kodów stanu HTTP, które wskazania błędu (kod stanu 400 lub nowszej). Może on zawierać informacje, które mogą pomóc ustalić, dlaczego serwer zwrócił kod błędu.
+* **Nie powiodło się żądanie śledzenia** — szczegółowe informacje dotyczące żądań zakończonych niepowodzeniem, w tym śladu używane do przetwarzania żądania oraz godzinę w poszczególnych składników składników usług IIS. Jest on przydatny, gdy chcesz zwiększyć wydajność witryny lub określić, co powoduje określonego błędu HTTP do zwrócenia.
+* **Rejestrowanie serwera w sieci Web** — informacje o transakcjach HTTP przy użyciu [rozszerzonym formacie W3C dziennika pliku](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Jest przydatne w przypadku określenia ogólną metryki lokacji, takie jak liczba żądań obsłużonych lub liczbę żądań pochodzą z określonego adresu IP.
 
-### <a name="application-diagnostics"></a>Usługa Application diagnostics
+### <a name="application-diagnostics"></a>Diagnostyka aplikacji
 Diagnostyki aplikacji umożliwia przechwytywanie informacji generowanych przez aplikację sieci web. Aplikacje ASP.NET mogą używać [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) klasy do rejestrowania informacji w dzienniku diagnostyki aplikacji. Na przykład:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 W czasie wykonywania mogą pobierać te dzienniki, aby pomóc w rozwiązywaniu problemów. Aby uzyskać więcej informacji, zobacz [Azure Rozwiązywanie problemów aplikacji sieci web w programie Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Aplikacje sieci web usługi aplikacji także rejestrować informacje na temat wdrażania podczas publikowania zawartości do aplikacji sieci web. Dzieje się to automatycznie i nie ma żadnych ustawień konfiguracji dla rejestrowania wdrożenia. Rejestrowanie wdrożenia pozwala określić, dlaczego wdrożenia nie powiodło się. Na przykład jeśli używasz skryptu wdrażania niestandardowych, można użyć wdrożenia rejestrowania do ustalenia, dlaczego skrypt nie działa prawidłowo.
+Aplikacje sieci web usługi aplikacji także rejestrować informacje na temat wdrażania podczas publikowania zawartości do aplikacji sieci web. Odbywa się automatycznie i nie ma żadnych ustawień konfiguracji dla rejestrowania wdrożenia. Rejestrowanie wdrożenia pozwala określić, dlaczego wdrożenia nie powiodło się. Na przykład jeśli używasz skryptu wdrażania niestandardowych, można użyć wdrożenia rejestrowania do ustalenia, dlaczego skrypt nie działa prawidłowo.
 
 ## <a name="enablediag"></a>Jak włączyć diagnostyki
 Aby włączyć diagnostyki w [portalu Azure](https://portal.azure.com), przejdź do strony dla aplikacji sieci web i kliknij przycisk **Ustawienia > dzienniki diagnostyczne**.
@@ -53,21 +53,20 @@ Aby włączyć diagnostyki w [portalu Azure](https://portal.azure.com), przejdź
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Część dzienników](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Po włączeniu **programu application diagnostics**, możesz również wybrać **poziom**. To ustawienie umożliwia filtrowanie informacji przechwycone do **informacyjny**, **ostrzeżenie**, lub **błąd** informacji. To ustawienie **pełne** rejestruje wszystkie informacje produkowane przez aplikację.
+Po włączeniu **programu application diagnostics**, możesz również wybrać **poziom**. To ustawienie umożliwia filtrowanie informacji przechwycone do **informacyjny**, **ostrzeżenie**, lub **błąd** informacji. Ustawieniem dla niego **pełne** rejestruje wszystkie informacje produkowane przez aplikację.
 
 > [!NOTE]
 > W przeciwieństwie do zmiany pliku web.config, włączanie diagnostyki aplikacji lub zmienianie poziomów dzienników diagnostycznych nie jest odtwarzana aplikacji jest uruchamiany w ramach domeny aplikacji.
 >
 >
 
-W [klasyczny portal](https://manage.windowsazure.com) aplikacji sieci Web **Konfiguruj** karcie, możesz wybrać **magazynu** lub **system plików** dla **rejestrowanie pracy serwera sieci web** . Wybieranie **magazynu** służy do wybierania konta magazynu i kontener obiektów blob, który dzienniki są zapisywane. Wszystkie dzienniki dla **lokacji diagnostyki** są zapisywane w systemie plików.
+Aby uzyskać **rejestrowanie aplikacji**, możesz włączyć opcję systemu pliku tymczasowego na potrzeby debugowania. Ta opcja powoduje wyłączenie automatycznie w ciągu 12 godzin. Można również włączyć kontener blogu zapisywanie dzienników, aby wybrać opcję magazynu obiektów blob.
 
-[Klasyczny portal](https://manage.windowsazure.com) aplikacji sieci Web **Konfiguruj** karta zawiera również dodatkowe ustawienia dla programu application diagnostics:
+Dla **rejestrowanie pracy serwera sieci Web**, można wybrać **magazynu** lub **system plików**. Wybieranie **magazynu** służy do wybierania konta magazynu i kontener obiektów blob, który dzienniki są zapisywane. 
 
-* **System plików** -przechowuje informacje diagnostyczne aplikacji do systemu plików aplikacji sieci web. Te pliki mogą być uzyskiwał FTP lub pobrane jako archiwum Zip przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure (Azure CLI).
-* **Tabela magazynu** -przechowuje informacje diagnostyczne aplikacji w określonej nazwie konto magazynu Azure i tabeli.
-* **Magazyn obiektów blob** -przechowuje informacje diagnostyczne aplikacji w określonym kontenerze konto magazynu Azure i obiektów blob.
-* **Okres przechowywania** — domyślnie dzienniki nie są automatycznie usuwane z **magazynu obiektów blob**. Wybierz **ustawienia przechowywania** i wprowadź liczbę dni, aby zachować dzienniki, jeśli chcesz automatycznie usunąć dzienników.
+Jeśli dzienniki są przechowywane w systemie plików, pliki mogą być dostęp do FTP, lub pobrać jako archiwum Zip przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure (Azure CLI).
+
+Domyślnie dzienniki nie są automatycznie usuwane (z wyjątkiem produktów **rejestrowania aplikacji (systemu plików)**). Aby automatycznie usunąć dzienników, ustaw **okresu przechowywania (dni)** pola.
 
 > [!NOTE]
 > Jeśli użytkownik [ponowne generowanie kluczy dostępu do konta magazynu](../storage/common/storage-create-storage-account.md), należy zresetować konfigurację odpowiednich rejestrowania, aby używać kluczy zaktualizowane. W tym celu:
@@ -101,12 +100,10 @@ Dzienniki są przechowywane w strukturą katalogów jest następujący:
 * **Dzienniki wdrożenia** -/ LogFiles/Git. Ten folder zawiera dzienniki generowane przez procesy wewnętrznego wdrażania aplikacji sieci web platformy Azure, a także wdrożeń Git w dziennikach.
 
 ### <a name="ftp"></a>FTP
-Aby uzyskać dostęp do informacji diagnostycznych za pomocą protokołu FTP, odwiedź stronę **pulpitu nawigacyjnego** aplikacji sieci web w [klasyczny portal](https://manage.windowsazure.com). W **szybkiego dostępu** użyj **dzienników diagnostycznych FTP** łącze, aby uzyskać dostęp do plików dziennika za pomocą protokołu FTP. **Użytkowników usługi FTP/wdrożenia** wpis Wyświetla nazwę użytkownika, które mają być używane do uzyskania dostępu do witryny FTP.
 
-> [!NOTE]
-> Jeśli **użytkowników usługi FTP/wdrożenia** wpis nie jest ustawiona, lub pamiętasz hasła dla tego użytkownika, można utworzyć nowego użytkownika i hasło, używając **resetowanie poświadczeń wdrażania** łącze w  **szybkiego dostępu** sekcji **pulpitu nawigacyjnego**.
->
->
+Aby otworzyć połączenie FTP do serwera FTP aplikacji, zobacz [wdrażanie aplikacji w usłudze Azure App Service przy użyciu FTP/S](app-service-deploy-ftp.md).
+
+Po nawiązaniu połączenia z serwerem FTP/S aplikacji sieci web, otwórz **LogFiles** folderu, w którym będą przechowywane pliki dziennika.
 
 ### <a name="download-with-azure-powershell"></a>Pobierz przy użyciu programu Azure PowerShell
 Pobierz pliki dziennika i uruchomić nowe wystąpienie programu Azure PowerShell, użyj następującego polecenia:
@@ -145,7 +142,7 @@ Visual Studio Application Insights udostępnia narzędzia do filtrowania i wyszu
 [Dowiedz się więcej na temat wydajności śledzenia z usługą Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Porady: strumienia dzienników
-Podczas tworzenia aplikacji, często jest przydatne wyświetlić informacje o rejestrowaniu w czasie niemal rzeczywistym. Można to zrobić przez przesyłania strumieniowego rejestrowanie informacji do środowiska deweloperskiego przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Podczas tworzenia aplikacji, często jest przydatne wyświetlić informacje o rejestrowaniu w czasie niemal rzeczywistym. Informacje o rejestrowaniu można strumienia do środowiska deweloperskiego przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 > [!NOTE]
 > Niektóre typy rejestrowania bufor zapisu do pliku dziennika, co może skutkować zdarzenia poza kolejnością w strumieniu. Na przykład wpis dziennika aplikacji, która występuje, gdy użytkownik odwiedza stronę mogą być wyświetlane w strumieniu przed odpowiadający mu wpis dziennika HTTP dla żądania strony.
@@ -207,7 +204,7 @@ Każdym wierszu logowania do systemu plików lub odbierane przy użyciu przesył
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Na przykład zdarzenie błędu widoczne jest podobny do następującego:
+Na przykład zdarzenie błędu pojawiały się podobnie do poniższego przykładu:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -221,10 +218,10 @@ Po zalogowaniu się do magazynu tabel, dodatkowe właściwości są używane do 
 | --- | --- |
 | PartitionKey |Data/godzina zdarzenia w formacie yyyyMMddHH |
 | RowKey |Wartość identyfikatora GUID, który unikatowo identyfikuje tę jednostkę |
-| Znacznik czasu |Data i godzina wystąpienia zdarzenia |
+| Sygnatura czasowa |Data i godzina wystąpienia zdarzenia |
 | EventTickCount |Data i godzina wystąpienia zdarzenia, format znaczników (większą dokładność) |
 | ApplicationName |Nazwa aplikacji sieci web |
-| Poziom |Poziom zdarzenia (np. błąd, ostrzeżenie, informacje) |
+| Poziom |Poziom zdarzenia (na przykład błąd, ostrzeżenie, informacje) |
 | Identyfikator zdarzenia |Identyfikator zdarzenia to zdarzenie<p><p>Wartość domyślna to 0, jeśli nie określono żadnego |
 | Identyfikator wystąpienia |Wystąpienie aplikacji sieci web, który wystąpił nawet na |
 | Identyfikator procesu |Identyfikator procesu |
@@ -238,7 +235,7 @@ Po zalogowaniu się do magazynu obiektów blob, dane są przechowywane w formaci
 | Nazwa właściwości | Format wartości / |
 | --- | --- |
 | Date |Data i godzina wystąpienia zdarzenia |
-| Poziom |Poziom zdarzenia (np. błąd, ostrzeżenie, informacje) |
+| Poziom |Poziom zdarzenia (na przykład błąd, ostrzeżenie, informacje) |
 | ApplicationName |Nazwa aplikacji sieci web |
 | Identyfikator wystąpienia |Wystąpienie aplikacji sieci web, w którym wystąpiło zdarzenie w |
 | EventTickCount |Data i godzina wystąpienia zdarzenia, format znaczników (większą dokładność) |
@@ -247,7 +244,7 @@ Po zalogowaniu się do magazynu obiektów blob, dane są przechowywane w formaci
 | TID |Identyfikator wątku wątku wytworzonego zdarzenia |
 | Komunikat |Szczegóły komunikatu o zdarzeniu |
 
-Dane przechowywane w obiekcie blob będzie wyglądać podobnie do poniższej:
+Dane przechowywane w obiekcie blob będzie wyglądać podobnie do poniższego przykładu:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ Dane przechowywane w obiekcie blob będzie wyglądać podobnie do poniższej:
 >
 
 ### <a name="failed-request-traces"></a>Nie powiodło się żądanie śledzenia
-Dane śledzenia nieudanych żądań, są przechowywane w plikach XML o nazwie **fr ### .xml**. Aby ułatwić wyświetlać zarejestrowane informacje o nazwie arkusz stylów XSL **freb.xsl** znajduje się w tym samym katalogu co plik XML. Po otwarciu pliki XML w programie Internet Explorer programu Internet Explorer używa arkusza stylów XSL, aby zapewnić sformatowany wyświetlanie informacji o śledzeniu. Ta opcja ma podobny do następującego:
+Dane śledzenia nieudanych żądań, są przechowywane w plikach XML o nazwie **fr ### .xml**. Aby ułatwić wyświetlać zarejestrowane informacje o nazwie arkusz stylów XSL **freb.xsl** znajduje się w tym samym katalogu co plik XML. Po otwarciu pliki XML w programie Internet Explorer program Internet Explorer używa arkusz stylów XSL zapewnienie sformatowany wyświetlanie informacji o śledzeniu, podobnie do poniższego przykładu:
 
 ![żądań zakończonych niepowodzeniem w przeglądarce](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

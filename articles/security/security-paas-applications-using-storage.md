@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Zabezpieczanie PaaS w sieci web i aplikacji dla urządzeń przenośnych przy użyciu usługi Azure Storage
 W tym artykule omówiono kolekcję usługi Azure Storage zabezpieczeń najlepsze rozwiązania dotyczące zabezpieczania PaaS w sieci web i aplikacji dla urządzeń przenośnych. Następujące najlepsze rozwiązania są uzyskiwane z wiemy z doświadczenia z platformy Azure i doświadczenia klientów, takie jak samodzielnie.
@@ -87,7 +87,7 @@ Aby dowiedzieć się więcej o RBAC, zobacz:
 - [Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md)
 - [Przewodnik po zabezpieczeniach magazynu Azure](../storage/common/storage-security-guide.md) szczegółowe informacje na temat sposobu zabezpieczenia konta magazynu o RBAC
 
-## <a name="storage-encryption"></a>Szyfrowanie magazynu
+## <a name="storage-encryption"></a>Szyfrowanie w usłudze Storage
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Użyj szyfrowania po stronie klienta danych wysokiej wartości.
 
 Szyfrowanie po stronie klienta umożliwia programowo szyfrowania przesyłanych danych przed przekazaniem do usługi Azure Storage i programowo odszyfrowywania danych podczas pobierania go z magazynu.  Zapewnia szyfrowanie danych podczas przesyłania, ale również zapewnia szyfrowanie danych magazynowanych.  Szyfrowanie po stronie klienta jest najbezpieczniejszą metodą szyfrowania danych, ale wymaga zmiany programowy do aplikacji i wprowadzenia procesy zarządzania kluczami.

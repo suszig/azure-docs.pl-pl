@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Zarządzanie kosztami przy użyciu usługi Azure Management koszt
 
@@ -80,6 +80,23 @@ Na poniższej ilustracji przedstawiono przykład reguł utworzonych dla nową ka
 
 ![Przykład kategorii](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Tag źródeł i raporty
+
+Tag widoczne w raportach Cloudyn pochodzą dane w trzech miejscach:
+
+- Dostawca zasobów interfejsów API w chmurze
+- Rozliczeń interfejsy API dostawcy usług w chmurze
+- Znaczniki utworzone ręcznie z następujących źródeł:
+    - Tagi jednostek Cloudyn - meta danych użytkownika dotyczą Cloudyn jednostek
+    - Kategoria Manager — narzędzie, które tworzy nowe tagi na podstawie reguł, które są stosowane do znaczników czyszczenia danych
+
+Do wyświetlenia w raportach koszt Cloudyn tagi dostawcy chmury musi utworzyć model alokacji niestandardowy koszt, przy użyciu 360 alokacji kosztów. Aby to zrobić, przejdź do **koszt** > **kosztów zarządzania** > **360 alokacji kosztów**, wybierz odpowiednie tagi, a następnie zdefiniuj reguły obsługi nieoznakowanego koszty. Następnie utwórz nowy model kosztów. Potem można wyświetlić raporty w analizy kosztów alokacji do widoku, filtrować i sortować na tagów zasobów platformy Azure.
+
+Tagi zasobów platformy Azure są wyświetlane tylko w **analizy kosztów alokacji** raportów.
+
+Tagi rozliczeń dostawcy chmury pojawiają się w raportach koszt wszystkich.
+
+Tagi jednostek Cloudyn i tagi, które zostały ręcznie utworzone są wyświetlane w raportach koszt wszystkich.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Tworzenie raportów ogólnej analizy kosztów i obciążeń zwrotnych

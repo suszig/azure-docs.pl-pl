@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 1a8b5d7d4237d3b6a516becf5e3af2fdac84efa9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="incident-response-ir"></a>Odpowiedzi na zdarzenia (IR)
+
 > [!NOTE]
 > Formanty są definiowane przez Instytut NIST i Stanów Zjednoczonych Departament Handlu jako część poprawki NIST Special Publication 800-53 4. Zapoznaj się NIST 800 53 Rev. 4 informacji na temat testowania procedury i wskazówki dotyczące każdego formantu.
-    
-    
-
-# <a name="incident-response-ir"></a>Odpowiedzi na zdarzenia (IR)
 
 ## <a name="nist-800-53-control-ir-1"></a>Formant NIST 800 53 IR-1
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych platformy Azure do innego regionu systemu Azure
 
@@ -32,7 +32,7 @@ W tym artykule opisano sposób skonfigurowania replikacji maszyn wirtualnych dzi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Artykule przyjęto założenie, że już wiedzę na temat odzyskiwania lokacji i magazynu usług odzyskiwania. Musisz mieć sprzed "Magazyn usług odzyskiwania", utworzony.
+* Artykule przyjęto założenie, że już wiedzę na temat odzyskiwania lokacji i magazynu usług odzyskiwania. Musisz mieć "Magazyn usług odzyskiwania" wstępnie utworzone.
 
     >[!NOTE]
     >
@@ -53,9 +53,9 @@ Na tej ilustracji, firma Microsoft będzie replikowanie maszyn wirtualnych uruch
 
 1. **Źródło:** odnosi się do punktu pochodzenia maszyn, w tym przypadku jest **Azure**.
 
-2. **Lokalizacja źródłowa:** jest region platformy Azure, z której mają być chronione maszyny wirtualne. Na tej ilustracji lokalizacja źródłowa będzie "Azja Wschodnia"
+2. **Lokalizacja źródłowa:** jest region platformy Azure, z której mają być chronione maszyny wirtualne. Na tej ilustracji lokalizacja źródłowa jest "Azja Wschodnia"
 
-3. **Model wdrażania:** odnosi się do modelu wdrożenia usługi Azure maszyna źródłowa. Można wybrać obu classic lub Menedżera zasobów i komputery należące do określonego modelu zostaną wyświetlone w celu ochrony w następnym kroku.
+3. **Model wdrażania:** odnosi się do modelu wdrożenia usługi Azure maszyna źródłowa. Można wybrać obu Classic lub Menedżera zasobów i komputery należące do określonego modelu zostaną wyświetlone w celu ochrony w następnym kroku.
 
       >[!NOTE]
       >
@@ -76,27 +76,27 @@ W sekcji Ustawienia można skonfigurować właściwości lokacji docelowej
     > [!TIP]
     > Zaleca się zachowanie lokalizacji docelowej takie same jak odzyskiwania usług magazynu.
 
-2. **Docelowa grupa zasobów:** jest grupa zasobów, aby wszystkie zreplikowanej maszyny wirtualne będą należeć. Domyślnie funkcja automatycznego odzyskiwania systemu utworzy nową grupę zasobów w regionie docelowych z nazwą składającą się z sufiksem "asr". W przypadku grupy zasobów utworzonej przez ASR już istnieje, zostanie ono użyte ponownie. Można również dostosować go, jak pokazano w poniższej sekcji.    
-3. **Sieć wirtualna docelowa:** domyślnie ASR spowoduje utworzenie nowej sieci wirtualnej w regionie docelowej z nazwą składającą się z sufiksem "asr". To zostaną zmapowane do źródłowej sieci i będzie służyć do przyszłych ochrony.
+2. **Docelowa grupa zasobów:** jest grupa zasobów, aby wszystkie zreplikowanej maszyny wirtualne będą należeć. Domyślnie usługi Azure Site Recovery spowoduje utworzenie nowej grupy zasobów w region docelowy z nazwą składającą się z sufiksem "asr". W przypadku grupy zasobów utworzonej za pomocą usługi Azure Site Recovery już istnieje, zostanie ono użyte ponownie. Można również dostosować go, jak pokazano w poniższej sekcji.    
+3. **Sieć wirtualna docelowa:** Domyślnie usługi Azure Site Recovery spowoduje utworzenie nowej sieci wirtualnej w regionie docelowych z nazwą składającą się z sufiksem "asr". To zostaną zmapowane do źródłowej sieci i będzie służyć do przyszłych ochrony.
 
     > [!NOTE]
     > [Sprawdź szczegóły sieci](site-recovery-network-mapping-azure-to-azure.md) Aby dowiedzieć się więcej o mapowania sieci.
 
-4. **Docelowa kont magazynu:** domyślnie ASR utworzy nowe konto magazynu docelowego mimicking konfigurację magazynu maszyny Wirtualnej źródłowego. W przypadku konta magazynu utworzone przez usługi ASR już istnieje, zostanie ono użyte ponownie.
+4. **Docelowa kont magazynu:** Domyślnie usługi Azure Site Recovery spowoduje utworzenie nowego konta magazynu docelowego mimicking konfigurację magazynu maszyny Wirtualnej źródłowego. W przypadku konta magazynu utworzone za pomocą usługi Azure Site Recovery już istnieje, zostanie ono użyte ponownie.
 
-5. **Buforowanie kont magazynu:** ASR wymaga konta dodatkowego magazynu o nazwie magazynu pamięci podręcznej w regionie źródła. Wszystkie zmiany, które są wykonywane na maszynach wirtualnych źródła są śledzone i wysyłane do konta magazynu pamięci podręcznej przed replikowanie tych do lokalizacji docelowej.
+5. **Buforowanie kont magazynu:** usługi Azure Site Recovery wymaga konta dodatkowego magazynu o nazwie magazynu pamięci podręcznej w regionie źródła. Wszystkie zmiany, które są wykonywane na maszynach wirtualnych źródła są śledzone i wysyłane do konta magazynu pamięci podręcznej przed replikowanie tych do lokalizacji docelowej.
 
-6. **Zestaw dostępności:** domyślnie ASR utworzy nowy zestawem dostępności w region docelowy z nazwą składającą się z sufiksem "asr". W przypadku, gdy zestaw dostępności utworzony przez ASR już istnieje, zostanie ono użyte ponownie.
+6. **Zestaw dostępności:** Domyślnie usługi Azure Site Recovery spowoduje utworzenie nowej zestawem dostępności w region docelowy z nazwą składającą się z sufiksem "asr". W przypadku, gdy zestaw dostępności utworzone przez usługę Azure Site Recovery już istnieje, zostanie ono użyte ponownie.
 
-7.  **Zasady replikacji:** definiuje ustawienia odzyskiwania punktu przechowywania historii i aplikacji migawki dotyczącej spójności częstotliwości. Domyślnie funkcja automatycznego odzyskiwania systemu utworzy nowe zasady replikacji z ustawieniami domyślnymi 24 godzin przechowywania punktu odzyskiwania i "60 minut częstotliwości migawki dotyczącej spójności aplikacji.
+7.  **Zasady replikacji:** definiuje ustawienia odzyskiwania punktu przechowywania historii i aplikacji migawki dotyczącej spójności częstotliwości. Domyślnie program Azure Site Recovery utworzy nowe zasady replikacji z ustawieniami domyślnymi 24 godzin przechowywania punktu odzyskiwania i "60 minut częstotliwości migawki dotyczącej spójności aplikacji.
 
     ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Dostosowywanie zasobami obiektów docelowych
 
-W przypadku, gdy chcesz zmienić ustawienia domyślne używane przez usługi ASR, możesz zmienić ustawienia, na podstawie Twoich potrzeb.
+W przypadku, gdy chcesz zmienić ustawienia domyślne używane przez usługi Azure Site Recovery, możesz zmienić ustawienia, na podstawie Twoich potrzeb.
 
-1. **Dostosowywanie:** kliknij go, aby zmienić ustawienia domyślne używane przez usługi ASR.
+1. **Dostosowywanie:** kliknij go, aby zmienić ustawienia domyślne używane przez usługi Azure Site Recovery.
 
 2. **Docelowa grupa zasobów:** grupy zasobów można wybrać z listy grup zasobów istniejących w miejscu docelowym w ramach subskrypcji.
 
@@ -112,7 +112,7 @@ W przypadku, gdy chcesz zmienić ustawienia domyślne używane przez usługi ASR
 Gdy są chronione maszyny wirtualne można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**
 
 >[!NOTE]
->Podczas replikacji początkowej można możliwości stan czas, aby odświeżyć, a nie widzisz postępu przez pewien czas. Kliknięcie przycisku Odśwież w górnej części bloku, aby pobrać najnowszy stan.
+>Podczas replikacji początkowej może mieć możliwość, że stan czas, aby odświeżyć i widzisz postępu przez pewien czas. Kliknięcie przycisku Odśwież w górnej części bloku, aby pobrać najnowszy stan.
 >
 
 ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)

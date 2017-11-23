@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uaktualnianie aplikacji sieci szkieletowej usług za pomocą programu PowerShell
 > [!div class="op_single_selector"]
@@ -98,8 +98,7 @@ Pakiet aplikacji są przechowywane w następującej ścieżce względnej, gdzie 
 Teraz Skopiuj pakiet zaktualizowanej aplikacji do magazynu ImageStore sieci szkieletowej usług, które zostały (gdzie pakiety aplikacji są przechowywane przez usługi sieć szkieletowa). Parametr *ApplicationPackagePathInImageStore* informuje o tym, gdzie można znaleźć pakietu aplikacji sieci szkieletowej usług. Testujemy zaktualizowaną aplikację "VisualObjects\_V2" przy użyciu następującego polecenia (konieczne może być ponownie odpowiednio zmodyfikuj ścieżki).
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 Następnym krokiem jest zarejestrować tej aplikacji za pomocą usługi Service Fabric, która może zostać wykonana przy użyciu [ServiceFabricApplicationType rejestru](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) polecenia:

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Tworzenie usługi Multi-Factor Authentication w aplikacje niestandardowe (SDK)
+
+> [!IMPORTANT]
+> Ogłoszone amortyzacja z zestawu Azure Multi-Factor uwierzytelniania Software Development Kit (SDK). Ta funkcja nie będą obsługiwane dla nowych klientów. Bieżący klienci mogą używać zestawu SDK do 14 listopada 2018. Po tym czasie wywołania do zestawu SDK zakończy się niepowodzeniem. 
 
 Azure Multi-Factor Authentication Software Development Kit (SDK) umożliwia tworzenie aplikacji w dzierżawie usługi Azure AD włączono weryfikację dwuetapową bezpośrednio do procesów logowania lub transakcji.
 
@@ -35,30 +38,7 @@ Ponieważ interfejsy API nie mają dostępu do użytkowników zarejestrowanych w
 
 
 ## <a name="download-the-sdk"></a>Pobierz zestaw SDK
-Pobieranie zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite.  Aby pobrać zestaw SDK, przejdź do portalu zarządzania usługi Multi-Factor. Portalu można osiągnąć dzięki zarządzaniu dostawcy uwierzytelniania wieloskładnikowego bezpośrednio lub przez kliknięcie przycisku **"Przejdź do portalu"** łącze na stronie ustawień usługi MFA.
-
-### <a name="download-from-the-azure-classic-portal"></a>Pobierz z klasycznego portalu Azure
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Na stronie usługi Active Directory na górnym umożliwia **dostawców uwierzytelniania wieloskładnikowego**
-4. U dołu wybierz **Zarządzaj**. Zostanie otwarta nowa strona.
-5. Po lewej stronie u dołu, kliknij przycisk **SDK**.
-   <center>![Pobierz](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Wybierz język i kliknij jeden łączy do pobierania.
-7. Zapisz pobrany plik.
-
-### <a name="download-from-the-service-settings"></a>Pobierz z ustawienia usługi
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Kliknij dwukrotnie wystąpienie usługi Azure AD.
-4. Kliknij pozycję **Konfiguruj** u góry strony
-5. W obszarze usługi Multi-Factor authentication, zaznacz **Zarządzaj ustawieniami usługi**
-   ![Pobierz](./media/multi-factor-authentication-sdk/download2.png)
-6. Na stronie ustawień usługi, w dolnej części ekranu, kliknij opcję **Przejdź do portalu**. Zostanie otwarta nowa strona.
-   ![Pobieranie](./media/multi-factor-authentication-sdk/download3a.png)
-7. Po lewej stronie u dołu, kliknij przycisk **SDK**.
-8. Wybierz język i kliknij jeden łączy do pobierania.
-9. Zapisz pobrany plik.
+Pobieranie zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite. Metody publiczne pobierania zestawu SDK zostały wycofany z eksploatacji, ponieważ zestaw SDK jest przestarzała. Aby pobrać zestaw SDK, należy otworzyć sprawę pomocy technicznej z firmą Microsoft.
 
 ## <a name="whats-in-the-sdk"></a>Co to jest w zestawie SDK
 Zestaw SDK zawiera następujące elementy:

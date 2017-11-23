@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 503657d6e6e22560b94d4a1cbbc2a74651d1ee7a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-use-availability-sets"></a>Jak używać zestawów dostępności
 
-W tym samouczku Dowiedz się jak zwiększyć dostępność i niezawodność rozwiązań maszyny wirtualnej na platformie Azure przy użyciu funkcji o nazwie zestawów dostępności. Zestawy dostępności upewnij się, czy maszyn wirtualnych, należy wdrożyć na platformie Azure są rozproszone na wielu klastrów izolowanego sprzętu. W ten sposób zapewnia, że jeśli awarii sprzętu lub oprogramowania w systemie Azure wykonywany, wpływ na podrzędne zestaw maszyn wirtualnych i który rozwiązania ogólną pozostaje dostępny i działa. 
+W tym samouczku Dowiedz się jak zwiększyć dostępność i niezawodność rozwiązań maszyny wirtualnej na platformie Azure przy użyciu funkcji o nazwie zestawów dostępności. Zestawy dostępności upewnij się, że maszyny wirtualne, należy wdrożyć na platformie Azure są rozproszone na wielu węzłach izolowanego sprzętu w klastrze. W ten sposób zapewnia, że jeśli awarii sprzętu lub oprogramowania w systemie Azure wykonywany, wpływ na podrzędne zestaw maszyn wirtualnych i który rozwiązania ogólną pozostaje dostępny i działa. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 

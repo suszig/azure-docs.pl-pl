@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a44faec6c21c338dfc6b1507af6f716e089c7038
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9de535b2fb70181c68fb698e847dd8361bf54385
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
@@ -42,16 +42,304 @@ Firma Microsoft umożliwiają zwiększenie usługi Azure Active Directory w spos
 Należy ponownie tę stronę regularnie, ponieważ trwa jego aktualizacja co miesiąc.
 
 ## <a name="november-2017"></a>2017 listopada
+ 
 
-**Typ:** przestarzałe funkcje  
+
+**Typ:** Planowanie zmian  
 **Kategoria usług:** ACS  
 **Możliwości produktu:** usługi kontroli dostępu 
 
-<a name="acs-retirement"></a>
+**Wycofanie usług ACS**
 
-Microsoft Azure Active Directory kontroli dostępu (znanej także jako usługa kontroli dostępu lub ACS) została wycofana w listopadzie 2018.  Dalsze informacje, w tym szczegółowy harmonogram & wskazówki wysokiego poziomu migracji można znaleźć [na tej stronie](./develop/active-directory-acs-migration.md).
+Microsoft Azure Active Directory kontroli dostępu (znanej także jako usługa kontroli dostępu lub ACS) zostaną wycofane w 2018 opóźnione.  Dodatkowe informacje, w tym szczegółowy harmonogram i wskazówki dotyczące migracji wysokiego poziomu, zapewnia się w następnych kilku tygodni. W międzyczasie, pozostaw komentarze na tej stronie pytania dotyczące usług ACS i członkiem naszego zespołu może pomóc w odpowiedzi.
 
 ---
+
+
+
+**Typ:** Planowanie zmian  
+**Kategoria usług:** dostępu warunkowego  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+
+**Ogranicz dostęp przeglądarki do programu Intune managed browser** 
+
+
+Z tego zachowania można ograniczyć dostęp za pomocą przeglądarki do usługi Office 365 i inne aplikacje chmury Azure AD, połączony jako zatwierdzonych aplikacji przy użyciu usługi Intune Managed Browser. 
+
+Ta zmiana umożliwia skonfigurowanie następujący warunek dla dostępu warunkowego opartego na aplikacji:
+
+**Aplikacje klienta:** przeglądarki
+
+**Jaki jest wpływ tej zmiany?**
+
+Obecnie dostęp będzie zablokowany, korzystając z tego warunku. Gdy Podgląd tego zachowania nie jest dostępny, dostępu wymaga użycia aplikacji programu managed browser. 
+
+Szukaj dla tej funkcji i bardziej w nadchodzących blogi i wersji uwagi. 
+
+Aby uzyskać więcej informacji, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+ 
+---
+
+
+ 
+**Typ:** Planowanie zmian  
+**Kategoria usług:** dostępu warunkowego  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+
+**Nowe aplikacje zatwierdzone klienta dla dostępu warunkowego na podstawie aplikacji usługi Azure AD**
+
+
+Następujące aplikacje są planowane do dodania do listy [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+
+- [Kaizala firmy Microsoft](https://www.microsoft.com/garage/profiles/kaizala/)
+
+- [StaffHub firmy Microsoft](https://staffhub.office.com/what-it-is)
+
+
+Aby uzyskać więcej informacji, zobacz:
+
+- [Wymagania aplikacji zatwierdzonych klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
+
+- [Azure Active Directory na podstawie aplikacji dostępu warunkowego](active-directory-conditional-access-mam.md)
+
+
+---
+
+
+**Typ:** nowej funkcji    
+**Kategoria usług:** warunki użytkowania  
+**Możliwości produktu:** ładu/zgodności
+
+
+
+**Warunki Użyj obsługi wielu języków**
+
+
+Administratorzy mogą teraz tworzyć nowe warunki użytkowania (TOU), który zawiera wiele dokumentów PDF. Można oznaczać tych dokumentów PDF z odpowiedniego języka. Użytkownicy mieszczące się w zakresie są pokazywane PDF z zgodny język, w oparciu o ich preferencje. Jeśli nie są niezgodne, jest wyświetlany w języku domyślnym.
+
+
+---
+ 
+
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** SSPR  
+**Możliwości produktu:** uwierzytelnianie użytkownika
+
+
+**Stan klienta zapisywania zwrotnego haseł czasu rzeczywistego**
+ 
+
+Można teraz przeglądać stan klienta zapisywania zwrotnego haseł lokalnych. Ta opcja jest dostępna w **integracji lokalnego** sekcji  **[resetowania hasła](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)**  strony. 
+
+Jeśli występują problemy z połączeniem klienta lokalnego zapisywania zwrotnego, zobaczysz komunikat o błędzie, który zawiera program:
+
+- Informacje o Dlaczego nie można nawiązać połączenia klienckie zapisywania zwrotnego lokalnej 
+- Łącze do dokumentacji, która pomaga w rozwiązaniu problemu. 
+
+
+Aby uzyskać więcej informacji, zobacz [integracji lokalnego](active-directory-passwords-how-it-works.md#on-premises-integration).
+
+ 
+---
+ 
+**Typ:** nowej funkcji  
+**Kategoria usług:** usługi Azure AD  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+
+
+**Azure AD na podstawie aplikacji dostępu warunkowego** 
+
+
+Teraz możesz ograniczyć dostęp do innych aplikacji chmury Azure połączone AD i Office 365 [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) obsługujących zasad ochrony aplikacji usługi Intune przy użyciu [dostępu warunkowego na podstawie aplikacji usługi Azure AD](active-directory-conditional-access-mam.md). Zasady ochrony aplikacji usługi Intune służą do konfigurowania i ochrony danych firmy na tych aplikacji klienckich.
+
+Łącząc [aplikacji na podstawie](active-directory-conditional-access-mam.md) z [oparta na urządzeniach](active-directory-conditional-access-policy-connected-applications.md) zasady dostępu warunkowego, masz możliwość ochrony danych osobistych i firmowych urządzeń.
+
+Poniższe warunki i formanty są teraz dostępne do użycia z dostępu warunkowego opartego na aplikacji:
+
+**Warunek obsługiwanych platform**
+
+- iOS
+- Android
+
+**Stan aplikacji klienta**
+
+- Aplikacje mobilne i klienci stacjonarni
+
+**Kontrola dostępu**
+
+- Wymagają klienta zatwierdzonych aplikacji
+
+
+Aby uzyskać więcej informacji, zobacz [dostępu warunkowego na podstawie aplikacji usługi Azure Active Directory](active-directory-conditional-access-mam.md).
+
+ 
+---
+
+
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** rejestracji urządzeń i zarządzanie  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+ 
+
+**Zarządzanie urządzeniami w usłudze Azure AD w portalu Azure**
+
+
+Teraz można znaleźć wszystkie urządzenia podłączone do usługi Azure AD i działania dotyczące urządzeń w jednym miejscu. Brak nowych czynności administracyjne do zarządzania tożsamościami urządzenia i ustawienia w portalu Azure. W tej wersji można wykonywać następujące czynności:
+
+- Wyświetl wszystkie urządzenia, które są dostępne dla dostępu warunkowego w usłudze Azure AD
+
+- Urządzeniach przyłączonych do właściwości widoku, łącznie z hybrydowej usługi Azure AD
+
+- Znajdowanie kluczy funkcji BitLocker dla urządzeń przyłączonych do usługi AD platformy Azure, zarządzać urządzenie z usługi Intune i inne.
+
+- Zarządzanie ustawieniami związanymi z urządzenia usługi Azure AD
+
+
+Aby uzyskać więcej informacji, zobacz [zarządzanie urządzeniami przy użyciu portalu Azure](device-management-azure-portal.md).
+
+
+
+ 
+---
+
+
+**Typ:** nowej funkcji    
+**Kategoria usług:** dostępu warunkowego  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony 
+
+
+
+**Obsługa macOS jako platformę urządzenia dla dostępu warunkowego dla usługi Azure AD** 
+ 
+
+Można teraz uwzględnić (lub wykluczyć) macOS warunkiem platformy urządzeń w usłudze Azure AD zasady dostępu warunkowego. Z dodatkiem macOS na platformach obsługiwanych urządzeń można:
+
+- **Rejestrowanie urządzeń i zarządzanie nimi macOS przy użyciu usługi Intune** — podobnie jak w innych platform, takich jak systemy iOS i Android, aplikacji portalu firmy jest dostępna dla macOS ujednoliconego rejestracji. Nowa aplikacja portal firmy dla macOS umożliwia rejestrowanie urządzeń w usłudze Intune i zarejestrowanie go za pomocą usługi Azure AD.
+ 
+- **Upewnij się, urządzenia macOS obowiązują zasady zgodności organizacji zdefiniowane w usłudze Intune** — w usłudze Intune w portalu Azure, możesz teraz skonfigurować zasady zgodności dla urządzeń macOS. 
+  
+- **Ograniczanie dostępu do aplikacji w usłudze Azure AD, aby tylko urządzenia zgodne macOS** — Tworzenie zasad dostępu warunkowego ma macOS jako opcji platformy urządzenia oddzielne. Ta opcja umożliwia tworzenie macOS zasad określonych dostępu warunkowego dla zestawu docelowego aplikacji na platformie Azure.
+
+Aby uzyskać więcej informacji, zobacz:
+
+- [Tworzenie zasad zgodności urządzeń dla urządzeń macOS przy użyciu usługi Intune](https://aka.ms/macoscompliancepolicy)
+- [Dostęp warunkowy w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+
+
+ 
+---
+
+
+**Typ:** nowej funkcji    
+**Kategoria usług:** MFA  
+**Możliwości produktu:** uwierzytelnianie użytkownika
+
+
+**Rozszerzenia serwera zasad Sieciowych na potrzeby usługi Azure MFA** 
+
+
+Rozszerzenia serwera zasad sieciowych (NPS) dla usługi Azure MFA dodaje możliwości usługi MFA oparte na chmurze do uwierzytelniania przy użyciu istniejących serwerów infrastruktury. Z rozszerzeniem serwera zasad Sieciowych można dodać połączenie telefoniczne, wiadomość tekstowa lub weryfikacji aplikacji telefonicznej z istniejących przepływ uwierzytelniania bez konieczności instalowania, konfigurowania i konserwacji nowe serwery. 
+
+To rozszerzenie został utworzony dla organizacji, które chcesz chronić połączenia sieci VPN bez wdrażania serwera usługi Azure MFA. Rozszerzenia serwera NPS działa jako karty sieciowej między usługi RADIUS i oparte na chmurze usługi Azure MFA, aby zapewnić drugi składnik uwierzytelniania federacyjnego lub zsynchronizowanych użytkowników.
+
+
+Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+
+ 
+---
+
+
+**Typ:** nowej funkcji    
+**Kategoria usług:** Zarządzanie użytkownikami  
+**Możliwości produktu:** katalogu 
+
+
+**Przywróć lub trwale usunąć usunięci użytkownicy**
+
+
+W Centrum administracyjnym usługi Azure AD można teraz:
+
+- Przywróć usuniętego użytkownika 
+- Trwale usuń użytkownika 
+
+
+**Aby wypróbować jej możliwości:**
+
+1. W Centrum administracyjnym usługi Azure AD, wybierz [ **wszyscy użytkownicy** ](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All users) w **Zarządzaj** sekcji. 
+
+2. Z **Pokaż** listy, wybierz **niedawno usunięta użytkowników**. 
+
+4. Wybierz co najmniej jeden użytkownik niedawno usunięte, następnie przywrócić je i trwale usunąć je.
+
+ 
+---
+
+
+
+ 
+**Typ:** funkcji zmienione  
+**Kategoria usług:** dostępu warunkowego  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+**Nowe aplikacje zatwierdzone klienta dla dostępu warunkowego na podstawie aplikacji usługi Azure AD**
+
+
+Następujące aplikacje zostały dodane do listy [zatwierdzonych aplikacji klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+
+- Planowanie firmy Microsoft
+
+- Microsoft Azure Information Protection 
+
+
+Aby uzyskać więcej informacji, zobacz:
+
+- [Wymagania aplikacji zatwierdzonych klienta](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
+
+- [Azure Active Directory na podstawie aplikacji dostępu warunkowego](active-directory-conditional-access-mam.md)
+
+
+---
+
+
+
+**Typ:** funkcji zmienione    
+**Kategoria usług:** dostępu warunkowego  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+
+**Zdolność do "lub" między formantami w zasadach dostępu warunkowego** 
+ 
+Możliwość "Lub" (wymagają wybranych formantów) została zwolniona kontroli dostępu warunkowego. Ta funkcja umożliwia tworzenie zasad z **lub** między kontroli dostępu. Na przykład korzystając tej funkcji można utworzyć zasadę, która wymaga od użytkownika zalogować się przy użyciu usługi Multi-Factor authentication **lub** na zgodnego urządzenia.
+
+Aby uzyskać więcej informacji, zobacz [kontroli dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-controls.md).
+
+ 
+---
+
+
+
+**Typ:** funkcji zmienione    
+**Kategoria usług:** Identity Protection  
+**Możliwości produktu:** tożsamości bezpieczeństwa i ochrony
+
+**Agregacja zdarzenia ryzyka w czasie rzeczywistym**
+
+Aby udoskonalać jej działanie administracji, w usłudze Azure AD Identity Protection, wszystkie zdarzenia ryzyka czasu rzeczywistego, pochodzących z tego samego adresu IP w danym dniu teraz są agregowane dla każdego typu zdarzenia ryzyka. Ta zmiana ogranicza ilość zdarzenia o podwyższonym ryzyku pokazano bez zmiany zabezpieczeń użytkownika.
+
+Podstawowy wykrywania czasu rzeczywistego działa w każdym razem, gdy użytkownik loguje. Jeśli ustawienia zasad zabezpieczeń w logowania ryzyka na MFA lub blokowanie dostępu, nadal jest wyzwalane podczas każdego ryzykowne logowania.
+
+ 
+---
+ 
+
+
 
 
 ## <a name="october-2017"></a>2017 października
@@ -61,7 +349,7 @@ Microsoft Azure Active Directory kontroli dostępu (znanej także jako usługa k
 **Możliwości produktu:** zarządzania cyklem życia tożsamości  
 
 
-**Wycofano raportów usługi Azure AD (wersja beta) interfejsów API w obszarze `https://graph.windows.net/<tenant-name>/reports/` węzła**
+**Wycofano raportów usługi Azure AD**
 
 Azure portal udostępnia:
 
@@ -77,6 +365,9 @@ Z powodu nowych funkcji, raport interfejsów API w obszarze **/reports** punktu 
 **Możliwości produktu:** logowania jednokrotnego  
 
 
+**Wykrywanie automatyczne logowanie pola**
+
+
 Azure Active Directory obsługuje wykrywanie pola automatycznego logowania dla aplikacji, które renderują pola HTML nazwy użytkownika i hasła.  Te kroki są udokumentowane w artykule [automatycznie Przechwytywanie pola logowania dla aplikacji](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Tej funkcji można znaleźć, dodając *Non-galerii* aplikację na **aplikacje dla przedsiębiorstw** strony [portalu Azure](http://aad.portal.azure.com). Ponadto można skonfigurować **rejestracji jednokrotnej** tryb tej nowej aplikacji do **opartego na hasłach rejestracji jednokrotnej**, wprowadzając adres URL sieci web, a następnie zapisanie strony.
  
 Ze względu na problem dotyczący usługi ta funkcja została tymczasowo wyłączona w danym okresie czasu. Problem został rozwiązany i wykrywanie automatyczne logowanie pole jest dostępne ponownie.
@@ -88,13 +379,15 @@ Ze względu na problem dotyczący usługi ta funkcja została tymczasowo wyłąc
 **Możliwości produktu:** tożsamości bezpieczeństwa i ochrony  
 
 
-Na świecie, które firma Microsoft live w uwierzytelnianie wieloskładnikowe (MFA) jest integralną część ochrony Twojej organizacji. Zespół tożsamości w firmie Microsoft ewoluuje uwierzytelnianie wieloskładnikowe, aby więcej adaptacyjną poświadczeń i doświadczenia płynniejszą. Jestem dzisiaj przyjemnością ogłaszamy dwie ważne czynności, w tym podróży: 
+**Nowe funkcje usługi MFA**
+
+Uwierzytelnianie wieloskładnikowe (MFA) jest integralną część ochrony Twojej organizacji. Aby bardziej adaptacyjną poświadczeń i doświadczenia płynniejszą, dodano następujące funkcje: 
 
 - Integracji wyników wieloskładnikowego żądania bezpośrednio do usługi Azure AD logowania raportu, tym programowy dostęp do usługi MFA wyników
 
-- Lepsza integracja konfiguracji usługi MFA w podstawowej konfiguracji usługi Azure AD doświadczenie w portalu Azure
+- Lepsza integracja konfiguracji usługi MFA w konfiguracji usługi Azure AD doświadczenie w portalu Azure
 
-Z publicznej wersji zapoznawczej MFA zarządzania i raportowania są integralną częścią podstawowe środowisko konfiguracji usługi Azure AD, co umożliwia zarządzanie funkcje portalu zarządzania usługi MFA w ramach obsługi usługi Azure AD.
+Z publicznej wersji zapoznawczej MFA zarządzania i raportowania są integralną częścią środowisko konfiguracji podstawowej usługi Azure AD. Agregowanie obie funkcje umożliwia zarządzanie funkcje portalu zarządzania usługi MFA w ramach obsługi usługi Azure AD.
 
 Aby uzyskać więcej informacji, zobacz [informacje dotyczące uwierzytelniania wieloskładnikowego raportowanie w portalu Azure](active-directory-reporting-activity-sign-ins-mfa.md) 
 
@@ -105,7 +398,9 @@ Aby uzyskać więcej informacji, zobacz [informacje dotyczące uwierzytelniania 
 **Możliwości produktu:** ładu  
 
 
-**Warunki użytkowania w usłudze Azure AD** zapewnia prosty sposób prezentować informacje dla użytkowników końcowych. Daje to pewność, że użytkownicy będą widzieć zastrzeżenia istotne dla prawne lub wymaganiami dotyczącymi zgodności.
+**Wprowadzenie warunki użytkowania**
+
+Warunki użytkowania w usłudze Azure AD zapewniają prosty sposób prezentować informacje dla użytkowników końcowych. Daje to pewność, że użytkownicy będą widzieć zastrzeżenia istotne dla prawne lub wymaganiami dotyczącymi zgodności.
 
 Warunki użytkowania usługi Azure AD można użyć w następujących scenariuszach:
 
@@ -123,8 +418,15 @@ Aby uzyskać więcej informacji, zobacz [Azure Active Directory warunki użytkow
 **Kategoria usług:** PIM  
 **Możliwości produktu:** Privileged Identity Management  
 
+**Ulepszenia privileged identity Management**
 
-Z usługi Azure Active Directory uprzywilejowanych tożsamości zarządzania (PIM), mogą teraz zarządzać, kontrolę i monitorowanie dostępu do zasobów Azure (wersja zapoznawcza) w ramach danej organizacji. W tym subskrypcji, grupy zasobów i nawet maszyn wirtualnych. Wszystkie zasoby w portalu Azure, korzystających z funkcji Azure roli na podstawie kontroli dostępu (RBAC) korzystać ze wszystkich niezwykłych zabezpieczeń i możliwości zarządzania cyklem życia Azure AD PIM musi oferować i nowe, fantastyczne funkcje planujemy doprowadzić do Wkrótce role w AD platformy Azure.
+Z usługi Azure Active Directory uprzywilejowanych tożsamości zarządzania (PIM), mogą teraz zarządzać, kontrolę i monitorowanie dostępu do zasobów Azure (wersja zapoznawcza) w Twojej organizacji:
+
+- Subskrypcje
+- Grupy zasobów
+- Maszyny wirtualne. 
+
+Wszystkie zasoby w portalu Azure, korzystających z funkcji Azure roli na podstawie kontroli dostępu (RBAC) mogą korzystać z wszystkich zabezpieczeń i możliwości zarządzania cyklem życia Azure AD PIM musi oferować.
 
 Aby uzyskać więcej informacji, zobacz [PIM zasobów Azure](privileged-identity-management/azure-pim-resource-rbac.md).
 
@@ -133,6 +435,8 @@ Aby uzyskać więcej informacji, zobacz [PIM zasobów Azure](privileged-identity
 **Typ:** nowej funkcji  
 **Kategoria usług:** dostęp do przeglądu  
 **Możliwości produktu:** ładu  
+
+**Wprowadzenie dostępu przeglądy**
 
 
 Przeglądy dostęp (wersja zapoznawcza) umożliwiają organizacjom efektywne zarządzanie członkostwami grup, a dostęp do aplikacji przedsiębiorstwa: 
@@ -152,16 +456,16 @@ Aby uzyskać więcej informacji, zobacz [sprawdza dostęp do usługi Azure AD](a
 **Możliwości produktu:** logowania jednokrotnego  
 
 
-**Możliwość Ukryj aplikacji innych firm z Moje aplikacje i uruchamiania usługi Office 365**
+**Ukrywanie aplikacji innych firm z Moje aplikacje i uruchamiania usługi Office 365**
 
-Teraz można lepiej zarządzać aplikacjami na Twoje portale użytkownika za pomocą nowego **Ukryj aplikacji** właściwości. Pomaga to z przypadkami, w którym kafelków aplikacji są wyświetlane dla usług zaplecza lub zduplikowane Kafelki i końcowa przeładowania Przyciski Uruchom aplikacji użytkownika. Przełącznik znajduje się w sekcji właściwości aplikacji innych producentów i etykietą **widoczny dla użytkownika?**. Można również ukryć aplikacji programowo przy użyciu programu PowerShell. 
+Teraz można lepiej zarządzać aplikacjami na Twoje portale użytkownika za pomocą nowego **Ukryj aplikacji** właściwości. Ukrywanie aplikacji pomaga w przypadkach, gdy kafelków aplikacji są wyświetlane dla usługi wewnętrznej bazy danych lub zduplikowanych fragmentów i końcowa przeładowania Przyciski Uruchom aplikacji użytkownika. Przełącznik znajduje się w sekcji właściwości aplikacji innych producentów i etykietą **widoczny dla użytkownika?** Można również ukryć aplikacji programowo przy użyciu programu PowerShell. 
 
 Aby uzyskać więcej informacji, zobacz [Ukryj aplikacji innych producentów, od środowiska użytkownika w usłudze Azure Active Directory](active-directory-coreapps-hide-third-party-app.md). 
 
 
 **Co to jest dostępny?**
 
- W ramach przejścia do nowej konsoli administracyjnej wprowadzono 2 nowych interfejsów API do pobierania dostępnych dzienników działania usługi Azure AD. Nowy zestaw interfejsów API zawierają bardziej zaawansowane funkcje filtrowania i sortowania funkcje oprócz bardziej zaawansowane funkcje inspekcji i rejestrowania działania. Obecnie jest możliwy wcześniej dostępne raporty dotyczące zabezpieczeń danych za pośrednictwem zdarzenia ryzyka Identity Protection interfejsu API programu Microsoft Graph.
+ W ramach przejścia do nowej konsoli administracyjnej 2 nowych interfejsów API do pobierania dzienników działania usługi Azure AD są dostępne. Nowy zestaw interfejsów API zapewnia bardziej zaawansowane funkcje filtrowania i sortowania funkcje oprócz bardziej zaawansowane funkcje inspekcji i rejestrowania działania. Obecnie jest możliwy wcześniej dostępne raporty dotyczące zabezpieczeń danych za pośrednictwem zdarzenia ryzyka Identity Protection interfejsu API programu Microsoft Graph.
 
 
 ## <a name="september-2017"></a>2017 września
@@ -170,6 +474,8 @@ Aby uzyskać więcej informacji, zobacz [Ukryj aplikacji innych producentów, od
 **Kategoria usług:** programu Microsoft Identity Manager  
 **Możliwości produktu:** zarządzania cyklem życia tożsamości  
 
+
+**Poprawka programu Microsoft Identity Manager**
 
 Pakiet zbiorczy poprawek (kompilacja 4.4.1642.0) jest dostępny od 25 września 2017 Microsoft Identity Manager (MIM) 2016 2016 z dodatkiem Service Pack 1 (SP1). Ten pakiet zbiorczy:
 

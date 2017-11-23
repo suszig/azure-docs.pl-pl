@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Wyzwalacze i akcje dla przepływów pracy aplikacji logiki
 
@@ -115,7 +115,7 @@ Poniżej przedstawiono definicję dla tego wyzwalacza:
 | ------------ | -------- | ---- | ----------- | 
 | frequency | Tak | Ciąg | Jednostka czasu częstotliwość wyzwalacza. Użyj tylko jedną z następujących wartości: "drugi", "min", "Godzina", "day", "tygodnia" lub "miesiąc" | 
 | interval | Tak | Liczba całkowita | Dodatnia liczba całkowita, w tym artykule opisano, jak często uruchamia przepływ pracy na podstawie częstotliwości. <p>Poniżej przedstawiono minimalne i maksymalne odstępach czasu: <p>-Miesięczny: 1-16 miesięcy </br>-Dniowego: 1-500 dni </br>-Godzinnym: 1-12 000 godzin </br>-Minutowy: 1-72,000 minut </br>-Drugi: 1-9,999,999 sekund<p>Na przykład jeśli interwał to 6 i częstotliwości jest "miesiąc", cykl jest co 6 miesięcy. | 
-| Strefa czasowa | Nie | Ciąg | Dotyczy tylko po określeniu godziny rozpoczęcia, ponieważ wyzwalacz nie akceptuje [przesunięcie UTC](https://en.wikipedia.org/wiki/UTC_offset). Określ strefę czasową, który chcesz zastosować. | 
+| timeZone | Nie | Ciąg | Dotyczy tylko po określeniu godziny rozpoczęcia, ponieważ wyzwalacz nie akceptuje [przesunięcie UTC](https://en.wikipedia.org/wiki/UTC_offset). Określ strefę czasową, który chcesz zastosować. | 
 | startTime | Nie | Ciąg | Określ datę i godzinę w następującym formacie: <p>RRRR-MM-Ddtgg, jeśli określona strefa czasowa <p>— lub — <p>RRRR-MM-Ddtgg, jeśli nie określisz strefy czasowej <p>Tak na przykład, jeśli chcesz 18 września 2017 godzinie 2:00, określ "2017-09-18T14:00:00" i określ strefę czasową, takie jak "Czas pacyficzny". Alternatywnie można wskazać "2017-09-18T14:00:00Z" bez strefę czasową. <p>**Uwaga:** ta godzina rozpoczęcia musi występować po [ISO 8601 daty czasu specyfikacji](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [format daty i godziny UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcie UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie określisz strefy czasowej, należy dodać litery "Z" na końcu bez spacji. To "Z" odwołuje się do jego odpowiednik [milową czas](https://en.wikipedia.org/wiki/Nautical_time). <p>Proste harmonogramów, godzina rozpoczęcia jest pierwsze wystąpienie, natomiast w przypadku złożonych harmonogramy wyzwalacz nie wyzwalać żadnych wcześniej niż czas rozpoczęcia. Aby uzyskać więcej informacji na temat daty rozpoczęcia i godziny, zobacz [tworzenie i harmonogram regularnie uruchomionych zadań](../connectors/connectors-native-recurrence.md). | 
 | weekDays | Nie | Ciąg lub tablicę ciągów | Jeśli określisz "Tydzień" dla `frequency`, można określić co najmniej jeden dzień, oddzielając je średnikami, jeśli chcesz uruchomić przepływ pracy: "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota" i "Niedziela" | 
 | hours | Nie | Liczba całkowita lub tablicy liczba całkowita | Jeśli określisz "Day" lub "Tydzień" dla `frequency`, można określić co najmniej jeden liczby całkowite z przedziału od 0 do 23 rozdzielonych przecinkami, w formacie godziny, dnia, gdy chcesz uruchomić przepływ pracy. <p>Na przykład jeśli określisz "10", "12" i "14" możesz uzyskać 10 AM, 12 PM i 14: 00 jako znaki godzinę. | 
@@ -194,21 +194,11 @@ HTTP wyzwalacze sondowania określony punkt końcowy i sprawdź odpowiedzi, aby 
 | — Metoda | Tak | Ciąg | Użyto jednego z tych metod HTTP: "GET", "POST", "PUT", "DELETE", "Poprawka" ani "HEAD" | 
 | Identyfikator URI | Tak| Ciąg | Końcowy HTTP lub HTTPs, który sprawdza zgodność wyzwalacza. Maksymalny rozmiar ciągu: 2 KB | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
-| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. Aby uzyskać więcej informacji, zobacz [ponów zasady](../logic-apps/logic-apps-exception-handling.md). | 
 | Uwierzytelnianie | Nie | Obiekt | Reprezentuje metodę, która powinna być używana do uwierzytelniania żądania. Aby uzyskać więcej informacji, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](../scheduler/scheduler-outbound-authentication.md). <p>Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority`. Domyślnie ta wartość jest `https://login.windows.net` gdy nie jest określony, ale możesz użyć innej wartości, takich jak`https://login.windows\-ppe.net`. | 
 ||||| 
-
-A *zasady ponawiania* dotyczy sporadycznych błędów jest określony jako kodów stanu HTTP 408 429 i 5xx, oprócz wszelkie wyjątki łączności. Można zdefiniować te zasady z `retryPolicy` obiektów, jak pokazano poniżej:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Aby pracować z aplikacji logiki, wyzwalacza HTTP wymaga API protokołu HTTP był zgodny z określonym wzorcem. Wyzwalacz rozpoznaje tych właściwości:  
   
@@ -234,8 +224,8 @@ Poniżej przedstawiono dane wyjściowe wyzwalacza HTTP:
   
 | Nazwa elementu | Typ | Opis |
 | ------------ | ---- | ----------- |
-| Nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
-| Treści | Obiekt | Treść odpowiedzi HTTP | 
+| nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
+| treść | Obiekt | Treść odpowiedzi HTTP | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>Połączenie z interfejsem API wyzwalacza  
@@ -267,9 +257,9 @@ Wyzwalacz połączenia interfejsu API jest podobny do wyzwalacza HTTP w jego pod
 | Host | Tak | Obiekt | Hostowanej bramy i identyfikator dla aplikacji interfejsu API | 
 | — Metoda | Tak | Ciąg | Użyto jednego z tych metod HTTP: "GET", "POST", "PUT", "DELETE", "Poprawka" ani "HEAD" | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
-| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. Aby uzyskać więcej informacji, zobacz [ponów zasady](../logic-apps/logic-apps-exception-handling.md). | 
 | Uwierzytelnianie | Nie | Obiekt | Reprezentuje metodę, która powinna być używana do uwierzytelniania żądania. Aby uzyskać więcej informacji, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -281,22 +271,12 @@ Aby uzyskać `host` obiektu, w tym miejscu są właściwości:
 | Nazwa połączenia |  | Nazwa zarządzanego połączenia interfejsu API, używanych przez przepływ pracy. Musi odwoływać się do parametru o nazwie `$connection`. |
 |||| 
 
-A *zasady ponawiania* dotyczy sporadycznych błędów jest określony jako kodów stanu HTTP 408 429 i 5xx, oprócz wszelkie wyjątki łączności. Można zdefiniować te zasady z `retryPolicy` obiektów, jak pokazano poniżej:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
-
 Poniżej przedstawiono dane wyjściowe dla wyzwalacza połączenia interfejsu API:
   
 | Nazwa elementu | Typ | Opis |
 | ------------ | ---- | ----------- |
-| Nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
-| Treści | Obiekt | Treść odpowiedzi HTTP | 
+| nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
+| treść | Obiekt | Treść odpowiedzi HTTP | 
 |||| 
   
 ## <a name="httpwebhook-trigger"></a>Wyzwalacz HTTPWebhook  
@@ -360,8 +340,8 @@ Poniżej przedstawiono dane wyjściowe z HTTPWebhook wyzwolenia i treść żąda
   
 | Nazwa elementu | Typ | Opis |
 | ------------ | ---- | ----------- |
-| Nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
-| Treści | Obiekt | Treść odpowiedzi HTTP | 
+| nagłówki | Obiekt | Nagłówki odpowiedzi HTTP | 
+| treść | Obiekt | Treść odpowiedzi HTTP | 
 |||| 
 
 ## <a name="conditions"></a>Warunki  
@@ -527,22 +507,13 @@ W tym miejscu `inputs` obiektu przyjmuje tych parametrów wymaganych do konstruo
 | — Metoda | Tak | Ciąg | Użyto jednego z tych metod HTTP: "GET", "POST", "PUT", "DELETE", "Poprawka" ani "HEAD" | 
 | Identyfikator URI | Tak| Ciąg | Końcowy HTTP lub HTTPs, który sprawdza zgodność wyzwalacza. Maksymalny rozmiar ciągu: 2 KB | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
-| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. Aby uzyskać więcej informacji, zobacz [ponów zasady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nie | Ciąg | Definiuje zestaw specjalnego zachowania do zastąpienia. | 
 | Uwierzytelnianie | Nie | Obiekt | Reprezentuje metodę, która powinna być używana do uwierzytelniania żądania. Aby uzyskać więcej informacji, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](../scheduler/scheduler-outbound-authentication.md). <p>Poza harmonogramem, jest jedna właściwość więcej obsługiwanych: `authority`. Domyślnie ta wartość jest `https://login.windows.net` gdy nie jest określony, ale możesz użyć innej wartości, takich jak`https://login.windows\-ppe.net`. | 
 ||||| 
 
-Akcje HTTP oraz akcje APIConnection obsługuje *ponów zasady*. Zasady ponawiania dotyczy sporadycznych błędów jest określony jako kodów stanu HTTP 408 429 i 5xx, oprócz wszelkie wyjątki łączności. Można zdefiniować te zasady z `retryPolicy` obiektów, jak pokazano poniżej:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 W tym przykładzie akcji HTTP ponowi próbę pobieranie najnowsze dwa razy, jeśli występują sporadyczne błędy dla wszystkich trzech wykonaniami i 30-sekundowe opóźnienie między kolejnymi próbami:
   
 ```json
@@ -629,22 +600,12 @@ Oto przykład APIConnection akcji:
 | — Metoda | Tak | Ciąg | Użyto jednego z tych metod HTTP: "GET", "POST", "PUT", "DELETE", "Poprawka" ani "HEAD" | 
 | Ścieżka | Tak | Ciąg | Ścieżka dla operacji interfejsu API | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
-| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. Aby uzyskać więcej informacji, zobacz [ponów zasady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nie | Ciąg | Definiuje zestaw specjalnego zachowania do zastąpienia. | 
 | Uwierzytelnianie | Nie | Obiekt | Reprezentuje metodę, która powinna być używana do uwierzytelniania żądania. Aby uzyskać więcej informacji, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-Zasady ponawiania dotyczy sporadycznych błędów jest określony jako kodów stanu HTTP 408 429 i 5xx, oprócz wszelkie wyjątki łączności. Można zdefiniować te zasady z `retryPolicy` obiektów, jak pokazano poniżej:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection akcji elementu webhook
 
@@ -682,9 +643,9 @@ Akcja APIConnectionWebhook odwołuje się do łącznika zarządzany przez firmę
 | Host | Tak | Obiekt | Reprezentuje informacje łącznika, takich jak `runtimeUrl` i odwołania do obiektu połączenia. | 
 | Ścieżka | Tak | Ciąg | Ścieżka dla operacji interfejsu API | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
-| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| retryPolicy | Nie | Obiekt | Ten obiekt jest używany dla Dostosowywanie zachowania ponownych prób dla 4xx lub 5xx błędów. Aby uzyskać więcej informacji, zobacz [ponów zasady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nie | Ciąg | Definiuje zestaw specjalnego zachowania do zastąpienia. | 
 | Uwierzytelnianie | Nie | Obiekt | Reprezentuje metodę, która powinna być używana do uwierzytelniania żądania. Aby uzyskać więcej informacji, zobacz [uwierzytelniania połączeń wychodzących harmonogramu](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
@@ -750,8 +711,8 @@ Ta akcja umożliwia reprezentują i wywołanie [funkcji Azure](../azure-function
 | id — funkcja | Tak | Ciąg | Identyfikator zasobu dla funkcji platformy Azure, która ma zostać wywołana. | 
 | — Metoda | Nie | Ciąg | Metoda HTTP używana do wywołania tej funkcji. Jeśli nie zostanie określony, "POST" jest domyślną metodą. | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
 |||||
 
 Podczas zapisywania aplikacji logiki Azure Logic Apps sprawdza funkcji, do którego istnieje odwołanie:
@@ -839,8 +800,8 @@ Ta akcja dane wyjściowe są oparte na definiowanie w `response` akcji podrzędn
 | Identyfikator hosta | Tak | Ciąg| Identyfikator zasobu dla przepływu pracy, który ma zostać wywołana | 
 | Nazwa_wyzwalacza hosta | Tak | Ciąg | Nazwa wyzwalacza, który chcesz wywołać | 
 | — zapytania | Nie | Obiekt | Reprezentuje wszystkie parametry zapytania, które chcesz uwzględnić w adresie URL. <p>Na przykład `"queries": { "api-version": "2015-02-01" }` dodaje `?api-version=2015-02-01` do adresu URL. | 
-| Nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Treści | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
+| nagłówki | Nie | Obiekt | Reprezentuje każdy nagłówek, który jest wysyłany w żądaniu. <p>Na przykład, aby ustawić język i typ żądania: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| treść | Nie | Obiekt | Reprezentuje ładunek, które są wysyłane do punktu końcowego. | 
 |||||   
 
 ## <a name="compose-action"></a>Redagowanie akcji
@@ -880,7 +841,7 @@ Na przykład aby przekonwertować tablicy liczb znajdujących się na tablicę o
 
 | Nazwa | Wymagane | Typ | Opis | 
 | ---- | -------- | ---- | ----------- | 
-| Z | Tak | Tablica | Tablica źródłowa |
+| z | Tak | Tablica | Tablica źródłowa |
 | Wybierz | Tak | Dowolne | Projekcja zastosowane do każdego elementu w tablicy źródłowej |
 ||||| 
 
@@ -907,7 +868,7 @@ Dane wyjściowe z `query` akcji jest tablicę, która ma elementy z tablicy wej�
 
 | Nazwa | Wymagane | Typ | Opis | 
 | ---- | -------- | ---- | ----------- | 
-| Z | Tak | Tablica | Tablica źródłowa |
+| z | Tak | Tablica | Tablica źródłowa |
 | gdzie | Tak | Ciąg | Warunek, który jest stosowany do każdego elementu z tablicy źródłowej |
 ||||| 
 
@@ -972,7 +933,7 @@ Wynik, w tym przykładzie wygląda tej tabeli HTML:
 
 | Nazwa | Wymagane | Typ | Opis | 
 | ---- | -------- | ---- | ----------- | 
-| Z | Tak | Tablica | Tablica źródłowa. Jeśli `from` wartość właściwości jest pusta tablica, dane wyjściowe jest pusta tabela. | 
+| z | Tak | Tablica | Tablica źródłowa. Jeśli `from` wartość właściwości jest pusta tablica, dane wyjściowe jest pusta tabela. | 
 | Format | Tak | Ciąg | Format tabeli, który ma, albo **CSV** lub **HTML** | 
 | kolumny | Nie | Tablica | Kolumny tabeli, które mają. Umożliwia zastąpienie domyślnego kształtu tabeli. | 
 | Nagłówek kolumny | Nie | Ciąg | Nagłówek kolumny | 
@@ -1059,7 +1020,7 @@ Jeśli warunek pomyślnie, warunek zostanie oznaczona jako `Succeeded`. Akcje w 
 
 Poniżej przedstawiono przykłady warunków użycia wyrażeń w akcji:
   
-| Wartość JSON | wynik | 
+| Wartość JSON | Wynik | 
 | ---------- | -------| 
 | `"expression": "@parameters('hasSpecialAction')"` | Wartość, która daje w wyniku wartość true spowoduje, że ten stan do przekazania. Obsługuje tylko wyrażeń logicznych. Aby przekonwertować inne typy Boolean, korzystania z tych funkcji: `empty` i`equals` | 
 | `"expression": "@greater(actions('act1').output.value, parameters('threshold'))"` | Obsługuje funkcje porównania. Na przykład akcja działa tylko wtedy, gdy dane wyjściowe `act1` przekracza wartość progową. | 
@@ -1160,7 +1121,7 @@ Ta akcja pętli wewnętrzny akcje uruchamiane do warunku wyników na wartość t
 | Akcje | Tak | Obiekt | Wewnętrzny akcje do wykonania w pętli | 
 | wyrażenie | Tak | Ciąg | Wyrażenie do oceny po każdej iteracji | 
 | Limit | Tak | Obiekt | Limity dla pętli. Należy zdefiniować co najmniej jeden limit. | 
-| Liczba | Nie | Liczba całkowita | Limit liczby iteracji do wykonania | 
+| liczba | Nie | Liczba całkowita | Limit liczby iteracji do wykonania | 
 | timeout | Nie | Ciąg | Limit czasu w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) Określa, jak długo uruchamiać pętli |
 ||||| 
 

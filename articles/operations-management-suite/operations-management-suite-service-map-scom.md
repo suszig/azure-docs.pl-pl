@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Mapa usług integracji z programem System Center Operations Manager
   > [!NOTE]
@@ -30,7 +30,7 @@ Mapa usług pakiet zarządzania Operations automatycznie wykrywa składniki apli
 Dzięki tej integracji między mapy usługi i System Center Operations Manager może automatycznie tworzyć diagramy aplikacji rozproszonej w programie Operations Manager, które są oparte na mapach dynamiczne zależności mapy usług.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Grupy zarządzania programu Operations Manager, który jest zarządzany z zestawu serwerów.
+* Grupy zarządzania programu Operations Manager (2012 R2 lub nowszy) zarządza z zestawu serwerów.
 * Obszar roboczy usługi Operations Management Suite przy włączonej funkcji mapy usługi.
 * Zestaw serwerów (co najmniej jeden), które są zarządzane przez programu Operations Manager oraz wysyłania danych do mapy usługi. Serwery z systemem Windows i Linux są obsługiwane.
 * Nazwy głównej usługi z dostępem do subskrypcji Azure, która jest powiązana z obszarem roboczym usługi Operations Management Suite. Aby uzyskać więcej informacji, przejdź do [Tworzenie nazwy głównej usługi](#creating-a-service-principal).

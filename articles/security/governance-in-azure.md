@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Zarządzanie w systemie Azure
 
 Wiemy, że zabezpieczenia są zadania, co w chmurze i jak ważne jest aby znaleźć dokładne i aktualne informacje na temat zabezpieczeń platformy Azure. Najważniejsze przyczyny na potrzeby aplikacji i usług Azure ma korzystać z jego szerokiej gamy narzędzi zabezpieczeń i możliwości. Te narzędzia i funkcje pomocy umożliwiają tworzenie bezpiecznych rozwiązań na bezpiecznej platformie Azure.
 
-Aby lepiej zrozumieć tablicy formantów ładu zaimplementowana w systemie Microsoft Azure z perspektywy programu Microsoft operations i klienta, w tym artykule "Zarządzanie w Azure", są zapisywane zapewnia kompleksowe przyjrzeć się Zarządzanie funkcji dostępnych w systemie Microsoft Azure.
+Aby lepiej zrozumieć tablicy ładu formanty implementowane w systemie Microsoft Azure z perspektywy programu Microsoft operations i klienta, w tym artykule "Zarządzanie w Azure" jest zapisywany na zapewnić kompleksowe przyjrzeć się ładu Funkcje dostępne w systemie Microsoft Azure.
 
 ## <a name="azure-platform"></a>Platforma Azure
 

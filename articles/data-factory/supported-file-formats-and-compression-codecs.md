@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Obsługiwane formaty plików i kodery-dekodery kompresji w fabryce danych Azure
 
@@ -29,6 +29,9 @@ Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazy
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [obsługiwane formaty plików i kompresji w fabryce danych version1](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Dowiedz się, jak aktywność kopiowania mapy źródła danych do zbiornika z [mapowanie schematu w przypadku działania kopiowania](copy-activity-schema-and-type-mapping.md), w tym jak metadanych jest ustalony na podstawie własnych ustawień format pliku i wskazówek gdy do określenia [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) sekcji.
 
 ## <a name="text-format"></a>Format tekstu
 
