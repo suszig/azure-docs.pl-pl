@@ -1,289 +1,292 @@
 ---
-title: 'Samouczek: Azure Active Directory integracji z oprogramowaniem Cezanne HR | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między oprogramowaniem Cezanne HR i Azure Active Directory."
+title: 'Samouczek: Azure Active Directory integracji z oprogramowaniem HR Cezanne | Dokumentacja firmy Microsoft'
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między oprogramowaniem HR Cezanne i Azure Active Directory."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: fb8f95bf-c3c1-4e1f-b2b3-3b67526be72d
+ms.reviewer: joflore
+ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>Samouczek: Integrowanie usługi Azure Active Directory z oprogramowaniem Cezanne HR
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Samouczek: Azure Active Directory integracji z oprogramowaniem HR Cezanne
 
 Z tego samouczka dowiesz się integrowanie Cezanne HR oprogramowania z usługi Azure Active Directory (Azure AD).
 
-Integracja oprogramowania Cezanne HR z usługą Azure AD zapewnia następujące korzyści. Możesz:
+Integrowanie Cezanne HR oprogramowania z usługi Azure AD zapewnia następujące korzyści:
 
-- Kontrolowanie w usłudze Azure AD, który ma dostęp do oprogramowania Cezanne HR.
-- Umożliwianie użytkownikom automatycznie logować się do oprogramowania Cezanne HR z logowaniem jednokrotnym (SSO) przy użyciu ich kont usługi Azure AD.
-- Zarządzanie kont w jednej centralnej lokalizacji: portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do oprogramowania HR Cezanne.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane Cezanne HR oprogramowania (logowanie jednokrotne) z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Aby dowiedzieć się więcej na temat oprogramowania jako usługa (SaaS) integracji aplikacji z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowania jednokrotnego w usłudze Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z oprogramowaniem Cezanne HR, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z oprogramowaniem HR Cezanne, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- Logowanie Jednokrotne włączone subskrypcji oprogramowania Cezanne HR
+- Oprogramowanie HR Cezanne logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Do testowania czynności w tym samouczku, firma Microsoft zaleca, nie używaj do środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować logowania jednokrotnego programu Azure AD w środowisku testowym. 
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+1. Dodawanie oprogramowania HR Cezanne z galerii
+2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-* Dodawanie oprogramowania Cezanne HR z galerii
-* Konfigurowanie i testowania logowania jednokrotnego programu Azure AD
-
-## <a name="add-cezanne-hr-software-from-the-gallery"></a>Dodawanie oprogramowania Cezanne HR z galerii
+## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Dodawanie oprogramowania HR Cezanne z galerii
 Aby skonfigurować integrację usługi Azure AD Cezanne HR oprogramowania, należy dodać Cezanne HR oprogramowania z galerii do listy zarządzanych aplikacji SaaS.
 
-Aby dodać Cezanne HR oprogramowanie z poziomu galerii, wykonaj następujące czynności:
+**Aby dodać Cezanne HR oprogramowanie z poziomu galerii, wykonaj następujące czynności:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, w okienku po lewej stronie wybierz **usługi Azure Active Directory** przycisku. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![Przycisk "Azure Active Directory"][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Wybierz **aplikacje dla przedsiębiorstw** > **wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Łącze "Wszystkie aplikacje"][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. Aby dodać nową aplikację, w górnej części **wszystkie aplikacje** okno dialogowe, wybierz opcję **nowej aplikacji**.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    !["Nowa aplikacja" przycisku][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **Cezanne HR oprogramowania**.
+4. W polu wyszukiwania wpisz **Cezanne HR oprogramowania**, wybierz pozycję **oprogramowania HR Cezanne** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Pole wyszukiwania](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_search.png)
-
-5. Na liście wyników wybierz **oprogramowania HR Cezanne** , a następnie wybierz **Dodaj** przycisk, aby dodać aplikację.
-
-    ![Lista wyników](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
+    ![Cezanne HR oprogramowania z listy wyników](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
-W tej sekcji możesz skonfigurować i przetestować logowania jednokrotnego programu Azure AD z oprogramowaniem Cezanne HR oparte na koncie użytkownika testu o nazwie "Britta Simona".
 
-Aby logowania jednokrotnego do pracy usługi Azure AD musi znać odpowiednikiem oprogramowania Cezanne HR użytkownika usługi Azure AD. Innymi słowy musisz ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w oprogramowaniu Cezanne HR.
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z oprogramowaniem HR Cezanne w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Ustanowienie relacji łącze przypisywania oprogramowania Cezanne HR **nazwy użytkownika** wartość, jak usługi Azure AD **Username** wartość.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednikiem Cezanne HR oprogramowanie jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi w oprogramowaniu HR Cezanne musi określone.
 
-Aby skonfigurować i test rejestracji Jednokrotnej programu Azure AD przy użyciu oprogramowania Cezanne HR, wykonaj poniższe bloki konstrukcyjne.
+W oprogramowaniu HR Cezanne, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurowanie usługi Azure AD logowania jednokrotnego.
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z oprogramowaniem HR Cezanne, należy wykonać poniższe bloki konstrukcyjne:
 
-W tej sekcji możesz włączenia funkcji logowania jednokrotnego usługi Azure AD w portalu Azure i konfigurowanie logowania jednokrotnego do aplikacji oprogramowania Cezanne HR w następujący sposób:
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego oprogramowania HR Cezanne](#create-a-cezannehrsoftware-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Cezanne HR oprogramowania, które jest połączone z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-1. W portalu Azure na **oprogramowania HR Cezanne** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-    ![Polecenie "Logowanie jednokrotne"][4]
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w używanej aplikacji Cezanne HR.
 
-2. Aby włączyć logowanie Jednokrotne, w **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego**.
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z oprogramowaniem HR Cezanne, wykonaj następujące czynności:**
+
+1. W portalu Azure na **oprogramowania HR Cezanne** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
+
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
-    ![Pole "Tryb"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. W obszarze **Cezanne HR oprogramowania domeny i adres URL**, wykonaj następujące czynności:
+3. Na **Cezanne HR oprogramowania domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![W sekcji "Cezanne HR oprogramowania domeny i adresy URL"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
+    ![Adresy URL i Cezanne HR oprogramowania domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. W **adres URL logowania** wpisz adres URL, który ma następującą składnię:`https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
 
-    b. W **adres URL odpowiedzi** wpisz adres URL, który ma następującą składnię:`https://w3.cezanneondemand.com:443/<tenantid>`    
-     
-    > [!NOTE] 
-    > Poprzednie wartości nie są prawdziwe. Zaktualizuj je z odpowiedzi rzeczywisty adres URL i adresu URL logowania jednokrotnego. Aby uzyskać wartości, skontaktuj się z [Cezanne HR oprogramowanie klienta z pomocą techniczną](mailto:info@cezannehr.com).
+    b. W **identyfikator** tekstowym, wpisz adres URL:`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-4. W obszarze **SAML certyfikat podpisywania**, wybierz pozycję **certyfikatu (Base64)**, a następnie zapisz plik certyfikatu na komputerze.
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
 
-    ![W sekcji "Certyfikat podpisywania SAML"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-5. Wybierz pozycję **Zapisz**.
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-    ![Przycisk "Zapisz"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+
+6. Na **konfiguracji oprogramowania HR Cezanne** , kliknij przycisk **Konfigurowanie oprogramowania HR Cezanne** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+
+    ![Cezanne HR konfiguracji oprogramowania](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+
+7. W oknie przeglądarki innej witryny sieci web logowanie do dzierżawy Cezanne HR oprogramowania jako administrator.
+
+8. W lewym okienku nawigacji, kliknij polecenie **konfiguracji systemu**. Przejdź do **ustawienia zabezpieczeń**. Następnie przejdź do **konfiguracji rejestracji jednokrotnej**.
+
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+
+9. W **Zezwalaj użytkownikom na logowanie przy użyciu następującej usługi pojedynczego logowania jednokrotnego (SSO)** panelu wyboru **SAML 2.0** i wybierz **Advanced Configuration** opcji.
+
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+
+10. Kliknij przycisk **Dodaj nowy** przycisku.
+
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+
+11. Wykonaj następujące czynności na **dostawców tożsamości SAML 2.0** sekcji.
+
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-6. W obszarze **konfiguracji oprogramowania HR Cezanne**, wybierz pozycję **Konfigurowanie oprogramowania HR Cezanne** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML identyfikator jednostki** i **SAML logowania jednokrotnego usługi pojedynczej** adresu URL z **krótki przewodnik** sekcji.
+    a. Wprowadź nazwę dostawcy tożsamości jako **Nazwa wyświetlana**.
 
-    ![W sekcji "Konfiguracja oprogramowania HR Cezanne"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    b. W **identyfikator** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure. 
 
-7. W oknie przeglądarki innej witryny sieci web Zaloguj się do dzierżawy oprogramowania Cezanne HR jako administrator.
+    c. Zmień **powiązania SAML** "Post".
 
-8. W okienku po lewej stronie wybierz **konfiguracji systemu**. Wybierz **ustawienia zabezpieczeń** > **pojedynczy konfiguracji logowania jednokrotnego**.
+    d. W **punktu końcowego usługi tokenu zabezpieczającego** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
 
-    ![Łącze "Pojedynczego logowania jednokrotnego konfiguracji"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
-
-9. W **Zezwalaj użytkownikom na logowanie przy użyciu następujących usług pojedynczego logowania jednokrotnego (SSO)** okienku wybierz **SAML 2.0** pole wyboru, a następnie wybierz **Advanced Configuration** opcji.
-
-    ![Opcje logowania jednokrotnego usług](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
-
-10. Wybierz **Dodawanie nowych**.
-
-    ![Przycisk "Dodaj nowy"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
-
-11. W obszarze **dostawców tożsamości SAML 2.0**, wykonaj następujące czynności:
-
-    ![W sekcji "Dostawców tożsamości SAML 2.0"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    e. W polu tekstowym Nazwa atrybutu Identyfikatora użytkownika, wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    a. W **Nazwa wyświetlana** wprowadź nazwę dostawcy tożsamości.
-
-    b. W **identyfikator** Wklej **identyfikator jednostki SAML** skopiowany z portalu Azure. 
-
-    c. W **powiązanie SAML** pola listy, wybierz opcję **POST**.
-
-    d. W **punktu końcowego usługi tokenu zabezpieczającego** Wklej **SAML logowania jednokrotnego usługi pojedynczej** adres URL, który został skopiowany z portalu Azure. 
-    
-    e. W **nazwa atrybutu ID użytkownika** wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-    
-    f. Aby przekazać certyfikat pobrany z usługi Azure AD, wybierz **przekazać** przycisku.
+    f. Kliknij przycisk **przekazać** ikonę, aby przekazać certyfikat pobrany z portalu Azure.
     
     g. Kliknij przycisk **OK**. 
 
-12. Wybierz pozycję **Zapisz**.
+12. Kliknij przycisk **zapisać** przycisku.
 
-    ![Przycisk "Zapisz"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> Po skonfigurowaniu aplikacji może odczytywać zwięzły wersji poprzednich instrukcji w [portalu Azure](https://portal.azure.com). Po dodaniu aplikacji z **usługi Active Directory** > **aplikacje dla przedsiębiorstw** zaznacz **logowanie jednokrotne** kartę. Dostęp do dokumentacji osadzonych z **konfiguracji** sekcji. 
-
-Aby dowiedzieć się więcej o funkcji osadzonych dokumentacji, zobacz [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-W tej sekcji utworzysz użytkownika testowego Simona Britta w portalu Azure.
 
-![Simona Britta użytkownika testowego][100]
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
-Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-1. W **portalu Azure**, w okienku po lewej stronie wybierz **usługi Azure Active Directory** przycisku.
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-    ![Przycisk "Azure Active Directory"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-2. Aby wyświetlić listę użytkowników, wybierz **użytkowników i grup** > **wszyscy użytkownicy**.
-    
-    ![Łącze "Wszyscy użytkownicy"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
-    
-    **Wszyscy użytkownicy** zostanie otwarte okno dialogowe.
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-3. Aby otworzyć **użytkownika** okno dialogowe, wybierz opcję **Dodaj**.
- 
-    ![Przycisk "Dodaj"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-4. W **użytkownika** okno dialogowe, wykonaj następujące czynności:
- 
-    ![Okno dialogowe "Użytkownika"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png)
+
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+
+    ![Przycisk Dodaj](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png)
+
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
+
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png)
 
     a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W **nazwy użytkownika** wpisz użytkownika Britta Simona **adres e-mail**.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartości, który został wygenerowany w **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
-    d. Wybierz pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-cezanne-hr-software-test-user"></a>Tworzenie użytkownika testowego Cezanne HR oprogramowania
 
-Aby umożliwić użytkownikom usługi Azure AD do logowania się na Cezanne HR oprogramowania, muszą mieć przydzielone do Cezanne HR oprogramowania. W przypadku oprogramowania Cezanne HR Inicjowanie obsługi to zadanie ręczne.
+Aby włączyć użytkowników usługi Azure AD zalogować się do Cezanne HR oprogramowania, muszą mieć przydzielone do Cezanne HR oprogramowania. W przypadku oprogramowania HR Cezanne Inicjowanie obsługi to zadanie ręczne.
 
-Ustanowienie konta użytkownika, wykonując następujące czynności:
+**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
-1.  Zaloguj się do witryny Cezanne HR oprogramowania firmy jako administrator.
+1.  Zaloguj się do witryny firmy Cezanne HR oprogramowania jako administrator.
 
-2.  W okienku po lewej stronie wybierz **konfiguracji systemu** > **Zarządzanie użytkownikami** > **Dodaj nowego użytkownika**.
+2.  W lewym okienku nawigacji, kliknij polecenie **konfiguracji systemu**. Przejdź do **Zarządzanie użytkownikami**. Następnie przejdź do **Dodaj nowego użytkownika**.
 
-    ![Łącze "Dodaj nowego użytkownika"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "nowego użytkownika")
+    ![Nowy użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "nowego użytkownika")
 
-3.  W obszarze **dane osobowe**, wykonaj następujące czynności:
+3.  Na **dane osobowe** sekcji, wykonaj następujące czynności:
 
-    ![W sekcji "Dane osobowe"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nowego użytkownika")
+    ![Nowy użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nowego użytkownika")
     
-    a. Ustaw **wewnętrznego użytkownika** jako **OFF**.
+    a. Ustaw **wewnętrznego użytkownika** jako OFF.
     
-    b. W **imię** wpisz imię użytkownika, na przykład **Britta**.  
+    b. W **imię** tekstowym, wpisz imię użytkownika, takich jak **Britta**.  
  
-    c. W **nazwisko** wpisz nazwisko użytkownika, na przykład **Simona**.
+    c. W **nazwisko** tekstowym, wpisz nazwisko użytkownika, takich jak **Simona**.
     
-    d. W **E-mail** wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
+    d. W **E-mail** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
 
-4.  W obszarze **informacje o koncie**, wykonaj następujące czynności:
+4.  Na **informacje o koncie** sekcji, wykonaj następujące czynności:
 
-    ![Sekcja "Informacje o koncie"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nowego użytkownika")
+    ![Nowy użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nowego użytkownika")
     
-    a. W **Username** wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
+    a. W **Username** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
     
-    b. W **hasło** wpisz hasło użytkownika.
+    b. W **hasło** tekstowym, wpisz hasło użytkownika.
     
-    c. W **roli zabezpieczeń** wybierz opcję **HR Professional**.
+    c. Wybierz **HR Professional** jako **roli zabezpieczeń**.
     
     d. Kliknij przycisk **OK**.
 
-5. Na **logowanie jednokrotne** karcie **SAML 2.0 identyfikatory** zaznacz **Dodaj nowy**.
+5. Przejdź do **rejestracji jednokrotnej** i wybierz **Dodaj nowy** w **SAML 2.0 identyfikatory** obszaru.
 
-    ![Przycisk "Dodaj nowy"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "użytkownika")
+    ![Użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "użytkownika")
 
-6. W **dostawcy tożsamości** pola listy, wybierz dostawcy tożsamości. W **identyfikator użytkownika** wprowadź adres e-mail konta Simona testu użytkownika Britta.
+6. Wybierz dostawcę tożsamości dla **dostawcy tożsamości** i w polu tekstowym **identyfikator użytkownika**, wprowadź adres e-mail konta Simona Britta.
 
-    ![Pola "Dostawcy tożsamości" i "Identyfikator użytkownika"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "użytkownika")
+    ![Użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "użytkownika")
     
-7. Wybierz pozycję **Zapisz**.
+7. Kliknij przycisk **zapisać** przycisku.
 
-    ![Przycisk "Zapisz"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "użytkownika")
+    ![Użytkownik](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "użytkownika")
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć użytkownika testowego Simona Britta do udzielania dostępu do oprogramowania Cezanne HR za pomocą logowania jednokrotnego usługi Azure.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do oprogramowania HR Cezanne.
 
-![Dostęp użytkownika testowego][200] 
+![Przypisanie roli użytkownika][200] 
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu. Wybierz **aplikacje dla przedsiębiorstw** > **wszystkie aplikacje**.
+**Aby przypisać Simona Britta Cezanne HR oprogramowania, wykonaj następujące czynności:**
 
-    ![Łącze "Wszystkie aplikacje"][201] 
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+
+    ![Przypisz użytkownika][201] 
 
 2. Na liście aplikacji zaznacz **Cezanne HR oprogramowania**.
 
-    ![Na liście "Aplikacji"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png) 
+    ![Łącze Cezanne HR oprogramowania na liście aplikacji](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. W menu po lewej stronie wybierz **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![Przypisz użytkownika][202] 
+    ![Łącze "Użytkownicy i grupy"][202]
 
-4. Wybierz pozycję **Dodaj**. Następnie w **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Łącze "Użytkownicy i grupy"][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. W **użytkowników i grup** okna dialogowego, **użytkowników** listy, wybierz **Simona Britta**.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
-6. W **użytkowników i grup** okno dialogowe, wybierz opcję **wybierz**.
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
-7. W **Dodaj przydziału** okno dialogowe, wybierz opcję **przypisać**.
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
     
-### <a name="test-sso"></a>Test rejestracji Jednokrotnej
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji możesz przetestować konfigurację programu Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po wybraniu kafelka oprogramowania Cezanne HR w panelu dostępu logowania automatycznie do aplikacji oprogramowania Cezanne HR.
+Po kliknięciu kafelka Cezanne HR oprogramowania w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji oprogramowania HR Cezanne.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowania jednokrotnego w usłudze Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

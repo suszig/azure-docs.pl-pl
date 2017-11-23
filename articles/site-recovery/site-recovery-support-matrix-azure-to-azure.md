@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 2b5431cefd26d27f6c72dbe72c4b90554b2511b6
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z platformy Azure na platformie Azure
 
@@ -164,6 +164,7 @@ GRS | Obsługiwane |
 RA-GRS | Obsługiwane |
 ZRS | Nieobsługiwane |  
 Chłodny i gorących magazynu | Nieobsługiwane | Dyski maszyny wirtualnej nie są obsługiwane na magazynu chłodnego i gorących
+Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne)  | Nie | Zezwalanie na dostęp do określonych sieci wirtualnych platformy Azure na kontach magazynu pamięci podręcznej używany do przechowywania replikowanych danych nie jest obsługiwane. 
 
 >[!IMPORTANT]
 > Upewnij się, że przestrzegają wirtualna dysku skalowalność i wydajność docelowe [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) maszyn wirtualnych, aby uniknąć problemów z wydajnością. Jeśli wykonujesz ustawień domyślnych usługi Site Recovery spowoduje utworzenie wymagane dyski i kont magazynu, na podstawie konfiguracji źródła. Jeśli należy dostosować i wybrać własne ustawienia, upewnij się, wykonaj cele skalowalność i wydajność dysku dla źródła maszyn wirtualnych.

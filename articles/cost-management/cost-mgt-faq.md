@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Często zadawane pytania dotyczące usługi Azure Management koszt
-
 
 W tym artykule opisano często zadawane pytania dotyczące usługi Azure Management koszt (znanej także jako Cloudyn). Jeśli masz pytania dotyczące zarządzania kosztów, możesz je pod adresem [często zadawane pytania dotyczące usługi Azure Management koszt przez Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Jeśli występuje opóźnienie wysyłania danych z platformy Azure do Cloudyn, d
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Jak bezpośredniego dostawcy usług Kryptograficznych skonfigurowany dostęp Cloudyn dla pośredniego dostawcy usług Kryptograficznych klientów lub partnerów
 
 Aby uzyskać instrukcje, zobacz [skonfigurować bezpośredni dostęp do dostawcy usług Kryptograficznych w Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Co powoduje, że element menu Optymalizator pojawią się?
+
+Po dodaniu dostępu do usługi Azure Resource Manager i dane są zbierane, powinny pojawić się **Optymalizator** opcji. Aby aktywować dostęp do usługi Azure Resource Manager, zobacz [jak aktywować nieaktywowani kont z poświadczeniami Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Na podstawie kosztów zarządzania/Cloudyn agenta
+
+Nie. Agenci nie są używane. Dane maszyny wirtualnej platformy Azure dla maszyn wirtualnych są zbierane z interfejsu API informacje na temat technologii firmy Microsoft. Chcesz zbierać dane metryki z maszyn wirtualnych platformy Azure, muszą mieć włączone ustawienia diagnostyki.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn raporty są wyświetlane więcej niż jednej dzierżawy AD na raport?
+
+Tak. Możesz [tworzenia jednostek konta chmury](tutorial-user-access.md#create-entities) dla każdego dzierżawcy AD, czy masz. Następnie można wyświetlić wszystkich danych dzierżawy usługi Azure AD i innych dostawców platformy chmury, w tym usług Amazon Web Services i usługi Google Cloud Platform.

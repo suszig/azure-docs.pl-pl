@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Przy użyciu repozytorium Git w usłudze Azure Machine Learning Workbench projektu
 Ten dokument zawiera informacje na Azure Machine Learning Workbench używaniu Git do zapewnienia kontroli wersji i upewnij się, powtarzalności w eksperymencie analizy danych. Podawane są również instrukcje dotyczące sposobu kojarzenia projektu z chmurą repozytorium Git.
@@ -121,7 +121,7 @@ Przez wykonanie tego polecenia, możemy spowoduje zastąpienie folderu cały pro
 ## <a name="step-6-use-the-master-branch"></a>Krok 6. Użyj głównej gałęzi
 Jednym ze sposobów uniknąć przypadkowego utraty aktualnym stanie projektu, jest można przekazać projektu do gałęzi głównej (lub działu utworzonego przez siebie) repozytorium Git. Git można korzystać bezpośrednio z wiersza polecenia (lub inne ulubionego Git klienta narzędzia wyboru) może działać w gałęzi głównej. Na przykład:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 

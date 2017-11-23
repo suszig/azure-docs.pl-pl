@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Jak włączyć zagnieżdżonych wirtualizacji w maszynie Wirtualnej platformy Azure
 
@@ -49,7 +49,7 @@ Utwórz połączenie pulpitu zdalnego z maszyną wirtualną.
 Te ustawienia można skonfigurować ręcznie lub firma Microsoft umieściła skrypt programu PowerShell, aby zautomatyzować konfigurację.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opcja 1: Umożliwia skonfigurowanie zagnieżdżonych wirtualizacji skrypt programu PowerShell
-Skrypt programu PowerShell, aby włączyć zagnieżdżonych wirtualizacji na hoście systemu Windows Server 2016 jest dostępna w [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skrypt sprawdza wymagania wstępne, a następnie konfiguruje zagnieżdżonych wirtualizacji na maszynie Wirtualnej Azure. Ponowne uruchomienie maszyny wirtualnej Azure jest niezbędne do ukończenia konfiguracji. Ten skrypt może działać w innych środowiskach, ale nie jest gwarantowana. Sprawdź wpis w blogu Azure z pokaz wideo na żywo na zagnieżdżonych wirtualizacji działających na platformie Azure! https://aka.MS/AzureNVblog.
+Skrypt programu PowerShell, aby włączyć zagnieżdżonych wirtualizacji na hoście systemu Windows Server 2016 jest dostępna w [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skrypt sprawdza wymagania wstępne, a następnie konfiguruje zagnieżdżonych wirtualizacji na maszynie Wirtualnej Azure. Ponowne uruchomienie maszyny wirtualnej Azure jest niezbędne do ukończenia konfiguracji. Ten skrypt może działać w innych środowiskach, ale nie jest gwarantowana. Sprawdź wpis w blogu Azure z pokaz wideo na żywo na zagnieżdżonych wirtualizacji działających na platformie Azure! https://aka.MS/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opcja 2: Skonfiguruj ręcznie zagnieżdżonych wirtualizacji
 

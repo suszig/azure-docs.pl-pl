@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Obsługa błędów i wyjątków w aplikacjach logiki platformy Azure
 
@@ -26,38 +26,74 @@ Aplikacje logiki platformy Azure udostępnia zaawansowane narzędzia i wzorce, a
 
 ## <a name="retry-policies"></a>Spróbuj ponownie zasad
 
-Zasady ponawiania jest najbardziej podstawowy typ wyjątku i obsługa błędów. Jeśli upłynął limit czasu żądania początkowego, lub nie powiodło się (każde żądanie, która powoduje 429 lub odpowiedź 5xx), ta zasada definiuje, czy akcja powinna ponowić. Domyślnie wszystkie akcje próbę 4 razy dodatkowe za pośrednictwem 20 sekund. Dlatego w przypadku pierwszego żądania odbiera `500 Internal Server Error` odpowiedzi, aparatu przepływu pracy wstrzymuje 20 sekund i próbuje ponownie żądanie. Jeśli po wszystkich próbach odpowiedzi jest nadal wyjątku lub błędu, przepływ pracy będzie kontynuowane i oznacza stanu akcji jako `Failed`.
+Zasady ponawiania jest najbardziej podstawowy typ wyjątku i obsługa błędów. Jeśli upłynął limit czasu żądania początkowego, lub nie powiodło się (każde żądanie, która powoduje 429 lub odpowiedź 5xx), te zasady określa, czy i jak ponów akcję. Istnieją trzy typy zasad ponawiania `exponential`, `fixed`, i `none`. Jeśli zasady ponawiania nie jest określona w definicji przepływu pracy, jest używane domyślne zasady. Można skonfigurować zasady ponawiania w **dane wejściowe** dla określonej akcji lub wyzwalacza, jeśli jest powtarzający operację. Podobnie, w ponownych prób projektanta aplikacji logiki można skonfigurować zasady (jeśli dotyczy) w obszarze **ustawienia** dla bloku.
 
-Można skonfigurować zasady ponawiania w **dane wejściowe** dla określonej akcji. Na przykład można skonfigurować zasady ponawiania próby maksymalnie 4 razy na 1 godzinę. Aby uzyskać szczegółowe informacje o właściwościach wejściowego, zobacz [działania przepływu pracy i wyzwalaczy][retryPolicyMSDN].
+Uzyskać informacji na temat ograniczeń zasad ponawiania, zobacz [limity Logic Apps i konfiguracji](../logic-apps/logic-apps-limits-and-config.md) i uzyskać więcej informacji o obsługiwanych składni, zobacz [części zasady ponawiania akcji przepływu pracy i wyzwalaczy][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Interwał wykładniczy
+`exponential` Typ zasad ponowi żądanie nie powiodło się po losowych odstępach czasu z wykładniczo powiększających się. Każdy ponowienia próby jest gwarantowana do wysłania w losowych odstępach czasu, która jest większa niż **minimumInterval** i mniejsza niż **maximumInterval**. Jednolite zmienną losową w poniżej zakresu zostanie wygenerowany dla każdego ponawiania włącznie **liczba**:
+<table>
+<tr><th> Losowe zakresu zmiennej </th></tr>
+<tr><td>
+
+| Spróbuj ponownie numer | Minimalny interwał | Maksymalny interwał |
+| ------------ |  ------------ |  ------------ |
+| 1 | MAX (0, **minimumInterval**) | Min (interwał, **maximumInterval**) |
+| 2 | MAX (interwał, **minimumInterval**) | Min (2 * interwał, **maximumInterval**) |
+| 3 | MAX (2 * interwał, **minimumInterval**) | Min (4 * interwał, **maximumInterval**) |
+| 4 | MAX (4 * interwał, **minimumInterval**) | Min (8 * interwał, **maximumInterval**) |
+| Przyciski ... |
+
+</td></tr></table>
+
+Dla `exponential` typu zasad, **liczba** i **interwał** są wymagane podczas **minimumInterval** i **maximumInterval** może być opcjonalnie podać, aby zastąpić wartości domyślne PT5S i PT1D odpowiednio.
+
+| Nazwa elementu | Wymagane | Typ | Opis |
+| ------------ | -------- | ---- | ----------- |
+| type | Tak | Ciąg | `exponential` |
+| liczba | Tak | Liczba całkowita | Liczba ponowienia, musi należeć do zakresu od 1 do 90  |
+| interval | Tak | Ciąg | Interwał w ponawiania próby [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musi należeć do zakresu od PT5S i PT1D |
+| minimumInterval | Nie| Ciąg | Spróbuj ponownie minimalny interwał w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musi należeć do zakresu od PT5S i **interwał** |
+| maximumInterval | Nie| Ciąg | Spróbuj ponownie minimalny interwał w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musi należeć do zakresu od **interwał** i PT1D |
+
+### <a name="fixed-interval"></a>Stały odstęp
+
+`fixed` Typ zasad ponowi nieudanych żądań przez oczekiwanie podany interwał przed wysłaniem następnego żądania.
+
+| Nazwa elementu | Wymagane | Typ | Opis |
+| ------------ | -------- | ---- | ----------- |
+| type | Tak | Ciąg | `fixed`|
+| liczba | Tak | Liczba całkowita | Liczba ponowienia, musi należeć do zakresu od 1 do 90 |
+| interval | Tak | Ciąg | Interwał w ponawiania próby [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musi należeć do zakresu od PT5S i PT1D |
+
+### <a name="none"></a>Brak
+`none` Typ zasad nie ponowi żądanie nie powiodło się.
+
+| Nazwa elementu | Wymagane | Typ | Opis |
+| ------------ | -------- | ---- | ----------- |
+| type | Tak | Ciąg | `none`|
+
+### <a name="default"></a>Domyślne
+Jeśli zasady ponawiania, nie zostanie określony, domyślna zasada jest używana. Domyślna zasada jest zasada interwał wykładniczej, która będzie wysyłać do 4 ponownych prób, na wykładniczo rosnących odstępach czasu skalować sekund 7.5 i ograniczona do zakresu od 5 do 45 sekund. Ta zasada domyślna (używane podczas **retryPolicy** nie jest zdefiniowana) jest odpowiednikiem zasad w tym przykładzie HTTP definicji przepływu pracy:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Jeśli potrzebujesz Twoja Akcja HTTP, aby ponowić próbę 4 godziny i odczekaj 10 minut między kolejnymi próbami należy użyć następującej definicji:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Aby uzyskać więcej informacji o obsługiwanych składni, zobacz [części zasady ponawiania akcji przepływu pracy i wyzwalaczy][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Błędy z właściwością RunAfter catch
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Zagadnienia dotyczące sieci dla środowiska usługi aplikacji #
 
@@ -47,7 +47,7 @@ Jeśli masz ASE ILB, adres IP ILB jest punkt końcowy dla protokołu HTTP/S, FTP
 
 Porty dostępu normalne aplikacji są:
 
-| Użycie | Z | Do |
+| Użycie | Od | Do |
 |----------|---------|-------------|
 |  HTTP/HTTPS.  | Konfigurowane przez użytkownika |  80, 443 |
 |  FTP/FTPS    | Konfigurowane przez użytkownika |  21, 990, 10001-10020 |
@@ -59,7 +59,7 @@ Jest to wartość true, jeśli jesteś w elemencie ASE zewnętrznych lub w eleme
 
 ASE zależność dostępu ruchu przychodzącego jest:
 
-| Użycie | Z | Do |
+| Użycie | Od | Do |
 |-----|------|----|
 | Zarządzanie | Adresy zarządzania usługi aplikacji | Podsieci ASE: 454, 455 |
 |  Wewnętrznej komunikacji ASE | Podsieci ASE: wszystkie porty | Podsieci ASE: wszystkie porty
@@ -76,7 +76,7 @@ Jeśli używasz aplikacji przypisanych adresów IP, należy zezwolić na ruch z 
 
 Dla ruchu wychodzącego dostępu ASE zależy od wielu systemami zewnętrznymi. Te zależności systemu są zdefiniowane z nazwami DNS i nie mapowania ustalony zbiór adresów IP. W związku z tym ASE wymaga wychodzący dostęp do wszystkich zewnętrznych adresów IP z podsieci ASE różnych portów. ASE charakteryzuje się następującymi zależnościami wychodzących:
 
-| Użycie | Z | Do |
+| Użycie | Od | Do |
 |-----|------|----|
 | Azure Storage | Podsieci ASE | TABLE.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 jest potrzebna tylko dla ASEv1.) |
 | Usługa Azure SQL Database | Podsieci ASE | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Aby uzyskać więcej informacji, zobacz [użycia portu bazy danych SQL V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
@@ -103,7 +103,7 @@ Oprócz ASE współzależności funkcjonalnych istnieje kilka dodatkowych elemen
 
 -   Zadania sieci Web
 -   Funkcje
--   Dziennik przesyłania strumieniowego
+-   Przesyłanie strumieniowe dzienników
 -   Kudu
 -   Rozszerzenia
 -   Eksplorator procesów
@@ -164,7 +164,7 @@ Wszystkie elementy, które są widoczne w następujące reguły wychodzące są 
 
 ![Zasady zabezpieczeń dla ruchu wychodzącego][5]
 
-Po zdefiniowaniu grup NSG, należy je przypisać do podsieci, która jest Twoje ASE na. Jeśli nie pamiętasz ASE sieci wirtualnej lub podsieci, można to sprawdzić w portalu zarządzania ASE. Aby przypisać grupie NSG do podsieci, przejdź do podsieci interfejsu użytkownika, a następnie wybierz grupy NSG.
+Po zdefiniowaniu grup NSG, należy je przypisać do podsieci, która jest Twoje ASE na. Jeśli nie pamiętasz ASE sieci wirtualnej lub podsieci, można to sprawdzić na stronie portalu ASE. Aby przypisać grupie NSG do podsieci, przejdź do podsieci interfejsu użytkownika, a następnie wybierz grupy NSG.
 
 ## <a name="routes"></a>Trasy ##
 

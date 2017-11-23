@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenie zasad interfejsu API zarządzania
 Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do udostępnionego niejawnie [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
@@ -174,7 +174,7 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |----------------------|-------------------------------------------------------|  
 |Kontekst|Interfejs API: IApi<br /><br /> Wdrożenie<br /><br /> LastError<br /><br /> Operacja<br /><br /> Product (Produkt)<br /><br /> Żądanie<br /><br /> Identyfikator żądania: Identyfikator Guid<br /><br /> Odpowiedź<br /><br /> Subskrypcja<br /><br /> Śledzenie: wartość logiczna<br /><br /> Użytkownik<br /><br /> Zmienne: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|  
 |kontekst. Interfejs API|Identyfikator: ciąg<br /><br /> Nazwa: ciąg<br /><br /> Ścieżka: ciąg<br /><br /> ServiceUrl: IUrl|  
-|kontekst. Wdrożenia|Region: ciąg<br /><br /> ServiceName: ciąg|  
+|kontekst. Wdrożenia|Region: ciąg<br /><br /> ServiceName: ciąg<br /><br /> Certyfikaty: IReadOnlyDictionary < ciąg, X509Certificate2 >|  
 |kontekst. LastError|Źródło: ciąg<br /><br /> Przyczyna: ciąg<br /><br /> Komunikat: ciąg<br /><br /> Zakres: ciąg<br /><br /> Sekcja: ciąg<br /><br /> Ścieżka: ciąg<br /><br /> PolicyId: ciąg<br /><br /> Aby uzyskać więcej informacji o kontekście. LastError, zobacz [obsługi błędów](api-management-error-handling-policies.md).|  
 |kontekst. Operacja|Identyfikator: ciąg<br /><br /> Metoda: ciąg<br /><br /> Nazwa: ciąg<br /><br /> UrlTemplate: ciąg|  
 |kontekst. Produktu|Interfejsy API: IEnumerable < IApi\><br /><br /> ApprovalRequired: wartość logiczna<br /><br /> Grupy: IEnumerable < IGroup\><br /><br /> Identyfikator: ciąg<br /><br /> Nazwa: ciąg<br /><br /> Stan: wyliczenia ProductState {NotPublished, opublikowaną}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: wartość logiczna|  
@@ -199,6 +199,12 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |bool TryParseJwt (dane wejściowe: ten ciąg, wynik: limit Jwt)|wprowadzania: ciąg<br /><br /> wynik: limit Jwt<br /><br /> Jeśli parametr wejściowy zawiera prawidłową wartość tokenu JWT, metoda zwraca `true` i parametr wynik zawiera wartości typu `Jwt`; w przeciwnym razie metoda zwraca `false`.|  
 |Token Jwt|Algorytm: ciąg<br /><br /> Grupy odbiorców: IEnumerable < ciąg\><br /><br /> Oświadczenia: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> Identyfikator: ciąg<br /><br /> Wystawca: ciąg<br /><br /> Nie wcześniej niż: DateTime?<br /><br /> Podmiot: ciąg<br /><br /> Typ: ciąg|  
 |ciąg Jwt.Claims.GetValueOrDefault (claimName: ciąg, wartość domyślna: ciąg)|claimName: ciąg<br /><br /> Wartość domyślna: ciąg<br /><br /> Zwraca wartości oświadczeń przecinkami lub `defaultValue` Jeżeli nie znaleziono nagłówka.|
+|byte [] Szyfruj (wejściowych: tego typu byte [], alg: ciąg, klucz: byte [], iv:byte[])|dane wejściowe — zwykły tekst do zaszyfrowania<br /><br />alg — Nazwa algorytmu szyfrowania symetrycznego<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca szyfrowane w postaci zwykłego tekstu.|
+|byte [] Szyfruj (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|dane wejściowe — zwykły tekst do zaszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />Zwraca szyfrowane w postaci zwykłego tekstu.|
+|byte [] Szyfruj (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, klucz: byte [], iv:byte[])|dane wejściowe — zwykły tekst do zaszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca szyfrowane w postaci zwykłego tekstu.|
+|byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: ciąg, klucz: byte [], iv:byte[])|dane wejściowe - cyphertext do odszyfrowania<br /><br />alg — Nazwa algorytmu szyfrowania symetrycznego<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca w postaci zwykłego tekstu.|
+|byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|dane wejściowe - cyphertext do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />Zwraca w postaci zwykłego tekstu.|
+|byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, klucz: byte [], iv:byte[])|wejściowy - wejściowych - cyphertext do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca w postaci zwykłego tekstu.|
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  

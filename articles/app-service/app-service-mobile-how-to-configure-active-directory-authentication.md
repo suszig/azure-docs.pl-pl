@@ -1,5 +1,5 @@
 ---
-title: "Jak skonfigurować uwierzytelnianie w usłudze Azure Active Directory dla aplikacji usługi aplikacji"
+title: "Konfigurowanie uwierzytelniania usługi Azure Active Directory dla aplikacji usługi aplikacji"
 description: "Dowiedz się, jak skonfigurować uwierzytelnianie w usłudze Azure Active Directory dla aplikacji usługi aplikacji."
 author: mattchenderson
 services: app-service
@@ -14,65 +14,65 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 25f0578a9e273c30ecc98af5b66c6dd43305aa03
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-azure-active-directory-login"></a>Jak skonfigurować aplikację App Service na potrzeby logowania do usługi Azure Active Directory
+# <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Skonfiguruj aplikację usługi aplikacji, aby użyć nazwy logowania w usłudze Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-W tym temacie przedstawiono sposób konfigurowania usługi aplikacji Azure do użycia usługi Azure Active Directory jako dostawcy uwierzytelniania.
+W tym artykule przedstawiono sposób konfigurowania usługi aplikacji Azure do użycia usługi Azure Active Directory jako dostawcy uwierzytelniania.
 
 ## <a name="express"></a>Konfigurowanie usługi Azure Active Directory przy użyciu ustawień ekspresowych
-1. W [portalu Azure], przejdź do aplikacji. Kliknij przycisk **ustawienia**, a następnie **uwierzytelniania/autoryzacji**.
-2. Jeśli uwierzytelnianie / autoryzacja funkcja nie jest włączona, włącz przełącznik do **na**.
-3. Kliknij przycisk **usługi Azure Active Directory**, a następnie kliknij przycisk **Express** w obszarze **tryb zarządzania**.
-4. Kliknij przycisk **OK** zarejestrować aplikację w usłudze Azure Active Directory. Spowoduje to utworzenie nowej rejestracji. Jeśli chcesz zamiast tego wybrać rejestracją istniejącą, kliknij przycisk **wybierz istniejącą aplikację** , a następnie wyszukaj nazwę wcześniej utworzonej rejestracji w ramach dzierżawy.
-   Kliknij przycisk rejestracji, aby go zaznaczyć, a następnie kliknij przycisk **OK**. Następnie kliknij przycisk **OK** w bloku ustawień usługi Azure Active Directory.
+1. W [portalu Azure], przejdź do aplikację usługi aplikacji. W lewym obszarze nawigacji, wybierz **uwierzytelniania / autoryzacji**.
+2. Jeśli **uwierzytelniania / autoryzacji** nie jest włączony, wybierz opcję **na**.
+3. Wybierz **usługi Azure Active Directory**, a następnie wybierz **Express** w obszarze **tryb zarządzania**.
+4. Wybierz **OK** do rejestrowania aplikacji usługi aplikacji w usłudze Azure Active Directory. Spowoduje to utworzenie nowej rejestracji aplikacji. Jeśli chcesz zamiast tego wybrać rejestracja istniejącej aplikacji, kliknij przycisk **wybierz istniejącą aplikację** , a następnie wyszukaj nazwę rejestracji aplikacji wcześniej utworzonej w ramach dzierżawy.
+   Kliknij przycisk rejestracji aplikacji, aby go zaznaczyć, a następnie kliknij przycisk **OK**. Następnie kliknij przycisk **OK** na stronie ustawień usługi Azure Active Directory.
    Domyślnie usługi App Service zapewnia uwierzytelnianie, ale nie ogranicza autoryzowanego dostępu do interfejsów API i zawartości witryny. Musisz zezwolić użytkownikom w kodzie aplikacji.
 5. (Opcjonalnie) Aby ograniczyć dostęp do witryny użytkownikom tylko uwierzytelniony przez usługę Azure Active Directory, należy ustawić **działania należy podjąć w przypadku nieuwierzytelnionego żądania** do **Zaloguj się za pomocą usługi Azure Active Directory**. Wymaga to, że wszystkie żądania uwierzytelnienia, a wszystkie nieuwierzytelnione żądania są przekierowywane do usługi Azure Active Directory do uwierzytelniania.
 6. Kliknij pozycję **Zapisz**.
 
-Teraz można przystąpić do użycia usługi Azure Active Directory do uwierzytelniania w aplikacji.
+Teraz można przystąpić do uwierzytelniania w aplikację usługi aplikacji Azure Active Directory.
 
 ## <a name="advanced"></a>(Metoda alternatywna) ręcznie skonfigurować usługi Azure Active Directory z ustawieniami zaawansowanymi
 Można również podać ustawienia konfiguracji ręcznie. Jest to preferowane rozwiązanie, jeśli dzierżawę usługi AAD, którego chcesz użyć różni się od dzierżawcy, z którym należy zalogować się do platformy Azure. W celu ukończenia konfiguracji, należy najpierw utworzyć rejestracji w usłudze Azure Active Directory, a następnie podaj niektórych szczegółów rejestracji usługi aplikacji.
 
-### <a name="register"></a>Zarejestrować aplikację w usłudze Azure Active Directory
-1. Zaloguj się do [portalu Azure], a następnie przejdź do aplikacji. Kopiowanie aplikacji **adres URL**. Umożliwia to skonfigurować aplikację usługi Azure Active Directory.
+### <a name="register"></a>Zarejestrować aplikację usługi aplikacji w usłudze Azure Active Directory
+1. Zaloguj się do [portalu Azure], a następnie przejdź do aplikację usługi aplikacji. Kopiowanie aplikacji **adres URL**. Umożliwia to skonfigurować rejestrację aplikacji usługi Azure Active Directory.
 2. Przejdź do **usługi Active Directory**, a następnie wybierz pozycję **rejestracji aplikacji**, następnie kliknij przycisk **nowej rejestracji aplikacji** u góry, aby rozpocząć nowej rejestracji aplikacji. 
-3. W oknie dialogowym Tworzenie rejestracji aplikacji, wprowadź **nazwa** dla aplikacji, wybierz **interfejsu API aplikacji sieci Web** wpisz w **adres URL logowania** pole Wklej adres URL aplikacji (z Krok 1). Kliknij, aby **Utwórz**.
-4. W ciągu kilku sekund powinna zostać wyświetlona nowej rejestracji aplikacji utworzony są wyświetlane.
-5. Po dodaniu aplikacji, kliknij na nazwie rejestracji aplikacji i kliknij pozycję **ustawienia** u góry, następnie kliknij polecenie **właściwości** 
+3. W **Utwórz** wprowadź **nazwa** dla rejestracji aplikacji, wybierz **aplikacji sieci Web / interfejs API** wpisz w **adres URL logowania** polu Wklej adres URL aplikacji (z kroku 1). Kliknij, aby **Utwórz**.
+4. Powinna zostać wyświetlona nowej rejestracji aplikacji utworzony w ciągu kilku sekund.
+5. Po dodaniu rejestracji aplikacji, kliknij na nazwie rejestracji aplikacji i kliknij pozycję **ustawienia** u góry, następnie kliknij polecenie **właściwości** 
 6. W **identyfikator URI aplikacji** Wklej adres URL aplikacji (z kroku 1), również w **adres URL strony głównej** Wklej adres URL aplikacji (z kroku 1) oraz, następnie kliknij przycisk **Zapisz**
-7. Teraz kliknij **adresy URL odpowiedzi**, Edytuj **adres URL odpowiedzi**, wklej adres URL aplikacji (z kroku 1), zmodyfikuj protokół upewnij się, że masz **https://** protokołu (nie http://) następnie jest dołączany na końcu adresu URL, */.auth/login/aad/callback* . (Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`.) Kliknij pozycję **Zapisz**.   
-8.  W tym momencie Skopiuj **identyfikator aplikacji** dla aplikacji. Zachowaj to do późniejszego użycia. Będzie on potrzebny do konfigurowania aplikacji sieci web.
-9. Zamknij blok szczegółów rejestracji aplikacji. Należy wrócić do podsumowania rejestracji aplikacji Azure Active Directory kliknij **punkty końcowe** przycisk u góry, skopiuj **dokument metadanych usług federacyjnych** adresu URL. 
-10. Otwórz nowe okno przeglądarki i przejdź do adresu URL wklejanie i przechodzenia do pliku XML. W górnej części dokumentu będzie **EntityDescriptor** element, należy **entityID** atrybut w postaci `https://sts.windows.net/` następuje GUID przeznaczonych dla Twojej dzierżawy (nazywanych "identyfikator dzierżawy"). Skopiuj tę wartość — będzie służyć jako sieci **adres URL wystawcy**. Skonfiguruj aplikację, aby użyć tego później.
+7. Teraz kliknij **adresy URL odpowiedzi**, Edytuj **adres URL odpowiedzi**, wklej adres URL aplikacji (z kroku 1), zmodyfikuj protokół upewnij się, że masz **https://** protokołu (nie http://) następnie jest dołączany na końcu adresu URL, */.auth/login/aad/callback* (na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Kliknij pozycję **Zapisz**.   
+8.  W tym momencie Skopiuj **identyfikator aplikacji** dla aplikacji. Zachowaj go do późniejszego użycia. Należy go skonfigurować aplikację usługi aplikacji.
+9. Zamknij **aplikacji zarejestrowanej** strony. Na **rejestracji aplikacji** kliknij pozycję **punkty końcowe** przycisk u góry, skopiuj **dokument metadanych usług federacyjnych** adresu URL. 
+10. Otwórz nowe okno przeglądarki i przejdź do adresu URL wklejanie i przechodzenia do pliku XML. W górnej części dokumentu jest **EntityDescriptor** element, należy **entityID** atrybut w postaci `https://sts.windows.net/` następuje GUID przeznaczonych dla Twojej dzierżawy (nazywanych "identyfikator dzierżawy"). Skopiuj tę wartość — służy jako sieci **adres URL wystawcy**. Skonfiguruj aplikację do użycia w przyszłości.
 
-### <a name="secrets"></a>Dodaj Azure informacji usługi Active Directory do aplikacji
-1. W [portalu Azure], przejdź do aplikacji. Kliknij przycisk **uwierzytelniania/autoryzacji**. Jeśli nie włączono funkcji uwierzytelniania/autoryzacji, włącz przełącznik do **na**. Polecenie **usługi Azure Active Directory**, w obszarze dostawcy uwierzytelniania, aby skonfigurować aplikację. (Opcjonalnie) Domyślnie usługi App Service zapewnia uwierzytelnianie, ale nie ogranicza autoryzowanego dostępu do interfejsów API i zawartości witryny. Musisz zezwolić użytkownikom w kodzie aplikacji. Wybierz **działania należy podjąć w przypadku nieuwierzytelnionego żądania**, ustaw tę wartość na **Zaloguj się za pomocą usługi Azure Active Directory**. Wymaga to, że wszystkie żądania uwierzytelnienia, a wszystkie nieuwierzytelnione żądania są przekierowywane do usługi Azure Active Directory do uwierzytelniania.
+### <a name="secrets"></a>Dodaj Azure informacji usługi Active Directory do aplikacji usługi aplikacji
+1. W [portalu Azure], przejdź do aplikację usługi aplikacji. Kliknij przycisk **uwierzytelniania/autoryzacji**. Jeśli nie włączono funkcji uwierzytelniania/autoryzacji, włącz przełącznik do **na**. Polecenie **usługi Azure Active Directory**, w obszarze dostawcy uwierzytelniania, aby skonfigurować aplikację. (Opcjonalnie) Domyślnie usługi App Service zapewnia uwierzytelnianie, ale nie ogranicza autoryzowanego dostępu do interfejsów API i zawartości witryny. Musisz zezwolić użytkownikom w kodzie aplikacji. Ustaw **działania należy podjąć w przypadku nieuwierzytelnionego żądania** do **Zaloguj się za pomocą usługi Azure Active Directory**. Ta opcja wymaga, aby wszystkie żądania uwierzytelnienia, a wszystkie nieuwierzytelnione żądania są przekierowywane do usługi Azure Active Directory do uwierzytelniania.
 2. w konfiguracji uwierzytelniania w usłudze Active Directory, kliknij przycisk **zaawansowane** w obszarze **tryb zarządzania**. Wklej identyfikator aplikacji w polu Identyfikatora klienta (z kroku 8) i Wklej entityId (z kroku 10) na wartość adres URL wystawcy. Następnie kliknij przycisk **OK**.
-3. W bloku konfiguracji uwierzytelniania w usłudze Active Directory, kliknij przycisk **zapisać**.
+3. Na stronie konfiguracji uwierzytelniania w usłudze Active Directory, kliknij przycisk **zapisać**.
 
-Teraz można przystąpić do użycia usługi Azure Active Directory do uwierzytelniania w aplikacji.
+Teraz można przystąpić do uwierzytelniania w aplikację usługi aplikacji Azure Active Directory.
 
 ## <a name="optional-configure-a-native-client-application"></a>(Opcjonalnie) Skonfiguruj aplikację native client
 Usługa Azure Active Directory umożliwia również zarejestrować klientach natywnych, co zapewnia większą kontrolę nad uprawnieniami mapowania. To konieczne, jeśli chcesz wykonać logowania przy użyciu biblioteki, takich jak **biblioteki uwierzytelniania usługi Active Directory**.
 
-1. Przejdź do **usługi Active Directory** w [klasycznego portalu Azure].
-2. Wybierz katalog, a następnie wybierz **aplikacji** u góry. Kliknij przycisk **dodać** na dole, aby utworzyć nowej rejestracji aplikacji.
-3. Kliknij przycisk **Dodaj aplikację moją organizację**.
-4. W Kreatorze dodawania aplikacji wprowadź **nazwa** dla aplikacji i kliknij przycisk **natywną aplikację kliencką** typu. Następnie kliknij, aby kontynuować.
+1. Przejdź do **usługi Azure Active Directory** w [portalu Azure].
+2. W lewym obszarze nawigacji, wybierz **rejestracji aplikacji**. Kliknij przycisk **nowej rejestracji aplikacji** u góry.
+4. W **Utwórz** wprowadź **nazwa** dla rejestracji aplikacji. Wybierz **natywnego** w **typu aplikacji**.
 5. W **identyfikator URI przekierowania** wprowadź witryny */.auth/login/done* punktu końcowego, za pomocą schematu HTTPS. Ta wartość powinna być podobna do *https://contoso.azurewebsites.net/.auth/login/done*. W przypadku tworzenia aplikacji systemu Windows, zamiast tego użyj [identyfikatora SID pakietu](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) jako identyfikator URI.
-6. Po dodaniu aplikacji natywnej kliknij **Konfiguruj** kartę. Znajdź **identyfikator klienta** i zanotuj tę wartość.
-7. Przewiń w dół do strony **uprawnień dotyczących innych aplikacji** sekcji, a następnie kliknij przycisk **Dodaj aplikację**.
-8. Wyszukaj aplikacji sieci web, który został wcześniej zarejestrowany, a następnie kliknij ikonę znaku plus. Następnie kliknij przycisk wyboru, aby zamknąć okno dialogowe. Jeśli aplikacja sieci web nie można odnaleźć, przejdź do rejestracji i dodać nowy adres URL odpowiedzi (np. HTTP wersja bieżącą adres URL), kliknij przycisk Zapisz, a następnie powtórz te kroki — powinny być widoczne aplikacji na liście.
-9. Na nowy wpis dodaną, otwórz **delegowane uprawnienia** listy rozwijanej i wybierz **dostępu (appName)**. Następnie kliknij przycisk **Save** (Zapisz).
+5. Kliknij przycisk **Utwórz**.
+6. Po dodaniu rejestracji aplikacji, wybierz, aby go otworzyć. Znajdź **identyfikator aplikacji** i zanotuj tę wartość.
+7. Kliknij przycisk **wszystkie ustawienia** > **wymagane uprawnienia** > **Dodaj** > **wybierz interfejs API**.
+8. Wpisz nazwę aplikacji usługi aplikacji został wcześniej zarejestrowany do wyszukiwania, a następnie zaznacz go i kliknij **wybierz**. 
+9. Wybierz **dostępu \<nazwa_aplikacji >**. Następnie kliknij przycisk **wybierz**. Następnie kliknij przycisk **Gotowe**.
 
-Aplikację native client, który ma dostęp do aplikacji usługi aplikacji został skonfigurowany.
+Aplikację klienta natywnego, które mogą uzyskiwać dostęp do aplikacji usługi aplikacji został skonfigurowany.
 
 ## <a name="related-content"></a>Związane z zawartością
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
@@ -94,5 +94,4 @@ Aplikację native client, który ma dostęp do aplikacji usługi aplikacji zosta
 <!-- URLs. -->
 
 [portalu Azure]: https://portal.azure.com/
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
 [alternative method]:#advanced

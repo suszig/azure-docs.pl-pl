@@ -4,7 +4,7 @@ description: "Przetwarzania danych z usługi SQL Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Tworzenie funkcji dla danych w programie SQL Server przy użyciu języka SQL i Python
-Ten dokument przedstawia sposób generowania funkcje dla danych przechowywanych w maszyny Wirtualnej serwera SQL na platformie Azure, które pomagają algorytmów wydajniej informacje z danych. Można to zrobić przy użyciu języka SQL lub przy użyciu języka programowania, takich jak Python, które przedstawiono w tym miejscu.
+Ten dokument przedstawia sposób generowania funkcje dla danych przechowywanych w maszyny Wirtualnej serwera SQL na platformie Azure, które pomagają algorytmów wydajniej informacje z danych. Do wykonania tego zadania można użyć SQL lub języka programowania, takich jak Python. Poniżej przedstawiono w obu podejść.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -50,7 +50,7 @@ W tej sekcji opisano sposób generowania funkcji za pomocą programu SQL:
 > 
 > 
 
-### <a name="sql-countfeature"></a>Funkcja generowania na podstawie liczby
+### <a name="sql-countfeature"></a>Na podstawie liczby funkcji generowania
 W tym dokumencie przedstawiono dwa sposoby generowania funkcji count. Pierwsza metoda korzysta sum warunkowych, a druga metoda klauzula "where". Te można następnie być połączony z oryginalnej tabeli (przy użyciu kolumn klucza podstawowego) ma funkcje liczby równolegle z oryginalnych danych.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -65,22 +65,22 @@ Poniższy przykład przedstawia sposób generowanie funkcji binned przez binning
 
 
 ### <a name="sql-featurerollout"></a>Wprowadza funkcji z jedną kolumną
-W tej sekcji pokażemy, jak na wdrożenie jednej kolumny w tabeli, aby wygenerować dodatkowe funkcje. W przykładzie założono, że w tabeli, z którego chcesz wygenerować funkcji jest kolumną szerokości geograficznej lub długość geograficzną.
+W tej sekcji pokażemy, jak korzystać z jednej kolumny w tabeli, aby wygenerować dodatkowe funkcje. W przykładzie założono, że w tabeli, z którego chcesz wygenerować funkcji jest kolumną szerokości geograficznej lub długość geograficzną.
 
-Oto krótkie Elementarz na współrzędne/geograficznej lokalizacji danych (planować z stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Jest to przydatne zrozumieć przed featurizing pole lokalizacji:
+Oto krótkie Elementarz na współrzędne/geograficznej lokalizacji danych (planować z stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Oto niektóre przydatne wszystkim pamiętać o lokalizacji danych przed utworzeniem funkcji z pola:
 
-* Znak informuje NAS czy możemy się północ lub Południowa, wschód lub zachód na całym świecie.
-* Niezerowe setki cyfrę informuje, nam używamy długości, nie szerokości geograficznej!
-* Dziesiątki cyfrę daje możliwość około 1000 kilometrach. Udostępnia nam przydatnych informacji o jakie kontynencie lub Oceanu jesteśmy w.
-* Cyfra jednostki (jeden stopień decimal) zapewnia pozycji do 111 kilometrach (60 mil, około 69 mil). Go nam powiedzieć około jakim stanie dużych lub kraju, w którym możemy w.
+* Znak wskazuje, czy możemy się północ lub południe, wschód lub zachód na całym świecie.
+* Niezerowe setki cyfra wskazuje geograficzne, zakres nie jest używany.
+* Dziesiątki cyfrę daje możliwość około 1000 kilometrach. Udostępnia przydatne informacje na temat jakiego kontynencie lub Oceanu jesteśmy w.
+* Cyfra jednostki (jeden stopień decimal) zapewnia pozycji do 111 kilometrach (60 mil, około 69 mil). Wskazuje on, około, jakie dużych stanu lub kraju w.
 * Pierwszy przecinka warto do 11.1 km: można odróżnić pozycja dużych miast z sąsiednich Miasto duże.
 * Drugi przecinka warto do 1.1 km: go oddzielić wieś jednego z następnej.
 * Trzecia cyfra dziesiętna jest wartości do 110 m: zidentyfikuje dużych rolnych pola lub instytucjonalnych firmy.
 * Warto m: do 11 można zidentyfikować zbiorczym ziemi jest czwarty miejsc dziesiętnych. Nie jest porównywalny typowe dokładność Niepoprawione jednostki GPS bez zakłóceń.
-* Piąty przecinka jest wartości do 1.1 m: odróżnić od siebie drzewa. Dokładność na ten poziom z komercyjnego jednostki GPS tylko może zostać osiągnięty przy różnicowej korekty.
+* Warto do 1.1 m: go odróżnia drzewa od siebie nawzajem jest piąty przecinka. Dokładność na ten poziom z komercyjnego jednostki GPS tylko może zostać osiągnięty przy różnicowej korekty.
 * Warto do uwzględnieniu wartości 0,11 m: możesz użyć tej funkcji do układania struktury szczegółowo projektowania krajobrazów, tworzenie drogi jest szóstego miejsc dziesiętnych. Powinna ona więcej niż wystarczy do śledzenia przemieszczania glaciers i rzek. Można to osiągnąć, wykonując painstaking środków GPS, takich jak differentially poprawiony GPS.
 
-Informacje o lokalizacji można można featurized następujące oddzielanie regionu, lokalizacji i Miasto informacji. Należy pamiętać, że raz także wywołać punkt końcowy REST, np. interfejsu API map Bing dostępne pod adresem `https://msdn.microsoft.com/library/ff701710.aspx` można pobrać informacji o regionie/okręgu.
+Informacje o lokalizacji może być featurized oddzielając regionu, lokalizacji i Miasto informacji. Należy pamiętać, że raz także wywołać punkt końcowy REST, np. interfejsu API map Bing dostępne pod adresem `https://msdn.microsoft.com/library/ff701710.aspx` można pobrać informacji o regionie/okręgu.
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ Informacje o lokalizacji można można featurized następujące oddzielanie regi
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Powyższe funkcje na podstawie lokalizacji można dodatkowo do generowania licznika dodatkowe funkcje, zgodnie z wcześniejszym opisem.
+Te funkcje na podstawie lokalizacji można dodatkowo do generowania licznika dodatkowe funkcje, zgodnie z wcześniejszym opisem.
 
 > [!TIP]
-> Można programowane Wstawianie rekordów przy użyciu języka wybór. Konieczne może być wstawić fragmentów, aby zwiększyć wydajność zapisu danych [zapoznaj się z przykładem to zrobić przy użyciu pyodbc tutaj](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> Można programowane Wstawianie rekordów przy użyciu języka wybór. Konieczne może być wstawić fragmentów, aby zwiększyć wydajność zapisu danych. [Oto przykład tego, jak to zrobić przy użyciu pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Alternatywą jest do wstawiania danych w bazie danych przy użyciu [narzędzia BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,12 +104,12 @@ Powyższe funkcje na podstawie lokalizacji można dodatkowo do generowania liczn
 ### <a name="sql-aml"></a>Nawiązywanie połączenia z usługi Azure Machine Learning
 Funkcja wygenerowanym możliwość dodania jako kolumny do istniejącej tabeli lub przechowywane w nowej tabeli i połączony z oryginalnej tabeli do uczenia maszynowego. Funkcje mogą być generowane lub dostęp, jeśli już utworzone za pomocą [i zaimportuj dane](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) modułu w uczenie Maszynowe Azure, jak pokazano poniżej:
 
-![czytniki uczenie maszynowe Azure](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Czytniki uczenia Maszynowego Azure](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Przy użyciu języka programowania, takich jak Python
-Generowanie funkcji, jeśli dane są w programie SQL Server przy użyciu Python jest podobny do przetwarzania danych obiektów blob platformy Azure przy użyciu języka Python, zgodnie z opisem w [danych obiektów Blob platformy Azure proces w przypadku danych nauki środowisku](data-blob.md). Dane powinna być załadowana z bazy danych do ramki pandas danych, a następnie mogą być dalej przetwarzane. Proces łączenia z bazą danych i ładowania danych do ramki danych w tej sekcji możemy dokumentu.
+Generowanie funkcji, jeśli dane są w programie SQL Server przy użyciu Python jest podobny do przetwarzania danych obiektów blob platformy Azure przy użyciu języka Python. Aby uzyskać porównanie, zobacz [danych obiektów Blob platformy Azure procesu w danym środowisku nauki danych](data-blob.md). Ładowanie danych z bazy danych do ramki danych pandas go przetworzyć. W tej sekcji opisano proces łączenia z bazą danych i ładowania danych do ramki danych.
 
-Następującego formatu ciągu połączenia może służyć do połączenia z bazą danych programu SQL Server w języku Python za pomocą pyodbc (Zastąp servername, dbname, nazwę użytkownika i hasła o określonej wartości):
+Następującego formatu ciągu połączenia może służyć do połączenia z bazą danych programu SQL Server w języku Python za pomocą pyodbc (Zastąp servername, dbname nazwy użytkownika i hasła o określonej wartości):
 
     #Set up the SQL Azure connection
     import pyodbc

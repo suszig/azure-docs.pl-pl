@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Tworzenie aplikacji bazy danych MongoDB przy użyciu usług Angular i Azure Cosmos DB — część 5: łączenie z usługą Azure Cosmos DB przy użyciu wtyczki Mongoose
 
@@ -73,7 +73,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 5. Na podstawie pliku mongo.js wiemy, że musimy uwzględnić elementy `dbName`, `key` i `cosmosPort`, dlatego skopiuj poniższy kod do pliku **environment.js**.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>Pobieranie informacji o parametrach połączenia
 
-1. W pliku **environment.js** zmień wartość `cosmosPort` na 10255. (Port usługi Cosmos DB można znaleźć w witrynie Azure Portal)
+1. W pliku **environment.js** zmień wartość `port` na 10255. (Port usługi Cosmos DB można znaleźć w witrynie Azure Portal)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. W pliku **environment.js** zmień wartość `dbName` na nazwę konta usługi Azure Cosmos DB utworzonego w ramach [kroku 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. W pliku **environment.js** zmień wartość `accountName` na nazwę konta usługi Azure Cosmos DB utworzonego w ramach [kroku 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Pobierz klucz podstawowy konta usługi Azure Cosmos DB, używając następującego polecenia interfejsu wiersza polecenia w oknie terminala: 
 

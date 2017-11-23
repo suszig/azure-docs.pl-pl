@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Zadania obserwatora usługi Automatyzacja Azure pozwala na odpowiadanie na zdarzenia wykonywane w lokalnym centrum danych
 
@@ -64,7 +64,7 @@ Do ukończenia tego samouczka wymagane są następujące elementy.
 ## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Tworzenie zadania obserwatora wybiera obserwatora runbook i działania elementu runbook
 1.  Otwórz stronę zadania obserwatora, a następnie kliknij przycisk "Dodaj zadania obserwatora".
 ![Lista obserwatora z poziomu interfejsu użytkownika](media/automation-watchers-tutorial/WatchersList.png)
-2.  Wprowadź "Nowe pliki śledzenia" jako nazwy.
+2.  Wprowadź "WatchMyFolder" jako nazwy.
 3.  Wybierz opcję "Konfiguruj obserwatora" i wybierz element runbook "Watch-NewFile".
 ![Konfigurowanie monitora z poziomu interfejsu użytkownika](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.  Wpisz następujące wartości parametrów:
@@ -86,7 +86,7 @@ Do ukończenia tego samouczka wymagane są następujące elementy.
 2.  Dodaj nowy plik tekstowy do folderu, który jest monitorowany przez zadania obserwatora.
 
 ## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Sprawdź dane wyjściowe z elementu runbook akcji, który zawiera informacje na nowym pliku
-1.  Kliknij zadanie obserwatora "Obejrzyj nowych plików"
+1.  Kliknij zadanie obserwatora dla "WatchMyFolder"
 2.  Wybierz polecenie "Wyświetl obserwatora strumieni" czy obserwatora znaleziono nowy plik i uruchomić akcję elementu runbook.
 3.  Wybierz polecenie "Wyświetl obserwatora akcji zadania" Aby zobaczyć akcji zadania elementu runbook.
 ![Obserwator akcji zadania z poziomu interfejsu użytkownika](media/automation-watchers-tutorial/WatcherActionJobs.png)
