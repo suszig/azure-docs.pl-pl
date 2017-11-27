@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Dodaj dostawcy zasobów usługi aplikacji w środowisku bez połączenia stosu Azure zabezpieczonej przez usługi AD FS
 
@@ -75,7 +75,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
         - Jeśli używasz programu Active Directory Federation Services (AD FS), podaj konto administratora. Na przykład cloudadmin@azurestack.local. Wprowadź hasło, a następnie kliknij przycisk **logowania**.
     2. W **subskrypcji platformy Azure stosu** Wybierz subskrypcję.
     3. W **lokalizacji stosu Azure** wybierz lokalizację, do której odnosi się do regionu jest wdrażany do. Na przykład wybierz **lokalnego** Jeśli wdrażanie Azure stosu Development Kit.
-    4. Wprowadź **Nazwa grupy zasobów** wdrożenia usługi aplikacji. Domyślnie jest ustawiona **APPSERVICE\<MOBILE\>**.
+    4. Wprowadź **Nazwa grupy zasobów** wdrożenia usługi aplikacji. Domyślnie jest ustawiona **APPSERVICE lokalnego**.
     5. Wprowadź **nazwy konta magazynu** , które mają usługi aplikacji, aby utworzyć jako część instalacji. Domyślnie jest ustawiona **appsvclocalstor**.
     6. Kliknij przycisk **Dalej**.
 
@@ -119,7 +119,7 @@ Wdrożenie usługi aplikacji w środowisku bez połączenia, należy najpierw ut
 
     | Rola | Minimalna wystąpień | Minimalna jednostki SKU | Uwagi |
     | --- | --- | --- | --- |
-    | Kontrolera | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
+    | Kontroler | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
     | Zarządzanie | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Zarządza punktów końcowych aplikacji usługi Azure Resource Manager i interfejsu API, rozszerzenia portalu (administratora, dzierżawcy, funkcje portalu) i usługi danych. Do obsługi trybu failover, zwiększyć zalecane wystąpień na 2. |
     | Wydawca | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publikowanie zawartości za pośrednictwem sieci web i FTP wdrożenia. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Kieruje żądania do aplikacji usługi aplikacji. |

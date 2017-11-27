@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Raport danych użycia usługi Azure stosu na platformie Azure 
 
@@ -53,7 +53,7 @@ Aby skonfigurować raportowanie danych użycia, należy najpierw [zarejestruj wy
 
 ## <a name="view-usage---csp-subscriptions"></a>Wyświetl informacje o użyciu - subskrypcje dostawcy usług Kryptograficznych
 
-Jeśli zarejestrowano stosu Azure przy użyciu subskrypcji dostawcy usług Kryptograficznych, można wyświetlić z użycia i opłat w taki sam sposób, w którym możesz wyświetlić wykorzystania platformy Azure. Wykorzystanie stosu Azure zostanie uwzględniony, faktury i w pliku uzgadniania, dostępne za pośrednictwem [Centrum partnerskiego](https://partnercenter.microsoft.com/en-us/partner/home). Plik uzgadniania jest aktualizowany co miesiąc. Jeśli musisz uzyskiwać dostęp najnowsze informacje o użyciu stosu Azure, można użyć interfejsów API Centrum partnerskiego.
+Jeśli zarejestrowano stosu Azure przy użyciu subskrypcji dostawcy usług Kryptograficznych, można wyświetlić z użycia i opłat w taki sam sposób, w którym możesz wyświetlić wykorzystania platformy Azure. Wykorzystanie stosu Azure zostanie uwzględniony, faktury i w pliku uzgadniania, dostępne za pośrednictwem [Centrum partnerskiego](https://partnercenter.microsoft.com/partner/home). Plik uzgadniania jest aktualizowany co miesiąc. Jeśli musisz uzyskiwać dostęp najnowsze informacje o użyciu stosu Azure, można użyć interfejsów API Centrum partnerskiego.
 
    ![Centrum partnerskiego](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Użytkownicy są naliczane tylko dla maszyn wirtualnych uruchamianych w ramach s
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Użytkownik ma licencję systemu Windows Server, który ma być użyty na stosie Azure, jak to zrobić?
 
-Przy użyciu istniejących licencji pozwala uniknąć generowania liczników użycia. Istniejących licencji systemu Windows Server mogą być używane w stosie Azure, zgodnie z opisem w sekcji "Przy użyciu istniejącego oprogramowania z usługi Azure stosu" [Przewodnik licencjonowania stosu Azure](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klienci muszą wdrażać maszynami wirtualnymi systemu Windows Server, zgodnie z opisem w [korzyści hybrydowego licencji systemu Windows Server](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tematu, aby można było używać ich istniejących licencji.
+Przy użyciu istniejących licencji pozwala uniknąć generowania liczników użycia. Istniejących licencji systemu Windows Server mogą być używane w stosie Azure, zgodnie z opisem w sekcji "Przy użyciu istniejącego oprogramowania z usługi Azure stosu" [Przewodnik licencjonowania stosu Azure](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klienci muszą wdrażać maszynami wirtualnymi systemu Windows Server, zgodnie z opisem w [korzyści hybrydowego licencji systemu Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tematu, aby można było używać ich istniejących licencji.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Subskrypcji, której dotyczy kosztów używanych zasobów?
 Subskrypcję, która jest dostępne, gdy [rejestrowania stosu Azure za pomocą usługi Azure](azure-stack-register.md) rozliczany.
@@ -97,7 +97,7 @@ W zestawie Azure stosu Development Kit raportowania danych użycia wymaga subskr
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Jak użytkownicy zidentyfikować dane użycia stosu Azure w portalu Azure rozliczeń
 
-Użytkownicy mogą zobaczyć stos Azure dane użycia w pliku szczegóły użycia. Aby wiedzieć, jak uzyskać pliku szczegóły użycia, zapoznaj się [Pobierz plik użycia z artykułu Centrum konta platformy Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Szczegóły użycia zawiera liczniki stosu Azure identyfikujące Azure stosu magazynu i maszyn wirtualnych. Wszystkie zasoby używane w stosie Azure są zgłaszane w regionie o nazwie "Azure stosu."
+Użytkownicy mogą zobaczyć stos Azure dane użycia w pliku szczegóły użycia. Aby wiedzieć, jak uzyskać pliku szczegóły użycia, zapoznaj się [Pobierz plik użycia z artykułu Centrum konta platformy Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Szczegóły użycia zawiera liczniki stosu Azure identyfikujące Azure stosu magazynu i maszyn wirtualnych. Wszystkie zasoby używane w stosie Azure są zgłaszane w regionie o nazwie "Azure stosu."
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Dlaczego użycia raportowane w stosie Azure nie odpowiada raportów wygenerowanych z Centrum konta platformy Azure?
 

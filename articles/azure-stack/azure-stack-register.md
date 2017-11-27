@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Zarejestruj stosu Azure z subskrypcją platformy Azure
 
@@ -42,22 +42,6 @@ Przed zarejestrowaniem stosu Azure przy użyciu platformy Azure, musi mieć:
 Jeśli nie masz subskrypcji platformy Azure, która spełnia te wymagania, możesz [utworzyć tutaj bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/free/?b=17.06). Rejestrowanie stosu Azure wiąże się bez kosztów w ramach subskrypcji platformy Azure.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Procedura Rejestruj dostawcę zasobów Azure stosu na platformie Azure
-> [!NOTE] 
-> Ten krok należy wykonać tylko raz w środowisku Azure stosu.
->
-
-1. Uruchom sesję programu Powershell jako administrator.
-2. Zaloguj się do konta platformy Azure, który jest właścicielem subskrypcji platformy Azure (służy polecenie cmdlet Login-AzureRmAccount do logowania i podczas logowania, należy ustawić parametr - EnvironmentName "AzureCloud").
-3. Rejestrowanie dostawcy zasobów platformy Azure "Microsoft.AzureStack."
-
-**Przykład:** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Zarejestruj stosu Azure przy użyciu platformy Azure
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. Otwórz konsolę programu PowerShell jako administrator i [zainstalować program PowerShell Azure stosu](azure-stack-powershell-install.md).  
 
-2. Dodaj konto platformy Azure, który będzie używany do rejestrowania stosu Azure. Aby to zrobić, uruchom `Add-AzureRmAccount` polecenia cmdlet bez parametrów. Zostanie wyświetlony monit o wprowadzenie poświadczeń konta platformy Azure i może być konieczne użycie uwierzytelniania wieloskładnikowego 2 na podstawie konfiguracji Twoje konto.  
+2. Dodaj konto platformy Azure, który będzie używany do rejestrowania stosu Azure. Aby to zrobić, uruchom `Add-AzureRmAccount` polecenia cmdlet z parametrem EnvironmentName ustawioną wartość "AzureCloud". Zostanie wyświetlony monit o wprowadzenie poświadczeń konta platformy Azure i może być konieczne użycie uwierzytelniania wieloskładnikowego 2 na podstawie konfiguracji Twoje konto. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. Jeśli masz wiele subskrypcji, uruchom następujące polecenie, wybierz ten, który ma być używany:  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Usuń istniejące wersje moduły programu Powershell, które odpowiadają rejestracji i [Pobierz najnowszą wersję z witryny GitHub](azure-stack-powershell-download.md).  
+4. Zarejestruj dostawcę zasobów AzureStack w Twojej subskrypcji platformy Azure. Aby to zrobić, uruchom następujące polecenie:
 
-5. W katalogu "AzureStack-Tools-master", utworzony w poprzednim kroku przejdź do folderu "Rejestracji" i zaimportuj moduł ".\RegisterWithAzure.psm1":  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Usuń istniejące wersje moduły programu Powershell, które odpowiadają rejestracji i [Pobierz najnowszą wersję z witryny GitHub](azure-stack-powershell-download.md).  
+
+6. W katalogu "AzureStack-Tools-master", utworzony w poprzednim kroku przejdź do folderu "Rejestracji" i zaimportuj moduł ".\RegisterWithAzure.psm1":  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. W tej samej sesji programu PowerShell Uruchom następujący skrypt. Po wyświetleniu monitu o poświadczenia, określ `azurestack\cloudadmin` jako użytkownika i hasła jest taka sama jak użytą dla administratora lokalnego podczas wdrażania.  
+7. W tej samej sesji programu PowerShell Uruchom następujący skrypt. Po wyświetleniu monitu o poświadczenia, określ `azurestack\cloudadmin` jako użytkownika i hasła jest taka sama jak użytą dla administratora lokalnego podczas wdrażania.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | Wstępnie skonfigurowane zdalnego programu PowerShell konsoli, która dostarcza funkcje, takie jak zbierania dzienników oraz innych post zadań wdrażania. Dla zestawu SDK uprzywilejowane punktu końcowego znajduje się na maszynie wirtualnej "AzS ERCS01". Jeżeli używasz zintegrowanego systemu, skontaktuj się z operatorem stosu Azure, aby zyskać tę wartość. Aby dowiedzieć się więcej, zapoznaj się [przy użyciu punktu końcowego uprzywilejowanych](azure-stack-privileged-endpoint.md) tematu.|
    | BillingModel | Modelu rozliczeń, który korzysta z subskrypcji. Dozwolone wartości dla tego parametru są "Pojemność", "PayAsYouUse" i "Programowanie". Dla zestawu SDK ta wartość jest równa "Programowanie". Jeżeli używasz zintegrowanego systemu, skontaktuj się z operatorem stosu Azure, aby zyskać tę wartość. |
 
-7. Po ukończeniu działania skryptu, zostanie wyświetlony komunikat "Azure uaktywnianie stosu (ten krok może potrwać do 10 minut)." 
+8. Po ukończeniu działania skryptu, zostanie wyświetlony komunikat "Azure uaktywnianie stosu (ten krok może potrwać do 10 minut)." 
 
 ## <a name="verify-the-registration"></a>Sprawdź rejestrację
 
