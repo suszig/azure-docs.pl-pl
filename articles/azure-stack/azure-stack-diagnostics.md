@@ -2,28 +2,29 @@
 title: "Diagnostyka w usłudze Azure Stack"
 description: "Jak zbierać pliki dziennika diagnostyki Azure stosu"
 services: azure-stack
-author: adshar
-manager: byronr
+author: jeffgilb
+manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/2/2017
-ms.author: adshar
-ms.openlocfilehash: 9b1fbbf63ddd8bac2c1a76bbcd5daca69e2513f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Narzędzia diagnostyki stosu Azure
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
  
-Stos Azure jest duży zbiór elementów pracy ze sobą i interakcji ze sobą. Wszystkie te składniki generowania unikatowych dzienników. Diagnozowanie problemów może być trudne zadania, szczególnie w przypadku błędów pochodzących z wielu składników stosu Azure wchodzącymi w interakcje. 
+Stos Azure jest duży zbiór elementów pracy ze sobą i interakcji ze sobą. Wszystkie te składniki generowania unikatowych dzienników. To ułatwia diagnozowanie problemów lada wyzwanie, szczególnie w przypadku błędów pochodzących z wielu interakcji składniki stosu Azure. 
 
 Upewnij się, że mechanizm kolekcji dziennika jest łatwe i skuteczne pomoc do narzędzi naszych diagnostyki. Na poniższym diagramie przedstawiono sposób dziennika narzędzia kolekcji w pracach Azure stosu:
 
-![Narzędzia do zbierania dzienników](media/azure-stack-diagnostics/image01.png)
+![Azure stosu narzędzia diagnostyczne](media/azure-stack-diagnostics/get-azslogs.png)
  
  
 ## <a name="trace-collector"></a>Moduł zbierający śledzenia
@@ -34,10 +35,11 @@ Poniżej przedstawiono ważne co należy wiedzieć o moduł zbierający śledzen
  
 * Moduł zbierający śledzenia działa w sposób ciągły z limitami rozmiaru domyślnego. Domyślny maksymalny rozmiar dozwolony dla każdego pliku (200 MB) jest **nie** odcięcia rozmiar. Sprawdź rozmiar występuje okresowo (obecnie co 2 minuty) i jest bieżący plik > = 200 MB jest zapisywany i utworzony nowy plik. Na rozmiar pliku, generowany dla sesji zdarzeń istnieje również limit (można konfigurować) 8 GB. Po osiągnięciu tego limitu najstarsze pliki są usuwane, ponieważ są tworzone nowe.
 * Istnieje limit 5-dniowy okres ważności w dziennikach. Konfiguruje się ten limit. 
-* Każdy składnik definiuje właściwości konfiguracji śledzenia przy użyciu pliku JSON. Pliki JSON są przechowywane w `C:\TraceCollector\Configuration`. W razie potrzeby można edytować tych plików, aby zmienić limitów wieku i rozmiaru zebranych dzienników. Zmiany w tych plikach wymagać ponownego uruchomienia *moduł zbierający śledzenia stosu Azure firmy Microsoft* usługi, aby zmiany zaczęły obowiązywać.
-* Poniższy przykład jest to plik JSON konfiguracji śledzenia w operacjach FabricRingServices z XRP maszyny Wirtualnej: 
+* Każdy składnik definiuje właściwości konfiguracji śledzenia przy użyciu pliku JSON. Pliki JSON są przechowywane w **C:\TraceCollector\Configuration**. W razie potrzeby można edytować tych plików, aby zmienić limitów wieku i rozmiaru zebranych dzienników. Zmiany w tych plikach wymagać ponownego uruchomienia *moduł zbierający śledzenia stosu Azure firmy Microsoft* usługi, aby zmiany zaczęły obowiązywać.
 
-```
+Poniższy przykład jest to plik JSON konfiguracji śledzenia w operacjach FabricRingServices z XRP maszyny Wirtualnej: 
+
+```json
 {
     "LogFile": 
     {
@@ -57,19 +59,13 @@ Poniżej przedstawiono ważne co należy wiedzieć o moduł zbierający śledzen
 }
 ```
 
-* **MaxDaysOfFiles**
-
-    Ten parametr określa wieku plików do zachowania. Starsze pliki dziennika są usuwane.
-* **Wartość argumentu MaxSizeInMB**
-
-    Ten parametr określa próg rozmiaru dla jednego pliku. Po osiągnięciu rozmiaru tworzony jest nowy plik ETL.
-* **TotalSizeInMB**
-
-    Ten parametr określa całkowity rozmiar plików etl wygenerowane z sesji zdarzeń. Jeśli rozmiar pliku jest większa niż wartość tego parametru, starsze pliki zostaną usunięte.
+* **MaxDaysOfFiles**. Ten parametr określa wieku plików do zachowania. Starsze pliki dziennika są usuwane.
+* **Wartość argumentu MaxSizeInMB**. Ten parametr określa próg rozmiaru dla jednego pliku. Po osiągnięciu rozmiaru tworzony jest nowy plik ETL.
+* **TotalSizeInMB**. Ten parametr określa całkowity rozmiar plików etl wygenerowane z sesji zdarzeń. Jeśli rozmiar pliku jest większa niż wartość tego parametru, starsze pliki zostaną usunięte.
   
 ## <a name="log-collection-tool"></a>Narzędzie do zbierania dzienników
  
-Polecenia programu PowerShell `Get-AzureStackLog` może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli nasz zespół pomocy technicznej potrzebuje dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
+Polecenia programu PowerShell **Get-AzureStackLog** może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli nasz zespół pomocy technicznej potrzebuje dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
 
 > [!CAUTION]
 > Te pliki dziennika może zawierać dane osobowe (dane osobowe). To brać pod uwagę przed publicznie post wszystkie pliki dziennika.
@@ -78,43 +74,49 @@ Poniżej przedstawiono kilka przykładowych typów dziennika, które są zbieran
 *   **Dzienniki wdrożenia usługi Azure stosu**
 *   **Dzienniki zdarzeń systemu Windows**
 *   **Dzienniki Panther**
-
-   Aby rozwiązać problemy z tworzeniem maszyny Wirtualnej:
 *   **Dzienniki klastra**
 *   **Dzienniki diagnostyczne magazynu**
 *   **Dzienniki zdarzeń systemu Windows**
 
-Te pliki są zbierane przez moduł zbierający śledzenia i przechowywane w udziale, skąd `Get-AzureStackLog` pobiera je.
+Te pliki są zbierane przez moduł zbierający śledzenia i przechowywane w udziale, skąd **Get AzureStackLog** pobiera je.
  
-**Aby uruchomić Get AzureStackLog w systemie Azure stosu Development Kit (ASDK)**
-1.  Zaloguj się jako AzureStack\AzureStackAdmin na hoście.
-2.  Otwórz okno programu PowerShell jako administrator.
-3.  Uruchom polecenie `Get-AzureStackLog`.  
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Aby uruchomić Get AzureStackLog w systemie Azure stosu Development Kit (ASDK)
+1. Zaloguj się jako **AzureStack\CloudAdmin** na hoście.
+2. Otwórz okno programu PowerShell jako administrator.
+3. Uruchom **Get-AzureStackLog** polecenia cmdlet programu PowerShell.
 
-    **Przykłady**
+   **Przykłady**
 
-    - Zbieraj wszystkie dzienniki dla wszystkich ról:
+    Zbieraj wszystkie dzienniki dla wszystkich ról:
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs`
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs
+    ```
 
-    - Zbierz dzienniki ról maszyn wirtualnych i BareMetal:
+    Zbierz dzienniki ról maszyn wirtualnych i BareMetal:
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+    ```
 
-    - Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika przez ostatnie 8 godzin:
+    Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika przez ostatnie 8 godzin:
+    
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+    ```
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)`
+    Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika w okresie między 8 godz i 2 godz. temu:
 
-    - Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika w okresie między 8 godz i 2 godz. temu:
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+    ```
 
-      `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)`
-
-**Do uruchomienia Get-AzureStackLog na stosie Azure zintegrowany system:**
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Do uruchomienia Get-AzureStackLog na stosie Azure zintegrowany system
 
 Aby uruchomić narzędzie do zbierania dzienników na zintegrowany system, należy mieć dostęp do uprzywilejowanych punktu końcowego (program ten). Poniżej przedstawiono przykładowy skrypt można uruchomić przy użyciu program ten zbierania dzienników na zintegrowany system:
 
-```
-$ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
  
 $pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
@@ -126,7 +128,7 @@ $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Cred
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDREESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if($s)
 {
@@ -134,43 +136,43 @@ if($s)
 }
 ```
 
-- Zbieranie dzienników z program ten, określić `OutputPath` parametr do lokalizacji na komputerze HLH. Również upewnić się, że lokalizacja jest zaszyfrowany.
-- Parametry `OutputSharePath` i `OutputShareCredential` są opcjonalne i są używane podczas przekazywania dzienników do zewnętrznego folderu udostępnionego. Użyj tych parametrów *dodatkowo* do `OutputPath`. Jeśli `OutputPath` nie zostanie określony, narzędzie do zbierania dzienników używa dysku systemowego maszyny wirtualnej program ten magazyn. Może to spowodować skryptu, aby zakończyć się niepowodzeniem, ponieważ miejsce na dysku jest ograniczone.
-- Jak pokazano w poprzednim przykładzie `FromDate` i `ToDate` parametry może służyć do zbierania dzienników dla danego okresu. To są dostępne w przydatne w scenariuszach, takich jak zbieranie dzienników po zastosowaniu pakietu aktualizacji na zintegrowany system.
+- Zbieranie dzienników z program ten, określić **OutputPath** parametr do lokalizacji na komputerze hosta cyklu życia sprzętu (HLH). Również upewnić się, że lokalizacja jest zaszyfrowany.
+- Parametry **OutputSharePath** i **OutputShareCredential** są opcjonalne i są używane podczas przekazywania dzienników do zewnętrznego folderu udostępnionego. Użyj tych parametrów *dodatkowo* do **OutputPath**. Jeśli **OutputPath** nie zostanie określony, narzędzie do zbierania dzienników używa dysku systemowego maszyny wirtualnej program ten magazyn. Może to spowodować skryptu, aby zakończyć się niepowodzeniem, ponieważ miejsce na dysku jest ograniczone.
+- Jak pokazano w poprzednim przykładzie **FromDate** i **ToDate** parametry może służyć do zbierania dzienników dla danego okresu. To są dostępne w przydatne w scenariuszach, takich jak zbieranie dzienników po zastosowaniu pakietu aktualizacji na zintegrowany system.
 
-**Parametr kwestie dotyczące zarówno ASDK, jak i zintegrowanych systemów:**
+### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Zagadnienia dotyczące parametru dla ASDK i zintegrowanych systemów
 
-- Jeśli `FromDate` i `ToDate` parametry nie są określone, dzienniki są domyślnie zbierane przez ostatnie cztery godziny.
-- Można użyć `TimeOutInMinutes` parametr, aby ustawić limit czasu zbierania dzienników. Domyślnie jest ustawiona na 150 (2,5 godzin).
+- Jeśli **FromDate** i **ToDate** parametry nie są określone, dzienniki są domyślnie zbierane przez ostatnie cztery godziny.
+- Można użyć **TimeOutInMinutes** parametr, aby ustawić limit czasu zbierania dzienników. Domyślnie jest ustawiona na 150 (2,5 godzin).
 
-- Obecnie można używać `FilterByRole` parametru do kolekcji filtrów dziennika przez następujące role:
+- Obecnie można używać **FilterByRole** parametru do kolekcji filtrów dziennika przez następujące role:
 
    |   |   |   |
    | - | - | - |
-   | `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
-   | `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
-   | `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
-   | `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
-   | `BRP`                     | `CA`                     | `CPI`                |
-   | `CRP`                     | `DeploymentMachine`      | `DHCP`               |
-   |`Domain`                   | `ECE`                    | `ECESeedRing`        |        
-   | `FabricRing`              | `FabricRingServices`     | `FRP`                |
-   |` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
-   | `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
-   | `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
-   | `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
-   | `SeedRingServices`        | `SLB`                    | `SQL`                |     
-   | `SRP`                     | `Storage`                | `StorageController`  |
-   | `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
-   | `WAS`                     | `WASPUBLIC`              | `WDS`                |
+   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
+   | ACS                     | ACSFabric              | ACSFrontEnd        |
+   | ACSTableMaster          | ACSTableServer         | ACSWac             |
+   | ADFS                    | ASAppGateway           | BareMetal          |
+   | BRP                     | URZĄD CERTYFIKACJI                     | CPI                |
+   | CRP                     | DeploymentMachine      | DHCP               |
+   | Domena                  | NZ                    | ECESeedRing        | 
+   | FabricRing              | FabricRingServices     | FRP                |
+   | Brama                 | HealthMonitoring       | HRP                |   
+   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
+   | NonPrivilegedAppGateway | DOSTAWCA NRP                    | SeedRing           |
+   | SeedRingServices        | PROGRAMOWEGO                    | SQL                |   
+   | ZASADY OGRANICZEŃ OPROGRAMOWANIA                     | Magazyn                | StorageController  |
+   | URP                     | UsageBridge            | maszyn wirtualnych    |  
+   | ZOSTAŁ                     | WASPUBLIC              | USŁUGI WDRAŻANIA SYSTEMU WINDOWS                |
 
 
-Kilka dodatkowych rzeczy do uwzględnienia:
+### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
 * Polecenie wymaga pewnego czasu do uruchomienia w oparciu o role, które są zbierane w dziennikach. Czynników także czas trwania zbierania dzienników i liczby węzłów w środowisku Azure stosu.
-* Po zakończeniu zbierania dzienników, sprawdź nowy folder utworzony w `-OutputPath` określony w poleceniu parametru.
+* Po zakończeniu zbierania dzienników, sprawdź nowy folder utworzony w **OutputPath** określony w poleceniu parametru.
 * Każda rola ma jej dzienników wewnątrz zip poszczególnych plików. W zależności od rozmiaru zebranych dzienniki rola może być jej dzienników podzielony na wiele plików zip. Dla roli Jeśli chcesz, aby rozpakować w celu pojedynczy folder plików dziennika, użycie narzędzia, które można rozpakować zbiorczo (na przykład 7zip). Zaznacz wszystkie pliki zip dla roli, a następnie wybierz **wyodrębnić tutaj**. To unzips wszystkich plików dziennika dla tej roli w jednym folderze scalone.
-* Plik o nazwie `Get-AzureStackLog_Output.log` również jest tworzony w folderze, który zawiera pliki dziennika zip. Ten plik znajduje się w dzienniku danych wyjściowych polecenia, które mogą służyć do rozwiązywania problemów podczas zbierania dzienników.
+* Plik o nazwie **Get AzureStackLog_Output.log** również jest tworzony w folderze, który zawiera pliki dziennika zip. Ten plik znajduje się w dzienniku danych wyjściowych polecenia, które mogą służyć do rozwiązywania problemów podczas zbierania dzienników.
 * Do sprawdzania, czy określony błąd, dzienniki mogą być wymagane z więcej niż jednego składnika.
     -   W dziennikach zdarzeń dla wszystkich maszyn wirtualnych infrastruktury i systemu są gromadzone w *VirtualMachines* roli.
     -   System i dzienniki zdarzeń, dla wszystkich hostów są gromadzone w *BareMetal* roli.

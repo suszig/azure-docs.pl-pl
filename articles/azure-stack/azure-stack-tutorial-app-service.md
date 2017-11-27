@@ -1,6 +1,6 @@
 ---
-title: "Udostępnić aplikacje interfejsu API, mobilne i sieci web użytkownikom stosu Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek, aby zainstalować dostawcę zasobów usługi aplikacji i utworzyć oferuje możliwość tworzenia sieci web, mobilnych i aplikacji API apps który zapewnić użytkownikom Azure stosu."
+title: "Udostępnić w sieci web i aplikacji API apps użytkownikom stosu Azure | Dokumentacja firmy Microsoft"
+description: "Samouczek, aby zainstalować dostawcę zasobów usługi aplikacji i utworzyć oferuje który zapewnić użytkownikom stosu Azure możliwość tworzenia sieci web i aplikacji API apps."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Udostępnić aplikacje interfejsu API, mobilne i sieci web użytkownikom Azure stosu
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Udostępnić w sieci web i aplikacji API apps użytkownikom Azure stosu
 
-Jako administrator chmury Azure stosu tworzenia oferty, które pozwalają użytkownikom (dzierżawcami), tworzenie aplikacji usługi Azure Functions i sieci web, mobilnych i interfejsu API. Zapewniając użytkownikom dostęp do tych aplikacji na żądanie, oparte na chmurze, można je zapisać czasu i zasobów. Aby to skonfigurować, obejmują:
+Jako administrator chmury Azure stosu tworzenia oferty, które pozwalają użytkownikom (dzierżawcami), tworzenie aplikacji usługi Azure Functions i sieci web i interfejsu API. Zapewniając użytkownikom dostęp do tych aplikacji na żądanie, oparte na chmurze, można je zapisać czasu i zasobów. Aby to skonfigurować, obejmują:
 
 > [!div class="checklist"]
 > * Wdrażanie dostawcy zasobów usługi aplikacji
