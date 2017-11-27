@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasyfikowanie irysów, część 2: budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -291,7 +291,7 @@ Usługa Machine Learning umożliwia łatwe konfigurowanie dodatkowych środowisk
    Gdy działanie skryptu `run.py` zostanie zakończone, w widoku listy historii uruchamiania w aplikacji Workbench pojawi się wykres.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Wykonywanie w kontenerze platformy Docker na komputerze zdalnym
-W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z systemem Linux wymagany jest dostęp za pośrednictwem powłoki SSH (nazwa użytkownika i hasło) do tego komputera zdalnego. Ponadto na komputerze zdalnym musi zostać zainstalowany i uruchomiony aparat platformy Docker. Najprostszym sposobem uzyskania takiego komputera z systemem Linux jest utworzenie [maszyny wirtualnej Data Science Virtual Machine (DSVM) opartej na dystrybucji Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) na platformie Azure. 
+W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z systemem Linux wymagany jest dostęp za pośrednictwem powłoki SSH (nazwa użytkownika i hasło) do tego komputera zdalnego. Ponadto na komputerze zdalnym musi zostać zainstalowany i uruchomiony aparat platformy Docker. Najprostszym sposobem uzyskania takiego komputera z systemem Linux jest utworzenie maszyny wirtualnej Data Science Virtual Machine (DSVM) opartej na dystrybucji Ubuntu na platformie Azure. Dowiedz się, [jak utworzyć maszynę wirtualną DSVM opartą na dystrybucji Ubuntu do użycia w aplikacji Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >Maszyna wirtualna DSVM oparta na dystrybucji CentOS *nie* jest obsługiwana.
@@ -343,7 +343,9 @@ W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z s
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Wykonywanie skryptu w klastrze usługi HDInsight
-Ten skrypt można również uruchomić w rzeczywistym klastrze platformy Spark. 
+Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowiedz się, [jak utworzyć klaster usługi HDInsight Spark do użycia w aplikacji Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![UWAGA] Klaster usługi HDInsight musi używać usługi Azure Blob Storage jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
 
 1. Jeśli masz dostęp do platformy Spark dla klastra usługi Azure HDInsight, wygeneruj polecenie konfiguracji uruchomieniowej HDInsight podobne do pokazanego tutaj. Jako parametry podaj nazwę klastra usługi HDInsight, swoją nazwę użytkownika usługi HDInsight i hasło. Użyj następującego polecenia:
 

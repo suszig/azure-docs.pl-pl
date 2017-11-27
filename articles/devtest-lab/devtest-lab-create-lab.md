@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Tworzenie laboratorium w usłudze Azure DevTest Labs
 Azure DevTest Labs to infrastruktura, która obejmuje wiele różnych zasobów (np. maszyn wirtualnych) i umożliwia lepsze zarządzanie tymi zasobami przez określenie ograniczeń i przydziałów. W tym artykule szczegółowo omówiono proces tworzenia laboratorium przy użyciu witryny Azure Portal.
@@ -59,9 +59,9 @@ Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest L
 ## <a name="next-steps"></a>Następne kroki
 Po utworzeniu laboratorium warto rozważyć poniższe kroki:
 
-* [Secure access to a lab](devtest-lab-add-devtest-user.md) (Zabezpieczanie dostępu do laboratorium).
-* [Set lab policies](devtest-lab-set-lab-policy.md) (Ustawianie zasad laboratorium).
-* [Create a lab template](devtest-lab-create-template.md) (Tworzenie szablonu laboratorium).
-* [Create custom artifacts for your VMs](devtest-lab-artifact-author.md) (Tworzenie niestandardowych artefaktów dla maszyn wirtualnych).
-* [Add a VM with artifacts to a lab](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/) (Dodawanie maszyny wirtualnej z artefaktami do laboratorium).
+* [Zabezpieczanie dostępu do laboratoriów](devtest-lab-add-devtest-user.md)
+* [Ustawianie zasad laboratorium](devtest-lab-set-lab-policy.md)
+* [Tworzenie szablonu laboratorium](devtest-lab-create-template.md)
+* [Tworzenie niestandardowych artefaktów dla maszyn wirtualnych](devtest-lab-artifact-author.md)
+* [Dodawanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md)
 

@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/16/2017
@@ -36,7 +36,7 @@ Jeśli znasz klasyczny model wdrażania, sprawdź [różnice w adresowaniu IP mi
 
 ## <a name="public-ip-addresses"></a>Publiczne adresy IP
 
-Publiczne adresy IP umożliwiają zasobom platformy Azure komunikację z Internetem i publicznymi usługami Azure, takimi jak [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) [SQL Database](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Azure Storage](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Publiczne adresy IP umożliwiają zasobom internetowym komunikowanie się w ramach ruchu przychodzącego z zasobami platformy Azure. Publiczne adresy IP umożliwiają również zasobom platformy Azure komunikowanie się w ramach ruchu wychodzącego z Internetem i publicznymi usługami platformy Azure za pomocą adresu IP przypisanego do zasobu. Ten adres jest dedykowany zasobowi, dopóki nie cofniesz jego przypisania. Jeśli publiczny adres IP nie jest przypisany do zasobu, zasób nadal może łączyć się z Internetem w ramach komunikacji wychodzącej, ale platforma Azure dynamicznie przypisuje dostępny adres IP, który nie jest dedykowany dla zasobu. Aby uzyskać więcej informacji na temat połączeń wychodzących na platformie Azure, zobacz [Understanding outbound connections (Opis połączeń wychodzących)](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 W usłudze Azure Resource Manager [publiczny adres IP](virtual-network-public-ip-address.md) jest zasobem, który ma własne właściwości. Niektóre zasoby, z którymi możesz powiązać zasób publicznego adresu IP, to:
 
@@ -98,7 +98,7 @@ Statyczne publiczne adresy IP są powszechnie używane w następujących scenari
 >
 
 ### <a name="dns-hostname-resolution"></a>Rozpoznawanie nazw hostów DNS
-Możesz określić etykietę nazwy domeny DNS dla publicznego zasobu adresu IP, który tworzy mapowanie witryny *domainnamelabel*.*location*.cloudapp.azure.com na publiczny adres IP na serwerach DNS zarządzanych przez platformę Azure. Jeśli na przykład utworzysz publiczny zasób adresu IP mający **contoso** jako wartość parametru *domainnamelabel* w *lokalizacji* platformy Azure w **Zachodnich stanach USA**, w pełni kwalifikowana nazwa domeny (FQDN) **contoso.westus.cloudapp.azure.com** zostanie rozpoznana jako publiczny adres IP zasobu. Nazwy FQDN możesz użyć do utworzenia rekordu CNAME domeny niestandardowej wskazującego na publiczny adres IP na platformie Azure.
+Możesz określić etykietę nazwy domeny DNS dla publicznego zasobu adresu IP, który tworzy mapowanie witryny *domainnamelabel*.*location*.cloudapp.azure.com na publiczny adres IP na serwerach DNS zarządzanych przez platformę Azure. Jeśli na przykład utworzysz publiczny zasób adresu IP mający **contoso** jako wartość parametru *domainnamelabel* w *lokalizacji* platformy Azure w **Zachodnich stanach USA**, w pełni kwalifikowana nazwa domeny (FQDN) **contoso.westus.cloudapp.azure.com** zostanie rozpoznana jako publiczny adres IP zasobu. Nazwy FQDN możesz użyć do utworzenia rekordu CNAME domeny niestandardowej wskazującego na publiczny adres IP na platformie Azure. Zamiast lub oprócz używania etykiety nazwy DNS z domyślnym sufiksem możesz użyć usługi Azure DNS do skonfigurowania nazwy DNS z sufiksem niestandardowym, który jest rozpoznawany jako publiczny adres IP. Aby uzyskać więcej informacji, zobacz [Use Azure DNS with an Azure public IP address (Używanie usługi Azure DNS z publicznym adresem IP platformy Azure)](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Każda utworzona etykieta nazwy domeny musi być unikatowa w swojej lokalizacji na platformie Azure.  
@@ -110,7 +110,7 @@ Możesz skojarzyć publiczny adres IP z maszyną wirtualną systemu [Windows](..
 
 ### <a name="internet-facing-load-balancers"></a>Moduły równoważenia obciążenia dostępne z Internetu
 
-Publiczny adres IP utworzony przy użyciu dowolnej jednostki [SKU](#SKU) możesz skojarzyć z usługą [Azure Load Balancer](../load-balancer/load-balancer-overview.md), przypisując go do konfiguracji **frontonu** modułu równoważenia obciążenia. Publiczny adres IP służy jako wirtualny adres IP (VIP) o zrównoważonym obciążeniu. Do frontonu modułu równoważenia obciążenia możesz przypisać dynamiczny lub statyczny publiczny adres IP. Do frontonu modułu równoważenia obciążenia możesz także przypisać wiele publicznych adresów IP, co umożliwiają scenariusze [wielu wirtualnych adresów IP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), takie jak środowisko wielodostępne z witrynami internetowymi opartymi na protokole SSL. Aby uzyskać więcej informacji na temat jednostek SKU usługi Azure Load Balancer, zobacz [Azure load balancer standard SKU (Usługa Azure Load Balancer — standardowa jednostka SKU)](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Publiczny adres IP utworzony przy użyciu dowolnej jednostki [SKU](#SKU) możesz skojarzyć z usługą [Azure Load Balancer](../load-balancer/load-balancer-overview.md), przypisując go do konfiguracji **frontonu** modułu równoważenia obciążenia. Publiczny adres IP służy jako wirtualny adres IP (VIP) o zrównoważonym obciążeniu. Do frontonu modułu równoważenia obciążenia możesz przypisać dynamiczny lub statyczny publiczny adres IP. Do frontonu modułu równoważenia obciążenia możesz także przypisać wiele publicznych adresów IP, co umożliwiają scenariusze [wielu VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), takie jak środowisko wielodostępne z witrynami sieci Web opartymi na protokole SSL. Aby uzyskać więcej informacji na temat jednostek SKU usługi Azure Load Balancer, zobacz [Azure load balancer standard SKU (Usługa Azure Load Balancer — standardowa jednostka SKU)](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>Bramy sieci VPN
 
@@ -145,10 +145,12 @@ Prywatne adresy IP są tworzone przy użyciu adresy IPv4 lub IPv6. Prywatne adre
 
 ### <a name="allocation-method"></a>Metoda alokacji
 
-Prywatny adres IP jest przydzielany z zakresu adresów w podsieci sieci wirtualnej, w której wdrożono zasób. Istnieją dwie metody przydzielania prywatnego adresu IP:
+Prywatny adres IP jest przydzielany z zakresu adresów w podsieci sieci wirtualnej, w której wdrożono zasób. Platforma Azure rezerwuje pierwsze cztery adresy w każdym zakresie adresów podsieci, a więc te adresy nie mogą być przypisywane do zasobów. Na przykład jeśli zakres adresów podsieci to 10.0.0.0/16, adresów 10.0.0.0-10.0.0.3 nie można przypisać do zasobów. Adresy IP w zakresie adresów podsieci mogą być przypisane tylko do jednego zasobu naraz. 
 
-- **Dynamiczna**: platforma Azure rezerwuje pierwsze cztery adresy w każdym zakresie adresów podsieci i nie przydziela adresów. Platforma Azure przypisuje następny dostępny adres do zasobu z zakresu adresów podsieci. Jeśli na przykład zakres adresów podsieci to 10.0.0.0/16, a adresy 10.0.0.0.4–10.0.0.14 zostały już przypisane (.0–.3 są zarezerwowane), platforma Azure przypisuje do zasobu adres 10.0.0.15. Metoda dynamiczna to domyślna metoda alokacji. Po przypisaniu dynamiczne adresy IP są zwalniane, tylko jeśli interfejs sieciowy zostanie usunięty, przypisany do innej podsieci w tej samej sieci wirtualnej, lub metoda alokacji zostanie zmieniona na Statyczna i zostanie podany inny adres IP. Domyślnie platforma Azure przypisuje poprzedni adres dynamicznie przypisany jako adres statyczny po zmianie metody alokacji z dynamicznej na statyczną.
-- **Statyczna**: Ty wybierasz i przypisujesz adres z zakresu adresów podsieci. Możesz przypisać dowolny adres z zakresu adresów podsieci, który nie jest jednym z pierwszych czterech adresów w zakresie adresów podsieci i nie jest aktualnie przypisany do żadnego innego zasobu w podsieci. Adresy statyczne są zwalniane tylko w przypadku usunięcia interfejsu sieciowego. Jeśli zmienisz metodę alokacji na statyczną, platforma Azure dynamicznie przypisze wcześniej przypisany statyczny adres IP jako adres dynamiczny, nawet jeśli adres nie jest następnym dostępnym adresem w zakresie adresów podsieci. Adres zmieni się także, jeśli interfejs sieciowy zostanie przypisany do innej podsieci w tej samej sieci wirtualnej, ale aby przypisać interfejs sieciowy do innej podsieci, musisz najpierw zmienić metodę alokacji ze statycznej na dynamiczną. Po przypisaniu interfejsu sieciowego do innej podsieci możesz zmienić metodę alokacji z powrotem na statyczną i przypisać adres IP z zakresu adresów nowej podsieci.
+Istnieją dwie metody przydzielania prywatnego adresu IP:
+
+- **Dynamiczna** — platforma Azure przypisuje następny dostępny nieprzypisany lub niezarezerwowany adres IP z zakresu adresów podsieci. Na przykład platforma Azure przypisze do nowego zasobu adres 10.0.0.10, jeśli adresy 10.0.0.4–10.0.0.9 są już przypisane do innych zasobów. Metoda dynamiczna to domyślna metoda alokacji. Po przypisaniu dynamiczne adresy IP są zwalniane, tylko jeśli interfejs sieciowy zostanie usunięty, przypisany do innej podsieci w tej samej sieci wirtualnej, lub metoda alokacji zostanie zmieniona na Statyczna i zostanie podany inny adres IP. Domyślnie platforma Azure przypisuje poprzedni adres dynamicznie przypisany jako adres statyczny po zmianie metody alokacji z dynamicznej na statyczną.
+- **Statyczna** — użytkownik wybiera i przypisuje następny dostępny nieprzypisany lub niezarezerwowany adres IP z zakresu adresów podsieci. Jeśli na przykład zakres adresów podsieci to 10.0.0.0/16, a adresy 10.0.0.4–10.0.0.9 są już przypisane do innych zasobów, można przypisać dowolny adres między 10.0.0.10–10.0.255.254. Adresy statyczne są zwalniane tylko w przypadku usunięcia interfejsu sieciowego. Jeśli zmienisz metodę alokacji na statyczną, platforma Azure dynamicznie przypisze wcześniej przypisany statyczny adres IP jako adres dynamiczny, nawet jeśli adres nie jest następnym dostępnym adresem w zakresie adresów podsieci. Adres zmieni się także, jeśli interfejs sieciowy zostanie przypisany do innej podsieci w tej samej sieci wirtualnej, ale aby przypisać interfejs sieciowy do innej podsieci, musisz najpierw zmienić metodę alokacji ze statycznej na dynamiczną. Po przypisaniu interfejsu sieciowego do innej podsieci możesz zmienić metodę alokacji z powrotem na statyczną i przypisać adres IP z zakresu adresów nowej podsieci.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 
@@ -164,7 +166,7 @@ Maszyny wirtualne skonfigurowane przy użyciu serwerów DNS zarządzanych przez 
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Wewnętrzne moduły równoważenia obciążenia (ILB) i bramy aplikacji
 
-Prywatny adres IP możesz przypisać do konfiguracji **frontonu** [wewnętrznego modułu równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) lub [bramy aplikacji platformy Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ten prywatny adres IP służy jako wewnętrzny punkt końcowy dostępny tylko dla zasobów w ramach jego sieci wirtualnej i sieci zdalnych podłączonych do sieci wirtualnej. Do konfiguracji frontonu możesz przypisać dynamiczny albo statyczny prywatny adres IP.
+Prywatny adres IP możesz przypisać do konfiguracji **frontonu** [wewnętrznego modułu równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) lub [usługi Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ten prywatny adres IP służy jako wewnętrzny punkt końcowy dostępny tylko dla zasobów w ramach jego sieci wirtualnej i sieci zdalnych podłączonych do sieci wirtualnej. Do konfiguracji frontonu możesz przypisać dynamiczny albo statyczny prywatny adres IP.
 
 ### <a name="at-a-glance"></a>W skrócie
 W poniższej tabeli przedstawiono określone właściwości, za pomocą których prywatny adres IP można skojarzyć z zasobem najwyższego poziomu, oraz ewentualne metody alokacji (dynamicznej lub statycznej), których można użyć.

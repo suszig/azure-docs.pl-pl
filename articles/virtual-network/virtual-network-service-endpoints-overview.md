@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Punkty końcowe usługi sieci wirtualnej (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Punkty końcowe usługi sieci wirtualnej rozszerzają prywatną przestrzeń adre
 Ta funkcja jest dostępna w wersji zapoznawczej dla następujących regionów i usług platformy Azure:
 
 - **Azure Storage**: wszystkie regiony w chmurze publicznej Azure.
-- **Azure SQL Database**: WestCentralUS, WestUS2, EastUS.
+- **Azure SQL**: wszystkie regiony w chmurze publicznej Azure.
 
 Najbardziej aktualne powiadomienia dotyczące wersji zapoznawczej można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ W przypadku zasobów usług platformy Azure (np. konta usługi Azure Storage) us
 - Dowiedz się, jak [zabezpieczyć konto usługi Azure Storage w sieci wirtualnej](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Dowiedz się, jak [zabezpieczyć usługę Azure SQL Database w sieci wirtualnej](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Dowiedz się więcej o [integracji usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
+-  Szybki start: [szablon usługi Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) do konfigurowania punktu końcowego usługi w podsieci sieci wirtualnej i zabezpieczenia konta usługi Azure Storage do tej podsieci.
 

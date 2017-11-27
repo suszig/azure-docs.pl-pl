@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ System Windows obsługuje dwa tryby izolacji dla kontenerów: tryb procesu oraz 
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Tryb izolacji funkcji Hyper-V jest dostępny na jednostkach magazynowych Azure serii Ev3 i Dv3, które obsługują wirtualizację zagnieżdżoną. 
-   >
+   > Tryb izolacji funkcji Hyper-V jest dostępny na jednostkach magazynowych Azure serii Ev3 i Dv3, które obsługują wirtualizację zagnieżdżoną. Upewnij się, że na hostach zainstalowano rolę HyperV. Sprawdź to, nawiązując połączenie z hostami.
    >
 
 ## <a name="configure-resource-governance"></a>Konfigurowanie zarządzania zasobami
@@ -325,7 +324,7 @@ Aplikacja jest gotowa, gdy ma stan ```Ready```: ![Gotowa][2]
 Otwórz przeglądarkę i przejdź do adresu http://containercluster.westus2.cloudapp.azure.com:8081. W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ## <a name="clean-up"></a>Czyszczenie
-Jeśli podczas działania klastra nadal są naliczane opłaty, rozważ [usunięcie klastra](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Klastry innych firm](https://try.servicefabric.azure.com/) są automatycznie usuwane po kilku godzinach.
+Jeśli podczas działania klastra nadal są naliczane opłaty, rozważ [usunięcie klastra](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Klastry innych firm](https://try.servicefabric.azure.com/) są automatycznie usuwane po kilku godzinach.
 
 Po wypchnięciu obrazu do rejestru kontenerów można usunąć lokalny obraz z komputera dewelopera:
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal
 
@@ -50,15 +50,13 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 W przykładach w tym artykule są stosowane następujące wartości. Tych wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do nich, aby lepiej zrozumieć przykłady w niniejszym artykule. Aby uzyskać więcej informacji o typach bram sieci VPN, zobacz [About VPN Gateway configuration settings (Informacje o ustawieniach konfiguracji bramy sieci VPN)](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **Nazwa sieci wirtualnej:** TestVNet1
-* **Przestrzeń adresowa:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (opcjonalnie na potrzeby tego ćwiczenia)
-* **Podsieci:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (opcjonalnie na potrzeby tego ćwiczenia)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Przestrzeń adresowa:** 10.11.0.0/16 i 10.12.0.0/16 (opcjonalnie na potrzeby tego ćwiczenia)
+* **Subskrypcja:** subskrypcja, której chcesz użyć
 * **Grupa zasobów:** TestRG1
 * **Lokalizacja:** Wschodnie stany USA
+* **Podsieć:** FrondEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (opcjonalnie na potrzeby tego ćwiczenia)
+* **Nazwa podsieci bramy:** GatewaySubnet (zostanie automatycznie wypełniona w portalu)
+* **Zakres adresów podsieci bramy:** 10.11.255.0/27
 * **Serwer DNS:** opcjonalnie. Adres IP serwera DNS.
 * **Nazwa bramy sieci wirtualnej:** VNet1GW
 * **Publiczny adres IP:** VNet1GWIP
@@ -67,6 +65,7 @@ W przykładach w tym artykule są stosowane następujące wartości. Tych warto�
 * **Typ bramy:** VPN
 * **Nazwa bramy sieci lokalnej:** Site2
 * **Nazwa połączenia:** VNet1toSite2
+* **Klucz współużytkowany:** w tym przykładzie użyjemy klucza abc123. Jednak możesz użyć dowolnej wartości zgodnej ze sprzętem sieci VPN. Ważne, żeby wartości były zgodne po obu stronach połączenia.
 
 ## <a name="CreatVNet"></a>1. Tworzenie sieci wirtualnej
 
@@ -125,10 +124,21 @@ Resetowanie bramy Azure VPN Gateway przydaje się w przypadku utraty połączeni
 
 Aby uzyskać instrukcje dotyczące zmiany jednostki SKU bramy, zobacz [Gateway SKUs (Jednostki SKU bramy)](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+## <a name="addconnect"></a>Jak dodać dodatkowe połączenie z bramą sieci VPN
+
+Możesz dodać dodatkowe połączenia, pod warunkiem że żadna z przestrzeni adresowych nie nakładają się między połączeniami.
+
+1. Aby dodać dodatkowe połączenie, przejdź do bramy sieci VPN, a następnie kliknij pozycję **Połączenia**, aby otworzyć stronę Połączenia.
+2. Kliknij pozycję **+Dodaj**, aby dodać połączenie. Dostosuj typ połączenia, aby odzwierciedlał połączenie między sieciami wirtualnymi (jeśli nawiązywanie jest połączenie z inną bramą sieci wirtualnej) lub połączenie lokacja-lokacja.
+3. Jeśli łączysz się przy użyciu połączenia lokacja-lokacja, a jeszcze nie utworzono brany sieci lokalnej dla lokacji, z którą chcesz nawiązać połączenie, możesz utworzyć nową.
+4. Określ klucz współużytkowany, którego chcesz użyć, a następnie kliknij przycisk **OK**, aby utworzyć połączenie.
+
 ## <a name="next-steps"></a>Następne kroki
 
 * Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
 * Aby uzyskać informacje o wymuszonym tunelowaniu, zobacz [Informacje o wymuszonym tunelowaniu](vpn-gateway-forced-tunneling-rm.md).
 * Aby uzyskać informacje o połączeniach o wysokiej dostępności typu aktywne-aktywne, zobacz [Połączenia obejmujące wiele lokalizacji i połączenia między sieciami wirtualnymi o wysokiej dostępności](vpn-gateway-highlyavailable.md).
-* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu lokacja-lokacja za pomocą szablonu usługi Resource Manager, zobacz [Create a Site-to-Site VPN Connection (Tworzenie połączenia sieci VPN typu lokacja-lokacja)](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
-* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu sieć wirtualna-sieć wirtualna za pomocą szablonu usługi Resource Manager, zobacz [Deploy HBase geo replication (Wdrażanie replikacji geograficznej bazy danych HBase)](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+* Aby uzyskać informacje na temat sposobu ograniczania ruchu sieciowego do zasobów w sieci wirtualnej, zobacz [Zabezpieczenia sieci](../virtual-network/security-overview.md).
+* Aby uzyskać informacje na temat sposobu kierowania ruchu platformy Azure między platformą Azure a zasobami lokalnymi i internetowymi, zobacz artykuł [Routing ruchu w sieci wirtualnej](../virtual-network/virtual-networks-udr-overview.md).
+* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu lokacja-lokacja za pomocą szablonu usługi Azure Resource Manager, zobacz [Create a Site-to-Site VPN Connection (Tworzenie połączenia sieci VPN typu lokacja-lokacja)](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* Aby uzyskać informacje dotyczące tworzenia połączenia sieci VPN typu sieć wirtualna-sieć wirtualna za pomocą szablonu usługi Azure Resource Manager, zobacz [Deploy HBase geo replication (Wdrażanie replikacji geograficznej bazy danych HBase)](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

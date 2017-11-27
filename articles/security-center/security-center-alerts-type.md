@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informacje o alertach zabezpieczeń w usłudze Azure Security Center
 Ten artykuł ułatwia zapoznanie się z różnymi typami alertów zabezpieczeń i powiązanych szczegółowych informacji dostępnych w usłudze Azure Security Center. Więcej informacji na temat zarządzania alertami i zdarzeniami znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Przykładowe alerty zrzutu awaryjnego, które zostały omówione w dalszej czę�
 * DUMPFILE: nazwa pliku zrzutu awaryjnego.
 * PROCESSNAME: nazwa procesu powodującego awarię.
 * PROCESSVERSION: wersja procesu powodującego awarię.
+
+### <a name="code-injection-discovered"></a>Wykryto iniekcję kodu
+Iniekcja kodu to wstawianie modułów wykonywalnych do uruchomionych procesów lub wątków.  Ta metoda jest używana przez złośliwe oprogramowanie do uzyskiwania dostępu do danych, ukrywania swojej obecności lub zapobiegania usunięciu (np. trwałość). Ten alert wskazuje, że wprowadzony moduł znajduje się w zrzucie awaryjnym. Wiarygodni programiści czasami wykonują iniekcję kodu z niezłośliwych powodów, takich jak modyfikowanie lub rozbudowywanie istniejącej aplikacji albo składnika systemu operacyjnego.  Aby ułatwić odróżnienie niezłośliwych modułów od złośliwych, usługa Security Center sprawdza, czy wprowadzony moduł odpowiada profilowi podejrzanego zachowania. Wynik tej kontroli jest widoczny w polu alertu „SIGNATURE” i obejmuje ważność alertu, opis alertu oraz czynności zaradcze alertu. 
+
+Ten alert zawiera następujące pola dodatkowe:
+
+- ADDRESS: lokalizacja wprowadzonego modułu w pamięci
+- IMAGENAME: nazwa wprowadzonego modułu. Zwróć uwagę, że to pole może być puste, jeśli obraz nie zawiera nazwy obrazu.
+- SIGNATURE: pokazuje, czy wprowadzony moduł jest zgodny z profilem podejrzanego zachowania. 
+
+W poniższej tabeli przedstawiono przykłady wyników i ich opisy:
+
+| Wartość podpisu                      | Opis                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Podejrzane wykorzystanie odpowiedniego modułu ładującego | To podejrzane zachowanie często jest skorelowane z ładowaniem wprowadzonego kodu niezależnie od modułu ładującego systemu operacyjnego |
+| Podejrzane wykorzystanie wprowadzonego kodu          | Oznacza złośliwe działanie, które często jest skorelowane z wprowadzeniem kodu do pamięci                                       |
+| Podejrzane wykorzystanie iniekcji         | Oznacza złośliwe działanie, które często jest skorelowane z użyciem wprowadzonego kodu w pamięci                                   |
+| Podejrzane wykorzystanie wprowadzonego debugera | Oznacza złośliwe działanie, które często jest skorelowane z wykryciem lub obejściem debugera                         |
+| Podejrzane zdalne wykorzystanie wprowadzonego kodu   | Oznacza złośliwe działanie, które często jest skorelowane ze scenariuszami kontrolki polecenia n (C2)                                 |
+
+Oto przykład tego typu alertu:
+
+![Alert o iniekcji kodu](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Podejrzany segment kodu
+Podejrzany segment kodu wskazuje, że segment kodu został przydzielony przy użyciu niestandardowych metod, takich jak metody używane przez iniekcję odbijającą i zamianę pamięci procesu.  Ponadto ten alert przetwarza dodatkową charakterystykę segment kodu, aby zapewnić kontekst dotyczący możliwości i zachowań zgłoszonego segmentu kodu.
+
+Ten alert zawiera następujące pola dodatkowe:
+
+- ADDRESS: lokalizacja wprowadzonego modułu w pamięci
+- SIZE: rozmiar podejrzanego segmentu kodu
+- STRINGSIGNATURES: to pole zawiera możliwości interfejsów API, których nazwy funkcji znajdują się w segmencie kodu. Przykładowe możliwości mogą obejmować:
+    - Deskryptory sekcji obrazów, dynamiczne wykonanie kodu dla architektury x64, alokacja pamięci i możliwość modułu ładującego, możliwość zdalnej iniekcji kodu, możliwość sterowania przejęciami, zmienne środowiskowe odczytu, umowna pamięć procesu odczytu, wykonywanie zapytań lub modyfikowanie uprawnień tokenu, komunikacja sieci HTTP/HTTPS i komunikacja gniazd sieci.
+- IMAGEDETECTED: to pole wskazuje, czy wprowadzono obraz PE do procesu, w którym wykryto podejrzany segment kodu, oraz adres początku wprowadzonego modułu.
+- SHELLCODE: to pole wskazuje obecność zachowania powszechnie używanego przez złośliwe ładunki w celu uzyskania dostępu do dodatkowych funkcji systemu operacyjnego dotyczących zabezpieczeń. 
+
+Oto przykład tego typu alertu:
+
+![Alert dotyczący podejrzanego segmentu kodu](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Wykryto kod powłoki
 Kod powłoki to ładunek uruchamiany po wykorzystaniu przez złośliwe oprogramowanie luki w zabezpieczeniach oprogramowania. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła zachowanie kodu wykonywalnego typowe dla złośliwych ładunków. Wprawdzie niezłośliwe oprogramowanie może zachowywać się podobnie, jednak nie jest to typowe w przypadku zwykłych metod tworzenia oprogramowania.

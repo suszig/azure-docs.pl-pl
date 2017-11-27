@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
@@ -75,7 +75,7 @@ Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](ba
 Można uruchomić wiele obciążeń usługi Batch na jednym koncie usługi Batch lub rozdzielić obciążenia pomiędzy konta tej usługi znajdujące się w jednej subskrypcji, ale różnych regionach świadczenia usługi Azure.
 
 > [!NOTE]
-> Podczas tworzenia konta usługi Batch zazwyczaj należy wybrać domyślny tryb **usługi Batch**, w którym pule są przydzielane w tle w subskrypcjach zarządzanych przez platformę Azure. W alternatywnym trybie **subskrypcji użytkownika**, który nie jest już zalecany, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Aby utworzyć konto usługi Batch w trybie subskrypcji użytkownika, musisz również powiązać konto z usługą Azure Key Vault.
+> Podczas tworzenia konta usługi Batch zazwyczaj należy wybrać domyślny tryb **usługi Batch**, w którym pule są przydzielane w tle w subskrypcjach zarządzanych przez platformę Azure. W alternatywnym trybie **subskrypcji użytkownika**, który nie jest już zalecany w przypadku większości scenariuszy, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Aby utworzyć konto usługi Batch w trybie subskrypcji użytkownika, musisz również zarejestrować subskrypcję w usłudze Azure Batch i powiązać konto z usługą Azure Key Vault.
 >
 
 
@@ -150,7 +150,9 @@ Aby uzyskać szczegółowe wymagania i procedury, zobacz [Use a custom image to 
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Obsługa kontenerów w pulach maszyn wirtualnych
 
-Podczas tworzenia puli konfiguracji maszyny wirtualnej za pomocą interfejsów API usługi Batch możesz skonfigurować pulę do uruchamiania zadań w kontenerach platformy Docker. Obecnie musisz utworzyć pulę przy użyciu systemu Windows Server 2016 Datacenter z obrazem kontenerów z witryny Azure Marketplace lub podać niestandardowy obraz maszyny wirtualnej obejmujący platformę Docker Community Edition i wszystkie wymagane sterowniki. Ustawienia puli muszą zawierać [konfigurację kontenera](/rest/api/batchservice/pool/add#definitions_containerconfiguration), która kopiuje obrazy kontenera do maszyn wirtualnych po utworzeniu puli. Zadania uruchamiane na puli mogą następnie odwoływać się do obrazów kontenera i opcji uruchamiania kontenera.
+Podczas tworzenia puli konfiguracji maszyny wirtualnej za pomocą interfejsów API usługi Batch możesz skonfigurować pulę do uruchamiania zadań w kontenerach platformy Docker. Obecnie musisz utworzyć pulę przy użyciu obrazu, który obsługuje kontenery platformy Docker. Użyj systemu Windows Server 2016 Datacenter z obrazem kontenerów z witryny Azure Marketplace lub podać niestandardowy obraz maszyny wirtualnej obejmujący platformę Docker Community Edition lub Enterprise Edition i wszystkie wymagane sterowniki. Ustawienia puli muszą zawierać [konfigurację kontenera](/rest/api/batchservice/pool/add#definitions_containerconfiguration), która kopiuje obrazy kontenera do maszyn wirtualnych po utworzeniu puli. Zadania uruchamiane na puli mogą następnie odwoływać się do obrazów kontenera i opcji uruchamiania kontenera.
+
+Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji kontenera platformy Docker w usłudze Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ węzła obliczeniowego i docelowa liczba węzłów
 
