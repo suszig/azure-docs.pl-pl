@@ -13,74 +13,76 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Jak pomyślnie wdrożyć funkcję samoobsługowego resetowania haseł
+# <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Jak pomyślnie wdrożyć funkcję samoobsługowego resetowania haseł
 
-Większość klientów wykonuje następujące kroki, aby zapewnić sobie bezproblemowe wdrażanie funkcji samoobsługowego resetowania haseł.
+Aby zapewnić bezproblemowe wdrożenie funkcji samoobsługowego resetowania haseł (SSPR, self-service password reset) usługi Azure Active Directory (Azure AD), większość klientów wykonuje następujące czynności:
 
 1. [Włącz resetowanie haseł w katalogu](active-directory-passwords-getting-started.md).
-2. [Skonfiguruj lokalne uprawnienia usługi AD do zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configuring-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym.
+2. [Skonfiguruj lokalne uprawnienia usługi Active Directory do zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Konfigurowanie zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback) w celu zapisywania haseł z usługi Azure AD z powrotem w katalogu lokalnym.
 4. [Przypisz i zweryfikuj wymagane licencje](active-directory-passwords-licensing.md).
-5. Jeśli chcesz przeprowadzić stopniowe wdrażanie funkcji samoobsługowego resetowania haseł, możesz ograniczyć dostęp do jednej grupy użytkowników i przeprowadzić dla tej grupy pilotażowe wdrażanie. W tym celu zmień ustawienie przełącznika **Funkcja samoobsługowego resetowania hasła jest włączona** na opcję **Wybrano** i wybierz grupę zabezpieczeń, dla której ma być włączone resetowanie haseł. 
-6. Wypełnij [dane uwierzytelniania](active-directory-passwords-data.md) użytkowników, takie jak numer telefonu służbowego, numer telefonu komórkowego i alternatywny adres e-mail.
+5. Określ, czy chcesz zastosować wdrażanie stopniowe. Jeśli chcesz przeprowadzić stopniowe wdrażanie funkcji samoobsługowego resetowania haseł, możesz ograniczyć dostęp do jednej grupy użytkowników i przeprowadzić dla tej grupy pilotażowe wdrożenie programu. Aby przeprowadzić wdrożenie dla określonej grupy, ustaw przełącznik **Funkcja samoobsługowego resetowania hasła jest włączona** na pozycję **Wybrano** i wybierz grupę zabezpieczeń, której chcesz umożliwić resetowanie haseł. 
+6. Wypełnij [dane uwierzytelniania](active-directory-passwords-data.md) potrzebne do zarejestrowania użytkowników, takie jak ich numer telefonu służbowego, numer telefonu komórkowego i alternatywny adres e-mail.
 7. [Dostosuj środowisko logowania do usługi Azure AD, aby uwzględnić oznaczenie marką firmy](active-directory-passwords-customize.md).
-8. Naucz użytkowników korzystać z samoobsługowego resetowania haseł, wysyłając im instrukcje rejestrowania i resetowania.
-9. Możesz zdecydować się na wymuszanie rejestracji w dowolnym punkcie i wymagać od użytkowników ponownego potwierdzania ich informacji uwierzytelniających po określonym czasie.
-10. Co jakiś czas przeglądaj użytkowników rejestrujących się i korzystających z tej funkcji, wyświetlając [raporty udostępniane przez usługę Azure AD](active-directory-passwords-reporting.md).
-11. Gdy wszystko będzie gotowe, włącz resetowanie haseł dla wszystkich użytkowników, ustawiając przełącznik **Funkcja samoobsługowego resetowania hasła jest włączona** na wartość **Wszystkie**. 
+8. Naucz użytkowników, jak korzystać z funkcji SSPR. Wyślij im instrukcje dotyczące rejestrowania się i resetowania haseł.
+9. Określ, kiedy chcesz wymuszać rejestrację. Rejestrację można wymusić w dowolnym momencie. Możesz także wymagać od użytkowników ponownego potwierdzania ich informacji uwierzytelniających po określonym czasie.
+10. Użyj funkcji raportowania. Po upływie pewnego czasu możesz przejrzeć dane dotyczące użycia i rejestracji użytkowników, korzystając z [funkcji raportowania oferowanej przez usługę Azure AD](active-directory-passwords-reporting.md).
+11. Włącz resetowanie haseł. Gdy wszystko będzie gotowe, włącz resetowanie haseł dla wszystkich użytkowników, ustawiając przełącznik **Funkcja samoobsługowego resetowania hasła jest włączona** na wartość **Wszystkie**. 
+12. [Umożliwianie użytkownikom systemu Windows 10 resetowania hasła na ekranie logowania](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
-   > Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika. Nie rób tego na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [artykuł na temat zasad haseł](active-directory-passwords-policy.md#administrator-password-policy-differences).
+   > Przetestuj samoobsługowe resetowanie haseł na koncie użytkownika, a nie na koncie administratora, ponieważ firma Microsoft narzuca silne wymagania w zakresie uwierzytelniania dla kont administratorów platformy Azure. Aby uzyskać więcej informacji na temat zasad haseł administratorów, zobacz nasz [artykuł dotyczący zasad haseł](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Wdrożenie bazujące na poczcie e-mail
 
-Wielu klientów uważa, że kampania e-mail z prostymi do zastosowania instrukcjami to najłatwiejsza metoda zachęcenia użytkowników do korzystania z samoobsługowego resetowania haseł. [Przygotowaliśmy trzy proste wiadomości e-mail, których możesz użyć jako szablonów w swoim wdrożeniu.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
+Wielu klientów uważa, że najłatwiejszym sposobem zachęcenia użytkowników do korzystania z samoobsługowego resetowania haseł jest kampania e-mail z prostymi do zastosowania instrukcjami. [Przygotowaliśmy trzy proste wiadomości e-mail, których możesz użyć jako szablonów w swoim wdrożeniu](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
 
-* Szablon wiadomości e-mail **Dostępne wkrótce** do zastosowania w tygodniach lub dniach poprzedzających wdrażanie w celu powiadomienia użytkowników o tym, że mają coś zrobić.
-* Szablon wiadomości e-mail **Już dostępne** do zastosowania w dzień uruchomienia, aby zachęcić użytkowników do rejestracji i potwierdzenia swoich danych uwierzytelniania, co pozwoli im skorzystać z samoobsługowego resetowania haseł, gdy będą tego potrzebować.
-* Szablon wiadomości e-mail **Przypomnienie o rejestracji** do zastosowania w ciągu kilku dni lub tygodni po wdrożeniu w celu przypomnienia użytkownikom, aby zarejestrowali się i potwierdzili swoje dane uwierzytelniania.
+* **Dostępne wkrótce**: szablon wiadomości e-mail do zastosowania w tygodniach lub dniach poprzedzających wdrażanie w celu powiadomienia użytkowników o tym, że mają coś zrobić.
+* **Już dostępne**: szablon wiadomości e-mail do zastosowania w dniu uruchomienia programu, aby zachęcić użytkowników do rejestracji i potwierdzenia swoich danych uwierzytelniania. Jeśli użytkownicy zarejestrują się od razu, będą mogli skorzystać z samoobsługowego resetowania haseł, gdy będą tego potrzebować.
+* **Przypomnienie o rejestracji**: szablon wiadomości e-mail do zastosowania w ciągu kilku dni lub tygodni po wdrożeniu w celu przypomnienia użytkownikom, aby zarejestrowali się i potwierdzili swoje dane uwierzytelniania.
 
 ![Wiadomość e-mail][Email]
 
-## <a name="creating-your-own-password-portal"></a>Tworzenie własnego portalu haseł
+## <a name="create-your-own-password-portal"></a>Tworzenie własnego portalu haseł
 
-Wielu naszych większych klientów decyduje się na hostowanie strony sieci Web i utworzenie głównego wpisu w usłudze DNS, takiego jak https://passwords.contoso.com. Umieszczają na tej stronie linki do funkcji resetowania haseł usługi Azure AD, rejestracji w funkcji resetowaniu haseł, portali do zmiany haseł i innych informacji specyficznych dla organizacji. Możliwe jest wtedy umieszczanie w dowolnej komunikacji e-mail i rozsyłanych materiałach marketingowych firmowych, łatwych do zapamiętania adresów URL, które użytkownicy mogą odwiedzić, gdy będą potrzebować użyć tych usług.
+Wielu klientów decyduje się na hostowanie strony internetowej i utworzenie głównego wpisu w usłudze DNS, takiego jak https://passwords.contoso.com. Wypełniają oni tę stronę linkami do następujących informacji:
 
-* Portal resetowania haseł — https://aka.ms/sspr
-* Portal rejestracji w funkcji resetowania haseł — http://aka.ms/ssprsetup
-* Portal zmiany haseł — https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+* [Portal resetowania haseł usługi Azure AD](https://aka.ms/sspr)
+* [Portal rejestracji w celu korzystania z funkcji resetowania haseł usługi Azure AD](http://aka.ms/ssprsetup)
+* [Portal zmieniania haseł usługi Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* Inne informacje dotyczące organizacji
 
-Pomocną może się okazać utworzona przykładowa strona, której można użyć po ewentualnym jej dostosowaniu do potrzeb organizacji. Można ją pobrać z witryny [GitHub](https://github.com/ajamess/password-reset-page).
+W dowolnej komunikacji e-mail i rozsyłanych materiałach marketingowych możesz umieścić firmowe, łatwe do zapamiętania adresy URL, z których mogą skorzystać użytkownicy chcący użyć tych usług. Aby ułatwić Ci pracę, utworzyliśmy także [przykładową stronę resetowania hasła](https://github.com/ajamess/password-reset-page), którą możesz dostosować do potrzeb swojej organizacji.
 
-## <a name="using-enforced-registration"></a>Korzystanie z rejestracji wymuszonej
+## <a name="use-enforced-registration"></a>Używanie rejestracji wymuszonej
 
-Jeśli chcesz, aby użytkownicy rejestrowali się w celu zresetowania hasła, możesz wymusić na nich rejestrowanie podczas logowania się przy użyciu usługi Azure AD. Opcję tę możesz włączyć w bloku **Resetowanie hasła** swojego katalogu, włączając opcję **Czy wymagać od użytkowników rejestrowania się podczas logowania?** na karcie **Rejestracja**.
+Jeśli chcesz, aby użytkownicy rejestrowali się w celu zresetowania hasła, możesz wymagać od nich rejestracji podczas logowania się przy użyciu usługi Azure AD. Tę opcję możesz włączyć w okienku **Resetowanie hasła** swojego katalogu, włączając opcję **Czy wymagać od użytkowników rejestrowania się podczas logowania?** na karcie **Rejestracja**.
 
-Administratorzy mogą wymagać od użytkowników ponownego zarejestrowania się po upływie określonego czasu, ustawiając opcję **Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania** na wartość z zakresu od 0 do 730 dni.
+Administratorzy mogą wymagać od użytkowników ponownej rejestracji po upływie określonego czasu. Mogą oni ustawić dla opcji **Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania** wartość w zakresie od 0 do 730 dni.
 
 Po włączeniu tej opcji logujący się użytkownicy zobaczą komunikat informujący, że administrator wymaga od nich zweryfikowania ich informacji uwierzytelniania.
 
 ## <a name="populate-authentication-data"></a>Wypełnianie danych uwierzytelniania
 
-Jeśli [wypełnisz dane uwierzytelniania dla swoich użytkowników](active-directory-passwords-data.md), nie będą oni musieli rejestrować się w funkcji resetowania haseł, aby skorzystać z samoobsługowego resetowania haseł. Tak długo, jak użytkownicy będą mieli zdefiniowane dane uwierzytelniania spełniające zdefiniowane przez Ciebie zasady resetowania haseł, będą mogli resetować swoje hasła.
+Należy [wypełnić dane uwierzytelniania dla użytkowników](active-directory-passwords-data.md). Dzięki temu użytkownicy nie będą musieli rejestrować się w celu resetowania hasła, aby móc korzystać z funkcji SSPR. O ile użytkownicy dostarczą dane uwierzytelniania spełniające zdefiniowane przez Ciebie zasady resetowania haseł, będą mogli resetować swoje hasła.
 
-## <a name="disabling-self-service-password-reset"></a>Wyłączanie samoobsługowego resetowania haseł
+## <a name="disable-self-service-password-reset"></a>Wyłączanie samoobsługowego resetowania haseł
 
-Wyłączanie samoobsługowego resetowania haseł sprowadza się do otwarcia dzierżawy usługi Azure AD, wybrania pozycji **Resetowanie hasła** i **Właściwości**, a następnie wybrania pozycji **Nikt** w sekcji **Funkcja samoobsługowego resetowania hasła jest włączona**
+Samoobsługowe resetowanie haseł można w łatwy sposób wyłączyć. Otwórz dzierżawę usługi Azure AD, przejdź do obszaru **Resetowanie hasła** > **Właściwości**, a następnie wybierz pozycję **Brak** w obszarze **Funkcja samoobsługowego resetowania hasła jest włączona**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).
-* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md).
+* [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
+* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
 * [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)

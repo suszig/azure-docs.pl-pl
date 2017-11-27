@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funkcja Warunki użytkowania usługi Azure Active Directory (wersja zapoznawcza)
 Warunki użytkowania usługi Azure AD pozwalają organizacjom przedstawiać informacje użytkownikom w prosty sposób.  Dzięki temu użytkownicy mogą zapoznać się z istotnymi zastrzeżeniami do wymagań prawnych lub wymagań dotyczących zgodności.
@@ -43,7 +43,8 @@ Aby skonfigurować warunki użytkowania usługi Azure AD, wykonaj następujące 
 2. Sprawdź, czy katalog ma subskrypcję usługi Azure AD w wersji Premium P1, Premium P2, EMS E3 lub EMS E5.  Jeśli nie masz subskrypcji, [uzyskaj usługę Azure AD w wersji Premium](active-directory-get-started-premium.md) lub [rozpocznij okres próbny](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Wyświetl pulpit nawigacyjny warunków użytkowania usługi Azure AD na stronie [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Kontrolki zasad dostępu warunkowego (w tym warunki użytkowania) nie obsługują wymuszania dla kont usługi.  Zaleca się wykluczenie wszystkich kont usług z zasad dostępu warunkowego.
 
 ## <a name="add-company-terms-of-use"></a>Dodawanie firmowych warunków użytkowania
 Po zakończeniu pracy nad zawartością warunków użytkowania, dodaj je za pomocą poniższej procedury.
@@ -92,7 +93,6 @@ Po utworzeniu warunków użytkowania i wymuszeniu ich stosowania uprawnieni uży
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Te ważne informacje mogą pomóc w korzystaniu z warunków użytkowania.
-
 
 W następujących przypadkach uprawnieni użytkownicy muszą się wylogować i zalogować ponownie, aby spełnić wymagania nowych zasad:
  - Dla warunków użytkowania włączono zasady dostępu warunkowego

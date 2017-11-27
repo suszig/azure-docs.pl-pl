@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -59,11 +59,17 @@ Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje si
 
 ### <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
 
-W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw dla [sieci wirtualnych znajdujących się w tej samej subskrypcji](#samesub), a drugi dla [sieci wirtualnych znajdujących się w różnych subskrypcjach](#difsub).
-
-## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
+W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw kroków dla [sieci wirtualnych w tej samej subskrypcji](#samesub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet4.
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Istnieje oddzielny artykuł dotyczący [sieci wirtualnych w różnych subskrypcjach](#difsub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet5.
+
+![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+Jeśli chcesz, możesz łączyć konfiguracje, lub po prostu wybrać tę, której chcesz używać.
+
+## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -88,7 +94,7 @@ W przykładach stosujemy następujące wartości:
 * Publiczny adres IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (dla sieci wirtualnych w różnych subskrypcjach)
 * ConnectionType: VNet2VNet
 
 **Wartości dla sieci TestVNet4:**
@@ -255,8 +261,6 @@ Mamy teraz dwie sieci wirtualne z bramami sieci VPN. Następny krok polega na ut
 
 ## <a name="difsub"></a>Łączenie sieci wirtualnych, które należą do różnych subskrypcji
 
-![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi TestVNet1 i TestVNet5. Sieci wirtualne znajdują się w różnych subskrypcjach. Subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. Czynności opisane dla tej konfiguracji dodają dodatkowe połączenie między sieciami wirtualnymi, aby można było nawiązać połączenie między sieciami TestVNet1 i TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Krok 5 — Tworzenie i konfigurowanie sieci TestVNet1
@@ -362,7 +366,7 @@ Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozb
 ## <a name="verify"></a>Weryfikowanie połączeń
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

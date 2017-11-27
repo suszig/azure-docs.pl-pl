@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Resetowanie hasła usługi Azure AD z ekranu logowania
 
 Funkcja samoobsługowego resetowania hasła (SSPR, self-service password reset) usługi Azure AD została już wdrożona, ale użytkownicy nadal dzwonią do działu obsługi klienta, jeśli nie pamiętają hasła. Dzieje się tak, ponieważ nie mogą oni przejść do samoobsługowego resetowania hasła w przeglądarce internetowej.
 
-Dzięki nowej aktualizacji Windows 10 Fall Creators Update użytkownicy z urządzeniami dołączonymi do usługi Azure AD widzą na swoich ekranach logowania link „Resetuj hasło”. Kliknięcie tego linku powoduje przejście do znanego użytkownikom środowiska samoobsługowego resetowania hasła. 
+Dzięki nowej aktualizacji Windows 10 Fall Creators Update użytkownicy z urządzeniami dołączonymi do usługi Azure AD widzą na swoich ekranach logowania link „Resetuj hasło”. Kliknięcie tego linku powoduje przejście do znanego użytkownikom środowiska samoobsługowego resetowania hasła.
 
 Aby użytkownicy mogli resetować hasło usługi Azure AD z ekranu logowania systemu Windows 10, muszą zostać spełnione następujące wymagania:
 
-* System Windows 10 w wersji 1709 lub nowszy klient dołączony do domeny usługi Azure AD.
+* System Windows 10 w wersji 1709 lub nowszy klient [dołączony do usługi Azure AD](device-management-azure-portal.md).
 * Włączona funkcja samoobsługowego resetowania haseł w usłudze Azure AD.
 * Skonfiguruj i wdróż ustawienie, aby włączyć link resetowania hasła przy użyciu jednej z następujących metod:
    * [Profil konfiguracji urządzenia usługi Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Zasady konfiguracji urządzenia zostały teraz utworzone i przypisane w celu wł
 
 Zalecamy używanie tej metody tylko w celu testowania zmiany ustawienia.
 
-1. Zaloguj się do urządzenia połączonego z domeną usługi Azure AD przy użyciu poświadczeń administracyjnych
+1. Zaloguj się do urządzenia połączonego z usługą Azure AD przy użyciu poświadczeń administracyjnych
 2. Uruchom **regedit** jako administrator
 3. Ustaw poniższy klucz rejestru
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Teraz, gdy zasady zostały skonfigurowane i przypisane, co zmienia się dla uży
 
 Gdy użytkownicy próbują się zalogować, widzą teraz link resetowania, który otwiera środowisko samoobsługowego resetowania hasła na ekranie logowania. Ta funkcja umożliwia użytkownikom zresetowanie hasła bez konieczności uzyskiwania dostępu do przeglądarki internetowej przy użyciu innego urządzenia.
 
-Wskazówki dotyczące używania tej funkcji będzie można znaleźć w artykule [Reset your work or school password (Resetowanie hasła służbowego)](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Wskazówki dotyczące używania tej funkcji będzie można znaleźć w artykule [Reset your work or school password (Resetowanie hasła służbowego)](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Typowe problemy
 

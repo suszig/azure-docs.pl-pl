@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu programu PowerShell
 
@@ -59,13 +59,17 @@ Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje si
 
 ## <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
 
-W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw dla [sieci wirtualnych znajdujących się w tej samej subskrypcji](#samesub), a drugi dla [sieci wirtualnych znajdujących się w różnych subskrypcjach](#difsub). Kluczowa różnica między wspomnianymi zestawami czynności polega na możliwości bądź braku możliwości konfiguracji i tworzenia wszystkich zasobów sieci wirtualnej i bramy w ramach tej samej sesji programu PowerShell.
-
-Kroki opisane w tym artykule używają zmiennych, które są zadeklarowane na początku każdej sekcji. Jeśli pracujesz z istniejącymi sieciami wirtualnymi, zmodyfikuj zmienne, aby uwzględnić ustawienia we własnym środowisku. Jeśli chcesz, aby w Twoich sieciach wirtualnych działało rozpoznawanie nazw, zobacz [Rozpoznawanie nazw](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
+W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw kroków dla [sieci wirtualnych w tej samej subskrypcji](#samesub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet4.
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Istnieje oddzielny artykuł dotyczący [sieci wirtualnych w różnych subskrypcjach](#difsub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet5.
+
+![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+Kluczowa różnica między wspomnianymi zestawami czynności polega na możliwości bądź braku możliwości konfiguracji i tworzenia wszystkich zasobów sieci wirtualnej i bramy w ramach tej samej sesji programu PowerShell. Podczas konfigurowania połączenia dla sieci wirtualnych znajdujących się w różnych subskrypcjach należy użyć oddzielnych sesji programu PowerShell. Jeśli chcesz, możesz łączyć konfiguracje, lub po prostu wybrać tę, której chcesz używać.
+
+## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -90,7 +94,7 @@ W przykładach stosujemy następujące wartości:
 * Publiczny adres IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (dla sieci wirtualnych w różnych subskrypcjach)
 * ConnectionType: VNet2VNet
 
 **Wartości dla sieci TestVNet4:**
@@ -279,8 +283,6 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisan
 4. Weryfikowanie połączenia. Zobacz sekcję [Weryfikowanie połączenia](#verify).
 
 ## <a name="difsub"></a>Łączenie sieci wirtualnych, które należą do różnych subskrypcji
-
-![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi TestVNet1 i TestVNet5. Sieci TestVNet1 i TestVNet5 znajdują się w innych subskrypcjach. Subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. Różnica między tymi krokami a poprzednim zestawem polega na tym, że w kontekście drugiej subskrypcji część czynności konfiguracyjnych należy wykonać w osobnej sesji programu PowerShell. Szczególnie, jeśli obie subskrypcje należą do różnych organizacji.
 

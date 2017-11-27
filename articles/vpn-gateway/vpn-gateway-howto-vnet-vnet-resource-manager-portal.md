@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: cherylmc
-ms.openlocfilehash: cbbae06d4e5774d5fdf7bcce65dc7efddaa5f280
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -39,7 +39,9 @@ Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Jeśli Twoje sieci wirtualne znajdują się w tym samym regionie, warto rozważyć połączenie ich za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Między sieciami wirtualnymi można utworzyć połączenie lokacja-lokacja (IPsec) zamiast połączenia sieć wirtualna-sieć wirtualna. Podczas komunikowania się obydwa połączenia działają tak samo. Jednak po zaktualizowania przestrzeni adresowej dla jednej sieci wirtualnej w przypadku utworzenia połączenia sieć wirtualna-sieć wirtualna druga sieć będzie automatycznie kierować ruch do zaktualizowanej przestrzeni adresowej. Jeśli tworzysz połączenie lokacja-lokacja (IPsec), musisz ręcznie skonfigurować przestrzeń adresową dla bramy sieci lokalnej. Podczas pracy ze złożonymi konfiguracjami warto utworzyć połączenie IPsec zamiast połączenia sieć wirtualna-sieć wirtualna. Dzięki temu można ręcznie określić dodatkową przestrzeń adresową dla bramy sieci lokalnej.
+
+Jeśli Twoje sieci wirtualne znajdują się w tym samym regionie, warto rozważyć połączenie ich za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
 Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
@@ -50,64 +52,56 @@ Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obej
 Sieci wirtualne można łączyć z następujących powodów:
 
 * **Niezależna od regionu nadmiarowość i obecność geograficzna**
-  
+
   * Można tworzyć własne replikacje geograficzne lub przeprowadzać synchronizację z bezpiecznym połączeniem bez przechodzenia przez punkty końcowe dostępne z Internetu.
   * Usługi Azure Traffic Manager i Load Balancer pozwalają skonfigurować obciążenie o wysokiej dostępności z nadmiarowością geograficzną w wielu regionach świadczenia usługi Azure. Istotnym przykładem jest konfiguracja ustawienia SQL Zawsze włączone, w przypadku którego grupy dostępności rozciągają się na wiele regionów świadczenia usługi Azure.
 * **Regionalne aplikacje wielowarstwowe z izolacją lub granicami administracyjnymi**
-  
+
   * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. Pamiętaj, że jeśli Twoje sieci wirtualne należą do różnych subskrypcji, to nie można utworzyć połączenia w portalu. Można użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) lub [interfejsu wiersza polecenia](vpn-gateway-howto-vnet-vnet-cli.md).
+Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowych wartości ustawień. W tym przykładzie sieci wirtualne należą do tej samej subskrypcji, ale do różnych grup zasobów. Jeśli sieci wirtualne należą do różnych subskrypcji, nie można utworzyć połączenia w portalu. Można użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) lub [interfejsu wiersza polecenia](vpn-gateway-howto-vnet-vnet-cli.md). Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
 
 ### <a name="values"></a>Przykładowe ustawienia
-
-Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowych wartości ustawień. W celach demonstracyjnych dla poszczególnych sieci wirtualnych używamy wielu przestrzeni adresowych. Konfiguracje połączeń między sieciami wirtualnymi nie wymagają jednak wielu przestrzeni adresowych.
 
 **Wartości dla sieci TestVNet1:**
 
 * Nazwa sieci wirtualnej: TestVNet1
 * Przestrzeń adresowa: 10.11.0.0/16
-  * Nazwa podsieci: FrontEnd
-  * Zakres adresów podsieci: 10.11.0.0/24
+* Subskrypcja: wybierz subskrypcję, której chcesz użyć
 * Grupa zasobów: TestRG1
 * Lokalizacja: Wschodnie stany USA
-* Przestrzeń adresowa: 10.12.0.0/16
-  * Nazwa podsieci: BackEnd
-  * Zakres adresów podsieci: 10.12.0.0/24
+* Nazwa podsieci: FrontEnd
+* Zakres adresów podsieci: 10.11.0.0/24
 * Nazwa podsieci bramy: GatewaySubnet (zostanie automatycznie wypełniona w portalu)
-  * Zakres adresów podsieci bramy: 10.11.255.0/27
+* Zakres adresów podsieci bramy: 10.11.255.0/27
 * Serwer DNS: użyj adresu IP serwera DNS.
 * Nazwa bramy sieci wirtualnej: TestVNet1GW
 * Typ bramy: VPN
 * Typ sieci VPN: oparta na trasach
 * Jednostka SKU: wybierz jednostkę SKU bramy, która ma być używana.
 * Publiczna nazwa adresu IP: TestVNet1GWIP
-* Wartości połączenia:
-  * Nazwa: TestVNet1toTestVNet4
-  * Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
+* Nazwa połączenia: TestVNet1toTestVNet4
+* Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
 
 **Wartości dla sieci TestVNet4:**
 
 * Nazwa sieci wirtualnej: TestVNet4
 * Przestrzeń adresowa: 10.41.0.0/16
-  * Nazwa podsieci: FrontEnd
-  * Zakres adresów podsieci: 10.41.0.0/24
-* Grupa zasobów: TestRG1
+* Subskrypcja: wybierz subskrypcję, której chcesz użyć
+* Grupa zasobów: TestRG4
 * Lokalizacja: West US
-* Przestrzeń adresowa: 10.42.0.0/16
-  * Nazwa podsieci: BackEnd
-  * Zakres adresów podsieci: 10.42.0.0/24
+* Nazwa podsieci: FrontEnd
+* Zakres adresów podsieci: 10.41.0.0/24
 * Nazwa podsieci bramy: GatewaySubnet (zostanie automatycznie wypełniona w portalu)
-  * Zakres adresów podsieci GatewaySubnet: 10.41.255.0/27
+* Zakres adresów podsieci GatewaySubnet: 10.41.255.0/27
 * Serwer DNS: użyj adresu IP serwera DNS.
 * Nazwa bramy sieci wirtualnej: TestVNet4GW
 * Typ bramy: VPN
 * Typ sieci VPN: oparta na trasach
 * Jednostka SKU: wybierz jednostkę SKU bramy, która ma być używana.
 * Nazwa publicznego adresu IP: TestVNet4GWIP
-* Wartości połączenia:
-  * Nazwa: TestVNet4toTestVNet1
-  * Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
+* Nazwa połączenia: TestVNet4toTestVNet1
+* Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
 
 ## <a name="CreatVNet"></a>1. Tworzenie i konfigurowanie sieci TestVNet1
 Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
@@ -144,44 +138,40 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 ## <a name="CreateTestVNet4"></a>6. Tworzenie i konfigurowanie sieci TestVNet4
 Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4, powtarzając poprzednie kroki, używając wartości dla sieci TestVNet4. Przed skonfigurowaniem sieci TestVNet4 nie musisz czekać, aż tworzenie bramy sieci wirtualnej dla sieci TestVNet1 zostanie zakończone. Jeśli używasz własnych wartości, upewnij się, że przestrzenie adresowe nie pokrywają się z żadnymi sieciami wirtualnymi, z którymi chcesz się połączyć.
 
-## <a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia TestVNet1
-Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4. Następujące kroki działają tylko w przypadku sieci wirtualnych należących do tej samej subskrypcji. Jeśli Twoje sieci wirtualne znajdują się w różnych subskrypcjach, do utworzenia połączenia musisz użyć programu PowerShell. Zobacz artykuł [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+## <a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia bramy TestVNet1
+Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4. Następujące kroki działają tylko w przypadku sieci wirtualnych należących do tej samej subskrypcji. Jeśli Twoje sieci wirtualne znajdują się w różnych subskrypcjach, do utworzenia połączenia musisz użyć programu PowerShell. Zobacz artykuł [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). Jeśli jednak Twoje sieci wirtualne znajdują się w różnych grupach zasobów w tej samej subskrypcji, możesz utworzyć połączenie między nimi przy użyciu portalu.
 
-1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć blok bramy sieci wirtualnej.
-   
-    ![Blok połączeń](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Blok połączeń")
-2. Kliknij przycisk **+Dodaj**, aby otworzyć blok **Dodaj połączenie**.
-3. W bloku **Dodaj połączenie** wpisz nazwę połączenia w polu nazwy (np. **TestVNet1toTestVNet4**).
-   
-    ![Nazwa połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nazwa połączenia")
-4. Dla opcji **Typ połączenia** wybierz z listy rozwijanej pozycję **Sieć wirtualna-sieć wirtualna**.
+1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć stronę bramy sieci wirtualnej.
+
+  ![Strona Połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Strona Połączenia")
+2. Kliknij przycisk **+Dodaj**, aby otworzyć stronę **Dodaj połączenie**.
+
+  ![Dodawanie połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Dodawanie połączenia")
+3. Na stronie **Dodaj połączenie** wpisz nazwę połączenia w polu nazwy. (np. **TestVNet1toTestVNet4**).
+4. W polu **Typ połączenia** wybierz pozycję **Sieć wirtualna-sieć wirtualna** z listy rozwijanej.
 5. Wartość pola **Pierwsza brama sieci wirtualnej** zostaje podana automatycznie, ponieważ połączenie jest tworzone z określonej bramy sieci wirtualnej.
-6. Pole **Druga brama sieci wirtualnej** jest bramą sieci wirtualnej sieci wirtualnej, z którą chcesz utworzyć połączenie. Kliknij pozycję **Wybierz inną bramę sieci wirtualnej**, aby otworzyć blok **Wybieranie bramy sieci wirtualnej**.
-   
-    ![Dodawanie połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Dodawanie połączenia")
-7. Wyświetl bramy sieci wirtualnej wymienione w tym bloku. Pamiętaj, że wyświetlane są tylko bramy sieci wirtualnej objęte subskrypcją. Jeśli chcesz połączyć się z bramą sieci wirtualnej, której nie ma w Twojej subskrypcji, zapoznaj się z [artykułem dotyczącym programu PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
+6. Pole **Druga brama sieci wirtualnej** jest bramą sieci wirtualnej sieci wirtualnej, z którą chcesz utworzyć połączenie. Kliknij pozycję **Wybierz inną bramę sieci wirtualnej**, aby otworzyć stronę **Wybieranie bramy sieci wirtualnej**.
+7. Wyświetl bramy sieci wirtualnej wymienione na tej stronie. Pamiętaj, że wyświetlane są tylko bramy sieci wirtualnej objęte subskrypcją. Jeśli chcesz połączyć się z bramą sieci wirtualnej, której nie ma w Twojej subskrypcji, zapoznaj się z [artykułem dotyczącym programu PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 8. Kliknij bramę sieci wirtualnej, z którą chcesz nawiązać połączenie.
 9. W polu **Klucz współużytkowany** wpisz klucz, który będzie używany dla tego połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest dokładnie taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
-   
-    ![Klucz współużytkowany](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Klucz współużytkowany")
-10. Kliknij przycisk **OK** na dole bloku, aby zapisać zmiany.
+10. Kliknij przycisk **OK** u dołu strony, aby zapisać zmiany.
 
-## <a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia z siecią TestVNet4
-Następnie utwórz połączenie z sieci TestVNet4 do sieci TestVNet1. Zastosuj tę samą metodę, która została użyta do utworzenia połączenia z sieci TestVNet1 do sieci TestVNet4. Pamiętaj, aby użyć tego samego klucza współużytkowanego.
+## <a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia bramy TestVNet4
+Następnie utwórz połączenie z sieci TestVNet4 do sieci TestVNet1. W portalu znajdź bramę sieci wirtualnej skojarzoną z siecią TestVNet4. Wykonaj kroki opisane w poprzedniej sekcji, zastępując wartości, aby utworzyć połączenie z sieci TestVNet4 do sieci TestVNet1. Pamiętaj, aby użyć tego samego klucza współużytkowanego.
 
-## <a name="VerifyConnection"></a>9. Weryfikowanie połączenia
-Zweryfikuj połączenie. Dla każdej bramy sieci wirtualnej wykonaj następujące czynności:
+## <a name="VerifyConnection"></a>9. Sprawdź połączenia
 
-1. Znajdź blok bramy sieci wirtualnej (np. **TestVNet4GW**). 
-2. W bloku bramy sieci wirtualnej kliknij opcję **Połączenia**, aby wyświetlić blok połączeń bramy sieci wirtualnej.
-
-Wyświetl połączenia i zweryfikuj stan. Po utworzeniu połączenia zostanie wyświetlony stan z wartościami **Powodzenie** i **Połączono**.
+W portalu znajdź bramę sieci wirtualnej. Na stronie bramy sieci wirtualnej kliknij pozycję **Połączenia**, aby wyświetlić stronę połączeń dla bramy sieci wirtualnej. Po ustanowieniu połączenia wartości stanu zmienią się na **Powodzenie** i **Połączono**. Możesz kliknąć dwukrotnie połączenie, aby otworzyć stronę **Podstawy** i wyświetlić więcej informacji.
 
 ![Powodzenie](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Powodzenie")
 
-Możesz kliknąć dwukrotnie każde połączenie, aby wyświetlić więcej informacji.
+Po rozpoczęciu przepływu danych zostaną wyświetlone wartości dla danych wejściowych i danych wyjściowych.
 
 ![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Podstawy")
+
+## <a name="to-add-additional-connections"></a>Aby dodać więcej połączeń
+
+Jeśli chcesz dodać więcej połączeń, przejdź do bramy sieci wirtualnej, z której chcesz utworzyć połączenie, a następnie kliknij pozycję **Połączenia**. Możesz utworzyć kolejne połączenie sieć wirtualna-sieć wirtualna lub połączenie IPsec lokacja-lokacja do lokalizacji lokalnej. Pamiętaj, aby dopasować wartość w polu **Typ połączenia** do typu połączenia, które chcesz utworzyć. Przed utworzeniem dodatkowych połączeń sprawdź, czy przestrzeń adresowa Twojej sieci wirtualnej nie nakłada się na żadne przestrzenie adresowe, z którymi chcesz nawiązać połączenie. Aby zapoznać się z procedurą tworzenia połączenia lokacja-lokacja, zobacz [Tworzenie połączenia typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń między sieciami wirtualnymi.
@@ -189,4 +179,7 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń m
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute), aby uzyskać więcej informacji.
+
+Zobacz [Zabezpieczenia sieci](../virtual-network/security-overview.md), aby uzyskać informacje na temat sposobu ograniczania ruchu sieciowego do zasobów w sieci wirtualnej.
+
+Zobacz [Routing ruchu w sieci wirtualnej](../virtual-network/virtual-networks-udr-overview.md), aby uzyskać informacje na temat sposobu kierowania ruchu platformy Azure między platformą Azure a zasobami lokalnymi i internetowymi.
