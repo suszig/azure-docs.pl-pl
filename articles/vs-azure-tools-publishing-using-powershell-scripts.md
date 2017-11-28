@@ -14,39 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Używanie skryptów programu Windows PowerShell w celu publikowania w środowisku deweloperskim i testowym
+
 Podczas tworzenia aplikacji sieci web w programie Visual Studio, można wygenerować skrypt programu Windows PowerShell, który można później można zautomatyzować publikowanie witryny sieci Web na platformie Azure jako aplikacji sieci Web w usłudze Azure App Service lub maszynie wirtualnej. Można edytować i rozszerzyć skrypt programu Windows PowerShell w edytorze programu Visual Studio ze swoimi potrzebami lub zintegrować skryptu z istniejących kompilacji, testów i publikowanie skryptów.
 
-Skrypty te można udostępnić dostosowane wersje (znanej także jako środowiskach programistycznych i testowych) lokacji do użytku tymczasowego. Na przykład skonfigurować konkretnej wersji witryny sieci Web na maszynie wirtualnej platformy Azure lub miejsce wystawiania z witryny sieci Web do uruchamiania zestawu testów, występuje błąd, przetestować poprawkę, wersja próbna proponowanych zmian lub skonfigurować niestandardowe środowisko pokaz lub prezentacji. Po utworzeniu skryptu, który publikuje projektu można odtworzyć identyczne środowisk, ponownie uruchamiając skrypt zgodnie z potrzebami lub uruchom skrypt z kompilację aplikacji sieci web, aby utworzyć niestandardowe środowisko do testowania.
+Skrypty te można udostępnić dostosowane wersje (znanej także jako środowiskach programistycznych i testowych) lokacji do użytku tymczasowego. Na przykład skonfigurować konkretnej wersji witryny sieci Web na maszynie wirtualnej platformy Azure lub miejsce wystawiania z witryny sieci Web do uruchamiania zestawu testów, występuje błąd, przetestować poprawkę, wersja próbna proponowanych zmian lub skonfigurować niestandardowe środowisko pokaz lub prezentacji. Po utworzeniu skryptu, który publikuje projektu można odtworzyć identyczne środowisk zgodnie z potrzebami, uruchamiając skrypt lub uruchom skrypt z kompilację aplikacji sieci web, aby utworzyć niestandardowe środowisko do testowania.
 
-## <a name="what-you-need"></a>Co jest potrzebne
-* Zestaw Azure SDK 2.3 lub nowszej. Zobacz [programu Visual Studio pobiera](http://go.microsoft.com/fwlink/?LinkID=624384) Aby uzyskać więcej informacji.
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Zestaw SDK usługi Azure można wygenerować skryptów dla projektów sieci web nie jest konieczne. Ta funkcja jest dla projektów sieci web, nie role sieci web usług w chmurze.
-
-* Program Azure PowerShell 0.7.4 lub nowszym. Zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji.
+* Zestaw Azure SDK 2.3 lub nowszej. Zobacz [pobierania programu Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). (Nie trzeba zestawu Azure SDK, aby wygenerować skryptów dla projektów sieci web. Ta funkcja jest dla projektów sieci web, nie role sieci web usług w chmurze).
+* Program Azure PowerShell 0.7.4 lub nowszym. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 * [Program Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) lub nowszym.
 
 ## <a name="additional-tools"></a>Dodatkowe narzędzia
+
 Dodatkowych narzędzi i zasobów do pracy z programu PowerShell w programie Visual Studio do tworzenia aplikacji platformy Azure są dostępne. Zobacz [narzędzia programu PowerShell dla programu Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Generowanie skryptów publikowania
+
 Możesz wygenerować skrypty publikowania do maszyny wirtualnej, który jest hostem witryny sieci Web, podczas tworzenia nowego projektu wykonując [tych instrukcji](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Możesz również [Generowanie publikowanie skryptów dla aplikacji sieci web w usłudze Azure App Service](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Skrypty, które generuje Visual Studio
+
 Visual Studio generuje folder rozwiązania poziomu o nazwie **PublishScripts** zawiera dwa pliki programu Windows PowerShell, skrypt publikowania dla maszyny wirtualnej lub witryny sieci Web i moduł, który zawiera funkcje, których można używać w skryptach. Visual Studio także generuje plik w formacie JSON, który określa szczegółowe informacje dotyczące wdrażania projektu.
 
 ### <a name="windows-powershell-publish-script"></a>Skrypt publikowanie programu Windows PowerShell
+
 Skrypt publikowania zawiera kroki publikowania określonych w celu wdrożenia do witryny sieci Web lub maszyny wirtualnej. Program Visual Studio udostępnia kolorowania rozwoju środowiska Windows PowerShell. Pomoc dla funkcji jest dostępna i funkcji w skrypcie ze swoimi potrzebami zmieniających się za darmo można edytować.
 
 ### <a name="windows-powershell-module"></a>Moduł programu Windows PowerShell
-Moduł programu Windows PowerShell, który generuje Visual Studio zawiera funkcje, które używa skryptu publikowania. Te są funkcje programu Azure PowerShell i nie mają być modyfikowane. Zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji.
+
+Moduł programu Windows PowerShell, który generuje Visual Studio zawiera funkcje, które używa skryptu publikowania. Te funkcje programu Azure PowerShell nie mają być modyfikowane. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="json-configuration-file"></a>Plik JSON konfiguracji
 Plik JSON jest tworzony w **konfiguracje** folderu i zawiera dane konfiguracji, które określa dokładnie zasoby, które zostaną wdrażanie na platformie Azure. Nazwa pliku, który generuje Visual Studio jest projektu name-WAWS-dev.json Jeśli utworzono witrynę sieci Web lub projektu Nazwa-maszyny Wirtualnej — dev.json Jeśli utworzono maszynę wirtualną. Oto przykładowy plik JSON konfiguracji, który jest generowany podczas tworzenia witryny sieci Web. Większość wartości nie wymaga wyjaśnień. Nazwa witryny sieci Web jest generowany przez platformę Azure, dlatego mogą być niezgodne nazwę projektu.
@@ -72,7 +76,8 @@ Plik JSON jest tworzony w **konfiguracje** folderu i zawiera dane konfiguracji, 
     }
 }
 ```
-Podczas tworzenia maszyny wirtualnej, plik JSON konfiguracji podobny do następującego. Należy pamiętać, że usługa w chmurze jest tworzony jako kontener dla maszyny wirtualnej. Maszyna wirtualna zawiera zwykle punktów końcowych dla dostępu do sieci web za pośrednictwem protokołu HTTP i HTTPS, a także punktów końcowych dla narzędzia Web Deploy, który umożliwia publikowanie witryny sieci Web z komputera lokalnego, pulpitu zdalnego i środowiska Windows PowerShell.
+
+Podczas tworzenia maszyny wirtualnej, plik JSON konfiguracji podobny do następującego. Usługi w chmurze jest tworzony jako kontener dla maszyny wirtualnej. Maszyna wirtualna zawiera zwykle punktów końcowych dla dostępu do sieci web za pośrednictwem protokołu HTTP i HTTPS, a także punktów końcowych dla narzędzia Web Deploy, który umożliwia publikowanie witryny sieci Web z komputera lokalnego, pulpitu zdalnego i środowiska Windows PowerShell.
 
 ```json
 {
@@ -138,22 +143,24 @@ Podczas tworzenia maszyny wirtualnej, plik JSON konfiguracji podobny do następu
 }
 ```
 
-Można edytować konfigurację JSON, aby zmienić, co się stanie po uruchomieniu skrypty publikowania. `cloudService` i `virtualMachine` sekcje są wymagane, ale można usunąć `databases` sekcji, jeśli nie jest potrzebna. Właściwości, które są puste w Visual Studio generuje domyślny plik konfiguracji jest opcjonalna. wymagane są tymi, które mają wartości w pliku konfiguracji domyślnej.
+Można edytować konfigurację JSON, aby zmienić, co się stanie po uruchomieniu skrypty publikowania. `cloudService` i `virtualMachine` sekcje są wymagane, ale można usunąć `databases` sekcji, jeśli nie jest potrzebna. Właściwości, które są puste w Visual Studio generuje domyślny plik konfiguracji jest opcjonalna. te właściwości, które mają wartości domyślny plik konfiguracji są wymagane.
 
-Jeśli masz witrynę sieci Web, który ma wiele środowisk wdrażania (nazywanych miejscami) zamiast lokacji pojedynczego produkcji na platformie Azure, może zawierać nazwy witryny sieci Web z nazwą miejsca w pliku konfiguracji JSON. Na przykład, jeśli masz witrynę sieci Web o nazwie **witryna** z miejscem dla niego o nazwie **test** , a następnie identyfikator URI jest test.cloudapp.net witrynę, ale mysite(test) jest prawidłowa nazwa do użycia w pliku konfiguracji. Można wykonać tylko w przypadku tej witryny sieci Web i gniazd już istnieją w Twojej subskrypcji. Jeśli nie istnieją, należy utworzyć witrynę sieci Web, uruchamiając skrypt bez określenia miejsca, a następnie utwórz miejsce w [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), a następnie uruchom skrypt o nazwie modyfikacji witryny sieci Web. Aby uzyskać więcej informacji dotyczących miejsc wdrożenia dla aplikacji sieci web, zobacz [Konfigurowanie środowiska dla aplikacji sieci web w usłudze Azure App Service przejściowe](app-service/web-sites-staged-publishing.md).
+Jeśli masz witrynę sieci Web, który ma wiele środowisk wdrażania (nazywanych miejscami) zamiast lokacji pojedynczego produkcji na platformie Azure, może zawierać nazwy witryny sieci Web z nazwą miejsca w pliku konfiguracji JSON. Na przykład, jeśli masz witrynę sieci Web o nazwie **witryna** z miejscem dla niego o nazwie **test** , a następnie identyfikator URI jest `mysite-test.cloudapp.net`, ale mysite(test) jest prawidłowa nazwa do użycia w pliku konfiguracji. Można wykonać tylko w przypadku tej witryny sieci Web i gniazd już istnieją w Twojej subskrypcji. Jeśli nie istnieją, należy utworzyć witrynę sieci Web, uruchamiając skrypt bez określenia miejsca, a następnie utwórz miejsce w [portalu Azure](https://portal.azure.com/), a następnie uruchom skrypt o nazwie modyfikacji witryny sieci Web. Aby uzyskać więcej informacji dotyczących miejsc wdrożenia dla aplikacji sieci web, zobacz [Konfigurowanie środowiska dla aplikacji sieci web w usłudze Azure App Service przejściowe](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Jak uruchomić skrypty publikowania
-Jeśli nigdy nie zostało uruchomione przed skrypt programu Windows PowerShell, należy najpierw ustawić zasady wykonywania, aby umożliwić uruchamianie skryptów. Jest to funkcja zabezpieczeń, aby uniemożliwić użytkownikom uruchamiania skryptów środowiska Windows PowerShell, jeśli są narażone na przed złośliwym oprogramowaniem i wirusami, które obejmują wykonywanie skryptów.
+
+Jeśli nigdy nie zostało uruchomione przed skrypt programu Windows PowerShell, należy najpierw ustawić zasady wykonywania, aby umożliwić uruchamianie skryptów. Zasady jest to funkcja zabezpieczeń, aby uniemożliwić użytkownikom uruchamiania skryptów środowiska Windows PowerShell, jeśli są narażone na przed złośliwym oprogramowaniem i wirusami, które obejmują wykonywanie skryptów.
 
 ### <a name="run-the-script"></a>Uruchom skrypt
+
 1. Tworzenie pakietu Narzędzia Web Deploy w dla projektu. Pakiet Web Deploy jest skompresowanego archiwum (pliku .zip), który zawiera pliki, które ma zostać skopiowany do witryny sieci Web lub maszyny wirtualnej. Pakiety Web Deploy można tworzyć w programie Visual Studio dla dowolnej aplikacji sieci web.
 
 ![Tworzenie sieci Web wdrażanie pakietu](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-Aby uzyskać więcej informacji, zobacz [jak: utworzyć pakiet wdrożeniowy sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Można również zautomatyzować tworzenie pakietu Narzędzia Web Deploy, zgodnie z opisem w sekcji **dostosowywanie i rozszerzanie skrypty publikowania** dalszej części tego tematu.
+Aby uzyskać więcej informacji, zobacz [jak: utworzyć pakiet wdrożeniowy sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Można również zautomatyzować tworzenie pakietu Narzędzia Web Deploy, zgodnie z opisem w [dostosowywanie i rozszerzanie scripts[(#customizing-and-extending-publish-scripts) publikowania]
 
 1. W **Eksploratora rozwiązań**, otwórz menu kontekstowe dla skryptu, a następnie wybierz **otworzyć za pomocą programu PowerShell ISE**.
-2. Jeśli po raz pierwszy, skryptów programu Windows PowerShell zostało uruchomione na tym komputerze, Otwórz okno wiersza polecenia z uprawnieniami administratora i wpisz następujące polecenie:
+2. Jeśli uruchamianie skryptów środowiska Windows PowerShell na tym komputerze po raz pierwszy, Otwórz okno wiersza polecenia z uprawnieniami administratora i wpisz następujące polecenie:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned
@@ -167,7 +174,7 @@ Aby uzyskać więcej informacji, zobacz [jak: utworzyć pakiet wdrożeniowy siec
 
     Po wyświetleniu monitu podaj nazwę użytkownika i hasło.
 
-    Należy zwrócić uwagę podczas automatyzacji skryptu, ta metoda podawania poświadczeń platformy Azure nie będą działać. Zamiast tego należy użyć pliku .publishsettings o podanie poświadczeń. Jeden raz, użyto polecenia **Get-AzurePublishSettingsFile** Pobierz plik z platformy Azure, a następnie użyć **AzurePublishSettingsFile importu** do zaimportowania pliku. Aby uzyskać szczegółowe instrukcje, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+    Należy pamiętać, że podczas automatyzacji skrypt tej metody podawania poświadczeń platformy Azure nie działa. Zamiast tego należy używać `.publishsettings` pliku o podanie poświadczeń. Jeden raz, użyto polecenia **Get-AzurePublishSettingsFile** Pobierz plik z platformy Azure, a następnie użyć **AzurePublishSettingsFile importu** do zaimportowania pliku. Aby uzyskać szczegółowe informacje, zobacz [How to install and configure Azure PowerShell (Jak zainstalować i skonfigurować program Azure PowerShell)](/powershell/azure/overview).
 
 4. (Opcjonalnie) Jeśli chcesz utworzyć zasobów platformy Azure, takich jak maszyny wirtualnej, użyj bazy danych i witryny sieci Web bez publikowania aplikacji sieci web **WebApplication.ps1 publikowania** z **— konfiguracji** argument wartość plik JSON konfiguracji. Ten wiersz polecenia używa plik JSON konfiguracji do określenia, które zasoby do utworzenia. Ponieważ używa ustawień domyślnych dla innych argumentów wiersza polecenia, tworzy zasoby, ale nie publikowania aplikacji sieci web. Verbose — opcja zapewnia więcej informacji o tym, co dzieje.
 
@@ -236,7 +243,7 @@ Aby zautomatyzować tworzenie projektu, Dodaj kod, który wywołuje MSBuild, aby
     }
     ```
 
-3. Zastąp `New-WebDeployPackage` z następujący kod i zastąp symbole zastępcze podczas tworzenia wiersza `$msbuildCmd`. Ten kod jest dla programu Visual Studio 2015. Jeśli używasz programu Visual Studio 2013, zmień **VisualStudioVersion** właściwości poniżej `12.0`.
+3. Zastąp `New-WebDeployPackage` z następujący kod i zastąp symbole zastępcze podczas tworzenia wiersza `$msbuildCmd`. Ten kod jest dla programu Visual Studio 2017 r. Jeśli używasz programu Visual Studio 2015, zmień **VisualStudioVersion** właściwości `14.0` (`12.0` dla programu Visual Studio 2013).
 
     ```powershell
     function New-WebDeployPackage
@@ -249,7 +256,7 @@ Aby zautomatyzować tworzenie projektu, Dodaj kod, który wywołuje MSBuild, aby
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
     Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
     ```
@@ -287,7 +294,7 @@ return $WebDeployPackage
     }
     ```
 
-2. Wywołanie dostosowanego skryptu z wiersza polecenia przy użyciu przekazywanie `$Project` argumentu, tak jak na przykład poniższego polecenia.
+2. Wywołanie dostosowanego skryptu z wiersza polecenia przy użyciu przekazywanie `$Project` argumentu, jak w poniższym przykładzie:
 
     ```powershell
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -300,7 +307,7 @@ return $WebDeployPackage
     Aby zautomatyzować testowania aplikacji, Dodaj kod, aby `Test-WebApplication`. Należy koniecznie Usuń komentarz linii w **WebApplication.ps1 publikowania** gdzie te funkcje są wywoływane. Jeśli nie zapewniać implementację, należy ręcznie utworzyć projektu za pomocą programu Visual Studio, a następnie uruchom skrypt publish do publikowania na platformie Azure.
 
 ## <a name="publishing-function-summary"></a>Podsumowanie funkcji publikowania
-Aby uzyskać pomoc dotyczącą funkcje, których można użyć w wierszu polecenia programu Windows PowerShell, użyj polecenia `Get-Help function-name`. Pomoc zawiera parametr pomocy i przykłady. Ten sam tekst pomocy jest również w plikach źródłowych skryptu, **AzureWebAppPublishModule.psm1** i **WebApplication.ps1 publikowania**. Skrypt i pomocy są zlokalizowane w języku Visual Studio.
+Aby uzyskać pomoc dotyczącą funkcje, których można użyć w wierszu polecenia programu Windows PowerShell, użyj polecenia `Get-Help function-name`. Pomoc zawiera parametr pomocy i przykłady. Ten sam tekst pomocy jest również w plikach źródłowych skryptu **AzureWebAppPublishModule.psm1** i **WebApplication.ps1 publikowania**. Skrypt i pomocy są zlokalizowane w języku Visual Studio.
 
 **AzureWebAppPublishModule**
 
@@ -310,13 +317,13 @@ Aby uzyskać pomoc dotyczącą funkcje, których można użyć w wierszu polecen
 | Dodaj AzureSQLDatabases |Tworzy baz danych Azure SQL z wartości w pliku konfiguracji JSON, który generuje Visual Studio. |
 | Dodaj AzureVM |Tworzy maszynę wirtualną platformy Azure i zwraca adres URL wdrożonej maszyny wirtualnej. Funkcja konfiguruje wymagania wstępne, a następnie wywołuje **AzureVM nowy** funkcji (moduł Azure), aby utworzyć nową maszynę wirtualną. |
 | Dodaj AzureVMEndpoints |Dodaje nowe wejściowych punktów końcowych do maszyny wirtualnej i przywraca maszynę wirtualną z nowego punktu końcowego. |
-| Dodaj AzureVMStorage |Tworzy nowe konto magazynu Azure w bieżącej subskrypcji. Nazwa konta zaczyna się od "devtest", po której następują unikatowy ciąg alfanumeryczny. Funkcja zwraca nazwę nowego konta magazynu. Należy określić lokalizację i grupę koligacji dla nowego konta magazynu. |
+| Dodaj AzureVMStorage |Tworzy nowe konto magazynu Azure w bieżącej subskrypcji. Nazwa konta zaczyna się od "devtest", po której następują unikatowy ciąg alfanumeryczny. Funkcja zwraca nazwę nowego konta magazynu. Określ lokalizację lub grupę koligacji dla nowego konta magazynu. |
 | Dodaj AzureWebsite |Tworzy witrynę sieci Web o określonej nazwie i lokalizacji. Ta funkcja wymaga **AzureWebsite nowy** funkcji w module usługi Azure. Jeśli subskrypcja nie zawiera już witryna sieci Web o określonej nazwie, ta funkcja tworzy witryny sieci Web i zwraca obiekt witryny sieci Web. W przeciwnym razie zwraca `$null`. |
 | Subskrypcji kopii zapasowej |Zapisuje bieżący subskrypcji platformy Azure w `$Script:originalSubscription` zmiennej w zakresie skryptu. Ta funkcja jest zapisywany bieżącej subskrypcji platformy Azure (uzyskanych przez `Get-AzureSubscription -Current`) i jego konta magazynu i subskrypcji, która zostanie zmieniona przez ten skrypt (przechowywana w zmiennej `$UserSpecifiedSubscription`), a jego konto magazynu w zakresie skryptu. Po zapisaniu wartości, można użyć funkcji, takich jak `Restore-Subscription`, aby przywrócić oryginalne bieżącego konta subskrypcji i magazynu bieżący stan, jeśli bieżący stan został zmieniony. |
 | Znajdź AzureVM |Pobiera określonej maszyny wirtualnej platformy Azure. |
 | Format DevTestMessageWithTime |Dołącza datę i godzinę do wiadomości. Ta funkcja jest przeznaczona dla komunikatów zapisywanych strumienie błąd i pełne. |
 | Get-AzureSQLDatabaseConnectionString |Zbierane parametry połączenia do łączenia z bazą danych Azure SQL. |
-| Get-AzureVMStorage |Zwraca nazwę pierwsze konto magazynu przy użyciu wzorca nazwy "devtest*" (bez uwzględniania wielkości liter) w określonej lokalizacji lub grupie koligacji. Jeśli "devtest*" konta magazynu jest niezgodne lokalizacja lub grupa koligacji, funkcja ignoruje go. Należy określić lokalizację i grupę koligacji. |
+| Get-AzureVMStorage |Zwraca nazwę pierwsze konto magazynu przy użyciu wzorca nazwy "devtest*" (bez uwzględniania wielkości liter) w określonej lokalizacji lub grupie koligacji. Jeśli "devtest*" konta magazynu jest niezgodne lokalizacja lub grupa koligacji, funkcja ignoruje go. Określ lokalizację lub grupę koligacji. |
 | Get-MSDeployCmd |Zwraca polecenie do uruchomienia narzędzia MsDeploy.exe. |
 | Nowe AzureVMEnvironment |Wyszukuje lub tworzy maszynę wirtualną w subskrypcji, która odpowiada wartości w pliku konfiguracji JSON. |
 | Publikowanie WebPackage |Używa MsDeploy.exe i sieci web publikowania pakietu. Plik zip do wdrażania zasobów do witryny sieci Web. Ta funkcja nie generuje żadnego wyniku. Jeśli wywołanie MSDeploy.exe zakończy się niepowodzeniem, funkcja zwraca wyjątek. Aby uzyskać bardziej szczegółowe dane wyjściowe, należy użyć **-Verbose** opcji. |

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie zarządzanego obrazu uogólniony maszyny wirtualnej na platformie Azure
 
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji, zobacz [przechowywanie wersji programu Azure Po
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Tworzenie obrazu z dyskiem zarządzanym przy użyciu programu PowerShell
 
-Jeśli chcesz utworzyć obraz dysku systemu operacyjnego, użytkownik może również umieszczaniu go na palecie obrazu, określając identyfikatorze dysku zarządzanego jako dysk systemu operacyjnego.
+Jeśli chcesz utworzyć obraz dysku systemu operacyjnego, można również utworzyć obrazu, określając identyfikatorze dysku zarządzanego jako dysk systemu operacyjnego.
 
     
 1. Utwórz niektóre zmienne. 

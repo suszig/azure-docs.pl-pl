@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Przenoszenie danych do i z usługi Azure Storage
 Jeśli chcesz przenieść lokalne na dane do magazynu Azure (lub odwrotnie), dostępne są na różne sposoby, w tym celu. Podejście, który jest najbardziej będzie zależeć od danego scenariusza. W tym artykule zapewnia szybki przegląd różnych scenariuszy i odpowiednich ofert dla każdej z nich.
@@ -76,4 +76,4 @@ Gdy masz lokalne obciążeń i aplikacji, konieczne będzie rozwiązanie umożli
 Zobacz [usługi Azure Site Recovery](../../site-recovery/site-recovery-overview.md) Aby dowiedzieć się więcej.
 ### <a name="moving-data-faq"></a>Przenoszenie danych często zadawane pytania:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Można przeprowadzić migrację, wirtualne dyski twarde z jednego regionu na inny bez kopiowania?
-Jedynym sposobem, aby skopiować wirtualne dyski twarde między region jest kopiowanie danych między kontami magazynu w każdym regionie. Narzędzia AZCopy można użyć w tym. Zobacz transferu danych za pomocą wiersza polecenia Azcopy Aby dowiedzieć się więcej. W przypadku bardzo dużych ilości danych można także Import/Eksport Azure. Zobacz [Import/Eksport Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) Aby dowiedzieć się więcej.
+Jedynym sposobem, aby skopiować wirtualne dyski twarde między region jest kopiowanie danych między kontami magazynu w każdym regionie. Narzędzia AZCopy można użyć w tym. Zobacz transferu danych za pomocą wiersza polecenia Azcopy Aby dowiedzieć się więcej. W przypadku bardzo dużych ilości danych można także Import/Eksport Azure. Zobacz [Import/Eksport Azure](https://docs.microsoft.com/azure/storage/storage-import-export-service) Aby dowiedzieć się więcej.

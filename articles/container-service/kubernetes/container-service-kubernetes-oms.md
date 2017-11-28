@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e171d1ef09712362ff1aabd783449abaed9daaf7
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: c402d81841ed5a79df8a84d1f69f984d010dbe0d
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitor klastra usługi kontenera platformy Azure z Microsoft Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ $ az --version
 ```
 
 Jeśli nie masz `az` narzędzie zainstalowane, nie ma instrukcji [tutaj](https://github.com/azure/azure-cli#installation).  
-Alternatywnie można użyć [powłoki chmury Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), który ma `az` interfejsu wiersza polecenia platformy Azure i `kubectl` narzędzia już zainstalowane automatycznie.  
+Alternatywnie można użyć [powłoki chmury Azure](https://docs.microsoft.com/azure/cloud-shell/overview), który ma `az` interfejsu wiersza polecenia platformy Azure i `kubectl` narzędzia już zainstalowane automatycznie.  
 
 Możesz przetestować, jeśli masz `kubectl` zainstalowany, uruchamiając narzędzie:
 

@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux na dystrybucje zatwierdzone przez platformę Azure
 Partnerzy Podaj Linux obrazów w portalu Azure Marketplace. Pracujemy nad różne społeczności Linux można dodać więcej odmian do listy dystrybucyjnej zatwierdzone. Tymczasem dystrybucji, które nie są dostępne z poziomu portalu Marketplace, zawsze przełączeniem własne Linux przez zgodnie z wytycznymi na [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Obsługiwane dystrybucje i wersje
-W poniższej tabeli wymieniono dystrybucje systemu Linux i wersje, które są obsługiwane na platformie Azure. Zapoznaj się [obrazy obsługę systemu Linux w programie Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) więcej szczegółowych informacji.
+W poniższej tabeli wymieniono dystrybucje systemu Linux i wersje, które są obsługiwane na platformie Azure. Zapoznaj się [obsługę obrazów systemu Linux na platformie Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) bardziej szczegółowe informacje o pomocy technicznej dla systemów Linux i technologii typu open source na platformie Azure.
 
 Sterowniki usługi integracji systemu Linux (LIS) dla funkcji Hyper-V i platformy Azure są moduły jądra, które Microsoft przyczynia się bezpośrednio do nadrzędnego jądra systemu Linux.  Niektóre sterowniki LIS są wbudowane w jądra dystrybucji domyślnie. Starsze dystrybucji, które są oparte na Red Hat Enterprise (RHEL) / CentOS są dostępne jako osobny plik do pobrania na [Linux Integration Services wersji 4.1 dla funkcji Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Zobacz [wymagania jądra systemu Linux](create-upload-generic.md#linux-kernel-requirements) Aby uzyskać więcej informacji o sterownikach LIS.
 
 Agent systemu Linux Azure została już wcześniej zainstalowana na obrazów Azure Marketplace i są zwykle dostępne z repozytorium pakietów dystrybucji. Kod źródłowy znajduje się na [GitHub](https://github.com/azure/walinuxagent).
 
+  
 | Dystrybucja | Wersja | Sterowniki | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [Pobierz LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: W przypadku jądra |Pakiecie: [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ Agent systemu Linux Azure została już wcześniej zainstalowana na obrazów Azu
 | Oracle Linux |6.4+, 7.0+ |Jądra |Pakiet: W repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 + 7.1 + |Jądra |Pakiet: W repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES dla SAP<br>11 Z DODATKIEM SP4<br>Z DODATKIEM SP1 12 +|Jądra |Pakiet:<p> 11 WE [chmury: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium<br>dla 12 zawarte w Module "Chmura publiczna" w obszarze "python-azure-agent"<br/>Kod źródłowy: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE przestępnego 42.1 + |Jądra |Pakiecie: [chmury: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium, w obszarze "python-azure-agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |Jądra |Pakiet: W repozytorium w obszarze "walinuxagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE przestępnego 42.2 + |Jądra |Pakiecie: [chmury: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium, w obszarze "python-azure-agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |Jądra |Pakiet: W repozytorium w obszarze "walinuxagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>**  pomocy technicznej dla 12.04 Ubuntu na platformie Azure, zapoznaj się [powiadomienia EOL](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>Partnerzy
 
@@ -59,7 +63,7 @@ Credativ jest niezależne konsultacji i usług firmy, która specjalizuje się w
 ### <a name="oracle"></a>Oracle
 [http://www.Oracle.com/technetwork/topics/cloud/FAQ-1963009.HTML](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Strategia programu Oracle polega na oferuje szeroką gamę rozwiązań dla chmur prywatnych i publicznych. Strategia zapewnia klientom wybór i elastyczność w sposób wdrażania oprogramowania Oracle w chmurach programu Oracle i innych chmur. Partnerstwo w zakresie programu Oracle z firmą Microsoft umożliwia klientom wdrożenia oprogramowania Oracle w chmur prywatnych i publicznych bez obaw certyfikacji firmy Microsoft i pomocy technicznej z programu Oracle.  Zobowiązań programu Oracle i inwestycji w rozwiązaniach chmury publicznej i prywatnej Oracle nie ulega zmianie.
+Strategia programu Oracle polega na oferuje szeroką gamę rozwiązań dla chmur prywatnych i publicznych. Strategia zapewnia klientom wybór i elastyczność w sposób wdrażania oprogramowania Oracle w chmurach programu Oracle i innych chmur. Partnerstwo firmy Oracle z firmą Microsoft umożliwia klientom wdrażanie oprogramowania Oracle w chmurach publicznych i prywatnych firmy Microsoft przy zapewnieniu certyfikacji i wsparcia firmy Oracle.  Zobowiązań programu Oracle i inwestycji w rozwiązaniach chmury publicznej i prywatnej Oracle nie ulega zmianie.
 
 ### <a name="red-hat"></a>Red Hat
 [http://www.RedHat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)

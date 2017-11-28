@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Pojęcia dotyczące usługi Azure Event siatki
 
@@ -20,7 +20,7 @@ Główne pojęcia w siatce zdarzeń Azure są:
 
 ## <a name="events"></a>Zdarzenia
 
-Zdarzenie jest najmniejsza ilość danych opisujący pełni coś się stało w systemie.  Każde zdarzenie zawiera typowe informacje, takie jak: źródło zdarzenia, czas zdarzenia miały miejsce i unikatowym identyfikatorem.  Każde zdarzenie ma również informacje, na które jest tylko istotne dla konkretnego zdarzenia. Na przykład zdarzenie o nowy plik tworzony w usłudze Azure Storage zawiera szczegółowe informacje o pliku, na przykład wartość lastTimeModified. Lub zdarzenia o ponowny rozruch maszyny wirtualnej zawiera nazwę maszyny wirtualnej i przyczynę ponownego uruchomienia. Każde wydarzenie jest ograniczony do 64 KB danych.
+Zdarzenie jest najmniejsza ilość danych opisujący pełni coś się stało w systemie.  Każde zdarzenie zawiera typowe informacje, takie jak: źródło zdarzenia, czas zdarzenia miały miejsce i unikatowym identyfikatorem.  Każde zdarzenie ma również informacje, na które jest tylko istotne dla określonego typu zdarzenia. Na przykład zdarzenia o nowy plik tworzony w usłudze Azure Storage zawiera szczegółowe informacje o pliku, takie jak `lastTimeModified` wartość. Lub zdarzenia o ponowny rozruch maszyny wirtualnej zawiera nazwę maszyny wirtualnej i przyczynę ponownego uruchomienia. Każde wydarzenie jest ograniczony do 64 KB danych.
 
 ## <a name="event-sourcespublishers"></a>Wydawcy źródła zdarzeń
 
@@ -46,7 +46,7 @@ Gdy subskrypcja tematu, można filtrować zdarzenia, które są wysyłane do pun
 
 ## <a name="security"></a>Bezpieczeństwo
 
-Zdarzenie bezpieczeństwo subskrybowanie tematów i publikowania tematów. Gdy subskrypcja, musi mieć odpowiednie uprawnienia na zasobów lub tematu. Podczas publikowania, musi mieć tokenu sygnatury dostępu Współdzielonego lub uwierzytelniania opartego na kluczu dla tematu. Aby uzyskać więcej informacji, zobacz [siatki zdarzeń zabezpieczeń i uwierzytelniania](security-authentication.md).
+Zdarzenie siatki bezpieczeństwo subskrybowanie tematów i publikowania tematów. Gdy subskrypcja, musi mieć odpowiednie uprawnienia na zasobów lub tematu. Podczas publikowania, musi mieć tokenu sygnatury dostępu Współdzielonego lub uwierzytelniania opartego na kluczu dla tematu. Aby uzyskać więcej informacji, zobacz [siatki zdarzeń zabezpieczeń i uwierzytelniania](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Dostarczenie nie powiodło się
 

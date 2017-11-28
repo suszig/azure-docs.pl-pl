@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09850217018321f67e2e20270aadd054258c90a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiowanie danych z bazy danych Oracle lokalnymi przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -573,10 +573,10 @@ Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są u�
 | Typ danych Oracle | Typ danych .NET framework |
 | --- | --- |
 | BPLIK |Byte] |
-| OBIEKT BLOB |Byte] |
+| OBIEKT BLOB |Byte]<br/>(obsługiwana tylko na Oracle 10 GB/s i wyższe, gdy za pomocą sterownika Microsoft) |
 | CHAR |Ciąg |
 | CLOB |Ciąg |
-| DATA |Data i godzina |
+| DATA |Data/godzina |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
 | INTERWAŁ ROK, MIESIĄC |Int32 |
@@ -589,9 +589,9 @@ Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są u�
 | NVARCHAR2 |Ciąg |
 | NIEPRZETWORZONE |Byte] |
 | ROWID |Ciąg |
-| ZNACZNIK CZASU |Data i godzina |
-| SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Data i godzina |
-| SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Data i godzina |
+| ZNACZNIK CZASU |Data/godzina |
+| SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Data/godzina |
+| SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Data/godzina |
 | LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |
 | VARCHAR2 |Ciąg |
 | XML |Ciąg |

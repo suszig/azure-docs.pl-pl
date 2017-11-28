@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informacje o i dostosować jednostek przesyłania strumieniowego
 
@@ -59,7 +59,6 @@ Aby uzyskać więcej informacji na temat wybierania prawidłowej liczby SUs stro
 
 > [!Note]
 > Wybranie liczby SUs są wymagane dla określonego zadania zależy od konfiguracji partycji dla danych wejściowych oraz zapytania zdefiniowanych dla tego zadania. Można wybrać do limitu przydziału w SUs dla zadania. Domyślnie każdej subskrypcji platformy Azure ma limit przydziału wynoszący maksymalnie 200 SUs dla wszystkich zadań analityka w określonym regionie. Aby zwiększyć SUs dla Twojej subskrypcji po przekroczeniu tego przydziału, skontaktuj się z [Microsoft Support](http://support.microsoft.com). Prawidłowe wartości SUs na zadanie to 1, 3, 6 oraz w przyrostach 6.
-> Należy pamiętać, że przy użyciu funkcji 1 SU nie jest zalecany do zadań produkcji. Firma Microsoft zwykle zadania polegającego na 1 SU zadania należy używać tylko prototypowania i testowania.
 
 
 

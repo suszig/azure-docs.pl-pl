@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Uruchamianie zapytań ad hoc analytics przez wiele baz danych Azure SQL
 
@@ -52,12 +52,11 @@ Uzyskiwanie dostępu do tych danych w jednej wielodostępnej bazie danych jest �
 
 Przekazując kwerendy bazy danych dzierżawy, elastycznej zapytania zapewnia błyskawiczny wgląd w danych produkcyjnych na żywo. Jednak jak elastycznej zapytanie pobiera dane z potencjalnie wiele baz danych, opóźnienie kwerendy można czasami być wyższy niż równoważne zapytań przesłane do pojedynczej bazy danych wielu dzierżawców. Pamiętaj, aby projektowania zapytań zminimalizowanie ilości danych, która jest zwracana. Elastyczne zapytania jest często najlepiej dopasowane do badania niewielkich ilości danych w czasie rzeczywistym, w przeciwieństwie do budynku często używane lub analityka złożonych kwerend lub raportów. Jeśli zapytania nie zostaną wykonane prawidłowo, sprawdzić [plan wykonania](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) aby zobaczyć, jakie część zapytania jest przesuwana, do zdalnej bazy danych. I ocenić, jak dużo danych zostały zwrócone. Zapytania, które wymagają złożonych przetwarzania analitycznego mogą być lepiej obsługiwane przez zapisywanie danych wyodrębnionych dzierżawy do bazy danych, która jest zoptymalizowana pod kątem zapytań analytics. Baza danych SQL i usługi SQL Data Warehouse może udostępniać bazie analytics.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Ten wzorzec analytics została szczegółowo [samouczek analizy dzierżawy](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS wielodostępne w bazie danych
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Pobieranie kodu źródłowego aplikacji Wingtip biletów SaaS wielodostępne w bazie danych i skryptów
 
-Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [repozytorium github WingtipTicketsSaaS MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Upewnij się, że postępuj zgodnie z instrukcjami odblokowywania opisane w pliku readme.
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Tworzenie danych sprzedaży biletów
 
@@ -96,7 +95,7 @@ Tego ćwiczenia dodaje schematu (zewnętrznego źródła danych i definicji tabe
 
     ![Tworzenie poświadczeń](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Źródło danych zewnętrznych zdefiniowanego można użyć mapy niezależnego fragmentu dzierżawcy w bazie danych katalogu. Korzystając z niniejszego jako zewnętrzne źródło danych, zapytania są dystrybuowane do wszystkich baz danych zarejestrowane w wykazie, po uruchomieniu kwerendy. Ponieważ nazwy serwerów są różne dla każdego wdrożenia, ten skrypt inicjacji pobiera lokalizacji bazy danych katalogu, pobierając bieżącego serwera (@@servername) gdy skrypt zostanie wykonany.
+   Przy użyciu bazy danych katalogu jako zewnętrzne źródło danych, zapytania są dystrybuowane do wszystkich baz danych zarejestrowane w wykazie, po uruchomieniu kwerendy. Ponieważ nazwy serwerów są różne dla każdego wdrożenia, ten skrypt inicjacji pobiera lokalizacji bazy danych katalogu, pobierając bieżącego serwera (@@servername) gdy skrypt zostanie wykonany.
 
     ![Tworzenie zewnętrznego źródła danych](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Teraz, gdy *adhocreporting* baza danych jest skonfigurowany, przejdź dalej i ur
 
 Podczas sprawdzania plan wykonania, umieść kursor nad ikony planu, aby uzyskać szczegółowe informacje. 
 
-1. Otwórz... \\Modułów szkoleniowych\\operacyjne Analytics\\raportowania ad hoc\\*AdhocReportingQueries.sql pokaz* w programie SSMS.
+1. W *SSMS*, Otwórz... \\Modułów szkoleniowych\\operacyjne Analytics\\raportowania ad hoc\\*AdhocReportingQueries.sql pokaz*.
 2. Upewnij się, czy nawiązano **adhocreporting** bazy danych.
 3. Wybierz **zapytania** menu i kliknij przycisk **obejmują rzeczywisty Plan wykonania**
 4. Wyróżnij *miejsc, które są obecnie zarejestrowane?* zapytania, a następnie naciśnij klawisz **F5**.
@@ -155,9 +154,7 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 > * Uruchamiania rozproszonych zapytań dla wszystkich baz danych dzierżawy
 > * Wdrażanie ad hoc bazy danych raportowania i dodać schematu do jego uruchomienie zapytań rozproszonych.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Teraz spróbuj [samouczek analizy dzierżawy](saas-multitenantdb-tenant-analytics.md) do eksplorowania wyodrębnianie danych do bazy danych analizy oddzielne bardziej złożone analizy przetwarzania.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

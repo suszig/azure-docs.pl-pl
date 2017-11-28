@@ -1,5 +1,5 @@
 ---
-title: "Przygotowanie do publikowania lub wdrażania aplikacji Azure w programie Visual Studio | Dokumentacja firmy Microsoft"
+title: "Przygotowanie do publikowania lub wdrażania usługi w chmurze w programie Visual Studio | Dokumentacja firmy Microsoft"
 description: "Dowiedz się procedury konfigurowania chmur i konto usługi magazynu i konfigurowania aplikacji platformy Azure."
 services: visual-studio-online
 documentationcenter: na
@@ -12,114 +12,75 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: cc4fb87e559f554634ae062a59bee31f0831da64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b2043ada193e5a08957656e153b58a61e7eba9e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Przygotowanie do publikowania lub wdrażania aplikacji Azure w programie Visual Studio
-## <a name="overview"></a>Omówienie
-Zanim będzie można opublikować projekt usługi w chmurze, należy skonfigurować następujące usługi:
+# <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Przygotowanie do publikowania lub wdrażania usługi w chmurze w programie Visual Studio
 
-* A **usługi w chmurze** do uruchomienia z ról w środowisku platformy Azure
+Aby opublikować projekt usługi w chmurze, należy skonfigurować następujące usługi zgodnie z opisem w tym artykule:
+
+* A **usługi w chmurze** do uruchamiania w środowisku platformy Azure, ról i 
 * A **konta magazynu** , który zapewnia dostęp do usług obiektów Blob, kolejki i tabeli.
 
-Użyj następujących procedur, aby skonfigurować tych usług i aplikacji
-
 ## <a name="create-a-cloud-service"></a>Tworzenie usługi w chmurze
-Aby opublikować usługi w chmurze na platformie Azure, musi najpierw utworzyć usługi w chmurze, uruchamianego ról w środowisku platformy Azure. Można utworzyć usługi w chmurze w [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), zgodnie z opisem w sekcji **można utworzyć usługi w chmurze przy użyciu klasycznego portalu Azure**w dalszej części tego tematu. Usługi w chmurze można również utworzyć w programie Visual Studio, używając Kreatora publikacji.
 
-### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>Aby utworzyć usługi w chmurze przy użyciu programu Visual Studio
-1. Otwórz menu skrótów dla usługi Azure projektu i wybierz polecenie **publikowania**.
+Usługi w chmurze uruchamia ról w środowisku platformy Azure. Można utworzyć usługi w chmurze w programie Visual Studio lub za pomocą [portalu Azure](https://portal.azure.com/) zgodnie z opisem w poniższych sekcjach.
 
-    ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
-2. Jeśli masz konta, zaloguj się przy użyciu nazwy użytkownika i hasła dla konta Microsoft lub konta organizacyjnego, który został skojarzony z subskrypcją platformy Azure.
-3. Wybierz **dalej** przycisk, aby przejść do **ustawienia** strony.
+### <a name="create-a-cloud-service-from-visual-studio"></a>Tworzenie usługi w chmurze w programie Visual Studio
 
-    ![Typowe ustawienia publikowania Kreatora](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
-4. W **usługi w chmurze** wybierz **Utwórz nowy**. **Tworzenie usług Azure** zostanie wyświetlone okno dialogowe.
-5. Wprowadź nazwę usługi w chmurze. Nazwa stanowi część adresu URL usługi i dlatego musi być globalnie unikatowa. Nazwa nie jest rozróżniana wielkość liter.
+1. Z wcześniej utworzonej projektu usługi w chmurze, kliknij prawym przyciskiem myszy projekt wybierz **publikowania**.
+1. Jeśli to konieczne, zaloguj się przy użyciu Microsoft lub konta organizacyjnego skojarzone z subskrypcją platformy Azure, a następnie wybierz **dalej** aby przejść do **ustawienia** strony.
+1. A **Tworzenie usługi w chmurze i konto magazynu** zostanie wyświetlone okno dialogowe (Jeśli nie, wybierz **Utwórz nowy** z **usługi w chmurze** listy).
+1. Wprowadź nazwę bez uwzględniania wielkości liter dla usługi w chmurze, który stanowi część adresu URL i musi być unikatowa. Również wybrać Region lub grupę koligacji, a następnie wybierz opcję replikacji.
 
-### <a name="to-create-a-cloud-service-by-using-the-azure-classic-portal"></a>Aby utworzyć usługi w chmurze przy użyciu klasycznego portalu Azure
-1. Zaloguj się do [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkId=253103) w witrynie firmy Microsoft.
-2. (opcjonalnie) Aby wyświetlić listę usług w chmurze, które zostały już utworzone, wybierz link usługi w chmurze w lewej części strony.
-3. Wybierz  **+**  ikonę w lewym dolnym rogu, a następnie wybierz pozycję **usługi w chmurze** w wyświetlonym menu. Inny ekran z dwóch opcji **szybkie tworzenie** i **Utwórz niestandardowy**, zostanie wyświetlone. Jeśli wybierzesz **szybkie tworzenie**, można utworzyć usługi w chmurze tylko przez określenie adresu URL i regionu, w którym będzie fizycznie obsługiwana. Jeśli wybierzesz **Utwórz niestandardowy**, natychmiast można opublikować usługi w chmurze, określając pakietu (pliku cspkg), plik konfiguracji (cscfg), a certyfikat. Tworzenie niestandardowych nie jest wymagane, jeśli zamierzasz opublikować usługi w chmurze za pomocą **publikowania** polecenia w projekcie platformy Azure. **Publikowania** polecenie jest dostępne w menu skrótów projektu platformy Azure.
-4. Wybierz **szybkie tworzenie** później publikowania usługi w chmurze przy użyciu programu Visual Studio.
-5. Określ nazwę usługi w chmurze. Pełny adres URL jest wyświetlany obok nazwy.
-6. Na liście Wybierz region, w którym znajdują się większość użytkowników.
-7. W dolnej części okna wybierz **Tworzenie usługi w chmurze** łącza.
+### <a name="create-a-cloud-service-through-the-azure-portal"></a>Tworzenie usługi w chmurze za pośrednictwem portalu Azure
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Wybierz **usługi w chmurze (klasyczne)** w lewej części strony.
+1. Wybierz **+ Dodaj**, następnie podaj wymagane informacje (nazwa DNS, subskrypcji, grupy zasobów i lokalizacja). Nie jest konieczne w celu przekazania pakietu w tym momencie, ponieważ można to zrobić później w programie Visual Studio.
+1. Wybierz **Utwórz** aby ukończyć proces.
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-Konto magazynu zapewnia dostęp do usług obiektów Blob, kolejki i tabeli. Konto magazynu można utworzyć za pomocą programu Visual Studio lub [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
 
-### <a name="to-create-a-storage-account-by-using-visual-studio"></a>Aby utworzyć konto magazynu przy użyciu programu Visual Studio
-1. W **Eksploratora rozwiązań**, otwórz menu skrótów **magazynu** węzeł, a następnie wybierz pozycję **Utwórz konto magazynu**.
+Konto magazynu zapewnia dostęp do usług obiektów Blob, kolejki i tabeli. Można utworzyć konta magazynu za pomocą programu Visual Studio lub [portalu Azure](https://portal.azure.com/).
 
-    ![Utwórz nowe konto magazynu Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
-2. Wybierz lub wprowadź następujące informacje dotyczące nowego konta magazynu w **Utwórz konto magazynu** okno dialogowe.
+### <a name="create-a-storage-account-from-visual-studio"></a>Utwórz konto magazynu w programie Visual Studio
 
-   * Subskrypcja platformy Azure, do której chcesz dodać konto magazynu.
-   * Nazwa, którą chcesz użyć dla nowego konta magazynu.
-   * Region lub grupę koligacji, (na przykład zachodnie stany USA lub Azja Wschodnia).
-   * Typ replikacji, który ma być używany dla konta magazynu, takich jak geograficznie nadmiarowy.
-3. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**. Nowe konto magazynu jest wyświetlana w **magazynu** na liście **Eksploratora serwera**.
+1. W **Eksploratora rozwiązań** z wcześniej utworzonej projektu usługi w chmurze, zlokalizuj **usług połączonych** węzła w projekcie roli, kliknij prawym przyciskiem myszy i wybierz **dodać podłączonej usługi**. (W programie Visual Studio 2015, kliknij prawym przyciskiem myszy **magazynu** a następnie wybierz węzeł **Utwórz konto magazynu**.)
+1. W **usług połączonych** listy, wybierz **magazynu w chmurze z usługą Azure Storage**.
+1. W oknie dialogowym usługi Azure Storage, który pojawia się, wybierz **+ Utwórz nowe konto magazynu**, który wyświetla okno dialogowe z określonymi subskrypcji, nazwę fo konta, cenową warstwy, grupy zasobów i lokalizacji.
+1. Wybierz **Utwórz** po zakończeniu. Nowe konto magazynu zostanie wyświetlony na liście kont magazynu dostępne w ramach subskrypcji.
+1. Wybierz konto, a następnie zaznacz **Dodaj**.
 
-### <a name="to-create-a-storage-account-by-using-the-azure-classic-portal"></a>Aby utworzyć konto magazynu przy użyciu klasycznego portalu Azure
-1. Zaloguj się do [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkId=253103) w witrynie firmy Microsoft.
-2. (Opcjonalnie) Aby wyświetlić kont magazynu, wybierz **magazynu** łącze w panelu w lewej części strony.
-3. W lewym dolnym rogu strony, wybierz  **+**  ikony.
-4. W wyświetlonym menu wybierz **magazynu**, a następnie wybierz pozycję **szybkie tworzenie**.
-5. Nadaj nazwę, która spowoduje unikatowy adres url konta magazynu.
-6. Nadaj nazwę usługi w chmurze. Pełny adres URL jest wyświetlany obok nazwy.
-7. Na liście regionów wybierz region, w którym znajdują się większość użytkowników.
-8. Określ, czy chcesz włączyć replikację geograficzną. Jeśli możesz włączyć replikację geograficzną, dane zostaną zapisane w wielu lokalizacjach fizycznych, aby zmniejszyć prawdopodobieństwo utraty. Ta funkcja umożliwia bardziej kosztownego magazynowania, ale można zmniejszyć koszty przez włączenie lokalizacji geograficznej, podczas tworzenia konta magazynu, zamiast dodawania funkcji później. Aby uzyskać więcej informacji, zobacz [— replikacja geograficzna](http://go.microsoft.com/fwlink/?LinkId=253108).
-9. W dolnej części okna wybierz **Utwórz konto magazynu** łącza.
+### <a name="create-a-storage-account-through-the-azure-portal"></a>Tworzenie konta magazynu za pośrednictwem portalu Azure
 
-Po utworzeniu konta magazynu zobaczysz adresów URL, które umożliwiają dostęp do zasobów w każdej z usług Azure storage, a także klucze podstawowe i pomocnicze dostępu dla konta. Te klucze służy do uwierzytelniania żądań wysyłanych z usług magazynu.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Wybierz **+ nowy** w lewej górnej części.
+1. Wybierz **magazynu** w obszarze "Azure Marketplace," następnie **konta magazynu — obiekt blob, plików, tabeli, kolejki** z prawej strony.
+1. Podaj wymagane informacje (nazwa, model wdrażania i tak dalej.
+1. Wybierz **Utwórz** aby ukończyć proces.
 
-> [!NOTE]
-> Pomocniczy klucz dostępu zawiera takie same prawa dostępu do konta magazynu jako podstawowy klucz dostępu i jest generowany na nazwę kopii zapasowej klucza podstawowego dostępu zagrożenia bezpieczeństwa. Ponadto zaleca się ponowne generowanie kluczy dostępu na bieżąco. Można zmodyfikować ustawienie parametrów połączenia, aby używać klucza pomocniczego podczas ponownego generowania klucza podstawowego, a następnie zmodyfikować, aby użyć wygenerowano ponownie klucz podstawowy, podczas ponownego generowania klucza pomocniczego.
->
->
+## <a name="configure-your-app-to-use-the-storage-account"></a>Skonfiguruj aplikację, aby użyć konta magazynu
 
-## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Skonfiguruj aplikację, aby używać usług świadczonych przez konta magazynu
-Należy skonfigurować dowolnej roli, który uzyskuje dostęp do usługi magazynu do użycia usług Azure storage, które zostały utworzone. Aby to zrobić, można użyć wielu konfiguracji usługi Azure projektu. Domyślnie dwa są tworzone w projekcie platformy Azure. Za pomocą wielu konfiguracji usługi, możesz użyć tych samych parametrach połączenia w kodzie, ale ma inną wartość parametrów połączenia w każdej konfiguracji usługi. Na przykład można użyć jedną konfigurację usługi do uruchamiania i debugowania aplikacji lokalnie za pomocą emulatora magazynu Azure i konfiguracji innej usługi, aby opublikować aplikację na platformie Azure. Aby uzyskać więcej informacji dotyczących konfiguracji usługi, zobacz [Konfigurowanie Your Azure projektu przy użyciu usługi konfiguracji z wieloma](vs-azure-tools-multiple-services-project-configurations.md).
+Po utworzeniu konta magazynu, nawiązując z nią połączenie za pomocą programu Visual Studio automatycznie aktualizuje konfiguracje usług dla projektu, w tym adresy URL i klucze dostępu.
 
-### <a name="to-configure-your-application-to-use-services-that-the-storage-account-provides"></a>Aby skonfigurować aplikację do korzystania z usług, które udostępnia konta magazynu
-1. W programie Visual Studio Otwórz rozwiązania Azure. W Eksploratorze rozwiązań Otwórz menu skrótów dla każdej roli w projekcie platformy Azure, który uzyskuje dostęp do usług magazynu i wybierz polecenie **właściwości**. Strona z nazwą roli jest wyświetlany w edytorze programu Visual Studio. Na stronie są wyświetlane pola **konfiguracji** kartę.
-2. Strony właściwości dla roli, wybierz **ustawienia**.
-3. W **konfiguracji usługi** listy, wybierz nazwę konfiguracji usługi, które chcesz edytować. Jeśli chcesz wprowadzić zmiany dotyczące wszystkich konfiguracji usługi dla tej roli, można wybrać **wszystkie konfiguracje**.  Aby uzyskać więcej informacji o sposobie aktualizowania konfiguracji usługi, zobacz sekcję **Zarządzanie parametry połączenia dla konta magazynu** w temacie [konfigurowania ról dla usługi w chmurze platformy Azure z programem Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-4. Aby zmodyfikować jakiekolwiek ustawienie ciągu połączenia, wybierz **...** przycisk obok ustawienia. **Utworzyć parametry połączenia magazynu** zostanie wyświetlone okno dialogowe.
-5. W obszarze **łączyć się przy użyciu**, wybierz **subskrypcji** opcji.
-6. W **subskrypcji** Wybierz subskrypcję. Jeśli na liście nie zawiera jedną, która ma, wybierz **pobieranie ustawień publikowania** łącza.
-7. W **nazwa konta** listy, wybierz nazwę konta magazynu. Narzędzia Azure automatycznie uzyskuje poświadczeń konta magazynu przy użyciu pliku .publishsettings. Aby ręcznie określić poświadczenia konta magazynu, wybierz **ręcznie wprowadzić poświadczenia** opcji, a następnie kontynuuj tej procedury. Można uzyskać nazwę konta magazynu i klucz podstawowy z [klasycznego portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Jeśli nie chcesz określać ustawienia ręcznie, wybierz konto magazynu **OK** przycisk, aby zamknąć okno dialogowe.
-8. Wybierz **wprowadź konto magazynu** łącze poświadczeń.
-9. W **nazwa konta** wprowadź nazwę konta magazynu.
+Jeśli usługa w chmurze utworzony przy użyciu programu Visual Studio przy użyciu **dodać podłączonej usługi**, połączenia można sprawdzić, otwierając `ServiceConfiguration.Cloud.cscfg` i `ServiceConfiguration.Local.cscfg`.
 
-   > [!NOTE]
-   > Zaloguj się do [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), a następnie wybierz pozycję **magazynu** przycisku. Portal zawiera listę kont magazynu. Jeśli wybierzesz konto otwiera stronę dla niego. Nazwa konta magazynu można skopiować z tej strony. Jeśli używasz poprzedniej wersji klasycznego portalu nazwę konta magazynu jest wyświetlana w **kont magazynu** widoku. Aby skopiować tej nazwy, zaznacz go w **właściwości** okna tego wyświetlić, a następnie wybierz klawiszy Ctrl-C. Aby wkleić nazwę do programu Visual Studio, wybierz **nazwa konta** tekst pola, a następnie wybierz klawiszy Ctrl + V.
-   >
-   >
-10. W **klucz konta** polu, wprowadź klucz podstawowy lub skopiuj i wklej go z [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
-     Aby skopiować ten klucz:
+Jeśli utworzono usługi w chmurze za pośrednictwem portalu Azure, wykonaj te same czynności w [Utwórz konto magazynu w programie Visual Studio](#create-a-storage-account-from-visual-studio) , ale wybierz istniejące konto, zamiast tworzenia nowej. Visual Studio następnie aktualizuje konfigurację za Ciebie.
 
-    1. W dolnej części strony dla konta magazynu odpowiednie, wybierz **zarządzanie kluczami** przycisku.
-    2. Na **zarządzanie kluczami dostępu** strony, zaznacz tekst podstawowy klucz dostępu, a następnie wybierz klawiszy Ctrl + C.
-    3. W menu Narzędzia Azure, Wklej klucz do **klucz konta** pole.
-    4. Należy wybrać jedną z poniższych opcji, aby określić, jak usługa będą uzyskiwać dostęp do konta magazynu:
+Aby skonfigurować ustawienia ręcznie, użyj stron właściwości w programie Visual Studio dla odpowiednich roli w projekcie usługi w chmurze (kliknij prawym przyciskiem myszy rolę i wybierz **właściwości**). Aby uzyskać więcej informacji, zobacz [Konfigurowanie parametry połączenia z kontem magazynu](https://docs.microsoft.com/azure/vs-azure-tools-multiple-services-project-configurations#configuring-a-connection-string-to-a-storage-account).
 
-       * **Korzystanie z protokołu HTTP**. Jest to opcja standardowa. Na przykład `http://<account name>.blob.core.windows.net`.
-       * **Użycie protokołu HTTPS** bezpiecznego połączenia. Na przykład `https://<accountname>.blob.core.windows.net`.
-       * **Określ niestandardowe punkty końcowe** dla każdego z trzech usług. Następnie możesz wpisać tymi punktami końcowymi do pola dla określonej usługi.
+### <a name="about-access-keys"></a>Klawisze dostępu — informacje
 
-         > [!NOTE]
-         > Tworząc niestandardowe punkty końcowe, można utworzyć bardziej złożoną parametry połączenia. Korzystając z tego formatu ciągu, można określić punktów końcowych usługi magazynu zawierające nazwę domeny niestandardowej zarejestrowany dla konta magazynu w usłudze obiektów Blob. Można również przyznać dostęp tylko do zasobów obiektów blob w kontenerze pojedynczego za pomocą sygnatury dostępu współdzielonego. Aby uzyskać więcej informacji na temat tworzenia niestandardowych punktów końcowych, zobacz [skonfigurować parametry połączenia magazynu Azure](storage/common/storage-configure-connection-string.md).
-         >
-         >
-11. Aby zapisać te zmiany w ciągu połączenia, wybierz **OK** przycisk, a następnie wybierz pozycję **zapisać** przycisk na pasku narzędzi. Po zapisaniu zmian można pobrać wartości tych parametrów połączenia w kodzie za pomocą [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Podczas publikowania aplikacji na platformie Azure, wybierz konfigurację usługi zawierającej konto magazynu Azure w ciągu połączenia. Po opublikowaniu aplikacji, sprawdź, czy aplikacja działa zgodnie z oczekiwaniami w odniesieniu do usług Azure storage
+Portalu Azure zawiera adresy URL, w której można uzyskać dostęp do zasobów w każdej z usług Azure storage, a także klucze podstawowe i pomocnicze dostępu dla konta. Te klucze służy do uwierzytelniania żądań wysyłanych z usług magazynu.
+
+Pomocniczy klucz dostępu zawiera takie same prawa dostępu do konta magazynu jako podstawowy klucz dostępu i jest generowany na nazwę kopii zapasowej klucza podstawowego dostępu zagrożenia bezpieczeństwa. Ponadto zaleca się ponowne generowanie kluczy dostępu na bieżąco. Można zmodyfikować ustawienie parametrów połączenia, aby używać klucza pomocniczego podczas ponownego generowania klucza podstawowego, a następnie zmodyfikować, aby użyć wygenerowano ponownie klucz podstawowy, podczas ponownego generowania klucza pomocniczego.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Aby dowiedzieć się więcej na temat publikowania aplikacji na platformie Azure w programie Visual Studio, zobacz [publikowania usługi w chmurze przy użyciu narzędzia Azure](vs-azure-tools-publishing-a-cloud-service.md).

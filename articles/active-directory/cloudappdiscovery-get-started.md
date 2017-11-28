@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Konfigurowanie Cloud App Discovery w usłudze Azure AD
 
@@ -37,7 +37,7 @@ Usługa cloud App Discovery w usłudze Azure AD zależy teraz na integracji z da
 
 2. [Konfigurowanie ciągłego raportowania](https://docs.microsoft.com/cloud-app-security/discovery-docker) analizować wszystkie dzienniki, które są przekazywane z sieci przy użyciu modułu zbierającego dzienniki Cloud App Security. Można używać ich do identyfikacji nowych aplikacji i trendów użycia.
 
-3. Jeśli dzienniki nie są obecnie obsługiwane, [skonfigurować dziennik niestandardowy analizator składni](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) tak, aby je analizować Cloud App Discovery.
+3. Jeśli dzienniki nie są obecnie obsługiwane, [skonfigurować dziennik niestandardowy analizator składni](https://docs.microsoft.com/cloud-app-security/custom-log-parser) tak, aby je analizować Cloud App Discovery.
   
 ## <a name="log-processing-flow"></a>Przepływ przetwarzania dziennika
 

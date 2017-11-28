@@ -4,7 +4,7 @@ description: "Dowiedz się, jak Stream Analytics można kierować bazy danych ro
 keywords: "Dane wyjściowe JSON"
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Docelowej bazy danych rozwiązania Cosmos Azure dla danych wyjściowych JSON z usługi Stream Analytics
 Analiza strumienia może kierować [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/) dla danych wyjściowych JSON, włączanie archiwizacji i małych opóźnieniach kwerend danych na dane JSON bez struktury. W tym dokumencie opisano najważniejsze wskazówki dotyczące implementowania tej konfiguracji.
 
 Dla osób, które znają rozwiązania Cosmos DB, Przyjrzyjmy się [ścieżka szkoleniowa dotycząca usługi Azure rozwiązania Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) rozpocząć pracę. 
 
-Uwaga: DB rozwiązania Cosmos oparty na interfejsach API DB Mongo kolekcji nie jest obecnie obsługiwany. 
+> [!Note]
+> W tej chwili Azure Stream Analytics obsługuje tylko połączenia za pomocą CosmosDB **DocumentDB (SQL) interfejsu API**.
+> Innych interfejsów API Azure rozwiązania Cosmos bazy danych nie są jeszcze obsługiwane. Jeśli punkt Azure Stream Analytics do kont Azure DB rozwiązania Cosmos tworzone za pomocą innych interfejsów API, dane mogą nie być poprawnie przechowywane. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Podstawy DB rozwiązania Cosmos jako miejsce docelowe danych wyjściowych
 Dane wyjściowe bazy danych Azure rozwiązania Cosmos w Stream Analytics umożliwia zapisywanie strumienia przetwarzanie wyników jako dane wyjściowe JSON do kolekcji z bazy danych rozwiązania Cosmos. Analiza strumienia nie powoduje utworzenia kolekcji w bazie danych, zamiast konieczności wyprzedzeniem je utworzyć. Jest tak, aby rozliczeń kosztów rozwiązania Cosmos DB kolekcje są niewidoczne dla użytkownika i tak, aby dostroić wydajność, spójność i pojemność kolekcji bezpośrednio za pomocą [rozwiązania Cosmos DB API](https://msdn.microsoft.com/library/azure/dn781481.aspx). Zalecamy użycie jednej bazy danych DB rozwiązania Cosmos na zadanie przesyłania strumieniowego logicznie Rozdziel kolekcji dla zadania przesyłania strumieniowego.
@@ -67,5 +69,5 @@ Kolekcja podzielonym na partycje | Wiele kolekcji "Jednej partycji"
 * **Wzorzec nazwy kolekcji** — Nazwa kolekcji lub ich wzorca kolekcji do użycia. Format nazw kolekcji można skonstruować przy użyciu tokenu opcjonalne {partition}, gdzie partycje zaczynają się od 0. Poniżej przedstawiono przykładowe prawidłowe wartości wejściowe:  
   1\) MyCollection — jedną kolekcję o nazwie "MyCollection" musi istnieć.  
   2\) MyCollection {partition} — takie kolekcje muszą istnieć — "MyCollection0", "MyCollection1", "MyCollection2" itd.  
-* **Klucz partycji** — jest to opcjonalne. Jest to potrzebne tylko, jeśli używasz tokenu {partycjonowania} we wzorcu nazwy Twojej kolekcji. Nazwa pola w zdarzeniach wyjściowych służąca do określenia klucza do partycjonowania danych wyjściowych na kolekcje. Dla danych wyjściowych jednej kolekcji, wszystkie kolumny wyjściowej dowolnego mogą być używane np. PartitionId.  
+* **Klucz partycji** — jest to opcjonalne. Jest to potrzebne tylko, jeśli używasz tokenu {partition} we wzorcu nazwy Twojej kolekcji. Nazwa pola w zdarzeniach wyjściowych służąca do określenia klucza do partycjonowania danych wyjściowych na kolekcje. Dla danych wyjściowych jednej kolekcji, wszystkie kolumny wyjściowej dowolnego mogą być używane np. PartitionId.  
 * **Identyfikator dokumentu** — jest to opcjonalne. Nazwa pola w zdarzeniach wyjściowych służąca do określenia klucza podstawowego, na które insert lub update bazują operacje.  

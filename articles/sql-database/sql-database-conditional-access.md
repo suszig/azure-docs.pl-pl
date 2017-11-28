@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
 ms.workload: Inactive
-ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Dostęp warunkowy (MFA) i baza danych Azure SQL i magazynem danych  
 
@@ -25,7 +25,7 @@ Zarówno bazy danych SQL i magazyn danych SQL obsługuje dostęp warunkowy firmy
 - Po włączeniu usługi Multi-Factor authentication, należy połączyć z na obsługiwanych narzędzia, takie jak najnowsze narzędzia SSMS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie wieloskładnikowe skonfigurować bazy danych SQL Azure dla programu SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Konfigurowanie urzędu certyfikacji dla bazy danych Azure SQL/magazynu danych  
-1.  Zaloguj się do portalu, wybierz **usługi Azure Active Directory**, a następnie wybierz **dostępu warunkowego**. Aby uzyskać więcej informacji, zobacz [informacje techniczne dotyczące usługi Azure Active Directory dostępu warunkowego](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.  Zaloguj się do portalu, wybierz **usługi Azure Active Directory**, a następnie wybierz **dostępu warunkowego**. Aby uzyskać więcej informacji, zobacz [informacje techniczne dotyczące usługi Azure Active Directory dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![Blok dostępu warunkowego](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.  W **zasady dostępu warunkowego** bloku, kliknij przycisk **nowe zasady**, podaj nazwę, a następnie kliknij przycisk **skonfigurować reguły**.  

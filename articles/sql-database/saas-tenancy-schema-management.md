@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c3eaa4d490b61b746e427d2fe2640ae5cdd6032c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Zarządzanie schematami wielu dzierżaw w aplikacji z wieloma dzierżawami, która korzysta z usługi Azure SQL Database
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Zarządzanie schematu dla wielu dzierżawców w aplikacji wielodostępnych, która używa bazy danych SQL Azure
 
 [Pierwszy samouczek Wingtip biletów SaaS bazy danych dla dzierżawy](saas-dbpertenant-get-started-deploy.md) pokazuje, jak udostępnić bazę danych dzierżawy i zarejestruj go w katalogu aplikacji. Podobnie jak wszelkie aplikacje aplikacji Wingtip biletów SaaS bazy danych dla dzierżawy rozpoczyna się w czasie, a w czasie będzie wymagać zmiany w bazie danych. Zmiany mogą obejmować nowy lub zmieniony schemat, nowe lub zmienione dane referencyjne, oraz rutynowe zadania konserwacji bazy danych zapewniające optymalną wydajność aplikacji. W przypadku aplikacji SaaS zmiany te muszą zostać wprowadzone w sposób skoordynowany — potencjalnie w bardzo wielu bazach danych dzierżaw. Aby te zmiany można w przyszłości dzierżawy baz danych muszą należy włączyć do procesu inicjowania obsługi administracyjnej.
 
@@ -44,10 +44,10 @@ Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie nastę
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Zainstalowano najnowszą wersję programu SSMS (SQL Server Management Studio). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
+> [!NOTE]
+> W tym samouczku korzysta z funkcji usługi baza danych SQL, które są w ograniczonym wersji zapoznawczej (zadania elastycznej bazy danych). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.
 
-
-## <a name="introduction-to-saas-schema-management-patterns"></a>Wprowadzenie do wzorców zarządzania schematami SaaS
+## <a name="introduction-to-saas-schema-management-patterns"></a>Wprowadzenie do wzorców Zarządzanie schematu SaaS
 
 Wzorzec SaaS pojedynczej dzierżawy na bazę danych korzysta na wiele sposobów z izolacji danych, ale jednocześnie cechuje się zwiększoną złożonością obsługi i zarządzania w przypadku wielu baz danych. Funkcja [Zadania elastyczne](sql-database-elastic-jobs-overview.md) ułatwia administrowanie i zarządzanie warstwą danych programu SQL. Zadania umożliwiają bezpieczne i niezawodne uruchamiania zleceń (skryptów T-SQL) na grupie baz danych niezależnie od interakcji z użytkownikiem lub danych wejściowych. Tej metody można użyć do wdrożenia schematu i zmiany wspólnych danych referencyjnych we wszystkich dzierżawach w aplikacji. Zadania elastyczne służą do konserwacji *wzorcowej* kopii bazy danych używanej do tworzenia nowych dzierżaw, dzięki czemu zawsze zawiera ona najnowszy schemat i dane referencyjne.
 
@@ -59,11 +59,11 @@ Wzorzec SaaS pojedynczej dzierżawy na bazę danych korzysta na wiele sposobów 
 Istnieje nowa wersja Zadań elastycznych, która jest teraz zintegrowaną funkcją usługi Azure SQL Database (nie wymaga żadnych dodatkowych usług ani składników). Nowa wersja Zadań elastycznych jest obecnie dostępna w ograniczonej wersji zapoznawczej. Ograniczona wersja zapoznawcza obsługuje obecnie program PowerShell do tworzenia kont zadań, oraz oprogramowanie T-SQL do tworzenia zadań i zarządzania nimi.
 
 > [!NOTE]
-> *Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.*
+> W tym samouczku korzysta z funkcji usługi baza danych SQL, które są w ograniczonym wersji zapoznawczej (zadania elastycznej bazy danych). Aby skorzystać z tego samouczka, prześlij identyfikator swojej subskrypcji na adres SaaSFeedback@microsoft.com z tematem Elastic Job Preview. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczony, więc skontaktuj się z SaaSFeedback@microsoft.com pytania związane z lub pomocy technicznej.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 
-Wingtip biletów SaaS bazy danych dla dzierżawy skrypty i kod źródłowy aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium github. [Kroki, aby pobrać skrypty Wingtip biletów SaaS bazy danych dla dzierżawy](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Tworzenie bazy danych konta zadania oraz nowego konta zadania
 
@@ -91,13 +91,14 @@ Aby utworzyć nowe zadanie, użyjemy zestawu procedur składowanych systemu zada
 1. Modyfikowanie instrukcji: Ustaw @wtpUser = &lt;użytkownika&gt; i zastąp wartość użytkownika używane w przypadku wdrażania aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz **F5**, aby uruchomić skrypt.
 
+Sprawdź następujące opcje w *DeployReferenceData.sql* skryptu:
 * **sp\_add\_target\_group** tworzy nazwę grupy docelowej DemoServerGroup. Teraz należy dodać członków docelowych.
 * **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (należy pamiętać, jest to tenants1 - dpt - &lt;Użytkownika&gt; serwer zawierający dzierżawy baz danych) w czasie zadania wykonywania powinny być uwzględnione w zadaniu, polega na dodaniu drugiego *bazy danych* docelowy typ elementu członkowskiego, w szczególności "golden" bazy danych (basetenantdb), który znajduje się w katalogu-dpt -&lt;użytkownika&gt; serwera, a na koniec innego *bazy danych* docelowy typ elementu członkowskiego grupy, aby uwzględnić adhocanalytics bazy danych, który jest używany w późniejszym samouczek.
 * **sp\_add\_job** tworzy zadanie o nazwie „Reference Data Deployment”.
 * **SP\_dodać\_etap zadania** tworzy etap zadania zawierające tekst polecenia T-SQL, aby zaktualizować tabeli referencyjnej VenueTypes
 * Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Aby przejrzeć wartość stanu, użyj tych zapytań **cyklu życia** kolumnę, aby określić, kiedy zadanie pomyślnie zakończył się na wszystkie dzierżawy i dwóch dodatkowych baz danych zawierających tabeli referencyjnej.
 
-1. W programie SSMS, przejdź do *contosoconcerthall* bazy danych na *tenants1-dpt -\<użytkownika\>*  serwera i zapytań *VenueTypes* do tabeli Upewnij się, że *Racing motocykla* i *klub pływackich* **są** teraz na liście wyników.
+W programie SSMS, przejdź do *contosoconcerthall* bazy danych na *tenants1-dpt -\<użytkownika\>*  serwera i zapytań *VenueTypes* do tabeli Upewnij się, że *Racing motocykla* i *klub pływackich* **są** teraz na liście wyników.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Tworzenie zadania do zarządzania indeksem tabeli referencyjnej
@@ -111,9 +112,10 @@ Utwórz zadanie, używając tych samych procedur składowanych „system”.
 1. Kliknij prawym przyciskiem myszy, wybierz połączenie i łączyć z katalogiem-dpt -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
 1. Upewnij się, że masz połączenie z bazą danych jobaccount, a następnie naciśnij klawisz F5, aby uruchomić skrypt.
 
-* sp\_add\_job tworzy nowe zadanie o nazwie „Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
-* sp\_add\_jobstep tworzy krok zadania zawierający tekst polecenia T-SQL służącego do aktualizacji indeksu.
-
+Sprawdź następujące opcje w *OnlineReindex.sql* skryptu:
+* **SP\_dodać\_zadania** tworzy nowe zadanie o nazwie "Online PK indeksowanie\_\_VenueTyp\_\_265E44FD7FD4C885"
+* **SP\_dodać\_etap zadania** tworzy etap zadania zawierające tekst polecenia T-SQL do aktualizowania indeksu
+* Pozostałe widoków w skrypcie monitorować wykonywania zadania. Aby przejrzeć wartość stanu, użyj tych zapytań **cyklu życia** kolumnę, aby określić, kiedy zadanie pomyślnie zakończył na dla wszystkich członków grupy docelowej.
 
 
 
@@ -127,7 +129,7 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 > * Aktualizowanie danych we wszystkich bazach danych dzierżaw
 > * Tworzenie indeksu tabeli we wszystkich bazach danych dzierżaw
 
-[Samouczek analitycznych zapytań ad-hoc](saas-tenancy-adhoc-analytics.md)
+Następnie spróbuj [samouczek raportowania Ad hoc](saas-tenancy-adhoc-analytics.md).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

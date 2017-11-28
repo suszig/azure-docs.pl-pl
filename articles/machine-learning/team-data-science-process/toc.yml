@@ -68,9 +68,9 @@
       href: walkthroughs-sql-data-warehouse.md
 - name: Szkolenia
   items:
-    - name: Przetwarzanie TDSP dla analityków danych
+    - name: Dla analityków danych
       href: team-data-science-process-for-data-scientists.md
-    - name: Przetwarzanie TDSP w metodyce DevOps
+    - name: Dla metodyki DevOps
       href: team-data-science-process-for-devops.md
 - name: Instrukcje
   items:

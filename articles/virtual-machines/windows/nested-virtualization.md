@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Jak włączyć zagnieżdżonych wirtualizacji w maszynie Wirtualnej platformy Azure
 
@@ -140,7 +140,7 @@ Wykonaj poniższe kroki, aby skonfigurować serwer DHCP na host maszyny wirtualn
   
 2. W kreatorze kliknij pozycję **dalej** aż do strony role serwera.
   
-3. Kliknij, aby wybrać **serwera DHCP** pole wyboru, kliknij przycisk **Dodaj funkcje**, a następnie kliknij przycisk**dalej** aż kreator zakończy działanie.
+3. Kliknij, aby wybrać **serwera DHCP** pole wyboru, kliknij przycisk **Dodaj funkcje**, a następnie kliknij przycisk **dalej** aż kreator zakończy działanie.
   
 4. Kliknij pozycję **Zainstaluj**.
 
@@ -159,7 +159,7 @@ Wykonaj poniższe kroki, aby skonfigurować serwer DHCP na host maszyny wirtualn
 6. Kliknij przycisk **dalej** aż kreator zakończy pracę, pozostawiając wszystkie wartości domyślne, następnie kliknij przycisk **Zakończ**.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opcja 2: Ręcznie ustawić statyczny adres IP na maszynie wirtualnej gościa
-Jeśli nie skonfigurowano protokołu DHCP można dynamicznie przypisać toe adres IP maszynie wirtualnej gościa, wykonaj następujące kroki, aby ustawić statyczny adres IP.
+Jeśli nie skonfigurowano protokołu DHCP można dynamicznie przypisać adres IP na maszynie wirtualnej gościa, wykonaj następujące kroki, aby określić statyczny adres IP.
 
 1. Na maszynie Wirtualnej Azure Otwórz program PowerShell jako Administrator.
 

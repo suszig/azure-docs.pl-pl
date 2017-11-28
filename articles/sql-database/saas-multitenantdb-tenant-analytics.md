@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics między dzierżawcy przy użyciu wyodrębnione dane
 
@@ -73,7 +73,7 @@ Zrozumienie, jak często każdego dzierżawcy jest korzystanie z usługi umożli
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
 - Aplikacja Wingtip biletów SaaS wielodostępne w bazie danych jest wdrożona. Aby wdrożyć w mniej niż 5 minut, zobacz [Wdróż i eksplorowanie Wingtip biletów SaaS wielodostępne w bazie danych aplikacji](saas-multitenantdb-get-started-deploy.md)
-- Skrypty Wingtip SaaS i aplikację [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) są pobierane z usługi GitHub. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość.
+- Skrypty Wingtip SaaS i aplikację [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) są pobierane z usługi GitHub. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 - Power BI Desktop jest zainstalowany. [Pobierz program Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Zainicjowano partii dodatkowi dzierżawcy, zobacz [ **samouczek dzierżaw udostępniania**](saas-multitenantdb-provision-and-catalog.md).
 - Zadania konta i zadania konta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ Poprzedni kreślenia dla Contoso porozumieniu Hall pokazuje, że mad łazienkowy
 
 Wgląd w biletu sprzedaży wzorce może prowadzić Wingtip biletów, aby zoptymalizować swojego modelu biznesowego. Możliwe, że zamiast ładowana wszystkich dzierżaw jednakowo, Wingtip wprowadzić warstwy usług z różne poziomy wydajności. Większe miejsc, wymagających sprzedawać bilety więcej dziennie można oferowane wyższego poziomu z wyższej Umowa dotycząca poziomu usług (SLA). Te miejsc może mieć swoje bazy danych, umieszczone w puli z wyższe limity zasobów na bazę danych. Każdej warstwy usług może mieć przydział sprzedaży co godzinę, o dodatkowe opłaty za przekroczenie przydziału. Większe miejsc, w których okresowe seria sprzedaży będzie korzystać z wyższej warstwy, a biletów Wingtip można efektywniej sprzedawać usługi.
 
-W tym samym czasie niektórzy klienci biletów Wingtip reklamację, one mieć trudności z sprzedawać bilety za mało Justify kosztu usługi. Możliwe, że informacje na temat tych technologii ma możliwość zwiększenie sprzedaży biletów dla gorszych wynikach w przypadku miejsc. Wyższy sprzedaży może zwiększyć wartość postrzegana usługi. Fact_Tickets kliknij prawym przyciskiem myszy i wybierz **nowej miary**. Wprowadź poniższe wyrażenie dla nowej miary o nazwie **AverageTicketsSold**:
+W tym samym czasie niektórzy klienci biletów Wingtip reklamację, one mieć trudności z sprzedawać bilety za mało Justify kosztu usługi. Prawdopodobnie te informacje na temat technologii ma możliwość zwiększenie sprzedaży biletów dla w obszarze miejsc wykonywania. Wyższy sprzedaży może zwiększyć wartość postrzegana usługi. Fact_Tickets kliknij prawym przyciskiem myszy i wybierz **nowej miary**. Wprowadź poniższe wyrażenie dla nowej miary o nazwie **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Utwórz zasady na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory
 W usłudze Azure Active Directory (Azure AD) można utworzyć reguł zaawansowanych, aby włączyć złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach. W tym artykule szczegółowo atrybuty i składni, aby utworzyć reguły członkostwa dynamicznych dla użytkowników lub urządzeń.
@@ -163,6 +163,7 @@ Dozwolonych operatorów
 | Nazwa firmy | Dowolną wartość ciągu lub *wartości null* | (user.companyName - eq "value") |
 | Dział |Dowolną wartość ciągu lub *wartości null* |(user.department - eq "value") |
 | Nazwa wyświetlana |Dowolną wartością ciągu |(user.displayName - eq "value") |
+| Identyfikator pracownika |Dowolną wartością ciągu |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Dowolną wartość ciągu lub *wartości null* |(user.facsimileTelephoneNumber - eq "value") |
 | Imię |Dowolną wartość ciągu lub *wartości null* |(user.givenName - eq "value") |
 | Stanowisko |Dowolną wartość ciągu lub *wartości null* |(user.jobTitle - eq "value") |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze Azure
 Podczas tworzenia usługi w chmurze Azure przypisuje go do poddomeną **cloudapp.net**. Na przykład jeśli usługi w chmurze ma nazwę "contoso", użytkownikom będzie można uzyskać dostępu do aplikacji przy użyciu adresu URL, takie jak http://contoso.cloudapp.net. Azure przypisuje wirtualny adres IP.
@@ -28,7 +28,7 @@ Jednak pozwala również udostępnić aplikacji na własną nazwę domeny, takie
 Czy można już zrozumieć, jakie CNAME i są? [Skok poza wyjaśnienie](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Procedury w tym zadaniu mają zastosowanie do usługi w chmurze Azure. Dla usług aplikacji, zobacz [to](../app-service/app-service-web-tutorial-custom-domain.md). W przypadku kont magazynu, zobacz [to](../storage/blobs/storage-custom-domain-name.md).
+> Procedury w tym zadaniu mają zastosowanie do usługi w chmurze Azure. Dla usług aplikacji, zobacz [mapowania istniejącej nazwy DNS niestandardowej aplikacji sieci Web Azure](../app-service/app-service-web-tutorial-custom-domain.md). W przypadku kont magazynu, zobacz [Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob platformy Azure](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

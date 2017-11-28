@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurowanie lokalnego dostępu warunkowego przy użyciu rejestracji urządzeń usługi Azure Active Directory
 Jeśli wymagane jest użytkownikom Dołącz do miejsca pracy swoje urządzenia osobiste do usługi rejestracji urządzeń usługi Azure Active Directory (Azure AD), urządzeń może być oznaczony znane w organizacji. Poniżej przedstawiono krok po kroku dotyczące włączania dostępu warunkowego do aplikacji lokalnych przy użyciu usługi Active Directory Federation Services (AD FS) w systemie Windows Server 2012 R2.
@@ -166,9 +166,9 @@ Istnieje wiele różnych sposobów komunikacji ten adres URL dla użytkowników.
 4. Po wyświetleniu monitu zaloguj się przy użyciu poświadczeń. Urządzenie zostało przyłączone.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Dołączanie urządzenia z systemem Windows 7 przy użyciu rejestracji urządzeń usługi Azure Active Directory
-Aby zarejestrować urządzenia przyłączone do domeny systemu Windows 7, należy wdrożyć pakiet oprogramowania rejestracji urządzenia. Pakiet oprogramowania jest nazywany pracy Dołącz dla systemu Windows 7, a dostępne do pobrania na [witryny sieci Web Microsoft Connect](https://connect.microsoft.com/site1164). 
+Aby zarejestrować urządzenia przyłączone do domeny systemu Windows 7, należy wdrożyć [pakiet oprogramowania rejestracji urządzenia](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Informacje o sposobie używania pakietu są dostępne w [Konfigurowanie automatycznej rejestracji urządzeń z systemem Windows przyłączonych do domeny w usłudze Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+Aby uzyskać instrukcje dotyczące używania pakietu, zobacz [pakietów Instalatora Windows na komputerach z systemem innym niż Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Sprawdź, czy zarejestrowanych urządzeń są zapisywane z powrotem do usługi Active Directory
 Możesz wyświetlić i sprawdzić, czy obiekty urządzeń zapisano wróć do usługi Active Directory przy użyciu LDP.exe lub ADSI Edit. Oba są dostępne przy użyciu narzędzi administratora usługi Active Directory.

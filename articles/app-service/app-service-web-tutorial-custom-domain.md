@@ -1,6 +1,7 @@
 ---
 title: "Mapowanie istniejących niestandardową nazwę DNS do aplikacji sieci Web platformy Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak dodać istniejącą nazwę domeny DNS niestandardowe (niestandardowych domeny) do aplikacji sieci web, zaplecza aplikacji mobilnej lub aplikacji interfejsu API w usłudze Azure App Service."
+keywords: "usługi aplikacji, usługi aplikacji azure, mapowanie domeny, nazwę domeny, istniejącej domeny, nazwa hosta"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapowanie istniejących niestandardową nazwę DNS do aplikacji sieci Web Azure
 
@@ -269,6 +270,27 @@ Wybierz  **+**  ikonę ponownie, aby dodać inną nazwę hosta odpowiadający do
 Przejdź do nazwy DNS, który został wcześniej skonfigurowany (na przykład `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, i `sub2.contoso.com`).
 
 ![Nawigacji w portalu do aplikacji Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>Rozwiąż błąd 404 "Nie można odnaleźć witryny sieci Web"
+
+Jeśli wystąpi błąd 404 protokołu HTTP (nie znaleziono) podczas przeglądania do adresu URL domeny niestandardowej, upewnij się, że domenę jest rozpoznawana jako adres IP Twojej aplikacji w usłudze <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Jeśli nie, może to być spowodowane jedną z następujących powodów:
+
+- Brak domeny niestandardowej, skonfigurować rekord A i/lub rekord CNAME.
+- Stary adres IP domeny ma w pamięci podręcznej klienta przeglądarki. Wyczyść pamięć podręczną i testowania rozpoznawanie nazw DNS ponownie. Na komputerze z systemem Windows, należy wyczyścić pamięć podręczną z `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Bezpośrednie domyślny adres URL katalog niestandardowych
+
+Domyślnie usługi aplikacji kieruje żądania sieci web do katalogu głównego w kodzie aplikacji. Jednak niektóre platformy sieci web nie należy uruchamiać w katalogu głównym. Na przykład [Laravel](https://laravel.com/) rozpoczyna się `public` podkatalogu. Aby kontynuować `contoso.com` przykład DNS takich aplikacji będą dostępne w `http://contoso.com/public`, ale czy na pewno chcesz bezpośrednie `http://contoso.com` do `public` katalogu zamiast tego. Ten krok nie wymaga rozpoznawania nazw DNS, ale Dostosowywanie katalogu wirtualnego.
+
+Aby to zrobić, wybierz **ustawienia aplikacji** w obszarze nawigacji po lewej stronie strony aplikacji sieci web. 
+
+W dolnej części strony, na główny katalog wirtualny `/` wskazuje `site\wwwroot` domyślnie, który jest katalogiem głównym kodu aplikacji. Zmień, aby wskazać `site\wwwroot\public` , na przykład i Zapisz zmiany. 
+
+![Dostosowywanie katalogu wirtualnego](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+Po zakończeniu operacji aplikacji powinien zwrócić prawej strony w ścieżce katalogu głównego (na przykład http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Zautomatyzować za pomocą skryptów
 

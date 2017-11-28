@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 6da89b7b63231fe5886c82e84e06abc2ee7b3e38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Użyj interaktywnego zapytania z usługą HDInsight
 Interakcyjne zapytania (skrót Hive LLAP lub [Live długich i procesu](https://cwiki.apache.org/confluence/display/Hive/LLAP)) to Azure HDInsight [typ klastra](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interakcyjne Query obsługuje buforowanie w pamięci, co czyni szybsze i bardziej interakcyjnych zapytań programu Hive. 
@@ -49,7 +49,7 @@ Do wykonywania zapytań programu Hive, masz następujące opcje:
 
 * Korzystanie z programu Visual Studio
 
-    Zobacz [Podłącz Azure HDInsight i uruchamiania zapytań Hive przy użyciu narzędzi Data Lake Tools dla programu Visual Studio, aby](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+    Zobacz [Podłącz Azure HDInsight i uruchamiania zapytań Hive przy użyciu narzędzi Data Lake Tools dla programu Visual Studio, aby](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 
 * Użyj kodu programu Visual Studio
 
@@ -79,7 +79,7 @@ Aby znaleźć ciąg połączenia Java połączenia bazy danych (JDBC):
 * Dowiedz się, jak [Tworzenie klastrów interakcyjne zapytania w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Dowiedz się, jak [wizualizacji danych big data w usłudze Power BI w usłudze Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 * Dowiedz się, jak [umożliwia uruchamianie zapytań Hive w usłudze Azure HDInsight Zeppelin ](../hdinsight-connect-hive-zeppelin.md).
-* Dowiedz się, jak [uruchamianie zapytań Hive przy użyciu narzędzi Data Lake Tools dla programu Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+* Dowiedz się, jak [uruchamianie zapytań Hive przy użyciu narzędzi Data Lake Tools dla programu Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 * Dowiedz się, jak [użycia narzędzi HDInsight Tools dla Visual Studio Code](../hdinsight-for-vscode.md).
 * Dowiedz się, jak [użyć widoku Hive z usługą Hadoop w usłudze HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
 * Dowiedz się, jak [umożliwia wysyłanie zapytań programu Hive w usłudze HDInsight Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).

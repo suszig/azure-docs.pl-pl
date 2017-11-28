@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak udostępnić nowi dzierżawcy i zarejestruj je w katalogu
 
@@ -68,9 +68,9 @@ Metoda inicjowania obsługi administracyjnej, używanego musi comprehended w str
 Baza danych SaaS biletów Wingtip każdej dzierżawy aplikacji przepisy nowi dzierżawcy przez kopiowanie szablonu bazy danych o nazwie _basetenantdb_, wdrożonych na serwerze wykazu.  Inicjowania obsługi administracyjnej może być zintegrowane z aplikacji w ramach obsługi rejestracji i/lub obsługiwane w trybie offline za pomocą skryptów. W tym samouczku Eksploruje Inicjowanie obsługi przy użyciu programu PowerShell. Skrypty inicjowania obsługi administracyjnej skopiuj basetenantdb bazę danych do utworzenia nowej dzierżawy bazy danych w puli elastycznej, a następnie go zainicjować z użyciem informacji specyficznych dla dzierżawy i zarejestruj go w katalogu niezależnych mapy.  W Wingtip biletów SaaS bazy danych dla aplikacji dzierżawy dzierżawy baz danych są podane nazwy na podstawie nazwy dzierżawy, ale nie jest krytyczną częścią wzorzec — katalogu umożliwiają dowolną nazwę można przypisać do dzierżawy baz danych. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 
-Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. [Kroki, aby pobrać skrypty Wingtip biletów SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Szczegółowy przewodnik po aprowizacji i wykazie

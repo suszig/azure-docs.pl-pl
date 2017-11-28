@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Włącz ponownie ochronę z platformy Azure do lokacji lokalnej
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 W tym artykule opisano, jak i włącz ponownie ochronę maszyn wirtualnych platformy Azure z platformy Azure do lokacji lokalnej. Wykonaj instrukcje w tym artykule, kiedy zechcesz się nie powieść z powrotem z maszyn wirtualnych VMware lub systemem Windows lub Linux, serwerów fizycznych, po zostały one przejścia w tryb failover z lokalnej lokacji do platformy Azure (zgodnie z opisem w [VMware replikować maszyny wirtualne i serwerów fizycznych do platformy Azure z usługą Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Nie można wykonać powrotu po awarii po jednej [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), przenieść maszynę wirtualną do innej grupy zasobów lub usunąć maszyny wirtualnej platformy Azure. Wyłączenie ochrony maszyny wirtualnej, nie możesz powrotu po awarii.
+> Nie można wykonać powrotu po awarii po jednej [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), przenieść maszynę wirtualną do innej grupy zasobów lub usunąć maszyny wirtualnej platformy Azure. Wyłączenie ochrony maszyny wirtualnej, nie możesz powrotu po awarii. Jeśli maszyna wirtualna została pierwotnie utworzona na platformie Azure (urodzone w chmurze) następnie użytkownik nie może włączyć ją ponownie do lokalnego. Komputer powinien zostały początkowo chronionych lokalnymi i Failover do platformy Azure przed ponownej ochrony.
 
 
 Po zakończeniu przełączonej i replikowania chronionych maszyn wirtualnych, można zainicjować powrotu po awarii w przypadku maszyn wirtualnych, aby dostosować je do lokacji lokalnej.
@@ -63,7 +63,10 @@ Podczas przygotowywania Włącz ponownie ochronę maszyny wirtualnej, wykonać l
     * [Maszyny wirtualnej systemu Linux wymaga Linux głównego serwera docelowego](site-recovery-how-to-install-linux-master-target.md).
     * Maszyny wirtualnej systemu Windows wymaga systemu Windows głównego serwera docelowego. Lokalny proces serwera i wzorzec komputerów docelowych można użyć ponownie.
 
-    Główny element docelowy ma inne wymagania wstępne wymienione w [typowych czynności do wykonania w głównym celu przed ponownej ochrony](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Wszystkie maszyny wirtualne grupy replikacji powinny mieć tego samego typu systemu operacyjnego (wszystkie z systemem Windows lub Linux wszystkie). Grupy replikacji z mieszane systemy operacyjne nie jest obecnie obsługiwane w ponownej ochrony i powrotu po awarii do środowiska lokalnego. Jest to spowodowane główny cel powinna mieć ten sam system operacyjny, jako maszynę wirtualną i wszystkich maszyn wirtualnych do grupy replikacji powinny mieć tego samego głównego celu. 
+
+    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * Serwer konfiguracji jest wymagana lokalnymi przechodzenia wstecz. Podczas powrotu po awarii maszyna wirtualna musi istnieć w bazie danych konfiguracji serwera. W przeciwnym razie powrotu po awarii zakończy się niepowodzeniem. 
 
@@ -170,6 +173,8 @@ Obecnie usługi Azure Site Recovery obsługuje awaria, powrót tylko do systemu 
 * Główny serwer docelowy nie może mieć migawek na dyskach. W przypadku migawki nie przełączonej i powrotu po awarii.
 
 * Główny cel nie może mieć zdefiniowany kontroler Paravirtual SCSI. Kontroler może być tylko kontrolera LSI Logic. Bez kontrolera LSI Logic przełączonej kończy się niepowodzeniem.
+
+* W danym przypadku główny cel może mieć atmst dyski 60 dołączone do niego. Jeśli liczba maszyn wirtualnych jest przełączona do trybu do głównego celu lokalnymi sumy całkowitej liczby więcej niż 60 dysków, a następnie reprotects do głównego celu rozpocznie się niepowodzeniem. Upewnij się, że masz wystarczająco dużo głównego dysku miejsc docelowych lub wdrożyć dodatkowe głównych serwerów docelowych.
 
 <!--
 ### Failback policy
