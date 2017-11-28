@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Przygotowanie docelowego (VMware do platformy Azure)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ W tym artykule opisano sposób przygotowania środowiska platformy Azure, aby ro
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Artykuł założono następujące czynności:
+Założono artykułu:
 - Utworzono magazyn usług odzyskiwania, aby chronić maszyny wirtualne VMware. Można utworzyć magazyn usług odzyskiwania z [portalu Azure](http://portal.azure.com "portalu Azure").
 - Masz [konfiguracji środowiska lokalnego](./site-recovery-set-up-vmware-to-azure.md) do replikowania maszyn wirtualnych VMware do platformy Azure.
 
@@ -46,7 +46,7 @@ Oparte na modelu wdrażania wybranego, uruchomieniu aby upewnić się, że masz 
 
 Po operacji sprawdzania poprawności zakończy się pomyślnie, kliknij przycisk OK, aby przejść do następnego kroku.
 
-Jeśli nie masz zgodne konto magazynu Resource Manager lub sieci wirtualnej, lub czy chcesz dodać więcej, możesz to zrobić, klikając **+ konto magazynu** lub **+ sieć** przycisków w górnej części bloku.
+Jeśli nie masz konta magazynu usługi Resource Manager zgodny lub sieci wirtualnej, można utworzyć na, klikając **+ konto magazynu** lub **+ sieć** przycisków w górnej części strony.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie ustawień replikacji](./site-recovery-setup-replication-settings-vmware.md).

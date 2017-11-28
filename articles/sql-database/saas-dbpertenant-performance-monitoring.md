@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie nimi wydajności bazy danych Azure SQL i pul w wielodostępnych aplikacji SaaS
 
@@ -62,9 +62,9 @@ Witryna [Azure Portal](https://portal.azure.com) udostępnia wbudowane funkcje m
 
 Dla dużych scenariuszy, w którym pracujesz z wielu zasobów, [analizy dzienników (OMS)](saas-dbpertenant-log-analytics.md) mogą być używane. Jest to oddzielne usługa Azure, która udostępnia analityka w porównaniu z emitowany dzienniki diagnostyczne i dane telemetryczne zebrane w obszarze roboczym analizy dzienników. Analiza dzienników może zbierać dane telemetryczne z wielu usług i służyć do wykonywania zapytań i Ustaw alerty.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Pobieranie kodu źródłowego aplikacji Wingtip biletów SaaS bazy danych dla dzierżawy i skryptów
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 
-Wingtip biletów SaaS bazy danych dla dzierżawy skrypty i kod źródłowy aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium github. [Kroki, aby pobrać skrypty Wingtip biletów SaaS bazy danych dla dzierżawy](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="provision-additional-tenants"></a>Aprowizacja dodatkowych dzierżaw
 
@@ -220,7 +220,7 @@ W tym ćwiczeniu zostanie zasymulowane zwiększone obciążenie dotyczące miejs
 
 Po zaspokojenie wysokie obciążenie bazy danych contosoconcerthall należy niezwłocznie powraca do puli, aby zmniejszyć koszt. Jeśli nie jest jasne podczas którego nastąpi można ustawić alert w bazie danych który zostanie wyzwolone w momencie jego użycie jednostek DTU spadnie poniżej na bazę danych w puli max. Przenoszenie bazy danych do puli opisano w ćwiczeniu 5.
 
-## <a name="other-performance-management-patterns"></a>Inne wzorce zarządzania wydajnością
+## <a name="other-performance-management-patterns"></a>Innymi wzorami zarządzania wydajności
 
 **Skalowanie uprzedzające** w wykonywaniu powyżej której zostały przedstawione jak skalować izolowanej bazy danych, wiedziały bazę danych, która ma zostać wyszukane. Jeśli zarządzanie Hall porozumieniu Contoso poinformowała Wingtips o zbliżającym się sprzedaży biletów, bazy danych może zostały usunięte z puli pre-emptively. W przeciwnym razie konieczne byłoby skonfigurowanie alertów dla puli lub bazy danych w celu informowania o zmieniającej się sytuacji. Byłoby wysoce nieprzyjemne, gdyby wiadomość o zdarzeniu pochodziła od innych dzierżawców w puli, skarżących się na pogorszenie wydajności. Jeśli jednak dzierżawca może przewidzieć, jak długo będą mu potrzebne dodatkowe zasoby, możesz tak skonfigurować element Runbook usługi Azure Automation, aby przenieść bazę danych z puli, a następnie z powrotem do puli zgodnie z ustalonym harmonogramem.
 

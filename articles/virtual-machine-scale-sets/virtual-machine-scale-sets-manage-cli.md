@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Zarządzaj skalowania maszyny wirtualnej, ustaw 2.0 interfejsu wiersza polecenia platformy Azure
 W całym cyklu życia zestawu skali maszyny wirtualnej może być konieczne uruchomienie jednego lub więcej zadań zarządzania. Ponadto można tworzenia skryptów automatyzujących różnych zadań cyklu życia. Ten artykuł zawiera szczegóły dotyczące niektórych typowych poleceń Azure CLI 2.0, które umożliwiają wykonywanie tych zadań.
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Maszyny wirtualne widoku w zestawie skalowania
-Aby wyświetlić listę wystąpienia maszyny Wirtualnej w zestawie skalowania, użyj [wystąpienia listy az vmss](/cli/azure/vmss#list-instances). Poniższy przykład listy wszystkich wystąpień maszyn wirtualnych w zestaw o nazwie skalowania *myScaleSet* i *myResourceGroup* grupy zasobów. Należy podać własne wartości dla następujących nazw:
+Aby wyświetlić listę wystąpienia maszyny Wirtualnej w zestawie skalowania, użyj [wystąpienia listy az vmss](/cli/azure/vmss#list-instances). Poniższy przykład listy wszystkich wystąpień maszyn wirtualnych w zestaw o nazwie skalowania *myScaleSet* w *myResourceGroup* grupy zasobów. Należy podać własne wartości dla następujących nazw:
 
 ```azurecli
 az vmss list-instances \

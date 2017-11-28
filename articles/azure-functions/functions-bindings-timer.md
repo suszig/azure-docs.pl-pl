@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cc59d97fe4f3bb4e53432332556991d81b208167
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure wyzwalacza czasomierza funkcji
 
@@ -118,7 +118,7 @@ W tym miejscu jest powiązanie danych *function.json* pliku:
 }
 ```
 
-Oto kod skryptu języka F #:
+Oto kod skryptu JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -153,9 +153,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Brak | Musi być równa "timerTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
-|**Kierunek** | Brak | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
-|**Nazwa** | Brak | Nazwa zmiennej, która reprezentuje obiekt czasomierza w kodzie funkcji. | 
+|**Typ** | Nie dotyczy | Musi być równa "timerTrigger". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Kierunek** | Nie dotyczy | Należy wybrać opcję "w". Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
+|**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt czasomierza w kodzie funkcji. | 
 |**Harmonogram**|**ScheduleExpression**|W planie zużycie można zdefiniować harmonogramy za pomocą usługi CRON wyrażenia. Jeśli używasz planu usługi App Service można również użyć `TimeSpan` ciągu. W poniższych sekcjach opisano CRON wyrażenia. Można umieścić wyrażenia harmonogramu w ustawieniu aplikacji i ustawić tę właściwość na wartość otoczona  **%**  znaków, jak w poniższym przykładzie: "% NameOfAppSettingWithCRONExpression %". Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
 
 ### <a name="cron-format"></a>Format usługi CRON 
@@ -224,7 +224,7 @@ Aby wyzwolić na 9:30 AM każdy dzień tygodnia:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## <a name="usage"></a>Użycie
+## <a name="usage"></a>Sposób użycia
 
 Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji. Następujący kod JSON jest przykład reprezentację obiekt czasomierza. 
 

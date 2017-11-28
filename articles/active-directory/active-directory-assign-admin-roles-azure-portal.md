@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Przypisywanie ról administratorów w usłudze Azure Active Directory
 
@@ -30,7 +30,7 @@ Dostępne są następujące role administratora:
 
 * **Administrator rozliczeń**: dokonuje zakupów, zarządza subskrypcjami, zarządza biletami pomocy technicznej i monitoruje kondycję usługi.
 
-* **Administrator zgodności**: użytkownicy z tą rolą mają uprawnienia zarządzania w ramach pakietu Office 365 zabezpieczeń & Centrum zgodności i Centrum administracyjnego programu Exchange. Więcej informacji na "[o rolach administratora usługi Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
+* **Administrator zgodności**: użytkownicy z tą rolą mają uprawnienia zarządzania w ramach pakietu Office 365 zabezpieczeń & Centrum zgodności i Centrum administracyjnego programu Exchange. Więcej informacji na "[o rolach administratora usługi Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
 
 * **Administrator dostępu warunkowego**: użytkownicy z tą rolą mieć możliwość zarządzania ustawieniami dostępu warunkowego do usługi Azure Active Directory.
   > [!NOTE]
@@ -55,7 +55,7 @@ Dostępne są następujące role administratora:
   >
   >
 
-* **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [dotyczące usługi Azure AD B2B współpracy między firmami](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
+* **Gość zapraszającej**: użytkownicy w tej roli mogą zarządzać użytkownika zaproszeń do skorzystania z usługi Azure Active Directory B2B gościa, gdy ustawienia użytkownika "Zaprosić elementy członkowskie" jest ustawiona na nie. Więcej informacji na temat współpracy B2B w [dotyczące usługi Azure AD B2B współpracy między firmami](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie ma inne uprawnienia.
 
 * **Administrator usługi Intune**: użytkownicy z tą rolą uprawnień globalnych w ramach programu Microsoft Intune Online, gdy usługa jest obecny. Ponadto ta rola zawiera zdolność do zarządzania użytkownikami i urządzeniami, aby skojarzyć zasady, oraz tworzenie grup i zarządzanie nimi.
 
@@ -72,13 +72,13 @@ Dostępne są następujące role administratora:
   >
   >
   
-* **Administrator usługi Power BI**: użytkownicy z tą rolą mają uprawnienia globalne w ramach usługi Microsoft Power BI, gdy usługa jest obecne, a także możliwość Zarządzanie biletami pomocy technicznej i monitoruje kondycję usługi. Więcej informacji na [ról administratora o usługi Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
+* **Administrator usługi Power BI**: użytkownicy z tą rolą mają uprawnienia globalne w ramach usługi Microsoft Power BI, gdy usługa jest obecne, a także możliwość Zarządzanie biletami pomocy technicznej i monitoruje kondycję usługi. Więcej informacji na [ról administratora o usługi Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Uprzywilejowany roli administratora**: użytkownicy z tą rolą mogą zarządzać przypisań ról w usłudze Azure Active Directory, a także w usłudze Azure AD Privileged Identity Management. Ponadto ta rola umożliwia zarządzanie wszystkich aspektów Privileged Identity Management.
 
-* **Administrator zabezpieczeń**: użytkownicy z tą rolą mają wszystkie uprawnienia tylko do odczytu z czytnika rolę zabezpieczeń, a także możliwość zarządzania konfiguracją dla usług związanych z zabezpieczeniami: Azure Active Directory Identity Protection, Privileged Identity Management, Office 365 zabezpieczeń i Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Administrator zabezpieczeń**: użytkownicy z tą rolą mają wszystkie uprawnienia tylko do odczytu z czytnika rolę zabezpieczeń, a także możliwość zarządzania konfiguracją dla usług związanych z zabezpieczeniami: Azure Active Directory Identity Protection, Privileged Identity Management, Office 365 zabezpieczeń i Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Czytnik zabezpieczeń**: użytkownicy z tą rolą mają globalny dostęp tylko do odczytu, w tym wszystkie informacje w usłudze Azure Active Directory, Identity Protection, Privileged Identity Management, a także możliwości odczytywanie raporty logowania w usłudze Azure Active Directory i dzienniki inspekcji. Rola przyznaje również uprawnienia tylko do odczytu w programie Office 365 zabezpieczeń & Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Czytnik zabezpieczeń**: użytkownicy z tą rolą mają globalny dostęp tylko do odczytu, w tym wszystkie informacje w usłudze Azure Active Directory, Identity Protection, Privileged Identity Management, a także możliwości odczytywanie raporty logowania w usłudze Azure Active Directory i dzienniki inspekcji. Rola przyznaje również uprawnienia tylko do odczytu w programie Office 365 zabezpieczeń & Centrum zgodności. Więcej informacji na temat uprawnień usługi Office 365 są dostępne pod adresem [uprawnień w programie Office 365 zabezpieczeń & Centrum zgodności](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Administrator obsługuje usługi**: użytkownicy z tą rolą mogą otwierać żądania pomocy technicznej z firmą Microsoft dla usług Azure i usługi Office 365 i widoki pulpitu nawigacyjnego usługi i komunikat Centrum w portalu Azure i portalu administracyjnego usługi Office 365. Więcej informacji na [ról administratora o usługi Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -130,14 +130,14 @@ Dostępne są następujące role administratora:
 ### <a name="security-reader"></a>Czytnik zabezpieczeń
 | W | Możliwość |
 | --- | --- |
-| Centrum ochrony tożsamości |Wszystkie raporty dotyczące zabezpieczeń i informacje o funkcjach zabezpieczeń ustawienia do odczytu<ul><li>Antyspamowy<li>Szyfrowanie<li>Zapobieganie utracie danych<li>Przed złośliwym oprogramowaniem<li>Advanced threat protection<li>Przed wyłudzaniem informacji<li>Reguły Mailflow |
+| Centrum usługi Identity Protection |Wszystkie raporty dotyczące zabezpieczeń i informacje o funkcjach zabezpieczeń ustawienia do odczytu<ul><li>Antyspamowy<li>Szyfrowanie<li>Zapobieganie utracie danych<li>Przed złośliwym oprogramowaniem<li>Advanced threat protection<li>Przed wyłudzaniem informacji<li>Reguły Mailflow |
 | Privileged Identity Management |<p>Ma dostęp tylko do odczytu do wszystkich informacji udostępniane w usłudze Azure AD PIM: zasady i raporty dla usługi Azure AD przypisań ról zabezpieczeń monitoruje i w przyszłości dostęp do odczytu danych zasad i raporty dla scenariuszy oprócz przypisania roli usługi Azure AD.<p>**Nie można** utworzyć konto usługi Azure AD PIM lub wprowadzać żadnych zmian. W portalu firmy usługi PIM lub za pomocą programu PowerShell ktoś jest w tej roli może aktywować dodatkowych ról (na przykład administrator globalny lub Administrator ról uprzywilejowanych), jeśli użytkownik jest kandydatem do nich. |
 | <p>Kondycja usługi Office 365 monitora</p><p>Bezpieczeństwo usługi Office 365 i Centrum zgodności</p> |<ul><li>Przeczytaj alerty i zarządzaj nimi<li>Przeczytaj zasady zabezpieczeń<li>Odczytywanie analizy zagrożeń, Cloud App Discovery i kwarantanny w obszarze wyszukiwania i Zbadaj<li>Odczyt wszystkich raportów |
 
 ### <a name="security-administrator"></a>Administrator zabezpieczeń
 | W | Możliwość |
 | --- | --- |
-| Centrum ochrony tożsamości |<ul><li>Wszystkie uprawnienia roli zabezpieczeń czytnika.<li>Ponadto możliwość wykonywać wszystkie operacje IPC z wyjątkiem resetowanie haseł. |
+| Centrum usługi Identity Protection |<ul><li>Wszystkie uprawnienia roli zabezpieczeń czytnika.<li>Ponadto możliwość wykonywać wszystkie operacje IPC z wyjątkiem resetowanie haseł. |
 | Privileged Identity Management |<ul><li>Wszystkie uprawnienia roli zabezpieczeń czytnika.<li>**Nie można** zarządzania członkostwa w roli usługi Azure AD lub ustawienia. |
 | <p>Kondycja usługi Office 365 monitora</p><p>Bezpieczeństwo usługi Office 365 i Centrum zgodności |<ul><li>Wszystkie uprawnienia roli zabezpieczeń czytnika.<li>Można skonfigurować wszystkie ustawienia w funkcji Advanced Threat Protection (ochrony przed złośliwym oprogramowaniem i wirusami, złośliwy konfiguracji adresu URL, adres URL śledzenia itp.). |
 

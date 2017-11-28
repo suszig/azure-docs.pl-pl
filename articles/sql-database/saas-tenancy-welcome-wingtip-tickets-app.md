@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplikacja SaaS biletów Wingtip
 
@@ -63,15 +63,15 @@ Zapoznaj się z [samouczki] [ docs-tutorials-for-wingtip-mt] i kodu w witrynie G
 
 - Autonomiczny aplikacji:
     - [Samouczki dla aplikacji autonomicznych][docs-tutorials-for-wingtip-sa].
-    - [Kod dla autonomicznego w serwisie Github][github-code-for-wingtip-sa].
+    - [Kod dla autonomicznego w serwisie GitHub][github-code-for-wingtip-sa].
 
 - Bazy danych dla poszczególnych dzierżawców:
     - [Samouczki dotyczące bazy danych dla poszczególnych dzierżawców][docs-tutorials-for-wingtip-dpt].
-    - [Kod dla bazy danych dla każdego dzierżawcy w serwisie Github][github-code-for-wingtip-dpt].
+    - [Kod dla bazy danych dla każdego dzierżawcy w serwisie GitHub][github-code-for-wingtip-dpt].
 
 - Podzielonej wielodostępne:
     - [Samouczki dotyczące podzielonej wielodostępne][docs-tutorials-for-wingtip-mt].
-    - [Kod dla podzielonej wielodostępne w serwisie Github][github-code-for-wingtip-mt].
+    - [Kod dla podzielonej wielodostępne w serwisie GitHub][github-code-for-wingtip-mt].
 
 
 

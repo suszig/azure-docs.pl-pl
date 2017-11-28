@@ -14,74 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 03ae6245e83c1f26546ec2a33c74dc9519847d7b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Podręcznik techniczny do szablonu Cortana analizy rozwiązania dla konserwacji predykcyjnej aerospace i innych firm
 
-## <a name="important"></a>**Ważne**
-W tym artykule jest przestarzała. Dyskusja jest nadal dotyczy problem, czyli konserwacji predykcyjnej w Aerospace, ale odwoływać się do [Omówienie rozwiązania dla firm](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) aktualne informacje.
+>[!Important]
+W tym artykule jest przestarzała. Omówienie konserwacji predykcyjnej w Aerospace jest nadal obowiązują, ale aby uzyskać aktualne informacje, zapoznaj się [Omówienie rozwiązania dla firm](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
-## <a name="acknowledgements"></a>**Potwierdzeń**
-W tym artykule zostały utworzone przez analityków danych Yan Zhang Gauher Shaheen, uż Boylu Fidan, i oprogramowania opracowywać Dan Grecoe firmy Microsoft.
 
-## <a name="overview"></a>**Omówienie**
-Szablony rozwiązań zostały zaprojektowane w celu przyspieszenia procesu tworzenia pokaz E2E u góry pakietu Cortana Intelligence Suite. Szablon wdrożonej udostępnia subskrypcji z niezbędne składniki Cortana Intelligence i tworzenie relacji między nimi. On również nasion potoku danych z przykładowymi danymi wygenerowanych z aplikacji generator danych, które można pobrać i zainstalować na komputerze lokalnym po wdrożeniu szablon rozwiązania. Danych uzyskanych z generatora hydrates potoku danych i rozpoczęcia generowania prognoz uczenia maszynowego, które mogą być następnie wizualizowane na pulpicie nawigacyjnym usługi Power BI. Proces wdrażania przeprowadzi Cię przez kilka kroków, aby skonfigurować poświadczenia rozwiązania. Upewnij się, że rekord poświadczeń, takie jak nazwa rozwiązania, nazwę użytkownika i hasło, które należy podać podczas wdrażania.  
+Szablony rozwiązań zostały zaprojektowane w celu przyspieszenia procesu tworzenia pokaz E2E u góry pakietu Cortana Intelligence Suite. Szablon wdrożonej przepisy subskrypcji z niezbędne składniki Cortana Intelligence, a następnie kompiluje relacji między nimi. On również nasion potoku danych z przykładowymi danymi z aplikacji generator danych, które można pobrać i zainstalować na komputerze lokalnym po wdrożeniu szablon rozwiązania. Dane z generatorem hydrates potoku danych i rozpoczęcia generowania prognoz uczenia maszynowego, które mogą być następnie wizualizowane na pulpicie nawigacyjnym usługi Power BI.
 
-Celem niniejszego dokumentu jest wyjaśnienie architektura referencyjna struktury i składników udostępniane w ramach subskrypcji w ramach tego rozwiązania szablonu, pokazano sposób zamienić przykładowe dane z użyciem własnych danych oraz jak zmodyfikować szablon rozwiązania.  
+Proces wdrażania przeprowadzi Cię przez kilka kroków, aby skonfigurować poświadczenia rozwiązania. Upewnij się, że rekord poświadczeń, takich jak nazwa rozwiązania, nazwę użytkownika i hasło, które należy podać podczas wdrażania. 
+
+
+Cele w tym artykule są:
+- Opisz architektura referencyjna struktury i składników aprowizowane w Twojej subskrypcji.
+- Pokazują, jak zamienić przykładowe dane z użyciem własnych danych. 
+- Pokazują, jak można zmodyfikować szablon rozwiązania.  
 
 > [!TIP]
-> Możesz pobrać i wydrukować [wersja tego dokumentu PDF](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Możesz pobrać i wydrukować [PDF wersja tego artykułu](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
-## <a name="overview"></a>**Omówienie**
+## <a name="overview"></a>Omówienie
 ![Architektura konserwacji predykcyjnej](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Wdrażanie rozwiązania aktywuje usług platformy Azure w ramach pakietu Cortana Analytics (Centrum zdarzeń, Stream Analytics, HDInsight, fabryki danych, uczenie maszynowe *itp.*). Diagram architektury pokazuje, jak jest tworzony konserwacji predykcyjnej lotniczego szablonu rozwiązania. Badania tych usług w portalu Azure, klikając je na diagramie szablon rozwiązania utworzone przy użyciu wdrażania rozwiązania (z wyjątkiem HDInsight, które jest udostępniane na żądanie podczas działania powiązane potoku są wymagane do uruchomienia i później usunięte).
+Podczas wdrażania rozwiązania, zostaje uaktywniony usług platformy Azure w ramach pakietu Analytics Cortana (w tym Centrum zdarzeń, Stream Analytics, HDInsight, fabryki danych i Machine Learning). Diagram architektury pokazuje, jak jest tworzony konserwacji predykcyjnej lotniczego szablonu rozwiązania. Badania tych usług w portalu Azure, klikając na diagramie szablon rozwiązania utworzone przy użyciu wdrażania rozwiązania (z wyjątkiem HDInsight, która jest inicjowana na żądanie, gdy są wymagane do uruchomienia działania powiązane potoku i usunąć później).
 Pobierz [diagramu w pełnym rozmiarze wersji](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 W poniższych sekcjach opisano elementy rozwiązania.
 
-## <a name="data-source-and-ingestion"></a>**Źródło danych i wprowadzanie**
+## <a name="data-source-and-ingestion"></a>Źródło danych i wprowadzanie
 ### <a name="synthetic-data-source"></a>Źródło danych syntetycznego
-W przypadku tego szablonu źródło danych używane jest generowana z aplikacją, która Pobierz i uruchom lokalnie, po pomyślnym wdrożeniu. Z instrukcjami, aby pobrać i zainstalować tę aplikację znajdują się w pasku właściwości po wybraniu pierwszego węzła o nazwie Generator danych konserwacji predykcyjnej na diagramie szablon rozwiązania. Ta aplikacja źródła [Azure Event Hub](#azure-event-hub) usługi z punktów danych lub zdarzenia, używane w pozostałej części przepływu rozwiązania. To źródło danych jest określana na podstawie publicznie dostępnych danych z [repozytorium danych NASA](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) przy użyciu [zestawu danych symulacji turbowentylatorowe aparat degradacji](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+W przypadku tego szablonu źródło danych używane jest generowana z aplikacją, która Pobierz i uruchom lokalnie, po pomyślnym wdrożeniu.
+
+Aby uzyskać instrukcje, aby pobrać i zainstalować tę aplikację, wybierz węzeł pierwszy, Generator danych konserwacji predykcyjnej, na diagramie szablon rozwiązania. Instrukcje znajdują się w pasku właściwości. Ta aplikacja źródła [Azure Event Hub](#azure-event-hub) usługi z punktów danych lub zdarzenia, używane w pozostałej części przepływu rozwiązania. To źródło danych jest określana na podstawie publicznie dostępnych danych z [repozytorium danych NASA](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) przy użyciu [zestawu danych symulacji turbowentylatorowe aparat degradacji](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 Aplikacja generowania zdarzeń wypełnia Azure Event Hub tylko wtedy, gdy jest wykonywane na tym komputerze.
 
 ### <a name="azure-event-hub"></a>Centrum zdarzeń platformy Azure
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) usługi jest odbiorcą danych wejściowych dostarczonych przez syntetyczne źródło danych.
 
-## <a name="data-preparation-and-analysis"></a>**Przygotowanie danych i analiza**
+## <a name="data-preparation-and-analysis"></a>Przygotowanie danych i analiza
 ### <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
-Użyj [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) usługi, aby zapewnić niemal w czasie rzeczywistym analizy strumienia wejściowego z [Azure Event Hub](#azure-event-hub) usługi i opublikować wyniki na [usługi Power BI](https://powerbi.microsoft.com) pulpit nawigacyjny, jak również wszystkie nieprzetworzone zdarzenia przychodzące do archiwizacji [usługi Azure Storage](https://azure.microsoft.com/services/storage/) usługi do późniejszego przetwarzania przez [fabryki danych Azure](https://azure.microsoft.com/documentation/services/data-factory/) usługi.
+Użyj [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) zapewnienie niemal w czasie rzeczywistym analizy strumienia wejściowego z [Azure Event Hub](#azure-event-hub) usługi. Następnie opublikować wyniki na [usługi Power BI](https://powerbi.microsoft.com) pulpitu nawigacyjnego, jak również wszystkie nieprzetworzone zdarzenia przychodzące do archiwum [usługi Azure Storage](https://azure.microsoft.com/services/storage/) usługi do późniejszego przetwarzania przez [fabryki danych Azure](https://azure.microsoft.com/documentation/services/data-factory/)usługi.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight agregacji niestandardowej
 Uruchom [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skryptów (zorkiestrowana przez fabryki danych Azure) korzystania z usługi HDInsight w celu zapewnienia agregacji na zdarzenia pierwotnych archiwizowane za pomocą usługi Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Tworzenia prognoz na pozostałych użytkowania (RUL) silnika określonego powietrznego podane dane wejściowe odebranych z [Azure Machine Learning usługi](https://azure.microsoft.com/services/machine-learning/) (zorkiestrowana przez fabryki danych Azure) do 
+Tworzenia prognoz na pozostałych użytkowania (RUL) aparatem powietrznego określonej przy użyciu wejść odebranych z [Azure Machine Learning usługi](https://azure.microsoft.com/services/machine-learning/) (zorkiestrowana przez fabryki danych Azure). 
 
-## <a name="data-publishing"></a>**Publikowanie danych**
-### <a name="azure-sql-database-service"></a>Usługa bazy danych Azure SQL
-Użyj [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/) do przechowywania (zarządzane przez fabryki danych Azure) prognoz odbierane przez usługę uczenie maszynowe Azure są używane w [usługi Power BI](https://powerbi.microsoft.com) pulpitu nawigacyjnego.
+## <a name="data-publishing"></a>Publikowanie danych
+### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+Użyj [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/) do przechowywania prognoz odbierane przez usługę uczenie maszynowe Azure, które są następnie używane w [usługi Power BI](https://powerbi.microsoft.com) pulpitu nawigacyjnego.
 
-## <a name="data-consumption"></a>**Użycie danych**
+## <a name="data-consumption"></a>Użycie danych
 ### <a name="power-bi"></a>Power BI
-Użyj [usługi Power BI](https://powerbi.microsoft.com) usługi, aby wyświetlić pulpit nawigacyjny, który zawiera agregacji i alerty dostarczonych przez [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) usługi oraz prognoz RUL przechowywane w [bazy danych SQL Azure ](https://azure.microsoft.com/services/sql-database/) które zostały utworzone przy użyciu [usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usługi.
+Użyj [usługi Power BI](https://powerbi.microsoft.com) Aby wyświetlić pulpit nawigacyjny, który zawiera agregacji i alerty dostarczonych przez [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), jak również prognoz RUL przechowywane w [bazy danych SQL Azure](https://azure.microsoft.com/services/sql-database/) które zostały utworzone przy użyciu [usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## <a name="how-to-bring-in-your-own-data"></a>**Jak przenieść własne dane**
+## <a name="how-to-bring-in-your-own-data"></a>Jak przenieść własne dane
 W tej sekcji opisano dotyczące przywracania danych użytkownika na platformie Azure, a obszary wymagają zmian danych, które można przenosić w tej architekturze.
 
-Jest mało prawdopodobne, czy zestaw danych jest zgodna zestawu danych używanego przez [zestawu danych symulacji degradacji aparat turbowentylatorowe](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) używane dla tego szablonu rozwiązania. Opis danych i wymagania są niezwykle istotne w sposób zmodyfikować ten szablon służy do pracy z własnych danych. 
+Jest mało prawdopodobne, czy zestaw danych jest zgodna zestawu danych używany przez [zestawu danych symulacji degradacji aparat turbowentylatorowe](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) używane dla tego szablonu rozwiązania. Opis danych i wymagania są niezwykle istotne w sposób zmodyfikować ten szablon służy do pracy z własnych danych. 
 
-W poniższych sekcjach omówiono części szablonu wymagające modyfikacje, gdy wprowadzono nowy zestaw danych.
+W poniższych sekcjach omówiono części szablonu, które wymagają modyfikacji, jeśli wprowadzono nowy zestaw danych.
 
 ### <a name="azure-event-hub"></a>Centrum zdarzeń platformy Azure
-Usługa Azure Event Hub jest ogólny; dane mogą być publikowane w Centrum w formacie CSV lub JSON. Brak specjalnego przetwarzania występuje w Centrum zdarzeń platformy Azure, ale jest ważne, aby zrozumieć dane, które są przekazywane do niego.
+Azure Centrum zdarzeń jest rodzajowy; dane mogą być publikowane w Centrum w formacie CSV lub JSON. Brak specjalnego przetwarzania występuje w Centrum zdarzeń platformy Azure, ale jest ważne, aby zrozumieć dane, które są przekazywane do niego.
 
 Ten dokument nie opisuje sposobu pozyskiwania danych, ale można łatwo wysłać zdarzenia lub dane do Centrum zdarzeń platformy Azure przy użyciu interfejsów API Centrum zdarzeń.
 
@@ -142,7 +147,7 @@ To [potoku](../../data-factory/v1/data-factory-create-pipelines.md) zawiera poje
 
 Aby uzyskać informacji na temat tworzenia eksperymentu uczenia maszynowego Azure, zobacz [konserwacji predykcyjnej: krok 1 z 3, przygotowanie danych i funkcji engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
-## <a name="monitor-progress"></a>**Monitoruj postęp**
+## <a name="monitor-progress"></a>Monitoruj postęp
 Po uruchomieniu Generator danych, potoku rozpocznie niezawierającego i różne składniki rozwiązania start zasób do następujących akcji polecenia wykonane przez fabryki danych. Istnieją dwa sposoby monitorowania potoku.
 
 1. Jeden z zadania usługi analiza strumienia zapisuje nieprzetworzone dane przychodzące do magazynu obiektów blob. Po kliknięciu składnika magazynu obiektów Blob rozwiązania na ekranie można pomyślnie wdrożyć rozwiązanie i następnie w prawym okienku kliknij polecenie Otwórz, spowoduje to przejście do [portalu Azure](https://portal.azure.com/). Wyświetlonym edytorze kliknij na obiekty BLOB. W panelu dalej możesz wyświetlić listę kontenerów. Polecenie **maintenancesadata**. W następnej panel jest **rawdata** folderu. W folderze rawdata są folderów przy użyciu nazwy, takie jak godzina = 17 i godzina = 18. Obecność tych folderów wskazuje nieprzetworzone dane są generowane na komputerze i przechowywane w magazynie obiektów blob. Powinny pojawić się plików csv o rozmiarze ograniczone w MB w tych folderach.
@@ -152,7 +157,7 @@ Po uruchomieniu Generator danych, potoku rozpocznie niezawierającego i różne 
    
     W tym miejscu możesz kliknąć na nowe zapytanie i zapytanie o liczbę wierszy (na przykład wybierz count(*) z PMResult). Wraz z rozwojem bazy danych, należy zwiększyć liczbę wierszy w tabeli.
 
-## <a name="power-bi-dashboard"></a>**Pulpit nawigacyjny programu Power BI**
+## <a name="power-bi-dashboard"></a>Pulpit nawigacyjny usługi Power BI
 
 Konfigurowanie pulpitu nawigacyjnego usługi Power BI do wizualizacji danych Azure Stream Analytics (ścieżka gorących) i wyniki prognozowania usługi partia zadań Azure machine learning (ścieżka zimnych).
 
@@ -227,10 +232,10 @@ Poniższe kroki przewodnika jak do wizualizacji danych wyjściowych z zadania us
    * Kliknij przycisk **numeru Pin Visual** ikonę w prawym górnym rogu ten wykres liniowy. Można wybrać pulpit nawigacyjny może wyświetlane okno "Numer Pin do pulpitu nawigacyjnego". Wybierz "Demo konserwacji predykcyjnej", a następnie kliknij przycisk "Numer Pin."
    * Umieść kursor myszy nad tego kafelka na pulpicie nawigacyjnym, kliknij ikonę "edit" w prawym górnym rogu, aby zmienić swoją nazwę na "floty widok vs czujnik 11. Próg 48,26" i pomocniczą, aby"Średnia między floty w czasie".
 
-## <a name="how-to-delete-your-solution"></a>**Jak usunąć rozwiązania**
-Sprawdź, czy Zatrzymaj generator danych, gdy nie są aktywnie za pomocą rozwiązania uruchamiania generatora danych będą naliczane wyższe koszty. Usuń rozwiązanie, jeśli nie są używane. Usunięcie rozwiązania spowoduje usunięcie wszystkich składników, które są udostępniane w ramach Twojej subskrypcji po wdrożeniu rozwiązania. Aby usunąć rozwiązania kliknij swoją nazwę rozwiązania, w lewym panelu szablon rozwiązania i kliknij przycisk Usuń.
+## <a name="delete-your-solution"></a>Usuwanie rozwiązania
+Upewnij się, Zatrzymaj generator danych, gdy nie są aktywnie za pomocą rozwiązania uruchamiania generatora danych będą naliczane wyższe koszty. Usuń rozwiązanie, jeśli nie jest używana. Usunięcie rozwiązania spowoduje usunięcie wszystkich składników, które są udostępniane w ramach Twojej subskrypcji po wdrożeniu rozwiązania. Aby usunąć rozwiązanie, kliknij swoją nazwę rozwiązania, w lewym panelu szablon rozwiązania, a następnie kliknij przycisk **usunąć**.
 
-## <a name="cost-estimation-tools"></a>**Narzędzia oszacowanie kosztów**
+## <a name="cost-estimation-tools"></a>Narzędzia oszacowanie kosztów
 Następujące dwa narzędzia są dostępne lepiej zrozumieć całkowity koszt objętego uruchomiona konserwacji predykcyjnej lotniczego szablon rozwiązania w ramach Twojej subskrypcji:
 
 * [Microsoft Azure koszt narzędzia do szacowania Tool (online)](https://azure.microsoft.com/pricing/calculator/)

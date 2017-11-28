@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics między dzierżawcy przy użyciu wyodrębnione dane
 
@@ -73,7 +73,7 @@ Zrozumienie, jak często każdego dzierżawcy jest korzystanie z usługi umożli
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
 - Aplikacja Wingtip biletów SaaS bazy danych dla dzierżawy jest wdrożona. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)
-- Skrypty Wingtip biletów SaaS bazy danych dla dzierżawy i aplikacji [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) są pobierane z usługi GitHub. Zobacz instrukcje pobierania. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość.
+- Skrypty Wingtip biletów SaaS bazy danych dla dzierżawy i aplikacji [kod źródłowy](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) są pobierane z usługi GitHub. Zobacz instrukcje pobierania. Upewnij się, *odblokować plik zip* przed wyodrębniania jego zawartość. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 - Power BI Desktop jest zainstalowany. [Pobierz program Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Zainicjowano partii dodatkowi dzierżawcy, zobacz [ **samouczek dzierżaw udostępniania**](saas-dbpertenant-provision-and-catalog.md).
 - Zadania konta i zadania konta w bazie danych zostały utworzone. Zobacz odpowiednie kroki w [ **Samouczek zarządzania schematu**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Przewodnik programowania w usłudze Event Hubs
 
@@ -30,7 +30,7 @@ Zdarzenia są wysyłane do Centrum zdarzeń za pomocą metody POST protokołu HT
 
 Można utworzyć i zarządzać nimi za pomocą usługi Event Hubs [NamespaceManager][] klasy. W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji protokołu AMQP, przez który zdarzenia są wysyłane do Centrum zdarzeń. [EventData][] klasy reprezentuje zdarzenie i jest używana do publikowania komunikatów do Centrum zdarzeń. Ta klasa zawiera treść, niektóre metadane i informacje nagłówka zdarzenia. Inne właściwości są dodawane do [EventData][] obiektów, kiedy przechodzi on przez Centrum zdarzeń.
 
-## <a name="get-started"></a>Rozpocznij pracę
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Klasy platformy .NET, które obsługują usługę Event Hubs, są udostępniane w zestawie Microsoft.ServiceBus.dll. Najprostszym sposobem odwołania do interfejsu API usługi Service Bus i skonfigurowania aplikacji ze wszystkimi zależnościami usługi Service Bus jest pobranie [pakietu NuGet usługi Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Alternatywnie można użyć [konsoli menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
@@ -117,10 +117,10 @@ Wysyłanie zdarzeń w partiach może pomóc zwiększyć przepustowość. [SendBa
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta.
+Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB dla zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta. Można użyć klasy Pomocnika [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) aby upewnić się, że partia nie przekracza 256 KB. Pobierz pustą [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) interfejsu API, a następnie użycie [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) do dodawania zdarzenia do utworzenia zadania wsadowego. Na koniec użyj [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) podstawowej zdarzenia do przekazania do [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) interfejsu API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Wysyłanie asynchroniczne i wysyłanie na dużą skalę
-Możesz również wysłać zdarzenia do Centrum zdarzeń asynchronicznie. Wysyłanie asynchroniczne może zwiększyć szybkość, z jaką klient jest w stanie wysyłać zdarzenia. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) są dostępne w wersjach asynchronicznych, które zwracają obiekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Ta technika może zwiększyć przepływność, jednak może również spowodować, że klient będzie kontynuować wysyłanie zdarzeń nawet wtedy, gdy jest ograniczany przez usługę Event Hubs, co może skutkować błędami klienta lub utratą komunikatów, jeśli metoda nie została poprawnie zaimplementowana. Dodatkowo można użyć właściwości [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) na kliencie do sterowania opcjami ponawiania prób klienta.
+Możesz również wysłać zdarzenia do Centrum zdarzeń asynchronicznie. Wysyłanie asynchroniczne może zwiększyć szybkość, z jaką klient jest w stanie wysyłać zdarzenia. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) są dostępne w wersjach asynchronicznych, które zwracają obiekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Ta technika może zwiększyć przepływność, jednak może również spowodować, że klient będzie kontynuować wysyłanie zdarzeń nawet wtedy, gdy jest ograniczany przez usługę Event Hubs, co może skutkować błędami klienta lub utratą komunikatów, jeśli metoda nie została poprawnie zaimplementowana. Dodatkowo można użyć właściwości [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) na kliencie do sterowania opcjami ponawiania prób klienta.
 
 ## <a name="create-a-partition-sender"></a>Tworzenie nadawcy dla partycji
 Najbardziej typowe do wysyłania zdarzeń do Centrum zdarzeń bez klucza partycji, ale w niektórych przypadkach można wysyłać zdarzenia bezpośrednio do danej partycji. Na przykład:

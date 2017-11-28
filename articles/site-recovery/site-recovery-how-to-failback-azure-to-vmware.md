@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Nie powiodło się platformy Azure z lokacją lokalną
 
@@ -135,3 +135,17 @@ Po zakończeniu działania zadań ponownej ochrony, maszyna wirtualna wykonuje r
 
 ## <a name="common-issues"></a>Typowe problemy
 Upewnij się, że vCenter jest w stanie połączenia przed wykonaniem powrotu po awarii. W przeciwnym razie rozłączanie dysków i dołączać do maszyny wirtualnej zakończy się niepowodzeniem.
+
+### <a name="common-error-codes"></a>Typowe kody błędów
+
+#### <a name="error-code-8038"></a>Kod błędu 8038
+
+*Nie można wyświetlić na lokalnej maszynie wirtualnej z powodu błędu*
+
+Dzieje się tak podczas 
+1. Na lokalnej maszynie wirtualnej jest włączane na hoście, który nie ma wystarczającej ilości pamięci udostępnione.
+
+Aby rozwiązać ten problem
+1. Umożliwia obsługę większej ilości pamięci na hoście ESXi.
+2. vMotion maszyny Wirtualnej do innego hosta ESXi, który ma wystarczającą ilość pamięci do rozruchu maszyny wirtualnej.
+

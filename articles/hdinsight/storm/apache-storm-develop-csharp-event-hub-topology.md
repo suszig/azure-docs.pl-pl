@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 6b48b98e87d5317c7e673977b87417210a595d6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Zdarzenia procesu z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (C#)
 
@@ -36,6 +36,9 @@ Kroki opisane w tym dokumencie Użyj SCP.NET, pakietu NuGet, który ułatwia two
 > Podczas czynności opisane w tym dokumencie zależą od środowiska projektowego systemu Windows w programie Visual Studio, skompilowany projekt może zostać przesłane do systemu Storm w klastrze usługi HDInsight, który używa systemu Linux. Topologie SCP.NET obsługują tylko opartych na systemie Linux klastrów utworzonych po 28 października 2016 roku.
 
 HDInsight 3.4 i większe wykorzystanie Mono uruchamiania topologie języka C#. Przykład używane w tym dokumencie współpracuje z 3,6 HDInsight. Jeśli planujesz tworzenie własnych rozwiązań .NET dla usługi HDInsight, sprawdź [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dokument dla potencjalnych niezgodności.
+
+> [!WARNING]
+> Jeśli wystąpią problemy z kompilacją projektów, w których używana jest wersja SCP.NET 1.0.0.x, skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać pomoc.
 
 ### <a name="cluster-versioning"></a>Przechowywanie wersji klastra
 

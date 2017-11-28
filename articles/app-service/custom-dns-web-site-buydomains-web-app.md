@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Kup niestandardowej nazwy domeny dla aplikacji sieci Web Azure
 
@@ -31,6 +31,7 @@ Ten artykuł dotyczy usługi Azure App Service (aplikacje sieci Web, aplikacje A
 W celu ukończenia tego samouczka:
 
 * [Utwórz aplikację usługi aplikacji](/azure/app-service/), lub użyć utworzonego w samouczku innej aplikacji.
+* [Usuń limit wydatków na subskrypcję](../billing/billing-spending-limit.md#remove). Nie można kupić domen aplikacji usługi z środki na korzystanie z bezpłatnej subskrypcji.
 
 ## <a name="prepare-the-app"></a>Przygotowywanie aplikacji
 
@@ -82,15 +83,25 @@ W **aplikacje sieci Web** kliknij nazwę aplikacji sieci web, wybierz pozycję *
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-W **domen niestandardowych** kliknij przycisk **kupić domen**.
+W **domen niestandardowych** kliknij przycisk **kupić domeny**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Jeśli nie widzisz **domenami usługi aplikacji** sekcji, musisz usunąć limit wydatków na konto platformy Azure (zobacz [wymagania wstępne](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Konfigurowanie domeny zakupu
 
-W **aplikacji usługi domeny** strony w **wyszukiwania dla domeny** wpisz nazwę domeny, aby kupić i wpisz `Enter`. Sugerowane dostępnych domen są wyświetlane poniżej pola tekstowego. Wybierz co najmniej jedną domenę, który chcesz kupić. 
+W **aplikacji usługi domeny** strony w **wyszukiwania dla domeny** wpisz nazwę domeny, aby kupić i wpisz `Enter`. Sugerowane dostępnych domen są wyświetlane poniżej pola tekstowego. Wybierz co najmniej jedną domenę, który chcesz kupić.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> Następujące [domen najwyższego poziomu](https://wikipedia.org/wiki/Top-level_domain) są obsługiwane przez domen z usługi aplikacji: _com_, _net_, _co.uk_, _org_, _nl_, _w_, _biz_, _org.uk_, i _co.in_.
+>
+>
 
 Kliknij przycisk **informacje kontaktowe** i wypełnij formularz informacji kontaktowych w domenie. Gdy skończysz, kliknij przycisk **OK** aby powrócić do strony domena usługi aplikacji.
    
@@ -100,8 +111,7 @@ Następnie wybierz odpowiednie opcje dla danej domeny. Zobacz poniższą tabelę
 
 | Ustawienie | Sugerowana wartość | Opis |
 |-|-|-|
-|Automatycznego odnawiania | **Włączanie** | Odnawia domenę usługi App automatycznie co roku. Karta kredytowa jest obciążona w tej samej cenie zakupu w momencie odnawiania. |
-|Ochrona prywatności | Włączanie | Zgódź się na "Ochrona prywatności", który jest dostępny w zapłaconej kwoty _bezpłatnie_ (z wyjątkiem domen najwyższego poziomu, którego rejestr nie obsługują ochrony prywatności, takich jak _. co.in_, _. co.uk_ i tak dalej). |
+|Ochrona prywatności | Włączanie | Zgódź się na "Ochrona prywatności", który jest dostępny w zapłaconej kwoty _bezpłatnie_. Niektóre domeny najwyższego poziomu zarządza rejestratorów, które nie obsługują ochrony prywatności i są one wyświetlane na **ochrony prywatności** strony. |
 | Przypisz domyślne nazwy hostów | **www** i**@** | Wybierz powiązania z żądaną nazwą hosta, w razie potrzeby. Po zakończeniu operacji zakupu domeny aplikacji sieci web są dostępne w wybranej nazwy hostów. Jeśli aplikacja sieci web jest za [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcję, aby przypisać domeny głównej (@), ponieważ Menedżera ruchu jest nie rekordów A pomocy technicznej. Można zmienić przypisania nazwy hosta, po zakończeniu zakupu domeny. |
 
 ### <a name="accept-terms-and-purchase"></a>Zaakceptuj postanowienia i zakupu
@@ -125,7 +135,7 @@ Jeśli domyślne nazwy hostów zostały przypisane do aplikacji sieci web, może
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Zobacz też wybranej nazwy hostów w **domen niestandardowych** strony w **Hostnames** sekcji. 
+Zobacz też wybranej nazwy hostów w **domen niestandardowych** strony w **niestandardowe nazwy hostów** sekcji. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Nowo przypisanej hostname(s) powinien zostać wyświetlony w Twojej aplikacji **
 
 Przejdź do listy nazwy hostów w przeglądarce. W przykładzie na poprzednim zrzucie ekranu, spróbuj przejść do obszaru _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Odnowić domenę
+
+Domena usługi aplikacji, których używasz jest ważny przez jeden rok od czasu zakupu. Domyślnie domena jest konfigurowana automatycznie odnowić pobierając formy płatności w następnym roku. Jeśli chcesz wyłączyć funkcję automatycznego odnawiania lub jeśli chcesz ręcznie odnowić domenę, wykonaj kroki opisane w tym miejscu.
+
+W **aplikacje sieci Web** kliknij nazwę aplikacji sieci web, wybierz pozycję **ustawienia**, a następnie wybierz **domen niestandardowych**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+W **domenami usługi aplikacji** wybierz domeny, którego chcesz skonfigurować.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+W lewym obszarze nawigacji domeny, wybierz **odnowienia domeny**. Aby zatrzymać automatycznego odnawiania domeny, wybierz **poza**, a następnie **zapisać**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Aby ręcznie odnowić domenę, wybierz **odnawiania domeny**. Jednak ten przycisk jest nieaktywny do 90 dni przed wygaśnięciem domeny.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Zarządzanie niestandardowych rekordów DNS
 
@@ -236,6 +264,14 @@ Jeśli nie upłynął okres anulowania zakupionych domeny, wybierz **anulować z
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Wybierz **OK** o potwierdzenie operacji. Jeśli nie chcesz kontynuować, kliknij w dowolnym miejscu poza okno dialogowe potwierdzenia.
+Aby potwierdzić operację, wybierz **tak**.
 
 Po zakończeniu operacji domena jest zwolnione z subskrypcji i wszyscy kupić ponownie. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Bezpośrednie domyślny adres URL katalog niestandardowych
+
+Domyślnie usługi aplikacji kieruje żądania sieci web do katalogu głównego w kodzie aplikacji. Aby skierować do podkatalogu, takich jak `public`, zobacz [bezpośrednie domyślny adres URL katalog niestandardowych](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Więcej zasobów
+
+[— Często zadawane pytania: Domena usługi aplikacji (wersja zapoznawcza) i domen niestandardowych](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

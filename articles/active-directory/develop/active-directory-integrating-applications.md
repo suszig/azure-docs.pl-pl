@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrowanie aplikacji z usługą Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ Poniższej sekcji przedstawiono sposób ujawniać zakresy dostępu, modyfikując
   }
   ```
   > [!NOTE]
-  > Wartość "id" musi zostać wygenerowany przy użyciu narzędzia do generowania identyfikatora GUID, takich jak [guidgen]] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) lub programowo. Reprezentuje unikatowy identyfikator dla zakresu jak udostępniany przez interfejs API sieci web. Gdy klient jest skonfigurowany prawidłowo z uprawnieniami dostępu do interfejsu API sieci web, wystawieniu tokenu dostępu OAuth2.0 przez usługę Azure AD. Podczas wywołania klienta interfejsu API sieci web stanowi tokenu dostępu, który ma zakres (scp) oświadczenia ustawione uprawnienia wymagane w jego rejestracji aplikacji.
+  > Wartość "id" musi zostać wygenerowany przy użyciu narzędzia do generowania identyfikatora GUID, takich jak [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) lub programowo. Reprezentuje unikatowy identyfikator dla zakresu jak udostępniany przez interfejs API sieci web. Gdy klient jest skonfigurowany prawidłowo z uprawnieniami dostępu do interfejsu API sieci web, wystawieniu tokenu dostępu OAuth2.0 przez usługę Azure AD. Podczas wywołania klienta interfejsu API sieci web stanowi tokenu dostępu, który ma zakres (scp) oświadczenia ustawione uprawnienia wymagane w jego rejestracji aplikacji.
   >
   > Pozwala udostępnić dodatkowe zakresy, później niezbędne. Należy wziąć pod uwagę, że interfejs API sieci web może udostępniać wielu zakresów skojarzone z wieloma różnymi funkcjami. Zasób kontrolować dostęp do interfejsu API sieci web w czasie wykonywania, oceniając zakresu (`scp`) co najmniej jedno oświadczenie odebranego tokenu dostępu protokołu OAuth 2.0.
   > 

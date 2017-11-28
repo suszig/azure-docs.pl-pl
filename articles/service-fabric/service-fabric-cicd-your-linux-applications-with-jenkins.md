@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Użyj Wpięć do tworzenia i wdrażania aplikacji systemu Linux
 Jenkins to popularne narzędzie służące do przeprowadzania ciągłej integracji i ciągłego wdrażania aplikacji. Poniżej przedstawiono sposób kompilowania i wdrażania aplikacji usługi Azure Service Fabric przy użyciu narzędzia Jenkins.
@@ -42,24 +42,24 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
    > [!NOTE]
    > Upewnij się, że 8081 port jest określony jako punktu końcowego niestandardowych w klastrze.
    >
-2. Klonowanie aplikacji, korzystając z następujących czynności:
 
+2. Klonowanie aplikacji, korzystając z następujących czynności:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Utrwalanie stanu kontenera Wpięć w udziale plików:
   * Tworzenie konta magazynu Azure w **tego samego regionu** co klaster o nazwie, takich jak ``sfjenkinsstorage1``.
   * Utwórz **udziału plików** w magazynie konta o nazwie takich jak ``sfjenkins``.
   * Polecenie **Connect** dla udziału plików i zanotuj wartości on wyświetla w obszarze **łączących się z systemem Linux**, wartość powinna wyglądać podobnie do poniższego:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Do instalacji cifs udziałów musisz z pakietem witryny cifs zainstalowanych w węzłach klastra.         
->
+  > [!NOTE]
+  > Do instalacji cifs udziałów musisz z pakietem witryny cifs zainstalowanych w węzłach klastra.       
+  >
 
 4. Zaktualizuj symbole zastępcze w ```setupentrypoint.sh``` skryptu szczegóły usługi azure storage w kroku 3.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Zastąp ``[REMOTE_FILE_SHARE_LOCATION]`` z wartością ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` z danych wyjściowych Połącz w kroku 3.
   * Zastąp ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` z wartością ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` z kroku 3.
 
-5. Połącz się z klastrem i instalowanie aplikacji do kontenera.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-To spowoduje zainstalowanie kontenera narzędzia Jenkins w klastrze i umożliwi monitorowanie za pomocą narzędzia Service Fabric Explorer.
+5. **Tylko bezpieczny klastra:** w celu skonfigurowania wdrożenia aplikacji w klastrze bezpiecznego z Wpięć, certyfikat musi być dostępny w kontenerze Wpięć. W systemie Linux klastrów certificates(PEM) są po prostu kopiowane z określonego przez X509StoreName na kontenerze magazynu. W ApplicationManifest w obszarze ContainerHostPolicies dodać to odwołanie certyfikatu i zaktualizuj wartość odcisku palca. Wartość musi być czy z certyfikatem przez siebie znajdującej się na węźle.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > Wartość musi być taka sama jak certyfikat, który jest używany do nawiązania bezpiecznego klastra. 
+  >
 
-   > [!NOTE]
-   > Może upłynąć kilka minut dla obrazu Wpięć do pobrania w klastrze.
-   >
+6. Połącz się z klastrem i instalowanie aplikacji do kontenera.
+
+  **Zabezpieczenia klastra**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Niezabezpieczone klastra**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  To spowoduje zainstalowanie kontenera narzędzia Jenkins w klastrze i umożliwi monitorowanie za pomocą narzędzia Service Fabric Explorer.
+
+    > [!NOTE]
+    > Może upłynąć kilka minut dla obrazu Wpięć do pobrania w klastrze.
+    >
 
 ### <a name="steps"></a>Kroki
 1. W przeglądarce przejdź na adres ``http://PublicIPorFQDN:8081``. Tam jest dostępna ścieżka do początkowego hasła administratora wymaganego do zalogowania się. 
@@ -176,13 +193,19 @@ W tym miejscu możesz przekazać wtyczkę. Wybierz **wybierz plik**, a następni
 
     ![Akcja kompilacji narzędzia Jenkins w usłudze Service Fabric][build-step-dotnet]
   
-   h. Z listy rozwijanej **Post-Build Actions** (Akcje po kompilacji) wybierz pozycję **Deploy Service Fabric Project** (Wdróż projekt usługi Service Fabric). W tym miejscu należy podać szczegóły dotyczące klastra, w ramach którego zostanie wdrożona skompilowana aplikacja usługi Service Fabric narzędzia Jenkins. Możesz także podać dodatkowe szczegóły dotyczące aplikacji służące do jej wdrożenia. Na poniższym zrzucie ekranu przedstawiono przykład:
+   h. Z listy rozwijanej **Post-Build Actions** (Akcje po kompilacji) wybierz pozycję **Deploy Service Fabric Project** (Wdróż projekt usługi Service Fabric). W tym miejscu należy podać szczegóły dotyczące klastra, w ramach którego zostanie wdrożona skompilowana aplikacja usługi Service Fabric narzędzia Jenkins. Ścieżkę do certyfikatu można znaleźć przez wyświetlanie wartość echo zmiennej środowiskowej Certificates_JenkinsOnSF_Code_MyCert_PEM od w kontenerze. Ta ścieżka może służyć do pól certyfikatu klienta i klucz klienta.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    Możesz także podać dodatkowe szczegóły dotyczące aplikacji służące do jej wdrożenia. Na poniższym zrzucie ekranu przedstawiono przykład:
 
     ![Akcja kompilacji narzędzia Jenkins w usłudze Service Fabric][post-build-step]
 
-    > [!NOTE]
-    > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
-    >
+      > [!NOTE]
+      > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
+      >
 
 ## <a name="next-steps"></a>Następne kroki
 Usługa GitHub i narzędzie Jenkins są teraz skonfigurowane. Rozważ dokonanie jakiejś przykładowej zmiany w Twoim projekcie ``MyActor`` w przykładzie repozytorium, https://github.com/sayantancs/SFJenkins. Wypchnij zmiany do zdalnej gałęzi ``master`` (lub dowolnej innej gałęzi skonfigurowanej do pracy). Spowoduje to wyzwolenie skonfigurowanego zadania narzędzia Jenkins ``MyJob``. Pobierze ono zmiany z usługi GitHub, skompiluje je i wdroży aplikację w punkcie końcowym klastra określonym w akcjach wykonywanych po kompilacji.  

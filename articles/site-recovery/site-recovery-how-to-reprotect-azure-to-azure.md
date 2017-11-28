@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Ponownej ochrony od przejścia w tryb failover region platformy Azure do regionu podstawowego
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Omówienie
 Gdy użytkownik [pracy awaryjnej](site-recovery-failover.md) maszyn wirtualnych z jednego regionu Azure do innego, maszyny wirtualne są w stanie niechronionym. Aby przywrócić je do regionu podstawowego, należy najpierw ponownie ochronę maszyny wirtualnej, a następnie trybu failover. Nie ma żadnej różnicy między jak failover w jednym kierunku lub innych. Podobnie po Włączanie ochrony maszyn wirtualnych, nie ma żadnej różnicy między trybu failover po ponownej ochrony lub post powrotu po awarii.
-Aby wyjaśnić w przepływach pracy ponownej ochrony i uniknąć pomyłek, użyjemy lokacji głównej chronionych maszyn jako regionu Azja Wschodnia i lokacji odzyskiwania maszyny jako region południowo Azja Wschodnia. Podczas pracy w trybie failover będzie pracy awaryjnej maszyn wirtualnych do regionu Azja południowo wschodnia. Przed możesz powrotu po awarii należy włączyć ją ponownie maszyn wirtualnych z Azja południowo-wschodnia, Azja Wschodnia do. W tym artykule opisano kroki dotyczące włączyć ją ponownie.
+Aby wyjaśnić w przepływach pracy ponownej ochrony i uniknąć pomyłek, dotyczą chronionych maszyn jako regionu Azja Wschodnia lokacji głównej i lokacji odzyskiwania maszyn jako regionu Azja południowo wschodnia. Podczas pracy w trybie failover maszyny wirtualne zostaną uruchomione w regionie południowo Azja Wschodnia. Przed możesz powrotu po awarii należy włączyć ją ponownie maszyn wirtualnych z Azja południowo-wschodnia, Azja Wschodnia do. W tym artykule opisano kroki dotyczące włączyć ją ponownie.
 
 > [!WARNING]
-> Jeśli masz [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), przenieść maszynę wirtualną do innej grupy zasobów lub usunąć maszyny wirtualnej Azure, powrotu po awarii nie można później.
+> Jeśli masz [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), przenieść maszynę wirtualną do innej grupy zasobów lub usunąć maszyny wirtualnej Azure, nie Włącz ponownie ochronę lub powrotu po awarii maszyny wirtualnej.
 
 Po zakończeniu ponownej ochrony i replikowania chronionych maszyn wirtualnych, można zainicjować trybu failover w przypadku maszyn wirtualnych, aby przywrócić je do regionu Azja Wschodnia.
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono kroki, aby Włącz ponownie ochronę maszyny wirtualnej p
 
 ![Włącz ponownie ochronę bloku](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Przegląd **zasobów grupy, sieci, magazynu i dostępności zestawy** informacje i kliknij przycisk OK. Jeśli istnieją wszystkie zasoby oznaczone (nowy), będzie można utworzyć jako część ponownej ochrony.
+3. Przegląd **grupy zasobów, sieci, magazynu i dostępności zestawy** informacje i kliknij przycisk OK. Jeśli istnieją wszystkie zasoby oznaczone (nowy), będzie można utworzyć jako część ponownej ochrony.
 
 To wyzwalacz zadania Wznów zadanie, które najpierw będzie obsługiwał lokacji docelowej (SEA w tym przypadku) przy użyciu najnowszych danych, a po który zakończeniu zreplikuje wystąpiły przed trybu failover można z powrotem do Azja południowo-wschodnia.
 
@@ -72,7 +72,7 @@ Następujące właściwości he docelowej maszyny wirtualnej można dostosować 
 |Właściwość |Uwagi  |
 |---------|---------|
 |Docelowa grupa zasobów     | Można zmienić docelowa grupa zasobów, w którym zostanie utworzona th maszyny wirtualnej. W ramach ponownej ochrony docelowa maszyna wirtualna zostanie usunięta, dlatego można wybrać nową grupę zasobów, w którym można utworzyć pracy awaryjnej post maszyny Wirtualnej         |
-|Docelowy sieci wirtualnej     | Nie można zmienić sieci podczas ponownej ochrony. Aby zmienić sieci, ponów mapowania sieci.         |
+|Docelowy sieci wirtualnej     | Nie można zmienić sieci podczas ponownej ochrony jb. Aby zmienić sieci, ponów mapowania sieci.         |
 |Magazyn docelowy     | Można zmienić konta magazynu, do której maszyna wirtualna zostanie utworzona post trybu failover.         |
 |Pamięć podręczna     | Można określić konto magazynu pamięci podręcznej, która będzie używana podczas replikacji. Przejście z ustawieniami domyślnymi nowego konta magazynu pamięci podręcznej zostanie utworzony, jeśli jeszcze nie istnieje.         |
 |Zestaw dostępności     |Jeśli maszyna wirtualna w Azja Wschodnia jest częścią zestawu dostępności, możesz wybrać zbiór dostępności dla docelowej maszyny wirtualnej w Azji Południowo-Wschodnia. Ustawienia domyślne znajdzie istniejącego zestawu dostępności SEA i ponownie. W trakcie dostosowywania realizowanego można określić zupełnie nowy zestaw AV.         |
@@ -80,7 +80,7 @@ Następujące właściwości he docelowej maszyny wirtualnej można dostosować 
 
 ### <a name="what-happens-during-reprotect"></a>Co się dzieje podczas ponownej ochrony?
 
-Tak jak po pierwszym włączyć ochronę, poniżej przedstawiono artefaktów, tworzonych, korzystając z ustawień domyślnych.
+Tak jak po pierwszym włączyć ochronę, poniżej przedstawiono artefaktów tworzonych, korzystając z ustawień domyślnych.
 1. Konto magazynu pamięci podręcznej pobiera utworzona w regionie, Azja Wschodnia.
 2. Jeśli docelowe konto magazynu (oryginalnego konta magazynu maszyny Wirtualnej Azja południowo-wschodnia) nie istnieje, zostanie utworzony nowy. Nazwa jest konto magazynu maszyny wirtualnej Azja Wschodnia sufiks z "asr".
 3. Jeśli nie istnieje zestaw docelowy AV i wykryć wartości domyślne, które należy utworzyć nowy zestaw AV, a następnie zostanie utworzony jako część zadania ponownej ochrony. Jeśli dostosowano ponownej ochrony wybranego zestawu AV będzie używany.
@@ -88,7 +88,7 @@ Tak jak po pierwszym włączyć ochronę, poniżej przedstawiono artefaktów, tw
 
 Oto lista czynności, które się zdarzyć, gdy użytkownik zainicjuje zadanie ponownej ochrony. Jest to w przypadku, gdy istnieje po stronie docelowej maszyny wirtualnej.
 
-1. Artefaktów wymagane są tworzone w ramach ponownej ochrony. Jeśli już istnieją, a następnie są używane ponownie.
+1. Artefakty wymagane są tworzone w ramach ponownej ochrony. Jeśli już istnieją, a następnie są używane ponownie.
 2. (Azja południowo-wschodnia) po stronie docelowej maszyny wirtualnej jest najpierw wyłączony, jeśli została uruchomiona.
 3. Dysk maszyny wirtualnej po stronie docelowej jest kopiowane za pomocą usługi Azure Site Recovery do kontenera obiektu blob inicjatora.
 4. Następnie jest usuwany po stronie docelowej maszyny wirtualnej.
@@ -99,7 +99,7 @@ Oto lista czynności, które się zdarzyć, gdy użytkownik zainicjuje zadanie p
 > [!NOTE]
 > Nie można włączyć ochrony na poziomie planu odzyskiwania. Może być tylko Wznów w na poziomie maszyny Wirtualnej.
 
-Po ponownej ochrony, maszyny wirtualnej przechodzą w stan chronionych.
+Po ponownej ochrony zadania, maszyny wirtualnej przechodzą w stan chronionych.
 
 ## <a name="next-steps"></a>Następne kroki
 

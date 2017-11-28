@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów plików Azure w systemie Linux
 
@@ -154,6 +154,21 @@ Typowe przyczyny tego problemu są:
 ### <a name="solution"></a>Rozwiązanie
 
 Aby rozwiązać ten problem, należy użyć [narzędzia do rozwiązywania problemów w przypadku plików Azure instalowanie błędów w systemie Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). To narzędzie ułatwia sprawdzanie poprawności klienta uruchomionym środowiskiem, wykrywania konfiguracji niezgodny klient, które mogłyby spowodować niepowodzenie dostępu dla plików Azure, zapewnia wskazówki na własnym rozwiązać i zbieranie śladów diagnostyki.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nie można uzyskać dostępu "&lt;ścieżka&gt;": błąd wejścia/wyjścia
+
+Podczas próby listę plików w udziale plików na platformę Azure przy użyciu polecenia ls pojawi się następujący błąd:
+
+**ls: nie można uzyskać dostępu "&lt;ścieżka&gt;": błąd wejścia/wyjścia**
+
+
+### <a name="solution"></a>Rozwiązanie
+Zaktualizuj jądra systemu Linux do następujących wersji, które mają poprawkę dotyczącą tego problemu:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Wszystkie wersje, które jest większe lub równe 4.13
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

@@ -1,5 +1,5 @@
 ---
-title: "Jak skonfigurować uwierzytelnianie i autoryzacja API w usłudze Azure czas serii Insights"
+title: "Sposób uwierzytelniania i autoryzacji przez interfejs API w usłudze Azure czas serii Insights"
 description: "W tym artykule opisano sposób konfigurowania uwierzytelniania i autoryzacji dla niestandardowych aplikacji, która wywołuje interfejs API Azure czas serii szczegółowych informacji."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja interfejsu API usługi Azure czas serii Insights
 
@@ -32,7 +32,7 @@ Jeśli masz aplikację, która musi czas dostępu Insights serii, należy skonfi
 * Nie trzeba zmienić poświadczenia aplikacji, jeśli zmiana Twoje obowiązki.
 * Certyfikat i klucz aplikacji umożliwia automatyzację uwierzytelniania po uruchomieniu skryptu instalacji nienadzorowanej.
 
-W tym temacie przedstawiono sposób wykonywania tych kroków za pośrednictwem portalu Azure. Głównie aplikacji pojedynczej dzierżawy, gdzie aplikacja jest przeznaczona do uruchamiania w tylko jednej z organizacji. Aplikacje pojedynczej dzierżawy jest zazwyczaj używana dla aplikacji — biznesowych, które są uruchamiane w Twojej organizacji.
+W tym artykule przedstawiono sposób wykonywania tych kroków za pośrednictwem portalu Azure. Głównie aplikacji pojedynczej dzierżawy, gdzie aplikacja jest przeznaczona do uruchamiania w tylko jednej z organizacji. Aplikacje pojedynczej dzierżawy jest zazwyczaj używana dla aplikacji — biznesowych, które są uruchamiane w Twojej organizacji.
 
 Przepływ instalacji składa się z trzech ogólne kroki:
 

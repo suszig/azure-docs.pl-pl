@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Praca w trybie failover w usłudze Site Recovery
 W tym artykule opisano, jak do pracy awaryjnej maszyn wirtualnych i fizycznych serwerów są chronione przez usługę Site Recovery.
@@ -70,7 +70,7 @@ W tej procedurze opisano sposób uruchamiania trybu failover dla [planu odzyskiw
 1. Po uzyskaniu nieudane przez maszynę wirtualną, możesz **zatwierdzić** pracy awaryjnej. Zatwierdzanie powoduje usunięcie wszystkich punktów odzyskiwania dostępnych w usłudze i **zmienić punktu odzyskiwania** opcja nie będzie już dostępna.
 
 ## <a name="planned-failover"></a>Planowany tryb failover
-Maszyny wirtualne/serwery fizyczne chronione za pomocą usługi Site Recovery również obsługa **planowanego trybu failover**. Planowany tryb failover to zero danych utraty pracy awaryjnej opcja. Po wyzwoleniu planowanego trybu failover, najpierw zamknij źródłowych maszynach wirtualnych, synchronizację danych jeszcze do synchronizacji i następnie wyzwoleniu trybu failover.
+Maszyny wirtualne/serwery fizyczne chronione za pomocą usługi Site Recovery również obsługa **planowanego trybu failover**. Planowany tryb failover to zero danych utraty pracy awaryjnej opcja. Po wyzwoleniu planowanego trybu failover, najpierw zamknij źródłowych maszynach wirtualnych, najnowsze dane są synchronizowane i następnie wyzwoleniu trybu failover.
 
 > [!NOTE]
 > Podczas możesz trybu failover funkcji Hyper-v maszyn wirtualnych z jednej lokalnej lokacji do innej lokacji lokalnej, aby wrócić do lokacji głównej lokalnymi należy najpierw **replikacji odwrotnej** maszyny wirtualnej z powrotem do lokacji głównej i wyzwolić tryb failover. Jeśli podstawowa maszyna wirtualna nie jest dostępne, przed uruchomieniem do **replikacji odwrotnej** niezbędnych do przywrócenia maszyny wirtualnej z kopii zapasowej.   

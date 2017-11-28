@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Samouczek: Integracji Azure Active Directory z Druva
 
@@ -104,21 +104,27 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Na **Druva domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na **Druva domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **IDP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    W **identyfikator** tekstowym, wpisz wartość ciągu:`druva-cloud`
+    
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     W **adres URL logowania** tekstowym, wpisz adres URL:`https://cloud.druva.com/home`
 
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Łącze pobierania certyfikatu](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Aplikacja Druva oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do Twojej **atrybuty tokenu SAML** konfiguracji. 
+6. Aplikacja Druva oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do Twojej **atrybuty tokenu SAML** konfiguracji. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na powyższej ilustracji i wykonaj następujące czynności:
+7. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na powyższej ilustracji i wykonaj następujące czynności:
 
     | Nazwa atrybutu      | Wartość atrybutu      |
     | ------------------- | -------------------- |
@@ -136,47 +142,47 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     d. Kliknij przycisk **OK**.    
 
-7. Kliknij przycisk **zapisać** przycisku.
+8. Kliknij przycisk **zapisać** przycisku.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Na **konfiguracji Druva** , kliknij przycisk **skonfigurować Druva** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+9. Na **konfiguracji Druva** , kliknij przycisk **skonfigurować Druva** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy Druva.
+10. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy Druva.
 
-10. Przejdź do **zarządzanie \> ustawienia**.
+11. Przejdź do **zarządzanie \> ustawienia**.
 
     ![Ustawienia](./media/active-directory-saas-druva-tutorial/ic795091.png "ustawienia")
 
-11. W oknie dialogowym Ustawienia rejestracji jednokrotnej wykonaj następujące czynności:
+12. W oknie dialogowym Ustawienia rejestracji jednokrotnej wykonaj następujące czynności:
 
     ![Single Sign-On ustawienia](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On ustawienia")
     
-    a. Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z portalu Azure do **adres URL logowania dostawcy identyfikator** pola tekstowego.
-    
-    b. Wklej **Sign-Out URL** wartość, która została skopiowana z portalu Azure do **adres URL wylogowania dostawcy identyfikator** pola tekstowego.
-    
-     c. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikat dostawcy identyfikator** pole tekstowe
+    a. W **adres URL logowania dostawcy identyfikator** pole tekstowe, Wklej wartość **pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
+        
+    b. W **adres URL wylogowania dostawcy identyfikator** pole tekstowe, Wklej wartość **Sign-Out adres URL**, które zostały skopiowane z portalu Azure
+        
+    c. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikat dostawcy identyfikator** pole tekstowe
      
-     d. Aby otworzyć **ustawienia** kliknij przycisk **zapisać**.
+    d. Aby otworzyć **ustawienia** kliknij przycisk **zapisać**.
 
-12. Na **ustawienia** kliknij przycisk **generowania tokenu rejestracji Jednokrotnej**.
+13. Na **ustawienia** kliknij przycisk **generowania tokenu rejestracji Jednokrotnej**.
 
     ![Ustawienia](./media/active-directory-saas-druva-tutorial/ic795093.png "ustawienia")
 
-13. Na **pojedynczego logowania jednokrotnego tokenu uwierzytelniania** okna dialogowego, wykonaj następujące czynności:
+14. Na **pojedynczego logowania jednokrotnego tokenu uwierzytelniania** okna dialogowego, wykonaj następujące czynności:
 
     ![Token rejestracji Jednokrotnej](./media/active-directory-saas-druva-tutorial/ic795094.png "tokenu rejestracji Jednokrotnej")
     
-    a. Kliknij przycisk **kopiowania**, wklej skopiowane wartości w **wartość** textbox w **Dodawanie atrybutu** sekcji.
+    a. Kliknij przycisk **kopiowania**, wklej skopiowane wartości w **wartość** textbox w **Dodawanie atrybutu** sekcji w portalu Azure.
     
     b. Kliknij przycisk **Zamknij**.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -280,8 +286,6 @@ Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie d
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

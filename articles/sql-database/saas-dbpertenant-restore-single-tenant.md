@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Przywracanie bazy danych Azure SQL pojedynczego dzierżawcy w wielodostępnych aplikacji SaaS
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Przywróć bazę danych Azure SQL pojedynczej dzierżawy w wielodostępnych aplikacji SaaS
 
-Aplikacja Wingtip SaaS jest utworzony przy użyciu modelu bazy danych dla dzierżawy, którym każdy dzierżawca ma własnych bazy danych. Jedną z zalet tego modelu jest łatwo przywrócić dane z pojedynczej dzierżawy w izolacji bez wpływu na innych dzierżawców.
+Aplikacja SaaS biletów Wingtip jest utworzony przy użyciu modelu bazy danych dla dzierżawy, którym każdy dzierżawca ma własnych bazy danych. Jedną z zalet tego modelu jest łatwo przywrócić dane z pojedynczej dzierżawy w izolacji bez wpływu na innych dzierżawców.
 
 W tym samouczku Dowiedz się dwa wzorce odzyskiwania danych:
 
@@ -53,9 +53,9 @@ We wzorcu pierwsze dane są przywracane do nowej bazy danych. Dzierżawca jest n
 
 W drugim wzorcu przyjęto założenie, że dzierżawy poniosła utraty lub uszkodzenia danych, dzierżawcy w produkcyjnej bazie danych zostanie przywrócona do wcześniejszego punktu w czasie. W ramach operacji przywracania we wzorcu miejsce dzierżawcy do trybu offline przez krótki czas, gdy baza danych jest przywracane i przywrócony do trybu online. Oryginalnej bazy danych zostanie usunięty, ale nadal można przywrócić z, aby wrócić do nawet wcześniejszego punktu w czasie. Zmiany tego wzorca można zmienić nazwy bazy danych zamiast usuwania, mimo że zmiana nazwy bazy danych oferuje nie dodatkowych zalet pod względem zabezpieczeń danych.
 
-## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 
-Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki, aby pobrać skrypty Wingtip SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Symulowanie dzierżawcy przypadkowego usunięcia danych
 
@@ -146,6 +146,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* Dodatkowe [samouczków, z którymi aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Dodatkowe samouczki, które zależą od aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Omówienie ciągłości działalności biznesowej z bazy danych SQL Azure](sql-database-business-continuity.md)
 * [Więcej informacji na temat tworzenia kopii zapasowych bazy danych SQL](sql-database-automated-backups.md)

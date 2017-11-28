@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Uruchamianie zapytań ad hoc analytics przez wiele baz danych Azure SQL
 
-W tym samouczku możesz uruchomić zapytań rozproszonych przez cały zestaw dzierżawy baz danych, aby włączyć raportowanie interaktywne ad hoc. Te zapytania można wyodrębnić wgląd w codziennych danych operacyjnych aplikacji SaaS biletów Wingtip stosie. Aby to zrobić, wdrażania dalszej analizy bazy danych do serwera wykazu i umożliwiają elastyczne zapytania zapytań rozproszonych.
+W tym samouczku możesz uruchomić zapytań rozproszonych przez cały zestaw dzierżawy baz danych, aby włączyć raportowanie interaktywne ad hoc. Te zapytania można wyodrębnić wgląd w codziennych danych operacyjnych aplikacji SaaS biletów Wingtip stosie. W tym celu należy wdrożyć dalszej analizy bazy danych na serwerze wykazu i umożliwiają elastyczne zapytania zapytań rozproszonych.
 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -57,7 +57,7 @@ Przekazując kwerendy bazy danych dzierżawy, elastycznej zapytania zapewnia bł
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz skrypty aplikacji Wingtip biletów SaaS bazy danych dla dzierżawcy
 
-Wingtip biletów SaaS bazy danych dla dzierżawy skrypty i kod źródłowy aplikacji są dostępne w [repozytorium github WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Upewnij się, że należy wykonać odblokować kroki opisane w pliku readme.
+Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Tworzenie danych sprzedaży biletów
 
@@ -73,7 +73,7 @@ W aplikacji Wingtip biletów SaaS bazy danych dla dzierżawy każdego dzierżawc
 
 Aby symulować tego wzorca, zestaw widoków "global" są dodawane do bazy danych dzierżawy projektu identyfikator dzierżawcy do każdej z tabel, które będą pytani globalnie. Na przykład *VenueEvents* widoku dodaje obliczanej *VenueId* kolumny zaprojektowana z *zdarzenia* tabeli. Podobnie *VenueTicketPurchases* i *VenueTickets* widoków dodać obliczanej *VenueId* kolumny zaprojektowana z ich odpowiednich tabel. Widoki te są używane przez elastycznej zapytania do parallelize zapytania i wypychania je do odpowiednich dzierżawy zdalnego bazy danych podczas obliczania *VenueId* występuje. To znacznie zmniejsza ilość danych, który jest zwracany i powoduje znaczne zwiększenie wydajności dla wielu zapytań. Widoki globalne te zostały utworzone wcześniej w wszystkie dzierżawy bazy danych.
 
-1. Otwórz w programie SSMS oraz [nawiązać tenants1 -&lt;użytkownika&gt; serwera](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Otwórz w programie SSMS oraz [nawiązać tenants1 -&lt;użytkownika&gt; serwera](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Rozwiń węzeł **baz danych**, kliknij prawym przyciskiem myszy **contosoconcerthall**i wybierz **nowe zapytanie**.
 3. Uruchom następujące kwerendy, aby eksplorować różnica między pojedynczej dzierżawy tabele i widoki globalne:
 
@@ -95,7 +95,7 @@ W tych widokach *VenueId* jest obliczany jako skrót nazwę miejsce, ale jakiejk
 
 Aby sprawdzić definicji *miejsc* widoku:
 
-1. W **Eksplorator obiektów**, rozwiń węzeł **contosoconcethall** > **widoków**:
+1. W **Eksplorator obiektów**, rozwiń węzeł **contosoconcerthall** > **widoków**:
 
    ![Widoki](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Tego ćwiczenia dodaje schematu (zewnętrznego źródła danych i definicji tabe
 
 1. Otwórz program SQL Server Management Studio i łączenia z bazą danych raportowania ad hoc utworzony w poprzednim kroku. Nazwa bazy danych jest *adhocreporting*.
 2. Otwórz ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *AdhocReportingDB.sql zainicjować* w programie SSMS.
-3. Przejrzyj skrypt SQL i należy uwzględnić następujące informacje:
+3. Przejrzyj skrypt SQL i Uwaga:
 
    Elastyczne zapytanie używa poświadczeń o zakresie bazy danych można uzyskać dostępu do wszystkich baz danych dzierżawy. To poświadczenie musi być dostępna w bazach danych i zwykle przyznawane minimalnych uprawnień powinien włączyć tych zapytań ad hoc.
 
     ![Tworzenie poświadczeń](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   Źródło danych zewnętrznych zdefiniowanego można użyć mapy niezależnego fragmentu dzierżawcy w bazie danych katalogu. Korzystając z niniejszego jako zewnętrzne źródło danych, zapytania są dystrybuowane do wszystkich baz danych zarejestrowane w wykazie, po uruchomieniu kwerendy. Ponieważ nazwy serwerów są różne dla każdego wdrożenia, ten skrypt inicjacji pobiera lokalizacji bazy danych katalogu, pobierając bieżącego serwera (@@servername) gdy skrypt zostanie wykonany.
+   Przy użyciu bazy danych katalogu jako zewnętrzne źródło danych, zapytania są dystrybuowane do wszystkich baz danych zarejestrowane w wykazie, po uruchomieniu kwerendy. Ponieważ nazwy serwerów są różne dla każdego wdrożenia, ten skrypt inicjacji pobiera lokalizacji bazy danych katalogu, pobierając bieżącego serwera (@@servername) gdy skrypt zostanie wykonany.
 
     ![Tworzenie zewnętrznego źródła danych](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Teraz, gdy *adhocreporting* baza danych jest skonfigurowany, przejdź dalej i ur
 
 Podczas sprawdzania plan wykonania, umieść kursor nad ikony planu, aby uzyskać szczegółowe informacje. 
 
-To ustawienie jest ważne, należy pamiętać, **dystrybucji = SHARDED(VenueId)** podczas zdefiniowanego z zewnętrznym źródłem danych, zwiększa wydajność w różnych scenariuszach. Ponieważ każdy *VenueId* map do pojedynczej bazy danych, filtrowania łatwo odbywa się zdalnie, zwraca tylko te dane, które są potrzebne.
+To ustawienie jest ważne, należy pamiętać, **dystrybucji = SHARDED(VenueId)** zwiększa wydajność w różnych scenariuszach, kiedy zdefiniowano z zewnętrznym źródłem danych. Ponieważ do każdego *VenueId* map do pojedynczej bazy danych, jest łatwe wykonać filtrowania zdalnie, zwracanie tylko dane potrzebne.
 
 1. Otwórz... \\Modułów szkoleniowych\\operacyjne Analytics\\raportowania ad hoc\\*AdhocReportingQueries.sql pokaz* w programie SSMS.
 2. Upewnij się, czy nawiązano **adhocreporting** bazy danych.
@@ -160,7 +160,7 @@ To ustawienie jest ważne, należy pamiętać, **dystrybucji = SHARDED(VenueId)*
 
    Zapytanie zwraca listę całego miejsca, pokazujący, jak szybko i łatwo jest zapytania dla wszystkich dzierżawców i zwracanych danych z każdej dzierżawy.
 
-   Zbadaj planu i kosztów całej jest zapytania zdalnego, ponieważ firma Microsoft jest po prostu do każdej dzierżawy bazy danych i wybierając informacji miejsce.
+   Zbadaj planu i kosztów całej jest zapytania zdalnego, ponieważ każda baza danych dzierżawy obsługuje własnych zapytań i zwraca informacje o jego miejsce.
 
    ![Wybierz * z dbo. Miejsc](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ To ustawienie jest ważne, należy pamiętać, **dystrybucji = SHARDED(VenueId)*
 
    To zapytanie sprzężenia danych z baz danych dzierżawy i lokalnej *VenueTypes* tabeli (lokalny, w jakiej jest tabelą *adhocreporting* bazy danych).
 
-   Przejrzyj plan i większość koszt jest zapytania zdalnego, ponieważ możemy wysyłać kwerendy informacji o miejscu każdego dzierżawcy (dbo. Miejsc), a następnie wykonaj szybkie sprzężenie lokalne z lokalnej *VenueTypes* tabela, która ma przyjazną nazwę wyświetlaną.
+   Przejrzyj plan i sprawdź, czy większość koszt zapytania zdalnego. Każda baza danych dzierżawy powoduje zwrócenie informacji o jego miejsce i wykonuje sprzężenie lokalne z lokalnej *VenueTypes* tabela, która ma przyjazną nazwę wyświetlaną.
 
    ![Dołącz do danych zdalnych i lokalnych](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Teraz wybierz *na dzień najbardziej biletów sprzedano?* zapytania, a następnie naciśnij klawisz **F5**.
 
-   To zapytanie jest bardziej złożonych przyłączanie i agregacji. Należy pamiętać, jest to najbardziej przetwarzania jest wykonywane zdalnie, czy ponownie, możemy przywrócić tylko wiersze, które są potrzebne, zwracanie tylko jednego wiersza dla każdego miejscową agregacji biletu sprzedaży liczba na dzień.
+   To zapytanie jest bardziej złożonych przyłączanie i agregacji. Należy pamiętać, jest to najbardziej przetwarzania jest wykonywane zdalnie, czy ponownie, zwraca tylko wiersze potrzeby pojedynczy wiersz dla każdego miejscową agregacji biletu sprzedaży liczby dziennie.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
@@ -189,7 +189,7 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 > * Wdrażanie ad hoc bazy danych raportowania i dodać schematu do jego uruchomienie zapytań rozproszonych.
 
 
-Teraz spróbuj [samouczek analizy dzierżawy](saas-tenancy-tenant-analytics.md) do eksplorowania wyodrębnianie danych do bazy danych analizy oddzielne bardziej złożonych przetwarzania analizy...
+Teraz spróbuj [samouczek analizy dzierżawy](saas-tenancy-tenant-analytics.md) do eksplorowania wyodrębnianie danych do bazy danych analizy oddzielne bardziej złożone analizy przetwarzania.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
