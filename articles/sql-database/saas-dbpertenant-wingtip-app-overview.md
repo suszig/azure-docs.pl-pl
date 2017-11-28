@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: ddd51c23c7e7d01e38b02c79c27d1951eea61e70
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Wprowadzenie do przykład aplikacji SaaS wielodostępne połączenia bazy danych SQL
 
 *Wingtip SaaS* jest aplikacja przykładowa aplikacja wielodostępne, który demonstruje wyjątkowych zalet bazy danych SQL. Aplikacja używa wzorca aplikacji SaaS database-per-tenant (baza danych dla dzierżawy) do obsługi wielu dzierżaw. Aplikacja jest przeznaczona do pokazują funkcje bazy danych SQL Azure, które umożliwiają SaaS scenariuszy, w tym kilka wzorce projektowania i zarządzania SaaS. Aby szybko rozpocząć pracę, aplikacja Wingtip SaaS wdraża w mniej niż pięć minut!
 
-Skrypty zarządzania i kodu źródłowego aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. Aby uruchamiać skrypty, [folder modułów uczenia pobierania](#download-and-unblock-the-wingtip-saas-scripts) na komputerze lokalnym.
+Skrypty zarządzania i kodu źródłowego aplikacji są dostępne w [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) repozytorium GitHub. Zapoznaj się z [ogólne wskazówki](saas-tenancy-wingtip-app-guidance-tips.md) dla czynności, aby pobrać i odblokować skrypty Wingtip biletów SaaS.
 
 ## <a name="application-architecture"></a>Architektura aplikacji
 
-Aplikacja Wingtip SaaS korzysta z modelu bazy danych na dzierżawy i korzysta z puli elastycznej SQL Aby zmaksymalizować wydajność. Dla dzierżawcy mapowania do swoich danych i udostępniania bazy danych katalogu jest używany. Podstawowe aplikacji Wingtip SaaS używa puli z trzech dzierżawcami próbki oraz baza danych katalogu. Kończenie wiele SaaS Wingtip samouczki skutkować dodatki początkowe wdrożenie, wprowadzając baz danych analitycznych, między bazami danych zarządzania schematu itp.
+Aplikacja Wingtip SaaS korzysta z modelu bazy danych na dzierżawy i korzysta z puli elastycznej SQL Aby zmaksymalizować wydajność. Dla dzierżawcy mapowania do swoich danych i udostępniania bazy danych katalogu jest używany. Podstawowe aplikacji Wingtip SaaS używa puli z trzech dzierżawcami próbki oraz baza danych katalogu. Kończenie wiele SaaS Wingtip samouczki spowodować dodatki do momentu pierwszego wdrożenia, wprowadzając baz danych analitycznych, między bazami danych Zarządzanie schematami itp.
 
 
 ![Architektura SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
@@ -42,7 +42,7 @@ Po wdrożeniu aplikacji, Poznaj następujące samouczki, które zależą od mome
 
 | Samouczek | Opis |
 |:--|:--|
-| [Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure](saas-dbpertenant-wingtip-app-guidance-tips.md) | **ZACZNIJ TUTAJ!** Pobierz i uruchom skrypty programu PowerShell, aby przygotować części aplikacji. |
+| [Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure](saas-tenancy-wingtip-app-guidance-tips.md) | **ZACZNIJ TUTAJ!** Pobierz i uruchom skrypty programu PowerShell, aby przygotować części aplikacji. |
 |[Wdrażanie i Eksploruj aplikacji Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)|  Wdrażanie i Eksploruj aplikacji Wingtip SaaS do subskrypcji platformy Azure. |
 |[Dostarczanie i katalogu dzierżawcy](saas-dbpertenant-provision-and-catalog.md)| Dowiedz się, jak aplikacja łączy się dzierżawcy przy użyciu bazy danych katalogu oraz jak katalogu mapuje dzierżawcy do swoich danych. |
 |[Monitorowanie i zarządzanie nimi wydajności](saas-dbpertenant-performance-monitoring.md)| Dowiedz się, jak używać funkcji monitorowania bazy danych SQL i sposobu ustawiania alertów po przekroczeniu progów wydajności. |
@@ -55,6 +55,6 @@ Po wdrożeniu aplikacji, Poznaj następujące samouczki, które zależą od mome
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure](saas-dbpertenant-wingtip-app-guidance-tips.md)
+- [Wskazówki i porady dotyczące przykład aplikacji SaaS wielodostępne bazy danych SQL Azure](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Wdrażanie aplikacji Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)
