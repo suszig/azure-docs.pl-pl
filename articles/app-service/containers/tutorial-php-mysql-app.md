@@ -5,8 +5,6 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,11 +13,11 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 86ee5b02fe2a9f34db651f6446398d366b24b5d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web PHP i MySQL na platformie Azure
 
@@ -106,7 +104,7 @@ composer install
 
 W katalogu głównym repozytorium, Utwórz plik o nazwie *.env*. Skopiuj następujące zmienne do *.env* pliku. Zastąp  _&lt;root_password >_ symbolu zastępczego hasła użytkownika root MySQL.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -236,7 +234,7 @@ W tym kroku możesz połączyć aplikację PHP bazy danych MySQL utworzonej w ba
 
 W folderze głównym repozytorium, Utwórz _. env.production_ plik i skopiuj następujące zmienne do niego. Zastąp symbol zastępczy  _&lt;mysql_server_name >_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -332,7 +330,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfiguruj ustawienia bazy danych
+### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
 W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia.
 
@@ -441,7 +439,7 @@ W tym kroku zostaną wprowadzone zmiany proste do `task` modelu danych i aplikac
 
 W scenariuszu zadań modyfikowania aplikacji tak, aby oznaczyć zadanie jako ukończone.
 
-### <a name="add-a-column"></a>Dodaj kolumnę
+### <a name="add-a-column"></a>Dodawanie kolumny
 
 W terminalu przejdź do katalogu głównego repozytorium Git.
 

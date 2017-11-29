@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Rozszerzenia PostgreSQL w bazie danych PostgreSQL Azure
 PostgreSQL pozwala, aby rozszerzyć funkcjonalność programu bazy danych przy użyciu rozszerzeń. Rozszerzenia umożliwiają grupowanie wielu powiązanych obiektów SQL razem w jednym pakiecie, który może być załadowany lub usunięte z bazy danych za pomocą jednego polecenia. Po ładowany w bazie danych, rozszerzenia może działać tak jak wbudowane funkcje. Aby uzyskać więcej informacji o rozszerzeniach PostgreSQL, zobacz [pakowania obiektów pokrewnych do rozszerzenia](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -94,7 +94,7 @@ W poniższych tabelach przedstawiono standardowe rozszerzenia PostgreSQL, które
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topologii, postgis\_tiger\_geocoder, postgis\_sfcgal | Przestrzenne i geograficzne obiekty PostgreSQL. |
 | adres\_standardizer, adres\_standardizer\_danych\_nam | Używany do analizowania adresu do elementów składowych. Używany do obsługi geokodowanie adres normalizacji kroku. |
-| [grouting](http://pgrouting.org/) | Rozszerza PostGIS / funkcje routingu bazą danych PostgreSQL dane geograficzne zapewnienie dane geograficzne. |
+| [pgrouting](http://pgrouting.org/) | Rozszerza PostGIS / funkcje routingu bazą danych PostgreSQL dane geograficzne zapewnienie dane geograficzne. |
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli nie widzisz rozszerzenie, które chcesz użyć, Daj nam znać. Zagłosuj na istniejących żądań lub utworzyć nowy opinii i żądań w naszym [forum opinii klientów](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

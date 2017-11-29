@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 276b0ecd6d84725b94018e73d53555ffd9f3e9a0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Zarządzaj wygasaniem magazynu obiektów Blob platformy Azure w usłudze Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -101,6 +101,14 @@ class Program
 
 ### <a name="azure-storage-explorer"></a>Eksplorator usługi Azure Storage
 Z [Eksploratora usługi Storage Azure](https://azure.microsoft.com/en-us/features/storage-explorer/), można wyświetlać i edytować zasobów magazynu obiektów blob, takie jak właściwości w tym *CacheControl* właściwości. 
+
+Aby zaktualizować *CacheControl* właściwości obiektu blob z Eksploratora usługi Storage platformy Azure:
+   1. Wybierz obiekt blob, a następnie wybierz **właściwości** z menu kontekstowego. 
+   2. Przewiń w dół do *CacheControl* właściwości.
+   3. Wprowadź wartość, a następnie kliknij przycisk **zapisać**.
+
+
+![Właściwości Eksploratora usługi Storage platformy Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfejs wiersza polecenia platformy Azure
 Po przekazaniu obiektu blob można ustawić *cacheControl* właściwości o `-p` przełącznika w [interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md). Poniższy przykład pokazuje, jak można ustawić czas wygaśnięcia na godzinę (3600 sekund):

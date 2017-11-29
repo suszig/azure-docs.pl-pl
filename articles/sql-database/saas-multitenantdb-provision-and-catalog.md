@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -86,10 +86,10 @@ Skrypty Wingtip biletów SaaS wielodostępne w bazie danych i kodu źródłowego
 
 Aby zrozumieć, jak aplikacja biletów Wingtip implementuje nowej dzierżawy alokacji w udostępnionej bazy danych, Dodaj punkt przerwania i kroków przepływu pracy:
 
-1. W _PowerShell ISE_, Otwórz... \\Modułów uczenia\\ProvisionAndCatalog\\_ProvisionAndCatalog.ps1 pokaz_ i ustaw następujące parametry:
+1. W _PowerShell ISE_, Otwórz... \\Modułów uczenia\\ProvisionTenants\\_ProvisionTenants.ps1 pokaz_ i ustaw następujące parametry:
    * **$TenantName** = **niebieskie Bushwillow**, nazwę nowe miejsce.
-   * **$VenueType** = **niebieskie**, jeden z typów wstępnie zdefiniowanych miejscową: *niebieskie*, classicalmusic, tańca, jazz, judo, motorracing uniwersalne, opera, rockmusic (nożną małe litery, bez spacji).
-   * **$Scenario** = **1**, do *udostępnić dzierżawcy w udostępnionej bazy danych z innymi dzierżawcami*.
+   * **$VenueType** = **niebieskie**, jeden z typów wstępnie zdefiniowanych miejscową: niebieskie, classicalmusic, tańca, jazz judo, motorracing uniwersalne, opera, rockmusic, nożną (małe litery, bez spacji).
+   * **$DemoScenario** = **1**, do *udostępnić dzierżawcy w udostępnionej bazy danych z innymi dzierżawcami*.
 
 1. Dodawanie punktu przerwania w dowolnym umieszczając kursor w wiersz 38, informujący: *nowej dzierżawy "*i naciśnij klawisz **F9**.
 
@@ -120,10 +120,10 @@ Poniżej przedstawiono kluczowe elementy inicjowania obsługi administracyjnej p
 
 Teraz wskazówki procesu podczas tworzenia dzierżawcy w własną bazę danych:
 
-1. Nadal... \\Modułów uczenia\\ProvisionAndCatalog\\_ProvisionAndCatalog.ps1 pokaz_ ustaw następujące parametry:
+1. Nadal... \\Modułów uczenia\\ProvisionTenants\\_ProvisionTenants.ps1 pokaz_ ustaw następujące parametry:
    * **$TenantName** = **nożną sequoia**, nazwę nowe miejsce.
-   * **$VenueType** = **nożną**, jeden z typów wstępnie zdefiniowanych miejscową: niebieskie, classicalmusic, tańca, jazz judo, motorracing uniwersalne, opera, rockmusic, *nożną* () małe litery, bez spacji).
-   * **$Scenario** = **2**, do *udostępnić dzierżawcy w udostępnionej bazy danych z innymi dzierżawcami*.
+   * **$VenueType** = **nożną**, jeden z typów wstępnie zdefiniowanych miejscową: niebieskie, classicalmusic, tańca, jazz judo, motorracing uniwersalne, opera, rockmusic, nożną (małe litery, bez spacji).
+   * **$DemoScenario** = **2**, do *udostępniania dzierżawcy na własną bazę danych*.
 
 1. Dodać nowego punktu przerwania umieszczając kursor dowolne miejsce na wiersz 57, informujący:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase "*i naciśnij klawisz **F9**.
 
@@ -151,30 +151,31 @@ Poniżej przedstawiono kluczowe elementy przepływu pracy, który krokowo podcza
 
 Tego ćwiczenia inicjuje partii 17 dzierżaw. Zaleca się, że przed uruchomieniem innych samouczków Wingtip biletów, więc więcej baz danych do pracy z obsługi administracyjnej tej partii dzierżaw.
 
-1. W *PowerShell ISE*, Otwórz... \\Modułów uczenia\\ProvisionAndCatalog\\*ProvisionAndCatalog.ps1 pokaz* i zmienić *$Scenario* parametr 3:
-   * **$Scenario** = **3**, do *udostępnić partii dzierżawcom w udostępnionej bazy danych*.
+
+1. W *PowerShell ISE*, Otwórz... \\Modułów uczenia\\ProvisionTenants\\*ProvisionTenants.ps1 pokaz* i zmienić *$DemoScenario* parametr 4:
+   * **$DemoScenario** = **4**, do *udostępnić partii dzierżawcom w udostępnionej bazy danych*.
 1. Naciśnij klawisz **F5** i uruchom skrypt.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Sprawdź zestaw wdrożonych dzierżawcy 
-Na tym etapie masz kombinację dzierżaw wdrożonych w udostępnionej bazy danych i dzierżaw wdrożone do ich własnych baz danych. Portalu Azure można przeprowadzać inspekcję bazy danych utworzone:  
-
-* W [portalu Azure](https://portal.azure.com), otwórz **tenants1-mt -\<użytkownika\>**  serwer, przechodząc do listy serwerów SQL.  **Baz danych SQL** lista powinna zawierać udostępnionego **tenants1** bazy danych i baz danych w przypadku dzierżaw, które znajdują się w ich własnych bazy danych:
+Na tym etapie masz kombinację dzierżaw wdrożonych w udostępnionej bazy danych i dzierżaw wdrożone do ich własnych baz danych. Portalu Azure można przeprowadzać inspekcję bazy danych utworzone. W [portalu Azure](https://portal.azure.com), otwórz **tenants1-mt -\<użytkownika\>**  serwer, przechodząc do listy serwerów SQL.  **Baz danych SQL** lista powinna zawierać udostępnionego **tenants1** bazy danych i baz danych w przypadku dzierżaw, które znajdują się w ich własnych bazy danych:
 
    ![lista baz danych](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Podczas gdy portalu Azure dzierżawcy baz danych, nie umożliwia Zobacz dzierżawcami *wewnątrz* udostępnionej bazy danych. Pełną listę dzierżawców są widoczne na stronie Centrum zdarzeń biletów Wingtip i przeglądając katalogu:   
 
-1. Otwórz stronę Centrum zdarzeń w przeglądarce (http:events.wingtip-mt.\<użytkownika\>. trafficmanager.net)  
+**Za pomocą strony Centrum zdarzeń Wingtip biletów** <br>
+Otwórz stronę Centrum zdarzeń w przeglądarce (http:events.wingtip-mt.\<użytkownika\>. trafficmanager.net)  
 
-   Pełną listę dzierżawców i ich odpowiednia baza danych jest dostępne w wykazie. Widok SQL znajduje się w bazie danych tenantcatalog, której jest przyłączany nazwę dzierżawcy przechowywane w tabeli dzierżaw Nazwa bazy danych w tabelach zarządzania niezależnego fragmentu. Ten widok przedstawia dobrze wartość rozszerzanie metadanych przechowywanych w katalogu.
+**Przy użyciu bazy danych katalogu** <br>
+Pełną listę dzierżawców i ich odpowiednia baza danych jest dostępne w wykazie. Widok SQL znajduje się w bazie danych tenantcatalog, której jest przyłączany nazwę dzierżawcy przechowywane w tabeli dzierżaw Nazwa bazy danych w tabelach zarządzania niezależnego fragmentu. Ten widok przedstawia dobrze wartość rozszerzanie metadanych przechowywanych w katalogu.
 
-2. W *programu SQL Server Management Studio (SSMS)*, nawiąż połączenie z serwerem dzierżaw w **patrz hasło mt. tenants1\<użytkownika\>. database.windows.net**, z nazwą logowania: **developer** , Hasło:**P@ssword1**
+1. W *programu SQL Server Management Studio (SSMS)* nawiązują połączenia z serwerem dzierżaw w **patrz hasło mt. katalogu\<użytkownika\>. database.windows.net**, z nazwą logowania: **developer**, Hasło:**P@ssword1**
 
     ![W oknie dialogowym połączenia SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. W *Eksplorator obiektów*, przejdź do widoków *tenantcatalog* bazy danych.
-2. Kliknij prawym przyciskiem myszy w widoku *TenantsExtended* i wybierz polecenie **zaznacz 1000 pierwszych wierszy**. Należy pamiętać, mapowanie między nazwa dzierżawcy i bazy danych dla różnych dzierżawców.
+1. W *Eksplorator obiektów*, przejdź do widoków *tenantcatalog* bazy danych.
+1. Kliknij prawym przyciskiem myszy w widoku *TenantsExtended* i wybierz polecenie **zaznacz 1000 pierwszych wierszy**. Należy pamiętać, mapowanie między nazwa dzierżawcy i bazy danych dla różnych dzierżawców.
 
     ![Widok ExtendedTenants w programie SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

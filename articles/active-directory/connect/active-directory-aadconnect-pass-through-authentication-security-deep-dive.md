@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory przekazywanego uwierzytelniania zabezpieczeń nowości
 
@@ -39,7 +39,7 @@ Są to bezpieczeństwo kluczy aspektów tej funkcji:
 - Tylko na standardowe porty (80 i 443) są używane dla komunikacji wychodzącej czynnikami uwierzytelniania usługi Azure AD. Nie trzeba otworzyć porty dla ruchu przychodzącego na zaporze. 
   - Port 443 jest używany do cała komunikacja wychodząca uwierzytelniony.
   - Port 80 jest używany tylko w przypadku pobierania odwołania list certyfikatów (CRL) aby upewnić się, że żaden z tych certyfikatów używanych przez tę funkcję zostały odwołane.
-  - Aby uzyskać pełną listę wymagań sieciowych, zobacz [uwierzytelniania przekazywanego Azure Active Directory: Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Aby uzyskać pełną listę wymagań sieciowych, zobacz [uwierzytelniania przekazywanego Azure Active Directory: Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Hasła podanych przez użytkownika podczas logowania są szyfrowane w chmurze, aby agentów uwierzytelniania lokalnego akceptowanie je na weryfikację pod kątem usługi Active Directory.
 - Kanał HTTPS między usługą Azure AD i lokalnymi Agent uwierzytelniania jest zabezpieczone przy użyciu wzajemnego uwierzytelniania.
 - Tę funkcję można bezproblemowo zintegrować z możliwości ochrony chmury Azure AD, takie jak zasady dostępu warunkowego (w tym uwierzytelnianie wieloskładnikowe Azure), ochrony tożsamości i blokady inteligentnej.

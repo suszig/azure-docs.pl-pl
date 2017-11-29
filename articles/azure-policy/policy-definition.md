@@ -9,19 +9,19 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-policy-definition-structure"></a>Struktura definicji zasad Azure
+# <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
 Definicja zasad zasobu używanego przez zasady usługi Azure umożliwia ustalenie Konwencji zasobów w organizacji przez opisujące, gdy zasady są wymuszane i jaka akcja ma być. Definiowanie Konwencji, można kontrolować koszty i zarządzania zasobami. Na przykład można określić, czy dozwolone są tylko niektóre typy maszyn wirtualnych. Alternatywnie można wymagać, że wszystkie zasoby mają określony tag. Zasady są dziedziczone przez wszystkie zasoby podrzędne. Tak Jeśli zasady są stosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w danej grupie zasobów.
 
 JSON służy do tworzenia definicji zasad. Definicja zasad zawiera elementy dla:
 
-* Tryb
+* mode
 * parameters
 * Nazwa wyświetlana
 * description
@@ -88,13 +88,21 @@ Na przykład można zdefiniować zasady dla właściwości zasobów ograniczyć 
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 Typ parametru może być ciągiem lub tablicą. Właściwość metadanych służy do narzędzi, takich jak portalu Azure do wyświetlania informacji przyjazną dla użytkownika.
+
+W metadanych właściwości można użyć **strongType** zapewnienie wielokrotnego wyboru listy opcji w portalu Azure.  Dozwolone wartości **strongType** obecnie obejmują:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 W regule zasad możesz odwołania do parametrów przy użyciu następującej składni:
 

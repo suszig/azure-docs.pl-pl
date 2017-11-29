@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: fd9513cda899a7ac2a51c4e1ab03a80ce0adf2fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -76,12 +76,20 @@ Sprawdź, czy. Plik komórek jajowych jest bezpieczne, przed jego wdrożeniem.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład użycia:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Skrót wygenerowanego powinna odpowiadać te ustawienia.
-
+    
+    Dla wersji komórek jajowych 1.0.8.38
     **Algorytm** | **Wartość skrótu**
     --- | ---
     MD5 | dd27dd6ace28f9195a2b5d52a4003067 
     SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
     SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    Dla wersji komórek jajowych 1.0.8.40
+    **Algorytm** | **Wartość skrótu**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
 ## <a name="create-the-collector-vm"></a>Tworzenie modułu zbierającego maszyny Wirtualnej
 
@@ -98,7 +106,6 @@ Zaimportować pobrany plik na serwerze vCenter.
 8. W **Format dysku**, określ typ i rozmiar.
 9. W **mapowanie sieci**, określ sieć, z którą połączy się modułu zbierającego maszyny Wirtualnej. Sieć wymaga łączności z Internetem, można wysłać metadanych na platformie Azure. 
 10. Przejrzyj i Potwierdź ustawienia, a następnie kliknij przycisk **Zakończ**.
-
 
 ## <a name="run-the-collector-to-discover-vms"></a>Uruchom moduł zbierający do odnajdywanie maszyn wirtualnych
 
@@ -118,6 +125,9 @@ Zaimportować pobrany plik na serwerze vCenter.
     - W **Tag kategorii do grupowania**, wybierz pozycję **Brak**.
 1. W **wybierz projekt**, określ identyfikator projektu migracji Azure i klucza skopiowany z portalu. Jeśli nie skopiuj je, otwórz Azure portal z modułu zbierającego maszyny Wirtualnej. W projekcie **omówienie** kliknij przycisk **odnajdywanie maszyn**i skopiuj wartości.  
 2. W **pełne odnajdowanie**, monitorować odnajdywania i sprawdź, że metadane zbierane z maszyn wirtualnych znajduje się w zakresie. Moduł zbierający zapewnia odnajdywania przybliżony czas.
+
+> [!NOTE]
+> Moduł zbierający obsługuje tylko "Angielski (Stany Zjednoczone)" jako język systemu operacyjnego i język interfejsu modułu zbierającego. Obsługę innych języków będzie dostępna wkrótce.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Sprawdź maszyn wirtualnych w portalu

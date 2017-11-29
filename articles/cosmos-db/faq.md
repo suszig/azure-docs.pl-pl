@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -194,9 +194,11 @@ Istnieją pewne różnice zachowanie, które użytkownicy pochodzące z magazyne
 * Interfejsu API Azure rozwiązania Cosmos DB tabeli używa modelu zastrzeżone pojemności w celu zapewnienia wydajności gwarantowane, ale oznacza to, że jeden pokrywa pojemność natychmiast po utworzeniu tabeli, nawet jeśli nie jest używana pojemność. Z magazynem tabel Azure jedną tylko płaci pojemności, który faktycznie jest używany. To pozwala wyjaśnić, dlaczego API tabeli mogą oferować Read 10 ms i 15 ms zapisać umowy SLA w 99-ty percentyl, gdy magazyn tabel Azure oferuje 10 drugi umowy SLA. Jednak w konsekwencji tabel tabeli interfejsu API, nawet puste tabele bez żadnych żądań pieniędzy kosztów w celu zapewnienia wydajności jest dostępny do obsługi żądań do nich na umowie SLA oferowane przez bazy danych Azure rozwiązania Cosmos.
 * Zwracane przez interfejs API tabeli wyników zapytania nie są sortowane w kolejności klucza wiersza/klucz partycji, są one w magazynie tabel platformy Azure.
 * Klucze wiersza mogą być tylko do 255 bajtów
+* Partie może zawierać maksymalnie 2 MB
 * Wywołania CreateIfNotExists są ograniczane przez ograniczania zarządzania, który jest stały i oddzielona od innych operacji w tabeli, które są objęte RUs. Oznacza to tych wprowadzania dużej liczby CreateIfNotExists uzyskać ograniczany i nie będzie mógł wykonywać żadnych informacji na ten temat, ponieważ limit nie pochodzi z ich RUs.
 * CORS nie jest obecnie obsługiwany.
 * Nazwy tabeli w magazynie tabel platformy Azure nie jest rozróżniana, ale są one interfejsu API Azure rozwiązania Cosmos DB tabeli
+* Azure rozwiązania Cosmos DB wewnętrzny formaty kodowania informacje, np. pola binarnego nie są obecnie tak efektywne jak jedną może. W związku z tym może to spowodować nieoczekiwane ograniczenia na rozmiar danych. Na przykład aktualnie jedną nie można użyć pełnej 1 mg jednostki tabeli do przechowywania danych binarnych, ponieważ szyfrowanie zwiększa rozmiar danych.
 
 Pod względem interfejsu API REST istnieje wiele opcji punkty końcowe/zapytania, które nie są obsługiwane przez interfejs API Azure rozwiązania Cosmos DB tabeli:
 | Metody REST | Opcja punktu końcowego/zapytania REST | Adresy URL dokumentu | Wyjaśnienie |
@@ -212,7 +214,7 @@ Obsługuje bazy danych Azure rozwiązania Cosmos dostępu sygnatur dostępu Wsp�
 
 Dla zestawu .NET SDK w szczególności, istnieją pewne klasy i metody, które bazy danych Azure rozwiązania Cosmos nie obsługuje obecnie.
 
-| Klasy | Nieobsługiwany — metoda |
+| Klasa | Nieobsługiwany — metoda |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
 |                  | \*ServiceStats * |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 Często zadawane pytania odpowiedzi na często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication i korzystanie z usługi Multi-Factor Authentication. Go dzieli się na pytania dotyczące usługi ogólnie rzecz biorąc, rozliczeń modeli, możliwości użytkowników i rozwiązywania problemów.
@@ -45,6 +45,22 @@ Podczas żądania uwierzytelniania są wysyłane do usługi w chmurze, dane są 
 Można skonfigurować pola opcjonalne w aplikacji serwer Multi-Factor Authentication.
 
 Wynik weryfikacji (powodzenie lub odmowę) i dlatego, jeśli odmówiono, są przechowywane wraz z danymi uwierzytelniania. Te dane są dostępne w sekcji uwierzytelnianie i raportów użycia.
+
+**Pytanie: jakie krótkich kodów programu SMS są używane do wysyłania wiadomości SMS do użytkowników?**
+
+W Stanach Zjednoczonych firma Microsoft używa następujących krótkich kodów SMS:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+W programie Microsoft Kanada używa następujących krótkich kodów programu SMS:
+
+   * 759731 
+   * 673801
+
+Microsoft nie gwarantuje spójne dostarczania monitu SMS lub uwierzytelniania wieloskładnikowego opartego na głos przez ten sam numer. Dla użytkowników Microsoft może dodać lub usunąć krótkich kodów w dowolnym momencie, jak możemy dostosować trasy zwiększające deliverability programu SMS. Firma Microsoft obsługuje krótkich kodów krajów poza Stanami Zjednoczonymi i Kanadą
 
 ## <a name="billing"></a>Rozliczenia
 Większość pytań związanych z rozliczeniami można odpowiedzi, odnosząc się do jednego [stronie cennika usługi Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) lub dokumentację dotyczącą [sposobu uzyskania usługi Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).

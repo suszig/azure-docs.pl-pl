@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Zarządzanie dyskami Azure przy użyciu programu PowerShell
 
@@ -28,7 +28,7 @@ Maszyny wirtualne platformy Azure dysków do przechowywania systemu operacyjnego
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i tymczasowego
-> * Dyski danych
+> * Dyski z danymi
 > * Standard i dysków w warstwie Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywania dysków z danymi
@@ -41,13 +41,13 @@ Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten 
 
 Po utworzeniu maszyny wirtualnej platformy Azure, dwa dyski są automatycznie dołączane do maszyny wirtualnej. 
 
-**Dysk systemu operacyjnego** -dysków systemu operacyjnego może być o rozmiarze maksymalnie 1 terabajt oraz hostów maszyn wirtualnych systemu operacyjnego.  Dysk systemu operacyjnego jest przypisany literą dysku z *c:* domyślnie. Dysk buforowanie konfiguracji dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hosta aplikacji i danych. Dla aplikacji i danych należy użyć dysku danych, które szczegółowo w dalszej części tego artykułu.
+**Dysk systemu operacyjnego** -dysków systemu operacyjnego może być o rozmiarze maksymalnie 4 terabajt i hostuje maszyny wirtualne systemu operacyjnego.  Dysk systemu operacyjnego jest przypisany literą dysku z *c:* domyślnie. Dysk buforowanie konfiguracji dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hosta aplikacji i danych. Dla aplikacji i danych należy użyć dysku danych, które szczegółowo w dalszej części tego artykułu.
 
 **Dysku tymczasowym** -tymczasowego dysków używać dysków SSD, który znajduje się na tym samym hoście Azure co maszyna wirtualna. Tymczasowy dyski są wysokiej wydajności i mogą być używane do operacji, takich jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, zostaną usunięte wszystkie dane przechowywane na dysku tymczasowym. Rozmiar dysku tymczasowym zależy od rozmiaru maszyny Wirtualnej. Tymczasowe dyski są przypisane literę dysku *d:* domyślnie.
 
 ### <a name="temporary-disk-sizes"></a>Rozmiary dysku tymczasowym
 
-| Typ | Rozmiar maszyny Wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
+| Typ | Rozmiar maszyny wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
 |----|----|----|
 | [Zastosowania ogólne](sizes-general.md) | A i serii D | 800 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 800 |
@@ -62,7 +62,7 @@ Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z
 
 ### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi dla maszyny Wirtualnej
 
-| Typ | Rozmiar maszyny Wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
+| Typ | Rozmiar maszyny wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
 |----|----|----|
 | [Zastosowania ogólne](sizes-general.md) | A i serii D | 32 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 32 |
@@ -81,7 +81,7 @@ Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne,
 
 ### <a name="premium-disk"></a>Dysku Premium
 
-Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski w warstwie Premium są dostępne w trzech typów (P10, P20, P30), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład jeśli rozmiar jest poniżej 128 GB typu dysku będzie P10, między 129 i 512 P20 i ponad 512 P30. 
+Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski w warstwie Premium są dostępne w trzech typów (P10, P20, P30, P40, P50), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład, jeśli rozmiar jest poniżej 128 GB typu dysku będzie P10, między 129 i 512 P20, 512 P30, P40 2TB i P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Wydajność dysku Premium
 
@@ -148,7 +148,7 @@ W tym samouczku przedstawiono tematy dysków maszyny Wirtualnej takich jak:
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i tymczasowego
-> * Dyski danych
+> * Dyski z danymi
 > * Standard i dysków w warstwie Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywania dysków z danymi

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/19/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory dostępu warunkowego techniczne
 
@@ -147,25 +147,24 @@ Kontrolować dostęp do aplikacji i klienta za pomocą **aplikacji mobilnych i k
 Następujące aplikacje mobilne i będących klientami pulpitu obsługują dostępu warunkowego dla usługi Office 365 i innych aplikacji usługi Azure AD, połączony:
 
 
-| Aplikacje klienta| Usługa docelowa| Platforma |
-| --- | --- | --- |
-| Usługa Azure RemoteApp| Usługa Azure RemoteApp| Windows 10, Windows 8.1, Windows 7, iOS, Android i Mac OS X|
-| Aplikacji programu Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS i Android|
-| Osoby-mail/kalendarza aplikacji Outlook 2016 Outlook 2013 (z nowoczesnego uwierzytelniania)| Office 365 Exchange Online| Windows 10|
-| Zasady MFA i lokalizację dla aplikacji. Urządzenia, na podstawie zasad nie są obsługiwane.| Moje aplikacje usługi aplikacji| Android i iOS|
-| Kontroluje usługi zespoły firmy Microsoft — do wszystkich usług, które obsługują Teams firmy Microsoft i wszystkie jego aplikacjach klienckich - pulpitu systemu Windows, iOS, Android, WP i klienta sieci web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS|
-| Aplikacje pakietu Office 2016, Office 2013 (z nowoczesnego uwierzytelniania), usługi OneDrive Synchronizowanie klienta (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Usługi Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), obsługa grupy Office jest planowane w przyszłości, obsługi aplikacji programu SharePoint jest planowane w przyszłości| Usługi Office 365 SharePoint Online| Windows 10|
-| Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych w przyszłości| Usługi Office 365 SharePoint Online| Mac OS X|
-| Aplikacje mobilne pakietu Office| Usługi Office 365 SharePoint Online| iOS i Android|
-| Aplikacja usługi Yammer pakietu Office| Yammer usługi Office 365| Windows 10, iOS, Android|
-| Outlook 2016 (Urząd macOS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), usługi Skype dla firm (z nowoczesnego uwierzytelniania)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Outlook aplikacji mobilnej| Office 365 Exchange Online| iOS|
-| Aplikacja usługi Power BI. Aplikacja usługi Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.| Usługa Power BI| Windows 10, Windows 8.1, Windows 7 i iOS|
-| Skype dla firm| Office 365 Exchange Online| Android i IOS|
-| Visual Studio Team Services aplikacji| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS i Android|
-
+|Aplikacje klienta|Usługa docelowa|Platforma|
+|---|---|---|
+|Usługa Azure RemoteApp|Usługa Azure RemoteApp|Windows 10, Windows 8.1, Windows 7, iOS, Android i Mac OS X|
+|Aplikacji programu Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS i Android|
+|Osoby-mail/kalendarza aplikacji Outlook 2016 Outlook 2013 (z nowoczesnego uwierzytelniania)|Office 365 Exchange Online|Windows 10|
+|Zasady MFA i lokalizację dla aplikacji. Urządzenia, na podstawie zasad nie są obsługiwane. |Moje aplikacje usługi aplikacji|Android i iOS|
+|Kontroluje usługi zespoły firmy Microsoft — do wszystkich usług, które obsługują Teams firmy Microsoft i wszystkie jego aplikacjach klienckich - pulpitu systemu Windows, iOS, Android, WP i klienta sieci web|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS |
+|Aplikacje pakietu Office 2016, Office 2013 (z nowoczesnego uwierzytelniania), usługi OneDrive Synchronizowanie klienta (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Usługi Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Aplikacje pakietu Office 2016, Office uniwersalnych aplikacji, Office 2013 (z nowoczesnego uwierzytelniania), klient synchronizacji usługi OneDrive (zobacz [uwagi](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), obsługa grupy Office jest planowane w przyszłości, obsługi aplikacji programu SharePoint jest planowane w przyszłości|Usługi Office 365 SharePoint Online|Windows 10|
+|Pakiet Office 2016 dla macOS (Word, Excel, PowerPoint, tylko w programie OneNote). OneDrive dla firm Obsługa planowanych w przyszłości|Usługi Office 365 SharePoint Online|Mac OS X|
+|Aplikacje mobilne pakietu Office|Usługi Office 365 SharePoint Online|Android, iOS|
+|Aplikacja usługi Yammer pakietu Office|Yammer usługi Office 365|Windows 10, iOS, Android|
+|Outlook 2016 (Urząd macOS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), usługi Skype dla firm (z nowoczesnego uwierzytelniania)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook aplikacji mobilnej|Office 365 Exchange Online|Android, iOS|
+|Aplikacja usługi Power BI. Aplikacja usługi Power BI dla systemu Android nie obsługuje obecnie dostępu warunkowego opartego na urządzeniu.|Usługa Power BI|Windows 10, Windows 8.1, Windows 7 i iOS|
+|Skype dla firm|Office 365 Exchange Online|Android i IOS |
+|Visual Studio Team Services aplikacji|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS i Android|
 
 
 

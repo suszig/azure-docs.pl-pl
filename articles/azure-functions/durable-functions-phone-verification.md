@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Człowieka w funkcje trwałe — przykład weryfikacji telefonu
 
@@ -33,7 +33,7 @@ W tym przykładzie implementuje system weryfikacji na podstawie SMS telefonu. Te
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
-Weryfikacja telefonu jest używana do Sprawdź, czy użytkownicy końcowi aplikacji nie są nadawcy i czy są one kto mówią, że są one. Uwierzytelnianie wieloskładnikowe jest typowe przypadek użycia ochrony przed hakerami kont użytkowników. Problem z wdrożeniem weryfikację telefoniczną jest wymaganie **stanowe interakcji** z człowieka. Użytkownik końcowy jest zwykle zapewniany kodu (np. numer 4-cyfrowego) i musi odpowiadać **w rozsądnym czasie**.
+Weryfikacja telefonu umożliwia Sprawdź, czy użytkownicy końcowi aplikacji nie są nadawcy i czy są one kto mówią, że są one. Uwierzytelnianie wieloskładnikowe jest typowe przypadek użycia ochrony przed hakerami kont użytkowników. Problem z wdrożeniem weryfikację telefoniczną jest wymaganie **stanowe interakcji** z człowieka. Użytkownik końcowy jest zwykle zapewniany kodu (np. numer 4-cyfrowego) i musi odpowiadać **w rozsądnym czasie**.
 
 Zwykłe usługi Azure Functions bezstanowej (jak to wiele innych chmury punktach końcowych na innych platformach), tego rodzaju interakcje będzie obejmować jawnie Zarządzanie zewnętrznie w bazie danych lub niektóre inne trwałego magazynu stanów. Ponadto interakcja muszą być dzielone na wiele funkcji, które mogą być jednocześnie w skoordynowany sposób. Na przykład należy co najmniej jedna funkcja podejmowania decyzji na kod, gdzieś wprowadzeniem trwałych i wysłanie ich do telefonu użytkownika. Ponadto należy co najmniej jedną funkcję otrzymują odpowiedź od użytkownika i w jakiś sposób mapowania go z powrotem na oryginalny wywołanie funkcji w celu przeprowadzenia weryfikacji kodu. Limit czasu jest również istotnym elementem do zapewnienia bezpieczeństwa. To może pobrać dosyć złożona bardzo szybko.
 
@@ -43,7 +43,7 @@ Złożoność tego scenariusza jest znacznie ograniczone podczas korzystania z f
 
 W tym przykładzie polega na użyciu [usługi Twilio](https://www.twilio.com/) usługi do wysyłania wiadomości SMS na telefon komórkowy. Środowisko Azure Functions ma już obsługę usługi Twilio za pośrednictwem [powiązania usługi Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), a próbki korzysta z tej funkcji.
 
-Po pierwsze należy potrzebne jest konto usługi Twilio. Możesz ją utworzyć bezpłatne w https://www.twilio.com/try-twilio. Po utworzeniu konta Dodaj następujące trzy **ustawień aplikacji** do projektu.
+Najpierw potrzebne jest konto usługi Twilio. Możesz ją utworzyć bezpłatne w https://www.twilio.com/try-twilio. Po utworzeniu konta Dodaj następujące trzy **ustawień aplikacji** do funkcji aplikacji.
 
 | Nazwa ustawienia aplikacji | Opis wartości |
 | - | - |

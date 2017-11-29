@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Instalacja serwera sieci web światła w maszynie Wirtualnej platformy Azure
 W tym artykule przedstawiono sposób wdrażania serwera sieci web Apache, MySQL i PHP (stos światła) na maszynie Wirtualnej systemu Ubuntu na platformie Azure. Jeśli wolisz NGINX serwera sieci web, zobacz [stosu LEMP](tutorial-lemp-stack.md) samouczka. Aby wyświetlić serwera światła w akcji, można opcjonalnie zainstalować i skonfigurować witrynę WordPress. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -32,7 +32,7 @@ W tym artykule przedstawiono sposób wdrażania serwera sieci web Apache, MySQL 
 > * Zainstaluj program WordPress na serwerze światła
 
 
-Aby uzyskać więcej informacji na temat stosu światło, w tym zalecenia w środowisku produkcyjnym zobacz [dokumentacji Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Ta konfiguracja jest szybkie testów i weryfikacji koncepcji. Aby uzyskać więcej informacji na temat stosu światło, w tym zalecenia w środowisku produkcyjnym zobacz [dokumentacji Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lok
 
 ## <a name="install-apache-mysql-and-php"></a>Instalowanie Apache, MySQL i PHP
 
-Uruchom następujące polecenie, aby zaktualizować źródła pakietu Ubuntu i zainstaluj Apache, MySQL i PHP. Należy pamiętać, daszek (^) na końcu polecenia.
+Uruchom następujące polecenie, aby zaktualizować źródła pakietu Ubuntu i zainstaluj Apache, MySQL i PHP. Należy zwrócić uwagę daszek (^) na końcu polecenia, który jest częścią programu `lamp-server^` nazwę pakietu. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 Monit, aby zainstalować pakiety i innych zależności. Po wyświetleniu monitu ustawienia hasła głównego dla programu MySQL, a następnie [Enter], aby kontynuować. Postępuj zgodnie z monitami pozostałych. Ten proces instaluje minimalne wymagane rozszerzeń PHP potrzebne do korzystania z MySQL PHP. 
@@ -78,15 +77,15 @@ Sprawdź wersję programu MySQL przy użyciu następującego polecenia (należy 
 mysql -V
 ```
 
-Zaleca się uruchomienie następujący skrypt, aby pomóc w zabezpieczeniu instalacji MySQL:
+Aby pomóc w zabezpieczeniu instalacji MySQL, uruchom `mysql_secure_installation` skryptu. Jeśli tylko konfigurujesz serwer tymczasowy, możesz pominąć ten krok.
 
 ```bash
 mysql_secure_installation
 ```
 
-Wprowadź hasło głównego MySQL i skonfiguruj ustawienia zabezpieczeń dla danego środowiska.
+Wprowadź hasło główne dla programu MySQL, a następnie skonfiguruj ustawienia zabezpieczeń dla danego środowiska.
 
-Jeśli chcesz utworzyć bazę danych MySQL, dodać użytkowników, lub zmienić ustawienia konfiguracji, zaloguj się do MySQL:
+Jeśli chcesz wypróbować funkcje MySQL (Utwórz bazę danych MySQL, dodać użytkowników lub zmienić ustawienia konfiguracji), logowanie do MySQL. Ten krok nie jest wymagany do ukończenia tego samouczka.
 
 ```bash
 mysql -u root -p

@@ -12,39 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Wykryj, jak klienci używają aplikacji z rozdzielaczy Application Insights
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Wykryj, jak klienci używają aplikacji z Lejki Insights aplikacji
 
-Opis klientów są największe znaczenie dla Twojej firmy. Jeśli aplikacja obejmuje kilka etapów, musisz wiedzieć, jeśli większość klientów postępu są przez cały proces lub są one zakończenia procesu w pewnym momencie. Przejście przez kilka czynności w aplikacji sieci web nazywa się "lejka". Rozdzielaczy Application Insights umożliwia uzyskać wgląd w użytkowników i monitor kursy wymiany krok po kroku. 
+Zrozumienie obsługi klienta jest największe znaczenie dla Twojej firmy. Jeśli aplikacja obejmuje kilka etapów, musisz wiedzieć, jeśli większość klientów postępu są przez cały proces lub są one zakończenia procesu w pewnym momencie. Przejście przez kilka czynności w aplikacji sieci web nazywa się *lejka*. Użyj Azure Application Insights Lejki, aby uzyskać wgląd w użytkowników i monitorowanie kursy wymiany krok po kroku. 
 
 ## <a name="create-your-funnel"></a>Utwórz użytkownika lejka.
-Przed utworzeniem sieci lejka należy zdecydować się na pytanie, które chcesz odpowiedzieć. Na przykład można wiedzieć, ilu użytkowników jest wyświetlana strona główna profil klienta wyświetlania i tworzenia biletu. W tym przykładzie właściciele firmy Fabrikam Fiber zapoznać się odsetek klientów, którzy pomyślnie utworzyć bilet klienta.
+Przed utworzeniem sieci lejka zdecydować się na pytanie, które chcesz odpowiedzieć. Na przykład można wiedzieć, ilu użytkowników jest wyświetlana strona główna profil klienta wyświetlania i tworzenia biletu. W tym przykładzie właściciele firmy Fabrikam Fiber zapoznać się odsetek klientów, którzy pomyślnie utworzyć bilet klienta.
 
 Poniżej przedstawiono kroki, które podejmują tworzenia ich lejka.
 
-1. Kliknij przycisk Nowy narzędzie lejki.
-1. Wybierz przedział czasu "Ostatnich 90 dni" z **zakres czasu** listy rozwijanej. Wybierz opcję "Mój Lejki" lub "Udostępniania Lejki"
-1. Wybierz **indeksu** zdarzenia z **krok 1** listy rozwijanej. 
-1. Wybierz **klienta** zdarzenia z **krok 2** listy rozwijanej.
-1. Wybierz **Utwórz** zdarzenia z **kroku 3** listy rozwijanej.
-1. Dodaj nazwę do lejka i kliknij przycisk **zapisać**.
+1. W narzędziu Application Insights Lejki wybierz **nowy**.
+1. Z **zakres czasu** menu rozwijanego wybierz **ostatnich 90 dni temu**. Wybierz opcję **Moje Lejki** lub **udostępnionych Lejki**.
+1. Z **krok 1** listy rozwijanej wybierz **indeksu**. 
+1. Z **krok 2** listy, wybierz **klienta**.
+1. Z **kroku 3** listy, wybierz **Utwórz**.
+1. Dodaj nazwę do lejka, a następnie wybierz **zapisać**.
 
-Poniższa ilustracja przedstawia się, że dane narzędzie Lejki generuje. W tym miejscu Fabrikam właścicieli znajduje się w ciągu ostatnich 90 dni, 54.3% dla klientów, którzy odwiedzona strona główna utworzenia biletu klienta. Można również sprawdzić czy pochodzi 2.7k klientów do indeksu strony głównej, może to wskazywać problem odświeżania.
+Poniższy zrzut ekranu przedstawia przykład tego rodzaju danych narzędzie Lejki generuje. Właściciele Fabrikam można stwierdzić, że w ciągu ostatnich 90 dni, 54.3 odsetek klientów, którzy odwiedzona strona główna utworzone biletu klienta. Można również sprawdzić 2,700 klientom pochodzi ze strony głównej do indeksu. Może to wskazywać problem odświeżania.
 
 
-![Narzędzie Lejki z danymi](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Zrzut ekranu Lejki narzędzie z danymi](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### <a name="funnel-features"></a>Funkcje lejka
-1. Jeśli jest próbkowany aplikacji, zostanie wyświetlony Baner próbkowania. Kliknięcie na banerze spowoduje otwarcie okienka kontekstu poinstruowanie jak wyłączyć próbkowania. 
+### <a name="funnels-features"></a>Funkcje Lejki
+Poprzedni zrzut ekranu zawiera pięciu obszarów. Są to funkcje lejki. Poniżej opisano bardziej dotyczące każdego odpowiadający mu obszar na zrzucie ekranu:
+1. Jeśli jest próbkowany aplikacji, zostanie wyświetlony Baner próbkowania. Wybieranie transparentu powoduje otwarcie okienka kontekstu, wyjaśniający, jak wyłączyć próbkowania. 
 2. Możesz wyeksportować z lejka do [usługi Power BI](app-insights-export-power-bi.md).
-3. Kliknij krok, aby uzyskać bardziej szczegółowe po prawej stronie. 
-4. Konwersja historycznych pokazuje konwersji w ciągu ostatnich 90 dni. 
-5. Zrozumienie użytkownikom lepsze, przechodząc do narzędzia do użytkowników z lejki. Każdy krok zapewni możesz wyselekcjonowanych filtry użytkowników. 
+3. Zaznacz krok, aby zobaczyć więcej szczegółów po prawej stronie. 
+4. Wykres historyczny konwersji pokazuje kursy wymiany w ciągu ostatnich 90 dni. 
+5. Dowiedz się użytkownikom lepsze, uzyskując dostęp do narzędzia użytkowników. Możesz użyć filtrów w każdym kroku. 
 
 ## <a name="next-steps"></a>Następne kroki
   * [Przegląd wykorzystania](app-insights-usage-overview.md)

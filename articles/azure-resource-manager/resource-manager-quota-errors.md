@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Rozwiązywanie błędów dla przydziałami zasobów
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Rozwiązanie 3
 
-Aby zwiększyć limit przydziału, przejdź do portalu, a plik problem pomocy technicznej, aby podnieść limitu przydziału dla regionu, w której chcesz wdrożyć.
+Aby zażądać zwiększenia limitu przydziału, przejdź do portalu i plików problem pomocy technicznej. W problem pomocy technicznej należy zażądać zwiększenia limitu dla regionu, w której chcesz wdrożyć.
 
 > [!NOTE]
 > Należy pamiętać, że dla grup zasobów, limitu przydziału dla poszczególnych regionów, nie dla całej subskrypcji. Jeśli zajdzie potrzeba wdrożenia 30 rdzeni zachodnie stany USA, należy poprosić o 30 rdzeni Resource Manager zachodnie stany USA. Jeśli zajdzie potrzeba wdrożenia 30 rdzeni w poszczególnych regionach, do której masz dostęp, należy poprosić dla 30 rdzeni Resource Manager we wszystkich regionach.
 >
 >
+
+1. Wybierz **subskrypcje**.
+
+   ![Subskrypcje](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
+
+   ![Wybieranie subskrypcji](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Wybierz **użycia + przydziałów**
+
+   ![Wybierz opcję użycia i przydziały](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. W prawym górnym rogu wybierz **zwiększenia**.
+
+   ![Zwiększenia](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Wypełnianie formularzy dla typu przydziału, którą należy zwiększyć.
+
+   ![Wypełnij formularz](./media/resource-manager-quota-errors/forms.png)

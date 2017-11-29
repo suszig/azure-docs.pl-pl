@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Pojęcia dotyczące serwera bazy danych Azure dla programu MySQL
-Ten temat zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure dla serwerów MySQL.
+Ten artykuł zawiera zagadnienia i wskazówki dotyczące pracy z bazą danych Azure dla serwerów MySQL.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Co to jest Azure bazy danych serwera MySQL?
 
@@ -38,15 +38,13 @@ Na serwerze usługi Azure Database for MySQL można utworzyć jedną lub wiele b
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Jak połączyć i uwierzytelniania do bazy danych MySQL serwera Azure?
 
 Następujące elementy zapewnić bezpieczny dostęp do bazy danych.
-
 |||
 | :-- | :-- |
 | **Uwierzytelnianie i autoryzacja** | Azure bazy danych MySQL serwera obsługuje natywnych uwierzytelnianie MySQL. Możesz łączyć i uwierzytelniania na serwerze z nazwą logowania administratora serwera. |
 | **Protokół** | Usługa obsługuje protokół oparta na komunikatach używany przez MySQL. |
 | **PROTOKÓŁ TCP/IP** | Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i za pośrednictwem gniazda domeny systemu Unix. |
-| **Zapora** | Aby chronić dane, regułę zapory uniemożliwia dostęp serwer bazy danych lub jej baz danych do chwili określenia komputery, które ma uprawnienia. Zobacz [bazą danych Azure dla reguł zapory serwera MySQL](./concepts-firewall-rules.md). |
+| **Zapora** | Aby chronić dane, reguła zapory uniemożliwia wszystkie dostęp do serwer bazy danych, do momentu określenia komputery, które ma uprawnienia. Zobacz [bazą danych Azure dla reguł zapory serwera MySQL](./concepts-firewall-rules.md). |
 | **PROTOKÓŁ SSL** | Usługa obsługuje wymuszenie połączenia SSL między aplikacjami a serwerem bazy danych.  Zobacz [Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL](./howto-configure-ssl.md). |
-|||
 
 ## <a name="how-do-i-manage-a-server"></a>Jak zarządzać serwerem?
 Baza danych Azure dla serwerów MySQL można zarządzać za pomocą portalu Azure lub interfejsu wiersza polecenia Azure.

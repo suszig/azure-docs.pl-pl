@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Dostępność i spójności w usłudze Event Hubs
 
@@ -36,7 +36,7 @@ Newtona firmy Brewera definiuje spójności i dostępności w następujący spos
 Centra zdarzeń jest oparty na modelu danych podzielonej na partycje. Liczba partycji w Centrum zdarzeń można skonfigurować podczas instalacji, ale nie można później zmienić tę wartość. Ponieważ partycji musi być używany z usługą Event Hubs, trzeba podjąć decyzję o dostępności i spójności aplikacji.
 
 ## <a name="availability"></a>Dostępność
-Najprostszym sposobem, aby rozpocząć pracę z usługą Event Hubs jest zachowanie domyślne. Jeśli tworzysz nową `EventHubClient` obiektu i użyj `Send` metody zdarzeń są automatycznie dystrybuowane między partycji w Centrum zdarzeń. Takie zachowanie umożliwia największą ilość czasu.
+Najprostszym sposobem, aby rozpocząć pracę z usługą Event Hubs jest zachowanie domyślne. Jeśli tworzysz nową  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  obiektu i użyj  **[wysyłania](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  metody zdarzeń są automatycznie dystrybuowane między partycji w Centrum zdarzeń. Takie zachowanie umożliwia największą ilość czasu.
 
 Dla przypadków użycia, które wymagają maksymalny czas działania ten model jest preferowany.
 

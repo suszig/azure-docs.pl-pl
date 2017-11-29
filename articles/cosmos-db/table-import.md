@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 5163d20aece01addddeae93cb07355bde928a440
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importowanie danych do użycia z interfejsu API Azure rozwiązania Cosmos DB tabeli
 
@@ -32,11 +32,11 @@ Ten samouczek obejmuje następujące zadania:
 
 ## <a name="data-migration-tool"></a>Narzędzie migracji danych
 
-Narzędzie wiersza polecenia migracji danych DB rozwiązania Cosmos Azure (dt.exe) może służyć do zaimportowania istniejących danych magazynu tabel Azure z kontem API tabeli GA lub migracji danych z konta tabeli interfejsu API (wersja zapoznawcza) w tabeli API GA konto. Inne źródła nie są obecnie obsługiwane.
+Narzędzie wiersza polecenia migracji danych DB rozwiązania Cosmos Azure (dt.exe) może służyć do zaimportowania istniejących danych magazynu tabel Azure z kontem API tabeli GA lub migracji danych z konta tabeli interfejsu API (wersja zapoznawcza) w tabeli API GA konto. Inne źródła nie są obecnie obsługiwane. Migracja danych na podstawie interfejsu użytkownika narzędzia (dtui.exe) nie jest obsługiwana dla kont tabeli interfejsu API. 
 
 Aby przeprowadzić migrację danych z tabeli, należy wykonać następujące zadania:
 
-1. Pobierz narzędzie do migracji z [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) lub [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Pobierz narzędzie do migracji z [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Uruchom `dt.exe` przy użyciu argumentów wiersza polecenia dla danego scenariusza.
 
 DT.exe wykonuje polecenie w następującym formacie:

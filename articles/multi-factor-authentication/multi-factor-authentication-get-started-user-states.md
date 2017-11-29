@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Jak zażądać weryfikacji dwuetapowej dla użytkownika lub grupy
 
@@ -40,11 +40,11 @@ Obie te opcje monitować użytkowników o zarejestrować uwierzytelnianie wielos
 
 Konta użytkowników w usłudze Azure Multi-Factor Authentication mają następujące trzy różne stany:
 
-| Stan | Opis | Aplikacje korzystające z przeglądarki, których to dotyczy |
-|:---:|:---:|:---:|
-| Disabled (Wyłączony) |Stan domyślny dla nowych użytkowników niezarejestrowanych Azure Multi-Factor Authentication (MFA). |Nie |
-| Enabled (Włączony) |Użytkownik został zarejestrowany w usłudze Azure MFA, ale nie został zarejestrowany. Aby zarejestrować przy następnym zalogowaniu zostanie wyświetlony monit. |Nie.  One nadal działać do czasu ukończenia procesu rejestracji. |
-| Enforced (Wymuszony) |Użytkownik został zarejestrowany i ukończył proces rejestracji dla usługi Azure MFA. |Tak.  Aplikacje wymagają hasła aplikacji. |
+| Stan | Opis | Aplikacje korzystające z przeglądarki, których to dotyczy | Aplikacje przeglądarki i nowoczesnego uwierzytelniania, których to dotyczy |
+|:---:|:---:|:---:|:--:|
+| Disabled (Wyłączony) |Stan domyślny dla nowych użytkowników niezarejestrowanych Azure Multi-Factor Authentication (MFA). |Nie |Nie |
+| Enabled (Włączony) |Użytkownik został zarejestrowany w usłudze Azure MFA, ale nie został zarejestrowany. Aby zarejestrować przy następnym zalogowaniu zostanie wyświetlony monit. |Nie.  One nadal działać do czasu ukończenia procesu rejestracji. | Tak. Po wygaśnięciu tokenu odświeżania dla sesji rejestracji usługi MFA będzie wymagane.|
+| Enforced (Wymuszony) |Użytkownik został zarejestrowany i ukończył proces rejestracji dla usługi Azure MFA. |Tak.  Aplikacje wymagają hasła aplikacji. |Tak. Uwierzytelnianie wieloskładnikowe wymagane podczas logowania. |
 
 Stan użytkownika odzwierciedla czy administrator zarejestrował je w usłudze Azure MFA i czy zostały ukończone w procesie rejestracji.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Magazyn kolejek i kolejek usługi Service Bus - porównywane i odróżniające
 W tym artykule analizuje różnice i podobieństwa między tymi dwoma typami kolejek oferowanych przez system Microsoft Azure obecnie: magazyn kolejek i kolejek usługi Service Bus. Dzięki tym informacjom można porównać odpowiednie technologie i świadomie wybrać rozwiązanie, które najlepiej odpowiada danym potrzebom.
@@ -30,12 +30,12 @@ Azure obsługuje dwa typy mechanizmów kolejki: **magazynu kolejek** i **kolejek
 
 **Kolejki usługi Service Bus** są częścią szerszego [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastruktury obsługuje kolejkowania wiadomości oraz publikowania/subskrypcji i bardziej zaawansowane wzorce integracji. Aby uzyskać więcej informacji na temat usługi Service Bus kolejek/tematy/subskrypcji, zobacz [Omówienie usługi Service Bus](service-bus-messaging-overview.md).
 
-Istnieją obie Kolejkowanie technologie współbieżnie, kolejek magazynu zostały wprowadzone najpierw mechanizmu magazynowania dedykowanych kolejki, oparty na usługach Azure Storage. Kolejek usługi Service Bus jest oparty na szersze infrastruktury "komunikatów", zaprojektowany do integrowania aplikacji lub składników aplikacji, które może obejmować wiele protokołów komunikacyjnych, kontraktów danych, zaufania domen lub w środowiskach sieci.
+Istnieją obie Kolejkowanie technologie współbieżnie, kolejek magazynu zostały wprowadzone najpierw mechanizmu magazynowania dedykowanych kolejki, oparty na usługach Azure Storage. Kolejek usługi Service Bus jest oparty na szersze zaprojektowany do integrowania aplikacji lub składników aplikacji, które może obejmować wiele protokołów komunikacyjnych, kontraktów danych, zaufania domen lub w środowiskach sieci infrastruktury obsługi wiadomości.
 
 ## <a name="technology-selection-considerations"></a>Zagadnienia dotyczące wyboru technologii
 Kolejki magazynu i kolejek usługi Service Bus są implementacje obecnie oferowanych przez system Microsoft Azure usługi kolejkowania wiadomości. Każdy ma zestaw nieco innych funkcji, który oznacza, że można wybrać jednego lub drugiego lub korzystać z obu w zależności od potrzeb danego rozwiązania lub są rozwiązywania problemu firm/techniczne.
 
-Podczas określania Kolejkowanie technologie pasuje do zastosowania dla danego rozwiązania, rozwiązanie architektów i deweloperów należy rozważyć poniższe zalecenia. Aby uzyskać więcej informacji zobacz następną sekcję.
+Podczas określania Kolejkowanie technologie pasuje do zastosowania dla danego rozwiązania, rozwiązanie architektów i deweloperów należy rozważyć te zalecenia. Aby uzyskać więcej informacji zobacz następną sekcję.
 
 Jako rozwiązanie architektów/deweloperów **należy rozważyć użycie magazynu kolejek** po:
 
@@ -75,8 +75,8 @@ Ta sekcja porównuje niektórych podstawowych kolejkowania możliwości oferowan
 | Styl wypychania interfejsu API |**Nie** |**Tak**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) i **OnMessage** sesji interfejsu API platformy .NET. |
 | Tryb odbierania |**Peek & dzierżawy** |**Peek & blokady**<br/><br/>**Usuń & Odbierz** |
 | Tryb wyłączności |**Na podstawie dzierżawy** |**Na podstawie blokady** |
-| Czas trwania dzierżawy/blokady |**30 sekund (ustawienie domyślne)**<br/><br/>**7 dni (maksymalnie)** (możesz odnowić lub zwolnienia dzierżawy komunikat przy użyciu [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) interfejsu API.) |**60 sekund (ustawienie domyślne)**<br/><br/>Możesz odnowić blokady komunikat przy użyciu [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) interfejsu API. |
-| / Blokady dokładności |**Poziom komunikatu**<br/><br/>(każdy komunikat może mieć wartości różnych limitu czasu, który można zaktualizować zgodnie z potrzebami podczas przetwarzania komunikatu, za pomocą [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) interfejsu API) |**Poziom kolejki**<br/><br/>(Każda kolejka ma dokładności blokady stosowane do wszystkich jego wiadomości, ale mogą odnowić przy użyciu blokady [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) interfejsu API.) |
+| Czas trwania dzierżawy/blokady |**30 sekund (ustawienie domyślne)**<br/><br/>**7 dni (maksymalnie)** (możesz odnowić lub zwolnienia dzierżawy komunikat przy użyciu [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) interfejsu API.) |**60 sekund (ustawienie domyślne)**<br/><br/>Możesz odnowić blokady komunikat przy użyciu [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) interfejsu API. |
+| / Blokady dokładności |**Poziom komunikatu**<br/><br/>(każdy komunikat może mieć wartości różnych limitu czasu, który można zaktualizować zgodnie z potrzebami podczas przetwarzania komunikatu, za pomocą [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) interfejsu API) |**Poziom kolejki**<br/><br/>(Każda kolejka ma dokładności blokady stosowane do wszystkich jego wiadomości, ale mogą odnowić przy użyciu blokady [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) interfejsu API.) |
 | Umieścić w zadaniu wsadowym odbierania |**Tak**<br/><br/>(jawne określenie liczby komunikatów podczas pobierania wiadomości, maksymalnie 32 wiadomości) |**Tak**<br/><br/>(niejawnie włączając właściwość pobierania wstępnego lub jawnie za pomocą transakcji) |
 | Wyślij wsadów |**Nie** |**Tak**<br/><br/>(przy użyciu transakcji lub przetwarzanie wsadowe po stronie klienta) |
 
@@ -89,7 +89,7 @@ Ta sekcja porównuje niektórych podstawowych kolejkowania możliwości oferowan
 * Kolejki usługi Service Bus zapewniają obsługę transakcji lokalnych w ramach pojedynczej kolejki.
 * **Odbieranie i usuwanie** tryb obsługiwany przez usługi Service Bus pozwala, aby zmniejszyć liczbę operacji obsługi komunikatów (i skojarzone koszt) zamian gwarancji dostarczenia obniżony.
 * Magazyn kolejek zapewnia dzierżawy możliwość rozszerzania dzierżawy dla wiadomości. Dzięki temu pracownikom Obsługa krótkich dzierżawy na komunikaty. W związku z tym jeśli pracownik ulegnie awarii, wiadomości mogą być szybko przetwarzane ponownie przez inny proces roboczy. Ponadto pracownik może przedłużyć dzierżawę wiadomość wymaga go przetworzyć dłużej niż bieżący czas dzierżawy.
-* Magazyn kolejek oferują widoczność przekroczenie limitu czasu można ustawić podczas umieszczania lub usuwania komunikatów. Ponadto należy zaktualizować komunikat o wartości innej dzierżawy w czasie wykonywania i zaktualizować różne wartości w wiadomości w tej samej kolejki. Limity czasu blokady usługi Service Bus są zdefiniowane w metadanych kolejki; Jednak możesz odnowić blokady przez wywołanie metody [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metody.
+* Magazyn kolejek oferują widoczność przekroczenie limitu czasu można ustawić na enqueuing lub usuwania komunikatów. Ponadto należy zaktualizować komunikat o wartości innej dzierżawy w czasie wykonywania i zaktualizować różne wartości w wiadomości w tej samej kolejki. Limity czasu blokady usługi Service Bus są zdefiniowane w metadanych kolejki; Jednak możesz odnowić blokady przez wywołanie metody [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metody.
 * Maksymalny limit czasu operacji blokowania odbioru w kolejek usługi Service Bus jest 24 dni. Jednak opartego na interfejsie REST limitów czasu mieć maksymalną wartość 55 sekund.
 * Po stronie klienta przetwarzanie wsadowe udostępniane przez usługi Service Bus umożliwia klientowi kolejki partii wiele komunikatów do operacji wysyłania pojedynczego. Tworzenie plików wsadowych jest dostępna tylko dla operacji asynchronicznego wysyłania.
 * Funkcje, takie jak limitu 200 TB magazynu kolejek (więcej podczas wirtualizacji kont) i nieograniczoną liczbę kolejek był idealną platformą dla dostawców w modelu SaaS.
@@ -132,9 +132,9 @@ Ta sekcja porównuje magazynu kolejek i kolejek usługi Service Bus z punktu wid
 | Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Maksymalny rozmiar kolejki |**500 TB.**<br/><br/>(maksymalnie [pojemności konta magazynu z jednym](../storage/common/storage-introduction.md#queue-storage)) |**1 GB do 80 GB**<br/><br/>(zdefiniowane podczas tworzenia kolejki i [włączenie partycjonowania](service-bus-partitioning.md) — zobacz sekcję "Informacje dodatkowe") |
-| Maksymalny rozmiar wiadomości |**64 KB**<br/><br/>(48 KB, korzystając z **Base64** kodowanie)<br/><br/>Azure obsługuje dużych wiadomości, łącząc kolejek i obiektów blob — w takim przypadku można umieścić w kolejce do 200GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym zarówno nagłówek i treść, rozmiar maksymalny nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
+| Maksymalny rozmiar wiadomości |**64 KB**<br/><br/>(48 KB, korzystając z **Base64** kodowanie)<br/><br/>Azure obsługuje dużych wiadomości, łącząc kolejek i obiektów blob — w takim przypadku można umieścić w kolejce do 200 GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym zarówno nagłówek i treść, rozmiar maksymalny nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
 | Maksymalny czas wygaśnięcia wiadomości. |**7 dni** |**TimeSpan.Max** |
-| Maksymalna liczba kolejek |**Unlimited (nieograniczony)** |**10,000**<br/><br/>(na przestrzeni nazw, można zwiększyć) |
+| Maksymalna liczba kolejek |**Unlimited (nieograniczony)** |**10,000**<br/><br/>(na przestrzeni nazw usługi) |
 | Maksymalna liczba jednoczesnych klientów |**Unlimited (nieograniczony)** |**Unlimited (nieograniczony)**<br/><br/>(100 limit równoczesnych połączeń dotyczy tylko komunikacja oparta na protokole TCP) |
 
 ### <a name="additional-information"></a>Dodatkowe informacje

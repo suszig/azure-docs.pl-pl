@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-wyjściowego/fan-w scenariuszu w funkcjach trwałe — przykład kopii zapasowej chmury
 
@@ -67,13 +67,13 @@ Ta funkcja orchestrator zasadniczo wykonuje następujące czynności:
 4. Czeka na wszystkich przekazywania zakończyć.
 5. Zwraca sumę całkowitą liczbę bajtów, które zostały przekazane do magazynu obiektów Blob Azure.
 
-Powiadomienie `await Task.WhenAll(tasks);` wiersza. Wszystkie wywołania do `E2_CopyFileToBlob` zostały funkcja *nie* oczekiwane. Jest to zamierzone, aby umożliwić ich równolegle. Jeśli przekazywana tej tablicy zadań w celu `Task.WhenAll`, uzyskujemy ponownie zadanie, które nie zakończyć *ukończenie wszystkich operacji kopiowania ma*. Jeśli wiesz z zadań równoległych biblioteki (TPL) w środowisku .NET, a następnie nie jest to nowe dla Ciebie. Różnica polega na te zadania mogą być wykonywane na wiele maszyn wirtualnych jednocześnie, czy rozszerzenie zapewnia, że wykonanie end-to-end jest odporność na odtwarzanie procesów.
+Powiadomienie `await Task.WhenAll(tasks);` wiersza. Wszystkie wywołania do `E2_CopyFileToBlob` zostały funkcja *nie* oczekiwane. Jest to zamierzone, aby umożliwić ich równolegle. Jeśli przekazywana tej tablicy zadań w celu `Task.WhenAll`, uzyskujemy ponownie zadanie, które nie zakończyć *ukończenie wszystkich operacji kopiowania ma*. Jeśli wiesz z zadań równoległych biblioteki (TPL) w środowisku .NET, a następnie nie jest to nowe dla Ciebie. Różnica polega na te zadania mogą być wykonywane na wiele maszyn wirtualnych jednocześnie, czy rozszerzenie funkcji trwałe zapewnia, że wykonanie end-to-end jest odporność na odtwarzanie procesów.
 
 Po oczekiwanie na z `Task.WhenAll`, wiemy, że wszystkie wywołania funkcji zakończył pracę i zwrócić wartości z powrotem do nas. Każde wywołanie `E2_CopyFileToBlob` zwraca liczbę bajtów przekazać dzięki obliczaniu sum liczba całkowita liczba bajtów jest dodanie wszystkich tych wartości zwracane razem.
 
 ## <a name="helper-activity-functions"></a>Funkcje działalności pomocy
 
-Funkcje pomocnicze działania, tak jak w przypadku innych próbek są po prostu regularne funkcje programu wykorzystujące `activityTrigger` wyzwolenia powiązania. Na przykład *function.json* plik `E2_GetFileList` wygląda podobnie do następującego:
+Funkcje działalności pomocy, podobnie jak w przypadku innych próbek są po prostu regularne funkcje programu wykorzystujące `activityTrigger` wyzwolenia powiązania. Na przykład *function.json* plik `E2_GetFileList` wygląda podobnie do następującego:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Implementacja jest również dość proste. Zdarza się, aby korzystać z niekt�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-Implementacja ładuje plik z dysku i asynchronicznie prześle strumieniowo zawartość do obiektu blob o takiej samej nazwie. Wartość zwracana jest liczba bajtów skopiowane do magazynu, który jest następnie używany przez funkcję programu orchestrator do obliczenia agregacji sum.
+Implementacja ładuje plik z dysku i asynchronicznie prześle strumieniowo zawartość do obiektu blob o takiej samej nazwie w kontenerze "kopie zapasowe". Wartość zwracana jest liczba bajtów skopiowane do magazynu, który jest następnie używany przez funkcję programu orchestrator do obliczenia agregacji sum.
 
 > [!NOTE]
 > To jest przykład doskonałe przenoszenia operacji We/Wy do `activityTrigger` funkcji. Nie tylko mogą pracy być rozproszone na wielu różnych maszyn wirtualnych, ale można również uzyskać korzyści wynikające z użycia punktów kontrolnych postęp. Jeśli proces hosta pobiera zakończone jakiejkolwiek przyczyny, wiadomo, przekazywania, które zostały już wykonane.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Zainstaluj rozszerzenie funkcji trwałe i przykłady (usługi Azure Functions)
 
@@ -33,7 +33,7 @@ Program Visual Studio udostępnia obecnie najlepsze środowisko dla opracowywani
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj [najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/) (wersja 15.3 lub nowsza). Zawierają narzędzia Azure w opcjach instalacji.
+* Zainstaluj [najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/) (wersja 15.3 lub nowsza). Obejmują **Azure programowanie** obciążenia w opcjach instalacji.
 
 ### <a name="start-with-sample-functions"></a>Uruchom funkcje próbki
 
@@ -61,7 +61,7 @@ Jeśli wolisz, można użyć portalu Azure dla rozwoju trwałe funkcji.
 
 1. Utwórz nową aplikację funkcji w [functions.azure.com](https://functions.azure.com/signin).
 2. Konfigurowanie aplikacji funkcji [Użyj wersji 2.0 runtime](functions-versions.md).
-3. Utwórz nową funkcję, a następnie wybierz **trwałe funkcje programu Orchestrator - C#** szablonu.
+3. Utwórz nową funkcję, wybierając "C#" dla języka i "All" w scenariuszu. Następnie wybierz **trwałe funkcje programu Orchestrator - C#** szablonu.
 4. W obszarze **nie zainstalowano rozszerzenia**, kliknij przycisk **zainstalować** do pobrania rozszerzenie z NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Skopiuj przykładowy kod do aplikacji — funkcja

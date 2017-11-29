@@ -1,5 +1,5 @@
 ---
-title: "Odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu platformy .NET Standard | Dokumentacja firmy Microsoft"
+title: "Odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu biblioteki standardowej .NET | Dokumentacja firmy Microsoft"
 description: "Rozpocząć odbieranie komunikatów z klasy EventProcessorHost w .NET Standard"
 services: event-hubs
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Rozpocząć odbieranie komunikatów z hosta procesora zdarzeń w .NET Standard
 
 > [!NOTE]
 > Ten przykład jest dostępny na [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-Ten samouczek przedstawia sposób zapisania odbierająca komunikaty od Centrum zdarzeń za pomocą aplikacji konsoli .NET Core **EventProcessorHost**. Można uruchomić [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) rozwiązania jako — jest zastępowany ciągi wartości konta koncentratora i przechowywania zdarzeń. Lub może wykonaj kroki opisane w tym samouczku, aby utworzyć własny.
+Ten samouczek przedstawia sposób zapisania odbierająca komunikaty od Centrum zdarzeń za pomocą aplikacji konsoli .NET Core **hosta procesora zdarzeń** biblioteki. Można uruchomić [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) rozwiązania jako — jest zastępowany ciągi wartości konta koncentratora i przechowywania zdarzeń. Lub może wykonaj kroki opisane w tym samouczku, aby utworzyć własny.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,22 +33,22 @@ Ten samouczek przedstawia sposób zapisania odbierająca komunikaty od Centrum z
 * [.NET core Visual Studio 2015 lub narzędzia 2017](http://www.microsoft.com/net/core).
 * Subskrypcja platformy Azure.
 * Przestrzeń nazw usługi Azure Event Hubs.
-* Konto usługi Azure Storage.
+* Konto magazynu Azure.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Tworzenie przestrzeni nazw usługi Event Hubs i centrum zdarzeń  
 
-Pierwszym krokiem jest użycie [portalu Azure](https://portal.azure.com) tworzenie przestrzeni nazw dla typu usługi Event Hubs i uzyskać poświadczenia zarządzania, które aplikacja musi łączyć się z Centrum zdarzeń. Aby utworzyć przestrzeń nazw i zdarzenia koncentratora, postępuj zgodnie z procedurą w [w tym artykule](event-hubs-create.md), a następnie kontynuować następujące kroki.  
+Pierwszym krokiem jest użycie [portalu Azure](https://portal.azure.com) tworzenie przestrzeni nazw dla typu usługi Event Hubs i uzyskać poświadczenia zarządzania, które aplikacja musi łączyć się z Centrum zdarzeń. Aby utworzyć przestrzeń nazw i zdarzenia koncentratora, postępuj zgodnie z procedurą w [w tym artykule](event-hubs-create.md), a następnie kontynuować tego samouczka.  
 
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage  
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
 2. W okienku nawigacji po lewej stronie portalu kliknij **nowy**, kliknij przycisk **magazynu**, a następnie kliknij przycisk **konta magazynu**.  
-3. Wypełnij pola w bloku konto magazynu, a następnie kliknij przycisk **Utwórz**.
+3. Wypełnij pola w oknie konto magazynu, a następnie kliknij przycisk **Utwórz**.
 
-    ![Tworzenie konta magazynu][1]
+    ![Utwórz konto magazynu][1]
 
-4. Po **wdrożeń zakończyło się pomyślnie** komunikatów, kliknij nazwę nowego konta magazynu. W **Essentials** bloku, kliknij przycisk **obiekty BLOB**. Gdy **usługa Blob** zostanie otwarty blok, kliknij przycisk **+ kontener** u góry. Nadaj nazwę kontenera, a następnie Zamknij **usługa Blob** bloku.  
-5. Kliknij przycisk **klucze dostępu** w lewym bloku i skopiuj nazwę kontenera magazynu, konta magazynu i wartości **klucz1**. Zapisz te wartości w Notatniku lub tymczasowej lokalizacji.  
+4. Po **wdrożeń zakończyło się pomyślnie** komunikatów, kliknij nazwę nowego konta magazynu. W **Essentials** okna, kliknij przycisk **obiekty BLOB**. Gdy **usługa Blob** zostanie otwarte okno dialogowe, kliknij przycisk **+ kontener** u góry. Nadaj nazwę kontenera, a następnie Zamknij **usługa Blob**.  
+5. Kliknij przycisk **klucze dostępu** w oknie po lewej stronie, a kopia nazwa kontenera magazynu, konta magazynu i wartości **klucz1**. Zapisz te wartości w Notatniku lub tymczasowej lokalizacji.  
 
 ## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
@@ -58,10 +58,10 @@ Uruchom program Visual Studio. W menu **Plik** kliknij pozycję **Nowy**, a nast
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Dodaj pakiet NuGet centra zdarzeń
 
-Dodaj [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) i [ `Microsoft.Azure.EventHubs.Processor` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) biblioteki .NET Standard NuGet pakietów do projektu, wykonaj następujące czynności: 
+Dodaj [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) i [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) pakiety bibliotekę .NET Standard NuGet do Projekt, wykonując następujące czynności: 
 
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij przycisk **Przeglądaj** kartę, a następnie wyszukaj "Microsoft.Azure.EventHubs" i wybierz **Microsoft.Azure.EventHubs** pakietu. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+2. Kliknij przycisk **Przeglądaj** karcie, wyszukaj **Microsoft.Azure.EventHubs**, a następnie wybierz **Microsoft.Azure.EventHubs** pakietu. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
 3. Powtórz kroki 1 i 2, a następnie zainstaluj **Microsoft.Azure.EventHubs.Processor** pakietu.
 
 ## <a name="implement-the-ieventprocessor-interface"></a>Zaimplementuj interfejs IEventProcessor

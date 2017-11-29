@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -309,7 +309,9 @@ Przedstawiając telemetrii powrót do usługi Application Insights dostosowywani
 
 Dokładność zbliżenia zależy przede wszystkim procent skonfigurowanych próbkowania. Dokładność zwiększa się również, dla aplikacji, które obsługi dużej liczby zazwyczaj podobne żądania z partii użytkowników. Z drugiej strony dla aplikacji, które nie działają z znaczne obciążenie, próbkowania nie jest potrzebna jak te aplikacje zazwyczaj można wysłać ich dane telemetryczne pozostając w ramach limitu przydziału, nie powodując utraty danych z przepustowości. 
 
-Należy pamiętać, że usługi Application Insights nie przykładowe typy telemetrii metryki i sesji od dla tych typów zmniejszenie dokładność można zdecydowanie niepożądane. 
+> [!WARNING]
+> Usługa Application Insights nie przykładowe typy dane telemetryczne metryki i sesje. Zmniejszenie dokładność można zdecydowanie niepożądane dla tych typów danych telemetrycznych.
+> 
 
 ### <a name="adaptive-sampling"></a>Adaptacyjną pobierania próbek
 Próbkowanie adaptacyjną dodaje składnik, który monitoruje bieżąca szybkość transmisji z zestawu SDK i dopasowuje wartości procentowej pobierania próbek, aby spróbować pozostać w docelowym maksymalna szybkość. Dostosowania są przeliczane w regularnych odstępach czasu i opierają się na to ruchoma średnia szybkość transmisji wychodzących.

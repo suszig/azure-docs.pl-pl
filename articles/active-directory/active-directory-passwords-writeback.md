@@ -6,21 +6,21 @@ keywords: "Zarządzanie hasłami w usłudze Active directory, zarządzanie hasł
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Omówienie funkcji zapisywania zwrotnego haseł
 
@@ -108,8 +108,8 @@ Jeśli nie masz pewności co konto opisane konto odnosi się do, otwórz konfigu
 
 Jeśli ustawisz te uprawnienia kontom usług dla każdego lasu można Zarządzanie hasłami w imieniu kont użytkownika w tym lesie. 
 
->[!IMPORTANT]
->Jeśli udzielisz tych uprawnień, następnie, mimo że zapisywania zwrotnego wydaje się być skonfigurowana poprawnie, użytkownicy będą napotykać błędy podczas prób Zarządzam ich hasłami lokalnymi z chmury.
+> [!IMPORTANT]
+> Jeśli udzielisz tych uprawnień, następnie, mimo że zapisywania zwrotnego wydaje się być skonfigurowana poprawnie, użytkownicy będą napotykać błędy podczas prób Zarządzam ich hasłami lokalnymi z chmury.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Aby skonfigurować odpowiednie uprawnienia do zapisywania zwrotnego haseł wyst�
 5. Wybierz konto, które uprawnienia są stosowane do (od Instalatora programu Azure AD Connect).
 6. W **dotyczy** listy rozwijanej wybierz **potomne użytkownika** obiektów.
 7. W obszarze **uprawnienia**, zaznacz pola dla następujących:
-    * **Hasło nie wygasa**
     * **Resetowanie hasła**
     * **Zmień hasło**
     * **Zapis lockoutTime**

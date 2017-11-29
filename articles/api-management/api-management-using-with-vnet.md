@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak używać usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualnych platformy Azure (sieci wirtualne) umożliwiają umieszczać zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci następnie mogą być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure Uruchom z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ Aby wykonać kroki opisane w tym artykule, musi mieć:
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Łączność sieci Wirtualnej przy użyciu portalu Azure
 
 1. Przejdź do Twojego wystąpienia APIM w [portalu Azure](https://portal.azure.com/).
-2. Wybierz **domen niestandardowych i SSL**.
+2. Wybierz **sieci wirtualnej**.
 3. Skonfiguruj wystąpienie interfejsu API zarządzania do wdrożenia w ramach sieci wirtualnej.
 
     ![Zarządzanie interfejsami API menu sieci wirtualnej][api-management-using-vnet-menu]
@@ -109,13 +109,14 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 | Źródłowego / docelowego porty | Kierunek | Protokół transportu | Źródłowego / docelowego | Cel (*) | Typ sieci wirtualnej |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Zarządzanie interfejsami API komunikacji klienta|Zewnętrzne |
-| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |wewnętrzny |
+| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzne |
 | * / 80, 443 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do punktów końcowych usługi Azure Storage** |Zewnętrzne i wewnętrzne |
 | * / 1433 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do punktów końcowych Azure SQL** |Zewnętrzne i wewnętrzne |
 | * / 11000 - 11999 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do usługi Azure SQL w wersji 12** |Zewnętrzne i wewnętrzne |
 | * / 14000 - 14999 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do usługi Azure SQL w wersji 12** |Zewnętrzne i wewnętrzne |
 | * / 5671 |Wychodzący |AMQP |VIRTUAL_NETWORK / INTERNET|Zależność od dziennika zasad Centrum zdarzeń i agenta monitorowania |Zewnętrzne i wewnętrzne |
 | * / 445 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależności w udziale plików platformy Azure dla GIT |Zewnętrzne i wewnętrzne |
+| * / 25028 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Połącz z przekazywaniem SMTP do wysyłania wiadomości E-mail |Zewnętrzne i wewnętrzne |
 | * / 6381 - 6383 |Dla ruchu przychodzącego i wychodzącego |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Wystąpienia pamięci podręcznej Redis dostępu między RoleInstances |Zewnętrzne i wewnętrzne |
 | * / * | Przychodzący |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Moduł równoważenia obciążenia infrastruktury platformy Azure |Zewnętrzne i wewnętrzne |
 

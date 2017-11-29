@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Skalowanie klastra usługi sieć szkieletowa przychodzący lub wychodzący przy użyciu reguł automatycznego skalowania
 Zestawy skalowania maszyny wirtualnej są zasobu obliczeń platformy Azure, który służy do wdrażania i zarządzania nimi jako zestaw kolekcji maszyn wirtualnych. Każdy typ węzła który jest zdefiniowany w klastrze usługi sieć szkieletowa jest skonfigurowany jako osobny zestaw skali maszyny wirtualnej. Każdy typ węzła można skalować w lub wychodzących niezależnie, mają różne zestawy otwartych portów i może mieć inną pojemność metryki. Dowiedz się więcej o w [elementów sieci szkieletowej usług NodeType](service-fabric-cluster-nodetypes.md) dokumentu. Ponieważ sieci szkieletowej usług typy węzłów w klastrze składają się z zestawy skalowania maszyny wirtualnej w wewnętrznej bazie danych, należy skonfigurować reguły automatycznego skalowania dla zestawu skali maszyny każdego węzła typu/wirtualnej.
@@ -72,8 +72,8 @@ Wykonaj przykładowe/instrukcje [galerię szablonów szybki start](https://githu
 
 Trzeba wykonać następujące kroki jednego wystąpienia maszyny Wirtualnej w czasie. Dzięki temu usługi systemowe (i usługi stanowej) można zamknąć bezpiecznie na wystąpienie maszyny Wirtualnej, które są usuwane i nowej repliki utworzony w innych węzłach.
 
-1. Uruchom [ServiceFabricNode Wyłącz](https://msdn.microsoft.com/library/mt125852.aspx) z zamiarem "RemoveNode", aby wyłączyć węzła zamierzasz usunąć (najwyższy wystąpienia tego typu węzła).
-2. Uruchom [Get ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) aby upewnić się, że węzeł w rzeczywistości przeszła na wyłączone. Jeśli nie, poczekaj, aż węzła jest wyłączone. Nie można Pospiesz się w tym kroku.
+1. Uruchom [ServiceFabricNode Wyłącz](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) z zamiarem "RemoveNode", aby wyłączyć węzła zamierzasz usunąć (najwyższy wystąpienia tego typu węzła).
+2. Uruchom [Get ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) aby upewnić się, że węzeł w rzeczywistości przeszła na wyłączone. Jeśli nie, poczekaj, aż węzła jest wyłączone. Nie można Pospiesz się w tym kroku.
 3. Wykonaj przykładowe/instrukcje [galerię szablonów szybki start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) Aby zmienić liczbę maszyn wirtualnych o jeden w tym typie Nodetype. Wystąpienie usunięte jest najwyższym wystąpienia maszyny Wirtualnej. 
 4. Powtórz kroki od 1 do 3 zgodnie z potrzebami, ale nigdy nie skalować liczbę wystąpień w typach węzła podstawowego mniej niż gwarantuje warstwa niezawodności. Zapoznaj się [szczegółowe informacje w tym miejscu warstwach niezawodności](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Trzeba wykonać następujące kroki jednego wystąpienia maszyny Wirtualnej w cz
 
 Wykonaj następujące kroki jednego wystąpienia maszyny Wirtualnej należy naraz. Dzięki temu usługi systemowe (i usługi stanowej) można zamknąć bezpiecznie w wystąpieniu maszyny Wirtualnej, które są usuwane i nowej repliki utworzony else where.
 
-1. Uruchom [ServiceFabricNode Wyłącz](https://msdn.microsoft.com/library/mt125852.aspx) z zamiarem "RemoveNode", aby wyłączyć węzła zamierzasz usunąć (najwyższy wystąpienia tego typu węzła).
-2. Uruchom [Get ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) aby upewnić się, że węzeł w rzeczywistości przeszła na wyłączone. Jeśli nie, zaczekaj węzła jest wyłączone. Nie można Pospiesz się w tym kroku.
+1. Uruchom [ServiceFabricNode Wyłącz](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) z zamiarem "RemoveNode", aby wyłączyć węzła zamierzasz usunąć (najwyższy wystąpienia tego typu węzła).
+2. Uruchom [Get ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) aby upewnić się, że węzeł w rzeczywistości przeszła na wyłączone. Jeśli nie, zaczekaj węzła jest wyłączone. Nie można Pospiesz się w tym kroku.
 3. Wykonaj przykładowe/instrukcje [galerię szablonów szybki start](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) Aby zmienić liczbę maszyn wirtualnych o jeden w tym typie Nodetype. Spowoduje to usunięcie teraz najwyższy wystąpienia maszyny Wirtualnej. 
 4. Powtórz kroki od 1 do 3 zgodnie z potrzebami, ale nigdy nie skalować liczbę wystąpień w typach węzła podstawowego mniej niż gwarantuje warstwa niezawodności. Zapoznaj się [szczegółowe informacje w tym miejscu warstwach niezawodności](service-fabric-cluster-capacity.md).
 

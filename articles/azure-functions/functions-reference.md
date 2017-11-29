@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76be085aa114b571f40603b4f182b13b9354b8b8
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Przewodnik dla deweloperów funkcji platformy Azure
 W środowisku Azure Functions określonych funkcji udostępniania kilka podstawowe koncepcje techniczne i składników, niezależnie od języka i powiązanie, którego używasz. Przed możesz przejść do uczenia szczegóły specyficzne dla danego języka lub powiązanie, należy koniecznie zapoznaj się z artykułem ten przegląd, która ma zastosowanie do wszystkich z nich.
@@ -57,7 +57,7 @@ Ustaw `disabled` właściwości `true` aby zapobiec wykonywana przez funkcję.
 | `direction` |"in" "out" |Wskazuje, czy powiązanie jest odbieranie danych do funkcji lub wysyłanie danych z funkcji. |
 | `name` |Ciąg |Nazwa, która jest używana do powiązania danych w funkcji. Język C# jest to nazwa argumentu; dla języka JavaScript jest to klucz na liście klucza i wartości. |
 
-## <a name="function-app"></a>Funkcja aplikacji
+## <a name="function-app"></a>Aplikacja funkcji
 Aplikacja funkcji składa się z co najmniej jeden poszczególne funkcje, które są ze sobą zarządzane przez usługę Azure App Service. Wszystkie funkcje w aplikacji funkcji Udostępnianie tego samego planu cenowego, ciągłe wdrażanie i wersji środowiska wykonawczego. Funkcje zapisywane w wielu językach można udostępniać tej samej funkcji aplikacji. Aplikacja funkcji można traktować jako sposób organizowania i zbiorczo zarządzania funkcjami. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Środowisko uruchomieniowe (host skryptów i hosta sieci web)
@@ -81,11 +81,8 @@ Edytor funkcja wbudowana w portalu Azure umożliwia uaktualnienie *function.json
 Funkcja aplikacje są tworzone w usłudze aplikacji, więc wszystkie [dostępne opcje wdrażania aplikacji sieci web standard](../app-service/app-service-deploy-local-git.md) są także dostępne dla funkcji aplikacji. Poniżej przedstawiono niektóre metody używanej do przekazania lub zaktualizować pliki aplikacji funkcji. 
 
 #### <a name="to-use-app-service-editor"></a>Aby użyć edytora usługi aplikacji
-1. W portalu usługi Azure Functions kliknij **funkcji ustawienia aplikacji**.
-2. W **Zaawansowane ustawienia** kliknij **przejdź do ustawień usługi aplikacji**.
-3. Kliknij przycisk **Edytor usług aplikacji** w aplikacji Menu nawigacji w obszarze **narzędzi PROGRAMISTYCZNYCH**.
-4. Kliknij przycisk **Przejdź**.
-   
+1. W portalu usługi Azure Functions kliknij **funkcji platformy**.
+2. W **narzędzi PROGRAMISTYCZNYCH** kliknij **Edytor usług aplikacji**.   
    Po załadowaniu Edytor usług aplikacji, zobaczysz *host.json* plików i funkcja foldery znajdujące się w *wwwroot*. 
 5. Otwieranie plików do ich edytowania lub przeciągnij i upuść z komputerze deweloperskim przekazywania plików.
 

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -129,8 +129,8 @@ Wymagane jest zainstalowanie platformy Docker. Poniższe polecenia umożliwiają
 Teraz, po uruchomieniu polecenia ``docker info`` w terminalu, powinny zostać wyświetlone dane wyjściowe z informacją, że usługa platformy Docker jest uruchomiona.
 
 ### <a name="steps"></a>Kroki
-  1. Ściągnij obraz kontenera narzędzia Jenkins usługi Service Fabric: ``docker pull raunakpandya/jenkins:9``
-  2. Uruchom obraz kontenera: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Ściągnij obraz kontenera narzędzia Jenkins usługi Service Fabric: ``docker pull sayantancs/jenkins:v9``
+  2. Uruchom obraz kontenera: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
   3. Uzyskaj identyfikator wystąpienia obrazu kontenera. Listę wszystkich kontenerów platformy Docker można wyświetlić za pomocą polecenia ``docker ps –a``
   4. Zaloguj się do portalu narzędzia Jenkins, wykonując następujące kroki:
 

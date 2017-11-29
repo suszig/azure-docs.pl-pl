@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: bbfcbadcb0010d50e572b335d4cac78b33e974c8
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 21168d0862cfdaaaced60fa80a2dc04859f49550
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure DB rozwiązania Cosmos: Cassandra importowania danych
 
@@ -49,7 +49,7 @@ Ten samouczek obejmuje następujące zadania:
 
 ## <a name="use-cqlsh-copy"></a>Użyj cqlsh KOPIOWANIA
 
-Do importowania danych do Cassandra danych do bazy danych Azure rozwiązania Cosmos do użycia przy użyciu interfejsu API Cassandra, użyj poniższych wskazówek:
+Aby zaimportować Cassandra danych do bazy danych Azure rozwiązania Cosmos do użycia przy użyciu interfejsu API Cassandra, użyj poniższych wskazówek:
 
 1. Zaloguj się do cqhsh przy użyciu informacje o połączeniu z portalu.
 2. Użyj [polecenia Kopiuj CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) do skopiowania do punktu końcowego interfejsu API Cassandra Apache danych lokalnych. Upewnij się, źródłowa i docelowa są w tym samym centrum danych, aby zminimalizować problemy z opóźnieniem.

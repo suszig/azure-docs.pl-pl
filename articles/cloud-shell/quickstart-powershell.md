@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Szybki Start dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-Przy użyciu parametrów połączenia następujące polecenie służy do udziałów plików Azure.
+Przy użyciu parametrów połączenia służy następujące polecenie aby zainstalować udział plików Azure.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-Aby uzyskać więcej informacji, zobacz [instalowanie udziału plików platformy Azure i uzyskać dostępu do udziału w systemie Windows][azmount].
+Aby uzyskać więcej informacji, zobacz [zainstalować udział plików Azure i uzyskać dostępu do udziału w systemie Windows][azmount].
 
-Można także przechodzić katalogi w ramach udziału plików platformy Azure w następujący sposób:
+Można także przechodzić katalogi w ramach udziału plików Azure w następujący sposób:
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ Dla danego polecenia można nadal wykonywać następuje polecenia cmdlet Get-Hel
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Użyj Azure File Storage do przechowywania danych
+## <a name="use-azure-files-to-store-your-data"></a>Użyj plików Azure do przechowywania danych
 
 Można utworzyć skrypt, powiedz `helloworld.ps1`i zapisać go do Twojego `CloudDrive` go używać w wielu sesjach powłoki.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Następnym razem, kiedy używać środowiska PowerShell w chmurze powłoki, `helloworld.ps1` pliku będzie istnieć w obszarze `CloudDrive` folderu, który instaluje udziału plików platformy Azure.
+Następnym razem, kiedy używać środowiska PowerShell w chmurze powłoki, `helloworld.ps1` pliku będzie istnieć w obszarze `CloudDrive` folderu, który instaluje na udział plików Azure.
 
 ## <a name="use-custom-profile"></a>Użyj profilu niestandardowego
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 5e10ddd8c850d457b4ad77cd5ea4d92edc07017e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Konfigurowanie i uzyskać dostępu do dzienników serwera przy użyciu wiersza polecenia platformy Azure
 Możesz pobrać PostgreSQL dzienniki błędów serwera przy użyciu interfejsu wiersza polecenia (Azure CLI). Jednak dostęp do dzienników transakcji nie jest obsługiwany. 
@@ -33,14 +33,14 @@ Można skonfigurować serwera dostępu do dzienników kwerend i dzienników bł�
 Aby uzyskać więcej informacji, zobacz [Dostosowywanie parametry konfiguracji serwera](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista dzienników bazy danych Azure PostgreSQL serwera
-Aby wyświetlić pliki dziennika dostępne na serwerze, uruchom [az postgres dzienniki serwera listy](/cli/azure/postgres/server-logs#list) polecenia.
+Aby wyświetlić pliki dziennika dostępne na serwerze, uruchom [az postgres dzienniki serwera listy](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) polecenia.
 
 Można wyświetlić listę plików dziennika dla serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup**i bezpośrednie jego tekstu w pliku o nazwie **dziennika\_pliki\_lista.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Pobierz dzienniki lokalnie z serwera
-[Pobierz dzienniki serwera az postgres](/cli/azure/postgres/server-logs#download) polecenie umożliwia pobieranie osobnych plikach dziennika dla serwera. 
+[Pobierz dzienniki serwera az postgres](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) polecenie umożliwia pobieranie osobnych plikach dziennika dla serwera. 
 
 W tym przykładzie pliki do pobrania określonego pliku dziennika dla serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup** do środowiska lokalnego.
 ```azurecli-interactive

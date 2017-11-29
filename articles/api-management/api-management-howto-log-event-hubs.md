@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak mają być rejestrowane zdarzenia do usługi Azure Event Hubs w usłudze Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako "drzwi wejściowe" dla potoku zdarzeń, a po pobraniu danych do Centrum zdarzeń, można je przekształcać i przechowywane za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart przetwarzania wsadowego i magazynowania. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -68,7 +68,7 @@ Określ treści żądania, korzystając z poniższego szablonu.
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -77,7 +77,7 @@ Określ treści żądania, korzystając z poniższego szablonu.
 }
 ```
 
-* `type`należy wybrać opcję `AzureEventHub`.
+* `loggertype`należy wybrać opcję `AzureEventHub`.
 * `description`zapewnia opcjonalny opis rejestratora i w razie potrzeby może być ciągiem o zerowej długości.
 * `credentials`zawiera `name` i `connectionString` Azure Centrum zdarzeń.
 
