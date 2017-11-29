@@ -185,19 +185,10 @@
 #### [Container networking modes (Tryby sieci kontenera)](service-fabric-networking-modes.md)
 
 ### Tworzenie usługi Reliable Services
-#### [Omówienie](service-fabric-reliable-services-introduction.md)
-#### Pojęcia
-##### [Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
-##### [Cykl życia usług Reliable Services — Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Elementy Reliable Collections
-##### [Elementy Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Wytyczne i zalecenia dotyczące elementów Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Elementy Reliable State Manager i Reliable Collection od środka](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)

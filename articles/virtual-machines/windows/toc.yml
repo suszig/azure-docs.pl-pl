@@ -77,7 +77,7 @@
         - name: Obliczenia o wysokiej wydajności
           href: sizes-hpc.md
         - name: Jednostki obliczeniowe platformy Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Konserwacja i aktualizacje
       href: maintenance-and-updates.md
     - name: Przechowywanie na dysku
