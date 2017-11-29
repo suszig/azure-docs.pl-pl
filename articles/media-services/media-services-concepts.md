@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services pojęcia
 Ten temat zawiera omówienie koncepcji usługi Media Services.
@@ -83,7 +83,7 @@ Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemand
 Dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Konto usługi Media można skojarzyć z co najmniej jedno konto magazynu. Konto może zawierać nieograniczoną liczbę kontenerów, dopóki ich łączny rozmiar jest w obszarze 500TB na konto magazynu.  Usługa Media Services udostępnia poziomu narzędzia zestawu SDK pozwala zarządzać wieloma kontami magazynu i dystrybucji zasobów podczas przekazywania do tych kont na podstawie metryk lub dystrybucji losowe równoważenia obciążenia. Aby uzyskać więcej informacji, zapoznaj się z praca [usługi Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Zadań i zadań
-A [zadania](https://https://docs.microsoft.com/rest/api/media/operations/job) jest zwykle używana do procesu (na przykład indeksu lub zakodować) prezentacji audio i wideo. W przypadku przetwarzania wiele plików wideo, należy utworzyć zadanie dla każdego wideo do zakodowania.
+A [zadania](https://docs.microsoft.com/en-us/rest/api/media/operations/job) jest zwykle używana do procesu (na przykład indeksu lub zakodować) prezentacji audio i wideo. W przypadku przetwarzania wiele plików wideo, należy utworzyć zadanie dla każdego wideo do zakodowania.
 
 Zadanie zawiera metadane dotyczące przetwarzania do wykonania. Każde zadanie zawiera co najmniej jeden [zadań](https://docs.microsoft.com/rest/api/media/operations/task), które Określ zadanie przetwarzania atomic, jego zasobów wejściowych, wyjściowych zasoby, procesor multimediów i jej powiązane ustawienia. Zadania w ramach danego zadania można je połączyć ze sobą, gdzie elementu zawartości wyjściowej jednego zadania jest podawana jako zasobów wejściowych do następnego zadania. W ten sposób jedno zadanie może zawierać wszystkie niezbędne do przedstawienia nośnika przetwarzania.
 

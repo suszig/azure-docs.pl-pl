@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e943db5a48f8fbbcd63a448abe34b66f5f987a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Usługa Azure metadanych: Zaplanowanego zdarzenia (wersja zapoznawcza) dla maszyn wirtualnych systemu Linux
 
@@ -27,31 +27,38 @@ ms.lasthandoff: 10/11/2017
 > Podglądy są udostępniane użytkownikowi, pod warunkiem że wyrażasz zgodę na warunki użytkowania. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Zaplanowane zdarzenia jest jednym z subservices w usłudze Azure metadanych. Jest odpowiedzialny za udostępniając informacje dotyczące zdarzeń nadchodzących (na przykład ponowny rozruch), aplikacja może przygotować je i ograniczyć przerw w działaniu. Jest ona dostępna dla wszystkich typów maszyny wirtualnej platformy Azure, w tym PaaS i IaaS. Zaplanowane zdarzenia daje czasu maszyny wirtualnej do wykonywania zadań zapobiegawcze, aby zminimalizować wpływ zdarzeń. 
+Zaplanowane zdarzenia jest usługą metadanych Azure, która zapewnia czasu aplikacji do przygotowania do obsługi maszyny wirtualnej. Zawiera informacje na temat zdarzeń planowanych konserwacji (np. Uruchom ponownie), aplikacja może przygotować je i ograniczyć przerw w działaniu. Jest ona dostępna dla wszystkich typów maszyny wirtualnej platformy Azure, w tym PaaS i IaaS w systemach Windows i Linux. 
 
-Zaplanowane zdarzenia jest dostępna dla systemów Windows i maszyn wirtualnych systemu Linux. Informacji o zaplanowane zdarzeń w systemie Windows, temacie [zaplanowane zdarzenia dla maszyn wirtualnych systemu Windows](../windows/scheduled-events.md).
+Informacji o zaplanowane zdarzeń w systemie Windows, temacie [zaplanowane zdarzenia dla maszyn wirtualnych systemu Windows](../windows/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Dlaczego zaplanowane zdarzenia?
 
-Bez zaplanowane zdarzenia należy wykonać kroki, aby ograniczyć wpływ intiated platformy konserwacji lub akcje inicjowane przez użytkownika w usłudze. 
+Wiele aplikacji może skorzystać z czasu, aby przygotować się do obsługi maszyny wirtualnej. Czas może służyć do wykonywania określonych zadań aplikacji, które zwiększenia dostępności, niezawodności i użytkowanie w tym: 
 
-Mająca wiele wystąpień obciążeń, które są używane do zarządzania stanem technik replikacji, mogą być narażone na awarie wykonywane w wielu wystąpieniach. Takie jak awarie może spowodować kosztowne zadania (na przykład odbudowywania indeksów) lub nawet utraty repliki. 
+- Punkt kontrolny i przywracania
+- Opróżnianie połączenia
+- Pracy awaryjnej replikę podstawową 
+- Usunięcie z puli usługi równoważenia obciążenia
+- Rejestrowanie zdarzeń
+- Łagodne zamykanie 
 
-W wielu innych przypadkach ogólnych dostępności usługi mogą być ulepszane wykonując sekwencji łagodne zamykanie, takie jak pula modułu równoważenia obciążenia Kończenie (lub anulowanie) locie transakcji, ponowne przypisywanie zadań do innych maszyn wirtualnych w klastrze (ręcznego przełączania trybu failover) lub usuwanie maszyny wirtualnej z sieci. 
+W przypadku używania zaplanowane zdarzeń aplikacji może odnajdywać podczas konserwacji będą występować i wyzwolić zadań, aby ograniczyć jej wpływ.  
 
-Istnieją przypadki, w którym powiadamianie o tym administratora o nadchodzących zdarzenia lub rejestrowanie takie zdarzenia pomocy poprawy użytkowanie aplikacji hostowanych w chmurze.
-
-Usługa Azure metadanych udostępnia zaplanowane zdarzenia w następujących przypadkach użycia:
--   Platforma zainicjował konserwacji (na przykład wdrożenie systemu operacyjnego hosta)
--   Wywołania zainicjowane przez użytkownika (na przykład użytkownik zostanie ponownie uruchomiony lub wdraża ponownie maszyny Wirtualnej)
-
+Zaplanowane zdarzenia zawiera zdarzenia w następujących przypadkach użycia:
+- Platforma zainicjował konserwacji (np. aktualizacji systemu operacyjnego hosta)
+- Użytkownik zainicjował konserwacji (np. ponownego uruchamiania lub wdraża ponownie maszyny Wirtualnej)
 
 ## <a name="the-basics"></a>Podstawy  
 
 Usługa Azure metadanych przedstawia informacje o uruchamianiu maszyn wirtualnych przy użyciu punkt końcowy REST jest dostępny z poziomu maszyny Wirtualnej. Informacje są dostępne za pośrednictwem IP bez obsługi routingu, dzięki czemu nie jest uwidaczniana poza maszyny Wirtualnej.
 
 ### <a name="scope"></a>Zakres
-Zaplanowane zdarzenia są udostępniane dla wszystkich maszyn wirtualnych w usłudze w chmurze lub dla wszystkich maszyn wirtualnych w zestawie dostępności. W związku z tym należy sprawdzić `Resources` w zdarzenia w celu określenia, na które będzie to mieć wpływ na maszynach wirtualnych. 
+Zaplanowane zdarzenia są dostarczane do:
+- Wszystkie maszyny wirtualne w usłudze w chmurze
+- Wszystkie maszyny wirtualne w zestawie dostępności
+- Wszystkie maszyny wirtualne w grupie umieszczania zestaw skali. 
+
+W związku z tym należy sprawdzić `Resources` w zdarzenia w celu określenia, na które będzie to mieć wpływ na maszynach wirtualnych.
 
 ### <a name="discovering-the-endpoint"></a>Odnajdywanie punktu końcowego
 W przypadku, gdy utworzono maszynę wirtualną w sieć wirtualną (VNet), usługa metadanych jest dostępne ze statycznego adresu IP bez obsługi routingu, `169.254.169.254`.
@@ -73,9 +80,6 @@ Utwórz żądanie zaplanowanego zdarzenia po raz pierwszy Azure niejawnie włąc
 Użytkownik zainicjował konserwacji maszyny wirtualnej za pośrednictwem portalu Azure, interfejsu API, interfejsu wiersza polecenia lub środowiska PowerShell powoduje zaplanowane zdarzenie. To umożliwia przetestowanie logiki przygotowania konserwacji w aplikacji oraz umożliwia aplikacji w taki sposób przygotować się do obsługi inicjowanych przez użytkownika.
 
 Ponowne uruchomienie maszyny wirtualnej planuje zdarzenia z typem `Reboot`. Ponownego wdrażania maszyny wirtualnej planuje zdarzenia z typem `Redeploy`.
-
-> [!NOTE] 
-> Obecnie maksymalnie 10 operacji konserwacji zainicjowanej przez użytkownika można jednocześnie zaplanować. Ten limit zostanie złagodzony przed zaplanowane zdarzenia ogólnej dostępności.
 
 > [!NOTE] 
 > Wynikiem zaplanowane zdarzenia konserwacji zainicjowanej przez użytkownika nie jest obecnie można konfigurować. Konfigurowalne jest planowane w przyszłości.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: d633f140635ba184642a2af999efcde845f3ec31
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrowanie maszyn po ocenie
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/27/2017
 
 W tym artykule opisano, jak uzyskać sugestie dotyczące narzędzia do migracji, po uruchomieniu oceny migracji.
 
-## <a name="migration-methods"></a>Metody migracji
+## <a name="migration-tool-suggestion"></a>Sugestia narzędzia migracji
 
-Po dokonaniu oceny przy użyciu migracji Azure w tym miejscu jest co zalecamy:
+Aby uzyskać sugestie dotyczące narzędzi migracji, należy zainstalować agentów na komputerach lokalnych.  
 
-1. Tworzenie projektu platformy Azure migracji, Odkryj maszyny lokalne i uruchomić oceny migracji. [Dowiedz się więcej](tutorial-assessment-vmware.md).
+1. Utwórz projekt platformy Azure migracji, Odkryj maszyny lokalnej, a oceny migracji. [Dowiedz się więcej](tutorial-assessment-vmware.md).
 2. Pobierz i zainstaluj agentów programu Azure migracji na każdej maszynie lokalnej, dla którego chcesz wyświetlić metody zalecane migracji. [Wykonaj poniższą procedurę](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) do instalacji agentów.
 2. Zidentyfikuj maszynach lokalnych odpowiednie do migracji przyrostu shift. Są to maszyn wirtualnych, które nie wymaga żadnych zmian do aplikacji działających na nich i mogą być migrowane, ponieważ jest.
 3. W przypadku migracji przyrostu shift zalecamy przy użyciu usługi Azure Site Recovery. [Dowiedz się więcej](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatywnie można użyć 3 innych narzędzi, które obsługują migrację do usługi Azure.

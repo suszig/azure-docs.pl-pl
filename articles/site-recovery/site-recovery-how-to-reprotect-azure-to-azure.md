@@ -3,7 +3,7 @@ title: "Jak ponownej ochrony od przejścia w tryb failover maszyn wirtualnych pl
 description: "Po pracy awaryjnej maszyn wirtualnych z jednego regionu Azure do innego można użyć usługi Azure Site Recovery do ochrony maszyn w odwrotnym kierunku. Jak kroki przeprowadzenie ponownej ochrony przed ponownie trybu failover."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -58,7 +58,7 @@ Poniżej przedstawiono kroki, aby Włącz ponownie ochronę maszyny wirtualnej p
 
 3. Przegląd **grupy zasobów, sieci, magazynu i dostępności zestawy** informacje i kliknij przycisk OK. Jeśli istnieją wszystkie zasoby oznaczone (nowy), będzie można utworzyć jako część ponownej ochrony.
 
-To wyzwalacz zadania Wznów zadanie, które najpierw będzie obsługiwał lokacji docelowej (SEA w tym przypadku) przy użyciu najnowszych danych, a po który zakończeniu zreplikuje wystąpiły przed trybu failover można z powrotem do Azja południowo-wschodnia.
+Zadanie ponownej ochrony najpierw będzie obsługiwał lokacji docelowej (SEA w tym przypadku) przy użyciu najnowszych danych, a po zakończeniu replikacji może przed trybu failover należy do Azja południowo-wschodnia.
 
 ### <a name="reprotect-customization"></a>Włącz ponownie ochronę dostosowania
 Jeśli chcesz wybrać wyodrębniania konta magazynu lub sieci podczas ponownej ochrony, możesz to zrobić przy użyciu podanego w bloku ponownej ochrony opcję Dostosuj.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelniania przekazywanego usługi Azure Active Directory
 
@@ -67,7 +67,7 @@ Przejdź do **usługi Azure Active Directory** -> **logowania** na [Centrum admi
 | 80005 | Agent uwierzytelniania: wystąpił błąd. | Błąd przejściowy. Spróbuj ponownie później.
 | 80007 | Agent uwierzytelniania nie może nawiązać połączenia z usługą Active Directory. | Sprawdź, czy usługi Active Directory jest dostępny z agentem uwierzytelniania.
 | 80010 | Agent uwierzytelniania nie może odszyfrować hasła. | Jeśli problem się stale powtarza, zainstaluj i Zarejestruj nowy Agent uwierzytelniania. I Odinstaluj bieżący. 
-| 80011 | Nie można pobrać klucza odszyfrowującego Agent uwierzytelniania. | Jeśli problem się stale powtarza, zainstaluj i Zarejestruj nowy Agent uwierzytelniania. I Odinstaluj bieżący.
+| 80011 | Agent uwierzytelniania nie może pobrać klucza odszyfrowującego. | Jeśli problem się stale powtarza, zainstaluj i Zarejestruj nowy Agent uwierzytelniania. I Odinstaluj bieżący.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemy z instalacją agentów uwierzytelniania
 
@@ -79,7 +79,7 @@ Przejdź do **usługi Azure Active Directory** -> **logowania** na [Centrum admi
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Rejestracja agenta uwierzytelniania nie powiodła się z powodu zablokowane porty
 
-Upewnij się, że serwer, na którym został zainstalowany Agent uwierzytelniania może komunikować się z usługą adresów URL i portów wyświetlane [tutaj](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Upewnij się, że serwer, na którym został zainstalowany Agent uwierzytelniania może komunikować się z usługą adresów URL i portów wyświetlane [tutaj](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Rejestracja agenta uwierzytelniania nie powiodła się z powodu błędów autoryzacji tokenu lub konta
 
@@ -105,7 +105,7 @@ Musisz mieć co najmniej jeden aktywny Agent uwierzytelniania przekazywanego uwi
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Włączenie funkcji nie powiodło się z powodu zablokowane porty
 
-Upewnij się, że serwer, na którym zainstalowano Azure AD Connect może komunikować się z usługą adresów URL i portów wyświetlane [tutaj](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Upewnij się, że serwer, na którym zainstalowano Azure AD Connect może komunikować się z usługą adresów URL i portów wyświetlane [tutaj](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Włączenie funkcji nie powiodło się z powodu błędów autoryzacji tokenu lub konta
 

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Wdrażanie funkcji platformy Azure jako moduł krawędzi IoT — w wersji preview
 Aby wdrożyć kod, który implementuje logiki biznesowej bezpośrednio do urządzenia IoT krawędzi, możesz użyć funkcji Azure. W tym samouczku przedstawiono sposób tworzenia i wdrażania funkcji Azure filtrujące dane czujników na symulowane urządzenie brzegowe IoT utworzoną w programie IoT Edge Azure wdrożenia symulowanego urządzenia na [Windows] [ lnk-tutorial1-win]lub [Linux] [ lnk-tutorial1-lin] samouczki. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:     
@@ -225,7 +225,7 @@ Aby monitorować urządzenia do chmury wiadomości wysyłane z urządzenia IoT k
 W tym samouczku został utworzony funkcji platformy Azure, który zawiera kod, aby filtrować nieprzetworzone dane generowane przez urządzenia IoT krawędzi. Aby zachować Eksplorowanie usługi Azure IoT krawędzi, Dowiedz się, jak używać urządzenia IoT jako brama. 
 
 > [!div class="nextstepaction"]
-> [Tworzenie urządzenia bramy IoT](how-to-create-gateway-device.md)
+> [Tworzenie urządzenia bramy IoT](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

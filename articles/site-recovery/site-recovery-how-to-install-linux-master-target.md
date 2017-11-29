@@ -3,7 +3,7 @@ title: "Jak zainstalować Linux głównego serwera docelowego dla trybu failover
 description: "Przed ponownej ochrony maszyny wirtualnej systemu Linux, należy Linux głównego serwera docelowego. Dowiedz się, jak zainstalować jedną."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -206,7 +206,7 @@ Aby włączyć ten parametr, należy wykonać następujące czynności:
 
 #### <a name="disable-kernel-upgrades"></a>Wyłącz uaktualnienia jądra
 
-Azure Site Recovery główny serwer docelowy wymaga bardzo określonych wersji systemu Ubuntu, upewnij się, że uaktualnienia jądra są wyłączone dla maszyny wirtualnej.
+Azure Site Recovery główny serwer docelowy wymaga określonych wersji systemu Ubuntu, upewnij się, że uaktualnienia jądra są wyłączone dla maszyny wirtualnej.
 
 Jeśli uaktualnienia jądra są włączone, regularne uaktualnienia spowodować główny serwer docelowy do nieprawidłowego działania.
 
@@ -374,7 +374,7 @@ Po zakończeniu instalacji należy zarejestrować serwer konfiguracji przy użyc
 
 ### <a name="upgrade-the-master-target"></a>Uaktualnij główny cel
 
-Uruchom Instalatora. Automatycznie wykrywa, że agent jest zainstalowany w głównym celu. Aby przeprowadzić uaktualnienie, wybierz **Y**.  Po zakończeniu instalacji sprawdź wersję programu głównego celu zainstalowane za pomocą następującego polecenia.
+Uruchom Instalatora. Automatycznie wykrywa, że agent jest zainstalowany w głównym celu. Aby przeprowadzić uaktualnienie, wybierz **Y**.  Po zakończeniu instalacji sprawdź wersję programu głównego celu zainstalowane za pomocą następującego polecenia:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Można stwierdzić, że **wersji** pola zwraca numer wersji głównego celu.
 Musisz zainstalować narzędzia VMware w głównym celu tak, aby go odnaleźć w magazynie danych. Jeśli narzędzia nie są zainstalowane, ekranu ponownej ochrony nie ma na liście w magazynie danych. Po zakończeniu instalacji narzędzi VMware należy ponownie uruchomić.
 
 ## <a name="next-steps"></a>Następne kroki
-Po instalacji i rejestracji główny cel zawiera finsihed, można wyświetlić głównego celu, które są wyświetlane na **docelowego elementu głównego** sekcji **infrastruktura usługi Site Recovery**, w obszarze Przegląd serwera konfiguracji.
+Po zakończeniu instalacji i rejestracji główny cel widać głównego celu, które są wyświetlane na **docelowego elementu głównego** sekcji **infrastruktura usługi Site Recovery**, w konfiguracji Omówienie serwera.
 
 Teraz można przystąpić do [przełączonej](site-recovery-how-to-reprotect.md), a następnie powrót po awarii.
 

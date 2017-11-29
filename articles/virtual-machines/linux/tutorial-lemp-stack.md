@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Zainstaluj serwer sieci web LEMP na maszynie Wirtualnej platformy Azure
 W tym artykule przedstawiono sposób wdrażania serwera sieci web NGINX, MySQL i PHP (stos LEMP) na maszynie Wirtualnej systemu Ubuntu na platformie Azure. Stos LEMP stanowi alternatywę dla popularnych [stosu światła](tutorial-lamp-stack.md), które można także zainstalować na platformie Azure. Aby wyświetlić serwera LEMP w akcji, można opcjonalnie zainstalować i skonfigurować witrynę WordPress. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -31,6 +31,8 @@ W tym artykule przedstawiono sposób wdrażania serwera sieci web NGINX, MySQL i
 > * Sprawdź, instalacja i Konfiguracja
 > * Zainstaluj program WordPress na serwerze LEMP
 
+
+Ta konfiguracja jest szybkie testów i weryfikacji koncepcji.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Sprawdź wersję programu MySQL przy użyciu następującego polecenia (należy 
 mysql -V
 ```
 
-Zaleca się uruchomienie następujący skrypt, aby pomóc w zabezpieczeniu instalacji MySQL:
+Aby pomóc w zabezpieczeniu instalacji MySQL, uruchom `mysql_secure_installation` skryptu. Jeśli tylko konfigurujesz serwer tymczasowy, możesz pominąć ten krok. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Wprowadź hasło głównego MySQL i skonfiguruj ustawienia zabezpieczeń dla danego środowiska.
+Wprowadź hasło główne dla programu MySQL, a następnie skonfiguruj ustawienia zabezpieczeń dla danego środowiska.
 
-Jeśli chcesz utworzyć bazę danych MySQL, dodać użytkowników, lub zmienić ustawienia konfiguracji, zaloguj się do MySQL:
+Jeśli chcesz wypróbować funkcje MySQL (Utwórz bazę danych MySQL, dodać użytkowników lub zmienić ustawienia konfiguracji), logowanie do MySQL. Ten krok nie jest wymagany do ukończenia tego samouczka. 
+
 
 ```bash
 mysql -u root -p

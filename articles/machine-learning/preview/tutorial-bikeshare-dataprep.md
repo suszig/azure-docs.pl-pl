@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Samouczek udziału roweru: Przygotowanie danych z usługi Azure Machine Learning Workbench zaawansowane
 Usługi uczenie maszynowe Azure (wersja zapoznawcza) jest nauki zintegrowane, end-to-end danych i zaawansowane metody analizy rozwiązania dla analityków danych professional Przygotowanie danych i tworzenie eksperymentów wdrażanie modeli w skali chmury.
@@ -261,10 +261,7 @@ Aby użyć danych w Prognozowanie dla bloków czasu dwóch godzin, należy oblic
 
    > [!NOTE]
    > Azure ML Workbench zsyntetyzuje zmniejszonych programu w oparciu o przykłady podane przez Ciebie i stosuje ten sam program dla pozostałych wierszy. Pozostałe wiersze są wypełniane automatycznie na podstawie podanych przykładu. Workbench również analizuje dane i próbuje zidentyfikować przypadki krawędzi. 
-
-   > [!IMPORTANT]
-   > Identyfikacja krawędzi przypadkach mogą nie działać dla komputerów Mac w bieżącej wersji środowiska roboczego. Pomiń __krok 3__ i __krok 4__ poniżej na komputerach Mac. Zamiast tego, naciśnij klawisz __OK__ po wypełniony wszystkie wiersze z wartości pochodnych.
-   
+  
 3. Tekst **analizowanie danych** powyżej siatki wskazuje, że Workbench próbuje wykryć przypadków krawędzi. Po zakończeniu stan zmienia się na **następnego wiersza sugerowane przeglądu** lub **Brak sugestii**. W tym przykładzie **następnego wiersza sugerowane przeglądu** jest zwracany.
 
 4. Aby wyświetlić sugerowane zmiany, wybierz **następnego wiersza sugerowane przeglądu**. Komórki, które należy przejrzeć i poprawić (w razie potrzeby) zostanie wyróżniona na ekranie.
@@ -294,11 +291,6 @@ Aby użyć danych w Prognozowanie dla bloków czasu dwóch godzin, należy oblic
 
    ![Obraz przykładu "01 stycznia 2015 AM 00: 00 - 2](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > Dla komputerów Mac, należy wykonać następujący krok zamiast __kroku 8__ poniżej.
-   >
-   > * Przejdź do pierwszej komórki, który zawiera `Feb 01, 2015 12AM-2AM`. Powinien być __wiersz 15__. Popraw wartość `Jan 02, 2015 12AM-2AM`i naciśnij klawisz __Enter__. 
-   
 
 8. Poczekaj, aż stan zmiany z **analizowanie danych** do **następnego wiersza sugerowane przeglądu**. Może to potrwać kilka sekund. Wybierz link stanu, aby przejść do sugerowane wiersza. 
 
@@ -513,12 +505,7 @@ Podsumowując roweru żądanie do 2 godzin, użyj kolumn pochodnych.
     > Możesz zapewnić przykład względem żadnego wiersza. W tym przykładzie wartość `Jan 01, 2017 12AM-2AM` jest prawidłowa dla pierwszego wiersza danych.
 
     ![Obraz przykładowe dane](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > Dla komputerów Mac, należy wykonać następujący krok zamiast __krok 3__ poniżej.
-   >
-   > * Przejdź do pierwszej komórki, który zawiera `Jan 01, 2017 1AM-2AM`. Powinien być __wiersz 14__. Popraw wartość `Jan 01, 2017 12AM-2AM`, a następnie naciśnij klawisz __Enter__. 
-
+   
 3. Poczekaj, aż aplikacji oblicza wartości dla wszystkich wierszy. Może potrwać kilka sekund. Po zakończeniu analizowania używają __następnego wiersza sugerowane przeglądu__ łącze w celu sprawdzenia danych.
 
    ![Obraz analizy ukończone z łączem przeglądu](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

@@ -3,7 +3,7 @@ title: "Włącz ponownie ochronę z platformy Azure do lokacji lokalnej | Dokume
 description: "Po przełączeniu maszyn wirtualnych na platformie Azure można zainicjować powrotu po awarii, aby przywrócić maszyn wirtualnych do lokalnego. Dowiedz się, jak i włącz ponownie ochronę przed powrotu po awarii."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 06/05/2017
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/28/2017
@@ -62,16 +62,20 @@ Podczas przygotowywania Włącz ponownie ochronę maszyny wirtualnej, wykonać l
   * **Główny serwer docelowy**: główny serwer docelowy odbiera dane powrotu po awarii. Serwer zarządzania lokalnymi utworzony ma głównego serwera docelowego instalowane domyślnie. Jednak w zależności od wielkości ruchu Wstecz nie powiodło się, konieczne może być tworzenie oddzielnych głównego serwera docelowego do powrotu po awarii.
     * [Maszyny wirtualnej systemu Linux wymaga Linux głównego serwera docelowego](site-recovery-how-to-install-linux-master-target.md).
     * Maszyny wirtualnej systemu Windows wymaga systemu Windows głównego serwera docelowego. Lokalny proces serwera i wzorzec komputerów docelowych można użyć ponownie.
+    * Główny element docelowy ma inne wymagania wstępne wymienione w [typowych czynności do wykonania w głównym celu przed ponownej ochrony](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Wszystkie maszyny wirtualne grupy replikacji powinny mieć tego samego typu systemu operacyjnego (wszystkie z systemem Windows lub Linux wszystkie). Grupy replikacji z mieszane systemy operacyjne nie jest obecnie obsługiwane w ponownej ochrony i powrotu po awarii do środowiska lokalnego. Jest to spowodowane główny cel powinna mieć ten sam system operacyjny, jako maszynę wirtualną i wszystkich maszyn wirtualnych do grupy replikacji powinny mieć tego samego głównego celu. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * Serwer konfiguracji jest wymagana lokalnymi przechodzenia wstecz. Podczas powrotu po awarii maszyna wirtualna musi istnieć w bazie danych konfiguracji serwera. W przeciwnym razie powrotu po awarii zakończy się niepowodzeniem. 
 
 > [!IMPORTANT]
 > Upewnij się, wykonanie zaplanowanego tworzenia kopii zapasowych serwera konfiguracji. W przypadku awarii, należy przywrócić działanie serwera przy użyciu tego samego adresu IP, dzięki czemu działa w przypadku powrotu po awarii.
+
+> [!WARNING]
+> Grupy replikacji powinien mieć tylko maszyn wirtualnych systemu Windows lub maszyn wirtualnych systemu Linux i nie kombinację obu ponieważ wszystkie maszyny wirtualne w grupie replictaion wykorzystuje takie same główny serwer docelowy i maszyny Wirtualnej systemu Linux wymaga Linux główny serwer docelowy i, takich jak rozsądnego dla maszyny Wirtualnej systemu Windows.
 
 * Ustaw `disk.EnableUUID=true` ustawienie parametrów konfiguracji maszyny wirtualnej główny serwer docelowy w środowisku programu VMware. Jeśli ten wiersz nie istnieje, dodaj ją. To ustawienie jest wymagane do zapewnia spójny UUID dysku maszyny wirtualnej (VMDK), dzięki czemu jego instaluje poprawnie.
 

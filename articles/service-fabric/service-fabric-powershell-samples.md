@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e255382b1263c162bfc80cf41f9e8d362be55a8e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ae132dbb650e08c3a25a9366563e70c6d56e089d
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-powershell-samples"></a>Przykłady programu Azure PowerShell
 
@@ -32,8 +32,10 @@ Poniższa tabela zawiera linki do przykłady skryptów środowiska PowerShell ut
 |-|-|
 | **Tworzenie klastra** ||
 | [Tworzenie klastra (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Tworzy klaster sieci szkieletowej usług Azure. |
-| **Zarządzanie klastrem** ||
+| **Zarządzanie, klaster i węzły** ||
 | [Dodaj certyfikat aplikacji](./scripts/service-fabric-powershell-add-application-certificate.md)| Dodaje certyfikat X.509 aplikacji na wszystkich węzłach w klastrze. |
+|[Zmień zakres portów protokołu RDP w węźle klastra maszyny wirtualne](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Zmienia zakres portów protokołu RDP w węźle klastra maszyny wirtualne w klastrze wdrożone.|
+| [Zaktualizuj administrator użytkownika i hasło dla węzła klastra maszyny wirtualne](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Nazwa użytkownika i hasło dla węzła klastra maszyny wirtualne aktualizacji. |
 | **Zarządzanie aplikacjami** ||
 | [Wdrażanie aplikacji](./scripts/service-fabric-powershell-deploy-application.md)| Wdrażanie aplikacji do klastra.|
 | [Uaktualnianie aplikacji](./scripts/service-fabric-powershell-upgrade-application.md)| Uaktualnianie aplikacji |

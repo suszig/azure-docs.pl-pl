@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Przejście do nowego języka zapytań usługi Analiza dzienników Azure
 Analiza dzienników zaimplementowana ostatnio nowy język kwerendy.  Ten artykuł zawiera pomoc na przechodzenie ten język dla analizy dzienników, jeśli znasz już starszej wersji języka i nadal potrzebujesz pomocy.
+
+## <a name="resources"></a>Zasoby
+
 
 ## <a name="language-converter"></a>Konwerter języka
 
 Jeśli znasz starszych język zapytań usługi Analiza dzienników, najprostszym sposobem tworzenia tego samego zapytania w nowym języku jest użyć konwertera języka, który jest zainstalowany w portalu wyszukiwania dziennika po przekonwertowaniu obszaru roboczego.  Za pomocą konwertera jest tak proste, jak wpisanie starszych zapytanie w polu tekstowym górny, a następnie klikając pozycję **przekonwertować**.  Można albo kliknij przycisk Wyszukaj, aby uruchamiać zapytania lub kopiowania i wklej go, aby użyć go w innym miejscu.
 
 ![Konwerter języka](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Zasoby
+[Język zapytań usługi analiza dziennika witryny dokumentacji](https://docs.loganalytics.io) zawiera wszystkie zasoby muszą pochodzić się wszystkiego o nowym języku.  W tym samouczki, przykłady i dokumentację języka ukończone.
 
 
 ## <a name="cheat-sheet"></a>Ściągawka
@@ -48,7 +55,7 @@ Poniższa tabela zawiera porównanie różnych typowych kwerend do równoważnyc
 | Sortuj                   | Typ = zdarzeń &#124; Sortowanie asc komputera, desc dziennika zdarzeń, EventLevelName asc | Zdarzenie \| Sortuj według komputera asc, desc dziennika zdarzeń, EventLevelName asc |
 | Różne               | Typ = zdarzeń &#124; Funkcja deduplikacji komputera \| Wybierz komputer | Zdarzenie &#124; Podsumuj według komputera, dziennika zdarzeń |
 | Rozszerzenie kolumny         | Typ = CounterName wydajności = "% czasu procesora" &#124; ROZSZERZ if(map(CounterValue,0,50,0,1),"HIGH","LOW") jako wykorzystania | Wydajności &#124; w przypadku, gdy CounterName == "% czasu procesora" \| Rozszerzanie wykorzystania = Jeśli ("Od" równowartości > 50, "HIGH") |
-| Agregacji            | Typ = zdarzeń &#124; Miara count() jako liczność według komputera | Zdarzenie &#124; Podsumuj Count = count() przez komputer |
+| Agregacja            | Typ = zdarzeń &#124; Miara count() jako liczność według komputera | Zdarzenie &#124; Podsumuj Count = count() przez komputer |
 |                                | Typ = wydajności ObjectName = CounterName procesora = "% czasu procesora" &#124; Miara avg(CounterValue) interwał komputera 5 minut | Wydajności &#124; Gdzie ObjectName == "Procesor" i CounterName == "% czasu procesora" &#124; Podsumuj avg(CounterValue) przez komputer, bin (TimeGenerated, 5 minut) |
 | Agregacja limit | Typ = zdarzeń &#124; Miara count() przez komputer &#124; 10 pierwszych | Zdarzenie &#124; Podsumuj AggregatedValue = count() przez komputer &#124; limit 10 |
 | Unii                  | Typ = zdarzeń lub typ = Syslog | Unia zdarzenia dziennika systemowego |

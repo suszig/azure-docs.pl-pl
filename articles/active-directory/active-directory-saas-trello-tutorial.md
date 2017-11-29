@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Samouczek: Integracji Azure Active Directory z Trello
 
@@ -96,6 +96,10 @@ Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z T
 
 W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Trello.
 
+>[!NOTE]
+    >Należy pobrać  **\<enterprise\>**  informacji o pracy z Trello. Jeśli nie masz wartość informacji o pracy, skontaktuj się z [zespołem pomocy technicznej Trello](mailto:support@trello.com) można pobrać informacji o pracy w przedsiębiorstwie.
+    > 
+
 **Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Trello, wykonaj następujące czynności:**
 
 1. W portalu Azure na **Trello** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
@@ -112,17 +116,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Na **Trello domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **SP zainicjował tryb**, wykonaj następujące czynności:
-    
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Jeśli chcesz skonfigurować aplikację w **SP zainicjował tryb**, wykonaj następujące czynności:
+
+  ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Polecenie **Pokaż zaawansowane ustawienia adresu URL**.
 
-    b. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. W **na adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Należy pobrać  **\<enterprise\>**  informacji o pracy z Trello. Jeśli nie masz wartość informacji o pracy, skontaktuj się z [zespołem pomocy technicznej Trello](mailto:support@trello.com) można uzyskać informacji o pracy należy przedsiębiorstwa.
-    > 
+  c. W **identyfikator** tekstowym, wpisz następujący adres URL:`https://trello.com/auth/saml/metadata`
 
 5. Aplikacja Trello oczekuje potwierdzenia SAML w celu uwzględnienia określonych atrybutów. Skonfiguruj następujące atrybuty dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z **"Atrybuty użytkownika"** aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
 

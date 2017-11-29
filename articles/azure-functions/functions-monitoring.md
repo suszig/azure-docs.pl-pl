@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitoruj usługę Azure Functions
 
@@ -60,7 +60,7 @@ Pobierz klucz Instrumentacji i zapisz go w aplikacji funkcji:
 
    ![Skopiuj klucz Instrumentacji usługi Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. W aplikacji funkcji **ustawienia aplikacji** strony, [Dodaj ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) o nazwie APPINSIGHTS_INSTRUMENTATIONKEY i Wklej klucz instrumentacji.
+1. W aplikacji funkcji **ustawienia aplikacji** strony, [Dodaj ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) klikając **Dodaj nowe ustawienie**. Nazwa nowego ustawienia APPINSIGHTS_INSTRUMENTATIONKEY i Wklej klucz skopiowane instrumentacji.
 
    ![Dodaj klucz Instrumentacji do ustawień aplikacji](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Pobierz klucz Instrumentacji i zapisz go w aplikacji funkcji:
 
 ## <a name="view-telemetry-data"></a>Wyświetlanie danych telemetrii
 
-Aby przejść do usługi Application Insights z funkcji aplikacji w portalu, wybierz **usługi Application Insights** łącze w aplikacji funkcji **omówienie** strony.
+Aby przejść do połączonych wystąpienia usługi Application Insights z funkcji aplikacji w portalu, wybierz **usługi Application Insights** łącze w aplikacji funkcji **omówienie** strony.
 
 Aby uzyskać informacje o sposobie używania usługi Application Insights, zobacz [dokumentacji usługi Application Insights](https://docs.microsoft.com/azure/application-insights/). W tej sekcji przedstawiono kilka przykładów sposobu wyświetlania danych w usłudze Application Insights. Jeśli już znasz usługi Application Insights, można przejść bezpośrednio do [sekcje zawierają informacje dotyczące konfigurowania i dostosowywania danych telemetrycznych](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Na [wydajności](../application-insights/app-insights-performance-counters.md) k
 
 ![Wydajność](media/functions-monitoring/performance.png)
 
-**Serwerów** karcie są wyświetlane wykorzystania zasobów i przepływności na serwer. Może to być przydatne w przypadku debugowania scenariuszy, w którym funkcje są bogging zasobami podstawowej w dół. Serwery są określane jako *wystąpień roli w chmurze*. 
+**Serwerów** karcie są wyświetlane wykorzystania zasobów i przepływności na serwer. Może to być przydatne w przypadku debugowania scenariuszy, w którym funkcje są bogging zasobami podstawowej w dół. Serwery są określane jako **wystąpień roli w chmurze**.
 
 ![Serwery](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Na [wydajności](../application-insights/app-insights-performance-counters.md) k
 
 ## <a name="query-telemetry-data"></a>Dane telemetryczne zapytania
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analytics zapewnia język kwerendy do wyodrębniania i manipulowania danymi.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analytics zapewnia język kwerendy do wyodrębniania, manipulowanie i wizualizację danych.
 
 ![Wybierz analityka](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ Udostępnia środowisko uruchomieniowe `customDimensions.LogLevel` i `customDime
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurowanie kategorii i poziomu dziennika
 
-Można użyć usługi Application Insights bez żadnych niestandardowych konfiguracji, ale konfiguracja domyślna może powodować dużej ilości danych. Jeśli używasz subskrypcji programu Visual Studio Azure może osiągnęła zakończenia Twoje dane aplikacji szczegółowe informacje o. W dalszej części tego artykułu pokazano, jak skonfigurować i dostosować dane funkcji wysyłania do usługi Application Insights.
+Można użyć usługi Application Insights bez żadnych niestandardowych konfiguracji, ale konfiguracja domyślna może powodować dużej ilości danych. Jeśli używasz subskrypcji programu Visual Studio Azure może osiągnęła Twoje dane centralnych zasad dostępu dla usługi Application Insights. W dalszej części tego artykułu pokazano, jak skonfigurować i dostosować dane funkcji wysyłania do usługi Application Insights.
 
 ### <a name="categories"></a>Kategorie
 
@@ -152,7 +152,7 @@ Zawiera również usługę Azure functions rejestratora *poziom dziennika* przy 
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczne    | 5 |
+|Krytyczny    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` znajduje się w następnej sekcji. 
@@ -178,7 +178,7 @@ Poziom dziennika `None` znajduje się w następnej sekcji.
 
 Ten przykład konfiguruje następujące reguły:
 
-1. W przypadku dzienników z kategorii "Host.Results" lub "Function" Wyślij tylko `Error` poziom i powyżej do usługi Application Insights. W dziennikach `Information` poziomie i poniżej są ignorowane.
+1. W przypadku dzienników z kategorii "Host.Results" lub "Function" Wyślij tylko `Error` poziom i powyżej do usługi Application Insights. W dziennikach `Warning` poziomie i poniżej są ignorowane.
 2. W dziennikach kategorii hosta. Agregator, Wyślij tylko `Information` poziom lub nowszego z usługą Application Insights. W dziennikach `Debug` poziomie i poniżej są ignorowane.
 3. W przypadku innych dzienników wysłać tylko `Information` poziom i powyżej do usługi Application Insights.
 
@@ -217,7 +217,7 @@ Wszystkie te dzienniki są zapisywane w `Information` poziomu, tak więc jeśli 
 
 Dzienniki te zapewniają liczby i średnie wywołania funkcji za pośrednictwem [można skonfigurować](#configure-the-aggregator) okresu czasu. Domyślny okres to 30 sekund lub wyników 1000, zależnie od zostanie osiągnięty jako pierwszy. 
 
-Dzienniki są wyświetlane jako "customMetrics" w usłudze Application Insights. Przykłady to liczba uruchomień, Częstotliwość powodzeń i czasu trwania.
+Dzienniki są dostępne w **customMetrics** tabeli w usłudze Application Insights. Przykłady to liczba uruchomień, Częstotliwość powodzeń i czasu trwania.
 
 ![customMetrics zapytania](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Wszystkie te dzienniki są zapisywane w `Information` poziomu, tak więc jeśli 
 
 ### <a name="other-categories"></a>Inne kategorie
 
-Wszystkie dzienniki dla kategorii innych niż już na liście Pokaż "śladów" w usłudze Application Insights.
+Wszystkie dzienniki dla kategorii innych niż już na liście są dostępne w **śladów** tabeli w usłudze Application Insights.
 
 ![ślady zapytania](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Jeśli zachować ten sam ciąg komunikatu i odwrotna kolejność parametrów, wy
 
 Symbole zastępcze są obsługiwane w ten sposób, dzięki czemu można wykonać rejestrowania strukturalnych. Usługa Application Insights przechowuje pary nazwa wartość parametru oprócz ciąg z komunikatem. Wynik jest argumenty komunikatów pola, które można wykonać zapytanie na.
 
-Na przykład, jeśli wywołania metody Rejestrator wygląda tak jak w poprzednim przykładzie, możesz zapytania dotyczącego pola `customDimensions.prop__rowKey`. Prefiks jest dodawany do zapewnienia, że nie istnieją żadne kolizji między pola, które dodaje środowiska uruchomieniowego i pola, które dodaje kodu funkcji.
+Na przykład, jeśli wywołania metody Rejestrator wygląda tak jak w poprzednim przykładzie, możesz zapytania dotyczącego pola `customDimensions.prop__rowKey`. `prop__` Prefiks zostanie dodany, aby upewnić się, że nie istnieją żadne kolizji między polami środowiska uruchomieniowego dodaje i pola kodu funkcji dodaje.
 
 Możesz także zbadać na oryginalny ciąg z komunikatem, umieszczając odwołanie do pola `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>Zależności
 
-Zależności nie pojawiają się automatycznie, ale można napisać kod niestandardowy w celu wyświetlania zależności. Przykładowy kod [C# telemetria niestandardowa sekcji](#custom-telemetry-in-c-functions) przedstawia sposób. Przykładowy kod powoduje *mapowanie aplikacji* w usłudze Application Insights, że wygląda podobnie do następującej:
+Zależności, które funkcja ma w innych usługach nie pojawiają się automatycznie, ale można pisanie kodu niestandardowego, aby wyświetlić zależności. Przykładowy kod [C# telemetria niestandardowa sekcji](#custom-telemetry-in-c-functions) przedstawia sposób. Przykładowy kod powoduje *mapowanie aplikacji* w usłudze Application Insights, że wygląda podobnie do następującej:
 
 ![Mapa aplikacji](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Wybierz **Monitor** kartę dla funkcji i można uzyskać listę wykonaniami funk
 
 ### <a name="real-time-monitoring"></a>Monitorowanie w czasie rzeczywistym
 
-Monitorowanie w czasie rzeczywistym będą dostępne po kliknięciu **strumień na żywo zdarzeń** w funkcji **Monitor** kartę. Strumień na żywo zdarzeń jest wyświetlane na wykresie na nowej karcie w przeglądarce
+Monitorowanie w czasie rzeczywistym będą dostępne po kliknięciu **na żywo strumienia zdarzeń** w funkcji **Monitor** kartę. Strumień na żywo zdarzeń jest wyświetlane na wykresie na nowej karcie przeglądarki.
 
 > [!NOTE]
-> Jest to znany problem, który może powodować danych nie można wypełnić. Konieczne może być zamknięcie karty przeglądarki zawierające strumień na żywo zdarzeń, a następnie kliknij przycisk **strumień na żywo zdarzeń** ponownie, aby zezwalała na poprawnie wypełnić danych strumienia zdarzeń. 
+> Jest to znany problem, który może powodować danych nie można wypełnić. Konieczne może być zamknięcie karty przeglądarki zawierające strumień na żywo zdarzeń, a następnie kliknij przycisk **na żywo strumienia zdarzeń** ponownie, aby zezwalała na poprawnie wypełnić danych strumienia zdarzeń. 
 
 Te statystyki są w czasie rzeczywistym, ale rzeczywisty Tworzenie wykresów danych wykonawczych mogą mieć około 10 sekund opóźnienia.
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/05/2017
-ms.openlocfilehash: 96c5ab5caa4fea178a3108947fa858d395650e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: a2a3395fad35599591e093385305f28bbb161014
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Dostosuj parametry konfiguracji serwera przy użyciu wiersza polecenia platformy Azure
 Można wyświetlić listę, wyświetlić i zaktualizować parametry konfiguracji serwera Azure PostgreSQL przy użyciu interfejsu wiersza polecenia (Azure CLI). Podzbiór aparatu konfiguracji jest narażony na poziomie serwera i może być modyfikowany. 
@@ -25,21 +25,21 @@ Do wykonania kroków opisanych ten przewodnik, potrzebne są:
 - Zainstaluj [Azure CLI 2.0](/cli/azure/install-azure-cli) interfejsu wiersza polecenia na komputerze lub użyj [powłoki chmury Azure](../cloud-shell/overview.md) w portalu Azure za pomocą przeglądarki.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Lista parametrów konfiguracji serwera dla bazy danych Azure PostgreSQL serwera
-Aby wyświetlić listę wszystkich parametrów można modyfikować w serwerze i ich wartości, należy uruchomić [az postgres serwera konfiguracji na liście](/cli/azure/postgres/server/configuration#list) polecenia.
+Aby wyświetlić listę wszystkich parametrów można modyfikować w serwerze i ich wartości, należy uruchomić [az postgres serwera konfiguracji na liście](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) polecenia.
 
 Można wyświetlić parametry konfiguracji serwera dla serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup**.
 ```azurecli-interactive
 az postgres server configuration list --resource-group myresourcegroup --server mypgserver-20170401
 ```
 ## <a name="show-server-configuration-parameter-details"></a>Pokaż szczegóły parametru konfiguracji serwera
-Aby wyświetlić szczegółowe informacje dotyczące parametru określoną konfigurację serwera, uruchom [az postgres serwera konfiguracji Pokaż](/cli/azure/postgres/server/configuration#show) polecenia.
+Aby wyświetlić szczegółowe informacje dotyczące parametru określoną konfigurację serwera, uruchom [az postgres serwera konfiguracji Pokaż](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) polecenia.
 
 W tym przykładzie przedstawiono szczegóły **dziennika\_min\_wiadomości** parametru konfiguracji serwera dla serwera **mypgserver 20170401.postgres.database.azure.com** w obszarze Grupa zasobów **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Zmodyfikuj wartość parametru konfiguracji serwera
-Można również zmodyfikować wartość niektórych serwera parametru konfiguracji, która aktualizuje odpowiednia wartość konfiguracji dla aparatu serwera PostgreSQL. Aby zaktualizować konfigurację, użyj [zestawu konfiguracji serwera postgres az](/cli/azure/postgres/server/configuration#set) polecenia. 
+Można również zmodyfikować wartość niektórych serwera parametru konfiguracji, która aktualizuje odpowiednia wartość konfiguracji dla aparatu serwera PostgreSQL. Aby zaktualizować konfigurację, użyj [zestawu konfiguracji serwera postgres az](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) polecenia. 
 
 Aby zaktualizować **dziennika\_min\_wiadomości** parametru konfiguracji serwera serwera **mypgserver 20170401.postgres.database.azure.com** w grupie zasobów **myresourcegroup.**
 ```azurecli-interactive

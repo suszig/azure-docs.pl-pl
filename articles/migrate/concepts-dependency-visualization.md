@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: e787cd6746b53c28fc1495b9a3ac62f2aa08f639
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dependency-visualization"></a>Wizualizacja zależności
 
@@ -43,7 +43,7 @@ Aby korzystać z wizualizacji zależności, musisz pobrać i zainstalować agent
 
 ## <a name="do-i-need-to-pay-for-it"></a>Należy dokonać jego?
 
-Tak. Obszar roboczy analizy dzienników jest domyślnie tworzona, ale nie jest używana, chyba że w Azure migracji za pomocą wizualizacji zależności. Jeśli jest używany wizualizacji zależności (lub Użyj obszaru roboczego poza Azure migracji), są naliczane opłaty za użycie obszaru roboczego.  [Dowiedz się więcej](https://www.microsoft.com/cloud-platform/operations-management-suite) o cenach rozwiązania mapy usługi. 
+Tak. Obszar roboczy analizy dzienników jest domyślnie tworzona, ale nie jest używana, chyba że w Azure migracji za pomocą wizualizacji zależności. Jeśli jest używany wizualizacji zależności (lub Użyj obszaru roboczego poza Azure migracji), są naliczane opłaty za użycie obszaru roboczego.  [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/insight-analytics/) o cenach rozwiązania mapy usługi. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Jak zarządzać obszaru roboczego?
 

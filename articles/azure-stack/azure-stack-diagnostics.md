@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Narzędzia diagnostyki stosu Azure
 
@@ -29,43 +29,11 @@ Upewnij się, że mechanizm kolekcji dziennika jest łatwe i skuteczne pomoc do 
  
 ## <a name="trace-collector"></a>Moduł zbierający śledzenia
  
-Moduł zbierający śledzenia jest domyślnie włączona. Stale działa w tle i zbiera wszystkie dzienniki zdarzeń śledzenia dla systemu Windows (ETW) z usługi składowe w stosie Azure i zapisuje je w udziale lokalnym wspólnej. 
+Moduł zbierający śledzenia jest domyślnie włączona i działa w sposób ciągły w tle, aby zbierać wszystkie dzienniki zdarzeń śledzenia dla systemu Windows (ETW) z usługi składowe stosu Azure. Dzienniki zdarzeń systemu Windows są przechowywane w udziale lokalnym wspólnej limit wieku pięć dni. Po osiągnięciu tego limitu najstarsze pliki są usuwane, ponieważ są tworzone nowe. Domyślny maksymalny rozmiar dozwolony dla każdego pliku jest 200MB. Sprawdź rozmiar występuje okresowo (co 2 minuty) i jest bieżący plik > = 200 MB jest zapisywany i utworzony nowy plik. Na rozmiar pliku generowane zdarzenie sesji istnieje również limit 8GB. 
 
-Poniżej przedstawiono ważne co należy wiedzieć o moduł zbierający śledzenia:
- 
-* Moduł zbierający śledzenia działa w sposób ciągły z limitami rozmiaru domyślnego. Domyślny maksymalny rozmiar dozwolony dla każdego pliku (200 MB) jest **nie** odcięcia rozmiar. Sprawdź rozmiar występuje okresowo (obecnie co 2 minuty) i jest bieżący plik > = 200 MB jest zapisywany i utworzony nowy plik. Na rozmiar pliku, generowany dla sesji zdarzeń istnieje również limit (można konfigurować) 8 GB. Po osiągnięciu tego limitu najstarsze pliki są usuwane, ponieważ są tworzone nowe.
-* Istnieje limit 5-dniowy okres ważności w dziennikach. Konfiguruje się ten limit. 
-* Każdy składnik definiuje właściwości konfiguracji śledzenia przy użyciu pliku JSON. Pliki JSON są przechowywane w **C:\TraceCollector\Configuration**. W razie potrzeby można edytować tych plików, aby zmienić limitów wieku i rozmiaru zebranych dzienników. Zmiany w tych plikach wymagać ponownego uruchomienia *moduł zbierający śledzenia stosu Azure firmy Microsoft* usługi, aby zmiany zaczęły obowiązywać.
-
-Poniższy przykład jest to plik JSON konfiguracji śledzenia w operacjach FabricRingServices z XRP maszyny Wirtualnej: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Ten parametr określa wieku plików do zachowania. Starsze pliki dziennika są usuwane.
-* **Wartość argumentu MaxSizeInMB**. Ten parametr określa próg rozmiaru dla jednego pliku. Po osiągnięciu rozmiaru tworzony jest nowy plik ETL.
-* **TotalSizeInMB**. Ten parametr określa całkowity rozmiar plików etl wygenerowane z sesji zdarzeń. Jeśli rozmiar pliku jest większa niż wartość tego parametru, starsze pliki zostaną usunięte.
-  
 ## <a name="log-collection-tool"></a>Narzędzie do zbierania dzienników
  
-Polecenia programu PowerShell **Get-AzureStackLog** może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli nasz zespół pomocy technicznej potrzebuje dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
+Polecenia cmdlet programu PowerShell **Get-AzureStackLog** może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli nasz zespół pomocy technicznej potrzebuje dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
 
 > [!CAUTION]
 > Te pliki dziennika może zawierać dane osobowe (dane osobowe). To brać pod uwagę przed publicznie post wszystkie pliki dziennika.
@@ -78,38 +46,38 @@ Poniżej przedstawiono kilka przykładowych typów dziennika, które są zbieran
 *   **Dzienniki diagnostyczne magazynu**
 *   **Dzienniki zdarzeń systemu Windows**
 
-Te pliki są zbierane przez moduł zbierający śledzenia i przechowywane w udziale, skąd **Get AzureStackLog** pobiera je.
+Te pliki są zbierane i zapisywane w udziale przez moduł zbierający śledzenia. **Get-AzureStackLog** polecenia cmdlet programu PowerShell można następnie używany do gromadzenia je w razie potrzeby.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Aby uruchomić Get AzureStackLog w systemie Azure stosu Development Kit (ASDK)
 1. Zaloguj się jako **AzureStack\CloudAdmin** na hoście.
 2. Otwórz okno programu PowerShell jako administrator.
 3. Uruchom **Get-AzureStackLog** polecenia cmdlet programu PowerShell.
 
-   **Przykłady**
+**Przykłady:**
 
-    Zbieraj wszystkie dzienniki dla wszystkich ról:
+  Zbieraj wszystkie dzienniki dla wszystkich ról:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Zbierz dzienniki ról maszyn wirtualnych i BareMetal:
+  Zbierz dzienniki ról maszyn wirtualnych i BareMetal:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika przez ostatnie 8 godzin:
+  Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika przez ostatnie 8 godzin:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika w okresie między 8 godz i 2 godz. temu:
+  Zbierz dzienniki ról maszyn wirtualnych i BareMetal, oraz datę filtrowania dla plików dziennika w okresie między 8 godz i 2 godz. temu:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Do uruchomienia Get-AzureStackLog na stosie Azure zintegrowany system
 
@@ -158,7 +126,7 @@ if($s)
    | Domena                  | NZ                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Brama                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | DOSTAWCA NRP                    | SeedRing           |
    | SeedRingServices        | PROGRAMOWEGO                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | maszyn wirtualnych    |  
    | ZOSTAŁ                     | WASPUBLIC              | USŁUGI WDRAŻANIA SYSTEMU WINDOWS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Zbieranie dzienników przy użyciu graficznego interfejsu użytkownika
+Zamiast dostarczanie wymaganych parametrów polecenia cmdlet Get-AzureStackLog pobrać dzienników stosu Azure, można też skorzystać narzędzia Azure stosu dostępne typu open source, znajduje się w głównym repozytorium GitHub narzędzia Azure stosu w http://aka.ms/AzureStackTools.
+
+**ERCS_AzureStackLogs.ps1** skrypt programu PowerShell znajduje się w repozytorium GitHub narzędzia i są aktualizowane na bieżąco. Uruchomiony administracyjne sesji programu PowerShell, skrypt nawiązuje połączenie z punktem końcowym uprzywilejowanych i uruchamia Get AzureStackLog z podanych parametrów. Jeśli są podane żadne parametry, skrypt domyślnie monitowania parametrów za pomocą graficznego interfejsu użytkownika.
+
+Aby dowiedzieć się więcej na temat środowiska PowerShell ERCS_AzureStackLogs.ps1 skryptu można obserwować [krótki film](https://www.youtube.com/watch?v=Utt7pLsXEBc) i wyświetlanie skryptu [plik readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) znajduje się w repozytorium GitHub narzędzia Azure stosu. 
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 

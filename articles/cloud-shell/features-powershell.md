@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ PowerShell w chmurze powłoki (wersja zapoznawcza) bezpiecznie i automatycznie s
 
 ### <a name="files-persistence-across-sessions"></a>Pliki trwałości między sesjami
 
-Aby zachować pliki między sesjami, powłoki chmury przeprowadzi Cię przez dołączenie udziału plików na platformę Azure przy pierwszym uruchomieniu.
+Aby zachować pliki między sesjami, powłoki chmury przeprowadzi Cię przez dołączenie udział plików Azure firmy Microsoft przy pierwszym uruchomieniu.
 Po ukończeniu powłoki chmury będą automatycznie dołączać magazynu (zainstalowany jako `$home\clouddrive`) dla wszystkich przyszłych sesji.
 Ponieważ każde żądanie dla powłoki chmury jest przydzielanie tymczasowa maszyna pliki poza Twojej `$home\clouddrive` i stan maszyny nie są zachowywane między sesjami.
 
