@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Informacje o wersji zintegrowanych systemów
           items:
+            - name: Aktualizacja 1711
+              href: azure-stack-update-1711.md
             - name: Aktualizacja 1710
               href: azure-stack-update-1710.md
     - name: Kluczowe funkcje i pojęcia
