@@ -3,7 +3,7 @@ title: "Wykonywanie operacji w usłudze Azure Blob Storage (magazynie obiektów)
 description: "Dowiedz się, jak przekazywać i pobierać obiekty blob w usłudze Azure Blob Storage, a także jak utworzyć sygnaturę dostępu współdzielonego (SAS) umożliwiającą zarządzanie dostępem do obiektu blob na koncie magazynu."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.openlocfilehash: b4e99793d45b90411a068dd44a981cf24aa67d43
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 58313148f20c6680b131cf7a9f3f5aa015ca4add
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Wykonywanie operacji w usłudze Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 
