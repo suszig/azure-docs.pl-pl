@@ -1,52 +1,56 @@
 # Omówienie
 
-## [Co to jest  SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [Obciążenie magazynu danych](sql-data-warehouse-overview-workload.md)
+## [Informacje o usłudze Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# Wprowadzenie
+# Przewodniki Szybki start
 
-## [Ładowanie danych — samouczek](load-data-from-azure-blob-storage-using-polybase.md)
-## [Elastyczne zapytanie — samouczek](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
-## [Zarządzanie](sql-data-warehouse-overview-manage.md)
+## [Tworzenie i łączenie — portal](create-data-warehouse-portal.md)
 
-# Instrukcje
+# Samouczki
+## [1 — Ładowanie danych z obiektu blob](load-data-from-azure-blob-storage-using-polybase.md)
 
+# Pojęcia
 ## Funkcje usługi
 ### [Architektura MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Warstwy wydajności](performance-tiers.md)
 ### [Jednostki magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Tworzenie kopii zapasowych magazynu danych](sql-data-warehouse-backups.md)
+### [Inspekcja](sql-data-warehouse-auditing-overview.md)
 ### [Limity pojemności](sql-data-warehouse-service-capacity-limits.md)
 ### [Często zadawane pytania](sql-data-warehouse-overview-faq.md)
 
-## Tworzenie kopii zapasowej i przywracanie
+## Bezpieczeństwo
+### [Omówienie](sql-data-warehouse-overview-manage-security.md)
+### [Uwierzytelnianie](sql-data-warehouse-authentication.md)
 
-### [Omówienie usługi Backup](sql-data-warehouse-backups.md)
-### [Omówienie przywracania kopii zapasowych](sql-data-warehouse-restore-database-overview.md)
-#### [Witryna Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-## Połączenie
+## Migrowanie do usługi SQL Data Warehouse
+### [Omówienie](sql-data-warehouse-overview-migrate.md)
+### [Narzędzie do migracji](sql-data-warehouse-migrate-migration-utility.md)
+### [Migrowanie schematu](sql-data-warehouse-migrate-schema.md)
+### [Migrowanie kodu](sql-data-warehouse-migrate-code.md)
+### [Migrowanie danych](sql-data-warehouse-migrate-data.md)
 
-### [Omówienie](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Instalacja programu Visual Studio](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Parametry połączenia](sql-data-warehouse-connection-strings.md)
+## Ładowanie i przenoszenie danych
+### [Omówienie](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## Przycisk Utwórz
-### [Witryna Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## Programowanie
+## Integracja
+### [Omówienie](sql-data-warehouse-overview-integrate.md)
 
+
+## Monitorowanie i dostrajanie
+### [Wytyczne](resource-classes-for-workload-management.md)
+### [Kompresja magazynu kolumn](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [Monitorowanie](sql-data-warehouse-manage-monitor.md)
+### [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
+
+## Programowanie magazynów danych
 ### [Omówienie](sql-data-warehouse-overview-develop.md)
+### [Składniki magazynu danych](sql-data-warehouse-overview-workload.md)
 
 ### Tabele
-
 #### [Omówienie](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [Typy danych](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [Tymczasowe](sql-data-warehouse-tables-temporary.md)
 
 ### Zapytania
-
 #### [Dynamiczny język SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [Grupuj według opcji](sql-data-warehouse-develop-group-by-options.md)
 #### [Etykiety](sql-data-warehouse-develop-label.md)
 
 ### Elementy języka T-SQL
-
 #### [Pętle](sql-data-warehouse-develop-loops.md)
 #### [Procedury składowane](sql-data-warehouse-develop-stored-procedures.md)
 #### [Transakcje](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [Przypisywanie zmiennej](sql-data-warehouse-develop-variable-assignment.md)
 #### [Widoki](sql-data-warehouse-develop-views.md)
 
-## Integracja
-
-### [Omówienie](sql-data-warehouse-overview-integrate.md)
-### [Fabryka danych](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Samouczek usługi Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Wizualizacja w usłudze Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [Elastyczne zapytanie — z bazą danych SQL i usługą SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## Ładowanie
-
-### Pojęcia
-#### [Omówienie](sql-data-warehouse-overview-load.md)
-#### [Wskazówki dotyczące technologii PolyBase](sql-data-warehouse-load-polybase-guide.md)
-
-### Samouczki
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### Przewodniki z instrukcjami
-#### [Dane przykładowe](sql-data-warehouse-load-sample-databases.md)
-#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [Fabryka danych](sql-data-warehouse-load-with-data-factory.md)
-#### [Program PolyBase z usługi Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [Program PolyBase z programu SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## Migrate (Migracja)
-
-### [Omówienie](sql-data-warehouse-overview-migrate.md)
-### [Narzędzie do migracji](sql-data-warehouse-migrate-migration-utility.md)
-### [Migrowanie schematu](sql-data-warehouse-migrate-schema.md)
-### [Migrowanie kodu](sql-data-warehouse-migrate-code.md)
-### [Migrowanie danych](sql-data-warehouse-migrate-data.md)
-### [Migrowanie do usługi Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## Zarządzanie obliczeniami
-
-### [Omówienie](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
-### [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Interfejs API REST](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [Automatyzowanie poziomów obliczeniowych](manage-compute-with-azure-functions.md)
-
-### Klasy zasobów
-#### [Wytyczne](resource-classes-for-workload-management.md)
-#### [Analizowanie obciążenia](analyze-your-workload.md)
-
-## Wydajność
-
-### [Omówienie](sql-data-warehouse-overview-manage-user-queries.md)
-### [Kompresja magazynu kolumn](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Monitorowanie](sql-data-warehouse-manage-monitor.md)
+# Przewodniki z instrukcjami
+## Funkcje usługi
+### [Przywracanie magazynu danych — portal](sql-data-warehouse-restore-database-portal.md)
+### [Przywracanie magazynu danych — program PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [Przywracanie magazynu danych — interfejs API REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Bezpieczeństwo
-
-### [Omówienie](sql-data-warehouse-overview-manage-security.md)
-### [Inspekcja](sql-data-warehouse-auditing-overview.md)
-### [Inspekcja dla klientów niższych poziomów](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Uwierzytelnianie](sql-data-warehouse-authentication.md)
-### [Szyfrowanie](sql-data-warehouse-encryption-tde.md)
-### [Szyfrowanie za pomocą języka T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [Włączanie szyfrowania — portal](sql-data-warehouse-encryption-tde.md)
+### [Włączanie szyfrowania — język T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Wykrywanie zagrożeń](sql-data-warehouse-security-threat-detection.md)
 
-## Rozwiązywanie problemów
-### [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md)
+
+## Ładowanie i przenoszenie danych
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [Fabryka danych](sql-data-warehouse-load-with-data-factory.md)
+### [Program PolyBase z usługi Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [Program PolyBase z programu SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## Integracja
+###  [Konfigurowanie zapytania elastycznego z usługi SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Dodawanie zadania usługi Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Konfigurowanie zapytania elastycznego](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [Korzystanie z uczenia maszynowego](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Wizualizowanie przy użyciu usługi Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## Monitorowanie i dostrajanie
+### [Analizowanie obciążenia](analyze-your-workload.md)
+
+## Skalowanie w poziomie
+### [Zarządzanie obliczeniami — portal](sql-data-warehouse-manage-compute-portal.md)
+### [Zarządzanie obliczeniami — program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [Zarządzanie obliczeniami — interfejs API REST](sql-data-warehouse-manage-compute-rest-api.md)
+### [Automatyzowanie poziomów obliczeniowych](manage-compute-with-azure-functions.md)
+
 
 # Dokumentacja
 

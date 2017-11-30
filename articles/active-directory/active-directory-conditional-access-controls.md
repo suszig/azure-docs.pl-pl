@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f084ea3a9fb97a334f3dec90f2c9020a842bc27c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Formanty w usłudze Azure Active Directory dostępu warunkowego 
 
@@ -30,11 +30,11 @@ Z [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-dir
 
 - "**To zrobić**" jest wywoływana **formantów**
 
-![Formant](./media/active-directory-conditional-access-controls/11.png)
+![Kontrola](./media/active-directory-conditional-access-controls/11.png)
 
 Kombinacja instrukcji warunku z formantów reprezentuje zasady dostępu warunkowego.
 
-![Formant](./media/active-directory-conditional-access-controls/12.png)
+![Kontrola](./media/active-directory-conditional-access-controls/12.png)
 
 Każdej kontrolki jest wymagania, które muszą być spełnione przez osobę lub system logowania lub ograniczenie użytkownika można zrobić po zalogowaniu się. 
 
@@ -53,7 +53,7 @@ Udziel kontroli możesz całkowicie blokowanie dostępu lub zezwolić na dostęp
 - Wszystkie wybrane formanty, które należy spełnić (*i*) 
 - Jeden zaznaczony formant do spełnienia (*lub*)
 
-![Formant](./media/active-directory-conditional-access-controls/17.png)
+![Kontrola](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -111,7 +111,7 @@ Obecnie oferty usługi zgodne dostawców obejmują:
 
 - RSA
 
-- Trusona
+- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Aby uzyskać więcej informacji dotyczących tych usług skontaktuj się bezpośrednio z dostawców.
 
@@ -123,12 +123,12 @@ Skopiuj dane JSON, a następnie wkleić ją w polu tekstowym powiązane. Nie wpr
 
 Można utworzyć niestandardowego formantu jest **Zarządzaj** sekcji **dostępu warunkowego** strony.
 
-![Formant](./media/active-directory-conditional-access-controls/82.png)
+![Kontrola](./media/active-directory-conditional-access-controls/82.png)
 
 Kliknięcie przycisku **nowej kontrolki niestandardowej**, powoduje otwarcie bloku z pola tekstowego danych JSON formantu.  
 
 
-![Formant](./media/active-directory-conditional-access-controls/81.png)
+![Kontrola](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Usuwanie kontrolek niestandardowych
@@ -152,7 +152,7 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącego formantu 
 
 Formanty sesji włączyć ograniczone doświadczenie w aplikacji w chmurze. Formanty sesji są wymuszane przez aplikacje w chmurze i polegać na dodatkowe informacje dostarczane przez usługę Azure AD do aplikacji o sesji.
 
-![Formant](./media/active-directory-conditional-access-controls/31.png)
+![Kontrola](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Użyj aplikacji wymuszane ograniczeń
 

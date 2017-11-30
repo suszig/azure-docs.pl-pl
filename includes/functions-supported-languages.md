@@ -1,9 +1,9 @@
-|Język                                 |V1          |w wersji 2|
-|-----------------------------------------|------------|--|
-|[C#](../articles/azure-functions/functions-reference-csharp.md)|Ogólna dostępność|Podgląd|
-|[JavaScript](../articles/azure-functions/functions-reference-node.md)|Ogólna dostępność|Podgląd|
+|Język                                 |1.x         |2.x|
+|-----------------------------------------|------------|---|
+|[C#](../articles/azure-functions/functions-reference-csharp.md)|Ogólna dostępność|Wersja zapoznawcza|
+|[JavaScript](../articles/azure-functions/functions-reference-node.md)|Ogólna dostępność|Wersja zapoznawcza|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|Ogólna dostępność||
-|[Java](../articles/azure-functions/functions-reference-java.md)||Podgląd|
+|[Java](../articles/azure-functions/functions-reference-java.md)||Wersja zapoznawcza|
 |Python              |Eksperymentalne||
 |PHP                 |Eksperymentalne||
 |TypeScript          |Eksperymentalne||

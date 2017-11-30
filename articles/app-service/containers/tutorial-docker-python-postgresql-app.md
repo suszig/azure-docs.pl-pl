@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/03/2017
+ms.date: 11/28/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Tworzenie aplikacji sieci web Docker Python i PostgreSQL na platformie Azure
 
@@ -39,7 +39,7 @@ W celu ukończenia tego samouczka:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Testowanie instalacji lokalnej PostgreSQL i utworzyć bazę danych
 
@@ -121,7 +121,7 @@ W tym kroku utworzysz bazę danych PostgreSQL na platformie Azure. Po wdrożeniu
 
 ### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Teraz ma Azure CLI 2.0 umożliwia tworzenie zasobów niezbędnych do hostowania aplikacji języka Python w aplikacji sieci Web dla kontenerów.  Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Teraz ma Azure CLI 2.0 umożliwia tworzenie zasobów niezbędnych do hostowania aplikacji języka Python w aplikacji sieci Web dla kontenerów.  Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#az_login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz [grupę zasobów](../../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [az group create](/cli/azure/group#create).
+Utwórz [grupę zasobów](../../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,7 +139,7 @@ Poniższy przykład tworzy grupę zasobów regionu zachodnie stany USA:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Użyj [appservice az listy lokalizacje](/cli/azure/appservice#list-locations) polecenia wiersza polecenia platformy Azure do listy dostępnych lokalizacji.
+Użyj [appservice az listy lokalizacje](/cli/azure/appservice#az_appservice_list_locations) polecenia wiersza polecenia platformy Azure do listy dostępnych lokalizacji.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
@@ -260,7 +260,7 @@ Docker wyświetla potwierdzenie, że pomyślnie utworzono kontener.
 Successfully built 7548f983a36b
 ```
 
-Dodaj zmiennych środowiskowych bazy danych do pliku zmiennej środowiskowej *db.env*. Aplikacja będzie łączyć się PostgreSQL produkcyjną bazę danych na platformie Azure.
+Dodaj zmiennych środowiskowych bazy danych do pliku zmiennej środowiskowej *db.env*. Aplikacja łączy się Azure bazy danych dla bazy danych programu PostgreSQL produkcji.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -364,7 +364,7 @@ W tym kroku, w przypadku wdrażania rozwiązania Docker na podstawie kontenera p
 
 ### <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
+Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Po utworzeniu planu usługi aplikacji Azure CLI pokazuje informacje podobne do p
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-Tworzenie aplikacji sieci web w *myAppServicePlan* planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#create) polecenia.
+Tworzenie aplikacji sieci web w *myAppServicePlan* planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#az_webapp_create) polecenia.
 
 Aplikacja sieci web udostępnia hostingu miejsca, aby wdrożyć kod i zawiera adres URL do wyświetlania wdrożonej aplikacji. Służy do tworzenia aplikacji sieci web.
 
@@ -445,7 +445,7 @@ Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy A
 
 Wcześniej w samouczku zdefiniowano zmiennych środowiskowych w celu połączenia z bazą danych PostgreSQL.
 
-W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config#set) polecenia.
+W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config#az_webapp_config_appsettings_set) polecenia.
 
 W poniższym przykładzie szczegóły połączenia bazy danych jako ustawienia aplikacji. Ponadto użyto *portu* zmienną do mapy PORT 5000 z Twojej kontenera Docker na odbieranie ruchu HTTP na porcie 80.
 

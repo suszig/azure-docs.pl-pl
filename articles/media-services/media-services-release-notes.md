@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji usługi Azure Media Services
 Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znane problemy.
@@ -81,7 +81,7 @@ Informacje o historii wersji interfejsu API REST usług nośnika, zobacz [dokume
 Usługa Media Services obsługuje teraz [usługi Azure Active Directory (Azure AD)-uwierzytelniania opartego na](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Obecnie usługa Media Services obsługuje model uwierzytelniania usługi kontroli dostępu platformy Azure. Jednak na 1 czerwca 2018 zostaną wycofane autoryzacji kontroli dostępu. Zaleca się, jak najszybszą migrację do model uwierzytelniania usługi Azure AD.
+> Obecnie usługa Media Services obsługuje model uwierzytelniania usługi kontroli dostępu platformy Azure. Jednak na 1 czerwca 2018 zostaną wycofane autoryzacji kontroli dostępu. Zalecamy jak najszybszą migrację do modelu uwierzytelniania za pomocą usługi Azure AD.
 
 ## <a name="march-2017-release"></a>2017 marca zlecenia
 
@@ -411,7 +411,7 @@ Następujące zmiany wprowadzono w 3.0.0.3:
 
 Najnowszą wersję zestawu SDK usługi Media Services jest teraz 3.0.0.0. Możesz pobrać najnowszy pakiet Nuget lub pobrać z usługi bits [GitHub].
 
-Począwszy od zestawu SDK usługi Media wersji 3.0.0.0, można użyć ponownie [Azure Active Directory kontroli dostępu usługi (ACS)] tokenów. Aby uzyskać więcej informacji, zobacz sekcję "Ponowne użycie dostępu kontroli usługi tokenami" w [nawiązywania połączenia z usługi Media Services przy użyciu zestawu SDK usługi multimediów dla platformy .NET] artykułu.
+Począwszy od zestawu SDK usługi Media wersji 3.0.0.0, można użyć ponownie tokeny Azure Active Directory kontroli dostępu usługi (ACS). 
 
 ### <a name="dec_13_donnet_ext_changes"></a>2.0.0.0 rozszerzenia zestawu .NET SDK usługi Azure Media Services
 Rozszerzenia zestawu SDK .NET w programie Azure Media Services to zestaw metod rozszerzeń i funkcji pomocniczych, które będą uprościć kod i ułatwiają tworzenie w usłudze Azure Media Services. Możesz uzyskać najnowsze usługi bits z [rozszerzenia SDK .NET usługi Azure Media Services].
@@ -443,7 +443,7 @@ Zmiany wymienione w tej sekcji są aktualizacje zawarte w wersjach czerwca 2013 
 
 * Możliwość łączenia wielu kont magazynu do konta usługi Media. 
   
-    Konto magazynu
+    StorageAccount
   
     Asset.StorageAccountName i Asset.StorageAccount
 * Możliwość Job.Priority aktualizacji. 
@@ -580,8 +580,8 @@ Następujące funkcje to nowość w wersji listopada zestawu SDK.
 [tworzenie nakładki]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [łączenia segmentów wideo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [zwalnia Azure .NET SDK usługi Media Services 3.0.0.1 i 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory kontroli dostępu usługi (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[nawiązywania połączenia z usługi Media Services przy użyciu zestawu SDK usługi multimediów dla platformy .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [rozszerzenia SDK .NET usługi Azure Media Services]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

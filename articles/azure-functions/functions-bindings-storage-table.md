@@ -1,9 +1,9 @@
 ---
-title: "Azure tabeli funkcji magazynu powiązania"
+title: "Azure tabeli powiązania magazynu dla usługi Azure Functions"
 description: "Zrozumienie, jak używać powiązania magazynu tabel Azure w usługi Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Azure tabeli funkcji magazynu powiązania
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure tabeli powiązania magazynu dla usługi Azure Functions
 
 W tym artykule opisano sposób pracy z magazynu tabel Azure powiązania usługi Azure Functions. Azure Functions obsługuje wejściowa i wyjściowa powiązania dla magazynu tabel Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Powiązania wejściowego tabeli magazynu
+## <a name="input"></a>Dane wejściowe
 
 Użyj powiązania wejściowego magazynu tabel Azure, aby odczytać tabeli na koncie magazynu Azure.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>Dane wejściowe — atrybuty dla prekompilowanego C#
+## <a name="input---attributes"></a>Dane wejściowe — atrybuty
  
 Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje umożliwiają konfigurowanie powiązania wejściowego tabeli następujące atrybuty:
 
@@ -298,6 +298,9 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Można ustawić `Connection` właściwości w celu określenia konta magazynu do użycia, jak pokazano w poniższym przykładzie:
@@ -308,7 +311,12 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Pełny przykład, zobacz [Input - prekompilowany C# przykład](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -321,6 +329,9 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Konta magazynu do użycia jest określany w następującej kolejności:
@@ -345,7 +356,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**rowKey** |**RowKey** | Opcjonalny. Klucz wiersza jednostki tabeli do odczytu. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
 |**podejmij** |**Podejmij** | Opcjonalny. Maksymalna liczba jednostek do odczytu w języku JavaScript. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
 |**Filtr** |**Filtr** | Opcjonalny. Wyrażenie filtru OData dla tabeli danych wejściowych w języku JavaScript. Zobacz [użycia](#input---usage) sekcji, aby uzyskać wskazówki dotyczące sposobu używania tej właściwości.| 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br/>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Dane wejściowe — użycie
 
@@ -368,7 +381,7 @@ Powiązania wejściowego magazyn tabel obsługuje następujące scenariusze:
 
   Ustaw `filter` i `take` właściwości. Nie należy ustawiać `partitionKey` lub `rowKey`. Dostęp do wprowadzania tabeli jednostki (lub jednostek) przy użyciu `context.bindings.<name>`. Zdeserializowana obiekty mają `RowKey` i `PartitionKey` właściwości.
 
-## <a name="table-storage-output-binding"></a>Magazyn tabel powiązania wyjściowego
+## <a name="output"></a>Dane wyjściowe
 
 Za pomocą raportu magazynu tabel Azure powiązanie do zapisywania jednostek w tabeli na koncie magazynu Azure.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Dane wyjściowe — atrybuty dla prekompilowanego C#
+## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
- Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktor atrybutu ma nazwy tabeli. Mogą być używane na `out` parametrów lub wartości zwracanej funkcji, jak pokazano w poniższym przykładzie:
 
@@ -566,6 +579,9 @@ Konstruktor atrybutu ma nazwy tabeli. Mogą być używane na `out` parametrów l
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 Można ustawić `Connection` właściwości w celu określenia konta magazynu do użycia, jak pokazano w poniższym przykładzie:
@@ -576,9 +592,14 @@ Można ustawić `Connection` właściwości w celu określenia konta magazynu do
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wejściowych — atrybuty wstępnie skompilowana C#](#input---attributes-for-precompiled-c).
+Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [Input - atrybutów](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -592,7 +613,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**tableName** |**TableName** | Nazwa tabeli.| 
 |**partitionKey** |**PartitionKey** | Klucz partycji tabeli jednostki do zapisania. Zobacz [sekcji użycia](#output---usage) wskazówki dotyczące sposobu używania tej właściwości.| 
 |**rowKey** |**RowKey** | Klucz wiersza jednostki tabeli do zapisu. Zobacz [sekcji użycia](#output---usage) wskazówki dotyczące sposobu używania tej właściwości.| 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br/>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 

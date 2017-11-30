@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Wprowadzenie do korzystania z Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Tworzenie prostej aplikacji konsolowej do wywołania tej usługi aktora.
     ![Dodaj okno dialogowe Nowy projekt][6]    
     
     > [!NOTE]
-    > Aplikacja konsolowa nie jest typu aplikacji, które należy zwykle użyć jako klient w sieci szkieletowej usług, ale umożliwia wygodne przykład do debugowania i testowania przy użyciu emulatora usługi sieć szkieletowa usług lokalnych.
+    > Aplikacja konsolowa nie jest typu aplikacji, które należy zwykle użyć jako klient w sieci szkieletowej usług, ale umożliwia wygodne przykład do debugowania i testowania przy użyciu lokalnego klastra usługi sieć szkieletowa usług.
 
 3. Aplikacja konsoli musi mieć aplikacji 64-bitowych, aby zachować zgodność z projektu interfejsu i inne zależności.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **ActorClient** projektu, a następnie kliknij przycisk **właściwości**.  Na **kompilacji** ustaw **platformy docelowej** do **x64**.
     

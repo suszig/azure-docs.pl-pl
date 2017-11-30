@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Usługa aplikacji Azure w systemie Linux — często zadawane pytania
 
@@ -64,6 +64,20 @@ Tak.
 **Można użyć *narzędzia web deploy* wdrażania Moja aplikacja sieci web?**
 
 Tak, należy określić aplikację nosi nazwę `WEBSITE_WEBDEPLOY_USE_SCM` do *false*.
+
+**Wdrażanie Git Moja aplikacja zakończy się niepowodzeniem podczas korzystania z aplikacji sieci web systemu Linux. Jak mogę obejścia tego problemu?**
+
+W przypadku niepowodzenia wdrożenia usługi Git do aplikacji sieci web systemu Linux można wybrać następujące opcje alternatywny, aby wdrożyć kod aplikacji:
+
+- Użyj funkcji ciągłego dostarczania (wersja zapoznawcza): w repozytorium Git programu Team Services lub repozytorium GitHub, aby użyć ciągłego dostarczania Azure można przechowywać kodu źródłowego aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ciągłego dostarczania dla aplikacji sieci web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Użyj [ZIP wdrażania interfejsu API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Aby użyć tego interfejsu API [SSH do aplikacji sieci web](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) i przejdź do folderu, w której chcesz wdrożyć kod. Uruchom następujące polecenie:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Jeśli występuje błąd `curl` polecenie nie zostało znalezione, upewnij się, zainstaluj narzędzie curl przy użyciu `apt-get install curl` przed uruchomieniem poprzedniej `curl` polecenia.
 
 ## <a name="language-support"></a>Obsługa języków
 

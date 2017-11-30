@@ -1,5 +1,5 @@
 ---
-title: "Praca z wyzwalaczy i powiązań w usługi Azure Functions | Dokumentacja firmy Microsoft"
+title: "Praca z wyzwalaczy i powiązań w usługi Azure Functions"
 description: "Dowiedz się, jak używać wyzwalaczy i powiązań w usługi Azure Functions nawiązać połączenia z wykonanie kodu zdarzenia w sieci i usług w chmurze."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "usługa Azure Functions, funkcje, przetwarzanie zdarzeń, elementy webhook, obliczanie dynamiczne, architektura bez serwera"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
 Środowisko Azure Functions umożliwia pisanie kodu w odpowiedzi na zdarzenia w Azure i innych usług za pośrednictwem *wyzwalaczy* i *powiązania*. Ten artykuł zawiera omówienie wyzwalaczy i powiązań dla wszystkich obsługiwanych języków programowania. Funkcje, które są wspólne dla wszystkich powiązań są opisane poniżej.
 
 ## <a name="overview"></a>Omówienie
 
-Wyzwalaczy i powiązań są deklaratywne Definiowanie sposób wywoływania funkcji i co działa z danych. A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mieć skojarzone dane, co jest zazwyczaj ładunku, który wywołał funkcję. 
+Wyzwalaczy i powiązań są deklaratywne Definiowanie sposób wywoływania funkcji i co działa z danych. A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mieć skojarzone dane, co jest zazwyczaj ładunku, który wywołał funkcję.
 
 Wejście i wyjście *powiązania* Podaj deklaratywne, aby nawiązać połączenie danych z poziomu kodu. Podobnie jak wyzwalaczy, należy określić parametry połączenia i inne właściwości konfiguracji funkcji. Powiązania są opcjonalne i mieć wielu danych wejściowych i wyjściowych powiązania funkcji. 
 
@@ -35,11 +34,13 @@ Przy użyciu wyzwalaczy i powiązań, napisać kod, który jest więcej ogólny 
 
 Można skonfigurować wyzwalaczy i powiązań w **integracji** kartę w portalu Azure Functions. W obszarze obejmuje, interfejs użytkownika modyfikuje plik o nazwie *function.json* pliku w katalogu funkcji. Ten plik można edytować, zmieniając **Zaawansowany edytor**.
 
-W poniższej tabeli przedstawiono wyzwalaczy i powiązań, które są obsługiwane w środowisku Azure Functions. 
+## <a name="supported-bindings"></a>Obsługiwane powiązania
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Przykład: wyzwalacz kolejki i tabeli powiązania wyjściowego
+Aby uzyskać informacje o tym, które są w wersji zapoznawczej powiązań, lub są zatwierdzone do użycia w środowisku produkcyjnym, zobacz [obsługiwanych języków](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Przykład: wyzwalacz kolejki i tabeli powiązania wyjściowego
 
 Załóżmy, że chcesz zapisać nowy wiersz do magazynu tabel Azure przy każdym wyświetleniu nowego komunikatu w magazynie kolejek Azure. W tym scenariuszu można implementować przy użyciu kolejek Azure wyzwalacza i Azure Table Storage powiązania wyjściowego. 
 
@@ -126,9 +127,9 @@ Aby wyświetlić i edytować zawartość *function.json* w portalu Azure kliknij
 
 Aby uzyskać więcej przykładów kodu i szczegółowe informacje o integracji z usługą Azure Storage, zobacz [usługi Azure Functions wyzwalaczy i powiązań usługi Azure Storage](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Kierunek powiązania
+## <a name="binding-direction"></a>Kierunek powiązania
 
-Wszystkich wyzwalaczy i powiązań ma `direction` właściwości:
+Wszystkich wyzwalaczy i powiązań ma `direction` właściwości w *function.json* pliku:
 
 - Wyzwalacze kierunek jest zawsze`in`
 - Użyj powiązań wejściowych i wyjściowych `in` i`out`
@@ -243,7 +244,7 @@ Na przykład wyzwalacz kolejki magazynu Azure obsługuje następujące właściw
 
 Szczegółowe informacje o właściwości metadanych dla każdego wyzwalacza są opisane w odpowiedni temat odwołania. Dokumentacja jest również dostępna w **integracji** kartę portalu w **dokumentacji** sekcji poniżej obszar konfiguracji powiązania.  
 
-Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożliwia wyzwalacz kolejki uruchomienia funkcji (zobacz [wyzwalacza magazynu obiektów Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Komunikat z kolejki może zawierać filename obiektu blob do wyzwolenia na. Przy użyciu `queueTrigger` właściwości metadanych to zachowanie można określić w konfiguracji, a nie w kodzie.
+Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożliwia wyzwalacz kolejki uruchomienia funkcji (zobacz [wyzwalacza magazynu obiektów Blob](functions-bindings-storage-blob.md#trigger)). Komunikat z kolejki może zawierać filename obiektu blob do wyzwolenia na. Przy użyciu `queueTrigger` właściwości metadanych to zachowanie można określić w konfiguracji, a nie w kodzie.
 
 ```json
   "bindings": [

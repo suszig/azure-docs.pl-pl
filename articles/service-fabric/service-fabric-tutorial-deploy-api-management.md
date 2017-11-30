@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
 W tym samouczku jest częścią trzech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu.  Zarządzanie interfejsami API jest przydatne, gdy należy opublikować interfejsy API z bogaty zestaw reguły routingu dla usług sieci szkieletowej usług zaplecza. Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej przeznaczone dla ruchu transfer danych przychodzących przykład aplikacji, usługi Event Hubs, Centrum IoT lub usługi Azure API Management APP.NET Core. 
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Tworzenie operacji interfejsu API
 > * Skonfiguruj zasady wewnętrznej bazy danych
 > * Dodawanie interfejsu API do produktu
+
+Następnie przejdź do samouczka następujące informacje na temat uaktualniania środowiska uruchomieniowego klastra.
+> [!div class="nextstepaction"]
+> [Uaktualnienie środowiska uruchomieniowego klastra usługi sieć szkieletowa usług Azure](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

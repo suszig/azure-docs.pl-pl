@@ -20,7 +20,7 @@
 
 ## Tworzenie zadań
 ### [Tworzenie wejść](stream-analytics-define-inputs.md)
-### [Przykładowe dane wejściowe](stream-analytics-sample-data-input.md)
+### [Zapytania testowe i przykładowe dane wejściowe](stream-analytics-sample-data-input.md)
 ### [Typowe wzorce zapytań](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funkcje okien](stream-analytics-window-functions.md)
 

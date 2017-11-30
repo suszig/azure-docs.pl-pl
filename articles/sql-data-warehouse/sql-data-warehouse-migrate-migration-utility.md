@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Narzędzie migracji magazynu danych (wersja zapoznawcza)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Narzędzie migracji magazynu danych to narzędzie przeznaczone do migracji schem
 
 Oprócz migracji danych i schemat to narzędzie udostępnia opcję, aby wygenerować raporty zgodności, które zawierają podsumowanie niezgodności między wystąpieniami źródłowe i docelowe, które mogłyby uniemożliwiać prostsze migracji.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 Jako warunek wstępny dla instalacji należy narzędzie wiersza polecenia BCP, aby uruchomić skrypty migracji i pakietu Office, aby wyświetlić raport zgodności. Po uruchomieniu pliku wykonywalnego, który jest pobierany wyświetli monit o zaakceptowanie standardowe umowy EULA, zanim będzie można zainstalować narzędzie.
 
 Ponadto, aby uruchomić Utiliy migracji, należy to następujących uprawnień w bazie danych, które chcesz migrować: tworzenie bazy danych, ALTER DATABASE dowolnego lub wszystkich definicji WIDOKU.
@@ -66,4 +66,4 @@ Teraz, po migracji niektórych danych, sprawdź informacje dotyczące sposobu [o
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/en-us/download/details.aspx?id=49100

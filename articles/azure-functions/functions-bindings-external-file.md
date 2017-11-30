@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a1ff4d4488b37b1969edfbb6f935eccd63413c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Powiązania zewnętrznego pliku funkcji platformy Azure (wersja zapoznawcza)
 W tym artykule przedstawiono sposób manipulowanie plikami od różnych dostawców SaaS (np. OneDrive, Dropbox) w ramach funkcji przy użyciu wbudowanych powiązania. Azure functions obsługuje wyzwolenia, danych wejściowych i wyjściowych powiązania zewnętrznego pliku.
@@ -362,4 +362,6 @@ module.exports = function(context) {
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

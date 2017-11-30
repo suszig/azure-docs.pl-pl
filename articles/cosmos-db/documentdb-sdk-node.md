@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Zestaw SDK platformy Azure rozwiązania Cosmos DB Node.js: Informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/15/2017
 * Ta wersja zestawu SDK wymaga najnowszej wersji emulatora DB rozwiązania Cosmos Azure dostępne do pobrania z https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Splitproofed wielu partycji zapytań.
+* Podziel potwierdzone cross partycji zapytań.
 * Dodaje obsługuje łącza zasobów z początkowe i końcowe ukośniki (i odpowiadających testów).
 
 ### <a name="1.12.2"/>1.12.2</a>

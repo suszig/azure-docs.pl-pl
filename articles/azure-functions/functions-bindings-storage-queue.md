@@ -1,5 +1,5 @@
 ---
-title: "Azure funkcji kolejki magazynu powiązania"
+title: "Azure kolejki magazynu powiązania dla usługi Azure Functions"
 description: "Zrozumienie, jak używać magazynu kolejek Azure wyzwalacza i powiązania w usługi Azure Functions wyjściowego."
 services: functions
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Azure funkcji kolejki magazynu powiązania
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
 W tym artykule opisano sposób pracy z usługi Azure Functions powiązania magazynu kolejek Azure. Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązania dla kolejki.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="queue-storage-trigger"></a>Kolejki magazynu wyzwalacza
+## <a name="trigger"></a>Wyzwalacz
 
 Użyj wyzwalacza kolejki, aby uruchomić funkcję, po odebraniu nowego elementu w kolejce. Komunikat z kolejki jest podana jako dane wejściowe do funkcji.
 
@@ -151,7 +151,7 @@ module.exports = function (context) {
 
 [Użycia](#trigger---usage) sekcji opisano `myQueueItem`, które nosi nazwę przez `name` właściwości w function.json.  [Komunikatu sekcji metadanych](#trigger---message-metadata) opisano wszystkie zmienne, wyświetlane.
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Wyzwalacz — atrybuty dla prekompilowanego C#
+## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
  
 Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, umożliwia skonfigurowanie wyzwalacz kolejki następujące atrybuty:
 
@@ -164,6 +164,9 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Można ustawić `Connection` właściwości w celu określenia konta magazynu do użycia, jak pokazano w poniższym przykładzie:
@@ -173,8 +176,13 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   Udostępnia innym sposobem określania konta magazynu do użycia. Konstruktor przyjmuje nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. Ten atrybut można stosować na poziomie klasy parametrów, metody lub. W poniższym przykładzie przedstawiono poziom klasy i metody:
@@ -186,6 +194,9 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Konta magazynu do użycia jest określany w następującej kolejności:
@@ -206,7 +217,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek**| Nie dotyczy | W *function.json* tylko plików. należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy |Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji.  | 
 |**queueName** | **QueueName**| Nazwa kolejki do sondowania. | 
-|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br/>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Wyzwalacz — użycie
  
@@ -245,7 +258,7 @@ Do obsługi wiadomości, ręcznie, sprawdź [dequeueCount](#trigger---message-me
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="queue-storage-output-binding"></a>Magazyn kolejek powiązania wyjściowego
+## <a name="output"></a>Dane wyjściowe
 
 Za pomocą raportu magazynu kolejek Azure powiązanie do zapisywania wiadomości do kolejki.
 
@@ -386,7 +399,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Dane wyjściowe — atrybuty dla prekompilowanego C#
+## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
  
 Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -396,6 +409,9 @@ Ten atrybut ma zastosowanie do `out` parametrów lub wartości zwracanej przez f
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 Można ustawić `Connection` właściwości w celu określenia konta magazynu do użycia, jak pokazano w poniższym przykładzie:
@@ -404,9 +420,14 @@ Można ustawić `Connection` właściwości w celu określenia konta magazynu do
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty dla prekompilowanego C#](#trigger---attributes-for-precompiled-c).
+Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -418,7 +439,9 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 |**Kierunek** | Nie dotyczy | należy wybrać opcję `out`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje kolejkę w kodzie funkcji. Ustaw `$return` odwoływać się do wartości zwracane funkcji.| 
 |**queueName** |**QueueName** | Nazwa kolejki. | 
-|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** | **Połączenia** |Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
  

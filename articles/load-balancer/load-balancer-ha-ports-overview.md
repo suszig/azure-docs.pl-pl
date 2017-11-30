@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -59,75 +59,16 @@ Na poniższym diagramie przedstawiono wdrożenia sieci wirtualnej-gwiazdy. Wymu�
 
 Umożliwia także porty wysokiej dostępności dla aplikacji, które wymagają dużej liczby portów równoważenia obciążenia. Te scenariusze można uprościć przy użyciu wewnętrznego [standardowe usługi równoważenia obciążenia](https://aka.ms/lbpreview) z portami wysokiej dostępności. Reguły równoważenia obciążenia pojedynczego zastępuje wiele obciążenia poszczególnych reguł, po jednej dla każdego portu równoważenia.
 
-## <a name="region-availability"></a>Dostępność regionalna
+## <a name="region-availability"></a>Dostępność w danym regionie
 
 Funkcja porty HA jest dostępna w [tego samego regionach w ramach standardowego modułu równoważenia obciążenia](https://aka.ms/lbpreview#region-availability).  
 
 ## <a name="preview-sign-up"></a>Podgląd rejestracji
 
-Aby wziąć udział w wersji zapoznawczej funkcji porty wysokiej dostępności w standardowe usługi równoważenia obciążenia, zarejestruj subskrypcję, aby uzyskać dostęp. Można użyć 2.0 interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
+Aby wziąć udział w wersji zapoznawczej funkcji porty wysokiej dostępności w standardowe usługi równoważenia obciążenia, należy zarejestrować subskrypcji dla usługi równoważenia obciążenia [standardowe Podgląd](https://aka.ms/lbpreview#preview-sign-up). Można zarejestrować za pomocą 2.0 interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
 >[!NOTE]
->Aby użyć tej funkcji, musisz również zasubskrybować dla usługi równoważenia obciążenia [Podgląd standardowe](https://aka.ms/lbpreview#preview-sign-up), oprócz funkcji porty wysokiej dostępności. Rejestracja może potrwać do godziny.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Zaloguj przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
-
-1. Zarejestruj tę funkcję z dostawcą:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. Poprzednich operacji może potrwać do 10 minut. Można sprawdzić stan operacji za pomocą następującego polecenia:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    Operacja się powiodła, gdy zwraca stan rejestracji funkcji **zarejestrowanej**, jak pokazano poniżej:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Ukończenie rejestracji Podgląd rejestrując ponownie subskrypcji u dostawcy zasobów:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>Zaloguj przy użyciu programu PowerShell
-
-1. Zarejestruj tę funkcję z dostawcą:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. Poprzednich operacji może potrwać do 10 minut. Można sprawdzić stan operacji za pomocą następującego polecenia:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    Operacja się powiodła, gdy zwraca stan rejestracji funkcji **zarejestrowanej**, jak pokazano poniżej:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Ukończenie rejestracji Podgląd rejestrując ponownie subskrypcji u dostawcy zasobów:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>Rejestracja może potrwać do godziny.
 
 ## <a name="limitations"></a>Ograniczenia
 

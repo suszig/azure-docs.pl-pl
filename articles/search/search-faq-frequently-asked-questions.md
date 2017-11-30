@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Usługa wyszukiwanie Azure — często zadawane pytania (FAQ)
  
@@ -30,7 +30,7 @@ Wyszukiwanie Azure obsługuje wiele źródeł danych, [językową analiza wielu 
 Porównując technologii wyszukiwania, klienci często uzyskać charakterystykę na jak usługi Azure Search porównuje Elasticsearch. Klienci, którzy wybierz usługi Azure Search za pośrednictwem Elasticsearch wyszukiwania projektów aplikacji zwykle zrobić ponieważ wprowadziliśmy klucza zadań łatwiejsze lub potrzebują wbudowanej integracji z innymi technologiami firmy Microsoft:
 
 + Wyszukiwanie Azure jest usługą w chmurze pełni zarządzany z wartością 99,9% umów dotyczących poziomu usług (SLA) podczas obsługi administracyjnej z nadmiarowością wystarczające (2 repliki do odczytu, 3 repliki do odczytu i zapisu).
-+ Firmy Microsoft [procesorów języka naturalnego](https://docs.microsoft.com/rest/api/searchservice/language-support) oferują analizy inguistic krawędzi.  
++ Firmy Microsoft [procesorów języka naturalnego](https://docs.microsoft.com/rest/api/searchservice/language-support) oferują językową analiza krawędzi.  
 + [Usługa Azure Search indeksatory](search-indexer-overview.md) może przeszukiwać różnych źródeł danych Azure początkowa i przyrostowa indeksowania.
 + Jeśli potrzebujesz szybką odpowiedź na wahań zapytania lub indeksowania woluminów, możesz użyć [suwaków](search-manage.md#scale-up-or-down) na platformie Azure, w portalu lub wykonywania [skrypt programu PowerShell](search-manage-powershell.md), bezpośrednio obchodzenia zarządzania niezależnego fragmentu.  
 + [Ocenianie i dostrajania funkcji](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) Podaj środki wpływające na wyszukiwanie randze poza co można podać tylko aparatu wyszukiwania. 

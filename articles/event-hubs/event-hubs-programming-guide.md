@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Przewodnik programowania w usłudze Event Hubs
 
@@ -117,7 +117,7 @@ Wysyłanie zdarzeń w partiach może pomóc zwiększyć przepustowość. [SendBa
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB dla zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta. Można użyć klasy Pomocnika [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) aby upewnić się, że partia nie przekracza 256 KB. Pobierz pustą [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) interfejsu API, a następnie użycie [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) do dodawania zdarzenia do utworzenia zadania wsadowego. Na koniec użyj [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) podstawowej zdarzenia do przekazania do [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) interfejsu API.
+Należy pamiętać, że pojedyncza partia nie może przekraczać limitu 256 KB dla zdarzenia. Ponadto każdy komunikat w partii używa tej samej tożsamości wydawcy. Nadawca jest odpowiedzialny za upewnienie się, że partia nie przekracza maksymalnego rozmiaru zdarzenia. Jeśli go przekroczy, zostanie wygenerowany błąd metody **Send** klienta. Metoda pomocnika [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) aby upewnić się, że partia nie przekracza 256 KB. Pobierz pustą [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) interfejsu API, a następnie użycie [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) do dodawania zdarzenia do utworzenia zadania wsadowego. Na koniec użyj [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) podstawowej zdarzenia do przekazania do [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) interfejsu API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Wysyłanie asynchroniczne i wysyłanie na dużą skalę
 Możesz również wysłać zdarzenia do Centrum zdarzeń asynchronicznie. Wysyłanie asynchroniczne może zwiększyć szybkość, z jaką klient jest w stanie wysyłać zdarzenia. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) są dostępne w wersjach asynchronicznych, które zwracają obiekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Ta technika może zwiększyć przepływność, jednak może również spowodować, że klient będzie kontynuować wysyłanie zdarzeń nawet wtedy, gdy jest ograniczany przez usługę Event Hubs, co może skutkować błędami klienta lub utratą komunikatów, jeśli metoda nie została poprawnie zaimplementowana. Dodatkowo można użyć właściwości [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) na kliencie do sterowania opcjami ponawiania prób klienta.

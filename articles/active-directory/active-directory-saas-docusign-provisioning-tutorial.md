@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign Inicjowanie obsługi użytkowników
 
@@ -41,9 +41,12 @@ Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, nale
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Ważne porady dotyczące przypisywania użytkowników do DocuSign
 
-*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD DocuSign do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest jeden jest przypisany użytkownik usługi Azure AD DocuSign do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników.
 
 *   Przypisanie użytkownika do DocuSign, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
+
+> [!NOTE]
+> Usługi Azure AD nie obsługuje grupy inicjowania obsługi administracyjnej z aplikacją Docusign, tylko użytkownicy, można udostępnić.
 
 ## <a name="enable-user-provisioning"></a>Włącz inicjowanie obsługi użytkowników
 
@@ -86,7 +89,7 @@ Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników us�
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do DocuSign w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na DocuSign aplikacji.
+Rozpoczyna się wstępna synchronizacja przypisane do DocuSign w sekcji Użytkownicy i grupy użytkowników. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na DocuSign aplikacji.
 
 Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z DocuSign poczekaj maksymalnie 20 minut.
 

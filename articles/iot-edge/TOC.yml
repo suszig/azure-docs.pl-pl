@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Przewodniki Szybki start
   items:
-    - name: Wdrażanie na brzegu — system Windows
-      href: quickstart.md
     - name: Wdrażanie na brzegu — system Linux
       href: quickstart-linux.md
+    - name: Wdrażanie na brzegu — system Windows
+      href: quickstart.md
 - name: Samouczki
   items:
-    - name: Symulowanie urządzenia usługi Edge — system Windows
-      href: tutorial-simulate-device-windows.md
     - name: Symulowanie urządzenia usługi Edge — system Linux
       href: tutorial-simulate-device-linux.md
+    - name: Symulowanie urządzenia usługi Edge — system Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Tworzenie modułu C#'
       href: tutorial-csharp-module.md
     - name: Wdrażanie usługi Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie urządzenia bramy
-      href: how-to-create-gateway-device.md
+    - name: Tworzenie przezroczystej bramy
+      href: how-to-create-transparent-gateway.md
     - name: Wdrażanie i monitorowanie na dużą skalę
       href: how-to-deploy-monitor.md
     - name: Aprowizowanie urządzenia IoT Core
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Wdrożenia
       href: module-deployment-monitoring.md
+    - name: Urządzenie IoT Edge jako brama
+      href: iot-edge-as-gateway.md
     - name: Bezpieczeństwo
       href: security.md
 - name: Zasoby

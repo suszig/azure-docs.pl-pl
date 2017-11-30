@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication — publicznej wersji zapoznawczej
 
@@ -156,7 +156,7 @@ Zaufanych adresów IP to funkcja usługi Azure MFA używanego przez administrato
 | Typ dzierżawy usługi Azure AD | Dostępne opcje zaufany adres IP |
 |:--- |:--- |
 | Zarządzane |<li>Określonych zakresów adresów IP — Administratorzy mogą określić zakres adresów IP, które można pominąć weryfikacji dwuetapowej dla użytkowników, którzy są logujący się z sieci intranet.</li> |
-| Federacyjna |<li>Wszyscy użytkownicy federacyjnym — wszystkie użytkownicy federacyjni, którzy logowanie z wewnątrz organizacji będzie pominąć weryfikacji dwuetapowej przy użyciu oświadczenia wydane przez usługi AD FS.</li><br><li>Określonych zakresów adresów IP — Administratorzy mogą określić zakres adresów IP, które można pominąć weryfikacji dwuetapowej dla użytkowników, którzy są logujący się z sieci intranet. |
+| Federacyjne |<li>Wszyscy użytkownicy federacyjnym — wszystkie użytkownicy federacyjni, którzy logowanie z wewnątrz organizacji będzie pominąć weryfikacji dwuetapowej przy użyciu oświadczenia wydane przez usługi AD FS.</li><br><li>Określonych zakresów adresów IP — Administratorzy mogą określić zakres adresów IP, które można pominąć weryfikacji dwuetapowej dla użytkowników, którzy są logujący się z sieci intranet. |
 
 To obejście działa tylko z wewnątrz sieci intranet firmy. Na przykład jeśli wybrano federacyjnych wszystkich użytkowników, a użytkownik zaloguje się z spoza sieci intranet, ten użytkownik ma do uwierzytelniania przy użyciu weryfikacji dwuetapowej, nawet jeśli użytkownik przedstawia oświadczenia usług AD FS. 
 
@@ -170,21 +170,40 @@ Po włączeniu zaufanych adresów IP, weryfikacja dwuetapowa to *nie* wymagane d
 
 Czy zaufanych adresów IP jest włączone, weryfikacja dwuetapowa jest wymagane dla przepływów przeglądarki, a hasła aplikacji są wymagane dla starszych aplikacji wzbogaconego klienta. 
 
-### <a name="to-enable-trusted-ips"></a>Aby włączyć zaufanych adresów IP
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Wybierz katalog, w którym chcesz zarządzać. 
-4. Wybierz **skonfigurować**
-5. W obszarze usługi Multi-Factor Authentication, zaznacz **Zarządzaj ustawieniami usługi**.
-6. Na stronie ustawień usługi w obszarze zaufanych adresów IP dostępne są dwie opcje:
+### <a name="enable-named-locations-using-conditional-access"></a>Włącz o nazwie lokalizacji przy użyciu dostępu warunkowego
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **dostępu warunkowego** > **o nazwie lokalizacji**
+3. Wybierz **nowej lokalizacji**
+4. Podaj nazwę dla lokalizacji
+5. Wybierz **Oznacz jako zaufanej lokalizacji**
+6. Określ zakres adresów IP w notacji CIDR (przykład 192.168.1.1/24)
+7. Wybierz **tworzenie**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Włącz zaufanych adresów IP przy użyciu dostępu warunkowego
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **dostępu warunkowego** > **o nazwie lokalizacji**
+3. Wybierz **skonfigurować uwierzytelnianie wieloskładnikowe zaufanych adresów IP**
+4. Na stronie ustawień usługi w obszarze zaufanych adresów IP dostępne są dwie opcje:
    
    * **Żądania od użytkowników federacyjnych pochodzące z moim intranecie** — pole wyboru. Wszystkich użytkowników federacyjnych zalogowanych z sieci firmowej będzie pomijać weryfikację dwuetapową, za pomocą oświadczenia wydane przez usługi AD FS. Upewnij się, że usługi AD FS ma zasadę, aby dodawać oświadczenia intranet na odpowiedni ruch. Jeśli reguła nie istnieje, utwórz następującą regułę w usługach AD FS: "c: [typu =="http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c);"
 
+   * **Dla żądań z określonego zakresu publicznych adresów IP** — wprowadź adresy IP w polu tekstowym za pomocą notacji CIDR. Na przykład: xxx.xxx.xxx.0/24 dla adresów IP w zakresie xxx.xxx.xxx.1 — xxx.xxx.xxx.254 lub xxx.xxx.xxx.xxx/32 dla jednego adresu IP. Możesz wprowadzić maksymalnie 50 zakresów adresów IP. Użytkownicy, którzy zalogować się w tych adresów IP pominąć weryfikacji dwuetapowej.
+5. Wybierz pozycję **Zapisz**.
 
+### <a name="enable-trusted-ips-using-service-settings"></a>Włącz zaufanych adresów IP za pomocą ustawień usługi
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy**
+3. Wybierz pozycję **Multi-Factor Authentication**
+4. W obszarze usługi Multi-Factor Authentication, zaznacz **ustawienia usługi**.
+5. Na stronie ustawień usługi w obszarze zaufanych adresów IP dostępne są dwie opcje:
+   
+   * **Żądania od użytkowników federacyjnych pochodzące z moim intranecie** — pole wyboru. Wszystkich użytkowników federacyjnych zalogowanych z sieci firmowej będzie pomijać weryfikację dwuetapową, za pomocą oświadczenia wydane przez usługi AD FS. Upewnij się, że usługi AD FS ma zasadę, aby dodawać oświadczenia intranet na odpowiedni ruch. Jeśli reguła nie istnieje, utwórz następującą regułę w usługach AD FS: "c: [typu =="http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c);"
 
    * **Dla żądań z określonego zakresu publicznych adresów IP** — wprowadź adresy IP w polu tekstowym za pomocą notacji CIDR. Na przykład: xxx.xxx.xxx.0/24 dla adresów IP w zakresie xxx.xxx.xxx.1 — xxx.xxx.xxx.254 lub xxx.xxx.xxx.xxx/32 dla jednego adresu IP. Możesz wprowadzić maksymalnie 50 zakresów adresów IP. Użytkownicy, którzy zalogować się w tych adresów IP pominąć weryfikacji dwuetapowej.
-7. Kliknij pozycję **Zapisz**.
-8. Po zastosowaniu aktualizacji kliknij **Zamknij**.
+6. Wybierz pozycję **Zapisz**.
 
 ![Zaufane adresy IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Usługi Azure AD obsługuje Federacji (logowanie jednokrotne) z lokalnego system
 ### <a name="allow-app-password-creation"></a>Zezwalaj na tworzenie haseł aplikacji
 Domyślnie użytkownicy nie mogą tworzyć hasła aplikacji. Ta funkcja musi być włączona. Aby umożliwić użytkownikom tworzenie haseł aplikacji, należy użyć następującej procedury:
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Wybierz katalog, w którym chcesz zarządzać. 
-4. Wybierz **skonfigurować**
-5. W obszarze usługi Multi-Factor Authentication, zaznacz **Zarządzaj ustawieniami usługi**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy**
+3. Wybierz pozycję **Multi-Factor Authentication**
+4. W obszarze usługi Multi-Factor Authentication, zaznacz **ustawienia usługi**.
 6. Zaznacz przycisk radiowy obok **Zezwalaj użytkownikom na tworzenie haseł aplikacji do logowania się do aplikacji niekorzystających z przeglądarki**.
 
 ![Tworzenie haseł aplikacji](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ W związku z tym w zapamiętywanie uwierzytelniania Wieloskładnikowego na zaufa
 >Ta funkcja nie jest zgodny z funkcją "Wylogowuj mnie" usług AD FS, gdy użytkownicy wykonują weryfikacji dwuetapowej dla usług AD FS za pomocą serwera usługi Azure MFA lub rozwiązanie MFA innych firm. Jeśli użytkownicy w usługach AD FS wybierz opcję "Wylogowuj mnie" i zaznaczyć swoje urządzenia jako zaufane dla usługi MFA, nie będzie mógł zweryfikować po wygaśnięciu "Pamiętaj MFA" liczbę dni. Weryfikacja dwuetapowa świeże żądań usługi Azure AD, ale usług AD FS zwraca token z oryginalnego oświadczeń MFA i Data zamiast wykonywania ponownie weryfikacji dwuetapowej. To powoduje rozpoczęcie pętlę weryfikacji między Azure AD i usług AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Włączanie uwierzytelniania wieloskładnikowego Zapamiętaj
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Wybierz katalog, w którym chcesz zarządzać. 
-4. Wybierz **skonfigurować**
-5. W obszarze usługi Multi-Factor Authentication, zaznacz **Zarządzaj ustawieniami usługi**.
-6. Na stronie ustawień usługi, w obszarze zarządzania ustawieniami urządzenia użytkownika, sprawdź **Zezwalaj użytkownikom na zapamiętywanie danych uwierzytelniania wieloskładnikowego na zaufanych urządzeniach** pole.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy**
+3. Wybierz pozycję **Multi-Factor Authentication**
+4. W obszarze usługi Multi-Factor Authentication, zaznacz **ustawienia usługi**.
+5. Na stronie ustawień usługi w obszarze **Zarządzanie Pamiętaj uwierzytelnianie wieloskładnikowe**, sprawdź **Zezwalaj użytkownikom na zapamiętywanie danych uwierzytelniania wieloskładnikowego na zaufanych urządzeniach** pole.
+
    ![Należy pamiętać, urządzenia](./media/multi-factor-authentication-whats-next/remember.png)
-7. Ustaw liczbę dni, które chcesz zezwolić na zaufanych urządzeniach pominąć weryfikacji dwuetapowej. Wartość domyślna to 14 dni.
-8. Kliknij pozycję **Zapisz**.
-9. Kliknij przycisk **Zamknij**.
+
+6. Ustaw liczbę dni, które chcesz zezwolić na zaufanych urządzeniach pominąć weryfikacji dwuetapowej. Wartość domyślna to 14 dni.
+7. Wybierz pozycję **Zapisz**.
 
 ### <a name="mark-a-device-as-trusted"></a>Oznacz jako zaufanego urządzenia
 
@@ -300,13 +318,12 @@ Gdy użytkownicy rejestrują swoje konta dla usługi MFA, decydują ich metodę 
 | Kod weryfikacyjny z aplikacji mobilnej |Aplikacja Microsoft Authenticator generuje nowy kod OATH weryfikacji co 30 sekund. Użytkownik wprowadza ten kod weryfikacyjny w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Jak włączyć/wyłączyć metody uwierzytelniania
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
-3. Wybierz katalog, w którym chcesz zarządzać. 
-4. Wybierz **skonfigurować**
-5. W obszarze usługi Multi-Factor Authentication, zaznacz **Zarządzaj ustawieniami usługi**.
-6. Na stronie ustawień usługi w obszarze Opcje weryfikacji wybrać/anulować wybór opcji, które chcesz użyć.
-   ![Opcje weryfikacji](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Kliknij pozycję **Zapisz**.
-8. Kliknij przycisk **Zamknij**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy**
+3. Wybierz pozycję **Multi-Factor Authentication**
+4. W obszarze usługi Multi-Factor Authentication, zaznacz **ustawienia usługi**.
+5. Na stronie ustawień usługi w obszarze **opcje weryfikacji**, wybrać/anulować wybór opcji, które chcesz użyć.
 
+   ![Opcje weryfikacji](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Kliknij pozycję **Zapisz**.

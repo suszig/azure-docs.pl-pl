@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla funkcji trwałe (funkcje platformy Azure)
 
@@ -55,7 +55,7 @@ Wewnętrznie tego powiązania wyzwalacza sonduje serii kolejek w domyślne konto
 Poniżej przedstawiono niektóre uwagi dotyczące wyzwalacza orchestration:
 
 * **Wątkowość jednym** -wątku pojedynczego dyspozytora jest używany dla wszystkich wykonywania funkcji programu orchestrator w wystąpieniu jednego hosta. Z tego powodu jest należy się upewnić, że kod funkcji programu orchestrator jest wydajne i nie wykonać żadnych operacji We/Wy. Jest również należy się upewnić, że ten wątek wykonać pracę async z wyjątkiem podczas oczekiwania na trwałe funkcji specyficznych dla typów zadań.
-* **Obsługa komunikatów poising** — nie obsługuje Trująca wiadomość w wyzwalaczy aranżacji.
+* **Obsługa komunikatów poison** — nie obsługuje Trująca wiadomość w wyzwalaczy aranżacji.
 * **Komunikat widoczność** -usuniętej i zachowane niewidoczne dla można skonfigurować czas trwania aranżacji wyzwalacza komunikatów. Widoczność te komunikaty są odnawiane automatycznie tak długo, jak funkcja aplikacji jest uruchomiony i działa prawidłowo.
 * **Wartości zwracane** -zwrócić wartości do formatu JSON i utrwalone w tabeli historii aranżacji w magazynie tabel platformy Azure. Może być badana te wartości zwracanych przez klienta aranżacji powiązanie, w dalszej części.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 6db4ff050dbf8d4e08415226931e71f964525068
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/27/2017
 
     **Ustawienie** | **Szczegóły** | **Domyślne**
     --- | --- | ---
-    **Lokalizacja docelowa** | Lokalizacja platformy Azure, do którego chcesz przeprowadzić migrację. |  Tylko wschodnie stany USA jest obecnie obsługiwane.
+    **Lokalizacja docelowa** | Lokalizacja platformy Azure, do którego chcesz przeprowadzić migrację. |  Zachodnie stany USA 2 jest domyślną lokalizacją.
     **Nadmiarowość magazynu** | Typ magazynu, który będzie używany przez maszyny wirtualne Azure po zakończeniu migracji. | Tylko [magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikacji jest obecnie obsługiwany.
     **Współczynnik komfort** | Współczynnik komfort jest buforu, który jest używany podczas oceny. Umożliwia ona konta dla elementów, takich jak użycie okresach, krótka historia wydajności, może się zwiększyć w przyszłości użycia. | Ustawienie domyślne to 1.3 x.
     **Historia wydajności** | Czas używany podczas obliczania Historia wydajności. | Domyślny to jeden miesiąc.

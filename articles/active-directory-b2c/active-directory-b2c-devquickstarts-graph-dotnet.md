@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: ccd8bf902f707390f80e3c377e60dd35d535b4b5
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Usługa Azure AD B2C: Użyj Azure interfejs API Graph usługi AD
 
 >[!NOTE]
->Obecnie, należy użyć [interfejsu API usługi Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) do zarządzania użytkownikami w katalogu usługi Azure AD B2C.
+> Należy użyć [interfejsu API usługi Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) do zarządzania użytkownikami w katalogu usługi Azure AD B2C. Różni się to od interfejsu API programu Microsoft Graph. Więcej informacji można znaleźć [tutaj](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Dzierżaw usługi Azure Active Directory (Azure AD) B2C zazwyczaj bardzo duże. Oznacza to, że wiele typowych zadań zarządzania dzierżawy należy wykonać programowo. Podstawowy przykład to zarządzanie użytkownikami. Konieczne może być migrację istniejącego magazynu użytkownika do dzierżawy B2C. Możesz udostępniać rejestracja użytkownika na stronie i tworzenia kont użytkowników w katalogu usługi Azure AD B2C w tle. Te typy zadań muszą mieć możliwość tworzenia, odczytu, aktualizacji i usuwania kont użytkowników. Można wykonywać te zadania przy użyciu interfejsu API Azure AD Graph.
 

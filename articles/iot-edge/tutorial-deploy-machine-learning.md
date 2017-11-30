@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Machine Learning jako moduł krawędzi IoT — w wersji preview
 
@@ -49,7 +49,7 @@ Aby utworzyć kontener z usługi Azure ML, postępuj zgodnie z instrukcjami [too
 1. Kliknij pozycję **Zapisz**.
 1. W **Dodaj moduły** kroku, kliknij przycisk **dalej**.
 1. Aktualizowanie tras dla modułu:
-1. W **Określ tras** kroku, skopiuj kod JSON poniżej w polu tekstowym. Moduły opublikować wszystkie komunikaty do środowiska wykonawczego krawędzi. Deklaracyjne reguły w środowisku uruchomieniowym definiują, do których przepływu wiadomości. W tym samouczku należy na dwa sposoby. Pierwszy trasy transportu wiadomości z czujnika temperatury modułu nauczania komputera za pośrednictwem punktu końcowego "mlInput", która jest punkt końcowy, który Użyj wszystkich modułów usługi Azure Machine Learning. Drugi trasy transportu wiadomości z modułu nauczania maszyny do Centrum IoT. W tej trasy "mlOutput" jest endput, korzystających z danymi wyjściowymi wszystkich modułów usługi Azure Machine Learning, a '' nadrzędnego '' jest specjalne lokalizacji docelowej, która informuje krawędzi koncentratora do wysyłania komunikatów do Centrum IoT. 
+1. W **Określ tras** kroku, skopiuj kod JSON poniżej w polu tekstowym. Moduły opublikować wszystkie komunikaty do środowiska wykonawczego krawędzi. Deklaracyjne reguły w środowisku uruchomieniowym definiują, do których przepływu wiadomości. W tym samouczku należy na dwa sposoby. Pierwszy trasy transportu wiadomości z czujnika temperatury modułu nauczania komputera za pośrednictwem punktu końcowego "amlInput", która jest punkt końcowy, który Użyj wszystkich modułów usługi Azure Machine Learning. Drugi trasy transportu wiadomości z modułu nauczania maszyny do Centrum IoT. W tej trasy "amlOutput" jest punktu końcowego, który umożliwia dane wyjściowe wszystkich modułów uczenia maszynowego Azure i '' powyżej$ "to specjalne lokalizacji docelowej, która informuje krawędzi koncentratora do wysyłania komunikatów do Centrum IoT. 
 
     ```json
     {

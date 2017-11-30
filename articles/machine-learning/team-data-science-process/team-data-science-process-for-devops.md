@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Proces nauki danych zespołu dla operacji Developer
 
-Ten artykuł opisuje funkcje operacji Developer (DevOps), specyficzne dla wdrażania rozwiązania zaawansowane analizy i kognitywnych usług. Odwołuje się on do tematów, w których opisano proces analizy danych i platformy, procesów opracowywania oprogramowania i łańcuch narzędzi DevOps, specyficzne dla danych nauki i AI projekty i rozwiązania.
+Ten artykuł opisuje funkcje operacji Developer (DevOps), specyficzne dla wdrażania rozwiązania zaawansowane analizy i kognitywnych usług. Te materiałów szkoleniowych odnoszą się do zespołu danych nauki procesu (TDSP) i Microsoft oraz oprogramowania typu open source oraz zestaw narzędzi, które są pomocne przy — planowanie, wykonywanie i rozprowadzają rozwiązań analizy danych. Odwołuje się tematy, które obejmują łańcuch narzędzi DevOps, specyficzne dla danych nauki i AI projekty i rozwiązania.
 
 ## <a name="lesson-path"></a>Ścieżka lekcji
 Poniższa tabela zawiera wskazówek na określonych poziomów w celu ukończenia celów opracowywania oprogramowania, które są niezbędne do zaimplementowania rozwiązań analizy danych z technologiami Azure.

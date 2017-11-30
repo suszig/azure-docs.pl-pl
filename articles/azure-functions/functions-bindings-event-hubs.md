@@ -1,5 +1,5 @@
 ---
-title: "Azure powiązania centra zdarzeń funkcji"
+title: "Azure Event Hubs powiązania dla usługi Azure Functions"
 description: "Zrozumienie, jak używać usługi Azure Event Hubs powiązania w usługi Azure Functions."
 services: functions
 documentationcenter: na
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-event-hubs-bindings"></a>Azure powiązania centra zdarzeń funkcji
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs powiązania dla usługi Azure Functions
 
 W tym artykule opisano sposób pracy z [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) powiązania dla usługi Azure Functions. Usługi Azure Functions obsługuje uruchomić i dane wyjściowe powiązania usługi Event hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="event-hubs-trigger"></a>Wyzwalacz centra zdarzeń
+## <a name="trigger"></a>Wyzwalacz
 
 Wyzwalacz usługi Event Hubs umożliwia odpowiadanie na zdarzenia wysłanego do strumienia zdarzeń w Centrum zdarzeń. Musi mieć dostęp do odczytu do Centrum zdarzeń, aby skonfigurować wyzwalacz.
 
@@ -176,7 +176,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Wyzwalacz — atrybuty dla prekompilowanego C#
+## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
 Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -185,7 +185,12 @@ Konstruktor atrybutu ma nazwę Centrum zdarzeń, nazwę grupy odbiorców i nazwa
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
+
+Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Wyzwalacz — Konfiguracja
 
@@ -193,12 +198,14 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Brak | należy wybrać opcję `eventHubTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
-|**Kierunek** | Brak | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
-|**Nazwa** | Brak | Nazwa zmiennej, która reprezentuje element zdarzeń w kodzie funkcji. | 
+|**Typ** | Nie dotyczy | należy wybrać opcję `eventHubTrigger`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
+|**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje element zdarzeń w kodzie funkcji. | 
 |**Ścieżka** |**EventHubName** | Nazwa Centrum zdarzeń. | 
 |**grupy konsumentów** |**Grupy konsumentów** | Opcjonalna właściwość, która ustawia [grupy odbiorców](../event-hubs/event-hubs-features.md#event-consumers) umożliwia subskrybowanie zdarzeń w Centrum. Pominięcie `$Default` służy grupy odbiorców. | 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia do Centrum zdarzeń w przestrzeni nazw. Skopiować te parametry połączenia, klikając **informacje o połączeniu** przycisk dla *przestrzeni nazw*, nie Centrum zdarzeń samej siebie. Ten ciąg połączenia musi mieć co najmniej uprawnienia do odczytu wyzwalacz.<br/>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia do Centrum zdarzeń w przestrzeni nazw. Skopiować te parametry połączenia, klikając **informacje o połączeniu** przycisk dla *przestrzeni nazw*, nie Centrum zdarzeń samej siebie. Ten ciąg połączenia musi mieć co najmniej uprawnienia do odczytu wyzwalacz.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---hostjson-properties"></a>Wyzwalacz - host.json właściwości
 
@@ -206,7 +213,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="event-hubs-output-binding"></a>Centra zdarzeń powiązania wyjściowego
+## <a name="output"></a>Dane wyjściowe
 
 Za pomocą raportu usługi Event Hubs powiązanie się zapisać zdarzeń do strumienia zdarzeń. Musi mieć uprawnienie wysyłania do Centrum zdarzeń można zapisać zdarzenia.
 
@@ -341,7 +348,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Dane wyjściowe — atrybuty dla prekompilowanego C#
+## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
 Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -351,7 +358,12 @@ Konstruktor atrybutu ma nazwę Centrum zdarzeń i nazwa ustawienia aplikacji, kt
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -359,11 +371,13 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typ** | Brak | Musi być równa "eventHub". |
-|**Kierunek** | Brak | Należy wybrać opcję "out". Ten parametr jest ustawiany automatycznie, podczas tworzenia powiązania w portalu Azure. |
-|**Nazwa** | Brak | Nazwa zmiennej używana w kodzie funkcja, która reprezentuje zdarzenia. | 
+|**Typ** | Nie dotyczy | Musi być równa "eventHub". |
+|**Kierunek** | Nie dotyczy | Należy wybrać opcję "out". Ten parametr jest ustawiany automatycznie, podczas tworzenia powiązania w portalu Azure. |
+|**Nazwa** | Nie dotyczy | Nazwa zmiennej używana w kodzie funkcja, która reprezentuje zdarzenia. | 
 |**Ścieżka** |**EventHubName** | Nazwa Centrum zdarzeń. | 
-|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia do Centrum zdarzeń w przestrzeni nazw. Skopiować te parametry połączenia, klikając **informacje o połączeniu** przycisk dla *przestrzeni nazw*, nie Centrum zdarzeń samej siebie. Ten ciąg połączenia musi mieć uprawnienia wysyłania do wysłania tej wiadomości do strumienia zdarzeń.<br/>Gdy tworzony jest lokalnie, ustawienia aplikacji przejdź do wartości [pliku local.settings.json](functions-run-local.md#local-settings-file).|
+|**połączenia** |**Połączenia** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia do Centrum zdarzeń w przestrzeni nazw. Skopiować te parametry połączenia, klikając **informacje o połączeniu** przycisk dla *przestrzeni nazw*, nie Centrum zdarzeń samej siebie. Ten ciąg połączenia musi mieć uprawnienia wysyłania do wysłania tej wiadomości do strumienia zdarzeń.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 

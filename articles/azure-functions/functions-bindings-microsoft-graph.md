@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
-ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-microsoft-graph-bindings"></a>Powiązania funkcji Microsoft Graph platformy Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 W tym artykule opisano sposób konfigurowania i pracować z programu Microsoft Graph wyzwalaczy i powiązań w funkcji platformy Azure.
 Z tych opcji, możesz użyć funkcji Azure do pracy z danymi, szczegółowych informacji i zdarzeń z [Microsoft Graph](https://graph.microsoft.io).
@@ -192,7 +191,7 @@ To powiązanie odczytuje zawartość tabeli programu Excel zapisanych w usłudze
 To powiązanie wymaga następujących uprawnień usługi AAD:
 |Zasób|Uprawnienie|
 |--------|--------|
-|Microsoft Graph|Odczyt plików użytkownika|
+|Microsoft Graph|Odczytuj pliki użytkownika|
 
 Wiązanie obsługuje następujące właściwości:
 
@@ -384,7 +383,7 @@ To powiązanie odczytuje zawartość pliku zapisanych w usłudze OneDrive.
 To powiązanie wymaga następujących uprawnień usługi AAD:
 |Zasób|Uprawnienie|
 |--------|--------|
-|Microsoft Graph|Odczyt plików użytkownika|
+|Microsoft Graph|Odczytuj pliki użytkownika|
 
 Wiązanie obsługuje następujące właściwości:
 
@@ -1062,3 +1061,8 @@ public class UserSubscription {
 
 [wyzwalacza HTTP]: functions-bindings-http-webhook.md
 [Praca z elementów webhook w programie Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## <a name="next-steps"></a>Następne kroki
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

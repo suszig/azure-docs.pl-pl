@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 61917ea76f7f512776e4fe425dd8e475fa194bc1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizacji 1711 stosu
 
@@ -136,7 +136,7 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **20171122.1**.
 W usłudze Azure Active Directory Federation Services (ADFS) wdrożone w środowiskach **azurestack\azurestackadmin** konto nie jest już właściciela subskrypcji domyślny dostawca. Zamiast podczas logowania się na **portalu administracyjnego / punktu końcowego adminmanagement** z **azurestack\azurestackadmin**, można użyć **azurestack\cloudadmin** konta, dlatego Czy można zarządzać i korzystania z subskrypcji domyślny dostawca.
 
 > [!IMPORTANT]
-> Nawet **azurestack\cloudadmin** konta jest właścicielem subskrypcji dostawcy domyślne w środowiskach usług AD FS wdrożona, nie ma uprawnień do protokołu RDP na hoście. Nadal używać **azurestack\azurestackadmin** konta lub lokalnego konta administratora do logowania, dostęp i zarządzać hostem zgodnie z potrzebami.
+> Mimo że **azurestack\cloudadmin** konta jest właścicielem subskrypcji dostawcy domyślne w środowiskach usług AD FS wdrożona, nie ma uprawnień do protokołu RDP na hoście. Nadal używać **azurestack\azurestackadmin** konta lub lokalnego konta administratora do logowania, dostęp i zarządzać hostem zgodnie z potrzebami.
 
 ## <a name="download-the-update"></a>Pobierz aktualizację
 

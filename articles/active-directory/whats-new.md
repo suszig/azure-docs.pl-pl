@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/29/2017
@@ -266,13 +266,13 @@ Aby uzyskać więcej informacji, zobacz [integracji istniejącej infrastrukturze
  
 ---
 
+### <a name="restore-or-permanently-remove-deleted-users"></a>Przywróć lub trwale usunąć usunięci użytkownicy
+
 
 **Typ:** nowej funkcji    
 **Kategoria usług:** Zarządzanie użytkownikami  
 **Możliwości produktu:** katalogu 
 
-
-**Przywróć lub trwale usunąć usunięci użytkownicy**
 
 
 W Centrum administracyjnym usługi Azure AD można teraz:

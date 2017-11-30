@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Często zadawane pytania (FAQ) Menedżera ruchu
 
@@ -277,7 +277,7 @@ Usługa Azure Resource Manager wymaga wszystkich grup zasobów określić lokali
 
 Bieżący stan monitorowania każdego punktu końcowego, oprócz ogólną profil jest wyświetlana w portalu Azure. Te informacje są również dostępne za pośrednictwem Monitora ruchu [interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [poleceń cmdlet programu PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), i [wiersza polecenia platformy Azure i platform](../cli-install-nodejs.md).
 
-Azure nie zapewnia informacje historyczne na temat poprzednich kondycji punktu końcowego lub możliwości, aby zgłaszał alerty dotyczące zmiany kondycji punktu końcowego.
+Azure Monitor umożliwia również śledzenia stanu punktów końcowych i wizualną reprezentację je w temacie. Aby uzyskać więcej informacji o Monitorze Azure, zobacz [monitorowania Azure dokumentacji](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Można monitorować punktów końcowych HTTPS?
 
@@ -288,6 +288,10 @@ Menedżer ruchu nie może dostarczyć żadnych weryfikacji certyfikatu w tym:
 * Po stronie serwera, certyfikaty nie są weryfikowane.
 * Funkcja SNI po stronie serwera certyfikatów nie są obsługiwane.
 * Certyfikaty klienta nie są obsługiwane.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Można zatrzymać usługi w chmurze Azure / punkt końcowy aplikacji w moim profilu Menedżera ruchu w sieci web, ale nie otrzymuję cały ruch nawet po I ponowne uruchomienie. Jak można to naprawić?
+
+Gdy Azure usługa w chmurze / web punkt końcowy aplikacji jest zatrzymana zatrzymuje Menedżera ruchu sprawdzania kondycji i ponownie uruchamia kontrole kondycji tylko wtedy, gdy wykryje, że punkt końcowy zostanie uruchomiony ponownie. Aby uniknąć tego opóźnienia, należy wyłączyć i ponownie włączyć tego punktu końcowego profilu Menedżera ruchu, po ponownym uruchomieniu punktu końcowego.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Czy można użyć Menedżera ruchu, nawet jeśli Moja aplikacja nie ma obsługi protokołu HTTP lub HTTPS?
 

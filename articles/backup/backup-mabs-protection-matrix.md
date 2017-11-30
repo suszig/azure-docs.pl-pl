@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Macierz ochrony usługi Azure Backup Server
 
@@ -91,7 +91,7 @@ W tym artykule wymieniono różnych serwerów i obciążeń, które może chroni
 |Host funkcji Hyper-V - agent ochrony DPM na serwerze hosta funkcji Hyper-V, klastrów lub maszyny Wirtualnej|Windows Server 2008 R2 z dodatkiem SP1 — Enterprise i Standard|Serwer fizyczny<br /><br />Na lokalnej maszynie wirtualnej funkcji Hyper-V|Tak|Tak|Ochrona: Komputery funkcji Hyper-V, udostępnione woluminy klastra (CSV)<br /><br />Odzyskiwanie: maszyna wirtualna, odzyskiwanie na poziomie elementu plików i folderów, woluminy, wirtualne dyski twarde|
 |Host funkcji Hyper-V - agent ochrony DPM na serwerze hosta funkcji Hyper-V, klastrów lub maszyny Wirtualnej|Windows Server 2008|Serwer fizyczny<br /><br />Na lokalnej maszynie wirtualnej funkcji Hyper-V|N|N|Ochrona: Komputery funkcji Hyper-V, udostępnione woluminy klastra (CSV)<br /><br />Odzyskiwanie: maszyna wirtualna, odzyskiwanie na poziomie elementu plików i folderów, woluminy, wirtualne dyski twarde|
 |Maszyny wirtualne VMware|VMware server 5.5 lub 6.0 lub 6.5 |Na lokalnej maszynie wirtualnej funkcji Hyper-V|Tak|Y (ze UR1)|Maszyny wirtualne VMware na udostępnionym woluminie klastra (CSV), systemu plików NFS, a Magazyn sieci SAN<br /> Odzyskiwanie na poziomie elementu plików i folderów jest dostępna tylko w przypadku systemu Windows<br /> Oprogramowania vApps VMware nie jest obsługiwane|
-|Linux|System Linux uruchomiony jako gość funkcji Hyper-V lub programu VMware|Na lokalnej maszynie wirtualnej funkcji Hyper-V|Tak|Tak|Funkcja Hyper-V musi działać w systemie Windows Server 2012 R2 lub Windows Server 2016. Ochrona: Cała maszyna wirtualna<br /><br />Odzyskiwanie: Cała maszyna wirtualna|
+|Linux|System Linux uruchomiony jako gość funkcji Hyper-V lub programu VMware|Na lokalnej maszynie wirtualnej funkcji Hyper-V|Tak|Tak|Funkcja Hyper-V musi działać w systemie Windows Server 2012 R2 lub Windows Server 2016. Ochrona: Cała maszyna wirtualna<br /><br />Odzyskiwanie: Cała maszyna wirtualna <br/><br/> Aby uzyskać pełną listę obsługiwanych dystrybucjach systemu Linux i wersji, zobacz artykuł, [systemu Linux na dystrybucje zatwierdzone przez platformę Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Obsługa klastrów
 Serwer kopii zapasowej systemu Azure może chronić dane w następujących aplikacjach klastrowanych:

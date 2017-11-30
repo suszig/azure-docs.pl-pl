@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrowanie maszyn po ocenie
 
@@ -29,13 +29,13 @@ W tym artykule opisano, jak uzyskać sugestie dotyczące narzędzia do migracji,
 
 ## <a name="migration-tool-suggestion"></a>Sugestia narzędzia migracji
 
-Aby uzyskać sugestie dotyczące narzędzi migracji, należy zainstalować agentów na komputerach lokalnych.  
+Aby sugestie dotyczące narzędzi migracji, należy wykonać głębokiego ujawniania środowiska lokalnego. Głębokie odnajdywanie odbywa się przez zainstalowanie agentów na komputerach lokalnych.  
 
 1. Utwórz projekt platformy Azure migracji, Odkryj maszyny lokalnej, a oceny migracji. [Dowiedz się więcej](tutorial-assessment-vmware.md).
 2. Pobierz i zainstaluj agentów programu Azure migracji na każdej maszynie lokalnej, dla którego chcesz wyświetlić metody zalecane migracji. [Wykonaj poniższą procedurę](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) do instalacji agentów.
 2. Zidentyfikuj maszynach lokalnych odpowiednie do migracji przyrostu shift. Są to maszyn wirtualnych, które nie wymaga żadnych zmian do aplikacji działających na nich i mogą być migrowane, ponieważ jest.
-3. W przypadku migracji przyrostu shift zalecamy przy użyciu usługi Azure Site Recovery. [Dowiedz się więcej](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatywnie można użyć 3 innych narzędzi, które obsługują migrację do usługi Azure.
-4. Jeśli masz maszyny lokalne, które nie są odpowiednie dla migracji przyrostu i shift, na przykład jeśli użytkownik chce migrować specyficzne dla aplikacji, a nie całą maszynę Wirtualną, można użyć innych narzędzi do migracji. Na przykład zalecamy [migracja bazy danych usługi Azure service](https://azure.microsoft.com/campaigns/database-migration/) Jeśli chcesz przeprowadzić migrację lokalnych baz danych programu SQL Server, MySQL lub Oracle na platformie Azure.
+3. W przypadku migracji przyrostu shift zalecamy przy użyciu usługi Azure Site Recovery. [Dowiedz się więcej](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatywnie można użyć narzędzia innych firm, które obsługują migrację do usługi Azure.
+4. Jeśli masz maszyny lokalne, które nie są odpowiednie dla migracji przyrostu i shift, oznacza to, jeśli chcesz przeprowadzić migrację specyficzne dla aplikacji, a nie całą maszynę Wirtualną, służy inne narzędzia do migracji. Na przykład zalecamy [migracja bazy danych usługi Azure service](https://azure.microsoft.com/campaigns/database-migration/) Jeśli chcesz przeprowadzić migrację lokalnych baz danych programu SQL Server, MySQL lub Oracle na platformie Azure.
 
 
 ## <a name="review-suggested-migration-methods"></a>Przegląd metod sugerowane migracji

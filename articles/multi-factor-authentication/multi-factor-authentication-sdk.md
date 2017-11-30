@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Tworzenie usługi Multi-Factor Authentication w aplikacje niestandardowe (SDK)
 
 > [!IMPORTANT]
-> Ogłoszone amortyzacja z zestawu Azure Multi-Factor uwierzytelniania Software Development Kit (SDK). Ta funkcja nie będą obsługiwane dla nowych klientów. Bieżący klienci mogą używać zestawu SDK do 14 listopada 2018. Po tym czasie wywołania do zestawu SDK zakończy się niepowodzeniem. 
+> Ogłoszono już zakończenie obsługi zestawu SDK usługi Azure Multi-Factor Authentication. Ta funkcja nie będą obsługiwane dla nowych klientów. Obecni klienci mogą używać zestawu SDK do 14 listopada 2018 r. Po tym czasie wywołania do zestawu SDK będą kończyć się niepowodzeniem. 
 
 Azure Multi-Factor Authentication Software Development Kit (SDK) umożliwia tworzenie aplikacji w dzierżawie usługi Azure AD włączono weryfikację dwuetapową bezpośrednio do procesów logowania lub transakcji.
 

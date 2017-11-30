@@ -3,7 +3,7 @@ title: "Tworzenie funkcji platformy Azure, który łączy do bazy danych Azure r
 description: "Azure CLI skrypt przykładowy — Tworzenie funkcji platformy Azure, który łączy do bazy danych Azure rozwiązania Cosmos"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,10 +14,10 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ce48f8dd71d5b9e48dcd506df976e07d385f34c5
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/29/2017
@@ -30,7 +30,7 @@ Ten przykładowy skrypt tworzy aplikacji funkcji platformy Azure i nawiązuje po
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli używasz interfejsu wiersza polecenia lokalnie, upewnij się, że uruchamiasz wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -46,11 +46,11 @@ Po uruchomieniu przykładowym skrypcie, wykonaj polecenie może służyć do Usu
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń: każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ logowania](https://docs.microsoft.com/cli/azure/#login) | Zaloguj się do platformy Azure. |
+| [AZ logowania](https://docs.microsoft.com/cli/azure/#login) | Logowanie do platformy Azure. |
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Utwórz grupę zasobów z lokalizacji |
 | [Tworzenie konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account) | Tworzenie konta magazynu |
 | [Utwórz az functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Utwórz nową aplikację funkcji |

@@ -7,17 +7,16 @@ author: cephalin
 manager: erikre
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 86ee5b02fe2a9f34db651f6446398d366b24b5d2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web PHP i MySQL na platformie Azure
 
@@ -156,7 +155,7 @@ W tym kroku utworzysz bazę danych MySQL w [bazy danych Azure dla programu MySQL
 
 ### <a name="create-a-mysql-server"></a>Utwórz serwer MySQL
 
-Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) z [utworzenie przez serwer mysql az](/cli/azure/mysql/server#create) polecenia.
+Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) z [utworzenie przez serwer mysql az](/cli/azure/mysql/server#az_mysql_server_create) polecenia.
 
 W poniższym poleceniu zastąp nazwę serwera MySQL, w której występuje  _&lt;mysql_server_name >_ symbolu zastępczego (prawidłowe znaki to `a-z`, `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.database.windows.net`), musi on być globalnie unikatowe.
 
@@ -181,7 +180,7 @@ Po utworzeniu serwer MySQL, interfejsu wiersza polecenia Azure zawiera informacj
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
-Tworzenie reguły zapory dla serwera MySQL zezwolić na połączenia klientów przy użyciu [az mysql reguły zapory serwera — Utwórz](/cli/azure/mysql/server/firewall-rule#create) polecenia.
+Tworzenie reguły zapory dla serwera MySQL zezwolić na połączenia klientów przy użyciu [az mysql reguły zapory serwera — Utwórz](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) polecenia.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -332,7 +331,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 ### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
-W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia.
+W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) polecenia.
 
 Następujące polecenie konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, i `DB_PASSWORD`. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;mysql_server_name >_.
 
@@ -364,7 +363,7 @@ Użyj `php artisan` aby wygenerować nowy klucz aplikacji bez jej zapisywania _.
 php artisan key:generate --show
 ```
 
-Ustaw klucz aplikacji w usłudze App Service aplikacji sieci web przy użyciu [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;outputofphpartisankey: generowanie >_.
+Ustaw klucz aplikacji w usłudze App Service aplikacji sieci web przy użyciu [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) polecenia. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;outputofphpartisankey: generowanie >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -376,7 +375,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Ustaw ścieżkę aplikacji wirtualnej dla aplikacji sieci web. Ten krok jest wymagany, ponieważ [cyklem życia aplikacji Laravel](https://laravel.com/docs/5.4/lifecycle) rozpoczyna się w _publicznego_ katalogu zamiast katalogu głównego aplikacji. Innych platform PHP, na których cyklu życia start w katalogu głównym może działać bez ręcznej konfiguracji ścieżki aplikacji wirtualnej.
 
-Ustaw ścieżkę aplikacji wirtualnych za pomocą [aktualizacja zasobu az](/cli/azure/resource#update) polecenia. Zastąp  _&lt;nazwa_aplikacji >_ symbolu zastępczego.
+Ustaw ścieżkę aplikacji wirtualnych za pomocą [aktualizacja zasobu az](/cli/azure/resource#az_resource_update) polecenia. Zastąp  _&lt;nazwa_aplikacji >_ symbolu zastępczego.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

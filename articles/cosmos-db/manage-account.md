@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Jak zarządzać konta bazy danych Azure rozwiązania Cosmos
 Dowiedz się, jak ustawić globalne spójności, pracy z kluczy oraz usunąć konto bazy danych Azure rozwiązania Cosmos w portalu Azure.
@@ -33,10 +33,10 @@ Wybranie poziomu spójności prawo zależy od semantykę aplikacji. Zapoznaj si�
 3. W **domyślna spójność** , wybierz nowy poziom spójności i kliknij przycisk **zapisać**.
     ![Domyślna spójność sesji][5]
 
-## <a id="keys"></a>Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu
-Podczas tworzenia konta bazy danych Azure rozwiązania Cosmos usługi generuje dwa klucze dostępu do głównego, które mogą być używane do uwierzytelniania podczas uzyskiwania dostępu do konta bazy danych Azure rozwiązania Cosmos. Zapewniając dwa klucze dostępu do bazy danych rozwiązania Cosmos Azure umożliwia ponowne generowanie kluczy nie przeszkód do swojego konta bazy danych Azure rozwiązania Cosmos. 
+## <a id="keys"></a>Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu i haseł
+Podczas tworzenia konta bazy danych Azure rozwiązania Cosmos usługi generuje dwa klucze dostępu do głównego (lub dwa hasła dla konta bazy danych MongoDB interfejsu API) który może służyć do uwierzytelniania podczas uzyskiwania dostępu do konta bazy danych Azure rozwiązania Cosmos. Zapewniając dwa klucze dostępu do bazy danych rozwiązania Cosmos Azure umożliwia ponowne generowanie kluczy nie przeszkód do swojego konta bazy danych Azure rozwiązania Cosmos. 
 
-W [portalu Azure](https://portal.azure.com/), dostępu **klucze** strony z menu zasobów na **konta bazy danych Azure rozwiązania Cosmos** stronę, aby wyświetlić, kopiowanie i ponowne generowanie kluczy dostępu, które są używane do dostęp do tego konta bazy danych Azure rozwiązania Cosmos.
+W [portalu Azure](https://portal.azure.com/), dostępu **klucze** strony z menu zasobów na **konta bazy danych Azure rozwiązania Cosmos** stronę, aby wyświetlić, kopiowanie i ponowne generowanie kluczy dostępu, które są używane do dostęp do tego konta bazy danych Azure rozwiązania Cosmos. Dla kont API bazy danych MongoDB dostępu **ciąg połączenia** strony z menu zasobów, wyświetlanie, kopiowanie i ponowne wygenerowanie hasła, które są używane do uzyskania dostępu do konta.
 
 ![Azure portalu zrzucie ekranu pokazano strony klucze](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ W [portalu Azure](https://portal.azure.com/), dostępu **klucze** strony z menu 
 
 Tylko do odczytu klucze są również dostępne na tej stronie. Odczyty i zapytań tworzy podczas operacji tylko do odczytu, usuwanie, i nie są zastępowane.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Kopiowanie klucza dostępu w portalu Azure
-Na **klucze** kliknij przycisk **kopiowania** przycisku z prawej strony klucz, który chcesz skopiować.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Kopiowanie klucza dostępu lub hasła w portalu Azure
+Na **klucze** strony (lub **ciąg połączenia** strony dla interfejsu API bazy danych MongoDB kont), kliknij przycisk **kopiowania** przycisku z prawej strony klucza lub hasła, które mają zostać skopiowane.
 
 ![Wyświetlanie i kopiowanie kluczy dostępu w Azure strony portalu, kluczy](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>Ponowne generowanie kluczy dostępu
-Należy zmienić klucze dostępu do konta bazy danych Azure rozwiązania Cosmos okresowo, aby zabezpieczyć połączenia. Dwa klucze dostępu są przypisywane do utrzymania połączeń przy użyciu jednego klucza dostępu, jednocześnie ponownie generując drugi klucz dostępu konta bazy danych Azure rozwiązania Cosmos.
+### <a name="regenerate-access-keys-and-passwords"></a>Ponowne generowanie kluczy dostępu i hasła
+Należy zmienić dostępu klucze (i hasła dla konta bazy danych MongoDB interfejsu API) do swojego konta bazy danych Azure rozwiązania Cosmos okresowo do zabezpieczania połączeń. Dwa klucze dostępu/hasła są przypisywane do utrzymania połączeń przy użyciu jednego klucza dostępu, jednocześnie ponownie generując drugi klucz dostępu konta bazy danych Azure rozwiązania Cosmos.
 
 > [!WARNING]
 > Trwa ponowne generowanie kluczy dostępu ma wpływ na wszystkie aplikacje, które są zależne od bieżącego klucza. Wszyscy klienci, którzy używają klucza dostępu do uzyskania dostępu do konta bazy danych Azure rozwiązania Cosmos trzeba zaktualizować do użycia nowego klucza.
 > 
 > 
 
-Jeśli masz aplikacje lub usługi w chmurze przy użyciu konta bazy danych Azure rozwiązania Cosmos utracisz połączenia ponownego generowania kluczy, chyba że wdrożysz klucze. Poniższe kroki wchodzą w skład proces stopniowych kluczy.
+Jeśli masz aplikacje lub usługi w chmurze przy użyciu konta bazy danych Azure rozwiązania Cosmos utracisz połączenia ponownego generowania kluczy, chyba że wdrożysz klucze. Poniższe kroki wchodzą w skład proces stopniowych kluczy/hasła.
 
 1. Zaktualizuj klucz dostępu w kodzie aplikacji, aby odwołać pomocniczy klucz dostępu konta bazy danych Azure rozwiązania Cosmos.
 2. Ponownie wygenerować podstawowy klucz dostępu dla konta bazy danych Azure rozwiązania Cosmos. W [portalu Azure](https://portal.azure.com/), dostęp do tego konta bazy danych Azure rozwiązania Cosmos.
-3. W **konto bazy danych Azure rozwiązania Cosmos** kliknij przycisk **klucze**.
-4. Na **klucze** strony, kliknij przycisk regenerate, a następnie kliknij przycisk **Ok** aby potwierdzić wygenerowanie nowego klucza.
+3. W **konto bazy danych Azure rozwiązania Cosmos** kliknij przycisk **klucze** (lub **ciąg połączenia** dla bazy danych MongoDB kont **).
+4. Na **klucze**/**ciąg połączenia** strony, kliknij przycisk regenerate, a następnie kliknij przycisk **Ok** aby potwierdzić wygenerowanie nowego klucza.
     ![Ponowne generowanie kluczy dostępu](./media/manage-account/regenerate-keys.png)
 5. Po upewnieniu się, że nowy klucz jest dostępny do użycia (około pięciu minut od ponownego wygenerowania), należy zaktualizować klucz dostępu w kodzie aplikacji, aby odwołać nowego podstawowego klucza dostępu.
 6. Wygeneruj ponownie pomocniczy klucz dostępu.
@@ -77,11 +77,11 @@ Jeśli masz aplikacje lub usługi w chmurze przy użyciu konta bazy danych Azure
 > 
 > 
 
-## <a name="get-the--connection-string"></a>Pobierz ciąg połączenia
+## <a name="get-the-connection-string"></a>Pobierz ciąg połączenia
 Aby pobrać parametrów połączenia, wykonaj następujące czynności: 
 
 1. W [portalu Azure](https://portal.azure.com), dostęp do tego konta bazy danych Azure rozwiązania Cosmos.
-2. W menu zasobów kliknij **klucze**.
+2. W menu zasobów, kliknij przycisk **klucze** (lub **ciąg połączenia** dla konta bazy danych MongoDB interfejsu API).
 3. Kliknij przycisk **kopiowania** znajdujący się obok **parametry połączenia podstawowej** lub **parametry połączenia pomocniczej** pole. 
 
 Jeśli używane są parametry połączenia w [narzędzia migracji bazy danych DB rozwiązania Cosmos Azure](import-data.md), Dodaj nazwę bazy danych do końca ciągu połączenia. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

@@ -1,0 +1,40 @@
+- name: Dokumentacja usługi Azure Migrate
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usłudze Azure Migrate
+      href: migrate-overview.md
+- name: Samouczki
+  items:
+    - name: Odnajdywanie i ocenianie maszyn wirtualnych programu VMware
+      href: tutorial-assessment-vmware.md
+- name: Pojęcia
+  items:
+    - name: Obliczenia dotyczące oceny
+      href: concepts-assessment-calculation.md
+    - name: Wizualizacja zależności
+      href: concepts-dependency-visualization.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Odnajdywanie i ocenianie w dużym środowisku
+      href: how-to-scale-assessment.md
+    - name: Grupowanie maszyn
+      href: how-to-create-a-group.md
+    - name: Grupowanie maszyn przy użyciu zależności maszyn
+      href: how-to-create-group-machine-dependencies.md
+    - name: Grupowanie maszyn za pomocą tagowania programu VMware
+      href: how-to-tag-v-center.md
+    - name: Uściślanie zawartości grupy za pomocą zależności grupy
+      href: how-to-create-group-dependencies.md
+    - name: Dostosowywanie oceny
+      href: how-to-modify-assessment.md
+    - name: Migrowanie maszyn po ocenie
+      href: how-to-get-migration-tool.md
+    - name: Rozwiązywanie problemów z usługą Azure Migrate
+      href: troubleshooting-general.md
+- name: Zasoby
+  items:
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
