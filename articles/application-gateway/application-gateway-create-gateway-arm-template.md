@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Tworzenie bramy aplikacji przy użyciu szablonu usługi Azure Resource Manager
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover oraz oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Pełną listę obsługiwanych funkcji można znaleźć [omówienie bramy aplikacji](application-gateway-introduction.md)
 
-W tym artykule przedstawiono sposób pobierania i modyfikacji istniejącego szablonu usługi Azure Resource Manager z usługi GitHub i wdrażania szablonu z serwisu GitHub, programu PowerShell i interfejsu wiersza polecenia Azure.
+W tym artykule przedstawiono sposób pobierania i modyfikowanie istniejących [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) z usługi GitHub i wdrażania szablonu z serwisu GitHub, programu PowerShell i interfejsu wiersza polecenia Azure.
 
-Jeśli po prostu wdrażasz szablon usługi Azure Resource Manager bezpośrednio z serwisu GitHub bez wprowadzania żadnych zmian, przejdź do wdrażania szablonu z serwisu GitHub.
+Jeśli po prostu wdrażasz szablon bezpośrednio z serwisu GitHub, bez wprowadzania żadnych zmian, przejdź do wdrażania szablonu z serwisu GitHub.
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -75,9 +75,6 @@ Z witryny GitHub można pobrać istniejący szablon usługi Azure Resource Manag
    * **type**. Typ zasobu tworzonego przez szablon. W tym przypadku jest typ `Microsoft.Network/applicationGateways`, który reprezentuje bramę aplikacji.
    * **name**. Nazwa zasobu. Zwróć uwagę na `[parameters('applicationGatewayName')]`, co oznacza, że nazwa jest podana jako dane wejściowe przez Ciebie lub pliku parametrów podczas wdrażania.
    * **properties**. Lista właściwości zasobu. Ten szablon korzysta z sieci wirtualnej i publicznego adresu IP podczas tworzenia aplikacji bramy.
-
-   > [!NOTE]
-   > Aby uzyskać więcej informacji na temat szablonów odwiedź: [dokumentacja szablonów usługi Resource Manager](/templates/)
 
 1. Przejdź z powrotem do [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Kliknij przycisk **parameters.JSON następującym kodem azuredeploy**, a następnie kliknij przycisk **RAW**.

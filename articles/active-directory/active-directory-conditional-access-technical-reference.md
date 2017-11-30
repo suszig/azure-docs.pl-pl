@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory dostępu warunkowego techniczne
 
-Można użyć [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) do dopasowania, w jaki sposób autoryzowani użytkownicy mają dostęp do zasobów.  
+Można użyć [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) do dopasowania, w jaki sposób autoryzowani użytkownicy mają dostęp do zasobów.   
 
-Ten temat zawiera informacje o pomocy technicznej dla następujące opcje konfiguracji zasad dostępu warunkowego: 
+Ten artykuł zawiera informacje o pomocy technicznej dla następujące opcje konfiguracji zasad dostępu warunkowego: 
 
 - Przydziały aplikacji w chmurze
 
@@ -38,7 +38,7 @@ Ten temat zawiera informacje o pomocy technicznej dla następujące opcje konfig
 
 ## <a name="cloud-apps-assignments"></a>Przydziały aplikacji w chmurze
 
-Po skonfigurowaniu zasad dostępu warunkowego należy [Wybierz aplikacje w chmurze, korzystających z zasadami](active-directory-conditional-access-azure-portal.md#who). 
+Za pomocą zasad dostępu warunkowego, można kontrolować, jak użytkownicy uzyskują dostęp do Twojego [aplikacji w chmurze](active-directory-conditional-access-azure-portal.md#who). Po skonfigurowaniu zasad dostępu warunkowego, musisz wybrać co najmniej jednej aplikacji w chmurze. 
 
 ![Wybierz zasady aplikacji w chmurze](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ Po skonfigurowaniu zasad dostępu warunkowego należy [Wybierz aplikacje w chmur
 Zasady dostępu warunkowego można przypisać do następujących aplikacji w chmurze firmy Microsoft:
 
 - Usługa Azure Information Protection - [Dowiedz się więcej](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ W zasadach dostępu warunkowego można skonfigurować warunek platformy urządze
 
 ## <a name="client-apps-condition"></a>Stan aplikacji klienta 
 
-Po skonfigurowaniu zasad dostępu warunkowego można [Wybierz aplikacje klienckie](active-directory-conditional-access-azure-portal.md#client-apps) warunku aplikacji klienta. Ustaw klienta warunku aplikacji, aby przydzielić lub blokowanie dostępu, gdy podejmowana jest próba dostępu z następujących typów aplikacji klienta:
+W zasadach dostępu warunkowego, można skonfigurować [aplikacjach klienckich](active-directory-conditional-access-azure-portal.md#client-apps) warunku powiązać zasady aplikacji klienta, który zainicjował próba dostępu. Ustaw klienta warunku aplikacji, aby przydzielić lub blokowanie dostępu, gdy podejmowana jest próba dostępu z następujących typów aplikacji klienta:
 
 - Przeglądarka
 - Aplikacje mobilne i aplikacje komputerowe
@@ -112,11 +113,11 @@ Po skonfigurowaniu zasad dostępu warunkowego można [Wybierz aplikacje kliencki
 
 ### <a name="supported-browsers"></a>Obsługiwane przeglądarki 
 
-Kontrola dostępu w przeglądarce przy użyciu **przeglądarki** opcji w zasadach dostępu warunkowego. Dostęp tylko wtedy, gdy podejmowana próba dostępu przez obsługiwanej przeglądarki. Próba została zablokowana, gdy podejmowana jest próba dostępu przez nieobsługiwanej przeglądarki.
+Zasady dostępu warunkowego, można wybrać **przeglądarki** jako aplikację klienta.
 
 ![Kontrolowanie dostępu do obsługiwanych przeglądarek](./media/active-directory-conditional-access-technical-reference/05.png)
 
-W zasadach dostępu warunkowego obsługiwane są poniższe przeglądarki: 
+To ustawienie ma wpływ na prób dostępu z poniższych przeglądarek: 
 
 
 | System operacyjny                     | Przeglądarki                            | Pomoc techniczna     |
@@ -140,14 +141,16 @@ W zasadach dostępu warunkowego obsługiwane są poniższe przeglądarki:
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Obsługiwane klienci pulpitów i aplikacji mobilnych
 
-Kontrolować dostęp do aplikacji i klienta za pomocą **aplikacji mobilnych i klasycznych klientów** opcji w zasadach dostępu warunkowego. Dostęp tylko w przypadku, gdy próba dostępu nawiązuje obsługiwanych aplikacji mobilnej lub klienta. Gdy podejmowana jest próba dostępu przez klienta lub nieobsługiwany aplikacji nie jest zablokowany.
+Zasady dostępu warunkowego, można wybrać **aplikacji mobilnych i klasycznych klientów** jako aplikację klienta.
+
 
 ![Kontrolowanie dostępu do obsługiwanych aplikacji mobilnych lub klienci usług pulpitu](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Następujące aplikacje mobilne i będących klientami pulpitu obsługują dostępu warunkowego dla usługi Office 365 i innych aplikacji usługi Azure AD, połączony:
+
+To ustawienie ma wpływ na prób dostępu z następujących aplikacji mobilnych i będących klientami pulpitu: 
 
 
-|Aplikacje klienta|Usługa docelowa|Platforma|
+|Aplikacje klienckie|Usługa docelowa|Platforma|
 |---|---|---|
 |Usługa Azure RemoteApp|Usługa Azure RemoteApp|Windows 10, Windows 8.1, Windows 7, iOS, Android i Mac OS X|
 |Aplikacji programu Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS i Android|
@@ -170,11 +173,11 @@ Następujące aplikacje mobilne i będących klientami pulpitu obsługują dost�
 
 ## <a name="approved-client-app-requirement"></a>Wymagania aplikacji zatwierdzonych klienta 
 
-Kontrolowanie połączeń klienta przy użyciu **wymaga aplikacji klienta zatwierdzonych** opcji w zasadach dostępu warunkowego. Dostęp tylko wtedy, gdy próba połączenia zostało utworzone przez aplikację klienta zatwierdzone.
+Zasady dostępu warunkowego można wymagać, czy dostęp jest próba aplikacji w wybranej chmurze potrzeb z aplikacji klienckiej zatwierdzone. 
 
 ![Kontroli dostępu dla aplikacji klienckich zatwierdzone](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Następujące aplikacje klienckie mogą być używane z wymaganiami aplikacji zatwierdzonych klienta:
+To ustawienie dotyczy następujących aplikacji klienta:
 
 
 - Microsoft Azure Information Protection

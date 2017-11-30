@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e61c99028a2b67bd9188c239bc95dba0625b638
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Za pomocą opartego na czasie Oozie coordinator Hadoop w usłudze HDInsight do definiowania przepływów pracy i koordynowania zadania
 W tym artykule dowiesz się, jak zdefiniować przepływy pracy i koordynatora i sposób włączania zadania koordynatora, w oparciu o czas. Warto przeprowadzić [Oozie użycia z usługą HDInsight] [ hdinsight-use-oozie] przed przeczytaniem tego artykułu. Oprócz Oozie można również zaplanować zadania przy użyciu fabryki danych Azure. Aby uzyskać fabryki danych Azure, zobacz [Use Pig i Hive z fabryką danych](../data-factory/transform-data.md).
@@ -82,7 +82,8 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     <tr><td>Nazwa konta magazynu platformy Azure</td><td>$storageAccountName</td><td></td><td>Dostępne w klastrze usługi HDInsight konto Azure Storage. W tym samouczku Użyj domyślnego konta magazynu, które zostały określone podczas procesu udostępniania klastra.</td></tr>
     <tr><td>Nazwa kontenera obiektów Blob platformy Azure</td><td>$containerName</td><td></td><td>Na przykład użyć kontenera magazynu obiektów Blob platformy Azure, służący do domyślnego systemu plików klastra usługi HDInsight. Domyślnie ma taką samą nazwę jak klaster usługi HDInsight.</td></tr>
     </table>
-* **Baza danych Azure SQL**. Należy skonfigurować reguły zapory dla serwera bazy danych SQL, aby umożliwić dostęp ze stacji roboczej. Aby uzyskać instrukcje dotyczące tworzenia bazy danych Azure SQL i konfigurowania zapory, zobacz [rozpocząć korzystanie z bazy danych Azure SQL] [bazadanychsql get-started]. Ten artykuł zawiera skrypt programu Windows PowerShell do tworzenia tabeli bazy danych Azure SQL, wymagającym w tym samouczku.
+
+* **Baza danych Azure SQL**. Należy skonfigurować reguły zapory dla serwera bazy danych SQL, aby umożliwić dostęp ze stacji roboczej. Aby uzyskać instrukcje dotyczące tworzenia bazy danych Azure SQL i konfigurowania zapory, zobacz [rozpocząć korzystanie z bazy danych Azure SQL][sqldatabase-get-started]. Ten artykuł zawiera skrypt programu Windows PowerShell do tworzenia tabeli bazy danych Azure SQL, wymagającym w tym samouczku.
 
     <table border = "1">
     <tr><th>Właściwości bazy danych SQL</th><th>Nazwa zmiennej środowiska Windows PowerShell</th><th>Wartość</th><th>Opis</th></tr>

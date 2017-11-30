@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Powiązanie funkcji tabeli zewnętrznej Azure (wersja zapoznawcza)
 W tym artykule przedstawiono sposób manipulować danymi tabelarycznego na dostawców w modelu SaaS (np. Sharepoint, Dynamics) w funkcji z powiązaniami wbudowanych. Środowisko Azure Functions obsługuje powiązań wejściowych i wyjściowych tabel zewnętrznych.
@@ -101,10 +101,10 @@ W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię
 
 |Łącznik|Zestaw danych|Tabela|
 |:-----|:---|:---| 
-|**SharePoint**|Lokacji|Listy programu SharePoint
+|**SharePoint**|Witryna|Listy programu SharePoint
 |**SQL**|Database (Baza danych)|Tabela 
-|**Arkusz Google**|Arkusz kalkulacyjny|Arkusza 
-|**Excel**|Plik programu Excel|Arkusza 
+|**Arkusz Google**|Arkusz kalkulacyjny|Arkusz 
+|**Excel**|Plik programu Excel|Arkusz 
 
 <!--
 See the language-specific sample that copies the input file to the output file.
@@ -198,4 +198,6 @@ W Google Docs, należy utworzyć arkusz kalkulacyjny w arkuszu o nazwie `Contact
 dataSetName jest "domyślny".
 
 ## <a name="next-steps"></a>Następne kroki
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

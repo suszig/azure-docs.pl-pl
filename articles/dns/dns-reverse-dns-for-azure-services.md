@@ -3,7 +3,7 @@ title: "Reverse DNS dla usługi Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak skonfigurować wstecznego wyszukiwania DNS dla usługi hostowanej na platformie Azure"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Skonfiguruj wstecznego DNS dla usługi hostowanej na platformie Azure
 
@@ -28,9 +28,8 @@ W tym scenariuszu nie należy mylić z możliwością [hosta stref wyszukiwania 
 
 Przed przeczytaniem tego artykułu, należy się zapoznać z tym [omówienie wstecznego DNS i pomocy technicznej na platformie Azure](dns-reverse-dns-overview.md).
 
-Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).
-* W modelu wdrażania Menedżera zasobów zasobów obliczeniowych (np. maszyny wirtualne, zestawy skalowania maszyny wirtualnej lub klastrów sieci szkieletowej usług) są udostępniane za pośrednictwem publicznego adresu IP zasobu. Wyszukiwania wstecznego DNS są skonfigurowane przy użyciu właściwości 'ReverseFqdn' publicznego adresu IP.
-* W klasycznym modelu wdrażania zasoby obliczeniowe są widoczne, przy użyciu usługi w chmurze. Wyszukiwania wstecznego DNS są skonfigurowane przy użyciu właściwości "ReverseDnsFqdn" usługi w chmurze.
+W usłudze Azure DNS zasobów obliczeniowych (np. maszyny wirtualne, zestawy skalowania maszyny wirtualnej lub klastrów sieci szkieletowej usług) są udostępniane za pośrednictwem publicznego adresu IP zasobu. Wyszukiwania wstecznego DNS są skonfigurowane przy użyciu właściwości 'ReverseFqdn' publicznego adresu IP.
+
 
 Wstecznego DNS nie jest obecnie obsługiwany dla usługi Azure App Service.
 

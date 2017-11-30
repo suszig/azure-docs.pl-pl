@@ -1,6 +1,6 @@
 ---
 title: "Jak korzystać z usługi Azure Functions wersji środowiska uruchomieniowego"
-description: "Środowisko Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego platformy Azure hostowanej funkcji aplikacji."
+description: "Środowisko Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego aplikacji funkcji obsługiwane na platformie Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak korzystać z usługi Azure Functions wersji środowiska uruchomieniowego
 
@@ -30,7 +30,7 @@ Aplikacja funkcji jest uruchamiane w określonej wersji środowiska uruchomienio
 | Środowisko uruchomieniowe | Stan |
 |---------|---------|
 |1.x|Ogólnie dostępna (GA)|
-|2.x|Podgląd|
+|2.x|Wersja zapoznawcza|
 
 W poniższych sekcjach opisano różnice w językach, powiązania oraz Obsługa programowania i platform.
 
@@ -44,9 +44,11 @@ Aby uzyskać więcej informacji, zobacz [obsługiwanych języków](supported-lan
 
 ### <a name="bindings"></a>Powiązania 
 
-Eksperymentalne powiązań obsługuje 1.x środowiska uruchomieniowego nie są dostępne w 2.x. Informacje dotyczące powiązania pomocy technicznej i inne przerwy funkcjonalności w 2.x, zobacz [Runtime 2.0 znane problemy](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Środowisko uruchomieniowe 2.x umożliwia tworzenie niestandardowych [powiązanie rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Wbudowane powiązania, które używają tego modelu rozszerzalności są dostępne tylko w 2.x; wśród pierwszy z nich jest [powiązania Microsoft Graph](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Aby uzyskać więcej informacji dotyczących powiązań pomocy technicznej i inne przerwy funkcjonalności w 2.x, zobacz [Runtime 2.0 znane problemy](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Wiele platform
 

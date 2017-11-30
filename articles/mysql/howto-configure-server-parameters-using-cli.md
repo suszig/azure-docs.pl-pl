@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/12/2017
-ms.openlocfilehash: 3b811376e4c5445ee74124553c6bce247e4f8faf
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 11/28/2017
+ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Dostosuj parametry konfiguracji serwera przy użyciu wiersza polecenia platformy Azure
 Można wyświetlić listę, wyświetlić i zaktualizować parametry konfiguracji bazy danych Azure MySQL serwera przy użyciu wiersza polecenia platformy Azure, narzędzie wiersza polecenia platformy Azure. Podzbiór aparatu konfiguracji jest narażony na poziomie serwera i może być modyfikowany. 
@@ -25,7 +25,7 @@ Do wykonania kroków opisanych ten przewodnik, potrzebne są:
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) narzędzia wiersza polecenia lub użyj powłoki chmury Azure w przeglądarce.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Lista parametrów konfiguracji serwera dla bazy danych Azure MySQL serwera
-Aby wyświetlić listę wszystkich parametrów można modyfikować w serwerze i ich wartości, należy uruchomić [listy konfiguracji serwerów mysql az](/cli/azure/mysql/server/configuration#list) polecenia.
+Aby wyświetlić listę wszystkich parametrów można modyfikować w serwerze i ich wartości, należy uruchomić [listy konfiguracji serwerów mysql az](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) polecenia.
 
 Można wyświetlić parametry konfiguracji serwera dla serwera **myserver4demo.mysql.database.azure.com** w grupie zasobów **myresourcegroup**.
 ```azurecli-interactive
@@ -41,7 +41,7 @@ W tym przykładzie przedstawiono szczegóły **powolne\_zapytania\_dziennika** p
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server myserver4demo
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Zmodyfikuj wartość parametru konfiguracji serwera
-Można również zmodyfikować wartość niektórych serwera parametru konfiguracji, która aktualizuje odpowiednia wartość konfiguracji dla aparatu serwera MySQL. Aby zaktualizować konfigurację, użyj [zestawu konfiguracji serwera mysql az](/cli/azure/mysql/server/configuration#set) polecenia. 
+Można również zmodyfikować wartość niektórych serwera parametru konfiguracji, która aktualizuje odpowiednia wartość konfiguracji dla aparatu serwera MySQL. Aby zaktualizować konfigurację, użyj [zestawu konfiguracji serwera mysql az](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) polecenia. 
 
 Aby zaktualizować **powolne\_zapytania\_dziennika** parametru konfiguracji serwera serwera **myserver4demo.mysql.database.azure.com** w grupie zasobów  **myresourcegroup.**
 ```azurecli-interactive

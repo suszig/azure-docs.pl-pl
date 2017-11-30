@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4 — Zarządzanie kosztami
       href: tutorial-manage-costs.md
+- name: Pojęcia
+  items:
+    - name: Omówienie raportów kosztów
+      href: understading-cost-reports.md
 - name: Zasoby
   items:
     - name: Wideo na temat rozwiązania Cost Management

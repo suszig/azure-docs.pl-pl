@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Partycjonowanie
       href: partition-data.md
+    - name: Unikatowe klucze
+      href: unique-keys.md
     - name: Spójność
       href: consistency-levels.md
     - name: Przepływność

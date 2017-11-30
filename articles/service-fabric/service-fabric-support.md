@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej usługi Azure Service Fabric
 
@@ -68,15 +68,15 @@ Można znaleźć w następujących dokumentach na więcej informacji na temat za
  
 Poniżej przedstawiono listę wersji platformy Service Fabric, które są obsługiwane i ich daty zakończenia wsparcia.
 
-| **Klaster środowisko uruchomieniowe sieci szkieletowej usług** | **Zestaw SDK zgodne / wersje pakietu NuGet** | **Obsługa Data zakończenia** |
-| --- | --- | --- |
-| Wszystkie wersje klastra przed 5.3.121 |Mniejsze niż w wersji 2.3 |20 stycznia 2017 r. |
-| 5.3.* |Mniejsze niż w wersji 2.3 |24 lutego 2017 r. |
-| 5.4.* |Mniejsze niż lub równa wersji 2.4 |Może 10,2017       |
-| 5.5.* |Mniejsze niż wersja 2.5 |Sierpnia 10,2017    |
-| 5.6.* |Mniejsze niż w wersji 2.6 |Październik 13,2017   |
-| 5.7.* |Mniejsze niż w wersji 2.7 |Grudnia 15,2017  |
-| 6.0.* |Mniejsze niż wersja 2.8 |Bieżąca wersja i dlatego bez daty zakończenia
+| **Środowisko uruchomieniowe usługi sieć szkieletowa w klastrze** | **Uaktualnienie można przeprowadzić bezpośrednio z klastra w wersji** |**Zestaw SDK zgodne / wersje pakietu NuGet** | **Obsługa Data zakończenia** |
+| --- | --- |--- | --- |
+| Wszystkie wersje klastra przed 5.3.121 | 5.1.158* |Mniejsze niż w wersji 2.3 |20 stycznia 2017 r. |
+| 5.3.* | 5.1.158.* |Mniejsze niż w wersji 2.3 |24 lutego 2017 r. |
+| 5.4.* | 5.1.158.* |Mniejsze niż lub równa wersji 2.4 |Może 10,2017       |
+| 5.5.* | 5.4.164.* |Mniejsze niż wersja 2.5 |Sierpnia 10,2017    |
+| 5.6.* | 5.4.164.* |Mniejsze niż w wersji 2.6 |Październik 13,2017   |
+| 5.7.* | 5.4.164.* |Mniejsze niż w wersji 2.7 |Grudnia 15,2017  |
+| 6.0.* | 5.6.205.* |Mniejsze niż wersja 2.8 |Bieżąca wersja i dlatego bez daty zakończenia |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Usługi sieci szkieletowej Podgląd wersje — nieobsługiwany do użytku produkcyjnego.
 Od czasu do czasu firma Microsoft wersji mających znaczących funkcji, którą chcemy udostępnić opinię, które są wydawane jako podglądów. Te wersje preview należy używać tylko do celów testowych. Klastra produkcyjnego zawsze powinna działać obsługiwanych, stabilna wersja sieci szkieletowej usług. Wersja zapoznawcza zawsze zaczyna się od numeru wersji głównej i pomocniczej 255. Na przykład jeśli widzisz usługi sieć szkieletowa wersji 255.255.5703.949 tej wersji jest tylko do użycia w klastrach testu i jest w wersji zapoznawczej. Te wersje zapoznawcze również są ogłaszane na [blog zespołu usługi sieć szkieletowa](https://blogs.msdn.microsoft.com/azureservicefabric) i będą zawierały wszystkie szczegółowe informacje o funkcjach dostępnych.

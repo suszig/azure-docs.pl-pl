@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architektura połączenia bazy danych Azure SQL 
 
-W tym artykule opisano architekturę połączenia bazy danych SQL Azure oraz wyjaśniono, jak różnych składników funkcji umożliwiających kierowanie ruchem do Twojego wystąpienia bazy danych SQL Azure. Te bazy danych SQL Azure łączności składniki funkcja kierowanie ruchem do bazy danych platformy Azure z klientów łączących się w obrębie platformy Azure i klientów łączących się z poza platformą Azure. Ten artykuł zawiera również przykłady skryptów, aby zmienić sposób występuje łączności i zagadnienia związane z Zmienianie domyślnych ustawień połączenia. Jeśli istnieją jakieś pytania po przeczytaniu tego artykułu, skontaktuj się z Dhruv na dmalik@microsoft.com. 
+W tym artykule opisano architekturę połączenia bazy danych SQL Azure oraz wyjaśniono, jak różnych składników funkcji umożliwiających kierowanie ruchem do Twojego wystąpienia bazy danych SQL Azure. Te bazy danych SQL Azure łączności składniki funkcja kierowanie ruchem do bazy danych platformy Azure z klientów łączących się w obrębie platformy Azure i klientów łączących się z poza platformą Azure. Ten artykuł zawiera również przykłady skryptów, aby zmienić sposób występuje łączności i zagadnienia związane z Zmienianie domyślnych ustawień połączenia. 
 
 ## <a name="connectivity-architecture"></a>Architektura łączności
 
-Następujący diagram zawiera omówienie architektury połączenia bazy danych SQL Azure. 
+Następujący diagram zawiera omówienie architektury połączenia bazy danych SQL Azure.
 
 ![Przegląd architektury](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 | --- | --- |--- |
 | Australia Wschodnia | 191.238.66.109 | 13.75.149.87 |
 | Australia Południowo-Wschodnia | 191.239.192.109 | 13.73.109.251 |
-| Brazylia Południowa | 104.41.11.5 | |    
-| Kanada Środkowa | 40.85.224.249 | |    
+| Brazylia Południowa | 104.41.11.5 | |
+| Kanada Środkowa | 40.85.224.249 | |
 | Kanada Wschodnia | 40.86.226.166 | |
 | Środkowe stany USA | 23.99.160.139 | 13.67.215.62 |
 | Azja Wschodnia | 191.234.2.139 | 52.175.33.150 |
 | Wschodnie stany USA 1 | 191.238.6.43 | 40.121.158.30 |
 | Wschodnie stany USA 2 | 191.239.224.107 | 40.79.84.180 |
-| Indie Środkowe | 104.211.96.159  | |   
+| Indie Środkowe | 104.211.96.159  | |
 | Indie Południowe | 104.211.224.146  | |
 | Indie Zachodnie | 104.211.160.80 | |
 | Japonia Wschodnia | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 | Środkowo-południowe stany USA | 23.98.162.75 | 13.66.62.124 |
 | Azja Południowo-Wschodnia | 23.100.117.95 | 104.43.15.0 |
 | Północne Zjednoczone Królestwo | 13.87.97.210 | |
-| Wielka Brytania Południowa 1 | 51.140.184.11 | |    
+| Wielka Brytania Południowa 1 | 51.140.184.11 | |
 | Południowe Zjednoczone Królestwo 2 | 13.87.34.7 | |
 | Zachodnie Zjednoczone Królestwo | 51.141.8.11  | |
 | Środkowo-zachodnie stany USA | 13.78.145.25 | |
@@ -95,12 +95,12 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Zmień zasady połączenia bazy danych SQL Azure
 
-Aby zmienić zasady połączenia bazy danych SQL Azure dla serwera bazy danych SQL Azure, użyj [interfejsu API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Aby zmienić zasady połączenia bazy danych SQL Azure dla serwera bazy danych SQL Azure, użyj [interfejsu API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Jeśli ustawiono zasady połączenia **Proxy**, wszystkich sieci przepływu pakietów za pośrednictwem bramy bazy danych SQL Azure. Dla tego ustawienia, należy zezwolić na ruch wychodzący do IP bramy bazy danych SQL Azure. Przy użyciu ustawienie **Proxy** ma opóźnienia więcej niż ustawienie **przekierowania**. 
-- Jeśli to ustawienie zasad połączenia **przekierowania**, wszystkich sieci przepływu pakietów bezpośrednio do serwera proxy oprogramowania pośredniczącego. Dla tego ustawienia, należy zezwolić na ruch wychodzący do wielu adresów IP. 
+- Jeśli ustawiono zasady połączenia **Proxy**, wszystkich sieci przepływu pakietów za pośrednictwem bramy bazy danych SQL Azure. Dla tego ustawienia, należy zezwolić na ruch wychodzący do IP bramy bazy danych SQL Azure. Przy użyciu ustawienie **Proxy** ma opóźnienia więcej niż ustawienie **przekierowania**.
+- Jeśli to ustawienie zasad połączenia **przekierowania**, wszystkich sieci przepływu pakietów bezpośrednio do serwera proxy oprogramowania pośredniczącego. Dla tego ustawienia, należy zezwolić na ruch wychodzący do wielu adresów IP.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Skrypt, aby zmienić ustawienia połączenia za pomocą programu PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Skrypt, aby zmienić ustawienia połączenia za pomocą programu PowerShell
 
 > [!IMPORTANT]
 > Ten skrypt wymaga [modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Skrypt, aby zmienić ustawienia połączenia za pośrednictwem 2.0 interfejsu wiersza polecenia platformy Azure 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Skrypt, aby zmienić ustawienia połączenia za pośrednictwem 2.0 interfejsu wiersza polecenia platformy Azure
 
 > [!IMPORTANT]
 > Ten skrypt wymaga [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Poniższy skrypt interfejsu wiersza polecenia pokazuje, jak zmienić zasad połączenia.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

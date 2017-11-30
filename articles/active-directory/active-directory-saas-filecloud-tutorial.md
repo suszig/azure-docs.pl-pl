@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Samouczek: Integracji Azure Active Directory z FileCloud
 
@@ -108,12 +108,12 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Adresy URL i domeny FileCloud pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.filecloudhosted.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.filecloudonline.com`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta FileCloud](mailto:support@codelathe.com) uzyskać te wartości.
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta FileCloud](mailto:support@codelathe.com) uzyskać te wartości. 
 
 4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
@@ -131,23 +131,23 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
 8. W lewym okienku nawigacji, kliknij polecenie **ustawienia**. 
    
-    ![Strona aplikacji w sekcji Ustawienia](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Kliknij przycisk **logowania jednokrotnego** karty w sekcji Ustawienia. 
    
-    ![Jedną stronę logowania jednokrotnego kartę w aplikacji](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Wybierz **SAML** jako **domyślny typ logowania jednokrotnego** na **ustawienia pojedynczy znak na rejestracji jednokrotnej (SSO)** panelu.
    
-    ![Jedną stronę logowania jednokrotnego ustawienia panelu w aplikacji](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Wklej **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure do **adres URL punktu końcowego IdP** pola tekstowego.
+11. W **adres URL punktu końcowego IdP** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
 
-    ![Pole tekstowe adresu URL punktu końcowego IDP](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Otwórz w Notatniku plik metadanych pobranych, skopiuj zawartość go do Schowka, a następnie wklej go do **IdP metadane** textbox w **ustawienia SAML** panelu.
 
-    ![Sekcja danych Meta IDP po stronie aplikacji](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Kliknij przycisk **zapisać** przycisku.
 
@@ -192,7 +192,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w FileCloud. FileCloud obsługę w czasie, który jest domyślnie włączone. Nie ma elementu akcji można w tej sekcji. Nowy użytkownik został utworzony podczas próby dostępu FileCloud, jeśli go jeszcze nie istnieje.
 
 >[!NOTE]
->Jeśli trzeba ręcznie utworzyć użytkownika, należy skontaktować się [zespołem pomocy technicznej klienta FileCloud](mailto:support@codelathe.com). 
+>Jeśli trzeba ręcznie utworzyć użytkownika, należy skontaktować się [zespołem pomocy technicznej klienta FileCloud](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
@@ -226,9 +226,10 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
 Po kliknięciu kafelka FileCloud w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji FileCloud.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

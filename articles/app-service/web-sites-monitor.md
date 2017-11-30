@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Porady: monitorować aplikacje w usłudze aplikacji Azure
 [Usługi aplikacji](http://go.microsoft.com/fwlink/?LinkId=529714) oferuje wbudowane funkcje monitorowania w [portalu Azure](https://portal.azure.com).
-Obejmuje to możliwość Przejrzyj **przydziały** i **metryki** dla aplikacji, a także plan usługi aplikacji, ustawianie **alerty** i nawet **skalowanie**automatycznie w oparciu o te metryki.
+Azure portal zawiera przegląd możliwości **przydziały** i **metryki** dla aplikacji, a także plan usługi aplikacji, ustawianie **alerty** i nawet **skalowania**  automatycznie w oparciu o te metryki.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,7 +37,7 @@ Jeśli aplikacja jest hostowana w **podstawowe**, **standardowe** lub **Premium*
 **Przydziały** dla **wolne** lub **Shared** aplikacje są:
 
 * **CPU(Short)**
-  * Ilość Procesora dozwolone dla tej aplikacji w 5 minut. Ten limit przydziału resetuje co 5 minut.
+  * Ilość Procesora dozwolone dla tej aplikacji w 5 minut. Ten limit przydziału resetuje co pięć minut.
 * **CPU(Day)**
   * Całkowita ilość Procesora dozwolone dla tej aplikacji w ciągu jednego dnia. Ten limit przydziału resetuje co 24 godziny, o północy czasu UTC.
 * **Pamięci**
@@ -48,12 +48,12 @@ Jeśli aplikacja jest hostowana w **podstawowe**, **standardowe** lub **Premium*
 * **System plików**
   * Całkowita liczba dozwoloną ilość pamięci masowej.
 
-Tylko przydział stosowane w aplikacjach hostowanych na **podstawowe**, **standardowe** i **Premium** jest planów **Filesystem**.
+Tylko przydział stosowane w aplikacjach hostowanych na **podstawowe**, **standardowe**, i **Premium** jest planów **Filesystem**.
 
 Więcej informacji na temat określonych przydziałów, ograniczenia i funkcje dostępne dla różnych jednostki SKU usługi aplikacji można znaleźć tutaj: [ograniczenia usługi subskrypcji platformy Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Wymuszanie przydziałów
-Jeśli aplikacja w jej użycie przekracza **procesora CPU (short)**, **procesora CPU (dzień)**, lub **przepustowości** przydziału następnie aplikacja jest zatrzymana, aż do limitu przydziału resetuje. W tym czasie wszystkie żądania przychodzące spowodować **HTTP 403**.
+Jeśli aplikacja przekracza **procesora CPU (short)**, **procesora CPU (dzień)**, lub **przepustowości** przydziału następnie aplikacja jest zatrzymana, aż do limitu przydziału resetuje. W tym czasie wszystkie żądania przychodzące spowodować **HTTP 403**.
 ![][http403]
 
 Jeśli aplikacja **pamięci** przekroczony przydział, a następnie ponownym uruchomieniu aplikacji.
@@ -125,14 +125,14 @@ Istnieją dwa metryk, które odzwierciedlają użycie procesora CPU. **Czas proc
 
 **Czas procesora CPU** jest przydatne dla aplikacji hostowanej w **wolne** lub **Shared** plany, ponieważ ich przydziałów jest zdefiniowana w minutach procesora CPU używanych przez aplikację.
 
-**Procent użycia procesora CPU** jest przydatne dla aplikacji hostowanej w **podstawowe**, **standardowe** i **premium** plany, ponieważ mogą one być skalowana w poziomie, a ta Metryka wskazuje ogólny użycia we wszystkich wystąpieniach.
+**Procent użycia procesora CPU** jest przydatne dla aplikacji hostowanej w **podstawowe**, **standardowe**, i **premium** plany, ponieważ mogą one być skalowana w poziomie. Procent użycia procesora CPU jest dobrym wskaźnikiem ogólne wykorzystanie we wszystkich wystąpieniach.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Poziom szczegółowości metryki i zasady przechowywania
 Metryki dla aplikacji i plan usługi aplikacji są rejestrowane i agregowane przez usługę za pomocą zasad przechowywania i szczegółowości następujące:
 
-* **Minuta** metryki szczegółowości są zachowywane dla **48 godzin**
+* **Minuta** metryki szczegółowości są zachowywane dla **30 godzin**
 * **Godzina** metryki szczegółowości są zachowywane dla **30 dni**
-* **Dzień** metryki szczegółowości są zachowywane dla **90 dni**
+* **Dzień** metryki szczegółowości są zachowywane dla **30 dni**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitorowanie przydziałów i metryki w portalu Azure.
 Można sprawdzić stan różnych **przydziały** i **metryki** mające wpływ na aplikację w [portalu Azure](https://portal.azure.com).
@@ -149,7 +149,7 @@ Dowiedz się więcej o metryki tutaj: [monitorować metryki usługi](../monitori
 ## <a name="alerts-and-autoscale"></a>Alerty i skalowania automatycznego
 Metryki planu aplikacji lub usługi aplikacji może podłączonymi do alertów. Aby uzyskać więcej informacji, zobacz [otrzymywać powiadomienia o alertach](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplikacje usługi aplikacji hostowanej w podstawowa, standardowa lub premium Obsługa planów usługi aplikacji **skalowania automatycznego**. Dzięki temu można skonfigurować reguły monitorować metryki planu usługi aplikacji i można zwiększyć lub zmniejszyć liczbę wystąpień, zapewniając dodatkowe zasoby, zgodnie z potrzebami lub zapisywanie pieniędzy, gdy aplikacja jest nadmiernego udostępniania. Dowiedz się więcej o automatyczne skalowanie: [sposobu skalowania](../monitoring-and-diagnostics/insights-how-to-scale.md) i tutaj [najlepszych rozwiązań dotyczących skalowania automatycznego Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Aplikacje usługi aplikacji hostowanej w podstawowa, standardowa lub premium Obsługa planów usługi aplikacji **skalowania automatycznego**. Funkcja automatycznego skalowania umożliwia konfigurowanie reguł, które monitorują metryki planu usługi aplikacji. Zasady można zwiększyć lub zmniejszyć liczbę wystąpień, zapewniając dodatkowe zasoby, zgodnie z potrzebami. Reguły może również pomóc oszczędności, gdy aplikacja jest też obsługiwana. Dowiedz się więcej o automatyczne skalowanie: [sposobu skalowania](../monitoring-and-diagnostics/insights-how-to-scale.md) i tutaj [najlepszych rozwiązań dotyczących skalowania automatycznego Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.

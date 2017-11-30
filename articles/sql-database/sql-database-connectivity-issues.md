@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Rozwiązywanie problemów, diagnozowanie i unikanie błędów połączenia SQL oraz błędów przejściowych w usłudze SQL Database
 W tym artykule opisano sposób zapobiec, rozwiązywanie problemów z zdiagnozować i ograniczyć błędów połączenia i błędom przejściowym, których aplikacja kliencka napotka przy interakcji z bazy danych SQL Azure. Dowiedz się, jak skonfigurować logiki ponawiania próby utworzenia parametrów połączenia i inne ustawienia połączenia.
@@ -40,16 +40,17 @@ Będzie ponowić próbę nawiązania połączenia SQL lub ustanawiania go ponown
 * **Błąd przejściowy występuje podczas próby połączenia**: połączenie powinno być ponowione po opóźnienia przez kilka sekund.
 * **Błąd przejściowy występuje w ciągu polecenia zapytania SQL**: polecenie należy nie natychmiast wykonać ponownie. Zamiast tego z opóźnieniem, powinny być świeżo nawiązać połączenia. Następnie może zostać powtórzone polecenie.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Logika ponawiania próby dla błędów przejściowych
+## <a name="retry-logic-for-transient-errors"></a>Logika ponawiania próby dla błędów przejściowych
 Programy klienckie, które od czasu do czasu wystąpienia błędu przejściowego są bardziej niezawodne, jeśli zawierają one logiki ponawiania próby.
 
 Gdy program komunikuje się z bazą danych SQL Azure za pośrednictwem 3 oprogramowanie pośredniczące strony, zapytanie z dostawcą, czy oprogramowanie pośredniczące zawiera logiki ponawiania próby w przypadku błędów przejściowych.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Zasady ponawiania
+### <a name="principles-for-retry"></a>Zasady ponawiania
 * Próba otwarcia połączenia należy wykonać ponownie, jeśli jest przejściowy błąd.
 * Instrukcję SQL SELECT, który zakończy się niepowodzeniem z powodu błędu przejściowego nie należy bezpośrednio wykonać ponownie.
   
@@ -58,30 +59,31 @@ Gdy program komunikuje się z bazą danych SQL Azure za pośrednictwem 3 oprogra
   
   * Logika ponawiania musi zapewnić, że ukończono transakcji całą bazę danych lub który cała transakcja zostanie wycofana.
 
-#### <a name="other-considerations-for-retry"></a>Inne uwagi dotyczące ponownych prób
+### <a name="other-considerations-for-retry"></a>Inne uwagi dotyczące ponownych prób
 * Pliku wsadowego zostanie automatycznie uruchomiony po godzinach pracy, a które zostanie zakończony przed rano, można przyznać pacjenta bardzo długo interwałów czasu między jego ponownych prób.
 * Program interfejsu użytkownika należy uwzględnić tendencje ludzi po zbyt długim czasie oczekiwania.
   
   * Jednak rozwiązania nie może być aby ponowić próbę co kilka sekund, ponieważ te zasady mogą wypełniania system z żądaniami.
 
-#### <a name="interval-increase-between-retries"></a>Zwiększ interwał między ponownymi próbami
+### <a name="interval-increase-between-retries"></a>Zwiększ interwał między ponownymi próbami
 Firma Microsoft zaleca opóźnienie 5 sekund przed ponowną próbą wykonania Twojego pierwszego. Ponawianie próby opóźnieniem krótszy niż 5 sekund ryzyka przeciążając uda się rozpoznać usługi w chmurze. Każda kolejne próby opóźnienie powinien być zwiększany wykładniczo maksymalnie 60 sekund.
 
 Omówienie *okresu blokowania* dla klientów używających ADO.NET jest dostępna w [programu SQL Server połączenia buforowanie (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Można również ustawić maksymalnej liczby ponownych prób zanim program własnym zakończy.
 
-#### <a name="code-samples-with-retry-logic"></a>Przykłady kodu z logiki ponawiania próby
-Przykłady kodu z logiki ponawiania próby w różnych językach programowania, są dostępne pod adresem:
+### <a name="code-samples-with-retry-logic"></a>Przykłady kodu z logiki ponawiania próby
+Przykłady kodu z Logika ponawiania są dostępne pod adresem:
 
-* [Biblioteki połączeń dla bazy danych SQL i programu SQL Server](sql-database-libraries.md)
+- [Resiliently połączenia z serwerem SQL z ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Resiliently połączenia z serwerem SQL za pomocą języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Logika ponawiania testu
+### <a name="test-your-retry-logic"></a>Logika ponawiania testu
 Aby przetestować Logika ponawiania, musi symulować lub spowodować błąd, nie można usunąć, gdy program jest nadal uruchomiona.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Testowanie przez odłączenie od sieci
+#### <a name="test-by-disconnecting-from-the-network"></a>Testowanie przez odłączenie od sieci
 Jednym ze sposobów można przetestować Logika ponawiania jest odłączyć od sieci na komputerze klienckim, gdy program jest uruchomiony. Błąd będą:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ Aby to praktyczne, odłączeniu komputera od sieci przed rozpoczęciem pracy z p
    * Zatrzymać dalsze wykonywanie za pomocą **Console.ReadLine** metody lub okna dialogowego z przycisku OK. Użytkownik naciska klawisz Enter po komputera podłączony do sieci.
 5. Spróbuj ponownie połączyć, oczekiwano Powodzenie.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testowanie przez nazwę bazy danych. błędy podczas nawiązywania połączenia
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testowanie przez nazwę bazy danych. błędy podczas nawiązywania połączenia
 Program można celowo błędnie nazwy użytkownika przed pierwszą próbę połączenia. Błąd będą:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ Aby to praktyczne, program może rozpoznać parametru czas, który powoduje, że
 4. Usuń "WRONG_" z nazwą użytkownika.
 5. Spróbuj ponownie połączyć, oczekiwano Powodzenie.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection ponownych prób połączenia
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection ponownych prób połączenia
 Jeśli program kliencki łączy się z bazą danych SQL Azure za pomocą klasy .NET Framework **System.Data.SqlClient.SqlConnection**, należy użyć .NET 4.6.1 lub nowszej (lub .NET Core), można wykorzystać jej funkcji ponów próbę połączenia. Szczegóły funkcji są [tutaj](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Podczas budowania [ciąg połączenia](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) dla Twojego **SqlConnection** obiektu, powinny koordynować wartości między następującymi parametrami:
 
@@ -138,7 +140,7 @@ Na przykład jeśli liczba = 3, interwał = 10 sekund, limit czasu równy tylko 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Połączenie i polecenia
+## <a name="connection-versus-command"></a>Połączenie i polecenia
 **ConnectRetryCount** i **ConnectRetryInterval** let parametrów z **SqlConnection** obiektu spróbuj ponownie wykonać operację połączenia bez informuje lub bothering programu, takie jak zwracanie formantu do programu. Ponowne próby mogą wystąpić w następujących sytuacjach:
 
 * Wywołanie metody mySqlConnection.Open
@@ -146,8 +148,9 @@ Na przykład jeśli liczba = 3, interwał = 10 sekund, limit czasu równy tylko 
 
 Brak subtlety. Jeśli wystąpi błąd przejściowy podczas Twojej *zapytania* jest wykonywana, Twoje **SqlConnection** obiektu nie connect spróbuj wykonać operację ponownie, a go na pewno nie ponów próbę wykonania zapytania. Jednak **SqlConnection** bardzo szybko sprawdzić połączenie przed wysłaniem kwerendy do wykonania. Jeśli szybkie sprawdzenie wykryje problem z połączeniem **SqlConnection** ponawia operację połączenia. Jeśli próba powiedzie się, możesz zapytanie jest wysyłane do wykonania.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Czy ConnectRetryCount powinny być połączone z aplikacji logiki ponawiania próby?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Czy ConnectRetryCount powinny być połączone z aplikacji logiki ponawiania próby?
 Załóżmy, że aplikacja ma Logika ponawiania niestandardowych niezawodny. Może on ponów operację connect 4 godziny. Jeśli dodasz **ConnectRetryInterval** i **ConnectRetryCount** = 3 do parametrów połączenia, spowoduje zwiększenie liczby ponownych prób do 4 * 3 = 12 ponownych prób. Może nie ma takich dużą liczbę ponownych prób.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Aby uzyskać więcej informacji, zobacz: [5 - jako łatwe jako objęte poza dzie
 ### <a name="entlib60-istransient-method-source-code"></a>Kod źródłowy EntLib60 IsTransient — metoda
 Dalej z **SqlDatabaseTransientErrorDetectionStrategy** klasy, kodu źródłowego C# dla **IsTransient** metody. Kod źródłowy wyjaśnia, błędów, które zostały uznane za przejściowych i ponów próbę, począwszy od kwietnia 2013 warta.
 
-Wiele **//comment** wiersze zostały usunięte z tej kopii, aby wyróżnić czytelności.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Następne kroki
 * Do rozwiązywania problemów inne typowe problemy z połączeniami bazy danych SQL Azure, odwiedź stronę [Rozwiązywanie problemów z połączeniem z bazą danych SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
-* [Połączenie z serwerem SQL buforowanie (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Biblioteki połączeń dla bazy danych SQL i programu SQL Server](sql-database-libraries.md)
+* [Połączenie z serwerem SQL buforowanie (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Ponawianie próby* jest Apache 2.0 licencjonowane ogólnego przeznaczenia, ponawianie próby biblioteki napisany w **Python**, aby uprościć zadanie dodawania zachowanie ponownych prób do wszystko, co.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

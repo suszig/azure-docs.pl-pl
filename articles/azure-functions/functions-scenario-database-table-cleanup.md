@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Nawiązywanie połączenia z bazy danych SQL Azure za pomocą usługi Azure Functions
-W tym temacie przedstawiono sposób użycia usługi Azure Functions można utworzyć zaplanowane zadanie, które utraciły wierszy w tabeli w bazie danych SQL Azure. Nowa funkcja C# jest tworzony na podstawie szablonu wyzwalacza czasomierza wstępnie zdefiniowane w portalu Azure. Aby zapewnić obsługę tego scenariusza, należy także ustawić parametry połączenia bazy danych jako ustawienie w funkcji aplikacji. W tym scenariuszu operacja zbiorcza w bazie danych. Aby funkcja przetworzyć poszczególnych operacji CRUD w tabeli Mobile Apps, zamiast tego należy używać [powiązania Mobile Apps](functions-bindings-mobile-apps.md).
+W tym temacie przedstawiono sposób użycia usługi Azure Functions można utworzyć zaplanowane zadanie, które utraciły wierszy w tabeli w bazie danych SQL Azure. Nowa funkcja C# jest tworzony na podstawie szablonu wyzwalacza czasomierza wstępnie zdefiniowane w portalu Azure. Aby zapewnić obsługę tego scenariusza, należy także ustawić parametry połączenia bazy danych jako ustawienie aplikacji w aplikacji funkcji. W tym scenariuszu operacja zbiorcza w bazie danych. 
+
+Aby z funkcji poszczególnych procesu tworzenia, odczytu, aktualizacji i operacji usuwania (CRUD) w tabeli Mobile Apps, zamiast tego należy używać [powiązania Mobile Apps](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,7 +61,7 @@ Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Jest najle
     | Ustawienie       | Sugerowana wartość | Opis             | 
     | ------------ | ------------------ | --------------------- | 
     | **Nazwa**  |  sqldb_connection  | Umożliwia dostęp do parametrów połączenia przechowywanych w kodzie funkcji.    |
-    | **Wartość** | Ciąg skopiowany  | Poza parametry połączenia skopiowane w poprzedniej sekcji. |
+    | **Wartość** | Ciąg skopiowany  | Wklej parametry połączenia skopiowane z poprzedniej sekcji i Zastąp `{your_username}` i `{your_password}` symbole zastępcze wartości rzeczywistych. |
     | **Typ** | SQL Database | Użyj domyślnego połączenia bazy danych SQL. |   
 
 3. Kliknij pozycję **Zapisz**.
@@ -84,7 +86,7 @@ Teraz można dodać kod funkcji języka C#, który nawiązuje połączenie z baz
     using System.Threading.Tasks;
     ```
 
-4. Zastąp istniejące **Uruchom** funkcja następującym kodem:
+4. Zastąp istniejące `Run` funkcja następującym kodem:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Teraz można dodać kod funkcji języka C#, który nawiązuje połączenie z baz
     }
     ```
 
-    To przykładowe polecenie aktualizuje **stan** kolumna jest oparta na daty. Należy ją zaktualizować 32 wierszy danych.
+    To przykładowe polecenie aktualizuje `Status` kolumna jest oparta na daty. Należy ją zaktualizować 32 wierszy danych.
 
 5. Kliknij przycisk **zapisać**, obejrzyj **dzienniki** windows Następna funkcja wykonywania, a następnie zanotuj liczbę wierszy zaktualizowane w **SalesOrderHeader** tabeli.
 

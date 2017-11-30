@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d4915cf12690c98275b1fe327dd2574a6343e9e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzy funkcję, która integruje się z usługą Azure Logic Apps
 
@@ -33,7 +33,7 @@ Ten samouczek pokazuje, jak za pomocą funkcji Logic Apps i kognitywnych usług 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz konto usługi kognitywnych.
+> * Utwórz zasób kognitywnych usług interfejsu API.
 > * Utwórz funkcję, który kategoryzuje tweet wskaźniki nastrojów klientów.
 > * Tworzenie aplikacji logiki łączącej się z serwisem Twitter.
 > * Dodaj wykrywania wskaźniki nastrojów klientów do aplikacji logiki. 
@@ -47,29 +47,28 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 + Do wykonania czynności przedstawionych w tym temacie są wymagane zasoby utworzone w temacie [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md).  
 Jeśli nie zostało to jeszcze zrobione, należy wykonać następujące kroki teraz, aby utworzyć aplikację funkcji.
 
-## <a name="create-a-cognitive-services-account"></a>Utwórz konto usługi kognitywnych
+## <a name="create-a-cognitive-services-resource"></a>Utwórz zasób kognitywnych usług
 
-Konta usług kognitywnych jest wymaganego do wykrycia wskaźniki nastrojów klientów tweetów monitorowane.
+Kognitywnych interfejsów API usługi są dostępne na platformie Azure jako pojedynczych zasobów. Wykrywa wskaźniki nastrojów klientów tweetów monitorowanych za pomocą interfejsu API Analytics tekstu.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-3. Kliknij przycisk **dane i analiza** > **kognitywnych usług**. Następnie należy użyć ustawienia określone w tabeli, zaakceptuj warunki i sprawdź **Przypnij do pulpitu nawigacyjnego**.
+3. Kliknij przycisk **AI i analiza** > **Analiza tekstu interfejsu API**. Następnie należy użyć ustawienia określone w tabeli, zaakceptuj warunki i sprawdź **Przypnij do pulpitu nawigacyjnego**.
 
-    ![Tworzenie konta kognitywnych strony](media/functions-twitter-email/cog_svcs_account.png)
+    ![Utwórz stronę kognitywnych zasobów](media/functions-twitter-email/cog_svcs_resource.png)
 
     | Ustawienie      |  Sugerowana wartość   | Opis                                        |
     | --- | --- | --- |
     | **Nazwa** | MyCognitiveServicesAccnt | Wybierz unikatową nazwę konta. |
-    | **Typ interfejsu API** | Interfejs API analizy tekstu | Interfejs API używany do analizowania tekstu.  |
-    | **Lokalizacja** | Zachodnie stany USA | Obecnie tylko **zachodnie stany USA** jest dostępna dla Analiza tekstu. |
+    | **Lokalizacja** | Zachodnie stany USA | Użycie lokalizacji najbliższego. |
     | **Warstwa cenowa** | F0 | Rozpocznij od najniższej warstwy. Po uruchomieniu poza wywołania skalować do wyższego poziomu.|
     | **Grupa zasobów** | myResourceGroup | Użyj tej samej grupy zasobów dla wszystkich usług, w tym samouczku.|
 
-4. Kliknij przycisk **Utwórz** do utworzenia konta. Po utworzeniu konta kliknij nowych usług kognitywnych konta przypięta do pulpitu nawigacyjnego. 
+4. Kliknij przycisk **Utwórz** można utworzyć zasobu. Po utworzeniu, wybierz nowego zasobu usługi kognitywnych przypięty do pulpitu nawigacyjnego. 
 
-5. W ramach konta, kliknij przycisk **klucze**, a następnie skopiuj wartość **klucz 1** i zapisz go. Ten klucz umożliwia łączenie aplikacji logiki do swojego konta usługi kognitywnych. 
+5. W kolumnie nawigacji po lewej stronie kliknij **klucze**, a następnie skopiuj wartość **klucz 1** i zapisz go. Ten klucz umożliwia łączenie aplikacji logiki kognitywnych interfejsu API usług. 
  
     ![Klucze](media/functions-twitter-email/keys.png)
 
@@ -77,13 +76,26 @@ Konta usług kognitywnych jest wymaganego do wykrycia wskaźniki nastrojów klie
 
 Funkcje zapewnia to dobry sposób na rozwiązanie odciążania zadań przetwarzania w przepływie pracy aplikacji logiki. W tym samouczku korzysta z funkcji HTTP wyzwalane przetwarzanie wyników wskaźniki nastrojów klientów tweet z kognitywnych usług i zwracać wartość kategorii.  
 
-1. Rozwiń funkcji aplikacji, kliknij przycisk  **+**  znajdujący się obok **funkcje**, kliknij przycisk **HTTPTrigger** szablonu. Typ `CategorizeSentiment` dla funkcji **nazwa** i kliknij przycisk **Utwórz**.
+1. Kliknij przycisk **nowy** i wybrać **obliczeniowe** > **aplikacji funkcji**. Następnie należy użyć ustawienia określone w poniższej tabeli. Zaakceptuj postanowienia, a następnie wybierz **Przypnij do pulpitu nawigacyjnego**.
+
+    ![Tworzenie aplikacji Azure — funkcja](media/functions-twitter-email/create_fun.png)
+
+    | Ustawienie      |  Sugerowana wartość   | Opis       |
+    | --- | --- | --- |
+    | **Nazwa** | MyFunctionApp | Wybierz unikatową nazwę konta. |
+    | **Grupa zasobów** | myResourceGroup | Użyj tej samej grupy zasobów dla wszystkich usług, w tym samouczku.|
+    | **Plan hostingu** | Plan Zużycie | Definiuje z alokacji kosztów i użycia.
+    | **Lokalizacja** | Zachodnie stany USA | Użycie lokalizacji najbliższego. |
+    | **Storage** | Create New (Utwórz nowe) | Automatycznie generuje nowe konto magazynu.|
+    | **Warstwa cenowa** | F0 | Rozpocznij od najniższej warstwy. Po uruchomieniu poza wywołania skalować do wyższego poziomu.|
+
+2. Wybierz aplikację funkcji z pulpitu nawigacyjnego i rozwiń listę funkcji, kliknij przycisk  **+**  znajdujący się obok **funkcje**, kliknij przycisk **element Webhook i interfejs API**,  **CSharp**, następnie **tworzenia tej funkcji**. Spowoduje to utworzenie funkcji za pomocą szablonu HTTPTrigger C#. Kod zostanie wyświetlony w nowym oknie jako`run.csx`
 
     ![Funkcja blok aplikacje, funkcje +](media/functions-twitter-email/add_fun.png)
 
-2. Zastąp zawartość pliku run.csx następującym kodem, a następnie kliknij przycisk **zapisać**:
+3. Zastąp zawartość `run.csx` pliku następującym kodem, a następnie kliknij przycisk **zapisać**:
 
-    ```c#
+    ```csharp
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
@@ -110,11 +122,11 @@ Funkcje zapewnia to dobry sposób na rozwiązanie odciążania zadań przetwarza
     ```
     Ten kod funkcja zwraca kategorii koloru oparte na wynik wskaźniki nastrojów klientów została odebrana w żądaniu. 
 
-3. Aby przetestować funkcji, kliknij przycisk **testu** na prawym końcu do zwiększenia karcie testów. Wpisz wartość `0.2` dla **treść żądania**, a następnie kliknij przycisk **Uruchom**. Wartość **czerwony** jest zwracany w treści odpowiedzi. 
+4. Aby przetestować funkcji, kliknij przycisk **testu** na prawym końcu do zwiększenia karcie testów. Wpisz wartość `0.2` dla **treść żądania**, a następnie kliknij przycisk **Uruchom**. Wartość **czerwony** jest zwracany w treści odpowiedzi. 
 
     ![Testowanie funkcji w portalu Azure](./media/functions-twitter-email/test.png)
 
-Zostanie zainstalowana funkcja, który kategoryzuje wyniki wskaźniki nastrojów klientów. Następnie należy utworzyć aplikację logiki, która integruje się funkcji z konta usługi kognitywnych i Twitter. 
+Zostanie zainstalowana funkcja, który kategoryzuje wyniki wskaźniki nastrojów klientów. Następnie należy utworzyć aplikację logiki, która integruje się funkcji z serwisem Twitter oraz kognitywnych interfejsu API usług. 
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki   
 
@@ -124,7 +136,7 @@ Zostanie zainstalowana funkcja, który kategoryzuje wyniki wskaźniki nastrojów
  
 4. Następnie wpisz **nazwa** jak `TweetSentiment`, użyj ustawień określonych w tabeli, zaakceptuj warunki i sprawdź **Przypnij do pulpitu nawigacyjnego**.
 
-    ![Tworzenie aplikacji logiki w portalu Azure](./media/functions-twitter-email/new_logicApp.png)
+    ![Tworzenie aplikacji logiki w portalu Azure](./media/functions-twitter-email/new_logic_app.png)
 
     | Ustawienie      |  Sugerowana wartość   | Opis                                        |
     | ----------------- | ------------ | ------------- |
@@ -152,7 +164,7 @@ Najpierw należy utworzyć połączenie do swojego konta w serwisie Twitter. Apl
 
     | Ustawienie      |  Sugerowana wartość   | Opis                                        |
     | ----------------- | ------------ | ------------- |
-    | **Wyszukiwanie tekstu** | #Azure | Użyj hasztagiem, będącą popularnych do generowania nowych tweetów w wybranym interwałem. Po użyciu warstwę bezpłatna i z hasztagiem zbyt popularne, możesz szybko zużywać transakcji na koncie usługi kognitywnych. |
+    | **Wyszukiwanie tekstu** | #Azure | Użyj hasztagiem, będącą popularnych do generowania nowych tweetów w wybranym interwałem. Przy użyciu warstwę bezpłatna i z hasztagiem jest zbyt popularne, można szybko zużywać przydziału transakcji w kognitywnych interfejsu API usług. |
     | **Częstotliwość** | Minuta | Częstotliwość Jednostka używana do sondowania Twitter.  |
     | **Interwał** | 15 | Czas między żądania usługi Twitter, w jednostkach częstotliwości. |
 
@@ -168,13 +180,13 @@ Teraz aplikacji jest połączony z usługą Twitter. Następnie połączenie z a
 
 2. W **wybierz akcję**, kliknij przycisk **Analiza tekstu**, a następnie kliknij przycisk **wykrywa wskaźniki nastrojów klientów** akcji.
 
-    ![Wykrywa wskaźniki nastrojów klientów](media/functions-twitter-email/detect_sent.png)
+    ![Wykryj tonację](media/functions-twitter-email/detect_sent.png)
 
-3. Wpisz nazwę połączenia, takich jak `MyCognitiveServicesConnection`, Wklej klucz dla usług kognitywnych konta zapisane i kliknij przycisk **Utwórz**.  
+3. Wpisz nazwę połączenia, takich jak `MyCognitiveServicesConnection`, Wklej klucz kognitywnych interfejsu API usług, zapisana, i kliknij przycisk **Utwórz**.  
 
 4. Kliknij przycisk **tekstu do analizowania** > **Tweetować tekst**, a następnie kliknij przycisk **zapisać**.  
 
-    ![Wykrywa wskaźniki nastrojów klientów](media/functions-twitter-email/ds_tta.png)
+    ![Wykryj tonację](media/functions-twitter-email/ds_tta.png)
 
 Teraz, gdy skonfigurowano wykrywania wskaźniki nastrojów klientów, można dodać połączenie z funkcji, które korzysta z danych wyjściowych wynik wskaźniki nastrojów klientów.
 
@@ -202,7 +214,7 @@ Ostatnia część przepływu pracy jest do wyzwolenia wiadomość e-mail, gdy ws
 
     ![Dodaj warunek do aplikacji logiki.](media/functions-twitter-email/condition.png)
 
-3. W **Jeśli tak, nic nie RÓB**, kliknij przycisk **Dodaj akcję**, wyszukaj `outlook.com`, kliknij przycisk **wysłać wiadomość e-mail**i zaloguj się do swojego konta w usłudze Outlook.com.
+3. W **wartość TRUE, jeśli**, kliknij przycisk **Dodaj akcję**, wyszukaj `outlook.com`, kliknij przycisk **wysłać wiadomość e-mail**i zaloguj się do swojego konta w usłudze Outlook.com.
     
     ![Wybierz akcję dla warunku.](media/functions-twitter-email/outlook.png)
 
@@ -211,7 +223,7 @@ Ostatnia część przepływu pracy jest do wyzwolenia wiadomość e-mail, gdy ws
 
 4. W **wysłać wiadomość e-mail** akcji, użyj ustawienia poczty e-mail jako określony w tabeli. 
 
-    ![Konfigurowanie poczty e-mail do wysyłania poczty e-mail akcji.](media/functions-twitter-email/sendEmail.png)
+    ![Konfigurowanie poczty e-mail do wysyłania poczty e-mail akcji.](media/functions-twitter-email/send_email.png)
 
     | Ustawienie      |  Sugerowana wartość   | Opis  |
     | ----------------- | ------------ | ------------- |
@@ -246,7 +258,7 @@ Teraz, przepływ pracy zostanie zakończone, można włączyć aplikacji logiki 
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > Po ukończeniu tego samouczka, należy wyłączyć aplikację logiki. Wyłączenie aplikacji, można uniknąć obciążona do wykonania i wykorzystuje się transakcji na koncie usługi kognitywnych.
+    > Po ukończeniu tego samouczka, należy wyłączyć aplikację logiki. Wyłączenie aplikacji, można uniknąć obciążona do wykonania i wykorzystuje się transakcji w kognitywnych interfejsu API usług.
 
 Teraz już wspomniano, jak łatwo jest integrację funkcji przepływu pracy Logic Apps.
 
@@ -261,7 +273,7 @@ Aby wyłączyć aplikację logiki, kliknij przycisk **omówienie** , a następni
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz konto usługi kognitywnych.
+> * Utwórz zasób kognitywnych usług interfejsu API.
 > * Utwórz funkcję, który kategoryzuje tweet wskaźniki nastrojów klientów.
 > * Tworzenie aplikacji logiki łączącej się z serwisem Twitter.
 > * Dodaj wykrywania wskaźniki nastrojów klientów do aplikacji logiki. 

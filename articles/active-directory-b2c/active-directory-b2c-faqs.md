@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.
@@ -75,13 +75,13 @@ Podpis e-mail zawiera nazwę dzierżawy B2C, podane podczas tworzenia dzierżawy
 Obecnie nie istnieje sposób zmiany "od:" w wiadomości e-mail. Głosowania [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) planuje się Dostosowywanie treść wiadomości e-mail weryfikacji.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Jak można przeprowadzić migrację mojej istniejącej nazwy użytkownika, hasła i profile z bazy danych usługi Azure AD B2C?
-Można użyć interfejsu API programu Azure AD Graph do zapisania narzędzia do migracji. Zobacz [przykładowy interfejs API programu Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) szczegółowe informacje.
+Można użyć interfejsu API programu Azure AD Graph do zapisania narzędzia do migracji. Zobacz [Przewodnik po migracji użytkownika](active-directory-b2c-user-migration.md) szczegółowe informacje.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Jakie zasady haseł jest używana dla kont lokalnych w usłudze Azure AD B2C?
 Zasady usługi Azure AD B2C haseł dla kont lokalnych jest na podstawie zasad dla usługi Azure AD. Usługi Azure AD B2C do tworzenia konta, zapisywania lub logowania i hasło zresetować używa zasad siły "silnego" hasła i nie wygasa hasła. Odczyt [zasady haseł usługi Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) więcej szczegółów.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Aby przeprowadzić migrację tożsamości użytkownika, które są przechowywane na moje lokalnej usługi Active Directory do usługi Azure AD B2C można użyć Azure AD Connect?
-Nie, usługi Azure AD Connect nie jest przeznaczona do pracy z usługą Azure AD B2C. Należy rozważyć użycie [interfejsu API programu Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) przypadku migracji użytkownika.
+Nie, usługi Azure AD Connect nie jest przeznaczona do pracy z usługą Azure AD B2C. Należy rozważyć użycie [interfejsu API programu Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) przypadku migracji użytkownika.  Zobacz [Przewodnik po migracji użytkownika](active-directory-b2c-user-migration.md) szczegółowe informacje.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Moja aplikacja może otwarcie strony usługi Azure AD B2C w obrębie elementu iFrame?
 Nie, ze względów bezpieczeństwa nie można otworzyć usługi Azure AD B2C stron w ramce.  Nasza usługa komunikuje się za pośrednictwem przeglądarki, aby zabronić ramek IFRAME.  Zaleca się przy użyciu ramek iframe dla środowiska tożsamości z powodu ryzyka miejsca kliknij społeczności zabezpieczeń w ogólne i specyfikację OAUTH2.

@@ -1,0 +1,51 @@
+- name: Dokumentacja usługi Azure Location Based Services
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usługach Azure Location Based Services
+      href: about-location-based-services.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Aplikacja z mapą korzystająca z usług Location Based Services
+      href: quick-demo-map-app.md
+- name: Samouczki
+  items:
+    - name: 1 — Wyszukiwanie punktów orientacyjnych
+      href: tutorial-search-location.md
+    - name: 2 — Wyznaczanie trasy do punktu orientacyjnego
+      href: tutorial-route-location.md
+    - name: 3 — Trasy zależne od środka transportu
+      href: tutorial-prioritized-routes.md
+- name: Pojęcia
+  items:
+    - name: Pokrycie geokodowaniem
+      href: geocoding-coverage.md
+    - name: Pokrycie ruchem
+      href: traffic-coverage.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Zarządzanie kontem i kluczami
+      href: how-to-manage-account-keys.md
+    - name: Jak używać kontrolki mapy
+      href: how-to-use-map-control.md
+- name: Dokumentacja
+  items:
+    - name: Centrum deweloperów Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Techniczne analizy przypadków
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Filmy wideo
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

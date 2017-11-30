@@ -4,6 +4,7 @@
 # Rozpoczęcie pracy
 ## [Witryna Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Program Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Interfejs wiersza polecenia platformy Azure](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,7 @@
 ### [Rozszerzenia U-SQL dla języka R](data-lake-analytics-u-sql-r-extensions.md)
 ### [Rozszerzenia kognitywne języka U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analizowanie dzienników witryn sieci Web](data-lake-analytics-analyze-weblogs.md)
-### [U-SQL for Visual Studio Code (Język U-SQL dla programu Visual Studio Code)](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Niestandardowy kod w języku U-SQL dla programu Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## Debugowanie programów w języku U-SQL
 ### [Monitorowanie zadań i rozwiązywanie problemów](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

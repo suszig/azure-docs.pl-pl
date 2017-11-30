@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Dokumentacja host.JSON dla usługi Azure Functions
 
@@ -141,7 +141,7 @@ Ustawienia konfiguracji dla [Centrum zdarzeń wyzwalaczy i powiązań](functions
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>Funkcje
+## <a name="functions"></a>funkcje
 
 Lista funkcji, które host zadania zostanie uruchomiony.  Pusta tablica oznacza uruchamiać wszystkie funkcje.  Przeznaczony do użytku tylko wtedy, gdy [uruchomiony lokalnie](functions-run-local.md). W aplikacjach funkcji, należy użyć *function.json* `disabled` właściwości zamiast tej właściwości w *host.json*.
 
@@ -165,23 +165,7 @@ Wskazuje wartość limitu czasu dla wszystkich funkcji. W planie zużycie prawid
 
 Ustawienia konfiguracji dla [http wyzwalaczy i powiązań](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Właściwość  |Domyślne | Opis |
-|---------|---------|---------| 
-|Element routePrefix|api|Prefiks trasy, która ma zastosowanie do wszystkich tras. Aby usunąć prefiks domyślny, użyj pustego ciągu. |
-|maxOutstandingRequests|-1|Maksymalna liczba oczekujących żądań, które będą odbywać się w danym momencie (-1 oznacza niepowiązanego). Limit obejmuje żądań, które są umieszczane w kolejce, ale nie rozpoczęły wykonywania, a także wszelkie wykonaniami w toku. Wszystkie przychodzące przekracza ten limit będą odrzucane 429 odpowiedzi "Jest zbyt zajęty". Obiekty wywołujące można użyć tej odpowiedzi fragmentów strategii oparte na czasie ponów próbę. To ustawienie określa tylko kolejkowania, który występuje w ścieżce wykonanie zadania hosta. Przez to ustawienie nie dotyczy to innych kolejek, takich jak kolejki żądania ASP.NET. |
-|maxConcurrentRequests|-1|Maksymalna liczba funkcje HTTP, które będą wykonywane równolegle (-1 oznacza niepowiązanego). Na przykład można ustawić limit użycie funkcji HTTP zbyt wiele zasobów systemowych podczas współbieżności jest wysoka. Lub jeśli funkcji wychodzących żądań do usługi innej firmy, wywołań może wymagać szybkość limited.|
-|dynamicThrottlesEnabled|fałsz|Powoduje, że żądanie przetwarzania potoku okresowo sprawdzać, liczniki wydajności systemu. Liczniki zawierają połączeń, wątki procesów, pamięci i procesora cpu. Jeśli dowolny z liczników jest powyżej progu wbudowanych (80%), będą odrzucane 429 odpowiedzi "Jest zbyt zajęty" do momentu counter(s) Powrót do normalnego poziomu.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
@@ -214,9 +198,9 @@ Formanty filtrowania dla dzienników napisane przez [obiektu ILogger](functions-
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|categoryFilter|Brak|Określa filtrowanie według kategorii| 
+|categoryFilter|Nie dotyczy|Określa filtrowanie według kategorii| 
 |defaultLevel|Informacje|Do kategorii nie została określona w `categoryLevels` tablicy, wysyłaj dzienniki na tym poziomie i w nowszych wersjach do usługi Application Insights.| 
-|categoryLevels|Brak|Tablica kategorie określa poziom dziennika minimalna do wysłania do usługi Application Insights dla każdej kategorii. Wszystkie kategorie, które zaczynają się taką samą wartość steruje tutaj określonej kategorii i wartości dłużej wyższy priorytet. W poprzednim przykładzie *host.json* pliku, wszystkie kategorie, które zaczynają się od "Host.Aggregator" dziennika w `Information` poziom. Wszystkie kategorie, które zaczynają się od "Host", takie jak "Host.Executor", zaloguj się na `Error` poziom.| 
+|categoryLevels|Nie dotyczy|Tablica kategorie określa poziom dziennika minimalna do wysłania do usługi Application Insights dla każdej kategorii. Wszystkie kategorie, które zaczynają się taką samą wartość steruje tutaj określonej kategorii i wartości dłużej wyższy priorytet. W poprzednim przykładzie *host.json* pliku, wszystkie kategorie, które zaczynają się od "Host.Aggregator" dziennika w `Information` poziom. Wszystkie kategorie, które zaczynają się od "Host", takie jak "Host.Executor", zaloguj się na `Error` poziom.| 
 
 ## <a name="queues"></a>Kolejki
 
@@ -269,7 +253,7 @@ Ustawienia konfiguracji dla pojedynczych blokady zachowanie. Aby uzyskać więce
 |listenerLockPeriod|00:01:00|Odbiornik blokady są pobierane dla okresu.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Interwał użyty do odzyskiwania blokady odbiornika, jeśli nie można uzyskać blokady odbiornika podczas uruchamiania.| 
 |lockAcquisitionTimeout|00:01:00|Maksymalna ilość czasu środowiska uruchomieniowego podejmie próbę uzyskania blokady.| 
-|lockAcquisitionPollingInterval|Brak|Interwał między próbami przejęcie blokady.| 
+|lockAcquisitionPollingInterval|Nie dotyczy|Interwał między próbami przejęcie blokady.| 
 
 ## <a name="tracing"></a>Śledzenie
 

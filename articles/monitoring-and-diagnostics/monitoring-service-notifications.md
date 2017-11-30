@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Powiadomienia o kondycji usługi
 ## <a name="overview"></a>Omówienie
 
 W tym artykule przedstawiono sposób wyświetlania powiadomień o kondycji usługi przy użyciu portalu Azure.
 
-Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów o kondycji usługi opublikowana przez zespół Azure, który może mieć wpływ na zasoby w ramach Twojej subskrypcji. Te powiadomienia są podklasą klasy działania dziennika zdarzeń i można także znaleźć w bloku dziennika aktywności. Powiadomienia o kondycji usługi może być informacyjne lub można wykonać w zależności od tej klasy.
+Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów o kondycji usługi opublikowana przez zespół Azure, który może mieć wpływ na zasoby w ramach Twojej subskrypcji. Te powiadomienia są podklasą klasy działania dziennika zdarzeń i można znaleźć w dzienniku aktywności. Powiadomienia o kondycji usługi może być informacyjne lub można wykonać w zależności od tej klasy.
 
 Istnieje pięć klas powiadomień o kondycji usługi:  
 
-- **Wymagana akcja:** od czasu do czasu firma Microsoft mogą pojawić się coś nietypowego się tak zdarzyć na Twoim koncie. Firma Microsoft może być konieczne we współpracy z Tobą, aby rozwiązać ten problem. Firma Microsoft będzie wysyłać powiadomienia albo określających działania należy podjąć lub więcej informacji na temat skontaktuj się z Azure engineering lub pomocy technicznej.  
-- **Odzyskiwanie asystowaną:** wystąpiło zdarzenie i inżynierów potwierdzeniu, że nadal występują wpływu. Współpraca z Tobą bezpośrednio, aby wyświetlić swoje usługi w celu przywrócenia należy zespołu inżynieryjnego.  
+- **Wymagana akcja:** od czasu do czasu Azure zauważyć coś nietypowego się tak zdarzyć na Twoim koncie. Azure może być konieczne we współpracy z Tobą, aby rozwiązać ten problem. Azure spowoduje wysłanie powiadomienia albo określających działania należy podjąć lub więcej informacji na temat skontaktuj się z Azure engineering lub pomocy technicznej.  
+- **Odzyskiwanie asystowaną:** wystąpiło zdarzenie i inżynierów potwierdzeniu, że nadal występują wpływu. Azure engineering musi pracować bezpośrednio w celu przywrócenia usługi pełną kondycję.  
 - **Zdarzenie:** usługi wpływające na zdarzenie aktualnie ma wpływ na co najmniej jeden z zasobów w ramach subskrypcji.  
 - **Konserwacja:** jest powiadomienie informujące o działanie zaplanowanej konserwacji, które mogą mieć wpływ na co najmniej jeden z zasobów w ramach Twojej subskrypcji.  
-- **Informacje o:** od czasu do czasu firma Microsoft może wysyłać powiadomienia przekazują do użytkownika o potencjalnych funkcje optymalizacji, które mogą pomóc zwiększenie wykorzystanie zasobów.  
+- **Informacje o:** od czasu do czasu Azure może wysłać powiadomienia, które informują o potencjalnych funkcje optymalizacji, które mogą pomóc zwiększenie wykorzystanie zasobów.  
 - **Zabezpieczenia:** pilnych zabezpieczeń powiązane informacje dotyczące Twojego solution(s) działających na platformie Azure.
 
-Każde powiadomienie o kondycji usługi prowadzi szczegółowe informacje o zakres i znaczenie dla zasobów. Zawiera szczegółowe informacje:
+Każde powiadomienie o kondycji usługi zawiera szczegółowe informacje o zakres i znaczenie dla zasobów. Szczegółowe informacje obejmują:
 
 Nazwa właściwości | Opis
 -------- | -----------
-Kanały | Jest jednym z następujących wartości: "Administrator", "Operacji"
+kanały | Jest jednym z następujących wartości: "Administrator", "Operacji"
 correlationId | Jest zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia z tym należy do tego samego działania pełny zwykle udostępnianie tego samego correlationId.
 eventDataId | Jest unikatowy identyfikator zdarzenia
 EventName | Jest to tytuł zdarzenia
@@ -70,14 +70,12 @@ Properties.communicationId | Komunikacja to zdarzenie jest skojarzony.
 1.  W [portal](https://portal.azure.com), przejdź do **Monitor** usługi
 
     ![Monitorowanie](./media/monitoring-service-notifications/home-monitor.png)
-2.  Kliknij przycisk **Monitor** opcję, aby otworzyć blok monitora. Ten blok gromadzi wszystkie ustawienia monitorowania i dane użytkownika w jednym skonsolidowanym widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
+2.  Kliknij przycisk **Monitor** opcję, aby otworzyć proces uruchamiania monitora. Azure Monitor zgromadzono wszystkich monitorowania ustawień i danych do jednego, skonsolidowanego widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
 
-3.  Teraz kliknij **powiadomień usługi** sekcji
+3.  Teraz kliknij **alerty** sekcji
 
     ![Monitorowanie](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Kliknij dowolną pozycje, aby wyświetlić więcej szczegółów
-
-5. Polecenie **+ Dodaj działanie dziennika alertu** operację, aby otrzymywać powiadomienia, aby upewnić się, zostanie wyświetlone powiadomienie powiadomień usługi przyszłości tego typu. Aby dowiedzieć się więcej na temat konfigurowania alertów na powiadomienia usługi [kliknij tutaj](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Polecenie **+ Dodaj Alert dziennika aktywności** i skonfigurować alert, aby upewnić się, zostanie wyświetlone powiadomienie powiadomień usługi w przyszłości. Aby dowiedzieć się więcej o konfigurowaniu alertów na powiadomienia usługi [odwiedź stronę działania dziennika alerty i powiadomienia usługi](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Następne kroki:
 Odbieranie [alertów powiadomienia, gdy powiadomienie o kondycji usługi](monitoring-activity-log-alerts-on-service-notifications.md) jest przesyłana  

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Jeśli napotkasz problem podczas instalacji, w tym miejscu są pliki dziennika I
 /tmp/amlinstaller/logs/*
 ```
 Możesz zip się zawartość tych katalogów i Wyślij do nas, diagnostyki.
+
+### <a name="app-update"></a>Aktualizacja aplikacji 
+#### <a name="no-update-notification-on-windows-desktop"></a>Nie powiadomienie o aktualizacji na pulpicie systemu Windows 
+Ten problem zostanie rozwiązany w nadchodzących aktualizacji. W międzyczasie obejście polega na uniknąć uruchamiania aplikacji za pomocą skrótu przypięty do paska zadań. Zamiast tego można uruchomić aplikacji za pomocą Start menu lub pasek wyszukiwania Start lub skrót na pulpicie (jeśli istnieje). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Nie powiadomienie o aktualizacji na Ubuntu danych Sciece maszyny wirtualnej (DSVM)
+Wykonaj poniższe kroki, aby pobrać najnowszą aplikację:   
+   - Usuń folder \Users\AppData\Local\amlworkbench
+   - Usuń skryptu`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
+   - Zainstaluj prawidłowo przy użyciu [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Aplikacja klasyczna Workbench
 Jeśli masz problemy z zalogowaniem lub pulpitu Workbench ulegnie awarii, można znaleźć tutaj plików dziennika:

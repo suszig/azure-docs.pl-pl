@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie tabeli danych przy użyciu interfejsu API tabeli
 
@@ -38,7 +38,7 @@ Zapytania w tym artykule, skorzystaj z poniższego przykładu `People` tabeli:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jan | Jeff@contoso.com| 425-555-0104 | 
 
-Zobacz [badania tabel i jednostek] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) Aby uzyskać więcej informacji na temat sposobu zapytania przy użyciu interfejsu API tabeli. 
+Zobacz [badania tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) szczegółowe informacje na temat sposobu zapytania przy użyciu interfejsu API tabeli. 
 
 Aby uzyskać więcej informacji na możliwości premium, które oferuje bazy danych rozwiązania Cosmos Azure, zobacz [interfejsu API Azure rozwiązania Cosmos DB tabeli](table-introduction.md) i [opracowanie przy użyciu interfejsu API tabeli w programie .NET](tutorial-develop-table-dotnet.md). 
 

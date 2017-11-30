@@ -1,6 +1,6 @@
 ---
 title: "Planowanie projektu w procesie nauki danych zespołu — Azure | Dokumentacja firmy Microsoft"
-description: TBD
+description: "Program Microsoft Project i Excel szablonów, które ułatwiają planowanie projektów i zarządzanie nimi danych nauki."
 documentationcenter: 
 author: bradsev
 manager: cgronlun
@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 554e653a1f1b060743a2f461327c58e9a60a56b1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Zespół planowania projektu w procesie nauki danych
 
-Proces nauki danych zespołu (TDSP) zawiera cykl struktury rozwoju projektów analizy danych. Cykl życia przedstawiono główne etapy, które projekty zazwyczaj wykonywane, często wielokrotnie powtarzane:
+Proces nauki danych zespołu (TDSP) zawiera cykl struktury rozwoju projektów analizy danych. Ten artykuł zawiera łącza do szablonów programu Microsoft Project i programu Excel, które ułatwiają planowanie i zarządzanie nimi etapy te projektu.
+
+Cykl życia przedstawiono główne etapy, które projekty zazwyczaj wykonywane, często wielokrotnie powtarzane:
 
 - Poznawanie firmy
 - Uzyskiwanie danych i zrozumienie
@@ -31,8 +33,7 @@ Proces nauki danych zespołu (TDSP) zawiera cykl struktury rozwoju projektów an
 
 Aby uzyskać opis każdego z tych etapów, zobacz [cyklu życia procesu nauki danych zespołu](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle).
 
-Ten artykuł zawiera łącza do szablonów programu Microsoft Project i programu Excel, które ułatwiają planowanie i zarządzanie nimi etapy te projektu. 
-
+ 
 ## <a name="microsoft-project-template"></a>Szablon programu Microsoft Project
 
 Szablon programu Microsoft Project dla procesu nauki danych zespołu jest dostępny w tym miejscu: [szablon programu Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
@@ -54,7 +55,7 @@ Użyj tych szablonów na własne ryzyko. [Zwykle zastrzeżenia](https://www.gnu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wykonanie projektów analizy danych](project-execution.md) w tym dokumencie opisano można wykonać projektu analizy danych w systematyczne, niepoddany kontroli wersji i sposób współpracy w zespole projektu przy użyciu procesu nauki danych zespołu.
+[Elastyczne programowanie projektów analizy danych](agile-development.md) w tym dokumencie opisano można wykonać projektu analizy danych w systematyczne, niepoddany kontroli wersji i sposób współpracy w zespole projektu przy użyciu procesu nauki danych zespołu.
 
 Wskazówki, które pokazują wszystkie kroki procesu **określonych scenariuszy** podawane są również. Wymieniono i połączone z opisami miniatur w [wskazówki przykład](walkthroughs.md) tematu. Pokazują one sposób łączenia chmury, narzędzia lokalnych i usług w przepływie pracy lub potoku, aby utworzyć aplikację inteligentnego. 
 

@@ -1,69 +1,67 @@
 ---
-title: "Azure DB rozwiązania Cosmos powiązania dla funkcji | Dokumentacja firmy Microsoft"
+title: "Azure DB rozwiązania Cosmos powiązania dla funkcji"
 description: "Zrozumienie sposobu korzystania z bazy danych Azure rozwiązania Cosmos wyzwalaczy i powiązań w funkcji platformy Azure."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
 keywords: "funkcje usługi Azure, funkcje, przetwarzania zdarzeń, dynamiczne obliczeń niekorzystającą architektury"
-ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d05c0342e771e229a7175570ad227c4359980990
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="azure-cosmos-db-bindings-for-functions"></a>Azure DB rozwiązania Cosmos powiązania dla funkcji
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB rozwiązania Cosmos powiązania dla usługi Azure Functions
 
-W tym artykule opisano sposób konfigurowania i Zakoduj powiązania bazy danych Azure rozwiązania Cosmos w funkcji platformy Azure. Obsługuje funkcje wyzwolenia należy wprowadzić i dane wyjściowe powiązania dla bazy danych Azure rozwiązania Cosmos.
+W tym artykule opisano sposób pracy z [bazy danych Azure rozwiązania Cosmos](..\cosmos-db\serverless-computing-database.md) powiązania usługi Azure Functions. Usługi Azure Functions obsługuje wyzwolenia, danych wejściowych i wyjściowych powiązania dla bazy danych Azure rozwiązania Cosmos.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Aby uzyskać więcej informacji na niekorzystającą przetwarzania danych z bazy danych Azure rozwiązania Cosmos, zobacz [bazy danych Azure rozwiązania Cosmos: pliki bazy danych obliczeniowych, przy użyciu usługi Azure Functions](..\cosmos-db\serverless-computing-database.md).
-
-<a id="trigger"></a>
-<a id="cosmosdbtrigger"></a>
-
-## <a name="azure-cosmos-db-trigger"></a>Azure wyzwalacza DB rozwiązania Cosmos
+## <a name="trigger"></a>Wyzwalacz
 
 Wyzwalacz DB rozwiązania Cosmos Azure wykorzystuje [Azure rozwiązania Cosmos DB zmiany źródła danych](../cosmos-db/change-feed.md) do nasłuchiwania zmian w partycji. Druga kolekcja, która jest używana do przechowywania wymaga wyzwalacza _dzierżawy_ na partycje.
 
 Zarówno kolekcji monitorowane i kolekcji, która zawiera dzierżawy musi być dostępny dla wyzwalacza do pracy.
 
-Wyzwalacz bazy danych rozwiązania Cosmos Azure obsługuje następujące właściwości:
+## <a name="trigger---example"></a>Wyzwalacz — przykład
 
-|Właściwość  |Opis  |
-|---------|---------|
-|**Typ** | należy wybrać opcję `cosmosDBTrigger`. |
-|**Nazwa** | Nazwa zmiennej używany w funkcji kod, który reprezentuje listy dokumentów o zmiany. | 
-|**Kierunek** | należy wybrać opcję `in`. Ten parametr jest ustawiany automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
-|**connectionStringSetting** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia używane do nawiązania połączenia konta bazy danych Azure rozwiązania Cosmos monitorowane. |
-|**databaseName** | Nazwa bazy danych DB rozwiązania Cosmos Azure z tą kolekcją monitorowane. |
-|**collectionName** | Nazwa kolekcji monitorowane. |
-| **leaseConnectionStringSetting** | (Opcjonalnie) Nazwa ustawienia aplikacji, które zawiera parametry połączenia do usługi, która posiada kolekcji dzierżawy. Gdy nie są ustawione, `connectionStringSetting` wartość jest używana. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania w portalu. |
-| **leaseDatabaseName** | (Opcjonalnie) Nazwa bazy danych, która przechowuje kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `databaseName` ustawienie jest używane. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania w portalu. |
-| **leaseCollectionName** | (Opcjonalnie) Nazwa kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `leases` jest używany. |
-| **createLeaseCollectionIfNotExists** | (Opcjonalnie) Jeśli wartość `true`, kolekcji dzierżawy jest tworzony automatycznie podczas już nie istnieje. Wartość domyślna to `false`. |
-| **leaseCollectionThroughput** | (Opcjonalnie) Definiuje liczbę jednostek żądań można przypisać podczas tworzenia kolekcji dzierżawy. To ustawienie jest tylko do użycia podczas `createLeaseCollectionIfNotExists` ma ustawioną wartość `true`. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania za pomocą portalu.
+Zapoznaj się z przykładem specyficzny dla języka:
 
->[!NOTE] 
->Ciąg połączenia używany do łączenia z kolekcji dzierżawy musi mieć uprawnienia do zapisu.
+* [Prekompilowane C#](#trigger---c-example)
+* [Skryptu C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
 
-Te właściwości można ustawić na karcie integracji dla funkcji w portalu Azure lub edytując `function.json` pliku projektu.
+### <a name="trigger---c-example"></a>Wyzwalacz — przykład C#
 
-## <a name="using-an-azure-cosmos-db-trigger"></a>Za pomocą wyzwalacza bazy danych Azure rozwiązania Cosmos
+W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) która wyzwala z określonej bazy danych i kolekcji.
 
-Ta sekcja zawiera przykłady użyć wyzwalacza bazy danych Azure rozwiązania Cosmos. Przykłady przykładowa metadanych wyzwalacz, który wygląda następująco:
+```cs
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents,
+    TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+### <a name="trigger---c-script"></a>Wyzwalacz - skryptu C#
+
+W poniższym przykładzie przedstawiono wyzwalacz DB rozwiązania Cosmos powiązanie w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja zapisuje komunikaty dziennika po zmodyfikowaniu rekordów DB rozwiązania Cosmos.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```json
 {
@@ -77,10 +75,9 @@ Ta sekcja zawiera przykłady użyć wyzwalacza bazy danych Azure rozwiązania Co
   "createLeaseCollectionIfNotExists": true
 }
 ```
- 
-Na przykład sposobu tworzenia wyzwalacza bazy danych Azure rozwiązania Cosmos z funkcji aplikacji w portalu, zobacz [Utwórz funkcję wyzwalane przez bazy danych Azure rozwiązania Cosmos](functions-create-cosmos-db-triggered-function.md). 
 
-### <a name="trigger-sample-in-c"></a>Przykładowe wyzwalacza w języku C# #
+Oto kod skryptu C#:
+ 
 ```cs 
     #r "Microsoft.Azure.Documents.Client"
     using Microsoft.Azure.Documents;
@@ -93,8 +90,27 @@ Na przykład sposobu tworzenia wyzwalacza bazy danych Azure rozwiązania Cosmos 
     }
 ```
 
+### <a name="trigger---javascript"></a>Wyzwalacz - JavaScript
 
-### <a name="trigger-sample-in-javascript"></a>Przykładowe wyzwalacza w języku JavaScript
+W poniższym przykładzie przedstawiono wyzwalacz DB rozwiązania Cosmos powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja zapisuje komunikaty dziennika po zmodyfikowaniu rekordów DB rozwiązania Cosmos.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+
+Oto kod JavaScript:
+
 ```javascript
     module.exports = function (context, documents) {
         context.log('First document Id modified : ', documents[0].id);
@@ -103,35 +119,97 @@ Na przykład sposobu tworzenia wyzwalacza bazy danych Azure rozwiązania Cosmos 
     }
 ```
 
-<a id="docdbinput"></a>
+## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-## <a name="documentdb-api-input-binding"></a>Powiązania wejściowego interfejsu API usługi DocumentDB
-Powiązania wejściowego interfejsu API usługi DocumentDB pobiera dokument bazy danych Azure rozwiązania Cosmos i przekazuje je do nazwany parametr wejściowy funkcji. Dokument, który można ustalić Identyfikatora oparte na wyzwalacz, który wywołuje funkcję. 
+Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-Powiązania wejściowego interfejsu API usługi DocumentDB ma następujące właściwości *function.json*:
+Konstruktor atrybutu ma nazwę bazy danych i nazwę kolekcji. Aby uzyskać informacje o tych ustawieniach i inne właściwości, które można skonfigurować, zobacz [wyzwalacza - konfiguracji](#trigger---configuration). Oto `CosmosDBTrigger` przykład atrybutu w podpisie metody:
 
-|Właściwość  |Opis  |
-|---------|---------|
-|**Nazwa**     | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
-|**Typ**     | należy wybrać opcję `documentdb`.        |
-|**databaseName** | Baza danych zawierająca dokumentu.        |
-|**collectionName**  | Nazwa kolekcji, która zawiera dokument. |
-|**Identyfikator**     | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje powiązania parametrów. Aby dowiedzieć się więcej, zobacz [powiązania niestandardowe właściwości wejściowych w wyrażeniu powiązania](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
-|**sqlQuery**     | Zapytanie Azure rozwiązania Cosmos bazy danych SQL, używane do pobierania wielu dokumentów. Zapytanie obsługuje powiązań środowiska uruchomieniowego, takie w przykładzie: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
-|**połączenia**     |Nazwa ustawienia aplikacji zawierający parametry połączenia bazy danych Azure rozwiązania Cosmos.        |
-|**Kierunek**     | należy wybrać opcję `in`.         |
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents,
+    TraceWriter log)
+{
+    ...
+}
+```
 
-Nie można jednocześnie ustawić **identyfikator** i **sqlQuery** właściwości. Jeśli nie są skonfigurowane, są pobierane całą kolekcję.
+Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
 
-## <a name="using-a-documentdb-api-input-binding"></a>Przy użyciu interfejsu API usługi DocumentDB powiązania wejściowego
+## <a name="trigger---configuration"></a>Wyzwalacz — Konfiguracja
 
-* W języku C# i F # funkcjach gdy funkcja kończy się pomyślnie, wszelkie zmiany wprowadzone do dokument wejściowy za pośrednictwem nazwanych parametrów wejściowych automatycznie są zachowywane. 
-* W funkcji JavaScript aktualizacje nie będą automatycznie po wyjściu z funkcji. Zamiast tego należy użyć `context.bindings.<documentName>In` i `context.bindings.<documentName>Out` aby aktualizacje. Zobacz [próbki JavaScript](#injavascript).
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `CosmosDBTrigger` atrybutu.
 
-<a name="inputsample"></a>
+|Właściwość Function.JSON | Właściwość atrybutu |Opis|
+|---------|---------|----------------------|
+|**Typ** || należy wybrać opcję `cosmosDBTrigger`. |
+|**Kierunek** || należy wybrać opcję `in`. Ten parametr jest ustawiany automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
+|**Nazwa** || Nazwa zmiennej używany w funkcji kod, który reprezentuje listy dokumentów o zmiany. | 
+|**connectionStringSetting**|**ConnectionStringSetting** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia używane do nawiązania połączenia konta bazy danych Azure rozwiązania Cosmos monitorowane. |
+|**databaseName**|**DatabaseName**  | Nazwa bazy danych DB rozwiązania Cosmos Azure z tą kolekcją monitorowane. |
+|**collectionName** |**CollectionName** | Nazwa kolekcji monitorowane. |
+| **leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcjonalnie) Nazwa ustawienia aplikacji, które zawiera parametry połączenia do usługi, która posiada kolekcji dzierżawy. Gdy nie są ustawione, `connectionStringSetting` wartość jest używana. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania w portalu. |
+| **leaseDatabaseName** |**LeaseDatabaseName** | (Opcjonalnie) Nazwa bazy danych, która przechowuje kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `databaseName` ustawienie jest używane. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania w portalu. |
+| **leaseCollectionName** | **LeaseCollectionName** | (Opcjonalnie) Nazwa kolekcji używany do przechowywania dzierżawy. Gdy nie są ustawione, wartość `leases` jest używany. |
+| **createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcjonalnie) Jeśli wartość `true`, kolekcji dzierżawy jest tworzony automatycznie podczas już nie istnieje. Wartość domyślna to `false`. |
+| **leaseCollectionThroughput**| | (Opcjonalnie) Definiuje liczbę jednostek żądań można przypisać podczas tworzenia kolekcji dzierżawy. To ustawienie jest tylko do użycia podczas `createLeaseCollectionIfNotExists` ma ustawioną wartość `true`. Ten parametr ma wartość automatycznie, podczas tworzenia powiązania za pomocą portalu.
+| |**LeaseOptions** | Skonfiguruj opcje dzierżawy przez ustawienie właściwości w wystąpieniu [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klasy.
 
-## <a name="input-sample-for-single-document"></a>Przykład wejściowego dla pojedynczego dokumentu
-Załóżmy, że masz następujące interfejsu API usługi DocumentDB wejściowych powiązanie w `bindings` tablicy function.json:
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+>[!NOTE] 
+>Parametry połączenia dla kolekcji dzierżawy musi mieć uprawnienia do zapisu.
+
+## <a name="input"></a>Dane wejściowe
+
+Powiązania wejściowego interfejsu API usługi DocumentDB pobiera jeden lub więcej dokumentów bazy danych Azure rozwiązania Cosmos i przekazuje je do parametr wejściowy funkcji. Można określić parametry identyfikator lub kwerendę dokumentu oparte na wyzwalacz, który wywołuje funkcję. 
+
+## <a name="input---example-1"></a>Dane wejściowe — przykład 1
+
+Zapoznaj się z przykładem specyficzny dla języka, która odczytuje pojedynczego dokumentu:
+
+* [Skryptu C#](#input---c-script-example)
+* [F#](#input---f-example)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-script-example"></a>Dane wejściowe — przykładowy skrypt w języku C#
+
+W poniższym przykładzie przedstawiono powiązania wejściowego DB rozwiązania Cosmos w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja odczytuje pojedynczego dokumentu i aktualizuje wartości tekstowej dokumentu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "in"
+}
+```
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
+
+Oto kod skryptu C#:
+
+```cs
+// Change input document contents using DocumentDB API input binding 
+public static void Run(string myQueueItem, dynamic inputDocument)
+{   
+  inputDocument.text = "This has changed.";
+}
+```
+
+<a name="infsharp"></a>
+
+### <a name="input---f-example"></a>Dane wejściowe — przykład F #
+
+W poniższym przykładzie przedstawiono powiązania wejściowego DB rozwiązania Cosmos w *function.json* pliku i [F # funkcja](functions-reference-fsharp.md) używającą powiązania. Funkcja odczytuje pojedynczego dokumentu i aktualizuje wartości tekstowej dokumentu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```json
 {
@@ -145,25 +223,9 @@ Załóżmy, że masz następujące interfejsu API usługi DocumentDB wejściowyc
 }
 ```
 
-Zobacz przykładowe specyficzny dla języka, który używa tego powiązania wejściowe, aby zaktualizować wartości tekstowej dokumentu.
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
 
-* [C#](#incsharp)
-* [F#](#infsharp)
-* [JavaScript](#injavascript)
-
-<a name="incsharp"></a>
-### <a name="input-sample-in-c"></a>Przykładowe wejściowego w języku C# #
-
-```cs
-// Change input document contents using DocumentDB API input binding 
-public static void Run(string myQueueItem, dynamic inputDocument)
-{   
-  inputDocument.text = "This has changed.";
-}
-```
-<a name="infsharp"></a>
-
-### <a name="input-sample-in-f"></a>Przykładowe wejściowego w języku F # #
+Oto kod F #:
 
 ```fsharp
 (* Change input document contents using DocumentDB API input binding *)
@@ -189,9 +251,26 @@ W tym przykładzie wymaga `project.json` pliku, który określa `FSharp.Interop.
 
 Aby dodać `project.json` plików, zobacz [zarządzania pakietami F #](functions-reference-fsharp.md#package).
 
-<a name="injavascript"></a>
+### <a name="input---javascript-example"></a>Dane wejściowe — przykład JavaScript
 
-### <a name="input-sample-in-javascript"></a>Przykładowe wejściowego w języku JavaScript
+W poniższym przykładzie przedstawiono powiązania wejściowego DB rozwiązania Cosmos w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja odczytuje pojedynczego dokumentu i aktualizuje wartości tekstowej dokumentu.
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "in"
+}
+```
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
+
+Oto kod JavaScript:
 
 ```javascript
 // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
@@ -202,11 +281,35 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="input-sample-with-multiple-documents"></a>Przykładowe wejściowy z wieloma dokumentami
+## <a name="input---example-2"></a>Dane wejściowe — przykład 2
 
-Załóżmy, że chcesz pobrać wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacz kolejki, aby dostosować parametry zapytania. 
+Zapoznaj się z przykładem specyficzny dla języka, które odczytuje wiele dokumentów:
 
-W tym przykładzie wyzwalacza kolejki zawiera parametr `departmentId`. Komunikat z kolejki z `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy dotyczące działu finansowego. Należy użyć następującego w *function.json*:
+* [Prekompilowane C#](#input---c-example-2)
+* [Skryptu C#](#input---c-script-example-2)
+* [JavaScript](#input---javascript-example-2)
+
+### <a name="input---c-example-2"></a>Dane wejściowe — przykład C# 2
+
+W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) który wykonuje zapytanie SQL.
+
+```csharp
+[FunctionName("CosmosDBSample")]
+public static HttpResponseMessage Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
+    [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", sqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+{
+    return req.CreateResponse(HttpStatusCode.OK, documents);
+}
+```
+
+### <a name="input---c-script-example-2"></a>Dane wejściowe - C# przykładowy skrypt 2
+
+W poniższym przykładzie przedstawiono powiązania wejściowego usługi DocumentDB w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja pobiera wielu dokumentów określonych przez zapytanie SQL, aby dostosować parametry zapytania przy użyciu wyzwalacza kolejki.
+
+Wyzwalacz kolejki zawiera parametr `departmentId`. Komunikat z kolejki z `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy dotyczące działu finansowego. 
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```
 {
@@ -215,12 +318,14 @@ W tym przykładzie wyzwalacza kolejki zawiera parametr `departmentId`. Komunikat
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
     "connection": "CosmosDBConnection"
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-c"></a>Przykładowe wejściowy z wieloma dokumentami w języku C#
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
+
+Oto kod skryptu C#:
 
 ```csharp
 public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -237,7 +342,29 @@ public class QueuePayload
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-javascript"></a>Przykładowe wejściowy z wieloma dokumentami w języku JavaScript
+### <a name="input---javascript-example-2"></a>Dane wejściowe — przykład JavaScript 2
+
+W poniższym przykładzie przedstawiono powiązania wejściowego usługi DocumentDB w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja pobiera wielu dokumentów określonych przez zapytanie SQL, aby dostosować parametry zapytania przy użyciu wyzwalacza kolejki.
+
+Wyzwalacz kolejki zawiera parametr `departmentId`. Komunikat z kolejki z `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy dotyczące działu finansowego. 
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "CosmosDBConnection"
+}
+```
+
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
+
+Oto kod JavaScript:
 
 ```javascript
 module.exports = function (context, input) {    
@@ -250,33 +377,87 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Powiązania wyjściowego interfejsu API usługi DocumentDB
-Dane wyjściowe interfejsu API usługi DocumentDB umożliwia powiązanie nowy dokument zapisu do bazy danych Azure DB rozwiązania Cosmos. Ma następujące właściwości w *function.json*:
+## <a name="input---attributes"></a>Dane wejściowe — atrybuty
 
-|Właściwość  |Opis  |
-|---------|---------|
-|**Nazwa**     | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
-|**Typ**     | należy wybrać opcję `documentdb`.        |
-|**databaseName** | Baza danych zawierający kolekcję, do której jest tworzony dokumentu.     |
-|**collectionName**  | Nazwa kolekcji, których tworzone jest dokumentu. |
-|**createIfNotExists**     | Wartość logiczna wskazująca, czy kolekcja jest tworzony, gdy nie istnieje. Wartość domyślna to *false*. Jest to spowodowane nowe kolekcje są tworzone z zarezerwowaną przepływnością, co ma koszt skutki. Aby uzyskać więcej informacji, odwiedź stronę [cennikiem](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**połączenia**     |Nazwa ustawienia aplikacji zawierający parametry połączenia bazy danych Azure rozwiązania Cosmos.        |
-|**Kierunek**     | należy wybrać opcję `out`.         |
+Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-## <a name="using-a-documentdb-api-output-binding"></a>Powiązania wyjściowego przy użyciu interfejsu API usługi DocumentDB
-W tej sekcji przedstawiono sposób użycia interfejsu API usługi DocumentDB dane wyjściowe powiązania w kodzie funkcji.
+Konstruktor atrybutu ma nazwę bazy danych i nazwę kolekcji. Aby uzyskać informacje o tych ustawieniach i inne właściwości, które można skonfigurować, zobacz [następującą sekcję konfiguracji](#input---configuration). 
 
-Domyślnie podczas zapisywania do parametru wyjściowego w funkcji, dokument jest tworzony w bazie danych. Ten dokument ma automatycznie generowanym identyfikatorze GUID jako identyfikatora dokumentu. Identyfikator dokumentu dokumentu wyjściowego można określić, podając `id` właściwości w obiekcie JSON przekazanego do parametru wyjściowego. 
+## <a name="input---configuration"></a>Dane wejściowe — Konfiguracja
 
->[!Note]  
->Po określeniu Identyfikatora istniejącego dokumentu pobiera zastąpione przez nowy dokument danych wyjściowych. 
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `DocumentDB` atrybutu.
 
-Do wyjściowego wielu dokumentów, można także powiązać `ICollector<T>` lub `IAsyncCollector<T>` gdzie `T` jest jednym z obsługiwanych typów.
+|Właściwość Function.JSON | Właściwość atrybutu |Opis|
+|---------|---------|----------------------|
+|**Typ**     || należy wybrać opcję `documentdb`.        |
+|**Kierunek**     || należy wybrać opcję `in`.         |
+|**Nazwa**     || Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
+|**databaseName** |**DatabaseName** |Baza danych zawierająca dokumentu.        |
+|**collectionName** |**CollectionName** | Nazwa kolekcji, która zawiera dokument. |
+|**Identyfikator**    | **Identyfikator** | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje powiązania parametrów. Aby dowiedzieć się więcej, zobacz [powiązania niestandardowe właściwości wejściowych w wyrażeniu powiązania](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). Nie należy ustawiać zarówno **identyfikator** i **sqlQuery** właściwości. Jeśli nie zostanie ustawiona jedną, są pobierane całą kolekcję. |
+|**sqlQuery**  |**SqlQuery**  | Zapytanie Azure rozwiązania Cosmos bazy danych SQL, używane do pobierania wielu dokumentów. Właściwość obsługuje powiązań czasu wykonywania, jak w poniższym przykładzie: `SELECT * FROM c where c.departmentId = {departmentId}`. Nie należy ustawiać zarówno **identyfikator** i **sqlQuery** właściwości. Jeśli nie zostanie ustawiona jedną, są pobierane całą kolekcję.|
+|**połączenia**     |**ConnectionStringSetting**|Nazwa ustawienia aplikacji zawierający parametry połączenia bazy danych Azure rozwiązania Cosmos.        |
+||**PartitionKey**|Określa wartość klucza partycji do wyszukiwania. Mogą zawierać parametrów wiązania.|
 
-<a name="outputsample"></a>
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="documentdb-api-output-binding-sample"></a>Przykładowe powiązania danych wyjściowych interfejsu API usługi DocumentDB
-Załóżmy, że masz następujące interfejsu API usługi DocumentDB output powiązanie w `bindings` tablicy function.json:
+## <a name="input---usage"></a>Dane wejściowe — użycie
+
+W języku C# i F # funkcjach gdy funkcja kończy się pomyślnie, wszelkie zmiany wprowadzone do dokument wejściowy za pośrednictwem nazwanych parametrów wejściowych automatycznie są zachowywane. 
+
+W funkcji JavaScript aktualizacje nie będą automatycznie po wyjściu z funkcji. Zamiast tego należy użyć `context.bindings.<documentName>In` i `context.bindings.<documentName>Out` aby aktualizacje. Zobacz [przykład JavaScript](#input---javascript-example).
+
+## <a name="output"></a>Dane wyjściowe
+
+Dane wyjściowe interfejsu API usługi DocumentDB umożliwia powiązanie nowy dokument zapisu do bazy danych Azure DB rozwiązania Cosmos. 
+
+## <a name="output---example"></a>OUTPUT — przykład
+
+Zapoznaj się z przykładem specyficzny dla języka:
+
+* [Prekompilowane C#](#trigger---c-example)
+* [Skryptu C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
+
+W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) dodaje dokumentu do bazy danych, przy użyciu danych zawartych w wiadomości z kolejki magazynu.
+
+```cs
+[FunctionName("QueueToDocDB")]        
+public static void Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+{
+    document = new { Text = myQueueItem, id = Guid.NewGuid() };
+}
+```
+
+### <a name="output---c-script-example"></a>Dane wyjściowe — przykładowy skrypt w języku C#
+
+W poniższym przykładzie przedstawiono dane wyjściowe z usługi DocumentDB powiązanie w *function.json* pliku i [funkcji skryptu C#](functions-reference-csharp.md) używającą powiązania. Funkcja używa powiązania wejściowego kolejki dla kolejki, który odbiera JSON w następującym formacie:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Funkcja ta umożliwia tworzenie dokumentów bazy danych Azure rozwiązania Cosmos w następującym formacie, dla każdego rekordu:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
 
 ```json
 {
@@ -290,36 +471,9 @@ Załóżmy, że masz następujące interfejsu API usługi DocumentDB output powi
 }
 ```
 
-I ma powiązania wejściowego kolejki dla kolejki, który odbiera JSON w następującym formacie:
+[Konfiguracji](#output---configuration) sekcji opisano te właściwości.
 
-```json
-{
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
-}
-```
-
-I chcesz utworzyć dokumentów bazy danych Azure rozwiązania Cosmos w następującym formacie, dla każdego rekordu:
-
-```json
-{
-  "id": "John Henry-123456",
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
-}
-```
-
-Zobacz przykładowe specyficzny dla języka, który używa tego powiązania danych wyjściowych, aby dodawać dokumenty do bazy danych.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [JavaScript](#outjavascript)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Przykładowe dane wyjściowe w języku C# #
+Oto kod skryptu C#:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -343,9 +497,47 @@ public static void Run(string myQueueItem, out object employeeDocument, TraceWri
 }
 ```
 
-<a name="outfsharp"></a>
+Aby utworzyć wiele dokumentów, można powiązać `ICollector<T>` lub `IAsyncCollector<T>` gdzie `T` jest jednym z obsługiwanych typów.
 
-### <a name="output-sample-in-f"></a>Przykładowe dane wyjściowe w języku F # #
+### <a name="output---f-example"></a>Dane wyjściowe — przykład F #
+
+W poniższym przykładzie przedstawiono dane wyjściowe z usługi DocumentDB powiązanie w *function.json* pliku i [F # funkcja](functions-reference-fsharp.md) używającą powiązania. Funkcja używa powiązania wejściowego kolejki dla kolejki, który odbiera JSON w następującym formacie:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Funkcja ta umożliwia tworzenie dokumentów bazy danych Azure rozwiązania Cosmos w następującym formacie, dla każdego rekordu:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "out"
+}
+```
+[Konfiguracji](#output---configuration) sekcji opisano te właściwości.
+
+Oto kod F #:
 
 ```fsharp
 open FSharp.Interop.Dynamic
@@ -385,9 +577,46 @@ W tym przykładzie wymaga `project.json` pliku, który określa `FSharp.Interop.
 
 Aby dodać `project.json` plików, zobacz [zarządzania pakietami F #](functions-reference-fsharp.md#package).
 
-<a name="outjavascript"></a>
+### <a name="output---javascript-example"></a>Dane wyjściowe — przykład JavaScript
 
-### <a name="output-sample-in-javascript"></a>Przykładowe dane wyjściowe w języku JavaScript
+W poniższym przykładzie przedstawiono dane wyjściowe z usługi DocumentDB powiązanie w *function.json* pliku i [funkcji JavaScript](functions-reference-node.md) używającą powiązania. Funkcja używa powiązania wejściowego kolejki dla kolejki, który odbiera JSON w następującym formacie:
+
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+Funkcja ta umożliwia tworzenie dokumentów bazy danych Azure rozwiązania Cosmos w następującym formacie, dla każdego rekordu:
+
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
+
+W tym miejscu jest powiązanie danych *function.json* pliku:
+
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "out"
+}
+```
+
+[Konfiguracji](#output---configuration) sekcji opisano te właściwości.
+
+Oto kod JavaScript:
 
 ```javascript
 module.exports = function (context) {
@@ -402,3 +631,57 @@ module.exports = function (context) {
   context.done();
 };
 ```
+
+## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
+
+Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+
+Konstruktor atrybutu ma nazwę bazy danych i nazwę kolekcji. Aby uzyskać informacje o tych ustawieniach i inne właściwości, które można skonfigurować, zobacz [wyjście - konfiguracji](#output---configuration). Oto `DocumentDB` przykład atrybutu w podpisie metody:
+
+```csharp
+[FunctionName("QueueToDocDB")]        
+public static void Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+{
+    ...
+}
+```
+
+Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+
+## <a name="output---configuration"></a>OUTPUT — Konfiguracja
+
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `DocumentDB` atrybutu.
+
+|Właściwość Function.JSON | Właściwość atrybutu |Opis|
+|---------|---------|----------------------|
+|**Typ**     || należy wybrać opcję `documentdb`.        |
+|**Kierunek**     || należy wybrać opcję `out`.         |
+|**Nazwa**     || Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
+|**databaseName** | **DatabaseName**|Baza danych zawierający kolekcję, do której jest tworzony dokumentu.     |
+|**collectionName** |**CollectionName**  | Nazwa kolekcji, których tworzone jest dokumentu. |
+|**createIfNotExists**  |**CreateIfNotExists**    | Wartość logiczna wskazująca, czy kolekcja jest tworzony, gdy nie istnieje. Wartość domyślna to *false* ponieważ nowe kolekcje są tworzone z zarezerwowaną przepływnością, co ma koszt skutki. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).  |
+||**PartitionKey** |Gdy `CreateIfNotExists` ma wartość true, określa ścieżkę klucza partycji dla utworzonej kolekcji.|
+||**CollectionThroughput**| Gdy `CreateIfNotExists` ma wartość true, określa [przepływności](../cosmos-db/set-throughput.md) utworzonej kolekcji.|
+|**połączenia**    |**ConnectionStringSetting** |Nazwa ustawienia aplikacji zawierający parametry połączenia bazy danych Azure rozwiązania Cosmos.        |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="output---usage"></a>Dane wyjściowe — użycie
+
+Domyślnie podczas zapisywania do parametru wyjściowego w funkcji, dokument jest tworzony w bazie danych. Ten dokument ma automatycznie generowanym identyfikatorze GUID jako identyfikatora dokumentu. Identyfikator dokumentu dokumentu wyjściowego można określić, podając `id` właściwości w obiekcie JSON przekazanego do parametru wyjściowego. 
+
+> [!Note]  
+> Po określeniu Identyfikatora istniejącego dokumentu pobiera zastąpione przez nowy dokument danych wyjściowych. 
+
+## <a name="next-steps"></a>Następne kroki
+
+> [!div class="nextstepaction"]
+> [Przejdź do szybkiego startu, używającej wyzwalacz DB rozwiązania Cosmos](functions-create-cosmos-db-triggered-function.md)
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o bez serwera bazy danych, przetwarzania danych z bazy danych rozwiązania Cosmos](..\cosmos-db\serverless-computing-database.md)
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

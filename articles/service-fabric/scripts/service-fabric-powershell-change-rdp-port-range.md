@@ -1,5 +1,5 @@
 ---
-title: "Azure przykładowy skrypt programu PowerShell — Zmień zakres portów protokołu RDP. | Microsoft Docs"
+title: "Przykładowy skrypt programu PowerShell Azure - zmiany zakresu portów protokołu RDP | Dokumentacja firmy Microsoft"
 description: "Przykładowy skrypt programu PowerShell Azure - zmienia zakres portów protokołu RDP wdrożonej klastra."
 services: service-fabric
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ca24c1afb9a29db7c5ff36d23a10da84ca2f45c3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9089d071c69830323a94140a5ebb4e9e865499c6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/29/2017

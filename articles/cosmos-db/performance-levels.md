@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofanie poziomy wydajności S1, S2 i S3
 
@@ -93,7 +93,7 @@ Wykonując zawiera 10 kolekcji S1, 1 GB pamięci masowej dla każdego regionu na
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Co zrobić, jeśli potrzebna jest więcej niż 10 GB przestrzeni dyskowej?
 
-Czy masz kolekcję o poziomie wydajności S1, S2 lub S3 lub mieć Kolekcja jednej partycji, które mają 10 GB dostępnego miejsca, służy narzędzie do migracji danych DB rozwiązania Cosmos do migracji danych do kolekcji partycjonowanych z niemal nieograniczonego magazynu. Aby uzyskać informacje o zaletach kolekcję partycjonowaną, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](documentdb-partition-data.md). Aby uzyskać informacje o sposobie migrowania S1, S2, S3 lub Kolekcja jednej partycji do kolekcji partycjonowanych, zobacz [migracji z jednej partycji do kolekcji partycjonowanych](documentdb-partition-data.md#migrating-from-single-partition). 
+Czy masz kolekcję o poziomie wydajności S1, S2 lub S3 lub mieć Kolekcja jednej partycji, które mają 10 GB dostępnego miejsca, służy narzędzie do migracji danych DB rozwiązania Cosmos do migracji danych do kolekcji partycjonowanych z niemal nieograniczonego magazynu. Aby uzyskać informacje o zaletach kolekcję partycjonowaną, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 
