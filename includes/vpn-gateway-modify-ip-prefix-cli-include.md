@@ -5,7 +5,7 @@ Jeśli nie masz połączenia bramy i chcesz dodać lub usunąć prefiksy adresó
 Po wprowadzeniu każdej zmiany należy określić całą listę prefiksów, a nie tylko prefiksy, które chcesz zmienić. Określ tylko prefiksy, które chcesz zachować. W tym przypadku są to prefiksy 10.0.0.0/24 i 20.0.0.0/24
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
@@ -15,5 +15,5 @@ Jeśli masz połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP
 Po wprowadzeniu każdej zmiany należy określić całą listę prefiksów, a nie tylko prefiksy, które chcesz zmienić. W tym przykładzie już istnieją prefiksy 10.0.0.0/24 i 20.0.0.0/24. Dodano prefiksy 30.0.0.0/24 i 40.0.0.0/24 oraz określono wszystkie 4 prefiksy podczas aktualizowania.
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

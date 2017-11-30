@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 308de5c90f1c06ed1dfe2981960a24beee066cf3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Wdrażanie aplikacji kontenera systemu Linux w usłudze Azure Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -33,11 +33,11 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Skalowanie kontenerów i przenoszenie ich do trybu failover w usłudze Service Fabric
 
 ## <a name="prerequisite"></a>Wymagania wstępne
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/en-us/free/).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, upewnij się, że uruchamiasz interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom polecenie az --version. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, upewnij się, że uruchamiasz interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby znaleźć wersję, uruchom polecenie az --version. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Pobieranie pakietu aplikacji
 Do wdrożenia kontenerów w usłudze Service Fabric potrzebujesz zestawu plików manifestu (definicja aplikacji), które opisują poszczególne kontenery i aplikację.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig1
-ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do interfejsu API tabel usługi Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania
 | Przepływność | Zmienny model przepływności. Tabele mają limit skalowalności 20 000 operacji/s. | Wysoka skalowalność dzięki [dedykowanej zarezerwowanej przepływności na tabelę](request-units.md), gwarantowanej umowami SLA. Konta nie mają górnego limitu przepływności i obsługują >10 milionów operacji/s na tabelę. |
 | Dystrybucja globalna | Jeden region z jednym opcjonalnym dodatkowym regionem odczytu, co zapewnia wysoką dostępność. Nie można zainicjować trybu failover. | [Kompleksowa dystrybucja globalna](distribute-data-globally.md) do ponad 30 regionów. Obsługa [automatycznego i ręcznego trybu failover](regional-failover.md) w dowolnym momencie i każdym miejscu na świecie. |
 | Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów. | Automatyczne i kompletne indeksowanie wszystkich właściwości, brak zarządzania indeksem. |
-| Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. Aparat bazy danych usługi Azure Cosmos DB obsługuje wartości zagregowane, rozwiązania geoprzestrzenne i sortowanie. |
+| Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. |
 | Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md), równoważących dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji. |
 | Cennik | Optymalizacja pod kątem magazynu. | Optymalizacja pod kątem przepływności. |
 | Umowy SLA | Dostępność na poziomie 99,99%. | Umowa SLA gwarantująca dostępność na poziomie co najmniej 99,99% dla wszystkich kont w obrębie jednego regionu i wszystkich kont w wielu regionach w przypadku rozluźnionej spójności, a także dostępność do odczytu na poziomie co najmniej 99,999% dla wszystkich kont bazy danych w wielu regionach w ramach [wiodących w branży, kompleksowych umów SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dotyczących ogólnej dostępności. |

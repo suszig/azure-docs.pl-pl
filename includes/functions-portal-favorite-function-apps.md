@@ -12,6 +12,6 @@ Jeśli jeszcze tego nie zrobiono, dodaj aplikację funkcji do ulubionych w witry
 
 3. Zamknij menu, a następnie przewiń w dół, aby wyświetlić ikonę Funkcje. Kliknij tę ikonę, aby wyświetlić listę wszystkich aplikacji funkcji. Kliknij aplikację funkcji, aby pracować z funkcjami w tej aplikacji. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Funkcja aplikacji w ulubionych](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      
