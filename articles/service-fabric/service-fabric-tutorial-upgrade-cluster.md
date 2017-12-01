@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Uaktualnienie środowiska uruchomieniowego klastra sieci szkieletowej usług
 
-W tym samouczku jest częścią cztery serii i opisano sposób uaktualniania środowiska uruchomieniowego platformy Service Fabric w klastrze usługi sieć szkieletowa usług Azure. Tej części samouczek jest przeznaczony dla klastrów sieci szkieletowej usług działających na platformie Azure i nie ma zastosowania do hostowania samoobsługowego klastrów sieci szkieletowej usług.
+W tym samouczku jest częścią trzy serii i opisano sposób uaktualniania środowiska uruchomieniowego platformy Service Fabric w klastrze usługi sieć szkieletowa usług Azure. Tej części samouczka jest przeznaczony dla klastrów sieci szkieletowej usług działających na platformie Azure i nie ma zastosowania do autonomicznej usługi sieć szkieletowa klastrów.
 
 > [!WARNING]
 > Tej części samouczka wymaga środowiska PowerShell. Obsługa uaktualniania środowiska uruchomieniowego klastra nie jest jeszcze obsługiwana za pomocą narzędzi wiersza polecenia platformy Azure. Alternatywnie można uaktualnić klaster w portalu. Aby uzyskać więcej informacji, zobacz [uaktualnienia klastra usługi sieć szkieletowa usług Azure](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Wersja klastra do odczytu
 > * Ustaw wersję klastra
+
+W tym samouczku dowiesz się, jak:
+> [!div class="checklist"]
+> * Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
+> * [Skalowanie klastra przychodzący lub wychodzący](service-fabric-tutorial-scale-cluster.md)
+> * Uaktualnienie środowiska uruchomieniowego klastra
+> * [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
@@ -190,3 +197,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Pobierz wersję środowiska uruchomieniowego klastra
 > * Uaktualnienie środowiska uruchomieniowego klastra
 > * Monitor uaktualnienia
+
+Następnie przejdź do samouczka następujące informacje na temat wdrażania interfejsu API zarządzania z klastrem usługi sieć szkieletowa usług.
+> [!div class="nextstepaction"]
+> [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)

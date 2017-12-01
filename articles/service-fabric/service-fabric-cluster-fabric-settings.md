@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Dostosowywanie ustawień klastra sieci szkieletowej usług i zasady uaktualniania sieci szkieletowej
 Ten dokument zawiera informacje dotyczące dostosować różne ustawienia sieci szkieletowej i sieci szkieletowej uaktualniania zasad dla klastra usługi sieć szkieletowa usług. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
@@ -389,7 +389,7 @@ Poniżej znajduje się lista sieci szkieletowej ustawień, które można dostoso
 ### <a name="section-name-imagestoreservice"></a>Nazwa sekcji: ImageStoreService
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub krótki opis** |
 | --- | --- | --- | --- |
-| Włączono |Wartość logiczna, wartość domyślna to false |Statyczny|Flaga włączone dla ImageStoreService. Domyślnie: false |
+| Enabled (Włączony) |Wartość logiczna, wartość domyślna to false |Statyczny|Flaga włączone dla ImageStoreService. Domyślnie: false |
 | Wartość TargetReplicaSetSize | Int, domyślna to 7 |Statyczny|TargetReplicaSetSize dla ImageStoreService. |
 | MinReplicaSetSize | Int, domyślna to 3 |Statyczny|MinReplicaSetSize dla ImageStoreService. |
 | ReplicaRestartWaitDuration | Czas w sekundach, wartość domyślna to 60.0 * 30 |Statyczny|Określ zakres czasu w sekundach. ReplicaRestartWaitDuration dla ImageStoreService. |
@@ -536,8 +536,8 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | Operację FileContent |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu magazynu klienta transferu plików (zewnętrznych do klastra). |
 | FileDownload |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń rozpoczęcia pobierania pliku obrazu klienta magazynu, które zostały (zewnętrznych do klastra). |
 | InternalList |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy plików klienta (wewnętrzny). |
-| Usuń |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracje zabezpieczeń dla obrazu magazynu operację usuwania klienta. |
-| Przekaż |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja przekazywania klienta. |
+| Usuwanie |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracje zabezpieczeń dla obrazu magazynu operację usuwania klienta. |
+| Upload |ciąg, domyślną jest "Admin" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja przekazywania klienta. |
 | GetStagingLocation |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu magazynu klienta tymczasowej lokalizacji pobierania. |
 | GetStoreLocation |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla obrazu przechowywać Pobieranie lokalizacji magazynu klienta. |
 | NodeControl |ciąg, domyślną jest "Admin" |Dynamiczny| Konfiguracja zabezpieczeń dla uruchamiania; zatrzymywanie; i ponowne uruchamianie węzłów. |
@@ -555,7 +555,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | StartClusterConfigurationUpgrade |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje StartClusterConfigurationUpgrade na partycji. |
 | GetUpgradesPendingApproval |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje GetUpgradesPendingApproval na partycji. |
 | StartApprovedUpgrades |ciąg, domyślną jest "Admin" |Dynamiczny| Wywołuje StartApprovedUpgrades na partycji. |
-| Polecenie ping |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń klienta polecenia ping. |
+| Ping |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń klienta polecenia ping. |
 | Zapytanie |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń dla zapytań. |
 | NameExists |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Sprawdza, czy konfiguracja zabezpieczeń dla identyfikatora URI nazewnictwa istnienia. |
 | EnumerateSubnames |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń dla identyfikatora URI nazewnictwa wyliczenia. |
@@ -570,7 +570,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 | GetUpgradeStatus |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń sondowania stanu uaktualniania aplikacji. |
 | GetFabricUpgradeStatus |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń sondowania stan uaktualnienia klastra. |
 | InvokeInfrastructureQuery |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Badania infrastruktury zadań konfiguracji zabezpieczeń. |
-| Lista |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy pliku klienta. |
+| List |ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Konfiguracja zabezpieczeń dla obrazu przechowywać operacja listy pliku klienta. |
 | Funkcji resetpartitionload modułu |ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń resetowania obciążenia failoverUnit. |
 | Toggleverboseserviceplacementhealthreporting modułu | ciąg, domyślną jest "Admin\|\|Użytkownik" |Dynamiczny| Konfiguracja zabezpieczeń przełączanie pełne ServicePlacement HealthReporting. |
 | GetPartitionDataLossProgress | ciąg, domyślną jest "Admin\|\|Użytkownik" | Dynamiczny|Pobiera postępu dla wywołania interfejsu api invoke utraty danych. |
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |GetCodePackageActivationContextTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny|Określ zakres czasu w sekundach. Wartość limitu czasu dla wywołań CodePackageActivationContext. To nie ma zastosowania do usług ad hoc. |
 |IPProviderEnabled|wartość logiczna, domyślna to FALSE|Statyczny|Umożliwia zarządzanie adresami IP. |
 |NTLMAuthenticationEnabled|wartość logiczna, domyślna to FALSE|Statyczny| Umożliwia obsługę przez pakiety kodu, które są uruchomione innych użytkowników, dzięki czemu procesów na komputerach można bezpiecznego komunikowania się przy użyciu protokołu NTLM. |
-|NTLMAuthenticationPasswordSecret|SecureString, domyślnie jest Common::SecureString(L"")|Statyczny|Jest zaszyfrowany ma służący do generowania haseł dla użytkowników NTLM. Musi być ustawiona, jeśli NTLMAuthenticationEnabled ma wartość true. Zweryfikowane przez narzędzia wdrażania. |
+|NTLMAuthenticationPasswordSecret|SecureString, domyślnie jest Common::SecureString(L"")|Statyczny|Jest zaszyfrowany skrót służący do generowania haseł dla użytkowników NTLM. Musi być ustawiona, jeśli NTLMAuthenticationEnabled ma wartość true. Zweryfikowane przez narzędzia wdrażania. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromMinutes(3)|Dynamiczny|Określ zakres czasu w sekundach. Ustawienia charakterystyczne dla środowiska okresowe interwał, w którym hostingu skanowania pod kątem nowych certyfikatów, które ma być użyty do konfiguracji FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromMinutes(4)|Dynamiczny| Określ zakres czasu w sekundach. Limit czasu dotyczące konfigurowania uwierzytelniania NTLM użytkowników przy użyciu wspólnej nazwy certyfikatów. Użytkownicy NTLM są wymagane dla FileStoreService udziałów. |
 |RegisterCodePackageHostTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny| Określ zakres czasu w sekundach. Wartość limitu czasu dla wywołania synchronizacji FabricRegisterCodePackageHost. Dotyczy tylko multi kod pakietu aplikacji hosty jak FWP |

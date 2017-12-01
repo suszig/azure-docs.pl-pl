@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatycznie skalować skali maszyny wirtualnej w portalu Azure
 Podczas tworzenia zestawu skalowania, należy zdefiniować liczba wystąpień maszyn wirtualnych, które chcesz uruchomić. Twoje żądanie aplikacji zmian, można automatycznie zwiększyć lub zmniejszyć liczbę wystąpień maszyn wirtualnych. Możliwość skalowania automatycznego umożliwia nadąża z popyt lub reagowania na zmiany wydajności aplikacji w całym cyklu życia aplikacji.
@@ -48,13 +48,13 @@ Jeśli Twoje żądanie aplikacji zwiększa, obciążenie wystąpień maszyn wirt
     
     | Parametr              | Wyjaśnienie                                                                                                         | Wartość          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Agregacja czasu*     | Określa, jak zebranych metryk powinny być agregowane dla celów analizy.                                                | Średni        |
+    | *Agregacja czasu*     | Określa, jak zebranych metryk powinny być agregowane dla celów analizy.                                                | Średnia        |
     | *Nazwa metryki*          | Metryki wydajności do monitorowania i zastosować skali ustawić akcje.                                                   | Procentowe użycie procesora CPU |
-    | *Statystyka ziarno czasu* | Określa, jak metryki zbierane w poszczególnych ziarno czasu powinien agregowane dla celów analizy.                             | Średni        |
+    | *Statystyka ziarno czasu* | Określa, jak metryki zbierane w poszczególnych ziarno czasu powinien agregowane dla celów analizy.                             | Średnia        |
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                     | Więcej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 70             |
     | *Czas trwania*             | Ilość czasu monitorowane przed wartości metryki i próg są porównywane.                                   | 10 minut     |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ wartość procentową o |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ procent przez |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                            | 20             |
     | *Cool w dół (w minutach)*  | Ilość czasu oczekiwania przed reguła została zastosowana ponownie, aby akcji skalowania automatycznego ma czas zaczęły obowiązywać. | 5 minut      |
 
@@ -77,7 +77,7 @@ Na wieczorem lub w weekendy Twoje żądanie aplikacji mogą się zmniejszyć. Je
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                      | Mniej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 30             |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz wartość procentową o |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz procent przez |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                             | 20             |
 
 3. Aby utworzyć regułę, wybierz **Dodaj**
@@ -88,7 +88,7 @@ Twój profil skalowania automatycznego musi definiować minimum, maksimum i domy
 
 1. Ustaw następujące ograniczenia wystąpień:
 
-    | Minimalne | Maksymalna | Domyślne|
+    | Minimalne | Maksimum | Domyślne|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 
@@ -122,7 +122,7 @@ Poprzednich przykładach automatycznie przeskalowany skali ustawić przychodząc
 
     ![Utwórz zasady automatycznego skalowania, które zgodnie z harmonogramem](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Aby zobaczyć sposób stosowania reguł skalowania automatycznego, wybierz **Historia uruchomień** w górnej części **skalowanie** okna. Wykres i zdarzenia lista pokazuje, gdy reguł skalowania automatycznego wyzwolenia i liczba wystąpień maszyn wirtualnych w skali sieci zwiększa lub zmniejsza.
+Aby zobaczyć sposób stosowania reguł skalowania automatycznego, wybierz **Historia uruchomień** w górnej części **skalowanie** okna. Wykres i zdarzenia lista przedstawia, gdy liczba wystąpień maszyn wirtualnych w skali sieci i wyzwalaczy reguł skalowania automatycznego wartość zwiększa lub zmniejsza.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych 
 Baza danych SQL Azure może emitować metryki i informacji diagnostycznych dzienników łatwiejsze monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
@@ -48,7 +48,7 @@ Po włączeniu metryki i rejestrowanie danych diagnostycznych, należy określi�
 
 Można udostępnić nowych zasobów platformy Azure lub wybierz istniejący zasób. Po wybraniu zasobów magazynu, należy określić dane, które mają być zbierane. Dostępne opcje to:
 
-- [metryki 1 minutę](sql-database-metrics-diag-logging.md#1-minute-metrics): procent zawiera jednostek dtu w warstwie, limit jednostek dtu w warstwie, procent użycia procesora CPU danych fizycznych odczytu procent, dziennika zapisu procent, Powodzenie/nie powiodło się/zablokowane przez połączeń zapory, wartość procentowa sesji, procent pracowników, magazynu, magazynu wartość procentowa i XTP magazynu.
+- [Wszystkie metryki](sql-database-metrics-diag-logging.md#all-metrics): procent zawiera jednostek dtu w warstwie, limit jednostek dtu w warstwie, procent użycia procesora CPU danych fizycznych odczytu procent, dziennika zapisu procent, Powodzenie/nie powiodło się/zablokowane przez połączeń zapory, wartość procentowa sesji, procent pracowników, magazynu, procent użycia magazynu i procent użycia magazynu XTP.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): zawiera informacje o statystyki czasu wykonywania zapytania, takie jak czas trwania użycia i zapytanie Procesora.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): zawiera informacje dotyczące statystyk oczekiwania zapytania informuje zapytań oczekiwanie na, takie jak procesor CPU, LOG oraz blokowanie.
 - [Błędy](sql-database-metrics-diag-logging.md#errors-dataset): zawiera informacje o błędach SQL, które wystąpiły w tej bazie danych.
@@ -72,7 +72,7 @@ Aby dowiedzieć się, jak włączyć rejestrowanie i zrozumienie kategorii metry
 
 2. Utwórz nowe lub edytować istniejące ustawienia diagnostyki, wybierając obiekt docelowy i dane telemetryczne.
 
-   ![Ustawienia diagnostyczne](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+   ![Ustawienia diagnostyki](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -243,7 +243,7 @@ Lub po prostu:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Na przykład może być nazwa obiektu blob dla 1-minutowych metryki:
+Na przykład może być nazwa obiektu blob, dla wszystkich metryki:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,12 +261,12 @@ Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z maga
 
 ## <a name="metrics-and-logs-available"></a>Metryki i dostępnych dzienników
 
-### <a name="1-minute-metrics"></a>metryki 1 minuta
+### <a name="all-metrics"></a>Wszystkie metryki
 
 |**Zasób**|**Metryki**|
 |---|---|
 |Database (Baza danych)|Procent użycia jednostek DTU, używane jednostek dtu w warstwie, limit jednostek dtu w warstwie, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, Powodzenie/nie powiodło się/zablokowane przez połączeń zapory, wartość procentowa sesji, procent pracowników, magazynu, procent użycia magazynu, XTP procent użycia magazynu, i Zakleszczenie |
-|Puli elastycznej|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
+|Pula elastyczna|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Magazyn zapytań statystyk czasu wykonywania

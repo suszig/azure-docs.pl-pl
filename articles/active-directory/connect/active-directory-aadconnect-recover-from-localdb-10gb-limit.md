@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak odzyskać limitu 10 GB LocalDB
 Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Możesz korzystać z domyślnego programu SQL Server 2012 Express LocalDB zainstalowanego z programem Azure AD Connect lub użyć własnego pełnego programu SQL. Program SQL Server Express narzuca limit rozmiaru w wysokości 10 GB. Jeśli jest używany program LocalDB i limit zostanie osiągnięty, usługa synchronizacji programu Azure AD Connect nie będzie mogła uruchomić się ani prawidłowo wykonywać synchronizacji. Ten artykuł zawiera kroki odzyskiwania.
@@ -63,11 +63,11 @@ Nazwa bazy danych, utworzonych dla usługi Azure AD Connect jest **ADSync**. Aby
 * Konto usługi synchronizacji, które jest używane jako kontekst operacyjny usługi Azure AD Connect synchronizacji.
 * Lokalne grupy ADSyncAdmins, który został utworzony podczas instalacji.
 
-1. Utwórz kopię zapasową bazy danych przez skopiowanie **ADSync.mdf** i **ADSync_log.ldf** pliki znajdujące się w obszarze `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` do bezpiecznej lokalizacji.
+1. Utwórz kopię zapasową bazy danych przez skopiowanie **ADSync.mdf** i **ADSync_log.ldf** pliki znajdujące się w obszarze `%ProgramFiles%\Microsoft Azure AD Sync\Data` do bezpiecznej lokalizacji.
 
 2. Rozpocznij nową sesję programu PowerShell.
 
-3. Przejdź do folderu `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Przejdź do folderu `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Uruchom **sqlcmd** narzędzia, uruchamiając polecenie `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, przy użyciu poświadczeń administratora systemu lub bazy danych DBO.
 

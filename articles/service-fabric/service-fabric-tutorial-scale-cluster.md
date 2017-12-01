@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Skalowanie klastra sieci szkieletowej usług
 
@@ -30,6 +30,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Liczba węzłów klastra do odczytu
 > * Dodaj węzły klastra (skalowanie w poziomie)
 > * Usuń węzły klastra (skali w)
+
+W tym samouczku dowiesz się, jak:
+> [!div class="checklist"]
+> * Tworzenie bezpiecznej [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) lub [klaster systemu Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) na platformie Azure przy użyciu szablonu
+> * Skalowanie klastra przychodzący lub wychodzący
+> * [Uaktualnienie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
+> * [Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka:
@@ -250,8 +257,8 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Usuń węzły klastra (skali w)
 
 
-Następnie przejdź do następujących samouczkiem, aby dowiedzieć się, jak wdrożyć aplikację i używać usługi API management.
+Następnie przejdź do samouczka następujące informacje na temat uaktualniania środowiska uruchomieniowego klastra.
 > [!div class="nextstepaction"]
-> [Wdrażanie usługi API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Uaktualnienie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

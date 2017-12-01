@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager
 
@@ -27,13 +27,14 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 
 ## <a name="error-codes"></a>Kody błędów
 
-| Kod błędu: | Środki zaradcze | Więcej informacji |
+| Kod błędu | Środki zaradcze | Więcej informacji |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Wykonaj ograniczenia nazewnictwa dla kont magazynu. | [Rozpoznanie nazwy konta magazynu](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Sprawdź właściwości konta magazynu dostępne. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | Klaster lub regionie nie ma dostępu do zasobów lub nie może obsługiwać żądany rozmiar maszyny Wirtualnej. Ponów żądanie w późniejszym czasie, lub zwróć inny rozmiar maszyny Wirtualnej. | [Problemy z inicjowaniem obsługi administracyjnej i alokacji dla systemu Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) i [problemy z inicjowaniem obsługi administracyjnej i alokacji dla systemu Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Poczekaj na zakończenie operacji współbieżnych. | |
 | AuthorizationFailed | Twoje konto lub nazwy głównej usługi nie ma wystarczające prawa dostępu do wdrażania. Sprawdź używane konto należy do roli, a jego dostępu dla zakresu wdrożenia. | [Kontrola dostępu oparta na rolach na platformie Azure](../active-directory/role-based-access-control-configure.md) |
-| Element BadRequest | Wysłano wartości wdrożenia, które nie są zgodne, czego oczekuje się za pomocą Menedżera zasobów. Sprawdź komunikat o stanie wewnętrzny Aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołanie do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-manager-template-location.md) |
+| BadRequest | Wysłano wartości wdrożenia, które nie są zgodne, czego oczekuje się za pomocą Menedżera zasobów. Sprawdź komunikat o stanie wewnętrzny Aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołanie do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-manager-template-location.md) |
 | Konflikt | Zażądano operacji, które nie są dozwolone w bieżącym stanie zasobu. Na przykład zmiana rozmiaru dysku jest dozwolona tylko w przypadku tworzenia maszyny Wirtualnej lub po cofnięciu przydziału maszyny Wirtualnej. | |
 | DeploymentActive | Poczekaj, aż równoczesnych wdrożenia do tej grupy zasobów, aby zakończyć. | |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Podaj inną nazwę, albo zmodyfikować istniejący rekord. | |
@@ -54,7 +55,7 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | MissingRegistrationForLocation | Sprawdź stan rejestracji dostawcy zasobów i obsługiwane lokalizacje. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Zarejestrować subskrypcji u dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Sprawdzaj stan rejestracji dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
-| notFound | Może być próby wdrożenia zasób zależny równolegle z zasobu nadrzędnego. Sprawdź, czy konieczne jest dodanie zależności. | [Rozwiąż zależności](resource-manager-not-found-errors.md) |
+| Nie odnaleziono | Może być próby wdrożenia zasób zależny równolegle z zasobu nadrzędnego. Sprawdź, czy konieczne jest dodanie zależności. | [Rozwiąż zależności](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | Wdrożenie próbuje operację, która przekracza limit przydziału dla subskrypcji, grupy zasobów lub regionu. Jeśli to możliwe Popraw danego wdrożenia, aby pozostać w przydziałów. W przeciwnym razie należy wziąć pod uwagę żądania zmiany przydziałami. | [Rozwiąż przydziałów](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Upewnij się, że istnieje zasób nadrzędnego przed utworzeniem zasoby podrzędne. | [Rozwiąż zasobu nadrzędnego](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Określony adres IP zawiera zakres adresów wymagane przez platformę Azure. Zmienianie adresu IP, aby uniknąć zarezerwowany zakres. | [Adresy IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |

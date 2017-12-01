@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Jak korzystać z usługi Azure Machine Learning w sieci Web
 
@@ -64,18 +64,11 @@ Aby pobrać klucz interfejsu API usługi klasycznego Machine Learning w sieci We
 5. Skopiuj i Zapisz **klucz podstawowy**.
 
 ### <a name="classic-web-service"></a>Klasycznym usługi sieci Web
- Można również pobierać klucza dla usługi sieci Web klasycznego z usługi Machine Learning Studio lub klasycznego portalu Azure.
+ Można również pobrać klucza dla usługi sieci Web klasycznego z Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. W usłudze Machine Learning Studio, kliknij przycisk **usług sieci WEB** po lewej stronie.
 2. Kliknij usługę sieci Web. **Klucz interfejsu API** znajduje się na **pulpitu NAWIGACYJNEGO** kartę.
-
-#### <a name="azure-classic-portal"></a>klasyczny portal Azure
-1. Kliknij przycisk **UCZENIA MASZYNOWEGO** po lewej stronie.
-2. Kliknij obszar roboczy, w którym znajduje się usługa sieci Web.
-3. Kliknij przycisk **usług sieci WEB**.
-4. Kliknij usługę sieci Web.
-5. Kliknij punkt końcowy. "Klucz interfejsu API" jest wyłączony w prawej dolnej.
 
 ## <a id="connect"></a>Połączyć się z usługą Machine Learning w sieci Web
 Można nawiązać połączenia z usługą Machine Learning w sieci Web przy użyciu języka programowania, która obsługuje żądania HTTP i odpowiedzi. Przykłady można wyświetlić w języku C#, Python i R ze strony pomocy usługi Machine Learning w sieci Web.

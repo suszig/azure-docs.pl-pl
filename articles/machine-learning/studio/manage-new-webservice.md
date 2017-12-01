@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning
 Można Zarządzanie Machine Learning nowy i usług sieci Web klasycznego przy użyciu portalu usługi sieci Web Microsoft Azure Machine Learning. Ponieważ usługi nowej sieci Web i usług sieci Web klasycznego są oparte na różnych technologii podstawowej, masz możliwości zarządzania nieco inne dla każdego z nich.
@@ -155,36 +155,4 @@ Można aktualizować następujące właściwości:
 * **Rejestrowanie** umożliwia włączanie lub wyłączanie rejestrowania w punkcie końcowym błędów. Aby uzyskać więcej informacji, zobacz Włącz [rejestrowania dla usług sieci web uczenie maszynowe](web-services-logging.md).
 * **Włącz przykładowe dane** umożliwia podanie przykładowych danych, które służy do testowania usługi żądań i odpowiedzi. Jeśli utworzono usługę sieci web w usłudze Machine Learning Studio przykładowych danych jest pobierana z danych użytkownika używanych do uczenia modelu. Jeśli usługi zostały utworzone programowo, dane są pobierane z przykładowe dane podane jako część pakietu JSON.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Udziel lub zawiesić dostęp do usługi sieci Web dla użytkowników w portalu
-Przy użyciu klasycznego portalu Azure, można zezwolić lub odmówić dostępu do określonych użytkowników.
-
-### <a name="access-for-users-of-new-web-services"></a>Dostęp dla użytkowników usługi nowej sieci Web
-Aby włączyć innym użytkownikom do pracy z usług sieci Web w portalu usługi sieci Web systemu Azure Machine Learning, musisz dodać je jako co Administratorzy w Twojej subskrypcji platformy Azure.
-
-Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/) konta przy użyciu platformy Microsoft Azure — należy użyć konta, na którym jest skojarzony z subskrypcją platformy Azure.
-
-1. W okienku nawigacji kliknij **ustawienia**, następnie kliknij przycisk **Administratorzy**.
-2. W dolnej części okna kliknij **Dodaj**. 
-3. W oknie dialogowym Dodaj A WSPÓŁADMINISTRATOREM wpisz adres e-mail osoby, którą chcesz dodać jako współadministrator, a następnie wybierz subskrypcję, która ma współadministrator do uzyskania dostępu.
-4. Kliknij pozycję **Zapisz**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Dostęp dla użytkowników z usług sieci Web klasycznego
-Aby zarządzać obszaru roboczego:
-
-Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/) konta przy użyciu platformy Microsoft Azure — należy użyć konta, na którym jest skojarzony z subskrypcją platformy Azure.
-
-1. W panelu usługi Microsoft Azure, kliknij przycisk **UCZENIA MASZYNOWEGO**.
-2. Kliknij obszar roboczy, którą chcesz zarządzać.
-3. Kliknij przycisk **Konfiguruj** kartę.
-
-Na karcie Konfiguracja można zawiesić dostęp do obszaru roboczego uczenia maszynowego, klikając **ODMÓW**. Użytkownicy nie będą już mogli otworzyć obszar roboczy w usłudze Machine Learning Studio. Aby przywrócić dostęp, kliknij przycisk **Zezwalaj**.
-
-Do określonych użytkowników:
-
-Aby zarządzać dodatkowych kont, którzy mają dostęp do obszaru roboczego usługi Machine Learning Studio, kliknij przycisk **zalogować się do ML Studio** w **pulpitu NAWIGACYJNEGO** kartę. Spowoduje to otwarcie obszaru roboczego usługi Machine Learning Studio. W tym miejscu, kliknij przycisk **ustawienia** kartę, a następnie **użytkowników**. Możesz kliknąć **ZAPROSIĆ użytkowników więcej** udzielać użytkownikom dostępu do obszaru roboczego, lub wybierz użytkownika i kliknij przycisk **Usuń**.
-
-> [!NOTE]
-> **Zalogować się do ML Studio** łącze powoduje otwarcie przy użyciu Account Microsoft jest obecnie zarejestrowany w usłudze Machine Learning Studio. Account firmy Microsoft, używanego do logowania się do klasycznego portalu Azure do utworzenia obszaru roboczego nie ma automatycznie uprawnień do otwierania tego obszaru roboczego. Aby otworzyć obszar roboczy, użytkownik musi zalogować się Account firmy Microsoft, która została zdefiniowana jako właściciela obszaru roboczego lub konieczność odbierania zaproszenia od właściciela do obszaru roboczego.
-> 
-> 
 

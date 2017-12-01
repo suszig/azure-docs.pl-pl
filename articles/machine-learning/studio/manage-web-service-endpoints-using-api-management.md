@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Dowiedz się, jak zarządzać usługami sieci Web Azure ML za pomocą usługi API Management
 ## <a name="overview"></a>Omówienie
@@ -39,94 +39,133 @@ Aby ukończyć ten przewodnik, potrzebne są:
 * Obszar roboczy, usługi i api_key do eksperymentu uczenie maszynowe Azure wdrożyć jako usługę sieci web. Kliknij przycisk [tutaj](create-experiment.md) szczegółowe informacje na temat tworzenia eksperymentu uczenie maszynowe Azure. Kliknij przycisk [tutaj](publish-a-machine-learning-web-service.md) dla szczegółowe informacje na temat wdrażania uczenie maszynowe Azure eksperymentu jako usługę sieci web. Alternatywnie dodatek a. zawiera instrukcje dotyczące sposobu tworzenia i testowanie prostego eksperymentu uczenie maszynowe Azure i wdróż je jako usługi sieci web.
 
 ## <a name="create-an-api-management-instance"></a>Tworzenie wystąpienia usługi API Management
-Poniżej przedstawiono kroki przy użyciu interfejsu API zarządzania do zarządzania usługą sieci web uczenie maszynowe Azure. Najpierw utwórz wystąpienie usługi. Zaloguj się do [klasyczny Portal](https://manage.windowsazure.com/) i kliknij przycisk **nowy** > **usługi aplikacji** > **zarządzanie interfejsami API** > **Utwórz**.
 
-![Tworzenie wystąpienia](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+Usługi sieci web uczenie maszynowe Azure przy użyciu wystąpienia interfejsu API zarządzania można zarządzać.
 
-Określ unikatową **adres URL**. Ten przewodnik po używa **demoazureml** — należy wybrać inny. W polach **Subskrypcja** i **Region** wybierz wartości odpowiednie dla swojego wystąpienia usługi. Po wprowadzeniu wybrane opcje, kliknij przycisk Dalej.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz **+ Utwórz zasób**.
+3. W polu wyszukiwania wpisz "Interfejsu API zarządzania", a następnie wybierz zasób "Interfejsu API zarządzania".
+4. Kliknij przycisk **Utwórz**.
+5. **Nazwa** zostanie użyta wartość, aby utworzyć unikatowy adres URL (w tym przykładzie używane "demoazureml").
+6. Wybierz **subskrypcji**, **grupy zasobów**, i **lokalizacji** wystąpienia usługi.
+7. Określ wartość **nazwa organizacji** (w tym przykładzie używane "demoazureml").
+8. Wprowadź użytkownika **e-mail administratora** — ten adres e-mail będzie używany do powiadomień z systemu zarządzania interfejsu API.
+9. Kliknij przycisk **Utwórz**.
 
-![Utwórz usług-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+Może potrwać do 30 minut do utworzenia nowej usługi.
 
-Określ wartość **nazwa organizacji**. Ten przewodnik po używa **demoazureml** — należy wybrać inny. Wprowadź adres e-mail w **e-mail administratora** pola. Ten adres e-mail służy do wysyłania powiadomienia z systemu usługi API Management.
+![Utwórz usługę](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![Utwórz usług-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Kliknij pole wyboru, aby utworzyć wystąpienie usługi. *Trwa maksymalnie 30 minut do utworzenia nowej usługi*.
 
 ## <a name="create-the-api"></a>Utwórz ten interfejs API
 Po utworzeniu wystąpienia usługi, następnym krokiem jest utworzenie interfejsu API. Interfejs API składa się z zestawu operacji, które mogą być wywoływane z poziomu aplikacji klienckiej. Operacje interfejsu API są przekierowywane do istniejących usług sieci Web. Ten przewodnik utworzy interfejsów API czy serwera proxy do istniejących usług sieci web uczenie maszynowe Azure rekordy zasobów i usługi BES.
 
-Interfejsy API są tworzone i skonfigurować w portalu wydawcy interfejsu API, który jest dostępny za pośrednictwem klasycznego portalu Azure. Aby uzyskać dostęp do portalu wydawcy, wybierz wystąpienia usługi.
+Aby utworzyć interfejsu API:
 
-![Wybierz usługę wystąpienia](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. W portalu Azure Otwórz wystąpienie usługi, którą właśnie utworzony.
+2. W lewym okienku nawigacji, wybierz **interfejsów API**.
 
-Kliknij przycisk **Zarządzaj** w klasycznym portalu Azure usługi Zarządzanie interfejsami API.
+   ![Interfejs API zarządzania menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![Usługa zarządzania](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. Kliknij przycisk **dodać interfejsu API**.
+2. Wprowadź **Nazwa interfejsu API sieci Web** (w tym przykładzie używane "API pokaz uczenie maszynowe Azure").
+3. Aby uzyskać **adres URL usługi sieci Web**, wprowadź "`https://ussouthcentral.services.azureml.net`".
+4. Wprowadź ** sufiks adresu URL interfejsu API sieci Web ". Będzie to ostatnia część adresu URL, do którego użytkownicy będą używać do wysyłania żądań do wystąpienia usługi (w tym przykładzie używane "wersja demonstracyjna uczenie maszynowe Azure").
+5. Aby uzyskać **schemat adresu URL interfejsu API sieci Web**, wybierz pozycję **HTTPS**.
+6. Aby uzyskać **produktów**, wybierz pozycję **Starter**.
+7. Kliknij pozycję **Zapisz**.
 
-Kliknij przycisk **interfejsów API** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie kliknij przycisk **dodać interfejsu API**.
-
-![Interfejs API zarządzania menu](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Typ **API pokaz uczenie maszynowe Azure** jako **Nazwa interfejsu API sieci Web**. Typ **https://ussouthcentral.services.azureml.net** jako **adres URL usługi sieci Web**. Typ **pokaz uczenie maszynowe Azure** jako **sufiks adresu URL interfejsu API sieci Web**. Sprawdź **HTTPS** jako **adres URL interfejsu API sieci Web** schematu. Wybierz **Starter** jako **produkty**. Gdy skończysz, kliknij przycisk **zapisać** do tworzenia interfejsu API.
-
-![Dodaj — nowy — interfejs api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>Dodawanie działań
-Kliknij przycisk **operacji dodawania** do dodawania działań do tego interfejsu API.
 
-![Dodaj operację](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+Działania są dodawane i skonfigurowane do interfejsu API w portalu wydawcy. Aby uzyskać dostęp do portalu wydawcy, kliknij przycisk **portal wydawcy** w portalu Azure dla usługi interfejsu API zarządzania, wybierz **interfejsów API**, **operacji**, kliknij przycisk **Operacja dodania**.
+
+![Dodaj operację](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 **Nowej operacji** będzie wyświetlane okno i **podpisu** będzie domyślnie wybierany kartę.
 
 ## <a name="add-rrs-operation"></a>Dodaj operację rekordy zasobów
-Najpierw należy utworzyć operacji dla usługi uczenie maszynowe Azure rekordy zasobów. Wybierz **POST** jako **zlecenie HTTP**. Typ **/services/ /workspaces/ {obszaru roboczego} {usługi} / execute? api-version = {apiversion} & szczegóły = {szczegóły}** jako **szablon adresu URL**. Typ **wykonania rekordy zasobów** jako **Nazwa wyświetlana**.
+Najpierw należy utworzyć operacji dla usługi uczenie maszynowe Azure rekordy zasobów:
 
-![Dodawanie rekordów zasobów operacji podpisu](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. Aby uzyskać **zlecenie HTTP**, wybierz pozycję **POST**.
+2. Aby uzyskać **szablon adresu URL**, typu "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+3. Wprowadź **Nazwa wyświetlana** (w tym przykładzie używane "Rekordy zasobów Execute").
 
-Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**. Kliknij przycisk **zapisać** można zapisać tej operacji.
+   ![Dodawanie rekordów zasobów operacji podpisu](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![Dodawanie rekordów zasobów operacji odpowiedzi](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**.
+5. Kliknij przycisk **zapisać** można zapisać tej operacji.
+
+   ![Dodawanie rekordów zasobów operacji odpowiedzi](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>Dodaj BES operacji
-Zrzuty ekranu nie są włączone dla operacji usługi BES, ponieważ są one bardzo podobne do tych rekordów zasobów operacji dodawania.
+
+> [!NOTE]
+> Zrzuty ekranu nie zostały uwzględnione w tym miejscu dla operacji usługi BES są one bardzo podobne do tych rekordów zasobów operacji dodawania.
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Przesyłanie (ale nie start) zadanie wsadowe
-Kliknij przycisk **operacji dodawania** można dodać operacji BES uczenie maszynowe Azure do interfejsu API. Wybierz **POST** dla **zlecenie HTTP**. Typ **/services/ /workspaces/ {obszaru roboczego} {usługi} / zadania? api-version = {apiversion}** dla **szablon adresu URL**. Typ **przesłać BES** dla **Nazwa wyświetlana**. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**. Kliknij przycisk **zapisać** można zapisać tej operacji.
+
+1. Kliknij przycisk **operacji dodawania** można dodać operacji BES do interfejsu API.
+2. Aby uzyskać **zlecenie HTTP**, wybierz pozycję **POST**.
+3. Aby uzyskać **szablon adresu URL**, typu "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+4. Wprowadź **Nazwa wyświetlana** (w tym przykładzie używane "BES przesłać").
+5. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**.
+6. Kliknij pozycję **Zapisz**.
 
 ### <a name="start-a-batch-execution-job"></a>Uruchom zadanie wsadowe
-Kliknij przycisk **operacji dodawania** można dodać operacji BES uczenie maszynowe Azure do interfejsu API. Wybierz **POST** dla **zlecenie HTTP**. Typ **/jobs/ /services/ {usługi} /workspaces/ {obszaru roboczego} {jobid} / start? api-version = {apiversion}** dla **szablon adresu URL**. Typ **BES Start** dla **Nazwa wyświetlana**. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**. Kliknij przycisk **zapisać** można zapisać tej operacji.
+
+1. Kliknij przycisk **operacji dodawania** można dodać operacji BES do interfejsu API.
+2. Aby uzyskać **zlecenie HTTP**, wybierz pozycję **POST**.
+3. Aby uzyskać **zlecenie HTTP**, typu "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+4. Wprowadź **Nazwa wyświetlana** (w tym przykładzie używane BES Start (Rozpocznij)").
+6. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**.
+7. Kliknij pozycję **Zapisz**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Pobierz stan lub wyniku zadania wsadowe
-Kliknij przycisk **operacji dodawania** można dodać operacji BES uczenie maszynowe Azure do interfejsu API. Wybierz **UZYSKAĆ** dla **zlecenie HTTP**. Typ **/jobs/ /services/ {usługi} /workspaces/ {obszaru roboczego} {jobid}? api-version = {apiversion}** dla **szablon adresu URL**. Typ **stanu usługi BES** dla **Nazwa wyświetlana**. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**. Kliknij przycisk **zapisać** można zapisać tej operacji.
+
+1. Kliknij przycisk **operacji dodawania** można dodać operacji BES do interfejsu API.
+2. Aby uzyskać **zlecenie HTTP**, wybierz pozycję **UZYSKAĆ**.
+3. Aby uzyskać **szablon adresu URL**, typu "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Wprowadź **Nazwa wyświetlana** (w tym przykładzie używane "Stan usługi BES").
+6. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**.
+7. Kliknij pozycję **Zapisz**.
 
 ### <a name="delete-a-batch-execution-job"></a>Usuń zadanie wsadowe
-Kliknij przycisk **operacji dodawania** można dodać operacji BES uczenie maszynowe Azure do interfejsu API. Wybierz **usunąć** dla **zlecenie HTTP**. Typ **/jobs/ /services/ {usługi} /workspaces/ {obszaru roboczego} {jobid}? api-version = {apiversion}** dla **szablon adresu URL**. Typ **usunąć BES** dla **Nazwa wyświetlana**. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**. Kliknij przycisk **zapisać** można zapisać tej operacji.
 
-## <a name="call-an-operation-from-the-developer-portal"></a>Wywoływanie operacji z portalu dla deweloperów
-Operacje można wywołać bezpośrednio z portalu dla deweloperów, które oferują wygodny sposób, aby wyświetlić i przetestować operacje interfejsu API. W tym kroku przewodnik wywoła **wykonania rekordy zasobów** metody, która została dodana do **API pokaz uczenie maszynowe Azure**. Kliknij przycisk **portalu dla deweloperów** w menu u góry po prawej z klasycznego portalu.
+1. Kliknij przycisk **operacji dodawania** można dodać operacji BES do interfejsu API.
+2. Aby uzyskać **zlecenie HTTP**, wybierz pozycję **usunąć**.
+3. Aby uzyskać **szablon adresu URL**, typu "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Wprowadź **Nazwa wyświetlana** (w tym przykładzie używane "BES Delete").
+5. Kliknij przycisk **odpowiedzi** > **dodać** po lewej i wybierz **200 OK**.
+6. Kliknij pozycję **Zapisz**.
 
-![portalu dla deweloperów](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## <a name="call-an-operation-from-the-developer-portal"></a>Wywołaj operację z portalu dla deweloperów
 
-Kliknij przycisk **interfejsów API** z menu u góry, a następnie kliknij przycisk **API pokaz uczenie maszynowe Azure** Aby wyświetlić dostępne operacje.
+Operacje można wywołać bezpośrednio z portalu dla deweloperów, które oferują wygodny sposób, aby wyświetlić i przetestować operacje interfejsu API. W tym kroku wywoła **wykonania rekordy zasobów** metody, która została dodana do **API pokaz uczenie maszynowe Azure**. 
 
-![Interfejs api demoazureml](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. Kliknij przycisk **portalu dla deweloperów**.
 
-Wybierz **wykonania rekordy zasobów** dla tej operacji. Kliknij przycisk **wypróbuj**.
+   ![portalu dla deweloperów](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![try it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. Kliknij przycisk **interfejsów API** z menu u góry, a następnie kliknij przycisk **API pokaz uczenie maszynowe Azure** Aby wyświetlić dostępne operacje.
 
-Żądanie parametru, wpisz sieci **obszaru roboczego**, **usługi**, **2.0** dla **apiversion**, i **true** dla **szczegóły**. Można znaleźć sieci **obszaru roboczego** i **usługi** na pulpicie nawigacyjnym usługi sieci web uczenie maszynowe Azure (zobacz **przetestować usługę sieci web** w dodatku A).
+   ![Interfejs api demoazureml](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-Dla nagłówków żądań, kliknij przycisk **Dodaj nagłówek** i typ **Content-Type** i **application/json**, następnie kliknij przycisk **Dodaj nagłówek** i typ **autoryzacji** i **elementu nośnego <YOUR AZUREML SERVICE API-KEY>** . Można znaleźć sieci **klucz interfejsu api** na pulpicie nawigacyjnym usługi sieci web uczenie maszynowe Azure (zobacz **przetestować usługę sieci web** w dodatku A).
+3. Wybierz **wykonania rekordy zasobów** dla tej operacji. Kliknij przycisk **wypróbuj**.
 
-Typ **{"Dane wejściowe": {"input1": {"ColumnNames": ["Col2"] "wartości": [["jest to dobry dzień"]]}}, "GlobalParameters": {}}** dla treści żądania.
+   ![try it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![uczenie maszynowe Azure pokaz api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. Dla **parametry żądania**, typ użytkownika **obszaru roboczego** i **usługi**, typu "w wersji 2.0 dla **apiversion**i jest to"true"dla **szczegóły**. Można znaleźć sieci **obszaru roboczego** i **usługi** na pulpicie nawigacyjnym usługi sieci web uczenie maszynowe Azure (zobacz **przetestować usługę sieci web** w dodatku A).
 
-Kliknij przycisk **wysyłania**.
+   Aby uzyskać **nagłówki żądań**, kliknij przycisk **Dodaj nagłówek** i wpisz "Content-Type" i "application/json". Kliknij przycisk **Dodaj nagłówek** ponownie i wpisz "Autoryzacji" i "Bearer  *\<klucz interfejsu API usługi\>*". KLUCZ interfejsu API można znaleźć na pulpicie nawigacyjnym usługi sieci web uczenie maszynowe Azure (zobacz **przetestować usługę sieci web** w dodatku A).
 
-![Wyślij](./media/manage-web-service-endpoints-using-api-management/send.png)
+   Aby uzyskać **treść żądania**, typ `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+
+   ![uczenie maszynowe Azure pokaz api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. Kliknij przycisk **wysyłania**.
+
+   ![Wyślij](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Po wywołaniu operacji portalu dla deweloperów Wyświetla **żądany adres URL** usługi zaplecza **stanu odpowiedzi**, **nagłówki odpowiedzi**, natomiast dla ustawienia **zawartości odpowiedzi**.
 
@@ -196,7 +235,7 @@ Można znaleźć **api_key** klikając eksperymentu w pulpicie nawigacyjnym usł
 ##### <a name="test-button"></a>Przycisk Testuj
 Łatwe testowanie punktu końcowego rekordy zasobów jest kliknięcie **testu** na pulpicie nawigacyjnym usługi sieci web.
 
-![Test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![testowanie](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Typ **to dobry dzień** dla **col2**. Kliknij znacznik wyboru.
 

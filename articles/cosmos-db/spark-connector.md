@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie w czasie rzeczywistym analizy danych big data w usłudze Spark do łącznika usługi Azure DB rozwiązania Cosmos
 
@@ -172,7 +172,7 @@ Obecnie projektu łącznik używa maven. Aby utworzyć łącznik bez zależnośc
 ```
 mvn clean package
 ```
-Możesz również pobrać najnowsze wersje JAR z *zwalnia* folderu.
+Możesz również pobrać najnowsze wersje JAR z [ *zwalnia* folderu](https://github.com/Azure/azure-cosmosdb-spark/releases).
 
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Obejmują Spark DB Azure rozwiązania Cosmos JAR
 Przed wykonaniem dowolny kod, należy dołączyć JAR Spark DB rozwiązania Cosmos Azure.  Jeśli używasz **spark powłoki**, wówczas można uwzględnić JAR przy użyciu **— słoików** opcji.  

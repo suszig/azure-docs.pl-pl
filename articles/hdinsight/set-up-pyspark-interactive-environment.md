@@ -1,7 +1,7 @@
 ---
 title: "Usługa Azure HDInsight Tools — Konfigurowanie środowiska interakcyjne PySpark dla kodu programu Visual Studio | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać narzędzi HDInsight Azure dla programu Visual Studio Code do tworzenia, przesyłania zapytań i skryptów."
-Keywords: "VScode, narzędzia Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interakcyjne Hive, interakcyjne zapytania"
+description: "Dowiedz się, jak za pomocą narzędzi HDInsight Azure dla programu Visual Studio Code tworzenie i przesyłanie zapytań i skryptów."
+Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: 
 author: jejiang
@@ -16,59 +16,62 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 24839aadaee07b98ac5a6e6cfd14e44de54e7e7e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="set-up-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurowanie środowiska interakcyjne PySpark dla kodu programu Visual Studio
+# <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurowanie środowiska interakcyjne PySpark dla programu Visual Studio Code
 
-Poniższe kroki pokazują, jak zainstalować pakiety języka python uruchamianych **HDInsight: PySpark interakcyjne**.
+Poniższe kroki opisano sposób instalowania pakietów języka Python, uruchamiając **HDInsight: PySpark interakcyjne**.
 
 
-## <a name="set-up-pyspark-interactive-environment-on-macos-and-linux"></a>Konfigurowanie środowiska interakcyjne PySpark na MacOS i Linux
-Należy użyć polecenia **pip3** dla następujących kroków, jeśli jest **python 3.x**.
-1. Upewnij się, że **Python** i **pip** zainstalowane.
+## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Konfigurowanie środowiska interakcyjne PySpark na macOS i Linux
+Jeśli używasz **python 3.x**, należy użyć polecenia **pip3** dla następujących kroków:
+
+1. Upewnij się, że **Python** i **pip** są zainstalowane.
  
     ![wersja narzędzia pip Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Instalacja oprogramowania Jupyter
+2.  Instalacja oprogramowania Jupyter.
     ```
     sudo pip install jupyter
     ```
-    +  Może być następujący komunikat o błędzie wynik w systemie Linux i MacOS:
+   W systemie Linux i macOS może pojawić następujący komunikat o błędzie:
 
-        ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
-        ```Resolve:
-        sudo pip uninstall asyncio
-        sudo pip install trollies
-        ```
+   ![Błąd 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-    + Zainstaluj libkrb5 dev(For Linux only), może być wyświetlany następujący komunikat o błędzie:
+   ```Resolve:
+    sudo pip uninstall asyncio
+    sudo pip install trollies
+    ```
 
-        ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
-        ```Resolve:
-        sudo apt-get install libkrb5-dev 
-        ```
+3. Zainstaluj **libkrb5 deweloperów** (dla systemu Linux tylko). Może pojawić następujący komunikat o błędzie:
 
-3. Zainstaluj sparkmagic
+   ![Błąd 2](./media/set-up-pyspark-interactive-environment/error2.png)
+       
+   ```Resolve:
+   sudo apt-get install libkrb5-dev 
+   ```
+
+3. Zainstaluj **sparkmagic**.
    ```
    sudo pip install sparkmagic
    ```
 
-4. Upewnij się, że ten ipywidgets jest poprawnie zainstalowany, uruchamiając:
+4. Upewnij się, że **ipywidgets** jest poprawnie zainstalowany, wykonując następujące czynności:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
    ![Zainstaluj jądra otoki](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Zainstaluj jądra otoki. Uruchom **pip Pokaż sparkmagic** i zawiera ścieżkę tego sparkmagic jest zainstalowany. 
+5. Zainstaluj jądra otoki. Uruchom **pip Pokaż sparkmagic**. Dane wyjściowe zawierają ścieżki dla **sparkmagic** instalacji. 
 
     ![Lokalizacja sparkmagic](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
-6. Przejdź do lokalizacji i uruchom:
+6. Przejdź do lokalizacji, a następnie uruchom:
 
    ```Python2
    sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
@@ -78,21 +81,23 @@ Należy użyć polecenia **pip3** dla następujących kroków, jeśli jest **pyt
    ```
 
    ![Zainstaluj kernelspec jupyter](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Sprawdź stan instalacji: 
+7. Sprawdź stan instalacji.
 
     ```
     jupyter-kernelspec list
     ```
     ![Lista kernelspec jupyter](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-    Dla jądra dostępne: **python2** i **pysparkkernel** odpowiadają **python 2.x**, **python3** i  **pyspark3kernel** odpowiadają **python 3.x**. 
+    Dla jądra dostępne: 
+    - **python2** i **pysparkkernel** odpowiadają **python 2.x**. 
+    - **python3** i **pyspark3kernel** odpowiadają **python 3.x**. 
 
-8. Uruchom ponownie VScode i z powrotem do uruchomiony Edytor skryptów **HDInsight: PySpark interakcyjne**.
+8. Uruchom ponownie kodzie VS, a następnie wróć do edytora skryptów, który działa **HDInsight: PySpark interakcyjne**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 ### <a name="demo"></a>Demonstracja
-* HDInsight dla VScode: [wideo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight dla wersji programu VS kodu: [wideo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Narzędzia i rozszerzenia
 * [Narzędzie Azure HDInsight dla kodu programu Visual Studio](hdinsight-for-vscode.md)
@@ -105,5 +110,5 @@ Należy użyć polecenia **pip3** dla następujących kroków, jeśli jest **pyt
 * [Jądra dostępne dla notesu Jupyter w klastrze Spark w usłudze HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Wizualizacja gałęzi przy użyciu usługi Microsoft Power BI w usłudze Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Wizualizacja gałęzi przy użyciu usługi Microsoft Power BI w usłudze Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Umożliwia uruchamianie zapytań Hive w usłudze Azure HDInsight Zeppelin](hdinsight-connect-hive-zeppelin.md)

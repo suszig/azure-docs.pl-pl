@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Przewodnik, krok 5. Wdrażanie usługi sieci Web Azure Machine Learning
 Jest to krok piąty tego przewodnika, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Wyniki testu są wyświetlane po prawej stronie strony w kolumnie wyników.
 
 
 ## <a name="manage-the-web-service"></a>Zarządzanie usługą sieci web
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Zarządzanie usługą sieci web klasycznego w klasycznym portalu Azure
-
-Po wdrożeniu usługi sieci web klasycznego, można zarządzać nim z [klasycznego portalu Azure](https://manage.windowsazure.com).
-
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com)
-2. W panelu usługi Microsoft Azure, kliknij przycisk **UCZENIA MASZYNOWEGO**
-3. Kliknij obszar roboczy
-4. Kliknij przycisk **usług sieci Web** kartę
-5. Kliknij usługę sieci web, którą utworzyliśmy
-6. Kliknij punkt końcowy "domyślne"
-
-W tym miejscu można wykonywać czynności takie, jak monitorować jak wykonywanie operacji usługi sieci web i ulepszeń wydajności upewnij, zmieniając liczby współbieżnych wywołań usługi może obsłużyć.
-
-Aby uzyskać więcej informacji, zobacz:
-
-* [Tworzenie punktów końcowych](create-endpoint.md)
-* [Skalowanie usługi sieci web](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Zarządzanie Classic lub nową usługę sieci web w portalu usługi sieci Web systemu Azure Machine Learning
 
 Po wdrożeniu usługi sieci web, czy klasycznego lub nowe, można zarządzać nim z [usługi sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portalu.
 
