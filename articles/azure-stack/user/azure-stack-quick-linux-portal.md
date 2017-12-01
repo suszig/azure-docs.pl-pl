@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Utwórz maszynę wirtualną systemu Linux przy użyciu portalu Azure stosu
 
@@ -26,7 +26,7 @@ Maszyny wirtualne platformy Azure stosu mogą być tworzone za pośrednictwem po
 
 * **Obraz systemu Linux w stosie Azure marketplace**
 
-   Domyślnie, stos Azure marketplace nie zawiera obrazu systemu Linux. Tak, przed utworzeniem maszyny wirtualnej systemu Linux, upewnij się, pobrała operator stosu Azure **Ubuntu Server 16.04 LT** obrazu przy użyciu procedury opisanej w [pobieranie elementów marketplace Azure Azure Stos](../azure-stack-download-azure-marketplace-item.md) tematu.
+   Domyślnie, stos Azure marketplace nie zawiera obrazu systemu Linux. Tak, przed utworzeniem maszyny wirtualnej systemu Linux, upewnij się, pobrała operator stosu Azure **Ubuntu Server 16.04 LTS** obrazu przy użyciu procedury opisanej w [pobieranie elementów marketplace Azure Azure Stos](../azure-stack-download-azure-marketplace-item.md) tematu.
 
 * **Dostęp do klienta SSH**
 
