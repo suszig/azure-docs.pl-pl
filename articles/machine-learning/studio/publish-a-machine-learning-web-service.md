@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning
 Usługa Azure Machine Learning umożliwia tworzenia, testowania i wdrażania rozwiązań z zakresu analiz predykcyjnych.
@@ -108,7 +108,7 @@ Na **konfiguracji** strony, można zmienić opisu, tytuł, Aktualizuj klucz kont
 Po wdrożeniu usługi sieci web, możesz:
 
 * **Dostęp** ją przy użyciu interfejsu API usługi sieci web.
-* **Zarządzanie** go za pomocą portalu usługi sieci web uczenie maszynowe Azure lub klasycznego portalu Azure.
+* **Zarządzanie** go za pośrednictwem portalu usługi sieci web uczenie maszynowe Azure.
 * **Aktualizacja** go w przypadku zmiany modelu.
 
 #### <a name="access-your-new-web-service"></a>Dostęp do nowej usługi sieci web
@@ -141,7 +141,7 @@ Aby przetestować usługę wykonywania wsadowego, **Test** Podgląd łącza. Na 
 
 ![Testowanie usługi sieci web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Na **konfiguracji** strony, można zmienić nazwę wyświetlaną usługi i nadaj mu opis. Nazwa i opis jest wyświetlany w [klasycznego portalu Azure](http://manage.windowsazure.com/) gdzie zarządzania usługami sieci web.
+Na **konfiguracji** strony, można zmienić nazwę wyświetlaną usługi i nadaj mu opis. Nazwa i opis jest wyświetlany w [portalu Azure](https://portal.azure.com/) gdzie zarządzania usługami sieci web.
 
 Można podać opis dla danych wejściowych, danych wyjściowych i sieci web parametry usługi wpisując ciąg dla każdej kolumny w obszarze **schemat danych wejściowych**, **SCHEMATEM WYJŚCIOWYM**, i **PARAMETR usługi sieci Web**. Opisy te są używane w przykładowy kod dokumentację dla usługi sieci web.
 

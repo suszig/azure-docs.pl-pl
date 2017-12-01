@@ -4,7 +4,7 @@ description: "Jak wybrać optymalne zestawu parametrów dla algorytmu przy użyc
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 394c3e4a0feda0b4943b479cf00edf6d6b5a265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;garye
+ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Interpretowanie wyników modelu w usłudze Azure Machine Learning
 W tym temacie wyjaśniono, jak wizualizacji i interpretować wyniki prognozowania w usłudze Azure Machine Learning Studio. Po uczony model i gotowe prognoz na nim ("oceniane modelu"), należy zrozumieć i interpretować wyniki prognozowania.
@@ -28,7 +28,7 @@ W tym temacie wyjaśniono, jak wizualizacji i interpretować wyniki prognozowani
 Istnieją cztery główne rodzaje modeli w usłudze Azure Machine Learning uczenia maszynowego:
 
 * Klasyfikacja
-* Klaster
+* Klastrowanie
 * Regresja
 * Systemy polecania
 
@@ -177,7 +177,7 @@ Uruchomiona usługa sieci web, zwrócony wynik wygląda na rysunku 14. Przewidyw
 
 Rysunek 14. Wynik usługi sieci Web wystąpił problem regresji cen samochodów
 
-## <a name="clustering"></a>Klaster
+## <a name="clustering"></a>Klastrowanie
 **Przykład eksperymentu**
 
 Użyjmy Iris zestawu danych ponownie do tworzenia klastrów eksperymentu. W tym miejscu można odfiltrować klasy etykiet w zestawie danych tak, aby tylko ma funkcje i może służyć do klastra. W tym iris przypadek użycia, określ liczbę klastrów, aby być dwa podczas procesu szkolenia, co oznacza, że należy umieścić klastrze kwiaty na dwie klasy. Eksperyment pokazano na rys. 15.

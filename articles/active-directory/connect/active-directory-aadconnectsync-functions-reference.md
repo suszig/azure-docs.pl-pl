@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizacja programu Azure AD Connect: odwołanie do funkcji
 W programie Azure AD Connect funkcje są używane do modyfikowania wartości atrybutu podczas synchronizacji.  
@@ -828,7 +828,7 @@ Funkcja Item przydaje się wraz z funkcji zawiera, ponieważ to drugie funkcja z
 Zwraca błąd, jeśli indeks jest poza zakresem.
 
 **Przykład:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Zwraca podstawowego adresu e-mail.
 
 - - -
@@ -879,7 +879,7 @@ Funkcja LCase konwertuje wszystkie znaki w ciągu na małe litery.
 Zwraca "test".
 
 - - -
-### <a name="left"></a>Po lewej
+### <a name="left"></a>Do lewej
 **Opis:**  
 Po lewej stronie funkcja zwraca określoną liczbę znaków z lewej strony ciągu.
 
@@ -1130,7 +1130,7 @@ Zwraca Raksmorgas
 Zwraca "ONeil", jeden znacznik zdefiniowano do usunięcia.
 
 - - -
-### <a name="right"></a>Prawo
+### <a name="right"></a>Do prawej
 **Opis:**  
 Funkcja PRAWY zwraca określoną liczbę znaków z prawej strony (Zakończ), ciągu.
 
@@ -1248,7 +1248,7 @@ Wartość może być również funkcja błąd, co powoduje zwrócenie niestandar
 Zwraca język używany w niektórych miastach głównych, w przeciwnym razie zwraca błąd.
 
 - - -
-### <a name="trim"></a>TRIM
+### <a name="trim"></a>Przytnij
 **Opis:**  
 Funkcja przycinania usuwa spacji wiodących i końcowych białych z ciągu.
 
@@ -1293,7 +1293,7 @@ Zwraca podzbiór wartości z atrybutu wielowartościowego (lub dane wyjściowe w
 Zwraca wartości certyfikatu w atrybutów wielowartościowych certyfikatu użytkownika, które nie są wygasło.
 
 - - -
-### <a name="with"></a>Z
+### <a name="with"></a>Zawiera
 **Opis:**  
 Funkcja With umożliwia Uprość wyrażenie złożone, za pomocą zmiennej do reprezentowania Podwyrażenie, która pojawia się jeden lub więcej razy w złożonych wyrażeń.
 

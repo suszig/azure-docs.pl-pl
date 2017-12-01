@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Usługi sieci Web Azure Machine Learning: wdrażanie i korzystanie
 Azure Machine Learning umożliwia wdrażanie przepływów pracy i modele jako usługi sieci web usługi machine learning. Wywoływanie modeli uczenia maszynowego z aplikacji przez Internet w celu prognoz w czasie rzeczywistym lub w trybie wsadowym można następnie te usługi sieci web. Ponieważ usługi sieci web RESTful, można ich wywołać z różnych języków programowania i platform, takich jak .NET i Java i z aplikacji, takich jak program Excel.
@@ -26,6 +26,7 @@ Azure Machine Learning umożliwia wdrażanie przepływów pracy i modele jako us
 Następne sekcje zawierają łącza do wskazówki, kodu i dokumentacji, aby ułatwić rozpoczęcie.
 
 ## <a name="deploy-a-web-service"></a>Wdrażanie usługi internetowej
+
 ### <a name="with-azure-machine-learning-studio"></a>Za pomocą usługi Azure Machine Learning Studio
 Usługa Machine Learning Studio i portalu usługi sieci Web Microsoft Azure Machine Learning ułatwiające wdrażanie i zarządzanie usługi sieci web bez konieczności pisania kodu.
 
@@ -58,7 +59,7 @@ Uruchamianie aplikacji powoduje utworzenie szablonu JSON usługi sieci web. Aby 
 
 * Nazwa konta magazynu i klucz
 
-    Nazwa konta magazynu i klucza można uzyskać z dowolnej [portalu Azure](https://portal.azure.com/) lub [klasycznego portalu Azure](http://manage.windowsazure.com/).
+    Możesz pobrać nazwę konta magazynu i klucz z [portalu Azure](https://portal.azure.com/).
 * Identyfikator planu zobowiązań
 
     Otrzymasz identyfikator planu z [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net) portalu, rejestrując się i klikając nazwę planu.

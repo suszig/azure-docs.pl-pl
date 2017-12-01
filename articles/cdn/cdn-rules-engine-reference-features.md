@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
 Ten temat zawiera szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
@@ -41,7 +41,7 @@ Parametr tokenu uwierzytelniania | Określa, czy parametr ciągu zapytania uwier
 ### <a name="deny-access"></a>Odmowa dostępu
 **Cel**: Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
 
-Wartość | wynik
+Wartość | Wynik
 ------|-------
 Enabled (Włączony)| Powoduje, że wszystkie żądania, które spełniają kryteria dopasowywania procesów odrzucona z odpowiedź 403 Zabroniony.
 Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie do serwera pochodzenia, aby ustalić typ odpowiedzi, który zostanie zwrócony.
@@ -58,7 +58,7 @@ Włączenie uwierzytelniania opartego na tokenie tylko żądania, które zapewni
 
 Klucz szyfrowania używany do szyfrowania i odszyfrowywania tokenów wartości jest określana przez klucz podstawowy i opcje tworzenia kopii zapasowej klucza na stronie tokenu uwierzytelniania. Należy pamiętać, że klucze szyfrowania są specyficzne dla platformy.
 
-Wartość | wynik
+Wartość | Wynik
 ------|---------
 Enabled (Włączony) | Chroni żądanej zawartości przy użyciu uwierzytelniania opartego na tokenie. Tylko żądania od klientów, podaj prawidłowy token, które spełniają jej wymagań dotyczących będą honorowane. Transakcje FTP są wykluczone z uwierzytelniania opartego na tokenie.
 Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie konfiguracji uwierzytelniania opartego na tokenie, aby ustalić, czy żądanie zostanie zabezpieczone.
@@ -76,8 +76,8 @@ Kod odpowiedzi|Nazwa odpowiedzi|Opis
 302|Znaleziono|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji. Ten kod stanu jest branży standardową metodą wykonania przekierowania.
 307|Przekierowanie tymczasowe|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
 401|Brak autoryzacji|Łączenie z nagłówka WWW-Authenticate odpowiedzi ten kod stanu umożliwia Monituj użytkownika do uwierzytelniania.
-403|Dostęp zabroniony|Jest to standardowy 403 Zabroniony komunikat o stanie nieautoryzowany użytkownik zostanie wyświetlony podczas próby dostępu do chronionej zawartości.
-404|Nie można odnaleźć pliku|Ten kod stanu wskazuje, że klient HTTP był w stanie komunikować się z serwerem, ale nie można odnaleźć żądanej zawartości.
+403|Zabroniony|Jest to standardowy 403 Zabroniony komunikat o stanie nieautoryzowany użytkownik zostanie wyświetlony podczas próby dostępu do chronionej zawartości.
+404|Nie znaleziono pliku|Ten kod stanu wskazuje, że klient HTTP był w stanie komunikować się z serwerem, ale nie można odnaleźć żądanej zawartości.
 
 #### <a name="url-redirection"></a>Adres URL przekierowania
 
@@ -116,7 +116,7 @@ Parametry wpływ tej funkcji są:
 
 Prawidłowe wartości to:
 
-Wartość|wynik
+Wartość|Wynik
 ---|----
 Enabled (Włączony)|Powoduje, że nasze serwer graniczny ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
@@ -132,7 +132,7 @@ Informacje o kluczu:
 - Nie można ustawić opcji wartość "ec_token."
 - Upewnij się, że z nazwą zdefiniowaną w opcji wartość zawiera tylko prawidłowe znaki adresu URL.
 
-Wartość|wynik
+Wartość|Wynik
 ----|----
 Enabled (Włączony)|Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą którego można zdefiniować tokenów.
 Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
@@ -175,7 +175,7 @@ Komentarz | Funkcja komentarz umożliwia Uwaga do dodania w regule.
 
 Parametry ograniczania przepustowości określają, czy szybkość transferu danych dla żądania klienta będzie ograniczony do niestandardowych szybkości.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony)|Umożliwia serwerom krawędzi naszych honoruje żądań ograniczania przepustowości.
 Disabled (Wyłączony)|Powoduje, że nasze serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość zostanie obsłużona zwykle (czyli bez ograniczania przepustowości).
@@ -197,7 +197,7 @@ Prebuf sekund|Ustaw tę opcję, aby liczbę sekund oczekiwania nasze serwery kra
 ###<a name="bypass-cache"></a>Pomiń pamięć podręczną
 **Cel:** Określa, czy żądania mogą korzystać z naszych technologię buforowania.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony)|Powoduje, że wszystkie żądania przejść do serwera pochodzenia nawet, jeśli zawartość wcześniej była buforowana na serwerach krawędzi.
 Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej zasobów zgodnie z zasadami pamięci podręcznej określonych w jego nagłówków odpowiedzi.
@@ -215,10 +215,10 @@ Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej z
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w tej samej instrukcji zewnętrznych maksymalny wiek i funkcji do przetwarzania nagłówek Cache-Control.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Cache-Control, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie generuje nagłówek Cache-Control, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Cache-Control.
+Przekazywanie|Zapewnia, że nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Cache-Control, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie generuje nagłówek Cache-Control, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Cache-Control.
 Jeśli brakuje dodać|Jeśli z serwera pochodzenia nie odebrano nagłówek Cache-Control, ta opcja dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Cache-Control.
 Remove| Tej opcji zapewnia, że nagłówek Cache-Control nie jest dołączony do odpowiedzi nagłówek. Jeśli już zostało przypisane nagłówek Cache-Control, a następnie go zostanie usunięta z nagłówka odpowiedzi.
 
@@ -234,7 +234,7 @@ Informacje o kluczu:
 
 Typ|Opis
 --|--
- Obejmują|  Wskazuje, że każdy określony parametr powinny być uwzględnione w klucz pamięci podręcznej. Unikatowy klucz pamięci podręcznej zostanie wygenerowany dla każdego żądania, który zawiera unikatową wartość dla parametru ciągu zapytania, zdefiniowane w tej funkcji. 
+ Uwzględnij|  Wskazuje, że każdy określony parametr powinny być uwzględnione w klucz pamięci podręcznej. Unikatowy klucz pamięci podręcznej zostanie wygenerowany dla każdego żądania, który zawiera unikatową wartość dla parametru ciągu zapytania, zdefiniowane w tej funkcji. 
  Uwzględnij wszystkie  |Wskazuje, czy unikatowy klucz pamięci podręcznej zostaną utworzone dla każdego żądania do zasobu, który zawiera ciąg zapytania unikatowy. Ten typ konfiguracji nie jest zwykle zalecane, ponieważ może dojść do niewielki procent trafień w pamięci podręcznej. To spowoduje to zwiększenie obciążenia na serwerze źródłowym, ponieważ jej do obsługi żądań więcej. Ta konfiguracja jest duplikatem zachowanie buforowania, nazywany "Unikatowy pamięci podręcznej" na stronie buforowanie ciągu zapytania. 
  Wyklucz | Wskazuje, że określony parametry zostaną wykluczone z klucza pamięci podręcznej. Wszystkie pozostałe parametry ciągu zapytania będą uwzględniane w klucz pamięci podręcznej. 
  Wyklucz wszystkie  |Wskazuje, że wszystkie parametry ciągu zapytania zostaną wykluczone z klucza pamięci podręcznej. Ta konfiguracja jest duplikatem domyślne zachowanie, nazywanego "standard-cache" na stronie buforowanie ciągu zapytania buforowania. 
@@ -250,7 +250,7 @@ Następujące przykładowe użycie tej funkcji zawiera przykładowe żądanie i 
 - **Przykładowe żądanie:** http://wpc.0001.&lt; Domeny&gt;/800001/Origin/folder/asset.htm?sessionid=1234 i język = EN & userid = 01
 - **Domyślny klucz pamięci podręcznej:** /800001/Origin/folder/asset.htm
 
-##### <a name="include"></a>Obejmują
+##### <a name="include"></a>Uwzględnij
 
 Przykładowa konfiguracja:
 
@@ -318,7 +318,7 @@ Zalecane jest pozostawienie konfigurację domyślną dla dużych HTTP platformy,
 
 Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone, ta funkcja nie może być skojarzony z następujących warunków dopasowania: Cname krawędzi, literału nagłówka żądania wieloznaczny nagłówek żądania, adres URL zapytania literału i adres URL zapytania z symboli wieloznacznych.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest wymuszenie serwer graniczny, aby zainicjować pobieranie w tle zasobu z serwera pochodzenia. Po upływie którego będzie elementu zawartości w lokalnej pamięci podręcznej serwera granicznego.
 Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w tle dla elementu zawartości. Oznacza to, że serwer graniczny żądania do serwera pochodzenia klienta spowoduje, że przy następnym żądaniu dla tego zasobu z tego regionu.
@@ -360,7 +360,7 @@ Informacje o kluczu:
 
 - Ustawienie jednostkę czasu na wartość "Off" zostanie przypisany domyślny wewnętrzny maksymalny wiek interwał 7 dni dla żądań, które nie zostały przypisane oznaczenie maksymalny wiek w ich nagłówek Cache-Control lub Expires.
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
-    - Krawędzi 
+    - Edge 
     - CNAME
     - Literał nagłówka żądania
     - Symbol wieloznaczny nagłówka żądania
@@ -375,10 +375,10 @@ Informacje o kluczu:
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrznych maksymalny wiek i funkcje wygasa traktowania nagłówka w tej samej instrukcji.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/>-Zastępuje nagłówek Expires generowane przez serwer pochodzenia.<br/>-Dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
+Przekazywanie|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
 Jeśli brakuje dodać| Jeśli nie odebrano nagłówek Expires z serwera pochodzenia, ta opcja dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Expires.
 Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nagłówek. Jeśli już przypisano nagłówek Expires, następnie go będzie być usunięte z nagłówka odpowiedzi.
 
@@ -412,7 +412,7 @@ Informacje o kluczu:
 
 - Ustawienie jednostkę czasu na wartość "Off" powoduje wyłączenie tej funkcji. Wewnętrzny interwał maksymalny wiek nie zostanie przypisana do żądanych zasobów. Jeśli oryginalny nagłówek nie zawiera instrukcji buforowania, zasobu będą buforowane zgodnie z ustawieniem active w funkcji domyślne wewnętrzny Max-Age.
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
-    - Krawędzi 
+    - Edge 
     - CNAME
     - Literał nagłówka żądania
     - Symbol wieloznaczny nagłówka żądania
@@ -437,7 +437,7 @@ Informacje o kluczu:
 
 Żądania pamięci podręcznej nie występuje, gdy klient HTTP wysyła pamięci podręcznej-Control: no-pamięci podręcznej i/lub Pragma:no — pamięci podręcznej nagłówka w żądaniu HTTP.
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony)|Umożliwia żądania klienta HTTP pamięci podręcznej nie mają być przekazywane do serwera pochodzenia i serwera pochodzenia zwróci nagłówki odpowiedzi i treści przez serwer graniczny do klienta HTTP.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest aby zapobiec żądań pamięci podręcznej nie są przekazywane do serwera pochodzenia.
@@ -462,7 +462,7 @@ Informacje o kluczu:
 - Zestaw kodów stanu prawidłowy dla tej funkcji: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
 - Wyłączyć tę funkcję, ustawiając wartość pustą.
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
-    - Krawędzi 
+    - Edge 
     - CNAME
     - Literał nagłówka żądania
     - Symbol wieloznaczny nagłówka żądania
@@ -477,7 +477,7 @@ Informacje o kluczu:
 
 Domyślnie ten kod stanu jest zwracany podczas żądania zakresu bajtów nie mogą być spełnione przez serwer graniczny i nie określono pola nagłówka żądania If-Range.
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Nasze serwery krawędzi zapobiega odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest uwzględnić 416 żądany zakres nie niewłaściwego kod stanu.
@@ -503,7 +503,7 @@ Informacje o kluczu:
 
 - Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. Zasobów pamięci podręcznej nie zostanie obsłużona poza jego czas wygaśnięcia normalnego.
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
-    - Krawędzi 
+    - Edge 
     - CNAME
     - Literał nagłówka żądania
     - Symbol wieloznaczny nagłówka żądania
@@ -518,7 +518,7 @@ Informacje o kluczu:
 
 Ta częściowa pamięć podręczna może następnie służyć do spełnienia nowych żądań dla tej zawartości do momentu żądanej zawartości jest w pełni pamięci podręcznej.
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Żądania mogą generować częściowo buforowaną zawartość.
 Disabled (Wyłączony)|Żądania można generować tylko pełni buforowanej wersji żądanej zawartości.
@@ -541,7 +541,7 @@ Informacje o kluczu:
 
 Prawidłowe wartości to:
 
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony)|Powoduje, że nasze serwer krawędzi refetch zasobów z serwera pochodzenia.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest do obsługi się zasoby prawidłowy pamięci podręcznej na żądanie.
@@ -570,7 +570,7 @@ Informacje o kluczu:
 
 Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Zawartość zostanie obsłużona do zleceniodawcy, gdy wystąpi błąd podczas łączenia się z serwerem pochodzenia.
 Disabled (Wyłączony)|Błąd na serwerze źródłowym zostaną przekazane do zleceniodawcy.
@@ -614,7 +614,7 @@ Wartość niestandardowego nagłówka adresu IP klienta | Zezwala na adres IP kl
 
 ###<a name="age-response-header"></a>Nagłówek odpowiedzi wieku
 **Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
-Wartość|wynik
+Wartość|Wynik
 --|--
 Enabled (Włączony) | Nagłówek odpowiedzi wieku będą uwzględniane w odpowiedzi wysyłane do zleceniodawcy.
 Disabled (Wyłączony) | Nagłówek odpowiedzi wieku zostaną wykluczone z odpowiedzi wysyłane do zleceniodawcy.
@@ -637,14 +637,14 @@ X-WE Debug: _Directive1_,_Directive2_,_DirectiveN_
 
 WE-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Żądania dla strony nagłówki odpowiedzi pamięci podręcznej debugowania będzie zwracać odpowiedzi, który zawiera nagłówek X-WE-Debug.
 Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z odpowiedzi.
 
 **Domyślne zachowanie:** wyłączone.
 
-###<a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
+###<a name="modify-client-request-header"></a>Modyfikowanie nagłówek żądania klienta
 **Cel:** każdego żądania zawiera zestaw [nagłówki żądań]() opisują go. Ta funkcja może być:
 
 - Dołącz lub zastąpić wartość przypisana do nagłówka żądania. Jeśli określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane do żądania.
@@ -671,16 +671,16 @@ Informacje o kluczu:
 - Usuwanie nagłówka będą zapobiegać jej przekazywane do serwera pochodzenia przez serwery krawędzi.
 - Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - przekazany
-    - Host
+    - host
     - za pomocą
-    - Ostrzeżenie
+    - ostrzeżenie
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
 ###<a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
 Każda odpowiedź zawiera zbiór [nagłówki odpowiedzi]() opisują go. Ta funkcja może być:
 
-- Dołącz lub zastąpić wartość przypisana do nagłówka odpowiedzi. Jeśli określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane do odpowiedzi.
+- Dołącz lub zastąpić wartość przypisana do nagłówka odpowiedzi. Jeśli określonego nagłówka odpowiedzi nie istnieje, następnie ta funkcja zostanie dodane do odpowiedzi.
 - Usuń nagłówek odpowiedzi z odpowiedzi.
 
 Domyślnie wartości nagłówka odpowiedzi są definiowane przez serwer pochodzenia i serwery krawędzi.
@@ -689,9 +689,9 @@ W nagłówku odpowiedzi można wykonać jedną z następujących czynności:
 
 Opcja|Opis|Przykład
 -|-|-
-Append|Określona wartość zostanie dodany na końcu istniejącą wartość nagłówka żądania.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/> **Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** Value1Value2
-Zastąp|Wartość nagłówka żądania zostanie ustawiona na określoną wartość.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/>**Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** wartość2 <br/>
-Usuwanie|Usuwa określonego nagłówka żądania.|**Wartość nagłówka (klient) żądania:** wartość1 <br/> **Zmodyfikuj konfigurację nagłówka żądania klienta:** usunąć zagrożona nagłówka odpowiedzi. <br/>**Wynik:** określonego nagłówka odpowiedzi nie zostaną przekazane do zleceniodawcy.
+Append|Określona wartość zostanie dodany na końcu istniejącej wartości nagłówka odpowiedzi.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/> **Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** Value1Value2
+Zastąp|Będzie można ustawić wartości nagłówka odpowiedzi na określoną wartość.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/>**Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** wartość2 <br/>
+Usuwanie|Usuwa określonego nagłówka odpowiedzi.|**Wartość nagłówka odpowiedzi (klient):** wartość1 <br/> **Zmodyfikuj konfigurację nagłówka odpowiedzi klienta:** usunąć zagrożona nagłówka odpowiedzi. <br/>**Wynik:** określonego nagłówka odpowiedzi nie zostaną przekazane do zleceniodawcy.
 
 Informacje o kluczu:
 
@@ -708,14 +708,14 @@ Informacje o kluczu:
     - kodowanie zawartości
     - Długość zawartości
     - zakres zawartości
-    - Data
+    - data
     - serwer
     - przyczepy
     - Transfer-encoding
     - Uaktualnienie
     - różnią się
     - za pomocą
-    - Ostrzeżenie
+    - ostrzeżenie
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
 ###<a name="set-client-ip-custom-header"></a>Wartość niestandardowego nagłówka adresu IP klienta
@@ -730,10 +730,10 @@ Upewnij się, że nazwa określonego nagłówka nie pasuje do żadnego z następ
 - Nazwy nagłówków żądań standardowych. Lista nazw standardowy nagłówek znajdują się w [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nazwy nagłówków zastrzeżone:
     - przekazywane do
-    - Host
+    - host
     - różnią się
     - za pomocą
-    - Ostrzeżenie
+    - ostrzeżenie
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
  
@@ -773,7 +773,7 @@ Informacje o kluczu:
 ###<a name="log-query-string"></a>Ciąg zapytania dziennika
 **Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Umożliwia przechowywanie ciągów zapytania podczas rejestrowania w dzienniku dostępu do adresów URL. Jeśli adres URL zawiera ciąg zapytania, następnie ta opcja nie będzie miało wpływu.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest zignorowanie ciągi zapytań podczas rejestrowania w dzienniku dostępu do adresów URL.
@@ -894,7 +894,7 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** 14 Kb
  
-## <a name="url"></a>ADRES URL
+## <a name="url"></a>Adres URL
 
 Te funkcje umożliwiają żądanie jest przekierowywane lub ulegną do innego adresu URL.
 
@@ -911,7 +911,7 @@ Informacje o kluczu:
 
 - Tylko można przekierować żądania do krawędzi rekordów CNAME, które odpowiadają tej samej platformy.
 
-Wartość|wynik
+Wartość|Wynik
 -|-
 Enabled (Włączony)|Można przekierować żądania.
 Disabled (Wyłączony)|Nie będzie można przekierować żądania.

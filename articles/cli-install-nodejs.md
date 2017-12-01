@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Zainstaluj Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> W tym temacie opisano sposób instalowania 1.0 interfejsu wiersza polecenia Azure, który jest oparty na środowisku nodeJs i obsługuje wszystkie wywołania interfejsu API wdrożenie klasyczne, a także dużą liczbę działań wdrożenia usługi Resource Manager. Należy używać [Azure CLI 2.0](/cli/azure/overview) nowych lub nowoczesne wdrożeń interfejsu wiersza polecenia i zarządzania.
+> W tym temacie opisano sposób instalowania 1.0 interfejsu wiersza polecenia platformy Azure. Ten interfejs wiersza polecenia jest przestarzała i stosować tylko do obsługi w modelu usługi Azure Service Management (ASM) z zasobami "klasycznym".
+> W przypadku wdrożeń usługi Azure Resource Manager (ARM), użyj [Azure CLI 2.0](/cli/azure/overview).
 
 Szybko zainstalować interfejs wiersza polecenia platformy Azure (Azure CLI 1.0) Aby użyć zestawu open source oparty na powłoce poleceń do tworzenia i zarządzania zasobami na platformie Microsoft Azure. Istnieje kilka opcji, aby zainstalować te narzędzia i platform na komputerze:
 

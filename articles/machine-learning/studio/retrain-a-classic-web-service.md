@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Ponowne szkolenie klasycznej usługi internetowej
 Usługa sieci Web predykcyjnych, wdrożone jest domyślnego punktu końcowego oceniania. Domyślne punkty końcowe są utrzymywane w synchronizacji z oryginalnego szkolenia i oceniania eksperymentów, a w związku z tym nie można zamienić trenowanego modelu dla domyślnego punktu końcowego. Aby ponownie ucz usługi sieci web, należy dodać nowy punkt końcowy usługi sieci web. 
@@ -43,11 +43,10 @@ Aby utworzyć nowy punkt końcowy oceniania, od predykcyjnej usługi sieci Web, 
 > 
 > 
 
-Istnieją trzy sposoby, w których można dodać nowy punkt końcowy usługi sieci web:
+Istnieją dwa sposoby, w których można dodać nowy punkt końcowy usługi sieci web:
 
 1. Programistycznie
 2. Za pomocą portalu usługi sieci Web platformy Microsoft Azure
-3. Użyj klasycznego portalu Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Programowe Dodawanie punktu końcowego
 Możesz dodać oceniania punktów końcowych przy użyciu przykładowy kod podany w tym [repozytorium github](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Możesz dodać oceniania punktów końcowych przy użyciu przykładowy kod podan
 3. Kliknij pozycję **Dodaj**.
 4. Wpisz nazwę i opis dla nowego punktu końcowego. Wybierz poziom rejestrowania i czy jest włączone przykładowych danych. Aby uzyskać więcej informacji, zobacz [należy włączyć rejestrowanie dla usługi sieci web uczenie maszynowe](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Użyj klasycznego portalu Azure, aby dodać punkt końcowy
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
-2. W menu po lewej stronie kliknij **uczenia maszynowego**.
-3. W obszarze nazwy, kliknij obszar roboczy, a następnie kliknij **usług sieci Web**.
-4. W obszarze nazwy, kliknij przycisk **modelu spisu [exp predykcyjnych.]** .
-5. W dolnej części strony kliknij **Dodawanie punktu końcowego**. Aby uzyskać więcej informacji dotyczących dodawania punktów końcowych, zobacz [tworzenie punktów końcowych](create-endpoint.md). 
-
-## <a name="update-the-added-endpoints-trained-model"></a>Zaktualizuj Uczonego modelu dodano punkt końcowy
+## <a name="update-the-added-endpoints-trained-model"></a>Zaktualizuj uczonego modelu dodano punkt końcowy
 Aby ukończyć proces ponownego trenowania, należy zaktualizować trenowanego modelu nowy punkt końcowy, który został dodany.
 
-* Jeśli dodano nowy punkt końcowy, przy użyciu klasycznego portalu Azure, możesz kliknąć nazwę nowego punktu końcowego w portalu, a następnie **operacja UpdateResource** łącze, aby uzyskać adres URL, musisz zaktualizować punktu końcowego modelu.
-* Jeśli dodano punkt końcowy, za pomocą przykładowy kod, w tym lokalizacji identyfikowana na podstawie adresu URL pomocy *HelpLocationURL* wartość w danych wyjściowych.
+Jeśli dodano punkt końcowy, za pomocą przykładowy kod, w tym lokalizacji identyfikowana na podstawie adresu URL pomocy *HelpLocationURL* wartość w danych wyjściowych.
 
 Aby pobrać ścieżki adresu URL:
 

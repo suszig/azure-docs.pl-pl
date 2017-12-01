@@ -5,7 +5,7 @@ keywords: "Importowanie danych, formatu danych, typy danych, źródła danych, d
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 98a8fa15922ef100a7f8cadd92fb7ffef0d3bcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importowanie danych szkoleniowych do usługi Azure Machine Learning Studio z różnych źródeł danych
 Aby użyć własnych danych w usłudze Machine Learning Studio do opracowywania i uczenia rozwiązania analizy predykcyjnej, można: 
@@ -60,7 +60,7 @@ Można je zaimportować do eksperymentu wiele typów danych, w zależności od t
 * Wartości rozdzielanych przecinkami (CSV) z nagłówkiem (.csv) lub bez (. nh.csv)
 * Tabulatorem tabulatorami (TSV z nagłówkiem (.tsv) lub bez) (. nh.tsv)
 * Plik programu Excel
-* Tabeli platformy Azure
+* Tabela platformy Azure
 * Tabelę programu hive
 * Tabela bazy danych SQL
 * Wartości OData
@@ -81,7 +81,7 @@ Następujące **typy danych** są rozpoznawane przez Machine Learning Studio:
 * Liczba całkowita
 * O podwójnej precyzji
 * Wartość logiczna
-* Data i godzina
+* Data/godzina
 * Zakres czasu
 
 Usługa Machine Learning Studio używa typu danych wewnętrznych o nazwie ***tabeli danych*** do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych za pomocą [przekonwertować zestawu danych] [ convert-to-dataset] modułu.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b4fcef51b2704f07f5d1d08a4bd16970864b0fd
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Skalowanie usługi sieci web Azure Machine Learning, dodając dodatkowe punkty końcowe
 > [!NOTE]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Domyślnie każdy opublikowane usługi sieci Web jest skonfigurowany do obsługi 20 równoczesnych żądań i może być możliwie jak 200 równoczesnych żądań. Klasyczny portal Azure udostępnia sposób Ustaw tę wartość, uczenie maszynowe Azure automatycznie optymalizuje ustawienie, aby osiągnąć optymalną wydajność dla usługi sieci web i portalu wartość jest ignorowana. 
+Domyślnie każdy opublikowane usługi sieci Web jest skonfigurowany do obsługi 20 równoczesnych żądań i może być możliwie jak 200 równoczesnych żądań. Usługa Azure Machine Learning automatycznie optymalizuje ustawienie, aby osiągnąć optymalną wydajność dla usługi sieci web i portalu wartość jest ignorowana. 
 
 Jeśli planujesz do wywołania interfejsu API z obciążeniem wyższa niż wartość maksymalnej liczby równoczesnych wywołań 200 będzie obsługiwać, należy utworzyć wiele punktów końcowych na tej samej usługi sieci Web. Następnie można losowo dystrybucji obciążenia we wszystkich z nich.
 
-Skalowanie usługi sieci Web jest typowych zadań. Niektóre przyczyny skalowania mają obsługuje więcej niż 200 równoczesnych żądań, Zwiększ dostępność za pośrednictwem wiele punktów końcowych lub podaj oddzielne punkty końcowe usługi sieci web. Skali można zwiększyć przez dodanie dodatkowych punktów końcowych usługi sieci Web za pośrednictwem [klasycznego portalu Azure](https://manage.windowsazure.com/) lub [Usługa sieci Web systemu Azure Machine Learning](https://services.azureml.net/) portalu.
+Skalowanie usługi sieci Web jest typowych zadań. Niektóre przyczyny skalowania mają obsługuje więcej niż 200 równoczesnych żądań, Zwiększ dostępność za pośrednictwem wiele punktów końcowych lub podaj oddzielne punkty końcowe usługi sieci web. Skali można zwiększyć przez dodanie dodatkowych punktów końcowych usługi sieci Web za pośrednictwem [Usługa sieci Web systemu Azure Machine Learning](https://services.azureml.net/) portalu.
 
 Aby uzyskać więcej informacji na temat dodawania nowych punktów końcowych, zobacz [tworzenie punktów końcowych](create-endpoint.md).
 

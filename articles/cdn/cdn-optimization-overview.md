@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optymalizacja Azure dostarczania zawartości dla danego scenariusza
 
@@ -35,15 +35,15 @@ Ten artykuł zawiera omówienie różnych funkcji optymalizacji i kiedy należy 
 
 Azure Content Delivery Network zainstalowane from Akamai obsługuje:
 
-* Dostarczanie ogólne sieci web 
+* Ogólne dostarczanie w sieci Web 
 
-* Ogólne przesyłania strumieniowego multimediów
+* Ogólne transmisje strumieniowe multimediów
 
 * Przesyłanie strumieniowe multimediów wideo na żądanie
 
 * Pobieranie dużych plików
 
-* Akceleracja dynamiczne witryny 
+* Przyspieszanie witryn dynamicznych 
 
 Azure Content Delivery Network zainstalowane from Verizon obsługuje tylko dostarczania ogólne sieci web. Może służyć do wideo na żądanie i pobierania plików o dużym. Nie trzeba wybrać typ optymalizacji.
 
@@ -65,7 +65,7 @@ Aby utworzyć nowy punkt końcowy, wybierz typ optymalizacji, najlepiej pasując
 
 Aby zoptymalizować punkt końcowy CDN dla jednej z poniższych scenariuszy. 
 
-### <a name="general-web-delivery"></a>Dostarczanie ogólne sieci web
+### <a name="general-web-delivery"></a>Ogólne dostarczanie w sieci Web
 
 Dostarczanie ogólne sieci web jest najbardziej typowych opcji optymalizacji. Jest on przeznaczony dla optymalizacji zawartości ogólne sieci web, takich jak aplikacje sieci web i stron sieci Web. Tego rodzaju optymalizacji mogą służyć do pliku i pobierane pliki wideo.
 
@@ -74,7 +74,7 @@ Typowy witryny sieci Web zawiera zawartość statycznych i dynamicznych. Zawarto
 > [!NOTE]
 > Jeśli używasz usługi Azure Content Delivery Network zainstalowane from Akamai, można użyć tego rodzaju optymalizacji, jeśli Twoje średni rozmiar pliku jest mniejsza niż 10 MB. Jeśli Twoje średni rozmiar pliku jest większy niż 10 MB, wybierz **pobierania plików o dużym** z **zoptymalizowane pod kątem** listy rozwijanej.
 
-### <a name="general-media-streaming"></a>Ogólne przesyłania strumieniowego multimediów
+### <a name="general-media-streaming"></a>Ogólne transmisje strumieniowe multimediów
 
 Jeśli musisz użyć punktu końcowego dla transmisji strumieniowych na żywo i strumieniowego przesyłania wideo na żądanie, zalecamy ogólne multimediów strumieniowych optymalizacji.
 
@@ -103,11 +103,11 @@ Jeśli używasz usługi Azure Content Delivery Network zainstalowane from Akamai
 
 Jeśli używasz usługi Azure Content Delivery Network from Akamai pobierania dużych plików są zoptymalizowane pod kątem zawartości większych niż 10 MB. Jeśli Twoje średni rozmiar pliku jest mniejsza niż 10 MB, można użyć dostarczania ogólne sieci web. Jeśli Twoje rozmiary plików średni są stale większych niż 10 MB, może być bardziej wydajne, aby utworzyć oddzielne punkt końcowy dla dużych plików. Aktualizacje oprogramowania układowego i oprogramowania są zwykle dużych plików.
 
-Azure Content Delivery Network from Verizon używa typu optymalizacji dostarczania ogólne sieci web do dostarczania transmisji strumieniowej zawartości nośnika.
+Azure Content Delivery Network from Verizon używa typu optymalizacji dostarczania ogólne sieci web do dostarczania zawartości pobierania dużych plików.
 
 Aby dowiedzieć się więcej o optymalizacji dużych plików, zobacz [optymalizacji plików o dużym](cdn-large-file-optimization.md).
 
-### <a name="dynamic-site-acceleration"></a>Akceleracja dynamiczne witryny
+### <a name="dynamic-site-acceleration"></a>Przyspieszanie witryn dynamicznych
 
  Akceleracja dynamiczne witryny jest dostępna z profilami zarówno Akamai i Verizon Content Delivery Network. Tego rodzaju optymalizacji pociąga za sobą dodatkowe opłaty do użycia. Aby uzyskać więcej informacji zobacz stronę cenową.
 

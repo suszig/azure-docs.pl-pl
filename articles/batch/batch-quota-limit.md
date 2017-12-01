@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -51,10 +51,11 @@ Jeśli starszej wersji interfejsu API partii jest używany do tworzenia konta us
 | Pakiety aplikacji na aplikację |40 |
 | Rozmiar pakietu aplikacji (wszystkie) |Około 195GB<sup>1</sup> |
 | Maksymalna początkowy rozmiar zadań | znaki 32768<sup>2</sup> |
+| Zadanie maksymalny okres istnienia | 7 dni<sup>3</sup> |
 
 <sup>1</sup> limit bloku maksymalny rozmiar obiektu blob magazynu azure<br />
-<sup>2</sup> obejmuje plików zasobów i zmienne środowiskowe
-
+<sup>2</sup> obejmuje plików zasobów i zmienne środowiskowe<br />
+<sup>3</sup> maksymalny okres istnienia zadania, gdy jest ona dodawana do zadania, po jego ukończeniu, wynosi 7 dni. Zadania ukończone utrwalić nieskończoność; dane zadanie nie zostało ukończone w ciągu maksymalny okres istnienia nie jest dostępny.
 
 
 ## <a name="view-batch-quotas"></a>Przydziały partii widoku

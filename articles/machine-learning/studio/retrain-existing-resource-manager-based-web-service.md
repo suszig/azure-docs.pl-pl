@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ponownie ucz istniejącej usługi sieci web predykcyjnej
 W tym dokumencie opisano proces ponownego trenowania w następującym scenariuszu:
@@ -86,20 +86,19 @@ W **zużycie podstawowe informacje o** sekcji **Consume** strony Znajdź klucz p
 ### <a name="update-the-azure-storage-information"></a>Zaktualizuj informacje o usłudze Azure Storage
 BES przykładowy kod operacji przekazywania plików z dysku lokalnego (na przykład "C:\temp\CensusIpnput.csv") do usługi Azure Storage, procesy i zapisuje wyniki wstecz do magazynu Azure.  
 
-Aby zaktualizować informacje magazynu Azure, możesz pobrać nazwę konta magazynu, klucz i informacje o kontenerze dla konta magazynu w klasycznym portalu Azure, a następnie zaktualizuj odpowiednie wartości w kodzie.
 Po zakończeniu eksperymentu, wynikowy przepływu pracy powinny być podobne do następujących:
 
 ![Wynikowa przepływu pracy po uruchomieniu][4]
 
-1. Zaloguj się do klasycznego portalu Azure.
-2. W kolumnie nawigacji po lewej stronie kliknij **magazynu**.
+1. Zaloguj się do Portalu Azure.
+2. W kolumnie nawigacji po lewej stronie kliknij **więcej usług**, wyszukaj **kont magazynu**i zaznacz je.
 3. Z listy kont magazynu wybierz jeden do przechowywania retrained modelu.
-4. W dolnej części strony kliknij **Zarządzaj kluczami dostępu**.
-5. Skopiuj i Zapisz **podstawowy klucz dostępu** i zamknij okno dialogowe.
-6. W górnej części strony kliknij **kontenery**.
+4. W kolumnie nawigacji po lewej stronie kliknij **klucze dostępu**.
+5. Skopiuj i Zapisz **podstawowy klucz dostępu**.
+6. W kolumnie nawigacji po lewej stronie kliknij **kontenery**.
 7. Wybierz kontener istniejącą lub Utwórz nową i Zapisz nazwę.
 
-Zlokalizuj *StorageAccountName*, *StorageAccountKey*, i *StorageContainerName* deklaracje i zaktualizuj wartości, które zostały zapisane w klasycznym portalu.
+Zlokalizuj *StorageAccountName*, *StorageAccountKey*, i *StorageContainerName* deklaracje i zaktualizuj wartości zapisane w portalu.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

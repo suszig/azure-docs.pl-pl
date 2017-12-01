@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Usługa Azure Stream Analytics na krawędzi IoT (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Ta funkcja jest dostępna w wersji zapoznawczej, jeśli masz pytania lub opinie 
 * **Polecenie małe opóźnienia i kontroli**: na przykład produkcyjnym bezpieczeństwa systemów musi odpowiadać na danych operacyjnych z bardzo niskim opóźnieniem. Z ASA na krawędzi IoT można przeanalizować czujnik dane prawie w czasie rzeczywistym i wydania poleceń podczas wykrywania anomalii, aby zatrzymać maszynę lub wyzwoliły alertów.
 *   **Ograniczona łączność z chmurą**: misji ważnych systemów, takich jak urządzenia zdalnego wyszukiwania, połączonych zbiorników lub platformy przechodzenia na wyższy poziom, należy do analizowania i reagowania na danych, nawet wtedy, gdy łączność chmury jest przerywana. ASA logika przesyłania strumieniowego działa niezależnie od łączność sieciową i są dostępne, co możesz wysłać do chmury dla dalszego przetwarzania lub magazynu.
 * **Ograniczona przepustowość**: ilość danych utworzone przez aparaty jet lub połączonych samochodów może być taki duży, że dane muszą być filtrowane lub wstępnie przetworzyć przed jej wysłaniem do chmury. Przy użyciu ASA, możesz filtrować i agregowanie danych, które muszą być wysyłane do chmury.
-* **Zgodność**: zgodność z przepisami może wymagać określonych danych lokalnie anonimowe lub agregowana przed wysłaniem do chmury. Z ASA możesz 
+* **Zgodność**: zgodność z przepisami może wymagać określonych danych lokalnie anonimowe lub agregowana przed wysłaniem do chmury.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Krawędzi zadania usługi analiza strumienia Azure
 ### <a name="what-is-an-edge-job"></a>Co to jest zadanie "krawędzi"?

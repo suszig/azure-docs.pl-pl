@@ -11,19 +11,19 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: e92c1a44b49c64308438184ab8185a90766c5bcf
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Uaktualnienie i skalować wystąpienia interfejsu API zarządzania 
 
-Klientów można skalować wystąpienia interfejsu API zarządzania (APIM), przez dodawanie i usuwanie jednostek. A **jednostki** składa się z dedykowanym zasobów platformy Azure i ma niektórych nośnych pojemności wyrażone jako liczba interfejsu API wywołania miesięcznie. Rzeczywiste przepustowości i opóźnień różnią się szeroko w zależności od czynników, takich jak numer i liczba równoczesnych połączeń, rodzaj i liczbę skonfigurowanych zasad, żądania i odpowiedzi rozmiary i opóźnienia wewnętrznej bazy danych. 
+Klientów można skalować wystąpienia interfejsu API zarządzania (APIM), przez dodawanie i usuwanie jednostek. A **jednostki** składa się z dedykowanym zasobów platformy Azure i ma niektórych nośnych pojemności wyrażone jako liczba interfejsu API wywołania miesięcznie. Ta liczba nie reprezentuje ograniczenie wywołań, ale raczej wartość maksymalną przepustowość do obsługi planowania pojemności nierównej. Rzeczywiste przepustowości i opóźnień szeroko zależy od czynników, takich jak numer i liczba równoczesnych połączeń, rodzaj i liczbę skonfigurowanych zasad, rozmiary żądań i odpowiedzi i opóźnienia wewnętrznej bazy danych.
 
 Pojemność i Cena każdej jednostki zależy od **warstwy** , w którym istnieje jednostki. Można wybrać jedną z trzech warstw: **Developer**, **standardowe**, **Premium**. Jeśli potrzebujesz zwiększyć pojemność dla usługi w ramach warstwy, należy dodać jednostkę. Warstwę, która jest aktualnie wybrane w wystąpieniu APIM nie zezwala na dodawanie większej liczby jednostek, należy uaktualnić do warstwy wyższego poziomu. 
 
-Cena każdej jednostki, możliwość dodawania i usuwania jednostek, czy użytkownik ma pewne funkcje (na przykład w przypadku wdrażania) zależy od warstwy, która została wybrana opcja dla swojego wystąpienia APIM. [Szczegóły cennika](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artykuł, opisano, jakie cena za jednostkę i funkcje, możesz uzyskać w każdej warstwie. 
+Cena każdej jednostki i dostępnych funkcji (na przykład w przypadku wdrażania) zależy od warstwy, która została wybrana opcja APIM wystąpienia. [Szczegóły cennika](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artykułu, wyjaśnia cena za jednostkę i funkcje, które otrzymujesz w ramach poszczególnych warstw. 
 
 >[!NOTE]
 >[Szczegóły cennika](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artykule przedstawiono przybliżonej liczby pojemność jednostki w każdej warstwie. Aby uzyskać dokładniejsze liczb, należy przyjrzeć się realistyczne scenariusz dla interfejsów API. Zobacz sekcję "Jak planowania pojemności" poniżej.
@@ -42,7 +42,7 @@ Aby wykonać kroki opisane w tym artykule, musi mieć:
 
 Aby dowiedzieć się, jeśli masz za mało jednostki do obsługi ruchu, testu na obciążeń, których się oczekuje. 
 
-Jak wspomniano powyżej, liczba żądań na drugi APIM można proces zależy od wielu zmiennych. Na przykład połączenie wzorzec, rozmiar żądania i odpowiedzi, zasady, które są konfigurowane na poszczególnych interfejsu API, liczba klientów, którzy wysyłają żądania.
+Jak wspomniano powyżej, liczba żądań na sekundę, który może przetwarzać jednostki APIM zależy od wielu zmiennych. Na przykład połączenie wzorzec, rozmiar żądania i odpowiedzi, zasady, które są konfigurowane na poszczególnych interfejsu API, liczba klientów, którzy wysyłają żądania.
 
 Użyj **metryki** (korzysta z funkcji Azure monitora) aby zrozumieć, jaka pojemność jest używany w danym momencie.
 
@@ -52,23 +52,23 @@ Użyj **metryki** (korzysta z funkcji Azure monitora) aby zrozumieć, jaka pojem
 2. Wybierz **metryki**.
 3. Wybierz **pojemności** metryki z **dostępne metryki**. 
 
-    Metryki pojemności udostępnia informacje o niektórych tym pojemność przydzielaną jest używany w dzierżawie. Możesz przetestować, umieszczając więcej i więcej obciążenia i zobacz, co to jest pobranie obciążenia. Można ustawić metryki alert z informacją, gdy coś, co nie jest oczekiwany wykonywane. Na przykład wystąpienie APIM przystępuje pojemność ponad 5 minut. 
+    Metryki pojemności udostępnia informacje o niektórych tym ile wydajności obliczeniowej dostępne jest używany w dzierżawie. Wartość jest pochodną zasoby obliczeniowe, używany przez dzierżawy, np. pamięci, procesora CPU i długości kolejki w sieci. Nie jest bezpośrednio miarą liczba aktualnie przetwarzanych żądań. Możesz przetestować, przez co zwiększa obciążenie żądanie dzierżawy i monitorowania, jakie wartości metryki pojemności odpowiada obciążenia szczytowego. Można ustawić metryki alert z informacją, gdy wykonywane jest nieoczekiwane. Na przykład wystąpienie APIM przekroczyła pojemności oczekiwanego szczytowego ponad 10 minut.
 
     >[!TIP]
-    > Możesz skonfigurować alert z informacją, kiedy usługi zaczyna brakować pojemności lub upewnij wywołania do aplikacji logiki, który będzie automatycznie skalować, dodając jednostki...
+    > Można skonfigurować alerty pozwala wiedzieć, kiedy usługa zaczyna brakować pojemności, lub zadzwoń do aplikacji logiki, które automatycznie skalować, dodając jednostki.
 
 ## <a name="upgrade-and-scale"></a>Uaktualnienie i skali 
 
-Jak wspomniano wcześniej, można wybrać jedną z trzech warstw: **Developer**, **standardowe**, **Premium**. **Developer** warstwy mają być używane do oceny usługi; nie powinna być używana w środowisku produkcyjnym. **Developer** warstwy nie ma umowy dotyczącej poziomu usług i nie można skalować tę warstwę (dodawania i usuwania jednostek). 
+Jak wspomniano wcześniej, można wybrać jedną z trzech warstw: **Developer**, **standardowe**, i **Premium**. **Developer** warstwy mają być używane do oceny usługi; nie powinna być używana w środowisku produkcyjnym. **Developer** warstwy nie ma umowy dotyczącej poziomu usług i nie można skalować tę warstwę (dodawania i usuwania jednostek). 
 
-**Standardowe** i **Premium** są produkcyjnego warstwy ma umowy dotyczącej poziomu usług i mogą być skalowane. **Standardowe** warstwy mogą być skalowane do maksymalnie cztery jednostki. Można dodać dowolną liczbę jednostek **Premium** warstwy. 
+**Standardowe** i **Premium** są warstw produkcji, umowy dotyczącej poziomu usług, które mogą być skalowane. **Standardowe** warstwy mogą być skalowane do maksymalnie cztery jednostki. Można dodać dowolną liczbę jednostek **Premium** warstwy. 
 
-**Premium** warstwy umożliwia rozpowszechniają pojedynczego wystąpienia interfejsu API zarządzania dowolną liczbę żądaną regiony platformy Azure. Po utworzeniu początkowo usługi Zarządzanie interfejsami API, wystąpienie zawiera tylko jedną jednostkę i znajduje się w pojedynczym regionie Azure. Początkowa region jest określany jako **głównej** regionu. Łatwo można dodawać dodatkowe regionów. Podczas dodawania regionu, możesz określić liczbę jednostek, które mają zostać przydzielone. Na przykład można mieć jedną jednostkę **głównej** regionu i pięć jednostki w niektórych inny region. Można dostosować do dowolnego ruchu masz w każdym regionie. Aby uzyskać więcej informacji, zobacz [sposób wdrażania wystąpienia usługi Azure API Management do wielu regionów platformy Azure](api-management-howto-deploy-multi-region.md).
+**Premium** warstwy umożliwia rozpowszechniają pojedynczego wystąpienia interfejsu API zarządzania dowolną liczbę żądaną regiony platformy Azure. Po utworzeniu początkowo usługi Zarządzanie interfejsami API, wystąpienie zawiera tylko jedną jednostkę i znajduje się w pojedynczym regionie Azure. Początkowa region jest określany jako **głównej** regionu. Łatwo można dodawać dodatkowe regionów. Podczas dodawania regionu, możesz określić liczbę jednostek, które mają zostać przydzielone. Na przykład można mieć jedną jednostkę **głównej** regionu i pięć jednostki w niektórych inny region. Liczba jednostek do ruchu sieciowego w każdym regionie można dostosować. Aby uzyskać więcej informacji, zobacz [sposób wdrażania wystąpienia usługi Azure API Management do wielu regionów platformy Azure](api-management-howto-deploy-multi-region.md).
 
-Można uaktualnić i obniżyć do i z wszelkich warstwy. Należy pamiętać, że zmiany na starszą wersję można usunąć niektórych funkcji, na przykład sieci wirtualnych lub w przypadku wdrożenia, jeśli zmiany na starszą wersję standard w ramach warstwy Premium.
+Można uaktualnić i obniżyć do i z wszelkich warstwy. Należy pamiętać, że uaktualnienia lub zmiany na starszą wersję można usunąć niektórych funkcji — na przykład sieci wirtualnych lub w przypadku wdrożenia, jeśli zmiany na starszą wersję standard w ramach warstwy Premium.
 
 >[!NOTE]
->Proces uaktualniania lub skalę zastosowanie może potrwać od 15 do 30 minut. Otrzymasz powiadomienie po zakończeniu.
+>Proces uaktualniania lub skalę zastosowanie może potrwać od 15 do 45 minut. Otrzymasz powiadomienie po zakończeniu.
 
 ### <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Użyj portalu Azure do uaktualnienia i skalowanie
 

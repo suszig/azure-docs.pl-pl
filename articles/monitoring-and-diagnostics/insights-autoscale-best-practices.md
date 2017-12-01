@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Ten artykuł zawiera najlepsze rozwiązania w celu skalowania automatycznego na platformie Azure. Azure Monitor skalowania automatycznego ma zastosowanie tylko do [zestawy skalowania maszyny wirtualnej](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [usługi w chmurze](https://azure.microsoft.com/services/cloud-services/), i [usługi aplikacji — aplikacje sieci Web](https://azure.microsoft.com/services/app-service/web/). Innymi usługami Azure, użyj metod skalowania.
@@ -113,7 +113,7 @@ Umożliwia przeglądanie to przykładu:
 
 Na poniższym obrazie pokazano ustawieniu skalowania automatycznego profil domyślny minimalny wystąpień = 2 do maksymalnej wystąpień = 10. W tym przykładzie zasady są skonfigurowane do skalowania w poziomie, gdy liczba wiadomości w kolejce jest większa niż 10 i skalowania w przypadku liczba wiadomości w kolejce jest mniejsza niż 3. Dlatego teraz zasobu można skalować między wystąpieniami 2 do 10.
 
-Ponadto jest profil cyklicznego ustawić od poniedziałku. Ma wartość minimalną wystąpień = 2, a maksymalna wystąpienia = 12. Oznacza to, w poniedziałek, pierwszy skalowania automatycznego czasu sprawdza, czy ten stan, jeśli liczba wystąpień jest równa 2, jego może obsłużyć nowy co najmniej 3. Tak długo, jak skalowania automatycznego nadal znaleźć ten warunek profilu dopasowane (poniedziałek), jego tylko reguły są przetwarzane na podstawie procesora CPU skalowania w poziomie/w skonfigurowane dla tego profilu. W tej chwili nie sprawdza długość kolejki. Jednak jeśli chcesz również można sprawdzić warunku długość kolejki, należy uwzględnić te reguły z domyślnego profilu również w profilu od poniedziałku.
+Ponadto jest profil cyklicznego ustawić od poniedziałku. Jest ustawiony dla wystąpień minimalna = 3, a maksymalna wystąpienia = 10. Oznacza to, w poniedziałek, pierwszy skalowania automatycznego czasu sprawdza, czy ten stan, jeśli liczba wystąpień jest równa 2, jego może obsłużyć nowy co najmniej 3. Tak długo, jak skalowania automatycznego nadal znaleźć ten warunek profilu dopasowane (poniedziałek), jego tylko reguły są przetwarzane na podstawie procesora CPU skalowania w poziomie/w skonfigurowane dla tego profilu. W tej chwili nie sprawdza długość kolejki. Jednak jeśli chcesz również można sprawdzić warunku długość kolejki, należy uwzględnić te reguły z domyślnego profilu również w profilu od poniedziałku.
 
 Podobnie gdy zmienia skalowania automatycznego do domyślnego profilu, najpierw sprawdza, czy zostały spełnione warunki minimalną i maksymalną. Liczba wystąpień w czasie w przypadku 12, jego skaluje w 10, maksymalny dozwolony profil domyślny.
 

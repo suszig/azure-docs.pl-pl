@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Dodaj niestandardową domenę do punktu końcowego CDN
 Po utworzeniu profilu zazwyczaj tworzony jest również co najmniej jeden CDN [punkty końcowe](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (poddomeną `azureedge.net`) do dostarczania zawartości przy użyciu protokołu HTTP i HTTPS. Domyślnie ten punkt końcowy jest uwzględniona w wszystkie adresy URL (na przykład `https://contoso.azureedge.net/photo.png`). Dla wygody użytkownika usługi Azure CDN umożliwia skojarzenie niestandardową domenę (na przykład `www.contoso.com`) z punktu końcowego. Po wybraniu tej opcji umożliwia domeny niestandardowej dostarczać swoją zawartość zamiast punktu końcowego. Ta opcja jest przydatna, jeśli na przykład chcesz z własnej nazwy domeny mają być widoczne dla klientów na potrzeby znakowania.
@@ -54,7 +54,7 @@ Aby zamapować domenę niestandardową do punktu końcowego usługi CDN, użyj j
  
   | NAZWA             | TYP  | WARTOŚĆ                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | Contoso\.azureedge.net |
 
 
 - Opcja 2: Mapowanie, uwzględniając **cdnverify** poddomeny. Jeśli ruch produkcji, który nie można przerwać działa na domenę niestandardową, można utworzyć tymczasowego mapowanie CNAME do punktu końcowego CDN. Po wybraniu tej opcji Użyj platformy Azure **cdnverify** poddomeny zapewnienie etap pośredni rejestracji, tak, aby użytkownicy mieli dostęp do domeny bez przerwy podczas mapowania DNS ma miejsce.
@@ -64,7 +64,7 @@ Aby zamapować domenę niestandardową do punktu końcowego usługi CDN, użyj j
 
    | NAZWA                       | TYP  | WARTOŚĆ                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Krok 3: Włącz mapowania rekord CNAME w systemie Azure
@@ -103,7 +103,7 @@ Ten krok jest zależna od kroku 2, opcja 2 (mapowanie, uwzględniając **cdnveri
  
    | NAZWA             | TYP  | WARTOŚĆ                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | Contoso\.azureedge.net |
 2. Usuń rekord CNAME z **cdnverify** poddomeny, która została wcześniej utworzona.
 
 ## <a name="see-also"></a>Zobacz też
