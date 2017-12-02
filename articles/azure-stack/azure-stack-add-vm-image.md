@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Udostępnić obraz niestandardowy maszyny wirtualnej Azure stosu
 
@@ -184,7 +184,7 @@ Obrazy można musi odwoływać się do magazynu obiektów Blob identyfikatora UR
 
 2. Zaloguj się do stosu Azure jako operatora. Wybierz z menu **więcej usług** > **dostawców zasobów**. Następnie wybierz opcję **obliczeniowe** > **obrazów maszyn wirtualnych** > **Dodaj**.
 
-3. W obszarze **Dodaj obraz maszyny Wirtualnej**, wprowadź wydawcy, oferty, jednostki SKU i wersji obrazu maszyny wirtualnej. Te segmenty nazwy odnoszą się do obrazu maszyny Wirtualnej w szablonach usługi Resource Manager. Upewnij się wybrać **osType** wartość poprawnie. Aby uzyskać **identyfikator URI obiektu Blob dysku OD**, wprowadź identyfikator URI obiektu Blob, których obraz został załadowany. Następnie wybierz opcję **Utwórz** aby rozpocząć tworzenie obrazu maszyny Wirtualnej.
+3. W obszarze **Dodaj obraz maszyny Wirtualnej**, wprowadź wydawcy, oferty, jednostki SKU i wersji obrazu maszyny wirtualnej. Te segmenty nazwy odnoszą się do obrazu maszyny Wirtualnej w szablonach usługi Resource Manager. Upewnij się wybrać **osType** wartość poprawnie. Aby uzyskać **identyfikator URI obiektu Blob dysku systemu operacyjnego**, wprowadź identyfikator URI obiektu Blob, których obraz został załadowany. Następnie wybierz opcję **Utwórz** aby rozpocząć tworzenie obrazu maszyny Wirtualnej.
    
    ![Początkowy do tworzenia obrazu](./media/azure-stack-add-vm-image/image4.png)
 
