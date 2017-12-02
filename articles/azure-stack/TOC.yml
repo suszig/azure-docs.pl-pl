@@ -213,6 +213,10 @@
           items:
             - name: Nawiązywanie połączenia przy użyciu sieci VPN
               href: azure-stack-connect-vpn.md
+            - name: Temat bramy sieci VPN
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Ustawienia bramy sieci VPN
+              href: azure-stack-vpn-gateway-settings.md
             - name: Nawiązywanie połączenia przy użyciu usługi ExpressRoute
               href: azure-stack-connect-expressroute.md
     - name: Rozwiązywanie problemów
