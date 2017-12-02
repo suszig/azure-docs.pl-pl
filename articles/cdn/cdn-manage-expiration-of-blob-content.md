@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6fa563e102569064d045fbb60ebd5d1df52e3e73
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Zarządzaj wygasaniem magazynu obiektów Blob platformy Azure w usłudze Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -111,22 +111,21 @@ Aby zaktualizować *CacheControl* właściwości obiektu blob z Eksploratora us�
 ![Właściwości Eksploratora usługi Storage platformy Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfejs wiersza polecenia platformy Azure
-Po przekazaniu obiektu blob można ustawić *cacheControl* właściwości o `-p` przełącznika w [interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md). Poniższy przykład pokazuje, jak można ustawić czas wygaśnięcia na godzinę (3600 sekund):
+Z [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), mogą zarządzać zasobami obiektów blob platformy Azure z poziomu wiersza polecenia. Aby skonfigurować nagłówek cache-control, podczas ładowania obiektu blob z wiersza polecenia platformy Azure, ustawić *cacheControl* właściwości przy użyciu `-p` przełącznika. Poniższy przykład pokazuje, jak można ustawić czas wygaśnięcia na godzinę (3600 sekund):
   
-```command
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+"" -C przekazania obiektu blob magazynu azure azure CLI <connectionstring> - p cacheControl = "maksymalny wiek = test.txt Mojkontener.\test.txt 3600"
 ```
 
-### <a name="azure-storage-services-rest-api"></a>Interfejs API REST usług magazynu Azure
-Można użyć [interfejsu API REST usług magazynu Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) jawnie ustaw *x-ms-blob-cache-control* właściwości przy użyciu następujących operacji na żądanie:
+### Azure storage services REST API
+You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
   
-   - [Umieszczanie obiektu Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Umieść zablokowanych](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-   - [Ustaw właściwości obiektów Blob](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
-## <a name="testing-the-cache-control-header"></a>Testowanie nagłówek Cache-Control
-Można łatwo sprawdzić ustawienia TTL obiektów blob. Przy użyciu przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test, który zawiera z obiektu blob `Cache-Control` nagłówka odpowiedzi. Można również użyć narzędzia takie jak [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), lub [Fiddler](http://www.telerik.com/fiddler) Aby sprawdzić nagłówki odpowiedzi.
+## Testing the Cache-Control header
+You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
 
-## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się, jak zarządzać wygasaniem zawartości usługi w chmurze w usłudze Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+## Next Steps
+* [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

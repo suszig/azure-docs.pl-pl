@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Opis i przy użyciu agenta systemu Linux platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Plik konfiguracji (/ etc/waagent.conf) steruje agenta waagent akcje. Poniżej pr
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Plik konfiguracji (/ etc/waagent.conf) steruje agenta waagent akcje. Poniżej pr
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Różne opcje konfiguracji opisano szczegółowo poniżej. Opcje konfiguracji są trzy typy; Wartość logiczna, String lub Integer. Opcje konfiguracji logicznych można określić jako "y" lub "n". Specjalne słowo kluczowe "None" mogą być używane w przypadku niektórych ciąg typu konfiguracji wpisów zgodnie z opisem poniżej.
 
@@ -208,6 +210,10 @@ Typ: wartość logiczna
 Domyślne: n
 
 Jeśli ustawiona, agenta waagent wykona CustomData po zainicjowaniu obsługi administracyjnej.
+
+**Provisioning.AllowResetSysUser** typu: domyślna wartość logiczna: n
+
+Ta opcja umożliwia hasło użytkownika sys zresetować; Domyślnie jest wyłączona.
 
 **Provisioning.PasswordCryptId**  
 Typ: ciąg  
@@ -290,6 +296,12 @@ Typ: ciąg
 Domyślnie: Brak
 
 Jeśli ustawiona, będzie używane przez agenta ten serwer proxy do uzyskania dostępu do Internetu. 
+
+**AutoUpdate.Enabled** typu: domyślna wartość logiczna: y
+
+Włącz lub wyłącz automatyczne aktualizowanie stanu celem przetwarzania; Domyślnie włączone.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Obrazy Ubuntu chmury
 Należy pamiętać, że korzystanie z obrazów chmury Ubuntu [init chmury](https://launchpad.net/ubuntu/+source/cloud-init) do wykonywania wielu zadań konfiguracji, które w przeciwnym razie będą zarządzane przez agenta systemu Linux platformy Azure.  Należy pamiętać, następujące różnice:

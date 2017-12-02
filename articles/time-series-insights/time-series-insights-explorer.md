@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/30/2017
+ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Eksplorator Insights serii czasu
 Ten artykuł opisuje różne funkcje i opcje dostępne w aplikacji sieci web explorer Insights serii czasu. Umożliwia explorer czasu serii wgląd w przeglądarce sieci web tworzenie wizualizacji danych.
@@ -90,7 +90,7 @@ W ciągu minut połączenia źródła zdarzeń w danym środowisku czasu serii I
 
 11. **Heatmap** może służyć do szybkiego wychwycenia serii danych unikatowy lub nietypowe w określonego zapytania. Tylko jeden wyszukiwany termin można wywołać jako heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+   ![Mapa cieplna](media/time-series-insights-explorer/explorer6.png)
 
 12. **Zdarzenia**: po wybraniu Eksploruj zdarzenia, wybierając lub prawym przyciskiem myszy nad, panelu zdarzeń ma zostać udostępnione.  W tym miejscu można wyświetlić wszystkie nieprzetworzone zdarzeń i eksportowanie zdarzeń jako JSON lub plików CSV. Należy pamiętać, że czas serii Insights przechowuje wszystkie dane pierwotne.
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Wdrażanie modelu uczenia maszynowego jako usługi sieci web
 
@@ -25,7 +25,7 @@ W tym dokumencie opisano procedurę wdrażania modeli jako usługi sieci web prz
 ## <a name="deploying-web-services"></a>Wdrażanie usług sieci web
 CLIs można wdrożyć usługi sieci web do uruchamiania na komputerze lokalnym lub w klastrze.
 
-Firma Microsoft zaleca, począwszy od lokalnego wdrożenia. Zweryfikuj czy model i kod działają, następnie wdrażanie usługi sieci web do klastra do użytku produkcyjnego skali. Aby uzyskać więcej informacji na temat konfigurowania środowiska do wdrożenia klastra, zobacz [konfiguracji zarządzania modelu](model-management-configuration.md). 
+Firma Microsoft zaleca, począwszy od lokalnego wdrożenia. Zweryfikuj czy model i kod działają, następnie wdrażanie usługi sieci web do klastra do użytku produkcyjnego skali. Aby uzyskać więcej informacji na temat konfigurowania środowiska do wdrożenia klastra, zobacz [konfiguracji zarządzania modelu](deployment-setup-configuration.md). 
 
 Poniżej przedstawiono kroki wdrażania:
 1. Użyj modelu uczenia maszynowego zapisane, przeszkolone,
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy zostały przetestowane usługi sieci web, aby uruchomić lokalnie, można wdrożyć klaster do użytku na dużą skalę. Aby uzyskać więcej informacji na temat konfigurowania klastra dla wdrożenia usługi sieci web, zobacz [konfiguracji zarządzania modelu](model-management-configuration.md). 
+Teraz, gdy zostały przetestowane usługi sieci web, aby uruchomić lokalnie, można wdrożyć klaster do użytku na dużą skalę. Aby uzyskać więcej informacji na temat konfigurowania klastra dla wdrożenia usługi sieci web, zobacz [konfiguracji zarządzania modelu](deployment-setup-configuration.md). 

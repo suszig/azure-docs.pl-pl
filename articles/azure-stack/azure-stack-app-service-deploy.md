@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Dodawanie dostawcy zasobów usługi aplikacji Azure stosu
 
@@ -73,7 +73,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
     ![Instalator usługi aplikacji](media/azure-stack-app-service-deploy/image04.png)
 
 8. Na następnej stronie:
-    1. W **identyfikator aplikacji tożsamości** wprowadź identyfikator GUID dla aplikacji, używane dla tożsamości.
+    1. W **identyfikator aplikacji tożsamości** wprowadź identyfikator GUID dla aplikacji, używane dla tożsamości (z usługi Azure AD).
     2. W **pliku certyfikatu tożsamości aplikacji** wprowadź (lub przejdź do) lokalizację pliku certyfikatu.
     3. W **hasło certyfikatu tożsamości aplikacji** wprowadź hasło dla certyfikatu. To hasło jest wprowadzone należy wziąć pod uwagę, gdy skrypt jest używany do tworzenia certyfikatów.
     4. W **plik certyfikatu głównego usługi Azure Resource Manager** wprowadź (lub przejdź do) lokalizację pliku certyfikatu.
@@ -106,7 +106,7 @@ Aby wdrożyć dostawcy zasobów usługi aplikacji, wykonaj następujące kroki:
 
     | Rola | Minimalna wystąpień | Minimalna jednostki SKU | Uwagi |
     | --- | --- | --- | --- |
-    | Kontrolera | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
+    | Kontroler | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Zarządza i obsługuje kondycji chmury usługi aplikacji. |
     | Zarządzanie | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Zarządza punktów końcowych aplikacji usługi Azure Resource Manager i interfejsu API, rozszerzenia portalu (administratora, dzierżawcy, funkcje portalu) i usługi danych. Do obsługi trybu failover, zwiększyć zalecane wystąpień na 2. |
     | Wydawca | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publikowanie zawartości za pośrednictwem sieci web i FTP wdrożenia. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Kieruje żądania do aplikacji usługi aplikacji. |
@@ -157,7 +157,7 @@ Po wdrażanie i rejestrowanie dostawcy zasobów usługi aplikacji, przetestować
 >
 Możesz *musi* mających subskrypcję dzierżawy do tworzenia aplikacji korzystających z usługi aplikacji Azure stosu. Tylko możliwości, które administrator usługi można wykonać w portalu administracyjnym dotyczących administracji dostawcy zasobów usługi App Service. Te funkcje obejmują dodanie pojemności, konfigurowanie źródła wdrożenia i dodawanie warstwy procesu roboczego i jednostki SKU.
 >
-Począwszy od trzeciego technical preview można utworzyć sieci web, interfejsu API i Azure funkcje aplikacji, należy użyć portalu dzierżawcy i ma subskrypcję dzierżawy.
+Do tworzenia sieci web, interfejsu API i Azure funkcje aplikacji, należy użyć portalu dzierżawcy i ma subskrypcję dzierżawy.
 
 1. W portalu Azure stosu dzierżawy kliknij **nowy** > **sieci Web i mobilność** > **aplikacji sieci Web**.
 

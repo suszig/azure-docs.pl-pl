@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Użyj tożsamości usługi Azure zarządzanych w usłudze Azure API Management
 
@@ -116,6 +116,25 @@ Poniższy przykład pokazuje, jak można uzyskać certyfikatu z usługi Azure Ke
 1. Utwórz wystąpienie interfejsu API zarządzania przy użyciu tożsamości.
 2. Aktualizowanie zasad dostępu do wystąpienia usługi Azure Key Vault i pozwolić wystąpienia interfejsu API zarządzania uzyskanie kluczy tajnych z niego.
 3. Aktualizuj wystąpienie interfejsu API zarządzania przez ustawienie niestandardowej nazwy domeny za pomocą certyfikatu z wystąpienia usługi Key Vault.
+
+### <a name="prerequisites"></a>Wymagania wstępne
+Aby wykonać poniżej szablon arm potrzebujemy następujące 
+1. Magazyn kluczy, zawierający certyfikat pfx w tej samej subskrypcji i tej samej grupie zasobów co usługa Api Management. To wymaganie szablon arm. 
+2. Typ zawartości klucz tajny powinien być *application/x-pkcs12*. Poniższy skrypt można użyć w celu przekazania certyfikatu
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
 
 > [!Important]
 > Jeśli nie podano wersji obiektu certyfikatu, zarządzanie interfejsami API automatycznie uzyskać nowsza wersja certyfikatu po przekazaniu do magazynu kluczy. 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Niestety jest nie łatwe poprawkę na tym typie. Należy wykonać następujące 
    - Usuń skryptu`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
    - Pobierz https://aka.ms/azureml-wb-msi Instalatora i zainstaluj ponownie.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Zostać zablokowane na ekranie "Sprawdzanie konta eksperymenty" po zalogowaniu
+Po zalogowaniu aplikacji Workbench może zatrzymywane w pusty ekran z komunikatem "Sprawdzanie eksperymenty konto" kółkiem Obracająca przedstawiający. Aby rozwiązać ten problem, wykonaj następujące czynności:
+1. Zamknięcie aplikacji
+2. Usunąć następujący plik:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Uruchom ponownie aplikację.
 
 ## <a name="cant-delete-experimentation-account"></a>Nie można usunąć konta eksperymenty
 Można użyć interfejsu wiersza polecenia, aby usunąć konto eksperymenty, ale musisz usunąć obszary robocze podrzędnych i projekty podrzędne w tych obszarach roboczych podrzędnych najpierw. W przeciwnym razie zostanie wyświetlony błąd.

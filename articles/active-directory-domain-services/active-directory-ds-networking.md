@@ -4,7 +4,7 @@ description: "Zagadnienia dotyczące sieci dla usług domenowych Azure Active Di
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 537643f582f6cc3328bd1c098de03c4f6e07c113
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Zagadnienia dotyczące sieci dla usług domenowych Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Jak wybrać sieć wirtualną platformy Azure
@@ -28,10 +28,6 @@ Poniższe wskazówki ułatwiają wybieranie sieci wirtualnej do korzystania z us
 * **Sieci wirtualne usługi Resource Manager**: można włączyć usługi domenowe Azure AD w sieciach wirtualnych utworzonych przy użyciu usługi Azure Resource Manager.
 * Nie można włączyć usługi domenowe Azure AD w klasycznej sieci wirtualnej platformy Azure.
 * Można połączyć innych sieci wirtualnych do sieci wirtualnej, w której włączono usługi domenowe Azure AD. Aby uzyskać więcej informacji, zobacz [połączeń sieciowych](active-directory-ds-networking.md#network-connectivity) sekcji.
-* **Regionalne wirtualne sieci**: Jeśli planujesz użyć istniejącej sieci wirtualnej, upewnij się, że jest regionalną sieć wirtualną.
-
-  * Sieci wirtualnych korzystających ze starszego mechanizmu grup koligacji nie można używać z Usługami domenowymi Azure AD.
-  * Aby korzystać z usług domenowych Azure AD [migracja starszych sieci wirtualnych do regionalnych sieci wirtualnych](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ### <a name="azure-region-for-the-virtual-network"></a>Region platformy Azure dla sieci wirtualnej
 * Usługi domenowe Azure AD domeny zarządzanej jest wdrażana w tym samym regionie Azure, co sieć wirtualna wybierzesz opcję Włącz usługę w.
@@ -39,7 +35,7 @@ Poniższe wskazówki ułatwiają wybieranie sieci wirtualnej do korzystania z us
 * Ze strony zawierającej [usługi platformy Azure uporządkowane według regionów](https://azure.microsoft.com/regions/#services/) dowiesz się, w których regionach platformy Azure jest dostępna usługa Azure AD Domain Services.
 
 ### <a name="requirements-for-the-virtual-network"></a>Wymagania dotyczące sieci wirtualnej
-* **Zbliżeniowe obciążeniom Azure**: Wybierz sieć wirtualną, która obecnie hostuje/będzie hostować maszyny wirtualne, które wymagają dostępu do usług domenowych Azure AD. Można także połączyć sieci wirtualnych obciążeń w przypadku wdrożenia w innej sieci wirtualnej niż domeny zarządzanej.
+* **Zbliżeniowe obciążeniom Azure**: Wybierz sieć wirtualną, która obecnie hostuje/będzie hostować maszyny wirtualne, które wymagają dostępu do usług domenowych Azure AD. W przypadku wdrożenia w innej sieci wirtualnej niż domeny zarządzanej obciążeń można także połączyć sieci wirtualnych.
 * **Niestandardowe/bring your own serwerów DNS**: Sprawdź, czy żadnych niestandardowych serwerów DNS, które są skonfigurowane dla sieci wirtualnej. Przykład niestandardowy serwer DNS jest wystąpieniem DNS systemu Windows Server uruchomiony na maszynę Wirtualną serwera systemu Windows, która została wdrożona w sieci wirtualnej. Usługi domenowe Azure AD nie obsługują żadnych niestandardowych serwerów DNS, które są wdrożone w ramach sieci wirtualnej.
 * **Domen z tą samą nazwą domeny**: Upewnij się, że nie masz istniejącej domeny o takiej samej nazwie domeny, dostępne w tej sieci wirtualnej. Na przykład załóżmy, że masz domenę o nazwie „contoso.com” już dostępną w wybranej sieci wirtualnej. Później spróbuj włączyć domeny zarządzanej usług domenowych Azure AD z tą samą nazwą domeny (który jest "contoso.com") w tej sieci wirtualnej. Wystąpi awaria podczas próby włączenia usług domenowych Azure AD. Ten błąd jest spowodowany konfliktów nazw dla nazwy domeny w sieci wirtualnej. W takiej sytuacji musisz użyć innej nazwy podczas konfigurowania domeny zarządzanej Usług domenowych Azure AD. Możesz również anulować aprowizację istniejącej domeny i kontynuować włączanie Usług domenowych Azure AD.
 
@@ -48,12 +44,11 @@ Poniższe wskazówki ułatwiają wybieranie sieci wirtualnej do korzystania z us
 >
 >
 
-## <a name="network-security-groups-and-subnet-design"></a>Grupy zabezpieczeń sieci i podsieci
-A [grupy zabezpieczeń sieci (NSG)](../virtual-network/virtual-networks-nsg.md) zawiera listę reguł listy kontroli dostępu (ACL), które akceptować lub odrzucać ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Grupy NSG można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych maszyn wirtualnych można ograniczyć jeszcze bardziej przez skojarzenie grupy NSG bezpośrednio z tą maszyną Wirtualną.
+
+## <a name="guidelines-for-choosing-a-subnet"></a>Wskazówki dotyczące wybierania podsieci
 
 ![Zalecane podsieci](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="guidelines-for-choosing-a-subnet"></a>Wskazówki dotyczące wybierania podsieci
 * Wdrażanie usług domenowych Azure AD do **oddzielnych dedykowanych podsieci** w ramach sieci wirtualnej platformy Azure.
 * Nie dotyczą grup NSG podsieci dedykowane dla domeny zarządzanej. Jeśli należy zastosować grupy NSG do podsieci dedykowanych, upewnij się, możesz **nie blokować porty wymagane do usługi i zarządzać domenę**.
 * Nie ograniczaj zbyt liczba adresów IP dostępne w ramach dedykowanej podsieci dla domeny zarządzanej. To ograniczenie uniemożliwia udostępnianie dwa kontrolery domeny do domeny zarządzanej usługi.
@@ -64,20 +59,40 @@ A [grupy zabezpieczeń sieci (NSG)](../virtual-network/virtual-networks-nsg.md) 
 >
 >
 
-### <a name="ports-required-for-azure-ad-domain-services"></a>Porty wymagane przez usługi domenowe Azure AD
+## <a name="ports-required-for-azure-ad-domain-services"></a>Porty wymagane przez usługi domenowe Azure AD
 Następujące porty są wymagane dla usług domenowych Azure AD do usługi i obsługa domeny zarządzanej. Upewnij się, że te porty nie są blokowane dla podsieci, w którym włączono domeny zarządzanej.
 
-| Numer portu | Przeznaczenie |
-| --- | --- |
-| 443 |Synchronizacja z dzierżawy usługi Azure AD |
-| 3389 |Zarządzanie domeny |
-| 5986 |Zarządzanie domeny |
-| 636 |Bezpieczny dostęp protokołu LDAP (LDAPS) do domeny zarządzanej |
+| Numer portu | Wymagana? | Przeznaczenie |
+| --- | --- | --- |
+| 443 | Obowiązkowy |Synchronizacja z dzierżawy usługi Azure AD |
+| 5986 | Obowiązkowy | Zarządzanie domeny |
+| 3389 | Optional (Opcjonalność) | Zarządzanie domeny |
+| 636 | Optional (Opcjonalność) | Bezpieczny dostęp protokołu LDAP (LDAPS) do domeny zarządzanej |
 
-Portu 5986 służy do wykonywania zadań zarządzania w domenie zarządzanej przy użyciu komunikacji zdalnej programu PowerShell. Kontrolery domeny dla domeny zarządzanej nie Nasłuchuj zwykle na tym porcie. Tylko wtedy, gdy operacja zarządzania lub konserwacji musi zostać wykonana dla domeny zarządzanej usługi zostanie otwarty ten port na zarządzanych kontrolerach domeny. Zaraz po zakończeniu operacji, Usługa zamyka tego portu, na kontrolerach domeny zarządzanej.
+**Port 443 (synchronizacji z usługą Azure AD)**
+* Służy do synchronizacji katalogu usługi Azure AD z domeny zarządzanej.
+* Jest to konieczne, aby umożliwić dostęp do tego portu w Twojej NSG. Bez dostępu do tego portu domeny zarządzanej nie jest zsynchronizowana z katalogiem Azure AD. Użytkownicy nie można zalogować się jako zmiany hasła nie są synchronizowane z domeny zarządzanej.
+* Do tego portu do adresów IP należących do zakresu adresów IP platformy Azure, można ograniczyć dostęp dla ruchu przychodzącego.
 
-Port 3389 jest używany do obsługi połączeń pulpitu zdalnego do domeny zarządzanej. Również portu pozostanie wyłączony przede wszystkim na domeny zarządzanej. Usługa ta umożliwia tego portu, tylko wtedy, gdy należy nawiązać domeny zarządzanej w celu rozwiązywania problemów w odpowiedzi na żądanie obsługi, który został zainicjowany. Ten mechanizm nie jest używany w sposób ciągły, ponieważ do zarządzania i monitorowania zadań są wykonywane przy użyciu komunikacji zdalnej programu PowerShell. Port ten jest używany tylko w rzadkich, czego potrzebujemy, aby nawiązać połączenie zdalne domeny zarządzanej do zaawansowanego rozwiązywania problemów. Port jest zamknięty, natychmiast po zakończeniu operacji rozwiązywania problemów.
+**Portu 5986 (obsługę zdalną środowiska PowerShell)** 
+* Służy do wykonywania zadań zarządzania w domenie zarządzanej przy użyciu komunikacji zdalnej programu PowerShell.
+* Jest to konieczne, aby zezwolić na dostęp za pośrednictwem tego portu w Twojej NSG. Bez dostępu do tego portu domeny zarządzanej nie może być zaktualizowany, skonfigurowany, kopii zapasowej lub monitorowanych.
+* Możesz ograniczyć dostęp dla ruchu przychodzącego dla tego portu do źródłowych adresów IP: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Kontrolery domeny dla domeny zarządzanej nie Nasłuchuj zwykle na tym porcie. Tylko wtedy, gdy operacja zarządzania lub konserwacji musi zostać wykonana dla domeny zarządzanej usługi zostanie otwarty ten port na zarządzanych kontrolerach domeny. Zaraz po zakończeniu operacji, Usługa zamyka tego portu, na kontrolerach domeny zarządzanej.
 
+**Port 3389 (pulpitu zdalnego)** 
+* Służy do obsługi połączeń pulpitu zdalnego do kontrolerów domeny dla domeny zarządzanej. 
+* Otwarcie tego portu za pośrednictwem sieci NSG jest opcjonalne. 
+* Również portu pozostanie wyłączony przede wszystkim na domeny zarządzanej. Ten mechanizm nie jest używany w sposób ciągły, ponieważ do zarządzania i monitorowania zadań są wykonywane przy użyciu komunikacji zdalnej programu PowerShell. Port ten jest używany tylko w rzadkich, firma Microsoft będzie potrzebowała nawiązywanie połączeń zdalnych do domeny zarządzanej do zaawansowanego rozwiązywania problemów. Port jest zamknięty, natychmiast po zakończeniu operacji rozwiązywania problemów.
+
+**Port 636 bezpiecznego protokołu LDAP)**
+* Służy do włączyć bezpieczny dostęp LDAP do domeny zarządzanej za pośrednictwem Internetu.
+* Otwarcie tego portu za pośrednictwem sieci NSG jest opcjonalne. Otwórz port tylko wtedy, gdy masz bezpiecznego dostępu LDAP w Internecie włączone.
+* Do tego portu źródłowych adresów IP, z których można było się spodziewać nawiązywać połączeń za pośrednictwem bezpiecznego protokołu LDAP, można ograniczyć dostęp dla ruchu przychodzącego.
+
+
+## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
+A [grupy zabezpieczeń sieci (NSG)](../virtual-network/virtual-networks-nsg.md) zawiera listę reguł listy kontroli dostępu (ACL), które akceptować lub odrzucać ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej. Grupy NSG można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto ruch do poszczególnych maszyn wirtualnych można ograniczyć jeszcze bardziej przez skojarzenie grupy NSG bezpośrednio z tą maszyną Wirtualną.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Przykład grupy NSG dla sieci wirtualnych z usług domenowych Azure AD
 W poniższej tabeli przedstawiono przykład grupy NSG można skonfigurować sieć wirtualną z domeny zarządzanej usług domenowych Azure AD. Ta zasada umożliwia ruch przychodzący przez wymagane porty, aby upewnić się, Twoje pozostaje domeny zarządzanej poprawkami, aktualizacji i mogą być monitorowane przez firmę Microsoft. Domyślna reguła "DenyAll" dotyczy cały ruch przychodzący z Internetu.

@@ -1,6 +1,6 @@
 ---
-title: "Przetwarzanie wiadomości urządzenia do chmury Azure IoT Hub (Java) | Dokumentacja firmy Microsoft"
-description: "Jak komunikaty do przetwarzania komunikatów urządzenia do chmury Centrum IoT przy użyciu reguł routingu oraz niestandardowe punkty końcowe wysłania wiadomości do innych usług zaplecza."
+title: "Routing komunikatów z Centrum IoT Azure (Java) | Dokumentacja firmy Microsoft"
+description: "Jak komunikaty do przetwarzania komunikatów urządzenia do chmury Azure IoT Hub przy użyciu reguł routingu oraz niestandardowe punkty końcowe wysłania wiadomości do innych usług zaplecza."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-java"></a>Przetwarzanie wiadomości urządzenia do chmury Centrum IoT (Java)
+# <a name="routing-messages-with-iot-hub-java"></a>Routing komunikatów z Centrum IoT (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -44,7 +44,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 * [Maven 3](https://maven.apache.org/install.html)
 * Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto próbne][lnk-free-trial] w zaledwie kilka minut).
 
-Powinien mieć niektóre podstawową wiedzę na temat [usługi Azure Storage] i [Azure Service Bus].
+Zalecamy również informacje o [usługi Azure Storage] i [Azure Service Bus].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Wysyłanie wiadomości interaktywne z aplikacji przez urządzenia
 W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczynanie pracy z Centrum IoT] samouczek czasami wysłać wiadomości, które wymagają natychmiastowego przetwarzania.
@@ -66,9 +66,15 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -99,7 +105,7 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
     }
     ```
    
-    Ta metoda losowo dodaje właściwość `"level": "critical"` dla komunikatów wysyłanych przez urządzenia, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza aplikacji. Aplikacji przekazuje informacje we właściwościach komunikatu zamiast, w treści wiadomości, więc tego Centrum IoT może kierować wiadomości do miejsca docelowego właściwy komunikat.
+    Ta metoda losowo dodaje właściwość `"level": "critical"` i `"level": "storage"` dla komunikatów wysyłanych przez urządzenia, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza aplikacji lub jeden, który musi być trwale przechowywane. Aplikacji przekazuje informacje we właściwościach komunikatu zamiast, w treści wiadomości, więc tego Centrum IoT może kierować wiadomości do miejsca docelowego właściwy komunikat.
    
    > [!NOTE]
    > Można użyć właściwości wiadomości do przesyłania wiadomości dla różnych scenariuszy, w tym chłodni ścieżką podczas przetwarzania, oprócz tu przykładzie aktywnej ścieżki.
@@ -107,7 +113,7 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
 2. Zapisz i zamknij plik simulated-device\src\main\java\com\mycompany\app\App.java.
 
     > [!NOTE]
-    > Dla uproszczenia w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN np. [obsługi błędów przejściowych].
+    > Firma Microsoft zaleca, aby zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN np. [obsługi błędów przejściowych].
 
 3. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
 
@@ -168,6 +174,30 @@ Teraz można przystąpić do uruchomienia trzech aplikacji.
    ```
    
    ![Uruchom symulowane urządzenie][simulateddevice]
+
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcjonalnie) Dodaj kontener magazynu do IoT hub i tras wiadomości do niego
+
+W tej sekcji Utwórz konto magazynu, połącz go z Centrum IoT i skonfigurować do wysyłania komunikatów do konta, na podstawie obecności właściwość w komunikacie Centrum IoT. Aby uzyskać więcej informacji o sposobie zarządzania magazynu, zobacz [Rozpoczynanie pracy z magazynem Azure][usługi Azure Storage].
+
+ > [!NOTE]
+   > Jeśli nie masz tylko jeden **punktu końcowego**, może skonfigurować **StorageContainer** oprócz **CriticalQueue** i uruchom oba simulatneously.
+
+1. Utwórz konto magazynu, zgodnie z opisem w [dokumentacji platformy Azure magazynu] [lnk magazynu]. Zanotuj nazwę konta.
+
+2. W portalu Azure Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
+
+3. W **punkty końcowe** bloku, wybierz opcję **CriticalQueue** punktu końcowego, a następnie kliknij przycisk **usunąć**. Kliknij przycisk **tak**, a następnie kliknij przycisk **Dodaj**. Nazwa punktu końcowego **StorageContainer** i umożliwia wybranie listach rozwijanych **kontenera magazynu Azure**i Utwórz **konta magazynu** i **magazynu kontener**.  Zanotuj nazwy.  Gdy wszystko będzie gotowe, kliknij przycisk **OK** u dołu. 
+
+ > [!NOTE]
+   > Jeśli nie masz tylko jeden **punktu końcowego**, nie trzeba usunąć **CriticalQueue**.
+
+4. Kliknij przycisk **tras** w Centrum IoT. Kliknij przycisk **Dodaj** w górnej części bloku, aby utworzyć regułę routingu kieruje komunikaty do kolejki właśnie został dodany. Wybierz **komunikaty** jako źródło danych. Wprowadź `level="storage"` jako warunek i wybierz polecenie **StorageContainer** jako punktu końcowego niestandardowych jako routingu końcowy reguły. Kliknij przycisk **zapisać** u dołu.  
+
+    Upewnij się, że rezerwowy trasy ma ustawioną wartość **ON**. To ustawienie jest domyślną konfigurację Centrum IoT.
+
+1. Upewnij się, że nadal działają poprzedniej aplikacji. 
+
+1. W portalu Azure, przejdź do konta magazynu, w obszarze **usługa Blob**, kliknij przycisk **Przeglądaj obiekty BLOB...** .  Wybierz kontener użytkownika, przejdź do kliknij plik JSON i kliknij przycisk **Pobierz** do wyświetlania danych.
 
 ## <a name="next-steps"></a>Następne kroki
 

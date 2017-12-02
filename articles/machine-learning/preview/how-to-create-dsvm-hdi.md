@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c28d92ad23e42401d42d9510fd7d07429929ade7
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Tworzenie klastra DSVM i HDI Spark jako obliczeniowe elementy docelowe
 
@@ -63,18 +63,22 @@ Skopiuj i wklej poniższy fragment kodu JSON do `mydsvm.json` pliku, a następni
 
 Dla _vmSize_ pola, można użyć dowolnego suppported rozmiaru maszyny Wirtualnej na liście [szablonu administracyjnego zasobów Ubuntu DSVM Azure](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Firma Microsoft zaleca, użyj jednej z poniższych rozmiary jako obliczeniowe elementy docelowe dla uczenie Maszynowe Azure. 
 
-- Standardowa_DS2_v2 
-- Standardowa_DS3_v2 
-- Standardowa_DS4_v2 
-- Standardowa_DS12_v2 
-- Standardowa_DS13_v2 
-- Standardowa_DS14_v2 
-- Standardowa_NC6 
-- Standardowa_NC12 
-- Standardowa_NC24 
- 
+
 >[!TIP]
-> Rozmiary maszyn wirtualnych, wprowadzenie "NC" są wyposażone w procesor GPU.
+> Dla [głębokie uczenia obciążeń](how-to-use-gpu.md) można wdrożyć do procesora GPU zasilane maszyn wirtualnych.
+
+- [Maszyny wirtualne ogólnego przeznaczenia](/virtual-machines/linux/sizes-general.md)
+  - Standardowa_DS2_v2 
+  - Standardowa_DS3_v2 
+  - Standardowa_DS4_v2 
+  - Standardowa_DS12_v2 
+  - Standardowa_DS13_v2 
+  - Standardowa_DS14_v2 
+- [Procesor GPU obsługiwane maszyny wirtualne](/virtual-machines/linux/sizes-gpu.md)
+  - Standardowa_NC6 
+  - Standardowa_NC12 
+  - Standardowa_NC24 
+ 
 
 Dowiedz się więcej o tych [rozmiary maszyn wirtualnych systemu Linux na platformie Azure](../../virtual-machines/linux/sizes.md) i ich [uzyskać informacje o cenach](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

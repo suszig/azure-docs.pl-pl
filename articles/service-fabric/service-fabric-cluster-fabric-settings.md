@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Dostosowywanie ustawień klastra sieci szkieletowej usług i zasady uaktualniania sieci szkieletowej
-Ten dokument zawiera informacje dotyczące dostosować różne ustawienia sieci szkieletowej i sieci szkieletowej uaktualniania zasad dla klastra usługi sieć szkieletowa usług. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
+Ten dokument zawiera opis sposobu dostosowywania różne ustawienia sieci szkieletowej i uaktualnić zasad dla klastra usługi sieć szkieletowa. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
 
 > [!NOTE]
 > Nie wszystkie ustawienia są dostępne w portalu. W przypadku, gdy ustawienie wymienionych poniżej nie jest dostępny za pośrednictwem portalu dostosować go za pomocą szablonu usługi Azure Resource Manager.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |MaxPrimaryReplicationQueueMemorySize|Uint — wartość domyślna to 0|Statyczny|Jest to maksymalna wartość kolejki podstawowej replikacji w bajtach.|
 |MaxSecondaryReplicationQueueSize|uint, domyślna wartość to 2048|Statyczny|Jest to maksymalna liczba operacji, które może znajdować się w kolejce replikacji dodatkowej. Należy pamiętać, że musi być potęgą liczby 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint — wartość domyślna to 0|Statyczny|Jest to maksymalna wartość kolejki dodatkowej replikacji w bajtach.|
-|QueueHealthMonitoringInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(30)|Statyczny|Określ zakres czasu w sekundach. Ta wartość określa okres czasu, używany przez Replikator do monitorowania kondycji ostrzeżenie/błąd zdarzeń kolejki operacji replikacji. Wartość "0" powoduje wyłączenie monitorowania kondycji |
-|QueueHealthWarningAtUsagePercent|uint, domyślny to 80|Statyczny|Ta wartość Określa użycie kolejki replikacji (w procentach) po upływie którego możemy zgłaszanie ostrzeżenie kolejki wysokiego użycia. Firma Microsoft zrobić po okresie prolongaty, o QueueHealthMonitoringInterval. Jeśli użycie kolejki spada poniżej tej wartości procentowej w okresie prolongaty|
+|QueueHealthMonitoringInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(30)|Statyczny|Określ zakres czasu w sekundach. Ta wartość określa okres czasu, używany przez Replikator do monitorowania kondycji ostrzeżenie/błąd zdarzeń kolejki operacji replikacji. Wartość "0" powoduje wyłączenie monitorowania kondycji. |
+|QueueHealthWarningAtUsagePercent|uint, domyślny to 80|Statyczny|Ta wartość Określa użycie kolejki replikacji (w procentach) po upływie którego możemy zgłaszanie ostrzeżenie kolejki wysokiego użycia. Firma Microsoft zrobić po okresie prolongaty, o QueueHealthMonitoringInterval. Jeśli użycie kolejki spada poniżej tej wartości procentowej w okresie prolongaty ostrzeżenia nie został zgłoszony.|
 |retryInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(5)|Statyczny|Określ zakres czasu w sekundach. Podczas operacji zostało utracone lub odrzucone ten czasomierz Określa, jak często replikatora ponowi operację wysyłania.|
 
 ### <a name="section-name-transport"></a>Nazwa sekcji: transportu

@@ -14,10 +14,10 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 164d98220f69a8c25d853baf1e07f9a11c200f16
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2017
@@ -110,6 +110,17 @@ Oto niektóre zasoby, które zostały wdrożone:
 
 Każda baza danych dzierżawy jest 50 DTU *autonomiczny* bazy danych.
 
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+<!--
+* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
+-->
+
+- Aby dowiedzieć się więcej na temat wielodostępnych aplikacji SaaS, zobacz [wzorce dla aplikacji SaaS wielodostępne projektowe](saas-tenancy-app-design-patterns.md).
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -119,12 +130,3 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Temat serwerów i baz danych, które tworzą aplikacji.
 > * Jak usunąć przykładowych zasobów, aby zatrzymać rozliczeń powiązanego.
 
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-<!--* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
--->
-
-- Aby dowiedzieć się więcej na temat wielodostępnych aplikacji SaaS, zobacz [wzorce dla aplikacji SaaS wielodostępne projektowe](saas-tenancy-app-design-patterns.md).

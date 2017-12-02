@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming i współpracy w konsoli usługi Azure Machine Learning Workbench
 Ten dokument przeprowadzi Cię przez jak Azure Machine Learning Workbench może pomóc są przekazywane projektów między maszyny, a także Włącz współpracy z członków zespołu. 
@@ -156,9 +156,9 @@ Aby zilustrować przepływu współpracy, Przejdźmy przykładem. Pracownicy fir
 
 7. Robert kliknie nazwę projektu i projekt zostanie pobrana do komputera.
     
-    a. Pliki z pobranego projektu to klony migawki najnowszej działają zarejestrowane w historii uruchamiania. Nie są one ostatniego zatwierdzenia dla gałęzi głównej.
+    a. Pliki z pobranego projektu są kopią migawki najnowsze Uruchom zapisywane w historii uruchamiania. Nie są one ostatniego zatwierdzenia dla gałęzi głównej.
     
-    b. Folder lokalny projektu jest ustawiona na _wzorca_ gałęzi nieprzygotowanych zmian.
+    b. Folder lokalny projektu jest ustawiona na _wzorca_ gałęzi powyżej nieprzygotowanych zmian.
 
 8. Bob może przeglądać uruchamia wykonywane przez Alicja i przywracanie migawki wszelkie poprzednie przebiegów.
 

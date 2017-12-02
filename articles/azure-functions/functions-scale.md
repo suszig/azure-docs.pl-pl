@@ -1,5 +1,5 @@
 ---
-title: "Środowisko Azure Functions hosting porównania planów | Dokumentacja firmy Microsoft"
+title: Skalowanie funkcji platformy Azure i hosting | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak wybrać planowania użycia funkcji Azure i plan usługi aplikacji."
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Środowisko Azure Functions hosting planów porównania
+# <a name="azure-functions-scale-and-hosting"></a>Skala funkcji platformy Azure i hostingu
 
-Można uruchomić usługi Azure Functions w dwóch różnych trybach: plan zużycia i plan usługi aplikacji Azure. Plan zużycie automatycznie przydzieli moc obliczeniową, gdy kod działa, skaluje się wymagane do obsługi obciążenia, a następnie skalowany w dół, gdy kodu nie jest uruchomiona. Tak nie trzeba płacić za maszyny wirtualne w stanie bezczynności i nie trzeba było wydajność rezerwowa z wyprzedzeniem. Ten artykuł skupia się na plan zużycie [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikacji. Aby uzyskać szczegółowe informacje dotyczące sposobu działania plan usługi aplikacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Można uruchomić usługi Azure Functions w dwóch różnych trybach: plan zużycia i plan usługi aplikacji Azure. Plan zużycie automatycznie przydzieli moc obliczeniową, gdy kod działa, skaluje się wymagane do obsługi obciążenia, a następnie skalowany w dół, gdy kodu nie jest uruchomiona. Nie trzeba płacić za maszyny wirtualne w stanie bezczynności i nie trzeba wydajność rezerwowa z wyprzedzeniem. Ten artykuł skupia się na plan zużycie [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikacji. Aby uzyskać szczegółowe informacje dotyczące sposobu działania plan usługi aplikacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Hosting systemu Linux jest obecnie dostępny tylko na plan usługi aplikacji.
@@ -84,18 +84,20 @@ Zawsze włączone jest dostępna tylko na plan usługi aplikacji. Na plan zużyc
 
 Plan zużycia lub plan usługi aplikacji aplikacji funkcji wymaga ogólne konto magazynu Azure obsługuje magazynu obiektów Blob platformy Azure, kolejki, pliki i tabeli. Wewnętrznie usługi Azure Functions używa usługi Azure Storage dla operacji, takich jak zarządzanie wyzwalaczy i rejestrowanie wykonania funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel, takich jak konta magazynu tylko do obiektów blob (w tym magazyn w warstwie premium) i kont magazynu ogólnego przeznaczenia za pomocą replikacji magazyn strefowo nadmiarowy. Te konta są filtrowane z **konta magazynu** bloku podczas tworzenia aplikacji funkcji.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Jak działa planu zużycie
 
-Kontroler skali w planie zużycie jest automatycznie skalowany zasobów Procesora i pamięci przez dodanie dodatkowych wystąpień funkcje hosta, na podstawie liczby zdarzeń, które funkcje są uruchamiane na. Każde wystąpienie hosta funkcji jest ograniczona do 1,5 GB pamięci.
+Kontroler skali w planie zużycie jest automatycznie skalowany zasobów Procesora i pamięci przez dodanie dodatkowych wystąpień funkcje hosta, na podstawie liczby zdarzeń, które funkcje są uruchamiane na. Każde wystąpienie hosta funkcji jest ograniczona do 1,5 GB pamięci.  Wystąpienie hosta jest aplikacji funkcji, co oznacza wszystkie funkcje w ramach — funkcja aplikacji współużytkowanie zasobów w ramach wystąpienia i skali, w tym samym czasie.
 
 Użycie zużycie plan hostingu, funkcja kodu pliki są przechowywane w udziałach plików Azure na koncie magazynu głównego funkcji. Podczas usuwania konta magazynu głównego aplikacji funkcji plików kodu funkcji zostaną usunięte i nie może zostać odzyskany.
 
 > [!NOTE]
 > Podczas korzystania z wyzwalacza obiektu blob w planie zużycia, może istnieć maksymalnie 10-minutowych opóźnienia w przetwarzaniu nowe obiekty BLOB, jeśli aplikacja funkcji przeszedł bezczynności. Po uruchomieniu aplikacji funkcja obiekty BLOB są przetwarzane natychmiast. Aby uniknąć tego opóźnienia początkowej, weź pod uwagę jedną z następujących opcji:
 > - Host aplikacji funkcji na plan usługi aplikacji z na zawsze włączone.
-> - Użyj innego mechanizmu wyzwalanie obiektów blob, przetwarzanie, takie jak wiadomość z kolejki nazwa obiektu blob. Na przykład zobacz [skryptu C# i JavaScript przykłady dla obiektu blob wejściowa i wyjściowa powiązania](functions-bindings-storage-blob.md#input--output---example).
+> - Użyj innego mechanizmu wyzwalanie blob przetwarzania, takich jak subskrypcja siatki zdarzeń lub komunikat z kolejki, zawierający nazwę obiektu blob. Na przykład zobacz [skryptu C# i JavaScript przykłady dla obiektu blob wejściowa i wyjściowa powiązania](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Skalowanie środowiska wykonawczego
 
@@ -104,6 +106,20 @@ Użycie zużycie plan hostingu, funkcja kodu pliki są przechowywane w udziałac
 Jednostka skalowania jest aplikacja funkcji. Kiedy funkcja aplikacji jest skalowana w poziomie, dodatkowe zasoby są przydzielane do uruchomienia wielu wystąpień hosta usługi Azure Functions. Z drugiej strony jak żądanie zostanie zmniejszona obliczeń, kontrolera skali usuwa wystąpienia hosta funkcji. Liczba wystąpień jest ostatecznie skalowany w dół od zera uruchomionej żadnych funkcji w funkcji aplikacji.
 
 ![Kontroler skali monitorowanie zdarzeń i tworzenie wystąpień](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Opis zachowania skalowania
+
+Skalowanie może się różnić w przypadku wielu czynników, a inaczej w zależności od wyzwalacza i językiem wybranym skali. Istnieją jednak kilka aspektów skalowania, która istnieje obecnie w systemie:
+* Aplikacji jednej funkcji tylko będzie skalowana do maksymalnie 200 wystąpieniami. Pojedyncze wystąpienie może przetwarzać więcej niż jednego komunikatu lub żądania w czasie, więc nie ma ustawiony limit liczby współbieżnych wykonaniami.
+* Co najwyżej raz na 10 sekund tylko zostaną przydzielone nowe wystąpienia.
+
+Wyzwalacze różnych mogą także mieć różne ograniczonym zakresie, a także udokumentowane poniżej:
+
+* [Centrum zdarzeń](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Najlepsze rozwiązania i wzorce dla skalowalnych aplikacji
+
+Istnieje wiele aspektów aplikacji funkcji, które mają wpływ na skuteczność go są skalowane, łącznie z konfiguracji hosta, wpływ środowiska uruchomieniowego i zasobów zależności od skuteczności działania.  Widok [skalowalności w dalszej części artykułu zagadnienia dotyczące wydajności](functions-best-practices.md#scalability-best-practices) Aby uzyskać więcej informacji.
 
 ### <a name="billing-model"></a>Model rozliczania
 

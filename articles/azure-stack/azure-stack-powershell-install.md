@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: 3014b8a424e554f3c46f1c7e76eab586d089e059
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: abbc1eac3ff1e8de90bd420dc1fcce7dbeda234c
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalowanie programu PowerShell dla usługi Azure stosu  
 
@@ -53,7 +53,7 @@ Przed zainstalowaniem wersji wymagane, upewnij się, odinstalowanie żadnych ist
 
 W poniższych sekcjach opisano kroki wymagane do zainstalowania programu PowerShell dla usługi Azure stosu. Na stosie Azure, która jest świadczona w połączone, częściowo połączone lub w scenariuszu bez połączenia można zainstalować programu PowerShell. 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>Instalowanie programu PowerShell w scenariuszu połączonych 
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Instalowanie programu PowerShell w scenariuszu połączonych (z połączeniem internetowym)
 
 Azure stosu zgodne AzureRM moduły są instalowane za pośrednictwem interfejsu API w wersji profilów. Stos Azure wymaga **2017-03-09-profilu** profilu wersji interfejsu API, który jest dostępny przez zainstalowanie modułu AzureRM.Bootstrapper. Aby dowiedzieć się więcej o profilach wersji interfejsu API i udostępniane przez nich polecenia cmdlet, zapoznaj się [zarządzania profilami wersji interfejsu API](azure-stack-version-profiles.md). Oprócz modułów AzureRM należy również zainstalować moduł Azure PowerShell dotyczące stosu. Uruchom poniższy skrypt programu PowerShell, aby zainstalować te moduły na deweloperskiej stacji roboczej:
 
@@ -82,7 +82,7 @@ Aby sprawdzić instalację, uruchom następujące polecenie:
   ```
   Jeśli instalacja się powiodła, AzureRM i AzureStack moduły są wyświetlane w danych wyjściowych.
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Instalowanie programu PowerShell w odłączone lub częściowo połączonego scenariusza
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instalowanie programu PowerShell w scenariuszu częściowo połączonych lub rozłączona (ograniczone z łącznością z Internetem)
 
 W przypadku odłączonych należy najpierw Pobierz moduły programu PowerShell na komputerze, na którym ma połączenie z Internetem i przesyła je Azure stosu Development Kit dla instalacji.
 

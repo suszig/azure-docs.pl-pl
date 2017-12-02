@@ -1,6 +1,6 @@
 ---
-title: "Przetwarzanie wiadomości urządzenia do chmury Azure IoT Hub za pomocą trasy (.Net) | Dokumentacja firmy Microsoft"
-description: "Jak komunikaty do przetwarzania komunikatów urządzenia do chmury Centrum IoT przy użyciu reguł routingu oraz niestandardowe punkty końcowe wysłania wiadomości do innych usług zaplecza."
+title: "Routing komunikatów z Centrum IoT Azure (.Net) | Dokumentacja firmy Microsoft"
+description: "Jak komunikaty do przetwarzania komunikatów urządzenia do chmury Azure IoT Hub przy użyciu reguł routingu oraz niestandardowe punkty końcowe wysłania wiadomości do innych usług zaplecza."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Przetwarzanie wiadomości urządzenia do chmury Centrum IoT przy użyciu tras (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Routing komunikatów z Centrum IoT (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 * Program Visual Studio 2015 lub Visual Studio 2017.
 * Aktywne konto platformy Azure. <br/>Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut.
 
-Powinien mieć niektóre podstawową wiedzę na temat [usługi Azure Storage] i [Azure Service Bus].
+Zalecamy również informacje o [usługi Azure Storage] i [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Wysyłanie komunikatów interakcyjne
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Ta metoda losowo dodaje właściwość `"level": "critical"` dla komunikatów wysyłanych przez urządzenia, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza rozwiązania. Aplikacji urządzenia przekazuje informacje we właściwościach komunikatu zamiast, w treści wiadomości, więc tego Centrum IoT może kierować wiadomości do miejsca docelowego właściwy komunikat.
+Ta metoda losowo dodaje właściwość `"level": "critical"` i `"level": "storage"` dla komunikatów wysyłanych przez urządzenia, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza aplikacji lub jeden, który musi być trwale przechowywane. Aplikacji przekazuje informacje we właściwościach komunikatu zamiast, w treści wiadomości, więc tego Centrum IoT może kierować wiadomości do miejsca docelowego właściwy komunikat.
 
 > [!NOTE]
 > Można użyć właściwości wiadomości do przesyłania wiadomości dla różnych scenariuszy, w tym chłodni ścieżką podczas przetwarzania, oprócz tu przykładzie hot ścieżki.
 
 > [!NOTE]
-> Dla uproszczenia w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN np. [obsługi błędów przejściowych].
+> Firma Microsoft zaleca, aby zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN np. [obsługi błędów przejściowych].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Rozsyłanie wiadomości do kolejki w Centrum IoT
 
@@ -177,6 +185,30 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji.
    
    ![Trzy aplikacje konsoli][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcjonalnie) Dodaj kontener magazynu do IoT hub i tras wiadomości do niego
+
+W tej sekcji Utwórz konto magazynu, połącz go z Centrum IoT i skonfigurować do wysyłania komunikatów do konta, na podstawie obecności właściwość w komunikacie Centrum IoT. Aby uzyskać więcej informacji o sposobie zarządzania magazynu, zobacz [Rozpoczynanie pracy z magazynem Azure][usługi Azure Storage].
+
+ > [!NOTE]
+   > Jeśli nie masz tylko jeden **punktu końcowego**, może skonfigurować **StorageContainer** oprócz **CriticalQueue** i uruchom oba simulatneously.
+
+1. Utwórz konto magazynu, zgodnie z opisem w [dokumentacji platformy Azure magazynu] [lnk magazynu]. Zanotuj nazwę konta.
+
+2. W portalu Azure Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
+
+3. W **punkty końcowe** bloku, wybierz opcję **CriticalQueue** punktu końcowego, a następnie kliknij przycisk **usunąć**. Kliknij przycisk **tak**, a następnie kliknij przycisk **Dodaj**. Nazwa punktu końcowego **StorageContainer** i umożliwia wybranie listach rozwijanych **kontenera magazynu Azure**i Utwórz **konta magazynu** i **magazynu kontener**.  Zanotuj nazwy.  Gdy wszystko będzie gotowe, kliknij przycisk **OK** u dołu. 
+
+ > [!NOTE]
+   > Jeśli nie masz tylko jeden **punktu końcowego**, nie trzeba usunąć **CriticalQueue**.
+
+4. Kliknij przycisk **tras** w Centrum IoT. Kliknij przycisk **Dodaj** w górnej części bloku, aby utworzyć regułę routingu kieruje komunikaty do kolejki właśnie został dodany. Wybierz **komunikaty** jako źródło danych. Wprowadź `level="storage"` jako warunek i wybierz polecenie **StorageContainer** jako punktu końcowego niestandardowych jako routingu końcowy reguły. Kliknij przycisk **zapisać** u dołu.  
+
+    Upewnij się, że rezerwowy trasy ma ustawioną wartość **ON**. To ustawienie jest domyślną konfigurację Centrum IoT.
+
+1. Upewnij się, że nadal działają poprzedniej aplikacji. 
+
+1. W portalu Azure, przejdź do konta magazynu, w obszarze **usługa Blob**, kliknij przycisk **Przeglądaj obiekty BLOB...** .  Wybierz kontener użytkownika, przejdź do kliknij plik JSON i kliknij przycisk **Pobierz** do wyświetlania danych.
+
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku przedstawiono sposób niezawodny sposób wysyłania wiadomości urządzenia do chmury przy użyciu funkcji routing komunikatów z Centrum IoT.
 
@@ -204,5 +236,5 @@ Aby dowiedzieć się więcej na temat w Centrum IoT rozsyłania wiadomości, zob
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [obsługi błędów przejściowych]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

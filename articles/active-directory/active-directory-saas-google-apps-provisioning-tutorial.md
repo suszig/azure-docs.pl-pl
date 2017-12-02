@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Google Apps dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -75,7 +75,7 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
 
     b. Wybierz **nazwy domeny** w lewym okienku nawigacji, a następnie wybierz **Dodaj**.
      
-     ![Domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
+     ![Domena](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
      ![Dodawanie domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
@@ -87,9 +87,13 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
     
     Aby uzyskać bardziej szczegółowe instrukcje dotyczące sposobu Sprawdź nazwy domen z usługi Azure AD, zobacz [Dodaj własną nazwę domeny do usługi Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
+     ![Domena](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Powtórz poprzednie kroki dla wszystkich domen, które mają zostać dodane do katalogu.
+
+    > [!NOTE]
+    Do przypisywania użytkowników domeny niestandardowej usługi Google Apps musi odpowiadać nazwie domeny źródła usługi Azure AD. Jeśli nie są zgodne, można rozwiązać problem, implementacja dostosowania mapowanie atrybutu.
+
 
 5. Teraz, gdy została zweryfikowana wszystkich domen w usłudze Azure AD, należy sprawdzić je ponownie z usługi Google Apps. Dla każdej domeny, która nie jest już zarejestrowany przy użyciu usługi Google Apps wykonaj następujące czynności:
    

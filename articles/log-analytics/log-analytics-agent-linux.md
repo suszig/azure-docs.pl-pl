@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 11/30/2017
 ms.author: magoedte
-ms.openlocfilehash: 56c666d1a18937df21a6aca8acde87beda1cad8e
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 1f6e0f2a638d9ce9b06f19feba1c9e216812862c
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-your-linux-computers-to-log-analytics"></a>Łączenie komputerów Linux do analizy dzienników 
 
@@ -43,7 +43,7 @@ Oficjalnie obsługiwane są następujące dystrybucje systemu Linux.  Jednak Age
 * Oracle Linux 5, 6 i 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 i 7 (x86/x64)
 * Debian GNU/Linux 6, 7 i 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, LTS 16.04 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, LTS 16.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 i 12 (x86/x64)
 
 ### <a name="network"></a>Sieć
@@ -147,7 +147,7 @@ Wartość konfiguracji serwera proxy ma następującą składnię:
 Właściwość|Opis
 -|-
 Protokół|https
-Użytkownika|Opcjonalna nazwa użytkownika dla uwierzytelniania serwera proxy
+użytkownik|Opcjonalna nazwa użytkownika dla uwierzytelniania serwera proxy
 hasło|Opcjonalne hasło dla uwierzytelniania serwera proxy
 proxyhost|Adres lub nazwę FQDN serwera proxy serwera/OMS bramy
 port|Numer portu opcjonalne dla serwera proxy serwera/OMS bramy
