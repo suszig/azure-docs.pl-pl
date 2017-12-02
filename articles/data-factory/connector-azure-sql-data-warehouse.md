@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ Aparat PolyBase magazynu danych SQL obsługuje bezpośrednio obiektów Blob plat
 Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawienia i automatycznie powraca do mechanizmu BULKINSERT przenoszenia danych.
 
 1. **Źródło połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore**.
-2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStoreFile**i wpisz w formacie `type` właściwości **OrcFormat** , lub **TextFormat** z następujących konfiguracji:
+2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStoreFile**i wpisz w formacie `type` właściwości **OrcFormat** , **ParquetFormat**, lub **TextFormat** z następujących konfiguracji:
 
    1. `rowDelimiter`musi być  **\n** .
    2. `nullValue`ustawiono **pusty ciąg** (""), lub `treatEmptyAsNull` ustawiono **true**.
@@ -423,9 +423,9 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | Binarne |Byte] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
-| datetime2 |Data i godzina |
+| data |Data/godzina |
+| Data/godzina |Data/godzina |
+| datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte] |
@@ -437,9 +437,9 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | ntext |Ciąg, Char] |
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
-| rzeczywiste |Pojedynczy |
+| rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte] |
-| smalldatetime |Data i godzina |
+| smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs powiązania dla usługi Azure Functions
 
@@ -33,6 +33,27 @@ W tym artykule opisano sposób pracy z [Azure Event Hubs](../event-hubs/event-hu
 Wyzwalacz usługi Event Hubs umożliwia odpowiadanie na zdarzenia wysłanego do strumienia zdarzeń w Centrum zdarzeń. Musi mieć dostęp do odczytu do Centrum zdarzeń, aby skonfigurować wyzwalacz.
 
 Po wyzwoleniu funkcja wyzwalacza usługi Event Hubs komunikat, który je uruchamia jest przekazywany do funkcji jako ciąg.
+
+## <a name="trigger---scaling"></a>Wyzwalanie - skalowania
+
+Każde wystąpienie funkcji Event Hub-Triggered nie jest obsługiwana przez wystąpienie klasy EventProcessorHost (EPH) tylko na 1. Usługa Event Hubs zapewnia tylko na 1 EPH można uzyskać dzierżawę na danej partycji.
+
+Na przykład załóżmy, że możemy zaczynać się od następujących ustawień i założenia do Centrum zdarzeń:
+
+1. 10 partycji.
+1. zdarzenia 1000 równomiernie wszystkich partycji = > 100 wiadomości w każdej partycji.
+
+Po włączeniu funkcji jest tylko 1 wystąpieniem — funkcja. Umożliwia wywołanie tego wystąpienia funkcji Function_0. Function_0 ma EPH 1, zarządzającej uzyskać dzierżawę na wszystkie partycje 10. Zostanie uruchomiony, odczytywanie zdarzeń z partycji 0-9. Z tego punktu nastąpi jedną z następujących czynności:
+
+* **Wymagane jest wystąpienie funkcji tylko na 1** -Function_0 jest w stanie przetworzyć wszystkie 1000 przed logiki skalowania usługi Azure Functions jest uruchamiane. W związku z tym wszystkie komunikaty 1000 są przetwarzane przez Function_0.
+
+* **Dodaj 1 więcej wystąpienie funkcji** -logiki skalowania usługi Azure Functions Określa, czy Function_0 ma więcej wiadomości nie może przetworzyć, więc tworzone jest nowe wystąpienie Function_1,. Centra zdarzeń wykrywa, że nowe wystąpienie EPH próbuje odczytać wiadomości. Centra zdarzeń zostanie uruchomiona Równoważenie obciążenia partycji w wystąpieniach EPH, np. partycje 0-4 są przypisane do Function_0, 5 – 9 partycje są przypisane do Function_1. 
+
+* **Dodaj N działać więcej wystąpień** -logiki skalowania usługi Azure Functions Określa, że zarówno Function_0, jak i Function_1 mają więcej wiadomości nie może ich przetworzyć. Będzie ona skalować ponownie Function_2... n, gdzie N jest większa niż paritions Centrum zdarzeń. Centra zdarzeń załaduje równoważenie partycji na Function_0... 9 wystąpień.
+
+Unikatowy dla bieżącej usługi Azure Functions skalowanie logiki jest fakt, że N jest większa niż liczba partycji. Można to zrobić, aby upewnić się, że zawsze są wystąpieniami klasy EPH łatwo dostępne szybko uzyskać blokady na partycje, udostępnianymi z innych wystąpień. Użytkownicy naliczane są tylko opłaty za zasoby używane podczas wystąpienie funkcji i nie są naliczane opłaty dotyczące tej przerostu.
+
+Jeśli wszystkie wykonaniami funkcja działa bez błędów, punkty kontrolne zostaną dodane do skojarzonego konta magazynu. Podczas wskazanie wyboru zakończy się powodzeniem, wszystkie komunikaty 1000 powinien nigdy nie można pobrać ponownie.
 
 ## <a name="trigger---example"></a>Wyzwalacz — przykład
 

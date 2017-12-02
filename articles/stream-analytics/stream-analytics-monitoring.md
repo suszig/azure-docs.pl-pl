@@ -4,7 +4,7 @@ description: "Opis zadania usługi analiza strumienia monitorowania"
 keywords: monitor kwerendy
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 12545dd3875e81f8f2248acceb66d2d840cf6702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadania usługi analiza strumienia i jak monitorować zapytań
 
@@ -35,17 +35,17 @@ Zostanie wyświetlone okno, jak pokazano:
 ## <a name="metrics-available-for-stream-analytics"></a>Metryki dostępne dla usługi analiza strumienia
 | Metryka                 | Definicja                               |
 | ---------------------- | ---------------------------------------- |
-| SU % wykorzystania       | Wykorzystanie jednostek przesyłania strumieniowego przypisany do zadania z kartę Skala zadania. Jeżeli ten wskaźnik osiągnie 80%, lub powyżej, istnieje wysokie prawdopodobieństwo, czy przetwarzanie zdarzeń może zostać opóźnione lub zatrzymana czyni postępy. |
+| % wykorzystania SU       | Wykorzystanie jednostek przesyłania strumieniowego przypisany do zadania z kartę Skala zadania. Jeżeli ten wskaźnik osiągnie 80%, lub powyżej, istnieje wysokie prawdopodobieństwo, czy przetwarzanie zdarzeń może zostać opóźnione lub zatrzymana czyni postępy. |
 | Zdarzenia wejściowe           | Ilość danych odebranych przez zadanie usługi Stream Analytics, liczbę zdarzeń. Może być używany do sprawdzania, czy zdarzenia są wysyłane do źródła danych wejściowych. |
-| Dane wyjściowe zdarzenia          | Ilość danych przesyłanych przez zadanie usługi Stream Analytics do obiektu docelowego dane wyjściowe w liczby zdarzeń. |
+| Zdarzenia wyjściowe          | Ilość danych przesyłanych przez zadanie usługi Stream Analytics do obiektu docelowego dane wyjściowe w liczby zdarzeń. |
 | Zdarzenia poza kolejnością.    | Liczba zdarzeń odebranych poza kolejnością, które zostały porzucone lub podane skorygowaną sygnatury czasowej, opierając się na zasadzie kolejności zdarzeń. Może to mieć wpływ konfigurację ustawienia porządku poza tolerancji. |
 | Błędy konwersji danych | Liczba błędów konwersji danych poniesionych przez zadanie usługi Stream Analytics. |
-| Błędy środowiska wykonawczego         | Całkowita liczba błędów, które mają miejsce podczas wykonywania zadania usługi analiza strumienia. |
+| Błędy w czasie wykonywania         | Całkowita liczba błędów związanych z przetwarzania zapytania (z wyjątkiem znaleziono błędy podczas wprowadzania zdarzenia lub wyniki outputing) |
 | Opóźnione zdarzenia wejściowe      | Liczba zdarzeń przybywających późne ze źródła, którego albo została porzucona lub ich sygnatury czasowej została zmieniona na prawidłową, na podstawie konfiguracji zasady kolejność zdarzeń ustawienie późne przyjęcia tolerancji. |
-| Funkcja żądania      | Liczba wywołań funkcji usługi Azure Machine Learning (jeśli istnieje). |
-| Żądania funkcji zakończonych niepowodzeniem | Liczba zakończonych niepowodzeniem wywołania funkcji usługi Azure Machine Learning (jeśli istnieje). |
-| Zdarzenia — funkcja        | Liczba zdarzeń wysłanych do funkcji usługi Azure Machine Learning (jeśli istnieje). |
-| Zdarzenie wejściowe w bajtach      | Ilość danych odebranych przez zadanie usługi Stream Analytics, w bajtach. Może być używany do sprawdzania, czy zdarzenia są wysyłane do źródła danych wejściowych. |
+| Żądania funkcji      | Liczba wywołań funkcji usługi Azure Machine Learning (jeśli istnieje). |
+| Żądania funkcji zakończone niepowodzeniem | Liczba zakończonych niepowodzeniem wywołania funkcji usługi Azure Machine Learning (jeśli istnieje). |
+| Zdarzenia funkcji        | Liczba zdarzeń wysłanych do funkcji usługi Azure Machine Learning (jeśli istnieje). |
+| Zdarzenia wejściowe (bajty)      | Ilość danych odebranych przez zadanie usługi Stream Analytics, w bajtach. Może być używany do sprawdzania, czy zdarzenia są wysyłane do źródła danych wejściowych. |
 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Dostosowywanie monitorowania w portalu Azure

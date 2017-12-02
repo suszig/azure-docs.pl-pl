@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Przekaż wartość parametru bezpieczne podczas wdrażania za pomocą usługi Azure Key Vault
 
@@ -66,7 +66,11 @@ Czy używasz nowego magazynu kluczy lub istniejącego upewnij się, że użytkow
 
 ## <a name="reference-a-secret-with-static-id"></a>Odwołanie klucza tajnego o identyfikatorze statyczne
 
-Szablon, który odbiera klucz tajny magazynu kluczy jest podobnie jak każdy inny szablon. Jest to spowodowane tym **możesz odwoływać się do magazynu kluczy w pliku parametrów nie szablonu.** Na przykład następujący szablon wdraża bazy danych SQL, która zawiera hasła administratora. Parametr hasła wynosi ciągiem bezpiecznym. Jednak szablonu nie określa, z której pochodzi tej wartości.
+Szablon, który odbiera klucz tajny magazynu kluczy jest podobnie jak każdy inny szablon. Jest to spowodowane tym **możesz odwoływać się do magazynu kluczy w pliku parametrów nie szablonu.** Na poniższej ilustracji przedstawiono sposób pliku parametrów odwołuje się do tego klucza tajnego i przekazuje tę wartość do szablonu.
+
+![Identyfikator statyczne](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Na przykład [następujący szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) wdraża bazy danych SQL, która zawiera hasła administratora. Parametr hasła wynosi ciągiem bezpiecznym. Jednak szablonu nie określa, z której pochodzi tej wartości.
 
 ```json
 {
@@ -102,7 +106,7 @@ Szablon, który odbiera klucz tajny magazynu kluczy jest podobnie jak każdy inn
 }
 ```
 
-Teraz Utwórz plik parametrów dla poprzedniego szablonu. W pliku parametrów należy określić parametr, który jest zgodna z nazwą parametru w szablonie. Wartość parametru odwołania klucza tajnego z magazynu kluczy. Klucz tajny odwoływać się przez przekazanie identyfikator zasobu magazynu kluczy i nazwę klucza tajnego. W poniższym przykładzie klucz tajny magazynu kluczy musi już istnieć, i podaj wartość statyczną dla jego identyfikator zasobu.
+Teraz Utwórz plik parametrów dla poprzedniego szablonu. W pliku parametrów należy określić parametr, który jest zgodna z nazwą parametru w szablonie. Wartość parametru odwołania klucza tajnego z magazynu kluczy. Klucz tajny odwoływać się przez przekazanie identyfikator zasobu magazynu kluczy i nazwę klucza tajnego. W [następującego pliku parametrów](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), klucz tajny magazynu kluczy musi już istnieć, i podaj wartość statyczną dla jego identyfikator zasobu. Skopiuj ten plik lokalnie, a następnie ustaw identyfikator subskrypcji, nazwę magazynu i nazwy serwera SQL.
 
 ```json
 {
@@ -127,25 +131,27 @@ Teraz Utwórz plik parametrów dla poprzedniego szablonu. W pliku parametrów na
 }
 ```
 
-Teraz wdrożyć szablon i podaj pliku parametrów. W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+Teraz wdrożyć szablon i podaj pliku parametrów. Można użyć szablonu przykład z witryny GitHub, ale należy użyć pliku lokalnego parametr z wartościami ustawionymi dla danego środowiska.
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 W przypadku programu PowerShell użyj polecenia:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 Poprzedniej sekcji pokazano, jak przekazać Identyfikatora zasobu statycznych dla klucza tajnego klucza magazynu. Jednak w niektórych scenariuszach, należy odwoływać magazynu kluczy klucz tajny, który jest różny oparte na bieżącym wdrożeniu. W takim przypadku nie można trwale kodować identyfikator zasobu w pliku parametrów. Niestety, nie można dynamicznie wygenerować identyfikator zasobu w pliku parametrów, ponieważ szablon wyrażenia są niedozwolone w pliku parametrów.
 
-Można dynamicznie wygenerować identyfikator zasobu magazynu kluczy klucz tajny, należy przenieść zasobu, który wymaga klucza tajnego do szablonu zagnieżdżonego. W szablonie głównym dodać zagnieżdżony szablon i podaj parametr, który zawiera identyfikator dynamicznie generowanym zasobu. Zagnieżdżone szablonu musi być dostępny za pomocą zewnętrznego identyfikatora URI. Pozostałej części w tym artykule przyjęto założenie, powyższy szablon został dodany do konta magazynu, i jest dostępny za pomocą identyfikatora URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+Można dynamicznie wygenerować identyfikator zasobu magazynu kluczy klucz tajny, należy przenieść zasobu, który wymaga klucza tajnego do połączonego szablonu. W szablonie nadrzędnego Dodaj połączony szablon i podaj parametr, który zawiera identyfikator dynamicznie generowanym zasobu. Na poniższej ilustracji przedstawiono, jak parametr w szablonie połączonego odwołuje się do klucza tajnego.
+
+![Identyfikator dynamiczne](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+Połączone szablonu musi być dostępny za pomocą zewnętrznego identyfikatora URI. Zwykle, Dodaj szablon do konta magazynu, a do niego dostęp za pomocą identyfikatora URI, takich jak `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+[Następujący szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamicznie tworzy identyfikator magazynu kluczy i przekazuje ją jako parametr. Łączy z [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) w witrynie GitHub.
 
 ```json
 {
@@ -184,7 +196,7 @@ Można dynamicznie wygenerować identyfikator zasobu magazynu kluczy klucz tajny
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ Można dynamicznie wygenerować identyfikator zasobu magazynu kluczy klucz tajny
 }
 ```
 
-Wdrażanie Powyższy szablon i podaj wartości parametrów.
+Wdrażanie Powyższy szablon i podaj wartości parametrów. Można użyć szablonu przykład z witryny GitHub, ale należy podać wartości parametrów dla danego środowiska.
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać ogólne informacje o magazynów kluczy, zobacz [wprowadzenie do usługi Azure Key Vault](../key-vault/key-vault-get-started.md).

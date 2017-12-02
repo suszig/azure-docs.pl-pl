@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Odwołanie do usługi Azure Machine Learning Model zarządzania konta API
 
-Aby uzyskać informacje dotyczące konfigurowania środowiska wdrażania, zobacz [ustawienia konta zarządzania modelu](model-management-configuration.md).
+Aby uzyskać informacje dotyczące konfigurowania środowiska wdrażania, zobacz [ustawienia konta zarządzania modelu](deployment-setup-configuration.md).
 
 Azure Machine Learning Model zarządzania konta API zaimplementowano następujące operacje:
 
@@ -76,67 +76,67 @@ W kroku rejestracji modelu rejestruje modelu uczenia maszynowego z utworzonego k
 Rejestruje modelu.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| Model | Treści | Ładunek, który służy do rejestrowania modelu. | Tak | [Model](#model) |
+| model | treść | Ładunek, który służy do rejestrowania modelu. | Tak | [Model](#model) |
 
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | OK. Rejestracja modelu zakończyło się pomyślnie. | [Model](#model) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>Zapytanie listy modeli konta
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeli 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeli 
  |
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy modeli w ramach konta. Można filtrować listę wyników tagu i nazwę. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich modeli w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 | name | query | Nazwa obiektu. | Nie | Ciąg |
 | Tag | query | Tag modelu. | Nie | Ciąg |
-| Liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
+| liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | Ciąg |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedModelList](#paginatedmodellist) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-model-details"></a>Uzyskiwanie szczegółów modelu
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /models/ {id}  
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /models/ {id}  
  |
 
 ### <a name="description"></a>Opis
 Pobiera model według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obiektu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obiektu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -144,7 +144,7 @@ Pobiera model według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Model](#model) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Zarejestruj manifestu zarejestrowanego modelu i wszystkie zależności
 
@@ -157,67 +157,67 @@ Pobiera model według identyfikatora.
 Rejestruje manifestu z zarejestrowanego modelu i wszystkie jego zależności.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| manifestRequest | Treści | Ładunek, który służy do rejestrowania manifestu. | Tak | [Manifest](#manifest) |
+| manifestRequest | treść | Ładunek, który służy do rejestrowania manifestu. | Tak | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Manifestu rejestracja powiodła się. | [Manifest](#manifest) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>Zapytanie listy manifestów konta
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesty | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesty | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy manifestów konta. Można filtrować listę wyników przez model identyfikator i nazwa manifestu. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich manifestów w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 | modelId | query | Identyfikator modelu. | Nie | Ciąg |
 | ManifestName | query | Nazwa manifestu. | Nie | Ciąg |
-| Liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
+| liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | Ciąg |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedManifestList](#paginatedmanifestlist) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-manifest-details"></a>Uzyskiwanie szczegółowych informacji manifestu
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /manifests/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /manifests/ {id} | 
 
 ### <a name="description"></a>Opis
 Pobiera manifest według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obiektu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obiektu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -225,7 +225,7 @@ Pobiera manifest według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Manifest](#manifest) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="create-an-image"></a>Tworzenie obrazu
 
@@ -238,67 +238,67 @@ Pobiera manifest według identyfikatora.
 Tworzy obraz jako obraz Docker w rejestrze kontenera platformy Azure.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| imageRequest | Treści | Ładunek, który jest używany do utworzenia obrazu. | Tak | [ImageRequest](#imagerequest) |
+| imageRequest | treść | Ładunek, który jest używany do utworzenia obrazu. | Tak | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Nagłówki | Schemat |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania tworzenia obrazu. | Operacja lokalizacji |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-images-in-an-account"></a>Listy obrazów w ramach konta kwerendy
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / obrazy | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / obrazy | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy obrazów w ramach konta. Można filtrować listę wyników według Identyfikatora manifestu i nazwę. Jeśli niepowodzenie bez filtru w zapytaniu przedstawiono wszystkie obrazy w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 | Identyfikator manifestu | query | Identyfikator manifestu. | Nie | Ciąg |
 | ManifestName | query | Nazwa manifestu. | Nie | Ciąg |
-| Liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
+| liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | Ciąg |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedImageList](#paginatedimagelist) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-image-details"></a>Uzyskiwanie szczegółów obrazu
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /images/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /images/ {id} | 
 
 ### <a name="description"></a>Opis
 Pobiera obraz według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obrazu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obrazu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -306,7 +306,7 @@ Pobiera obraz według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Obraz](#image) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 
 ## <a name="create-a-service"></a>Tworzenie usługi
@@ -320,38 +320,38 @@ Pobiera obraz według identyfikatora.
 Tworzy usługę z obrazu.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| żądania obsługi | Treści | Ładunek, który służy do tworzenia usługi. | Tak | [ServiceCreateRequest](#servicecreaterequest) |
+| żądania obsługi | treść | Ładunek, który służy do tworzenia usługi. | Tak | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Nagłówki | Schemat |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania tworzenia usługi. | Operacja lokalizacji |
 | 409 | Usługa o określonej nazwie już istnieje. |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="query-the-list-of-services-in-an-account"></a>Lista usług w ramach konta kwerendy
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / usługi | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / usługi | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy usług dla konta. Można filtrować listę wyników Identyfikatora nazwy modelu, manifestu nazwa, identyfikator obrazu, nazwa usługi lub Machine Learning obliczeń z identyfikatorem zasobu. Jeśli filtr nie zostanie przekazany, zapytanie Wyświetla listę wszystkich usług w ramach konta. Jest podzielony na zwracanej liście strony, a liczba elementów w każdej z nich jest parametrem opcjonalnym.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 | ServiceName | query | Nazwa usługi. | Nie | Ciąg |
@@ -361,32 +361,32 @@ Wysyła zapytanie do listy usług dla konta. Można filtrować listę wyników I
 | ManifestName | query | Nazwa manifestu. | Nie | Ciąg |
 | imageId | query | Identyfikator obrazu. | Nie | Ciąg |
 | computeResourceId | query | Machine Learning obliczeń identyfikator zasobu. | Nie | Ciąg |
-| Liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
+| liczba | query | Liczba elementów do pobrania na stronie. | Nie | Ciąg |
 | $skipToken | query | Token kontynuacji do pobrania następnej strony. | Nie | Ciąg |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [PaginatedServiceList](#paginatedservicelist) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse) |
 
 ## <a name="get-service-details"></a>Pobierz szczegóły usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
 
 ### <a name="description"></a>Opis
 Pobiera usługę według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obiektu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obiektu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -394,53 +394,53 @@ Pobiera usługę według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [ServiceResponse](#serviceresponse) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="update-a-service"></a>Aktualizowanie usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| UMIEŚĆ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| PUT |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
 
 ### <a name="description"></a>Opis
 Aktualizuje istniejącą usługę.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obiektu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obiektu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| serviceUpdateRequest | Treści | Ładunek, który jest używany do zaktualizowania istniejącej usługi. | Tak |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| serviceUpdateRequest | treść | Ładunek, który jest używany do zaktualizowania istniejącej usługi. | Tak |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Nagłówki | Schemat |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Adres URL lokalizacji operacji asynchronicznej. Wywołanie GET Pokaż stan zadania aktualizacji usługi. | Operacja lokalizacji |
 | 404 | Usługa o określonym identyfikatorze nie istnieje. |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="delete-a-service"></a>Usuwanie usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| USUŃ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
+| DELETE |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} | 
 
 ### <a name="description"></a>Opis
 Usuwa usługę.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator obiektu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator obiektu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -449,25 +449,25 @@ Usuwa usługę.
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. |  |
 | 204 | Usługa o określonym identyfikatorze nie istnieje. |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="get-service-keys"></a>Pobieranie kluczy usługi
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} / klucze | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /services/ {id} / klucze | 
 
 ### <a name="description"></a>Opis
 Pobiera klucze usługi.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator usługi. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator usługi. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -475,7 +475,7 @@ Pobiera klucze usługi.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [AuthKeys](#authkeys)
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="regenerate-service-keys"></a>Ponowne generowanie kluczy usługi
 
@@ -488,38 +488,38 @@ Pobiera klucze usługi.
 Generuje ponownie klucze usługi i zwraca je.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator usługi. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator usługi. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
-| regenerateKeyRequest | Treści | Ładunek, który jest używany do zaktualizowania istniejącej usługi. | Tak | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| regenerateKeyRequest | treść | Ładunek, który jest używany do zaktualizowania istniejącej usługi. | Tak | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Odpowiedzi
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [AuthKeys](#authkeys)
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="query-the-list-of-deployments-in-an-account"></a>Zapytanie listy wdrożeń konta
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / wdrożenia | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / wdrożenia | 
 
 ### <a name="description"></a>Opis
 Wysyła zapytanie do listy wdrożeń w ramach konta. Można filtrować listę wyników według Identyfikatora usługi, która będzie zwracać tylko wdrożenia, które są tworzone dla określonej usługi. Jeśli niepowodzenie bez filtru w zapytaniu przedstawiono wszystkie wdrożenia w ramach konta.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 | serviceId | query | Identyfikator usługi. | Nie | Ciąg |
@@ -528,25 +528,25 @@ Wysyła zapytanie do listy wdrożeń w ramach konta. Można filtrować listę wy
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [DeploymentList](#deploymentlist) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="get-deployment-details"></a>Pobierz szczegóły wdrożenia
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /deployments/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /deployments/ {id} | 
 
 ### <a name="description"></a>Opis
 Pobiera wdrożenia według identyfikatora.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator wdrożenia. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator wdrożenia. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -554,25 +554,25 @@ Pobiera wdrożenia według identyfikatora.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [Wdrożenie](#deployment) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 ## <a name="get-operation-details"></a>Szczegóły operacji pobierania
 
 ### <a name="request"></a>Żądanie
 | Metoda | Identyfikator URI żądania |
 |------------|------------|
-| POBIERZ |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /operations/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} {accountName} /accounts/ /operations/ {id} | 
 
 ### <a name="description"></a>Opis
 Pobiera stan operacji asynchronicznej według identyfikatora operacji.
 
 ### <a name="parameters"></a>Parametry
-| Nazwa | Znajduje się w | Opis | Wymagane | Schemat
+| Nazwa | Lokalizacja | Opis | Wymagane | Schemat
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
-| Grupy zasobów o nazwie | Ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
-| Nazwa konta | Ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
-| id | Ścieżka | Identyfikator operacji. | Tak | Ciąg |
+| subscriptionId | ścieżka | Identyfikator subskrypcji platformy Azure. | Tak | Ciąg |
+| Grupy zasobów o nazwie | ścieżka | Nazwa grupy zasobów, w którym znajduje się konto zarządzania modelu. | Tak | Ciąg |
+| Nazwa konta | ścieżka | Nazwa konta zarządzania modelu. | Tak | Ciąg |
+| id | ścieżka | Identyfikator operacji. | Tak | Ciąg |
 | wersja interfejsu API | query | Wersja interfejsu API do używania dostawcy zasobów Microsoft.Machine.Learning. | Tak | Ciąg |
 | Autoryzacja | nagłówek | Token autoryzacji. Powinien być podobny do ciągu "Bearer XXXXXX". | Tak | Ciąg |
 
@@ -580,7 +580,7 @@ Pobiera stan operacji asynchronicznej według identyfikatora operacji.
 | Kod | Opis | Schemat |
 |--------------------|--------------------|--------------------|
 | 200 | Powodzenie. | [OperationStatus](#asyncoperationstatus) |
-| Domyślne | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
+| domyślnie | Błąd odpowiedzi, która opisuje Dlaczego nie można wykonać operację. | [Errorresponse języka](#errorresponse)
 
 
 
@@ -588,7 +588,7 @@ Pobiera stan operacji asynchronicznej według identyfikatora operacji.
 ## <a name="definitions"></a>Definicje
 
 <a name="asset"></a>
-### <a name="asset"></a>Zasobów
+### <a name="asset"></a>Zasób
 Obiekt zasobów, który będzie wymagany podczas tworzenia obrazu Docker.
 
 
@@ -596,7 +596,7 @@ Obiekt zasobów, który będzie wymagany podczas tworzenia obrazu Docker.
 |---|---|---|
 |**Identyfikator**  <br>*opcjonalne*|Identyfikator zasobu.|Ciąg|
 |**mimeType**  <br>*opcjonalne*|Typ MIME zawartości modelu. Aby uzyskać więcej informacji o typie MIME, zobacz [listę typów nośników IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Ciąg|
-|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, gdzie musimy rozpakuj zawartość podczas tworzenia obrazu Docker.|Wartość logiczna|
+|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, gdzie musimy rozpakuj zawartość podczas tworzenia obrazu Docker.|wartość logiczna|
 |**adres URL**  <br>*opcjonalne*|Adres URL lokalizacji zasobów.|Ciąg|
 
 
@@ -641,11 +641,11 @@ Ustawienia dla autoscaler.
 
 |Nazwa|Opis|Schemat|
 |---|---|---|
-|**autoscaleEnabled**  <br>*opcjonalne*|Włącz lub wyłącz autoscaler.|Wartość logiczna|
-|**maxReplicas**  <br>*opcjonalne*|Maksymalna liczba replik pod do skalowania.  <br>**Minimalna wartość**:`1`|Liczba całkowita|
-|**minReplicas**  <br>*opcjonalne*|Minimalna liczba replik pod można skalować do.  <br>**Minimalna wartość**:`0`|Liczba całkowita|
-|**refreshPeriodInSeconds**  <br>*opcjonalne*|Odśwież czasu dla wyzwalacza Skalowanie automatyczne.  <br>**Minimalna wartość**:`1`|Liczba całkowita|
-|**targetUtilization**  <br>*opcjonalne*|Procent użycia, które wyzwala Skalowanie automatyczne.  <br>**Minimalna wartość**:`0`  <br>**Maksymalna wartość**:`100`|Liczba całkowita|
+|**autoscaleEnabled**  <br>*opcjonalne*|Włącz lub wyłącz autoscaler.|wartość logiczna|
+|**maxReplicas**  <br>*opcjonalne*|Maksymalna liczba replik pod do skalowania.  <br>**Minimalna wartość**:`1`|liczba całkowita|
+|**minReplicas**  <br>*opcjonalne*|Minimalna liczba replik pod można skalować do.  <br>**Minimalna wartość**:`0`|liczba całkowita|
+|**refreshPeriodInSeconds**  <br>*opcjonalne*|Odśwież czasu dla wyzwalacza Skalowanie automatyczne.  <br>**Minimalna wartość**:`1`|liczba całkowita|
+|**targetUtilization**  <br>*opcjonalne*|Procent użycia, które wyzwala Skalowanie automatyczne.  <br>**Minimalna wartość**:`0`  <br>**Maksymalna wartość**:`100`|liczba całkowita|
 
 
 <a name="computeresource"></a>
@@ -713,7 +713,7 @@ Obiekt błąd usługi zarządzania w modelu.
 |**Kod**  <br>*Wymagane*|Kod błędu.|Ciąg|
 |**Szczegóły**  <br>*opcjonalne*|Tablica obiektów szczegółów błędu.|<[ErrorDetail](#errordetail)> tablicy|
 |**Komunikat**  <br>*Wymagane*|Komunikat o błędzie.|Ciąg|
-|**statusCode**  <br>*opcjonalne*|Kod stanu HTTP.|Liczba całkowita|
+|**statusCode**  <br>*opcjonalne*|Kod stanu HTTP.|liczba całkowita|
 
 
 <a name="image"></a>
@@ -734,7 +734,7 @@ Obraz usługi Azure Machine Learning.
 |**imageType**  <br>*opcjonalne*||[ImageType](#imagetype)|
 |**Manifest**  <br>*opcjonalne*||[Manifest](#manifest)|
 |**Nazwa**  <br>*opcjonalne*|Nazwa obrazu.|Ciąg|
-|**Wersja**  <br>*opcjonalne*|Wersja obrazu ustawiony przez usługę zarządzania modelu.|Liczba całkowita|
+|**Wersja**  <br>*opcjonalne*|Wersja obrazu ustawiony przez usługę zarządzania modelu.|liczba całkowita|
 
 
 <a name="imagerequest"></a>
@@ -774,7 +774,7 @@ Uczenie maszynowe Azure manifestu.
 |**modelType**  <br>*opcjonalne*|Określa, że modele są już zarejestrowane w usłudze zarządzania modelu.|wyliczenia (zarejestrowane)|
 |**Nazwa**  <br>*Wymagane*|Nazwa manifestu.|Ciąg|
 |**targetRuntime**  <br>*Wymagane*||[TargetRuntime](#targetruntime)|
-|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja manifestu przypisany przez usługę zarządzania modelu.|Liczba całkowita|
+|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja manifestu przypisany przez usługę zarządzania modelu.|liczba całkowita|
 |**webserviceType**  <br>*opcjonalne*|Określa typ żądanej usługi sieci web, która zostanie utworzona w manifeście.|wyliczenia (w czasie rzeczywistym)|
 
 
@@ -791,9 +791,9 @@ Wystąpienie modelu uczenia maszynowego Azure.
 |**mimeType**  <br>*Wymagane*|Typ MIME zawartości modelu. Aby uzyskać więcej informacji o typie MIME, zobacz [listę typów nośników IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Ciąg|
 |**Nazwa**  <br>*Wymagane*|Nazwa modelu.|Ciąg|
 |**tagów**  <br>*opcjonalne*|Lista znaczników modelu.|<string>Tablica|
-|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, czy musimy Rozpakuj modelu podczas tworzenia obrazu Docker.|Wartość logiczna|
+|**Rozpakowywanie**  <br>*opcjonalne*|Wskazuje, czy musimy Rozpakuj modelu podczas tworzenia obrazu Docker.|wartość logiczna|
 |**adres URL**  <br>*Wymagane*|Adres URL modelu. Zazwyczaj testujemy adres URL sygnatury dostępu współdzielonego w tym miejscu.|Ciąg|
-|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja modelu przypisany przez usługę zarządzania modelu.|Liczba całkowita|
+|**Wersja**  <br>*opcjonalne*  <br>*tylko do odczytu*|Wersja modelu przypisany przez usługę zarządzania modelu.|liczba całkowita|
 
 
 <a name="modeldatacollection"></a>
@@ -803,8 +803,8 @@ Informacje o modelu danych kolekcji.
 
 |Nazwa|Opis|Schemat|
 |---|---|---|
-|**eventHubEnabled**  <br>*opcjonalne*|Włącz Centrum zdarzeń dla usługi.|Wartość logiczna|
-|**storageEnabled**  <br>*opcjonalne*|Włącz magazyn dla usługi.|Wartość logiczna|
+|**eventHubEnabled**  <br>*opcjonalne*|Włącz Centrum zdarzeń dla usługi.|wartość logiczna|
+|**storageEnabled**  <br>*opcjonalne*|Włącz magazyn dla usługi.|wartość logiczna|
 
 
 <a name="paginatedimagelist"></a>
@@ -858,15 +858,15 @@ Na liście usług.
 
 |Nazwa|Opis|Schemat|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|Wartość logiczna|
+|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
 |**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Wymagane*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
 |**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*Wymagane*|Obraz, aby utworzyć usługę.|Ciąg|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|Liczba całkowita|
+|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
 |**Nazwa**  <br>*Wymagane*|Nazwa usługi.|Ciąg|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|Liczba całkowita|
+|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
 
 
 <a name="serviceregeneratekeyrequest"></a>
@@ -895,13 +895,13 @@ Szczegółowy stan usługi.
 |**scoringUri**  <br>*opcjonalne*|Identyfikator URI dla oceniania usługi.|Ciąg|
 |**Stan**  <br>*opcjonalne*||[AsyncOperationState](#asyncoperationstate)|
 |**updatedAt**  <br>*opcjonalne*|Data ostatniej aktualizacji (UTC).|ciąg (daty i godziny)|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|Wartość logiczna|
+|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
 |**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Wymagane*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
 |**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|Liczba całkowita|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|Liczba całkowita|
+|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
+|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
 |**Błąd**  <br>*opcjonalne*||[Errorresponse języka](#errorresponse)|
 
 
@@ -912,13 +912,13 @@ Szczegółowy stan usługi.
 
 |Nazwa|Opis|Schemat|
 |---|---|---|
-|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|Wartość logiczna|
+|**appInsightsEnabled**  <br>*opcjonalne*|Włącz usługę application insights dla usługi.|wartość logiczna|
 |**autoScaler**  <br>*opcjonalne*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*opcjonalne*||[ContainerResourceReservation](#containerresourcereservation)|
 |**Klasa dataCollection**  <br>*opcjonalne*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*opcjonalne*|Obraz, aby utworzyć usługę.|Ciąg|
-|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|Liczba całkowita|
-|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|Liczba całkowita|
+|**maxConcurrentRequestsPerContainer**  <br>*opcjonalne*|Maksymalna liczba równoczesnych żądań.  <br>**Minimalna wartość**:`1`|liczba całkowita|
+|**numReplicas**  <br>*opcjonalne*|Liczba replik pod uruchomiony w dowolnym momencie. Nie można określić, czy Autoscaler jest włączone.  <br>**Minimalna wartość**:`0`|liczba całkowita|
 
 
 <a name="targetruntime"></a>

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Korzystać z usługi MapReduce w Hadoop w usłudze HDInsight
 
@@ -57,7 +57,7 @@ MapReduce może być wdrożonych w różnych językach. Java najczęściej imple
 
 ## <a name="development-languages"></a>Języki programowania
 
-Języków i platform, które są oparte na języku Java i maszyny wirtualnej Java można uruchomiono bezpośrednio jako zadania MapReduce. Przykład używane w tym dokumencie jest aplikacji Java MapReduce. Języki non-Java, takich jak C#, Python lub pliki wykonywalne autonomicznej, należy użyć przesyłania strumieniowego usługi Hadoop.
+Języków i platform, które są oparte na języku Java i maszyny wirtualnej Java można uruchomiono bezpośrednio jako zadania MapReduce. Przykład używane w tym dokumencie jest aplikacji Java MapReduce. Języki non-Java, takich jak C#, Python lub pliki wykonywalne autonomicznej, należy użyć **przesyłania strumieniowego usługi Hadoop**.
 
 Przesyłanie strumieniowe Hadoop komunikuje się z mapowania i reduktor za pośrednictwem STDIN i STDOUT. Mapowania i reduktor danych wiersza w czasie stdin, do odczytu i zapisu danych wyjściowych STDOUT. Każdy wiersz odczytu lub emitowane przez program mapowania i reduktor musi być w formacie parę klucz wartość ograniczonej przez znak tabulacji:
 

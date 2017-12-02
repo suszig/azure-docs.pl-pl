@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Jak skonfigurować parametry serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure
 
@@ -44,7 +44,7 @@ Następujące parametry nie są konfigurowane i związane z [warstwy cenowej](co
 | Standardowa 400 | 10240 | 800 | 
 | Standardowa 800 | 20480 | 1600 |
 
-Wartości domyślne parametrów serwera innych wersji [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) i [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Wszystkie pozostałe parametry serwera, które nie są wymienione w powyższej tabeli są ustawione na wartości domyślne dla wersji [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) i [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Następne kroki
 - [Biblioteki połączeń dla bazy danych Azure dla programu MySQL](concepts-connection-libraries.md).

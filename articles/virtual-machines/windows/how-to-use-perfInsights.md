@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Jak używać PerfInsights 
 
@@ -30,7 +30,7 @@ Firma Microsoft zaleca uruchomienie tego skryptu przed otwarciem biletu pomocy t
 
 PerfInsights można zbierać i analizować kilka rodzajów informacji, które są zgrupowane w scenariuszach unikatowy.
 
-### <a name="collect-disk-configuration"></a>Zbierz dane o konfiguracji dysku 
+### <a name="collect-basic-configuration"></a>Zbierz dane o konfiguracji podstawowej 
 
 W tym scenariuszu zbiera konfiguracji dysków oraz inne ważne informacje, w tym następujące elementy:
 
@@ -57,7 +57,7 @@ To jest pasywny zbiór informacje, które nie powinny mieć wpływ na system.
 >[!Note]
 >Ten scenariusz jest automatycznie uwzględnione w każdym z poniższych scenariuszy.
 
-### <a name="benchmarkstorage-performance-test"></a>Test wydajności testu porównawczego/magazynu
+### <a name="benchmarking"></a>Przeprowadzenia testów porównawczych
 
 W tym scenariuszu uruchamia [diskspd](https://github.com/Microsoft/diskspd) testu (IOPS i MB/s) dla wszystkich dysków dołączonych do maszyny Wirtualnej. 
 
@@ -65,11 +65,11 @@ W tym scenariuszu uruchamia [diskspd](https://github.com/Microsoft/diskspd) test
 > W tym scenariuszu może mieć wpływ na system i nie powinny być uruchamiane na komputerze produkcyjnym. W razie potrzeby uruchom ten scenariusz, w oknie obsługi dedykowanych Aby uniknąć problemów. Większe obciążenie jest spowodowane testu śledzenia lub testu porównawczego może niekorzystnie wpłynąć na wydajność maszyny Wirtualnej.
 >
 
-### <a name="general-vm-slow-analysis"></a>Analiza ogólne wolno maszyny Wirtualnej 
+### <a name="slow-vm-analysis"></a>Powolne analizy maszyny Wirtualnej 
 
 W tym scenariuszu uruchamia [licznika wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) śledzenia przy użyciu liczniki, które są określone w pliku Generalcounters.txt. Jeśli maszyna wirtualna została zidentyfikowana jako serwer, na którym działa program SQL Server, uruchamia śledzenia licznika wydajności przy użyciu liczników, które znajdują się w pliku Sqlcounters.txt. Zawiera również dane diagnostyczne wydajności.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Analiza powoli maszyny Wirtualnej i wzorzec
+### <a name="slow-vm-analysis-and-benchmarking"></a>Powolne analizy maszyny Wirtualnej i testowania wydajności
 
 W tym scenariuszu uruchamia [licznika wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) śledzenia, w którym następuje [diskspd](https://github.com/Microsoft/diskspd) testu. 
 
@@ -99,9 +99,9 @@ W tym scenariuszu uruchamia przechwytywania licznika wydajności specjalne wraz 
 |              | Średni Długość kolejki zapisu       |
 |              | Średni Długość kolejki danych        |
 
-### <a name="custom-configuration"></a>Konfiguracja niestandardowa 
+### <a name="custom-slow-vm-analysis"></a>Niestandardowe powolne analizy maszyny Wirtualnej 
 
-Podczas wykonywania niestandardowej konfiguracji używasz wszystkie ślady (Diagnostyka wydajności, dane licznika wydajności, program xperf, sieci, storport) równolegle, zależności, jak wiele różnych dane śledzenia są wybrane. Po zakończeniu śledzenie narzędzie jest uruchamiane testu narzędzia diskspd, jeśli jest zaznaczone. 
+Podczas wykonywania niestandardowej powolne analizy maszyny Wirtualnej używasz wszystkie ślady (licznika wydajności, program xperf, sieci, storport) równolegle, zależności, jak wiele różnych dane śledzenia są wybrane. Po zakończeniu śledzenie narzędzie jest uruchamiane testu narzędzia diskspd, jeśli jest zaznaczone. 
 
 > [!Note]
 > W tym scenariuszu może mieć wpływ na system i nie powinny być uruchamiane na komputerze produkcyjnym. W razie potrzeby uruchom ten scenariusz, w oknie obsługi dedykowanych Aby uniknąć problemów. Większe obciążenie jest spowodowane testu śledzenia lub testu porównawczego może niekorzystnie wpłynąć na wydajność maszyny Wirtualnej.
@@ -113,7 +113,7 @@ Rejestruje informacje dotyczące maszyny Wirtualnej systemu Windows, dyski lub k
 
 |Zebrane dane                              |  |  | Scenariusze wydajności |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Zbieraj konfiguracja dysków | Test wydajności testu porównawczego i magazynowania | Analiza ogólne wolno maszyny Wirtualnej | Analiza powoli maszyny Wirtualnej i wzorzec | Azure analizy plików | Konfiguracja niestandardowa |
+|                              | Zbierz dane o konfiguracji podstawowej | Przeprowadzenia testów porównawczych | Powolne analizy maszyny Wirtualnej | Powolne analizy maszyny Wirtualnej i testowania wydajności | Azure analizy plików | Niestandardowe powolne analizy maszyny Wirtualnej |
 | Informacje z dzienników zdarzeń      | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
 | Informacje o systemie               | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
 | Mapa woluminu                       | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
@@ -127,7 +127,7 @@ Rejestruje informacje dotyczące maszyny Wirtualnej systemu Windows, dyski lub k
 | Konfiguracja sieci            | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
 | Konfiguracja zapory           | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
 | Konfiguracja programu SQL Server         | Tak                        | Tak                                | Tak                      | Tak                            | Tak                  | Tak                  |
-| Dane wydajności diagnostyki śledzenia * |                            |                                    | Tak                      |                                |                      | Tak                  |
+| Dane wydajności diagnostyki śledzenia * | Tak                        | Tak                                | Tak                      |                                | Tak                  | Tak                  |
 | Licznik wydajności śledzenia **     |                            |                                    |                          |                                |                      | Tak                  |
 | Licznik SMB śledzenia **             |                            |                                    |                          |                                | Tak                  |                      |
 | SQL Server licznika śledzenia **      |                            |                                    |                          |                                |                      | Tak                  |
@@ -180,9 +180,9 @@ Testy obciążenia We/Wy Diskspd [dysk systemu operacyjnego (zapis) oraz dyski p
 
 **Możliwe problemy podczas uruchamiania skryptu na maszynach wirtualnych w środowisku produkcyjnym:**
 
-1.  Skrypt może niekorzystnie wpłynąć na wydajność maszyny Wirtualnej, gdy jest używany razem z scenariusza "Testu" lub "Custom", który jest skonfigurowany przy użyciu narzędzia XPerf lub narzędzia DiskSpd. Uruchom skrypt w środowisku produkcyjnym, należy zachować ostrożność.
+1.  Korzystając z wszystkie scenariusze Benchmarking lub scenariusza "Niestandardowe powolne analizy maszyny Wirtualnej", który jest skonfigurowany do używania narzędzia XPerf lub narzędzia DiskSpd, skrypt może niekorzystnie wpłynąć na wydajność maszyny Wirtualnej. Nie zaleca się uruchamiania tych scenariuszy w środowisku produkcyjnym bez nadzoru inżyniera CSS.
 
-2.  Użycie skryptów oraz scenariusz "Testu" lub "Custom", który jest skonfigurowany przy użyciu narzędzia DiskSpd, upewnij się, że nie inne operacje w tle zakłóca obciążenia We/Wy na dyskach przetestowane.
+2.  Używając wszystkie scenariusze Benchmarking lub scenariusza "Niestandardowe powolne analizy maszyny Wirtualnej", który jest skonfigurowany do używania narzędzia DiskSpd, należy się upewnić, że nie inne operacje w tle zakłóca obciążenia We/Wy na dyskach przetestowane.
 
 3.  Domyślnie skrypt używa dysku tymczasowego magazynu do zbierania danych. Jeśli śledzenie pozostaje włączona przez dłuższy czas, ilość zbieranych danych może być istotne. Może to zmniejszyć dostępność miejsca na dysku tymczasowym, w związku z tym wpływających na dowolnej aplikacji, która opiera się na tym dysku.
 
@@ -236,7 +236,7 @@ Aby uruchomić skrypt PerfInsights, wykonaj następujące kroki:
 
 8.  Można również uruchomić PerfInsights bez interfejsu użytkownika.
 
-    Następujące polecenie uruchamia "analizy głównej maszyny Wirtualnej wolno" Rozwiązywanie problemów z scenariusz bez monitowania interfejsu użytkownika lub przechwycenia danych dla 30 sekund. Monituje użytkownika o zgodę na te same zastrzeżenie i umowy licencyjnej, które są wymienione w kroku 4.
+    Następujące polecenie uruchamia "Analiza powoli maszyny Wirtualnej" Rozwiązywanie problemów z scenariusz bez monitowania interfejsu użytkownika lub przechwycenia danych dla 30 sekund. Monituje użytkownika o zgodę na te same zastrzeżenie i umowy licencyjnej, które są wymienione w kroku 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Jeśli nadal występują błędu skryptu nawet mimo kilku prób, zaleca się uru
 
 Po awarii, skopiuj pełne dane wyjściowe z konsoli programu PowerShell i wysyłają je do agenta Microsoft Support, który jest dla instytucji ułatwić rozwiązanie problemu.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Jak uruchomić skrypt w trybie niestandardowej konfiguracji?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Jak uruchomić skrypt w trybie analizy wirtualna powolne niestandardowe?
 
-Wybierając **niestandardowy** konfiguracji, można włączyć kilka śladów równoległe (Użyj Shift, aby wyborem wielokrotnym):
+Wybierając **niestandardowe powolne wirtualna analizy**, można włączyć kilka śladów równoległe (Użyj Shift, aby wielokrotnego wyboru):
 
 ![Wybierz scenariuszy](media/how-to-use-perfInsights/select-scenario.png)
 
-Po wybraniu Diagnostyka wydajności, śledzenia licznika wydajności, śledzenia programu XPerf, śledzenia sieci lub scenariuszy Storport śledzenia, postępuj zgodnie z instrukcjami wyświetlanymi w oknach dialogowych, a następnie spróbuj do odtworzenia problemu spadek wydajności, po uruchomieniu śledzenia.
+Po wybraniu śledzenia licznika wydajności, śledzenia programu XPerf, śledzenia sieci lub scenariuszy Storport śledzenia, postępuj zgodnie z instrukcjami wyświetlanymi w oknach dialogowych, a następnie spróbuj do odtworzenia problemu spadek wydajności, po uruchomieniu śledzenia.
 
 Poniższe okno dialogowe umożliwia uruchamianie śledzenia:
 
@@ -290,20 +290,21 @@ W ramach **CollectedData\_RRRR MM-dd\_hh\_mm\_pliku ss.zip** generowany przez Pe
 Wybierz **ustalenia** kartę.
 
 ![Znajdź kartę](media/how-to-use-perfInsights/findingtab.png)
+![wyników](media/how-to-use-perfInsights/findings.PNG)
 
 **Uwagi**
 
--   Wiadomości na czerwono znane problemy konfiguracji, które mogą powodować problemy z wydajnością.
+-   Ustalenia skategoryzowane jako krytyczne znane problemy, które mogą powodować problemy z wydajnością.
 
--   Komunikaty w żółty są ostrzeżenia, które reprezentują-optymalne konfiguracje, które nie muszą powodować problemy z wydajnością.
+-   Wyniki są sklasyfikowane jako ważne reprezentują-optymalne konfiguracje, które nie muszą powodować problemy z wydajnością.
 
--   Wiadomości na niebiesko są tylko szczegółowych instrukcji.
+-   Ustalenia skategoryzowane jako informacyjne są tylko szczegółowych instrukcji.
 
-Przejrzyj łącza HTTP dla wszystkich komunikatów o błędach na czerwono uzyskać bardziej szczegółowe informacje o wynikach i ich wpływu na wydajność lub najlepszych rozwiązań dotyczących konfiguracji zoptymalizowana pod kątem wydajności.
+Sprawdź zalecenia i linki do wszystkich ustalenia krytyczne i ważne uzyskać bardziej szczegółowe informacje o wynikach i ich wpływu na wydajność lub najlepszych rozwiązań dotyczących konfiguracji zoptymalizowana pod kątem wydajności.
 
-### <a name="disk-configuration-tab"></a>Karta Konfiguracja dysku
+### <a name="storage-tab"></a>Karta magazynu
 
-**Omówienie** sekcja wyświetla różne widoki konfiguracji magazynu, w tym informacje z narzędzia Diskpart i miejsca do magazynowania
+**Ustalenia** sekcja wyświetla różne wyniki i zalecenia dotyczące magazynu.
 
 **DiskMap** i **VolumeMap** sekcjach opisano na podwójną perspektywy jak logicznej woluminów i dysków fizycznych są ze sobą powiązane.
 
@@ -315,21 +316,24 @@ W perspektywie woluminu (*VolumeMap*), w tabelach przedstawiono wszystkie dyski 
 
 ![Karta woluminu](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>Karta programu SQL Server
+### <a name="sql-tab"></a>Karta SQL
 
-Jeśli element docelowy maszyny Wirtualnej obsługuje wszystkie wystąpienia programu SQL Server, zobacz dodatkowe karty w raporcie o nazwie **programu SQL Server**:
+Jeśli element docelowy maszyny Wirtualnej obsługuje wszystkie wystąpienia programu SQL Server, zobacz dodatkowe karty w raporcie o nazwie **SQL**:
 
 ![Karta SQL](media/how-to-use-perfInsights/sqltab.png)
 
-Ta sekcja zawiera "Przegląd" i sub dodatkowe karty dla wszystkich wystąpień programu SQL Server obsługiwanych na maszynie Wirtualnej.
+Ta sekcja zawiera kartę "Ustalenia" i sub dodatkowe karty dla wszystkich wystąpień programu SQL Server obsługiwanych na maszynie Wirtualnej.
 
-W sekcji "Przegląd" zawiera przydatne tabelę, która znajduje się podsumowanie wszystkich dysków fizycznych (dysków systemowych i danych) z systemem, które zawierają pliki danych i pliki dziennika transakcji.
+Na karcie "Ustalenia" zawiera listę wszystkich SQL dotyczące problemów z wydajnością znaleziono wraz z zaleceniami.
 
 W poniższym przykładzie *PhysicalDrive0* (uruchomionego dysk C) jest wyświetlany, ponieważ zarówno *modeldev* i *modellog* pliki znajdują się na dysku C, a ich różne typy (takich jak plik danych i dziennika transakcji, odpowiednio):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
 Karty danego wystąpienia programu SQL Server zawierają ogólne sekcja, która zawiera podstawowe informacje o wybranym wystąpieniu i dodatkowe sekcje zaawansowane informacje, w tym ustawienia, konfiguracje i opcje użytkownika.
+
+### <a name="diagnostic-tab"></a>Karta diagnostyki
+Karta diagnostyki zawiera informacje o najwyższym procesora CPU, uruchom konsumentów dysków i pamięci w polu Czas trwania PerfInsights. Można również znaleźć inne przydatne informacje, takie jak krytycznych poprawek czy system może brakować, listę zadań i ważnych zdarzeń systemu. 
 
 ## <a name="references-to-the-external-tools-used"></a>Odwołania do zewnętrznego narzędzia używane
 

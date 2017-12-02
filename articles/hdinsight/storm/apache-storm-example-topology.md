@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 8c307bbe2ab9b917f46d93ce11ba8573be8fe419
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Przykładowych topologii Storm i składniki Apache STORM w usłudze HDInsight
 
@@ -32,9 +32,8 @@ Poniżej znajduje się lista przykłady tworzone i obsługiwane przez firmę Mic
 | [Elementów Spout Centrum zdarzeń i Bolt źródła](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Źródło Spout Centrum zdarzeń i Bolt |Java |
 | [Opracowywanie topologii opartych na języku Java Apache STORM w usłudze HDInsight][5797064f] |Maven |Java |
 | [Tworzenie topologii C# dla Apache Storm w usłudze HDInsight przy użyciu programu Visual Studio][16fce2d1] |HDInsight Tools for Visual Studio |C#, Java |
-| [Tworzenie wielu strumieni danych w topologii Storm C#][ec5a4064] |Wiele strumieni |C# |
 | [Zdarzenia procesu z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (C#)][844d1d81] |Usługa Event Hubs |C# i Java |
-| [Zdarzenia procesu z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Usługa Event Hubs |Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Przetwarzanie zdarzeń usługi Azure Event Hubs przy użyciu systemu Storm w usłudze HDInsight — Java) |Usługa Event Hubs |Java |
 | [Analizowanie danych czujnika za pomocą Storm i bazy danych HBase w usłudze HDInsight][ab894747] |Event Hubs, HBase, użyciu biblioteki Socket.IO, pulpitu nawigacyjnego sieci Web |C#, Java, JavaScript, HTML |
 | [Przetwarzania danych czujnika vehicle z usługi Event Hubs za pomocą Storm w usłudze HDInsight][246ee964] |Zdarzenie koncentratory, DB rozwiązania Cosmos obiektu Blob magazynu Azure (WASB) |C#, Java |
 | [Wyodrębniania, przekształcania i ładowania (ETL) z usługi Azure Event Hubs HBase i korzystanie z systemu Storm w usłudze HDInsight][b4b68194] |Centra zdarzeń, HBase |C# |
@@ -52,7 +51,6 @@ Poniżej znajduje się lista przykłady tworzone i obsługiwane przez firmę Mic
 [6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Informacje o sposobie wdrażania i zarządzania nimi topologii za pomocą pulpitu nawigacyjnego Storm opartej na sieci web i interfejsu użytkownika platformy Storm lub narzędzia HDInsight Tools for Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Informacje o sposobie tworzenia topologii Storm C# za pomocą narzędzi HDInsight Tools for Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Informacje o sposobie tworzenia topologii Storm w języku Java, za pomocą programu Maven, tworząc topologii wordcount podstawowe."
-[ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Przedstawia podstawowe topologii Storm, który wykonuje wordcount, zaimplementowana w języku C#. Oznacza to również, jak utworzyć wiele strumieni danych w ramach topologii C#."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Dowiedz się, jak odczytywania i zapisywania danych z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight."
 [ab894747]:apache-storm-sensor-data-analysis.md "Dowiedz się, jak używać systemu Apache Storm w usłudze HDInsight do przetwarzania danych czujnika z usługi Azure Event Hubs, za pomocą D3.js wizualizacji i (opcjonalnie), zapisz go do bazy danych HBase."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Dowiedz się, jak odczytywanie wiadomości usługi Azure Event Hubs przy użyciu topologii Storm odczytywać z bazy danych usługi Azure rozwiązania Cosmos dla odwołania do danych i zapisać dane do magazynu Azure."

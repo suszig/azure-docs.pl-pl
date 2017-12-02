@@ -1,11 +1,10 @@
 ---
-title: "Dodawanie certyfikatu SSL do aplikacji usługi Azure App Service | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dodać certyfikat SSL do aplikację usługi aplikacji."
+title: "Kupowanie i konfigurowanie certyfikatu SSL dla usługi aplikacji Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak kupić certyfikat usługi aplikacji i powiązać aplikację usługi aplikacji"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Kup i skonfiguruj certyfikat SSL dla usługi Azure App Service
 
@@ -74,12 +73,16 @@ Po wybraniu klucza repozytorium magazynu do przechowywania tego certyfikatu, **p
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Krok 4. Zweryfikuj prawo własności do domeny
 
-> [!NOTE]
-> Istnieją trzy typy weryfikację domeny obsługiwane przez certyfikaty usługi aplikacji: domeny poczty, ręczne weryfikacji. Te typy weryfikacji omówiono bardziej szczegółowo w [zaawansowane sekcji](#advanced).
-
 Z tej samej **Konfiguracja certyfikatów** używane w kroku 3 kliknij **krok 2: Sprawdź**.
 
-**Weryfikacja domeny** to polega na najbardziej odpowiednim **tylko jeśli** masz  **[zostały zakupione domeny niestandardowej w usłudze Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Wybierz domeny preferowaną metodę weryfikacji. 
+
+Istnieją cztery typy weryfikację domeny obsługiwane przez certyfikaty usługi aplikacji: App Service, domeny poczty i ręczne weryfikacji. Te typy weryfikacji omówiono bardziej szczegółowo w [zaawansowane sekcji](#advanced).
+
+> [!NOTE]
+> **Aplikacja usługi weryfikacji** jest najbardziej wygodną opcją w przypadku domeny, aby sprawdzić, jest już zamapowana do aplikacji usługi app Service w tej samej subskrypcji. Go wykorzystuje fakt aplikację usługi aplikacji już zweryfikował własność domeny.
+>
+
 Polecenie **Sprawdź** przycisk, aby ukończyć ten krok.
 
 ![Wstaw obraz weryfikację domeny](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -133,7 +136,7 @@ W tym momencie powinno być możliwe do odwiedzenia przy użyciu aplikacji `HTTP
 
 Istnieją dwa typy więcej weryfikacji domeny obsługiwane przez certyfikaty usługi aplikacji: poczty i weryfikacja ręcznego.
 
-#### <a name="mail-verification"></a>Weryfikacja poczty
+#### <a name="mail-verification"></a>Weryfikacja za pomocą wiadomości e-mail
 
 Weryfikacja e-mail została już wysłana na adresy E-mail skojarzony z tym domeny niestandardowej.
 Aby ukończyć proces weryfikacji wiadomości E-mail, otwórz wiadomości e-mail i kliknij łącze weryfikacji.
@@ -141,6 +144,10 @@ Aby ukończyć proces weryfikacji wiadomości E-mail, otwórz wiadomości e-mail
 ![Wstaw obraz Weryfikacja adresu e-mail](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
 Jeśli konieczne jest ponowne wysłanie wiadomości e-mail weryfikacji, kliknij przycisk **ponowne wysłanie wiadomości E-mail** przycisku.
+
+#### <a name="domain-verification"></a>Weryfikacja domeny
+
+Wybierz tę opcję tylko w przypadku [domeny usługi App Service zakupionym z platformy Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatycznie dodaje rekord TXT weryfikacji dla Ciebie i kończy proces.
 
 #### <a name="manual-verification"></a>Weryfikacja ręczna
 
@@ -197,6 +204,7 @@ Jeśli certyfikat SSL jest skonfigurowany do automatycznego odnawiania, ale nie 
 - GoDaddy, który generuje certyfikaty z usługi aplikacji, wymaga weryfikacji domeny co trzy lata. Administrator domeny otrzymuje wiadomość e-mail co trzy lata można zweryfikować domeny. Niepowodzenie sprawdzania wiadomości e-mail lub sprawdź domenę zapobiega automatycznego odnawiania certyfikatu usługi aplikacji. 
 - Wszystkie certyfikaty usługi aplikacji wydane przed 2017 31 marca wymagają reverification domeny w momencie odnawiania dalej (nawet jeśli włączono automatycznego odnawiania certyfikatu). Jest to wynik zmiany w zasadach GoDaddy. Sprawdź pocztę i ukończyć proces weryfikacji jednorazowe domeny, aby kontynuować automatycznego odnawiania certyfikatu usługi aplikacji. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="more-resources"></a>Więcej zasobów
 
-* [Dodawanie sieci dostarczania zawartości](app-service-web-tutorial-content-delivery-network.md)
+* [Użyj certyfikatu SSL w kodzie aplikacji w usłudze Azure App Service](app-service-web-ssl-cert-load.md)
+* [— Często zadawane pytania: Certyfikaty usługi aplikacji](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

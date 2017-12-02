@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ Aparat PolyBase magazynu danych SQL obsługuje bezpośrednio obiektów Blob plat
 Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawienia i automatycznie powraca do mechanizmu BULKINSERT przenoszenia danych.
 
 1. **Źródło połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore z uwierzytelnianiem główna usługi**.  
-2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore**i wpisz w formacie `type` właściwości **OrcFormat**, lub **TextFormat** z następujących konfiguracji:
+2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore**i wpisz w formacie `type` właściwości **OrcFormat**, **ParquetFormat**, lub **TextFormat** z następujących konfiguracji:
 
    1. `rowDelimiter`musi być  **\n** .
    2. `nullValue`ustawiono **pusty ciąg** (""), lub `treatEmptyAsNull` ustawiono **true**.
@@ -303,7 +303,7 @@ Fabryka danych tworzy tabeli w magazynie docelowym o takiej samej nazwie tabeli 
 
 | Typ kolumny źródłowej bazy danych SQL | Typ kolumny docelowej magazynu danych SQL (limit rozmiaru) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
@@ -314,10 +314,10 @@ Fabryka danych tworzy tabeli w magazynie docelowym o takiej samej nazwie tabeli 
 | oszczędność pieniędzy | oszczędność pieniędzy |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binarne | Binarne |
+| Binarny | Binarny |
 | varbinary | Varbinary (maksymalnie 8000) |
 | Date | Date |
-| Data i godzina | Data i godzina |
+| Data/godzina | Data/godzina |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
@@ -350,9 +350,9 @@ Mapowanie jest taka sama jak [mapowanie typu danych serwera SQL dla ADO.NET](htt
 | Binarne |Byte] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
-| datetime2 |Data i godzina |
+| data |Data/godzina |
+| Data/godzina |Data/godzina |
+| datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte] |
@@ -364,9 +364,9 @@ Mapowanie jest taka sama jak [mapowanie typu danych serwera SQL dla ADO.NET](htt
 | ntext |Ciąg, Char] |
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
-| rzeczywiste |Pojedynczy |
+| rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte] |
-| smalldatetime |Data i godzina |
+| smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |

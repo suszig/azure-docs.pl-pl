@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Przed rozpoczęciem pracy z usługi aplikacji Azure stosu
 
@@ -68,14 +68,14 @@ Ten skrypt pierwszy współpracuje z urzędu certyfikacji stosu Azure można utw
 
 Uruchom skrypt na hoście Azure stosu Development Kit i upewnij się, że używasz programu PowerShell jako azurestack\CloudAdmin.
 
-1. W sesji programu PowerShell uruchomione jako azurestack\CloudAdmin wykonać skryptu Utwórz AppServiceCerts.ps1 z folderu, w którym została rozpakowana skrypty pomocnika. Skrypt tworzy cztery certyfikatów, w tym samym folderze co Utwórz skrypt certyfikaty wymagające usługi aplikacji.
+1. W sesji programu PowerShell uruchomione jako azurestack\AzureStackAdmin wykonać skryptu Utwórz AppServiceCerts.ps1 z folderu, w którym została rozpakowana skrypty pomocnika. Skrypt tworzy cztery certyfikatów, w tym samym folderze co Utwórz skrypt certyfikaty wymagające usługi aplikacji.
 2. Wprowadź hasło, aby zabezpieczyć pliki PFX i zapisz go. Wprowadź go w usłudze App Service w Instalatorze stosu Azure.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Utwórz AppServiceCerts.ps1 parametrów
 
 | Parametr | Wymagane opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| PfxPassword | Wymagane | Wartość null | Hasło używane do ochrony klucza prywatnego certyfikatu |
+| PfxPassword | Wymagane | Null | Hasło używane do ochrony klucza prywatnego certyfikatu |
 | domainName | Wymagane | Local.azurestack.external | Azure sufiks regionu i domeny stosu |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certyfikaty wymagane w przypadku wdrożenia produkcyjnego usługi Azure App Service na stosie Azure
@@ -120,7 +120,7 @@ Certyfikat tożsamości musi zawierać którego podmiot odpowiada następujący 
 | --- | --- |
 | sso.appservice. \<region\>.\< DomainName\>.\< rozszerzenia\> | sso.appservice.Redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Wyodrębnij certyfikat głównego menedżera zasobów Azure Azure stosu
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Wyodrębnij certyfikat głównego menedżera zasobów Azure Azure stosu
 
 W sesji programu PowerShell, uruchomione jako azurestack\CloudAdmin Uruchom skrypt Get AzureStackRootCert.ps1 z folderu, w którym została rozpakowana skrypty pomocnika. Skrypt tworzy cztery certyfikatów, w tym samym folderze co Utwórz skrypt certyfikaty wymagające usługi aplikacji.
 
@@ -134,12 +134,10 @@ W sesji programu PowerShell, uruchomione jako azurestack\CloudAdmin Uruchom skry
 
 Usługa aplikacji Azure wymaga użycia serwera plików. Wdrożeń produkcyjnych serwer plików musi być skonfigurowana by zapewnić wysoką dostępność i możliwość obsługi błędów.
 
-Do użytku z Azure stosu Development Kit tylko w przypadku wdrożeń, można w tym przykładzie szablonu wdrażania Menedżera zasobów Azure, aby wdrożyć serwer plików skonfigurowany jeden węzeł: https://aka.ms/appsvconmasdkfstemplate.
+Do użytku z Azure stosu Development Kit tylko w przypadku wdrożeń, można w tym przykładzie szablonu wdrażania Menedżera zasobów Azure, aby wdrożyć serwer plików skonfigurowany jeden węzeł: https://aka.ms/appsvconmasdkfstemplate. Jednego węzła serwera plików jest w grupie roboczej.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Zapewnij grup i kont w usłudze Active Directory
 
->[!NOTE]
-> Wszystkie następujące polecenia, należy wykonać podczas konfigurowania serwera plików, w sesji wiersza polecenia administratora.  **NIE należy używać środowiska PowerShell.**
 
 1. Utwórz następujące grupy zabezpieczeń globalnych usługi Active Directory:
     - FileShareOwners
@@ -159,7 +157,10 @@ Do użytku z Azure stosu Development Kit tylko w przypadku wdrożeń, można w t
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Zapewnij grup i kont w grupie roboczej
 
-W grupie roboczej uruchom net i WMIC poleceń do obsługi administracyjnej kont i grup.
+>[!NOTE]
+> Wszystkie następujące polecenia, należy wykonać podczas konfigurowania serwera plików, w sesji wiersza polecenia administratora.  **NIE należy używać środowiska PowerShell.**
+
+Używając powyższego szablonu usługi Azure Resource Manager, użytkownicy, zostały już utworzone.
 
 1. Uruchom następujące polecenia, aby utworzyć konta Właściciel udziału plików i FileShareUser. Zastąp <password> z własne wartości.
 ``` DOS
@@ -185,11 +186,11 @@ Udział zawartości zawiera zawartość witryny sieci web dzierżawy. Procedura 
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Udostępnianie zawartości udostępnionej na jednym serwerze plików (usługi AD lub grupy roboczej)
 
-Na jednym serwerze plików, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień. Zamień wartość dla < C:\WebSites > odpowiednich ścieżkach w danym środowisku.
+Na jednym serwerze plików, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień. Zamień wartość dla "C:\WebSites" odpowiednie ścieżki w danym środowisku.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem upr
 #### <a name="active-directory"></a>Usługa Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>Grupa robocza
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Do użytku z Development Kit stosu Azure, można użyć programu SQL Express 201
 
 Produkcji i wysoką dostępność, należy użyć pełną wersję programu SQL 2014 SP2 lub później, Włącz uwierzytelnianie w trybie mieszanym oraz wdrożyć w [konfiguracji wysokiej dostępności](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Usługi Azure App Service na serwerze SQL Azure stos musi być dostępny ze wszystkich ról usługi aplikacji. SQL Server można wdrożyć w ramach subskrypcji domyślny dostawca w stosie Azure. Można też użyć istniejącej infrastruktury, w ramach organizacji (o ile istnieje łączność stos Azure).
+Usługi Azure App Service na serwerze SQL Azure stos musi być dostępny ze wszystkich ról usługi aplikacji. SQL Server można wdrożyć w ramach subskrypcji domyślny dostawca w stosie Azure. Można też użyć istniejącej infrastruktury, w ramach organizacji (o ile istnieje łączność stos Azure). Jeśli używasz portalu Azure Marketplace obrazu, należy odpowiednio skonfigurować zaporę. 
 
 Dla każdej z ról serwera SQL można użyć wystąpienie domyślne lub nazwane wystąpienie. Jednak użycie nazwanego wystąpienia, należy ręcznie uruchomić usługę programu SQL Server Browser i otworzyć port 1434.
 
@@ -269,12 +270,12 @@ Administratorzy, należy skonfigurować logowanie Jednokrotne:
 
 Wykonaj następujące kroki:
 
-1. Otwórz wystąpienie programu PowerShell jako azurestack\cloudadmin.
+1. Otwórz wystąpienie programu PowerShell jako azurestack\AzureStackAdmin.
 2. Przejdź do lokalizacji skrypty pobrane i wyodrębnione w [wymagań wstępnych krok](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Instalowanie programu PowerShell Azure stosu](azure-stack-powershell-install.md).
 4. Uruchom **AADIdentityApp.ps1 Utwórz** skryptu. Gdy zostanie wyświetlony monit o Identyfikatora dzierżawy usługi Azure AD, wprowadź identyfikator dzierżawy usługi Azure AD używaną na potrzeby wdrożenia stosu Azure, na przykład myazurestack.onmicrosoft.com.
 5. W **poświadczeń** okna, wprowadź konto administratora usługi Azure AD i hasło. Kliknij przycisk **OK**.
-6. Wprowadź hasło certyfikatu i ścieżka do pliku certyfikatu [wcześniej utworzony certyfikat](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Certyfikat utworzony w tym kroku domyślnie jest sso.appservice.local.azurestack.external.pfx.
+6. Wprowadź hasło certyfikatu i ścieżka do pliku certyfikatu [wcześniej utworzony certyfikat](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Certyfikat utworzony dla tego kroku, domyślnie jest **sso.appservice.local.azurestack.external.pfx**.
 7. Skrypt tworzy nową aplikację w dzierżawie usługi Azure AD. Zanotuj identyfikator aplikacji, który jest zwracany w danych wyjściowych programu PowerShell. To potrzebne podczas instalacji.
 8. Otwórz nowe okno przeglądarki i zaloguj się do portalu Azure (portal.azure.com) jako **administratora usługi Active Directory platformy Azure**.
 9. Otwórz dostawcy zasobów usługi Azure AD.
@@ -285,12 +286,12 @@ Wykonaj następujące kroki:
 
 | Utwórz AADIdentityApp.ps1 parametru | Wymagane opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Wymagane | Wartość null | Identyfikator dzierżawy usługi Azure AD Podaj identyfikator GUID lub ciąg, na przykład myazureaaddirectory.onmicrosoft.com |
-| AdminArmEndpoint | Wymagane | Wartość null | Azure Resource Manager punktu końcowego administratora, na przykład adminmanagement.local.azurestack.external |
-| TenantARMEndpoint | Wymagane | Wartość null | Dzierżawy usługi Azure Resource Manager punktu końcowego, na przykład: management.local.azurestack.external |
-| AzureStackAdminCredential | Wymagane | Wartość null | Poświadczenie administratora usługi Azure AD |
-| CertificateFilePath | Wymagane | Wartość null | Ścieżka do pliku certyfikatu tożsamości aplikacji, wcześniej wygenerowany. |
-| CertificatePassword | Wymagane | Wartość null | Hasło używane do ochrony klucza prywatnego certyfikatu. |
+| DirectoryTenantName | Wymagane | Null | Identyfikator dzierżawy usługi Azure AD Podaj identyfikator GUID lub ciąg, na przykład myazureaaddirectory.onmicrosoft.com |
+| AdminArmEndpoint | Wymagane | Null | Azure Resource Manager punktu końcowego administratora, na przykład adminmanagement.local.azurestack.external |
+| TenantARMEndpoint | Wymagane | Null | Dzierżawy usługi Azure Resource Manager punktu końcowego, na przykład: management.local.azurestack.external |
+| AzureStackAdminCredential | Wymagane | Null | Poświadczenie administratora usługi Azure AD |
+| CertificateFilePath | Wymagane | Null | Ścieżka do pliku certyfikatu tożsamości aplikacji, wcześniej wygenerowany. |
+| CertificatePassword | Wymagane | Null | Hasło używane do ochrony klucza prywatnego certyfikatu. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Tworzenie aplikacji usług federacyjnych Active Directory
 
@@ -314,11 +315,11 @@ Wykonaj następujące kroki:
 
 | Utwórz ADFSIdentityApp.ps1 parametru | Wymagane opcjonalne | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Wymagane | Wartość null | Punkt końcowy usługi Azure Resource Manager Administrator. Na przykład adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Wymagane | Wartość null | Punkt końcowy uprzywilejowanych. Na przykład AzS ERCS01. |
-| CloudAdminCredential | Wymagane | Wartość null | Azure stosu cloudadmin domeny poświadczeń dla konta. Na przykład Azurestack\CloudAdmin. |
-| CertificateFilePath | Wymagane | Wartość null | Ścieżka do pliku PFX certyfikatu tożsamości aplikacji. |
-| CertificatePassword | Wymagane | Wartość null | Hasło używane do ochrony klucza prywatnego certyfikatu. |
+| AdminArmEndpoint | Wymagane | Null | Punkt końcowy usługi Azure Resource Manager Administrator. Na przykład adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Wymagane | Null | Punkt końcowy uprzywilejowanych. Na przykład AzS ERCS01. |
+| CloudAdminCredential | Wymagane | Null | Azure stosu cloudadmin domeny poświadczeń dla konta. Na przykład Azurestack\CloudAdmin. |
+| CertificateFilePath | Wymagane | Null | Ścieżka do pliku PFX certyfikatu tożsamości aplikacji. |
+| CertificatePassword | Wymagane | Null | Hasło używane do ochrony klucza prywatnego certyfikatu. |
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenia maszyny Wirtualnej diagnostyki Azure wydajności dla systemu Windows
 
@@ -46,7 +46,6 @@ Następujące JSON zawiera schemat rozszerzenia diagnostyki Azure wydajności. T
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -70,15 +69,13 @@ Następujące JSON zawiera schemat rozszerzenia diagnostyki Azure wydajności. T
 |Wydawcy|Microsoft.Azure.Performance.Diagnostics|Przestrzeń nazw wydawcy rozszerzenia
 |type|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny Wirtualnej
 |typeHandlerVersion|1.0|Wersja rozszerzenia obsługi
-|performanceScenario|Podstawowe|Scenariuszu wydajności do przechwycenia danych. Prawidłowe wartości to: **podstawowe**, **vmslow**, **azurefiles**, i **niestandardowych**.
+|performanceScenario|podstawowe|Scenariuszu wydajności do przechwycenia danych. Prawidłowe wartości to: **podstawowe**, **vmslow**, **azurefiles**, i **niestandardowych**.
 |traceDurationInSeconds|300|Czas trwania śledzenia, jeśli nie wybrano opcji śledzenia.
-|DiagnosticsTrace|D|Opcję w celu włączenia śledzenia diagnostycznego. Prawidłowe wartości to **d** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |perfCounterTrace|P|Opcję w celu włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |networkTrace|n|Opcję, aby włączyć program Netmon śledzenia. Prawidłowe wartości to  **n**  lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |xperfTrace|x|Opcję, aby włączyć program XPerf śledzenia. Prawidłowe wartości to **x** lub wartość pusta. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |storPortTrace|s|Opcję, aby włączyć StorPort śledzenia. Prawidłowe wartości to s lub wartość pustą. Jeśli nie chcesz przechwytywać ślad, pozostaw wartość jako pusty.
 |srNumber|123452016365929|Numer biletu pomocy technicznej, jeśli jest dostępna. Pozostaw pole puste, jeśli nie masz.
-|requestTimeUtc|9/2/2017 23:06:00: 00|Bieżąca data i godzina w formacie Utc. Nie trzeba podać tę wartość, jeśli używasz portalu można zainstalować tego rozszerzenia.
 |storageAccountName|mojekontomagazynu|Nazwa konta magazynu do przechowywania dzienników diagnostyki i wyników.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Klucz konta magazynu.
 
@@ -99,12 +96,12 @@ Wykonaj następujące kroki, aby zainstalować rozszerzenie maszyny Wirtualnej n
 5. Podaj wartości parametrów dla instalacji i kliknij przycisk **OK** do zainstalowania rozszerzenia. Więcej informacji na temat obsługiwanych scenariuszy rozwiązywania problemów można znaleźć [tutaj](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
     ![Instalowanie rozszerzenia](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Po zakończeniu instalacji pojawi się, że komunikat informujący o inicjowania obsługi administracyjnej zakończyło się pomyślnie.
+6. Po pomyślnej instalacji pojawić się, że komunikat informujący o inicjowania obsługi administracyjnej zakończyło się pomyślnie.
 
     ![Inicjowanie obsługi administracyjnej zakończyło się pomyślnie wiadomości](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Wykonanie rozszerzenia zostanie uruchomione po udostępnianie jest powiodło się i potrwa kilka minut lub mniej, aby zakończyć wykonywanie podstawowych scenariuszy. W innych sytuacjach zostanie on uruchomiony przez czas określony podczas instalacji.
+    > Wykonanie rozszerzenia zaczyna się po udostępnianie jest zakończyło się pomyślnie i zajmuje kilka minut lub mniej, aby zakończyć wykonywanie podstawowych scenariuszy. W innych sytuacjach działa przez czas określony podczas instalacji.
 
 ## <a name="remove-the-extension"></a>Usuń rozszerzenie
 Aby usunąć rozszerzenia z maszyny wirtualnej, wykonaj następujące kroki:
@@ -153,10 +150,6 @@ Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu sz
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu sz
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu sz
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informacje na temat danych przechwyconych
-Narzędzie PerfInsights gromadzi różne dzienniki, konfigurację, dane diagnostyczne itp. w zależności od wybranego scenariusza. Dla więcej informacji na temat danych zbieranych na scenariuszu należy odwiedziny [dokumentacji PerfInsights](http://aka.ms/perfinsights).
+Narzędzie PerfInsights gromadzi różne dzienniki, konfigurację, dane diagnostyczne itp. w zależności od wybranego scenariusza. Aby uzyskać więcej informacji na dane zbierane z jednego scenariusza, odwiedź stronę [dokumentacji PerfInsights](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 
 Dane wyjściowe rozszerzenia są przechowywane znajduje się w folderze o nazwie domyślnej log_collection w obszarze dysk Temp (zazwyczaj D:\log_collection). W tym folderze widać plików zip zawierający dzienników diagnostycznych i raport o wyniki i zalecenia.
 
-Utworzony plik zip jest również przekazać do konta magazynu podana podczas instalacji i jest udostępniana przez 30 dni przy użyciu [udostępnionego sygnatur dostępu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Plik tekstowy o nazwie *zipfilename*_saslink.txt również jest tworzony w folderze log_collection. Ten plik zawiera łącze SAS utworzone, aby pobrać plik zip. Każdy, kto ma to łącze będzie można pobrać plik zip.
+Utworzony plik zip jest również przekazać do konta magazynu podana podczas instalacji i jest udostępniana przez 30 dni przy użyciu [udostępnionego sygnatur dostępu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Plik tekstowy o nazwie *zipfilename*_saslink.txt również jest tworzony w folderze log_collection. Ten plik zawiera łącze SAS utworzone, aby pobrać plik zip. Każdy, kto ma to łącze jest w stanie pobrać plik zip.
 
 Firma Microsoft może używać tego łącza SAS, aby pobrać dane diagnostyczne w celu dokładniejszego zbadania przez niego obsługuje pracuje biletu pomocy technicznej.
 
