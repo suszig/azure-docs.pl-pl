@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Struktura projektu
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Planowanie i realizacja projektu
+- name: Planowanie projektu
+  href: team-data-science-process-project-templates.md
+- name: Realizacja projektu
   items:
-    - name: Planowanie projektu
-      href: team-data-science-process-project-templates.md
-    - name: Realizacja projektu
-      items:
-        - name: Projekty dotyczące danych do celów naukowych
-          href: project-execution.md
+    - name: Zwinne wytwarzanie oprogramowania
+      href: agile-development.md
+    - name: Wspólne kodowanie przy użyciu narzędzia Git
+      href: collaborative-coding-with-git.md
+    - name: Uruchamianie zadań dotyczących nauki o danych
+      href: execute-data-science-tasks.md
+    - name: Śledzenie postępu
+      href: track-progress.md
 - name: Przykłady
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Platforma Spark z interfejsem PySpark i środowiskiem Scala
       href: walkthroughs-spark.md
       items:
-        - name: Eksplorowanie danych
+        - name: Eksplorowanie i modelowanie danych
           href: spark-data-exploration-modeling.md
+        - name: Zaawansowane eksplorowanie i modelowanie danych
+          href: spark-advanced-data-exploration-modeling.md
         - name: Ocenianie modeli
           href: spark-model-consumption.md
-        - name: Zaawansowane eksplorowanie danych
-          href: spark-advanced-data-exploration-modeling.md
     - name: Technologia Hive w usłudze HDInsight Hadoop
       href: walkthroughs-hdinsight-hadoop.md
     - name: Język U-SQL w usłudze Azure Data Lake
@@ -136,7 +140,8 @@
             - name: Korzystanie z narzędzia AzCopy
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Korzystanie z języka Python
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: Korzystanie z usług SSIS
               href: move-data-to-azure-blob-using-ssis.md
             - name: Przenoszenie do maszyny wirtualnej
@@ -211,14 +216,8 @@
             - name: Ściągawka dotycząca algorytmów
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Wdrażanie modeli
-      items:
-        - name: Przy użyciu usługi internetowej
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Używanie usługi internetowej
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Wdrażanie modeli w środowisku produkcyjnym
+      href: deploy-models-in-production.md
 - name: Powiązane
   items:
     - name: Zestaw narzędzi usług Microsoft Cognitive — CNTK

@@ -7,8 +7,10 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie klastra AKS
+    - name: Tworzenie klastra AKS — interfejs wiersza polecenia
       href: kubernetes-walkthrough.md
+    - name: Tworzenie klastra AKS — portal
+      href: kubernetes-walkthrough-portal.md
 - name: Samouczki
   items:
     - name: 1 — Przygotowywanie aplikacji dla usługi AKS

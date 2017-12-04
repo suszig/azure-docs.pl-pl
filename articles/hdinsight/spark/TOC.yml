@@ -104,6 +104,8 @@
           href: apache-spark-streaming-overview.md
         - name: Zdarzenia przesyłania strumieniowego procesu
           href: apache-spark-eventhub-streaming.md
+        - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Event Hubs
+          href: apache-spark-eventhub-structured-streaming.md
         - name: Przesyłanie strumieniowe ze strukturą za pomocą usługi Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

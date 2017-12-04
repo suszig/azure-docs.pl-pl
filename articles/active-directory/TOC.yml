@@ -40,8 +40,6 @@
 - name: Tożsamość usługi zarządzanej
   href: msi-overview.md
   items:
-    - name: Jak się zalogować lub uzyskać token
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurowanie pliku MSI dla maszyny wirtualnej platformy Azure
       items:
         - name: Korzystanie z witryny Azure Portal
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
           href: msi-howto-assign-access-cli.md
+    - name: 'Jak korzystać z tożsamości usługi zarządzanej maszyny wirtualnej '
+      items:
+        - name: Uzyskiwanie tokenu dostępu
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Logowanie się do programu PowerShell (interfejsu wiersza polecenia platformy Azure)
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Używanie z zestawami SDK platformy Azure
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Uzyskiwanie dostępu do usługi Azure Data Lake Store przy użyciu tożsamości usługi zarządzanej
       items:
         - name: Z maszyny wirtualnej z systemem Windows

@@ -6,7 +6,9 @@
 ## [Tworzenie aplikacji .NET](service-fabric-quickstart-dotnet.md)
 ## [Wdrażanie aplikacji kontenera systemu Linux](service-fabric-quickstart-containers-linux.md)
 ## [Wdrażanie aplikacji kontenera systemu Windows](service-fabric-quickstart-containers.md)
-## [Wdrażanie aplikacji Java](service-fabric-quickstart-java.md)
+## Przewodniki Szybki start dotyczące języka Java
+### [Wdrażanie aplikacji Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Wdrażanie aplikacji usług Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Samouczki
 ## Wdrażanie aplikacji .NET
@@ -29,7 +31,9 @@
 #### [1a — Tworzenie klastra z systemem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b — Tworzenie klastra z systemem Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 — Skalowanie klastra](service-fabric-tutorial-scale-cluster.md)
-### [3 — Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3 — Uaktualnianie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
+### [4 — Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Przykłady
@@ -190,7 +194,7 @@
 ##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Rozpoczęcie pracy
+#### Rozpoczynanie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
 ##### [Create C# application on Linux (Tworzenie aplikacji w języku C# w systemie Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
