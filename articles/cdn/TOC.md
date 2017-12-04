@@ -21,8 +21,8 @@
 ## Zarządzanie
 ### [Zarządzanie przy użyciu programu Azure PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
-#### [Zawartość usług Web Apps/Cloud Services, ASP.NET lub IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Zawartość usługi Storage Blob](cdn-manage-expiration-of-blob-content.md)
+#### [Zawartość sieci Web platformy Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 ### [Ograniczanie dostępu według kraju](cdn-restrict-access-by-country.md)
 ### [Poprawianie wydajności poprzez kompresowanie plików](cdn-improve-performance.md)
 ### Buforowanie zawartości według ciągu zapytania

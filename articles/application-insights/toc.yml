@@ -247,6 +247,8 @@
       items:
         - name: Brak danych dla platformy .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Debuger migawek
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analiza
           href: app-insights-analytics-troubleshooting.md
         - name: Java

@@ -27,6 +27,10 @@
   items:
     - name: Omówienie raportów kosztów
       href: understading-cost-reports.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Korzystanie z raportów rozwiązania Cost Management
+      href: use-reports.md
 - name: Zasoby
   items:
     - name: Wideo na temat rozwiązania Cost Management

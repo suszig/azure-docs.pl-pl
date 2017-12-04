@@ -31,6 +31,7 @@
 ### [Konfigurowanie obrazów z portalu Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Włączanie licencjonowanego obrazu](devtest-lab-enable-licensed-images.md)
 ### [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md)
+### [Publikowanie anonsu w laboratorium](devtest-lab-announcements.md)
 
 ## [Wybieranie niestandardowego obrazu lub formuły](devtest-lab-comparing-vm-base-image-types.md)
 

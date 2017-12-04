@@ -4,6 +4,8 @@
   items:
     - name: Wprowadzenie do usługi Data Factory
       href: introduction.md
+    - name: Porównanie wersji 1 i 2
+      href: compare-versions.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Portal
           href: quickstart-create-data-factory-portal.md
+        - name: Szablon usługi Resource Manager
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Samouczki
   items:
     - name: 1 — Wdrażanie pakietów usług SSIS na platformie Azure

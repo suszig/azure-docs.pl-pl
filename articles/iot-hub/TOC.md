@@ -70,9 +70,10 @@
 ### [Korzystanie z zestawu SDK urządzenia IoT dla języka C](iot-hub-device-sdk-c-intro.md)
 #### [Korzystanie z usługi IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Korzystanie z serializatora](iot-hub-device-sdk-c-serializer.md)
-### Przetwarzanie komunikatów przesyłanych z urządzeń do chmury
+### Routing wiadomości
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Wysyłanie komunikatów z chmury do urządzeń
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

@@ -58,6 +58,7 @@
 
 ## Rozwiązywanie problemów
 ### [Weryfikowanie połączenia usługi ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+### [Resetowanie obwodu, w którym wystąpiło niepowodzenie](reset-circuit.md)
 ### [Pobieranie tabel ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Pobieranie tabel ARP (wersja klasyczna)](expressroute-troubleshooting-arp-classic.md)
 

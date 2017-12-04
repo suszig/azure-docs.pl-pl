@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Schemat elementów webhook
+      href: container-registry-webhook-reference.md
 - name: Zasoby
   items:
     - name: Dostępność w danym regionie

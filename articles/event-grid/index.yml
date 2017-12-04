@@ -44,6 +44,7 @@ sections:
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorowanie zmian dotyczących maszyn wirtualnych za pomocą aplikacji logiki</a>
           - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Zmienianie rozmiaru przekazanych obrazów</a>
+          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrowanie usługi Azure Automation z usługą Event Grid</a>
   - title: Dokumentacja
     items:
       - type: list
