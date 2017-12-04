@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania certyfikatu (klasyczna): Azure Portal
 
@@ -35,8 +35,10 @@ W tym artykule pokazano sposób tworzenia sieci wirtualnej z połączeniem punkt
 
 Brama sieci VPN typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenia sieci VPN typu punkt-lokacja przydają się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, podczas pracy zdalnej z domu lub konferencji. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. Połączenie sieci VPN typu punkt-lokacja jest nawiązywane przez zainicjowanie go z komputera klienckiego.
 
-Klasyczny model wdrożenia obsługuje tylko klientów sieci VPN systemu Windows i używa protokołu Secure Socket Tunneling Protocol (SSTP) będącego protokołem sieci VPN opartym na protokole SSL. Aby zapewnić obsługę innych klientów niż sieć VPN systemu Windows, Twoja sieć wirtualna musi zostać utworzona przy użyciu modelu wdrażania usługi Resource Manager. Model wdrażania usługi Resource Manager obsługuje, oprócz protokołu SSTP, protokół IKEv2 sieci VPN. Aby uzyskać więcej informacji, zobacz [About P2S connections (Informacje o połączeniach punkt-lokacja)](point-to-site-about.md).
-
+> [!IMPORTANT]
+> Klasyczny model wdrożenia obsługuje tylko klientów sieci VPN systemu Windows i używa protokołu Secure Socket Tunneling Protocol (SSTP) będącego protokołem sieci VPN opartym na protokole SSL. Aby zapewnić obsługę innych klientów niż sieć VPN systemu Windows, Twoja sieć wirtualna musi zostać utworzona przy użyciu modelu wdrażania usługi Resource Manager. Model wdrażania usługi Resource Manager obsługuje, oprócz protokołu SSTP, protokół IKEv2 sieci VPN. Aby uzyskać więcej informacji, zobacz [About P2S connections (Informacje o połączeniach punkt-lokacja)](point-to-site-about.md).
+>
+>
 
 ![Diagram: połączenie typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

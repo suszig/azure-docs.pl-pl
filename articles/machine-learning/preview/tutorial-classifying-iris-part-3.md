@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -163,7 +163,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
 
 3. Utwórz środowisko. Ten krok należy uruchomić raz dla każdego środowiska. Możesz na przykład uruchomić go jeden raz dla środowiska programistycznego i jeden raz dla środowiska produkcyjnego. Dla pierwszego środowiska użyj _trybu lokalnego_. Aby później skonfigurować środowisko w _trybie klastra_, możesz w poniższym poleceniu wypróbować przełącznik `-c` lub `--cluster`.
 
-Pamiętaj, że poniższe polecenie instalatora wymaga prawa dostępu współautora do subskrypcji. Jeśli go nie masz, potrzebujesz przynajmniej prawa dostępu współautora do grupy zasobów, w której przeprowadzasz wdrożenie. W drugim przypadku musisz określić nazwę grupy zasobów jako część polecenia instalatora przy użyciu flagi `-g`. 
+   Pamiętaj, że poniższe polecenie instalatora wymaga prawa dostępu współautora do subskrypcji. Jeśli go nie masz, potrzebujesz przynajmniej prawa dostępu współautora do grupy zasobów, w której przeprowadzasz wdrożenie. W drugim przypadku musisz określić nazwę grupy zasobów jako część polecenia instalatora przy użyciu flagi `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Teraz można przystąpić do uruchomienia usługi internetowej.
 
 W celu przetestowania uruchomienia usługi internetowej **irisapp** użyj rekordu w kodzie JSON zawierającego tablicę czterech losowych liczb:
 
-1. Usługa internetowa zawiera przykładowe dane. W przypadku pracy w trybie lokalnym można wywołać polecenie **az ml service show realtime**. To wywołanie spowoduje pobranie przykładowego polecenia uruchomienia, które będzie pomocne w przypadku testowania tej usługi. Zostanie również pobrany adres URL oceniania, którego można użyć, aby wprowadzić usługę do własnej aplikacji niestandardowej:
+1. Usługa internetowa zawiera przykładowe dane. W przypadku pracy w trybie lokalnym można wywołać polecenie **az ml service usage realtime**. To wywołanie spowoduje pobranie przykładowego polecenia uruchomienia, które będzie pomocne w przypadku testowania tej usługi. Zostanie również pobrany adres URL oceniania, którego można użyć, aby wprowadzić usługę do własnej aplikacji niestandardowej:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Aby przetestować usługę, uruchom zwrócone polecenie uruchamiania usługi:

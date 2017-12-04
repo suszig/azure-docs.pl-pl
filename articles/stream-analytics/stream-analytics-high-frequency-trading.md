@@ -1,5 +1,5 @@
 ---
-title: "Symulacja handlu wysokich częstotliwości za pomocą usługi Stream Analytics | Microsoft Docs"
+title: "Symulacja transakcji o wysokiej częstotliwości za pomocą usługi Stream Analytics | Microsoft Docs"
 description: "Sposób przeprowadzania szkolenia i oceniania modelu regresji liniowej w ramach jednego zadania usługi Stream Analytics"
 keywords: machine learning, advanced analytics, linear regression, simulation, UDA, user defined function
 documentationcenter: 
@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Symulacja handlu wysokich częstotliwości za pomocą usługi Stream Analytics
-Kombinacja protokołu UDF i agregacji UDA języka JavaScript i SQL usługi Azure Stream Analytics to zaawansowane połączenie, które umożliwia użytkownikom przeprowadzanie zaawansowanych analiz, w tym ocenianie i szkolenie w ramach uczenia maszynowego online, a także symulacji procesów stanowych. W tym artykule opisano sposób przeprowadzania regresji liniowej w zadaniu usługi Azure Stream Analytics, które w sposób ciągły przeprowadza ocenianie i szkolenie w ramach scenariusza handlu wysokiej częstotliwości.
+# <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Symulacja transakcji o wysokiej częstotliwości za pomocą usługi Stream Analytics
+Usługa Azure Stream Analytics umożliwia korzystanie z funkcji zdefiniowanych przez użytkownika (UDF) i agregatów zdefiniowanych przez użytkownika (UDA) napisanych w języku JavaScript. Połączenie tych możliwości z językiem SQL pozwala użytkownikom przeprowadzać zaawansowane analizy. Mogą one obejmować szkolenie i ocenianie w ramach uczenia maszynowego online oraz symulację procesów stanowych. W tym artykule opisano sposób przeprowadzania regresji liniowej w zadaniu usługi Azure Stream Analytics, które w sposób ciągły przeprowadza ocenianie i szkolenie w ramach scenariusza transakcji o wysokiej częstotliwości.
 
-## <a name="high-frequency-trading"></a>Handel wysokich częstotliwości
-Logiczny przepływ handlu wysokich częstotliwości jest stosowany w celu uzyskiwania ofert w czasie rzeczywistym z bezpiecznej giełdy, kompilowania modelu predykcyjnego na podstawie ofert (aby można było szacować wahania cen) oraz składania odpowiednich zleceń zakupu lub sprzedaży, które pozwolą na osiąganie zysków dzięki pomyślnemu przewidywaniu wahań cen. W związku z tym potrzebujemy poniższych elementów:
-* Kanał informacyjny ofert w czasie rzeczywistym
-* Model predykcyjny, który może działać na ofertach w czasie rzeczywistym
-* Symulacja transakcji prezentująca zysk/stratę związaną z algorytmem transakcji
+## <a name="high-frequency-trading"></a>Transakcje o wysokiej częstotliwości
+Logiczny przepływ transakcji o wysokiej częstotliwości obejmuje:
+1. Uzyskiwanie ofert giełdowych w czasie rzeczywistym.
+2. Tworzenie modelu predykcyjnego na podstawie ofert w celu przewidywania wahań cen.
+3. Składanie zleceń zakupu lub sprzedaży umożliwiających osiąganie zysków dzięki właściwym prognozom dotyczącym wahań cen. 
+
+W związku z tym potrzebne są poniższe elementy:
+* Kanał informacyjny z ofertami publikowanymi w czasie rzeczywistym.
+* Model predykcyjny, który może korzystać z ofert publikowanych w czasie rzeczywistym.
+* Symulacja transakcji prezentująca zysk lub stratę na podstawie algorytmu transakcji.
 
 ### <a name="real-time-quote-feed"></a>Kanał informacyjny ofert w czasie rzeczywistym
-Firma IEX udostępnia bezpłatnie oferty cen kupna i sprzedaży w czasie rzeczywistym przy użyciu biblioteki socket.io, https://iextrading.com/developer/docs/#websockets. Można napisać prosty program konsolowy, który umożliwi otrzymywanie ofert w czasie rzeczywistym oraz wypychanie ich do centrum Event Hubs jako źródła danych. Poniżej przedstawiono szkielet programu. Obsługa błędów została pominięta w celu skrócenia programu. W projekcie trzeba będzie również uwzględnić następujące pakiety Nuget: SocketIoClientDotNet i WindowsAzure.ServiceBus.
+Firma IEX bezpłatnie udostępnia [oferty kupna i sprzedaży w czasie rzeczywistym](https://iextrading.com/developer/docs/#websockets) przy użyciu biblioteki socket.io. Można napisać prosty program konsolowy, który umożliwia otrzymywanie ofert w czasie rzeczywistym oraz ich wypychanie do usługi Azure Event Hubs jako źródła danych. Następujący kod to szkielet tego programu. Obsługa błędów została pominięta w celu skrócenia programu. W projekcie trzeba również uwzględnić następujące pakiety Nuget: SocketIoClientDotNet i WindowsAzure.ServiceBus.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ Firma IEX udostępnia bezpłatnie oferty cen kupna i sprzedaży w czasie rzeczyw
         socket.Emit("subscribe", symbols);
     });
 
-Poniżej przedstawiono niektóre wygenerowane przykładowe zdarzenia.
+Poniżej przedstawiono niektóre wygenerowane przykładowe zdarzenia:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -64,16 +69,18 @@ Poniżej przedstawiono niektóre wygenerowane przykładowe zdarzenia.
 >[!NOTE]
 >Sygnatura czasowa zdarzenia w czasie uniksowym to **lastUpdated**.
 
-### <a name="predictive-model-for-high-frequency-trading"></a>Model predykcyjny dla handlu wysokich częstotliwości
-Na potrzeby pokazu używamy modelu liniowego, który Darryl Shen opisał w następującym opracowaniu: http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+### <a name="predictive-model-for-high-frequency-trading"></a>Model predykcyjny transakcji o wysokiej częstotliwości
+Do celów demonstracyjnych użyjemy modelu liniowego, [opisanego przez Darryla Shena](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
-Nierównowaga wielkości zleceń (VOI, Volume Order Imbalance) to funkcja bieżącej wielkości i ceny zakupu/sprzedaży oraz wielkości/ceny zakupu sprzedaży dla ostatniej najmniejszej możliwej zmiany ceny. W opracowaniu została zidentyfikowana korelacja między wartością VOI i przyszłymi wahaniami cen oraz utworzono model liniowy między 5 ostatnimi wartościami VOI i zmianą cen w ramach ostatnich 10 najmniejszych możliwych zmian ceny. Model jest uczony przy użyciu danych z poprzedniego dnia przy użyciu regresji liniowej. Uczony model jest następnie używany do prognozowania zmian cen ofert dla bieżącej sesji giełdowej w czasie rzeczywistym. Jeśli prognozowana zmiana ceny jest wystarczająco duża, następuje transakcja handlowa. W zależności od ustawienia progu w ciągu sesji giełdowej można oczekiwać tysięcy transakcji powiązanych z jednym rodzajem akcji.
+Nierównowaga wielkości zleceń (VOI, Volume Order Imbalance) to funkcja bieżącej wielkości i ceny zakupu/sprzedaży oraz wielkości i ceny zakupu/sprzedaży dla ostatniej najmniejszej możliwej zmiany ceny. W opracowaniu zidentyfikowano korelację między wartością VOI i przyszłymi wahaniami cen. Utworzono model liniowy między 5 ostatnimi wartościami VOI i zmianą cen w ramach ostatnich 10 najmniejszych możliwych zmian ceny. Model jest uczony przy użyciu regresji liniowej na danych z poprzedniego dnia. 
+
+Uczony model jest następnie używany do prognozowania zmian cen ofert dla bieżącej sesji giełdowej w czasie rzeczywistym. Jeśli prognozowana zmiana ceny jest wystarczająco duża, następuje transakcja handlowa. W zależności od ustawienia progu w ciągu sesji giełdowej można oczekiwać tysięcy transakcji powiązanych z jednym rodzajem akcji.
 
 ![Definicja wartości VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Teraz przedstawmy operacje szkolenia i prognozowania w zadaniu usługi Azure Stream Analytics.
 
-Najpierw następuje wyczyszczenie danych. Czas uniksowy jest konwertowany na datę i godzinę przy użyciu instrukcji **DATEADD**. Instrukcja **TRY_CAST** umożliwia wymuszanie typów danych bez występowania błędów zapytania. Dobrym rozwiązaniem jest zawsze rzutowanie pól wejściowych na oczekiwane typy danych, aby podczas modyfikowania lub porównywania pól nie wystąpiło nieoczekiwane zachowanie.
+Najpierw następuje wyczyszczenie danych. Czas uniksowy jest konwertowany na datę i godzinę przy użyciu instrukcji **DATEADD**. Instrukcja **TRY_CAST** umożliwia wymuszanie typów danych bez występowania błędów zapytania. W każdym przypadku dobrym rozwiązaniem jest rzutowanie pól wejściowych na oczekiwane typy danych, aby podczas modyfikowania lub porównywania pól nie wystąpiło nieoczekiwane zachowanie.
 
     WITH
     typeconvertedquotes AS (
@@ -93,12 +100,12 @@ Najpierw następuje wyczyszczenie danych. Czas uniksowy jest konwertowany na dat
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Następnie używamy funkcji **LAG** w celu pobrania wartości z ostatniej najmniejszej możliwej zmiany ceny. Pozycja **LIMIT DURATION** ma odgórnie wybraną wartość jednej godziny. Mając na uwadze częstotliwość oferty, można bezpiecznie przyjąć założenie, że w ciągu jednej poprzedniej godziny można znaleźć poprzednią najmniejszą możliwą zmianę ceny.  
+Następnie używamy funkcji **LAG** w celu pobrania wartości z ostatniej najmniejszej możliwej zmiany ceny. Pozycja **LIMIT DURATION** ma odgórnie wybraną wartość jednej godziny. Mając na uwadze częstotliwość ofert, można bezpiecznie przyjąć założenie, że w ciągu poprzedniej godziny można znaleźć poprzednią najmniejszą możliwą zmianę ceny.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -116,7 +123,7 @@ Następnie używamy funkcji **LAG** w celu pobrania wartości z ostatniej najmni
         FROM timefilteredquotes
     ),
 
-Następnie obliczamy wartość VOI. Zwróć uwagę, że na wszelki wypadek wartości są odfiltrowywane, jeśli poprzednia najmniejsza możliwa zmiana ceny nie istnieje.
+Następnie obliczamy wartość VOI. Na wszelki wypadek wartości puste są odfiltrowywane, jeśli poprzednia najmniejsza możliwa zmiana ceny nie istnieje.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -230,7 +237,7 @@ Ponieważ usługa Azure Stream Analytics nie ma wbudowanej funkcji regresji lini
         FROM modelparambs
     ),
 
-Aby używać modelu z poprzedniej sesji do oceniania bieżącego zdarzenia, chcemy dołączyć oferty do modelu. W tym miejscu jednak zamiast funkcji **JOIN** używamy dla zdarzeń modelu i zdarzeń oferty funkcji **UNION**, a następnie używamy funkcji **LAG** do sparowania zdarzeń z modelem z poprzedniej sesji, aby uzyskać dokładnie jedno dopasowanie. Z powodu weekendu musimy uwzględnić trzy dni wstecz. W przypadku korzystania z prostej funkcji **JOIN** pobralibyśmy trzy modele dla każdego zdarzenia oferty.
+Aby używać modelu z poprzedniej sesji do oceniania bieżącego zdarzenia, dołączymy oferty do modelu. Jednak zamiast klauzuli **JOIN** użyjemy klauzuli **UNION** w celu połączenia zdarzeń modelu i zdarzeń oferty. Następnie użyjemy funkcji **LAG** w celu sparowania zdarzeń z modelem z poprzedniej sesji i uzyskania dokładnie jednego dopasowania. Z powodu weekendu musimy uwzględnić trzy dni wstecz. W przypadku korzystania z prostej klauzuli **JOIN** otrzymalibyśmy trzy modele dla każdego zdarzenia oferty.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Aby używać modelu z poprzedniej sesji do oceniania bieżącego zdarzenia, chce
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -308,11 +315,13 @@ Teraz możemy prognozować i generować sygnały kupna/sprzedaży na podstawie m
     ),
 
 ### <a name="trading-simulation"></a>Symulacja handlu
-Po wygenerowaniu sygnałów dotyczących handlu chcemy sprawdzić, jak efektywna jest strategia handlowa, nie przeprowadzając rzeczywistych transakcji. Możemy osiągnąć ten cel dzięki agregacji zdefiniowanej przez użytkownika (UDA, user defined aggregate) z oknami powtarzanymi z przeskokami co jedną minutę. Dzięki dodatkowemu grupowaniu według daty i klauzuli HAVING w oknie można uwzględniać tylko zdarzenia należące do jednego dnia. W przypadku okna przeskoku obejmującego dwa dni data **GROUP BY** oddziela grupowanie w dniu poprzednim i bieżącym. Klauzula **HAVING** umożliwia odfiltrowanie okien kończących się w bieżącym dniu z grupowaniem w poprzednim dniu.
+Po wygenerowaniu sygnałów transakcji chcemy sprawdzić, jak efektywna jest strategia handlowa, nie przeprowadzając rzeczywistych transakcji. 
+
+Możemy to zrobić dzięki agregacji zdefiniowanej przez użytkownika z oknem powtarzanym z przeskokiem co minutę. Dzięki dodatkowemu grupowaniu według daty i klauzuli HAVING w oknie można uwzględniać tylko zdarzenia z jednego dnia. W przypadku okna powtarzanego obejmującego dwa dni data **GROUP BY** powoduje pogrupowanie na dzień poprzedni i bieżący. Klauzula **HAVING** umożliwia odfiltrowanie okien kończących się w bieżącym dniu z grupowaniem w poprzednim dniu.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Po wygenerowaniu sygnałów dotyczących handlu chcemy sprawdzić, jak efektywna
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-Agregacja UDA w języku JavaScript UDA inicjuje wszystkie akumulatory w funkcji init, oblicza przejście stanu przy użyciu każdego zdarzenia dodanego do okna i zwraca wyniki symulacji na końcu okna. Ogólny proces handlowy polega na kupowaniu akcji w przypadku odebrania sygnału kupna i braku pakietu akcji, sprzedawania akcji po otrzymaniu sygnału sprzedaży i posiadania pakietu akcji albo krótkiej sprzedaży w przypadku braku pakietu akcji. W przypadku odebrania sygnału w pozycji krótkiej należy złożyć zlecenie zakupu w celu pokrycia pozycji krótkiej. W tej symulacji nigdy nie utrzymujemy 10 udziałów danej akcji ani nie przeprowadzamy dla nich transakcji sprzedaży krótkiej, a stały koszt transakcji wynosi 8 USD.
+Agregacja UDA w języku JavaScript inicjuje wszystkie akumulatory w funkcji `init`, oblicza przejście stanu przy użyciu każdego zdarzenia dodanego do okna i zwraca wyniki symulacji na końcu okna. Ogólny proces handlowy obejmuje:
+
+- Kupowanie akcji w przypadku otrzymania sygnału kupna i braku pakietu akcji.
+- Sprzedawanie akcji w przypadku otrzymania sygnału sprzedaży i posiadania pakietu akcji.
+- Krótką sprzedaż w przypadku braku pakietu akcji. 
+
+W przypadku odebrania sygnału w pozycji krótkiej należy złożyć zlecenie zakupu w celu pokrycia pozycji krótkiej. W tej symulacji nigdy nie utrzymujemy 10 udziałów danej akcji ani nie przeprowadzamy dla nich transakcji sprzedaży krótkiej. Koszt transakcji jest stały i wynosi 8 USD.
 
 
     function main() {
@@ -432,6 +447,10 @@ Na koniec dane wyjściowe są przekazywane do pulpitu nawigacyjnego usługi Powe
 
 
 ## <a name="summary"></a>Podsumowanie
-Jak widać, za pomocą średnio złożonego zapytania usługi Azure Stream Analytics można zaimplementować realistyczny model handlu wysokich częstotliwości. Ze względu na brak wbudowanej funkcji regresji liniowej musieliśmy uprościć model z pięciu zmiennych wejściowych do dwóch. Jednak zdeterminowany użytkownik może również prawdopodobnie zaimplementować bardziej złożone algorytmy z większą liczbą wymiarów agregacji UDA w języku JavaScript. Warto zauważyć, że większość zapytań innych niż agregacja UDA w języku JavaScript można testować i debugować w programie Visual Studio przy użyciu [narzędzia Azure Stream Analytics dla programu Visual Studio](stream-analytics-tools-for-visual-studio.md). Po napisaniu początkowego zapytania autor spędził mniej niż 30 minut, testując i debugując zapytanie w programie Visual Studio. Obecnie agregacji UDA nie można debugować w programie Visual Studio. Pracujemy nad udostępnieniem tej funkcji z możliwością przechodzenia przez kod języka JavaScript. Ponadto należy pamiętać, że nazwy pól uwzględnianych w agregacji UDA składają się tylko z małych liter. Nie było to oczywiste zachowanie podczas testowania zapytań. Jednak przy zgodności usługi Azure Stream Analytics na poziomie 1.1 zezwalamy na zachowanie wielkości liter nazwy pola, dlatego to zachowanie jest bardziej naturalne.
+Za pomocą średnio złożonego zapytania usługi Azure Stream Analytics można zaimplementować realistyczny model transakcji o wysokiej częstotliwości. Ze względu na brak wbudowanej funkcji regresji liniowej musieliśmy uprościć model z pięciu zmiennych wejściowych do dwóch. Jednak przy odpowiednim nakładzie pracy prawdopodobnie można również zaimplementować bardziej złożone algorytmy z większą liczbą wymiarów agregacji UDA w języku JavaScript. 
+
+Warto zauważyć, że większość zapytań innych niż agregacja UDA w języku JavaScript można testować i debugować w programie Visual Studio przy użyciu [narzędzi Azure Stream Analytics dla programu Visual Studio](stream-analytics-tools-for-visual-studio.md). Po napisaniu początkowego zapytania autor spędził mniej niż 30 minut, testując i debugując zapytanie w programie Visual Studio. 
+
+Obecnie agregacji UDA nie można debugować w programie Visual Studio. Pracujemy nad udostępnieniem tej funkcji z możliwością przechodzenia przez kod języka JavaScript. Ponadto należy pamiętać, że nazwy pól uwzględnianych w agregacji UDA składają się tylko z małych liter. Nie było to oczywiste zachowanie podczas testowania zapytań. Jednak przy zgodności usługi Azure Stream Analytics na poziomie 1.1 zachowujemy wielkość liter nazw pól, aby zachowanie było bardziej naturalne.
 
 Mam nadzieję, że ten artykuł będzie inspiracją dla wszystkich użytkowników usługi Azure Stream Analytics, którzy mogą za pomocą naszej usługi w sposób ciągły przeprowadzać zaawansowane analizy prawie w czasie rzeczywistym. Prześlij swoją opinię na temat zawartości tego artykułu, aby ułatwić nam implementowanie zapytań na potrzeby zaawansowanych scenariuszy analitycznych.

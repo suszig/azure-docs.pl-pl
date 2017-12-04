@@ -1,6 +1,6 @@
 ---
-title: "Łączenie sieci wirtualnych: interfejs wiersza polecenia platformy Azure | Microsoft Docs"
-description: "W tym artykule omówiono łączenie sieci wirtualnych przy użyciu usługi Azure Resource Manager oraz interfejsu wiersza polecenia platformy Azure."
+title: "Łączenie sieci wirtualnej z inną siecią wirtualną za pomocą połączenia sieć wirtualna-sieć wirtualna: interfejs wiersza polecenia platformy Azure | Microsoft Docs"
+description: "W tym artykule omówiono łączenie sieci wirtualnych przy użyciu połączenia sieć wirtualna-sieć wirtualna oraz interfejsu wiersza polecenia platformy Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten artykuł pokazuje, jak utworzyć połączenie bramy sieci VPN między sieciami wirtualnymi. Sieci wirtualne mogą być zlokalizowane w tych samych lub różnych regionach i mogą funkcjonować w ramach tej samej lub różnych subskrypcji. W przypadku łączenia sieci wirtualnych z różnych subskrypcji subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. 
+W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu typu połączenia sieć wirtualna-sieć wirtualna. Sieci wirtualne mogą być zlokalizowane w tych samych lub różnych regionach i mogą funkcjonować w ramach tej samej lub różnych subskrypcji. W przypadku łączenia sieci wirtualnych z różnych subskrypcji subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory.
 
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i użyto w nich interfejsu wiersza polecenia platformy Azure. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
@@ -37,13 +37,15 @@ Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu
 >
 >
 
-Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Jeśli Twoje sieci wirtualne znajdują się w tym samym regionie, warto rozważyć połączenie ich za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Łączenie sieci wirtualnych — informacje
 
-Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
+Proces łączenia dwóch sieci wirtualnych przy użyciu typu połączenia sieć wirtualna-sieć wirtualna (VNet2VNet) przebiega podobnie do procesu tworzenia połączenia IPsec z lokacją lokalną. Oba typy połączeń używają bramy sieci VPN, aby zapewnić bezpieczny tunel korzystający z protokołu IPsec/IKE, oraz działają tak samo pod względem komunikacji. Różnica między nimi dotyczy konfiguracji bramy sieci lokalnej. Podczas tworzenia połączenia sieć wirtualna-sieć wirtualna przestrzeń adresowa bramy sieci lokalnej nie jest widoczna. Jest ona tworzona i wypełniana automatycznie. Po zaktualizowaniu przestrzeni adresowej dla jednej sieci wirtualnej druga sieć wirtualna będzie automatycznie kierować ruch do zaktualizowanej przestrzeni adresowej.
 
-![Informacje o połączeniach](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+W przypadku pracy ze złożoną konfiguracją warto korzystać z typu połączenia IPsec zamiast połączenia sieć wirtualna-sieć wirtualna. Dzięki temu można określić dodatkową przestrzeń adresową dla bramy sieci lokalnej w celu kierowania ruchu. Jeśli łączysz sieci wirtualne przy użyciu typu połączenia IPsec, musisz ręcznie utworzyć i skonfigurować bramę sieci lokalnej. Aby uzyskać więcej informacji, zobacz [Konfiguracje lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>Dlaczego łączy się sieci wirtualne?
+Ponadto jeśli sieci wirtualne znajdują się w tym samym regionie, warto rozważyć utworzenie wirtualnych sieci równorzędnych. Wirtualne sieci równorzędne nie używają bramy sieci VPN, a ich funkcje i model cenowy są nieco inne. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Dlaczego warto utworzyć połączenie sieć wirtualna-sieć wirtualna?
 
 Sieci wirtualne można łączyć z następujących powodów:
 
@@ -55,19 +57,22 @@ Sieci wirtualne można łączyć z następujących powodów:
 
   * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
+Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi.
 
 ### <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
 
-W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw kroków dla [sieci wirtualnych w tej samej subskrypcji](#samesub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet4.
+W tym artykule opisano łączenie sieci wirtualnych za pomocą typu połączenia sieć wirtualna-sieć wirtualna. W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw dotyczy [sieci wirtualnych znajdujących się w tej samej subskrypcji](#samesub), a drugi ma zastosowanie w przypadku [sieci wirtualnych znajdujących się w różnych subskrypcjach](#difsub). 
 
-![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+W tym ćwiczeniu możesz łączyć konfiguracje lub po prostu wybrać tę, której chcesz używać. Wszystkie konfiguracje używają typu połączenia sieć wirtualna-sieć wirtualna. Ruch sieciowy przepływa między bezpośrednio połączonymi sieciami wirtualnymi. W tym ćwiczeniu ruch z sieci TestVNet4 nie jest kierowany do sieci TestVNet5.
 
-Istnieje oddzielny artykuł dotyczący [sieci wirtualnych w różnych subskrypcjach](#difsub). W krokach dla tej konfiguracji używane są sieci TestVNet1 i TestVNet5.
+* [Sieci wirtualne znajdujące się w tej samej subskrypcji:](#samesub) w ramach tej konfiguracji są używane sieci TestVNet1 i TestVNet4.
 
-![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-Jeśli chcesz, możesz łączyć konfiguracje, lub po prostu wybrać tę, której chcesz używać.
+* [Sieci wirtualne znajdujące się w różnych subskrypcjach:](#difsub) w ramach tej konfiguracji są używane sieci TestVNet1 i TestVNet5.
+
+  ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
 

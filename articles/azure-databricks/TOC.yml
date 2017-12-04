@@ -13,6 +13,8 @@
   items:
     - name: Często zadawane pytania
       href: frequently-asked-questions-databricks.md
+    - name: Informacje o wersji
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Dokumentacja usługi Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Harmonogram działania dla platformy Azure
