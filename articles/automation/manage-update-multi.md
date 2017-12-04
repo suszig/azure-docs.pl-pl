@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn
 
@@ -87,6 +87,16 @@ Rozwiązanie Update Management zostanie włączone dla maszyny wirtualnej.
 Aby uzyskać instrukcje dotyczące włączania rozwiązania Update Management dla maszyn wirtualnych i komputerów z systemem Windows spoza platformy Azure, zobacz [Łączenie komputerów z systemem Windows z usługą Log Analytics na platformie Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Aby uzyskać instrukcje dotyczące włączania rozwiązania Update Management dla maszyn wirtualnych i komputerów z systemem Linux spoza platformy Azure, zobacz [Łączenie komputerów z systemem Linux z usługą Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Wyświetlanie komputerów dołączonych do konta usługi Automation
+Po włączeniu zarządzania aktualizacjami dla maszyn, informacje o maszynach można wyświetlić, klikając pozycję **Komputery**. Dostępne są takie informacje o komputerach, jak *Nazwa*, *Zgodność*, *Środowisko*, *Typ systemu operacyjnego*, *Aktualizacje krytyczne i aktualizacje zabezpieczeń* oraz *Inne aktualizacje*. 
+
+  ![Karta z wyświetlonymi komputerami](./media/manage-update-multi/update-computers-tab.png)
+
+Komputery, dla których niedawno włączono zarządzanie aktualizacjami, mogą nie być jeszcze ocenione. Stan zgodności tych komputerów będzie mieć wartość *Nie oceniono*.  Oto lista wartości stanu zgodności:
+* Zgodne —komputery z wszystkimi aktualizacjami krytycznymi i aktualizacjami zabezpieczeń.
+* Niezgodne —komputery, na których brakuje co najmniej jednej aktualizacji krytycznej lub aktualizacji zabezpieczeń.
+* Nie oceniono — dane oceny aktualizacji nie zostały wysłane z komputera w oczekiwanym czasie.  W przypadku komputerów z systemem Linux okres ten obejmuje ostatnie trzy godziny, a w przypadku komputerów z systemem Windows — ostatnie 12 godzin.  
 
 ## <a name="view-an-update-assessment"></a>Wyświetlanie oceny aktualizacji
 

@@ -57,7 +57,6 @@
 ### [Blok kondycji zasobów](stream-analytics-resource-health.md)
 ### [Diagram zadania i metryki](stream-analytics-job-diagram-with-metrics.md)
 ### [Debugowanie instrukcji SELECT INTO](stream-analytics-select-into.md)
-### [Obsługa kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md)
 ### [Zagadnienia do rozważenia dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md)
 ### [Limity czytnika centrum zdarzeń](stream-analytics-event-hub-consumer-groups.md)
 ### [Dzienniki diagnostyczne](stream-analytics-job-diagnostic-logs.md)

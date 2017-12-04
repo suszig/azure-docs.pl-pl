@@ -1,6 +1,6 @@
 ---
-title: "Artykuł Szybki start dla narzędzi Visual Studio Code dla usługi Machine Learning na platformie Azure | Microsoft Docs"
-description: "W tym artykule opisano sposób rozpoczynania korzystania z narzędzi Visual Studio Code dla usługi Machine Learning, poczynając od utworzenia eksperymentu, uczenia modelu i operacjonalizowania usługi internetowej."
+title: "Artykuł Szybki start dotyczący narzędzi Visual Studio Tools dla usługi Machine Learning na platformie Azure | Microsoft Docs"
+description: "W tym artykule opisano rozpoczynanie korzystania z narzędzi Visual Studio Tools dla usługi Machine Learning, począwszy od tworzenia eksperymentu, uczenia modelu i operacjonalizowania usługi internetowej."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>Narzędzia Visual Studio Code dla sztucznej inteligencji
-Narzędzia Visual Studio Code dla sztucznej inteligencji to rozszerzenie programistyczne do tworzenia, testowania i wdrażania rozwiązań uczenia głębokiego / sztucznej inteligencji. Obejmuje ono bezproblemową integrację z usługą Azure Machine Learning. Szczególnie dotyczy to widoku historii uruchamiania zawierającej szczegółowe dane o wydajności poprzednich cykli uczenia i metryki niestandardowe. Oferuje ono przykładowy widok eksploratora pozwalający na przeglądanie i uruchamianie nowego projektu za pomocą [zestawu narzędzi Microsoft Cognitive Toolkit (wcześniej znanego jako CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) i innych platform uczenia głębokiego. Ponadto zapewnia ono eksploratora dla celów obliczeń, który umożliwia przesyłanie zadań uczenia modeli w zdalnych środowiskach, takich jak usługi Azure Virtual Machines lub serwery systemu Linux z procesorem GPU. 
+# <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
+Visual Studio Tools for AI to rozszerzenie programistyczne do tworzenia, testowania i wdrażania rozwiązań uczenia głębokiego/sztucznej inteligencji. Obejmuje ono bezproblemową integrację z usługą Azure Machine Learning. Szczególnie dotyczy to widoku historii uruchamiania zawierającej szczegółowe dane o wydajności poprzednich cykli uczenia i metryki niestandardowe. Oferuje ono przykładowy widok eksploratora pozwalający na przeglądanie i uruchamianie nowego projektu za pomocą [zestawu narzędzi Microsoft Cognitive Toolkit (wcześniej znanego jako CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) i innych platform uczenia głębokiego. Ponadto zapewnia ono eksploratora dla celów obliczeń, który umożliwia przesyłanie zadań uczenia modeli w zdalnych środowiskach, takich jak usługi Azure Virtual Machines lub serwery systemu Linux z procesorem GPU. Dodatkowo ułatwia ono dostęp do rozwiązania [Azure Batch AI (w wersji zapoznawczej)](https://docs.microsoft.com/en-us/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Wprowadzenie 
-Aby rozpocząć, musisz najpierw pobrać i zainstalować program [Visual Studio Code](https://code.visualstudio.com/Download). Po otwarciu programu Visual Studio Code wykonaj następujące czynności:
-1. Kliknij ikonę rozszerzenia na pasku działań. 
-2. Wyszukaj frazę „Narzędzia Visual Studio Code dla sztucznej inteligencji”. 
-3. Kliknij przycisk **Instaluj**. 
-4. Po zakończeniu instalacji kliknij przycisk **Załaduj ponownie**. 
+Aby rozpocząć, musisz najpierw pobrać i zainstalować program [Visual Studio](https://www.visualstudio.com/downloads/). Po otwarciu programu Visual Studio wykonaj następujące czynności:
+1. Kliknij pasek menu programu Visual Studio i wybierz pozycję „Rozszerzenia i aktualizacje...”.
+2. Kliknij kartę „Online” i wybierz polecenie „Przeszukaj witrynę Visual Studio Marketplace”.
+3. Wyszukaj frazę „Visual Studio for AI”. 
+3. Kliknij przycisk **Pobierz**. 
+4. Po zakończeniu instalacji uruchom ponownie program Visual Studio. 
 
-Po ponownym załadowaniu programu Visual Studio Code nastąpi uaktywnienie rozszerzenia. [Dowiedz się więcej na temat instalowania rozszerzeń](https://code.visualstudio.com/docs/editor/extension-gallery).
+Po ponownym załadowaniu programu Visual Studio nastąpi uaktywnienie rozszerzenia. [Dowiedz się więcej na temat wyszukiwania rozszerzeń](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+
+> [!NOTE]
+> Narzędzia Visual Studio Tools for AI wymagają programu Visual Studio 2015 lub 2017 w wersji Professional lub Enterprise. Wersja dla systemu OSX firmy Apple nie jest obsługiwana. 
+
 
 ## <a name="exploring-project-samples"></a>Przykłady eksplorowania projektu
-Narzędzia Visual Studio Code dla sztucznej inteligencji są dostarczane wraz z eksploratorem przykładów. Eksplorator przykładów ułatwia wykrywanie przykładów i ich próbowanie za pomocą tylko kilku kliknięć. Aby otworzyć eksploratora, wykonaj następujące czynności:   
-1. Otwórz paletę poleceń (Widok > **Paleta poleceń** lub **Ctrl+Shift+P**).
-2. Wprowadź ciąg „Przykład SI”. 
-3. Zostanie wyświetlona rekomendacja „SI: Otwórz eksploratora przykładów usługi Azure ML”. Zaznacz ją i naciśnij klawisz Enter. 
+Narzędzia Visual Studio Tools for AI są dostarczane wraz z eksploratorem przykładów. Eksplorator przykładów ułatwia wykrywanie przykładów i ich próbowanie za pomocą tylko kilku kliknięć. Aby otworzyć eksploratora, wykonaj następujące czynności:   
+1. Na pasku menu kliknij pozycję **Narzędzia SI**.
+2. Kliknij pozycję „Galeria usługi Azure Machine Learning”.
 
-Alternatywnie możesz kliknąć ikonę eksploratora przykładów.
+Zostanie otwarta karta z wszystkimi przykładami użycia usługi Azure ML.
 
 ## <a name="creating-a-new-project-from-the-sample-explorer"></a>Tworzenie nowego projektu za pomocą eksploratora przykładów 
 Różne przykłady można przeglądać i uzyskiwać więcej informacji o nich. Teraz wyszukajmy przykład „Klasyfikowanie irysów”. Aby utworzyć nowy projekt na podstawie tego przykładu, wykonaj następujące czynności:
-1. Kliknij przycisk Instaluj w przykładzie projektu, zwróć uwagę na monity poleceń prowadzące przez kroki tworzenia nowego projektu. 
-2. Wybierz nazwę dla projektu, na przykład „Irys”.
-3. Wybierz ścieżkę folderu, aby utworzyć własny projekt, a następnie naciśnij klawisz Enter. 
-4. Wybierz istniejący obszar roboczy, a następnie naciśnij klawisz Enter.
+1. Kliknij przycisk **Zainstaluj** w przykładowym projekcie. Zostanie otwarte nowe okno dialogowe. 
+2. Wybierz grupę zasobów, konto i obszar roboczy.
+3. Pozostaw ogólny typ projektu.
+4. Wprowadź ścieżkę i nazwę projektu, a następnie naciśnij klawisz Enter. 
+5. Pojawi się okno dialogowe z monitem o zapisanie rozwiązania. Kliknij przycisk Zapisz. 
 
-Zostanie utworzony projekt.
+Po wykonaniu tych czynności nowy projekt zostanie otwarty w nowym wystąpieniu programu Visual Studio. 
 
 > [!TIP]
 > Aby uzyskać dostęp do swoich zasobów platformy Azure, trzeba się zalogować. W osadzonym terminalu wprowadź polecenie „az login”, a następnie postępuj zgodnie z instrukcjami. 
 
 ## <a name="submitting-experiment-with-the-new-project"></a>Przesyłanie eksperymentu za pomocą nowego projektu
-Nowy projekt jest otwierany w programie Visual Studio Code i możemy przesłać zadanie do naszego innego celu obliczeń (lokalne i wirtualne maszyny z platformą Docker).
-Narzędzia Visual Studio Code dla sztucznej inteligencji zapewniają wiele sposobów przesyłania eksperymentu. 
-1. Menu kontekstowe (kliknij prawym przyciskiem myszy) — **SI: Prześlij zadanie**.
-2. Z palety poleceń: „SI: Prześlij zadanie”.
-3. Alternatywnie można uruchomić polecenie bezpośrednio przy użyciu interfejsu wiersza polecenia platformy Azure i poleceń usługi Machine Learning, używając osadzonego terminala.
+Po otwarciu nowego projektu w programie Visual Studio prześlij zadanie do obliczeniowego elementu docelowego (lokalnego lub maszyny wirtualnej z rozwiązaniem Docker).
+Aby przesłać zadanie, wykonaj następujące czynności: 
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy plik, który chcesz przesłać, i wybierz polecenie **Ustaw jako plik startowy**.
+2. Wybierz nazwę projektu, kliknij ją prawym przyciskiem myszy i wybierz polecenie **Prześlij zadanie...**
+3. Zostanie otwarte nowe okno dialogowe umożliwiające wybranie klastra (lub obliczeniowego elementu docelowego) do wykonania skryptu.
+4. Kliknij pozycję **Prześlij**.
 
-Otwórz plik iris_sklearn.py, kliknij prawym przyciskiem myszy i wybierz pozycję **SI: Prześlij zadanie**.
-1. Wybierz swoją platformę: „Azure Machine Learning”.
-2. Wybierz swoją konfigurację uruchamiania: „Docker Python”.
-
-> [!NOTE]
-> Jeśli po raz pierwszy przesyłasz zadanie, zostanie wyświetlony komunikat „Nie odnaleziono konfiguracji uczenia maszynowego, trwa tworzenie...”. Zostanie otwarty plik JSON, zapisz go (**Ctrl+S**).
-
-Po przesłaniu zadania osadzony terminal wyświetla postęp przebiegów. 
+Po przesłaniu zadania osadzony terminal wyświetla postęp przebiegów.
 
 ## <a name="view-list-of-jobs"></a>Wyświetlanie listy zadań
-Po przesłaniu zadań możesz wyświetlić listę zadań z historii uruchamiania.
-1. Otwórz paletę poleceń (Widok > **Paleta poleceń** lub **Ctrl+Shift+P**).
-2. Wprowadź ciąg „Lista SI”.
-3. Zostanie wyświetlona rekomendacja „SI: Lista zadań”. Zaznacz ją i naciśnij klawisz Enter.
+Po przesłaniu zadania możesz wyświetlić listę zadań z historii uruchamiania.
+1. W **Eksploratorze serwera** kliknij pozycję **Narzędzia SI**.
+2. Wybierz pozycję **Azure Machine Learning**.
+3. Kliknij menu **Zadania**.
 
-Zostanie otwarty widok listy zadań, w którym będą wyświetlane wszystkie przebiegi oraz niektóre powiązane informacje.
+Eksplorator zadań zawiera listę wszystkich przesłanych eksperymentów w tym projekcie. 
 
 ## <a name="view-job-details"></a>Wyświetlanie szczegółów zadania
-Mając nadal otwartą listę zadań, kliknij pierwszy przebieg na liście.
-Aby zagłębić się w wyniki zadania, kliknij u góry **identyfikator zadania** w celu wyświetlenia szczegółowych informacji. 
+Przy otwartym widoku eksploratora zadań kliknij pierwszy przebieg na liście.
+Zostaną załadowane panele Podsumowanie zadania oraz Dzienniki i dane wyjściowe.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
