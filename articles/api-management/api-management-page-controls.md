@@ -3,27 +3,26 @@ title: "Formanty strony Zarządzanie interfejsami API Azure | Dokumentacja firmy
 description: "Więcej informacji na temat dostępnych do użycia w szablonach portalu deweloperów w usłudze Azure API Management formantów strony."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Formanty strony Zarządzanie interfejsami API Azure
 Azure API Management zapewnia następujące formanty do użycia w dewelopera szablony portalu.  
   
- Aby użyć formantu, należy umieścić w dowolnym miejscu w szablonie portalu deweloperów. Niektóre formanty, takie jak [akcje aplikacji](#app-actions) kontrolować, mieć parametrów, jak pokazano w poniższym przykładzie.  
+Aby użyć formantu, należy umieścić w dowolnym miejscu w szablonie portalu deweloperów. Niektóre formanty, takie jak [akcje aplikacji](#app-actions) kontrolować, mieć parametrów, jak pokazano w poniższym przykładzie:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
 ## <a name="developer-portal-template-page-controls"></a>Formantów strony szablonu portalu dla deweloperów  
   
 -   [Akcje aplikacji](#app-actions)  
-  
 -   [Rejestrowanie Basic](#basic-signin)  
-  
 -   [Formant stronicowania](#paging-control)  
-  
 -   [dostawców](#providers)  
-  
 -   [formant wyszukiwania](#search-control)  
-  
 -   [rejestracji](#sign-up)  
-  
 -   [przycisk subskrypcji](#subscribe-button)  
-  
 -   [Anuluj subskrypcję](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>Akcje aplikacji  
@@ -69,12 +61,12 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
 |Identyfikator aplikacji|Identyfikator aplikacji.|  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `app-actions` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `app-actions` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Aplikacje](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>Rejestrowanie Basic  
- `basic-signin` Kontroli udostępnia kontrolkę do zbierania informacji w stronie logowania w portalu dla deweloperów logowania użytkownika.  
+ `basic-signin` Kontroli udostępnia kontrolkę do pobierania użytkownika logowania na stronie logowania w portalu dla deweloperów.  
   
  ![Basic &#45; kontrolka signin](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic Rejestrowanie formantu")  
   
@@ -88,7 +80,7 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `basic-signin` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `basic-signin` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Rejestrowanie](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `paging-control` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `paging-control` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Lista interfejsu API](api-management-api-templates.md#APIList)  
   
@@ -116,7 +108,7 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
 -   [Lista produktów](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>dostawców  
- `providers` Kontroli udostępnia kontrolkę wyboru dostawcy uwierzytelniania w stronie logowania w portalu dla deweloperów.  
+ `providers` Kontroli udostępnia kontrolkę wyboru dostawców uwierzytelniania na stronie logowania w portalu dla deweloperów.  
   
  ![Formant dostawców](./media/api-management-page-controls/APIM-providers-control.png "APIM dostawców kontroli")  
   
@@ -130,7 +122,7 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `providers` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `providers` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Rejestrowanie](api-management-page-templates.md#SignIn)  
   
@@ -149,14 +141,14 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `search-control` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `search-control` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Lista interfejsu API](api-management-api-templates.md#APIList)  
   
 -   [Lista produktów](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>rejestracji  
- `sign-up` Kontroli udostępnia kontrolkę do zbierania informacji o profilu użytkownika w rejestracji strony w portalu dla deweloperów.  
+ `sign-up` Kontroli udostępnia kontrolkę do zbierania informacji o profilu użytkownika na stronie tworzenia konta w portalu dla deweloperów.  
   
  ![znak &#45; w górę kontrolki](./media/api-management-page-controls/APIM-sign-up-control.png "APIM zapisywania kontrolki")  
   
@@ -170,7 +162,7 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `sign-up` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `sign-up` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Zarejestruj się](api-management-page-templates.md#SignUp)  
   
@@ -189,12 +181,12 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
  Brak.  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `subscribe-button` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `subscribe-button` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Produktu](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a>Anuluj subskrypcję  
- `subscription-cancel` Kontroli udostępnia kontrolkę do anulowania subskrypcji produktu na stronie profilu użytkownika w portalu dla deweloperów.  
+ `subscription-cancel` Kontroli udostępnia kontrolkę do anulowanie subskrypcji produktu na stronie profilu użytkownika w portalu dla deweloperów.  
   
  ![Subskrypcja &#45; Anuluj kontroli](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM kontroli Anuluj subskrypcję")  
   
@@ -211,10 +203,10 @@ Azure API Management zapewnia następujące formanty do użycia w dewelopera sza
 |Parametr|Opis|  
 |---------------|-----------------|  
 |subscriptionId|Identyfikator subskrypcji można anulować.|  
-|cancelUrl|Adres URL anulowania subskrypcji.|  
+|cancelUrl|Subskrypcja anuluje adresu URL.|  
   
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
- `subscription-cancel` Formant może być używany w następujących szablonów portalu deweloperów.  
+ `subscription-cancel` Formant może być używany w następujących szablonów portalu developer:  
   
 -   [Produktu](api-management-product-templates.md#Product)
 

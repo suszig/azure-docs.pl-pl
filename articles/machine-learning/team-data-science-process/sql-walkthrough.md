@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: przy użyciu programu SQL Server
 W tym samouczku opisano proces tworzenia i wdrażania modelu uczenia maszynowego przy użyciu programu SQL Server i publicznie dostępnych danych — [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych. Procedura następuje nauki standardowych danych przepływu pracy: pozyskiwania i eksplorować dane funkcje odtwarzania w celu ułatwienia learning, a następnie Skompiluj i Wdróż model.
@@ -581,7 +581,6 @@ W tym ćwiczeniu mamy już przedstawione i odtwarzane danych w programie SQL Ser
 3. Wprowadź nazwę DNS bazy danych w **nazwę serwera bazy danych** pola. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **Nazwa bazy danych** w odpowiednie pole.
 5. Wprowadź **nazwa użytkownika SQL** w ** nazwa_serwera aqccount użytkownika i hasło w **hasło konta użytkownika serwera**.
-6. Sprawdź **dowolny certyfikat serwera Zaakceptuj** opcji.
 7. W **zapytanie bazy danych** edytowania obszaru tekstu, Wklej zapytanie, które zwraca pola niezbędne bazy danych (w tym wszystkie pola obliczanej, takich jak etykiety) i w dół próbek danych do żądanego próbkowania.
 
 Przykład eksperymentu klasyfikacji binarnej odczytywanie danych bezpośrednio z bazy danych programu SQL Server to na poniższej ilustracji. Podobne eksperymenty można utworzyć dla wieloklasowej klasyfikacji i regresji problemów.

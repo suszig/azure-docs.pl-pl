@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Wykrywanie twarzy na obrazie i emocji z analizy multimediów Azure
 ## <a name="overview"></a>Omówienie
@@ -333,6 +333,13 @@ Następujących programów przedstawiono sposób:
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
 Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
+
+Na przykład do pracy, wykonaj następujące dwa dodatkowe kroki:
+
+1. Użyj wersji 4.1.0 **WindowsAzure.MediaServices.Extensions** (z powodu problemów ze zgodnością z pakietów zależnych). 
+2. Użyj wersji 3.16.1 **Microsoft.IdentityModel.Clients.ActiveDirectory** (spowodowane znaną usterką w nowszych wersjach).
+
+Te wymagania zostały wprowadzone od 24 listopada 2017 r.
 
 #### <a name="example"></a>Przykład
 

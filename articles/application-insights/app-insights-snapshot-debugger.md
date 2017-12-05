@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek na wyjątków w aplikacji .NET
 
@@ -27,6 +27,16 @@ Migawki debugowania można wyświetlić w portalu w celu sprawdzenia wywołania 
 Kolekcja migawki jest dostępny dla:
 * Aplikacje środowiska .NET framework i program ASP.NET systemem .NET Framework 4.5 lub nowszej.
 * .NET core 2.0 i ASP.NET Core 2.0 aplikacji uruchomionych w systemie Windows.
+
+Są obsługiwane w następujących środowiskach:
+* Usługa aplikacji Azure.
+* Usługa w chmurze Azure programu rodziny systemów operacyjnych, 4 lub nowszego.
+* Usług Azure Service Fabric uruchomiony w systemie Windows Server 2012 R2 lub nowszym.
+* Azure maszyn wirtualnych z systemem Windows Server 2012 R2 lub nowszym.
+* Lokalnych maszyn wirtualnych lub fizycznych z systemem Windows Server 2012 R2 lub nowszym.
+
+> [!NOTE]
+> Aplikacje klienckie (na przykład WPF i formularze systemu Windows platformy uniwersalnej systemu Windows) nie są obsługiwane.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurowanie zbierania migawek dla aplikacji ASP.NET
 

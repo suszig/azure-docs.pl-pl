@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Przy użyciu usługi Azure API Management z wewnętrznej sieci wirtualnej
 Sieci wirtualne platformy Azure Azure API Management umożliwiają zarządzanie interfejsów API nie jest dostępny w Internecie. Liczba technologii sieci VPN są dostępne do nawiązania połączenia. Zarządzanie interfejsami API można wdrożyć w dwóch trybach głównego w sieci wirtualnej:
 * Zewnętrzne
-* wewnętrzny
+* Wewnętrzna
 
 
 Gdy wdraża interfejsu API zarządzania w trybie wewnętrzna sieć wirtualna, wszystkie punkty końcowe usługi (bramy, portalu dla deweloperów, portal wydawcy, bezpośrednie zarządzanie i Git) są widoczne tylko w sieci wirtualnej, która umożliwia kontrolę dostępu do. Żaden z punktów końcowych usługi nie jest zarejestrowany na publicznym serwerze DNS.
@@ -50,7 +50,7 @@ Usługi interfejsu API Management w wewnętrznej sieci wirtualnej jest hostowany
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Włącz połączenie wirtualnej sieci przy użyciu portalu Azure
 
 1. Przejdź do Twojego wystąpienia usługi Azure API Management w [portalu Azure](https://portal.azure.com/).
-2. Wybierz **domen niestandardowych i SSL**.
+2. Wybierz **sieci wirtualnej**.
 3. Skonfiguruj wystąpienie interfejsu API zarządzania do wdrożenia w sieci wirtualnej.
 
     ![Menu do konfigurowania usługi Azure API Management w wewnętrznej sieci wirtualnej][api-management-using-internal-vnet-menu]
@@ -121,7 +121,6 @@ Aby dowiedzieć się więcej, zobacz następujące artykuły:
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-
-[Create API Management service]: api-management-get-started.md#create-service-instance
+[Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

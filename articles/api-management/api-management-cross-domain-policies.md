@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 ##  <a name="CrossDomainPolicies"></a>Krzyżowe zasady domeny  
   
 -   [Zezwalaj na połączenia między domenami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — może ułatwić interfejsu API programu Adobe Flash i Microsoft Silverlight bazujące na przeglądarce klientów.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) -dodaje współużytkowanie zasobów między źródłami (CORS) obsługi operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki do udostępniania.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) -dodaje JSON z obsługą dopełnienie (JSONP) do operacji lub interfejsu API w celu zapewnienia obsługi wywołań między domenami od klientów przeglądarki JavaScript.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Zezwalaj na połączenia między domenami  
@@ -63,7 +61,6 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
-  
 -   **Zakresy zasad:** globalne  
   
 ##  <a name="CORS"></a>CORS  
@@ -129,7 +126,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |----------|-----------------|--------------|-------------|  
 |cors|Element główny.|Tak|Nie dotyczy|  
 |dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolonych źródeł dla żądań między domenami. `allowed-origins`może zawierać pojedyncze `origin` element, który określa `*` zezwalająca na wszystkie pochodzenia, jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|  
-|Punkt początkowy|Wartość może być albo `*` zezwalająca na wszystkie pochodzenia lub identyfikator URI, który określa pojedynczy punkt początkowy. Identyfikator URI musi zawierać schemat, hosta i portu.|Tak|W przypadku pominięcia w identyfikatorze URI port jest używany port 80 dla protokołu HTTP i jest używany port 443 dla protokołu HTTPS.|  
+|źródło|Wartość może być albo `*` zezwalająca na wszystkie pochodzenia lub identyfikator URI, który określa pojedynczy punkt początkowy. Identyfikator URI musi zawierać schemat, hosta i portu.|Tak|W przypadku pominięcia w identyfikatorze URI port jest używany port 80 dla protokołu HTTP i jest używany port 443 dla protokołu HTTPS.|  
 |dozwolone metody|Ten element jest wymagany, jeśli metod innych niż GET lub POST są dozwolone. Zawiera `method` elementy, które określają obsługiwane polecenia HTTP.|Nie|Jeśli nie ma tej sekcji, są obsługiwane GET i POST.|  
 |— Metoda|Określa zlecenie HTTP.|Co najmniej jeden `method` element jest wymagany, jeśli `allowed-methods` sekcja jest obecny.|Nie dotyczy|  
 |dozwolone nagłówki|Ten element zawiera `header` elementy Określanie nazw nagłówków, które mogą znajdować się w żądaniu.|Nie|Nie dotyczy|  
@@ -140,14 +137,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Zezwalaj na poświadczenia|`Access-Control-Allow-Credentials` Nagłówek odpowiedzi dotyczące stanu wstępnego zostanie ustawiona na wartość tego atrybutu i wpływa na możliwość klienta przesyłania poświadczeń w żądaniach między domenami.|Nie|wartość false|  
+|Zezwalaj na poświadczenia|`Access-Control-Allow-Credentials` Nagłówek odpowiedzi dotyczące stanu wstępnego zostanie ustawiona na wartość tego atrybutu i wpływa na możliwość klienta przesyłania poświadczeń w żądaniach między domenami.|Nie|fałsz|  
 |Inspekcja result-max-age.|`Access-Control-Max-Age` Nagłówek odpowiedzi dotyczące stanu wstępnego zostanie ustawiona na wartość tego atrybutu i wpływać na zdolność agenta użytkownika do pamięci podręcznej przed transmitowane odpowiedzi.|Nie|0|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
-  
 -   **Zakresy zasad:** interfejsu API, operacji  
   
 ##  <a name="JSONP"></a>FORMAT JSONP  
@@ -185,8 +181,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** ruchu wychodzącego  
-  
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  
+
+Aby uzyskać więcej informacji, Praca z zasad Zobacz:
+
++ [Zasady w usłudze API Management](api-management-howto-policies.md)
++ [Przekształć interfejsów API](transform-api.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

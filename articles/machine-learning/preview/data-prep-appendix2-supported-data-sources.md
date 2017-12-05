@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning 
 W tym artykule opisano aktualnie obsługiwanych źródeł danych w celu przygotowania danych usługi Azure Machine Learning.
@@ -24,6 +24,25 @@ W tym artykule opisano aktualnie obsługiwanych źródeł danych w celu przygoto
 Dostępne są następujące obsługiwanych źródeł danych w tej wersji.
 
 ## <a name="types"></a>Typy 
+
+### <a name="sql-server"></a>Oprogramowanie SQL Server
+Odczytany z lokalnego serwera SQL lub bazy danych Azure SQL.
+
+#### <a name="options"></a>Opcje
+- Adres serwera
+- Serwer (nawet jeśli certyfikatu na serwerze jest nieprawidłowy. Należy używać ostrożnie)
+- Typ uwierzytelniania (z systemem Windows, serwer)
+- Nazwa użytkownika
+- Hasło
+- Bazy danych, aby nawiązać połączenie
+- Zapytanie SQL
+
+#### <a name="notes"></a>Uwagi
+- Kolumny wariantu języka SQL nie są obsługiwane.
+- Kolumna czasu jest konwertowana na typ datetime przez dodanie czasu z bazy danych do daty 1970/1/1
+- Podczas wykonywania w klastrze Spark, wszystkie dane związane z kolumn (date, datetime, datetime2, datetimeoffset) będą oceniać niepoprawne wartości dat przed 1583
+- Wartości w kolumnach dziesiętnych mogą tracić dokładność z powodu konwersji na dziesiętną
+
 ### <a name="directory-vs-file"></a>Katalog lub plik
 Wybierz pojedynczy plik, a następnie go odczytać w przygotowaniu danych. Typ pliku jest analizowany w celu określenia domyślnych parametrów połączenia pliku pokazano na następnym ekranie.
 
@@ -88,6 +107,9 @@ Wykonanie skalowania w poziomie zależy od możliwości odczytu Parquet platform
 ## <a name="locations"></a>Lokalizacje
 ### <a name="local"></a>Lokalna
 Lokalny dysk twardy lub lokalizacji magazynu mapowanej sieci.
+
+### <a name="sql-server"></a>Oprogramowanie SQL Server
+Lokalnego programu SQL Server, lub bazy danych Azure SQL.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Magazyn obiektów Blob Azure, która wymaga subskrypcji platformy Azure.

@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>Zarządzanie interfejsami API zaawansowane zasady
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a>Zaawansowane zasady  
   
 -   [Przepływ kontroli](api-management-advanced-policies.md#choose) — warunkowo stosuje deklaracji zasad, na podstawie wyników oceny Boolean [wyrażenia](api-management-policy-expressions.md).  
-  
 -   [Przekazanie żądania](#ForwardRequest) -przekazuje żądanie do usługi zaplecza.
-
 -   [Ogranicz współbieżności](#LimitConcurrency) — uniemożliwia ujęta zasady wykonania przez więcej niż określoną liczbę żądań w czasie.
-  
 -   [Dziennika do Centrum zdarzeń](#log-to-eventhub) — wysyła komunikaty w określonym formacie do Centrum zdarzeń zdefiniowanych przez podmiot rejestratora. 
-
 -   [Mock odpowiedzi](#mock-response) -przerwań potoku wykonywania i zwraca odpowiedź mocked bezpośrednio do obiektu wywołującego.
-  
 -   [Spróbuj ponownie](#Retry) -ponowi próbę wykonania instrukcji objętego zasad, jeśli i do momentu spełnienia warunku. Wykonanie Powtórz w określonych odstępach czasu, a także do określonej liczba ponownych prób.  
-  
 -   [Odpowiedź zwrócona](#ReturnResponse) -przerwań potoku wykonywania i zwraca określoną odpowiedzią bezpośrednio do obiektu wywołującego. 
-  
 -   [Wyślij żądanie jednokierunkowej](#SendOneWayRequest) — wysyła żądanie pod określony adres URL bez oczekiwania na odpowiedź.  
-  
 -   [Wyślij żądanie](#SendRequest) — wysyła żądanie do określonego adresu URL.  
-
 -   [Ustaw serwer proxy HTTP](#SetHttpProxy) — zezwala na żądania trasy przekazywane za pośrednictwem serwera proxy HTTP.  
-
 -   [Ustawia metodę żądania](#SetRequestMethod) — umożliwia zmianę metody HTTP dla żądania.  
-  
 -   [Ustaw kod stanu](#SetStatus) — zmienia kod stanu HTTP do określonej wartości.  
-  
 -   [Ustaw zmienną](api-management-advanced-policies.md#set-variable) -będzie się powtarzał wartości w nazwanym [kontekstu](api-management-policy-expressions.md#ContextVariables) zmiennej nowsze dostępu.  
-
 -   [Śledzenia](#Trace) -dodaje ciąg do [inspektora interfejsu API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) danych wyjściowych.  
-  
 -   [Poczekaj](#Wait) -oczekuje dla ujęta [żądanie wysłania](api-management-advanced-policies.md#SendRequest), [pobrać wartości z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey), lub [sterowania przepływem](api-management-advanced-policies.md#choose) zasad, aby ukończyć przed kontynuowaniem.  
   
 ##  <a name="choose"></a>Przepływ sterowania  
@@ -264,7 +249,6 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** wewnętrznej bazy danych  
-  
 -   **Zakresy zasad:** wszystkich zakresów  
   
 ##  <a name="LimitConcurrency"></a>Limit współbieżności  
@@ -454,7 +438,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|Warunek|Logiczna literał lub [wyrażenie](api-management-policy-expressions.md) określenie ponownych prób powinna zostać zatrzymana (`false`) lub nadal (`true`).|Tak|Nie dotyczy|  
+|warunek|Logiczna literał lub [wyrażenie](api-management-policy-expressions.md) określenie ponownych prób powinna zostać zatrzymana (`false`) lub nadal (`true`).|Tak|Nie dotyczy|  
 |liczba|Liczba dodatnia określająca maksymalną liczbę ponownych prób.|Tak|Nie dotyczy|  
 |interval|Liczba dodatnia, w sekundach, określając oczekiwania interwału ponawiania prób.|Tak|Nie dotyczy|  
 |Maksymalny interwał|Liczba dodatnia, w sekundach określający maksymalną poczekaj interwał między ponownymi próbami. Służy do implementowania algorytm wykładnicze ponów próbę.|Nie|Nie dotyczy|  
@@ -570,7 +554,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
 |sposób żądania, Wyślij co w-|Element główny.|Tak|  
-|adres URL|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
+|adres url|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
 |treść|Treść żądania.|Nie|  
@@ -649,7 +633,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
 |Żądanie wysłania|Element główny.|Tak|  
-|adres URL|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
+|adres url|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
 |treść|Treść żądania.|Nie|  
@@ -807,7 +791,6 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** wychodzący wewnętrznej bazy danych, na błąd  
-  
 -   **Zakresy zasad:** wszystkich zakresów  
 
 ##  <a name="set-variable"></a>Ustaw zmienną  
@@ -843,72 +826,41 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
-  
 -   **Zakresy zasad:** wszystkich zakresów  
   
 ###  <a name="set-variableAllowedTypes"></a>Dozwolonymi typami  
  Wyrażenia używane w `set-variable` zasad musi zwracać jedną z następujących typów podstawowych.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   Obiekt System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>Śledzenia  
@@ -1001,16 +953,19 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|dla|Określa, czy `wait` czeka zasady dla wszystkich zasad bezpośrednio podrzędne być wykonane lub tylko jeden. Dozwolone wartości to:<br /><br /> -   `all`-Poczekaj, aż wszystkie zasady bezpośrednio podrzędne do ukończenia<br />-wszelkie - poczekaj dowolne zasady bezpośrednio podrzędne zakończyć. Po zakończeniu pierwszego zasad bezpośrednio podrzędne `wait` kończy zasad i wykonywania innych zasad bezpośrednio podrzędne zostanie zakończony.|Nie|Wszystko|  
+|dla|Określa, czy `wait` czeka zasady dla wszystkich zasad bezpośrednio podrzędne być wykonane lub tylko jeden. Dozwolone wartości to:<br /><br /> -   `all`-Poczekaj, aż wszystkie zasady bezpośrednio podrzędne do ukończenia<br />-wszelkie - poczekaj dowolne zasady bezpośrednio podrzędne zakończyć. Po zakończeniu pierwszego zasad bezpośrednio podrzędne `wait` kończy zasad i wykonywania innych zasad bezpośrednio podrzędne zostanie zakończony.|Nie|all|  
   
 ### <a name="usage"></a>Sposób użycia  
- Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych  
-  
--   **Zakresy zasad:**wszystkich zakresów  
+-   **Zakresy zasad:** wszystkich zakresów  
   
 ## <a name="next-steps"></a>Następne kroki
+
 Aby uzyskać więcej informacji, Praca z zasad Zobacz:
--   [Zasady w usłudze API Management](api-management-howto-policies.md) 
--   [Wyrażenia zasad](api-management-policy-expressions.md)
++ [Zasady w usłudze API Management](api-management-howto-policies.md) 
++ [Wyrażenia zasad](api-management-policy-expressions.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Klasyfikacja satelitarnej obrazu
 
@@ -59,9 +59,14 @@ Poniższe instrukcje pomagają konfigurowania środowiska wykonawczego w tym prz
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Postępuj zgodnie z [zainstalować i utworzyć szybkiego startu](quickstart-installation.md) zainstalować Azure Machine Learning Workbench i utworzyć eksperymentowania oraz konta zarządzania w modelu.
 - [Partii AI](https://github.com/Azure/BatchAI) Python SDK i Azure CLI 2.0
-    - Zainstaluj zestaw SDK AI partii, Azure CLI 2.0 zgodnie z instrukcjami w [sekcji wymagania wstępne przepisami](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Opracowywania tego tekstu Azure Machine Learning Workbench używa oddzielnych rozwidlenia 2.0 interfejsu wiersza polecenia platformy Azure. Dla jasności nazywamy Workbench wersji interfejsu CLI jako "infrastruktury CLI uruchamiana z usługi Azure Machine Learning Workbench" i (w tym partii AI) ogólne wersji "Azure CLI 2.0".
-    - Utwórz podmiot zabezpieczeń aplikacji i usług Azure Active Directory, wykonując [tych instrukcji](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Identyfikator klienta rekordu, klucz tajny i identyfikator dzierżawcy.
+    - Wypełnij następujące sekcje w [partii AI przepisami README](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Wymagania wstępne"
+        - "Utwórz i aplikacji usługi Azure Active Directory (AAD)"
+        - "Zarejestruj dostawców zasobów BatchAI" (w obszarze "Uruchom przepisami przy użyciu usługi Azure CLI 2.0")
+        - "Instalowanie klienta zarządzania partii zadań Azure AI"
+        - "Instalowanie Azure Python SDK"
+    - Rekord Identyfikatora klienta, klucz tajny i identyfikator dzierżawcy aplikacji usługi Azure Active Directory, które są kierowane do utworzenia. Te poświadczenia zostaną użyte w dalszej części tego samouczka.
+    - Opracowywania tego tekstu usługi Azure Machine Learning Workbench i AI usługi partia zadań Azure używają oddzielnych rozwidlenia 2.0 interfejsu wiersza polecenia platformy Azure. Dla jasności nazywamy Workbench wersji interfejsu CLI jako "infrastruktury CLI uruchamiana z usługi Azure Machine Learning Workbench" i (w tym partii AI) ogólne wersji "Azure CLI 2.0".
 - [Narzędzie AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), narzędzie do koordynowania transferu plików między kontami magazynu Azure w warstwie bezpłatna
     - Upewnij się, że folder zawierający plik wykonywalny AzCopy znajduje się w zmiennej środowiskowej PATH w systemie. (Dostępne są instrukcje na temat modyfikowania zmiennych środowiskowych [tutaj](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klient SSH; Firma Microsoft zaleca [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Klaster AI partii uzyskuje dostęp do danych szkoleniowych na sieciowym serwerze
 1. Należy wydać następujące polecenie, aby utworzyć serwer plików sieciowych:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Sprawdź stan inicjowania obsługi administracyjnej sieci serwera plików za pomocą następującego polecenia:

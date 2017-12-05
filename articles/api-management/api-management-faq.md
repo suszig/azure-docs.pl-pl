@@ -1,6 +1,6 @@
 ---
 title: "Zarządzanie interfejsami API Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Informacje o odpowiedzi na często zadawane pytania, wzorców i najlepsze rozwiązania w usłudze Azure API Management."
+description: "Dowiedz się odpowiedzi na często zadawane pytania (FAQ), w przypadku wzorców i najlepszych praktyk w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Często zadawane pytania usługi Azure API Management
 Odpowiedzi na często zadawane pytania, wzorców i najlepsze rozwiązania dotyczące usługi Azure API Management.
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 * [Jak można żądanie zespołu Microsoft Azure API Management pytanie?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 * [Co to znaczy, gdy funkcja jest w wersji zapoznawczej?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ Funkcja jest w wersji zapoznawczej, oznacza, że firma Microsoft jest aktywnie o
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Jak można zabezpieczyć połączenie między bramą usługi API Management i Moje usług zaplecza
 Istnieje kilka opcji do bezpiecznego połączenia między bramą usługi API Management i usług zaplecza. Możesz:
 
-* Użyj uwierzytelniania podstawowego HTTP. Aby uzyskać więcej informacji, zobacz [ustawień skonfiguruj interfejsu API](api-management-howto-create-apis.md#configure-api-settings).
+* Użyj uwierzytelniania podstawowego HTTP. Aby uzyskać więcej informacji, zobacz [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
 * Używa wzajemnego uwierzytelniania SSL, zgodnie z opisem w [zabezpieczania usług zaplecza za pomocą klienta uwierzytelniania certyfikatów w usłudze Azure API Management](api-management-howto-mutual-certificates.md).
 * Użyj listę dozwolonych podobnej IP w usłudze zaplecza. Jeśli standardowa lub Premium, wystąpienie usługi API Management warstwy, adres IP bramy pozostaje stała. Można ustawić z listy dozwolonych, aby umożliwić ten adres IP. Adres IP wystąpienia interfejsu API zarządzania można uzyskać na pulpicie nawigacyjnym w portalu Azure.
 * Wystąpienie interfejsu API zarządzania nawiązać połączenie sieci wirtualnej platformy Azure.
@@ -102,7 +101,7 @@ Jeśli zasady, które chcesz dodać pojawia się nieaktywne lub cieniowania w ed
 Masz kilka opcji, aby użyć wersji interfejsu API w usłudze API Management:
 
 * W usłudze API Management można skonfigurować interfejsów API do reprezentowania różne wersje. Na przykład może mieć dwóch różnych interfejsów API, MyAPIv1 i MyAPIv2. Deweloper może wybrać wersję, która Deweloper chce używać.
-* Możesz również skonfigurować interfejsu API z adresu URL usługi, który nie zawiera wersji segmentu, na przykład https://my.api. Następnie należy skonfigurować segment wersji na każdej operacji [ponowne zapisywanie adresów URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) szablonu. Na przykład masz operacji o [szablon adresu URL](api-management-howto-add-operations.md#url-template) o nazwie/Resource i [ponowne zapisywanie adresów URL](api-management-howto-add-operations.md#rewrite-url-template) o nazwie szablonu/v1/zasobów. Można zmienić wartość segmentu wersji osobno dla każdej operacji.
+* Możesz również skonfigurować interfejsu API z adresu URL usługi, który nie zawiera wersji segmentu, na przykład https://my.api. Następnie należy skonfigurować segment wersji na każdej operacji [ponowne zapisywanie adresów URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) szablonu. 
 * Jeśli chcesz zachować segment wersji "domyślne" w interfejsie API adresem URL usługi wybranej operacji, należy ustawić zasady, które używa [Ustaw usługę zaplecza](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) zasad, aby zmienić ścieżkę żądania zaplecza.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak skonfigurować wiele środowisk w jednego interfejsu API?

@@ -6,19 +6,18 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>Zarządzanie interfejsami API zasad przekształcania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -79,7 +78,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
 |Zastosuj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> -zawsze — Zawsze stosuj konwersji.<br />convert zawartości typu json - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność JSON.|Tak|Nie dotyczy|  
-|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> — wartość true — zastosowania konwersji w żądaniu nagłówka Accept żądania JSON.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
+|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> — wartość true — zastosowania konwersji w żądaniu nagłówka Accept żądania JSON.<br />— wartość false — Zawsze stosuj konwersji.|Nie|prawda|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -123,7 +122,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |----------|-----------------|--------------|-------------|  
 |rodzaj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> javascript — przyjazne - przekonwertowanego JSON ma formę przyjazną dla deweloperów języka JavaScript.<br />-bezpośredni — przekonwertowanego JSON odzwierciedla struktury oryginalnego dokumentu XML.|Tak|Nie dotyczy|  
 |Zastosuj|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> -zawsze - przekonwertować zawsze.<br />convert zawartości — typ xml - tylko wtedy, gdy nagłówek odpowiedzi Content-Type wskazuje obecność XML.|Tak|Nie dotyczy|  
-|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> Jeśli żądanie XML w żądaniu nagłówek Accept - wartość true — mają zastosowanie konwersji.<br />— wartość false — Zawsze stosuj konwersji.|Nie|Wartość true|  
+|należy wziąć pod uwagę zaakceptować — nagłówek|Atrybut musi zostać ustawiony na jedną z następujących wartości.<br /><br /> Jeśli żądanie XML w żądaniu nagłówek Accept - wartość true — mają zastosowanie konwersji.<br />— wartość false — Zawsze stosuj konwersji.|Nie|prawda|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -157,7 +156,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Z|Ciąg do wyszukania.|Tak|Nie dotyczy|  
+|z|Ciąg do wyszukania.|Tak|Nie dotyczy|  
 |na|Ciąg zastępczy. Określ długość zastępczy ciąg o zerowej do usunięcia ciąg wyszukiwania.|Tak|Nie dotyczy|  
   
 ### <a name="usage"></a>Sposób użycia  
@@ -629,7 +628,7 @@ OriginalUrl.
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
 |szablon|Adres URL usługi sieci web rzeczywiste wszystkie parametry ciągu zapytania. Używając wyrażenia wartości całkowitej musi być wyrażeniem.|Tak|Nie dotyczy|  
-|Kopiuj niedopasowane — parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie znajduje się w oryginalnym szablonie adres URL są dodawane do adresu URL zdefiniowanej w szablonie Napisz ponownie|Nie|Wartość true|  
+|Kopiuj niedopasowane — parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie znajduje się w oryginalnym szablonie adres URL są dodawane do adresu URL zdefiniowanej w szablonie Napisz ponownie|Nie|prawda|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -692,7 +691,7 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Transformacja XSL|Element główny.|Tak|  
-|Parametr|Używane do definiowania zmiennych w przekształceniu|Nie|  
+|parametr|Używane do definiowania zmiennych w przekształceniu|Nie|  
 |XSL: stylesheet|Elemencie głównym arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w ramach zgodne ze standardem [specyfikacji XSLT](http://www.w3.org/TR/xslt)|Tak|  
   
 ### <a name="usage"></a>Sposób użycia  
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **Zakresy zasad:** globalnych produktu interfejsu API, operacji  
   
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  
+
+Aby uzyskać więcej informacji, zobacz następujące tematy:
+
++ [Zasady w usłudze API Management](api-management-howto-policies.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

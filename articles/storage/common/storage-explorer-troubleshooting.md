@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Podręczniku rozwiązywania problemów z Eksploratora usługi Storage platformy Azure
 
@@ -172,6 +172,14 @@ Jeśli łączysz się z usługą przy użyciu adresu URL SAS i występuje błąd
 - Upewnij się, że adres URL nie wygasł.
 
 - Jeśli adres URL SAS jest oparta na zasadach dostępu, sprawdź, czy zasady dostępu nie został odwołany.
+
+Jeśli Twoje przypadkowo dołączony nieprawidłowy adres URL SAS i nie można odłączyć, wykonaj następujące czynności:
+1.  Podczas uruchamiania Eksploratora usługi Storage, naciśnij klawisz F12, aby otworzyć okno narzędzia developer.
+2.  Kliknij kartę aplikacji, a następnie kliknij przycisk Magazyn lokalny > file:// w drzewie po lewej stronie.
+3.  Znajdź klucz skojarzony z typem usługi problematyczne identyfikatora URI sygnatury dostępu Współdzielonego. Na przykład w przypadku nieprawidłowy identyfikator URI SAS dla kontenera obiektów blob, poszukaj klucza o nazwie "StorageExplorer_AddStorageServiceSAS_v1_blob".
+4.  Wartość klucza powinien być tablicy JSON. Znajdź obiektów skojarzonych z nieprawidłowy identyfikator URI i usuń go.
+5.  Naciśnij klawisze Ctrl + R, aby załadować ponownie Eksploratora usługi Storage.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

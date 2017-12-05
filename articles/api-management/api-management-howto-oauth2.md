@@ -3,22 +3,21 @@ title: "Autoryzowanie konta dewelopera przy użyciu protokołu OAuth 2.0 w usłu
 description: "Dowiedz się, jak i autoryzacji użytkowników w usłudze API Management przy użyciu protokołu OAuth 2.0."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c61b4969757d62d7e16e7acecf7d7bed4b31c9b1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Sposób autoryzowania konta dewelopera w usłudze Azure API Management przy użyciu protokołu OAuth 2.0
 Obsługuje wiele interfejsów API [OAuth 2.0](http://oauth.net/2/) Zabezpiecz interfejs API i sprawdź, czy tylko prawidłowe użytkowników i ich tylko dostęp do zasobów, do których jest uprawniony. Aby można było używać interakcyjne konsoli dewelopera usługi Azure API Management z tych interfejsów API, usługę pozwala na skonfigurowanie wystąpienia usługi do pracy z Twojej OAuth 2.0 włączone interfejsu API.
@@ -37,7 +36,7 @@ Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Porta
 ![Portal wydawcy][api-management-management-console]
 
 > [!NOTE]
-> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
+> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API][Create an API Management service instance].
 > 
 > 
 
@@ -160,10 +159,10 @@ Aby uzyskać więcej informacji o korzystaniu z protokołu OAuth 2.0 i zarządza
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

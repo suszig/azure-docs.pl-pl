@@ -1,7 +1,7 @@
 ---
 title: "Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Storage platformy Azure"
 description: "Dowiedz się, jak zarządzać Azure DB rozwiązania Cosmos w Eksploratorze usługi Storage platformy Azure."
-Keywords: "Rozwiązania Cosmos Azure DB, Eksploratora usługi Storage platformy Azure, usługa DocumentDB, bazy danych MongoDB, usługi DocumentDB"
+Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -14,14 +14,14 @@ ms.custom: Azure Cosmos DB active
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)
 

@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Użyj tożsamości usługi Azure zarządzanych w usłudze Azure API Management
 
@@ -118,9 +118,8 @@ Poniższy przykład pokazuje, jak można uzyskać certyfikatu z usługi Azure Ke
 3. Aktualizuj wystąpienie interfejsu API zarządzania przez ustawienie niestandardowej nazwy domeny za pomocą certyfikatu z wystąpienia usługi Key Vault.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-Aby wykonać poniżej szablon arm potrzebujemy następujące 
-1. Magazyn kluczy, zawierający certyfikat pfx w tej samej subskrypcji i tej samej grupie zasobów co usługa Api Management. To wymaganie szablon arm. 
-2. Typ zawartości klucz tajny powinien być *application/x-pkcs12*. Poniższy skrypt można użyć w celu przekazania certyfikatu
+1. Magazyn kluczy certyfikatu pfx zawierający musi być w tej samej subskrypcji platformy Azure i tej samej grupie zasobów co usługa API Management. Jest to wymagane szablonu usługi Azure Resource Manager. 
+2. Typ zawartości klucz tajny musi być *application/x-pkcs12*. Poniższy skrypt można użyć w celu przekazania certyfikatu:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 

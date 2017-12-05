@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Obliczenia bazy danych kontekstu opcje serwera R w usłudze HDInsight
 
@@ -33,12 +33,12 @@ Węzeł krawędzi klastra umożliwia wygodne Połącz się z klastrem i uruchami
 ## <a name="compute-contexts-for-an-edge-node"></a>Obliczenia bazy danych kontekstów dla węzła krawędzi
 Ogólnie rzecz biorąc skrypt języka R, uruchamiany w R Server dla węzła krawędzi jest uruchamiany w ramach interpreter języka R w tym węźle. Wyjątki są te kroki, które wywołują funkcję ScaleR. Wywołania ScaleR uruchomione w środowisku obliczeniowe, które określają sposób ustawiania kontekstu obliczeń ScaleR.  Po uruchomieniu skryptu języka R z węzłem krawędzi, możliwe wartości kontekstu obliczeń to:
 
-- lokalny sekwencyjnych (*"local"*)
-- równoległe lokalnego (*"localpar"*)
+- lokalny sekwencyjnych (*lokalnego*)
+- równoległe lokalnego (*localpar*)
 - Zmniejsz mapy
 - platforma Spark
 
-*"Local"* i *"localpar"* opcje różnią się tylko w sposób **rxExec** wywołania są wykonywane. Oba wykonać inne wywołania funkcji odbierania w sposób równoległy między wszystkie dostępne rdzenie chyba że określono inaczej, za pomocą ScaleR **numCoresToUse** opcji, na przykład `rxOptions(numCoresToUse=6)`. Opcje przetwarzania równoległego oferują optymalną wydajność.
+*Lokalnego* i *localpar* opcje różnią się tylko w sposób **rxExec** wywołania są wykonywane. Oba wykonać inne wywołania funkcji odbierania w sposób równoległy między wszystkie dostępne rdzenie chyba że określono inaczej, za pomocą ScaleR **numCoresToUse** opcji, na przykład `rxOptions(numCoresToUse=6)`. Opcje przetwarzania równoległego oferują optymalną wydajność.
 
 W poniższej tabeli przedstawiono różne opcje kontekstu obliczeń ustalenie sposobu wykonywania wywołań:
 
@@ -62,8 +62,8 @@ Z trzech opcji wybierzesz umożliwiających wykonanie zrównoleglone zależnej o
 Podana tych zasad, poniższe sekcje zapewniają pewne ogólne reguły przyjąć wybierania kontekstu obliczeń.
 
 ### <a name="local"></a>Lokalna
-* Jeśli ilość danych w celu przeanalizowania jest mała i nie wymaga oczekiwanego, następnie strumienia go bezpośrednio do analizy rutynowych użyciu *"local"* lub *"localpar"*.
-* Jeśli ilość danych w celu przeanalizowania jest małych i średnich i wymaga oczekiwanego, następnie skopiować go do lokalnego systemu plików, zaimportuj go do XDF i analizować go za pomocą *"local"* lub *"localpar"*.
+* Jeśli ilość danych w celu przeanalizowania jest mała i nie wymaga oczekiwanego, następnie strumienia go bezpośrednio do analizy rutynowych użyciu *lokalnego* lub *localpar*.
+* Jeśli ilość danych w celu przeanalizowania jest małych i średnich i wymaga oczekiwanego, następnie skopiować go do lokalnego systemu plików, zaimportuj go do XDF i analizować go za pomocą *lokalnego* lub *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop, Spark
 * W przypadku dużych ilości danych do analizy, następnie zaimportować go do Spark DataFrame przy użyciu **RxHiveData** lub **RxParquetData**, lub XDF w systemie plików HDFS (chyba, że magazyn jest problemu) i przeanalizuj go przy użyciu obliczeniowych Spark kontekst.
@@ -76,7 +76,7 @@ Dodatkowe informacje i przykłady ScaleR kontekstów obliczeń dla wbudowanego p
 
     > ?rxSetComputeContext
 
-Można także odwoływać się do "[przewodnik rozproszonego przetwarzania danych ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" nie jest dostępna z [R Server w witrynie MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server w witrynie MSDN") biblioteki.
+Można także odwoływać się do [przewodnik rozproszonego przetwarzania danych ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) nie jest dostępna z [R Server w witrynie MSDN](https://msdn.microsoft.com/library/mt674634.aspx) biblioteki.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono o opcjach, które są dostępne określić, czy i jak wykonanie jest zarządzana z przetwarzaniem na rdzeni węzła krawędzi lub klastra usługi HDInsight. Aby dowiedzieć się więcej o sposobie używania R Server z klastrami usługi HDInsight, zobacz następujące tematy:
