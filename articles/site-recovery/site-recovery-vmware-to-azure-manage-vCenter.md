@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Zarządzanie VMware vCenter Server w usłudze Azure Site Recovery
 W tym artykule opisano różne operacje odzyskiwania lokacji, które można wykonywać w programie VMware vCenter.
@@ -27,7 +27,7 @@ W tym artykule opisano różne operacje odzyskiwania lokacji, które można wyko
 
 **Obsługa programu VMware vCenter i VMware vSphere hosta ESX** | **Szczegóły** |
 |--- | --- |
-|**Serwery lokalne, VMware** | Co najmniej jeden VMware vSphere serwery, 6.0, 5.5, 5.1 z uruchomionym najnowsze aktualizacje. Serwery powinny znajdować się w tej samej sieci co serwer konfiguracji (lub oddzielnego serwera przetwarzania).<br/><br/> Firma Microsoft zaleca serwer vCenter do zarządzania hostach z systemem w wersji 6.0 lub 5.5 z najnowszymi aktualizacjami. Tylko funkcje, które są dostępne w wersji 5.5 są obsługiwane w przypadku wdrożenia w wersji 6.0.|
+|**Serwery lokalne, VMware** | Co najmniej jeden VMware vSphere serwerach, 6.5,6.0, 5.5 z najnowszymi aktualizacjami. Serwery powinny znajdować się w tej samej sieci co serwer konfiguracji (lub oddzielnego serwera przetwarzania).<br/><br/> Firma Microsoft zaleca serwera vCenter do zarządzania hostami program uruchomiony 6.5,6.0 lub 5.5 z najnowszymi aktualizacjami. Tylko funkcje, które są dostępne w wersji 5.5 są obsługiwane w przypadku wdrożenia w wersji 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Przygotowanie konta automatycznego wykrywania
 Odzyskiwanie lokacji musi mieć dostęp do programu VMware, serwera przetwarzania do automatycznego wykrywania maszyn wirtualnych i trybu failover i powrotu po awarii maszyn wirtualnych.

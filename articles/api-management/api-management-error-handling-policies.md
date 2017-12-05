@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasad interfejsu API zarządzania
 Zarządzanie interfejsami API Azure umożliwia wydawców odpowiedzieć na błędy, które mogą wystąpić podczas przetwarzania żądania do serwera proxy, udostępniając `ProxyError` obiektu. `ProxyError` Obiekt jest dostępny za pośrednictwem [kontekstu. LastError](api-management-policy-expressions.md#ContextVariables) właściwości i mogą być używane przez zasady w `on-error` sekcji zasad. W tym temacie znajdują się informacje na błąd możliwości obsługi w programie Azure API Management.  
@@ -56,27 +56,16 @@ Zarządzanie interfejsami API Azure umożliwia wydawców odpowiedzieć na błęd
  Następujące zasady mogą być używane w `on-error` sekcji zasad.  
   
 -   [Wybierz pozycję](api-management-advanced-policies.md#choose)  
-  
 -   [Ustaw zmienną](api-management-advanced-policies.md#set-variable)  
-  
 -   [Znajdź i Zamień](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [odpowiedź Return](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set — nagłówek](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set, metoda](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [Ustaw stan](api-management-advanced-policies.md#SetStatus)  
-  
 -   [Żądanie wysłania](api-management-advanced-policies.md#SendRequest)  
-  
 -   [sposób żądania, Wyślij co w-](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [dziennika do Centrum eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON do pliku xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML do formatu json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ Zarządzanie interfejsami API Azure umożliwia wydawców odpowiedzieć na błęd
 |Sprawdź poprawność jwt|Inne błędy sprawdzania poprawności|JwtInvalid|< wiadomości z biblioteki jwt\>|
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  
+
+Aby uzyskać więcej informacji, Praca z zasad Zobacz:
+
++ [Zasady w usłudze API Management](api-management-howto-policies.md)
++ [Przekształć interfejsów API](transform-api.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

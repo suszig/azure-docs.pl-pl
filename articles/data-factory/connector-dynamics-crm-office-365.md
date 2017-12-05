@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiowanie danych z/do Dynamics 365 / Dynamics CRM przy użyciu fabryki danych Azure
 
@@ -30,14 +30,20 @@ W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych 
 
 Kopiowanie danych z Dynamics 365 / Dynamics CRM żadnych obsługiwanych ujścia magazynu danych lub skopiować dane z dowolnego magazynu danych obsługiwanych źródłowych do Dynamics 365 / Dynamics CRM. Lista magazynów danych obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
-W szczególności ten łącznik Dynamics obsługuje poniżej Dynamics wersje i typy uwierzytelniania:
+Ten łącznik Dynamics obsługuje poniżej Dynamics wersji i typów uwierzytelniania (*IFD jest wdrożenie ukierunkowane Internet skrót*):
 
 | Dynamics wersji | Typy uwierzytelniania | Przykłady połączonej usługi |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM online | Usługi Office 365 | [Dynamics Online + uwierzytelnianie usługi Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 lokalnej z IFD <br> Dynamics CRM 2016 na lokalnym IFD <br> Dynamics CRM 2015 lokalnej z IFD | IFD | [Dynamics lokalnej z IFD + IFD uwierzytelniania](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD jest skrót Internet ukierunkowane wdrożenia.*
+Dynamics 365 w szczególności następujące typy aplikacji są obsługiwane:
+
+- Dynamics 365 sprzedaży
+- Dynamics 365 dla klientów usługi
+- Dynamics 365 usługi pola
+- Dynamics 365 projektu usługi automatyzacji
+- Dynamics 365 Marketing
 
 > [!NOTE]
 > Używanie łącznika Dynamics przechowywania hasła w usłudze Azure Key Vault i umożliwić ADF kopiowania działaniach ściągania stamtąd podczas wykonywania kopii danych. Zobacz, jak skonfigurować w [połączona usługa właściwości](#linked-service-properties) sekcji.
@@ -323,7 +329,7 @@ Skonfiguruj odpowiedni typ danych ADF w strukturze zestawu danych, w oparciu o T
 | AttributeTypeCode.BigInt | Długie | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Wartość logiczna | ✓ | ✓ |
 | AttributeType.Customer | Identyfikator GUID | ✓ |  |
-| AttributeType.DateTime | Data i godzina | ✓ | ✓ |
+| AttributeType.DateTime | Data/godzina | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | O podwójnej precyzji | ✓ | ✓ |
 | AttributeType.EntityName | Ciąg | ✓ | ✓ |

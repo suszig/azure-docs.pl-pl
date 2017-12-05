@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenie zasad interfejsu API zarządzania
 Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do udostępnionego niejawnie [kontekstu](api-management-policy-expressions.md#ContextVariables) zmienną i dozwolonych [podzestawu](api-management-policy-expressions.md#CLRTypes) typów .NET Framework.  
   
-> [!NOTE]
+> [!TIP]
 >  Aby uzyskać więcej informacji na temat wyrażenia zasad, zobacz [wyrażenie zasad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) wideo.  
 >   
 >  Aby pokazów konfigurowania zasad przy użyciu wyrażenia zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji zarządzania interfejsu API z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Ten film zawiera następujące pokazów wyrażenie zasad.  
@@ -206,5 +206,15 @@ Zasady składni wyrażeń jest C# w wersji 6.0. Każde wyrażenie ma dostęp do 
 |byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|dane wejściowe - cyphertext do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />Zwraca w postaci zwykłego tekstu.|
 |byte [] odszyfrowywania (wejściowych: tego typu byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, klucz: byte [], iv:byte[])|wejściowy - wejściowych - cyphertext do odszyfrowania<br /><br />alg — algorytm szyfrowania<br /><br />klucz — klucz szyfrowania<br /><br />IV - wektor inicjowania<br /><br />Zwraca w postaci zwykłego tekstu.|
 
+## <a name="video"></a>Połączenia wideo
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  
+
+Aby uzyskać więcej informacji, Praca z zasad Zobacz:
+
++ [Zasady w usłudze API Management](api-management-howto-policies.md)
++ [Przekształć interfejsów API](transform-api.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

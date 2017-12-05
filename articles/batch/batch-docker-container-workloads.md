@@ -1,6 +1,6 @@
 ---
-title: "Obciążenie partii zadań Azure w kontenerze docker | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak uruchamiać aplikacje z Docker kontener obrazów w partii zadań Azure."
+title: "Kontener obciążenie partii zadań Azure | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie uruchamiania aplikacji z kontenera obrazów w partii zadań Azure."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera Docker na partii zadań Azure
+# <a name="run-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera w partii zadań Azure
 
 Partia zadań Azure umożliwia uruchamiania i skalowania bardzo dużą liczbę partii przetwarzania zadania na platformie Azure. Do tej pory partii zadań zostało uruchomione bezpośrednio na maszynach wirtualnych (VM) w puli partii, ale teraz należy skonfigurować pulę partii, uruchamianie zadań w kontenerach Docker.
 
@@ -112,12 +112,11 @@ Proces ściągania (lub pobieranie z wyprzedzeniem) umożliwia wstępne ładowan
 
 ### <a name="pool-without-prefetched-container-images"></a>Pula bez kontenera prefetched obrazów
 
-Aby skonfigurować pulę bez kontenera prefetched obrazów, użyj `ContainerConfiguration` jak pokazano w poniższym przykładzie. To, jak i w poniższych przykładach założono korzystasz z niestandardowego obrazu Ubuntu 16.04 LTS z aparatem platformy Docker zainstalowane.
+Aby skonfigurować pulę bez kontenera prefetched obrazów, zdefiniuj `ContainerConfiguration` i `VirtualMachineConfiguration` obiektów, jak pokazano w poniższym przykładzie. To, jak i w poniższych przykładach założono korzystasz z niestandardowego obrazu Ubuntu 16.04 LTS z aparatem platformy Docker zainstalowane.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Pobrana z wyprzedzeniem obrazy dla kontenera konfiguracji
 
-Aby pobrana z wyprzedzeniem kontener obrazów w puli, Dodaj listy obrazów kontenera (`containerImageNames`) do kontenera konfiguracji i nadaj liście obrazu. W poniższym przykładzie założono, że używasz niestandardowego obrazu Ubuntu 16.04 LTS, pobrana z wyprzedzeniem obraz TensorFlow z [Centrum Docker](https://hub.docker.com), i uruchomić TensorFlow podczas uruchamiania zadania.
+Aby pobrana z wyprzedzeniem kontener obrazów w puli, Dodaj listy obrazów kontenera (`containerImageNames`) do `ContainerConfiguration`i nadaj nazwę listy obrazów. W poniższym przykładzie założono, że używasz niestandardowego obrazu Ubuntu 16.04 LTS, pobrana z wyprzedzeniem obraz TensorFlow z [Centrum Docker](https://hub.docker.com), i uruchomić TensorFlow podczas uruchamiania zadania.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Wyprzedzeniem obrazów z rejestru Kontener prywatny
 
-Możesz można również pobrana z wyprzedzeniem kontener obrazów uwierzytelniając się serwerze rejestru Kontener prywatny. W poniższym przykładzie założono używany niestandardowy obraz Ubuntu 16.04 LTS i są odczyt z wyprzedzeniem prywatnej obrazu TensorFlow z rejestru prywatnej kontenera platformy Azure.
+Możesz można również pobrana z wyprzedzeniem kontener obrazów uwierzytelniając się serwerze rejestru Kontener prywatny. W poniższym przykładzie `ContainerConfiguration` i `VirtualMachineConfiguration` obiektów użyć niestandardowego obrazu Ubuntu 16.04 LTS i pobrana z wyprzedzeniem prywatnej obrazu TensorFlow z rejestru prywatnej kontenera platformy Azure.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

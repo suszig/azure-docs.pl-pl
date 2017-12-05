@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Odnajdywanie i ocenić lokalnych maszyn wirtualnych VMware do migracji do usługi Azure
 
@@ -37,10 +37,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **VMware**: należy co najmniej jedna maszyna wirtualna oprogramowania VMware znajduje się na hoście ESXi lub klastra z systemem w wersji 5.0 lub nowszej. Host lub klaster musi być zarządzane przez serwer vCenter systemem w wersji 5.5, 6.0 lub 6.5.
-- **Konto vCenter**: potrzebne tylko do odczytu konta z poświadczeniami administratora dla serwera vCenter. Azure migracji używa tego konta do odnajdywanie maszyn wirtualnych.
-- **Uprawnienia**: vCenter Server, musisz mieć uprawnienia do tworzenia maszyny Wirtualnej przez zaimportowanie pliku w. Format komórek jajowych. 
-- **Ustawienia statystyki**: ustawienia statystyki dla serwera vCenter powinien być ustawiony na poziomie 3, przed rozpoczęciem wdrażania. Jeśli niższej niż poziom 3 oceny będą działać, ale nie jest zebrać danych wydajności magazynu i sieci.
+- **VMware**: maszyny wirtualne, które mają zostać poddane migracji muszą być zarządzane przy użyciu vCenter Server uruchomionej wersji 5.5, 6.0 lub 6.5. Ponadto należy jeden ESXi hosta wersji 5.0 lub nowszej w celu wdrożenia modułu zbierającego maszyny Wirtualnej. 
+ 
+> [!NOTE]
+> Obsługa funkcji Hyper-V znajduje się w naszej plan i zostanie wkrótce włączona. 
+
+- **konto serwera vCenter**: konieczne konto tylko do odczytu, aby uzyskać dostęp serwer vCenter. Azure migracji używa tego konta do odnajdywania lokalnych maszyn wirtualnych.
+- **Uprawnienia**: w programie Vcenter Server, musisz mieć uprawnienia do tworzenia maszyny Wirtualnej przez zaimportowanie pliku w. Format komórek jajowych. 
+- **Ustawienia statystyki**: ustawienia statystyki dla serwera vCenter powinien być ustawiony na poziomie 3, przed rozpoczęciem wdrażania. Jeśli niższy niż poziom 3, oceny będą działać, ale nie jest zebrać danych wydajności magazynu i sieci. Żądany rozmiar zalecenia w tym przypadku zostanie to zrobione oparte na dane wydajności dotyczące procesora CPU i pamięci i konfigurację danych kart dysku i sieci. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
@@ -51,7 +55,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Wyszukaj **migracji Azure**i wybierz usługę (**Azure migracji (wersja zapoznawcza)** w wynikach wyszukiwania. Następnie kliknij pozycję **Utwórz**.
 3. Określ nazwę projektu i subskrypcji platformy Azure dla projektu.
 4. Utwórz nową grupę zasobów.
-5. Określ region, w którym można utworzyć projekt, a następnie kliknij przycisk **Utwórz**. Metadane zebranych z lokalnych maszyn wirtualnych będą przechowywane w tym regionie. Projekt platformy Azure migracji można utworzyć tylko w regionu zachodnie centralnej nam dla tej wersji zapoznawczej. Jednak można ocenić maszyn wirtualnych do innej lokalizacji.
+5. Określ region, w którym można utworzyć projekt, a następnie kliknij przycisk **Utwórz**. Metadane zebranych z lokalnych maszyn wirtualnych będą przechowywane w tym regionie. Projekt platformy Azure migracji można utworzyć tylko w regionu zachodnie centralnej nam dla tej wersji zapoznawczej. Można jednak nadal planowania migracji dla dowolnego obiektu docelowego lokalizacji platformy Azure. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,7 +97,7 @@ Sprawdź, czy. Plik komórek jajowych jest bezpieczne, przed jego wdrożeniem.
 
 ## <a name="create-the-collector-vm"></a>Tworzenie modułu zbierającego maszyny Wirtualnej
 
-Zaimportować pobrany plik na serwerze vCenter.
+Pobrany plik należy zaimportować do programu vCenter Server.
 
 1. W konsoli klienta vSphere kliknij **pliku** > **wdrażanie szablonu OVF**.
 
@@ -143,7 +147,7 @@ Czas zależy od liczby maszyn wirtualnych odnajdywania odnajdywania. Zwykle 100 
 Po odnalezieniu maszyn wirtualnych, możesz grupować i utworzyć ocenę. 
 
 1. W projekcie **omówienie** kliknij przycisk **+ Utwórz oceny**.
-2. Kliknij przycisk **Wyświetl wszystkie** Aby przejrzeć ustawienia oceny.
+2. Kliknij przycisk **Wyświetl wszystkie** do przeglądania właściwości oceny.
 3. Utwórz grupy i określ nazwę grupy.
 4. Wybierz maszyny, które chcesz dodać do grupy.
 5. Kliknij przycisk **utworzyć oceny**, aby utworzyć grupy i oceny.
@@ -168,13 +172,16 @@ Ten widok przedstawia stan gotowości dla każdego komputera.
 
 #### <a name="monthly-cost-estimate"></a>Miesięczne szacowania kosztów
 
-Ten widok przedstawia wyceny dla zasobów obliczeniowych i magazynu dla każdej maszyny. Szacowanie kosztów są obliczane przy użyciu zalecenia na podstawie rozmiaru dla komputera i jego dysków i właściwości oceny.
+Ten widok przedstawia całkowity obliczeniowych i przestrzeni magazynowej uruchomionych maszyn wirtualnych na platformie Azure oraz szczegóły dotyczące poszczególnych maszyn. Szacowanie kosztów są obliczane przy użyciu zalecenia na podstawie rozmiaru dla komputera i jego dysków i właściwości oceny. 
 
-Szacowane koszty miesięczne obliczeniowych i magazynu są agregowane dla wszystkich maszyn wirtualnych w grupie. Możesz kliknąć na każdej maszynie, aby przejść do szczegółów. 
+> [!NOTE]
+> Szacowania kosztów podał Azure migracji jest przeznaczony do uruchamiania maszyn wirtualnych do lokalnego jako Azure infrastruktura jako usługa (IaaS) maszyn wirtualnych. Traktuje wszystkie platformy jako usługa (PaaS) lub oprogramowania jako koszty usługi (SaaS). 
+
+Szacowane koszty miesięczne obliczeniowych i magazynu są agregowane dla wszystkich maszyn wirtualnych w grupie. 
 
 ![Ocena koszt maszyny Wirtualnej](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Użytkownik może przejść do szczegółów kosztów Zobacz dla określonej maszyny.
+Można następnie przejść do szczegółów można znaleźć określonej maszyny.
 
 ![Ocena koszt maszyny Wirtualnej](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

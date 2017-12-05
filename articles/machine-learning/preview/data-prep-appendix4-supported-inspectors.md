@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Obsługiwane inspektorzy dla usługi Azure Machine Learning przygotowywania danych z wersji zapoznawczej
 W tym dokumencie przedstawiono zbiór inspektorzy, które są dostępne w tej wersji zapoznawczej.
@@ -33,7 +33,7 @@ Dla kolumny liczbowe Ten inspektor zawiera szereg różnych statystyki dotycząc
 - Niższe kwartyl
 - Mediana
 - Górny kwartyl
-- Maksymalna
+- Maksimum
 - Średnia
 - Odchylenie standardowe
 
@@ -113,3 +113,18 @@ Mapa punktów, które są kreślone, przy założeniu, że zostały określone w
 Ten inspektor obsługuje filtrowanie za pośrednictwem wyboru punktu na mapie. Naciśnij klawisz **Ctrl** klucza, a następnie kliknij i przeciągnij za pomocą myszy do utworzenia kwadrat wokół punktów. Następnie Zastosuj filtry, jak opisano wcześniej.
 
 Można szybko rozmiar mapę, aby pokazać tylko te punkty możliwe przez naciśnięcie przycisku **E** po lewej stronie mapy.
+
+
+## <a name="pattern-frequency"></a>Częstotliwość wzorca 
+
+Ten inspektor pokazuje listę wzorców w zaznaczonej kolumnie ciągu. Wzorce są przedstawiane za pomocą składni wyrażenia regularnego. Kursor myszy na wzorcu przedstawiono przykładowe wartości reprezentowany przez ten wzorzec. Wraz z wzorców wyświetlane są również przybliżonej ubezpieczenia w postaci wartości procentowej.
+
+![Obraz inspektora wzorca](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opcje
+- Liczba wartości górnej
+- Malejąco
+- Pokaż halo
+
+### <a name="actions"></a>Akcje
+Ten inspektor obsługuje filtrowanie na podstawie wzorców wyświetlane. Naciśnij klawisz **Ctrl** klucza, a następnie wybierz wypełniony paski inspektora wzorca. Następnie Zastosuj filtry, jak opisano wcześniej. W wyniku acion użytkownik zostanie dodany do kroku filtru zaawansowanego. Możesz wyświetlić i zmodyfikować wygenerowanego kodu Python za pomocą opcji edycji filtru zaawansowanego etapu.

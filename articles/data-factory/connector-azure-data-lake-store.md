@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ W szczególności ten łącznik usługi Azure Data Lake Store obsługuje:
 - Kopiowanie plików za pomocą **nazwy głównej usługi** lub **tożsamość usługi (MSI) zarządzanej** uwierzytelniania.
 - Kopiowanie plików jako — jest lub analizowania/Generowanie plików z [obsługiwane formaty plików i kodery-dekodery kompresji](supported-file-formats-and-compression-codecs.md).
 
-## <a name="get-started"></a>Rozpocznij pracę
+## <a name="get-started"></a>Rozpoczynanie pracy
 Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do usługi Azure Data lake Store.
@@ -58,7 +58,7 @@ Następujące właściwości są obsługiwane przez usługi Azure Data Lake Stor
 Odpowiednio można znaleźć w poniższych sekcjach więcej właściwości i JSON próbek różnymi typami uwierzytelniania:
 
 - [Przy użyciu uwierzytelniania głównej usługi](#using-service-principal-authentication)
-- [Uwierzytelnianie tożsamości zarządzanych usług](#using-managed-service-identitiy-authentication)
+- [Uwierzytelnianie tożsamości zarządzanych usług](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Przy użyciu uwierzytelniania głównej usługi
 

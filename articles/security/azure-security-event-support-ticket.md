@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 01168e050f5feec1fa2eafc57b76f2e18c921b93
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Jak rejestrować biletu pomocy technicznej zdarzeń zabezpieczeń
 
-1. Przejdź do [Portal wydawcy](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) i zaloguj się przy użyciu poświadczeń firmy Microsoft.
+1. Przejdź do [techniczną wydawcy](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) i zaloguj się przy użyciu poświadczeń firmy Microsoft.
 2. Wybierz "Zdarzeń zabezpieczeń" jako typ problemu i wybrać kategorii "Zdarzenia zabezpieczeń" i "Luka w zabezpieczeniach".
 
     ![Typ zdarzenia i definicji][1]
 
-3. Wybierz typ problemu i kategoria, kliknij "**żądanie uruchomienia**" przycisku.
+3. Wybierz typ problemu i kategoria, kliknij "**żądanie uruchomienia**" przycisku. Podaj następujące informacje, aby pomóc nam lepiej zrozumieć problem.
 
-    i. Co to jest problem i/lub luk w zabezpieczeniach.
+    i. Co to jest problem i/lub usterki?
 
     II. Dla luk w zabezpieczeniach Dodaj CVE (mitre.org) lub wypełniony limit CVSS3 v3 kalkulatora (https://www.first.org/cvss/calculator/3.0).
 

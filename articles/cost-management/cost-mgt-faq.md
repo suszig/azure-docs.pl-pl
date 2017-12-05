@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Często zadawane pytania dotyczące usługi Azure Management koszt
 
@@ -92,20 +92,13 @@ Dla dostawców usług kryptograficznych:
 
 Aby dodać dodatkowe konta dostawcy usług Kryptograficznych do jednostki, wybierz **dostępu MSP** zamiast **Enterprise** podczas tworzenia nowego obiektu. Jeśli Twoje konto jest zarejestrowany jako umowy Enterprise Agreement, i chcesz dodać poświadczenia dostawcy usług Kryptograficznych, Cloudyn pomocy technicznej może być konieczne zmodyfikuj ustawienia konta. Jeśli masz płatne subskrybent platformy Azure, można utworzyć nowe żądanie pomocy technicznej w portalu Azure. Wybierz **Pomoc i obsługa techniczna**, a następnie wybierz **nowy obsługuje żądania**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Jak zmienić symbol waluty używany w Cloudyn?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Symbole waluty w raportach Cloudyn
 
-Wszystkie konta platformy Azure w pojedynczej jednostki użycie tej samej waluty, waluty, którego używasz jest wykrywany automatycznie. Jednak symbol waluty błędnego jest wyświetlany jako  **$**  dla każdego z nich następujące:
+Może mieć wiele kont platformy Azure przy użyciu różnych waluty. Jednak koszt raportów w Cloudyn nie pokazuj więcej niż jeden typ waluty na raport.
 
-- GBP = na brytyjski funt szterling
-- EUR = Europejskiego EUR
-- INR = Rupia indyjskiego
-- NOK = norweska
+Jeśli masz wiele subskrypcji przy użyciu różnych walut jednostki nadrzędnej i jej waluty jednostki podrzędne są wyświetlane z  **$**  symbolu. Nasze sugerowane najlepszym rozwiązaniem jest aby uniknąć używania różnych waluty w tej samej hierarchii jednostek. Innymi słowy wszystkie subskrypcje strukturę jednostek należy używać tej samej waluty.
 
-Mimo że symbol waluty mogą być wyświetlane  **$**  USD, wartości kosztów są pokazane w walucie poprawne. Na przykład użycie wszystkich kont EUR w tej samej jednostki _wartości_ pokazano Cloudyn są EUR, nawet jeśli  **$**  błędnego występuje symbol.
-
-W przypadku klienta Azure Enterprise Agreement, Cloudyn pomocy technicznej można zmienić wyświetlany w raportach koszt z $ symbolu waluty. W portalu Azure, można utworzyć nowe żądanie pomocy technicznej. Wybierz **Pomoc i obsługa techniczna**, a następnie wybierz **nowy obsługuje żądania**.
-
-Jeśli jesteś klientem dostawcy usług Kryptograficznych, nie można zmienić symbol waluty. Cloudyn obsługuje tylko karty szybkości, korzystających z USD. Cloudyn rozważa możliwość obsługi kart szybkości w różnych waluty.
+Cloudyn automatycznie wykrywa walucie subskrypcji Enterprise Agreement i przedstawia on prawidłowo w raportach.  Jednak wyświetlane tylko Cloudyn  **$**  symbol dla konta platformy Azure bezpośrednio w sieci web i dostawcy usług Kryptograficznych.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Co to są dane Cloudyn Odśwież osi czasu?
 

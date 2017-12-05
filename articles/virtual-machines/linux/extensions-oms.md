@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej OMS dla systemu Linux
 
@@ -41,6 +41,10 @@ Można uruchomić rozszerzenia Agent pakietu OMS, względem tych dystrybucje sys
 | Debian GNU/Linux | 6, 7 i 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 i 12 |
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Centrum zabezpieczeń Azure automatycznie udostępnia agent pakietu OMS i łączy go z obszaru roboczego analizy dzienników domyślne subskrypcji platformy Azure. Jeśli korzystasz z Centrum zabezpieczeń Azure, nie należy uruchamiać kroków w tym dokumencie. Spowoduje to zastąpienie obszaru roboczego skonfigurowana i podział połączenie z Centrum zabezpieczeń Azure.
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -173,7 +177,7 @@ Dane wyjściowe wykonania rozszerzenie jest zarejestrowane w następującym plik
 
 ### <a name="error-codes-and-their-meanings"></a>Kody błędów i ich znaczenie
 
-| Kod błędu: | Znaczenie | Możliwe działania |
+| Kod błędu | Znaczenie | Możliwe działania |
 | :---: | --- | --- |
 | 10 | Maszyna wirtualna jest już połączony z obszarem roboczym pakietu OMS | Aby połączyć maszynę Wirtualną do obszaru roboczego określonej w schemacie rozszerzenia, stopOnMultipleConnections ma wartość false w publicznych Ustawienia tej właściwości lub Usuń. Tej maszyny Wirtualnej pobiera rozliczane po dla każdego obszaru roboczego jest połączony. |
 | 11 | Nieprawidłowy konfiguracji do rozszerzenia | Postępuj zgodnie z powyższych przykładach można ustawić wartości wszystkich właściwości niezbędne do wdrożenia. |

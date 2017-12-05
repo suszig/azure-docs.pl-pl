@@ -1,9 +1,9 @@
 ---
-title: "Init chmury umożliwia dostosowywanie Maszynę wirtualną systemu Linux | Dokumentacja firmy Microsoft"
-description: "Dostosowywanie maszyny Wirtualnej systemu Linux podczas tworzenia 2.0 interfejsu wiersza polecenia platformy Azure przy użyciu init chmury"
+title: "Omówienie chmury inicjowania obsługi maszyn wirtualnych systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Omówienie funkcji init chmurze na platformie Microsoft Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Init chmury umożliwia dostosowywanie Maszynę wirtualną systemu Linux na platformie Azure
-W tym artykule przedstawiono sposób użycia [init chmury](https://cloudinit.readthedocs.io) można ustawić nazwę hosta, pakietów aktualizacji i zarządzanie kontami użytkowników na maszynie wirtualnej (VM) na platformie Azure. Skrypty te init chmury są uruchamiane przy rozruchu podczas tworzenia maszyny Wirtualnej z 2.0 interfejsu wiersza polecenia platformy Azure. Więcej informacji na temat Omówienie na sposobu instalowania aplikacji, zapisywać pliki konfiguracji i wstrzyknąć kluczy z usługi Key Vault, zobacz [w tym samouczku](tutorial-automate-vm-deployment.md). Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](using-cloud-init-nodejs.md).
-
+W tym artykule przedstawiono sposób użycia [init chmury](https://cloudinit.readthedocs.io) do skonfigurowania maszyny wirtualnej (VM) lub maszyny wirtualnej zestawach skali (VMSS) na inicjowanie obsługi administracyjnej czas na platformie Azure. Skrypty te init chmury są uruchamiane po pierwszym uruchomieniu komputera po zasoby zostały udostępnione przez platformę Azure.  
 
 ## <a name="cloud-init-overview"></a>Init chmury — omówienie
-[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Podczas inicjowania chmury działania podczas początkowego procesu rozruchu, nie ma, nie dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.
+[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels są plikami tekstowymi zakodowane w formacie base64.
 
 Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
 
-Pracujemy nad z naszych partnerów uzyskanie init chmury uwzględnione i Praca w obrazach, zapewniające na platformie Azure. W poniższej tabeli przedstawiono bieżącej dostępności init chmury na obrazy platformy Azure:
+ Obecnie pracujemy z partnerami potwierdzony distro systemu Linux w celu dostępnych obrazów włączone inicjowania chmury w portalu Azure marketplace. Te obrazy spowoduje, że wdrożeń chmury init i konfiguracje współpracuje z maszynami wirtualnymi i zestawy skalowania maszyny Wirtualnej (VMSS). W poniższej tabeli przedstawiono bieżącej dostępności obrazów init chmury, włączone na platformie Azure:
 
-| Alias | Wydawca | Oferta | SKU | Wersja |
+| Wydawca | Oferta | SKU | Wersja | gotowe init chmury
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |najnowsza |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |
-| CoreOS |CoreOS |CoreOS |Stable |najnowsza |
+|Canonical |UbuntuServer |16.04 LTS |najnowsza |tak | 
+|Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
+|CoreOS |CoreOS |Stable |najnowsza |tak |
+|OpenLogic |CentOS |7-CI |najnowsza |wersja zapoznawcza |
+|RedHat |RHEL |7-RAW-CI |najnowsza |wersja zapoznawcza |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaka jest różnica między init chmury i agenta systemu Linux (WALA)?
+WALA jest używany do obsługi administracyjnej i skonfigurować maszyny wirtualne i obsługi rozszerzeń Azure agenta specyficzne dla platformy Azure. Firma Microsoft są udoskonalanie zadanie konfigurowania maszyn wirtualnych do korzystania z chmury init zamiast agenta systemu Linux w celu umożliwienia istniejących klientów init chmury za pomocą ich bieżący skryptów init chmury.  Jeśli dokonano już inwestycji w chmurze init skrypty do konfigurowania serwerów z systemem Linux są **są wymagane nie dodatkowe ustawienia** je włączyć. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>Ustaw nazwę hosta z inicjowaniem chmury
-Init chmury pliki są zapisywane [yaml programu](http://www.yaml.org). Do uruchomienia skryptu chmury init, podczas tworzenia maszyny Wirtualnej na platformie Azure z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create), określ plik init chmury z `--custom-data` przełącznika. Oto kilka przykładów co można skonfigurować przy użyciu pliku init chmury. Typowy scenariusz jest nazwa hosta maszyny wirtualnej. Domyślnie nazwa hosta jest taka sama jak nazwa maszyny Wirtualnej. 
+Jeśli nie ma przełącznika wiersza polecenia AzureCLI `--custom-data` na inicjowanie obsługi administracyjnej czasu WALA wykonuje minimalnego obsługi parametrów wymaganych do obsługi administracyjnej maszyny Wirtualnej i ukończyć wdrażanie przy użyciu ustawień domyślnych maszyny Wirtualnej.  Jeśli odwołanie init chmury `--custom-data` przełącznika, niezależnie od znajduje się w danych niestandardowych (poszczególnych ustawień lub skryptu pełne) zastępuje WALA zdefiniowane wartości domyślne. 
 
-Najpierw utwórz nową grupę zasobów o [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Konfiguracje WALA maszyn wirtualnych jest ograniczone do pracy w ramach maksymalny czas inicjowania obsługi administracyjnej maszyny Wirtualnej.  Konfiguracje init chmury stosowane do maszyn wirtualnych bez ograniczeń czasowych i nie powoduje wdrożenia niepowodzenie przez przekroczeniem limitu czasu. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Wdrażanie inicjowania chmury włączone maszyny wirtualnej
+Wdrażanie włączone inicjowania chmury maszyny wirtualnej jest tak proste, jak odwołujące się do dystrybucji chmury inicjowaniem włączona podczas wdrażania.  Maintainers dystrybucji systemu Linux musiał wybrać włączyć i integrowanie init chmury podstawowej Azure obrazów opublikowanych. Po potwierdzeniu chmury inicjowaniem włączone jest obraz, który chcesz wdrożyć, można użyć AzureCLI do wdrożenia obrazu. 
+
+Pierwszym etapem wdrożenia tego obrazu jest utworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-W bieżącym powłoki, Utwórz plik o nazwie *cloud_init_hostname.txt* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. W powłoce chmury wprowadź `sensible-editor cloud_init_hostname.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Teraz, utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i określ plik init chmury z `--custom-data cloud_init_hostname.txt` w następujący sposób:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-Po utworzeniu interfejsu wiersza polecenia Azure zawiera informacje o maszynie Wirtualnej. Użyj `publicIpAddress` do SSH do maszyny Wirtualnej. Wprowadź własne adres e-mail w następujący sposób:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Aby wyświetlić nazwę maszyny Wirtualnej, użyj `hostname` polecenia w następujący sposób:
-
-```bash
-hostname
-```
-
-Maszyna wirtualna Zgłoś nazwa hosta jako tego wartość ustawiona w pliku chmury init, jak pokazano w poniższym przykładzie danych wyjściowych:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>Aktualizacja maszyny Wirtualnej z inicjowaniem chmury
-Ze względów bezpieczeństwa można skonfigurować Maszynę wirtualną do zastosowania najnowszych aktualizacji po pierwszym uruchomieniu komputera. Jak chmury init działa za pośrednictwem różnych dystrybucjach systemu Linux, nie istnieje potrzeba do określenia `apt` lub `yum` Menedżera pakietów. Zamiast tego należy zdefiniować `package_upgrade` i pozwolić, aby ustalić odpowiedni mechanizm distro używany proces init chmury. Ten przepływ pracy umożliwia przy użyciu tego samego skrypty chmurze init między dystrybucjach.
-
-Aby zobaczyć procesu uaktualniania w akcji, należy utworzyć plik init chmury o nazwie *cloud_init_upgrade.txt* i wklej następującą konfigurację:
+Następnym krokiem jest utworzenie pliku w bieżącym powłoki, o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład można utworzyć pliku w powłoce chmury nie na komputerze lokalnym. Można użyć dowolnego edytora, którego chcesz. Wprowadź `sensible-editor cloud-init.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Wybierz #1, aby użyć **nano** edytora. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Naciśnij klawisz `ctrl-X` aby wyjść z pliku, wpisz `y` zapisać plik i naciśnij przycisk `enter` aby potwierdzić nazwę pliku na wyjściu.
 
-Teraz, utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i określ plik init chmury z `--custom-data cloud_init_upgrade.txt` w następujący sposób:
+Ostatnim krokiem jest utworzenie maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create) polecenia. 
 
-```azurecli
+Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74* i tworzy kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  Użyj `--custom-data` parametr do przekazania w pliku config init chmury. Podaj pełną ścieżkę do *init.txt chmury* konfiguracji, jeśli plik został zapisany poza istnieje katalog roboczy. Poniższy przykład tworzy Maszynę wirtualną o nazwie *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-SSH jako publiczny adres IP wyświetlany w danych wyjściowych z poprzedniego polecenia maszyny wirtualnej. Wprowadź własne publicznego adresu IP w następujący sposób:
+Po utworzeniu maszyny Wirtualnej, interfejsu wiersza polecenia Azure zawiera informacje specyficzne dla danego wdrożenia. Zwróć uwagę na element `publicIpAddress`. Ten adres jest używany na potrzeby uzyskiwania dostępu do maszyny wirtualnej.  Trwa trochę czasu, można utworzyć maszyny Wirtualnej, pakietów do zainstalowania i aplikacji, aby rozpocząć. Istnieją zadania w tle, które nadal działać po interfejsu wiersza polecenia Azure powrót do wiersza polecenia. Można SSH do maszyny Wirtualnej i sprawdź dzienniki z inicjowaniem chmury przy użyciu kroków opisanych w części Rozwiązywanie problemów. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Rozwiązywanie problemów z inicjowaniem chmury
+Po zainicjowano maszyny Wirtualnej, init chmurze zostanie uruchomiony za pośrednictwem wszystkich modułów i skryptów są zdefiniowane w `--custom-data` w celu skonfigurowania maszyny Wirtualnej.  Należy sprawdzić poprawność błędów lub pominięć z konfiguracji, należy wyszukać nazwę modułu (`disk_setup` lub `runcmd` na przykład) w dzienniku chmury init - znajduje się w **/var/log/cloud-init.log**.
 
-Uruchom pakiet narzędzia do zarządzania i sprawdzają aktualizacje. W poniższym przykładzie użyto `apt-get` na maszynie Wirtualnej systemu Ubuntu:
+> [!NOTE]
+> Nie każdy błąd modułu powoduje krytyczny init chmury ogólny błąd konfiguracji. Na przykład za pomocą `runcmd` moduł, jeśli skrypt zakończy się niepowodzeniem, init chmury nadal zgłasza inicjowania obsługi administracyjnej zakończyło się pomyślnie, ponieważ moduł runcmd wykonany.
 
-```bash
-sudo apt-get upgrade
-```
-
-Ponieważ init chmury sprawdzane pod kątem i zainstalować aktualizacje na rozruchu, nie ma żadnych aktualizacji do zastosowania, jak pokazano w poniższym przykładzie danych wyjściowych:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Dodawanie użytkownika do maszyny Wirtualnej z inicjowaniem chmury
-Jedno z pierwszym zadań na nowej maszyny Wirtualnej z systemem Linux jest dodanie użytkownika dla siebie Unikaj używania *głównego*. Najlepszym rozwiązaniem w zakresie bezpieczeństwa i użyteczność są klucze SSH. Klucze są dodawane do *~/.ssh/authorized_keys* plików za pomocą tego skryptu init chmury.
-
-Aby dodać użytkownika do maszyny Wirtualnej systemu Linux, Utwórz plik init chmury o nazwie *cloud_init_add_user.txt* i wklej następującą konfigurację. Podaj klucza publicznego (takie jak zawartość *~/.ssh/id_rsa.pub*) dla *ssh autoryzowany kluczy*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Teraz, utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i określ plik init chmury z `--custom-data cloud_init_add_user.txt` w następujący sposób:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-SSH jako publiczny adres IP wyświetlany w danych wyjściowych z poprzedniego polecenia maszyny wirtualnej. Wprowadź własne publicznego adresu IP w następujący sposób:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-Aby upewnić się, że użytkownik został dodany do maszyny Wirtualnej i określonych grup, Wyświetl zawartość */etc/grupy* plików w następujący sposób:
-
-```bash
-cat /etc/group
-```
-
-Następujące przykładowe dane wyjściowe wyglądają użytkownika z *cloud_init_add_user.txt* plik został dodany do maszyny Wirtualnej i odpowiednie grupy:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Więcej informacji o chmurze init rejestrowania, zapoznaj się [dokumentacji init chmury](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Następne kroki
-Init chmury jest jednym z standardowe sposoby modyfikowania maszyn wirtualnych systemu Linux na rozruchu. Na platformie Azure umożliwia także rozszerzeń maszyny Wirtualnej można zmodyfikować maszyny Wirtualnej systemu Linux przy rozruchu lub po jej uruchomieniu. Na przykład służy rozszerzenia maszyny Wirtualnej platformy Azure do uruchomienia skryptu na uruchomionej maszynie Wirtualnej, nie tylko na najpierw uruchomić. Aby uzyskać więcej informacji na temat rozszerzeń maszyny Wirtualnej, zobacz [wirtualna rozszerzeń i funkcji](extensions-features.md), lub przykłady dotyczące sposobu używania rozszerzenia można znaleźć [Zarządzanie użytkownikami, SSH, sprawdź i napraw dyski na maszynach wirtualnych systemu Linux platformy Azure przy użyciu rozszerzenia VMAccess](using-vmaccess-extension.md).
+Przykłady init chmury zmian konfiguracji można znaleźć w następujących dokumentach:
+ 
+- [Dodaj dodatkowe użytkownika w systemie Linux na maszynie Wirtualnej](cloudinit-add-user.md)
+- [Uruchom Menedżera pakietów, aby zaktualizować istniejące pakiety po pierwszym uruchomieniu komputera](cloudinit-update-vm.md)
+- [Zmień lokalną nazwą hosta maszyny Wirtualnej](cloudinit-update-vm-hostname.md) 
+- [Zainstaluj pakiet aplikacji, zaktualizuj pliki konfiguracji i wstrzyknąć kluczy](tutorial-automate-vm-deployment.md)

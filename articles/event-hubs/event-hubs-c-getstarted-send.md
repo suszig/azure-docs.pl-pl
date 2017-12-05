@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Wysyłanie zdarzeń do usługi Azure Event Hubs za pomocą C
 
@@ -27,16 +27,16 @@ Event Hubs to wysoce skalowalny system przyjmowania może obsługiwać miliony z
 
 Aby uzyskać więcej informacji, zobacz [Przegląd usługi Event Hubs] [Przegląd usługi Event Hubs].
 
-Z tego samouczka dowiesz sposób wysyłania zdarzeń do Centrum zdarzeń za pomocą aplikacji konsoli w C. Aby odbierać zdarzenia, kliknij odpowiedni język odbierania w tabeli po lewej stronie zawartości.
+Ten przewodnik opisuje sposób wysyłania zdarzeń do Centrum zdarzeń za pomocą aplikacji konsoli w C. Aby uzyskać informacje dotyczące odbierania zdarzeń, kliknij odpowiedni język odbierania w tabeli po lewej stronie zawartości.
 
-Do ukończenia tego samouczka niezbędne są następujące elementy:
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Środowisko deweloperskie C. W tym samouczku zakładamy, że na maszynie Wirtualnej platformy Azure Linux z Ubuntu 14.04 stosu gcc.
+* Środowisko deweloperskie C. Ten samouczek zakłada stosu gcc na maszynie Wirtualnej platformy Azure Linux z Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Wysyłanie komunikatów do usługi Event Hubs
-W tej sekcji możemy zapisać aplikacji C do wysyłania zdarzeń do Centrum zdarzeń. Kod korzysta z biblioteki AMQP protonów z [projektu Apache Qpid](http://qpid.apache.org/). To jest odpowiednikiem używanie tematów i kolejek usługi Service Bus z protokołu AMQP z C, jak pokazano [tutaj](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Aby uzyskać więcej informacji, zobacz [dokumentacji protonów Qpid](http://qpid.apache.org/proton/index.html).
+W tej sekcji przedstawiono sposób pisania aplikacji C do wysyłania zdarzeń do Centrum zdarzeń. Kod korzysta z biblioteki AMQP protonów z [projektu Apache Qpid](http://qpid.apache.org/). To jest odpowiednikiem używanie tematów i kolejek usługi Service Bus z protokołu AMQP z C, jak pokazano [w tym przykładzie](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Aby uzyskać więcej informacji, zobacz [dokumentacji protonów Qpid](http://qpid.apache.org/proton/index.html).
 
 1. Z [strony Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), postępuj zgodnie z instrukcjami, aby zainstalować protonów Qpid, w zależności od środowiska.
 2. Aby skompilować biblioteki protonów, zainstaluj następujące pakiety:
@@ -59,7 +59,7 @@ W tej sekcji możemy zapisać aplikacji C do wysyłania zdarzeń do Centrum zdar
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. W katalogu roboczego, Utwórz nowy plik o nazwie **sender.c** następującym kodem. Pamiętaj, aby zastąpić wartość nazwy Centrum zdarzeń i przestrzeni nazw. Należy również podstawić zakodowane w adresie URL wersję klucza **SendRule** utworzony wcześniej. Możesz kodowania adresu URL go [tutaj](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. W katalogu roboczego, Utwórz nowy plik o nazwie **sender.c** następującym kodem. Pamiętaj, aby zastąpić wartości dla klucza/nazwa SAS, nazwy Centrum zdarzeń i przestrzeni nazw. Należy również podstawić zakodowane w adresie URL wersję klucza **SendRule** utworzony wcześniej. Możesz kodowania adresu URL go [tutaj](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -147,15 +147,13 @@ W tej sekcji możemy zapisać aplikacji C do wysyłania zdarzeń do Centrum zdar
     ```
 
     > [!NOTE]
-    > W tym kodzie używamy wychodzących okna 1 Aby jak najszybciej wymusić komunikatów wychodzących. Ogólnie rzecz biorąc aplikacji, należy spróbować partii komunikatów w celu zwiększenia przepływności. Zobacz [strony Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) informacji o sposobie używania biblioteki protonów Qpid, w tym i innych środowisk i z platformy, dla których wiązania są udostępniane (obecnie Perl, PHP, Python i Ruby).
+    > Ten kod zawiera wychodzących okna 1, aby jak najszybciej wymusić komunikatów wychodzących. Zaleca się, czy aplikacja próbuje partii komunikatów w celu zwiększenia przepływności. Zobacz [strony Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) informacji o sposobie używania biblioteki protonów Qpid, w tym i innych środowisk i z platformy, dla których wiązania są udostępniane (obecnie Perl, PHP, Python i Ruby).
 
 
 ## <a name="next-steps"></a>Następne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md
-)
-* [Tworzenie centrum zdarzeń](event-hubs-create.md)
+* [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 
 <!-- Images. -->

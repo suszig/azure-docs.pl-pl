@@ -3,8 +3,8 @@ title: "Szablony interfejsu API w usłudze Azure API Management | Dokumentacja f
 description: "Dowiedz się, jak dostosować zawartość strony interfejsu API w portalu dla deweloperów w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API w usłudze Azure API Management
 Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartość strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i Edytor wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [symboli zasobów](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości strony interfejsu API w portalu dla deweloperów.  
+Szablony w tej sekcji umożliwiają dostosowanie zawartości strony interfejsu API w portalu dla deweloperów.  
   
 -   [Lista interfejsu API](#APIList)  
 -   [Operacja](#Product)  
@@ -348,7 +348,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 |Operacja|[Operacja](api-management-template-data-model-reference.md#Operation)|Operacja aktualnie wyświetlany.|  
 |sampleUrl|Ciąg|Adres URL dla bieżącej operacji.|  
 |operationMenu|[Operacja menu](api-management-template-data-model-reference.md#Menu)|Menu operacji dla tego interfejsu API.|  
-|consoleUrl|IDENTYFIKATOR URI|Identyfikator URI dla **wypróbuj** przycisku.|  
+|consoleUrl|Identyfikator URI|Identyfikator URI dla **wypróbuj** przycisku.|  
 |Przykłady|Kolekcja [przykładowy kod](api-management-template-data-model-reference.md#Sample) jednostek.|Przykłady kodu dla bieżącej operacji...|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  

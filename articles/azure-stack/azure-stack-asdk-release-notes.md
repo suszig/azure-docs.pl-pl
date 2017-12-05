@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Informacje o wersji platformy Azure stosu Development Kit
 
@@ -56,7 +56,7 @@ Te informacje o wersji zawierają informacje dotyczące ulepszeń, poprawki i zn
    Aby obejść problemy z ostatnich dwóch, możesz wpisać nazwę subskrypcji lub grupy zasobów (jeśli ją znasz), lub można użyć programu PowerShell.
 
 - Zobaczysz **wymagana aktywacja** alert ostrzeżenia, zaleceniem można zarejestrować zestawu Azure stosu Development Kit. To zachowanie jest oczekiwane.
-- W **wymagana aktywacja** ostrzeżenie szczegóły alertu, nie kliknij łącze, aby **AzureBridge** składnika. Jeśli to zrobisz, **omówienie** bloku bez powodzenia próbuje załadować, a nie upłynął limit czasu.
+- Jeśli **składnika** kliknięciu łącza za pomocą dowolnego **rolę infrastruktury** alertów, powstałe w ten sposób **omówienie** bloku próbuje załadować środowisko i kończy się niepowodzeniem. Ponadto ** omówienie ** bloku jest nie upłynął limit czasu.
 - Usunięcie użytkownika powoduje subskrypcje zasoby oddzielone. Jako obejście najpierw usuń zasoby użytkownika lub grupy zasobów całej, a następnie usuń subskrypcji użytkownika.
 - Nie jest możliwe wyświetlić uprawnienia do subskrypcji przy użyciu portali stosu Azure. Jako rozwiązanie alternatywne można sprawdzić uprawnień za pomocą programu PowerShell.
  

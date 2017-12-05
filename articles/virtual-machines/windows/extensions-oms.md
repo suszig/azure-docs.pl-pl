@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej OMS dla systemu Windows
 
@@ -28,7 +28,12 @@ Operations Management Suite (OMS) zapewnia możliwości korygowania monitorowani
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="operating-system"></a>System operacyjny
+
 Rozszerzenie Agent pakietu OMS dla systemu Windows mogą być uruchamiane na systemie Windows Server 2008 R2, 2012 i 2012 R2, 2016 wersje.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Centrum zabezpieczeń Azure automatycznie udostępnia agent pakietu OMS i łączy go z obszaru roboczego analizy dzienników domyślne subskrypcji platformy Azure. Jeśli korzystasz z Centrum zabezpieczeń Azure, nie należy uruchamiać kroków w tym dokumencie. Spowoduje to zastąpienie obszaru roboczego skonfigurowana i podział połączenie z Centrum zabezpieczeń Azure.
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 Rozszerzenia Agent pakietu OMS dla systemu Windows wymaga, aby docelowa maszyna wirtualna jest połączony z Internetem. 

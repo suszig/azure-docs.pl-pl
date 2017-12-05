@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: bradsev;weig
-ms.openlocfilehash: 73517a8d58700e987ce80889dadf8791e53170a3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proces nauki danych zespołu w działaniu: przy użyciu magazynu danych SQL
 W tym samouczku, możemy opisano tworzenie i wdrażanie modelu uczenia maszynowego przy użyciu magazynu danych SQL (SQL DW) dla elementu dataset publicznie dostępnych — [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych. Model klasyfikacji binarnej skonstruowany prognozuje czy poradę ma być stosowany w podróży i modele wieloklasowej klasyfikacji i regresji omówiono także które prognozowania dystrybucji dla kwoty Porada płatnej.
@@ -839,7 +839,6 @@ W tym ćwiczeniu firma Microsoft ma już przedstawione odtwarzane danych w usłu
 3. Wprowadź nazwę DNS bazy danych w **nazwę serwera bazy danych** pola. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **Nazwa bazy danych** w odpowiednie pole.
 5. Wprowadź *nazwa użytkownika SQL* w **nazwę konta użytkownika serwera**i *hasło* w **hasło konta użytkownika serwera**.
-6. Sprawdź **dowolny certyfikat serwera Zaakceptuj** opcji.
 7. W **zapytanie bazy danych** edytowania obszaru tekstu, Wklej zapytanie, które zwraca pola niezbędne bazy danych (w tym wszystkie pola obliczanej, takich jak etykiety) i w dół próbek danych do żądanego próbkowania.
 
 Przykład eksperyment klasyfikacji binarnej odczytywanie danych bezpośrednio z bazy danych usługi SQL Data Warehouse to na poniższej ilustracji (Pamiętaj zastąpić nyctaxi_trip nazwy tabeli i nyctaxi_fare przez nazwę schematu i nazwy tabeli używana w Twojej wskazówki). Podobne eksperymenty można utworzyć dla wieloklasowej klasyfikacji i regresji problemów.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: be18f6db46285233e233c843dab1f389cd553e96
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: fa19913928bad8b91777c0904324ff5983f6472c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Uruchamianie zadań Pig na klastrze opartych na systemie Linux przy użyciu polecenia Pig (SSH)
 
@@ -35,35 +35,39 @@ Dowiedz się, jak interakcyjnego uruchamiania zadań Pig z połączenia SSH do k
 
 Używanie protokołu SSH, aby nawiązać połączenie z klastrem usługi HDInsight. Poniższy przykład łączy do klastra o nazwie **myhdinsight** jako konta o nazwie **sshuser**:
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**Jeśli podano klucz certyfikatu dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight, konieczne może być Określ lokalizację klucza prywatnego na komputerze klienckim.
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**Jeśli podano hasło dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight, podaj hasło po wyświetleniu monitu.
-
-Aby uzyskać więcej informacji o korzystaniu z protokołu SSH z usługą HDInsight, zobacz [używanie SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Użyj polecenia Pig
 
 1. Po nawiązaniu połączenia, należy uruchomić Pig interfejsu wiersza polecenia (CLI) za pomocą następującego polecenia:
 
-        pig
+    ```bash
+    pig
+    ```
 
-    Po chwili powinna zostać wyświetlona `grunt>` wiersza.
+    Po chwili zmieni się na`grunt>`.
 
 2. Wprowadź następująca instrukcja:
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     To polecenie ładuje zawartość pliku sample.log do DZIENNIKÓW. Można wyświetlić zawartość pliku za pomocą następujących instrukcji:
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. Następnie przekształcać dane za pomocą wyrażenia regularnego można wyodrębnić poziom rejestrowania z każdego rekordu przy użyciu następujących instrukcji:
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     Można użyć **zrzutu** do wyświetlania danych po przekształceniu. W takim przypadku należy użyć `DUMP LEVELS;`.
 
@@ -81,36 +85,48 @@ Aby uzyskać więcej informacji o korzystaniu z protokołu SSH z usługą HDInsi
 
 5. Można także zapisać wyniki przekształcania za pomocą `STORE` instrukcji. Na przykład następująca instrukcja zapisuje `RESULT` do `/example/data/pigout` katalogu na domyślny magazyn dla klastra:
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > Dane są przechowywane w katalogu określonym w plikach o nazwie `part-nnnnn`. Jeśli katalog już istnieje, zostanie wyświetlony błąd.
 
 6. Aby zamknąć wiersz grunt, wprowadź następującą instrukcję:
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin pliki wsadowe
 
 Polecenie Pig umożliwia również uruchomić Pig Latin zawarte w pliku.
 
-1. Po zakończeniu wiersza grunt, użyj następującego polecenia do potoku STDIN do pliku o nazwie `pigbatch.pig`. Ten plik jest tworzony w katalogu macierzystego dla konta użytkownika SSH.
+1. Po wyjściu z wiersza grunt, użyj następującego polecenia, aby utworzyć plik o nazwie `pigbatch.pig`:
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. Wpisz lub wklej poniższe wiersze, a następnie użyj klawiszy Ctrl + D po zakończeniu.
+2. Wpisz lub wklej następujące wiersze:
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    Gdy skończysz, użyj __Ctrl__ + __X__, __Y__, a następnie __Enter__ można zapisać pliku.
 
 3. Użyj następującego polecenia do uruchomienia `pigbatch.pig` pliku za pomocą polecenia Pig.
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     Po zakończeniu zadania wsadowego, zapoznaj się następujące dane wyjściowe:
 

@@ -1,89 +1,87 @@
 ---
-title: "Dostosowywanie stylów w portalu deweloperów w usłudze Azure API Management | Microsoft Docs"
-description: "Dowiedz się, jak zmodyfikować style używane dla dowolnej strony w portalu deweloperów w usłudze Azure API Management."
+title: "Dostosować styl strony w portalu dla deweloperów usługi Azure API Management | Dokumentacja firmy Microsoft"
+description: "Wykonaj kroki tego przewodnika Szybki Start, aby dostosować styl elementów w portalu dla deweloperów usługi Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: vlvinogr
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
+ms.author: apimpm
+ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Dostosowywanie stylu portalu deweloperów w usłudze Azure API Management
-Istnieją trzy podstawowe sposoby dostosowywania portalu deweloperów w usłudze Azure API Management:
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosować styl strony portalu deweloperów
 
-* [Edycja zawartości stron statycznych i elementów układu strony][modify-content-layout]
-* [Aktualizacja stylów używanych dla elementów strony w portalu deweloperów][customize-styles] (opisana w tym przewodniku)
-* [Zmodyfikowanie szablonów używanych dla stron wygenerowanych przez portal][portal-templates] (np. dokumentacji interfejsu API, produktów, uwierzytelniania użytkowników itp.)
+Istnieją trzy sposoby najczęściej używane do dostosowywania portalu dla deweloperów w usłudze Azure API Management:
+ 
+* [Edytuj zawartość strony statyczne i elementy układ strony](api-management-modify-content-layout.md)
+* Aktualizuj style używany do elementów strony w portalu dla deweloperów (co omówiono w tym przewodniku)
+* [Modyfikowanie szablonów używany dla stron wygenerowanych przez portal](api-management-developer-portal-templates.md) (na przykład dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników)
 
-## <a name="change-headers-styling"> </a>Zmienianie stylu elementów strony
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-Kolory, czcionki, rozmiary, odstępy i inne elementy stylu związane z dowolną stroną portalu są definiowane przez reguły stylów. 
+> [!div class="checklist"]
+> * Dostosowywanie stylu elementów na stronach **Developer** portalu
+> * Wyświetl zmiany
 
-Edytowanie reguły stylów odbywa się w **portalu deweloperów**, przy użyciu konta administratora. Aby do niego przejść, otwórz witrynę Azure Portal i kliknij pozycję **Portal wydawcy** na pasku narzędzi wystąpienia usługi API Management.
+![Dostosowywanie stylów](./media/modify-developer-portal-style/developer_portal.png)
 
-![Publisher portal][api-management-management-console]
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Następnie kliknij polecenie **Portal deweloperów** w prawym górnym rogu. 
++ Ukończenie następujących Szybki Start: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ Ponadto Ukończ samouczek następujących: [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
 
-![Link do portalu deweloperów w portalu wydawcy][api-management-pp-dp-link]
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Aby otworzyć pasek narzędzi dostosowywania, umieść wskaźnik myszy na ikonie dostosowywania (lub wybierz ją), a następnie kliknij pozycję „style” na pasku narzędzi.
+## <a name="customize-the-developer-portal"></a>Dostosowywanie portalu dla deweloperów
 
-![Przycisk paska narzędzi do dostosowywania][api-management-customization-toolbar-button]
+1. Wybierz **omówienie**.
+2. Kliknij przycisk **portalu dla deweloperów** przycisk na wierzchu z **omówienie** okna. Alternatywnie możesz kliknąć **portalu dla deweloperów adresu URL** łącza.
+3. Po lewej stronie górnej części ekranu widoczna ikona składającej się z dwóch pędzli. Umieść kursor nad ikonę, aby otworzyć menu dostosowywania portalu.
 
-Istnieją dwa główne sposób edycji reguł stylów — można przeglądać listę wszystkich reguł stylów używanych w dowolnym miejscu (która jest wyświetlana domyślnie) i modyfikować styl zgodnie z potrzebami lub można wybrać pozycję **Wybierz element na stronie**, a następnie kliknąć dowolne miejsce na stronie, aby wyświetlić tylko style odpowiednie dla tego elementu.
+    ![Dostosowywanie stylów](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Wybierz **style** z menu, aby otworzyć okienko Dostosowywanie stylów.
 
-![Pasek narzędzi do dostosowywania][api-management-customization-toolbar]
+    Wszystkie elementy, które można dostosować za pomocą **style** wyświetlane na stronie
+5. Wprowadź "nagłówki color" w **zmieniać wartości zmiennych, aby dostosować wygląd portalu deweloperów:** pola.
 
-Na potrzeby tego przykładu kliknij opcję **Wybierz element na stronie**.  Teraz umieszczenie kursora myszy nad elementami powoduje ich wyróżnienie, a kliknięcie wyróżnionego elementu pozwala rozpocząć edycję jego stylów. Przenieś wskaźnik myszy na tekst w nagłówku (zazwyczaj jest tam nazwa firmy), a następnie kliknij go. W edytorze stylów pojawi się zestaw nazwanych i podzielonych na kategorie reguł stylów. Każda reguła reprezentuje właściwość stylu wybranego elementu. Na przykład w wybranym powyżej tekście nagłówka rozmiar tekstu to @font-size-h1, a nazwa czcionki z alternatywami to @headings-font-family.
+     **@headings-color**  Element jest wyświetlany na stronie. Ta zmienna Określa kolor tekstu.
 
-> Jeśli znasz środowisko [bootstrap][bootstrap], zauważysz, że te reguły są w rzeczywistości [zmiennymi LESS][LESS variables] w motywie bootstrap używanym w portalu dla deweloperów.
-> 
-> 
+    ![Dostosowywanie stylów](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    
+6. Kliknij pole  **@headings-color**  zmiennej. 
+    
+    Otwiera próbnika kolorów listy rozwijanej.
+7. Wybierz nowy kolor z selektorami kolorów listy rozwijanej.
 
-Zmienimy teraz kolor tekstu nagłówka. Zaznacz zawartość pola **@headings-color** i wpisz **#000000**. Jest to kod szesnastkowy koloru czarnego. Wtedy na końcu pola tekstowego pojawi się wskaźnik koloru w kształcie kwadratu. Po kliknięciu tego wskaźnika można wybrać kolor z selektora kolorów.
+    > [!TIP]
+    > W czasie rzeczywistym Podgląd jest dostępny dla wszystkich zmian. W górnej części okienka dostosowywania wyświetlany jest wskaźnik postępu. Po kilku sekundach tekst nagłówka zmiany w kolorze nowo wybrane.
 
-![Selektor kolorów][api-management-customization-toolbar-color-picker]
+8. Wybierz **publikowania** z lewym dolnym w menu dostosowywania okienka.
+9. Wybierz **opublikować dostosowania** publicznie udostępniać zmiany.
 
-Zmiany można podglądać w czasie rzeczywistym podczas ich wprowadzania, ale są one widoczne tylko dla administratorów. Aby zmiany stały się widoczne dla wszystkich użytkowników, kliknij przycisk **Publikuj** znajdujący się w edytorze stylów i zatwierdź zmiany.
+## <a name="view-your-change"></a>Wyświetl zmiany
 
-![Menu Publikuj][api-management-customization-toolbar-publish-form]
+1. Przejdź do portalu dla deweloperów.
+2. Widać wprowadzone zmiany.
 
-> Aby zmienić reguły stylów, które są stosowane do innego elementu na stronie, wykonaj tę samą procedurę co dla nagłówka. Kliknij pozycję **Wybierz element na stronie** w edytorze stylów, wybierz interesujący Cię element i zacznij modyfikować wartości reguł stylu wyświetlanych na ekranie.
-> 
-> 
+## <a name="next-steps"></a>Następne kroki
 
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
-## <a name="next-steps"> </a>Następne kroki
-* Dowiedz się, w jaki sposób dostosować zawartość portalu dla deweloperów przy użyciu [szablonów portalu dla deweloperów](api-management-developer-portal-templates.md).
+> [!div class="checklist"]
+> * Dostosowywanie stylu elementów na stronach **Developer** portalu
+> * Wyświetl zmiany
 
-[Change the styling of the headers]: #change-headers-styling
-[Next steps]: #next-steps
-
-[Azure Classic Portal]: https://manage.windowsazure.com/
-
-[api-management-management-console]: ./media/api-management-customize-styles/api-management-management-console.png
-[api-management-pp-dp-link]: ./media/api-management-customize-styles/api-management-pp-dp-link.png
-[api-management-customization-toolbar-button]: ./media/api-management-customize-styles/api-management-customization-toolbar-button.png
-[api-management-customization-toolbar]: ./media/api-management-customize-styles/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-styles/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-styles/api-management-customization-toolbar-publish-form.png
-
-[modify-content-layout]: api-management-modify-content-layout.md
-[customize-styles]: api-management-customize-styles.md
-[portal-templates]: api-management-developer-portal-templates.md
-
-[bootstrap]: http://getbootstrap.com/
-[LESS variables]: http://getbootstrap.com/css/
+> [!div class="nextstepaction"]
+> [Dostosowywanie portalu dla deweloperów usługi Azure API Management za pomocą szablonów](api-management-developer-portal-templates.md)

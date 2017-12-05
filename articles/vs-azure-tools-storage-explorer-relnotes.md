@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)
 
@@ -76,7 +76,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 * Mimo że stosu Azure aktualnie nie obsługuje udziałów plików, węzła udziałów plików jest nadal wyświetlana na koncie dołączone magazynu Azure stosu.
 * Powłoka elektronów wykorzystywane przez Eksploratora magazynu ma problemy z niektórych przyspieszanie sprzętowe procesora GPU (jednostka przetwarzania grafiki). Jeśli Eksploratora usługi Storage są wyświetlane puste okno główne (pusta), można spróbować uruchamianie Eksploratora usługi Storage z poziomu wiersza polecenia i wyłączanie przyspieszenie procesora GPU, dodając `--disable-gpu` przełącznika:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Dla użytkowników Ubuntu 14.04, konieczne będzie zapewnienia GCC jest aktualny — można to zrobić, uruchamiając następujące polecenia i ponownym uruchomieniu komputera:
 
@@ -137,7 +137,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 * Mimo że stosu Azure aktualnie nie obsługuje udziałów plików, węzła udziałów plików jest nadal wyświetlana na koncie dołączone magazynu Azure stosu.
 * Powłoka elektronów wykorzystywane przez Eksploratora magazynu ma problemy z niektórych przyspieszanie sprzętowe procesora GPU (jednostka przetwarzania grafiki). Jeśli Eksploratora usługi Storage są wyświetlane puste okno główne (pusta), można spróbować uruchamianie Eksploratora usługi Storage z poziomu wiersza polecenia i wyłączanie przyspieszenie procesora GPU, dodając `--disable-gpu` przełącznika:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Dla użytkowników Ubuntu 14.04, konieczne będzie zapewnienia GCC jest aktualny — można to zrobić, uruchamiając następujące polecenia i ponownym uruchomieniu komputera:
 

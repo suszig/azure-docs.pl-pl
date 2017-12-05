@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>Zarządzanie interfejsami API zasad buforowania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 -   Zasad buforowania odpowiedzi  
   
     -   [Pobierz z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) — wykonaj pamięci podręcznej wyszukiwania i zwracać prawidłowy odpowiedzi pamięci podręcznej, jeśli jest dostępna.  
-  
     -   [Magazynu pamięci podręcznej](api-management-caching-policies.md#StoreToCache) -buforuje odpowiedzi zgodnie z określonym pamięci podręcznej konfiguracji kontroli.  
   
 -   Wartość zasad buforowania  
-  
-    -   [Pobiera wartość z pamięci podręcznej](#GetFromCacheByKey) -pobrania elementu pamięci podręcznej według klucza.  
-  
-    -   [Przechowywana wartość w pamięci podręcznej](#StoreToCacheByKey) -przechowywania elementu w pamięci podręcznej według klucza.  
-  
+
+    -   [Pobiera wartość z pamięci podręcznej](#GetFromCacheByKey) -pobrania elementu pamięci podręcznej według klucza. 
+    -   [Przechowywana wartość w pamięci podręcznej](#StoreToCacheByKey) -przechowywania elementu w pamięci podręcznej według klucza. 
     -   [Usuń wartość z pamięci podręcznej](#RemoveCacheByKey) -usunięcie elementu w pamięci podręcznej według klucza.  
   
 ##  <a name="GetFromCache"></a>Pobierz z pamięci podręcznej  
@@ -116,17 +113,16 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|Zezwalaj na prywatny odpowiedzi buforowania|Jeśli wartość `true`, umożliwia buforowanie żądań zawierających nagłówek uwierzytelnienia.|Nie|wartość false|  
-|typ podrzędny dla buforowania|Ten atrybut musi mieć ustawioną jedną z następujących wartości.<br /><br /> -none - podrzędne buforowanie jest niedozwolone.<br />-prywatny - podrzędne buforowanie prywatnej jest dozwolone.<br />-publiczny - prywatnych i udostępnionych podrzędne buforowanie jest dozwolone.|Nie|Brak|  
-|musi revalidate|Gdy włączone jest buforowanie podrzędne tego atrybutu Włącza lub wyłącza `must-revalidate` dyrektywy sterowania pamięci podręcznej w odpowiedzi bramy.|Nie|Wartość true|  
-|różnią się przez dewelopera|Ustaw `true` do pamięci podręcznej odpowiedzi na klucz developer.|Nie|wartość false|  
-|różnią się przez developer grupy|Ustaw `true` do odpowiedzi z pamięci podręcznej dla każdej roli użytkownika.|Nie|wartość false|  
+|Zezwalaj na prywatny odpowiedzi buforowania|Jeśli wartość `true`, umożliwia buforowanie żądań zawierających nagłówek uwierzytelnienia.|Nie|fałsz|  
+|typ podrzędny dla buforowania|Ten atrybut musi mieć ustawioną jedną z następujących wartości.<br /><br /> -none - podrzędne buforowanie jest niedozwolone.<br />-prywatny - podrzędne buforowanie prywatnej jest dozwolone.<br />-publiczny - prywatnych i udostępnionych podrzędne buforowanie jest dozwolone.|Nie|brak|  
+|musi revalidate|Gdy włączone jest buforowanie podrzędne tego atrybutu Włącza lub wyłącza `must-revalidate` dyrektywy sterowania pamięci podręcznej w odpowiedzi bramy.|Nie|prawda|  
+|różnią się przez dewelopera|Ustaw `true` do pamięci podręcznej odpowiedzi na klucz developer.|Nie|fałsz|  
+|różnią się przez developer grupy|Ustaw `true` do odpowiedzi z pamięci podręcznej dla każdej roli użytkownika.|Nie|fałsz|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** dla ruchu przychodzącego  
-  
 -   **Zakresy zasad:** interfejsu API, działania, produktu  
   
 ##  <a name="StoreToCache"></a>Przechowywanie w pamięci podręcznej  
@@ -198,8 +194,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Sekcje zasad:** ruchu wychodzącego  
-  
+-   **Sekcje zasad:** ruchu wychodzącego    
 -   **Zakresy zasad:** interfejsu API, działania, produktu  
   
 ##  <a name="GetFromCacheByKey"></a>Pobiera wartość z pamięci podręcznej  
@@ -244,7 +239,6 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
-  
 -   **Zakresy zasad:** globalnych, interfejsu API, działania, produktu  
   
 ##  <a name="StoreToCacheByKey"></a>Wartość magazynu w pamięci podręcznej  
@@ -287,11 +281,10 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
-  
 -   **Zakresy zasad:** globalnych, interfejsu API, działania, produktu  
   
 ###  <a name="RemoveCacheByKey"></a>Usuń wartość z pamięci podręcznej  
- `cache-remove-value` Usuwa element pamięci podręcznej identyfikowane za pomocą klucza. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad.  
+`cache-remove-value` Usuwa element pamięci podręcznej identyfikowane za pomocą klucza. Klucz może mieć wartość dowolny ciąg i jest zwykle zapewniany przy użyciu wyrażenia zasad.  
   
 #### <a name="policy-statement"></a>Deklaracja zasad  
   
@@ -325,9 +318,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych, na błąd  
-  
 -   **Zakresy zasad:** globalnych, interfejsu API, działania, produktu  
-  
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, Praca z zasad, zobacz [zasad w usłudze API Management](api-management-howto-policies.md).  
+
+Aby uzyskać więcej informacji, Praca z zasad Zobacz:
+
++ [Zasady w usłudze API Management](api-management-howto-policies.md)
++ [Przekształć interfejsów API](transform-api.md)
++ [Informacje o zasadach](api-management-policy-reference.md) pełną listę deklaracji zasad i ich ustawienia
++ [Przykłady zasad](policy-samples.md)   

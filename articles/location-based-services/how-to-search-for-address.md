@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Jak znaleźć adres przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza)
 Usługa wyszukiwania jest RESTful zestaw interfejsów API przeznaczone dla deweloperów wyszukać adresy, miejsca, punkty zainteresowań, listy biznesowych i innych informacji geograficznych. Usługa wyszukiwania przypisuje szerokości geograficznej/długości określonego adresu, krzyżowego ulicy, geograficzne funkcji lub z interesujących (POI). Współrzędne geograficzne wartości zwracane przez usługę wyszukiwania interfejsów API mogą być używane jako parametry w innych Azure lokalizacji na podstawie usług takich jak API przepływ ruchu i trasy.
@@ -40,7 +40,7 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
 
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | GET |
+    | Metoda HTTP | POBIERZ |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Autoryzacja | Nie autoryzacji |
 
@@ -62,12 +62,11 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
     
     Wyniki są różne dla tego zapytania nie jest związana z dowolnej lokalizacji danego odwołania. Można użyć **countrySet** parametr, aby określić krajów, dla których aplikacja wymaga pokrycia, zgodnie z domyślnym zachowaniem jest na całym świecie, zwracania potencjalnie niepotrzebnych wyników wyszukiwania.
 
-5. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Upewnij się, ten użytkownik przecinkami niezależny dodatkowe identyfikatora URI parametrów w ciągu zapytania.
+5. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |------------------|-------------------------|
+    | countrySet | USA |
     
     Wyniki są obecnie ograniczone przez kod kraju i zapytanie zwraca restauracji pizza w Stanach Zjednoczonych.
     
@@ -93,7 +92,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | GET |
+    | Metoda HTTP | POBIERZ |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/JSON? |
     | Autoryzacja | Nie autoryzacji |
 
@@ -116,10 +115,11 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
         400 Broad, Seattle
     ```
 
-5. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,typeahead
-    ```
+5. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | typeahead | prawda |
 
     **Typeahead** flagi informuje interfejsu API Search adres Traktuj zapytania jako częściowe dane wejściowe i zwraca tablicę wartości predykcyjnej.
 
@@ -132,7 +132,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | GET |
+    | Metoda HTTP | POBIERZ |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
     | Autoryzacja | Nie autoryzacji |
     
@@ -150,37 +150,43 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     Odpowiedź zawiera wpis POI Safeco pola z kategorii poi "stadium". 
     
-4. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,number
-    ```
+4. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | numer | prawda |
+
     Jeśli [numer](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania są wysyłane z żądania, odpowiedzi może zawierać części ulicy (prawej/lewej strony), a także przesunięcia pozycji dla tego numeru.
     
-5. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,spatialKeys
-    ```
+5. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | spatialKeys | prawda |
 
     Gdy [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, odpowiedź zawiera zastrzeżonych przestrzennych geograficznie najważniejsze informacje dla określonej lokalizacji.
 
-6. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | returnSpeedLimit | prawda |
     
     Gdy [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, zwracają oczekujących na opublikowanie limit szybkości odpowiedzi.
 
-7. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,returnRoadUse
-    ```
+7. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | returnRoadUse | prawda |
 
     Gdy [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, użyj tablicy array drogowej dla reversegeocodes na poziomie ulicy zwraca odpowiedź.
 
-8. Dodaj następującą wartość do ciągu zapytania, a następnie kliknij przycisk **wysyłania**:
-    ```
-        ,roadUse
-    ```
+8. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
+
+    | Klucz | Wartość |
+    |-----|------------|
+    | roadUse | prawda |
 
     Zapytanie wsteczne geocode można ograniczyć do określonego typu drogowej użycia za pomocą [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr zapytania.
     
@@ -194,7 +200,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | GET |
+    | Metoda HTTP | POBIERZ |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
     | Autoryzacja | Nie autoryzacji |
     

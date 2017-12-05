@@ -3,151 +3,100 @@ title: "Jak tworzyć i publikować w usłudze Azure API Management produktu"
 description: "Dowiedz się, jak tworzyć i publikować w usłudze Azure API Management produktów."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Jak tworzyć i publikować w usłudze Azure API Management produktu
-W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, a także przydział użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrybować produktu i rozpocząć przy użyciu interfejsów API produktu. Temat zawiera przewodnik dotyczący tworzenia produktu, dodawanie interfejsu API i publikowania dla deweloperów.
+# <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu  
 
-## <a name="create-product"></a>Tworzenie produktu
-Działania są dodawane i skonfigurowane do interfejsu API w portalu wydawcy. Aby uzyskać dostęp do portalu wydawcy, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API.
+W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, a także przydział użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrybować produktu i rozpocząć przy użyciu interfejsów API produktu.  
 
-![Portal wydawcy][api-management-management-console]
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
-> 
-> 
+> [!div class="checklist"]
+> * Tworzenie i publikowanie produktu
+> * Dodawanie interfejsu API do produktu
 
-Polecenie **produktów** w menu po lewej stronie, aby wyświetlić **produktów** , a następnie kliknij przycisk **Dodaj produkt**.
+![Dodano produktu](media/api-management-howto-add-products/added-product.png)
 
-![Produkty][api-management-products]
+## <a name="prerequisites"></a>Wymagania wstępne
 
-![Nowego produktu][api-management-add-new-product]
++ Ukończenie następujących Szybki Start: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ Ponadto Ukończ samouczek następujących: [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
 
-Wprowadź opisową nazwę produktu w **nazwa** opis produktu w **opis** pola.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Produkty w usłudze API Management może być **Otwórz** lub **chronione**. Produkty chronione trzeba subskrybować przed użyciem, a produkty otwarte mogą być używane bez subskrypcji. Sprawdź **wymagają subskrypcji** do tworzenia chronionej produkt, który wymaga subskrypcji. Jest to ustawienie domyślne.
+## <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu
 
-Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz, aby administrator, aby przejrzeć i zaakceptować lub odrzucić prób subskrypcję do tego produktu. Jeśli pole jest zaznaczona, prób subskrypcja będzie automatycznie zatwierdzone. Aby uzyskać więcej informacji o subskrypcji, zobacz [wyświetlić subskrybentów produktu][View subscribers to a product].
+1. Polecenie **produktów** w menu po lewej stronie, aby wyświetlić **produktów** strony.
+2. Kliknij przycisk **+ produktu**.
 
-Aby zezwalać kontom developer do subskrybowania wielokrotnie produktu, sprawdź **zezwalać na wiele subskrypcji** pole wyboru. Jeśli to pole nie jest zaznaczone, każde konto dewelopera można zasubskrybować tylko jeden raz dla produktu.
+    ![Dodano produktu](media/api-management-howto-add-products/add-product.png)
 
-![Nieograniczone wiele subskrypcji][api-management-unlimited-multiple-subscriptions]
+    Po dodaniu produkt, należy podać następujące informacje: 
 
-Aby ograniczyć liczbę wiele równoczesnych subskrypcji, sprawdź **Ogranicz liczbę jednoczesnych subskrypcje** pole wyboru, a następnie wprowadź limit subskrypcji. W poniższym przykładzie jednoczesnych subskrypcje są maksymalnie cztery na konto dewelopera.
+    |Nazwa|Opis|
+    |---|---|
+    |Nazwa wyświetlana|Nazwa jako użytkownik ma do pokazania w **portalu dla deweloperów**.|
+    |Nazwa|Opisową nazwę produktu.|
+    |Opis|**Opis** pole umożliwia zawierają szczegółowe informacje o produkcie, takie jak jego przeznaczenie, zapewnia dostęp do interfejsów API i inne przydatne informacje.|
+    |Stan|Naciśnij klawisz **opublikowano** Jeśli chcesz opublikować produktu. Aby można było wywołać interfejsów API w produkcie, musi zostać opublikowany produktu. Domyślnie są nieopublikowane nowych produktów i są widoczne tylko dla **Administratorzy** grupy.|
+    |Wymaga zatwierdzenia|Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz, aby administrator, aby przejrzeć i zaakceptować lub odrzucić prób subskrypcję do tego produktu. Jeśli pole jest zaznaczona, prób subskrypcji są automatycznie zatwierdzone. |
+    |Limit liczby subskrypcji|Aby ograniczyć liczbę wiele równoczesnych subskrypcji, wprowadź limit subskrypcji. |
+    |Postanowienia prawne|Mogą obejmować warunki użytkowania produktów, którzy użytkownicy muszą zaakceptować, aby korzystać z produktu.|
+    |Interfejsy API|Produkty są skojarzenia jeden lub więcej interfejsów API. Można zawierają wiele interfejsów API i ich oferty dla deweloperów za pośrednictwem portalu dla deweloperów. <br/> Podczas tworzenia produktu można dodać istniejącego interfejsu API. Interfejs API można dodać do niego później, albo z produktów **ustawienia** strony lub podczas tworzenia interfejsu API.|<br/>Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do interfejsu API. Gdy subskrybujesz one, otrzymują klucz subskrypcji, który ułatwia jakiegokolwiek interfejsu API w tym produkcie.<br/> Jeśli utworzono wystąpienie APIM jesteś administratorem już, aby zasubskrybować każdego produktu domyślnie.|
 
-![Cztery wiele subskrypcji][api-management-four-multiple-subscriptions]
+3. Kliknij przycisk **zapisać** do tworzenia nowych produktów.
 
-Po skonfigurowaniu wszystkich nowych opcji produktu, kliknij przycisk **zapisać** do tworzenia nowych produktów.
+### <a name="add-more-configurations"></a>Dodaj więcej konfiguracji
 
-![Produkty][api-management-products-page]
+Można kontynuować konfigurowanie produktu po zapisaniu go, wybierając **ustawienia** kartę. 
 
-> Domyślnie są nieopublikowane nowych produktów i są widoczne tylko dla **Administratorzy** grupy.
-> 
-> 
+Wyświetlić/dodać subskrybentów produktu z **subskrypcje** kartę.
 
-Aby skonfigurować produkt, kliknij nazwę produktu w **produktów** kartę.
+Ustawienie widoczności produktu dla deweloperów lub gościa z **kontrola dostępu** kartę.
 
 ## <a name="add-apis"></a>Dodaj interfejsów API do produktu
-**Produktów** strona zawiera cztery łącza dla konfiguracji: **Podsumowanie**, **ustawienia**, **widoczność**, i  **Subskrybenci**. **Podsumowanie** jest karta, którym można dodać interfejsów API i opublikować lub Cofnij publikowanie produktu.
 
-![Podsumowanie][api-management-new-product-summary]
+Produkty są skojarzenia jeden lub więcej interfejsów API. Można zawierają wiele interfejsów API i ich oferty dla deweloperów za pośrednictwem portalu dla deweloperów. Podczas tworzenia produktu można dodać istniejącego interfejsu API. Interfejs API można dodać do niego później, albo z produktów **ustawienia** strony lub podczas tworzenia interfejsu API.
 
-Przed opublikowaniem produkt, musisz dodać jeden lub więcej interfejsów API. Aby to zrobić, kliknij przycisk **dodać interfejsu API do produktu**.
+Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do interfejsu API. Gdy subskrybujesz one, otrzymują klucz subskrypcji, który ułatwia jakiegokolwiek interfejsu API w tym produkcie. Jeśli utworzono wystąpienie APIM jesteś administratorem już, aby zasubskrybować każdego produktu domyślnie.
 
-![Dodaj interfejsów API][api-management-add-apis-to-product]
+### <a name="add-an-api-to-an-existing-product"></a>Dodaj interfejs API do istniejącego produktu
 
-Wybierz żądaną interfejsów API i kliknij przycisk **zapisać**.
+1. Wybierz produkt.
+2. Wybierz kartę interfejsów API.
+3. Kliknij przycisk **i interfejs API**.
+4. Wybierz interfejs API, a następnie kliknij przycisk **Utwórz**.
 
-## <a name="add-description"></a>Dodać opisowe informacje do produktu
-**Ustawienia** karta umożliwia zawierają szczegółowe informacje o produkcie, takie jak jego przeznaczenie, zapewnia dostęp do interfejsów API i inne przydatne informacje. Zawartość jest przeznaczona dla deweloperów, spowoduje wywołanie interfejsu API, które mogą być zapisywane w postaci zwykłego tekstu lub kod znaczników HTML.
-
-![Ustawienia produktów][api-management-product-settings]
-
-Sprawdź **wymagają subskrypcji** do tworzenia chronionej produkt, który wymaga subskrypcji można używać, lub wyczyść pole wyboru, aby utworzyć otwieranie produktu, który można wywołać bez subskrypcji.
-
-Wybierz **wymagają zatwierdzenia subskrypcji** Jeśli chcesz ręcznie zatwierdzić wszystkie żądania subskrypcji produktu. Domyślnie wszystkie subskrypcje produktu są przyznawane automatycznie.
-
-Aby zezwalać kontom developer do subskrybowania wielokrotnie produktu, sprawdź **zezwalać na wiele subskrypcji** pole wyboru i opcjonalnie Określ limit. Jeśli to pole nie jest zaznaczone, każde konto dewelopera można zasubskrybować tylko jeden raz dla produktu.
-
-Opcjonalnie wypełnij **warunki użytkowania** pola opisujące warunki użytkowania produktów, którzy użytkownicy muszą zaakceptować, aby korzystać z produktu.
-
-## <a name="publish-product"></a>Publikowania produktu
-Aby można było wywołać interfejsów API w produkcie, musi zostać opublikowany produktu. Na **Podsumowanie** produktu, kliknij pozycję **publikowania**, a następnie kliknij przycisk **tak, przed opublikowaniem** o potwierdzenie. Aby wcześniej opublikowanej produktu prywatne, kliknij przycisk **Cofnij publikowanie**.
-
-![Publikowanie produktu][api-management-publish-product]
-
-## <a name="make-visible"></a>Udostępnienie produktu dla deweloperów
-**Widoczność** karcie można wybrać role mogą wyświetlić w portalu dla deweloperów i subskrybowanie produktu.
-
-![Widoczność produktu][api-management-product-visiblity]
-
-Aby włączyć lub wyłączyć widoczność produktu dla deweloperów w grupie, sprawdź lub usuń zaznaczenie pola wyboru obok grupy, a następnie kliknij przycisk **zapisać**.
-
-> Aby uzyskać więcej informacji, zobacz [tworzenie i używanie grup do zarządzania konta dewelopera usługi Azure API Management][How to create and use groups to manage developer accounts in Azure API Management].
-> 
-> 
-
-## <a name="view-subscribers"></a>Wyświetlić subskrybentów produktu
-**Subskrybentów** karta zawiera listę deweloperów, którzy subskrybuje produktu. Ustawienia dla wszystkich deweloperów i szczegółowe informacje można wyświetlić, klikając nazwę dewelopera. W tym przykładzie deweloperzy nie masz jeszcze subskrypcję do produktu.
-
-![Deweloperzy][api-management-developer-list]
-
-## <a name="next-steps"> </a>Następne kroki
-Po są dodawane odpowiednie interfejsów API i publikowane produktu, deweloperzy mogą subskrybować produktu i rozpocząć do wywoływania interfejsów API. Samouczek przedstawiający tych elementów, a także zaawansowane produktu configuration [jak utworzyć i skonfigurować ustawienia zaawansowane produktu w usłudze Azure API Management][How create and configure advanced product settings in Azure API Management].
-
-Aby uzyskać więcej informacji na temat pracy z produktami zobacz poniższe wideo.
+## <a name="video"></a>Połączenia wideo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
-[View subscribers to a product]: #view-subscribers
-[Next steps]: #next-steps
+## <a name="next-steps"></a>Następne kroki
 
-[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-unlimited-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-unlimited-multiple-subscriptions.png
-[api-management-four-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-four-multiple-subscriptions.png
-[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
+> [!div class="checklist"]
+> * Tworzenie i publikowanie produktu
+> * Dodawanie interfejsu API do produktu
 
+Przejdź do następnego samouczek:
 
-[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./media/api-management-howto-add-products/
-[api-management-]: ./media/api-management-howto-add-products/
-
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
-[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+> [!div class="nextstepaction"]
+> [Utwórz puste interfejsu API i mock odpowiedzi interfejsu API](mock-api-responses.md)

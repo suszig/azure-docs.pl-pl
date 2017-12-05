@@ -1,5 +1,5 @@
 ---
-title: "Wygaśnięcie grup usługi Office 365 w usłudze Azure Active Directory w wersji Preview | Dokumentacja firmy Microsoft"
+title: "Grupuje ważności dla usługi Office 365 w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Jak skonfigurować wygaśnięcia dla grup usługi Office 365 w usłudze Azure Active Directory (wersja zapoznawcza)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Skonfiguruj wygaśnięcia grup usługi Office 365 (wersja zapoznawcza)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Skonfiguruj wygaśnięcia dla grup usługi Office 365 (wersja zapoznawcza)
 
-Umożliwia teraz Zarządzanie cyklem życia grup usługi Office 365, ustawiając wygaśnięcia w wybranych grupach usługi Office 365. Po ustawieniu tej wygaśnięcia właścicieli tych grup są proszeni o odnowić ich grup, jeśli nadal potrzebujesz grup. Wszystkie grupy usługi Office 365, która nie zostanie odnowiony zostaną usunięte. W ciągu 30 dni można przywrócić żadnej grupy usługi Office 365, który został usunięty przez właścicieli grupy lub administratora.  
-
+Umożliwia teraz Zarządzanie cyklem życia grup usługi Office 365 przez ustawienie dla nich funkcji wygaśnięcia. W usłudze Azure Active Directory (Azure AD), można ustawić wygaśnięcie tylko grup usługi Office 365. Po ustawieniu grupy wygaśnie:
+-   Właścicieli grupy są powiadamiani o odnowić grupy, jak będzie bliski wygaśnięcia
+-   Wszystkie grupy, która nie zostanie odnowiony jest usuwany.
+-   Można przywrócić żadnej grupy usługi Office 365, która zostanie usunięta w ciągu 30 dni przez właścicieli grupy lub administrator
 
 > [!NOTE]
-> Można ustawić wygaśnięcie tylko grup usługi Office 365.
->
-> Ustawianie ważności dla grup usługi Office 365 wymaga przypisania licencji usługi Azure AD Premium do
->   - Administrator, który konfiguruje ustawienia wygaśnięcia dla dzierżawcy
->   - Wszyscy członkowie grupy wybrana dla tego ustawienia
+> Ustawianie ważności dla grup usługi Office 365 wymaga licencji usługi Azure AD Premium lub licencji usługi Azure AD podstawowa Education dla wszystkich członków grupy, do której są stosowane ustawienia wygaśnięcia.
+> 
+> Dla usługi Azure AD podstawowa Education licencjonowane klientów: Aby po raz pierwszy, należy skonfigurować te zasady, użyj poleceń cmdlet środowiska PowerShell usługi Azure Active Directory. Po tym należy zaktualizować ustawienia wygaśnięcia przy użyciu programu PowerShell lub portalu usługi Azure AD przy użyciu konta, które jest administratorem konta użytkownika lub administratora globalnego dzierżawy usługi Azure AD.
 
-## <a name="set-office-365-groups-expiration"></a>Ustawienia okresu ważności grup usługi Office 365
+Aby uzyskać informacje na temat Pobierz i zainstaluj polecenia cmdlet programu PowerShell usługi Azure AD, zobacz [Azure Active Directory PowerShell wykresu — publicznej wersji zapoznawczej 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Ustaw grupy wygaśnięcia
 
 1. Otwórz [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym w dzierżawie usługi Azure AD.
 
@@ -51,7 +53,6 @@ Umożliwia teraz Zarządzanie cyklem życia grup usługi Office 365, ustawiając
   * Wybierz grupy, które usługi Office 365 wygaśnie. Można włączyć wygaśnięcia dla **wszystkie** grup usługi Office 365, możesz wybrać spośród grup usługi Office 365 lub wybrać **Brak** wyłączyć wygaśnięcia dla wszystkich grup.
   * Zapisz ustawienia, gdy wszystko będzie gotowe, wybierając **zapisać**.
 
-Aby uzyskać instrukcje jak pobrać i zainstalować moduł PowerShell programu Microsoft do skonfigurowania wygaśnięcia dla grup usługi Office 365 za pomocą programu PowerShell, zobacz [Azure V2 PowerShell moduł usługi Active Directory - publicznej wersji zapoznawczej 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Powiadomienia e-mail, taką jak są wysyłane do właścicieli grupy usługi Office 365 30 dni, 15 dni i 1 dzień przed jego wygaśnięciem grupy.
 
@@ -68,7 +69,8 @@ Grupy można przywrócić, wybierając **grupy przywracania** lub za pomocą pol
 Jeśli grupy, które są przywracane zawiera dokumentów, witryn programu SharePoint lub inne obiekty trwałe, może potrwać do 24 godzin pełni przywrócić grupy i jego zawartość.
 
 > [!NOTE]
-> * Podczas wdrażania ustawień wygasania, może być niektórych grup, które są starsze niż okna wygaśnięcia. Te grupy nie są można natychmiast usunąć, ale są ustawione na 30 dni do wygaśnięcia. Pierwszy odnawiania powiadomienia e-mail jest wysyłane w ciągu dnia. Na przykład A grupa została utworzona 400 dni temu i interwał wygaśnięcia jest ustawiony na wartość 180 dni. Podczas stosowania ustawień wygasania grupy A ma 30 dni przed usunięciem, chyba że właściciel odnawia go.
+> * Podczas pierwszej konfiguracji wygaśnięcia tych grup, które są starsze niż interwał ważności są ustawiane na 30 dni do wygaśnięcia. Pierwszy odnawiania powiadomienia e-mail jest wysyłane w ciągu dnia. 
+>   Na przykład A grupa została utworzona 400 dni temu i interwał wygaśnięcia jest ustawiony na wartość 180 dni. Podczas stosowania ustawień wygasania grupy A ma 30 dni przed usunięciem, chyba że właściciel odnawia go.
 > * Gdy dynamiczna grupa jest usuwane i przywrócić, jest traktowany jako nową grupę i ponownie wypełniane zgodnie z zasadą. Ten proces może potrwać do 24 godzin.
 
 ## <a name="next-steps"></a>Następne kroki

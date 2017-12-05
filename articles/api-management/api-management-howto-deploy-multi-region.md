@@ -3,22 +3,21 @@ title: "Wdrażanie usługi Azure API Management na wiele regionów platformy Azu
 description: "Dowiedz się, jak wdrożyć wystąpienia usługi Azure API Management na wiele regionów platformy Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 75a0fd7f02bcc7ed5278582f36d0ed6d54aa7bc4
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Jak wdrożyć wystąpienia usługi Azure API Management na wiele regionów platformy Azure
 Zarządzanie interfejsami API obsługuje wdrażanie w przypadku, dzięki czemu wydawcy interfejsu API rozpowszechniają jednej usługi interfejsu API zarządzania dowolną liczbę żądaną regiony platformy Azure. Pozwala to zmniejszyć żądania opóźnienia postrzegane przez rozproszone geograficznie konsumentów interfejsu API i zwiększa również dostępność usługi, jeśli jeden region przejdzie do trybu offline. 
@@ -32,7 +31,7 @@ Podczas tworzenia usługi Zarządzanie interfejsami API w początkowo zawiera ty
 
 ## <a name="add-region"></a>Wdrożyć nowy region wystąpienia usługi Zarządzanie interfejsami API
 > [!NOTE]
-> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
+> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API][Create an API Management service instance].
 > 
 > 
 
@@ -42,7 +41,7 @@ W portalu Azure przejdź do **skali i cenach** strony wystąpienia usługi Zarz�
 
 Aby wdrożyć nowy region, kliknij polecenie **+ Dodaj region** z paska narzędzi.
 
-![Dodawanie regionu][api-management-add-region]
+![Dodaj region][api-management-add-region]
 
 Wybierz lokalizację z listy rozwijanej i ustaw liczbę jednostek dla suwaka.
 
@@ -70,8 +69,8 @@ Potwierdzenie usunięcia, a następnie kliknij przycisk **zapisać** Aby zastoso
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

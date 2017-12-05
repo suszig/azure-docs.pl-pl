@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
-W tym temacie przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server w sieci wirtualnej platformy Azure na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
+W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
 
-Być może zainteresuje te tematy pokrewne:
+Być może zainteresuje te pokrewne artykuły:
 
 * Film przedstawiający tych kroków, zobacz [sposobu instalowania nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * Można opcjonalnie [skonfigurowania sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-site-to-site-create.md) , a następnie zainstalować nowy las lub rozszerzyć lasu lokalnego do sieci wirtualnej platformy Azure. Te kroki opisane w artykule [Instalowanie repliki kontrolera domeny Active Directory w sieci wirtualnej platformy Azure](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ Po zakończeniu instalacji kontrolera domeny, ponownie połączenie z maszyną W
    3. Na **usług przesyłania dalej** , kliknij adres IP usługi przesyłania dalej i kliknij **Edytuj**.  Wybierz adres IP, a następnie kliknij przycisk **usunąć**.
    4. Kliknij przycisk **OK** do Zamknij Edytor i **Ok** ponownie, aby zamknąć właściwości serwera DNS.
 2. Zaktualizuj ustawienia serwera DNS dla sieci wirtualnej.
-   1. Kliknij przycisk **sieci wirtualnych** > kliknij dwukrotnie sieć wirtualną utworzono > **Konfiguruj** > **serwerów DNS**, wpisz nazwę i adres DIP jednej z maszyn wirtualnych, które jest uruchomiona rola serwera DNS kontrolera domeny i kliknij przycisk **zapisać**.
+   1. Kliknij przycisk **sieci wirtualnych** > kliknij dwukrotnie sieć wirtualną utworzono > **Konfiguruj** > **serwerów DNS**, wpisz nazwę i adres IP z jednej z maszyn wirtualnych którym działa rola serwera DNS kontrolera domeny i kliknij przycisk **zapisać**.
    2. Wybierz maszynę Wirtualną, a następnie kliknij przycisk **ponowne uruchomienie** do wyzwolenia maszyny Wirtualnej, aby skonfigurować ustawienia programu rozpoznawania nazw DNS przy użyciu adresu IP nowego serwera DNS.
 
 ## <a name="create-vms-for-domain-members"></a>Tworzenie maszyn wirtualnych dla członków domeny

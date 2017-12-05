@@ -3,22 +3,21 @@ title: "Zarządzanie kontami dewelopera przy użyciu grup w usłudze Azure API M
 description: "Dowiedz się, jak zarządzać kontami dewelopera przy użyciu grup w usłudze Azure API Management"
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33660b45-442f-44be-9a4a-1899d7f699b0
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 00322340d67fd064a0dc9149790e031b94390709
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 1587243bcd5f2b9af98b8b529c152ba49ef676be
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Tworzenie i używanie grup do zarządzania konta dewelopera usługi Azure API Management
 W usłudze API Management grupy służą do zarządzania widocznością produktów dla deweloperów. Produkty są najpierw stają się widoczne dla grup, a następnie deweloperów w tych grupach można wyświetlać i subskrybować produktów, które są skojarzone z grupami. 
@@ -43,7 +42,7 @@ Aby utworzyć nową grupę, kliknij przycisk **portal wydawcy** w portalu Azure 
 
 ![Portal wydawcy][api-management-management-console]
 
-> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
+> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API][Create an API Management service instance].
 > 
 > 
 
@@ -112,6 +111,6 @@ Po dodaniu skojarzenia między projektanta i grupy, możesz je wyświetlić w **
 
 [How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
 [leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
