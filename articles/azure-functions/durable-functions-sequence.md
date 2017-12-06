@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funkcja łańcucha w funkcje trwałe — przykład sekwencji Hello
 
@@ -39,7 +39,7 @@ W poniższych sekcjach opisano konfigurację i kod, który są używane do tworz
  
 ## <a name="functionjson-file"></a>Plik Function.JSON
 
-Jeśli używasz portalu Azure do tworzenia aplikacji, w tym miejscu jest zawartość *function.json* plików dla funkcji programu orchestrator. Większość orchestrator *function.json* pliki wygląda prawie dokładnie tak jak to.
+Jeśli używasz programu Visual Studio Code lub w portalu Azure do tworzenia aplikacji, w tym miejscu jest zawartość *function.json* plików dla funkcji programu orchestrator. Większość orchestrator *function.json* pliki wygląda prawie dokładnie tak jak to.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ Ważne jest `orchestrationTrigger` typ powiązania. Wszystkie funkcje programu o
 > [!WARNING]
 > Do przestrzegania reguł "nie we/wy" funkcji programu orchestrator, nie używasz żadnych danych wejściowych lub wyjściowych powiązań, korzystając z `orchestrationTrigger` wyzwolenia powiązania.  Jeśli wymagane są powiązania danych wyjściowych innych danych wejściowych, zamiast tego powinny być używane w kontekście `activityTrigger` funkcji, które są wywoływane przez orchestrator.
 
-## <a name="c-script"></a>Skrypt języka C#
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Skryptu C# (Visual Studio Code i Azure portal przykładowy kod) 
 
 Oto kod źródłowy:
 

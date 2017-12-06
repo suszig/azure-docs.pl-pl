@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Wskazówek dotyczących ceny dla maszyn wirtualnych Azure, programu SQL Server
 
@@ -102,8 +102,11 @@ Aby utworzyć maszyny Wirtualnej Azure SQL Server 2016 z jednym z tych obrazów 
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 standardowa maszyna wirtualna platformy Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Trafić w ciągu 10 dni liczbę licencji programu SQL Server będzie używany na platformie Azure. Łącza do poprzedniego obrazy mają instrukcje jak to zrobić.
+
+> [!NOTE]
+> Nie można zmienić modelu licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za minuty użycia na własną licencję. W takim przypadku należy utworzyć nową maszynę wirtualną w modelu BYOL i zmigrować bazy danych do tej nowej maszyny wirtualnej. 
 
 ## <a name="avoid-unnecessary-costs"></a>Unikaj niepotrzebnych kosztów
 
@@ -115,7 +118,7 @@ Liczba rdzeni bezpośrednio dotyczy koszty licencjonowania programu SQL Server. 
 
 Istnieją nowe rozmiary maszyny, które działają prawidłowo w przypadku niektórych typów obciążeń programu SQL Server. Rozmiary maszyn Obsługa wysokiego poziomu pamięci, magazynu i przepustowości we/wy, ale mają niższe liczby rdzeni zwirtualizowanych. Rozważmy na przykład następująco:
 
-| Rozmiar maszyny Wirtualnej | Vcpu | Memory (Pamięć) | Maksymalna liczba dysków | Maksymalna przepustowość we/wy | Koszty licencjonowania programu SQL | Łączne koszty (obliczeń + licencjonowania) |
+| Rozmiar maszyny wirtualnej | Vcpu | Memory (Pamięć) | Maksymalna liczba dysków | Maksymalna przepustowość we/wy | Koszty licencjonowania programu SQL | Łączne koszty (obliczeń + licencjonowania) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51,200 IOPS lub 768 MB/s | | |
 | **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51,200 IOPS lub 768 MB/s | 75% niższa | 57% niższa |

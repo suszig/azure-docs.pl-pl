@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Często zadawane pytania dotyczące usługi pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne za pośrednictwem standardu branżowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (znanej także jako Common Internet File System, lub CIFS). Udziały plików platformy Azure można zainstalować w chmurze lub lokalnie wdrożeń systemu Windows, Linux i macOS jednocześnie. Możesz również buforować udziały plików platformy Azure na komputerach z systemem Windows Server przy użyciu synchronizacji plików Azure (wersja zapoznawcza) zapewniania szybkiego dostępu bliski gdzie dane są używane.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji usługi pliki Azure, łącznie z użyciem synchronizacji plików Azure przy użyciu plików Azure. Jeśli nie widzisz odpowiedź na swoje pytanie, użytkownik może skontaktuj się z nami za pośrednictwem następujących kanałów (w kolejności rosnące):
 
 1. W sekcji komentarzy w tym artykule.
-2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure pliki UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie pomocy technicznej, w portalu Azure na **pomocy** wybierz opcję **Pomoc i obsługa techniczna** przycisk, a następnie wybierz **nowy obsługuje żądania**.
 
@@ -147,6 +147,9 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania na temat funkcji us�
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Jak jest *wolne miejsce w woluminie* interpretowane, gdy użytkownik ma wiele punktów końcowych serwera na woluminie?**  
+    Jeśli istnieje więcej niż jeden punkt końcowy serwera na woluminie, próg wolnego miejsca skuteczne woluminu jest największy wolne miejsce w woluminie określony przez dowolnego punktu końcowego serwera na tym woluminie. Pliki będą należeć do warstwy zgodnie z ich niezależnie od tego, który punkt końcowy serwera, do którego należą te wzorce użycia. Na przykład, mając dwa punkty końcowe serwera na woluminie Punk końcowy 1 i Punk końcowy 2, gdzie Punk końcowy 1 ma progu wolnego miejsca na woluminie 25% i Punk końcowy 2 ma progu wolnego miejsca na woluminie 50% woluminu próg wolnego miejsca dla obu punktów końcowych serwera będą 50%.
 
 * <a id="afs-files-excluded"></a>**Które pliki i foldery, automatycznie są wyłączone przez synchronizacji plików Azure?**  
     Domyślnie synchronizacja plików Azure nie obejmuje następujące pliki:

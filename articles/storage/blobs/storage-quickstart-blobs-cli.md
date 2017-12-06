@@ -1,9 +1,9 @@
 ---
-title: "Szybki Start Azure - obiektów transferu do/z magazynu obiektów Blob platformy Azure przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Szybko poznać, aby przenieść obiekty z magazynu obiektów Blob platformy Azure przy użyciu wiersza polecenia platformy Azure"
+title: "Szybki start platformy Azure — Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą interfejsu wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Skrócona instrukcja transferowania obiektów do usługi Azure Blob Storage i z niej za pomocą interfejsu wiersza polecenia platformy Azure"
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 327639f49d27972548e4e8c243d1e349a9cb58bb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu wiersza polecenia platformy Azure
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Szczegóły tego szybkiego startu przekazywania i pobierania danych do i z magazynu obiektów Blob platformy Azure przy użyciu wiersza polecenia platformy Azure.
+Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Ten przewodnik Szybki start zawiera opis wykorzystania interfejsu wiersza polecenia platformy Azure do przesyłania danych do/z usługi Azure Blob Storage.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -35,7 +35,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty BLOB są zawsze przesyłane do kontenera. Kontenery umożliwiają organizować grupy obiektów blob, np. zorganizować plików w katalogach na tym komputerze.
+Obiekty blob są zawsze przesyłane do kontenera. Kontenery umożliwiają organizowanie grup obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
 
 Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container#create).
 
@@ -43,11 +43,11 @@ Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az st
 az storage container create --name mystoragecontainer
 ```
 
-## <a name="upload-a-blob"></a>Przekazywanie obiektu blob
+## <a name="upload-a-blob"></a>Przesyłanie obiektów blob
 
-Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Większość plików przechowywanych w magazynie obiektów Blob są przechowywane jako blokowych obiektów blob. Dołącz obiekty BLOB są używane podczas danych należy dodać do istniejącego obiektu blob bez modyfikowania jej istniejącej zawartości, takie jak rejestrowanie. Stronicowe obiekty blob obsługują pliki VHD maszyn wirtualnych IaaS.
+Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Większość plików przechowywanych w usłudze Blob Storage jest przechowywana jako blokowe obiekty blob. Uzupełnialne obiekty blob są używane w razie konieczności dodania danych do istniejącego obiektu blob bez modyfikowania jego zawartości, na przykład w przypadku rejestrowania. Stronicowe obiekty blob obsługują pliki VHD maszyn wirtualnych IaaS.
 
-W tym przykładzie mamy przekazywanie obiektu blob do kontenera utworzyliśmy w ostatnim kroku z [az magazynu obiektów blob przekazywania](/cli/azure/storage/blob#upload) polecenia.
+W tym przykładzie do kontenera utworzonego w ostatnim kroku zostanie przekazany obiekt blob za pomocą polecenia [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +56,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-Jeśli obiekt blob nie istnieje, zostanie utworzony. W przeciwnym razie zostanie zastąpiony. Przekazywanie plików tyle jak przed kontynuowaniem.
+Jeśli obiekt blob nie istnieje, zostanie utworzony. W przeciwnym razie zostanie zastąpiony. Przed kontynuowaniem można przesłać dowolną liczbę plików.
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
@@ -70,7 +70,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Pobieranie obiektu blob
 
-Użyj [az magazynu obiektów blob pobierania](/cli/azure/storage/blob#download) polecenie, aby pobrać obiektu blob możesz przekazać wcześniej.
+Użyj polecenia [az storage blob download](/cli/azure/storage/blob#download), aby pobrać przesłany wcześniej obiekt blob.
 
 ```azurecli-interactive
 az storage blob download \
@@ -79,11 +79,11 @@ az storage blob download \
     --file ~/destination/path/for/file
 ```
 
-## <a name="data-transfer-with-azcopy"></a>Transfer danych z narzędzia AzCopy
+## <a name="data-transfer-with-azcopy"></a>Transfer danych przy użyciu narzędzia AzCopy
 
-[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) narzędzie jest inną opcją w przypadku transferu danych za pomocą skryptów wysokiej wydajności dla usługi Azure Storage. Narzędzia AzCopy można użyć do transferu danych do i z magazynu obiektów Blob, plików i tabeli.
+Narzędzie [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to kolejna opcja umożliwiająca wydajny transfer danych do usługi Azure Storage z użyciem skryptów. Narzędzia AzCopy można używać do transferu danych do i z magazynu obiektów blob, plików i tabel.
 
-Jako przykład szybki, Oto polecenia AzCopy przekazywanie pliku o nazwie *mojplik.txt* do *mystoragecontainer* kontenera.
+Oto przykładowe polecenie AzCopy umożliwiające przesłanie pliku o nazwie *myfile.txt* do kontenera *mystoragecontainer*.
 
 ```bash
 azcopy \
@@ -95,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie są już potrzebne zasobów w grupie zasobów, tym na koncie magazynu utworzonym w tego przewodnika Szybki Start, Usuń grupę zasobów z [az usunięcie grupy](/cli/azure/group#delete) polecenia.
+Jeśli nie są już potrzebne żadne zasoby z grupy zasobów, w tym konto magazynu utworzone w ramach tego przewodnika Szybki start, usuń grupę zasobów za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,7 +103,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybkiego startu przedstawiono sposób przesyłania plików między kontenera w magazynie obiektów Blob platformy Azure i dysku lokalnego. Aby dowiedzieć się więcej na temat pracy z obiektami BLOB w usłudze Azure Storage, nadal samouczek do pracy z magazynem obiektów Blob Azure.
+W tym przewodniku Szybki start przedstawiono metodę transferowania plików między dyskiem lokalnym i kontenerem w usłudze Azure Blob Storage. Aby dowiedzieć się więcej na temat pracy z obiektami blob w usłudze Azure Storage, przejdź do samouczka dotyczącego pracy z usługą Azure Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Porady: obiektu Blob magazynu operacje z wiersza polecenia platformy Azure](storage-how-to-use-blobs-cli.md)
+> [Instrukcje: operacje przeprowadzane w usłudze Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure](storage-how-to-use-blobs-cli.md)

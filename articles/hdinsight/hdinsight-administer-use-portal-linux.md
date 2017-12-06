@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -36,14 +36,17 @@ Aby wykonać kroki opisane w tym artykule, należy **subskrypcji platformy Azure
 1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com).
 2. Po otwarciu portalu, możesz:
 
-   * Kliknij przycisk **nowy** z menu po lewej stronie do utworzenia nowego klastra:
+   * Kliknij przycisk **Utwórz zasób** z menu po lewej stronie do utworzenia nowego klastra:
 
        ![przycisk Nowy klaster usługi HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       Wprowadź **HDInsight** w **wyszukiwania portalu Marketplace**, kliknij przycisk **HDInsight**, a następnie kliknij przycisk **Utwórz**.
+
    * Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie, aby wyświetlić listę istniejących klastrów:
 
        ![Przycisk klastra usługi HDInsight portalu Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       Jeśli nie widzisz **klastrów usługi HDInsight** , kliknij **więcej usług** w dolnej części listy, a następnie kliknij przycisk **klastrów usługi HDInsight** w obszarze  **Analiza i analiza** sekcji.
+       Jeśli nie widzisz **klastrów usługi HDInsight** przycisk, a następnie kliknij przycisk **klastrów usługi HDInsight** w obszarze **analizy i analiza** sekcji.
 
 
 ## <a name="create-clusters"></a>Tworzenie klastrów
@@ -73,7 +76,7 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
 
 ## <a name="list-and-show-clusters"></a>Lista i Pokaż klastrów
 1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com).
-2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie, aby wyświetlić listę istniejących klastrów. Jeśli nie widzisz **klastrów usługi HDInsight**, kliknij przycisk **więcej usług** pierwszy.
+2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie, aby wyświetlić listę istniejących klastrów. Jeśli nie widzisz **klastrów usługi HDInsight**, kliknij przycisk **wszystkie usługi** pierwszy.
 3. Kliknij nazwę klastra. Jeśli na liście klastra jest długa, można użyć filtrów w górnej części strony.
 4. Kliknij klastra z listy w celu wyświetlenia strony Przegląd:
 
@@ -81,6 +84,7 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
     * **Pulpit nawigacyjny**: Otwiera pulpitu nawigacyjnego klastra, który jest sieci Ambari Web w klastrach opartych na systemie Linux.
     * **Secure Shell**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH).
     * **Skalowanie klastra**: umożliwia zmianę liczby węzłów procesu roboczego dla tego klastra.
+    * **Przenieś**: Przenieś klaster do grupy zasobów innym lub subskrypcji.
     * **Usuń**: usuwa klastra.
 
     **Menu po lewej stronie:**
@@ -92,17 +96,18 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
     * **Skrypt automatyzacji**: wyświetlanie i eksportowanie szablonu usługi Azure Resource Manager dla klastra. Obecnie można wyeksportować tylko konta magazynu Azure zależnego. Zobacz [utworzyć Linux opartych klastrów Hadoop w usłudze HDInsight przy użyciu szablonów usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Szybki Start**: Wyświetla informacje, który pomoże Ci rozpocząć korzystanie z usługi HDInsight.
     * **Narzędzia HDInsight**: narzędzia powiązane informacje pomocy dla usługi HDInsight.
-    * **Klaster logowania**: wyświetlanie informacji logowania klastra.
     * **Użycie Core subskrypcji**: Wyświetl rdzeni używany i dostępny dla Twojej subskrypcji.
     * **Skalowanie klastra**: Zwiększ i zmniejsza liczbę węzłów procesu roboczego w klastrze. Zobacz[skalować klastrów](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Secure Shell**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **SSH + logowania do klastra**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)i zresetuj poświadczeń logowania klastra.
     * **Partnera usługi HDInsight**: Dodaj/Usuń bieżącego partnera usługi HDInsight.
     * **Zewnętrzne magazyny**: Wyświetl magazyny Hive i Oozie. Magazyny można skonfigurować tylko w trakcie procesu tworzenia klastra. Zobacz [użyć na potrzeby magazynu metadanych Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Akcje skryptu**: skrypty Bash uruchomić w klastrze. Zobacz [klastrów usługi HDInsight opartej na dostosowanie systemu Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
     * **Aplikacje**: aplikacje usługi HDInsight dodawania i usuwania.  Zobacz [instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md).
+    * **Monitorowanie**: monitorowanie klastra w systemie Azure Operations Management Suite i Azure Log Analytics.
     * **Właściwości**: wyświetlanie właściwości klastra.
     * **Konta magazynu**: Wyświetl konta magazynu i klucze. Konta magazynu są skonfigurowane w trakcie procesu tworzenia klastra.
-    * **Tożsamość usługi AAD klastra**:
+    * **Dostęp do usługi Data Lake Store**: Konfigurowanie dostępu są przechowywane w usłudze Data Lake.  Zobacz [Tworzenie klastrów usługi HDInsight z usługą Data Lake Store za pomocą portalu Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Kondycja zasobów**: zobacz [Przegląd kondycji zasobów platformy Azure](../service-health/resource-health-overview.md).
     * **Nowe żądanie pomocy technicznej**: umożliwia tworzenie biletu pomocy technicznej o pomoc techniczna firmy Microsoft.
     
 6. Kliknij przycisk **właściwości**:
@@ -128,7 +133,7 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
 Usunięcie klastra nie powoduje usunięcia domyślne konto magazynu ani wszystkie połączone konta magazynu. Można ponownie utworzyć klastra przy użyciu tego samego konta magazynu i tym samym magazyny. Zalecamy używanie nowego domyślnego kontenera obiektów Blob podczas ponownego tworzenia klastra.
 
 1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie. Jeśli nie widzisz **klastrów usługi HDInsight**, kliknij przycisk **więcej usług** pierwszy.
+2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie. Jeśli nie widzisz **klastrów usługi HDInsight**, kliknij przycisk **wszystkie usługi** pierwszy.
 3. Kliknij klaster, który chcesz usunąć.
 4. Kliknij przycisk **usunąć** z górnego menu, a następnie postępuj zgodnie z instrukcjami.
 

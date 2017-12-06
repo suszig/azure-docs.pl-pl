@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Stanowe pojedynczych wystąpień w funkcjach trwałe - próbka licznika
 
@@ -45,13 +45,31 @@ Trwałe funkcji powoduje, że taki scenariusz prosta do wdrożenia, ponieważ wy
 
 W tym artykule przedstawiono **E3_Counter** funkcji w przykładowej aplikacji.
 
-W poniższych sekcjach opisano kod, który jest używany do tworzenia aplikacji programu Visual Studio. Przypomina kod dla rozwoju portalu Azure.
+
 
 ## <a name="the-counter-orchestration"></a>Licznik aranżacji
+
+W poniższych sekcjach opisano kod, który jest używany do tworzenia aplikacji programu Visual Studio Code i portalu Azure.
+
+### <a name="c-script"></a>Skryptu C#
+
+Plik function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Plik run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Prekompilowane C# 
+
+W poniższych sekcjach opisano kod, który jest używany do tworzenia aplikacji programu Visual Studio.
 
 Oto kod, który implementuje funkcję programu orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Wyjaśnienie kodu
 
 Ta funkcja orchestrator zasadniczo wykonuje następujące czynności:
 

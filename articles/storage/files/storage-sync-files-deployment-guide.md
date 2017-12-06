@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Wdrażanie synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -92,7 +92,7 @@ Po zalogowaniu, zostanie wyświetlony monit o następujące informacje:
 Po wybraniu odpowiednie informacje, wybierz **zarejestrować** do ukończenia rejestracji serwera. W ramach procesu rejestracji zostanie wyświetlony monit o dodatkowe logowania.
 
 ## <a name="create-a-sync-group"></a>Tworzenie grupy synchronizacji
-Grupy synchronizacji definiuje topologia synchronizacji dla grupy plików. Punkty końcowe w ramach grupy synchronizacji są zsynchronizowane ze sobą. Grupy synchronizacji musi zawierać co najmniej jednej chmurze punktu końcowego, który reprezentuje udział plików na platformę Azure, i co serwer punktu końcowego, który reprezentuje ścieżkę, w systemie Windows Server. Aby utworzyć grupę synchronizacji w [portalu Azure](https://portal.azure.com/), przejdź do usługi synchronizacji magazynu, a następnie wybierz **+ grupy synchronizacji**:
+Grupy synchronizacji definiuje topologia synchronizacji dla grupy plików. Punkty końcowe w ramach grupy synchronizacji są zsynchronizowane ze sobą. Grupy synchronizacji musi zawierać co najmniej jedna chmura punktu końcowego, który reprezentuje udział plików na platformę Azure, i jeden serwer punktu końcowego, który reprezentuje ścieżkę, w systemie Windows Server. Aby utworzyć grupę synchronizacji w [portalu Azure](https://portal.azure.com/), przejdź do usługi synchronizacji magazynu, a następnie wybierz **+ grupy synchronizacji**:
 
 ![Utwórz nową grupę synchronizacji w portalu Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
@@ -103,21 +103,37 @@ W okienku zostanie otwarty wprowadź następujące informacje, aby utworzyć gru
 - **Konto magazynu**: w przypadku wybrania **wybierz konto magazynu**, innego okienka pojawia się, w którym można wybrać konto magazynu, który ma udziału plików na platformę Azure, do którego mają być synchronizowane z.
 - **Udział plików Azure**: Nazwa udziału plików na platformę Azure, z którym mają być synchronizowane.
 
-Aby dodać punktu końcowego serwera, przejdź do nowo utworzona grupa synchronizacji, a następnie wybierz **dodać punkt końcowy serwera**.
+Aby dodać punktu końcowego serwera, przejdź do grupy nowo utworzonych sync, a następnie wybierz **dodać punkt końcowy serwera**.
 
 ![Dodaj nowy punkt końcowy serwera w okienku grupy synchronizacji](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
 W **dodać punkt końcowy serwera** okienku, wprowadź następujące informacje, aby utworzyć punktu końcowego serwera:
 
-- **Zarejestrowano serwer**: Nazwa serwera lub klastra, w której chcesz utworzyć punkt końcowy serwera.
+- **Zarejestrowanego serwera**: Nazwa serwera lub klastra, w której chcesz utworzyć punkt końcowy serwera.
 - **Ścieżka**: ścieżka systemu Windows Server można synchronizować w ramach grupy synchronizacji.
 - **Obsługa poziomów w chmurze**: przełącznik, aby włączyć lub wyłączyć chmury warstwy. Z chmurą, dodając funkcje warstw, rzadko używane lub uzyskać dostępu do plików może należeć do warstwy do usługi pliki Azure.
-- **Wolne miejsce w woluminie**: ilość wolnego miejsca do zarezerwowania na woluminie, na którym znajduje się punkt końcowy serwera. Na przykład jeśli wolne miejsce w woluminie jest ustawiona na 50% na wolumin, który ma jeden punkt końcowy serwera, około połowa ilości danych jest warstwowa do usługi pliki Azure. Niezależnie od tego, czy w chmurze, dodając funkcje warstw jest włączona, na udział plików na platformę Azure ma zawsze pełną kopię danych do grupy synchronizacji.
+- **Wolne miejsce w woluminie**: ilość wolnego miejsca do zarezerwowania na woluminie, na którym znajduje się punkt końcowy serwera. Na przykład jeśli wolne miejsce w woluminie jest ustawiona na 50% na wolumin, który ma punkt końcowy pojedynczego serwera, około połowa ilości danych jest warstwowa do usługi pliki Azure. Niezależnie od tego, czy w chmurze, dodając funkcje warstw jest włączona, na udział plików na platformę Azure ma zawsze pełną kopię danych do grupy synchronizacji.
 
 Aby dodać punkt końcowy serwera, wybierz **Utwórz**. Pliki są teraz zsynchronizowane na udział plików na platformę Azure i w systemie Windows Server. 
 
 > [!Important]  
 > Można wprowadzić zmiany do dowolnego punktu końcowego w chmurze lub punkt końcowy serwera w grupie synchronizacji i zsynchronizowaniu pliki do punktów końcowych w grupie synchronizacji. Jeśli bezpośrednio wprowadzić zmianę do punktu końcowego w chmurze (udział plików na platformę Azure), zmiany najpierw trzeba być odnajdowane przez zadanie wykrywania zmian synchronizacji plików Azure. Zadanie wykrywania zmian jest inicjowane dla punktu końcowego w chmurze tylko raz na 24 godziny. Aby uzyskać więcej informacji, zobacz [plików Azure — często zadawane pytania](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migracja wdrożenia replikacji systemu plików DFS (DFS-R) do synchronizacji plików Azure
+Migracja wdrożenia systemu plików DFS-R do synchronizacji usługi Azure pliku:
+
+1. Utwórz grupę synchronizacji do reprezentowania topologii systemu plików DFS-R, który chcesz zastąpić.
+2. Uruchom na serwerze, który ma pełny zestaw danych w topologii systemu plików DFS-R, aby przeprowadzić migrację. Instalowanie synchronizacji plików Azure na tym serwerze.
+3. Zarejestruj tego serwera i utworzyć punktu końcowego serwera dla pierwszego serwera do migracji. Nie należy włączać chmury warstwy.
+4. Poinformuj wszystkich synchronizacji danych do udziału plików na platformę Azure (punktu końcowego w chmurze).
+5. Zainstaluj i zarejestruj agenta synchronizacji plików Azure na każdej z pozostałych serwerów systemu plików DFS-R.
+6. Wyłącz R. systemu plików DFS 
+7. Tworzenie punktu końcowego serwera na wszystkich serwerach systemu plików DFS-R. Nie należy włączać chmury warstwy.
+8. Upewnij się, synchronizacji kończy i przetestować topologii zgodnie z potrzebami.
+9. Wycofywanie R. systemu plików DFS
+10. Chmury warstw może teraz można włączyć dla dowolnego punktu końcowego serwera zgodnie z potrzebami.
+
+Aby uzyskać więcej informacji, zobacz [interop synchronizacji plików Azure z rozproszonego systemu plików (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Następne kroki
 - [Dodawanie lub usuwanie punktu końcowego serwera synchronizacji plików Azure](storage-sync-files-server-endpoint.md)

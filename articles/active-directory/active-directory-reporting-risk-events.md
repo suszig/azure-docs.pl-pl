@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Zdarzenia o podwyższonym ryzyku Azure Active Directory
 
@@ -64,9 +64,9 @@ Ten typ zdarzenia ryzyka identyfikuje użytkowników, którzy zalogowali się po
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Niemożliwa podróż do nietypowych lokalizacji
 
-Ten typ zdarzenia ryzyka identyfikuje dwa logowania pochodzące z odległymi geograficznie lokalizacji, w którym co najmniej jednej z lokalizacji może być również nietypowe dla użytkownika, podane poza zachowanie. Ponadto czas między dwoma logowania jest krótszy niż czas, jaki zajęłyby użytkownikowi przesyłane z lokalizacji pierwszy na sekundę, wskazującą, czy inny użytkownik korzysta z tych samych poświadczeń. 
+Ten typ zdarzenia ryzyka identyfikuje dwa logowania pochodzące z odległymi geograficznie lokalizacji, w którym co najmniej jednej z lokalizacji może być również nietypowe dla użytkownika, podane poza zachowanie. Wśród wielu innych czynników tego algorytmu uczenia maszynowego bierze pod uwagę czas między dwoma logowania i czasu, jaki zajęłyby do przesyłane z lokalizacji pierwszy na sekundę, wskazującą, czy inny użytkownik jest korzystającej z tego samego użytkownika poświadczenia.
 
-Tego algorytmu uczenia maszynowego, który ignoruje oczywiste "*fałszywych alarmów*" przyczyniające się do warunku niemożliwa podróż, takie jak sieci VPN i lokalizacje regularnie używane przez innych użytkowników w organizacji.  System ma okres learning początkowej 14 dni, w których uczy się nowego użytkownika logowania zachowanie.
+Algorytm ignoruje oczywiste "fałszywych alarmów" Współtworzenie niemożliwa podróż warunki, takie jak sieci VPN i lokalizacje regularnie używane przez innych użytkowników w organizacji. System ma okres learning początkowej 14 dni, w których uczy się nowego użytkownika logowania zachowanie. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logowania z nieznanych lokalizacji
 
@@ -89,20 +89,20 @@ W poniższej tabeli wymieniono ilość czasu potrzebnego dla typu wykrywania wy�
 
 | Typ wykrywania | Opóźnienie raportowania |
 | --- | --- |
-| W czasie rzeczywistym | 5 – 10 minut |
-| W trybie offline | 2-4 godziny |
+| Czas rzeczywisty | 5 – 10 minut |
+| Offline | 2-4 godziny |
 
 
 Typy zdarzeń ryzyka, które wykrywa usługi Azure Active Directory dostępne są następujące typy wykrywania:
 
 | Typ zdarzenia ryzyka | Typ wykrywania |
 | :-- | --- | 
-| [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | W trybie offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | W czasie rzeczywistym |
-| [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | W trybie offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | W czasie rzeczywistym |
-| [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | W trybie offline |
-| [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | W trybie offline|
+| [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Offline |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Czas rzeczywisty |
+| [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Offline |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Czas rzeczywisty |
+| [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Offline |
+| [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
 
 ## <a name="risk-level"></a>Poziom ryzyka
@@ -165,12 +165,12 @@ Zdarzenia o podwyższonym ryzyku są foundation ochrony tożsamości usługi Azu
 
 | Typ zdarzenia ryzyka | Poziom ryzyka | Typ wykrywania |
 | :-- | --- | --- |
-| [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Wysoka | W trybie offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | W czasie rzeczywistym |
-| [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Medium | W trybie offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | W czasie rzeczywistym |
-| [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Niska | W trybie offline |
-| [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | W trybie offline|
+| [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Wysoka | Offline |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | Czas rzeczywisty |
+| [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Medium | Offline |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | Czas rzeczywisty |
+| [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Niska | Offline |
+| [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | Offline|
 
 Gdzie można znaleźć zdarzenia ryzyka, które zostały wykryte w środowisku
 Istnieją dwa miejsca, w którym przejrzeć zdarzenia zgłoszone ryzyka:

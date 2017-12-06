@@ -3,17 +3,16 @@ title: "Odwołanie do schematu elementu webhook Azure rejestru kontenera"
 description: "Element Webhook żądania JSON ładunku odwołanie do rejestru kontenera platformy Azure."
 services: container-registry
 author: mmacy
-manager: stevelas
+manager: timlt
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 7fb412cdb64dd05fa5f5d097fe640e7d4cd70e23
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Informacje dotyczące elementu webhook rejestru kontenera platformy Azure
 
@@ -99,7 +98,7 @@ Przykład [interfejsu wiersza polecenia Docker](https://docs.docker.com/engine/r
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Usuń zdarzenie
+## <a name="delete-event"></a>Usuń zdarzenia
 
 Wyzwalane po usunięciu repozytorium lub manifestu elementu Webhook. Nie są uruchamiane po usunięciu znacznika.
 

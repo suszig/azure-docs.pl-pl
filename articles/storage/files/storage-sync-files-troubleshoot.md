@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -26,7 +26,7 @@ Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie ud
 W tym artykule zaprojektowano w celu ułatwienia rozwiązywania oraz usuwania problemów, które mogą wystąpić z wdrożeniem synchronizacji plików Azure. Możemy również opisano, jak zebrać dzienniki ważne z systemu, jeśli wymagana jest głębsza analiza problemu. Jeśli nie widzisz odpowiedź na swoje pytanie, użytkownik może skontaktuj się z nami za pośrednictwem następujących kanałów (w kolejności rosnące):
 
 1. W sekcji komentarzy w tym artykule.
-2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Forum usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure pliki UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie pomocy technicznej, w portalu Azure na **pomocy** wybierz opcję **Pomoc i obsługa techniczna** przycisk, a następnie wybierz **nowy obsługuje żądania**.
 
@@ -43,8 +43,8 @@ Przejrzyj installer.log, aby ustalić przyczynę niepowodzenia instalacji.
 > [!Note]  
 > Instalacja agenta zakończy się niepowodzeniem, jeśli komputer jest skonfigurowany do użycia usługi Microsoft Update i usługa Windows Update nie jest uruchomiona.
 
-<a id="server-registration-missing"></a>**Serwer nie jest wyszczególniony w zarejestrowany serwerów w portalu Azure**  
-Jeśli serwer nie jest wymieniony w obszarze **zarejestrowane serwery** dla usługi synchronizacji magazynu:
+<a id="server-registration-missing"></a>**Serwer nie jest wyszczególniony w obszarze zarejestrowane serwery w portalu Azure**  
+Jeśli serwer nie jest wymieniony w obszarze **zarejestrowanych serwerów** dla usługi synchronizacji magazynu:
 1. Zaloguj się do serwera, który chcesz zarejestrować.
 2. Otwórz Eksploratora plików, a następnie przejdź do katalogu instalacji agenta synchronizacji magazynu (domyślna lokalizacja to C:\Program Files\Azure\StorageSyncAgent). 
 3. Uruchom ServerRegistration.exe, a następnie Ukończ pracę kreatora, aby zarejestrować serwer z magazynu usługi synchronizacji.
@@ -55,7 +55,7 @@ Jeśli serwer nie jest wymieniony w obszarze **zarejestrowane serwery** dla usł
 
 Ten komunikat zostanie wyświetlony, jeśli serwer został poprzednio zarejestrowany z usługą synchronizacji magazynu. Aby wyrejestrować serwera z bieżącej usługi synchronizacji magazynu, a następnie Zarejestruj nowe usługi synchronizacji magazynu, wykonaj kroki opisane w [Wyrejestruj serwer z funkcją synchronizacji plików Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Jeśli serwer nie jest wymieniony w obszarze **zarejestrowane serwery** przez usługę synchronizacji magazynu na serwerze, który chcesz wyrejestrować, uruchom następujące polecenia programu PowerShell:
+Jeśli serwer nie jest wymieniony w obszarze **zarejestrowanych serwerów** przez usługę synchronizacji magazynu na serwerze, który chcesz wyrejestrować, uruchom następujące polecenia programu PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -69,7 +69,7 @@ Reset-StorageSyncServer
 Ten problem występuje, gdy **zwiększonych zabezpieczeń programu Internet Explorer** jest włączona podczas rejestrowania serwera. Aby uzyskać więcej informacji na temat niepoprawnie wyłączania **zwiększonych zabezpieczeń programu Internet Explorer** zasad, zobacz [przygotowanie systemu Windows Server do użycia z synchronizacji plików Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) i [wdrażanie plików Azure Synchronizacja (wersja zapoznawcza)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Synchronizacji grupy zarządzania
-<a id="cloud-endpoint-using-share"></a>**Niepowodzenie tworzenia punktu końcowego, z powodu następującego błędu w chmurze: "Określonym Azure udziału plików jest już używany przez inny CloudEndpoint"**  
+<a id="cloud-endpoint-using-share"></a>**Utworzenie punktu końcowego w chmurze nie powiedzie się, z powodu następującego błędu: "Określonym Azure udziału plików jest już używany przez inny CloudEndpoint"**  
 Ten problem występuje, gdy udział plików na platformę Azure jest już używana przez inny punkt końcowy w chmurze. 
 
 Jeśli ten komunikat zostanie wyświetlony i udziału plików na platformę Azure nie jest obecnie używany przez punkt końcowy w chmurze, wykonaj następujące kroki, aby wyczyścić metadane synchronizacji plików Azure w udziale plików na platformę Azure:
@@ -81,7 +81,7 @@ Jeśli ten komunikat zostanie wyświetlony i udziału plików na platformę Azur
 2. Kliknij prawym przyciskiem myszy udział plików na platformę Azure, a następnie wybierz **edycji metadanych**.
 3. Kliknij prawym przyciskiem myszy **SyncService**, a następnie wybierz **usunąć**.
 
-<a id="cloud-endpoint-authfailed"></a>**Niepowodzenie tworzenia punktu końcowego, z powodu następującego błędu w chmurze: "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**Utworzenie punktu końcowego w chmurze nie powiedzie się, z powodu następującego błędu: "AuthorizationFailed"**  
 Ten problem występuje, gdy konto użytkownika nie ma wystarczających praw tworzenia punktu końcowego w chmurze. 
 
 Aby utworzyć punktu końcowego w chmurze, Twoje konto użytkownika musi mieć następujące uprawnienia Authorization firmy Microsoft:  
@@ -102,7 +102,7 @@ Aby określić, czy rola konto użytkownika ma wymagane uprawnienia:
     * **Przypisanie roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
     * **Definicja roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Chmury kończy się niepowodzeniem z usuwanie punktu końcowego, z powodu następującego błędu: "MgmtInternalError"**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**Usuwanie punktu końcowego chmury nie powiedzie się, z powodu następującego błędu: "MgmtInternalError"**  
 Ten problem może wystąpić, jeśli konto udziału lub magazyn plików Azure zostanie usunięte przed usunięciem punktu końcowego w chmurze. Ten problem zostanie rozwiązany w przyszłej aktualizacji. W tym czasie można usunąć punktu końcowego w chmurze, po usunięciu konta udziału lub magazyn plików Azure.
 
 W tym samym czasie aby zapobiec wystąpieniu tego problemu, Usuń punktu końcowego w chmurze przed usunięciem konta udziału lub magazyn plików Azure.
@@ -133,6 +133,28 @@ Jeśli pojedynczych plików nie można zsynchronizować:
     > Synchronizacja programu Azure plik ma okresowo migawki VSS, aby zsynchronizować pliki, które mają otwarte dojścia.
 
 ## <a name="cloud-tiering"></a>Obsługa warstw w chmurze 
+Istnieją dwie ścieżki do błędów w chmurze warstwy:
+
+- Pliki mogą mieć problemy z warstwy, co oznacza, że synchronizacja plików Azure próba warstwy pliku do usługi pliki Azure.
+- Pliki może zakończyć się niepowodzeniem do wycofania, co oznacza, że filtr synchronizacji plików Azure systemu plików (StorageSync.sys) kończy się niepowodzeniem podczas pobierania danych podczas prób użytkownika, uzyskać dostęp do pliku, które zostały warstwy.
+
+Istnieją dwie klasy głównym błędów, które mogą wystąpić za pośrednictwem ścieżkę awarii:
+
+- Błędów magazynu w chmurze
+    - *Magazynu przejściowych problemów dotyczących dostępności usługi*. Zobacz [Umowa dotycząca poziomu usług (SLA) dla usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) Aby uzyskać więcej informacji.
+    - *Udział plików na platformę Azure niedostępny*. Ten błąd zazwyczaj odbywa się podczas usuwania udziału plików na platformę Azure, gdy jest to wciąż punktu końcowego w chmurze w grupie synchronizacji.
+    - *Konto magazynu niedostępny*. Ten błąd występuje zwykle, gdy usunąć konto magazynu, gdy wciąż znajduje się udział plików na platformę Azure, który jest w grupie synchronizacji punktu końcowego w chmurze. 
+- Błędy serwera 
+    - *Azure synchronizacji plików filtr systemu plików (StorageSync.sys) nie został załadowany*. Odpowiadanie na żądania obsługi/odwołania, w celu synchronizacji plików Azure filtr systemu plików musi być załadowany. Nie załadowano filtr może się zdarzyć z kilku powodów, ale Najczęstszą przyczyną jest, że administrator zwalnianie go ręcznie. Filtr systemu plików Azure plik synchronizacji musi być załadowany cały czas synchronizacji usługi Azure pliku prawidłowo funkcji.
+    - *Brak, uszkodzony lub w inny sposób punktu ponownej analizy przerwane*. Punkt ponownej analizy to struktura danych specjalne w pliku, który składa się z dwóch części:
+        1. Tag ponownej analizy, co oznacza system operacyjny, filtr systemu plików Azure plik synchronizacji (StorageSync.sys) może być konieczne wykonaj akcję na we/wy do pliku. 
+        2. Ponownej analizy danych, co oznacza filtru systemu plików, identyfikator URI pliku w punkcie końcowym skojarzonej chmury (udział plików na platformę Azure). 
+        
+        Najczęściej przez punkt ponownej analizy, które mogły ulec uszkodzeniu jest, jeśli administrator próbuje zmodyfikować tagu lub jego dane. 
+    - *Problemy z połączeniem sieci*. Aby można było warstwę lub odwołanie pliku, serwer musi mieć połączenie z Internetem.
+
+Poniższe sekcje wskazują sposób rozwiązywania problemów warstw w chmurze i określ, czy problem występuje problem z magazynem chmury lub błąd serwera.
+
 <a id="files-fail-tiering"></a>**Rozwiązywanie problemów z plikami, które nie są do warstwy**  
 Jeśli pliki nie warstwy do usługi pliki Azure:
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -91,6 +91,8 @@ To polecenie zwraca dokument JSON opisujący usługę, a następnie jq wysunięc
     > [!NOTE]
     > Dostępne są tylko głównymi węzłami klastra za pośrednictwem protokołu SSH z komputera klienta. Po nawiązaniu połączenia można następnie dostęp węzłów procesu roboczego przy użyciu protokołu SSH z headnode.
 
+Aby uzyskać więcej informacji, zobacz [porty używane przez usługi Hadoop w usłudze HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentu.
+
 ## <a name="file-locations"></a>Lokalizacje plików
 
 Pliki związane z Hadoop znajdują się w węzłach klastra w `/usr/hdp`. Ten katalog, który zawiera podkatalogi następujące:
@@ -108,9 +110,6 @@ HDInsight używa obiekty BLOB w magazynie Azure albo usługi Azure Data Lake Sto
 
 * Tanie magazynu długoterminowego
 * Ułatwienia dostępu z usług zewnętrznych, takich jak witryny sieci Web, plik przekazywania/Pobierz narzędzia różnych zestawów SDK języka i przeglądarki sieci web
-
-> [!WARNING]
-> HDInsight obsługuje tylko __ogólnego przeznaczenia__ konta usługi Azure Storage. Aktualnie nie obsługuje __magazynu obiektów Blob__ typ konta.
 
 Konto magazynu Azure mogą przechowywać 4,75 TB, że poszczególne obiekty BLOB (lub pliki z punktu widzenia HDInsight) mogą postępować tylko do 195 GB. Azure Data Lake Store może zwiększyć się dynamicznie do przechowywania plików z poszczególnych plików przekracza petabajt bilionów. Aby uzyskać więcej informacji, zobacz [obiekty BLOB opis](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i [usługi Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ Różne typy klastrów dotyczy skalowanie w następujący sposób:
 
         1. Otwórz **https://CLUSTERNAME.azurehdinsight.net/stormui** w przeglądarce sieci web, gdzie CLUSTERNAME jest nazwą klastra Storm. Jeśli zostanie wyświetlony monit, wprowadź nazwę administratora (Administrator) klastra usługi HDInsight i hasło określone podczas tworzenia klastra.
         2. Wybierz topologię chcesz wyrównać, a następnie wybierz **Rebalance** przycisku. Wprowadź opóźnienie przed wykonaniem operacji Zrównoważ.
+
+* **Kafka**: replik partycji powinien rebalance po operacji skalowania. Aby uzyskać więcej informacji, zobacz [wysoką dostępność danych za pomocą Kafka w usłudze HDInsight](./kafka/apache-kafka-high-availability.md) dokumentu.
 
 Aby uzyskać szczegółowe informacje na temat skalowania z klastrem usługi HDInsight zobacz:
 

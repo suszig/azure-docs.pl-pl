@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight 
 
-W tym artykule opisano sposób uzyskać dostępu do interfejsów, takich jak Ambari interfejsie użytkownika YARN interfejsu użytkownika, i serwerze historii Spark skojarzone z klastrem Spark. Opisano również sposób dostrajania konfiguracji klastra, aby zapewnić optymalną wydajność.
+Dowiedz się, jak uzyskać dostępu do interfejsów, takich jak Ambari interfejsu użytkownika, interfejsie użytkownika YARN i serwer historii Spark skojarzony z klastrem Spark i dostrajania konfiguracji klastra, aby zapewnić optymalną wydajność.
 
 **Wymagania wstępne:**
 
-* Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [klastrów utworzyć Apache Spark w usłudze Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Jak uruchomić interfejs użytkownika sieci Web Ambari?
+## <a name="open-the-ambari-web-ui"></a>Otwórz interfejs użytkownika sieci Web Ambari
 1. W witrynie [Azure Portal](https://portal.azure.com/) na tablicy startowej kliknij kafelek klastra Spark (jeśli został przypięty do tablicy startowej). Możesz także przejść do klastra, wybierając polecenia **Przeglądaj wszystko** > **Klastry usługi HDInsight**.
 2. Aby klaster Spark, kliknij przycisk **pulpitu nawigacyjnego**. Po wyświetleniu monitu wprowadź poświadczenia administratora klastra Spark.
 
@@ -40,7 +39,7 @@ W tym artykule opisano sposób uzyskać dostępu do interfejsów, takich jak Amb
 
     ![Interfejs użytkownika sieci Web Ambari](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Jak uruchomić serwera historii Spark?
+## <a name="open-the-spark-history-server"></a>Otwórz okno Spark historii serwera
 1. W witrynie [Azure Portal](https://portal.azure.com/) na tablicy startowej kliknij kafelek klastra Spark (jeśli został przypięty do tablicy startowej).
 2. W bloku klastra w obszarze **szybkie linki**, kliknij przycisk **pulpit nawigacyjny klastra**. W **pulpit nawigacyjny klastra** bloku, kliknij przycisk **Spark historii serwera**.
 
@@ -48,7 +47,7 @@ W tym artykule opisano sposób uzyskać dostępu do interfejsów, takich jak Amb
 
     Po wyświetleniu monitu wprowadź poświadczenia administratora klastra Spark.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Jak uruchomić interfejs użytkownika Yarn?
+## <a name="open-the-yarn-ui"></a>Otwórz Yarn interfejsu użytkownika
 Interfejs użytkownika YARN służy do monitorowania aplikacji, które są aktualnie uruchomione w klastrze Spark.
 
 1. W bloku klastra, kliknij **pulpit nawigacyjny klastra**, a następnie kliknij przycisk **YARN**.
@@ -60,7 +59,7 @@ Interfejs użytkownika YARN służy do monitorowania aplikacji, które są aktua
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Co to jest Konfiguracja klastra optymalne do uruchamiania aplikacji Spark?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Konfiguracja klastra optymalne do uruchamiania aplikacji Spark
 Są trzy parametry kluczy, które mogą służyć do konfiguracji platformy Spark w zależności od wymagań aplikacji `spark.executor.instances`, `spark.executor.cores`, i `spark.executor.memory`. Moduł wykonujący jest uruchomiona aplikacji Spark. Działa w węźle procesu roboczego, a odpowiada do wykonywania zadań dla aplikacji. Domyślna liczba modułów i rozmiary Moduł wykonujący dla każdego klastra jest obliczany na podstawie liczby węzłów procesu roboczego i rozmiaru węzła procesu roboczego. Te informacje są przechowywane w `spark-defaults.conf` na głównymi węzłami klastra.
 
 Parametry trzech konfiguracji można skonfigurować na poziomie klastra (dla wszystkich aplikacji, które są uruchamiane w klastrze) lub można określić dla każdej poszczególnych aplikacji.

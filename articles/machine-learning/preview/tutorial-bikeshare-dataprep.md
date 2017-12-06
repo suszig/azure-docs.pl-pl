@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Samouczek udziału roweru: Przygotowanie danych z usługi Azure Machine Learning Workbench zaawansowane
 Usługi uczenie maszynowe Azure (wersja zapoznawcza) jest nauki zintegrowane, end-to-end danych i zaawansowane metody analizy rozwiązania dla analityków danych professional Przygotowanie danych i tworzenie eksperymentów wdrażanie modeli w skali chmury.
@@ -201,7 +201,7 @@ Aby przywrócić __widoku danych__, wybierz pozycję __danych__ z lewym górnym 
    ![Obraz okna dialogowego filtru](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15 jest typem z meteorologiczne Terminal lotniczego rutynowych pogody raportu (METAR). Raporty FM-15 empirycznie są przestrzegane się najbardziej zakończona z listtle brakujące dane.
+   > FM-15 jest typem z meteorologiczne Terminal lotniczego rutynowych pogody raportu (METAR). Raporty FM-15 empirycznie są przestrzegane najbardziej kompletną, przy niewielkim brakujące dane.
 
 ## <a name="remove-a-column"></a>Usuwanie kolumn
 
@@ -287,7 +287,7 @@ Aby użyć danych w Prognozowanie dla bloków czasu dwóch godzin, należy oblic
 
    Typ `Jan 01, 2015 12AM-2AM` co w przykładzie z pierwszego wiersza i naciśnij klawisz **Enter**.
 
-   Workbench określa przekształcania oparta na przykładzie podane przez użytkownika. W tym przykładzie wynik jest data format jest zmienione i połączony z przedziale dwóch godzin.
+   Workbench określa przekształcania oparta na przykładzie podane przez użytkownika. W tym przykładzie wynik jest format daty zmieniony i połączony z przedziale dwóch godzin.
 
    ![Obraz przykładu "01 stycznia 2015 AM 00: 00 - 2](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nowa wersja rozszerzone [planowania wdrożenia usługi Azure Site Recovery dla funkcji Hyper-V w systemie Azure](site-recovery-hyper-v-deployment-planner.md) jest teraz dostępna i zastępuje narzędzie stary. Użyj nowego narzędzia dla Planowanie wdrożenia. To narzędzie zawiera następujące wytyczne:
+* Maszyna wirtualna kwalifikuje się do oceny, na podstawie liczby dysków, rozmiar dysku IOPS, przenoszenie i kilka właściwości maszyny Wirtualnej.
+* Przepustowość sieci musi i oceny cel punktu odzyskiwania.
+* Wymagania dotyczące infrastruktury platformy Azure.
+* Wymagania dotyczące infrastruktury lokalnej.
+* Przetwarzanie wsadowe wskazówki dotyczące replikacji początkowej.
+* Szacowany całkowity koszt odzyskiwania po awarii na platformie Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planowanie pojemności do ochrony maszyn wirtualnych funkcji Hyper-V z usługą Site Recovery
 
 Narzędzie Azure Site Recovery Capacity Planner pomaga ustalić wymagania pojemności podczas replikowania maszyn wirtualnych funkcji Hyper-V z usługą Azure Site Recovery.
 
-Capacity Planner odzyskiwania lokacji umożliwia analizowanie środowiska źródłowego i obciążeń, wymagania dotyczące przepustowości szacowania i zasobów serwera, które będą potrzebne do lokalizacji źródłowej i zasobów (maszyn wirtualnych i magazynu itp.), wymagających w lokalizacji docelowej.
+Użyj Capacity Planner odzyskiwania lokacji, aby przeanalizować środowiska źródłowego i obciążeń, należy oszacować wymagania dotyczące przepustowości i zasobów serwera, które będą potrzebne do lokalizacji źródłowej i zasobów (maszyn wirtualnych i magazynu itp.), wymagających w lokalizacji docelowej .
 
 Narzędzie można uruchomić na kilka metod:
 

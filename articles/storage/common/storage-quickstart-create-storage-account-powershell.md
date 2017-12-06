@@ -1,9 +1,9 @@
 ---
-title: "Szybki Start Azure — Tworzenie konta magazynu przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Szybko dowiedzieć się utworzyć nowe konto magazynu przy użyciu programu PowerShell"
+title: "Przewodnik Szybki start platformy Azure — tworzenie konta magazynu za pomocą programu PowerShell | Microsoft Docs"
+description: "Szybko naucz się, jak utworzyć nowe konto magazynu przy użyciu programu PowerShell"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.author: robinsh
-ms.openlocfilehash: c9175cce0cb93e73009fb8d751e54f631603d482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: b4b917adfb3644cca71b6696df005fbf9e295240
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="create-a-storage-account-using-powershell"></a>Utwórz konto magazynu przy użyciu programu PowerShell
+# <a name="create-a-storage-account-using-powershell"></a>Tworzenie konta magazynu za pomocą programu PowerShell
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Szczegóły ten przewodnik przy użyciu programu PowerShell, aby utworzyć konto magazynu Azure. 
+Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Ten przewodnik zawiera szczegółowy opis tworzenia konta usługi Azure Storage za pomocą programu PowerShell. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,7 +37,7 @@ Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Login-AzureRmA
 Login-AzureRmAccount
 ```
 
-Jeśli nie znasz lokalizacji, która ma być używany, można wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znaleźć ten, który ma być używany. W tym przykładzie będzie używać **eastus**. Zapisać w zmiennej i użyj zmiennej, dzięki czemu można go zmieniać w jednym miejscu.
+Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym przykładzie będzie używana lokalizacja **eastus**. Zapisz ją w zmiennej i używaj tej zmiennej, dzięki czemu będzie można zmieniać lokalizację w jednym miejscu.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -55,16 +55,16 @@ $resourceGroup = "contoso-storage-accounts"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Tworzenie konta standardowe magazynu ogólnego przeznaczenia
+## <a name="create-a-general-purpose-standard-storage-account"></a>Tworzenie standardowego konta magazynu ogólnego przeznaczenia
 
-Istnieją różne typy kont magazynu, w zależności od tego, jak ma to być używane, a także usługę (obiekty BLOB, plików, tabel lub kolejek). W poniższej tabeli przedstawiono możliwości.
+Istnieją różne typy kont magazynu zależne od planowanego sposobu użycia i usługi (obiekty blob, pliki, tabele lub kolejki). Możliwości zawarto w poniższej tabeli.
 
 |**Typ konta magazynu**|**Przeznaczenie ogólne w warstwie Standardowa**|**Przeznaczenie ogólne w warstwie Premium**|**Usługa Blob Storage w gorącej i chłodnej warstwie dostępu**|
 |-----|-----|-----|-----|
-|**Obsługiwane usługi**| Obiekt blob, plików, tabeli, kolejki usług | Usługa Obiekty Blob | Usługa Obiekty Blob|
-|**Obsługiwane typy obiektów blob**|Blokowe i stronicowe obiekty BLOB, uzupełnialne. | Stronicowe obiekty blob | Blokowe obiekty blob i uzupełnialne obiekty blob|
+|**Obsługiwane usługi**| Usługi Blob, File, Table i Queue | Blob service | Blob service|
+|**Obsługiwane typy obiektów blob**|Blokowe obiekty blob, stronicowe obiekty blob, uzupełnialne obiekty blob | Stronicowe obiekty blob | Blokowe obiekty blob i uzupełnialne obiekty blob|
 
-Użyj [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) do utworzenia konta standardowe magazynu ogólnego przeznaczenia, używanego programu wszystkie cztery usługi. Nazwa konta magazynu *contosomvcstandard*i skonfiguruj ją lokalnie nadmiarowego magazynu i obiektów blob jest włączone szyfrowanie.
+Użyj polecenia [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), aby utworzyć standardowe konto magazynu ogólnego przeznaczenia, które może być używane z wszystkimi czterema usługi. Nadaj kontu magazynu nazwę *contosomvcstandard* i skonfiguruj je tak, aby miało włączony magazyn lokalnie nadmiarowy oraz szyfrowanie obiektów blob.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -77,7 +77,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, można użyć [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) polecenie Usuń grupę zasobów i wszystkie powiązane zasoby. W takim przypadku spowoduje usunięcie konta magazynu, który został utworzony.
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). W tym przypadku zostanie usunięte utworzone konto magazynu.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -85,6 +85,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybki start utworzeniu konta standardowe magazynu ogólnego przeznaczenia. Aby dowiedzieć się, jak przekazywanie i pobieranie obiektów blob z konta magazynu, nadal Szybki Start magazynu obiektów Blob.
+W tym przewodniku Szybki start zostało utworzone standardowe konto magazynu ogólnego przeznaczenia. Aby dowiedzieć się, jak przekazywać i pobierać obiekty blob za pomocą konta magazynu, przejdź do przewodnika Szybki start dotyczącego magazynu obiektów blob.
 > [!div class="nextstepaction"]
-> [Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
