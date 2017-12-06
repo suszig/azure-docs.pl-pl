@@ -1,29 +1,22 @@
 ---
-title: "Monitorowanie klastra Azure DC/OS - stosu ŁOSI | Dokumentacja firmy Microsoft"
+title: "Monitor klaster Azure DC/OS - ŁOSI stosu"
 description: "Monitorowanie klastra DC/OS w klastrze usługi kontenera platformy Azure z ŁOSI (Elasticsearch Logstash i Kibana)."
 services: container-service
-documentationcenter: 
 author: sauryadas
-manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Kontenery, DC/OS, Azure, monitorowanie, łosi"
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitor klastra usługi kontenera platformy Azure z ŁOSI
+
 W tym artykule przedstawiony sposób wdrażania stosu ŁOSI (Elasticsearch, Logstash, Kibana) w klastrze DC/OS usługi kontenera platformy Azure. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
