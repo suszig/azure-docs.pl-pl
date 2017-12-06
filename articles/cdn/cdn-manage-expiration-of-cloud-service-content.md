@@ -14,22 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Zarządzaj wygasaniem zawartości sieci web w sieci dostarczania zawartości platformy Azure
 > [!div class="op_single_selector"]
-> * [Zawartość sieci web platformy Azure](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Zawartość sieci Web platformy Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Pliki z dowolnego publicznie dostępnego źródła serwera sieci web mogą być buforowane w Azure Content Delivery Network (CDN), dopóki nie upłynie ich czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez `Cache-Control` nagłówka odpowiedzi HTTP z serwera pochodzenia. W tym artykule opisano sposób ustawiania `Cache-Control` nagłówki dla funkcji aplikacji sieci Web Microsoft Azure App Service, usługi w chmurze Azure, aplikacji ASP.NET oraz witryny usług Internet Information Services (IIS), które są skonfigurowane podobnie. Można ustawić `Cache-Control` nagłówka przy użyciu plików konfiguracyjnych lub programowo.
+Pliki z dowolnego publicznie dostępnego źródła serwera sieci web mogą być buforowane w Azure Content Delivery Network (CDN), dopóki nie upłynie ich czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez `Cache-Control` nagłówka odpowiedzi HTTP z serwera pochodzenia. W tym artykule opisano sposób ustawiania `Cache-Control` nagłówki dla funkcji aplikacji sieci Web Microsoft Azure App Service, usługi w chmurze Azure, aplikacji ASP.NET oraz witryny usług Internet Information Services (IIS), które są skonfigurowane podobnie. Można ustawić `Cache-Control` nagłówka przy użyciu plików konfiguracyjnych lub programowo. 
+
+Ustawienia pamięci podręcznej z portalu Azure można też kontrolować przez ustawienie [CDN buforowanie reguły](cdn-caching-rules.md). Jeśli skonfigurować jeden lub więcej buforowanie reguły i ustawić ich zachowanie buforowania **zastąpienia** lub **obejścia pamięci podręcznej**, wprowadzone do pochodzenia ustawień buforowania omówione w tym artykule są ignorowane. Informacje ogólne koncepcje buforowania, zobacz [działa jak buforowanie](cdn-how-caching-works.md).
 
 > [!TIP]
-> Można ustawić nie TTL w pliku. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni. To ustawienie domyślne TTL dotyczy tylko optymalizacji ogólne sieci web. Dla optymalizacji dużych plików domyślny czas wygaśnięcia wynosi jeden dzień, a dla multimediów strumieniowych optymalizacji, domyślny czas wygaśnięcia wynosi 1 rok.
+> Można ustawić nie TTL w pliku. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia wynosi siedem dni, jeśli nie zdefiniowano buforowania reguł w portalu Azure. To ustawienie domyślne TTL dotyczy tylko optymalizacji ogólne sieci web. Dla optymalizacji dużych plików domyślny czas wygaśnięcia wynosi jeden dzień, a dla multimediów strumieniowych optymalizacji, domyślny czas wygaśnięcia wynosi 1 rok.
 > 
 > Aby uzyskać więcej informacji na temat działania usługi Azure CDN do Przyspieszanie dostępu do plików i innych zasobów, zobacz [Omówienie usługi Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Można łatwo sprawdzić ustawienia czas wygaśnięcia zawartości sieci web. Pr
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj szczegółowe informacje na temat **clientCache** — element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Przeczytaj dokumentację **HttpResponse.Cache** właściwości](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Przeczytaj dokumentację **klasy HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Przeczytaj dokumentację **HttpCachePolicy — klasa**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Dowiedz się więcej o buforowanie pojęcia](cdn-how-caching-works.md)

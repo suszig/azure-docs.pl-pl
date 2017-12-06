@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie działań niestandardowych z zestawu SDK .NET usługi Application Insights
 
@@ -33,7 +33,7 @@ Ten dokument zawiera wskazówki dotyczące sposobu śledzenia działań niestand
 ## <a name="overview"></a>Omówienie
 Operacja jest logiczną pracy wykonywane przez aplikację. Ma on nazwę, godzinę rozpoczęcia, czas trwania, wynik oraz kontekst wykonywania, takie jak nazwa użytkownika, właściwości i wyników. Jeśli operacja A została zainicjowana przez operację B, następnie operacji B ustawiono jako element nadrzędny a. Operacja może mieć tylko jeden obiekt nadrzędny, ale może mieć wiele działań podrzędnych. Aby uzyskać więcej informacji o operacjach i dane telemetryczne korelacji, zobacz [korelacji telemetrii usługi Application Insights Azure](application-insights-correlation.md).
 
-W zestawie SDK .NET Application Insights operacji jest opisany przez klasy abstrakcyjnej [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) i jego elementy podrzędne [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) i [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+W zestawie SDK .NET Application Insights operacji jest opisany przez klasy abstrakcyjnej [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) i jego elementy podrzędne [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) i [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Przychodzące operacji śledzenia 
 Automatycznie zestawu SDK sieci web usługi Application Insights zbiera żądania HTTP dla aplikacji ASP.NET, które są uruchamiane w potoku usług IIS i wszystkich aplikacji platformy ASP.NET Core. Są obsługiwane przez społeczność rozwiązań dla innych platform i struktur. Jednak jeśli aplikacja nie jest obsługiwany przez żaden z rozwiązań standard lub obsługiwane społeczności, należy mogą dodawać go ręcznie.
@@ -123,7 +123,7 @@ Protokół HTTP dla korelacji również deklaruje `Correlation-Context` nagłów
 ## <a name="queue-instrumentation"></a>Instrumentacja kolejki
 Do komunikacji HTTP utworzyliśmy protokołu do przekazania szczegóły korelacji. Przy użyciu protokołów niektórych kolejek można przekazać dodatkowe metadane wraz z komunikatu i osobom, które można.
 
-### <a name="service-bus-queue"></a>Kolejki usługi Service Bus
+### <a name="service-bus-queue"></a>Kolejka magistrali usług
 Z platformy Azure [kolejki usługi Service Bus](../service-bus-messaging/index.md), można przekazać zbiór właściwości oraz komunikat. Ten element służy do przekazywania identyfikatora korelacji.
 
 Kolejki usługi Service Bus używa protokołów opartych na protokole TCP. Usługi Application Insights nie może automatycznie śledzić operacje kolejki tak Śledzimy je ręcznie. Operacji usunięcia to interfejs API stylu wypychania, a nie możemy ją śledzić.
@@ -167,7 +167,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Proces
+#### <a name="process"></a>Przetwórz
 ```C#
 public async Task Process(BrokeredMessage message)
 {
@@ -332,7 +332,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Proces
+#### <a name="process"></a>Przetwórz
 
 W poniższym przykładzie mamy śledzenia wiadomości przychodzących w sposób, podobnie jak jak możemy śledzenia przychodzące żądanie HTTP:
 

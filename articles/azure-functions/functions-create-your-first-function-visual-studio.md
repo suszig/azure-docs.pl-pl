@@ -3,7 +3,7 @@ title: "Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Vi
 description: "Tworzenie prostej funkcji wyzwalanej przez protokół HTTP i publikowanie jej na platformie Azure przy użyciu narzędzi usługi Azure Functions dla programu Visual Studio."
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 14ab60a5bb6059794d730151193aad36bc2a969e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Tworzenie pierwszej funkcji przy użyciu programu Visual Studio
 
-Środowisko Azure Functions umożliwia wykonywanie kodu w [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) środowiska bez konieczności najpierw utworzyć Maszynę wirtualną lub opublikować aplikację sieci web.
+Usługa Azure Functions umożliwia wykonywanie kodu w środowisku [bezserwerowym](https://azure.microsoft.com/overview/serverless-computing/) bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji internetowej.
 
-W tym temacie możesz dowiedzieć się, jak za pomocą narzędzi Visual Studio 2017 dla usługi Azure Functions tworzenie i testowanie lokalnie funkcję "hello world". Kod funkcji zostanie następnie opublikowany na platformie Azure. Te narzędzia są dostępne jako część obciążenia projektowania na platformie Azure w programie Visual Studio 2017 w wersji 15.3 lub nowszej.
+W tym temacie przedstawiono użycie narzędzi programu Visual Studio 2017 dla usługi Azure Functions w celu utworzenia i przetestowania lokalnej funkcji „hello world”. Kod funkcji zostanie następnie opublikowany na platformie Azure. Te narzędzia są dostępne jako część obciążenia projektowania na platformie Azure w programie Visual Studio 2017 w wersji 15.3 lub nowszej.
 
 ![Kod usługi Azure Functions w projekcie programu Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -35,7 +35,7 @@ W tym temacie możesz dowiedzieć się, jak za pomocą narzędzi Visual Studio 2
 
 Do ukończenia tego samouczka niezbędne jest zainstalowanie następujących składników:
 
-* [Visual Studio 2017 wersji 15.4](https://www.visualstudio.com/vs/) lub jego nowsza wersja, w tym **Azure programowanie** obciążenia.
+* [Program Visual Studio 2017 w wersji 15.4](https://www.visualstudio.com/vs/) lub nowszej zawierający obciążenie **Programowanie na platformie Azure**.
 
     ![Instalowanie programu Visual Studio 2017 z obciążeniem Programowanie na platformie Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
@@ -49,15 +49,15 @@ Po utworzeniu projektu można utworzyć pierwszą funkcję.
 
 ## <a name="create-the-function"></a>Tworzenie funkcji
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj** > **Nowy element**. Wybierz **funkcji platformy Azure**, wprowadź `HttpTriggerCSharp.cs` dla **nazwa**i kliknij przycisk **Dodaj**.
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj** > **Nowy element**. Wybierz pozycję **Funkcja platformy Azure**, wprowadź `HttpTriggerCSharp.cs` w polu **Nazwa** i kliknij pozycję **Dodaj**.
 
-2. Wybierz **HttpTrigger**, wybierz pozycję **anonimowe** dla **praw dostępu**i kliknij przycisk **OK**. Do utworzonej funkcji można uzyskać dostęp przez żądanie HTTP z dowolnego klienta. 
+2. Wybierz opcję **HttpTrigger**, wybierz pozycję **Anonimowe** w polu **Prawa dostępu** i kliknij pozycję **OK**. Do utworzonej funkcji można uzyskać dostęp przez żądanie HTTP z dowolnego klienta. 
 
     ![Tworzenie nowej funkcji platformy Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-    Plik kodu zostanie dodany do projektu, który zawiera klasę implementującą kodu funkcji. Ten kod opiera się na szablonie, który odbiera wartość nazwy i tłumiące echo go. **FunctionName** atrybut ustawia nazwę funkcji. **HttpTrigger** atrybut wskazuje komunikat, który wyzwala funkcji. 
+    Do projektu zawierającego klasę implementującą kod funkcji zostanie dodany plik kodu. Ten kod jest oparty na szablonie, który odbiera wartość nazwy i przekazuje ją z powrotem. Atrybut **FunctionName** ustawia nazwę funkcji. Atrybut **HttpTrigger** wskazuje komunikat, który wywołuje funkcję. 
 
-    ![Plik kodu — funkcja](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+    ![Plik kodu funkcji](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Po utworzeniu funkcji wyzwalanej przez protokół HTTP można ją przetestować na komputerze lokalnym.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9e152c43507cea7e6407a349be414c2a895cb5fc
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Samouczek: Integracji Azure Active Directory z działania obrazu
 
@@ -113,7 +113,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta działa obrazu](mailto:riki.satou@fujifilm.com) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta działa obrazu](mailto:iw-sd-support@fujifilm.com) uzyskać te wartości. 
  
 4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
@@ -127,7 +127,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfiguracja działa obrazu](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Skonfigurować logowanie jednokrotne w **WORKS obrazu** stronie, musisz wysłać pobrany **Certificate(Base64), adres URL Sign-Out, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** do [WORKS obrazu obsługuje zespołu](mailto:riki.satou@fujifilm.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
+7. Skonfigurować logowanie jednokrotne w **WORKS obrazu** stronie, musisz wysłać pobrany **Certificate(Base64), adres URL Sign-Out, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** do [WORKS obrazu obsługuje zespołu](mailto:iw-sd-support@fujifilm.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
  
 ### <a name="create-a-image-works-test-user"></a>Tworzenie użytkownika testowego działa obrazu
 
-W tej sekcji można utworzyć użytkownika o nazwie Simona Britta w działa obrazu. Praca z [obrazu WORKS obsługuje zespołu](mailto:riki.satou@fujifilm.com) Aby dodać użytkowników na platformie działa obrazu. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej.
+W tej sekcji można utworzyć użytkownika o nazwie Simona Britta w działa obrazu. Praca z [obrazu WORKS obsługuje zespołu](mailto:iw-sd-support@fujifilm.com) Aby dodać użytkowników na platformie działa obrazu. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 

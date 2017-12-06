@@ -12,14 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e2a69f240068d3155c2fdd52c118dc037ccbcdcb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nowa wersja rozszerzone [planowania wdrożenia usługi Azure Site Recovery dla funkcji Hyper-V w systemie Azure](site-recovery-hyper-v-deployment-planner.md) jest teraz dostępna i zastąpienie starych narzędzia. Użyj nowego narzędzia dla Planowanie wdrożenia. To narzędzie zawiera następujące wytyczne: 
+* Maszyna wirtualna kwalifikuje się do oceny, na podstawie liczby dysków, rozmiar dysku IOPS, przenoszenie i kilka właściwości maszyny Wirtualnej.
+* Przepustowość sieci musi i oceny cel punktu odzyskiwania.
+* Wymagania dotyczące infrastruktury platformy Azure.
+* Wymagania dotyczące infrastruktury lokalnej.
+* Przetwarzanie wsadowe wskazówki dotyczące replikacji początkowej.
+* Szacowany całkowity koszt odzyskiwania po awarii na platformie Azure.
+
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Planisty wydajności funkcji Hyper-V dla usługi Site Recovery
 
 W ramach wdrożenia usługi Azure Site Recovery należy dowiedzieć się, Twoje replikacji i wymaganiach odnośnie do przepustowości. Planisty wydajności funkcji Hyper-V dla usługi Site Recovery pomaga w tym celu replikacji maszyny wirtualnej funkcji Hyper-V.

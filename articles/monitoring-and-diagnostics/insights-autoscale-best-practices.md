@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Ten artykuł zawiera najlepsze rozwiązania w celu skalowania automatycznego na platformie Azure. Azure Monitor skalowania automatycznego ma zastosowanie tylko do [zestawy skalowania maszyny wirtualnej](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [usługi w chmurze](https://azure.microsoft.com/services/cloud-services/), i [usługi aplikacji — aplikacje sieci Web](https://azure.microsoft.com/services/app-service/web/). Innymi usługami Azure, użyj metod skalowania.
@@ -30,8 +30,8 @@ Ten artykuł zawiera najlepsze rozwiązania w celu skalowania automatycznego na 
   Ustawienie skalowania automatycznego zawiera maksymalną, minimum i wartości domyślnej wystąpień.
 * Zadanie automatycznego skalowania ma zawsze wartość skojarzona metryki skalowania, sprawdzania, czy ma ona przekroczyła skonfigurowany próg dla skalowalnego w poziomie lub w skali. Umożliwia wyświetlanie listy metryk tego skalowania automatycznego można skalować przez w [metryki wspólnej Skalowanie automatyczne Azure Monitor](insights-autoscale-common-metrics.md).
 * Wszystkie Progi są obliczane na poziomie wystąpienia. Na przykład "skali przez 1 wystąpienie gdy średni Procesora > 80%, gdy liczba wystąpień jest równa 2", oznacza skalowalnego w poziomie, gdy średnie wykorzystanie Procesora we wszystkich wystąpieniach jest większa niż 80%.
-* Zawsze otrzymywać powiadomienia o niepowodzeniu za pośrednictwem poczty e-mail. W szczególności właściciela, współautora i czytników zasobu docelowego otrzymywać wiadomości e-mail. Możesz również otrzymać *odzyskiwania* wiadomość e-mail, gdy skalowania automatycznego odzyskiwania po awarii i uruchamia działa prawidłowo.
-* Możesz można wyrazić zgodę na odbieranie skalowania pomyślnie akcji powiadomienia za pośrednictwem poczty e-mail i elementów webhook.
+* Dziennik aktywności są rejestrowane wszystkie błędy skalowania automatycznego. Następnie można skonfigurować [alert dziennika aktywności](./monitoring-activity-log-alerts.md) , dzięki czemu użytkownik może zostać powiadomiony w wiadomościach e-mail i SMS, webhook, itp., gdy istnieje błąd automatycznego skalowania.
+* Podobnie wszystkich akcji skalowania pomyślnie są publikowane w dzienniku aktywności. Następnie można skonfigurować alert dziennika aktywności, dzięki czemu użytkownik może zostać powiadomiony w wiadomościach e-mail i SMS, elementów webhook, itp., gdy istnieje akcja automatycznego skalowania pomyślnie. Można również skonfigurować powiadomienia e-mail lub elementu webhook Otrzymuj powiadomienia dla akcji skalowania pomyślnie za pomocą karty powiadomienia w ustawieniu skalowania automatycznego.
 
 ## <a name="autoscale-best-practices"></a>Najlepsze rozwiązania w zakresie skalowania automatycznego
 Następujące najlepsze rozwiązania należy używać, ponieważ używają automatycznego skalowania.
@@ -40,7 +40,7 @@ Następujące najlepsze rozwiązania należy używać, ponieważ używają autom
 Jeśli to ustawienie, które ma co najmniej = 2, maksymalna = 2, bieżące liczba wystąpień jest 2, może wystąpić żadnej akcji skalowania. Zachować odpowiedni poziom między liczby wystąpień maksymalne i minimalne, które łączą się. Funkcja automatycznego skalowania skaluje zawsze między tymi limitami.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Ręczne skalowanie jest resetowany przez skalowania automatycznego min i max
-Jeśli liczba wystąpień jest ręcznie zaktualizować wartość powyżej lub poniżej wartości maksymalnej, aparat skalowania automatycznego jest automatycznie skalowany do minimum (Jeśli poniżej) lub maksymalną (jeśli powyżej). Na przykład można ustawić z zakresu od 3 do 6. Jeśli masz jedno uruchomione wystąpienie aparatu automatycznego skalowania może obsłużyć 3 wystąpień po jego następnym uruchomieniu. Podobnie, jego czy skali w 8 wystąpień z powrotem do 6 po jego następnym uruchomieniu.  Ręczne skalowanie jest bardzo tymczasowe, chyba że zostanie zresetowane z regułami automatycznego skalowania.
+Jeśli liczba wystąpień jest ręcznie zaktualizować wartość powyżej lub poniżej wartości maksymalnej, aparat skalowania automatycznego jest automatycznie skalowany do minimum (Jeśli poniżej) lub maksymalną (jeśli powyżej). Na przykład można ustawić z zakresu od 3 do 6. Jeśli masz jedno uruchomione wystąpienie aparatu automatycznego skalowania może obsłużyć 3 wystąpień po jego następnym uruchomieniu. Podobnie jeśli ręcznie wartość skali 8 wystąpień, przy następnym skalowania automatycznego uruchamiania będzie go skalować do 6 wystąpień po jego następnym uruchomieniu.  Ręczne skalowanie jest bardzo tymczasowe, chyba że zostanie zresetowane z regułami automatycznego skalowania.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Zawsze używaj połączenia skalowalnego w poziomie i w skali reguł, które wykonuje wzrostu i zmniejszenie
 Jeśli używasz tylko jednej części kombinacja dostęp do skalowania automatycznego skalowania — w tym pojedynczy przy, aż do maksymalnej lub minimalnej, zostanie osiągnięty.
@@ -143,14 +143,17 @@ Z drugiej strony, jeśli Procesora wynosi 25% i pamięci 51% skalowania automaty
 Domyślna liczba wystąpień jest ważne skalowania automatycznego skaluje usługi do tej liczby, gdy nie są dostępne metryki. W związku z tym wybierz domyślną liczbę wystąpień, które jest bezpieczne dla obciążeń.
 
 ### <a name="configure-autoscale-notifications"></a>Konfigurowanie powiadomień skalowania automatycznego
-Funkcja automatycznego skalowania powiadamia Administratorzy i współautorzy zasobu za pośrednictwem poczty e-mail, jeśli wystąpienia któregokolwiek z następujących warunków:
+Funkcja automatycznego skalowania zostanie wysłany do dziennika aktywności, jeśli wystąpienia któregokolwiek z następujących warunków:
 
-* usługi skalowania automatycznego nie powiedzie się podejmować działanie.
+* Operacja skalowania wystawia skalowania automatycznego
+* Usługa automatycznego skalowania pomyślnie ukończy akcji skalowania
+* Funkcja automatycznego skalowania usługi nie powiedzie się zająć akcji skalowania.
 * Metryki nie są dostępne dla usługi skalowania automatycznego podejmowania decyzji skali.
 * Metryki są dostępne (odzyskiwania) ponownie podjęcie decyzji skali.
-  Oprócz powyższych warunków można skonfigurować powiadomienia e-mail lub elementu webhook do Otrzymuj powiadomienia dla akcji skalowania pomyślnie.
-  
+
 Alert dziennik aktywności umożliwia również monitorowanie kondycji aparat skalowania automatycznego. Poniżej przedstawiono przykłady [tworzenie działania dziennika alertów można monitorować wszystkie operacje aparat skalowania automatycznego na subskrypcję](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) lub [tworzenie działania dziennika alertów można monitorować wszystkie skalowania automatycznego skalowania nie powiodło się w / skalowanie w poziomie operacje w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Oprócz używania alertów dotyczących działań w dzienniku, można również skonfigurować powiadomienia e-mail lub elementu webhook Otrzymuj powiadomienia dla akcji skalowania pomyślnie za pomocą karty powiadomienia w ustawieniu skalowania automatycznego.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Utwórz działanie dziennika alertów monitorowania wszystkich operacji aparatu skalowania automatycznego na subskrypcję.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

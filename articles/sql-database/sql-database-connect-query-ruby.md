@@ -13,13 +13,13 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/14/2017
+ms.date: 07/15/2017
 ms.author: carlrab
-ms.openlocfilehash: b7617d8f4cfe09052204182b40f6e5f7d46087b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 3427d216540451bc10b968f866d0fce0f6df3c54
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Korzystanie z języka Ruby do wykonywania zapytań w bazie danych Azure SQL
 
@@ -29,28 +29,17 @@ W tym przewodniku Szybki start pokazano, jak używać języka [Ruby](https://www
 
 Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następującymi elementami:
 
-- Baza danych Azure SQL. Ten przewodnik Szybki start używa zasobów utworzonych w jednym z poniższych przewodników Szybki start: 
-
-   - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
-   - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
-   - [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Reguła zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla publicznego adresu IP komputera, który będzie używany w tym samouczku Szybki start.
-- W systemie operacyjnym zainstalowano język Ruby i związane z nim oprogramowanie.
+
+- W systemie operacyjnym zainstalowano język Ruby i związane z nim oprogramowanie:
     - **System MacOS**: zainstaluj pakiet Homebrew, zainstaluj oprogramowanie rbenv i ruby-build, zainstaluj język Ruby, a następnie zainstaluj pakiet FreeTDS. Zobacz [kroki 1.2, 1.3 1.4 i 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
     - **System Ubuntu**: zainstaluj oprogramowanie wymagane przez język Ruby, zainstaluj oprogramowanie rbenv i ruby-build, zainstaluj język Ruby, a następnie zainstaluj pakiet FreeTDS. Zobacz [kroki 1.2, 1.3 1.4 i 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
-
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. Na stronie **Przegląd** bazy danych sprawdź w pełni kwalifikowaną nazwę serwera. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**, jak pokazano na poniższym rysunku:
-
-   ![nazwa-serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
 > W przypadku publicznego adresu IP komputera, na którym jest wykonywany ten samouczek, niezbędne jest posiadanie reguły zapory. Jeśli pracujesz na innym komputerze lub masz inny publiczny adres IP, utwórz [regułę zapory poziomu serwera przy użyciu portalu Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 

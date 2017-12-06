@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 800199b3d1d91d700d26f988a4d49713028de1ce
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: b7103103201563c6878095cf31cfcdf2938a9c7f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Usługa Azure AD B2C: Konfigurowanie wymagań dotyczących złożoności haseł
 
 > [!NOTE]
-> **Ta funkcja jest dostępna w wersji zapoznawczej.**  Skontaktuj się z [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) mają dzierżawy testu włączona przy użyciu tej funkcji.
+> **Ta funkcja jest dostępna w wersji zapoznawczej.**  Skontaktuj się z [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) mają dzierżawy testu włączona przy użyciu tej funkcji.  Nie należy przeprowadzać testów to w produkcji dzierżaw.
 
 Usługa Azure Active Directory B2C (Azure AD B2C) obsługuje zmienianie wymagania dotyczące złożoności haseł dostarczone przez użytkownika końcowego podczas tworzenia konta.  Domyślnie używa usługi Azure AD B2C `Strong` hasła.  Usługa Azure AD B2C obsługuje również opcje kontroli złożoności haseł, których klienci mogą używać konfiguracji.
 
@@ -47,7 +47,7 @@ Poniżej przedstawiono typy zasad, którym można skonfigurować złożoności h
 1. Otwórz **złożoności hasła**.
 1. Złożoność hasła dla tych zasad, aby zmienić **proste**, **silne**, lub **niestandardowy**.
 
-### <a name="comparison-chart"></a>Wykres porównawczy
+### <a name="comparison-chart"></a>Wykres porównania
 
 | Złożoność | Opis |
 | --- | --- |
@@ -64,7 +64,7 @@ Umożliwia akceptuje tylko cyfry (PIN) lub pełny zestaw znaków.
 * **Tylko numery** umożliwia cyfr tylko (0 – 9) podczas wprowadzania hasła.
 * **Wszystkie** umożliwia żadnych literą, cyfrą lub symbol.
 
-### <a name="length"></a>długość
+### <a name="length"></a>Długość
 
 Umożliwia określenie wymagań dotyczących długości hasła.
 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Funkcje (UDF) za pomocą technologii Hive i Pig zdefiniowane przez użytkownika Python użycia w usłudze HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-W tym przykładzie Pig Latin zdefiniowanego `LINE` danych wejściowych jako chararray, ponieważ nie istnieje zgodny schematu dla danych wejściowych. Skrypt w języku Python przekształca danych w spójne schematu dla danych wyjściowych.
+W tym przykładzie Pig Latin `LINE` danych wejściowych jest zdefiniowany jako chararray, ponieważ nie istnieje zgodny schematu dla danych wejściowych. Skrypt w języku Python przekształca danych w spójne schematu dla danych wyjściowych.
 
 1. `@outputSchema` Instrukcji definiuje format danych, która jest zwracana do Pig. W takim przypadku ma **pakiet danych**, który jest typem danych Pig. Zbiorze zawiera następujące pola, które są chararray (ciągi):
 
@@ -178,7 +178,7 @@ W tym przykładzie Pig Latin zdefiniowanego `LINE` danych wejściowych jako char
 
 2. Następnie `def create_structure(input)` definiuje funkcję, która Pig przekazuje pozycji do.
 
-3. Przykładowe dane `sample.log`, przede wszystkim odpowiada dzień, godzina classname poziomu i szczegółów schematu chcemy, aby wrócić. Jednak zawiera kilka wierszy, które zaczynają się od `*java.lang.Exception*`. Należy zmodyfikować te wiersze, aby być zgodna ze schematem. `if` Instrukcji sprawdza, czy te, a następnie massages dane wejściowe, aby przenieść `*java.lang.Exception*` ciąg w celu wprowadzenia danych w zewnętrznych z naszych schematu oczekiwane dane wyjściowe.
+3. Przykładowe dane `sample.log`, przede wszystkim odpowiada dzień, godzina classname poziomu i szczegółów schematu. Jednak zawiera kilka wierszy, które zaczynają się od `*java.lang.Exception*`. Należy zmodyfikować te wiersze, aby być zgodna ze schematem. `if` Instrukcji sprawdza, czy te, a następnie massages dane wejściowe, aby przenieść `*java.lang.Exception*` ciąg w celu wprowadzenia danych w tekście ze schematem oczekiwane dane wyjściowe.
 
 4. Następnie `split` polecenie służy do dzielenia danych na pierwszy znaków czterech spacji. Dane wyjściowe jest przypisany do `date`, `time`, `classname`, `level`, i `detail`.
 
@@ -291,7 +291,7 @@ Po przekazaniu plików, wykonaj następujące kroki, aby uruchamiać zadania Hiv
     #from pig_util import outputSchema
     ```
 
-    Modyfikuje to skrypt w języku Python do pracy z Python C zamiast Jython. Po dokonaniu zmian, użyj **Ctrl + X** aby zakończyć działanie edytora. Wybierz **Y**, a następnie **Enter** Aby zapisać zmiany.
+    Ten wiersz modyfikuje skrypt w języku Python do pracy z Python C zamiast Jython. Po dokonaniu zmian, użyj **Ctrl + X** aby zakończyć działanie edytora. Wybierz **Y**, a następnie **Enter** Aby zapisać zmiany.
 
 6. Użyj `pig` polecenie, aby ponownie uruchomić powłoki. Po przejściu na `grunt>` monit, użyj następującego do uruchamiania skryptu języka Python za pomocą interpreter języka Python C.
 

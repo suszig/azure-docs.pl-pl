@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -97,8 +97,8 @@ Rozmiar całkowitą danych jest około 1 TB. Każdego pliku wynosi około 1 – 
 
 Numer kolumny | Nazwa pola| Typ | Opis |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Data i godzina |    Czas rozpoczęcia sesji
-2  |`SessionEnd`    | Data i godzina | Godzina zakończenia sesji
+1  | `SessionStart` | Data/godzina |    Czas rozpoczęcia sesji
+2  |`SessionEnd`    | Data/godzina | Godzina zakończenia sesji
 3 |`ConcurrentConnectionCounts` | Liczba całkowita | Liczba jednoczesnych połączeń
 4 | `MbytesTransferred` | O podwójnej precyzji | Znormalizowany danych przesyłanych w megabajtach
 5 | `ServiceGrade` | Liczba całkowita |  Klasa usługi dla sesji
@@ -203,7 +203,7 @@ Drugi argument jest debugowania. Ustawieniem dla niego FILTER_IP umożliwia szyb
 
 Uruchom wiersz polecenia z Machine Learning Workbench, wybierając **pliku** > **Otwórz okno wiersza polecenia**. Następnie uruchom polecenie: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Następujące dwa pliki są tworzone w folderze aml_config projektu:
 
@@ -266,7 +266,7 @@ Po pomyślnym zakończeniu eksperymenty na małych danych, można nadal uruchami
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Utwórz element docelowy obliczeń w Machine Learning Workbench dla klastra usługi HDInsight
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Następujące dwa pliki są tworzone w folderze aml_config:
     
@@ -382,7 +382,7 @@ Wybierz unikatowy ciąg jako środowisko operationalization. W tym miejscu używ
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
-5. Tworzenie obrazu Docker. 
+5. Utwórz obraz platformy Docker. 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 

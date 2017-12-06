@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Użyj usługi Menedżer StorSimple urządzenia w portalu Azure Klonowanie woluminów
 
@@ -69,12 +69,7 @@ Wykonaj poniższe kroki, aby utworzyć klonu woluminu z katalogu kopii zapasowej
    
     ![Listy zestawu kopii zapasowych](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Rozwiń zestaw, aby wyświetlić skojarzone woluminy kopii zapasowych. Te woluminy muszą być pobierane w trybie offline na hoście i urządzenia, zanim będzie można ich przywrócić. Dostęp do woluminów na **woluminów** bloku urządzenia, a następnie postępuj zgodnie z instrukcjami [Przełącz do trybu offline wolumin](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) ich przełączenia do trybu offline.
-   
-   > [!IMPORTANT]
-   > Upewnij się, że została wykonana woluminy w tryb offline na hoście najpierw, przed podjęciem dalszych woluminy w tryb offline na urządzeniu. Jeśli nie przyjmują woluminy w tryb offline na hoście, może prowadzić do uszkodzenia danych.
-   
-4. Przejdź z powrotem do **katalog kopii zapasowej** i wybrać wolumin w zestawie kopii zapasowych. Kliknij prawym przyciskiem myszy, a następnie z menu kontekstowego wybierz **klonowania**.
+3. Rozwiń zestaw, aby wyświetlić skojarzone woluminu i wybierz wolumin w zestawie kopii zapasowych kopii zapasowych. Kliknij prawym przyciskiem myszy, a następnie z menu kontekstowego wybierz **klonowania**.
 
    ![Listy zestawu kopii zapasowych](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

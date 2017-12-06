@@ -1,28 +1,22 @@
 ---
-title: "Obciążenia saldo kontenerów w klastrze Azure DC/OS | Dokumentacja firmy Microsoft"
+title: "Kontenery równoważenia obciążenia w klastrze Azure DC/OS"
 description: "Zrównoważenia obciążenia w wielu kontenerów w klastrze usługi kontenera platformy Azure DC/OS."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Kontenery, mikrousługi, DC/OS, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Kontenery Równoważenie obciążenia klastra usługi kontenera platformy Azure DC/OS
+
 W tym artykule firma Microsoft Poznaj sposobu tworzenia wewnętrznego modułu równoważenia obciążenia w usłudze kontenera platformy Azure DC/OS zarządzane przy użyciu platformy Marathon-LB. Ta konfiguracja pozwala na skalowanie w poziomie aplikacji. Umożliwia także korzystanie z agenta publicznego i prywatnego klastrów dzięki wprowadzania z usługi równoważenia obciążenia na publiczny klastra i kontenerów aplikacji w klastrze prywatnych. W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]

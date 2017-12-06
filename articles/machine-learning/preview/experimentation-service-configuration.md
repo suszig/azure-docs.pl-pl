@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurowanie usługi Azure Machine Learning eksperymenty usługi
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 Azure Machine Learning eksperymenty usługi umożliwia danych służące do wykonywania eksperymentów, ich przy użyciu usługi Azure Machine Learning wykonywania i uruchom możliwości zarządzania. Zapewnia to struktura agile eksperymenty z szybkiego iteracji. Azure Machine Learning Workbench służy do uruchomienia z lokalnych przebiegów na tym komputerze i zapewnia łatwe ścieżkę skalowania w górę i innych środowiskach, takich jak zdalny maszyn wirtualnych nauki danych z procesora GPU lub systemem Spark w usłudze Hdinsight.
 
 Usługa eksperymenty zaprojektowano pod kątem dostarczanie izolowanym, powtarzalnych i spójne uruchomień eksperymentów. Pomaga zarządzać celów obliczeń środowisk wykonywania i uruchom konfiguracje. Przy użyciu usługi Azure Machine Learning Workbench wykonywania i możliwości zarządzania wykonywania, można łatwo przenosić między różnych środowiskach. 
@@ -198,7 +198,7 @@ Zdalnego maszyny Wirtualnej powinny spełniać następujące wymagania:
 Następujące polecenie służy do tworzenia zarówno definicję docelowego obliczeń i uruchamiania zdalnego wykonaniami Docker na podstawie konfiguracji.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Po skonfigurowaniu docelowego obliczeń służy następujące polecenie do uruchomienia skryptu.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 Proces konstrukcji Docker zdalnego maszyn wirtualnych jest dokładnie taka sama jak proces lokalny Docker działa, więc należy oczekiwać podobne możliwości wykonywania.
 
 >[!TIP]
->Jeśli wolisz uniknąć opóźnienia wynikające z tworzenia obrazu Docker dla Twojego pierwszego uruchomienia służy następujące polecenie przygotować docelowy obliczeń przed wykonaniem skryptu. eksperymentu uczenia maszynowego az przygotowanie - c<remotedocker>
+>Jeśli wolisz uniknąć opóźnienia wynikające z tworzenia obrazu Docker dla Twojego pierwszego uruchomienia służy następujące polecenie przygotować docelowy obliczeń przed wykonaniem skryptu. eksperymentu uczenia maszynowego az przygotowanie remotedocker - c
 
 
 _**Omówienie zdalnego maszyny wirtualnej wykonanie skryptu Python:**_
@@ -221,12 +221,12 @@ _**Omówienie zdalnego maszyny wirtualnej wykonanie skryptu Python:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Uruchamianie skryptu w klastrze usługi HDInsight
 HDInsight to platforma popularnych analizy danych big data obsługi Apache Spark. Workbench umożliwia eksperymenty danych big Data z użyciem klastrów HDInsight Spark. 
 
->! [UWAGA] Klaster usługi HDInsight, musisz użyć obiektów Blob platformy Azure jako magazynu głównego. Przy użyciu usługi Azure Data Lake magazynu nie jest jeszcze obsługiwany.
+>![UWAGA] Klaster usługi HDInsight musi używać usługi Azure Blob Storage jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
 
 Można utworzyć cel obliczeń i uruchomić konfigurację klastra Spark w usłudze HDInsight przy użyciu następującego polecenia:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Omówienie usługi HDInsight opartej na wykonanie skryptu PySpark**_
 ## <a name="running-a-script-on-gpu"></a>Uruchomienie skryptu na procesor GPU
 Aby uruchomić skrypty procesora GPU, można postępuj zgodnie ze wskazówkami w tym artykule:[sposób użycia procesora GPU w usłudze Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Przy użyciu uwierzytelniania za pomocą klucza SSH do tworzenia i przy użyciu obliczeniowych elementów docelowych
+Azure Machine Learning Workbench umożliwia tworzenie i używanie obliczeniowych elementów docelowych przy użyciu uwierzytelniania opartego na klucz SSH, oprócz systemu opartego na nazwę użytkownika/hasło. Podczas korzystania z remotedocker lub klastra jako urządzenie docelowe obliczeń, można użyć tej funkcji. Korzystając z tego systemu, Workbench tworzy pary kluczy publiczny/prywatny i raportuje ją klucza publicznego. Klucz publiczny można dołączyć do plików ~/.ssh/authorized_keys dla nazwy użytkownika. Azure Machine Learning Workbench, a następnie używa ssh uwierzytelniania opartego na kluczach do uzyskiwania dostępu i wykonywania dla tego elementu docelowego obliczeń. Ponieważ klucz prywatny dla elementu docelowego obliczeń zostanie zapisany w magazynie kluczy dla obszaru roboczego, innych użytkowników obszaru roboczego może użyć docelowej obliczeń tak samo zapewniając podana dla tworzenia obiektu docelowego obliczeń nazwa użytkownika.  
+
+Wykonujesz te kroki, aby używać tej funkcji. 
+
+- Utwórz element docelowy obliczeń przy użyciu jednej z następujących poleceń.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+lub
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Dołącz klucz publiczny, generowane przez narzędzia Workbench do pliku ~/.ssh/authorized_keys w celu dołączone obliczeń. 
+
+[!IMPORTANT] Musisz zalogować się na elemencie docelowym obliczeń przy użyciu tej samej nazwy użytkownika, używanego do tworzenia docelowego obliczeń. 
+
+- Możesz teraz przygotowanie i użyć docelowej obliczeń przy użyciu uwierzytelniania opartego na kluczach SSH.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Następne kroki
 * [Utwórz i zainstaluj usługi Azure Machine Learning](quickstart-installation.md)

@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalowanie i Konfigurowanie interfejsu wiersza polecenia do użycia z programem Azure stosu
 
 W tym artykule firma Microsoft prowadzące przez proces przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) do zarządzania zasobami Azure stosu Development Kit z systemem Linux i platform klienckich Mac. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Wyeksportuj certyfikat główny urzędu certyfikacji Azure stosu
-
-Jeśli używasz interfejsu wiersza polecenia z maszyny wirtualnej, która działa w środowisku Azure stosu Development Kit, certyfikat główny stos Azure jest już zainstalowana na maszynie wirtualnej tak bezpośrednio można pobrać. Jeśli używasz interfejsu wiersza polecenia na stacji roboczej poza zestaw deweloperski, należy wyeksportować certyfikat główny urzędu certyfikacji stosu Azure development Kit i dodaj go do magazynu certyfikatów Python deweloperskiej stacji roboczej (zewnętrznych platformy Linux lub Mac.). 
-
-Aby wyeksportować certyfikat główny stos Azure w formacie PEM, zaloguj się do swojego zestawu programowanie i uruchom następujący skrypt:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Instalowanie interfejsu wiersza polecenia
 
@@ -59,7 +36,7 @@ Powinna zostać wyświetlona wersja interfejsu wiersza polecenia Azure i innych 
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Certyfikat główny urzędu certyfikacji stosu Azure zaufania
 
-Aby zaufać certyfikat główny urzędu certyfikacji stosu Azure, należy dołączyć do istniejącego certyfikatu Python. Jeśli używasz interfejsu wiersza polecenia z maszyny z systemem Linux, który jest tworzony w środowisku Azure stosu, uruchom następujące polecenie bash:
+Pobierz certyfikat główny urzędu certyfikacji stosu Azure z operatora stosu Azure i zaufania temu certyfikatowi. Aby zaufać certyfikat główny urzędu certyfikacji stosu Azure, należy dołączyć do istniejącego certyfikatu Python. Jeśli używasz interfejsu wiersza polecenia z maszyny z systemem Linux, który jest tworzony w środowisku Azure stosu, uruchom następujące polecenie bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Konfigurowanie punktu końcowego aliasy maszyny wirtualnej
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Pobierz punktu końcowego aliasy maszyny wirtualnej
 
-Zanim użytkownicy mogą tworzyć maszyny wirtualne za pomocą interfejsu wiersza polecenia, administrator chmury powinien skonfigurować publicznie dostępnym punkcie końcowym, który zawiera aliasy obrazu maszyny wirtualnej i zarejestruj ten punkt końcowy z chmurą. `endpoint-vm-image-alias-doc` Parametru w `az cloud register` polecenie służy do tego celu. Administratorzy chmury musi pobranie obrazu do stosu Azure marketplace, zanim ich dodanie do obrazu końcowego aliasów.
+Zanim użytkownicy mogą tworzyć maszyny wirtualne za pomocą interfejsu wiersza polecenia, muszą skontaktuj się z operatora stosu Azure i uzyskać identyfikator URI punktu końcowego aliasy maszyny wirtualnej. Na przykład Azure używa następujący identyfikator URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Administrator chmury powinien skonfigurować podobne punktu końcowego stosu Azure przy użyciu obrazów, które są dostępne w witrynie marketplace stosu Azure. Użytkownikom należy przekazać identyfikator URI punktu końcowego do `endpoint-vm-image-alias-doc` parametr `az cloud register` polecenia, jak pokazano w następnej sekcji. 
    
-Na przykład Azure używa następujący identyfikator URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Administrator chmury powinien skonfigurować podobne punktu końcowego stosu Azure przy użyciu obrazów, które są dostępne w witrynie marketplace stosu Azure.
 
 ## <a name="connect-to-azure-stack"></a>Nawiązywanie połączenia z usługą Azure Stack
 

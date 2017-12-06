@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Korzystanie z języka Java do wykonywania zapytań w bazie danych Azure SQL
 
@@ -29,15 +29,11 @@ W tym przewodniku Szybki start pokazano, jak używać języka [Java](https://doc
 
 Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następującymi elementami:
 
-- Baza danych Azure SQL. Ten przewodnik Szybki start używa zasobów utworzonych w jednym z poniższych przewodników Szybki start: 
-
-   - [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
-   - [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
-   - [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Reguła zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) dla publicznego adresu IP komputera, który będzie używany w tym samouczku Szybki start.
 
-- W systemie operacyjnym zainstalowano język Java i związane z nim oprogramowanie.
+- W systemie operacyjnym zainstalowano język Java i związane z nim oprogramowanie:
 
     - **System MacOS**: zainstaluj oprogramowanie Homebrew i Java, a następnie zainstaluj pakiet Maven. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **System Ubuntu**: zainstaluj pakiet Java Development Kit i zainstaluj pakiet Maven. Zobacz [kroki 1.2, 1.3 i 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
@@ -45,15 +41,7 @@ Aby ukończyć ten samouczek Szybki start, upewnij się, że dysponujesz następ
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
-
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.  
-
-   ![nazwa-serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Jeśli nie pamiętasz informacji logowania, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora serwera.  W razie potrzeby zresetuj hasło.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**Utwórz projekt Maven i zależności**
 1. Z poziomu terminalu utwórz nowy projekt rozwiązania Maven o nazwie **sqltest**. 

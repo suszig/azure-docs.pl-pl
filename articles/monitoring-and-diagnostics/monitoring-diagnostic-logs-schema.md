@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Obsługiwane usługi, schematy i kategorie dzienników diagnostycznych platformy Azure
 
@@ -29,6 +29,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 
 | Usługa | Schemat & dokumentów |
 | --- | --- |
+| Analysis Services | Schemat nie jest dostępna. |
 | API Management | [Dzienniki diagnostyczne Management API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Bramy Application Gateway |[Rejestrowania diagnostyki bramy aplikacji](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Analizy dzienników dla usługi Automatyzacja Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupy zabezpieczeń sieci |[Usługa Log Analytics dla sieciowych grup zabezpieczeń](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Ochrona przed atakami DDOS | Schemat nie jest dostępna. |
-| Recovery Services | Schemat nie jest dostępna.|
+| Recovery Services | [Model danych dla kopii zapasowej systemu Azure](../backup/backup-azure-reports-data-model.md)|
 | Wyszukiwanie |[Włączanie i używanie analizy ruchu wyszukiwania](../search/search-traffic-analytics.md) |
 | Zarządzanie serwerem | Schemat nie jest dostępna. |
 | Service Bus |[Azure Service Bus dzienników diagnostycznych](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dziennika na typ zasobu
 |Typ zasobu|Kategoria|Nazwa wyświetlana kategorii|
 |---|---|---|
+|Microsoft.aadiam/tenants|Zaloguj|Zaloguj|
 |Microsoft.AnalysisServices/servers|Aparat|Aparat|
 |Microsoft.AnalysisServices/servers|Usługa|Usługa|
 |Microsoft.ApiManagement/service|GatewayLogs|Dzienniki związane z ApiManagement bramy|
@@ -63,6 +65,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Automation/automationAccounts|JobStreams|Strumienie zadania|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stan węzła DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Dzienniki usługi|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki punktu końcowego, np. przepustowości, transfer danych wychodzących,... itd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|Uruchomień|Dziennik uruchamia aktywności w potoku|
 |Microsoft.DataFactory/factories|PipelineRuns|Potok jest uruchamiane dziennika|
@@ -90,7 +93,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.EventHub/namespaces|OperationalLogs|Operacyjne dzienniki|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Dzienniki skalowania automatycznego|
 |Microsoft.KeyVault/vaults|AuditEvent|Dzienniki inspekcji|
-|Microsoft.Logic/workflows|Obiekt WorkflowRuntime|Zdarzenia diagnostyczne środowiska uruchomieniowego przepływu pracy|
+|Microsoft.Logic/workflows|Obiekt WorkflowRuntime|Zdarzenia diagnostyczne środowiska wykonawczego przepływów pracy|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Zdarzenia śledzenia konta integracji|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Zdarzenie sieciowej grupy zabezpieczeń|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Licznik reguł sieciowej grupy zabezpieczeń|
@@ -113,7 +116,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementy replikowane usługi Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Usługi Azure Site Recovery replikacji statystyki|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punkty odzyskiwania odzyskiwania lokacji Azure|
-|Microsoft.Search/searchServices|OperationLogs|Dzienniki operacji|
+|Microsoft.Search/searchServices|OperationLogs|Dzienniki operacji |
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operacyjne dzienniki|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Magazyn zapytań statystyk czasu wykonywania|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Magazyn zapytań oczekiwania statystyki|
@@ -122,7 +125,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Sql/servers/databases|Limity czasu|Limity czasu|
 |Microsoft.Sql/servers/databases|Bloki|Bloki|
 |Microsoft.Sql/servers/databases|SQLInsights|Informacje na temat technologii SQL|
-|Microsoft.StreamAnalytics/streamingjobs|Wykonanie|Wykonanie|
+|Microsoft.StreamAnalytics/streamingjobs|Wykonywanie|Wykonywanie|
 |Microsoft.StreamAnalytics/streamingjobs|Tworzenie|Tworzenie|
 
 ## <a name="next-steps"></a>Następne kroki

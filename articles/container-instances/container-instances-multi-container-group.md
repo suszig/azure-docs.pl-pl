@@ -1,41 +1,33 @@
 ---
-title: "Wystąpień kontenera Azure - grupy wielu kontenerów | Dokumentacja platformy Azure"
-description: "Wystąpień kontenera Azure - grupy wielu kontenerów"
+title: "Wdrażanie kontenera wielu grup wystąpień kontenera platformy Azure"
+description: "Dowiedz się, jak wdrożyć grupę kontenera o wielu kontenerów w wystąpień kontenera platformy Azure."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Wdrożenie grupy kontenera
 
-Wystąpień kontenera platformy Azure obsługuje wdrażanie wielu kontenerów na jednym hoście przy użyciu *grupy kontenerów*. Jest to przydatne podczas kompilowania aplikacji boczną rejestrowania, monitorowania lub dowolnej innej konfiguracji gdzie usługa musi drugi dołączony proces. 
+Wystąpień kontenera platformy Azure obsługuje wdrażanie wielu kontenerów na jednym hoście przy użyciu *grupy kontenerów*. Jest to przydatne podczas kompilowania aplikacji boczną rejestrowania, monitorowania lub dowolnej innej konfiguracji gdzie usługa musi drugi dołączony proces.
 
 Ten dokument przeprowadzi Cię przez systemem proste boczną wielu kontenera konfiguracji przy użyciu szablonu usługi Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Konfigurowanie szablonu
 
-Utwórz plik o nazwie `azuredeploy.json` i skopiuj następujący ciąg json do niego. 
+Utwórz plik o nazwie `azuredeploy.json` i skopiuj następujący ciąg json do niego.
 
-W tym przykładzie zdefiniowano grupę kontenera o dwa kontenery i publiczny adres IP. Pierwszy kontenera grupy uruchamia połączonej aplikacji internetowej. Drugi kontenera boczną, zgłasza żądanie HTTP do aplikacji głównej sieci web za pośrednictwem sieci lokalnej grupy. 
+W tym przykładzie zdefiniowano grupę kontenera o dwa kontenery i publiczny adres IP. Pierwszy kontenera grupy uruchamia połączonej aplikacji internetowej. Drugi kontenera boczną, zgłasza żądanie HTTP do aplikacji głównej sieci web za pośrednictwem sieci lokalnej grupy.
 
-W tym przykładzie boczną można rozszerzyć do wyzwolenia alertu, jeżeli Odebrano kod odpowiedzi HTTP innych niż 200 OK. 
+W tym przykładzie boczną można rozszerzyć do wyzwolenia alertu, jeżeli Odebrano kod odpowiedzi HTTP innych niż 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ W tym przykładzie boczną można rozszerzyć do wyzwolenia alertu, jeżeli Odeb
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Wdrażanie szablonu z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-W ciągu kilku sekund otrzymasz wstępnej reakcji z platformy Azure. 
+W ciągu kilku sekund otrzymasz wstępnej reakcji z platformy Azure.
 
 ## <a name="view-deployment-state"></a>Wyświetl stan wdrożenia
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Wyświetl dzienniki   
+## <a name="view-logs"></a>Wyświetl dzienniki
 
-Wyświetlanie danych wyjściowych dziennika przy użyciu kontenera `az container logs` polecenia. `--container-name` Argument określa kontener, od którego do pobierania dzienników. W tym przykładzie pierwsze kontener jest określony. 
+Wyświetlanie danych wyjściowych dziennika przy użyciu kontenera `az container logs` polecenia. `--container-name` Argument określa kontener, od którego do pobierania dzienników. W tym przykładzie pierwsze kontener jest określony.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

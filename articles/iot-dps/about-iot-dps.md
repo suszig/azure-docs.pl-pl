@@ -1,22 +1,22 @@
 ---
-title: "Omówienie usługi Azure IoT Hub urządzenia inicjowania obsługi usługi (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Omówienie usługi inicjowania obsługi administracyjnej urządzeniu Centrum IoT Azure | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano, inicjowanie obsługi administracyjnej urządzeń na platformie Azure z usługą inicjowania obsługi urządzeń i Centrum IoT"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Inicjowania obsługi urządzeń w usłudze Azure IoT Hub urządzeń inicjowania obsługi administracyjnej (wersja zapoznawcza)
 Microsoft Azure oferuje bogaty zestaw usługi w chmurze publicznej zintegrowane wszystkie potrzeby rozwiązania IoT. Usługa udostępniania urządzeń Centrum IoT to usługa pomocnika do Centrum IoT, umożliwiającą bezobsługową, w czasie inicjowania obsługi administracyjnej Centrum IoT w prawo bez udziału człowieka, umożliwiając klientom udostępniania milionów urządzeń bezpieczne i skalowalne sposób.
@@ -47,7 +47,7 @@ Wszystkie scenariusze, które są wymienione w poprzedniej sekcji można wykona�
 8. Urządzenie pobiera żądanego stanu z jego dwie urządzenie w Centrum IoT.
 
 ## <a name="provisioning-process"></a>Proces inicjowania obsługi administracyjnej
-Istnieją dwa różne czynności w procesie wdrażania urządzenia, w którym odbywa się części, która może odbywać się niezależnie usługi inicjowania obsługi urządzeń:
+Istnieją dwa różne czynności w procesie wdrażania urządzenia, w którym odbywa się części, może odbywać się niezależnie usługi inicjowania obsługi urządzeń:
 
 * **Krok produkcyjnym** w którym urządzenie nie zostanie utworzona i przygotowane w fabryce, i
 * **Kroku konfiguracji chmury** w usługi inicjowania obsługi urządzeń jest skonfigurowany do automatycznego inicjowania obsługi administracyjnej.
@@ -59,7 +59,7 @@ Ten krok jest wszystko co się dzieje z wiersza produkcyjnym. Role związane z t
 
 Usługa inicjowania obsługi urządzeń nie wprowadza nowym krokiem w procesie wytwarzania; zamiast wiąże do istniejących krok, który instaluje oprogramowanie początkowa i (najlepiej) modułu HSM na urządzeniu. Zamiast tworzenia identyfikator urządzenia, w tym kroku, urządzenie jest po prostu zaprogramowane z danych inicjowania obsługi usługi, wywołuje metodę inicjowania obsługi administracyjnej usługi, aby uzyskać jego przypisania rozwiązania IoT/informacji połączenia, gdy jest włączone.
 
-W tym kroku producent dostarcza również urządzenia wdrażającego/operator identyfikowania informacji o kluczu. Może to być najprostszą potwierdzenie, że wszystkie urządzenia mają certyfikat X.509 wygenerowane z głównym urzędem certyfikacji dostarczanych przez narzędzie wdrażania urządzenia/operatora, wyodrębnianie publicznej części klucza poręczenia modułu TPM z każdego urządzenia modułu TPM. Te usługi są oferowane przez wielu producentów krzemu dzisiaj.
+W tym kroku producent dostarcza również urządzenia wdrażającego/operator identyfikowania informacji o kluczu. Może to być najprostszą potwierdzenie, że wszystkie urządzenia mają certyfikat X.509 wygenerowane z certyfikatu podpisywania dostarczanych przez narzędzie wdrażania urządzenia/operatora, wyodrębnianie publicznej części klucza poręczenia modułu TPM z każdego urządzenia modułu TPM. Te usługi są oferowane przez wielu producentów krzemu dzisiaj.
 
 ### <a name="cloud-setup-step"></a>Krok ustawienia chmury
 Ten krok dotyczy Konfigurowanie chmury na potrzeby sprawnego automatycznego inicjowania obsługi administracyjnej. Zazwyczaj istnieją dwa typy użytkowników, związane z kroku konfiguracji chmury: kogoś, kto wie, jak urządzenia muszą być wstępnie skonfigurowane (operator urządzenia), a ktoś inny, który zna, jak urządzenia mają być dzielone między centra IoT (operator rozwiązania).
@@ -84,19 +84,29 @@ Usługa inicjowania obsługi urządzeń ma wiele funkcji, które idealne rozwią
 * **Wiele zasad alokacji** do kontrolowania, jak usługa inicjowania obsługi urządzeń przypisuje urządzeń centra IoT wesprzeć scenariuszy.
 * **Dzienniki monitorowania i diagnostyki** się upewnić, że wszystko działa poprawnie.
 * **Obsługa wielu Centrum** dzięki czemu usługa inicjowania obsługi urządzeń, przypisywanie urządzeń do więcej niż jednego centrum IoT. Usługi udostępniania urządzenie może komunikować się koncentratorów przez wiele subskrypcji Azure.
+* **Obsługa region między** dzięki czemu usługa inicjowania obsługi urządzeń, przypisywanie urządzeń do centra IoT w różnych regionach.
 
 Dowiedz się więcej o pojęciach i funkcje związane z Inicjowanie obsługi administracyjnej urządzeń w [pojęcia urządzenia](concepts-device.md), [usługi pojęcia](concepts-service.md), i [pojęcia dotyczące zabezpieczeń](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Obsługa platform
-Urządzenie usługi udostępniania, takich jak wszystkich usług Azure IoT, działa i platform z różnymi systemami operacyjnymi. Publicznej wersji zapoznawczej obsługuje ograniczony zestaw języków/protokoły obsługiwane, ale wiele więcej będą dostępne po jest ogólnie dostępna usługa inicjowania obsługi urządzeń. Z publicznej wersji zapoznawczej usługi inicjowania obsługi urządzeń obsługuje tylko połączenia HTTPS dla operacji usług i urządzeń. Urządzenie zestawu SDK jest C, a usługa SDK jest w języku C#.
+Urządzenie usługi udostępniania, takich jak wszystkich usług Azure IoT, działa i platform z różnymi systemami operacyjnymi. Oferty Azure Otwórz zestawów SDK źródła w różnych [języków](https://github.com/Azure/azure-iot-sdks) ułatwiające podłączania urządzeń i zarządzanie usługą. Usługa udostępniania urządzeń obsługuje następujące protokoły czy za połączenie urządzeń:
+
+* HTTPS
+* AMQP
+* Protokół AMQP przez protokół websockets
+* MQTT
+* MQTT przez protokół websockets
+
+Usługa inicjowania obsługi urządzeń obsługuje tylko połączenia HTTPS dla operacji usługi.
 
 ## <a name="regions"></a>Regiony
-Usługa udostępniania urządzenia jest dostępna w wschodnie stany USA, Europa Zachodnia, Azja południowo-wschodnia dla publicznej wersji zapoznawczej. Firma Microsoft zachowuje się, że zaktualizowaną listę istniejących i nowo ogłoszenia regiony dla wszystkich usług.
+Usługa inicjowania obsługi urządzeń jest dostępne w wielu regionach. Firma Microsoft zachowuje zaktualizowaną listę istniejących i nowo ogłoszenia regiony dla wszystkich usług w [regiony platformy Azure](https://azure.microsoft.com/regions/). Gdy usługa inicjowania obsługi urządzeń jest dostępne na [stan Azure](https://azure.microsoft.com/status/) strony.
 
-* [Regiony platformy Azure](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> Usługa udostępniania urządzeń jest globalna i niepowiązana do lokalizacji. Należy jednak określić regionu, w której będą znajdować się metadane skojarzone z profilem inicjowania obsługi usługi urządzeń.
 
 ## <a name="availability"></a>Dostępność
-W publicznej wersji zapoznawczej firma Microsoft zachowuje optymalnych dostępności usługi. Brak nie umową dotyczącą poziomu usług w publicznej wersji zapoznawczej. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
+Firma Microsoft zachowuje 99,9% umową dotyczącą poziomu usług dla usługi udostępniania urządzenia, a można [odczytu umowy SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
 
 ## <a name="quotas"></a>Przydziały
 Każda subskrypcja platformy Azure ma domyślne limity przydziału w miejscu, które może mieć wpływ na zakres rozwiązania IoT. Bieżący limit oparte na subskrypcji jest 10 urządzenia udostępnianie usług dla subskrypcji.

@@ -1,6 +1,6 @@
 ---
-title: "Przy użyciu repozytorium Git w usłudze Azure Machine Learning Workbench projektu | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób korzystania z repozytorium Git w połączeniu z projektem Workbench Azure Machine Learning."
+title: "Repozytorium Git za pomocą usługi Azure Machine Learning Workbench projektu | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób korzystania z repozytorium Git w połączeniu z projektem Azure Machine Learning Workbench."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,137 +10,147 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4f1112fe68bdb2a26f68b3da08fe97f9d22d3b7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Przy użyciu repozytorium Git w usłudze Azure Machine Learning Workbench projektu
-Ten dokument zawiera informacje na Azure Machine Learning Workbench używaniu Git do zapewnienia kontroli wersji i upewnij się, powtarzalności w eksperymencie analizy danych. Podawane są również instrukcje dotyczące sposobu kojarzenia projektu z chmurą repozytorium Git.
+# <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Repozytorium Git za pomocą projektu Machine Learning Workbench
+Dowiedz się, jak Azure Machine Learning Workbench używa Git do zapewnienia kontroli wersji i upewnij się, powtarzalności w eksperymencie analizy danych. Dowiedz się, jak można skojarzyć z chmurą repozytorium Git (repozytorium) projektu.
 
-## <a name="introduction"></a>Wprowadzenie
-Azure Machine Learning Workbench zaprojektowano z Integracja z usługą Git od podstaw w górę. Podczas tworzenia nowego projektu, folder projektu jest automatycznie "Git inicjowany" jako lokalnego repozytorium Git (repozytorium). W tym samym czasie, drugi ukryte lokalnego repozytorium Git tworzona jest również o gałąź o nazwie _AzureMLHistory / < project_GUID >_ do śledzenia zmian folderu projektu dla każdego wykonywania. 
+Machine Learning Workbench zaprojektowano pod kątem Integracja z usługą Git. Podczas tworzenia nowego projektu folderu projektu jest automatycznie "Git inicjowany" jako lokalne repozytorium Git. Drugi, ukryte lokalnego repozytorium Git, również zostanie utworzona z gałąź o nazwie AzureMLHistory /\<identyfikatora GUID projektu\>. Gałąź przechowuje informacje o zmiany folderu projektu dla każdego wykonania. 
 
-Kojarzenie projektu uczenie Maszynowe Azure z repozytorium Git, hostowana w ramach projektu programu Visual Studio Team usługi (VSTS), umożliwia automatyczne kontroli wersji, zarówno lokalnie, jak i zdalnie. To skojarzenie umożliwia każdy z dostępem do zdalnego repozytorium Pobierz najnowsze kodu źródłowego do innego komputera (mobilnych).  
-
-> [!NOTE]
-> VSTS ma własną listy kontroli dostępu, która jest niezależna od Azure Machine Learning eksperymenty usługi. Dostęp użytkownika może się różnić od repozytorium Git do obszaru roboczego uczenia Maszynowego Azure lub projektu i może być konieczne zarządzanie. Jeśli chcesz udostępnić projektu uczenia Maszynowego Azure za pomocą elementu członkowskiego zespołu, w tym kod dostępu na poziomie, oprócz tylko udostępnić obszaru roboczego, musisz jawnie przyznać mu właściwy dostęp do repozytorium Git programu VSTS. 
-
-Za pomocą narzędzia Git, istnieje również możliwość zarządzania kontroli wersji jawnie przy użyciu _wzorca_ gałąź lub przez tworzenie innych gałęzi w repozytorium. Można użyć lokalnego repozytorium Git, a jeśli udostępniane również może bezzwłocznie przekazywać do zdalnego repozytorium Git.
-
-Ten diagram przedstawia relacje między repozytorium Git programu VSTS a projektu uczenie Maszynowe Azure:
-
-![AML Git](media/using-git-ml-project/aml_git.png)
-
-Aby rozpocząć korzystanie ze zdalnego repozytorium Git, wykonaj następujące instrukcje podstawowe.
+Kojarzenie projektu usługi Azure Machine Learning z repozytorium Git umożliwia kontroli wersji automatyczne lokalnie i zdalnie. Repozytorium Git jest hostowany w programie Visual Studio Team Services (usługi Team Services). Ponieważ projekt uczenia maszynowego jest skojarzony z repozytorium Git, każdy, kto ma dostęp do zdalnego repozytorium Pobierz najnowsze kodu źródłowego do innego komputera (mobilnych).  
 
 > [!NOTE]
-> Uczenie maszynowe Azure obsługuje obecnie tylko repozytoria Git na kontach usługi VSTS. W przyszłości planowane jest obsługa dla repozytoriów Git ogólne (na przykład GitHub i itp.).
+> Usługi Team Services ma własną listy kontroli dostępu (ACL), która jest niezależna od usługi Azure Machine Learning eksperymenty. Dostęp użytkownika mogą się różnić od repozytorium Git do obszaru roboczego uczenia maszynowego lub projektu. Może być konieczne zarządzanie dostępem. 
+> 
+> Czy chcesz nadać elementu członkowskiego zespołu na poziomie kodu dostępu do projektu usługi Machine Learning lub po prostu udostępnić obszaru roboczego, należy udzielić odpowiednich uprawnień do dostępu do repozytorium Git programu Team Services. 
 
-## <a name="step-1-create-an-azure-ml-experimentation-account"></a>Krok 1. Tworzenie konta usługi Azure ML eksperymenty
-Jeśli nie, już, tworzenie konta usługi Azure ML eksperymenty i zainstaluj aplikację Azure ML Workbench. Dowiedz się więcej w [zainstalować i utworzyć Szybki Start](quickstart-installation.md).
+W celu zarządzania kontrolą wersji za pomocą narzędzia Git, możesz użyć gałęzi głównej lub utworzyć inne gałęzie w repozytorium. Można również użyć lokalnego repozytorium Git i wypychania do zdalnego repozytorium Git, jeśli jego obsługa została zainicjowana.
+
+Ten diagram przedstawia relację między repozytorium Git programu Team Services i projektu usługi Machine Learning:
+
+![Azure Machine Learning Git](media/using-git-ml-project/aml_git.png)
+
+Aby rozpocząć korzystanie ze zdalnego repozytorium Git, wykonaj kroki opisane w poniższych sekcjach.
+
+> [!NOTE]
+> Obecnie uczenia maszynowego Azure obsługuje repozytoria Git tylko na kontach usługi Team Services. Obsługa dla repozytoriów Git ogólne, takie jak GitHub, jest planowane w przyszłości.
+
+## <a name="step-1-create-a-machine-learning-experimentation-account"></a>Krok 1. Utwórz konto Machine Learning eksperymenty
+Utwórz konto Machine Learning eksperymenty i zainstalować aplikację usługi Azure Machine Learning Workbench. Aby uzyskać więcej informacji, zobacz [zainstalować i utworzyć szybkiego startu](quickstart-installation.md).
 
 ## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>Krok 2. Tworzenie projektu zespołowego lub użyj istniejącego projektu zespołowego
-Z [portalu Azure](https://portal.azure.com/), Utwórz nową **projektu zespołowego**.
-1. Kliknij pozycję**+**
-2. Wyszukaj **"Projektu zespołowego"**
-3. Wprowadź wymagane informacje.
-    - Nazwa: Nazwa zespołu.
-    - Kontrola wersji: **Git**
-    - Subskrypcja: Jedną przy użyciu konta Azure Machine Learning eksperymenty.
-    - Lokalizacja: Najlepiej pozostają w regionie, który znajduje się w pobliżu zasobów platformy Azure Machine Learning eksperymentu.
-4. Kliknij przycisk **Utwórz**. 
+W [portalu Azure](https://portal.azure.com/), tworzenie nowego projektu zespołowego:
+1. Wybierz  **+** .
+2. Wyszukaj **projektu zespołowego**.
+3. Wprowadź wymagane informacje:
+    - **Nazwa**: Nazwa zespołu.
+    - **Kontrola wersji**: Wybierz **Git**.
+    - **Subskrypcja**: Wybierz subskrypcję, która ma konto Machine Learning eksperymenty.
+    - **Lokalizacja**: najlepiej, wybierz region, który znajduje się w pobliżu zasobów Machine Learning eksperymenty.
+4. Wybierz pozycję **Utwórz**. 
 
-![Tworzenie projektu zespołowego przy użyciu portalu Azure](media/using-git-ml-project/create_vsts_team.png)
+![Tworzenie projektu zespołowego w portalu Azure](media/using-git-ml-project/create_vsts_team.png)
 
-Upewnij się, że możesz zalogować się przy użyciu tego samego konta usługi Azure Active Directory (AAD), którego używasz dostępu Azure Machine Learning Workbench. W przeciwnym razie system nie może uzyskać dostępu przy użyciu poświadczeń użytkownika usługi AAD, chyba że za pomocą wiersza polecenia Utwórz projekt uczenie Maszynowe Azure i podanie osobisty token dostępu do repozytorium Git. Więcej informacji na temat to później.
+Upewnij się, czy możesz zalogować się przy użyciu tego samego konta usługi Azure Active Directory (Azure AD), który umożliwia dostęp Machine Learning Workbench. W przeciwnym razie system nie może uzyskać dostępu Machine Learning Workbench przy użyciu poświadczeń usługi Azure AD. Wyjątkiem jest Jeśli za pomocą wiersza polecenia do tworzenia projektu uczenia maszynowego i podać osobisty token dostępu do repozytorium Git. Omówiono to bardziej szczegółowo w dalszej części tego artykułu.
 
-Po utworzeniu projektu zespołowego, można przystąpić do przeniesienia do następnego kroku.
+Aby przejść bezpośrednio do projektu zespołowego, który został utworzony, należy użyć adresu URL https://\<Nazwa projektu zespołowego\>. visualstudio.com.
 
-Aby przejść bezpośrednio do projektu zespołowego właśnie utworzony, adres URL jest `https://<team_project_name>.visualstudio.com`.
+## <a name="step-3-set-up-a-machine-learning-project-and-git-repo"></a>Krok 3. Konfigurowanie projektu uczenia maszynowego i repozytorium Git
 
-## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Krok 3. Utwórz nowy projekt uczenie Maszynowe Azure ze zdalnego repozytorium Git
-Uruchom usługi Azure ML Workbench i Utwórz nowy projekt. Adres URL repozytorium Git programu VSTS, który można pobrać z etapu 2 wypełnić pole tekstowe repozytorium Git. Zwykle wygląda następująco:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
+Aby skonfigurować projekt uczenia maszynowego, masz dwie opcje:
+- Utwórz projekt uczenia maszynowego, który ma zdalnego repozytorium Git
+- Skojarz istniejący projekt Machine Learning z repozytorium Git programu Team Services
 
-![Utwórz projekt uczenie Maszynowe Azure z repozytorium Git](media/using-git-ml-project/create_project_with_git_rep.png)
+### <a name="create-a-machine-learning-project-that-has-a-remote-git-repo"></a>Utwórz projekt uczenia maszynowego, który ma zdalnego repozytorium Git
+Otwórz Machine Learning Workbench i Utwórz nowy projekt. W **repozytorium Git** wprowadź adres URL repozytorium Git programu Team Services z kroku 2. Zwykle wygląda następująco: https://\<nazwa konta usługi Team Services\>.visualstudio.com/_git/\<nazwy projektu\>
 
-Można również utworzyć projekt za pomocą narzędzia wiersza polecenia. Istnieje możliwość udzielenia osobisty token dostępu. Uczenie Maszynowe Azure umożliwia ten token dostępu repozytorium Git w Twoim imieniu, zamiast polegania na Twoje poświadczenia usługi AAD:
+![Utwórz projekt uczenia maszynowego, który ma repozytorium Git](media/using-git-ml-project/create_project_with_git_rep.png)
+
+Można również utworzyć projekt za pomocą narzędzia wiersza polecenia platformy Azure (Azure CLI). Istnieje możliwość wprowadzania osobisty token dostępu. Uczenie maszynowe umożliwia dostęp do repozytorium Git zamiast przy użyciu poświadczeń usługi Azure AD ten token:
 
 ```
-# create a new project with a Git repo and personal access token.
-$ az ml project create -a <experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <VSTS personal access token>
+# Create a new project that has a Git repo by using a personal access token.
+$ az ml project create -a <Experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <Team Services personal access token>
 ```
+
 > [!IMPORTANT]
-> Jeśli wybierzesz szablon projektu puste, jeśli repozytorium Git, możesz wybrać już jest OK _wzorca_ gałęzi. Po prostu klonów Azure ML _wzorca_ gałęzi lokalnie, a następnie dodaj `aml_config` folderu i inne pliki metadanych do folderu lokalnego projektu projektu. Ale jeśli wybierzesz innego szablonu projektu z repozytorium Git nie mogą już mieć _wzorca_ gałęzi, lub zostanie wyświetlony komunikat o błędzie. Alternatywą jest użycie `az ml project create` narzędzia wiersza polecenia, aby utworzyć projekt i podać `--force` przełącznika. Usuwa pliki na oryginalnym głównej gałęzi i Zamień nowe pliki w wybranego szablonu.
+> Jeśli wybierzesz szablon projektu puste repozytorium Git, którego chcesz użyć mogą już mieć gałęzi głównej. Uczenie maszynowe klonów po prostu lokalnie gałęzi głównej. Dodaje aml_config folder i inne pliki metadanych projektu do folderu lokalnego projektu. 
+>
+> Jeśli wybierzesz każdego innego szablonu projektu, z repozytorium Git *nie* już gałęzi głównej. Jeśli tak, zostanie wyświetlony błąd. Alternatywą jest użycie `az ml project create` polecenie, aby utworzyć projekt, z `--force` przełącznika. To usuwa pliki w oryginalnej gałęzi głównej i zastępuje je nowe pliki w szablonie, który można wybrać.
 
-Teraz nowy projekt uczenie Maszynowe Azure jest tworzony z zdalnego integracji repozytorium Git, włączona i gotowa do go. Folder projektu jest zawsze Git zainicjowany jako lokalne repozytorium Git. I Git _zdalnego_ ustawiono zdalnego repozytorium Git programu VSTS, więc zatwierdzeń może zostać przeniesiony do zdalnego repozytorium Git.
+Nowy projekt usługi Machine Learning jest tworzony, z włączoną integracją repozytorium Git zdalnego. Folder projektu jest zawsze Git zainicjowany jako lokalne repozytorium Git. Zdalny narzędzia Git jest ustawiona do zdalnego repozytorium Git programu Team Services, więc można wypychanie zatwierdzeń do zdalnego repozytorium Git.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Krok 3a. Skojarz istniejący projekt uczenie Maszynowe Azure z repozytorium Git programu VSTS
-Opcjonalnie można również utworzyć projekt uczenie Maszynowe Azure bez repozytorium Git programu VSTS i polegać tylko na lokalne repozytorium Git dla migawki historii wykonywania. I repozytorium Git programu VSTS można skojarzyć później z tym istniejący projekt uczenie Maszynowe Azure za pomocą następującego polecenia:
+### <a name="associate-an-existing-machine-learning-project-with-a-team-services-git-repo"></a>Skojarz istniejący projekt Machine Learning z repozytorium Git programu Team Services
+Tworzenie projektu usługi Machine Learning bez repozytorium Git programu Team Services i zależne od lokalnego repozytorium Git dla migawki historii wykonywania. Później z tym istniejący projekt uczenia maszynowego można skojarzyć repozytorium Git programu Team Services za pomocą następującego polecenia:
 
 ```azurecli
-# make sure you are in the project path so CLI has context of your current project
-$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+# Ensure that you are in the project path so Azure CLI has the context of your current project.
+$ az ml project update --repo https://<Team Services account name>.visualstudio.com/_git/<project name>
 ```
 
 > [!NOTE] 
-> Można wykonać tylko operację aktualizacji repozytorium w projekcie uczenie Maszynowe Azure, która nie ma repozytorium Git skojarzonego z nim. I po repozytorium Git jest skojarzony, nie może zostać usunięta.
+> Można wykonać operacji aktualizacji repozytorium tylko na projekt uczenia maszynowego, który nie ma repozytorium Git skojarzonego z nim. Ponadto po repozytorium Git należy powiązać z uczenia maszynowego, nie można usunąć go.
 
-## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Krok 4. Przechwytywanie migawek projektu w repozytorium Git
-Teraz możesz wykonać kilka skrypt będzie uruchamiany w projekcie, należy między nimi pewne zmiany działa. Można to zrobić, albo z aplikacji pulpitu lub przy użyciu interfejsu wiersza polecenia `az ml experiment submit` polecenia. Aby uzyskać więcej informacji, możesz wykonać [samouczek klasyfikowania Iris](tutorial-classifying-iris-part-1.md). Przy każdym uruchomieniu, jeśli zmiany wprowadzone w plikach w folderze projektu migawki folderu cały projekt jest zadeklarowane i przypisany do zdalnego repozytorium Git w gałęzi o nazwie `AzureMLHistory/<Project_GUID>`. Można wyświetlać gałęzi i zatwierdzeń przechodząc do adresu URL repozytorium Git programu VSTS i znaleźć gałęzi. 
+## <a name="step-4-capture-a-project-snapshot-in-the-git-repo"></a>Krok 4. Przechwyć migawka projektu w repozytorium Git
+Wykonanie kilku skrypt będzie uruchamiany w projekcie i wprowadzić kilka zmian Between działa. Można to zrobić w aplikacji pulpitu lub z wiersza polecenia platformy Azure przy użyciu `az ml experiment submit` polecenia. Aby uzyskać więcej informacji, zobacz [samouczek klasyfikowania Iris](tutorial-classifying-iris-part-1.md). Przy każdym uruchomieniu przypadku dokonania zmian w żadnym pliku w folderze projektu migawki folderu cały projekt jest zadeklarowane i przypisany do zdalnego repozytorium Git w gałęzi o nazwie AzureMLHistory /\<identyfikatora GUID projektu\>. Aby wyświetlić gałęzie i zatwierdzeń, w tym AzureMLHistory /\<identyfikatora GUID projektu\> gałęzi, przejdź do adresu URL repozytorium Git programu Team Services. 
 
 > [!NOTE] 
-> Migawki tylko zostaje zatwierdzona przed wykonaniem skryptu. Obecnie przedprodukcyjnym danych wykonywania lub wykonywania komórki notesu nie spowoduje wyzwolenia migawki.
+> Migawki zostaje zatwierdzona tylko przed rozpoczęciem wykonywania skryptu. Obecnie przedprodukcyjnym danych wykonywania lub wykonywania komórki notesu nie powoduje wyzwolenia migawki.
 
 ![Historia uruchomień gałęzi](media/using-git-ml-project/run_history_branch.png)
 
 > [!IMPORTANT] 
-> Najlepiej nie działa w gałęzi historii samodzielnie przy użyciu polecenia usługi Git. Dzięki temu może mess się Historia uruchomień. Użyj głównej gałęzi lub utworzyć inne gałęzie dla operacji Git.
+> Najlepiej nie działają w historii gałęzi, używając polecenia usługi Git. Może on zakłócać historii uruchamiania. Zamiast tego użyj gałęzi głównej lub Utwórz inne gałęzie dla operacji Git.
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Krok 5. Przywróć poprzednią migawkę projektu 
-Aby przywrócić folder całego projektu do stanu poprzedniego Historia uruchomień migawką stanu projektu, z Workbench uczenie Maszynowe Azure:
-1. Polecenie **działa** w działaniu paska (ikona szkła godzinę).
-2. Z **Uruchom listy** wyświetlić, kliknij pozycję Uruchom, aby przywrócić.
-3. Z **Uruchom szczegółów** wyświetlić, wybierz polecenie **przywrócić**.
+Aby przywrócić folder całego projektu do stanu poprzedniego historii wykonywania migawek w Machine Learning Workbench:
+1. W działaniu paska (ikona klepsydry), wybierz **działa**.
+2. W **Uruchom listy** wyświetlić, wybierz polecenie Uruchom, który chcesz przywrócić.
+3. W **Uruchom szczegółów** widok, wybierz opcję **przywrócić**.
 
 ![Historia uruchomień gałęzi](media/using-git-ml-project/restore_project.png)
 
-Alternatywnie można użyć następującego polecenia w oknie wiersza polecenia platformy Azure ML Workbench.
+Opcjonalnie możesz użyć następujących poleceń w oknie wiersza polecenia platformy Azure Machine Learning Workbench:
 
 ```azurecli
-# discover the run I want to restore snapshot from:
+# Discover the run I want to restore a snapshot from.
 $ az ml history list -o table
 
-# restore the snapshot from a particular run
-$ az ml project restore --run-id <run_id>
+# Restore the snapshot from a specific run.
+$ az ml project restore --run-id <run ID>
 ```
 
-Przez wykonanie tego polecenia, możemy spowoduje zastąpienie folderu cały projekt migawką, gdy zostało rozpoczęte z określonym programem. Jednak pozostanie projektu na bieżącej gałęzi. Oznacza to, że będzie **utracić wszystkie zmiany** w bieżącym folderze projektu. Dlatego należy zachować szczególną ostrożność podczas uruchamiania tego polecenia. Aby zapisać zmiany przed wykonaniem operacji powyżej bieżącej gałęzi może chcesz Git. Aby uzyskać więcej informacji, zobacz przed.
+Należy zachować ostrożność podczas uruchamiania tego polecenia. Migawki, która została podjęta, jeśli z określonym programem zostało rozpoczęte wykonywania tego polecenia zastępuje folderu całego projektu. Projekt pozostaje w bieżącej gałęzi. Oznacza to, że możesz **utracić wszystkie zmiany** w bieżącym folderze projektu.  
+
+Można użyć narzędzia Git można przekazać zmian do bieżącej gałęzi, przed wykonaniem tej operacji.
 
 ## <a name="step-6-use-the-master-branch"></a>Krok 6. Użyj głównej gałęzi
-Jednym ze sposobów uniknąć przypadkowego utraty aktualnym stanie projektu, jest można przekazać projektu do gałęzi głównej (lub działu utworzonego przez siebie) repozytorium Git. Git można korzystać bezpośrednio z wiersza polecenia (lub inne ulubionego Git klienta narzędzia wyboru) może działać w gałęzi głównej. Na przykład:
+Jednym ze sposobów uniknąć przypadkowej utraty aktualnego stanu projektu jest zatwierdzić projektu do głównej gałęzi repozytorium Git (lub oddziałów utworzony przez siebie). Można użyć narzędzia Git z wiersza polecenia lub ulubionego narzędzia Git klienta może działać w gałęzi głównej. Na przykład:
 
 ```sh
-# check status to make sure you are on the master branch (or branch of your choice)
+# Check status to make sure you are on the master branch (or branch of your choice).
 $ git status
 
-# stage all changes
+# Stage all changes.
 $ git add -A
 
-# commit all changes locally on the master branch
+# Commit all changes locally on the master branch.
 $ git commit -m 'these are my updates so far'
 
-# push changes into the remote VSTS Git repo master branch.
+# Push changes to the remote Team Services Git repo master branch.
 $ git push origin master
 ```
 
-Teraz można bezpiecznie Przywracanie projektu do wcześniejszej migawki następującego kroku 5, wiedząc, że możesz zawsze wrócić do zatwierdzenia możesz po prostu dokonywane na głównym gałęzi.
+Teraz można bezpiecznie przywrócić projektu do wcześniejszej migawki, wykonując krok 5. Możesz zawsze wrócić do zatwierdzenia, wprowadzone w gałęzi głównej.
 
 ## <a name="authentication"></a>Authentication
-Jeśli właśnie polegać funkcji Historia uruchomień w uczenie Maszynowe Azure do wykonywania migawek projektu i ich przywracania, nie trzeba martwić się o uwierzytelnianiu repozytorium Git. Jest poświęcony na obsługę przez warstwę usługi eksperymenty.
+Jeśli użytkownik korzysta z funkcji Historia uruchomień w uczeniu maszynowym migawek projektu i je przywrócić, na, nie musisz martwić się o uwierzytelnianiu repozytorium Git. Uwierzytelnianie jest obsługiwane przez warstwę usługi Machine Learning eksperymenty.
 
-Jednak użycie własnego narzędzia Git w celu zarządzania kontrolą wersji, należy poprawnie obsługiwać uwierzytelnianie względem zdalnego repozytorium Git na VSTS. Azure ml zdalnego repozytorium Git jest dodawana do lokalnego repozytorium jako Git zdalnego przy użyciu protokołu HTTPS. Oznacza to, w przypadku wysyłania Git polecenia do zdalnego (takich jak wypychania lub ściągania), należy podać nazwę użytkownika i hasło lub osobisty token dostępu. Postępuj zgodnie z [tych instrukcji](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) utworzyć osobisty token dostępu w repozytorium Git programu VSTS.
+Jednak użycie własnego narzędzia Git w celu zarządzania kontrolą wersji, należy do obsługi uwierzytelniania zdalnego repozytorium Git w usłudze Team Services. W uczeniu maszynowym zdalnego repozytorium Git jest dodawana do lokalnego repozytorium jako element zdalny narzędzia Git za pomocą protokołu HTTPS. Oznacza to, że w przypadku wysyłania polecenia usługi Git (na przykład wypychania lub ściągania) do komputera zdalnego, musisz podać nazwę użytkownika i hasło lub osobisty token dostępu. Aby utworzyć osobisty token dostępu w repozytorium Git programu Team Services, postępuj zgodnie z instrukcjami [osobisty token dostępu umożliwia uwierzytelnianie](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
 
 ## <a name="next-steps"></a>Następne kroki
-Używanie procesu nauki danych zespołu organizowanie struktury projektu, zobacz [struktury projektu z TDSP](how-to-use-tdsp-in-azure-ml.md)
+- Dowiedz się, jak [do organizowania struktury projektu, użyj procesu nauki danych zespołu](how-to-use-tdsp-in-azure-ml.md).

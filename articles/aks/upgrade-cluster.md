@@ -1,6 +1,6 @@
 ---
-title: "Uaktualnij do klastra usługi kontenera platformy Azure (AKS) | Dokumentacja firmy Microsoft"
-description: "Uaktualnianie klastra usługi kontenera platformy Azure (AKS)"
+title: "Uaktualnianie klastra usługi Azure Container Service (AKS) | Microsoft Docs"
+description: "Uaktualnianie klastra usługi Azure Container Service (AKS)"
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uaktualnianie klastra usługi kontenera platformy Azure (AKS)
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Container Service (AKS)
 
-Usługa kontenera platformy Azure (AKS) ułatwia wykonywanie typowych zadań zarządzania tym uaktualnianie Kubernetes klastrów.
+Usługa Azure Container Service (AKS) ułatwia wykonywanie typowych zadań zarządzania, w tym uaktualniania klastrów Kubernetes.
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
 
-Przed rozpoczęciem uaktualniania klastra, użyj `az aks get-versions` polecenie, aby sprawdzić, które wersje Kubernetes są dostępne do uaktualnienia.
+Przed uaktualnieniem klastra użyj polecenia `az aks get-versions`, aby sprawdzić, która wersja rozwiązania Kubernetes jest dostępna do uaktualnienia.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Dane wyjściowe:
+Efekt:
 
 ```console
 Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
@@ -43,13 +43,13 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Mamy trzy wersje dostępne do uaktualnienia: 1.7.9, 1.8.1 i 1.8.2. Możemy użyć `az aks upgrade` polecenia w celu uaktualnienia do najnowszej dostępnej wersji.  Podczas procesu uaktualniania węzły są dokładnie [cordoned i opróżnione](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) aby zminimalizować zakłócenia dla aplikacji.
+Mamy trzy wersje dostępne do uaktualnienia: 1.7.9, 1.8.1 i 1.8.2. Możemy użyć polecenia `az aks upgrade` w celu przeprowadzenia uaktualnienia do najnowszej dostępnej wersji.  Podczas procesu uaktualniania węzły są dokładnie [odizolowywane i opróżniane](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), aby zminimalizować zakłócenia dla działających aplikacji.  Przed zainicjowaniem uaktualniania klastra upewnij się, że masz na tyle dużo dodatkowej wydajności obliczeniowej, aby obsłużyć obciążenie podczas dodawania i usuwania węzłów klastra.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
-Dane wyjściowe:
+Efekt:
 
 ```json
 {
@@ -105,13 +105,13 @@ Dane wyjściowe:
 }
 ```
 
-Teraz można potwierdzić uaktualnienie powiodło się z `az aks show` polecenia.
+Teraz możesz potwierdzić, że uaktualnienie powiodło się, używając polecenia `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Dane wyjściowe:
+Efekt:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -121,7 +121,7 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat wdrażania i zarządzania nimi AKS z samouczki AKS.
+Dowiedz się więcej na temat wdrażania usługi AKS i zarządzania nią z samouczków usługi AKS.
 
 > [!div class="nextstepaction"]
-> [Samouczek AKS](./tutorial-kubernetes-prepare-app.md)
+> [Samouczek usługi AKS](./tutorial-kubernetes-prepare-app.md)

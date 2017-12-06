@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfigurację magazynu dla maszyn wirtualnych programu SQL Server
 Po skonfigurowaniu obraz maszyny wirtualnej programu SQL Server na platformie Azure, portalu pomaga zautomatyzować konfigurację magazynu. W tym podłączania do maszyny Wirtualnej, udostępnienie magazynu do programu SQL Server i skonfigurowania go do Optymalizuj pod kątem wymagań dotyczących wydajności dotyczące magazynu.
@@ -30,7 +30,7 @@ W tym temacie wyjaśniono, jak Azure konfiguruje magazynu dla maszyn wirtualnych
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby korzystać z automatycznego przechowywania ustawień konfiguracji, maszyny wirtualnej wymaga następującej charakterystyce:
 
-* Z udostępnionym [obraz w galerii programu SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Z udostępnionym [obraz w galerii programu SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Używa [modelu wdrażania usługi Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Używa [magazyn w warstwie Premium](../premium-storage.md).
 

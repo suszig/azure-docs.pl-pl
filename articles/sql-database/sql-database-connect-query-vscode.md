@@ -15,13 +15,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/20/2017
+ms.date: 06/22/2017
 ms.author: carlrab
-ms.openlocfilehash: d07194d4f92b2b32b506813a4b1bb5c84e2f98ac
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: MT
+ms.openlocfilehash: c6c450b0b3b0422121d23ba5d5556637f6d298bc
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Baza danych Azure SQL Database: używanie programu Visual Studio Code do nawiązywania połączenia i wysyłania zapytań dotyczących danych
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 10/31/2017
 
 Ten przewodnik Szybki start używa jako punktu początkowego zasobów utworzonych w jednym z poniższych przewodników Szybki start:
 
-- [Tworzenie bazy danych — portal](sql-database-get-started-portal.md)
-- [Tworzenie bazy danych — interfejs wiersza polecenia](sql-database-get-started-cli.md)
-- [Tworzenie bazy danych — PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Instalacja programu VS Code) i [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (Rozszerzenie mssql dla programu Visual Studio Code). 
+#### <a name="install-vs-code"></a>Instalowanie programu VS Code
+
+Przed rozpoczęciem upewnij się, że zainstalowano najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowano [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz [Instalowanie programu VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) i [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (Rozszerzenie mssql dla programu Visual Studio Code). 
 
 ## <a name="configure-vs-code"></a>Konfigurowanie kodu programu VS 
 
@@ -63,13 +63,7 @@ Nie jest potrzebna specjalna konfiguracja.
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. Na stronie **Przegląd** bazy danych zweryfikuj w pełni kwalifikowaną nazwę serwera, jak pokazano na poniższej ilustracji. Możesz umieścić kursor na nazwie serwera w celu wywołania opcji **Kliknij, aby skopiować**.
-
-   ![informacje o połączeniu](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Jeśli nie pamiętasz informacji logowania dla serwera Azure SQL Database, przejdź do strony serwera SQL Database, aby wyświetlić nazwę administratora oraz, w razie konieczności, zresetować hasło. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="set-language-mode-to-sql"></a>Ustawianie trybu języka na SQL
 
@@ -175,7 +169,7 @@ Użyj następującego kodu, aby zaktualizować nowy, wcześniej dodany produkt p
 
 ## <a name="delete-data"></a>Usuwanie danych
 
-Użyj następującego kodu, aby usunąć nowy, wcześniej dodany produkt przy użyciu instrukcji [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) języka Transact-SQL.
+Użyj następującego kodu, aby usunąć nowy, wcześniej dodany produkt przy użyciu instrukcji [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) języka Transact-SQL.
 
 1. W oknie **Edytor** usuń poprzednie zapytanie i wprowadź następujące:
 

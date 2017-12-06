@@ -1,6 +1,6 @@
 ---
-title: "Przegląd zasad Azure | Dokumentacja firmy Microsoft"
-description: "Zasady usługi Azure to usługa na platformie Azure, którego używasz do tworzenia, przypisywania i zarządzanie definicje zasad w środowisku platformy Azure."
+title: "Omówienie usługi Azure Policy | Microsoft Docs"
+description: "Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -10,118 +10,118 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="what-is-azure-policy"></a>Co to jest Azure zasady?
+# <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
-Zarządzanie IT tworzy jasności między cele biznesowe i projektach. Dobrym informatyczną obejmuje Planowanie z inicjatywy i ustawianie priorytetów na poziomie strategicznych. Firma wystąpić znaczących problemów IT, które nie wydają się pobrać rozwiązany? Wdrażanie zasad pomaga lepiej zarządzać i uniemożliwić ich. Wdrażanie zasad jest, gdzie zasadami Azure jest dostarczany.
+Zarządzanie IT tworzy jasne połączenie między celami biznesowymi i projektami IT. Dobre zarządzanie IT obejmuje planowanie inicjatyw i określanie priorytetów na poziomie strategicznym. Czy w firmie występuje znacząca liczba problemów związanych z IT, które wydają się nie do rozwiązania? Wdrożenie zasad umożliwia lepsze zarządzanie nimi i zapobieganie im. Usługa Azure Policy służy właśnie do wdrażania zasad.
 
-Zasady usługi Azure to usługa na platformie Azure, używanej do tworzenia, przypisywania i definicje zasad zarządzania. Definicje zasad wymusza różnych zasad i akcje za pośrednictwem zasobów, dlatego te zasoby pozostają zgodne ze standardami firmy, a umów dotyczących poziomu usług. Zasady usługi Azure uruchomienie ocenę zasobów, skanowanie w poszukiwaniu tych, które nie są zgodne z definicje zasad, do których masz. Na przykład można mieć zasad, aby zezwolić tylko niektóre maszyny wirtualne są. Inny musi mieć wszystkie zasoby określony tag. Te zasady są oceniane oddzielnie podczas tworzenia i aktualizowania zasobów.
+Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi. Definicje zasad wymuszają różne reguły i działania dotyczące zasobów, dzięki czemu zasoby te pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług. Usługa Azure Policy przeprowadza ocenę zasobów, skanując je pod kątem elementów niezgodnych z określonymi definicjami zasad. Może na przykład występować zasada dopuszczająca tylko określony typ maszyn wirtualnych. Inna zasada może wymagać oznaczania wszystkich zasobów określonym tagiem. Zasady te są następnie oceniane podczas tworzenia i aktualizowania zasobów.
 
-## <a name="how-is-it-different-from-rbac"></a>Czym się różni od RBAC?
+## <a name="how-is-it-different-from-rbac"></a>Czym się to różni od RBAC?
 
-Istnieje kilka podstawowych różnic między zasadami i kontroli dostępu opartej na rolach (RABC). RBAC koncentruje się na działania użytkownika w innych zakresach. Na przykład możesz mogą być dodane do roli współautora dla grupy zasobów na żądany zakres. Rola pozwala wprowadzać zmiany do tej grupy zasobów. Zasady skupia się wokół właściwości zasobów podczas wdrażania i dla już istniejących zasobów. Na przykład za pomocą zasad, można kontrolować typów zasobów, które mogą być udostępniane. Alternatywnie można ograniczyć lokalizacje, w których można udostępnić zasoby. W odróżnieniu od RBAC, zasady są domyślnie Zezwól jawne i odmawianie systemu.
+Istnieje kilka podstawowych różnic między zasadami i kontrolą dostępu opartą na rolach (RBAC). RBAC koncentruje się na działaniach użytkownika w różnych zakresach. Na przykład możesz zostać dodany do roli współautora w grupie zasobów w określonym zakresie. Rola pozwala wprowadzać zmiany w tej grupie zasobów. Zasady skupiają się na właściwościach zasobów podczas ich wdrażania i dla już istniejących zasobów. Zasady umożliwiają na przykład kontrolowanie typów zasobów, które mogą być udostępniane. Można również ograniczyć lokalizacje, w których zasoby mogą być udostępniane. W odróżnieniu od RBAC, zasady to system z domyślnym zezwalaniem i wyraźnym zabranianiem.
 
-Aby użyć zasad, użytkownik musi zostać uwierzytelniony za pośrednictwem RBAC. W szczególności, Twoje konto musi:
+Korzystanie z zasad wymaga uwierzytelnienia przy użyciu RBAC. Konkretnie dane konto wymaga:
 
-- `Microsoft.Authorization/policydefinitions/write`uprawnienia do definiowania zasad.
-- `Microsoft.Authorization/policyassignments/write`uprawnienie do przypisywania zasad.
+- Uprawnienia `Microsoft.Authorization/policydefinitions/write` do definiowania zasad.
+- Uprawnienia `Microsoft.Authorization/policyassignments/write` do przypisywania zasad.
 
-Te uprawnienia nie są uwzględnione w **współautora** roli.
+Te uprawnienia nie są uwzględnione w roli **Współautor**.
 
 
 ## <a name="policy-definition"></a>Definicja zasad
 
-Każdej definicji zasad zawiera warunki, w których jest wymuszana. I ma towarzyszącej akcji, która ma miejsce, jeśli warunki są spełnione.
+Każda definicja zasad zawiera warunki, w jakich zasady są wymuszane. Zawiera także towarzyszące działanie, które następuje w przypadku spełnienia warunków.
 
-W zasadach Azure oferujemy niektórych wbudowanych zasad, które są domyślnie dostępne. Na przykład:
+Usługa Azure Policy oferuje wbudowane zasady, które są domyślnie dostępne. Na przykład:
 
-- **Wymaga programu SQL Server 12.0**: definicja zasad ma warunki/reguły, aby upewnić się, że wszystkie serwery SQL, użyj wersji 12.0. Jego działania jest odrzucanie wszystkich serwerów, które nie spełniają te kryteria.
-- **Dozwolone jednostki SKU konta magazynu**: definicja zasad ma zestaw warunków/reguł, które określa, czy konto magazynu, który jest wdrażany jest w zestawie, rozmiar jednostki SKU. Jego działania jest odrzucanie wszystkich serwerów, które nie są zgodne do zestawu zdefiniowanego rozmiary jednostki SKU.
-- **Dozwolony typ zasobu**: definicja zasad ma zestaw warunków/reguł, aby określić typy zasobów, które można wdrożyć w organizacji. Jego działania jest odrzucanie wszystkie zasoby, które nie są częścią tego zdefiniowanej listy.
-- **Dozwolone lokalizacje**: ta zasada umożliwia ograniczyć lokalizacje, które organizacji można określić podczas wdrażania zasobów. Jego działania jest używany do wymuszenia wymagania dotyczące zgodności geo.
-- **Dozwolone jednostki SKU maszyny wirtualnej**: tych zasad można określić zestaw maszyny wirtualnej jednostki magazynowe, które można wdrożyć w organizacji.
-- **Stosuje tag i wartość domyślną**: ta zasada dotyczy wymaganego tagu i wartość domyślną, jeśli nie jest określona przez użytkownika.
-- **Wymuszanie tagu i jej wartość**: te zasady wymuszają zastosowanie wymaganego tagu i jej wartość do zasobu.
-- **Niedozwolone typy zasobów**: ta zasada umożliwia określenie typów zasobów, których nie można wdrożyć w organizacji.
+- **Wymaga programu SQL Server 12.0**: ta definicja zasad zawiera warunki/reguły, które zapewniają, że wszystkie serwery SQL korzystają z wersji 12.0. Jej działaniem jest odrzucanie wszystkich serwerów, które nie spełniają tych kryteriów.
+- **Dozwolone jednostki SKU konta magazynu**: ta definicja zasad zawiera zestaw warunków/reguł, które określają, czy wdrażane konto magazynu mieści się w zakresie rozmiarów SKU. Jej działaniem jest odrzucanie wszystkich serwerów, które nie są zgodne z zestawem zdefiniowanych rozmiarów SKU.
+- **Dozwolony typ zasobu**: ta definicja zasad zawiera zestaw warunków/reguł, które określają typy zasobów, które organizacja może wdrażać. Jej działaniem jest odrzucanie wszystkich zasobów, które nie należą do tej zdefiniowanej listy.
+- **Dozwolone lokalizacje**: ta zasada umożliwia ograniczenie lokalizacji, które organizacja może określić podczas wdrażania zasobów. Jej działanie jest używane do wymuszania wymagań dotyczących zgodności obszarów geograficznych.
+- **Dozwolone jednostki SKU maszyny wirtualnej**: te zasady umożliwiają określenie zestawu jednostek SKU maszyn wirtualnych, które organizacja może wdrażać.
+- **Zastosuj tag i jego wartość domyślną**: ta zasada stosuje wymagany tag i jego wartość domyślną, jeśli nie została określona przez użytkownika.
+- **Wymuszaj tag i jego wartość**: ta zasada wymusza wymagany tag i jego wartość w zasobie.
+- **Niedozwolone typy zasobów**: ta zasada umożliwia określanie typów zasobów, których organizacja nie może wdrażać.
 
-Można przypisać dowolnej z tych zasad za pośrednictwem portalu Azure, programu PowerShell lub wiersza polecenia platformy Azure.
+Dowolną z tych zasad można przypisać za pośrednictwem witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-Aby dowiedzieć się więcej na temat struktury definicje zasad, Szukaj w tym artykule - [struktura definicji zasad](policy-definition.md).
+Aby dowiedzieć się więcej o strukturach definicji zasad, zapoznaj się z artykułem [Struktura definicji zasad](policy-definition.md).
 
-## <a name="policy-assignment"></a>Przypisania zasad
+## <a name="policy-assignment"></a>Przypisywanie zasad
 
-Przypisania zasad jest sformułowanie zasad przypisany została wykonana w określonym zakresie. Ten zakres może należeć do zakresu od grupy zarządzania do grupy zasobów. Termin *zakres* odwołuje się do wszystkich grup zasobów, subskrypcji lub grup zarządzania, które przypisano definicji zasad. Przypisania zasad są dziedziczone przez wszystkie zasoby podrzędne. Tak Jeśli zasady są stosowane do grupy zasobów, jest stosowane do wszystkich zasobów w danej grupie zasobów. Jednak można wykluczyć subscope z przypisania zasad. Na przykład w zakresie subskrypcji można przypisać zasady, która uniemożliwia tworzenie zasobów sieciowych. Jednak możesz wykluczyć jednej grupy zasobów w ramach subskrypcji, która jest przeznaczona dla infrastruktury sieci. Można przyznać dostęp do tej grupy zasobów sieciowych, użytkownikom, którym ufasz z tworzeniem zasobów sieciowych.
+Przypisywanie zasad to definicja zasad, która została przypisana do określonego zakresu. Zakresem tym może być zarówno grupa zarządzania, jak i grupa zasobów. Termin *zakres* odnosi się do wszystkich grup zasobów, subskrypcji i grup zarządzania, do których przypisano definicję zasad. Przypisania zasad są dziedziczone przez wszystkie zasoby podrzędne. Tak więc jeśli zasady stosują się do grupy zasobów, stosują się do wszystkich zasobów w tej grupie zasobów. Z przypisania zasad można jednak wyłączyć zakres podrzędny. Na przykład przy zakresie subskrypcji można określić zasady, które zapobiegają tworzeniu zasobów sieciowych. Można jednak wyłączyć jedną grupę zasobów w ramach subskrypcji, która jest przeznaczona dla infrastruktury sieciowej. Dostęp do tej grupy zasobów sieciowych można przyznać użytkownikom, którym powierzono tworzenie zasobów sieciowych.
 
-Aby uzyskać więcej informacji na definicji ustawień zasad i przypisań, zobacz [Utwórz przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku Azure](assign-policy-definition.md).
+Dodatkowe informacje na temat tworzenia definicji zasad i przypisań zamieszczono w artykule [Tworzenie przypisania zasad w celu identyfikowania niezgodnych zasobów w środowisku platformy Azure](assign-policy-definition.md).
 
 ## <a name="policy-parameters"></a>Parametry zasad
 
-Parametry zasad ułatwić zarządzanie zasadami dzięki zmniejszeniu liczby definicje zasad, które należy utworzyć. Podczas tworzenia definicji zasad, aby był bardziej ogólnym, można zdefiniować parametrów. Następnie można ponownie użyć tej definicji zasad dla różnych scenariuszy. Można to zrobić przez przekazywanie różne wartości podczas przypisywania definicji zasad. Na przykład określenie jeden zestaw lokalizacji dla subskrypcji.
+Parametry zasad ułatwiają zarządzanie zasadami przez redukowanie liczby definicji zasad, które należy utworzyć. Podczas tworzenia definicji zasad można zdefiniować parametry, które czynią je bardziej ogólnymi. Następnie można użyć tej definicji zasad ponownie w różnych scenariuszach. Polega to na przekazaniu innych wartości podczas przypisywania definicji zasad. Można na przykład określić jeden zestaw lokalizacji dla subskrypcji.
 
-Parametry są zdefiniowane/tworzone podczas tworzenia definicji zasad. Jeśli parametr jest zdefiniowana, otrzymuje nazwę i opcjonalnie danej wartości. Na przykład można zdefiniować parametr dla zasad zatytułowany *lokalizacji*. Następnie można określić różne wartości takich jak *EastUS* lub *WestUS* podczas przypisywania zasad.
+Parametry są definiowane/tworzone podczas tworzenia definicji zasad. Jeśli parametr jest zdefiniowany, otrzymuje nazwę i opcjonalnie wartość. Na przykład można zdefiniować parametr dla zasad o nazwie *location*. Następnie podczas przypisywania zasad można przydzielić mu różne wartości, takie jak *EastUS* i *WestUS*.
 
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Aby uzyskać więcej informacji na temat parametrów zasad, zobacz [Przegląd zasad zasobów — parametry](policy-definition.md#parameters).
+Dodatkowe informacje na temat parametrów zasad zamieszczono w artykule [Przegląd zasad zasobów — parametry](policy-definition.md#parameters).
 
-## <a name="initiative-definition"></a>Inicjatywy definicji
-Definicja inicjatywy jest kolekcja definicji zasad, które są dostosowane do osiągnięcia pojedynczej celem nadrzędna. Definicje inicjatywy uprościć zarządzanie i przypisywanie definicje zasad. Uprościć ich grupowanie zestawu zasad jako jedną pojedynczy element. Na przykład można utworzyć inicjatywą zatytułowany **Włączanie monitorowania w Centrum zabezpieczeń Azure**, mając na celu monitorować wszystkie dostępne zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure.
+## <a name="initiative-definition"></a>Definicja inicjatywy
+Definicja inicjatywy to kolekcja definicji zasad dostosowanych w celu osiągnięcia jednego ogólnego celu. Definicje inicjatyw upraszczają przypisywanie definicji zasad i zarządzanie nimi. Upraszczają działania przez grupowanie zestawu zasad w ramach pojedynczego elementu. Można na przykład utworzyć inicjatywę o nazwie **Włączanie monitorowania w Azure Security Center**, której celem jest monitorowanie wszystkich dostępnych zaleceń dotyczących zabezpieczeń w Azure Security Center.
 
-W obszarze tej inicjatywy trzeba definicje zasad takich jak:
+W ramach tej inicjatywy mogą występować definicje zasad, takie jak:
 
-1. **Monitor bez szyfrowania bazy danych SQL w Centrum zabezpieczeń** — w przypadku monitorowania niezaszyfrowane baz danych i serwerów.
-2. **Monitorowanie luk w zabezpieczeniach systemu operacyjnego w Centrum zabezpieczeń** — monitorowania serwerów, które nie spełniają skonfigurowanych linii bazowej.
-3. **Monitorować brakujący program Endpoint Protection w Centrum zabezpieczeń** — monitorowania serwerów bez agenta ochrony zainstalowanego punktu końcowego.
+1. **Monitorowanie nieszyfrowanej bazy danych SQL w Security Center**  — do monitorowania niezaszyfrowanych baz danych i serwerów SQL.
+2. **Monitorowanie luk w zabezpieczeniach systemu operacyjnego w Security Center** — do monitorowania serwerów, które nie spełniają wymagań skonfigurowanej linii bazowej.
+3. **Monitorowanie brakującej ochrony punktów końcowych w Security Center** — do monitorowania serwerów bez zainstalowanego agenta chroniącego punkty końcowe.
 
 <!--
 For more information about initiative definitions, see Initiative Definitions.+ (instead of linking to this, link out to Concept page on Initiative Definitions)
 -->
 
-## <a name="initiative-assignment"></a>Inicjatywy przypisania
-Podobnie jak przypisanie zasad inicjatywy przydziału jest inicjatywy definicji przypisane do określonego zakresu. Przydziały inicjatywy zmniejszenia konieczności przeprowadzania kilku inicjatywy definicje dla każdego zakresu. Ten zakres można również należeć do zakresu od grupy zarządzania do grupy zasobów.
+## <a name="initiative-assignment"></a>Przypisanie inicjatywy
+Podobnie jak przypisanie zasad, przypisanie inicjatywy to definicja inicjatywy przypisana do określonego zakresu. Przypisania inicjatyw ograniczają potrzebę tworzenia różnych definicji inicjatyw dla każdego zakresu. Zakresem tym również może być zarówno grupa zarządzania, jak i grupa zasobów.
 
-W powyższym przykładzie **Włączanie monitorowania w Centrum zabezpieczeń Azure** inicjatywy mogą być przypisane do różnych zakresów. Na przykład można przypisać do jednego przypisania **subscriptionA**. Inny można przypisać do **subscriptionB**.
+W powyższym przykładzie inicjatywa **Włączanie monitorowania w Azure Security Center** może być przypisana do różnych zakresów. Można na przykład przypisać jedno przypisanie do subskrypcji **subscriptionA**. Kolejne można przypisać do subskrypcji **subscriptionB**.
 
 ## <a name="initiative-parameters"></a>Parametry inicjatywy
-Podobnie jak parametry zasad inicjatywy parametry uproszczenia inicjatywy zarządzania zmniejszając nadmiarowości. Parametry inicjatywy są zasadniczo listę parametrów używanych przez definicje zasad w ramach tej inicjatywy.
+Podobnie jak parametry zasad, parametry inicjatywy upraszczają zarządzanie inicjatywą przez ograniczenie nadmiarowości. Parametry inicjatywy to zasadniczo lista parametrów używanych przez definicje zasad w ramach tej inicjatywy.
 
-Na przykład wykonać scenariusz, w którym masz inicjatywy definicji - **initiativeC**, z dwie definicje zasad. Każda definicja zasad o jeden parametr zdefiniowane:
+Rozważmy na przykład scenariusz, w którym występuje definicja inicjatywy — **initiativeC** z dwiema definicjami zasad. Każda definicja zasad ma jeden zdefiniowany parametr:
 
-| Zasady | Nazwa parametru |Typ parametru  |Uwaga |
+| Zasady | nazwa parametru |Typ parametru  |Uwaga |
 |---|---|---|---|
-| policyA | allowedLocations | Tablica  |Ten parametr oczekuje listę ciągów dla wartości, ponieważ typ parametru została zdefiniowana jako tablica |
-| policyB | allowedSingleLocation |Ciąg |Ten parametr oczekuje wartości o jedno słowo, ponieważ typ parametru została zdefiniowana jako ciąg |
+| policyA | allowedLocations | tablica  |Ten parametr oczekuje listy ciągów dla wartości, ponieważ typ parametru został zdefiniowany jako tablica |
+| policyB | allowedSingleLocation |ciąg |Ten parametr oczekuje jednego słowa dla wartości, ponieważ typ parametru został zdefiniowany jako ciąg |
 
-W tym scenariuszu podczas definiowania inicjatywy parametry **initiativeC**, dostępne są trzy opcje:
+W tym scenariuszu podczas definiowania parametrów inicjatywy **initiativeC** dostępne są trzy opcje:
 
-1. Użyj parametrów definicje zasad w ramach tej inicjatywy: W tym przykładzie *allowedLocations* i *allowedSingleLocation* stają się inicjatywy parametrów **initiativeC** .
-2. Podaj wartości parametrów definicje zasad w ramach tej inicjatywy definicji. W tym przykładzie można udostępnić listę lokalizacje **policyA przez parametr — allowedLocations** i **policyB przez parametr — allowedSingleLocation**.
-Można również podać wartości podczas przypisywania tej inicjatywy.
-3. Podaj listę *wartość* opcje, które mogą być używane podczas przypisywania tej inicjatywy. Po przypisaniu tej inicjatywy parametry dziedziczone z definicji zasad w tej inicjatywy może zawierać tylko wartości z tej listy podana.
+1. Użycie parametrów definicji zasad w ramach tej inicjatywy: w tym przykładzie *allowedLocations* i *allowedSingleLocation* stają się parametrami inicjatywy dla **initiativeC**.
+2. Przekaż wartości parametrom definicji zasad w ramach tej definicji inicjatywy. W tym przykładzie można podać listę lokalizacji **parametrowi policyA — allowedLocations** i **parametrowi policyB — allowedSingleLocation**.
+Wartości można przekazać również podczas przypisywania tej inicjatywy.
+3. Podaj listę opcji *value*, które mogą być używane podczas przypisywania tej inicjatywy. Podczas przypisywania tej inicjatywy odziedziczone parametry z definicji zasad w ramach tej inicjatywy mogą zawierać jedynie wartości z tej dostarczonej listy.
 
-Na przykład można utworzyć listę opcji wartość w definicji inicjatywy, która zawiera *EastUS*, *WestUS*, *CentralUS*, i *WestEurope*. Jeśli tak, nie jako danych wejściowych innej wartości, takich jak *Azja południowo-wschodnia* inicjatywy przypisania, ponieważ nie jest częścią listy.
+Na przykład można utworzyć listę opcji wartości w definicji inicjatywy, która zawiera *EastUS*, *WestUS*, *CentralUS* i *WestEurope*. W takim przypadku podczas przypisywania inicjatywy nie jest możliwe wprowadzenie innej wartości, takiej jak *Southeast Asia*, ponieważ nie występuje ona na liście.
 
 ## <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 
-Podczas tworzenia i zarządzania definicje zasad i przypisań, poniżej przedstawiono kilka wskazówek, zaleca się wykonanie:
+Podczas tworzenia definicji i przypisań zasad oraz zarządzania nimi warto kierować się kilkoma wskazówkami zamieszczonymi poniżej:
 
-- Jeśli tworzysz definicje zasad w środowisku, zalecamy Rozpoczynanie od efekt inspekcji, w przeciwieństwie do efekt Odmów, aby śledzić wpływ z definicji zasad zasobów w danym środowisku. Jeśli masz skrypty już w miejscu, aby stosować automatyczne skalowanie zapasowych aplikacji, ustawienie efektu Odmów może utrudniać tych zadań automatyzacji, które już zostały spełnione.
-- Należy pamiętać o hierarchii organizacyjnej podczas tworzenia definicji i przypisania. Zaleca się tworzenie definicji na poziomie subskrypcji lub wyższego poziomu, na przykład w grupie zarządzania i przypisywanie na poziomie podrzędnym dalej. Na przykład w przypadku utworzenia definicji zasad na poziomie grupy zarządzania, przypisanie zasad tej definicji można zakresu do poziomu subskrypcji, w grupie zarządzania.
-- Firma Microsoft zachęca przy użyciu standardu cenowym, aby lepiej zrozumieć stan zgodności danego środowiska. Aby uzyskać więcej informacji o naszych cenową modeli i jakie każdego z nich oferty, Przyjrzyjmy się [cennik](https://azure.microsoft.com/pricing/details/azure-policy).
-- Firma Microsoft zaleca zawsze inicjatywy definicje zamiast definicje zasad, nawet jeśli masz tylko jedną zasadę pamiętać. Na przykład, jeśli masz definicję zasad — *policyDefA* i utwórz go w definicji inicjatywy - *initiativeDefC*, jeśli użytkownik chce utworzyć inną definicję zasad później dla *policyDefB* z podobny do celów *policyDefA*, można dodać go w obszarze *initiativeDefC* i śledzenie ich lepsze w ten sposób.
+- Jeśli tworzysz definicje zasad w swoim środowisku, zalecamy rozpoczęcie od efektu audytu, a nie od efektu odrzucenia, do śledzenia wpływu definicji zasad na zasoby w środowisku. Jeśli masz już skrypty umożliwiające automatyczne skalowanie swoich aplikacji, skonfigurowanie efektu odrzucenia może negatywnie wpłynąć na zdefiniowane wcześniej zadania automatyzacji.
+- Podczas tworzenia definicji i przypisań ważne jest zachowanie hierarchii organizacyjnych. Zaleca się tworzenie definicji na wyższym poziomie, na przykład poziomie grupy zarządzania lub subskrypcji, oraz przypisywanie ich na następnym poziomie podrzędnym. Na przykład w przypadku tworzenia definicji zasad na poziomie grupy zarządzania przypisanie zasad tej definicji może zostać obniżone do poziomu subskrypcji w ramach tej grupy zarządzania.
+- Zalecamy korzystanie ze standardowej warstwy cenowej, co umożliwia lepsze zrozumienie stanu zgodności środowiska. Dodatkowe informacje na temat naszych modeli cenowych i ich możliwości zamieszczono w artykule [Cennik](https://azure.microsoft.com/pricing/details/azure-policy).
+- Zawsze zalecamy stosowanie definicji inicjatyw zamiast definicji zasad, nawet jeśli w danym przypadku chodzi tylko o jedną zasadę. Na przykład, jeśli dysponujesz definicją zasad — *policyDefA* utworzoną w ramach definicji inicjatywy — *initiativeDefC*, jeśli zdecydujesz się na utworzenie w późniejszym czasie kolejnej definicji zasad, *policyDefB* o celach podobnych do *policyDefA*, możesz dodać ją do definicji *initiativeDefC*, co ułatwia śledzenie jej.
 
-   Należy pamiętać, że po utworzeniu inicjatywy przypisania z inicjatywy definicji żadnych nowych definicji zasad automatycznie dodawane do definicji inicjatywy zbiorczo w obszarze inicjatywy przypisań w obszarze tej inicjatywy definicji. Jednak w przypadku nowego parametru wprowadzone do nowej definicji zasad, musisz zaktualizować inicjatywy definicji i przydziały, edytując definicję inicjatywy lub przypisania.
+   Należy pamiętać, że po utworzeniu przypisania inicjatywy z definicji inicjatywy, wszelkie nowe definicje zasad dodane do definicji inicjatywy automatycznie podlegają przypisaniom inicjatywy w ramach tej definicji inicjatywy. Jednak w przypadku wystąpienia nowego parametru wprowadzonego do nowej definicji zasad konieczna jest aktualizacja definicji i przypisań inicjatywy poprzez edycję definicji lub przypisania inicjatywy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz Przegląd zasad usługi Azure, a niektóre kluczowe pojęcia, które związku Oto Sugerowane następne kroki:
+Teraz, gdy masz już podstawowe informacje na temat usługi Azure Policy i wprowadzanych przez nas kluczowych pojęć, oto zalecane kolejne kroki:
 
-- [Przypisz definicji zasad](./assign-policy-definition.md)
-- [Przypisz definicję zasad przy użyciu wiersza polecenia platformy Azure](./assign-policy-definition-cli.md)
-- [Przypisz definicję zasad przy użyciu programu PowerShell](./assign-policy-definition-ps.md)
+- [Przypisywanie definicji zasad](./assign-policy-definition.md)
+- [Przypisywanie definicji zasad przy użyciu interfejsu wiersza polecenia platformy Azure](./assign-policy-definition-cli.md)
+- [Przypisywanie definicji zasad przy użyciu programu PowerShell](./assign-policy-definition-ps.md)

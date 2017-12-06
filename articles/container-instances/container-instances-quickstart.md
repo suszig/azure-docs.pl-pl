@@ -1,30 +1,23 @@
 ---
-title: "Szybki Start - Twojego pierwszego kontener wystąpień kontenera platformy Azure"
+title: "Szybki start — Tworzenie pierwszego kontenera usługi Azure Container Instances"
 description: "Wdrażaj i rozpocznij pracę z usługą Azure Container Instances"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
 editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2017
+ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 160ba84d2c022ca3af2eb13a9689a282b4a6b198
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.openlocfilehash: f6c809698bed4f91a7121c4515b4375b3cad6d70
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Tworzenie pierwszego kontenera w usłudze Azure Container Instances
-Wystąpień kontenera Azure ułatwia tworzenie i zarządzanie nimi kontenery Docker na platformie Azure, bez konieczności umieszczanie maszyn wirtualnych lub wdrożyć usługę wyższego poziomu usługi. Tego przewodnika Szybki Start służy do tworzenia kontenera na platformie Azure i uwidacznia go do Internetu za pomocą publicznego adresu IP. Ta operacja jest wykonywana za pomocą jednego polecenia. W ciągu kilku sekund zostanie wyświetlony to w przeglądarce:
+Usługa Azure Container Instances ułatwia tworzenie kontenerów Docker na platformie Azure oraz zarządzanie nimi bez konieczności inicjowania obsługi maszyn wirtualnych czy adoptowania usługi wyższego poziomu. Podczas pracy z tym przewodnikiem Szybki start utworzysz kontener na platformie Azure i ujawnisz go w Internecie przy użyciu publicznego adresu IP. Ta operacja jest wykonywana za pomocą jednego polecenia. W ciągu kilku sekund w przeglądarce zobaczysz następujący wynik:
 
 ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances][aci-app-browser]
 
@@ -32,13 +25,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Do ukończenia tego przewodnika Szybki Start można użyć powłoki chmury Azure lub lokalnej instalacji wiersza polecenia platformy Azure. Jeśli do zainstalowania i używania interfejsu wiersza polecenia lokalnie tego przewodnika Szybki Start, wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+Podczas pracy z tym przewodnikiem Szybki start możesz użyć usługi Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Wystąpienia Azure Container Instances są zasobami platformy Azure i należy je umieścić w grupie zasobów platformy Azure, czyli logicznej kolekcji, w której zasoby platformy Azure są wdrażane i zarządzane.
 
-Utwórz nową grupę zasobów o [Tworzenie grupy az] [ az-group-create] polecenia.
+Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
@@ -48,13 +41,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Można utworzyć kontener, podając nazwę obrazu Docker i grupy zasobów platformy Azure do [utworzyć kontener az] [ az-container-create] polecenia. Opcjonalnie można ujawnić kontener w Internecie za pomocą publicznego adresu IP. W tego przewodnika Szybki Start, wdrażanie obsługujący aplikację małych sieci web napisany w [Node.js](http://nodejs.org).
+Kontener można utworzyć, podając nazwę obrazu usługi Docker i grupy zasobów platformy Azure w poleceniu [az container create][az-container-create]. Opcjonalnie można ujawnić kontener w Internecie za pomocą publicznego adresu IP. W tym przewodniku Szybki start wdrożysz kontener hostujący małą aplikację internetową napisaną w języku [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
 ```
 
-W ciągu kilku sekund powinna pojawić się odpowiedź na żądanie. Początkowo kontenera jest w **tworzenie** stanu, ale powinna być uruchamiana w ciągu kilku sekund. Możesz sprawdzić stan, za pomocą [Pokaż kontenera az] [ az-container-show] polecenia:
+W ciągu kilku sekund powinna pojawić się odpowiedź na żądanie. Początkowo kontener ma stan **Tworzenie**, ale powinien zostać uruchomiony w ciągu kilku sekund. Stan możesz sprawdzić przy użyciu polecenia [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -78,13 +71,13 @@ W dolnej części danych wyjściowych zostanie wyświetlony stan aprowizowania k
 ...
 ```
 
-Gdy przesuwa kontenera **zakończyło się pomyślnie** stanu, możesz uzyskiwać dostęp go w przeglądarce przy użyciu adresu IP, pod warunkiem.
+Po przejściu kontenera do stanu **Powodzenie** możesz uzyskiwać dostęp go niego w przeglądarce przy użyciu podanego adresu IP.
 
 ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Ściąganie dzienników kontenera
 
-Można ściągnąć dzienniki dla kontenera zostały utworzone za pomocą [dzienniki kontenera az] [ az-container-logs] polecenia:
+Dzienniki dla utworzonego kontenera możesz ściągnąć przy użyciu polecenia [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -93,36 +86,35 @@ az container logs --name mycontainer --resource-group myResourceGroup
 Dane wyjściowe:
 
 ```bash
-Server running...
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663 "" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET /favicon.ico HTTP/1.1" 404 19
+listening on port 80
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://52.224.178.107/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
 ```
 
 ## <a name="delete-the-container"></a>Usuwanie kontenera
 
-Po zakończeniu z kontenerem, możesz je usunąć za pomocą [usuwania kontenera az] [ az-container-delete] polecenia:
+Po zakończeniu pracy z kontenerem możesz go usunąć przy użyciu polecenia [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
-Aby zweryfikować, że kontener został usunięty, należy wykonać [listy kontenera az](/cli/azure/container#az_container_list) polecenia:
+Aby się upewnić, że kontener został usunięty, uruchom polecenie [az container list](/cli/azure/container#az_container_list):
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup -o table
 ```
 
-**Mojkontener** kontenera nie powinny być wyświetlane w danych wyjściowych polecenia. Jeśli nie inne kontenery w grupie zasobów, nie dane wyjściowe są wyświetlane.
+W danych wyjściowych polecenia nie powinien pojawić się kontener **mycontainer**. Jeśli nie ma innych kontenerów w grupie zasobów, nie powinny zostać wyświetlone żadne dane wyjściowe.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Cały kod dla kontenera, używane w tym szybkiego startu jest dostępna [w serwisie GitHub][app-github-repo], wraz z jego plik Dockerfile. Jeśli chcesz spróbować samodzielnie skompilować kontener i wdrożyć go w usłudze Azure Container Instances za pomocą usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
+Cały kod dla kontenera, użyty w tym przewodniku Szybki start, jest dostępny [w serwisie GitHub][app-github-repo] wraz z odpowiednim plikiem Dockerfile. Jeśli chcesz spróbować samodzielnie skompilować kontener i wdrożyć go w usłudze Azure Container Instances za pomocą usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Aby wypróbować opcje uruchamiania kontenery w systemie aranżacji na platformie Azure, zobacz [sieci szkieletowej usług] [ service-fabric] lub [usługi kontenera platformy Azure (AKS)] [ container-service] Przewodniki Szybki Start.
+Aby wypróbować opcje uruchamiania kontenerów w systemie aranżacji na platformie Azure, zobacz przewodnik Szybki start [Service Fabric][service-fabric] lub [Azure Container Service (AKS)][container-service].
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

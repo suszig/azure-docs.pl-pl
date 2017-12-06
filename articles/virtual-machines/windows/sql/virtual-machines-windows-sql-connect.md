@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (usługa Resource Manager)
-> [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Wdrożenie klasyczne](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Połączenie z maszyną wirtualną programu SQL Server na platformie Azure
 
 ## <a name="overview"></a>Omówienie
 
-W tym temacie opisano sposób podłączania do wystąpienia programu SQL Server uruchomiony na maszynie wirtualnej platformy Azure. Obejmuje on niektóre [scenariusze ogólne łączności](#connection-scenarios) , a następnie oferuje [szczegółowe kroki związane z konfigurowaniem łączności z serwerem SQL w maszynie Wirtualnej platformy Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+W tym temacie opisano sposób podłączania do wystąpienia programu SQL Server uruchomiony na maszynie wirtualnej platformy Azure. Obejmuje on niektóre [scenariusze ogólne łączności](#connection-scenarios) , a następnie oferuje [kroki w portalu, aby zmiana ustawienia łączności](#change). Jeśli chcesz rozwiązać lub konfigurowania łączności poza portalu, zobacz [ręcznej konfiguracji](#manual) na końcu tego tematu. 
 
 Jeśli trzeba będzie raczej pełny przewodnik inicjowania obsługi administracyjnej i łączność, zobacz [inicjowania obsługi maszyny wirtualnej programu SQL Server na platformie Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -132,6 +125,23 @@ Następnie Włącz protokół TCP/IP z **SQL Server Configuration Manager**.
 Poniższe kroki pokazują, jak utworzyć opcjonalną etykietę DNS dla sieci maszyny Wirtualnej platformy Azure, a następnie nawiąż połączenie z SQL Server Management Studio (SSMS).
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a>Ręczne konfigurowanie i rozwiązywanie problemów
+
+Portalu zapewnia opcje, aby automatycznie skonfigurować połączenie, jednak warto wiedzieć, jak ręcznie skonfigurować połączenie. Zapoznanie się z wymaganiami może również ułatwić rozwiązywanie problemów.
+
+Poniższa lista zawiera wymagania dotyczące nawiązywania połączenia z programem SQL Server w maszynie Wirtualnej platformy Azure.
+
+| Wymaganie | Opis |
+|---|---|
+| [Włącz tryb uwierzytelniania programu SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Uwierzytelnianie programu SQL Server jest potrzebny do zdalnego łączenia się z maszyny Wirtualnej, chyba że skonfigurowano usługi Active Directory w sieci wirtualnej. |
+| [Utwórz identyfikator logowania SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Jeśli korzystasz z uwierzytelniania SQL, należy identyfikatora logowania SQL przy użyciu nazwy użytkownika i hasła, który ma także uprawnienia do docelowej bazy danych. |
+| [Włącz protokół TCP/IP](#manualTCP) | SQL Server należy zezwolić na połączenia za pośrednictwem protokołu TCP. |
+| [Włącz regułę zapory dla portu programu SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Zapora na maszynie Wirtualnej musi zezwalać na ruch przychodzący na porcie programu SQL Server (domyślnie 1433). |
+| [Tworzenie reguły grupy zabezpieczeń sieci dla TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Musisz zezwolić na maszynie Wirtualnej, aby odbierać ruch na port serwera SQL (domyślnie 1433), jeśli chcesz się połączyć za pośrednictwem Internetu. Lokalne i wirtualne sieci — tylko połączenia nie wymagają to. Jest to jedyny krok wymagany w portalu Azure. |
+
+> [!TIP]
+> Kroki opisane w powyższej tabeli są wykonywane automatycznie, podczas konfigurowania połączenia w portalu. Tylko wykonaj następujące czynności w celu potwierdzenia konfiguracji lub można ręcznie skonfigurować łączności dla programu SQL Server.
 
 ## <a name="next-steps"></a>Następne kroki
 
