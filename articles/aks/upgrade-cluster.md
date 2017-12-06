@@ -1,27 +1,19 @@
 ---
-title: "Uaktualnianie klastra usługi Azure Container Service (AKS) | Microsoft Docs"
+title: "Uaktualnianie klastra usługi Azure Container Service (AKS)"
 description: "Uaktualnianie klastra usługi Azure Container Service (AKS)"
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Container Service (AKS)
 
@@ -35,7 +27,7 @@ Przed uaktualnieniem klastra użyj polecenia `az aks get-versions`, aby sprawdzi
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Efekt:
+Dane wyjściowe:
 
 ```console
 Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
@@ -49,7 +41,7 @@ Mamy trzy wersje dostępne do uaktualnienia: 1.7.9, 1.8.1 i 1.8.2. Możemy uży�
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
-Efekt:
+Dane wyjściowe:
 
 ```json
 {
@@ -111,7 +103,7 @@ Teraz możesz potwierdzić, że uaktualnienie powiodło się, używając polecen
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Efekt:
+Dane wyjściowe:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

@@ -1,6 +1,6 @@
 ---
 title: "Punktu końcowego v2.0 usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do kompilowania aplikacji za pomocą logowanie zarówno Account firmy Microsoft, jak i usługi Azure Active Directory."
+description: "Wprowadzenie do tworzenia aplikacji z logowaniem zarówno Account firmy Microsoft, jak i usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Logowanie użytkowników usługi Azure AD w jednej aplikacji & Account firmy Microsoft
-W przeszłości Deweloper aplikacji, którzy chcieli obsługuje oba osobistego konta Microsoft i działać kont z usługi Azure Active Directory było wymagane do integracji z dwóch oddzielnych systemach.  **Punktu końcowego v2.0 usługi Azure AD** wprowadziła nową wersję interfejsu API uwierzytelniania, umożliwiający Zaloguj się w obu typów kont przy użyciu jednego prostą integrację.  Aplikacje korzystające z punktem końcowym v2.0 można również korzystać z interfejsów API REST z [Microsoft Graph](https://graph.microsoft.io) za pomocą dowolnego typu konta.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Zaloguj się Account Microsoft i Azure Active Directory użytkowników w jednej aplikacji
+W przeszłości deweloperzy aplikacji, którzy chcieli obsługuje oba osobistego konta Microsoft i działać kont z usługi Azure Active Directory musiał zintegrować z dwóch oddzielnych systemach. Punktu końcowego v2.0 usługi Azure Active Directory (Azure AD) wprowadziła nową wersję uwierzytelniania interfejsu API, które upraszcza ten proces. Punktu końcowego v2.0 usługi Azure AD umożliwia logowanie z obu typów kont za pomocą pojedynczego integracji. Aplikacje używające punktu końcowego v2.0 usługi Azure AD może również używać interfejsów API REST z [interfejsu API programu Microsoft Graph](https://graph.microsoft.io) przy użyciu dowolnego typu konta.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Wybierz preferowaną platformę z poniższej listy kompilowania aplikacji za pomocą naszych typu open source bibliotek i platform.  Alternatywnie można użyć naszej dokumentacji protokołu OAuth 2.0 & OpenID Connect do wysyłania i odbierania wiadomości protokołu bezpośrednio, bez przy użyciu biblioteki uwierzytelniania.
-
+Wybierz preferowaną platformę z poniższej listy, aby utworzyć aplikację przy użyciu programu Microsoft otworzyć źródła bibliotek i platform. Umożliwia także protokołów OAuth 2.0 i OpenID Connect do wysyłania i odbierania wiadomości protokołu bezpośrednio, bez przy użyciu biblioteki uwierzytelniania.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Co nowego
-Informacje w tym miejscu będą przydatne zrozumieć, co to jest & co nie jest możliwe z punktem końcowym v2.0.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Dowiedz się więcej na temat punktu końcowego v2.0 usługi Azure AD
+Dowiedz się więcej na temat działania z punktem końcowym v2.0 usługi Azure AD:
 
-* Dowiedz się więcej o [typy aplikacji, można tworzyć z punktem końcowym v2.0](active-directory-v2-flows.md).
-* Zrozumienie [ograniczenia, ograniczenia i ograniczenia](active-directory-v2-limitations.md) z punktem końcowym v2.0.
-* Wyewidencjonuj ten przegląd wideo dla punktu końcowego v2.0:
+* Odnajdywanie [typów aplikacji, które można tworzyć z punktem końcowym v2.0 usługi Azure AD](active-directory-v2-flows.md).
+* Zrozumienie [ograniczenia, ograniczenia i ograniczenia](active-directory-v2-limitations.md) z punktem końcowym v2.0 usługi Azure AD.
+* Obejrzyj ten film omówienie punktu końcowego v2.0 usługi Azure AD:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>Dokumentacja
-Te linki przydadzą się do eksplorowania platform szczegółowo:
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Poznaj szczegółowe informacje na temat platformy punktu końcowego v2.0 usługi Azure AD:
 
-* [Dokumentacja protokołu v2.0](active-directory-v2-protocols.md)
-* [Odwołania do tokenu w wersji 2.0](active-directory-v2-tokens.md)
-* [Odwołanie do biblioteki w wersji 2.0](active-directory-v2-libraries.md)
-* [Zakresy i zgody w punkcie końcowym v2.0](active-directory-v2-scopes.md)
-* [Program Microsoft Graph](https://graph.microsoft.io)
+* [Odwołanie protokołów v2.0 usługi Azure AD](active-directory-v2-protocols.md)
+* [Azure AD 2.0 tokeny odwołania](active-directory-v2-tokens.md)
+* [Odwołanie bibliotek uwierzytelniania v2.0 usługi Azure AD](active-directory-v2-libraries.md)
+* [Zakresy i zgody w punkcie końcowym v2.0 usługi Azure AD](active-directory-v2-scopes.md)
+* [Program Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Jeśli wymagane jest tylko do logowania do kont służbowych z usługi Azure Active Directory, należy zacząć z naszych [przewodnik dewelopera usługi Azure AD](active-directory-developers-guide.md).  Punktem końcowym v2.0 jest przeznaczony do użycia przez deweloperów, którzy jawnie konieczne logowanie w osobistego konta Microsoft.
+> Jeśli wymagane jest tylko do logowania do kont służbowych z usługi Azure Active Directory, Rozpocznij od [przewodnik dewelopera usługi Azure AD](active-directory-developers-guide.md). Punktu końcowego v2.0 usługi Azure AD jest przeznaczony do użycia przez deweloperów, którzy jawnie konieczne logowanie w osobistego konta Microsoft.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
