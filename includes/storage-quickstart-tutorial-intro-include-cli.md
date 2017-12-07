@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupę zasobów platformy Azure można utworzyć za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+Grupę zasobów platformy Azure można utworzyć za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
 ```azurecli-interactive
 az group create \

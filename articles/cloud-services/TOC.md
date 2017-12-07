@@ -41,7 +41,6 @@
 ### [Tworzenie i wdrażanie usługi w chmurze w portalu](cloud-services-how-to-create-deploy-portal.md)
 ### [Tworzenie pustego kontenera usługi w chmurze w programie PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Konfigurowanie niestandardowej nazwy domeny](cloud-services-custom-domain-name-portal.md)
-### [Testowanie wdrażania usługi w chmurze (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
 
 ## Zarządzanie usługą
