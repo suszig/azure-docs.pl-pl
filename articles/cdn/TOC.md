@@ -20,16 +20,19 @@
  
 ## Zarządzanie
 ### [Zarządzanie przy użyciu programu Azure PowerShell](cdn-manage-powershell.md)
+### [Ograniczanie dostępu według kraju](cdn-restrict-access-by-country.md)
+### [Poprawianie wydajności poprzez kompresowanie plików](cdn-improve-performance.md)
+### Sterowanie zachowaniem buforowania
+#### [Jak działa buforowanie](cdn-how-caching-works.md)
+#### [Sterowanie zachowaniem buforowania przy użyciu reguł buforowania](cdn-caching-rules.md)
+#### Buforowanie zawartości według ciągów zapytania
+##### [Warstwa standardowa](cdn-query-string.md)
+##### [Warstwa Premium](cdn-query-string-premium.md)
+#### [Czyszczenie elementów zawartości zapisanych w pamięci podręcznej](cdn-purge-endpoint.md)
+#### [Wstępne ładowanie elementów zawartości zapisanych w pamięci podręcznej](cdn-preload-endpoint.md)
 ### Konfigurowanie czasu wygaśnięcia
 #### [Zawartość sieci Web platformy Azure](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
-### [Ograniczanie dostępu według kraju](cdn-restrict-access-by-country.md)
-### [Poprawianie wydajności poprzez kompresowanie plików](cdn-improve-performance.md)
-### Buforowanie zawartości według ciągu zapytania
-#### [Warstwa standardowa](cdn-query-string.md)
-#### [Warstwa Premium](cdn-query-string-premium.md)
-### [Czyszczenie elementów zawartości zapisanych w pamięci podręcznej](cdn-purge-endpoint.md)
-### [Wstępne ładowanie elementów zawartości zapisanych w pamięci podręcznej](cdn-preload-endpoint.md)
 ### [Uwierzytelnianie przy użyciu tokenów](cdn-token-auth.md)
 ### [Monitorowanie zasobów](cdn-resource-health.md)
 ### [Zastępowanie zachowania przy użyciu reguł](cdn-rules-engine.md)

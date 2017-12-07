@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie sieci tryby usługi kontenera platformy Azure Service Fabric | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można skonfigurować różne tryby sieci, które obsługuje sieć szkieletowa usług Azure."
+description: "Dowiedz się, jak skonfigurować różne tryby sieci, które są obsługiwane przez sieć szkieletowa usług Azure."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Tryby sieci kontenera sieci szkieletowej usług
 
-Domyślny tryb sieci oferowanych w klastrze usługi sieć szkieletowa usług dla usługi kontenera jest `nat` trybu sieci. Z `nat` sieci trybie mających więcej niż jedna usługa kontenery nasłuchiwanie wyniki do tego samego portu błędy wdrożenia. Uruchomione kilka usług tego nasłuchiwania na tym samym porcie, obsługuje sieci szkieletowej usług `Open` trybu sieciowego (w wersji 5.7 lub nowszej). Z `Open` sieci trybu każdej usługi kontenera pobiera przypisywany dynamicznie adres IP wewnętrznie stosowanie wielu usług do nasłuchiwania do tego samego portu.   
+Używa usługi klastra usługi sieć szkieletowa usług Azure dla kontenera **nat** sieci trybu domyślnie. Gdy więcej niż jedna usługa kontenera nasłuchuje na ten sam port i jest używany tryb translatora adresów sieciowych, mogą wystąpić błędy wdrażania. Do obsługi wielu usług kontenera nasłuchiwania na tym samym porcie, oferuje usługi sieć szkieletowa **Otwórz** trybu sieciowego (w wersji 5.7 lub nowszej). W trybie Otwórz każda usługa kontenera ma wewnętrznego, dynamicznie przypisać adres IP, który obsługuje wielu usług nasłuchiwania na tym samym porcie.  
 
-W związku z tym z pojedynczego typu usługi z punktem końcowym statyczne zdefiniowane w manifeście usługi, nowych usług mogą być tworzone i usunąć bez błędów wdrażania przy użyciu `Open` trybu sieci. Podobnie, co może używać tego samego `docker-compose.yml` plik z portu statycznego mapowania do tworzenia wielu usług.
+Jeśli masz jedną usługę kontenera ze statycznego punktu końcowego w manifeście usługi można tworzyć i usuwać nowych usług za pomocą trybu otwartego bez błędów wdrażania. Ten sam plik docker-compose.yml można również z portu statycznego mapowania do utworzenia wielu usług.
 
-Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zalecane od czasu zmiany adresu IP, gdy Usługa uruchamia się ponownie lub przenoszone do innego węzła. Należy używać tylko **Usługa nazewnictwa sieci szkieletowej** lub **usługi DNS** dla potrzeb odnajdywania usług. 
+Gdy usługi kontenera uruchamia ponownie lub przenoszone do innego węzła w klastrze, zmiany adresu IP. Z tego powodu nie zaleca się przy użyciu z dynamicznie przydzielonego adresu IP do odnajdywania usługi kontenerów. Dla potrzeb odnajdywania usług należy używać tylko Usługa nazewnictwa sieci szkieletowej usług lub usługi DNS. 
 
-
-> [!WARNING]
-> Tylko łącznie 4096 adresy IP są dozwolone dla sieci wirtualnej na platformie Azure. W związku z tym sumę liczby węzłów i numer wystąpienia usługi kontenera (z `Open` sieci) nie może przekroczyć 4096 w ramach sieci wirtualnej. W przypadku takich scenariuszy wysokiej gęstości `nat` zalecany jest tryb sieci.
+>[!WARNING]
+>Azure umożliwia łącznie 4096 adresów IP dla sieci wirtualnej. Suma liczby węzłów i numer wystąpienia usługi kontenera (które korzystają z trybu otwartego) nie może przekraczać 4 096 adresów IP sieci wirtualnej. W przypadku scenariuszy o wysokiej gęstości zalecamy translatora adresów sieciowych sieci trybu.
 >
 
-## <a name="setting-up-open-networking-mode"></a>Konfigurowanie trybu otwartego sieci
+## <a name="set-up-open-networking-mode"></a>Konfigurowanie trybu otwartego sieci
 
-1. Konfigurowanie szablonów usługi Azure Resource Manager przez włączenie usługi DNS i dostawca IP w obszarze `fabricSettings`. 
+1. Konfigurowanie szablonów usługi Azure Resource Manager. W **fabricSettings** sekcji, włącz usługę DNS i dostawca IP: 
 
     ```json
     "fabricSettings": [
@@ -78,7 +77,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
             ],
     ```
 
-2. Konfigurowanie sekcji profilu sieciowego umożliwiają wielu adresów IP, które mają być skonfigurowane na każdym węźle klastra. Poniższy przykład powoduje ustawienie pięć adresów IP na węzeł (w związku z tym można masz pięć wystąpień usługi nasłuchiwanie portów w każdym węźle) dla klastra usługi sieć szkieletowa usług systemu Windows i Linux.
+2. Konfigurowanie sekcji profilu sieciowego umożliwiają wielu adresów IP, które mają być skonfigurowane na każdym węźle klastra. Poniższy przykład powoduje ustawienie pięć adresów IP w każdym węźle klastra sieci szkieletowej usług systemu Windows i Linux. Masz pięć wystąpień usługi nasłuchuje na porcie w każdym węźle.
 
     ```json
     "variables": {
@@ -175,15 +174,19 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
               }
    ```
  
+3. Tylko klastrów systemu Windows skonfigurować regułę Azure grupy zabezpieczeń sieci (NSG), który zostaje otwarty port UDP i 53 dla sieci wirtualnej z następującymi wartościami:
 
-3. Tylko klastrów systemu Windows należy skonfigurować reguły NSG otwierania portu UDP i 53 sieci wirtualnej z następującymi wartościami:
+   |Ustawienie |Wartość | |
+   | --- | --- | --- |
+   |Priorytet |2000 | |
+   |Nazwa |Custom_Dns  | |
+   |Element źródłowy |VirtualNetwork | |
+   |Element docelowy | VirtualNetwork | |
+   |Usługa | DNS (UDP/53) | |
+   |Akcja | Zezwalaj  | |
+   | | |
 
-   | Priorytet |    Nazwa    |    Element źródłowy      |  Element docelowy   |   Usługa    | Akcja |
-   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
-   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Zezwalaj  |
-
-
-4. Określ tryb sieci w manifeście aplikacji dla każdej usługi `<NetworkConfig NetworkType="Open">`.  Tryb `Open` powoduje Usługa pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie przyjmowana do podstawowego `nat` tryb. W związku z tym w poniższym przykładzie manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` można każdego nasłuchiwania do tego samego portu (obie te usługi są nasłuchiwanie `Endpoint1`). Gdy `Open` tryb sieci jest seryjnych, `PortBinding` configs nie może zostać określony.
+4. Określ tryb sieci w manifeście aplikacji dla każdej usługi: `<NetworkConfig NetworkType="Open">`. **Otwórz** sieci trybu wyniki w usłudze pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie usługę **nat** tryb. W poniższym przykładzie manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` usług można każdego nasłuchiwania na tym samym porcie (obie te usługi są nasłuchiwanie `Endpoint1`). W przypadku sieci trybu otwartego `PortBinding` konfiguracji nie może zostać określony.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -211,13 +214,15 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. W związku z tym niektóre usługi mogą mieć na `Open` tryb i niektóre na `nat` trybu sieci. Gdy usługa jest skonfigurowana z `nat`, port jest nasłuchiwanie muszą być unikatowe. Mieszanie tryby sieci dla różnych usług nie jest obsługiwana w systemie Linux klastrów. 
 
+    Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. Niektóre usługi można użyć trybu otwartego, podczas gdy inne osoby w trybie translatora adresów sieciowych. Gdy usługa jest skonfigurowana do używania trybu translatora adresów sieciowych, port, którego nasłuchuje usługa musi być unikatowa.
+
+    >[!NOTE]
+    >W systemie Linux klastrów mieszanie tryby sieci dla różnych usług nie jest obsługiwane. 
+    >
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono dotyczące tryby oferowane przez sieć szkieletowa usług sieciowych.  
-
-* [Model aplikacji sieci szkieletowej usług](service-fabric-application-model.md)
-* [Zasoby manifestu usługi sieci szkieletowej usług](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Informacje o modelu aplikacji usługi Service Fabric](service-fabric-application-model.md)
+* [Dowiedz się więcej o zasoby manifestu usługi sieci szkieletowej usług](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Wdrażanie kontenera systemu Windows w sieci szkieletowej usług w systemie Windows Server 2016](service-fabric-get-started-containers.md)
 * [Wdrażanie kontenera Docker sieci szkieletowej usług w systemie Linux](service-fabric-get-started-containers-linux.md)

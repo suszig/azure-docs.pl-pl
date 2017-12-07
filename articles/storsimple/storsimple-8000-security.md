@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple zabezpieczeń i ochrony danych
 
@@ -157,7 +157,7 @@ Klucz szyfrowania danych usługi jest generowany tylko pierwszego urządzenia za
 > 
 > W przypadku utraty klucza szyfrowania danych usługi pomocy technicznej firmy Microsoft pomoże Ci aby go uzyskać, pod warunkiem, że masz co najmniej jedno urządzenie w stanie online. Firma Microsoft zaleca zmianę klucza szyfrowania danych usługi po jej pobraniu. Aby uzyskać instrukcje, przejdź do [zmienić klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Można zmienić klucza szyfrowania danych usługi i odpowiedni certyfikat szyfrowania danych, wybierając **klucza szyfrowania danych usługi zmiany** opcji na pulpicie nawigacyjnym usługi. Aby upewnić się, że bezpieczeństwo danych nie zostanie naruszony, należy użyć urządzenia fizycznego StorSimple można zmienić klucza szyfrowania danych usługi. Zmiana kluczy szyfrowania wymaga, aby wszystkie urządzenia można zaktualizować za pomocą nowego klucza. Dlatego zaleca się zmiany klucza, gdy wszystkie urządzenia są w trybie online. Jeśli urządzenia są w trybie offline, można zmienić ich kluczy w innym czasie. Urządzenia z kluczami nieaktualne nadal będzie można wykonywać kopie zapasowe, ale nie będzie mógł przywrócić dane, dopóki nie zostanie zaktualizowana klucza. Aby uzyskać więcej informacji, przejdź do [pulpit nawigacyjny usługi Menedżer StorSimple urządzenia](storsimple-8000-service-dashboard.md).
+Aby zmienić klucz szyfrowania danych usługi i odpowiedni certyfikat szyfrowania danych, postępuj zgodnie z instrukcjami [zmienić klucza szyfrowania danych usługi dla usługi Menedżer StorSimple urządzenia](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Zmiana kluczy szyfrowania wymaga, aby wszystkie urządzenia można zaktualizować za pomocą nowego klucza. Dlatego zaleca się zmiany klucza, gdy wszystkie urządzenia są w trybie online. Jeśli urządzenia są w trybie offline, można zmienić ich kluczy w innym czasie. Urządzenia z kluczami nieaktualne nadal będzie można wykonywać kopie zapasowe, ale nie będzie mógł przywrócić dane, dopóki nie zostanie zaktualizowana klucza.
 
 Klucz szyfrowania danych usługi i certyfikat szyfrowania danych nie wygasa. Jednak zaleca się, że zmienić klucza szyfrowania danych usługi co roku, aby zapobiec złamania klucza.
 
@@ -212,7 +212,7 @@ Poniżej przedstawiono niektóre pytania i odpowiedzi dotyczące zabezpieczeń i
 
 **Odpowiedź:** natychmiast należy zmienić klucza szyfrowania danych usługi i klucze konta magazynu dla konta magazynu, który jest używany dla danych warstw. Aby uzyskać instrukcje przejdź do:
 
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Zmiana klucza szyfrowania danych usługi](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotacją kluczy kont magazynu](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **Pytanie:** mam nowe urządzenie StorSimple, który żąda klucz rejestracji usługi. Jak pobrać go
@@ -225,7 +225,7 @@ Poniżej przedstawiono niektóre pytania i odpowiedzi dotyczące zabezpieczeń i
 
 **Odpowiedź:** skontaktuj się z pomocą techniczną firmy Microsoft. Można logowania się do sesji pomocy technicznej na urządzeniu i pomoc można pobrać klucza (zakładając, że co najmniej jedno urządzenie jest w trybie online). Natychmiast po uzyskaniu klucza szyfrowania danych usługi należy zmienić, aby upewnić się, że nowy klucz jest znany tylko dla Ciebie. Aby uzyskać instrukcje przejdź do:
 
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Zmiana klucza szyfrowania danych usługi](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **Pytanie:** autoryzowany urządzenie na potrzeby usługi zmiany klucza szyfrowania danych, ale nie zostały uruchomione proces zmiany klucza. Co mam zrobić?
 
@@ -240,10 +240,10 @@ Poniżej przedstawiono niektóre pytania i odpowiedzi dotyczące zabezpieczeń i
 **Odpowiedź:** zmiany i resetowania haseł, których dostęp do urządzenia StorSimple i zmianę szyfrowania danych usługi klucza, aby upewnić się, że nowe informacje jest nieznany nieautoryzowany personel. Aby uzyskać instrukcje przejdź do:
 
 * [Umożliwia zmianę hasła storsimple usługi Menedżer StorSimple urządzenia](storsimple-8000-change-passwords.md)
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Zmiana klucza szyfrowania danych usługi](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Konfigurowanie protokołu CHAP dla urządzenia StorSimple](storsimple-8000-configure-chap.md)
 
-**Pytanie:** chcę podać hasło programu StorSimple Snapshot Manager do hosta, który nawiązuje połączenie z urządzenia StorSimple, ale hasło nie jest dostępna. Co można zrobić?
+**Pytanie:** chcę podać hasło programu StorSimple Snapshot Manager do hosta, który nawiązuje połączenie z urządzenia StorSimple, ale hasło nie jest dostępna. Co mogę zrobić?
 
 **Odpowiedź:** jeśli pamiętasz hasła, należy utworzyć nowy. Następnie należy informuje wszystkich istniejących użytkowników, że hasło zostało zmienione i powinien zaktualizowania ich klientom na używanie nowego hasła. Aby uzyskać instrukcje przejdź do:
 

@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Tagowanie maszyny wirtualnej
           href: tag.md
-        - name: Używanie pakietu cloud-init
-          href: using-cloud-init.md
         - name: Uruchamianie skryptów na maszynie wirtualnej
           href: extensions-customscript.md
         - name: Korzystanie z pulpitu zdalnego
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Tworzenie pełnej maszyny wirtualnej
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Omówienie pakietu cloud-init
+              href: using-cloud-init.md
+            - name: Konfigurowanie nazwy hosta maszyny wirtualnej
+              href: cloudinit-update-vm-hostname.md
+            - name: Aktualizowanie pakietów na maszynie wirtualnej
+              href: cloudinit-update-vm.md
+            - name: Dodawanie użytkownika do maszyny wirtualnej
+              href: cloudinit-add-user.md
+            - name: Konfigurowanie pliku wymiany
+              href: cloudinit-configure-swapfile.md
+            - name: Uruchamianie istniejącego skryptu powłoki systemowej
+              href: cloudinit-bash-script.md
+            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

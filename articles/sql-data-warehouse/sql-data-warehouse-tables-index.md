@@ -3,8 +3,8 @@ title: "Indeksowanie tabel w usłudze SQL Data Warehouse | Microsoft Azure"
 description: "Wprowadzenie do korzystania z tabeli indeksowanie w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indeksowanie tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ Po uruchomieniu zapytania, które można rozpocząć przyjrzeć się dane i anal
 | [OPEN_rowgroup_rows_MAX] |Jak powyżej |
 | [OPEN_rowgroup_rows_AVG] |Jak powyżej |
 | [CLOSED_rowgroup_rows] |Spójrz na wiersz zamkniętego wiersze grupy w celu sprawdzenia związane z poprawnością. |
-| [CLOSED_rowgroup_count] |Liczba grupy zamkniętego wierszy powinna być niska, jeśli dowolne są widoczne w ogóle. Roups rowg skompresowane za pomocą ALTER INDEX można przekonwertować grupy wierszy zamkniętego... REORGANIZACJA polecenia. Jednak nie jest to zwykle wymagane. Zamknięte grupy są automatycznie konwertowane na grupy wierszy magazynu kolumn przez proces w tle "przenoszenia krotki". |
+| [CLOSED_rowgroup_count] |Liczba grupy zamkniętego wierszy powinna być niska, jeśli dowolne są widoczne w ogóle. Grupy wierszy skompresowane za pomocą ALTER INDEX można przekonwertować grupy wierszy zamkniętego... REORGANIZACJA polecenia. Jednak nie jest to zwykle wymagane. Zamknięte grupy są automatycznie konwertowane na grupy wierszy magazynu kolumn przez proces w tle "przenoszenia krotki". |
 | [CLOSED_rowgroup_rows_MIN] |Grupy wierszy zamkniętego powinny mieć współczynnik wypełnienia bardzo duże. Jeśli brakuje współczynnika wypełnienia grupy wierszy zamkniętego dalszej analizy magazynu kolumn jest wymagana. |
 | [CLOSED_rowgroup_rows_MAX] |Jak powyżej |
 | [CLOSED_rowgroup_rows_AVG] |Jak powyżej |
 | [Rebuild_Index_SQL] |SQL do odbudowywania indeksu magazynu kolumn dla tabeli |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Przyczyny jakości indeksu magazynu kolumn niska
-Po zidentyfikowaniu tabel z jakością niską segmentu, należy zidentyfikować przyczynę.  Poniżej przedstawiono niektóre typowe przyczyny quaility niską segmentu:
+Po zidentyfikowaniu tabel z jakością niską segmentu, należy zidentyfikować przyczynę.  Poniżej przedstawiono niektóre typowe przyczyny segmentu słabą jakość:
 
 1. Wykorzystania pamięci, gdy indeks został skompilowany.
 2. Duża liczba operacji DML
@@ -191,7 +191,7 @@ Po zidentyfikowaniu tabel z jakością niską segmentu, należy zidentyfikować 
 Te czynniki mogą powodować indeksu magazynu kolumn, aby znacznie mniejsza niż optymalne 1 miliona wierszy dla każdej grupy wierszy.  Może również spowodować wiersze przejść do grupy wierszy delta zamiast grupy skompresowany wiersza. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Wykorzystania pamięci, gdy indeks został skompilowany.
-Liczba wierszy w grupę skompresowany wierszy są bezpośrednio związane z szerokość wiersza i ilość dostępnej pamięci, aby przetworzyć grupę wierszy.  Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  W związku z tym najlepszym rozwiązaniem jest zapewnienie sesji, który zapisuje dostęp tabel indeksu magazynu kolumn do ilości pamięci, jak to możliwe.  Ponieważ istnieje zależność między pamięci i współbieżności, wskazówki dotyczące alokacji pamięci prawo zależy od danych w każdym wierszu tabeli, ilość DWU przydzielone do systemu oraz ilości miejsc współbieżności, które można przekazać sesji, który jest Zapisywanie danych w tabeli.  Najlepszym rozwiązaniem zaleca się uruchomienie z xlargerc, jeśli używasz DW300 lub mniej largerc, jeśli używasz DW400 DW600 i mediumrc, jeśli używasz DW1000 lub nowszym.
+Liczba wierszy w grupę skompresowany wierszy są bezpośrednio związane z szerokość wiersza i ilość dostępnej pamięci, aby przetworzyć grupę wierszy.  Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  W związku z tym najlepszym rozwiązaniem jest zapewnienie sesji, który zapisuje dostęp tabel indeksu magazynu kolumn do ilości pamięci, jak to możliwe.  Ponieważ istnieje zależność między pamięcią i współbieżności, wskazówki dotyczące alokacji pamięci prawo zależy od danych w każdym wierszu tabeli, jednostki magazynu danych, które są przydzielone do systemu i liczbę gniazd współbieżności można nadawać sesji którego zapisuje dane do tabeli.  Najlepszym rozwiązaniem zaleca się uruchomienie z xlargerc, jeśli używasz DW300 lub mniej largerc, jeśli używasz DW400 DW600 i mediumrc, jeśli używasz DW1000 lub nowszym.
 
 ### <a name="high-volume-of-dml-operations"></a>Duża liczba operacji DML
 Duża liczba operacji DML, które aktualizować i usuwać wiersze można wprowadzać nieefektywne podejście do magazynu kolumn. Dotyczy to zwłaszcza po zmodyfikowaniu większość wiersze, grupy wierszy.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Ponowne tworzenie indeksu w usłudze SQL Data Warehouse jest operacją w trybie offline.  Aby uzyskać więcej informacji na temat ponowne tworzenie indeksów w sekcji ALTER INDEX REBUILD w [defragmentacji indeksy magazynu kolumn] [ Columnstore Indexes Defragmentation] i tematu składni [ALTER INDEX] [ ALTER INDEX].
+Ponowne tworzenie indeksu w usłudze SQL Data Warehouse jest operacją w trybie offline.  Aby uzyskać więcej informacji na temat ponowne tworzenie indeksów w sekcji ALTER INDEX REBUILD w [defragmentacji indeksy magazynu kolumn][Columnstore Indexes Defragmentation], i [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Krok 3: Sprawdź, czy uległa poprawie jakości segmentu klastrowanego magazynu kolumn
 Ponownie uruchom zapytanie, które zidentyfikowanych tabeli z słaby segment jakości i sprawdź jakości segmentu została ulepszona.  Jeżeli nie poprawy jakości segmentu, może to być, czy wiersze w tabeli są bardzo szeroki.  Należy rozważyć użycie nowszej klasy zasobu lub DWU podczas odbudowywania z indeksów.

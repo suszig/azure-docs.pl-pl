@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Omówienie certyfikatów dla usług w chmurze Azure
-Certyfikaty są używane na platformie Azure do usługi w chmurze ([usługi certyfikatów](#what-are-service-certificates)) i do uwierzytelniania z interfejsem API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates) przy użyciu klasycznego portalu Azure i nie z systemem innym niż Klasyczny portal Azure). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak do [utworzyć](#create) i [wdrażanie](#deploy) je do platformy Azure.
+Certyfikaty są używane na platformie Azure do usługi w chmurze ([usługi certyfikatów](#what-are-service-certificates)) i do uwierzytelniania z interfejsem API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates)). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak do [utworzyć](#create) i [wdrażanie](#deploy) je do platformy Azure.
 
 Certyfikaty używane na platformie Azure są x.509 v3 certyfikatów i może być podpisany przez inny zaufanego certyfikatu lub można je podpisem. Certyfikatu z podpisem własnym jest podpisany przez jego własnej twórcy, w związku z tym nie jest zaufany domyślnie. W większości przeglądarek, można zignorować ten problem. Należy używać tylko certyfikaty z podpisem własnym podczas tworzenia i testowania usługi w chmurze. 
 
@@ -30,7 +30,7 @@ Certyfikaty używane przez usługę Azure może zawierać prywatnej lub klucza p
 ## <a name="what-are-service-certificates"></a>Co to są certyfikaty usługi?
 Usługi certyfikatów są dołączone do usługi w chmurze i komunikacja zabezpieczona do i z usługi. Na przykład jeśli wdrożono rolę sieci web, czy chcesz dostarczyć certyfikat, który może uwierzytelniać narażonych punkt końcowy HTTPS. Usługi certyfikatów, zdefiniowane w definicji usługi, są automatycznie wdrażane na maszynę wirtualną, która jest uruchomione wystąpienie roli użytkownika. 
 
-Usługi certyfikatów można przekazać do klasycznego portalu Azure za pomocą klasycznego portalu Azure lub przy użyciu klasycznego modelu wdrażania. Usługi certyfikatów skojarzonych z usługą w chmurze określonych. Są one przypisane do wdrożenia w pliku definicji usługi.
+Możesz przekazać certyfikaty usług Azure za pomocą portalu Azure lub przy użyciu klasycznego modelu wdrażania. Usługi certyfikatów skojarzonych z usługą w chmurze określonych. Są one przypisane do wdrożenia w pliku definicji usługi.
 
 Usługi certyfikatów mogą być zarządzana oddzielnie od usługi i mogą być zarządzane przez różne osoby. Na przykład deweloper może przekazać pakietu usługi, który odwołuje się do certyfikatu, który jest Menedżer został wcześniej przekazany do platformy Azure. Menedżer można zarządzać i odnawianie certyfikatu (zmiana konfiguracji usługi) bez konieczności przekazać nowy pakiet usługi. Aktualizowanie bez nowego pakietu usługi jest możliwe, ponieważ nazwa logiczna nazwa magazynu i lokalizację certyfikatu znajduje się w pliku definicji usługi, a podczas odcisk palca certyfikatu jest określony w pliku konfiguracji usługi. Aby zaktualizować certyfikat, tylko jest to konieczne przekazać nowy certyfikat i zmień wartość odcisku palca w pliku konfiguracji usługi.
 
@@ -95,5 +95,5 @@ Istnieje wiele stron w Internecie, które opisano, jak to zrobić w programie II
 ## <a name="next-steps"></a>Następne kroki
 [Przekaż certyfikat usługi do portalu Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Przekaż [certyfikat interfejsu API zarządzania](../azure-api-management-certs.md) do klasycznego portalu Azure. Portalu Azure do uwierzytelniania nie korzysta z certyfikatów zarządzania.
+Przekaż [certyfikat interfejsu API zarządzania](../azure-api-management-certs.md) do portalu Azure.
 

@@ -135,13 +135,29 @@
         - name: Planowanie wydajności na potrzeby replikacji oprogramowania VMware do platformy Azure
           href: site-recovery-plan-capacity-vmware.md
         - name: Narzędzie Planista wdrażania na potrzeby replikacji oprogramowania VMware do platformy Azure
-          href: site-recovery-deployment-planner.md
-        - name: Planowanie wydajności na potrzeby replikacji funkcji Hyper-V do platformy Azure
-          href: site-recovery-capacity-planner.md
-        - name: Narzędzie Planista wydajności na potrzeby replikacji funkcji Hyper-V do platformy Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Przegląd i wymagania wstępne
+              href: site-recovery-deployment-planner.md
+            - name: Uruchamianie planisty wdrożenia
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Analizowanie wygenerowanego raportu
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Analizowanie raportu szacowania kosztów odzyskiwania po awarii
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Skalowanie serwerów przetwarzania do wewnątrz na potrzeby replikacji oprogramowania VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Planowanie wdrożenia i narzędzie na potrzeby replikacji funkcji Hyper-V do platformy Azure
+          href: null
+          items:
+            - name: Przegląd i wymagania wstępne
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Uruchamianie planisty wdrożenia
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Analizowanie wygenerowanego raportu
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Analizowanie raportu szacowania kosztów odzyskiwania po awarii
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Testy skalowania wydajności na potrzeby replikacji funkcji Hyper-V między lokacjami lokalnymi
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurowanie

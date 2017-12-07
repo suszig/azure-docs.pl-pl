@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemów dotyczących łączności i sieci dla usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -48,8 +48,8 @@ Można również utworzyć zadanie uruchamiania selektywnego blokowania niektór
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Próba RDP do mojego wystąpienia usługi chmury, jest wyświetlany komunikat, "konto użytkownika wygasło."
 Po obejściu datę wygaśnięcia, który jest skonfigurowany w ustawieniach protokołu RDP, może wystąpić komunikat o błędzie "upłynął to konto użytkownika". Data wygaśnięcia można zmienić z portalu, wykonaj następujące czynności:
-1. Zaloguj się do konsoli zarządzania platformy Azure (https://manage.windowsazure.com), przejdź do usługi w chmurze, a następnie wybierz **Konfiguruj** kartę.
-2. Wybierz **zdalnego**.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com), przejdź do usługi w chmurze i wybierz **pulpitu zdalnego** kartę.
+2. Wybierz **produkcji** lub **przemieszczania** miejsca wdrożenia.
 3. Zmień datę "Wygasa", a następnie Zapisz konfigurację.
 
 Teraz można dla protokołu RDP na komputerze.

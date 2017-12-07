@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Omówienie szablonu licencji Widevine
-## <a name="overview"></a>Omówienie
-Usługa Azure Media Services umożliwia teraz Konfigurowanie i żądania licencji Widevine. Gdy użytkownik końcowy próbą odtwarzanie zawartości Widevine chronione, żądanie jest wysyłane do usługi dostarczania licencji uzyskanie licencji. Jeśli usługa licencji zatwierdza żądanie, wystawia licencji, które są wysyłane do klienta i może służyć do odszyfrowania i odtwarzać zawartość określonego.
+Usługa Azure Media Services umożliwia konfigurowanie i żądania licencji Widevine. Gdy użytkownik końcowy próbą odtwarzanie zawartości Widevine chronione, żądanie jest wysyłane do usługi dostarczania licencji uzyskanie licencji. Jeśli usługa licencji zatwierdza żądanie, wystawia licencji, które są wysyłane do klienta i może służyć do odszyfrowania i odtwarzać zawartość określonego.
 
 Żądania licencji Widevine jest w formacie JSON wiadomości.  
 
@@ -63,8 +62,8 @@ Usługa Azure Media Services umożliwia teraz Konfigurowanie i żądania licencj
 | --- | --- | --- |
 | ładunek |Ciąg kodowany jako Base64 |Żądanie licencji wysłane przez klienta. |
 | content_id |Ciąg kodowany jako Base64 |Identyfikator używany do uzyskania dla każdego content_key_specs.track_type KeyId(s) i zawartości kluczy. |
-| Dostawcy |Ciąg |Umożliwia wyszukiwanie zasad i zawartości kluczy. Jeśli MS klucza dostawy jest używane w celu dostarczania licencji Widevine, ten parametr zostanie zignorowany. |
-| nazwa_zasady |Ciąg |Nazwa zasady wcześniej zarejestrowane. Optional (Opcjonalność) |
+| Dostawcy |ciąg |Umożliwia wyszukiwanie zasad i zawartości kluczy. Jeśli MS klucza dostawy jest używane w celu dostarczania licencji Widevine, ten parametr zostanie zignorowany. |
+| nazwa_zasady |ciąg |Nazwa zasady wcześniej zarejestrowane. Optional (Opcjonalność) |
 | allowed_track_types |wyliczenia |SD_ONLY lub SD_HD. Formanty, które zawartości kluczy powinien być uwzględniany w licencji |
 | content_key_specs |Tablica JSON struktur, zobacz **specyfikacji klucz zawartości** poniżej |Skuteczniejszą kontrolę na zawartość klucze do zwrócenia. Aby uzyskać więcej informacji, zobacz zawartości specyfikacja klucza poniżej.  Można określić tylko jeden allowed_track_types i content_key_specs. |
 | use_policy_overrides_exclusively |Wartość logiczna. wartość PRAWDA lub FAŁSZ |Użyj zasad atrybuty określone w policy_overrides i pominąć wszystkie zapisane wcześniej zasady. |
@@ -72,14 +71,14 @@ Usługa Azure Media Services umożliwia teraz Konfigurowanie i żądania licencj
 | session_init |Struktura JSON, zobacz **inicjowania sesji** poniżej |Opcjonalne dane przekazywane do licencji. |
 | parse_only |Wartość logiczna. wartość PRAWDA lub FAŁSZ |Żądanie licencji jest analizowana, ale żadna licencja jest wystawiony. Jednak wartości formularza żądania licencji są zwracane w odpowiedzi. |
 
-## <a name="content-key-specs"></a>Dane techniczne klucz zawartości
+## <a name="content-key-specs"></a>Specyfikacja klucza zawartości
 Jeśli istnieje już istniejących zasad, jest niepotrzebna, aby określić jedną z wartości w zawartości specyfikacja klucza.  Istniejące zasady skojarzone z tą zawartością będzie służyć do określenia ochrony danych wyjściowych, takich jak HDCP i CGMS.  Jeśli wcześniej istniejących zasad nie jest zarejestrowany na serwerze licencji Widevine, dostawcy zawartości można wprowadzić wartości do żądania licencji.   
 
 Każdy content_key_specs należy określić dla wszystkich ścieżek, niezależnie od use_policy_overrides_exclusively opcji. 
 
 | Nazwa | Wartość | Opis |
 | --- | --- | --- |
-| content_key_specs. track_type |Ciąg |Nazwa typu ścieżki. Jeśli content_key_specs jest określony w żądaniu licencji, upewnij się śledzić wszystkie typy jawnie określić. Błąd w tym celu spowoduje niepowodzenie do odtwarzania ostatnich 10 sekund. |
+| content_key_specs. track_type |ciąg |Nazwa typu ścieżki. Jeśli content_key_specs jest określony w żądaniu licencji, upewnij się śledzić wszystkie typy jawnie określić. Błąd w tym celu spowoduje niepowodzenie do odtwarzania ostatnich 10 sekund. |
 | content_key_specs  <br/> security_level |UInt32 |Definiuje wymagania dotyczące niezawodności klienta dla odtwarzania. <br/> 1 - opartych na oprogramowaniu whitebox kryptograficznego jest wymagana. <br/> 2 - kryptograficznego oprogramowania i zaciemnionego dekodera jest wymagana. <br/> 3 operacji kryptograficznych i materiału klucza muszą być wykonywane w środowisku kopii zaufanego wykonywania sprzętu. <br/> 4 - szyfrowania i dekodowania zawartości muszą być wykonywane w środowisku kopii zaufanego wykonywania sprzętu.  <br/> 5 - kryptograficznego, dekodowania i wszystkie obsługi nośnika (skompresowanym i nieskompresowanym) musi obsługiwane w środowisku kopii zaufanego wykonywania sprzętu. |
 | content_key_specs <br/> required_output_protection.hdc |String — jeden z: HDCP_V2 HDCP_NONE, HDCP_V1, |Wskazuje, czy jest wymagane HDCP |
 | content_key_specs <br/>key |Base64 <br/>ciąg kodowany jako |Klucz zawartości do użycia dla tej ścieżki. Jeśli zostanie określona, track_type lub key_id jest wymagany.  Ta opcja umożliwia dostawcy zawartości wprowadzić klucz zawartości dla tej ścieżki, zamiast czekać na serwer licencji Widevine Generowanie lub wyszukać klucz. |
@@ -94,7 +93,7 @@ Każdy content_key_specs należy określić dla wszystkich ścieżek, niezależn
 | policy_overrides. license_duration_seconds |Int64 |Określa przedział czasu dla określonych licencji. Wartość 0 wskazuje, że nie ma żadnego limitu czasu trwania. Domyślna to 0. |
 | policy_overrides. rental_duration_seconds |Int64 |Określa przedział czasu, podczas odtwarzania jest dozwolone. Wartość 0 wskazuje, że nie ma żadnego limitu czasu trwania. Domyślna to 0. |
 | policy_overrides. playback_duration_seconds |Int64 |Wyświetlanie okna czasu po rozpoczęciu w czasie trwania licencji. Wartość 0 wskazuje, że nie ma żadnego limitu czasu trwania. Domyślna to 0. |
-| policy_overrides. renewal_server_url |Ciąg |Wszystkie żądania pulsu (odnowienia) ta licencja jest skierowana do określonego adresu URL. To pole jest używane tylko, jeśli can_renew ma wartość true. |
+| policy_overrides. renewal_server_url |ciąg |Wszystkie żądania pulsu (odnowienia) ta licencja jest skierowana do określonego adresu URL. To pole jest używane tylko, jeśli can_renew ma wartość true. |
 | policy_overrides. renewal_delay_seconds |Int64 |Liczbę sekund po license_start_time, przed próbą najpierw odnawiania. To pole jest używane tylko, jeśli can_renew ma wartość true. Wartość domyślna to 0 |
 | policy_overrides. renewal_retry_interval_seconds |Int64 |Określa opóźnienie w sekundach między żądań odnowienia kolejnych licencji, w razie awarii. To pole jest używane tylko, jeśli can_renew ma wartość true. |
 | policy_overrides. renewal_recovery_duration_seconds |Int64 |Okno czasu, w którym można kontynuować podczas odnawiania odtwarzania jest próba, jeszcze nie powiodło się z powodu problemów z wewnętrznej bazy danych z serwerem licencji. Wartość 0 wskazuje, że nie ma żadnego limitu czasu trwania. To pole jest używane tylko, jeśli can_renew ma wartość true. |
@@ -197,5 +196,5 @@ Poniższy przykład pokazuje, jak skonfigurować proste licencji Widevine przy u
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też
-[Za pomocą PlayReady i Widevine dynamicznie Common Encryption](media-services-protect-with-drm.md)
+[Za pomocą PlayReady i Widevine dynamicznie Common Encryption](media-services-protect-with-playready-widevine.md)
 

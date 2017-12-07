@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Usługa Azure Active Directory raportowania — często zadawane pytania
 
@@ -119,5 +119,11 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi A
 **Pytanie: jak adresy IP są obliczane w logowania i logowania ryzykowne raport?**
 
 **Odpowiedź:** adresy IP są przydzielane w taki sposób, że istnieje połączenie ostateczne między adresu IP i gdzie fizycznie znajduje się komputer o tym adresie. Skomplikowany czynników, takich jak przenośnych dostawców i sieci VPN często bardzo wydawania adresów IP z puli centralnej daleko od których urządzenie klienckie będzie faktycznie używana. Mając na uwadze powyższe, konwertowania adresu IP do fizycznej lokalizacji jest starań, na podstawie danych śledzenia, dane rejestru, odwrotnej wyszukiwań i inne informacje. 
+
+---
+
+**Pytanie: co to jest zdarzenie ryzyka "Zaloguj się przy dodatkowe ryzyko wykryto" oznaczają?**
+
+**Odpowiedź:** zapewniające wgląd wszystkich ryzykowne logowania w środowisku zostanie przedstawiony zdarzeń ryzyka "Zaloguj się przy dodatkowe ryzyko wykryto" logowania z powodu wykrycia uważane za ryzykowne wyłączności do subskrybentów usługi Azure AD Identity Protection.
 
 ---

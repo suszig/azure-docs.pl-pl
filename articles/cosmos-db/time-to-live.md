@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Ważność danych w kolekcjach bazy danych rozwiązania Cosmos Azure automatycznie z czasu wygaśnięcia
 Aplikacje można tworzyć i przechowywania dużych ilości danych. Niektóre z tych danych, takich jak machine generowane zdarzenie danych, dzienników i użytkownika sesji informacji przydaje się tylko ograniczone okres czasu. Gdy dane będą nadwyżka na potrzeby aplikacji jest bezpieczne przeczyścić tych danych i zmniejszyć wymagania dotyczące magazynu aplikacji.
@@ -149,6 +149,8 @@ Wyłączenie TTL całkowicie w kolekcji i zatrzymać proces w tle z wyszukiwanie
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interakcja TTL i indeks
+Czas wygaśnięcia dodanie lub zmiana jest zmiany podstawowego indeksu. Jeśli nie istnieje żadne TTL i Podaj poprawną wartość TTL - powoduje to w operacji ponownego indeksowania. Spójne indeksu - użytkownika nie będą widzieć wszystkie zmiany w stanie indeksu. W przypadku indeksu opóźnieniem — indeks przede wszystkim jest zawsze przechwytywanie w górę i z tą zmianą w ttl, od początku jest ponownie indeks. W drugim przypadku powoduje zapytania wykonywane podczas odbudowywania indeksu nie zwróci wyniki pełną lub niepoprawne. Nie zmieniaj TTL opóźnieniem indeksu jeżeli zgodnie z opóźnieniem jest tryb indeksowania, sama muszą liczba danych dokładnie itp.  W idealnym przypadku spójne indeksu powinna być zawsze wybrana. 
 
 ## <a name="faq"></a>Często zadawane pytania
 **Co to jest czas wygaśnięcia koszt mnie?**

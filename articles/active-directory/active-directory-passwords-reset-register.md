@@ -16,37 +16,37 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: b884f8bc3a20052fa0cb40772deef591b69d7b10
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6fff5b31e70b0782aaf87e6bb4252f0c939d4c72
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>Rejestrowanie na potrzeby samoobsługowego resetowania hasła
 
 > [!IMPORTANT]
-> **Jesteś tutaj, ponieważ masz problemy z logowaniem?** Jeśli tak, [w tym miejscu opisano, jak zmienić i zresetować własne hasło](active-directory-passwords-update-your-own-password.md).
+> Jesteś tutaj ponieważ nie można zalogować się? Jeśli tak, zobacz [zresetować hasło lub szkoły](active-directory-passwords-update-your-own-password.md).
 
-Jako użytkownik końcowy może zresetować hasło lub odblokować konto bez konieczności mowy do osoby za pomocą Samoobsługowego resetowania hasła (SSPR). Przed użyciem tej funkcji musisz zarejestrować metody uwierzytelniania lub potwierdzić wstępnie zdefiniowane metody uwierzytelniania podane przez administratora.
+Jako użytkownik końcowy może zresetować hasło lub odblokować konto samodzielnie, jeśli używasz usługi Azure Active Directory (Azure AD) samoobsługowego resetowania hasła (SSPR). Przed użyciem tej funkcji, należy zarejestrować metody uwierzytelniania lub potwierdź metody uwierzytelniania wstępnie zdefiniowane, które administrator ma wypełnione.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Rejestrowanie lub potwierdzanie danych uwierzytelniania na potrzeby samoobsługowego resetowania hasła
 
-1. Otwórz przeglądarkę sieci Web na urządzeniu i przejdź do [strony rejestracji resetowania hasła](http://aka.ms/ssprsetup)
-2. Wprowadź nazwę użytkownika i hasło podane przez administratora
-3. W zależności od tego, jak działu IT skonfigurowano rzeczy są dostępne umożliwiające skonfigurowanie i zweryfikowanie co najmniej jeden z następujących opcji. Administrator może wypełnienie pól to dla Ciebie, gdy mają Twojej zgody na korzystanie z informacji.
-    * Telefon biurowy może tylko określonych przez administratora
-    * Numer telefonu uwierzytelniania należy wybrać opcję inny numer telefonu, czy masz dostęp do takich jak telefon komórkowy, który może odbierać SMS lub połączenie.
-    * Adres E-mail uwierzytelniania należy wybrać opcję alternatywny adres e-mail dostępnym bez hasła, które należy zresetować.
-    * Pytania zabezpieczające przedstawiono listę administratora została zatwierdzona dla Ciebie odpowiedzi na pytania. Nie możesz użyć tego samego pytania lub odpowiedzi na więcej niż raz.
-4. Podaj i sprawdź informacje wymagane przez administratora. Jeśli więcej niż jedna opcja jest dostępna, zalecamy, aby zarejestrować wiele metod zapewnienie elastyczności, gdy inna metoda jest niedostępny (przykład: podróży i nie można uzyskać dostępu do Twojego telefonu biurowego)
+1. Otwórz przeglądarkę sieci web na urządzeniu i przejdź do [strony rejestracji resetowania haseł](http://aka.ms/ssprsetup).
+2. Wprowadź nazwy użytkownika i hasła, zapewnianej przez administratora.
+3. W zależności od tego, jak działu IT skonfigurował rzeczy są dostępne do konfigurowania i sprawdź, co najmniej jeden z następujących opcji. Jeśli administrator ma możliwość używania danych osobowych, można wypełnić niektóre informacje dla Ciebie.
+    * **Telefon biurowy**: tylko administrator może ustawić tę opcję.
+    * **Numer telefonu uwierzytelniania**: Ustaw tę opcję na inny numer telefonu, który ma dostęp do. Przykładem jest telefonu komórkowego, czy może odbierać tekstu albo wywołanie.
+    * **Adres E-mail uwierzytelniania**: Ustaw tę opcję na alternatywny adres e-mail dostępnym bez użycia chcesz zresetować hasło.
+    * **Pytania zabezpieczające**: administrator została zatwierdzona tej listy do odpowiedzi na pytania. Nie można użyć tego samego pytania lub odpowiedzi na więcej niż raz.
+4. Podaj i sprawdź informacje, która wymaga od administratora. Jeśli więcej niż jedna opcja jest dostępna, zalecamy zarejestrowanie wielu metod. Zapewnia to elastyczność podczas jednej z metod jest niedostępna. Przykładem jest podczas podróży i nie uda się uzyskać dostępu do telefon biurowy.
 
-    ![Rejestrowanie metod uwierzytelniania i klikanie przycisku Zakończ][Register]
+    ![Zarejestruj metod uwierzytelniania, a następnie wybierz przycisk Zakończ][Register]
 
-5. Po wykonaniu kroku 4 wybierz pozycję **Zakończ**. Od teraz możesz w razie potrzeby używać samoobsługowego resetowania hasła.
+5. Wybierz **Zakończ**. Można teraz używać SSPR, gdy trzeba w przyszłości.
 
-Dane wprowadzone w polu Telefon uwierzytelniania lub Adres e-mail uwierzytelniania nie są widoczne w katalogu globalnym. Jedynie Ty i Twoi administratorzy mogą wyświetlać te dane. Odpowiedzi na pytania zabezpieczające są widoczne tylko dla Ciebie.
+Po wprowadzeniu danych dla **numer telefonu uwierzytelniania** lub **E-mail uwierzytelniania**, nie jest widoczne w katalogu globalnego. Jedynie Ty i Twoi administratorzy mogą wyświetlać te dane. Tylko widać odpowiedzi na pytania zabezpieczeń.
 
-Administratorzy mogą wymagać potwierdzenia metod uwierzytelniania po pewnym czasie, aby upewnić się, że nadal masz zarejestrowane właściwe metody.
+Administratorzy w Twojej organizacji mogą wymagać potwierdzić metody uwierzytelniania po upływie określonego czasu upewnij się, że nadal masz odpowiednie metody zarejestrowany.
 
 ## <a name="common-problems-and-their-solutions"></a>Typowe problemy i ich rozwiązania
 
@@ -54,15 +54,16 @@ Administratorzy mogą wymagać potwierdzenia metod uwierzytelniania po pewnym cz
 
 | Przypadek błędu| Jakie błąd znaleźć?| Rozwiązanie |
 | --- | --- | --- |
-| Pojawia się Strona "Skontaktuj się z administratorem" po wprowadzeniu mój identyfikator użytkownika | Skontaktuj się z administratorem <br> <br> Wykryliśmy, że hasło konta użytkownika nie jest zarządzany przez firmę Microsoft. W związku z tym nie możemy automatycznie zresetować hasła. <br> <br> Należy się skontaktować z działu IT w celu dalszej pomocy. | Ten komunikat jest wyświetlany, ponieważ działu IT zarządza hasła w środowisku lokalnym i nie pozwala na zresetowanie hasła z nie może uzyskać dostępu połączenie z kontem. <br> <br> Aby zresetować hasło, bezpośrednio uzyskać pomoc, skontaktuj się z pracownikami działu IT i go poinformować, że chcesz zresetować hasło, więc ich włączenia tej funkcji można.|
-| Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie ma uprawnień do resetowania hasła <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował tego konta do korzystania z tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z nie ma dostępu do konta łącze lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, kliknij kontakt łącze administratora, aby wysłać wiadomość e-mail do firmy przez personel działu informatycznego i daj znać, aby zresetować hasło, więc ich włączenia tej funkcji można. |
-| Pojawia się komunikat o błędzie "nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować konta <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ są włączone do resetowania hasła, ale nie została zarejestrowana do korzystania z usługi. Aby zarejestrować do resetowania hasła, należy przejść do http://aka.ms/ssprsetup po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, kliknij kontakt łącze administratora, aby wysłać wiadomość e-mail do firmy personel działu informatycznego. |
+| Pojawia się Strona "Skontaktuj się z administratorem" po wprowadzeniu mój identyfikator użytkownika | Skontaktuj się z administratorem. <br> <br> Wykryliśmy, że hasło konta użytkownika nie jest zarządzany przez firmę Microsoft. W związku z tym nie możemy automatycznie zresetować hasła. <br> <br> Aby uzyskać dalszą pomoc, skontaktuj się z działu IT. | Ten komunikat jest wyświetlany, ponieważ działu IT zarządza hasła w środowisku lokalnym i nie pozwala na zresetowanie hasła z **nie może uzyskać dostępu do konta** łącza. <br> <br> Aby zresetować hasło, skontaktuj się z działu IT bezpośrednio w celu uzyskania pomocy. Daj znać, że chcesz zresetować hasło, więc ich włączenia tej funkcji można.|
+| Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie jest włączona w celu resetowania haseł. <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował tego konta do korzystania z tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z **nie może uzyskać dostępu do konta** łącze lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, wybierz **skontaktuj się z administratorem** łącza. Wiadomości e-mail będą wysyłane do firmy personel działu informatycznego. Wiadomości e-mail umożliwia go poinformować, że chcesz zresetować hasło, więc ich włączenia tej funkcji można. |
+| Pojawia się komunikat o błędzie "nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować Twoje konto. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ jest włączona w celu resetowania haseł, ale nie został zarejestrowany do korzystania z usługi. Aby zarejestrować do resetowania hasła, przejdź do [strony rejestracji resetowania haseł](http://aka.ms/ssprsetup) po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, wybierz **skontaktuj się z administratorem** łącze, aby wysłać wiadomość e-mail w Twojej firmie personel działu informatycznego. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak zmienić hasło przy użyciu samoobsługowego resetowania hasła](active-directory-passwords-update-your-own-password.md)
+* [Zmienianie hasła przy użyciu samodzielnego resetowania hasła](active-directory-passwords-update-your-own-password.md)
 * [Strona rejestracji w celu resetowania hasła](http://aka.ms/ssprsetup)
 * [Portal resetowania hasła](https://passwordreset.microsoftonline.com/)
-* [Nie można zalogować się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+* [Jeśli nie możesz się zarejestrować na swoim koncie Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Strona rejestrowania na potrzeby resetowania hasła, na której widoczne są zarejestrowane metody i przycisk Zakończ"
+[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Strona rejestracji resetowania hasła przedstawiający zarejestrowane metody i przycisk Zakończ"
+

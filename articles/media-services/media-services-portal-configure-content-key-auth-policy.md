@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>Skonfiguruj zasady autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,9 +28,9 @@ Microsoft Azure Media Services umożliwia dostarczanie strumieni MPEG-DASH, Smoo
 
 Media Services udostępnia również **usługi dostarczania licencji/klucz** z których klienci może uzyskać kluczy AES lub licencje PlayReady/Widevine, aby odtworzyć zaszyfrowaną zawartość.
 
-W tym temacie pokazano, jak skonfigurować zasady autoryzacji klucza zawartości przy użyciu portalu Azure. Klucz później może służyć do dynamicznego szyfrowania zawartości. Należy pamiętać, że obecnie można zaszyfrować następujące przesyłania strumieniowego formaty: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.
+W tym artykule pokazano, jak skonfigurować zasady autoryzacji klucza zawartości przy użyciu portalu Azure. Klucz później może służyć do dynamicznego szyfrowania zawartości. Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.
 
-Gdy odtwarzacza zażąda strumienia, który ma ustawioną wartość był dynamicznie szyfrowany, Media Services używa klucza skonfigurowanych do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub DRM. Aby odszyfrować strumienia, odtwarzacza zażąda klucz z usługi dostarczania klucza. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
+Gdy odtwarzacza zażąda strumienia, który ma ustawioną wartość był dynamicznie szyfrowany, Media Services używa klucza skonfigurowanych do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub DRM. Aby odszyfrować strumienia, odtwarzacza żądań klucz z usługi dostarczania klucza. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
 
 Jeśli planujesz mieć wiele kluczy zawartości lub aby określić **usługi dostarczania licencji/klucz** adresu URL innego niż usługi Media Services klucza dostawy, za pomocą zestawu .NET SDK usługi Media lub interfejsów API REST.
 
@@ -42,6 +42,7 @@ Jeśli planujesz mieć wiele kluczy zawartości lub aby określić **usługi dos
 * Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego jest dodany do Twojego konta w **zatrzymane** stanu. Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania, punkt końcowy przesyłania strumieniowego musi być w **systemem** stanu. 
 * Zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów. Aby uzyskać więcej informacji, zobacz [kodowanie elementu zawartości](media-services-encode-asset.md).
 * Usługi dostarczania klucza buforuje ContentKeyAuthorizationPolicy i jego obiektów pokrewnych (opcje zasad i ograniczeń) przez 15 minut.  Po utworzeniu ContentKeyAuthorizationPolicy i określanie użycia 'Token' ograniczeń, przetestowanie i następnie zaktualizuj zasady do ograniczenia "Otwórz", potrwa około 15 minut, zanim zasad zmienia się na "Otwórz" wersję zasad.
+* AMS punktu końcowego przesyłania strumieniowego ustawia wartość nagłówka "Access-Control-Allow-Origin" mechanizmu CORS w odpowiedzi dotyczące stanu wstępnego jako symbolu wieloznacznego "\*". To działanie jest prawidłowo w przypadku większości odtwarzaczy, w tym naszej usługi Azure Media Player, Roku i JW i inne. Jednak niektóre odtwarzacze, które wykorzystują dashjs nie działać, ponieważ z poświadczeń trybu ustawioną na "Dołącz", XMLHttpRequest w ich dashjs nie zezwala na symbolu wieloznacznego "\*" jako wartości "" Access-Control-Allow-Origin ". Jako obejście tego ograniczenia w dashjs obsługując klienta z pojedynczą domenę usługi Azure Media Services można określić tej domeny w nagłówku wstępnej reakcji. Użytkownik może dotrzeć przez otwarcie biletu pomocy technicznej za pośrednictwem portalu Azure.
 
 ## <a name="how-to-configure-the-key-authorization-policy"></a>Porady: Konfigurowanie zasad autoryzacji klucza
 Aby skonfigurować zasady autoryzacji klucza, wybierz **ochrony zawartości** strony.
@@ -49,7 +50,7 @@ Aby skonfigurować zasady autoryzacji klucza, wybierz **ochrony zawartości** st
 Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć **Otwórz**, **tokenu**, lub **IP** ograniczenia autoryzacji (**IP** można skonfigurować za pomocą przerwę lub zestawu .NET SDK).
 
 ### <a name="open-restriction"></a>Ograniczenie otwarte
-**Otwórz** ograniczeń oznacza, że system będzie dostarczać klucza dla każdego, kto wysyła żądanie klucza. To ograniczenie może być przydatna do celów testowych.
+**Otwórz** ograniczeń oznacza, że system dostarcza klucza do każdego, kto wysyła żądanie klucza. To ograniczenie może być przydatna do celów testowych.
 
 ![OpenPolicy][open_policy]
 
@@ -60,7 +61,7 @@ Aby wybrać zasadzie ograniczenia tokenu, naciśnij klawisz **TOKENU** przycisku
 
 Usługa Media Services dostarcza **Secure Token usługi**. Można utworzyć niestandardowy STS lub korzystać z usługi Microsoft Azure ACS do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany z określonego klucza i problem oświadczenia określony w konfiguracji ograniczenia tokenu. Usługa Media Services klucza dostawy zwróci klucz szyfrowania do klienta, jeśli token jest prawidłowy i oświadczenia w tokenie pasują do klucza zawartości. Aby uzyskać więcej informacji, zobacz [ACS Azure używana do wydawania tokenów](http://mingfeiy.com/acs-with-key-services).
 
-Podczas konfigurowania **TOKENU** zasady ograniczające, należy ustawić wartości dla **klucza weryfikacji**, **wystawcy** i **odbiorców**. Klucz podstawowy weryfikacji zawiera klucz, który został podpisany token, z, wystawca jest bezpieczne usługi tokenu, który wystawia token. Odbiorców (nazywane również zakres) opisano celem tokenu lub zasobu tokenu zezwala na dostęp do. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
+Podczas konfigurowania **tokenu** ograniczone zasad, należy określić podstawową **klucza weryfikacji**, **wystawcy** i **odbiorców** Parametry. Podstawowy **klucza weryfikacji** zawiera klucz, który token został podpisany, **wystawcy** jest bezpieczne usługi tokenu, który wystawia token. **Odbiorców** (nazywane również **zakres**) opisano celem token lub tokenu zezwala na dostęp do zasobu. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
 
 ### <a name="playready"></a>PlayReady
 Podczas ochrony zawartości przy użyciu **PlayReady**, jest jednym z elementów, należy określić w zasadach autoryzacji ciągu XML, który definiuje szablon licencji PlayReady. Domyślnie jest ustawiona następujące zasady:
@@ -69,7 +70,7 @@ Podczas ochrony zawartości przy użyciu **PlayReady**, jest jednym z elementów
 
 Możesz kliknąć **zaimportować pliku xml zasady** przycisk i podaj inny kod XML, który jest zgodny ze schematem XML zdefiniowane [tutaj](media-services-playready-license-template-overview.md).
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

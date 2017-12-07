@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Komunikacji zdalnej usługi z usługami Reliable Services
 Dla usług, które nie są związane z protokołu komunikacyjnego konkretnego lub stosu, takie jak WebAPI, Windows Communication Foundation (WCF) lub innych osób, w ramach niezawodnej usługi udostępnia mechanizm komunikacji zdalnej szybkie i łatwe Konfigurowanie zdalnego wywołania procedury dla usługi.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-W ramach usług zdalnych propaguje wyjątków zgłaszanych na usługę do klienta. Logika sposób obsługi wyjątków po stronie klienta przy użyciu `ServiceProxy` bezpośrednio może obsłużyć wyjątki, które usługa zgłasza wyjątek.
+W ramach usług zdalnych propaguje wyjątki zgłaszane przez usługę do klienta. W rezultacie, korzystając z `ServiceProxy`, klient jest odpowiedzialny za obsługę wyjątków zgłaszanych przez usługę.
 
 ## <a name="service-proxy-lifetime"></a>Okres istnienia usługi serwera Proxy
-Tworzenie ServiceProxy jest lekkie operacji, aby użytkownicy mogli tworzyć dowolną liczbę potrzebnych im. Tak długo, jak użytkownicy muszą ją można ponownie użyć wystąpienia serwera Proxy usługi. Jeśli zdalne wywołanie procedury zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych, firma Microsoft wewnętrznie Sprawdź, czy klient komunikacji jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji w razie potrzeby. Dlatego jeśli wystąpi wyjątek, użytkownicy nie trzeba ponownie utworzyć serviceproxy, ale jest to zrobione przezroczysty.
+Tworzenie ServiceProxy jest lekkie operacji, aby użytkownicy mogli tworzyć dowolną liczbę potrzebnych im. Tak długo, jak użytkownicy muszą ją można ponownie użyć wystąpienia serwera Proxy usługi. Jeśli zdalne wywołanie procedury zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych, firma Microsoft wewnętrznie Sprawdź, czy klient komunikacji jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji w razie potrzeby. Dlatego jeśli wystąpi wyjątek, użytkownicy nie muszą utworzyć ponownie `ServiceProxy` ponieważ go to zrobione przezroczysty.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Okres istnienia ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) jest fabrykę tworzącą wystąpień serwera proxy dla różnych usług zdalnych interfejsów. Jeśli używasz interfejsu api `ServiceProxy.Create` tworzenia serwera proxy, framework utworzy pojedynczą ServiceProxy.
@@ -91,12 +91,13 @@ Tworzenie fabryki jest kosztowna operacja. ServiceProxyFactory przechowuje wewn�
 Najlepszym rozwiązaniem jest pamięci podręcznej ServiceProxyFactory tak długo, jak to możliwe.
 
 ## <a name="remoting-exception-handling"></a>Obsługa wyjątków komunikacji zdalnej
-Zdalne wyjątek zgłoszony przez interfejs API usługi, są wysyłane do klienta jako AggregateException. RemoteExceptions powinien podlegać serializacji DataContract w przeciwnym razie [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) jest zgłaszany do interfejsu API serwera proxy z powodu błędu serializacji w nim.
+Wszystkie wyjątki zdalnego zgłoszony przez interfejs API usługi są wysyłane do klienta jako AggregateException. RemoteExceptions powinien być możliwy do serializacji; DataContract Jeśli nie są one proxy interfejsu API zgłasza [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) z powodu błędu serializacji w nim.
 
-ServiceProxy obsłużyć wszystkie wyjątki trybu Failover jest tworzony dla partycji usługi. Umożliwia rozwiązanie ponownie punkty końcowe w przypadku Exceptions(Non-Transient Exceptions) trybu Failover i ponowi próbę połączenia z właściwego punktu końcowego. Liczba ponownych prób dla trybu failover wyjątku jest nieokreślony.
-W przypadku przejściowej wyjątki proxy ponowi próbę wywołania.
+ServiceProxy obsługiwać wszystkie wyjątki trybu failover jest tworzony dla partycji usługi. Go ponownie usuwa punkty końcowe, jeśli istnieją wyjątki trybu failover (z systemem innym niż przejściowy wyjątkami) i ponowi próbę połączenia z właściwego punktu końcowego. Liczba ponownych prób dla trybu failover wyjątki są nieokreślony.
+Jeśli wystąpią wyjątki przejściowy, serwera proxy ponowi próbę połączenia.
 
-Domyślne parametry ponawiania są zachowywane przez [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Użytkownik może skonfigurować te wartości przez przekazanie obiektu OperationRetrySettings ServiceProxyFactory konstruktora.
+Domyślne parametry ponawiania są zachowywane przez [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Użytkownik może skonfigurować te wartości przez przekazanie obiektu OperationRetrySettings ServiceProxyFactory konstruktora.
 ## <a name="how-to-use-remoting-v2-stack"></a>Jak używać usług zdalnych V2 stosu
 Przy użyciu pakietu NuGet usługi zdalne 2,8 masz możliwość użycia stosu V2 komunikacji zdalnej. Stos V2 komunikacji zdalnej jest więcej wydajności i zapewnia bardziej podłączany interfejsów Api i funkcje, takie jak niestandardowe, które można serializować.
 Domyślnie jeśli nie ma następujących zmian, go będzie później nadal używać stosu V1 komunikacji zdalnej.

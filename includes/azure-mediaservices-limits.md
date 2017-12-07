@@ -18,15 +18,15 @@
 | Jednostki przesyłania strumieniowego na punkt końcowy przesyłania strumieniowego |10 |
 | Konta magazynu | 1000<sup>(5)</sup> (stały) |
 | Zasady | 1 000 000<sup>(6)</sup> |
-| Rozmiar pliku| W niektórych scenariuszach istnieje limit maksymalnego rozmiaru pliku do przetwarzania w usłudze Media Services. <sup>7</sup> |
+| Rozmiar pliku| W niektórych scenariuszach istnieje limit na maksymalny obsługiwany rozmiar pliku do przetwarzania w usłudze Media Services. <sup>7</sup> |
   
-<sup>1</sup> Jednostki zarezerwowane S3 nie są dostępne w regionie Indie Zachodnie. Maksymalny limit RU resetowane w przypadku klientów zmiany typu (np. z S2 do S1). 
+<sup>1</sup> Jednostki zarezerwowane S3 nie są dostępne w regionie Indie Zachodnie. Jeśli zmienisz typ (np. z S2 do S1) maksymalny limit RU są zerowane.
 
 <sup>2</sup> Ta liczba obejmuje zadania umieszczone w kolejce, zakończone, aktywne i anulowane. Nie obejmuje usuniętych zadań. Stare zadania możesz usunąć za pomocą funkcji **IJob.Delete** lub żądania HTTP **DELETE**.
 
-Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Jeśli chcesz zarchiwizować informacje dotyczące zadania lub zadania podrzędnego, możesz użyć kodu opisanego [tutaj](../articles/media-services/media-services-dotnet-manage-entities.md).
+Począwszy od 1 kwietnia 2017 dowolnego rekordu zadania konta starsze niż 90 dni zostaną automatycznie usunięte, wraz z jego skojarzonych rekordów zadań, nawet jeśli jest to całkowita liczba rekordów poniżej maksymalny limit przydziału. Jeśli chcesz zarchiwizować informacje dotyczące zadania lub zadania podrzędnego, możesz użyć kodu opisanego [tutaj](../articles/media-services/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Żądania wyświetlenia listy jednostek zadań zwracają maksymalnie 1000 jednostek na żądanie. Jeśli potrzebujesz śledzić wszystkie przesłane zadania, możesz użyć opcji top/skip zgodnie z opisem w temacie [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx) (Opcje zapytań systemu OData).
+<sup>3</sup> żądaniu skierowanym do listy zadań jednostek, maksymalnie 1000 zadań jest zwracana na żądanie. Jeśli potrzebujesz śledzić wszystkie przesłane zadania, możesz użyć opcji top/skip zgodnie z opisem w temacie [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx) (Opcje zapytań systemu OData).
 
 <sup>4</sup> Lokalizatory nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Aby nadać różne uprawnienia poszczególnym użytkownikom, użyj rozwiązań do zarządzania prawami cyfrowymi (DRM, Digital Rights Management). Więcej informacji znajduje się w [tej](../articles/media-services/media-services-content-protection-overview.md) sekcji.
 
@@ -37,9 +37,9 @@ Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, kt
 >[!NOTE]
 > Korzystaj z tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni, uprawnień dostępu itd. Informacje i przykład możesz znaleźć w [tej](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) sekcji.
 
-<sup>7</sup>Jeśli można przekazać zawartość do zasobów w usłudze Azure Media Services przy użyciu zamiaru go z jednym procesory multimediów w naszej usługi przetworzyć (tj. koderów, takich jak aparaty Media Encoder Standard i Media Encoder Premium w przepływie pracy lub analizy jak krój Wykrywacz), a następnie należy zwrócić uwagę ograniczenie maksymalnego rozmiaru. 
+<sup>7</sup>Jeśli można przekazać zawartość do zasobów w usłudze Azure Media Services do przetworzenia za pomocą jednego z procesory multimediów usługi (oznacza to, kodery, takich jak aparaty Media Encoder Standard i Media Encoder Premium w przepływie pracy lub analizy, takich jak wykrywanie twarzy na obrazie), następnie należy zwrócić uwagę ograniczenia dotyczące maksymalne rozmiary obsługiwane. 
 
-Począwszy od 15 maja 2017 maksymalny rozmiar obsługiwany dla pojedynczego obiektu blob 195 TB — z pliku largers przekracza ten limit, zadanie zakończy się niepowodzeniem. Pracujemy nad poprawkę rozwiązującą ten limit. Ponadto ograniczenie maksymalnego rozmiaru zasobu ma następującą składnię.
+Maksymalny rozmiar obsługiwany dla pojedynczego obiektu blob jest obecnie maksymalnie 5 TB w magazynie obiektów Blob Azure. Jednak dodatkowe ograniczenia mają zastosowanie w usłudze Azure Media Services oparte na rozmiarów maszyn wirtualnych, które są używane przez usługę. W poniższej tabeli przedstawiono limity na każdym jednostki zarezerwowane multimediów (S1, S2, S3.) Jeśli plik źródłowy jest większy niż limit zdefiniowany w tabeli, zadania kodowania zakończy się niepowodzeniem. Jeśli są kodowanie 4K rozpoznawania źródeł długotrwałe, są wymagane na potrzeby jednostki zarezerwowane multimediów S3 wydajności potrzebne. Jeśli masz zawartość 4K, który jest większy niż limit 260 GB jednostki zarezerwowane multimediów S3, skontaktuj się z nami pod adresem amshelp@microsoft.com dla potencjalnych środki zaradcze do obsługi danego scenariusza.
 
 | Typ jednostki zarezerwowanej multimediów | Maksymalny rozmiar wejściowe (GB)| 
 | --- | --- | 

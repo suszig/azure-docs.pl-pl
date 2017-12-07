@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Jak używać usługi zarządzania w języku Python
-Ten przewodnik przedstawia, jak programowo wykonywać typowe zadania zarządzania dla usługi w języku Python. **ServiceManagementService** klasy w [zestaw Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) obsługuje dostęp programistyczny umożliwiający wiele usług związanych z zarządzaniem funkcji dostępnych w [klasycznego portalu Azure] [ management-portal] (takich jak **tworzenie, aktualizowanie i usuwanie usługi w chmurze, wdrożeń, dane usługi zarządzania i maszyn wirtualnych**). Ta funkcja może być przydatne do tworzenia aplikacji, które muszą dostęp programistyczny umożliwiający zarządzanie usługą.
+Ten przewodnik przedstawia, jak programowo wykonywać typowe zadania zarządzania dla usługi w języku Python. **ServiceManagementService** klasy w [zestaw Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) obsługuje dostęp programistyczny umożliwiający wiele usług związanych z zarządzaniem funkcji dostępnych w [Azure Portal] [ management-portal] (takich jak **tworzenie, aktualizowanie i usuwanie usługi w chmurze, wdrożeń, dane usługi zarządzania i maszyn wirtualnych**). Ta funkcja może być przydatne do tworzenia aplikacji, które muszą dostęp programistyczny umożliwiający zarządzanie usługą.
 
 ## <a name="WhatIs"></a>Co to jest usługa zarządzania
-Interfejs API zarządzania usługami zapewnia dostęp programistyczny umożliwiający wiele funkcji zarządzania usługi dostępne za pośrednictwem [klasycznego portalu Azure][management-portal]. Zestaw Azure SDK for Python umożliwia zarządzanie usługi w chmurze i kont magazynu.
+Interfejs API zarządzania usługami zapewnia dostęp programistyczny umożliwiający wiele funkcji zarządzania usługi dostępne za pośrednictwem [portalu Azure][management-portal]. Zestaw Azure SDK for Python umożliwia zarządzanie usługi w chmurze i kont magazynu.
 
 Aby użyć interfejs API zarządzania usługami, musisz [tworzenia konta platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ Zestaw Azure SDK for Python opakowuje [interfejs API zarządzania usługami Azur
 Wszystkie funkcje opisane w tym artykule są dostępne w `azure-servicemanagement-legacy` pakiet, który można zainstalować przy użyciu narzędzia pip. Aby uzyskać więcej informacji na temat instalacji (na przykład jeśli jesteś nowym użytkownikiem Python), zobacz ten artykuł: [instalowanie Python i zestawu Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Jak: nawiązać połączenia z usługi zarządzania
-Aby połączyć się z punktem końcowym usługi zarządzania, należy identyfikator subskrypcji platformy Azure i prawidłowy certyfikat zarządzania. Możesz uzyskać identyfikator subskrypcji za pośrednictwem [klasycznego portalu Azure][management-portal].
+Aby połączyć się z punktem końcowym usługi zarządzania, należy identyfikator subskrypcji platformy Azure i prawidłowy certyfikat zarządzania. Możesz uzyskać identyfikator subskrypcji za pośrednictwem [portalu Azure][management-portal].
 
 > [!NOTE]
 > Obecnie istnieje możliwość używania certyfikatów utworzone za pomocą biblioteki OpenSSL uruchomionej w systemie Windows.  Wymaga to Python 2.7.4 lub nowszym. Firma Microsoft zaleca użytkownikom używanie biblioteki OpenSSL zamiast PFX, ponieważ obsługa PFX certyfikatów prawdopodobnie zostaną usunięte w przyszłości.
@@ -53,7 +53,7 @@ Aby utworzyć `.cer` certyfikatów, należy wykonać:
 
 Aby uzyskać więcej informacji o certyfikatach Azure, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md). Pełny opis parametrów biblioteki OpenSSL, zobacz dokumentację w [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Po utworzeniu tych plików, należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [klasycznego portalu Azure][management-portal], i zwróć uwagę na którym zapisano `.pem` pliku.
+Po utworzeniu tych plików, należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [portalu Azure][management-portal], i zwróć uwagę na którym został zapisany `.pem` pliku.
 
 Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać `.cer` plików na platformie Azure, można połączyć z punktem końcowym zarządzania platformy Azure przy przekazywanie identyfikator subskrypcji i ścieżkę do `.pem` pliku **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Można utworzyć certyfikat zarządzania z podpisem własnym na przy użyciu mas
 
 Polecenie tworzy `.cer` pliku i instaluje je w **osobistych** magazynu certyfikatów. Aby uzyskać więcej informacji, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md).
 
-Po utworzeniu certyfikatu należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [klasycznego portalu Azure][management-portal].
+Po utworzeniu certyfikatu należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [portalu Azure][management-portal].
 
 Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać `.cer` plików na platformie Azure, można połączyć z punktem końcowym zarządzania platformy Azure przy przekazywanie identyfikator subskrypcji i lokalizacji certyfikatu w Twojej **osobistych** magazyn certyfikatów **ServiceManagementService** (ponownie, Zastąp *AzureCertificate* o nazwie certyfikatu):
 
@@ -421,7 +421,7 @@ Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/de
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

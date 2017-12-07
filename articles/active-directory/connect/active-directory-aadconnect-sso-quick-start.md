@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki start
 
@@ -127,7 +127,7 @@ Domyślnie przeglądarka automatycznie oblicza poprawnej strefy Internecie lub i
 
 ### <a name="browser-considerations"></a>Zagadnienia dotyczące przeglądarki
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (wszystkie platformy)
 
 Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy użytkownik musi ręcznie dodać adresy URL usługi Azure AD ustawienia przeglądarki Firefox przy użyciu następujących kroków:
 1. Uruchom program Firefox, a następnie wprowadź `about:config` na pasku adresu. Odrzucić żadnych powiadomień, które są wyświetlane.
@@ -136,11 +136,15 @@ Mozilla Firefox nie są automatycznie używane uwierzytelnianie Kerberos. Każdy
 4. Wprowadź https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net w polu.
 5. Wybierz **OK** , a następnie ponownie przeglądarkę.
 
-#### <a name="safari-on-mac-os"></a>Przeglądarka Safari w systemie Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Upewnij się, że maszynę z systemem Mac OS jest dołączona do usługi Azure AD. Aby uzyskać instrukcje na dołączenie do usługi Azure AD, zobacz [najlepsze rozwiązania dotyczące integrowania OS X z usługą Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome w systemie Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
+
+Jeśli masz zastąpiona [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) lub [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ustawień zasad w środowisku, upewnij się, że dodać adresy URL usługi Azure AD (https:// AutoLogon.microsoftazuread sso.com i https://aadg.windows.net.nsatc.net) dla nich oraz.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (tylko Mac OS)
 
 Google Chrome na innych platform z systemem innym niż Windows i Mac OS, można znaleźć w temacie [listy zasad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) informacji na temat dozwolonych programu Azure AD adresy URL zintegrowane uwierzytelnianie.
 
@@ -149,9 +153,6 @@ Użycie innych firm rozszerzenia zasad grupy usługi Active Directory do wdraża
 #### <a name="known-browser-limitations"></a>Ograniczenia dotyczące znanych przeglądarki
 
 Bezproblemowe logowanie Jednokrotne nie działa w trybie prywatnym przeglądania na przeglądarki Firefox i krawędzi. Również nie działa w programie Internet Explorer Jeśli przeglądarka jest uruchomiony w trybie rozszerzonego chronione.
-
->[!IMPORTANT]
->Firma Microsoft niedawno wycofane obsługę krawędzi do badania problemów zgłoszonych przez klientów.
 
 ## <a name="step-4-test-the-feature"></a>Krok 4: Testowanie funkcji
 

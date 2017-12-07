@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z ról usługi w chmurze, które się nie uruchomić
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania związane z usług Azure Cloud Services ról, które się nie uruchomić.
@@ -62,9 +62,8 @@ Gdy ponownie wdrożyć usługę, zostanie wyświetlony komunikat o błędzie, o 
 Pulpit zdalny umożliwia dostęp roli i wyświetlać informacje o błędzie bardziej szczegółowy zdalnie. Wykonaj następujące kroki, aby wyświetlić błędy przy użyciu pulpitu zdalnego:
 
 1. Upewnij się, że Azure SDK 1.3 lub nowszy jest zainstalowany.
-2. Podczas wdrażania rozwiązania przy użyciu programu Visual Studio należy wybrać opcję "Konfiguruj połączeń pulpitu zdalnego...". Aby uzyskać więcej informacji na temat konfigurowania połączenia pulpitu zdalnego, zobacz [za pomocą pulpitu zdalnego z rolami Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. W Microsoft klasycznego portalu Azure, gdy wystąpienie wskazuje stan **gotowe**, kliknij jeden z wystąpień roli.
-4. Kliknij przycisk **Connect** ikonę w **dostępu zdalnego** obszaru wstążki.
+2. Podczas wdrażania rozwiązania przy użyciu programu Visual Studio należy wybrać opcję "Konfiguruj połączeń pulpitu zdalnego". Aby uzyskać więcej informacji na temat konfigurowania połączenia pulpitu zdalnego, zobacz [za pomocą pulpitu zdalnego z rolami Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. W portalu Microsoft Azure, gdy wystąpienie wskazuje stan **gotowe**nawiąż połączenie zdalne wystąpienie. Aby uzyskać więcej informacji na temat używania pulpitu zdalnego z usługami w chmurze, zobacz [zdalnego do wystąpień roli](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń, które zostały określone podczas konfigurowania usług pulpitu zdalnego.
 6. Otwórz okno poleceń.
 7. Wpisz polecenie `IPconfig`.

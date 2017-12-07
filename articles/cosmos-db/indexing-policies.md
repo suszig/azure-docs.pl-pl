@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak dane indeksu bazy danych rozwiązania Cosmos Azure?
 
@@ -68,7 +68,7 @@ Azure DB rozwiązania Cosmos obsługuje trzy indeksowania tryby, które mogą by
 
 **Spójne**: zasady zbierania bazy danych Azure rozwiązania Cosmos jest oznaczony jako "spójne", kwerendy dla danej kolekcji bazy danych Azure rozwiązania Cosmos wykonaj poziomu spójności określone dla odczytów punktu (tj. silne, nieaktualność, sesji lub ostatecznego). Indeks jest aktualizowana synchronicznie, w ramach aktualizacji dokumentu (tj. insert, replace, update i delete dokumentu w kolekcji usługi Azure DB rozwiązania Cosmos).  Spójne indeksowania obsługuje zapytania spójne kosztem możliwość zmniejszenia przepływność zapisu. Redukcja jest funkcja unikatowy ścieżek, które muszą zostać pomyślnie zindeksowane i "poziom zgodności". Spójne tryb indeksowania jest przeznaczona dla obciążeń "write szybkiego zapytań od razu".
 
-**Opóźnieniem**: umożliwia dokumentu maksymalną przepływność wprowadzanie bazy danych Azure rozwiązania Cosmos kolekcji można skonfigurować za pomocą opóźnieniem spójności; znaczenie zapytania są zgodne po pewnym czasie. Indeks jest aktualizowane asynchronicznie kolekcji usługi Azure DB rozwiązania Cosmos jest spoczynku tj. gdy przepływności kolekcji nie jest w pełni wykorzystane do obsługi żądań użytkownika. "Pozyskiwania teraz zapytanie później" w przypadku obciążeń wymagających wprowadzanie swobodnego dokumentu może być odpowiedni "opóźnieniem" Tryb indeksowania.
+**Opóźnieniem**: indeks jest aktualizowany asynchronicznie, gdy kolekcji usługi Azure DB rozwiązania Cosmos jest spoczynku tj. gdy przepływności kolekcji nie jest w pełni wykorzystane do obsługi żądań użytkownika. "Pozyskiwania teraz zapytanie później" w przypadku obciążeń wymagających wprowadzanie dokumentu może być odpowiedni "opóźnieniem" Tryb indeksowania. Należy pamiętać, może pobrać niespójne wyniki danych pobiera pozyskanych i indeksowane powoli. Oznacza to, z zapytania count lub określonej kwerendy, że wyniki nie zapewniona jest prawidłowa lub repeatable dopóki danych jest indeksowana. Indeks jest zazwyczaj catch się. Activelocation indeksowanie z opóźnieniem - TTL Zmień wyniki indeksu uzyskiwania porzucona i utworzona ponownie, aby to działanie może spowodować nieoczekiwane wyniki. Większość klientów, należy użyć spójne indeksowania.
 
 **Brak**: kolekcja oznaczonej jako tryb indeksu "None" nie ma indeksu skojarzonych z nim. Jest ona powszechnie stosowana w przypadku bazy danych Azure rozwiązania Cosmos jest wykorzystywany jako magazyn kluczy i wartości i dokumenty są dostępne tylko dla ich właściwość Identyfikatora. 
 
@@ -182,7 +182,7 @@ Poniżej przedstawiono typy obsługiwanych indeksu i przykłady zapytań, które
 
 | Typ indeksu | Przypadek użycia/opis                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wyznaczania wartości skrótu       | Hash — za pośrednictwem/prop /? (lub /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz z kolekcji c WHERE c.prop = "value"<br><br>Skrót za pośrednictwem/właściwości / [] /? (i / lub/właściwości /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz znacznik z kolekcji c sprzężenia tagu w c.props WHERE tag = 5                                                                                                                       |
+| Skrót       | Hash — za pośrednictwem/prop /? (lub /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz z kolekcji c WHERE c.prop = "value"<br><br>Skrót za pośrednictwem/właściwości / [] /? (i / lub/właściwości /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz znacznik z kolekcji c sprzężenia tagu w c.props WHERE tag = 5                                                                                                                       |
 | Zakres      | Zakres za pośrednictwem/prop /? (lub /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz z kolekcji c WHERE c.prop = "value"<br><br>Wybierz z kolekcji c WHERE c.prop > 5<br><br>Wybierz z kolekcji c ORDER BY c.prop                                                                                                                                                                                                              |
 | Przestrzenne     | Zakres za pośrednictwem/prop /? (lub /) umożliwia wydajne służą następujące zapytania:<br><br>Wybierz z c kolekcji<br><br>GDZIE ST_DISTANCE (c.prop, {"type": "Punkt", "coordinates": [0.0, 10.0]}) < 40<br><br>Wybierz z kolekcji c gdzie ST_WITHIN(c.prop, {"type": "Polygon",...}) — za pomocą indeksowania w punktach włączone<br><br>Wybierz z kolekcji c gdzie ST_WITHIN({"type": "Point",...}, c.prop) — za pomocą indeksowania na wielokątów włączone              |
 

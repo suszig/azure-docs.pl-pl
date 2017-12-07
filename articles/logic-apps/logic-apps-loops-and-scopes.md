@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Pętle, zakresy i usuwanie partii aplikacji logiki
   
@@ -26,7 +26,7 @@ Logic Apps oferuje następujące sposoby pracy z tablic, kolekcje, partie i wyko
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach — pętla i tablic
   
-Logic Apps umożliwia pętli zestawu danych i wykonywania akcji dla każdego elementu.  Jest to możliwe za pośrednictwem `foreach` akcji.  W projektancie, można określić, aby dodać dla każdej pętli.  Po wybraniu tablicy, która ma zostać wykonana iteracja, możesz rozpocząć dodawanie akcji.  Obecnie są ograniczone do tylko jednej akcji na pętli foreach, ale to ograniczenie będzie podnoszone w najbliższych tygodniach.  Raz w pętli można rozpocząć Określ, co ma mieć miejsce w każdej wartości w tablicy.
+Logic Apps umożliwia pętli zestawu danych i wykonywania akcji dla każdego elementu.  Jest to możliwe za pośrednictwem `foreach` akcji.  W projektancie, można określić, aby dodać dla każdej pętli.  Po wybraniu tablicy, która ma zostać wykonana iteracja, możesz rozpocząć dodawanie akcji.  Można dodać wiele akcji na pętli foreach.  Raz w pętli można rozpocząć Określ, co ma mieć miejsce w każdej wartości w tablicy.
 
 Jeśli używasz widoku kodu, można określić dla każdej pętli, takie jak poniżej.  To jest przykład dla każdej pętli, który wysyła wiadomości e-mail dla każdego adresu e-mail, który zawiera "microsoft.com":
 

@@ -109,6 +109,40 @@ Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirt
 * [Lista szablonów przy użyciu dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="migrate-to-managed-disks"></a>Migrowanie do usługi Managed Disks 
+
+**Jakie zmiany są wymagane w przypadku istniejącego kopia zapasowa Azure usługi konfiguracji przed lub po migracji do zarządzanych dysków?**
+
+Zmiany nie są wymagane. 
+
+**Kopiach zapasowych maszyny Wirtualnej utworzone za pomocą usługi Azure Backup przed migracją będzie działać?**
+
+Tak, kopie zapasowe działają bezproblemowo.
+
+**Jakie zmiany są wymagane w przypadku istniejącego szyfrowania dysków Azure konfiguracji przed lub po migracji do zarządzanych dysków?**
+
+Zmiany nie są wymagane. 
+
+**Jest automatycznej migracji z istniejącej maszyny Wirtualnej skali zestawów (VMSS) z dysków niezarządzanych do zarządzanych dysków obsługiwane?**
+
+Nie. Można utworzyć nowego VMSS z dyskami zarządzane przy użyciu obrazu z Twojego starego VMSS z dyskami niezarządzane. 
+
+**Czy można utworzyć dysku zarządzanego z migawką obiektu blob strony przed migracją do zarządzanych dysków**
+
+Nie. Można wyeksportować migawki obiektu blob strony w postaci stronicowych obiektów blob i następnie utwórz dysk zarządzane z wyeksportowanego stronicowych obiektów blob. 
+
+**Można nie za pośrednictwem Moje maszyny lokalnej chronione przez usługę Azure Site Recovery do maszyny Wirtualnej z dyskami zarządzane?**
+
+Tak, możesz przełączyć się awaryjnie na maszynę Wirtualną za pomocą zarządzania dyskami.
+
+**Znajduje wszystkie wpływ migracji na maszynach wirtualnych Azure chronione przez odzyskiwania lokacji Azure (ASR) za pomocą replikacji Azure do platformy Azure?**
+
+Tak. Funkcja automatycznego odzyskiwania systemu Azure do platformy Azure ochrona nie jest obsługiwana dla maszyn wirtualnych z zarządzania dyskami. Ma to być obsługiwana przez koniec CY2018. 
+
+**Czy można migrować maszyny wirtualne z dyskami niezarządzane, które znajdują się na kontach magazynu, które są lub wcześniej były szyfrowane do zarządzanych dysków**
+
+Tak
+
 ## <a name="managed-disks-and-storage-service-encryption"></a>Zarządzane dysków i szyfrowanie usługi magazynu 
 
 **Jest szyfrowanie usługi Magazyn Azure domyślnie podczas tworzenia dysków zarządzanych?**

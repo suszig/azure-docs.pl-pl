@@ -34,7 +34,14 @@
     - name: 4 — Zbiorcze kopiowanie danych
       href: tutorial-bulk-copy.md
     - name: 5 — Przyrostowe kopiowanie danych
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 — Kopiowanie z jednej tabeli
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 — Kopiowanie z wielu tabel
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 — Korzystanie z funkcji śledzenia zmian
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 — Przekształcanie danych w chmurze
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 — Przekształcanie danych w sieci wirtualnej
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Uruchamianie pakietów SSIS na platformie Azure
+      items:
+        - name: Tworzenie środowiska Azure SSIS Integration Runtime
+          href: create-azure-ssis-integration-runtime.md
+        - name: Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Zarządzanie środowiskiem Azure SSIS Integration Runtime
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Konfigurowanie wydajności środowiska Azure SSIS Integration Runtime
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Dokumentacja
   items:
     - name: .NET

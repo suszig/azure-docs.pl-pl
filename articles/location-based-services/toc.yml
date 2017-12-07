@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Dokumentacja
   items:
+    - name: Funkcjonalny interfejs API — REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: Interfejs API zarządzania — REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: Interfejs API kontrolek mapy — Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Zasoby
+  items:
     - name: Centrum deweloperów Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Harmonogram działania dla platformy Azure

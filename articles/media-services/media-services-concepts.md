@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services pojęcia
 Ten temat zawiera omówienie koncepcji usługi Media Services.
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 
 ## <a name="protecting-content"></a>Ochrona zawartości
-### <a name="dynamic-encryption"></a>Szyfrowania dynamicznego
+### <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
 Usługa Azure Media Services umożliwia zabezpieczenie od momentu, gdy opuszczą komputera za pośrednictwem przechowywania, przetwarzania i dostarczania multimediów. Usługa Media Services umożliwia dostarczanie zawartości dynamicznie szyfrowany za pomocą Standard AES (Advanced Encryption) (przy użyciu kluczy szyfrowania 128-bitowe) i szyfrowania common encryption (CENC) za pomocą PlayReady i Widevine DRM. Usługi Media Services udostępnia usługę dostarczania kluczy AES i licencje PlayReady do autoryzowanych klientów.
 
 Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.
@@ -151,10 +151,9 @@ Zasady autoryzacji klucza zawartości może mieć jeden lub więcej ograniczeń:
 Podczas konfigurowania token ograniczony zasad, należy określić klucz podstawowy weryfikacji, wystawcy i parametry odbiorców. Klucz podstawowy weryfikacji zawiera klucz, który został podpisany token, z, wystawca jest bezpieczne usługi tokenu, który wystawia token. Odbiorców (nazywane również zakres) opisano celem tokenu lub zasobu tokenu zezwala na dostęp do. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
 
 Aby uzyskać więcej informacji zobacz następujące artykuły:
-
-[Ochrona zawartości omówienie](media-services-content-protection-overview.md)
-[Chroń za pomocą AES-128](media-services-protect-with-aes128.md)
-[Chroń za pomocą DRM](media-services-protect-with-drm.md)
+- [Ochrona zawartości — omówienie](media-services-content-protection-overview.md)
+- [Chroń za pomocą AES-128](media-services-protect-with-aes128.md)
+- [Chroń za pomocą PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Dostarczanie
 ### <a id="dynamic_packaging"></a>Funkcję dynamicznego tworzenia pakietów

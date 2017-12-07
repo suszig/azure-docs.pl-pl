@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: c584806105c2583daca944260b65da2f7637bb0c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Szyfrowania dynamicznego: Skonfiguruj zasady autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkownikó
 
 Usługi Media Services nie zapewnia bezpieczny tokenu usługi. Można utworzyć niestandardowy STS lub korzystać z usługi Microsoft Azure ACS do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany określone oświadczenia klucza i problem, określonych w konfiguracji ograniczenia tokenu (zgodnie z opisem w tym artykule). Usługa Media Services klucza dostawy zwróci klucz szyfrowania do klienta, jeśli token jest prawidłowy i oświadczenia w tokenie pasują do klucza zawartości.
 
-Aby uzyskać więcej informacji, zobacz
-
-[Uwierzytelniania tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integracja aplikacji na podstawie Azure Media Services OWIN MVC z usługi Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Użyj Azure ACS do wydawania tokenów](http://mingfeiy.com/acs-with-key-services).
+Aby uzyskać więcej informacji zobacz następujące artykuły:
+- [Uwierzytelniania tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integracja aplikacji na podstawie Azure Media Services OWIN MVC z usługi Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Zagadnienia do rozważenia:
 * Aby można było korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania, upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość znajduje się w **systemem** stanu.
@@ -50,6 +46,7 @@ Aby uzyskać więcej informacji, zobacz
 * Usługi dostarczania klucza buforuje ContentKeyAuthorizationPolicy i jego obiektów pokrewnych (opcje zasad i ograniczeń) przez 15 minut.  Po utworzeniu ContentKeyAuthorizationPolicy i określanie użycia 'Token' ograniczeń, przetestowanie i następnie zaktualizuj zasady do ograniczenia "Otwórz", potrwa około 15 minut, zanim zasad zmienia się na "Otwórz" wersję zasad.
 * W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 * Obecnie nie można zaszyfrować pobierania progresywnego.
+* AMS punktu końcowego przesyłania strumieniowego ustawia wartość nagłówka "Access-Control-Allow-Origin" mechanizmu CORS w odpowiedzi dotyczące stanu wstępnego jako symbolu wieloznacznego "\*". To działanie jest prawidłowo w przypadku większości odtwarzaczy, w tym naszej usługi Azure Media Player, Roku i JW i inne. Jednak niektóre odtwarzacze, które wykorzystują dashjs nie działać, ponieważ z poświadczeń trybu ustawioną na "Dołącz", XMLHttpRequest w ich dashjs nie zezwala na symbolu wieloznacznego "\*" jako wartości "" Access-Control-Allow-Origin ". Jako obejście tego ograniczenia w dashjs obsługując klienta z pojedynczą domenę usługi Azure Media Services można określić tej domeny w nagłówku wstępnej reakcji. Użytkownik może dotrzeć przez otwarcie biletu pomocy technicznej za pośrednictwem portalu Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Dynamicznego szyfrowania AES-128
 > [!NOTE]
@@ -234,7 +231,7 @@ Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wym
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Podczas konfigurowania **tokenu** ograniczone zasad, należy określić podstawowy ** weryfikacji klucza **, **wystawcy** i **odbiorców** parametrów. ** Klucza podstawowego weryfikacji ** zawiera klucz, który token został podpisany, **wystawcy** jest bezpieczne usługi tokenu, który wystawia token. **Odbiorców** (nazywane również **zakres**) opisano celem token lub tokenu zezwala na dostęp do zasobu. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie. 
+Podczas konfigurowania **tokenu** ograniczone zasad, należy określić podstawową **klucza weryfikacji**, **wystawcy** i **odbiorców** Parametry. Podstawowy **klucza weryfikacji** zawiera klucz, który token został podpisany, **wystawcy** jest bezpieczne usługi tokenu, który wystawia token. **Odbiorców** (nazywane również **zakres**) opisano celem token lub tokenu zezwala na dostęp do zasobu. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
 
 Poniższy przykład tworzy zasady autoryzacji z ograniczenia tokenu. W tym przykładzie, klient musi przedstawić token, który zawiera: podpisywanie klucz (VerificationKey), wystawcy tokenów i oświadczeń wymagane.
 

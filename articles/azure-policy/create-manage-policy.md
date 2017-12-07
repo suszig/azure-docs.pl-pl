@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Tworzenie i zarządzanie zasadami, by wymuszał zgodność
 
@@ -26,22 +26,6 @@ Opis sposobu tworzenia i zarządzania zasadami w usłudze Azure jest ważne dla 
 > * Wdrożenie nowych zasad w organizacji
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## <a name="opt-in-to-azure-policy"></a>Zgódź się na Azure zasad
-
-Zasady usługi Azure jest teraz dostępna w ograniczony (wersja zapoznawcza), należy zarejestrować, aby zażądać dostępu.
-
-1. Przejdź do zasad Azure https://aka.ms/getpolicy i wybierz **Utwórz konto** w okienku po lewej stronie.
-
-   ![Wyszukaj zasady](media/assign-policy-definition/sign-up.png)
-
-2. Wyrazić zgodę na zasady Azure, wybierając subskrypcje w **subskrypcji** chcesz pracować z listy. Następnie wybierz **zarejestrować**.
-
-   Lista subskrypcji zawiera wszystkie subskrypcje platformy Azure.
-
-   ![Zezwól na przy użyciu zasad usługi Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   W zależności od zapotrzebowania może potrwać do kilku dni firmie Microsoft akceptował żądania rejestracji. Po zaakceptowaniu żądania pobiera dowiesz się za pośrednictwem poczty e-mail czy można rozpocząć korzystanie z usługi.
 
 ## <a name="assign-a-policy"></a>Przypisać zasady
 
@@ -69,7 +53,7 @@ Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać d
 
    Istnieją dwie warstwy cenowej w ramach zasad usługi Azure — *wolne* i *standardowe*. Z warstwę bezpłatna, może tylko wymuszać zasady na przyszłe zasoby, podczas gdy w przypadku Standard, można również wymusić je na istniejących zasobów, aby lepiej zrozumieć swój stan zgodności. Ponieważ firma Microsoft są ograniczone w wersji zapoznawczej, firma Microsoft ma nie zostało jeszcze udostępnione modelu cenowego, więc nie otrzymają rachunek za wybranie *standardowe*. Aby dowiedzieć się więcej o cenach, obejrzyj: [cennik zasadami Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) należy wcześniej zarejestrowane podczas zgłoszono do zasad usługi Azure. Zakres Określa, jakie zasoby lub grupowanie zasobów przypisania zasad pobiera wymuszane na. Mogą obejmować z subskrypcji z grupami zasobów.
+8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) został wcześniej zarejestrowany. Zakres Określa, jakie zasoby lub grupowanie zasobów przypisania zasad pobiera wymuszane na. Mogą obejmować z subskrypcji z grupami zasobów.
 
    W tym przykładzie używamy tej subskrypcji - **Azure Analytics pojemności deweloperów**. Subskrypcji będą się różnić.
 
@@ -94,9 +78,9 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
       - Zasady reguły/warunków, w tym przypadku — równa serii G rozmiar jednostki SKU maszyny Wirtualnej
       - Wpływ zasad, w tym przypadku — **Odmów**.
 
-   Oto, jak powinna wyglądać json
+    Oto, jak powinna wyglądać json
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Aby wyświetlić przykłady kodu json, Szukaj w tym artykule - [szablony zasad Azure](json-samples.md)
+    Aby wyświetlić przykłady kodu json, przeczytaj [szablony zasad Azure](json-samples.md) artykułu.
 
 4. Wybierz pozycję **Zapisz**.
 
@@ -353,7 +335,7 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
 
    W tym przykładzie chcemy zapewnić, że zasoby są z aktualizacjami definicji zasad uzyskiwanie bezpiecznego, nazwą tej inicjatywy będzie **uzyskać bezpieczny**, oraz opis byłoby: **został tej inicjatywy utworzone w celu obsługi wszystkie definicje zasady skojarzone z zabezpieczanie zasobów**.
 
-   ![Inicjatywy definicji](media/create-manage-policy/initiative-definition.png)
+   ![Definicja inicjatywy](media/create-manage-policy/initiative-definition.png)
 
 4. Przejrzyj listę **dostępnych definicji** i wybierz definicje zasad, które chcesz dodać do tej inicjatywy. Dla naszych **uzyskać bezpieczny** inicjatywy, Dodaj następujące wbudowane definicje zasad:
    - Wymaga programu SQL Server w wersji 12.0

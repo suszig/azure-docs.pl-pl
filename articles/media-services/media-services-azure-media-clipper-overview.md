@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Utwórz klipy z funkcji tworzenia wycinków multimediów Azure
 Azure Media funkcji tworzenia wycinków jest bezpłatna biblioteka języka JavaScript, który umożliwia deweloperom sieci web użytkownikom ich interfejs służący do tworzenia nośnika klipy. To narzędzie można zintegrować dowolną stronę sieci web i udostępnia interfejsy API do ładowania zasobów i przesyłanie zadań wycinka.
@@ -29,8 +29,11 @@ Azure Media funkcji tworzenia wycinków umożliwia:
 
 Aby poprosić o nowe funkcje, podaj pomysłów lub opinie, przedstawia [UserVoice dla usługi Azure Media Services](http://aka.ms/amsvoice/). Jeśli masz i określonych problemów, pytania lub Znajdź usterek, Porzuć Media Services team linii w amcinfo@microsoft.com.
 
+Na poniższym obrazie przedstawiono interfejsu funkcji tworzenia wycinków: ![funkcji tworzenia wycinków multimediów Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>Informacje o wersji
-Na poniższej liście opisano różne znane problemy i wykaz zmian w najnowszej wersji programu funkcji tworzenia wycinków:
+Przejrzyj następującą listę wpis w blogu funkcji tworzenia wycinków, różnych znane problemy i wykaz zmian w najnowszej wersji programu funkcji tworzenia wycinków:
+- [Wpis w blogu](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lista znanych problemów](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Wykaz zmian](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

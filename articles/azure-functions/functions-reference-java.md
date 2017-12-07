@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera usługi Azure Java funkcji
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ CosmosDB | Nie dotyczy
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | Nie dotyczy
 Notification Hubs | Nie dotyczy
-Obiektu Blob magazynu | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
-Kolejki magazynu | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Obiektu Blob magazynu | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Kolejka magazynu | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabela magazynu | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Czasomierz | <ul><li>`TimerTrigger`</li></ul>
 Twilio | Nie dotyczy
@@ -213,7 +213,7 @@ public class MyClass {
 
 Dlatego po wywołaniu tej funkcji ładunku żądania HTTP przekazuje opcjonalny `String` argumentu `in` i Azure Table Storage `MyObject` typ został przekazany do argumentu `obj`. Użyj `Optional<T>` typu do obsługi danych wejściowych do funkcji, które mogą mieć wartości null.
 
-## <a name="outputs"></a>dane wyjściowe
+## <a name="outputs"></a>Dane wyjściowe
 
 Zarówno w zwracanej wartości lub parametry wyjściowe można wyrazić danych wyjściowych. Jeśli istnieje tylko jedno wyjście, zalecane jest Użyj wartości zwracanej. Dla wielu wyjść należy użyć parametrów wyjściowych.
 
@@ -270,7 +270,7 @@ które należy zdefiniować powiązania danych wyjściowych w `function.json`:
 
 Czasami funkcję musi dokładną kontrolę nad wejścia i wyjścia. Specjalizowany typów w `azure-functions-java-core` pakietu znajdują się manipulować informacjami żądania i dostosować to wyzwalacza HTTP:
 
-| Specjalistyczną odmianą      |       docelowy        | Typowy sposób                  |
+| Specjalistyczną odmianą      |       Obiekt docelowy        | Typowy sposób                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Wyzwalacz protokołu HTTP     | Pobierz — metoda, nagłówkach lub zapytania |
 | `HttpResponseMessage<T>` | Powiązanie wyniku HTTP | Zwrotny stan innych niż 200   |

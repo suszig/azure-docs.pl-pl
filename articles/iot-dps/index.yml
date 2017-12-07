@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentacja usługi Azure IoT Hub Device Provisioning (wersja zapoznawcza)
+title: Dokumentacja usługi Azure IoT Hub Device Provisioning
 metadata:
-  title: Dokumentacja usługi Azure IoT Hub Device Provisioning (wersja zapoznawcza) — samouczki i dokumentacja interfejsu API
+  title: Dokumentacja usługi Azure IoT Hub Device Provisioning — samouczki i dokumentacja interfejsu API
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'Usługa IoT Hub Device Provisioning (wersja zapoznawcza) to usługa pomocnika usługi IoT Hub, umożliwiająca automatyczną aprowizację w miarę potrzeb na zasadach usługi IoT Hub, nie wymagając interwencji człowieka, co umożliwia klientom aprowizację milionów urządzeń w sposób bezpieczny i ekonomiczny. Dowiedz się, jak aprowizować urządzenia w centrach IoT, korzystając z przewodników Szybki start, samouczków i przykładów.'
+  description: 'Usługa IoT Hub Device Provisioning to usługa pomocnika usługi IoT Hub, umożliwiająca automatyczną aprowizację w miarę potrzeb na zasadach usługi IoT Hub, nie wymagając interwencji człowieka, co umożliwia klientom aprowizację milionów urządzeń w sposób bezpieczny i ekonomiczny. Dowiedz się, jak aprowizować urządzenia w centrach IoT, korzystając z przewodników Szybki start, samouczków i przykładów.'
 sections:
   - title: 5-minutowe przewodniki Szybki start
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Samouczki krok po kroku
     items:
       - type: paragraph
-        text: 'Dowiedz się, jak korzystać z usługi IoT Hub Device Provisioning (wersja zapoznawcza), aby automatycznie aprowizować urządzenia z włączoną obsługą zabezpieczeń w jednym lub wielu centrach IoT.'
+        text: 'Dowiedz się, jak korzystać z usługi IoT Hub Device Provisioning, aby automatycznie aprowizować urządzenia z włączoną obsługą zabezpieczeń w jednym centrum IoT lub wielu centrach IoT.'
       - type: list
         style: ordered
         items:

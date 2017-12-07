@@ -40,13 +40,13 @@ Możesz [ustawić wyzwalacze](../articles/monitoring-and-diagnostics/insights-au
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Ręcznie skalować w zestawie skalowania maszyn wirtualnych
 
-### <a name="horizontal"></a>poziomy
+### <a name="horizontal"></a>Poziomo
 
 Można dodawać i usuwać maszyn wirtualnych, zmieniając pojemność zestawu skalowania. W portalu Azure, można zmniejszyć lub zwiększyć liczbę maszyn wirtualnych (wyświetlane jako **wystąpienia liczba**) w skali ustawiony przez przesuwanie na pasku stanu zastąpienie na ekranie skalowanie w lewo lub w prawo.
 
-Przy użyciu programu Azure PowerShell, należy uzyskać, używając obiektu zestawu skali [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Następnie ustaw **sku.capacity** właściwość, aby liczba maszyn wirtualnych, które mają i aktualizacji z zestawu skalowania [AzureRmVmss aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Przy użyciu wiersza polecenia platformy Azure, zmień pojemności z **— nowego miejsca** parametr [skali vmss az](https://docs.microsoft.com/cli/azure/vmss#scale) polecenia.
+Przy użyciu programu Azure PowerShell, należy uzyskać, używając obiektu zestawu skali [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Następnie ustaw **sku.capacity** właściwość, aby liczba maszyn wirtualnych, które mają i aktualizacji z zestawu skalowania [AzureRmVmss aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Przy użyciu wiersza polecenia platformy Azure, zmień pojemności z **— nowego miejsca** parametr [skali vmss az](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) polecenia.
 
-### <a name="vertical"></a>Pionowe
+### <a name="vertical"></a>Pionowa
 
 Należy ręcznie zmienić rozmiar w portalu Azure na ekranie rozmiar dla zestawu skalowania maszyn wirtualnych. Za pomocą programu Azure PowerShell Get-AzureRmVmss, ustawienia właściwości sku obrazu odniesienia, a następnie za pomocą [AzureRmVmss aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) i [AzureRmVmssInstance aktualizacji](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
