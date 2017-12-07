@@ -1,4 +1,4 @@
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create).
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

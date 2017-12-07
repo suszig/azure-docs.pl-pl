@@ -1,5 +1,5 @@
 
-Polecenie [az webapp create](/cli/azure/webapp#create) umożliwia utworzenie aplikacji w planie usługi App Service `myAppServicePlan`. 
+Polecenie [az webapp create](/cli/azure/webapp#az_webapp_create) umożliwia utworzenie aplikacji w planie usługi App Service `myAppServicePlan`. 
 
 Aplikacja sieci Web udostępnia miejsce na hosting Twojego interfejsu API i zawiera adres URL do wyświetlania wdrożonej aplikacji.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -36,7 +36,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 * [Pytania dotyczące raportów zarządzania hasła](#password-management-reports)
 * [Pytania dotyczące funkcji zapisywania zwrotnego haseł](#password-writeback)
 
-## <a name="password-reset-registration"></a>Rejestracja resetowania haseł
+## <a name="password-reset-registration"></a>Rejestracja w resetowaniu haseł
 
 * **Pytanie: czy Moi użytkownicy rejestrowanie własnych danych resetowania hasła?**
 
@@ -81,6 +81,19 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 
 ## <a name="password-reset"></a>Resetowanie hasła
 
+* **Pytanie: czy można uniemożliwić użytkownikom Resetowanie hasła w krótkim czasie wielu prób?**
+
+  > **Odpowiedź:** tak, są wbudowane w resetowania hasła, aby chronić przed niewłaściwym użyciem funkcje zabezpieczeń. 
+  >
+  > Użytkownicy, można spróbować tylko pięć prób resetowania hasła w ciągu 24 godzin jest zablokowane przez 24 godziny. 
+  >
+  > Użytkownicy mogą próbować sprawdza, czy numer telefonu, Wyślij wiadomość SMS lub zweryfikować pytań zabezpieczających i odpowiedzi tylko pięć razy w ciągu godziny jest zablokowane przez 24 godziny. 
+  >
+  > Użytkownicy mogą wysyłać wiadomości e-mail maksymalnie 10 razy w ciągu 10 minut przed jest zablokowane przez 24 godziny.
+  >
+  > Liczniki są resetowane po użytkownika spowoduje zresetowanie hasła.
+  >
+  >
 * **Pytanie: jak długo należy czekać do odbierania wiadomości e-mail, SMS lub połączeń telefonicznych z resetowania hasła?**
 
   > **Odpowiedź:** wiadomości E-mail, wiadomości SMS i połączeń telefonicznych powinno nastąpić w obszarze minutę. Normalna sytuacja wynosi 5-20 sekund.
@@ -165,11 +178,6 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   > **Odpowiedź:** *N* liczbę pytań zabezpieczających są losowo wybrane poza łączna liczba pytań, użytkownik jest zarejestrowany dla, gdzie *N* jest wartość ustawioną dla  **Liczba pytań wymaganych do zresetowania** opcji. Na przykład jeśli użytkownik został zarejestrowany pięć pytań zabezpieczeń, ale tylko trzy są wymagane, aby zresetować hasło, trzy z pięciu pytania są losowo dobierane i są prezentowane w resetowania. Aby zapobiec pytanie atakowaniu, jeśli użytkownik pobiera odpowiedzi na pytania niewłaściwy procesu wyboru rozpoczyna się za pośrednictwem.
   >
   >
-* **Pytanie: czy można uniemożliwić użytkownikom Resetowanie hasła w krótkim czasie wielu prób?**
-
-  > **Odpowiedź:** tak, są wbudowane w resetowania hasła, aby chronić przed niewłaściwym użyciem funkcje zabezpieczeń. Użytkownicy, można spróbować tylko pięć prób resetowania hasła w ciągu godziny jest zablokowane przez 24 godziny. Użytkownicy mogą próbować sprawdzanie poprawności numeru telefonu tylko pięć razy w ciągu godziny jest zablokowane przez 24 godziny. Użytkownicy można spróbować metodę uwierzytelniania pojedynczego tylko pięć razy w ciągu godziny jest zablokowane przez 24 godziny.
-  >
-  >
 * **Pytanie: jak długo są poczty e-mail i SMS jednorazowe kody dostępu prawidłowy?**
 
   > **Odpowiedź:** okres istnienia sesji do resetowania hasła jest 15 minut. Od początku operacji resetowania hasła użytkownika ma 15 minut do zresetowania swojego hasła. Po tym okresie poczty e-mail i SMS jednorazowy kod dostępu są nieprawidłowe.
@@ -232,7 +240,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   >
   >
 
-## <a name="password-writeback"></a>Zapis zwrotny haseł
+## <a name="password-writeback"></a>Zapisywanie zwrotne haseł
 
 * **Pytanie: jak działa funkcji zapisywania zwrotnego haseł w tle?**
 
@@ -275,7 +283,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
 * [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-* [Masz pytanie licencjonowania?](active-directory-passwords-licensing.md)
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](active-directory-passwords-data.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)

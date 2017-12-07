@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2b873501085ba2d293be564009b5d5daccbf9c1e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Usługa Azure metadanych: Zaplanowanego zdarzenia (wersja zapoznawcza) dla maszyn wirtualnych systemu Windows
 
@@ -86,7 +86,7 @@ Kwerenda usługi metadanych, należy określić nagłówek `Metadata:true` aby u
 Utwórz żądanie zaplanowanego zdarzenia po raz pierwszy Azure niejawnie włączy tę funkcję na maszynie wirtualnej. W związku z tym spodziewać opóźnione odpowiedzi w Twoje pierwsze wywołanie do dwóch minut.
 
 > [!NOTE]
-> Zaplanowane zdarzenia jest automatycznie wyłączana dla usługi, jeśli usługi nie wymagają punkt końcowy 1 dzień. Po wyłączeniu zaplanowane zdarzeń dla usługi nie zostanie zdarzenia utworzone dla obsługi inicjowanych przez użytkownika.
+> Zaplanowane zdarzenia jest automatycznie wyłączana dla usługi, jeśli usługi nie wymagają punkt końcowy 1 dzień. Po wyłączeniu zaplanowane zdarzeń dla usługi nie będą istnieć żadne zdarzenia utworzone dla obsługi inicjowanych przez użytkownika.
 
 ### <a name="user-initiated-maintenance"></a>Konserwacja zainicjowanej przez użytkownika
 Użytkownik zainicjował konserwacji maszyny wirtualnej za pośrednictwem portalu Azure, interfejsu API, interfejsu wiersza polecenia lub środowiska PowerShell powoduje zaplanowane zdarzenie. To umożliwia przetestowanie logiki przygotowania konserwacji w aplikacji oraz umożliwia aplikacji w taki sposób przygotować się do obsługi inicjowanych przez użytkownika.

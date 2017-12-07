@@ -13,109 +13,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 6bb542537ec713be272f7e58e0b247763214ef4a
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="azure-databricks-preview-common-questions-and-help"></a>Azure Databricks w wersji zapoznawczej: Typowe pytania i pomoc
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Często zadawane pytania dotyczące usługi Azure Databricks
 
-W tym artykule wymieniono najczęściej używanych zapytania, które mogą mieć dotyczą Azure Databricks. Zawiera także listę niektórych typowych problemów, które możesz napotkać podczas używania Azure Databricks. Aby uzyskać więcej informacji na Azure Databricks, zobacz [co to jest Azure Databricks?](what-is-azure-databricks.md) 
+W tym artykule wymieniono najważniejszych zapytań, może być związany Azure Databricks. Zawiera także listę niektórych typowych problemów, które mogą mieć podczas używania Databricks. Aby uzyskać więcej informacji, zobacz [co to jest Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="common-questions"></a>Często zadawane pytania
+## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Czy można użyć własnych kluczy szyfrowania lokalnego? 
+W bieżącej wersji za pomocą własnych kluczy z usługi Azure Key Vault jest nieobsługiwane. 
 
-Ta sekcja zawiera często zadawane pytania dotyczące Azure Databricks.
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Z Databricks można używać sieci wirtualnych platformy Azure?
+Nowa sieć wirtualna jest utworzona w ramach Databricks inicjowania obsługi administracyjnej. W tej wersji nie można użyć własnych sieci wirtualnej platformy Azure.
 
-### <a name="can-i-use-my-own-keys-for-local-encryption"></a>Czy można użyć własnych kluczy szyfrowania lokalnego? 
-W bieżącej wersji za pomocą własnych kluczy z Azure Keyvault nie jest obsługiwana. 
+## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Jak dostęp do usługi Azure Data Lake Store z notesu? 
 
-### <a name="can-i-use-azure-vnets-with-azure-databricks"></a>Z Azure Databricks mogą używać sieci wirtualnych platformy Azure?
-Nowej sieci Wirtualnej jest tworzony jako część Azure Databricks inicjowania obsługi administracyjnej. W ramach tej wersji nie można użyć własnych sieci wirtualnej platformy Azure.
-
-### <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Jak dostęp do usługi Azure Data Lake Store z notesu? 
-
-1. W usłudze Azure Active Directory udostępniać nazwy głównej usługi i zarejestrować jego klucza.
-2. Przypisz uprawnienia niezbędne do nazwy głównej usługi w usłudze Azure Data Lake Store.
-3. Aby uzyskać dostęp do plików w usłudze Azure Data Lake Store, Użyj poświadczeń nazwy głównej usługi w Notatniku.
+Wykonaj następujące kroki:
+1. W usłudze Azure Active Directory (Azure AD) udostępnić nazwy głównej usługi i zarejestruj jego klucza.
+2. Przypisz uprawnienia niezbędne do nazwy głównej usługi w usłudze Data Lake Store.
+3. Dostęp do pliku w usłudze Data Lake Store, użyj poświadczenia główne w Notatniku.
 
 Aby uzyskać więcej informacji, zobacz [Użyj Data Lake Store z Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="fix-common-problems"></a>Rozwiązywania typowych problemów
 
-W tej sekcji opisano sposoby rozwiązywania typowych problemów z Azure Databricks.
+Poniżej przedstawiono kilka problemów, które mogą wystąpić z Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problem: Ta subskrypcja nie jest zarejestrowany do korzystania z przestrzeni nazw "Microsoft.Databricks"
+### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Ta subskrypcja nie jest zarejestrowany do korzystania z przestrzeni nazw "Microsoft.Databricks"
 
-**Komunikat o błędzie**
+#### <a name="error-message"></a>Komunikat o błędzie
 
-Ta subskrypcja nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Databricks". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji. (Kod: MissingSubscriptionRegistration)
+"Ta subskrypcja nie jest zarejestrowany do używania przestrzeni nazw"Microsoft.Databricks". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji. (Code: MissingSubscriptionRegistration) "
 
-**Rozwiązania**
+#### <a name="solution"></a>Rozwiązanie
 
-1. Przejdź do [portalu Azure](https://portal.azure.com).
-2. Kliknij przycisk **subskrypcje**, subskrypcji, a następnie kliknij przycisk **dostawców zasobów**. 
-3. Lista dostawców zasobów przed **Microsoft.Databricks**, kliknij przycisk **zarejestrować**. Musi mieć rolę współautora lub właściciela subskrypcji można zarejestrować dostawcy zasobów.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+2. Wybierz **subskrypcje**, subskrypcja jest używany, a następnie **dostawców zasobów**. 
+3. Lista dostawców zasobów przed **Microsoft.Databricks**, wybierz pozycję **zarejestrować**. Musi mieć rolę współautora lub właściciela subskrypcji można zarejestrować dostawcy zasobów.
 
 
-### <a name="issue-your-account-email-does-not-have-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problem: Twoje konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure.
+### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure
 
-**Komunikat o błędzie**
+#### <a name="error-message"></a>Komunikat o błędzie
 
-Konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure. Ten błąd może również wystąpić, jeśli użytkownik-Gość w dzierżawie. Poproś administratora o udzielenie dostępu lub dodanie Ciebie jako użytkownik bezpośrednio w obszarze roboczym Databricks. 
+"Konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure. Ten błąd może również wystąpić, jeśli użytkownik-Gość w dzierżawie. Poproś administratora o udzielenie dostępu lub dodanie Ciebie jako użytkownik bezpośrednio w obszarze roboczym Databricks." 
 
-**Rozwiązania**
+#### <a name="solution"></a>Rozwiązanie
 
 Poniżej przedstawiono kilka rozwiązania tego problemu:
 
-* Inicjowania dzierżawca, musi być zalogowany jako zwykły użytkownik dzierżawy, a nie użytkownika gościa. Rola współautora musi mieć również Databricks zasobu obszaru roboczego. Można udzielić użytkownikowi dostępu z **(IAM) kontroli dostępu** kartę w obszarze roboczym Azure Databricks w portalu Azure.
+* Aby zainicjować dzierżawcy, użytkownik musi zalogować się jako zwykły użytkownik dzierżawy, a nie jako Gość. Rola współautora musi mieć również Databricks zasobu obszaru roboczego. Można udzielić użytkownikowi dostępu z **(IAM) kontroli dostępu** kartę w obszarze roboczym Databricks w portalu Azure.
 
-* Ten błąd może również wystąpić, jeśli nazwy domeny poczty e-mail jest przypisany do wielu usług Active Directory. Aby obejść ten problem, należy utworzyć nowego użytkownika w usłudze Active Directory zawierającą subskrypcji z obszaru roboczego Databricks.
+* Ten błąd może również wystąpić, jeśli nazwy domeny poczty e-mail jest przypisany do wielu katalogów w usłudze Azure AD. Aby obejść ten problem, należy utworzyć nowego użytkownika w katalogu, który zawiera subskrypcji z obszaru roboczego Databricks.
 
-    a. W portalu Azure, przejdź do usługi Azure Active Directory, kliknij przycisk **użytkowników i grup**, kliknij przycisk **dodać użytkownika**.
+    a. W portalu Azure przejdź do usługi Azure AD. Wybierz **użytkowników i grup** > **dodać użytkownika**.
 
-    b. Dodaj użytkownika z `@<tenant_name>.onmicrosoft.com` e-mail zamiast @< format domena_użytkownika > wiadomości e-mail. Można znaleźć < nazwa_dzierżawy >. onmicrosoft.com skojarzone z usługi Active Directory w **domen niestandardowych** w usłudze Azure Active Directory w portalu Azure.
+    b. Dodaj użytkownika z `@<tenant_name>.onmicrosoft.com` e-mail zamiast `@<your_domain>` wiadomości e-mail. Można je znaleźć w **domen niestandardowych**, w obszarze usługi Azure AD w portalu Azure.
     
     c. Przyznaj tym nowego użytkownika **współautora** roli Databricks zasobu obszaru roboczego.
     
-    d. Zaloguj się do portalu Azure przy użyciu nowego użytkownika i Znajdź obszar roboczy Databricks.
+    d. Zaloguj się do portalu Azure za pomocą nowego użytkownika, a następnie znajdź obszar roboczy Databricks.
     
     e. Uruchom obszaru roboczego Databricks jako ten użytkownik.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problem: Twoje konto {e-mail} nie została zarejestrowana w Databricks 
+### <a name="your-account-email-has-not-been-registered-in-databricks"></a>Konto {e-mail} nie został zarejestrowany w Databricks 
 
-**Rozwiązania**
+#### <a name="solution"></a>Rozwiązanie
 
-Jeśli nie może utworzyć obszaru roboczego są dodawane jako użytkownik obszaru roboczego, skontaktuj się z osobą, utworzony obszar roboczy, aby dodać użytkownika za pomocą konsoli administracyjnej Databricks Azure. Aby uzyskać instrukcje, zobacz [Dodawanie i zarządzanie użytkownikami](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Jeśli utworzono obszar roboczy i nadal ten błąd, spróbuj ponowne kliknięcie "Zainicjować obszaru roboczego" z portalu Azure.
+Jeśli nie może utworzyć obszaru roboczego i są dodawane jako użytkownik, skontaktuj się z osobą, która utworzyła obszaru roboczego. Mieć tej osoby, które można dodać przy użyciu konsoli administracyjnej Databricks Azure. Aby uzyskać instrukcje, zobacz [Dodawanie i zarządzanie użytkownikami](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Jeśli utworzono obszar roboczy i nadal ten błąd, spróbuj wybrać **zainicjować obszaru roboczego** ponownie z portalu Azure.
 
-### <a name="issue-cloud-provider-launch-failure-publicipcountlimitreached-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Problem: Chmury uruchamianie błąd dostawcy (PublicIPCountLimitReached): Napotkano błąd dostawcy chmury podczas konfigurowania klastra
+### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Błąd uruchamiania dostawcy usług w chmurze podczas konfigurowania klastra
 
-**Komunikat o błędzie**
+#### <a name="error-message"></a>Komunikat o błędzie
 
-Błąd uruchamiania dostawcy chmury: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji. Kod błędu systemu Azure: PublicIPCountLimitReached. Komunikat o błędzie platformy Azure: nie można utworzyć więcej niż 60 publicznych adresów IP dla tej subskrypcji w tym regionie.
+"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji. Kod błędu systemu Azure: PublicIPCountLimitReached. Komunikat o błędzie platformy Azure: nie można utworzyć więcej niż 60 publicznych adresów IP dla tej subskrypcji w tym regionie. "
 
-**Rozwiązania**
+#### <a name="solution"></a>Rozwiązanie
 
-Azure klastrom Databricks jeden publiczny adres IP na węzeł. Jeśli subskrypcja jest już używana wszystkich swoich publicznych adresów IP, należy [żądania, aby zwiększyć przydział](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Wybierz **przydziału** jako **typu problemu**, **sieci: ARM** jako **typu przydziału**i poproś o zwiększenie limitu przydziału publicznego adresu IP  **Szczegóły**. Na przykład, jeśli limit jest obecnie 60 i chcesz utworzyć 100 węzła klastra, aby 160 zwiększenia limitu.
+Dzięki klastrom Databricks jeden publiczny adres IP na węzeł. Jeśli subskrypcja jest już używana wszystkich swoich publicznych adresów IP, należy [żądania, aby zwiększyć przydział](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Wybierz **przydziału** jako **wydawania typu**, i **sieci: ARM** jako **typu przydziału**. W **szczegóły**, zażądać zwiększenia limitu przydziału publicznego adresu IP. Na przykład jeśli limit jest obecnie 60, a ma zostać utworzony 100 węzła klastra, zażądać zwiększenia limitu do 160.
 
-### <a name="issue-cloud-provider-launch-failure-missingsubscriptionregistration-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Problem: Chmury uruchamianie błąd dostawcy (MissingSubscriptionRegistration): Napotkano błąd dostawcy chmury podczas konfigurowania klastra
+### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Drugi typ błąd uruchamiania dostawcy chmury podczas konfigurowania klastra
 
-**Komunikat o błędzie**
+#### <a name="error-message"></a>Komunikat o błędzie
 
-Błąd uruchamiania dostawcy chmury: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji.
-Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRegistration Azure: subskrypcji nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Compute". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji
+"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji.
+Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRegistration Azure: subskrypcji nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Compute". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji."
 
-**Rozwiązania**
+#### <a name="solution"></a>Rozwiązanie
 
-1. Przejdź do [portalu Azure](https://portal.azure.com).
-2. Kliknij przycisk **subskrypcje**, subskrypcji, a następnie kliknij przycisk **dostawców zasobów**. 
-3. Lista dostawców zasobów przed **Microsoft.Compute**, kliknij przycisk **zarejestrować**. Musi mieć rolę współautora lub właściciela subskrypcji można zarejestrować dostawcy zasobów.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+2. Wybierz **subskrypcje**, subskrypcja jest używany, a następnie **dostawców zasobów**. 
+3. Lista dostawców zasobów przed **Microsoft.Compute**, wybierz pozycję **zarejestrować**. Musi mieć rolę współautora lub właściciela subskrypcji można zarejestrować dostawcy zasobów.
 
-Zobacz [dostawców zasobów i typów](../azure-resource-manager/resource-manager-supported-services.md) Aby uzyskać szczegółowe instrukcje.
+Aby uzyskać szczegółowe instrukcje, zobacz [dostawców zasobów i typów](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać instrukcje krok po kroku można utworzyć fabryki danych w wersji 2 zobacz następujące samouczki:
 
 - [Szybki Start: Rozpoczynanie pracy z Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Co to jest Azure Databricks?](what-is-azure-databricks.md)

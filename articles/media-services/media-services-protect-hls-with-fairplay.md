@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Ochrona programu HLS zawartości z FairPlay firmy Apple lub Microsoft PlayReady
 Usługa Azure Media Services umożliwia dynamicznego szyfrowania zawartości HTTP Live Streaming (HLS) przy użyciu następujących formatów:  
@@ -33,12 +33,12 @@ Usługa Azure Media Services umożliwia dynamicznego szyfrowania zawartości HTT
 
 Poniższy obraz przedstawia **HLS + FairPlay lub PlayReady szyfrowania dynamicznego** przepływu pracy.
 
-![Diagram przepływu pracy szyfrowania dynamicznego](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram przepływu pracy szyfrowania dynamicznego](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-W tym temacie przedstawiono sposób korzystania z usługi Media Services do dynamicznego szyfrowania zawartości HLS przy użyciu FairPlay firmy Apple. Ponadto sposobu korzystania z usługi dostarczania licencji Media Services dostarczać licencje FairPlay do klientów.
+W tym artykule przedstawiono sposób korzystania z usługi Media Services do dynamicznego szyfrowania zawartości HLS przy użyciu FairPlay firmy Apple. Ponadto sposobu korzystania z usługi dostarczania licencji Media Services dostarczać licencje FairPlay do klientów.
 
 > [!NOTE]
-> Jeśli chcesz także do szyfrowania treści HLS za pomocą PlayReady, należy utworzyć wspólny klucz zawartości i powiązać ją z zawartości. Należy również skonfigurować zasady autoryzacji klucza zawartości, zgodnie z opisem w [za pomocą PlayReady, dynamicznego szyfrowania common encryption](media-services-protect-with-drm.md).
+> Jeśli chcesz także do szyfrowania treści HLS za pomocą PlayReady, należy utworzyć wspólny klucz zawartości i powiązać ją z zawartości. Należy również skonfigurować zasady autoryzacji klucza zawartości, zgodnie z opisem w [za pomocą PlayReady, dynamicznego szyfrowania common encryption](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ Po stronie klucza dostawy Media Services musi być ustawione następujące czynn
         Przejdź do folderu, w których są certyfikatu FairPlay i inne pliki dostarczane przez firmę Apple.
     2. W wierszu polecenia uruchom następujące polecenie. Plik .cer to konwertuje plik PEM.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informuje der — w fairplay.cer-out fairplay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informuje der — w FairPlay.cer-out FairPlay out.pem
     3. W wierszu polecenia uruchom następujące polecenie. Plik PEM to konwertuje do pliku .pfx z kluczem prywatnym. Biblioteki OpenSSL następnie o hasło pliku pfx.
 
-        Pkcs12 "C:\OpenSSL-Win32\bin\openssl.exe"-Eksportowanie — limit fairplay out.pfx-inkey privatekey.pem — w file:privatekey-pem-pass.txt - passin fairplay out.pem
+        Pkcs12 "C:\OpenSSL-Win32\bin\openssl.exe"-Eksportowanie — limit FairPlay out.pfx-inkey privatekey.pem — w file:privatekey-pem-pass.txt - passin FairPlay out.pem
   * **Hasło certyfikatu aplikacji**: hasło do utworzenia pliku .pfx.
   * **Identyfikator hasła aplikacji Cert**: musisz przekazać hasła, podobnie jak ich przekazać kluczy usługi Media Services. Użyj **ContentKeyType.FairPlayPfxPassword** wartości wyliczenia, aby uzyskać nazwę usługi multimediów. Jest to, muszą zostać użyty w opcji zasad klucza dostawy.
   * **IV**: jest to wartość losowe 16 bajtów. Musi on być zgodny z iv w zasad dostarczania elementów zawartości. Generowanie iv i umieszcza je w obu miejscach: zasady dostarczania elementu zawartości i opcji zasad klucza dostawy.
-  * **Poproś**: ten klucz jest odebrane podczas generowania certyfikacji za pomocą portalu dla deweloperów firmy Apple. Każdy zespół deweloperów otrzyma unikatowy poproś. Zapisz kopię ZADAJ i przechowuj go w bezpiecznym miejscu. Należy skonfigurować poproś jako FairPlayAsk usługą Media Services.
+  * **Poproś**: ten klucz jest odebrane podczas generowania certyfikacji za pomocą portalu dla deweloperów firmy Apple. Każdy zespół deweloperów otrzymuje unikatowy poproś. Zapisz kopię ZADAJ i przechowuj go w bezpiecznym miejscu. Należy skonfigurować poproś jako FairPlayAsk usługą Media Services.
   * **Poproś identyfikator**: ten identyfikator jest uzyskiwany podczas przekazywania poproś do usługi Media Services. Należy przekazać poproś przy użyciu **ContentKeyType.FairPlayAsk** wartości wyliczenia. W rezultacie identyfikator usług Media jest zwracane, a jest przeznaczenia, ustawiając opcję zasady dostarczania klucza.
 
 Po stronie klienta kl. / s musi być ustawione następujące czynności:
@@ -125,7 +125,7 @@ Można programować aplikacje player przy użyciu zestawu SDK dla systemu iOS. M
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player nie obsługuje odtwarzania FairPlay poza pole. Uzyskanie odtwarzania FairPlay w systemie MAC OS X, uzyskać player próbki z konta dewelopera firmy Apple.
+> Azure Media Player obsługuje FairPlay odtwarzania. Zobacz [dokumentacji usługi Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) Aby uzyskać więcej informacji.
 >
 >
 
@@ -157,7 +157,7 @@ W poniższym przykładzie pokazano możliwość używania usługi Media Services
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [to](media-services-dotnet-manage-entities.md#limit-access-policies) artykułu.
 
 Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 

@@ -139,7 +139,7 @@ Maszyny wirtualne platformy Azure, zestawy skalowania maszyny wirtualnej, partii
 * [Magazyn plików](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dane i analiza
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) klastrów platformy Hadoop w systemie Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) klastrów platformy Hadoop w systemie Azure
 * [Fabryka danych](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

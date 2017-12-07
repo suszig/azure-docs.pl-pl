@@ -38,7 +38,7 @@
 #### [Wdrażanie zasobów](resource-group-template-deploy-portal.md)
 #### [Eksportowanie szablonu](resource-manager-export-template.md)
 ### [Interfejs API REST](resource-group-template-deploy-rest.md)
-### [Wdrażanie krzyżowe w grupach zasobów](resource-manager-cross-resource-group-deployment.md)
+### [Wiele grup zasobów lub subskrypcji](resource-manager-cross-resource-group-deployment.md)
 ### [Ciągła integracja z usługą Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Przekazywanie bezpiecznych wartości podczas wdrażania](resource-manager-keyvault-parameter.md)
 

@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Zarządzanie aktualizacjami w stosie Azure — omówienie
 
 *Dotyczy: Azure stosu zintegrowane systemy*
 
-Firma Microsoft będzie udostępniać pakietów aktualizacji dla stosu Azure zintegrowanych systemów na bieżąco. Każde wydanie aktualizacji oprogramowania firmy Microsoft jest powiązane jako jedna aktualizacja pakietu. Jako operator stosu Azure można łatwo importować, instalacji i Monitoruj postęp instalacji tych aktualizacji pakietów z portalu administratora. 
+Firma Microsoft będzie udostępniać pakietów aktualizacji dla systemów stosu Azure zintegrowane w regularnych okresach, który będzie zazwyczaj dzielą czwarty wtorek każdego miesiąca, zaczynając od ogólnej dostępności. Poproś o ich procesu określonych powiadomień, aby zapewnić reach powiadomienia o aktualizacji organizacji OEM lub sprawdź, w tym miejscu w systemach notes\Integrated Concepts\Release informacje o wersji, aby uzyskać więcej informacji na temat określonych wersji.
+
+Każde wydanie aktualizacji oprogramowania firmy Microsoft jest powiązane jako jedna aktualizacja pakietu. Jako operator stosu Azure można łatwo importować, instalacji i Monitoruj postęp instalacji tych aktualizacji pakietów z portalu administratora. 
 
 Dostawca sprzętu producenta sprzętu (OEM) zostanie również zwolnić aktualizacji, na przykład aktualizacje sterowników i oprogramowania układowego. Te aktualizacje są dostarczane jako osobne pakiety przez producenta OEM komputera i są zarządzane oddzielnie z usługi Microsoft updates.
 

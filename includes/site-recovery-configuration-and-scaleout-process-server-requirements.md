@@ -13,7 +13,7 @@
 | Zasady grupy| Następujące zasady grupy nie powinna być włączona na serwerze <br> -Uniemożliwić dostęp do wiersza polecenia <br> -Uniemożliwić dostęp do narzędzia do edycji rejestru <br> — Logika zaufania dla załączników plików <br> -Włącz wykonywanie skryptu <br> **Uwaga:** można znaleźć więcej informacji na temat tych zasad grupy [tutaj](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
 | Konfiguracja Service(IIS) informacji Internet | -Brak istniejącego domyślnej witryny sieci Web <br> -Włącz [uwierzytelnianie anonimowe](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Włącz [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) ustawienie  <br> -Brak istniejącego websit/aplikacja nie powinna nasłuchu na porcie 443<br>|
 | **Sieć** | |
-| Typ karty interfejsu sieciowego | VMXNET3 |
+| Typ karty interfejsu sieciowego | VMXNET3 (jeśli są wdrażane jako maszyny wirtualnej VMware) |
 | Typ adresu IP | Statyczny |
 | Dostęp do Internetu | Serwer powinien być w stanie uzyskać dostęp do następujących adresów URL, bezpośrednio lub za pośrednictwem serwera proxy: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (nie jest to wymagane w przypadku serwerów przetwarzania używanych do skalowania w poziomie) <br> - time.nist.gov <br> - time.windows.com |
 | Porty | 443 (organizowanie kanału sterowania)<br>9443 (transport danych)|

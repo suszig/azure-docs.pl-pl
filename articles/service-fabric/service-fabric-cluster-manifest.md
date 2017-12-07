@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Ustawienia konfiguracji dla autonomicznych klastra systemu Windows
-W tym artykule opisano sposób konfigurowania klastra usługi sieć szkieletowa usług Azure autonomiczny przy użyciu pliku pliku ClusterConfig.JSON. Ten plik służy do określenia informacje, takie jak węzłów sieci szkieletowej usług i ich adresów IP i różne typy węzłów w klastrze. Można również określić konfiguracji zabezpieczeń, a także topologii sieci pod względem błędów/uaktualnienia domen dla klastra autonomicznych.
+W tym artykule opisano sposób konfigurowania klastra usługi sieć szkieletowa usług Azure autonomiczny przy użyciu pliku pliku ClusterConfig.json. Aby podać informacje o węzłach klastra, konfiguracjach zabezpieczeń, a także topologii sieci w domenach awarii i uaktualniania użyjesz tego pliku.
 
-Gdy można [Pobierz autonomiczny pakiet sieci szkieletowej usług](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), na komputerze pracy są pobierane kilka przykładów pliku pliku ClusterConfig.JSON. Przykłady, które mają w nazwach DevCluster ułatwiają tworzenie klastra z wszystkich trzech węzłów na tym samym komputerze, takich jak logicznej węzłów. Spoza tych węzłach co najmniej jeden musi być oznaczona jako węzła podstawowego. Ten klaster jest przydatne w środowisku deweloperskich lub testowania. Nie jest obsługiwany jako klastra produkcyjnego. Przykłady, które mają w nazwach MultiMachine ułatwiają tworzenie klastrze wysokiej jakości z każdego węzła na osobnym komputerze fizycznym. Liczba węzłów głównej dla tych klastrach opiera się na [poziom niezawodności](#reliability). W wersji 5.7 wersja interfejsu API 2017 05 firma Microsoft usunęła właściwości poziomu niezawodności. Zamiast tego naszego kodu oblicza poziomu niezawodności najbardziej zoptymalizowane dla klastra. Nie należy używać tej właściwości kod wersji 5.7 lub nowszej wersji.
+Gdy możesz [Pobierz autonomiczny pakiet sieci szkieletowej usług](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), uwzględniane są również próbek w pliku ClusterConfig.json. Przykłady, które mają w nazwach "DevCluster" Tworzenie klastra z wszystkich trzech węzłów na tym samym komputerze, używając węzłów logiczne. Spoza tych węzłach co najmniej jeden musi być oznaczona jako węzła podstawowego. Ten typ klastra jest przydatne w przypadku środowisk deweloperskich lub testowania. Nie jest obsługiwany jako klastra produkcyjnego. Przykłady, które mają w nazwach "MultiMachine" utworzenia produkcji klastrów klasy z każdego węzła na osobnym komputerze fizycznym. Liczba węzłów głównej dla tych klastrach opiera się na klastra [poziom niezawodności](#reliability). W wersji 5.7, wersja interfejsu API 05 2017, firma Microsoft usunęła właściwości poziomu niezawodności. Zamiast tego naszego kodu oblicza poziomu niezawodności najbardziej zoptymalizowane dla klastra. Nie należy ustawić wartość tej właściwości w wersji 5.7 lub nowszej.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON i ClusterConfig.Unsecure.MultiMachine.JSON pokazują, jak utworzyć odpowiednio niezabezpieczona testu lub klastra produkcyjnego.
+* ClusterConfig.Unsecure.DevCluster.json i ClusterConfig.Unsecure.MultiMachine.json pokazują, jak utworzyć odpowiednio niezabezpieczona testu lub klastra produkcyjnego.
 
-* ClusterConfig.Windows.DevCluster.JSON i ClusterConfig.Windows.MultiMachine.JSON pokazują, jak utworzyć klastry testowym lub produkcyjnym, które są zabezpieczone za pomocą [zabezpieczenia systemu Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json i ClusterConfig.Windows.MultiMachine.json pokazują, jak utworzyć klastry testowym lub produkcyjnym, które są zabezpieczone za pomocą [zabezpieczenia systemu Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON i ClusterConfig.X509.MultiMachine.JSON pokazują, jak utworzyć klastry testowym lub produkcyjnym, które są zabezpieczone za pomocą [X509 zabezpieczeń oparte na certyfikatach](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json i ClusterConfig.X509.MultiMachine.json pokazują, jak utworzyć klastry testowym lub produkcyjnym, które są zabezpieczone za pomocą [X509 zabezpieczeń oparte na certyfikatach](service-fabric-windows-cluster-x509-security.md).
 
-Teraz Przeanalizujmy różnych sekcji pliku pliku ClusterConfig.JSON.
+Teraz Przeanalizujmy różnych sekcji pliku pliku ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Konfiguracje klastrów ogólne
 Konfiguracje klastrów ogólne obejmują szeroki konfiguracji specyficznych dla klastra, jak pokazano w poniższy fragment kodu JSON:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Nadaj z żadnych przyjazną nazwę do klastra usługi sieć szkieletowa, przypisując do nazwy zmiennej. ClusterConfigurationVersion jest numer wersji klastra. Powinna ona być za każdym razem, gdy uaktualniania klastra sieci szkieletowej usług. Pozostaw apiVersion zestawu do wartości domyślnej.
 
+## <a name="nodes-on-the-cluster"></a>Węzły w klastrze
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Węzły w klastrze
 Węzły w klastrze usługi sieć szkieletowa można skonfigurować przy użyciu sekcji węzłów poniższy fragment kodu przedstawia:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Klaster sieci szkieletowej usług musi zawierać co najmniej trzy węzły. Zgodn
 | upgradeDomain |Domen uaktualnienia opisano zestaw węzłów, które są wyłączone uaktualnienia sieci szkieletowej usług na o tym samym czasie. Węzły, które można przypisać do uaktualnienia domen, można wybrać, ponieważ nie są ograniczeni żadnych fizyczne wymagania. |
 
 ## <a name="cluster-properties"></a>Właściwości klastra
-Sekcja właściwości w pliku ClusterConfig.JSON służy do konfigurowania klastra, jak pokazano:
-
-    <a id="reliability"></a>
+Sekcja właściwości w pliku ClusterConfig.json służy do konfigurowania klastra, jak pokazano:
 
 ### <a name="reliability"></a>Niezawodność
 Pojęcie reliabilityLevel definiuje liczbę replik lub wystąpień usług systemowych sieci szkieletowej usług, które można uruchamiać na głównej węzłów klastra. Określa niezawodności tych usług i tym samym klastrze. Wartość jest obliczana przez system podczas tworzenia i uaktualniania klastra.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostyka
 W sekcji diagnosticsStore można skonfigurować parametry, aby włączyć diagnostykę i rozwiązywanie problemów z awarii węzła lub klastra, jak pokazano w poniższy fragment kodu: 
@@ -119,9 +122,10 @@ Sekcja zabezpieczeń jest niezbędne do bezpiecznego autonomicznej klastra sieci
 
 Metadane jest opis bezpiecznego klastra i można ustawić zgodnie z konfiguracji. ClusterCredentialType i ServerCredentialType określają typ zabezpieczeń, który implementuje klastra oraz węzłów. Mogą być ustawione jako *X509* dla zabezpieczenia oparte na certyfikatach lub *Windows* dla zabezpieczeń opartych na usłudze Azure Active Directory. Pozostała część sekcji zabezpieczeń jest oparty na typie zabezpieczeń. Uzyskać informacji na temat sposobu wypełniania pozostałej części sekcji zabezpieczeń, zobacz [zabezpieczenia oparte na certyfikaty w klastrze autonomiczny](service-fabric-windows-cluster-x509-security.md) lub [zabezpieczenia systemu Windows w klastrze autonomiczny](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Typy węzłów
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Typy węzłów
 W sekcji elementów NodeType opisuje typ węzłów, które ma w klastrze. Należy określić typ co najmniej jeden węzeł klastra, jak pokazano w poniższy fragment kodu: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Aby włączyć obsługę kontenera kontenery systemu Windows Server i konteneram
 
 
 ## <a name="next-steps"></a>Następne kroki
-Po pełny plik pliku ClusterConfig.JSON skonfigurowany zgodnie z autonomicznej ustawień klastra, można wdrożyć klaster. Postępuj zgodnie z instrukcjami [tworzenia klastra usługi sieć szkieletowa autonomiczny](service-fabric-cluster-creation-for-windows-server.md). Następnie przejdź do [wizualizowanie klastra za pomocą Eksploratora usługi sieć szkieletowa](service-fabric-visualizing-your-cluster.md) i postępuj zgodnie z instrukcjami.
+Po pełny plik pliku ClusterConfig.json skonfigurowany zgodnie z autonomicznej ustawień klastra, można wdrożyć klaster. Postępuj zgodnie z instrukcjami [tworzenia klastra usługi sieć szkieletowa autonomiczny](service-fabric-cluster-creation-for-windows-server.md). Następnie przejdź do [wizualizowanie klastra za pomocą Eksploratora usługi sieć szkieletowa](service-fabric-visualizing-your-cluster.md) i postępuj zgodnie z instrukcjami.
 

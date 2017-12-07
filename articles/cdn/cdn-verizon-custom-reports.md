@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Raporty niestandardowe from Verizon
 
@@ -30,7 +30,7 @@ Za pomocą raportów niestandardowych Verizon za pośrednictwem portalu zarządz
 ## <a name="accessing-verizon-custom-reports"></a>Uzyskiwanie dostępu do raportów niestandardowych Verizon
 1. Blok profilu CDN, kliknij **Zarządzaj** przycisku.
    
-    ![Przycisk Zarządzaj blok profilu CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Przycisk Zarządzaj profil CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     Zostanie otwarty w portalu zarządzania usługi CDN.
 2. Umieść kursor nad **Analytics** , a następnie umieść kursor nad **raporty niestandardowe** wysuwane okno. Kliknij przycisk **krawędzi CNAME**.
@@ -74,10 +74,10 @@ Można eksportować dane w formacie programu Excel, klikając symbol programu Ex
 | 4xx                       | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) krawędzi CNAME, który daje 4xx kod stanu HTTP (na przykład 400 Nieprawidłowe żądanie, 403 Forbidden lub 404 Nie znaleziono). |
 | 5xx                       | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) Edge CNAME, który daje kod stanu HTTP 5xx (na przykład, 500 Wewnętrzny błąd serwera lub bramy zły 502). |
 | Procent trafień w pamięci podręcznej               | Wskazuje procent buforowalnej żądań, które były przekazywane bezpośrednio z pamięci podręcznej do zleceniodawcy. |
-| Trafień w pamięci podręcznej                | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) krawędzi CNAME, który daje w trafienie pamięci podręcznej (na przykład TCP_EXPIRED_HIT, TCP_HIT lub TCP_PARTIAL_HIT). Trafienie w pamięci podręcznej występuje, gdy zostanie znaleziony wersja buforowana żądanej zawartości. |
+| Trafienia w pamięci podręcznej                | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) krawędzi CNAME, który daje w trafienie pamięci podręcznej (na przykład TCP_EXPIRED_HIT, TCP_HIT lub TCP_PARTIAL_HIT). Trafienie w pamięci podręcznej występuje, gdy zostanie znaleziony wersja buforowana żądanej zawartości. |
 | Przesyłane dane (MB)     | Wskazuje łączną ilość danych przesyłanych (MB) z serwerów krawędzi do klientów HTTP (przeglądarki sieci web) Edge CNAME. Ilość danych przesyłanych jest obliczana przez dodawanie nagłówków odpowiedzi HTTP do treści odpowiedzi. W związku z tym ilość danych przesyłanych za każdy zasób jest większa niż jego bieżący rozmiar pliku. |
 | Opis               | Identyfikuje krawędzi CNAME według jego nazwy hosta |
-| Liczba trafień                      | Całkowita liczba żądań do krawędzi CNAME wskazuje |
+| Trafienia                      | Całkowita liczba żądań do krawędzi CNAME wskazuje |
 | Chybienia                    | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) krawędzi CNAME, który powoduje Chybienie pamięci podręcznej, (na przykład TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS lub TCP_MISS). Chybienia pamięci podręcznej występuje, gdy żądana zawartość nie jest buforowana na serwerze krawędzi, który honorowane żądania. | 
 | Brak pamięci podręcznej                  | Wskazuje całkowitą liczbę żądań lub transferu danych (MB) krawędzi CNAME, który daje kod stanu CONFIG_NOCACHE pamięci podręcznej.  |
 | Inne                     | Wskazuje całkowitą liczbę żądań lub dane wskazane przekazanych (MB) Edge CNAME powoduje kod stanu HTTP, która wykracza poza 2xx — 5xx zakresu. |

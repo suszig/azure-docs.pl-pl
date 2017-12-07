@@ -26,7 +26,7 @@ Aby rozpocząć korzystanie z magazynu Premium [utworzyć bezpłatne konto platf
 Aby uzyskać informacje na temat migracji istniejących maszyn wirtualnych do magazyn w warstwie Premium, zobacz [Konwertuj Maszynę wirtualną systemu Windows z dysków niezarządzanych do zarządzanych dysków](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) lub [Konwertuj Maszynę wirtualną systemu Linux z dysków niezarządzanych do zarządzanych dysków](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Magazyn w warstwie Premium jest dostępna w większości regionów. Lista dostępnych regionów w [usług Azure według regionu](https://azure.microsoft.com/regions/#services), obejrzyj regionów, w których obsługiwane maszyny wirtualne z serii rozmiar pomocy technicznej Premium (serii DS, DSV2 serii GS-series i Fs serii maszyn wirtualnych) są obsługiwane.
+> Magazyn w warstwie Premium jest dostępna w większości regionów. Aby uzyskać listę dostępnych regionów, zobacz wiersz **Magazyn dyskowy** w [produkty Azure dostępne według regionu](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Funkcje

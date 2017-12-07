@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Użyć niestandardowego obrazu Docker dla aplikacji sieci Web dla kontenerów
 
@@ -84,7 +84,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 Polecenie generuje dane wyjściowe podobne do następujących:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -130,7 +130,7 @@ Rejestr jest aplikacja, która przechowuje obrazów i udostępnia obrazu i konte
 
 Centrum docker to rejestru Docker obrazów, który umożliwia hostowanie własne repozytoriach publicznych lub prywatnych. Aby wypchnąć niestandardowego obrazu Docker do Centrum Docker publiczny, należy użyć [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) poleceń i podaj nazwę pełnego obrazu i tagów. Nazwa pełnego obrazu i tagu wygląda w poniższym przykładzie:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -143,12 +143,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 Komunikat "logowanie zakończyło się pomyślnie." potwierdza, że użytkownik jest zalogowany. Po zalogowaniu, możesz wypchnąć obrazu przy użyciu Centrum Docker [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) polecenia.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Upewnij się, że wypychania zakończyło się pomyślnie, sprawdzając polecenia danych wyjściowych.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -279,7 +279,7 @@ SSH umożliwia bezpiecznej komunikacji między kontenerem klientem. Aby Docker o
     > [!NOTE]
     > Ta konfiguracja nie zezwala na połączenia zewnętrzne do kontenera. SSH jest dostępna tylko za pośrednictwem witryny Kudu/SCM. Witryna Kudu/SCM jest uwierzytelniany przy użyciu poświadczeń publikowania.
 
-* A [KOPIOWANIA](https://docs.docker.com/engine/reference/builder/#copy) instrukcji, która sprawia, że aparat Docker można skopiować [sshd_config](http://man.openbsd.org/sshd_config) pliku */itp/ssh/* katalogu. Plik konfiguracji powinny być oparte na [ten plik sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* A [KOPIOWANIA](https://docs.docker.com/engine/reference/builder/#copy) instrukcji, która sprawia, że aparat Docker można skopiować [sshd_config](http://man.openbsd.org/sshd_config) pliku */itp/ssh/* katalogu. Plik konfiguracji powinny być oparte na [ten plik sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -314,7 +314,7 @@ top
 
 `top` Polecenie przedstawia wszystkich procesów uruchomionych w kontenerze.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -343,7 +343,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Polecenie ujawnia dane wyjściowe podobne do następującego ciągu JSON, pokazujący, że zmiana konfiguracji zakończyło się pomyślnie:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -383,7 +383,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Utworzenie kontenera tworzy następujące dane wyjściowe:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -447,6 +447,12 @@ Upewnij się, że nazwa logowania zakończyła się pomyślnie.
 
 ### <a name="push-an-image-to-azure-container-registry"></a>Wypychanie obrazu do rejestru kontenera platformy Azure
 
+> [!NOTE]
+> Jeśli korzystasz z własnego obrazu, tag obrazu w następujący sposób:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Wypychanie obrazu przy użyciu `docker push` polecenia. Tag obrazu o nazwie rejestru, następuje swoją nazwę obrazu i tagów.
 
 ```bash
@@ -493,7 +499,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-W powłoce chmury Uruchom [zestaw kontenera konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/container#az_webapp_config_container_set) polecenie, aby przypisać niestandardowego obrazu Docker do aplikacji sieci web. Zastąp  *\<nazwa_aplikacji >*,  *\<docker rejestru server-url >*, _< rejestru username >_, i  _<password>_ . Do rejestru kontenera platformy Azure  *\<docker rejestru server-url >* jest w formacie `https://<azure-container-registry-name>.azurecr.io`. 
+W powłoce chmury Uruchom [zestaw kontenera konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/container#az_webapp_config_container_set) polecenie, aby przypisać niestandardowego obrazu Docker do aplikacji sieci web. Zastąp  *\<nazwa_aplikacji >*,  *\<docker rejestru server-url >*,  _\<rejestru username >_i  _\<hasło >_. Do rejestru kontenera platformy Azure  *\<docker rejestru server-url >* jest w formacie `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -505,7 +511,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Polecenie ujawnia dane wyjściowe podobne do następującego ciągu JSON, pokazujący, że zmiana konfiguracji zakończyło się pomyślnie:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
@@ -534,4 +540,5 @@ Polecenie ujawnia dane wyjściowe podobne do następującego ciągu JSON, pokazu
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Usługa aplikacji Azure w systemie Linux — często zadawane pytania](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Tworzenie aplikacji sieci web Docker Python i PostgreSQL na platformie Azure](tutorial-docker-python-postgresql-app.md)

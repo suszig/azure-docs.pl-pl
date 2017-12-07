@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilowanie konfiguracji DSC automatyzacji Azure
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Aby dowiedzieć się, jak przekazywanie PSCredentials jako parametrów, zobacz <a href="#credential-assets"> **zasoby poświadczeń** </a> poniżej.
+
+## <a name="composite-resources"></a>Złożone zasobów
+
+**Złożone zasobów** umożliwiają używanie konfiguracji DSC jako zagnieżdżonych zasobów w ramach konfiguracji.  Dzięki temu można zastosować konfiguracji z wieloma do pojedynczego zasobu.  Zobacz [zasobów złożonego: przy użyciu konfiguracji DSC jako zasób](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) Aby dowiedzieć się więcej o **złożonego zasobów**
+
+> [!NOTE]
+> Aby **złożonego zasobów** skompilować poprawnie, należy najpierw upewnić czy wszystkie zasoby DSC, które złożone opiera się na pierwszej instalacji w repozytorium modułów konto usługi Automatyzacja Azure lub nie zostanie prawidłowo zaimportować.
+
+Aby dodać DSC **złożonego zasobów**, należy dodać moduł zasobów do archiwum (* .zip). Przejdź do repozytorium modułów na Twoje konto usługi Automatyzacja Azure.  Kliknij przycisk "Dodaj moduł".
+
+![Dodaj moduł](./media/automation-dsc-compile/add_module.png)
+
+Przejdź do katalogu, w którym znajduje się archiwum.  Wybierz plik archiwum, a następnie kliknij przycisk OK.
+
+![Wybierz moduł](./media/automation-dsc-compile/select_dscresource.png)
+
+Następnie nastąpi powrót do katalogu moduły, w którym można monitorować stan programu **złożonego zasobów** podczas wypakowuje rejestruje w usłudze Automatyzacja Azure.
+
+![Importuj zasób złożone](./media/automation-dsc-compile/register_composite_resource.png)
+
+Po zarejestrowaniu modułu można następnie kliknięciu go, aby sprawdzić, czy **złożonego zasobów** są teraz dostępne do użycia w konfiguracji.
+
+![Sprawdź poprawność złożonego zasobów](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Następnie można wywołać **złożonego zasobów** do konfiguracji w następujący sposób:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** umożliwia rozdzielenie strukturalnych konfiguracji z dowolnym środowisku określonej konfiguracji podczas korzystania z usługi Konfiguracja DSC środowiska PowerShell. Zobacz [oddzielenie "Co" od "Where" w konfiguracji DSC środowiska PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) Aby dowiedzieć się więcej o **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importowanie konfiguracji węzła
 
-Możesz również zaimportować configuratons węzła (za), który ma być kompilowana poza platformą Azure. Jedną z zalet tego jest może być podpisana confiturations tego węzła.
+Możesz również zaimportować configuratons węzła (za), który ma być kompilowana poza platformą Azure. Jedną z zalet tego jest konfiguracje węzłów może być podpisana.
 Konfiguracja węzła podpisem jest weryfikowany lokalnie w węźle zarządzanym przez agenta DSC, zapewniając, że konfiguracji są stosowane do węzeł pochodzi z autoryzowanego źródła.
 
 > [!NOTE]

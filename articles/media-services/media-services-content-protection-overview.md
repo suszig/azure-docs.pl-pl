@@ -14,103 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 64be4ea104bd11b8e191e2c8d4170a2de88acb47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6475a865b9d1b263bd7cc68c99acdb5f6959531e
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protecting-content-overview"></a>Ochrona zawartości — omówienie
-Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów od momentu wysłania danych z komputera w ramach procesów przechowywania, przetwarzania i dostarczania. Usługa Media Services umożliwia dostarczanie dynamicznie szyfrowanych za pomocą Standard AES (Advanced Encryption) (przy użyciu kluczy szyfrowania 128-bitowego) lub jedną z głównych DRMs zawartości na żywo i na żądanie: Microsoft PlayReady, Google Widevine i FairPlay firmy Apple. Usługa Media Services udostępnia usługę dostarczania kluczy AES i DRM (PlayReady, Widevine i FairPlay) licencji do autoryzowanych klientów. 
+Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów od momentu wysłania danych z komputera w ramach procesów przechowywania, przetwarzania i dostarczania. Usługa Media Services umożliwia dostarczanie dynamicznie szyfrowanych za pomocą Advanced Encryption Standard (AES-128) lub jeden z trzech głównych systemów DRM zawartości na żywo i na żądanie: Microsoft PlayReady, Google Widevine i FairPlay firmy Apple. Usługa Media Services udostępnia usługę dostarczania kluczy AES i DRM (PlayReady, Widevine i FairPlay) licencji do autoryzowanych klientów. 
 
-Poniższa ilustracja pokazuje przepływy pracy ochrony zawartości, które obsługuje AMS. 
+Poniższa ilustracja przedstawia przepływ pracy dotyczący ochrony zawartości dla usługi Azure Media Services. 
 
 ![Ochrona za pomocą PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
->[!NOTE]
->Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
+W tym artykule opisano pojęcia i terminologię istotne dla zrozumienia ochrony zawartości przy użyciu usługi AMS. Artykuł również zawiera łącza do artykułów, które zawierają opis do ochrony zawartości. 
 
-W tym temacie opisano [pojęcia i terminologię](media-services-content-protection-overview.md) istotne dla zrozumienia ochrony zawartości przy użyciu usługi AMS. Temat zawiera także [łącza](media-services-content-protection-overview.md#common-scenarios) do tematów, które przedstawiają sposób osiągnięcia zadań ochrony zawartości. 
+## <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
+Usługa Azure Media Services umożliwia dostarczanie zawartości dynamicznie szyfrowany za pomocą szyfrowania DRM lub wyczyść klucza AES: Microsoft PlayReady, Google Widevine i FairPlay firmy Apple. Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Szyfrowanie na pobierania progresywnego nie jest obsługiwane. Każda metoda szyfrowania obsługuje następujących protokołów:
+- AES: MPEG-DASH, Smooth Streaming i HLS
+- PlayReady: MPEG-DASH, Smooth Streaming i HLS
+- Widevine: MPEG-DASH
+- FairPlay: HLS
 
-## <a name="dynamic-encryption"></a>Szyfrowania dynamicznego
-Microsoft Azure Media Services umożliwia dostarczanie zawartości dynamicznie szyfrowany za pomocą szyfrowania DRM lub wyczyść klucza AES: Microsoft PlayReady, Google Widevine i FairPlay firmy Apple.
+Aby zaszyfrować element zawartości, należy skojarzyć klucz szyfrowania zawartości z zawartości, a także skonfigurować zasady autoryzacji klucza. Kluczy zawartości można określić lub generowane automatycznie przez usługę Media Services.
 
-Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.
+Należy również skonfigurować zasady dostarczania elementu zawartości. Jeśli ma być przesyłana strumieniowo zasób zaszyfrowanych magazynu, upewnij się, że Określ sposób dostarczania go przez skonfigurowanie zasad dostarczania elementów zawartości.
 
-Dla usługi Media Services zaszyfrować element zawartości, należy skojarzyć klucza szyfrowania (CommonEncryption lub EnvelopeEncryption) z zawartości, a także skonfigurować zasady autoryzacji klucza.
+Strumień zleconą przez odtwarzacz usługi Media Services używa określonego klucza do dynamicznego szyfrowania z zawartości przy użyciu klucza czyszczenia AES lub szyfrowania DRM. Aby odszyfrować strumienia, odtwarzacza zażąda klucza od usługi klucza dostawy AMS. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
 
-Należy również skonfigurować zasady dostarczania elementu zawartości. Jeśli chcesz strumienia zasobów systemu z zaszyfrowanego magazynu, pamiętaj określić sposób dostarcza go przez skonfigurowanie zasad dostarczania elementów zawartości.
+## <a name="aes-128-clear-key-vs-drm"></a>AES-128, klucz niezaszyfrowany vs DRM
+Klienci często zastanawiasz się, czy należy używać szyfrowania AES lub DRM system. Główną różnicą między przy użyciu szyfrowania AES i systemy DRM jest aby z szyfrowania AES klucz zawartości jest przekazywane do klienta w niezaszyfrowanej postaci ("w Wyczyść"). W związku z tym klucz używany do szyfrowania zawartości można wyświetlić w śledzenia sieci na komputerze klienckim w postaci zwykłego tekstu. AES-128, klucz niezaszyfrowany jest odpowiedni dla przypadków użycia, gdy przeglądarka jest zaufany (np: szyfrowania firmowej wideo rozproszonych w obrębie firmy będą wyświetlane przez pracowników).
 
-Strumień zleconą przez odtwarzacz usługi Media Services używa określonego klucza do dynamicznego szyfrowania z zawartości przy użyciu klucza czyszczenia AES lub szyfrowania DRM. Aby odszyfrować strumienia, odtwarzacza zażąda klucz z usługi dostarczania klucza. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
+PlayReady, Widevine i FairPlay wszystkie zapewnia wyższy poziom szyfrowania w porównaniu do AES-128 wyczyść klucza szyfrowania. Klucz zawartości jest przekazywane w postaci zaszyfrowanej. Ponadto jest dojście w bezpiecznym środowisku na poziomie systemu operacyjnego gdzie jest znacznie trudniejsze złośliwy użytkownik na ataki. Przypadki użycia, gdy przeglądarka nie może być zaufany i wymagają najwyższy poziom zabezpieczeń zaleca się DRM.
 
+## <a name="storage-encryption"></a>Szyfrowanie w usłudze Storage
+Można użyć szyfrowania magazynu do zawartości lokalnie, przy użyciu standardu AES 256-bitowego szyfrowania i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć Twoje wysokiej jakości multimedialnych plików wejściowych z silne szyfrowanie przechowywanych na dysku.
 
-## <a name="storage-encryption"></a>Szyfrowanie magazynu
-Użyj szyfrowania magazynu do zawartości lokalnie za pomocą AES 256-bitowego szyfrowania, a następnie przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć z wysokiej jakości multimedialnych plików wejściowych pomocą silnego szyfrowania przechowywanych na dysku.
+Aby dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości będzie wówczas traktował Media Services sposób dostarczania zawartości. Aby mogła być przesłana strumieniowo zawartości, serwer przesyłania strumieniowego odszyfrowuje i strumieni zawartości za pomocą zasad określonym dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
 
-Aby dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości będzie wówczas traktował Media Services sposób dostarczania zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości za pomocą zasad określonym dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
-
-## <a name="common-encryption-cenc"></a>Szyfrowania Common encryption (CENC)
-Typowe szyfrowania jest używane do szyfrowania zawartości przy użyciu PlayReady lub / i Widewine.
-
-## <a name="using-cbcs-aapl-encryption"></a>Przy użyciu szyfrowania cbcs-aapl
-Cbcs-aapl jest używane do szyfrowania zawartości przy użyciu FairPlay.
-
-## <a name="envelope-encryption"></a>Szyfrowanie koperty
-Użyj tej opcji, jeśli chcesz chronić zawartość z AES-128, klucz niezaszyfrowany. Jeśli chcesz bardziej bezpieczna, wybierz jedną z DRMs wymienione w tym temacie. 
+## <a name="types-of-encryption"></a>Typy szyfrowania
+PlayReady i Widevine wykorzystywać Common Encryption (tryb Ewidencyjne AES). FairPlay używa szyfrowania trybie AES CBC. Wyczyść klucza szyfrowania AES-128 używa szyfrowania koperty.
 
 ## <a name="licenses-and-keys-delivery-service"></a>Usługi dostarczania licencji i kluczy
-Usługa Media Services udostępnia usługę dostarczania licencji DRM (PlayReady i Widevine, FairPlay) i AES wyczyść klucze do autoryzowanych klientów. Można użyć [portalu Azure](media-services-portal-protect-content.md), interfejsu API REST lub SDK usługi Media Services dla platformy .NET, aby skonfigurować zasady autoryzacji i uwierzytelnianie licencji i kluczy.
+Usługi Media Services udostępnia usługę dostarczania kluczy do dostarczania licencji DRM (PlayReady, Widevine, FairPlay) i kluczy AES do autoryzowanych klientów. Można użyć [portalu Azure](media-services-portal-protect-content.md), interfejsu API REST lub SDK usługi Media Services dla platformy .NET, aby skonfigurować zasady autoryzacji i uwierzytelnianie licencji i kluczy.
 
-## <a name="token-restriction"></a>Ograniczenia tokenu
-Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń: ograniczenie otwarte lub ograniczenie tokenu. Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę STS (Secure Token Service). Usługa Media Services obsługuje tokenów w formacie proste tokenów sieci Web (SWT) i format tokenu Web JSON (JWT). Usługi Media Services nie zapewnia bezpieczny tokenu usługi. Można utworzyć niestandardowy STS lub korzystać z usługi Microsoft Azure ACS do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany z określonego klucza i problem oświadczenia określony w konfiguracji ograniczenia tokenu. Usługa Media Services klucza dostawy zwróci żądanego (licencji lub klucza) do klienta, jeśli token jest prawidłowy i oświadczeń z tokenu dopasowania tych skonfigurowana dla klucza (lub licencji).
+## <a name="control-content-access"></a>Kontrola dostępu do zawartości
+Można kontrolować, kto ma dostęp do zawartości przez skonfigurowanie zasad autoryzacji klucza zawartości. Zasady autoryzacji klucza zawartości obsługuje ograniczenie otwarte lub tokenu.
 
-Podczas konfigurowania token ograniczony zasad, należy określić klucz podstawowy weryfikacji, wystawcy i parametry odbiorców. Klucz podstawowy weryfikacji zawiera klucz, który został podpisany token, z, wystawca jest bezpieczne usługi tokenu, który wystawia token. Odbiorców (nazywane również zakres) opisano celem tokenu lub zasobu tokenu zezwala na dostęp do. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
+### <a name="open-authorization"></a>Otwórz autoryzacji
+Przy użyciu zasad autoryzacji Otwórz klucz zawartości jest wysyłane do dowolnego klienta (nie ograniczenia).
+
+### <a name="token-authorization"></a>Token autoryzacji
+Za pomocą zasad ograniczonej token autoryzacji klucza zawartości będzie tylko wysyłania do klienta, który stanowi prawidłowe JSON Web Token (JWT) lub Simple Web Token (SWT) w żądaniu klucz/licencji. Token ten musi być wystawiony przez Secure Token Service (STS). Można użyć usługi Microsoft Active Directory jako tokenu Zabezpieczającego lub wdrożyć niestandardowe STS. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany z określonego klucza i problem oświadczenia określony w konfiguracji ograniczenia tokenu. Usługa Media Services klucza dostawy zwróci żądanej klucz/licencji do klienta, jeśli token jest prawidłowy i oświadczenia w tokenie pasują do klucza/licencji.
+
+Podczas konfigurowania token ograniczony zasad, należy określić klucz podstawowy weryfikacji, wystawcy i parametry odbiorców. Klucz podstawowy weryfikacji zawiera klucz, który został podpisany token, z, wystawca jest bezpieczne usługi tokenu, który wystawia token. Odbiorców, nazywane również zakres, w tym artykule opisano celem tokenu lub zasobu tokenu zezwala na dostęp do. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
 
 ## <a name="streaming-urls"></a>Adresy URL przesyłania strumieniowego
 Jeśli zawartości została zaszyfrowana z więcej niż jeden DRM, należy użyć tag szyfrowania w adresie URL przesyłania strumieniowego: (format = "m3u8-aapl, szyfrowanie = 'xxx').
 
 Następujące kwestie:
-
-* Można określić tylko zero lub jeden typ szyfrowania.
-* Typ szyfrowania nie ma określonego w adresie url, jeśli tylko jeden szyfrowania została zastosowana do zasobu.
+* Można określić maksymalnie jeden typ szyfrowania.
+* Typ szyfrowania nie trzeba określonego w adresie URL, jeśli tylko jeden szyfrowania została zastosowana do zasobu.
 * Typ szyfrowania jest uwzględniana wielkość liter.
 * Można określić następujące typy szyfrowania:  
-  * **cenc**: szyfrowania Common encryption (Playready lub Widevine)
-  * **cbcs-aapl**: Fairplay
-  * **CBC**: szyfrowanie AES envelope.
+  * **cenc**: PlayReady lub Widevine (Common Encryption)
+  * **cbcs-aapl**: dla FairPlay (szyfrowanie AES CBC)
+  * **CBC**: dla szyfrowanie AES envelope (szyfrowanie koperty)
 
-## <a name="common-scenarios"></a>Typowe scenariusze
-Poniższe tematy przedstawiają sposób chronić zawartość w magazynie, dostarczanie dynamicznie szyfrowanych multimediów strumieniowych, użyj usługi dostarczania klucz/licencjonowania AMS
+## <a name="next-steps"></a>Następne kroki
+Następujące artykuły opisano kolejne kroki, aby zacząć korzystać z ochrony zawartości:
+* [Ochrona przy użyciu szyfrowania magazynu](media-services-rest-storage-encryption.md)
+* [Ochrona przy użyciu szyfrowania AES](media-services-protect-with-aes128.md)
+* [Chroń za pomocą PlayReady i Widevine](media-services-protect-with-playready-widevine.md)
+* [Chroń za pomocą FairPlay](media-services-protect-hls-with-FairPlay.md)
 
-* [Chroń za pomocą AES](media-services-protect-with-aes128.md) 
-* [Chroń za pomocą PlayReady i Widevine](media-services-protect-with-drm.md)
-* [Strumienia z HLS chronione zawartości z FairPlay firmy Apple i/lub PlayReady](media-services-protect-hls-with-fairplay.md)
-
-### <a name="additional-scenarios"></a>Dodatkowe scenariusze
-* [Integrowanie usługi Azure licencji PlayReady z własnych serwer przesyłania strumieniowego/modułu szyfrującego](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-* [Przy użyciu castLabs na potrzeby dostarczania licencji DRM do usługi Azure Media Services](media-services-castlabs-integration.md)
-
->[!NOTE]
->Scenariusz, w której jest używany DRM server(technology) zewnętrzne i strumień AMS nie jest obecnie obsługiwane.
-
-
-## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-## <a name="provide-feedback"></a>Przekazywanie opinii
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-## <a name="related-links"></a>Linki pokrewne
-[Anonsowanie PlayReady jako usługę i dynamicznego szyfrowania AES w usłudze Azure Media Services](http://mingfeiy.com/playready)
-
+## <a name="related-links"></a>Linki powiązane
 [Wyjaśniono cennik dostarczania licencji PlayReady usługi multimediów Azure](http://mingfeiy.com/playready-pricing-explained-in-azure-media-services)
 
 [Jak można debugować AES strumienia zaszyfrowane w usłudze Azure Media Services](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
 
-[Authenitcation tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[Uwierzytelniania tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integracja aplikacji na podstawie Azure Media Services OWIN MVC z usługi Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Użyj Azure ACS do wydawania tokenów](http://mingfeiy.com/acs-with-key-services).
+[Integrowanie aplikacji usługi Azure Media Services OWIN MVC z usługą Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png

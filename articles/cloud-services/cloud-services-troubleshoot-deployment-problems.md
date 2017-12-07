@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem usługi chmury
 Podczas wdrażania pakietu aplikacji usług chmury Azure, można uzyskać informacji o wdrażaniu z **właściwości** okienku w portalu Azure. Szczegółowe informacje można użyć w tym okienku, ułatwiające rozwiązywanie problemów z usługą w chmurze, a następnie przekaż te informacje do obsługi Azure podczas otwierania nowe żądanie pomocy technicznej.
@@ -27,7 +27,6 @@ Podczas wdrażania pakietu aplikacji usług chmury Azure, można uzyskać inform
 Można znaleźć **właściwości** okienko w następujący sposób:
 
 * W portalu Azure kliknij wdrożenia usługi w chmurze, kliknij przycisk **wszystkie ustawienia**, a następnie kliknij przycisk **właściwości**.
-* W klasycznym portalu Azure, kliknij wdrożenia usługi w chmurze, kliknij przycisk **pulpitu NAWIGACYJNEGO**, który znajduje się w prawym dolnym rogu strony (w obszarze **szybkiego dostępu**). Należy pamiętać, że w tym okienku Brak etykiety "Właściwości".
 
 > [!NOTE]
 > Możesz skopiować zawartość **właściwości** okienko do Schowka, klikając ikonę w prawym górnym rogu okienka.

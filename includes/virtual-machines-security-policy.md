@@ -24,7 +24,7 @@ Po podłączeniu do maszyn wirtualnych, należy używać kryptografii klucza pub
 
 ## <a name="policies"></a>Zasady
 
-[Zasady usługi Azure Resource Manager](../articles/azure-resource-manager/resource-manager-policy.md) może służyć do definiowania zachowania odpowiednie dla Twojej organizacji [maszyn wirtualnych systemu Windows](../articles/virtual-machines/windows/policy.md) i [maszyn wirtualnych systemu Linux](../articles/virtual-machines/linux/policy.md). Korzystając z zasad, organizacja może wymusić różnych konwencje i zasady w całym przedsiębiorstwie. Wymuszanie zachowanie można zmniejszenia ryzyka podczas pracy nad dla sukcesu organizacji.
+[Zasady usługi Azure](../articles/azure-policy/azure-policy-introduction.md) może służyć do definiowania zachowania odpowiednie dla Twojej organizacji [maszyn wirtualnych systemu Windows](../articles/virtual-machines/windows/policy.md) i [maszyn wirtualnych systemu Linux](../articles/virtual-machines/linux/policy.md). Korzystając z zasad, organizacja może wymusić różnych konwencje i zasady w całym przedsiębiorstwie. Wymuszanie zachowanie można zmniejszenia ryzyka podczas pracy nad dla sukcesu organizacji.
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 

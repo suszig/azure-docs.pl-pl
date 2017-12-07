@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Wdrażanie i monitorowanie krawędzi IoT modułów na dużą skalę — w wersji preview
 
@@ -42,19 +42,21 @@ Aby uzyskać więcej informacji na temat twins urządzenia i tagów, zobacz [opi
 
 1. Zaloguj się do [portalu Azure] [ lnk-portal] i przejdź do Centrum IoT. 
 1. Wybierz **IoT krawędzi (wersja zapoznawcza)**.
-1. Wybierz **tworzenia wdrożenia krawędzi**.
+1. Wybierz **Dodaj wdrożenie krawędzi IoT**.
 
 Brak pięć kroków, aby utworzyć wdrożenie. Poniższe sekcje przeprowadzenie każdej z nich. 
 
-### <a name="step-1-label-deployment"></a>Krok 1: Etykieta wdrożenia
+### <a name="step-1-name-and-label"></a>Krok 1: Nazwa i etykieta
 
-1. Nadaj wdrożenia unikatowego identyfikatora. Unikaj spacje i następujące nieprawidłowe znaki: `& ^ [ ] { } \ | " < > /`.
+1. Nadaj unikatową nazwę wdrożenia. Unikaj spacje i następujące nieprawidłowe znaki: `& ^ [ ] { } \ | " < > /`.
 1. Dodawanie etykiet, aby ułatwić śledzenie wdrożeń. Etykiety są **nazwa**, **wartość** pary, które opisują wdrożenia. Na przykład `HostPlatform, Linux` lub `Version, 3.0.1`.
 1. Wybierz **dalej** aby przejść do kroku 2. 
 
-### <a name="step-2-add-modules"></a>Krok 2: Dodawanie modułów
+### <a name="step-2-add-modules-optional"></a>Krok 2: Dodawanie modułów (opcjonalnie)
 
 Istnieją dwa typy modułów, które można dodać do wdrożenia. Pierwsza to modułu na podstawie usługi platformy Azure, takich jak konta magazynu lub Stream Analytics. Drugim jest modułu na podstawie swoim własnym kodem. Wiele modułów obu typów można dodać do wdrożenia. 
+
+Po utworzeniu wdrożenia z modułów nie usuwa wszystkie istniejące moduły z urządzeń. 
 
 >[!NOTE]
 >Uczenie maszynowe Azure i usługi Azure Functions nie obsługuje jeszcze wdrożenie zautomatyzowane usługi Azure. Aby ręcznie dodać tych usług do wdrożenia przy użyciu wdrażania niestandardowego modułu. 

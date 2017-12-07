@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Jak zarządzać usługi w chmurze
-W **usługi w chmurze (klasyczne)** obszaru Azure portalu, można zaktualizować roli usługi lub wdrożenie, podwyższyć poziom wdrożenia etapowego do środowiska produkcyjnego, połączyć zasoby z usługi w chmurze, tak aby widoczne zależności między zasobami i zasoby są skalowane ze sobą i usunąć usługi w chmurze lub wdrożenia.
+W **usługi w chmurze** obszaru Azure portalu, można zaktualizować roli usługi lub wdrożenie, podwyższyć poziom wdrożenia etapowego do środowiska produkcyjnego, połączyć zasoby z usługi w chmurze, tak aby widoczne zależności między zasobami i skali zasoby razem i delete chmury usługi lub wdrożenia.
 
 Więcej informacji na temat skalowania usługi w chmurze [tutaj](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Należy pamiętać, że aktualizacje systemu operacyjnego gościa i naprawianie 
 **Zamiana wpływa negatywnie przestojów w przypadku mojej aplikacji? Jak należy ją obsługuje?**
 
 Zgodnie z opisem w ostatniej sekcji, wymiany wdrożenia jest zazwyczaj szybkie, ponieważ jest on tylko zmiany konfiguracji usługi równoważenia obciążenia Azure. W niektórych przypadkach jednak może potrwać co najmniej 10 sekund i powodować błędy połączeń przejściowej. Aby ograniczyć wpływ na klientów, rozważ zaimplementowanie [Logika ponawiania klienta](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Porady: łączenie zasobu usługi w chmurze
-Azure portal nie łączenie zasobów jak w bieżącym portalu klasycznego Azure. Zamiast tego należy wdrożyć dodatkowe zasoby do tej samej grupy zasobów, które są używane przez usługę w chmurze.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Porady: usuwanie wdrożeń i usługi w chmurze
 Aby można było usunąć usługi w chmurze, należy usunąć poszczególnych istniejącego wdrożenia.

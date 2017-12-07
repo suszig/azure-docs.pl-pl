@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 50bcb71cd4f52386e9ea428fc124ac30ae9a862b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>Szyfrowanie CENC przy użyciu technologii Multi-DRM i kontroli dostępu: odwołanie do projektowania i implementacji na platformie Azure i w usłudze Azure Media Services
  
@@ -85,7 +85,7 @@ Podsystem DRM może zawierać następujące składniki:
 3. Dostarczanie licencji DRM
 4. Sprawdź uprawnienia
 5. Uwierzytelniania/autoryzacji
-6. Player
+6. Odtwarzacz
 7. Pochodzenie/CDN
 
 Na poniższym diagramie przedstawiono wysokiego poziomu interakcji między składnikami w podsystemie DRM.
@@ -186,8 +186,8 @@ Implementacja obejmuje następujące kroki:
 
 1. Przygotowanie ich testu: kodowanie/package wideo testowe do wielokrotnej szybkości transmisji bitów pofragmentowany plik MP4 w usłudze Azure Media Services. Ten zasób nie jest chroniony DRM. DRM ochrony zostaną wykonane przez dynamiczne ochrony później.
 2. Tworzenie klucza identyfikator i zawartości kluczy (opcjonalnie z klucza inicjatora). W tym przypadku systemem zarządzania kluczami nie jest potrzebna, ponieważ firma Microsoft ma do czynienia z tylko jednego zestawu kluczy identyfikator i klucz zawartości do kilku zasobów testu;
-3. Umożliwia skonfigurowanie usług dostarczania licencji multi DRM trwałego testu API usług AMS. Jeśli używasz serwerów licencji niestandardowych przez firmy lub dostawców firmy zamiast usług licencyjnych w usłudze Azure Media Services, możesz pominąć ten krok i określać adresy URL pozyskiwania licencji w kroku dotyczące konfigurowania dostarczania licencji. Interfejs API usług AMS jest potrzebne do określania szczegółowych niektóre konfiguracje, takie jak ograniczenia zasad autoryzacji, szablony odpowiedzi licencji dla różnych usług licencji DRM, itp. W tej chwili portalu Azure nie jeszcze zapewnia potrzebne interfejsu użytkownika dla tej konfiguracji. Można znaleźć informacji o poziomie interfejsu API i przykładowy kod w dokumencie Julia Kornich: [za pomocą PlayReady i Widevine, dynamicznego szyfrowania Common Encryption](media-services-protect-with-drm.md).
-4. Skonfiguruj zasady dostarczania zasobu dla zasobu testu za pomocą interfejsu API usług AMS. Można znaleźć informacji o poziomie interfejsu API i przykładowy kod w dokumencie Julia Kornich: [za pomocą PlayReady i Widevine, dynamicznego szyfrowania Common Encryption](media-services-protect-with-drm.md).
+3. Umożliwia skonfigurowanie usług dostarczania licencji multi DRM trwałego testu API usług AMS. Jeśli używasz serwerów licencji niestandardowych przez firmy lub dostawców firmy zamiast usług licencyjnych w usłudze Azure Media Services, możesz pominąć ten krok i określać adresy URL pozyskiwania licencji w kroku dotyczące konfigurowania dostarczania licencji. Interfejs API usług AMS jest potrzebne do określania szczegółowych niektóre konfiguracje, takie jak ograniczenia zasad autoryzacji, szablony odpowiedzi licencji dla różnych usług licencji DRM, itp. W tej chwili portalu Azure nie jeszcze zapewnia potrzebne interfejsu użytkownika dla tej konfiguracji. Można znaleźć informacji o poziomie interfejsu API i przykładowy kod przedstawiony w następującym artykule: [za pomocą PlayReady i Widevine, dynamicznego szyfrowania Common Encryption](media-services-protect-with-playready-widevine.md).
+4. Skonfiguruj zasady dostarczania zasobu dla zasobu testu za pomocą interfejsu API usług AMS. Można znaleźć informacji o poziomie interfejsu API i przykładowy kod przedstawiony w następującym artykule: [za pomocą PlayReady i Widevine, dynamicznego szyfrowania Common Encryption](media-services-protect-with-playready-widevine.md).
 5. Tworzenie i konfigurowanie dzierżawy usługi Azure Active Directory w środowisku Azure.
 6. Utworzyć kilka grup i kont użytkowników w dzierżawie usługi Azure Active Directory: należy utworzyć co najmniej "EntitledUser" grupy i dodać użytkownika do tej grupy. Użytkownicy w tej grupie, przechodzą wyboru uprawnień w nabycie licencji i użytkowników w tej grupie nie zakończy się niepowodzeniem do przekazania uwierzytelnianie i nie będzie można uzyskać licencji. Bycia członkiem tej grupy "EntitledUser" to oświadczenie wymagane "grupy" w token JWT wystawione przez usługę Azure AD. To wymaganie oświadczeń powinny być określone w kroku usługi dostarczania licencji DRM wielu Konfigurowanie.
 7. Tworzenie aplikacji platformy ASP.NET MVC, która będzie obsługiwać odtwarzacza wideo. Ta aplikacja ASP.NET będzie chroniony przy użyciu uwierzytelniania użytkownika względem dzierżawy usługi Azure Active Directory. Oświadczenia właściwe zostaną uwzględnione w tokenów dostępu uzyskane po uwierzytelnieniu użytkownika. Interfejs API OpenID Connect jest zalecane dla tego kroku. Musisz zainstalować następujących pakietów NuGet:
@@ -201,8 +201,8 @@ Implementacja obejmuje następujące kroki:
 
 | **DRM** | **Przeglądarka** | **Wynik dla prawo użytkownika** | **Wynik nie jest uprawniony użytkownik** |
 | --- | --- | --- | --- |
-| **PlayReady** |Krawędź MS lub IE11 w systemie Windows 10 |Powiodło się |Niepowodzenie |
-| **Widevine** |Chrome w systemie Windows 10 |Powiodło się |Niepowodzenie |
+| **PlayReady** |Krawędź MS lub IE11 w systemie Windows 10 |Zakończ pomyślnie |Niepowodzenie |
+| **Widevine** |Chrome w systemie Windows 10 |Zakończ pomyślnie |Niepowodzenie |
 | **FairPlay** |TBD | | |
 
 George Trifonov Azure Media Services zespołu został zapisany blogu udostępnia szczegółowe kroki w procesie konfigurowania usługi Azure Active Directory dla aplikacji ASP.NET MVC player: [integracji Azure Media Services OWIN MVC na podstawie aplikacji w usłudze Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
@@ -226,10 +226,10 @@ Brak niektórych "pytań" w implementacji. Miejmy nadzieję, że na następując
 
     W [dekodera tokenów JWT](http://jwt.calebb.net/), powinny pojawić się **lub** i **iss** jak poniżej w JWT token:
 
-    ![gotcha 1.](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![Pierwszy gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 2. Dodaj uprawnienia do aplikacji w usłudze AAD (na karcie Konfiguracja aplikacji). Jest to wymagane dla każdej aplikacji (w wersji lokalnej i wdrożone).
 
-    ![gotcha 2](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![Drugi gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 3. Użyj prawo wystawcy w konfigurowaniu dynamiczne CENC ochrony:
 
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
@@ -323,21 +323,21 @@ Musimy rejestracji i konfiguracji aplikacji "wskaźnik" w usłudze Azure AD, wyk
    https://[aad_tenant_name].onmicrosoft.com/[resource_name];
 2. Dodaj nowy klucz dla aplikacji zasobów;
 3. Aktualizacja pliku manifestu aplikacji tak, aby właściwość groupMembershipClaims ma następującą wartość: "groupMembershipClaims": "Wszystkie",  
-4. W aplikacji usługi Azure AD, wskazujący player aplikacji sieci web w sekcji "uprawnień dotyczących innych aplikacji", Dodaj aplikacji zasobu, który został dodany w kroku 1. Sprawdź znacznik "Dostępu [resource_name]" w obszarze "delegowane uprawnienia". Dzięki temu uprawnienia aplikacji sieci web do utworzenia tokenów dostępu do uzyskiwania dostępu do zasobów aplikacji. Ten krok należy wykonać dla wersji lokalnych i wdrożonej aplikacji sieci web Jeśli tworzysz aplikację sieci web programu Visual Studio i platformy Azure.
+4. W aplikacji usługi Azure AD, wskazujący player aplikacji sieci web w sekcji "uprawnień dotyczących innych aplikacji", Dodaj aplikacji zasobu, która została dodana w kroku 1. Sprawdź znacznik "Dostępu [resource_name]" w obszarze "delegowane uprawnienia". Dzięki temu uprawnienia aplikacji sieci web do utworzenia tokenów dostępu do uzyskiwania dostępu do zasobów aplikacji. Ten krok należy wykonać dla wersji lokalnych i wdrożonej aplikacji sieci web Jeśli tworzysz aplikację sieci web programu Visual Studio i platformy Azure.
 
 W związku z tym tokenu JWT wystawione przez usługę Azure AD jest token dostępu do uzyskiwania dostępu do tego zasobu "wskaźnik".
 
 ### <a name="what-about-live-streaming"></a>Jak Live przesyłania strumieniowego?
 W przypadku powyższych naszych dyskusji ma zostały koncentrujących się na zasoby na żądanie. Jak transmisja strumieniowa na żywo?
 
-Dobre wieści jest, można użyć dokładnie tego samego projekt i implementację w ochrony transmisja strumieniowa na żywo w usłudze Azure Media Services, traktując zasób skojarzony z programem jako zasób"VOD".
+Dobre wieści jest można użyć dokładnie tego samego projekt i implementację w ochrony transmisja strumieniowa na żywo w usłudze Azure Media Services, traktując zasób skojarzony z programem jako "zasobów VOD".
 
-W szczególności jest dobrze znany, że w na żywo, przesyłania strumieniowego w usłudze Azure Media Services, należy utworzyć kanał, a następnie program w kanale. Aby utworzyć program, należy utworzyć zasób będzie zawierać na żywo archiwum dla programu. Aby zapewnić CENC z wieloma DRM ochrony zawartości na żywo, wszystko, czego należy wykonać, jest zastosowanie tej samej konfiguracji/przetwarzania w zasobie tak, jakby było "zasobów VOD" przed uruchomieniem programu.
+W szczególności jest dobrze znany, że w na żywo, przesyłania strumieniowego w usłudze Azure Media Services, należy utworzyć kanał, a następnie program w kanale. Aby utworzyć program, należy utworzyć zasób, który będzie zawierać na żywo archiwum dla programu. Aby zapewnić CENC z wieloma DRM ochrony zawartości na żywo, wszystko, czego należy wykonać, jest zastosowanie tej samej konfiguracji/przetwarzania w zasobie tak, jakby było "zasobów VOD" przed uruchomieniem programu.
 
 ### <a name="what-about-license-servers-outside-of-azure-media-services"></a>Co serwerów licencji poza usługi Azure Media Services?
 Często klienci mogą zainwestowały w licencji farmy serwerów jest w ich własnych danych Centrum lub hostowanej przez dostawców usług DRM. Na szczęście ochrony zawartości Azure Media Services umożliwia działają w trybie hybrydowego: zawartości hostowanej i dynamicznie chroniony w usłudze Azure Media Services, podczas gdy licencji DRM są dostarczane przez serwery poza usługi Azure Media Services. W takim przypadku istnieją następujące zagadnienia dotyczące zmian:
 
-1. Zabezpieczanie usługi tokenu musi wystawiać tokeny, które są dozwolone i można sprawdzić w farmie serwerów licencji. Na przykład serwerów licencji Widevine, które są udostępniane przez Axinom wymaga określonych token JWT, zawierający "uprawnienie komunikat". W związku z tym musisz mieć tokenu Zabezpieczającego wydania takich tokenu JWT. Autorów zakończył takie implementację i szczegółowe informacje można znaleźć w następującym dokumencie w [Centrum dokumentacji platformy Azure](https://azure.microsoft.com/documentation/): [przy użyciu Axinom na potrzeby dostarczania licencji Widevine do usługi Azure Media Services](media-services-axinom-integration.md).
+1. Zabezpieczanie usługi tokenu musi wystawiać tokeny są dopuszczalne, które można sprawdzić w farmie serwerów licencji. Na przykład serwerów licencji Widevine, które są udostępniane przez Axinom wymagają określonej tokenu JWT, zawierający "komunikat uprawnienia." W związku z tym musisz mieć tokenu Zabezpieczającego wydania takich tokenu JWT. Autorów zakończył takie implementację i szczegółowe informacje można znaleźć w następującym dokumencie w [Centrum dokumentacji platformy Azure](https://azure.microsoft.com/documentation/): [przy użyciu Axinom na potrzeby dostarczania licencji Widevine do usługi Azure Media Services](media-services-axinom-integration.md).
 2. Nie trzeba skonfigurować usługi dostarczania licencji (ContentKeyAuthorizationPolicy) w usłudze Azure Media Services. Co należy zrobić ma na celu dostarczenie adresy URL pozyskiwania licencji (w przypadku PlayReady i Widevine FairPlay) podczas konfigurowania AssetDeliveryPolicy z konfigurowaniem CENC z wieloma DRM.
 
 ### <a name="what-if-i-want-to-use-a-custom-sts"></a>Co zrobić, jeśli ma być użyty niestandardowy STS?
@@ -362,13 +362,13 @@ Jeśli używasz .NET Framework / C# jako platformy programowanie X509 certyfikat
 IDX10630: "System.IdentityModel.Tokens.X509AsymmetricSecurityKey" do podpisywania nie może być mniejsza niż "2048" bitów.
 
 ## <a name="the-completed-system-and-test"></a>Ukończono systemu i testu
-Firma Microsoft przeprowadzi kilka scenariuszy w systemie end-to-end ukończone, aby czytelnicy mogą mieć basic "obraz" zachowania przed pobraniem konto logowania.
+Firma Microsoft przeprowadzenie kilka scenariuszy w systemie end-to-end ukończone, aby czytelnicy mogą mieć basic "obraz" zachowania przed pobraniem konta logowania.
 
 Aplikacja sieci web odtwarzacza i jego logowania można znaleźć [tutaj](https://openidconnectweb.azurewebsites.net/).
 
-Jeśli potrzebne jest scenariusz "z systemem innym niż zintegrowany": zasoby wideo hostowanych w usłudze Azure Media Services są albo niechronionej lub chronione DRM, ale bez tokenu uwierzytelniania (wydawania licencji kto ją), można przetestować bez logowania (przełączając HTTP w przypadku sieci strumieniowe przesyłanie wideo za pośrednictwem protokołu HTTP).
+Jeśli potrzebne jest scenariusz "z systemem innym niż zintegrowany": zasoby wideo hostowanych w usłudze Azure Media Services są albo niechronionej lub chronione DRM, ale bez tokenu uwierzytelniania (wydawania licencji kto ją), można przetestować bez logowania (przez przełączenie do Protokół HTTP w przypadku sieci strumieniowe przesyłanie wideo za pośrednictwem protokołu HTTP).
 
-Jeśli potrzebne jest na trasie zintegrowane scenariusz: zasoby wideo podlega dynamicznej ochrony DRM w usłudze Azure Media Services z tokenu uwierzytelniania i tokenu JWT generowane przez usługę Azure AD, musisz zalogować się.
+Jeśli potrzebne jest na trasie zintegrowane scenariusz: zasoby wideo podlega dynamicznej ochrony DRM w usłudze Azure Media Services z tokenu uwierzytelniania i tokenu JWT generowane przez usługę Azure AD, należy się zalogować.
 
 ### <a name="user-login"></a>Dane logowania użytkownika
 W celu przetestowania end-to-end zintegrowanego systemu DRM, musisz mieć "konto", utworzone lub dodane.
@@ -377,7 +377,7 @@ Jakiego konta?
 
 Mimo że Azure pierwotnie zezwalała na dostęp tylko przez użytkowników kont Microsoft, teraz zezwala na dostęp przez użytkowników z tymi dwoma systemami. Jest to możliwe, ponieważ wszystkie właściwości platformy Azure ufają usłudze Azure AD na potrzeby uwierzytelniania, dzięki czemu usługa Azure AD uwierzytelnia użytkowników w organizacji, i istnieje relacja federacji, w ramach której usługa Azure AD ufa systemowi obsługi tożsamości konsumentów firmy Microsoft na potrzeby uwierzytelniania konsumentów. W ten sposób usługa Azure AD może uwierzytelniać konta „gościa” firmy Microsoft i „natywne” konta usługi Azure AD.
 
-Ponieważ usługa Azure AD ufa domeny konta Microsoft (MSA), można dodać wszystkich kont z dowolnego z następujących domen do niestandardowych usługi Azure AD dzierżawy i użyj konta do logowania:
+Ponieważ usługa Azure AD ufa domeny konta Microsoft (MSA), można dodać wszystkich kont z dowolnego z następujących domen do niestandardowych usługi Azure AD dzierżawy i korzystać z konta, aby zalogować się:
 
 | **Nazwa domeny** | **Domeny** |
 | --- | --- |
@@ -402,7 +402,7 @@ Poniżej przedstawiono zrzuty ekranu strony logowania innego używany przez inn�
 ![Konto domeny dzierżawcy niestandardowe usługi Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="using-encrypted-media-extensions-for-playready"></a>Przy użyciu nośnika zaszyfrowanych rozszerzeń dla PlayReady
-W nowoczesnych przeglądarki z rozszerzeń szyfrowane nośnika (EME) PlayReady pomocy technicznej, takich jak programu Internet Explorer 11 na Windows 8.1 lub nowszej i przeglądarki Microsoft Edge w systemie Windows 10 PlayReady będzie podstawowej DRM dla EME.
+PlayReady jest podstawowym DRM dla EME na nowoczesne przeglądarki z rozszerzeń szyfrowane nośnika (EME) PlayReady pomocy technicznej, takich jak programu Internet Explorer 11 na Windows 8.1 lub nowszej i przeglądarki Microsoft Edge w systemie Windows 10.
 
 ![Przy użyciu EME PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -412,9 +412,9 @@ Następujący ekran pokazuje wtyczki player i MSE/EME pomocy technicznej.
 
 ![Przy użyciu EME PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
-EME Microsoft Edge i 11 programu Internet Explorer w systemie Windows 10 umożliwia wywoływanie z [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) na urządzeniach z systemem Windows 10, które obsługują. PlayReady SL3000 odblokowuje przepływ zawartości rozszerzone premium (4K, HDR, itp.) i nowe modele dostarczania zawartości (wczesne okno rozszerzone zawartości).
+EME Microsoft Edge i 11 programu Internet Explorer w systemie Windows 10 umożliwia wywoływanie z [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) na obsługujących je urządzeniach z systemem Windows 10. PlayReady SL3000 odblokowuje przepływ zawartości rozszerzone premium (4K, HDR, itp.) i nowe modele dostarczania zawartości (wczesne okno rozszerzone zawartości).
 
-Skupić się na urządzeniach z systemem Windows: PlayReady jest tylko DRM w sprz dostępnej na urządzeniach z systemem Windows (PlayReady SL3000). Usługi przesyłania strumieniowego za pomocą PlayReady za pośrednictwem EME lub aplikacji platformy uniwersalnej systemu Windows i oferują wyższej jakości wideo za pomocą PlayReady SL3000 niż innym DRM. Zwykle zawartości 2K będzie przechodził przez Chrome lub Firefox oraz 4K zawartości za pomocą Microsoft Edge/IE11 lub aplikacji platformy uniwersalnej systemu Windows na tym samym urządzeniu (w zależności od ustawienia usługi i implementację).
+Skupić się na urządzeniach z systemem Windows: PlayReady jest tylko DRM w sprz dostępnej na urządzeniach z systemem Windows (PlayReady SL3000). Usługi przesyłania strumieniowego za pomocą PlayReady za pośrednictwem EME lub aplikacji platformy uniwersalnej systemu Windows i oferują wyższej jakości wideo za pomocą PlayReady SL3000 niż innym DRM. Zwykle zawartości 2K przechodzi przez Chrome lub Firefox oraz 4K zawartości za pomocą Microsoft Edge/IE11 lub aplikacji platformy uniwersalnej systemu Windows na tym samym urządzeniu (w zależności od ustawienia usługi i implementację).
 
 #### <a name="using-eme-for-widevine"></a>Przy użyciu EME Widevine
 W przypadku nowoczesne przeglądarki z obsługą EME/Widevine, takie jak Chrome 41 + w systemie Windows 10, Windows 8.1, Mac OS x Yosemite i Chrome na Android 4.4.4 Google Widevine jest DRM za EME.
@@ -428,10 +428,10 @@ Należy zauważyć, że Widevine nie zapobiega z wprowadzeniem przechwytywania e
 ### <a name="not-entitled-users"></a>Użytkownicy nie prawo
 Jeśli użytkownik nie jest członkiem grupy "Użytkownicy pod tytułem", użytkownik nie będzie można przekazać "Sprawdź uprawnienia" i usługi licencji multi DRM odmówi wystawić żądanego licencji, jak pokazano poniżej. Szczegółowy opis jest "uzyskania licencji nie powiodło się", który jest zgodnie z założeniami.
 
-![Cofanie przysługujących użytkowników](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
+![Unentitled użytkowników](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ### <a name="running-custom-secure-token-service"></a>Usługą niestandardowych Secure Token
-W scenariuszu uruchomionych niestandardowych Secure Token Service (STS) tokenu JWT zostaną wystawione przez usługę STS niestandardowych przy użyciu klucza w konfiguracji symetrycznej lub asymetrycznej.
+W scenariuszu uruchomionych niestandardowych Secure Token Service (STS) tokenu JWT jest wystawiany przez niestandardowe STS przy użyciu klucza w konfiguracji symetrycznej lub asymetrycznej.
 
 W przypadku używania klucza symetrycznego (za pomocą przeglądarki Chrome):
 
@@ -441,13 +441,13 @@ W przypadku używania klucza asymetrycznego za pośrednictwem X509 certyfikatu (
 
 ![Uruchomiona STS niestandardowych](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
-W obu powyższych przypadkach uwierzytelnianie użytkowników pozostaje — za pomocą usługi Azure AD. Jedyna różnica polega na tym, że tokenów JWT są wystawiane przez usługę STS niestandardowych zamiast usługi Azure AD. Oczywiście, podczas konfigurowania ochrony CENC dynamicznych, ograniczenie usługi dostarczania licencji określa typ tokenu JWT klucza w konfiguracji symetrycznej lub asymetrycznej.
+W obu powyższych przypadkach uwierzytelnianie użytkowników pozostaje — za pomocą usługi Azure AD. Jedyna różnica polega na tym, że tokenów JWT są wystawiane przez usługę STS niestandardowych zamiast usługi Azure AD. Podczas konfigurowania ochrony CENC dynamicznych, ograniczenie usługi dostarczania licencji określa typ tokenu JWT klucza w konfiguracji symetrycznej lub asymetrycznej.
 
 ## <a name="summary"></a>Podsumowanie
 W tym dokumencie omówiono CENC z kilku native DRM i kontroli dostępu za pośrednictwem tokenu uwierzytelniania: projekt i jego wdrożenie za pomocą usługi Azure, Azure Media Services i usługi Azure Media Player.
 
 * Odwołania projektu są prezentowane zawierającą wszystkie niezbędne składniki w podsystemie DRM/CENC;
-* Odwołanie do implementacji na platformie Azure, Azure Media Services i Azure Media Player.
+* Odwołanie do implementacji w Azure, Azure Media Services i usługi Azure Media Player.
 * Omówiono także niektóre tematy, które są bezpośrednio związane z projekt i implementację.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

@@ -8,9 +8,9 @@ ACU: 180–240
  
 | Rozmiar          | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepustowość magazynu tymczasowego: IOPS / MB/s | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standardowa_L4s   | 4    | 32   | 678   | 8    | 20,000 / 200   | 10 000 / 250        | 2 / 4,000  | 
-| Standardowa_L8s   | 8    | 64   | 1,388 | 16   | 40,000 / 400   | 20 000 / 500       | 4 / 8,000  | 
-| Standardowa_L16s  | 16   | 128  | 2,807 | 32   | 80,000 / 800   | 40 000 / 1000       | 8 / 6,000 - 16,000 &#8224; | 
+| Standardowa_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 10 000 / 250        | 2 / 4,000  | 
+| Standardowa_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 20 000 / 500       | 4 / 8,000  | 
+| Standardowa_L16s  | 16   | 128  | 2,807 | 64   | 80,000 / 800   | 40 000 / 1000       | 8 / 6,000 - 16,000 &#8224; | 
 | Standardowa_L32s* | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80 000 / 2000     | 8 / 20,000 | 
  
 

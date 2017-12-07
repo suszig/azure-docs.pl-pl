@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Zarządzanie interfejsami API zasad buforowania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -116,8 +116,8 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
 |Zezwalaj na prywatny odpowiedzi buforowania|Jeśli wartość `true`, umożliwia buforowanie żądań zawierających nagłówek uwierzytelnienia.|Nie|fałsz|  
 |typ podrzędny dla buforowania|Ten atrybut musi mieć ustawioną jedną z następujących wartości.<br /><br /> -none - podrzędne buforowanie jest niedozwolone.<br />-prywatny - podrzędne buforowanie prywatnej jest dozwolone.<br />-publiczny - prywatnych i udostępnionych podrzędne buforowanie jest dozwolone.|Nie|brak|  
 |musi revalidate|Gdy włączone jest buforowanie podrzędne tego atrybutu Włącza lub wyłącza `must-revalidate` dyrektywy sterowania pamięci podręcznej w odpowiedzi bramy.|Nie|prawda|  
-|różnią się przez dewelopera|Ustaw `true` do pamięci podręcznej odpowiedzi na klucz developer.|Nie|fałsz|  
-|różnią się przez developer grupy|Ustaw `true` do odpowiedzi z pamięci podręcznej dla każdej roli użytkownika.|Nie|fałsz|  
+|różnią się przez dewelopera|Ustaw `true` do pamięci podręcznej odpowiedzi na klucz developer.|Tak||  
+|różnią się przez developer grupy|Ustaw `true` do odpowiedzi z pamięci podręcznej dla każdej roli użytkownika.|Tak||  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

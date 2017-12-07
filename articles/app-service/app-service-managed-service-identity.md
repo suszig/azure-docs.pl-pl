@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak używać Azure zarządzanych tożsamości usługi (publicznej wersji zapoznawczej) w aplikacji usługi i usługi Azure Functions
 
@@ -45,6 +45,35 @@ Aby skonfigurować tożsamość usługi zarządzanej w portalu, zostanie najpier
 4. Przełącznik **zarejestrować w usłudze Azure Active Directory** do **na**. Kliknij pozycję **Zapisz**.
 
 ![Zarządzane tożsamości usługi w usłudze App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+
+Aby skonfigurować tożsamość usługi zarządzanej przy użyciu wiersza polecenia platformy Azure, musisz użyć `az webapp assign-identity` polecenia w odniesieniu do istniejących aplikacji. Są trzy opcje uruchamiania przykładów w tej sekcji:
+
+- Użyj [powłoki chmury Azure](../cloud-shell/overview.md) z portalu Azure.
+- Użyć osadzonego powłoki chmury Azure za pośrednictwem "Spróbuj on" przycisk, znajdujący się w prawym górnym rogu każdej blok kodu poniżej.
+- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 lub nowsza), jeśli wolisz korzystać z konsoli lokalnej interfejsu wiersza polecenia. 
+
+Poniższe kroki przeprowadzi użytkownika przez proces tworzenia aplikacji sieci web i przypisywania jej tożsamość za pomocą interfejsu wiersza polecenia:
+
+1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w której chcesz wdrożyć aplikację:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Utwórz aplikację sieci web przy użyciu interfejsu wiersza polecenia. Więcej przykładów dotyczących używania interfejsu wiersza polecenia z usługi aplikacji, zobacz [przykłady interfejsu wiersza polecenia aplikacji usługi](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Uruchom `assign-identity` polecenie w celu utworzenia tożsamości dla tej aplikacji:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Przy użyciu szablonu usługi Azure Resource Manager
 
@@ -134,7 +163,7 @@ Za pomocą tożsamości zarządzanych usług aplikacji ma dwie zmienne środowis
 > |-----|-----|-----|
 > |zasób|Zapytanie|Identyfikator URI zasobu zasobu usługi AAD, dla którego mają być uzyskiwane tokenu.|
 > |wersja interfejsu API|Zapytanie|Wersja interfejsu API token do użycia. "2017-09-01" jest obecnie jedyna obsługiwana wersja.|
-> |klucz tajny|Nagłówek|Wartość zmiennej środowiskowej MSI_SECRET.|
+> |wpis tajny|Nagłówek|Wartość zmiennej środowiskowej MSI_SECRET.|
 
 
 Pomyślne odpowiedź 200 OK zawiera treść JSON z następującymi właściwościami:

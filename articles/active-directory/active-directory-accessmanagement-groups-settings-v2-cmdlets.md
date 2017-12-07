@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Usługi Active Directory w wersji 2 poleceń cmdlet systemu Azure dla grupy zarządzania
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Ten artykuł zawiera przykłady Zarządzanie grupami w usłudze Azure Active Directory (Azure AD) przy użyciu programu PowerShell.  On również wyjaśniono, jak pobrać skonfigurować moduł Azure AD PowerShell. Najpierw należy [Pobierz moduł Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="installing-the-azure-ad-powershell-module"></a>Instalowanie modułu programu PowerShell usługi Azure AD
+## <a name="install-the-azure-ad-powershell-module"></a>Zainstaluj moduł programu PowerShell usługi Azure AD
 Aby zainstalować moduł Azure AD PowerShell, użyj następujących poleceń:
 
     PS C:\Windows\system32> install-module azuread
@@ -46,7 +46,7 @@ Aby sprawdzić, czy moduł został zainstalowany, użyj następującego poleceni
 
 Teraz można uruchomić przy użyciu poleceń cmdlet w module. Pełny opis poleceń cmdlet w module usługi Azure AD, można znaleźć w dokumentacji online dla [Azure Active Directory programu PowerShell w wersji 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connecting-to-the-directory"></a>Łączenie z katalogu
+## <a name="connect-to-the-directory"></a>Łączenie się z katalogiem
 Aby umożliwić zarządzanie grupami za pomocą poleceń cmdlet programu PowerShell usługi Azure AD, należy połączyć sesji programu PowerShell do katalogu, który ma być zarządzany. Użyj następującego polecenia:
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -59,8 +59,10 @@ Polecenie cmdlet monituje o poświadczenia, który ma być używany na dostęp d
 
 Teraz można uruchomić przy użyciu poleceń cmdlet AzureAD do zarządzania grupami w katalogu.
 
-## <a name="retrieving-groups"></a>Pobieranie grupy
-Można pobrać z katalogu istniejących grup służy polecenie cmdlet Get-AzureADGroups. Aby uzyskać dostęp do wszystkich grup w katalogu, należy użyć polecenia cmdlet bez parametrów:
+## <a name="retrieve-groups"></a>Pobieranie grupy
+Aby pobrać istniejących grup z katalogu, należy użyć polecenia cmdlet Get-AzureADGroups. 
+
+Aby uzyskać dostęp do wszystkich grup w katalogu, należy użyć polecenia cmdlet bez parametrów:
 
     PS C:\Windows\system32> get-azureadgroup
 
@@ -108,14 +110,14 @@ Możesz wyszukać określoną grupę za pomocą parametru - filtru. Ten parametr
     SecurityEnabled              : True
 
 > [!NOTE] 
-> Polecenia cmdlet programu AzureAD PowerShell wdrożenia standardowego zapytania OData. Aby uzyskać więcej informacji, zobacz **$filter** w [opcje zapytania systemu OData przy użyciu punktu końcowego OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> Polecenia cmdlet programu Azure AD PowerShell wdrożenia standardowego zapytania OData. Aby uzyskać więcej informacji, zobacz **$filter** w [opcje zapytania systemu OData przy użyciu punktu końcowego OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
-## <a name="creating-groups"></a>Tworzenie grup
+## <a name="create-groups"></a>Tworzenie grup
 Aby utworzyć nową grupę w katalogu, należy użyć polecenia cmdlet New-AzureADGroup. To polecenie cmdlet tworzy nową grupę zabezpieczeń o nazwie "Marketing":
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>Aktualizowanie grupy
+## <a name="update-groups"></a>Grupy aktualizacji
 Aby uaktualnić istniejącą grupę, należy użyć polecenia cmdlet Set-AzureADGroup. W tym przykładzie Zmieniamy Właściwość DisplayName grupy "Administratorzy usługi Intune". Po pierwsze są znajdowane grupy za pomocą polecenia cmdlet Get-AzureADGroup są i Filtruj, używając atrybutu Nazwa wyświetlana:
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,18 +162,20 @@ Teraz możemy znaleźć grupy możemy wyświetlić właściwości Description zo
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>Usuwanie grup
+## <a name="delete-groups"></a>Usuń grupy
 Usuń grupy z katalogiem, użyj polecenia cmdlet Remove-AzureADGroup w następujący sposób:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>Zarządzanie członkami grup
-Jeśli potrzebujesz dodać nowych członków do grupy, należy użyć polecenia cmdlet Add-AzureADGroupMember. To polecenie dodaje członka do grupy Administratorzy usługi Intune, używane w poprzednim przykładzie:
+## <a name="manage-group-membership"></a>Zarządzaj członkostwem w grupach 
+### <a name="add-members"></a>Dodaj członków
+Aby dodać nowe elementy członkowskie do grupy, użyj polecenia cmdlet Add-AzureADGroupMember. To polecenie dodaje członka do grupy Administratorzy usługi Intune, używane w poprzednim przykładzie:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
 Identyfikator obiektu grupy, do którego chcemy dodać element członkowski jest parametr - ObjectId, a RefObjectId — jest identyfikator obiektu użytkownika, którego chcemy, aby dodać jako członka do grupy.
 
+### <a name="get-members"></a>Pobierz elementy członkowskie
 Aby uzyskać istniejących członków grupy, należy użyć polecenia cmdlet Get-AzureADGroupMember, jak w poniższym przykładzie:
 
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -181,11 +185,13 @@ Aby uzyskać istniejących członków grupy, należy użyć polecenia cmdlet Get
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
+### <a name="remove-members"></a>Usuń elementy członkowskie
 Aby usunąć element członkowski, który wcześniej dodane do grupy, użyj polecenia cmdlet Remove-AzureADGroupMember, jak to pokazano poniżej:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Aby sprawdzić uległ grupy użytkownika, użyj polecenia cmdlet AzureADGroupIdsUserIsMemberOf wybierz. To polecenie cmdlet przyjmuje jako parametry ObjectId użytkownika, do których chcesz sprawdzić członkostwa w grupach i listę grup, do których chcesz sprawdzić członkostwa. Lista grup muszą być w formie złożone zmiennej typu "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck", dlatego firma Microsoft najpierw utworzyć zmienną z danym typem:
+### <a name="verify-members"></a>Sprawdź elementy członkowskie
+Aby sprawdzić członkostwa w grupach użytkownika, użyj polecenia cmdlet AzureADGroupIdsUserIsMemberOf wybierz. To polecenie cmdlet przyjmuje jako parametry ObjectId użytkownika, do których chcesz sprawdzić członkostwa w grupach i listę grup, do których chcesz sprawdzić członkostwa. Lista grup muszą być w formie złożone zmiennej typu "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck", dlatego firma Microsoft najpierw utworzyć zmienną z danym typem:
 
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
 
@@ -204,7 +210,24 @@ Teraz Jeśli chcemy sprawdzić członkostwa w grupach użytkownika z 72cd4bbd-25
 
 Wartość zwracana jest lista grup, których członkiem jest ten użytkownik. Można także zastosować dla tej metody do sprawdzenia członkostwa kontakty, grupy lub podmiotów zabezpieczeń usługi dla danej listy grup, za pomocą AzureADGroupIdsContactIsMemberOf Select, wybierz AzureADGroupIdsGroupIsMemberOf lub Wybierz AzureADGroupIdsServicePrincipalIsMemberOf
 
-## <a name="managing-owners-of-groups"></a>Zarządzanie właścicielami grupy
+## <a name="disable-group-creation-by-your-users"></a>Wyłącz tworzenie grupy użytkowników
+Aby uniemożliwić użytkownikom niebędącym administratorami tworzenie grup zabezpieczeń. Domyślne zachowanie w Microsoft Online Directory Services (MSODS) jest umożliwienie użytkownikom niebędącym administratorami tworzenie grup, czy grupy Samoobsługowe zarządzanie GRUPAMI jest włączona. Ustawienie GRUPAMI steruje zachowaniem tylko w panelu dostępu Moje aplikacje. 
+
+Aby wyłączyć tworzenie grupy dla użytkowników bez uprawnień administratora:
+
+1. Sprawdź, czy użytkownicy inni niż administratorzy mogą tworzyć grupy:
+   
+  ````
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ````
+  
+2. Jeśli zmienna zwraca `UsersPermissionToCreateGroupsEnabled : True`, a następnie użytkownicy inni niż administratorzy mogą tworzyć grupy. Aby wyłączyć tę funkcję:
+  
+  ```` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ````
+  
+## <a name="manage-owners-of-groups"></a>Zarządzanie właścicielami grupy
 Aby dodać właścicieli do grupy, użyj polecenia cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -229,14 +252,14 @@ Jeśli chcesz usunąć właściciela z grupy, należy użyć polecenia cmdlet Re
 Po utworzeniu grupy pewność, że punkty końcowe umożliwiają użytkownikom końcowym Określ mailNickname lub alias ma być używany jako część adresu e-mail grupy. Grupy z następujących aliasów e-mail wysoko uprzywilejowane można tworzyć tylko przez administratora globalnego usługi Azure AD. 
   
 * nadużyć 
-* Administrator 
+* administrator 
 * Administrator 
 * hostmaster 
 * majordomo 
 * Postmaster 
 * główny 
 * Zabezpieczenia 
-* Zabezpieczeń 
+* security 
 * admin protokołu SSL 
 * webmaster 
 

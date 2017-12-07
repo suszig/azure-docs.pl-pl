@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Jak Generowanie i przenoszenie chronionego przez moduł HSM kluczy dla usługi Azure Key Vault
 ## <a name="introduction"></a>Wprowadzenie
@@ -82,10 +82,14 @@ Aby uzyskać instrukcje instalacji, zobacz [jak instalowanie i konfigurowanie pr
 ### <a name="step-12-get-your-azure-subscription-id"></a>Krok 1.2: Pobieranie identyfikator subskrypcji platformy Azure
 Uruchom sesję programu PowerShell Azure i zaloguj się do konta platformy Azure przy użyciu następującego polecenia:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 W podręcznym oknie przeglądarki wprowadź nazwę użytkownika i hasło dla konta platformy Azure. Następnie należy użyć [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) polecenia:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 Z danych wyjściowych zlokalizuj identyfikator subskrypcji, które będą używane dla usługi Azure Key Vault. Ta Subskrypcja będzie potrzebny później.
 
 Nie zamykaj okna programu Azure PowerShell.
@@ -188,7 +192,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 Aby zweryfikować integralność z pobranego zestawu narzędzi BYOK, w sesji programu Azure PowerShell, użyj [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) polecenia cmdlet.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 Zestaw narzędzi zawiera następujące czynności:
 
@@ -208,7 +214,9 @@ Zainstaluj oprogramowanie wspomagające nCipher (firmy Thales) na komputerze z s
 
 Upewnij się, że narzędzia firmy Thales znajdują się w ścieżce (**%nfast_home%\bin**). Na przykład wpisz następujące polecenie:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Aby uzyskać więcej informacji zobacz Podręcznik użytkownika dołączone do modułu HSM firmy Thales.
 
@@ -229,7 +237,9 @@ Jeśli używasz nShield firmy Thales krawędzi, aby zmienić tryb: 1. Przycisk t
 ### <a name="step-32-create-a-security-world"></a>Krok 3.2: Utworzenie środowiska zabezpieczeń security world
 Uruchom wiersz polecenia, a następnie uruchom program nowe world firmy Thales.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Ten program tworzy **środowiska zabezpieczeń Security World** pliku w lokalizacji % NFAST_KMDATA%\local\world, co odpowiada folderu C:\ProgramData\nCipher\Key Management Data\local. Można użyć innych wartości dla kworum, ale w tym przykładzie zostanie wyświetlony monit o wprowadzenie trzech pustych kart oraz kodów PIN dla każdego z nich. Następnie dowolne dwie spośród kart zapewnić pełny dostęp do środowiska zabezpieczeń security world. Te karty stają się **zestaw kart administratora** dla nowego środowiska zabezpieczeń security world.
 
@@ -293,6 +303,10 @@ Aby zweryfikować pobrany pakiet:
    * Dla Indie:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Zjednoczone Królestwo:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Oprogramowanie firmy Thales obejmuje python w %NFAST_HOME%\python\bin
      >
@@ -370,6 +384,9 @@ Otwórz nowy wiersz polecenia i zmień bieżący katalog do lokalizacji, w któr
 * Dla Indie:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Zjednoczone Królestwo:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 Podczas uruchamiania tego polecenia Zastąp *contosokey* taką samą wartością jak podana w **3.5 krok: Utwórz nowy klucz** z [generowanie klucza](#step-3-generate-your-key) kroku.
 
@@ -426,6 +443,9 @@ Uruchom jedno z poniższych poleceń, w zależności od Twojego regionu geografi
 * Dla Indie:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Zjednoczone Królestwo:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Po uruchomieniu tego polecenia, użyj tych instrukcji:
 
@@ -441,7 +461,9 @@ Aby skopiować plik wyjściowy z poprzedniego kroku (KeyTransferPackage-ContosoF
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Krok 5: Przesłanie klucza do usługi Azure Key Vault
 W tym kroku końcowego na stacji roboczej podłączonej do Internetu, użyj [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) polecenia cmdlet, aby przekazać pakiet transfer klucza skopiowany z odłączonej stacji roboczej do modułu HSM usługi Azure Key Vault:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Jeśli przekazywanie zakończy się pomyślnie, zostanie wyświetlony wyświetlane właściwości klucza, który właśnie został dodany.
 

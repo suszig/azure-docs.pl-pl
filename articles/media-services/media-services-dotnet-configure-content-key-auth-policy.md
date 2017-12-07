@@ -3,7 +3,7 @@ title: "Skonfiguruj zasady autoryzacji klucza zawartości przy użyciu zestawu .
 description: "Dowiedz się, jak skonfigurować zasady autoryzacji klucza zawartości przy użyciu zestawu .NET SDK usługi multimediów."
 services: media-services
 documentationcenter: 
-author: Mingfeiy
+author: mingfeiy
 manager: cfowler
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9a7aa64d434efcf44553d5d900601638a329a1d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Szyfrowania dynamicznego: Skonfiguruj zasady autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,28 +30,25 @@ Media Services udostępnia również **usługi dostarczania licencji/klucz** z k
 
 Jeśli chcesz dla usługi Media Services zaszyfrować element zawartości, należy skojarzyć klucza szyfrowania (**CommonEncryption** lub **EnvelopeEncryption**) z elementu zawartości (zgodnie z opisem [tutaj](media-services-dotnet-create-contentkey.md)), a także skonfigurować zasady autoryzacji klucza (zgodnie z opisem w tym artykule).
 
-Strumień zleconą przez odtwarzacz usługi Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub DRM. Aby odszyfrować strumienia, odtwarzacza zażąda klucz z usługi dostarczania klucza. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
+Strumień zleconą przez odtwarzacz usługi Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub DRM. Aby odszyfrować strumienia, odtwarzacza żądań klucz z usługi dostarczania klucza. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa oblicza zasad autoryzacji, które podane dla klucza.
 
 Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości może mieć jeden lub więcej ograniczeń: **Otwórz** lub **tokenu** ograniczeń. Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę STS (Secure Token Service). Usługa Media Services obsługuje tokenów w **proste tokenów sieci Web** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format i **JSON Web Token** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) format.
 
-Usługi Media Services nie zapewnia bezpieczny tokenu usługi. Można utworzyć niestandardowy STS lub korzystać z usługi Microsoft Azure ACS do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany określone oświadczenia klucza i problem, określonych w konfiguracji ograniczenia tokenu (zgodnie z opisem w tym artykule). Usługa Media Services klucza dostawy zwróci klucz szyfrowania do klienta, jeśli token jest prawidłowy i oświadczenia w tokenie pasują do klucza zawartości.
+Usługi Media Services nie zapewnia bezpieczny tokenu usługi. Można utworzyć niestandardowy STS lub korzystać z usługi Microsoft Azure ACS do wydawania tokenów. Usługa tokenu Zabezpieczającego musi być skonfigurowana do utworzenia tokenu podpisany określone oświadczenia klucza i problem, określonych w konfiguracji ograniczenia tokenu (zgodnie z opisem w tym artykule). Usługa Media Services klucza dostawy zwraca klucz szyfrowania do klienta, jeśli token jest prawidłowy, a oświadczenia w tokenie pasują do klucza zawartości.
 
-Aby uzyskać więcej informacji, zobacz
-
-[Uwierzytelniania tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integracja aplikacji na podstawie Azure Media Services OWIN MVC z usługi Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Użyj Azure ACS do wydawania tokenów](http://mingfeiy.com/acs-with-key-services).
+Aby uzyskać więcej informacji zobacz następujące artykuły:
+- [Uwierzytelniania tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrowanie aplikacji usługi Azure Media Services OWIN MVC z usługą Azure Active Directory i ograniczenie klucza dostarczania zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Zagadnienia do rozważenia:
 * Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego jest dodany do Twojego konta w **zatrzymane** stanu. Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania, punkt końcowy przesyłania strumieniowego musi być w **systemem** stanu. 
 * Zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów. Aby uzyskać więcej informacji, zobacz [kodowanie elementu zawartości](media-services-encode-asset.md).
 * Przekazywanie i zasobów przy użyciu kodowania **AssetCreationOptions.StorageEncrypted** opcji.
-* Jeśli planujesz mieć wiele kluczy zawartości, które wymagają taką samą konfigurację zasad, jest zalecane do tworzenia zasad autoryzacji pojedynczego i użyć go ponownie wiele kluczy zawartości.
+* Jeśli planujesz mieć wiele kluczy zawartości, które wymagają taką samą konfigurację zasad, zalecane jest tworzenie zasad autoryzacji pojedynczego i użyć go ponownie wiele kluczy zawartości.
 * Usługi dostarczania klucza buforuje ContentKeyAuthorizationPolicy i jego obiektów pokrewnych (opcje zasad i ograniczeń) przez 15 minut.  Po utworzeniu ContentKeyAuthorizationPolicy i określanie użycia 'Token' ograniczeń, przetestowanie i następnie zaktualizuj zasady do ograniczenia "Otwórz", potrwa około 15 minut, zanim zasad zmienia się na "Otwórz" wersję zasad.
 * W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 * Obecnie nie można zaszyfrować pobierania progresywnego.
+* AMS punktu końcowego przesyłania strumieniowego ustawia wartość nagłówka "Access-Control-Allow-Origin" mechanizmu CORS w odpowiedzi dotyczące stanu wstępnego jako symbolu wieloznacznego "\*". To działanie jest prawidłowo w przypadku większości odtwarzaczy, w tym naszej usługi Azure Media Player, Roku i JW i inne. Jednak niektóre odtwarzacze, które wykorzystują dashjs nie działać, ponieważ z poświadczeń trybu ustawioną na "Dołącz", XMLHttpRequest w ich dashjs nie zezwala na symbolu wieloznacznego "\*" jako wartości "" Access-Control-Allow-Origin ". Jako obejście tego ograniczenia w dashjs obsługując klienta z pojedynczą domenę usługi Azure Media Services można określić tej domeny w nagłówku wstępnej reakcji. Użytkownik może dotrzeć przez otwarcie biletu pomocy technicznej za pośrednictwem portalu Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Dynamicznego szyfrowania AES-128
 ### <a name="open-restriction"></a>Ograniczenie otwarte
@@ -99,9 +96,9 @@ Poniższy przykład tworzy zasady autoryzacji otwarte i dodaje go do klucza zawa
 ### <a name="token-restriction"></a>Ograniczenia tokenu
 W tej sekcji opisano sposób tworzenia zasady autoryzacji klucza zawartości i skojarz ją z klucz zawartości. Zasady autoryzacji opisano, jakie wymagania autoryzacji muszą być spełnione do określenia, czy użytkownik jest autoryzowany do odbierania klucza (na przykład, czy lista "klucz weryfikacji" zawiera klucz, który został podpisany token, z).
 
-Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wymagań autoryzacji tokenu. Plik XML konfiguracji ograniczenia tokenu musi być zgodna z następującego schematu XML.
+Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wymagań autoryzacji tokenu. Plik XML konfiguracji ograniczenia tokenu musi być zgodna z następującego schematu XML:
 
-#### <a id="schema"></a>Ograniczenia tokenu schematu
+#### <a name="token-restriction-schema"></a>Ograniczenia tokenu schematu
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -149,7 +146,7 @@ Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML opisujący wym
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Podczas konfigurowania **tokenu** ograniczone zasad, należy określić podstawowy ** weryfikacji klucza **, **wystawcy** i **odbiorców** parametrów. ** Klucza podstawowego weryfikacji ** zawiera klucz, który token został podpisany, **wystawcy** jest bezpieczne usługi tokenu, który wystawia token. **Odbiorców** (nazywane również **zakres**) opisano celem token lub tokenu zezwala na dostęp do zasobu. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie. 
+Podczas konfigurowania **tokenu** ograniczone zasad, należy określić podstawową **klucza weryfikacji**, **wystawcy** i **odbiorców** Parametry. Podstawowy **klucza weryfikacji** zawiera klucz, który token został podpisany, **wystawcy** jest bezpieczne usługi tokenu, który wystawia token. **Odbiorców** (nazywane również **zakres**) opisano celem token lub tokenu zezwala na dostęp do zasobu. Usługa Media Services klucza dostawy weryfikuje, czy te wartości w tokenie pasują do wartości w szablonie.
 
 Korzystając z **SDK usługi Media Services dla platformy .NET**, można użyć **TokenRestrictionTemplate** klasy do wygenerowania tokenu ograniczeń.
 Poniższy przykład tworzy zasady autoryzacji z ograniczenia tokenu. W tym przykładzie, klient musi przedstawić token, który zawiera: podpisywanie klucz (VerificationKey), wystawcy tokenów i oświadczeń wymagane.
@@ -208,7 +205,7 @@ Poniższy przykład tworzy zasady autoryzacji z ograniczenia tokenu. W tym przyk
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a id="test"></a>Test tokenu
+#### <a name="test-token"></a>Test tokenu
 Aby uzyskać token testu w oparciu ograniczenia tokenu użyto zasad autoryzacji klucza, wykonaj następujące czynności.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -231,12 +228,12 @@ Aby uzyskać token testu w oparciu ograniczenia tokenu użyto zasad autoryzacji 
 ## <a name="playready-dynamic-encryption"></a>Szyfrowanie PlayReady dynamiczne
 Usługa Media Services umożliwia skonfigurowanie uprawnień i ograniczeń, które chcesz środowiska uruchomieniowego PlayReady DRM wymusić, gdy użytkownik próbuje odtworzyć chronionej zawartości. 
 
-Podczas ochrony zawartości przy użyciu PlayReady, jest jednym z elementów, należy określić w zasadach autoryzacji ciągu XML, który definiuje [szablon licencji PlayReady](media-services-playready-license-template-overview.md). W zestawie SDK usługi multimediów dla platformy .NET **PlayReadyLicenseResponseTemplate** i **PlayReadyLicenseTemplate** klasy zawierają informacje pomocne podczas definiowania szablonu licencji PlayReady.
+Podczas ochrony zawartości przy użyciu PlayReady, jest jednym z elementów, należy określić w zasadach autoryzacji ciągu XML, który definiuje [szablon licencji PlayReady](media-services-playready-license-template-overview.md). W zestawie SDK usługi multimediów dla platformy .NET **PlayReadyLicenseResponseTemplate** i **PlayReadyLicenseTemplate** klas pomocy definiowania szablonu licencji PlayReady.
 
-[W tym temacie](media-services-protect-with-drm.md) pokazano, jak szyfrowanie zawartości przy użyciu **PlayReady** i **Widevine**.
+[W tym artykule](media-services-protect-with-playready-widevine.md) pokazano, jak szyfrowanie zawartości przy użyciu **PlayReady** i **Widevine**.
 
 ### <a name="open-restriction"></a>Ograniczenie otwarte
-Otwórz ograniczeń oznacza, że system będzie dostarczać klucza dla każdego, kto wysyła żądanie klucza. To ograniczenie może być przydatna do celów testowych.
+Otwórz ograniczeń oznacza, że system dostarcza klucza do każdego, kto wysyła żądanie klucza. To ograniczenie może być przydatna do celów testowych.
 
 Poniższy przykład tworzy zasady autoryzacji otwarte i dodaje go do klucza zawartości.
 
@@ -415,14 +412,12 @@ Można pobrać tokenu testu, w oparciu o ograniczenia tokenu, którego użyto do
         JWT = 2,
     }
 
-
-
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-step"></a>Następny krok
-Teraz, gdy skonfigurowano zasady autoryzacji klucza zawartości, przejdź do [jak skonfigurować zasady dostarczania elementu zawartości](media-services-dotnet-configure-asset-delivery-policy.md) tematu.
+## <a name="next-steps"></a>Następne kroki
+Teraz, gdy skonfigurowano zasady autoryzacji klucza zawartości, przejdź do [jak skonfigurować zasady dostarczania elementu zawartości](media-services-dotnet-configure-asset-delivery-policy.md).
 

@@ -1,7 +1,7 @@
 
 | Zasób | Limit domyślny | Limit maksymalny | 
 | --- | --- | --- |
-| Profile CDN |8 |25 |
+| Profile CDN |25 |25 |
 | Punktów końcowych usługi CDN dla profilu |10 |25 |
 | Domeny niestandardowe na punkt końcowy |10 |25 |
 

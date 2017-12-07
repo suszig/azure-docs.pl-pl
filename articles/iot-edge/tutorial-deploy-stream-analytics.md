@@ -9,84 +9,109 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5a143bbf7abb5304ac51782d517c02ec184a05a2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Stream Analytics jako moduł krawędzi IoT — w wersji preview
 
-Urządzenia IoT może spowodować duże ilości danych. Czasami tych danych musi być analizowane albo przetworzone przed osiągnięciem chmury, aby zmniejszyć rozmiar dane przekazane lub wyeliminowanie obustronnych opóźnień możliwością szczegółowe informacje.
+Urządzenia IoT może spowodować duże ilości danych. Aby zmniejszyć ilość danych przekazanego lub wyeliminowanie obustronnych opóźnień możliwością szczegółowe informacje o danych czasami musi przeanalizowane lub przetworzone przed osiągnie chmury.
 
-Krawędź IoT korzysta z wbudowanych modułów krawędzi IoT usługi Azure do szybkiego wdrożenia i [Azure Stream Analytics] [ azure-stream] (ASA) jest takich modułów. Można utworzyć zadania ASA z portalu, a następnie do Centrum IoT portalu, aby wdrożyć go jako moduł krawędzi IoT.  
+Azure IoT krawędzi korzysta z wbudowanych usługa Azure IoT krawędzi modułów do szybkiego wdrożenia. [Usługa Azure Stream Analytics] [ azure-stream] jest takich modułów. Można utworzyć zadania usługi analiza strumienia Azure z portalu, a następnie przejdź do portalu Centrum IoT Azure, aby wdrożyć go jako moduł IoT krawędzi. 
 
-Usługa Azure Stream Analytics zawiera Bogato strukturalnych składnię analizy danych, zarówno w chmurze, jak i na krawędzi IoT urządzeń. Aby uzyskać więcej informacji na temat ASA na krawędzi IoT, zobacz [dokumentacji ASA](../stream-analytics/stream-analytics-edge.md).
+Usługa Azure Stream Analytics zawiera Bogato strukturalnych składnię analizy danych, zarówno w chmurze, jak i na krawędzi IoT urządzeń. Aby uzyskać więcej informacji na temat usługi Azure Stream Analytics na krawędzi IoT, zobacz [dokumentacji usługi Azure Stream Analytics](../stream-analytics/stream-analytics-edge.md).
 
-Ten samouczek przeprowadzi Cię przez tworzenie zadania usługi analiza strumienia Azure i jej wdrożenia na urządzenie brzegowe IoT, aby można było przetworzyć strumienia lokalnego telemetrii bezpośrednio na urządzeniu i generowania alertów do natychmiastowego działania dysku na urządzeniu.  Istnieją dwa moduły związane z tego samouczka. Czujnik temperatury symulowane modułu (tempSensor) generuje danych temperatury 20 do 120 stopni, zwiększana o 1 co 5 sekund. Moduł usługi Stream Analytics resetuje tempSensor gdy średnią 30 sekund osiągnie 70. W środowisku produkcyjnym ta funkcja może służyć do wyłącza maszynę lub podjęcia środków zapobiegawczych gdy temperatura osiągnie niebezpieczne poziomy. 
+W tym samouczku przedstawiono sposób tworzenia zadania usługi analiza strumienia Azure i wdrażania go na urządzeniu IoT krawędzi. Umożliwia to przetworzyć strumienia lokalnego telemetrii bezpośrednio na urządzeniu i generowania alertów, którzy sterują natychmiastowego działania na urządzeniu. 
 
-Omawiane kwestie:
+Samouczek przedstawia dwa moduły: 
+* Symulowane temperatury czujnik modułu (tempSensor) generujący danych temperatury 20 stopni 120, zwiększana o 1 co 5 sekund. 
+* Moduł usługi analiza strumienia, który resetuje tempSensor, gdy średni 30 sekund osiągnie 70. W środowisku produkcyjnym wyłączone maszynę lub gdy temperatura osiągnie niebezpieczne poziomy podjęcia środków zapobiegawczych może użyć tej funkcji. 
+
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz zadanie ASA do przetwarzania danych na krawędzi
-> * Nowe zadanie ASA Uzyskuj dostęp do innych modułów krawędzi IoT
-> * Wdrażanie do urządzenia IoT zadania ASA
+> * Utwórz zadanie usługi analiza strumienia Azure do przetwarzania danych na krawędzi.
+> * Nowe zadanie usługi analiza strumienia Azure Uzyskuj dostęp do innych modułów IoT krawędzi.
+> * Wdróż zadania usługi analiza strumienia Azure IoT urządzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Centrum IoT 
-* Urządzenia, który został utworzony i skonfigurowany w szybkiego startu lub wdrożyć Azure IoT krawędzi om symulowane urządzenie w [Windows] [ lnk-tutorial1-win] i [Linux] [ lnk-tutorial1-lin]. Należy znać klucza połączenia urządzenia i identyfikator urządzenia. 
-* Docker uruchomione na urządzeniu IoT krawędzi
-    * [Zainstaluj Docker w systemie Windows][lnk-docker-windows]
-    * [Zainstaluj Docker w systemie Linux][lnk-docker-linux]
-* Python 2.7.x na urządzeniu IoT krawędzi
+* Centrum IoT. 
+* Urządzenia, który został utworzony i skonfigurowany z opcją szybkiego startu lub w artykułach dotyczących wdrażania usługi Azure IoT krawędzi na symulowane urządzenie w [Windows] [ lnk-tutorial1-win] lub [Linux] [ lnk-tutorial1-lin]. Należy znać klucza połączenia urządzenia i identyfikator urządzenia. 
+* Docker uruchomione na urządzeniu IoT krawędzi.
+    * [Zainstaluj Docker w systemie Windows][lnk-docker-windows].
+    * [Zainstaluj Docker w systemie Linux][lnk-docker-linux].
+* Python 2.7.x na urządzeniu IoT krawędzi.
     * [Instalowanie języka Python 2.7 w systemie Windows][lnk-python].
-    * Większość dystrybucje systemu Linux, łącznie z Ubuntu, już Python 2.7 zainstalowane.  Użyj następującego polecenia, aby się upewnić, że zainstalowano narzędzia pip: `sudo apt-get install python-pip`.
+    * Większość dystrybucje systemu Linux, łącznie z Ubuntu, już Python 2.7 zainstalowane. Aby upewnić się, że zainstalowano narzędzia pip, użyj następującego polecenia: `sudo apt-get install python-pip`.
 
+## <a name="create-an-azure-stream-analytics-job"></a>Utwórz zadanie usługi analiza strumienia Azure
 
-## <a name="create-an-asa-job"></a>Utwórz zadanie ASA
-
-W tej sekcji utworzysz zadanie usługi analiza strumienia Azure pobierają dane z Centrum IoT zapytania na danych telemetrycznych wysłanych z urządzenia i przekazać wyniki do kontenera (obiektu BLOB magazynu Azure). Aby uzyskać więcej informacji, zobacz **omówienie** sekcji [dokumentacji analityka strumienia][azure-stream]. 
+W tej sekcji utworzysz zadanie usługi analiza strumienia Azure do pobierają dane z Centrum IoT, zapytania na danych telemetrycznych wysłanych z urządzenia, a następnie przekazać wyniki do kontenera magazynu obiektów Blob platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję "Overview" [dokumentacji analityka strumienia][azure-stream]. 
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użycia jako dane wyjściowe, w którym zadanie ASA. W poniższym przykładzie jest używany typ magazynu obiektów BLOB.  Aby uzyskać więcej informacji, zobacz **obiekty BLOB** sekcji [dokumentacji usługi Magazyn Azure][azure-storage].
+Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użycia jako dane wyjściowe z zadania usługi analiza strumienia Azure. W przykładzie w tej sekcji użyto typu magazynu obiektów Blob. Aby uzyskać więcej informacji, zobacz sekcję "Blob" [dokumentację usługi Azure Storage][azure-storage].
 
-1. W portalu Azure, przejdź do **Utwórz zasób** , a następnie wprowadź `Storage account` na pasku wyszukiwania. Wybierz **konta magazynu — obiekt blob, plików, tabeli, kolejki**.
+1. W portalu Azure, przejdź do **Utwórz zasób**, wprowadź **konta magazynu** w polu wyszukiwania, a następnie wybierz **konta magazynu — obiekt blob, plików, tabeli, kolejki**.
 
-2. Wprowadź nazwę konta magazynu, a następnie wybierz lokalizację, w którym znajduje się Centrum IoT. Kliknij przycisk **Utwórz**. Zapamiętaj nazwę później.
+2. W **utworzyć konto magazynu** okienku, wprowadź nazwę konta magazynu, wybierz w tej samej lokalizacji, w którym przechowywana jest Centrum IoT, a następnie wybierz **Utwórz**. Zanotuj nazwę do późniejszego użycia.
 
-    ![Nowe konto magazynu][1]
+    ![Tworzenie konta magazynu][1]
 
-3. Przejdź do konta magazynu, który został właśnie utworzony. Kliknij przycisk **Przeglądaj obiekty BLOB**. 
-4. Utwórz nowy kontener dla modułu ASA do przechowywania danych. Ustaw poziom dostępu **kontenera**. Kliknij przycisk **OK**.
+3. Przejdź do konta magazynu, który został właśnie utworzony, a następnie wybierz **Przeglądaj obiekty BLOB**. 
+
+4. Utwórz nowy kontener dla modułu usługi analiza strumienia Azure do przechowywania danych, Ustaw dostęp poziom **kontenera**, a następnie wybierz **OK**.
 
     ![Ustawienia magazynu][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. W portalu Azure, przejdź do **Utwórz zasób** > **Internetu rzeczy** i wybierz **zadania usługi analiza strumienia**.
+1. W portalu Azure, przejdź do **Utwórz zasób** > **Internetu rzeczy**, a następnie wybierz **zadania usługi analiza strumienia**.
 
-2. Wprowadź nazwę, wybierz **krawędzi** jako środowisko macierzyste i użyj pozostałe wartości domyślne.  Kliknij przycisk **Utwórz**.
+2. W **nowego zadania usługi analiza strumienia** okienko, wykonaj następujące czynności:
 
-    >[!NOTE]
-    >Obecnie ASA zadania na krawędzi IoT nie są obsługiwane w regionu zachodnie stany USA 2. 
+    a. W **Nazwa zadania** wpisz nazwę zadania.
+    
+    b. W obszarze **środowisko macierzyste**, wybierz pozycję **krawędzi**.
+    
+    c. W pozostałych polach należy użyć wartości domyślnych.
 
-3. Przejdź do utworzonego zadania. Wybierz **dane wejściowe** kliknięcie **Dodaj**.
+    > [!NOTE]
+    > Obecnie zadania usługi analiza strumienia Azure IoT krawędzi nie są obsługiwane w regionu zachodnie stany USA 2. 
 
-4. Alias wejściowy wprowadź `temperature`, Ustaw typ źródła **strumienia danych**i użyj ustawień domyślnych dla innych parametrów. Kliknij przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
-   ![Dane wejściowe ASA](./media/tutorial-deploy-stream-analytics/asa_input.png)
+4. Utworzone zadanie w obszarze **topologii zadania**, wybierz pozycję **dane wejściowe**, a następnie wybierz **Dodaj**.
 
-5. Wybierz **dane wyjściowe** kliknięcie **Dodaj**.
+5. W **wprowadzania nowych** okienko, wykonaj następujące czynności:
 
-6. Alias wyjściowy wprowadź `alert`i użyj ustawień domyślnych dla innych parametrów. Kliknij przycisk **Utwórz**.
+    a. W **alias wejściowy** wprowadź **temperatury**.
+    
+    b. W **typ źródła** wybierz opcję **strumienia danych**.
+    
+    c. W pozostałych polach należy użyć wartości domyślnych.
 
-   ![Dane wyjściowe ASA](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics danych wejściowych.](./media/tutorial-deploy-stream-analytics/asa_input.png)
+
+6. Wybierz pozycję **Utwórz**.
+
+7. W obszarze **topologii zadania**, wybierz pozycję **dane wyjściowe**, a następnie wybierz **Dodaj**.
+
+8. W **nowe dane wyjściowe** okienko, wykonaj następujące czynności:
+
+    a. W **alias wyjściowy** wpisz **alert**.
+    
+    b. W pozostałych polach należy użyć wartości domyślnych. 
+    
+    c. Wybierz pozycję **Utwórz**.
+
+   ![Azure Stream Analytics danych wyjściowych.](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 
-7. Wybierz **zapytania**.
-8. Zastąp tekst domyślny następujące zapytanie:
+9. W obszarze **topologii zadania**, wybierz pozycję **zapytania**, a następnie zastąpić domyślny tekst następujące zapytanie:
 
     ```sql
     SELECT  
@@ -98,30 +123,43 @@ Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użyc
     GROUP BY TumblingWindow(second,30) 
     HAVING Avg(machine.temperature) > 70
     ```
-9. Kliknij pozycję **Zapisz**.
+
+10. Wybierz pozycję **Zapisz**.
 
 ## <a name="deploy-the-job"></a>Zadanie wdrażania
 
-Teraz można przystąpić do wdrażania zadania ASA na urządzeniu IoT krawędzi.
+Teraz można przystąpić do wdrażania zadania usługi analiza strumienia Azure na urządzeniu IoT krawędzi.
 
-1. W portalu Azure, w Centrum IoT, przejdź do **IoT krawędzi (wersja zapoznawcza)** i otwórz jej stronę szczegółów urządzenia IoT krawędzi.
-1. Wybierz **ustawić modułów**.
-1. Jeśli wdrożono modułu tempSensor na tym urządzeniu może automatycznego wypełniania. Jeśli nie, aby dodać ten moduł, wykonaj następujące kroki:
-   1. Kliknij przycisk **Dodaj moduł krawędzi IoT**
-   1. Wprowadź `tempSensor` z nazwą i `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` dla identyfikatora URI obrazu. 
-   1. Pozostaw bez zmian innych ustawień, a następnie kliknij przycisk **zapisać**.
-1. Aby dodać zadanie krawędzi ASA, zaznacz **Import Azure Stream Analytics IoT krawędzi Module**.
-1. Wybierz subskrypcję i zadania krawędzi ASA, utworzony. 
-1. Wybierz subskrypcję i utworzone konto magazynu. Kliknij pozycję **Zapisz**.
+1. W portalu Azure, w Centrum IoT, przejdź do **IoT krawędzi (wersja zapoznawcza)**, a następnie otwórz strona szczegółów urządzenia IoT krawędzi.
+
+2. Wybierz **ustawić modułów**.  
+    Jeśli wdrożono modułu tempSensor na tym urządzeniu może automatycznego wypełniania. Jeśli nie, Dodaj moduł w następujący sposób:
+
+   a. Wybierz **Dodaj moduł krawędzi IoT**.
+
+   b. Na stronie Nazwa wpisz **tempSensor**.
+    
+   c. Dla identyfikatora URI obrazu, wprowadź **microsoft/azureiotedge symulowane temperatury-czujnik: 1.0-preview**. 
+
+   d. Pozostaw innych ustawień bez zmian.
+   
+   e. Wybierz pozycję **Zapisz**.
+
+3. Aby dodać zadanie Azure Stream Analytics krawędzi, zaznacz **Import Azure Stream Analytics IoT krawędzi Module**.
+
+4. Wybierz subskrypcję i zadania usługi Azure Stream Analytics krawędzi, utworzony. 
+
+5. Wybierz subskrypcję i konto magazynu, który zostanie utworzony, a następnie wybierz **zapisać**.
 
     ![Moduł zestawu][6]
 
-1. Skopiuj nazwę, która została wygenerowana automatycznie dla modułu ASA. 
+6. Skopiuj nazwę, która została wygenerowana automatycznie dla modułu Azure Stream Analytics. 
 
     ![Moduł temperatury][11]
 
-1. Kliknij przycisk **dalej** można skonfigurować tras.
-1. Skopiuj poniższe polecenie, aby **tras**.  Zastąp _{moduleName}_ ze skopiowanego Nazwa modułu:
+7. Można skonfigurować tras, wybierz **dalej**.
+
+8. Skopiuj następujący kod do **tras**. Zastąp _{moduleName}_ ze skopiowanego Nazwa modułu:
 
     ```json
     {
@@ -134,19 +172,20 @@ Teraz można przystąpić do wdrażania zadania ASA na urządzeniu IoT krawędzi
     }
     ```
 
-1. Kliknij przycisk **Dalej**.
+9. Wybierz **dalej**.
 
-1. W **szablon przeglądu** kroku, kliknij przycisk **przesyłania**.
+10. W **szablon przeglądu** krok, wybierz opcję **przesyłania**.
 
-1. Wróć do strony szczegółów urządzenia, a następnie kliknij przycisk **Odśwież**.  Powinien zostać wyświetlony nowy moduł Stream Analytics uruchomiona wraz z **IoT krawędź agent** modułu i **Centrum IoT krawędzi**.
+11. Wróć do strony szczegółów urządzenia, a następnie wybierz **Odśwież**.  
+    Moduł usługi Stream Analytics uruchomiona wraz z modułem agenta krawędzi IoT i Centrum IoT krawędzi powinna zostać wyświetlona.
 
     ![dane wyjściowe z modułu][7]
 
 ## <a name="view-data"></a>Wyświetlanie danych
 
-Teraz można przejść do Twojego urządzenia IoT krawędzi wyewidencjonować interakcji między modułem ASA i modułu tempSensor.
+Teraz można przejść do Twojego urządzenia IoT krawędzi wyewidencjonować interakcji między modułu tempSensor i moduł Azure Stream Analytics.
 
-Sprawdź, czy w rozwiązaniu Docker są uruchomione wszystkie moduły:
+1. Sprawdź, czy w rozwiązaniu Docker są uruchomione wszystkie moduły:
 
    ```cmd/sh
    docker ps  
@@ -154,7 +193,7 @@ Sprawdź, czy w rozwiązaniu Docker są uruchomione wszystkie moduły:
 
    ![dane wyjściowe docker][8]
 
-Zobacz wszystkie dane dzienników i metryki systemu. Użyj nazwy modułu usługi Stream Analytics:
+2. Wyświetl wszystkie dane dzienników i metryki systemu. Użyj nazwy modułu usługi Stream Analytics:
 
    ```cmd/sh
    docker logs -f {moduleName}  
@@ -167,7 +206,7 @@ Należy się patrzeć na komputerze temperatury stopniowo rosną, dopóki nie os
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku należy skonfigurować kontenera magazynu Azure i zadanie analizy przesyłania strumieniowego do analizowania danych z urządzenia IoT krawędzi.  Następnie ładowany niestandardowego modułu ASA do przeniesienia danych z urządzenia, za pomocą strumienia do obiektu BLOB do pobrania.  Można kontynuować do innych samouczków do dalszego Zobacz tworzenia rozwiązania dla biznesu Azure IoT krawędzi.
+W tym samouczku należy skonfigurować kontener magazynu Azure i zadanie analizy przesyłania strumieniowego do analizowania danych z urządzenia IoT krawędzi. Następnie ładowany niestandardowego modułu Azure Stream Analytics do przeniesienia danych z urządzenia, za pomocą strumienia do obiektu blob do pobrania. Aby zobaczyć, jak utworzyć więcej rozwiązania dla biznesu Azure IoT krawędzi, przejść do innych samouczków.
 
 > [!div class="nextstepaction"] 
 > [Wdróż model uczenia maszynowego Azure jako moduł][lnk-ml-tutorial]

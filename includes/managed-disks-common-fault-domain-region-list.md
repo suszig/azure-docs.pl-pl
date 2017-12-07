@@ -32,3 +32,9 @@
 | Australia Południowo-Wschodnia | 2                       |
 |                     |                         |
 | Brazylia Południowa        | 2                       |
+|                     |                         |
+| Administracja USA — Wirginia     | 2                       |
+| Administracja USA — Teksas        | 2                       |
+| Administracja USA — Arizona      | 2                       |
+| US DoD — środkowe stany      | 2                       |
+| US DoD — wschodnie stany         | 2                       |

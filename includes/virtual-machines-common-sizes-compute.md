@@ -12,11 +12,11 @@ Maszyny wirtualne z serii F są doskonałym wyborem dla obciążeń wymagającyc
 
 Seria Fs ma magazyn w warstwie Premium i wszystkie zalety serii F.
 
-## <a name="fsv2-series"></a>Fsv2 serii
+## <a name="fsv2-series"></a>Fsv2-serii *
 
 ACU: 195-210
 
-| Rozmiar             | w vCPU | Pamięć: GiB | Lokalne dyski SSD: GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
+| Rozmiar             | w vCPU | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Średnia                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Średnia                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Bardzo wysoka                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Bardzo wysoka                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
-
+* Fsv2 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
 ## <a name="fs-series"></a>Seria Fs*
 

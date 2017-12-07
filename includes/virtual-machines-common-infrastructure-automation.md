@@ -41,21 +41,24 @@ Instrukcje:
 
 
 ## <a name="cloud-init"></a>init chmury
-[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Podczas inicjowania chmury działania podczas początkowego procesu rozruchu, nie ma, nie dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.
+[Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowane w formacie base64.
 
-Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
+Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
 
-Pracujemy nad z naszych partnerów uzyskanie init chmury uwzględnione i Praca w obrazach, zapewniające na platformie Azure. W poniższej tabeli przedstawiono bieżącej dostępności init chmury na obrazy platformy Azure:
+ Obecnie pracujemy z partnerami potwierdzony distro systemu Linux w celu dostępnych obrazów włączone inicjowania chmury w portalu Azure marketplace. Te obrazy spowoduje, że wdrożeń chmury init i konfiguracje współpracuje z maszynami wirtualnymi i zestawy skalowania maszyny Wirtualnej (VMSS). W poniższej tabeli przedstawiono bieżącej dostępności obrazów init chmury, włączone na platformie Azure:
 
-| Alias | Wydawca | Oferta | SKU | Wersja |
+| Wydawca | Oferta | SKU | Wersja | gotowe init chmury
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |najnowsza |
-| CoreOS |CoreOS |CoreOS |Stable |najnowsza |
+|Canonical |UbuntuServer |16.04 LTS |najnowsza |tak | 
+|Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
+|CoreOS |CoreOS |Stable |najnowsza |tak |
+|OpenLogic |CentOS |7-CI |najnowsza |wersja zapoznawcza |
+|RedHat |RHEL |7-RAW-CI |najnowsza |wersja zapoznawcza |
 
-Instrukcje:
+Dowiedz się więcej informacji na temat inicjowania chmurze na platformie Azure:
 
-- [Dostosowywanie maszyny Wirtualnej systemu Linux z chmury init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Chmura inicjowania obsługi dla maszyn wirtualnych systemu Linux na platformie Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Spróbuj samouczek dotyczący automatycznych konfiguracji maszyny Wirtualnej przy użyciu chmury init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>DSC środowiska PowerShell

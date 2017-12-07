@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentacja usługi API Management
+metadata:
+  title: Dokumentacja usługi Azure API Management — samouczki i dokumentacja interfejsu API | Microsoft Docs
+  description: 'Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali do deweloperów zewnętrznych, deweloperów będących partnerami i deweloperów będących pracownikami. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz jak nimi zarządzać.'
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+abstract:
+  description: 'Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali do deweloperów zewnętrznych, deweloperów będących partnerami i deweloperów będących pracownikami. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz jak nimi zarządzać.'
+sections:
+  - title: 5-minutowe przewodniki Szybki start
+    items:
+      - type: paragraph
+        text: Tworzenie wystąpienia usługi API Management
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Tworzenie wystąpienia — portal
+            href: /azure/api-management/get-started-create-service-instance
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: Tworzenie wystąpienia — PowerShell
+            href: /azure/api-management/powershell-create-service-instance
+  - title: Samouczki krok po kroku
+    items:
+      - type: paragraph
+        text: 'Dowiedz się, jak zarządzać usługą API Management.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/api-management/import-and-publish">Importowanie i publikowanie pierwszego interfejsu API</a>
+          - html: <a href="/azure/api-management/api-management-howto-add-products">Tworzenie i publikowanie produktu</a>
+          - html: <a href="/azure/api-management/mock-api-responses">Testowanie odpowiedzi interfejsu API</a>
+          - html: <a href="/azure/api-management/transform-api">Przekształcanie i ochrona interfejsu API</a>
+          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitorowanie opublikowanych interfejsów API</a>
+          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Debugowanie interfejsów API za pomocą funkcji śledzenia żądań</a>
+          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Bezpieczne wprowadzanie zmian niewymagających przerw przy użyciu poprawek</a>
+          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publikowanie wielu wersji interfejsu API</a>
+          - html: <a href="/azure/api-management/api-management-customize-styles">Dostosowywanie stylu stron portalu dla deweloperów</a>
+  - title: Przykłady
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/api-management/policy-samples">Zasady</a>
+          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory przekazywanego uwierzytelniania: Często zadawane pytania
 
@@ -99,24 +99,20 @@ Tak. Obejmującego wiele lasów środowiskach są obsługiwane, jeśli istnieją
 
 Instalowanie wielu agentów uwierzytelniania przekazywanego zapewnia [wysokiej dostępności](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Ale nie zapewnia ona deterministyczna zrównoważenia obciążenia między agentami uwierzytelniania.
 
-Należy wziąć pod uwagę maksymalne i średnie obciążenie żądań logowania, które powinny być widoczne w dzierżawie. Jako wzorca jednego agenta uwierzytelniania może obsługiwać 300 000 400 000 uwierzytelnienia na sekundę na standardowe 4 rdzenie procesora CPU, 16 GB pamięci RAM serwera. Dla większości klientów dwóch lub trzech agentów uwierzytelniania łącznie są wystarczające dla wysokiej dostępności i wydajności.
+Należy wziąć pod uwagę maksymalne i średnie obciążenie żądań logowania, które powinny być widoczne w dzierżawie. Jako wzorca jednego agenta uwierzytelniania może obsługiwać 300 i 400 uwierzytelnienia w ciągu sekundy na standardowe 4 rdzenie procesora CPU, 16 GB pamięci RAM serwera.
 
-Należy zainstalować agentów uwierzytelniania bliski kontrolerów domeny do poprawy logowania opóźnienia.
+Aby oszacować ruchu sieciowego, użyj poniższych wskazówek zmiany rozmiaru:
+- Każde żądanie ma rozmiar ładunku (0,5 k + 1 K * num_of_agents) bajtów; np. dane z usługi Azure AD do uwierzytelnienia agenta. W tym miejscu "num_of_agents" oznacza, że liczba agentów uwierzytelniania zarejestrowane na Twojej dzierżawy.
+- Każda odpowiedź ma rozmiar ładunku 1 KB; np. dane z agentem uwierzytelniania do usługi Azure AD.
+
+Dla większości klientów dwóch lub trzech agentów uwierzytelniania łącznie są wystarczające dla wysokiej dostępności i wydajności. Należy zainstalować agentów uwierzytelniania bliski kontrolerów domeny do poprawy logowania opóźnienia.
+
+>[!NOTE]
+>Brak limitu systemowego 12 agentów uwierzytelniania dla każdego dzierżawcy.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Pierwszy agenta uwierzytelniania przekazywanego można zainstalować na serwerze innym niż ten, który uruchamia Azure AD Connect?
 
 Nie, ten scenariusz jest _nie_ obsługiwane.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Ile agentów uwierzytelniania przekazywanego należy zainstalować?
-
-Zalecamy, aby:
-
-- Całkowita liczba należy zainstalować dwóch lub trzech agentów uwierzytelniania. Ta konfiguracja jest odpowiednia dla większości klientów.
-- Zainstaluj agentów uwierzytelniania na kontrolerach domeny (lub w pobliżu je jak to możliwe) zwiększające logowania opóźnienia.
-- Upewnij się, że dodawanie serwerów zainstalowaną agentów uwierzytelniania do tego samego lasu usługi Active Directory jako użytkowników, których hasła, należy dokonać weryfikacji.
-
->[!NOTE]
->Brak limitu systemowego 12 agentów uwierzytelniania dla każdego dzierżawcy.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Jak wyłączyć uwierzytelniania przekazywanego?
 

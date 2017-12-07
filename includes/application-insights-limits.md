@@ -2,7 +2,7 @@ Istnieją pewne ograniczenia liczby metryk i zdarzeń na aplikację (czyli na kl
 
 | **Zasób** | **Limit domyślny** | **Uwaga**
 | --- | --- | --- |
-| Łączna ilość danych na dzień | 500 GB | Ilość danych możesz zmniejszyć, ustawiając limit. Jeśli potrzebujesz większej ilości, wyślij wiadomość e-mail na adres AIDataCap@microsoft.com.
+| Łączna ilość danych na dzień | 100 GB | Ilość danych możesz zmniejszyć, ustawiając limit. Jeśli potrzebujesz więcej, należy zwiększyć limit 1000 GB z portalu. O pojemności maksymalnej ponad 1000 GB, wysyłania wiadomości e-mail do AIDataCap@microsoft.com.
 | Ilość bezpłatnych danych na miesiąc<br/> (plan cenowy Podstawowa) | 1 GB | Opłaty za dodatkowe dane są naliczane za gigabajt.
 | Ograniczanie przepływności | 32 tys. zdarzeń na sekundę | Limit jest mierzony przez minutę.
 | Przechowywanie danych | 90 dni | Ten zasób jest przeznaczony na potrzeby [wyszukiwania](../articles/application-insights/app-insights-diagnostic-search.md), [analizy](../articles/application-insights/app-insights-analytics.md) i [Eksploratora metryk](../articles/application-insights/app-insights-metrics-explorer.md).
