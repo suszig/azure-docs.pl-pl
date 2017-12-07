@@ -8,15 +8,7 @@ Rozmiary maszyn wirtualnych ogólnego przeznaczenia Podaj zrównoważonym stosun
 
 - Rozmiary warstwy Podstawowa są przeznaczone głównie dla obciążeń związanych z tworzeniem aplikacji i innych aplikacji, które nie wymagają równoważenia obciążenia, automatycznego skalowania ani maszyn wirtualnych korzystających z dużej ilości pamięci. Aby uzyskać informacje na temat rozmiarów maszyn wirtualnych, które są bardziej odpowiednie dla aplikacji produkcyjnych, zobacz (Rozmiary maszyn wirtualnych) [virtual-machines-size-specs.md]. Aby uzyskać informacje o cenach maszyn wirtualnych, zobacz [Cennik maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>B-series (wersja zapoznawcza)
-
-> [!NOTE] 
-> Podglądy są udostępniane użytkownikowi, pod warunkiem że wyrażasz zgodę na warunki użytkowania. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Ta wersja zapoznawcza będzie ograniczony do następujących regionach:
-> - US - zachód 2
-> - US - wschodnie
-> - Europa - zachód
-> - Azja i Pacyfik - Southeast
+## <a name="b-series"></a>Seria B
 
 Maszyny wirtualne burstable B serii idealnie nadają się do obciążeń, które nie muszą pełną wydajność procesora, takich jak serwery sieci web, małych baz danych i programowania i testowania środowisk. Te obciążenia mają zwykle burstable wymagania. Seria B umożliwia tych klientów zakupu dla rozmiaru maszyny Wirtualnej z ceny wydajności bazowej sumienia umożliwia wystąpienia maszyny Wirtualnej w celu zbudowania środków, gdy maszyna wirtualna jest mniejsza od swojej podstawowej wydajności przy użyciu. Po zebraniu środki maszyny Wirtualnej, maszyna wirtualna może serii powyżej linii bazowej maszyny Wirtualnej przy użyciu maksymalnie 100% Procesora, gdy aplikacja wymaga wyższej wydajności procesora CPU.
 
@@ -31,7 +23,7 @@ Maszyny wirtualne burstable B serii idealnie nadają się do obciążeń, które
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Seria Dsv3
+## <a name="dsv3-series"></a>Dsv3-serii *
 
 ACU: 160–190
 
@@ -46,9 +38,9 @@ Rozmiary serii Dsv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell
 | Standardowa_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / wysoka                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / bardzo wysoka                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / bardzo wysoka                                       |
+* Dsv3 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
-
-## <a name="dv3-series"></a>Seria Dv3
+## <a name="dv3-series"></a>Dv3-serii * 
 
 ACU: 160–190
 
@@ -65,7 +57,7 @@ Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny 
 | Standardowa_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / wysoka                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / bardzo wysoka                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / bardzo wysoka                     |
-
+* Dv3 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
 ## <a name="dsv2-series"></a>Seria DSv2
 
