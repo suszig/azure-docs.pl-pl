@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb8fe1ea6d4de066744a6277c1aec96073c1703c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
 
@@ -96,8 +96,6 @@ Podczas tworzenia sieci wirtualnej na potrzeby połączenia typu lokacja-lokacja
 9. Po kliknięciu przycisku „Utwórz” na pulpicie nawigacyjnym zostanie umieszczony kafelek, który będzie odzwierciedlać postęp Twojej sieci wirtualnej. Wygląd kafelka zmienia się w trakcie tworzenia sieci wirtualnej.
 
   ![Kafelek Tworzenie sieci wirtualnej](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tworzenie sieci wirtualnej")
-
-Po utworzeniu sieci wirtualnej w obszarze **Stan** na stronie sieci w klasycznej witrynie Azure Portal będzie widoczna wartość **Utworzona**.
 
 ## <a name="additionaladdress"></a>2. Dodawanie kolejnej przestrzeni adresowej
 

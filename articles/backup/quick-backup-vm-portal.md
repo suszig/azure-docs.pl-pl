@@ -10,17 +10,17 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
 ms.service: virtual-machines-windows, azure-backup
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9e486e2e4ff2a08b161db44f9cc4785c5d174954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure
 Kopie zapasowe platformy Azure można utworzyć za pomocą witryny Azure Portal. Ta metoda bazuje na opartym na przeglądarce interfejsie użytkownika umożliwiającym tworzenie i konfigurowanie kopii zapasowych platformy Azure oraz wszystkich pokrewnych zasobów. Możesz chronić swoje dane, tworząc kopie zapasowe w regularnych odstępach czasu. Usługa Azure Backup tworzy punkty odzyskiwania, które można przechowywać w geograficznie nadmiarowych magazynach odzyskiwania. Ten artykuł szczegółowo opisuje sposób tworzenia kopii zapasowej maszyny wirtualnej za pomocą witryny Azure Portal. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a1e56a6d31568d1d36e713b9a1000d84c6446bac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-media-services-overview"></a>Omówienie usługi Azure Media Services 
 
@@ -63,10 +63,9 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 
 Wiele przykładów kodu możesz znaleźć w galerii **Przykłady kodu platformy Azure**: [Przykłady kodu usługi Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
-## <a name="concepts-and-overview"></a>Pojęcia i omówienie
-Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
+## <a name="concepts"></a>Pojęcia
 
-Serię poradników ułatwiających rozpoczęcie pracy z wszystkimi głównymi składnikami usługi Azure Media Services można znaleźć na stronie [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) (Usługa Azure Media Services — samouczki krok po kroku). Seria zawiera wszechstronne omówienie pojęć i przedstawia zadania AMS przy użyciu narzędzia AMSE. AMSE to narzędzie systemu Windows. To narzędzie obsługuje większość zadań, które można wykonać programowo przy użyciu zestawów [AMS SDK dla platformy .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java) lub [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+Pojęcia związane z usługą Azure Media Services zostały przedstawione w temacie [Pojęcia](media-services-concepts.md).
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Obsługiwane scenariusze i dostępność usługi Media Services w centrach danych
 

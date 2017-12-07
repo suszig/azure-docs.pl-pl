@@ -1,6 +1,6 @@
-W powłoce chmury tworzenie aplikacji sieci web w `myAppServicePlan` planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#create) polecenia. 
+W powłoce chmury tworzenie aplikacji sieci web w `myAppServicePlan` planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#az_webapp_create) polecenia. 
 
-W poniższym przykładzie Zastąp `<app_name>` z globalnie unikatowej nazwy aplikacji (prawidłowe znaki to `a-z`, `0-9`, i `-`). Środowisko wykonawcze ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwanych środowisk uruchomieniowych, uruchom [az aplikacji sieci Web listy runtimes](/cli/azure/webapp#list-runtimes). 
+W poniższym przykładzie Zastąp `<app_name>` z globalnie unikatowej nazwy aplikacji (prawidłowe znaki to `a-z`, `0-9`, i `-`). Środowisko wykonawcze ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwanych środowisk uruchomieniowych, uruchom [az aplikacji sieci Web listy runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git

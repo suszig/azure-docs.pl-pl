@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: 8a51ba22c6fea7a866815c33d164d72af08db8f0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Ten samouczek
+W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, warto wysłać szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania warto wysłać szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [dokumentację dotyczącą usługi Data Factory w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, warto wysłać szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania warto wysłać szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
 
 Ogólne omówienie scenariusza: ![Omówienie](media/tutorial-control-flow/overview.png)
 

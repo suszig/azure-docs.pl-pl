@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Tworzenie serwera usługi Azure Database for PostgreSQL za pomocą interfejsu wiersza polecania platformy Azure
 Azure Database for PostgreSQL to usługa zarządzana, która umożliwia uruchamianie i skalowanie w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzanie nimi. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku Szybki start przedstawiono, jak utworzyć serwer usługi Azure Database for PostgreSQL w [grupie zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) za pomocą interfejsu wiersza polecenia platformy Azure.
@@ -30,7 +30,7 @@ Jeśli używasz interfejsu wiersza polecenia lokalnie, musisz zalogować się na
 az login
 ```
 
-Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#set).
+Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
-Utwórz [serwer usługi Azure Database for PostgreSQL](overview.md) za pomocą polecenia [az postgres server create](/cli/azure/postgres/server#create). Serwer zawiera grupę baz danych zarządzanych jako grupa. 
+Utwórz [serwer usługi Azure Database for PostgreSQL](overview.md) za pomocą polecenia [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Serwer zawiera grupę baz danych zarządzanych jako grupa. 
 
 W poniższym przykładzie zostanie utworzony serwer o nazwie `mypgserver-20170401` w grupie zasobów `myresourcegroup` z identyfikatorem logowania administratora serwera `mylogin`. Nazwa serwera jest mapowana na nazwę DNS i dlatego musi być globalnie unikatowa w ramach platformy Azure. Zastąp zmienną `<server_admin_password>` swoją własną wartością.
 ```azurecli-interactive

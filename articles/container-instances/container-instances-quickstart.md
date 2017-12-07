@@ -4,17 +4,16 @@ description: "Wdrażaj i rozpocznij pracę z usługą Azure Container Instances"
 services: container-instances
 author: seanmck
 manager: timlt
-editor: mmacy
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: f6c809698bed4f91a7121c4515b4375b3cad6d70
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Tworzenie pierwszego kontenera w usłudze Azure Container Instances
 Usługa Azure Container Instances ułatwia tworzenie kontenerów Docker na platformie Azure oraz zarządzanie nimi bez konieczności inicjowania obsługi maszyn wirtualnych czy adoptowania usługi wyższego poziomu. Podczas pracy z tym przewodnikiem Szybki start utworzysz kontener na platformie Azure i ujawnisz go w Internecie przy użyciu publicznego adresu IP. Ta operacja jest wykonywana za pomocą jednego polecenia. W ciągu kilku sekund w przeglądarce zobaczysz następujący wynik:
