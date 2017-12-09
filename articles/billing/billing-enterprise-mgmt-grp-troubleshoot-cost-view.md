@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Rozwiązywanie problemów z enterprise koszt widoków 
 
-W ramach rejestracji enterprise istnieje wiele ustawień, które może spowodować, że użytkownicy nie będą mogli wyświetlić kosztów w ramach rejestracji.  Jeśli rejestracja nie została zakupiona bezpośrednio z firmą Microsoft, te ustawienia są zarządzane przez administratora rejestracji lub przez partnera.  Ten artykuł pomaga w zrozumieniu ustawienia są oraz ich wpływ na rejestracji. Te ustawienia są niezależne od [role RBAC Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+W ramach rejestracji enterprise istnieje wiele ustawień, które może spowodować, że użytkownicy nie będą mogli wyświetlić kosztów w ramach rejestracji.  Jeśli rejestracja nie została zakupiona bezpośrednio z firmą Microsoft, te ustawienia są zarządzane przez administratora rejestracji lub przez partnera.  Ten artykuł pomaga w zrozumieniu ustawienia są oraz ich wpływ na rejestracji. Te ustawienia są niezależne od [role RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Ta funkcja jest obecnie w prywatnej wersji zapoznawczej. [Zarejestruj się tutaj](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ma informacji o rejestracji join w wersji zapoznawczej.     
@@ -46,5 +46,5 @@ Jeśli wyświetlany jest komunikat o błędzie "ten zasób jest niedostępny" po
 ![zasobów nie można odnaleźć](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Skontaktuj się z Administruj grup subskrypcji lub zarządzania, aby uzyskać dostęp.  
-* Subskrypcji, odwołanie [based kontroli dostępu (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) dokumentu, aby uzyskać pomoc, na którym rola jest wymagana.
+* Subskrypcji, odwołanie [based kontroli dostępu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokumentu, aby uzyskać pomoc, na którym rola jest wymagana.
 * Dla grupy zarządzania RBAC dostępu nie jest dostępny i będzie dostępna wkrótce. Skontaktuj się z portalem enterprise administrowania przypisany dostęp.   

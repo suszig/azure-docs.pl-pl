@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Wdrażanie pochodzenia OpenShift na platformie Azure
 
@@ -98,7 +98,7 @@ Poniższy przykład tworzy plik parametrów o nazwie azuredeploy.parameters.json
 
 
 > [!NOTE] 
-> Polecenie wymaga interfejsu wiersza polecenia Azure 2.0.8 lub nowszym. Możesz sprawdzić wersję interfejsu wiersza polecenia z `az --version` polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Polecenie wymaga interfejsu wiersza polecenia Azure 2.0.8 lub nowszym. Możesz sprawdzić wersję interfejsu wiersza polecenia z `az --version` polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Poniższy przykład wdraża klaster OpenShift i wszystkie powiązane zasoby w grupie zasobów o nazwie myResourceGroup, o nazwie myOpenShiftCluster wdrożenia. Szablon odwołuje się bezpośrednio z repozytorium GitHub przy użyciu pliku lokalnego parametrów o nazwie azuredeploy.parameters.json.
 

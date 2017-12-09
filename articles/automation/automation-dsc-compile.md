@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilowanie konfiguracji DSC automatyzacji Azure
 
@@ -131,7 +131,7 @@ Aby dowiedzieć się, jak przekazywanie PSCredentials jako parametrów, zobacz <
 
 ## <a name="composite-resources"></a>Złożone zasobów
 
-**Złożone zasobów** umożliwiają używanie konfiguracji DSC jako zagnieżdżonych zasobów w ramach konfiguracji.  Dzięki temu można zastosować konfiguracji z wieloma do pojedynczego zasobu.  Zobacz [zasobów złożonego: przy użyciu konfiguracji DSC jako zasób](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) Aby dowiedzieć się więcej o **złożonego zasobów**
+**Złożone zasobów** umożliwiają używanie konfiguracji DSC jako zagnieżdżonych zasobów w ramach konfiguracji.  Dzięki temu można zastosować konfiguracji z wieloma do pojedynczego zasobu.  Zobacz [zasobów złożonego: przy użyciu konfiguracji DSC jako zasób](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Aby dowiedzieć się więcej o **złożonego zasobów**
 
 > [!NOTE]
 > Aby **złożonego zasobów** skompilować poprawnie, należy najpierw upewnić czy wszystkie zasoby DSC, które złożone opiera się na pierwszej instalacji w repozytorium modułów konto usługi Automatyzacja Azure lub nie zostanie prawidłowo zaimportować.

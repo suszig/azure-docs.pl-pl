@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0fdb1605487cca7ba3dc7f13fe8cbe3d1be78d44
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatyzowanie użytkownika alokowania i anulowania alokowania do aplikacji SaaS w usłudze Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Co to jest automatyczne Inicjowanie obsługi użytkowników dla aplikacji SaaS?
@@ -64,7 +64,7 @@ Niektóre typowe motywacji dla tej funkcji obejmują:
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Jakie aplikacje i systemy można użyć z inicjowaniem obsługi administracyjnej użytkowników usługi Azure AD?
 
-Funkcje platformy Azure AD wstępnie zintegrowanych pomocy technicznej w różnych popularnych aplikacji SaaS i systemami kadr, a także ogólne pomocy technicznej dla aplikacji, które implementują określonych części [standard SCIM 2.0](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Funkcje platformy Azure AD wstępnie zintegrowanych pomocy technicznej w różnych popularnych aplikacji SaaS i systemami kadr, a także ogólne pomocy technicznej dla aplikacji, które implementują określonych części [standard SCIM 2.0](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Wszystkie aplikacje "Proponowanym" w galerii aplikacji usługi Azure AD obsługuje użytkownika automatycznego inicjowania obsługi administracyjnej. [W tym miejscu można wyświetlić listę polecanych aplikacji.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorowanie usług systemu Azure w Grafana
 Azure usługi i aplikacje od teraz można również monitorować [Grafana](https://grafana.com/) przy użyciu [wtyczki źródła danych monitora Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Wtyczka zbiera informacje zebrane przez zestaw SDK usługi Application Insights danych dotyczących wydajności aplikacji, a także infrastruktury dane dostarczone przez Azure Monitor. Następnie można wyświetlić te dane na pulpicie nawigacyjnym Grafana.
@@ -62,7 +62,7 @@ Grafana używa nazwy głównej usługi Azure Active Directory, aby nawiązać po
 
 1. Zobacz [tych instrukcji](../azure-resource-manager/resource-group-create-service-principal-portal.md) można utworzyć nazwy głównej usługi. Skopiuj i Zapisz dzierżawy ID, identyfikator klienta i klucz tajny klienta.
 
-2. Zobacz [przypisywanie aplikacji do roli](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) można przypisać rolę czytelnika do aplikacji usługi Azure Active Directory.   
+2. Zobacz [przypisywanie aplikacji do roli](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) można przypisać rolę czytelnika do aplikacji usługi Azure Active Directory.     
 
 3. Jeśli używasz usługi Application Insights, możesz również uwzględnić interfejsu API usługi Application Insights i identyfikator aplikacji na potrzeby zbierania miar na podstawie usługi Application Insights. Aby uzyskać więcej informacji, zobacz [Twojego klucza interfejsu API i identyfikator aplikacji](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

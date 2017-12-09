@@ -1,37 +1,36 @@
 ---
-title: "Znajdź raporty dotyczące działań w portalu Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak znaleźć raporty działania usługi Azure Active Directory w portalu Azure."
+title: "Znajdź raporty aktywności użytkownika usługi Azure Active Directory w portalu Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, gdy są raporty aktywności użytkownika usługi Azure Active Directory w portalu Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: michael.tillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 732a3c376f6e99f6a5b5c3043ef8cb4884a4d468
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Znajdź raporty dotyczące działań w portalu Azure
 
-Jeśli przenosisz z klasycznego portalu Azure w portalu Azure, możesz uzyskać wygląda na dzienniki aktywności w usłudze Azure Active Directory (Azure AD). W ostatnie [wpis w blogu](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), możemy wyjaśniają, jak widać, dzienniki aktywności w kontekście zasobów pracuje w portalu Azure. W tym artykule opisano firma Microsoft, jak można znaleźć raporty, które były używane w klasycznym portalu Azure w portalu Azure.
+W tym artykule firma Microsoft opisano, jak znaleźć raporty aktywności użytkownika usługi Azure Active Directory w portalu Azure.
 
 ## <a name="whats-new"></a>Co nowego
 
-Raporty w klasycznym portalu Azure są podzielone na kategorie:
-
-1.  Raporty dotyczące zabezpieczeń
-2.  Raporty dotyczące działań
-3.  Raporty zintegrowanych aplikacji
+Raporty w klasycznym portalu Azure zostały podzielone na kategorie:
+* Raporty dotyczące zabezpieczeń
+* Raporty dotyczące działań
+* Raporty zintegrowanych aplikacji
 
 ### <a name="activity-and-integrated-app-reports"></a>Działanie i raporty zintegrowanych aplikacji
 
@@ -43,14 +42,14 @@ Do wyświetlenia tego widoku na **usługi Azure Active Directory** bloku, w obsz
 
 Następujące raporty są konsolidowane w tym widoku:
 
--   Raport dotyczący inspekcji
--   Działania związane z resetowaniem haseł
--   Aktywność rejestracji resetowania haseł
--   Raport aktywności grup samoobsługi
--   Zmiany nazwy grupy usługi Office 365
--   Działanie aprowizacji kont
--   Stan przerzucania hasła
--   Błędy aprowizacji kont
+* Raport dotyczący inspekcji
+* Działania związane z resetowaniem haseł
+* Aktywność rejestracji resetowania haseł
+* Raport aktywności grup samoobsługi
+* Zmiany nazwy grupy usługi Office 365
+* Działanie aprowizacji kont
+* Stan przerzucania hasła
+* Błędy aprowizacji kont
 
 
 Raport użycia aplikacji zostały rozszerzone i znajduje się w **logowania** widoku. Aby wyświetlić ten widok na **usługi Azure Active Directory** bloku, w obszarze **działania**, wybierz pozycję **logowania**.

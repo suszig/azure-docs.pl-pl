@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 12250adbfaf8621b80acd5de5de06b21e05ef07c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Konfigurowanie poświadczeń uwierzytelniania o nazwie
 
@@ -42,6 +42,6 @@ Jeśli chcesz samodzielnie utworzyć certyfikat mogą odwoływać się do instru
 ## <a name="next-steps"></a>Następne kroki
 
 - [Ogólne omówienie aplikacji sieci Web](https://docs.microsoft.com/azure/app-service/)
-- [Wdrażanie aplikacji w usłudze Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Wdrażanie zadań WebJob za pomocą programu Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Wdrażanie aplikacji w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Wdrażanie zadań WebJob za pomocą programu Visual Studio](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [Tworzenie i wdrażanie usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

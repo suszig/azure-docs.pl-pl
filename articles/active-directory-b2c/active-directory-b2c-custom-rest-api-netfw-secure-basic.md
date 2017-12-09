@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 33fd86ce92043e1de5b3d72c9fe4bb7b428b4b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Zabezpieczanie usług RESTful przy użyciu uwierzytelniania podstawowego HTTP
 W [powiązanego artykułu usługi Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), tworzenia usługi RESTful (interfejs API sieci web), która integruje się z usługi Azure Active Directory B2C podróże użytkownika (Azure AD B2C) bez uwierzytelniania. 
 
 W tym artykule możesz dodać podstawowe uwierzytelnianie HTTP z usługą RESTful, aby tylko weryfikacji użytkowników, w tym B2C, mogą uzyskiwać dostęp do interfejsu API. Podstawowe uwierzytelnianie HTTP należy ustawić poświadczenia użytkownika (identyfikator aplikacji i klucz tajny aplikacji) w zasadach niestandardowych. 
 
-Aby uzyskać więcej informacji, zobacz [uwierzytelnianie podstawowe w składniku ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Aby uzyskać więcej informacji, zobacz [uwierzytelnianie podstawowe w składniku ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Wykonaj kroki [integracji interfejsu API REST oświadczeń wymiany w podróży użytkownika usługi Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md) artykułu.

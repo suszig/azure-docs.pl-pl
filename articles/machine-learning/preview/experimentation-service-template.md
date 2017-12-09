@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Skonfiguruj usługę Azure Machine Learning eksperymenty
 
 ## <a name="overview"></a>Omówienie
-Konto usługi Azure Machine Learning eksperymenty usługi, obszar roboczy i projektu są zasobów Azure. Tak można je wdrażać za pomocą szablonów Menedżera zasobów. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Konto usługi Azure Machine Learning eksperymenty usługi, obszar roboczy i projektu są zasobów Azure. Tak można je wdrażać za pomocą szablonów Menedżera zasobów. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby zrozumieć pojęcia związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Usługa Azure Resource Manager — omówienie](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Wdrażanie szablonu
 Wdrażanie szablonu wymaga tylko kilka kroków w interfejsu wiersza polecenia platformy Azure lub w portalu Azure.
@@ -137,7 +137,7 @@ Utwórz plik o poniżej zawartości i zapisz go jako < parameters.JSON następuj
 Istnieją trzy wartości, które można zmienić. 
 * Nazwa konta: Nazwa konta eksperymenty.
 * Lokalizacja: Jeden z obsługiwanych regionów platformy Azure.
-* Konto magazynu SKU: Azure ML obsługuje tylko magazynu w warstwie standardowa, nie w warstwie premium. Aby uzyskać więcej informacji na temat magazynowania, zobacz [wprowadzenie magazynu](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Konto magazynu SKU: Azure ML obsługuje tylko magazynu w warstwie standardowa, nie w warstwie premium. Aby uzyskać więcej informacji na temat magazynowania, zobacz [wprowadzenie magazynu](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

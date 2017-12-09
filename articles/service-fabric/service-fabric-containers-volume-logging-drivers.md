@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Użyj Docker woluminu dodatków plug-in i sterowniki rejestrowania w sieci kontenera
 Sieć szkieletowa usług Azure obsługuje określanie [Docker woluminu dodatków plug-in](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera. Można ją utrwalić danych w [plików Azure](https://azure.microsoft.com/services/storage/files/) podczas przeniesienia z kontenera lub uruchomiona ponownie na innym hoście.
@@ -28,7 +28,7 @@ Tylko sterowniki wolumin kontenerów Linux są obecnie obsługiwane. Jeśli uży
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Instalacja sterownika wolumin/rejestrowania Docker
 
-Jeśli sterownik wolumin/rejestrowania Docker nie jest zainstalowany na komputerze, można zainstalować go ręcznie przy użyciu protokołu RDP/SSH. Można wykonać instalację z tych protokołów za pośrednictwem [zestawu skalowania maszyn wirtualnych uruchamiania skryptu](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) lub [skryptu SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Jeśli sterownik wolumin/rejestrowania Docker nie jest zainstalowany na komputerze, można zainstalować go ręcznie przy użyciu protokołu RDP/SSH. Można wykonać instalację z tych protokołów za pośrednictwem [zestawu skalowania maszyn wirtualnych uruchamiania skryptu](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) lub [skryptu SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Przykładowy skrypt do zainstalowania [sterownik woluminu Docker na platformie Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) wygląda następująco:
 

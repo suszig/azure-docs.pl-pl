@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Jak można sprawdzić poprawności przepływność sieci VPN do sieci wirtualnej
 
@@ -53,7 +53,7 @@ Na poniższym diagramie przedstawiono logicznej łączności z siecią lokalną 
 4.  Określ przepustowość usługodawcy internetowego (ISP).
 5.  Obliczanie przepływności oczekiwanego - minimalnej przepustowości (maszyna wirtualna, brama usługodawcy internetowego) * 0,8.
 
-Jeśli Twoje obliczeniowej przepływności nie spełnia wymagania dotyczące przepływności linii bazowej aplikacji, należy zwiększyć przepustowość zasobu, który został zidentyfikowany jako wąskie gardło. Aby zmienić rozmiar bramy sieci VPN platformy Azure, zobacz [zmiana jednostka SKU bramy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Aby zmienić rozmiar maszyny wirtualnej, zobacz [Zmień rozmiar maszyny Wirtualnej](../virtual-machines/virtual-machines-windows-resize-vm.md). Jeśli nie występują oczekiwanego przepustowości połączenia z Internetem, można również skontaktować się z usługodawcą Internetowym.
+Jeśli Twoje obliczeniowej przepływności nie spełnia wymagania dotyczące przepływności linii bazowej aplikacji, należy zwiększyć przepustowość zasobu, który został zidentyfikowany jako wąskie gardło. Aby zmienić rozmiar bramy sieci VPN platformy Azure, zobacz [zmiana jednostka SKU bramy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Aby zmienić rozmiar maszyny wirtualnej, zobacz [Zmień rozmiar maszyny Wirtualnej](../virtual-machines/virtual-machines-windows-resize-vm.md). Jeśli nie występują oczekiwanego przepustowości połączenia z Internetem, można również skontaktować się z usługodawcą Internetowym.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Sprawdź poprawność przepływność sieci przy użyciu narzędzia wydajności
 

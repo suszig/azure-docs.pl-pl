@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 W przypadku klientów z Software Assurance Azure hybrydowego korzyści dla systemu Windows Server umożliwia użyć lokalnego licencji systemu Windows Server i uruchamiania maszyn wirtualnych Windows Azure taniego. Azure hybrydowego korzyści dla systemu Windows Server służy do wdrażania nowych maszyn wirtualnych za pomocą dowolnego obrazu platformy systemu Windows Server lub niestandardowych obrazów systemu Windows obsługiwane przez platformę Azure. W tym artykule przechodzi przez kroki dotyczące sposobu wdrażania nowych maszyn wirtualnych z Azure hybrydowego korzyści dla systemu Windows Server oraz sposób aktualizowania istniejących działających maszyn wirtualnych. Aby uzyskać więcej informacji na temat Azure hybrydowego korzyści dla systemu Windows Server zobacz oszczędności kosztów i licencjonowania, [strony licencjonowania Azure hybrydowego korzyści dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -58,10 +58,10 @@ Można wdrażać te obrazy bezpośrednio z portalu Azure. Do użycia w szablonac
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) i przekaż LicenseType = "Windows_Server". Ta opcja umożliwia przy użyciu istniejących licencji systemu Windows Server na platformie Azure.
+Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) i przekaż LicenseType = "Windows_Server". Ta opcja umożliwia przy użyciu istniejących licencji systemu Windows Server na platformie Azure.
 
 ### <a name="portal"></a>Portal
-Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy użyciu portalu Azure](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) i wybierz opcję użycia istniejącej licencji systemu Windows Server.
+Możesz wykonać kroki, aby [Utwórz maszynę wirtualną z systemem Windows przy użyciu portalu Azure](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) i wybierz opcję użycia istniejącej licencji systemu Windows Server.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Konwertuj istniejącą maszynę Wirtualną przy użyciu Azure hybrydowego korzyści dla systemu Windows Server
 Jeśli masz istniejącą maszynę Wirtualną, którą chcesz przekonwertować przeprowadzać Azure hybrydowego korzyści dla systemu Windows Server, można zaktualizować typu licencji maszyny Wirtualnej w następujący sposób:
@@ -181,17 +181,17 @@ W ramach maszyny wirtualnej zestawu skalowania maszyny wirtualnej szablonów Res
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-Możesz również [tworzenie i wdrażanie zestaw skali maszyny wirtualnej](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) i ustaw właściwość LicenseType
+Możesz również [tworzenie i wdrażanie zestaw skali maszyny wirtualnej](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) i ustaw właściwość LicenseType
 
 ## <a name="next-steps"></a>Następne kroki
 Przeczytaj więcej na temat [jak zaoszczędzić z asysty hybrydowe platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server szczegółowe wskazówki dotyczące licencjonowania](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server szczegółowe wskazówki dotyczące licencjonowania](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 Dowiedz się więcej o [szablonów za pomocą Menedżera zasobów](../../azure-resource-manager/resource-group-overview.md)
 
 Dowiedz się więcej o [Azure hybrydowego korzyści dla systemu Windows Server i usługi Azure Site Recovery upewnij migrowanie aplikacji Azure jeszcze bardziej ekonomiczne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Dowiedz się więcej o [systemu Windows 10 na platformie Azure z prawem Hosting wielodostępnej](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+Dowiedz się więcej o [systemu Windows 10 na platformie Azure z prawem Hosting wielodostępnej](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Przeczytaj więcej na temat [— często zadawane pytania](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

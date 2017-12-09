@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowalne usług Azure Analysis Services
 
@@ -79,7 +79,7 @@ Użyj **synchronizacji** operacji.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Aby można było uruchomić synchronizacji w programie PowerShell, [aktualizacji do najnowszej](https://github.com/Azure/azure-powershell/releases) modułu AzureRM 5.01 lub nowszej. Użyj [AzureAnalysisServicesInstance synchronizacji](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Aby można było uruchomić synchronizacji w programie PowerShell, [aktualizacji do najnowszej](https://github.com/Azure/azure-powershell/releases) modułu AzureRM 5.01 lub nowszej. Użyj [AzureAnalysisServicesInstance synchronizacji](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Połączenia
 

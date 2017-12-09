@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Wskazówki dotyczące Hive w usłudze HDInsight i usługi Azure Data Lake Store dostrajania wydajności
 
@@ -29,8 +29,8 @@ Aby zapewnić dobrą wydajność w wielu innych przypadków użycia skonfigurowa
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Data Lake Store**. Aby uzyskać instrukcje na temat go utworzyć, zobacz [wprowadzenie do usługi Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Klaster HDInsight Azure** z dostępem do konta usługi Data Lake Store. Zobacz [tworzenia klastra usługi HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Upewnij się, że włączenie pulpitu zdalnego dla klastra.
-* **Uruchomiona Hive w usłudze HDInsight**.  Aby dowiedzieć się więcej na temat uruchamiania zadań Hive w usłudze HDInsight, zobacz [używanie Hive w usłudze HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
-* **Wytyczne dotyczące ADLS dostrajania wydajności**.  Pojęcia dotyczące ogólnej wydajności, aby zapoznać [Data Lake magazynu dostrajanie wytyczne dotyczące wydajności](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Uruchomiona Hive w usłudze HDInsight**.  Aby dowiedzieć się więcej na temat uruchamiania zadań Hive w usłudze HDInsight, zobacz [używanie Hive w usłudze HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Wytyczne dotyczące ADLS dostrajania wydajności**.  Pojęcia dotyczące ogólnej wydajności, aby zapoznać [Data Lake magazynu dostrajanie wytyczne dotyczące wydajności](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametry
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono najważniejsze ustawienia, aby dostroić zwiększonej wyd
 
 **Ustaw hive.exec.reducer.bytes.per.reducer** — wartość domyślna działa dobrze, gdy jest nieskompresowanych danych.  Dane są kompresowane należy zmniejszyć rozmiar reduktor.  
 
-**Ustaw hive.tez.container.size** — w każdym węźle jest określona przez yarn.nodemanager.resource.memory mb pamięci i powinien zostać poprawnie określony HDI klastra domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej ilości pamięci w YARN, zobacz [post](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Ustaw hive.tez.container.size** — w każdym węźle jest określona przez yarn.nodemanager.resource.memory mb pamięci i powinien zostać poprawnie określony HDI klastra domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej ilości pamięci w YARN, zobacz [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 Intensywnych obciążeń We/Wy mogą korzystać z równoległości więcej przy zmniejszaniu rozmiaru kontenera aplikacji Tez. Dzięki temu użytkownik więcej kontenerów, co zwiększa współbieżności.  Jednak niektóre zapytania Hive wymagają znaczną ilość pamięci (np. MapJoin).  Jeśli zadanie nie ma wystarczającej ilości pamięci, wystąpi wyjątek braku pamięci w czasie wykonywania.  Jeśli zostanie wyświetlony poza wyjątkami pamięci, należy zwiększyć ilość pamięci.   
 

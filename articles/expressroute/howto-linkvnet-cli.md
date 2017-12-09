@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Połączenie wirtualnej sieci do obwodu usługi ExpressRoute, przy użyciu interfejsu wiersza polecenia
 
@@ -35,13 +35,13 @@ Ten artykuł pomaga połączyć sieci wirtualnych (sieci wirtualne) do usługi A
 
 ## <a name="configuration-prerequisites"></a>Wymagania wstępne dotyczące konfiguracji
 
-* Należy najnowszą wersję interfejsu wiersza polecenia (CLI). Aby uzyskać więcej informacji, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* Należy najnowszą wersję interfejsu wiersza polecenia (CLI). Aby uzyskać więcej informacji, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Należy przejrzeć [wymagania wstępne](expressroute-prerequisites.md), [wymagania dotyczące routingu](expressroute-routing.md), i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
 * Musisz mieć aktywny obwód usługi ExpressRoute. 
   * Postępuj zgodnie z instrukcjami, aby [utworzyć obwodu usługi ExpressRoute](howto-circuit-cli.md) i mieć obwodu włączane przez dostawcą połączenia. 
   * Upewnij się, że masz prywatnej komunikacji równorzędnej platformy Azure skonfigurowane dla obwodu. Zobacz [Konfigurowanie routingu](howto-routing-cli.md) artykułu instrukcje routingu. 
   * Upewnij się, że skonfigurowano Azure prywatnej komunikacji równorzędnej. BGP komunikacji równorzędnej między siecią a Microsoft muszą być uruchomione, dzięki czemu można włączyć łączność end-to-end.
-  * Upewnij się, że masz sieci wirtualnej i Brama sieci wirtualnej utworzone i w pełni zaaprowizowanym. Postępuj zgodnie z instrukcjami, aby [należy skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Należy użyć `--gateway-type ExpressRoute`.
+  * Upewnij się, że masz sieci wirtualnej i Brama sieci wirtualnej utworzone i w pełni zaaprowizowanym. Postępuj zgodnie z instrukcjami, aby [należy skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Należy użyć `--gateway-type ExpressRoute`.
 
 * Standardowa obwodu ExpressRoute można połączyć maksymalnie 10 sieciami wirtualnymi. Wszystkie wirtualne sieci musi być w tym samym regionie geograficznymi, gdy przy użyciu standardowych obwodu usługi expressroute. 
 

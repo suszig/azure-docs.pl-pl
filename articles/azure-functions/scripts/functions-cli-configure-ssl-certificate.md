@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 76602f63f8b7fd7adc38353756387484f0af6493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fbc94734f3c49e7318734b05b30e0ef6b8767004
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Powiązania niestandardowego certyfikatu SSL do aplikacji — funkcja
 
@@ -54,7 +54,7 @@ Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do
 | [Utwórz az functionapp]() | Tworzy aplikację funkcji. |
 | [Dodaj nazwę az usługi aplikacji sieci web konfiguracji hosta](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mapuje niestandardową domenę do funkcji aplikacji. |
 | [AZ usługi aplikacji sieci web config ssl przekazywania](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Przekazuje certyfikat SSL do aplikacji funkcji. |
-| [powiązania ssl config az usługi aplikacji sieci web](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Wiąże aplikacji funkcji przekazano certyfikat SSL. |
+| [powiązania ssl config az usługi aplikacji sieci web](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Wiąże aplikacji funkcji przekazano certyfikat SSL. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ed43651c51eaba7112308d7550c2073ccfc5c5ee
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktura Azure pulpitów nawigacyjnych
 Ten dokument zawiera opis za pośrednictwem struktury Azure pulpitu nawigacyjnego, na przykład przy użyciu następujących pulpitu nawigacyjnego:
 
 ![przykładowy pulpit nawigacyjny](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Ponieważ udostępnione [Azure pulpity nawigacyjne są zasoby](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), ten pulpit nawigacyjny może być reprezentowany w formacie JSON.  Następujące JSON reprezentuje pulpitu nawigacyjnego wizualizowane powyżej.
+Ponieważ udostępnione [Azure pulpity nawigacyjne są zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), ten pulpit nawigacyjny może być reprezentowany w formacie JSON.  Następujące JSON reprezentuje pulpitu nawigacyjnego wizualizowane powyżej.
 
 ```json
 
@@ -294,7 +294,7 @@ Umożliwia podział odpowiednich sekcji JSON.  Właściwości najwyższego pozio
 
 ### <a name="the-id-property"></a>Właściwość identyfikatora
 
-Identyfikator zasobów platformy Azure podlegają [konwencje zasobów Azure nazewnictwa](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Jeśli portal tworzy pulpit nawigacyjny zazwyczaj wybiera id w postaci identyfikatora guid, ale jest korzystać wszystkie prawidłowej nazwy podczas tworzenia ich programowo. 
+Identyfikator zasobów platformy Azure podlegają [konwencje zasobów Azure nazewnictwa](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Jeśli portal tworzy pulpit nawigacyjny zazwyczaj wybiera id w postaci identyfikatora guid, ale jest korzystać wszystkie prawidłowej nazwy podczas tworzenia ich programowo. 
 
 ### <a name="the-name-property"></a>Właściwość name
 Nazwa jest segmentem zasobów identyfikator, który nie ma subskrypcji, typ zasobu lub informacji o grupie zasobów. To zasadniczo ostatni segment identyfikatora zasobu.
@@ -303,7 +303,7 @@ Nazwa jest segmentem zasobów identyfikator, który nie ma subskrypcji, typ zaso
 Wszystkie pulpity nawigacyjne są typu __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Właściwość lokalizacji
-W przeciwieństwie do innych zasobów pulpitów nawigacyjnych nie ma składnika środowiska wykonawczego.  Pulpity nawigacyjne lokalizacja wskazuje głównej lokalizacji geograficznej, przechowujący reprezentacja JSON w pulpicie nawigacyjnym. Wartość powinna być jeden z kodów lokalizacji, które mogą być pobierane przy użyciu [lokalizacje interfejsu API w zasobie subskrypcje](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+W przeciwieństwie do innych zasobów pulpitów nawigacyjnych nie ma składnika środowiska wykonawczego.  Pulpity nawigacyjne lokalizacja wskazuje głównej lokalizacji geograficznej, przechowujący reprezentacja JSON w pulpicie nawigacyjnym. Wartość powinna być jeden z kodów lokalizacji, które mogą być pobierane przy użyciu [lokalizacje interfejsu API w zasobie subskrypcje](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Właściwość znaczników
 Tagi to typową funkcją zasobów platformy Azure, umożliwiające organizowanie przez par wartości nazw dowolnego zasobu. Dla pulpitów nawigacyjnych, istnieje jeden specjalny tag o nazwie __ukryte tytuł__. Jeśli ta właściwość wypełnione pulpitu nawigacyjnego, następnie jest używany jako nazwa wyświetlana dla pulpitu nawigacyjnego w portalu. Nie można zmienić nazwy identyfikatorów zasobów platformy Azure, ale można tagów. Ten tag udostępnia sposób mieć nazwę wyświetlaną renamable pulpitu nawigacyjnego.

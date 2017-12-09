@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Łączenie aplikacji sieci web do bazy danych rozwiązania Cosmos
 
@@ -49,8 +49,8 @@ Ten skrypt używa następujących poleceń w celu utworzenia grupy zasobów, apl
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
 | [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. Przypomina farmy serwerów aplikacji sieci web platformy Azure. |
 | [Tworzenie aplikacji sieci Web az](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Tworzenie aplikacji sieci web platformy Azure. |
-| [Utwórz az cosmosdb](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_create) | Tworzy konto DB rozwiązania Cosmos. Jest to, gdzie będą przechowywane dane. |
-| [AZ cosmosdb listy kluczy](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Wyświetla klucze dostępu dla określonego konta DB rozwiązania Cosmos. |
+| [Utwórz az cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Tworzy konto DB rozwiązania Cosmos. Jest to, gdzie będą przechowywane dane. |
+| [AZ cosmosdb listy kluczy](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Wyświetla klucze dostępu dla określonego konta DB rozwiązania Cosmos. |
 | [AZ aplikacji sieci Web config appsettings zestawu](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure. Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki

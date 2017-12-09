@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruktaże nauki danych programu SQL Server przy użyciu języka R, Python i T-SQL
 
@@ -39,12 +39,12 @@ Wskazówki dotyczące nauki dodatkowych danych, których wykonanie procesu anali
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Przewidywanie porady taksówki użycia języka R z T-SQL lub procedur składowanych z programem SQL Server
 
-[Wskazówki nauki danych R i SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) zapewnia programistów SQL środowisko tworzenia rozwiązania analizy Zaawansowane z Transact-SQL przy użyciu usług SQL Server R do operacjonalizuj rozwiązania R. 
+[Wskazówki nauki danych R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) zapewnia programistów SQL środowisko tworzenia rozwiązania analizy Zaawansowane z Transact-SQL przy użyciu usług SQL Server R do operacjonalizuj rozwiązania R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Przewidywanie porady taksówki przy użyciu języka Python w procedurach składowanych serwera SQL
 
-[Użyj T-SQL z usługami SQL Server Python](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) wskazówki zapewnia środowisko tworzenia rozwiązań w programie SQL Server uczenia maszynowego programistów SQL. Go pokazano, jak dołączyć Python do aplikacji przez dodanie kodu języka Python do procedur składowanych.
+[Użyj T-SQL z usługami SQL Server Python](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) wskazówki zapewnia środowisko tworzenia rozwiązań w programie SQL Server uczenia maszynowego programistów SQL. Go pokazano, jak dołączyć Python do aplikacji przez dodanie kodu języka Python do procedur składowanych.
 
 
 ## <a name="next-steps"></a>Następne kroki

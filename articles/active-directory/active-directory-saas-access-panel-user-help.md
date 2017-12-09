@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Potrzebujesz pomocy przy użyciu portalu Moje aplikacje?
 
@@ -35,7 +35,7 @@ Ogólne problemy, aby sprawdzić:
 
 - Upewnij się, nie wygasł lub zapomnienia hasła. Sprawdź [tutaj](active-directory-passwords-update-your-own-password.md) Aby uzyskać więcej informacji na temat aktualizowania hasła.
 
-- Sprawdź, czy swoje informacje kontaktowe uwierzytelniania jest aktualny i nie blokują dostęp. Sprawdź [tutaj](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) Aby uzyskać więcej informacji na temat konfigurowania swoje informacje uwierzytelniania.
+- Sprawdź, czy swoje informacje kontaktowe uwierzytelniania jest aktualny i nie blokują dostęp. Sprawdź [tutaj](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) Aby uzyskać więcej informacji na temat konfigurowania swoje informacje uwierzytelniania.
 
 - Wyczyść pliki cookie w przeglądarce, a następnie spróbuj się ponownie zalogować.
 

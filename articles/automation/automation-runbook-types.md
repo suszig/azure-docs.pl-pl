@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7bb90a51ffaca1a67933bc59f42ed08684fca5de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Typy elementu runbook automatyzacji Azure
 Automatyzacja Azure obsługuje kilka typów elementów runbook krótko opisane w poniższej tabeli.  Poniższe sekcje zawierają dodatkowe informacje na temat poszczególnych typów, łącznie z uwagi na kiedy należy używać każdego.
@@ -96,7 +96,7 @@ Elementy runbook Python kompilacji 2 języka Python.  Kod elementu runbook za po
 ### <a name="known-issues"></a>Znane problemy
 Oto obecnie znane problemy z elementami runbook języka Python.
 
-* Aby można było korzystać z innych bibliotek, elementu runbook musi być uruchamiane na [Windows hybrydowego Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) lub [procesu roboczego elementu Runbook hybrydowego Linux](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) z bibliotekami już zainstalowane na komputerze przed Element runbook jest uruchomiony.
+* Aby można było korzystać z innych bibliotek, elementu runbook musi być uruchamiane na [Windows hybrydowego Runbook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) lub [procesu roboczego elementu Runbook hybrydowego Linux](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) z bibliotekami już zainstalowane na komputerze przed Element runbook jest uruchomiony.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Należy wziąć pod uwagę następujące uwagi dodatkowe podczas określania typu dla określonego elementu runbook.

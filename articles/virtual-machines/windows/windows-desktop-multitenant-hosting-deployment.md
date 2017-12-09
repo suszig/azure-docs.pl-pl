@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 8/20/2017
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Wdrażanie systemu Windows 10 na platformie Azure z wielodostępnej Hosting uprawnień 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 dla poszczególnych użytkowników lub dostęp do pulpitu wirtualnego systemu Windows na użytkownika (licencji subskrypcji użytkownika lub licencji subskrypcji użytkownika dodatku) wielodostępnej Hosting praw dla systemu Windows 10 pozwala załadować licencji systemu Windows 10 do chmury i uruchom maszyny wirtualne systemu Windows 10 na platformie Azure, bez płatności dla innej licencji. Aby uzyskać więcej informacji, zobacz [wielodostępnej Hosting dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -108,7 +108,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [Konfigurowanie VDA dla systemu Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Dowiedz się więcej o [Konfigurowanie VDA dla systemu Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Dowiedz się więcej o [wielodostępnej Hosting dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 
