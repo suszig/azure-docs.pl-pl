@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Wyświetl dzienniki aktywności inspekcji akcje zasobów
 Za pomocą działania dzienniki można określić:
@@ -38,10 +38,10 @@ Mogą pobierać informacje z Dzienniki aktywności za pośrednictwem portalu pro
    
     ![Wybierz Dzienniki aktywności](./media/resource-group-audit/select-monitor.png)
 
-   Lub, aby automatycznie odfiltrować dziennik aktywności dla określonego zasobu lub grupy zasobów, wybierz **dziennik aktywności** z tego bloku zasobów. Zwróć uwagę, że dziennik aktywności automatycznie są filtrowane według wybranych zasobów.
+   Lub, aby automatycznie odfiltrować dziennik aktywności dla określonego zasobu lub grupy zasobów, wybierz **dziennik aktywności**. Zwróć uwagę, że dziennik aktywności automatycznie są filtrowane według wybranych zasobów.
    
     ![Filtruj według zasobu](./media/resource-group-audit/filtered-by-resource.png)
-2. W **dziennik aktywności** bloku, wyświetlane jest podsumowanie ostatnich operacji.
+2. W **dziennik aktywności**, wyświetlane jest podsumowanie ostatnich operacji.
    
     ![Pokaż akcje](./media/resource-group-audit/audit-summary.png)
 3. Aby ograniczyć liczbę operacji wyświetlane, wybierz inne warunki. Na przykład poniższy obraz przedstawia **Timespan** i **zdarzenie inicjowane przez** pola zmienione aby wyświetlić akcje wykonywane przez określonego użytkownika lub aplikacji w ciągu ostatnich miesiącu. Wybierz **Zastosuj** , aby wyświetlić wyniki zapytania.
@@ -147,4 +147,5 @@ Operacje REST do pracy z dziennika aktywności są częścią [interfejsu API RE
 * Aby dowiedzieć się więcej na temat ustawiania zasad zabezpieczeń, zobacz [kontroli dostępu opartej na roli Azure](../active-directory/role-based-access-control-configure.md).
 * Informacje na temat polecenia do wyświetlania operacji wdrażania, zobacz [wyświetlić operacje wdrażania](resource-manager-deployment-operations.md).
 * Aby dowiedzieć się uniknąć usunięcia zasobu dla wszystkich użytkowników, zobacz [blokowania zasobów z usługi Azure Resource Manager](resource-group-lock-resources.md).
+* Aby wyświetlić listę działań, które są dostępne dla każdego dostawcy Microsoft Azure Resource Manager, zobacz [operacji dostawcy zasobów usługi Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

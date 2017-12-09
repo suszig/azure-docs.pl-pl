@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ae62638fd1d325822b15b7de998861d4df67bd8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="api-management-policy-samples"></a>Zarządzanie interfejsami API Przykłady zasad
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/04/2017
 |[Dodawanie funkcji do usługi zaplecza i buforowania odpowiedzi](./policies/cache-response.md?toc=api-management/toc.json) |Przedstawiono sposób dodawania funkcji do usługi zaplecza. Na przykład zaakceptuj nazwę miejsca zamiast współrzędne geograficzne w prognozie pogody interfejsu API.|
 |[Autoryzacja dostępu na podstawie oświadczeń JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Przedstawia sposób autoryzowania dostępu do określonej metody HTTP na interfejs API na podstawie oświadczeń JWT.|
 |[Autoryzacja dostępu za pomocą tokenu Google OAuth](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Przedstawia sposób autoryzowania dostępu do punktów końcowych przy użyciu usługi Google jako dostawcy tokenu OAuth.|
-|[Generowanie sygnatura dostępu współdzielonego i przekazanie żądania do usługi Azure storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Pokazuje sposób generowania [sygnatura dostępu współdzielonego](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) przy użyciu wyrażeń i przekazuje żądanie do magazynu Azure z identyfikatora uri ponownego zapisywania zasad. |
+|[Generowanie sygnatura dostępu współdzielonego i przekazanie żądania do usługi Azure storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Pokazuje sposób generowania [sygnatura dostępu współdzielonego](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) przy użyciu wyrażeń i przekazuje żądanie do magazynu Azure z identyfikatora uri ponownego zapisywania zasad. |
 |[Uzyskaj token dostępu OAuth2 z usługi AAD i przesyła je do wewnętrznej bazy danych](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Udostępnia oraz przykład użycia protokołu OAuth2 autoryzacji między bramą a wewnętrznej bazie danych. Widoczny jest sposób uzyskać token dostępu z usługi AAD i przesyła je do wewnętrznej bazy danych.|
 |[CSRF X pobrania tokenu z bramą SAP przy użyciu zasad żądań wysłania](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Przedstawia sposób wykonania X CSRF wzorzec używany przez wiele interfejsów API. W tym przykładzie jest specyficzne dla programu SAP bramy. |
 |[Trasy żądania na podstawie rozmiaru jego treści](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Pokazuje, jak można przekierować żądania na podstawie rozmiaru ich jednostki.|

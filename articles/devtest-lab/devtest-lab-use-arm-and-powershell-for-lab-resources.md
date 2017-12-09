@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Tworzenie lub modyfikowanie labs automatycznie przy użyciu szablonów usługi Azure Resource Manager i programu PowerShell
 
@@ -30,7 +30,7 @@ W tym artykule opisano informacje pomocne przy użyciu tych szablonów i skrypt�
 Można znaleźć wstępnie wprowadzone [szablonów usługi Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) i [skryptów programu PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) na naszego publicznego [repozytorium Github](https://github.com/Azure/azure-devtestlab). Używane jako-, lub dostosować je do potrzeb i zapisanie ich w ramach własnego [prywatne repozytorium Git](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Krok 2: Modyfikowanie szablonu usługi Azure Resource Manager
-Możesz wykonać kroki opisane w temacie [Tworzenie pierwszego szablonu usługi Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template) Jeśli nigdy nie utworzono szablonu przed.
+Możesz wykonać kroki opisane w temacie [Tworzenie pierwszego szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) Jeśli nigdy nie utworzono szablonu przed.
 
 Ponadto [najlepszych rozwiązań dotyczących tworzenia szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferuje wiele wskazówki i sugestie ułatwiające tworzenie szablonów usługi Azure Resource Manager, które są niezawodne i łatwe w użyciu. Zazwyczaj będzie używane odmianą jednej z metod lub przykłady podane i zmodyfikować szablon do własnych potrzeb.
 

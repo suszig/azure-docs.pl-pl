@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6ebf9f70abc6fbf880d7183ca0f5533a24d59451
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Lokalizacje POP usługi Azure CDN
 W tym temacie wymieniono bieżącej lokalizacji POP **Azure CDN from Verizon** i **Azure CDN from Akamai**.
@@ -44,5 +44,5 @@ W tym temacie wymieniono bieżącej lokalizacji POP **Azure CDN from Verizon** i
 | Australia i Nowa Zelandia | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nowa Zelandia | Australia<br />Nowa Zelandia |
 
 ## <a name="see-also"></a>Zobacz też
-* [Usługi Azure CDN krawędzi węzłów API można pobrać najnowsze adresów IP dla listę dozwolonych podobnej](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [Usługi Azure CDN krawędzi węzłów API można pobrać najnowsze adresów IP dla listę dozwolonych podobnej](https://docs.microsoft.com/rest/api/cdn/edgenodes)
 

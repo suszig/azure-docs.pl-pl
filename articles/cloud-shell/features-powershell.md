@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ Ponieważ każde żądanie dla powłoki chmury jest przydzielanie tymczasowa mas
 
 PowerShell w chmurze powłoki (wersja zapoznawcza) rozpoczyna się w stacji Azure (`Azure:`).
 Dysków Azure umożliwia łatwe odnajdowanie i nawigacja zasobów platformy Azure, takich jak obliczeniowych, sieci, itp. magazyn podobny do nawigacji systemu plików.
-Można nadal używać znanych [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) nimi zarządzać.
+Można nadal używać znanych [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/powershell/azure) nimi zarządzać.
 Wszelkie zmiany wprowadzone do zasobów platformy Azure, albo bezpośrednio w portalu Azure lub za pomocą poleceń cmdlet programu PowerShell systemu Azure, są natychmiast odzwierciedlone w dysku platformy Azure.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Te polecenia są wbudowane obsługę zdalną środowiska PowerShell i wymaga po�
 
 |**Kategoria**    |**Nazwa**                                 |
 |----------------|-----------------------------------------|
-|Narzędzia platformy Azure     |[Program Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Narzędzia platformy Azure     |[Program Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Edytory tekstów    |VIM<br> nano                             |
 |Menedżer pakietów |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Kontrola źródła  |git                                      |

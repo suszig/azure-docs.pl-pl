@@ -19,11 +19,11 @@ ms.date: 11/03/2017
 ms.author:
 - kraigb
 - justcla
-ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publikowanie aplikacji sieci Web platformy ASP.NET dla maszyny Wirtualnej platformy Azure w programie Visual Studio
 
@@ -119,7 +119,7 @@ Twoje ustawienia powinny wyglądać mniej więcej tak:
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Ustawienia elementu konfiguracji/CD dla automatycznego wdrażania do maszyny Wirtualnej Azure
 
-Aby skonfigurować potoku ciągłego dostarczania z programu Visual Studio Team Service, zobacz [Wdróż maszynę wirtualną systemu Windows](https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Aby skonfigurować potoku ciągłego dostarczania z programu Visual Studio Team Service, zobacz [Wdróż maszynę wirtualną systemu Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

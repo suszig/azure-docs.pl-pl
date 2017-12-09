@@ -115,7 +115,7 @@ Jeśli uzyskujesz dostęp do aplikacji, upewnij się, czy zezwala na urządzenie
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Krok 4 nie masz dostępu do aplikacji, należy sprawdzić IP Sprawdź ustawienia. 
 
-Aby uzyskać więcej informacji, zobacz [omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Aby uzyskać więcej informacji, zobacz [omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 [Rozwiązywanie problemów z połączeniami pulpitu zdalnego do systemu Windows Azure maszyny wirtualnej](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

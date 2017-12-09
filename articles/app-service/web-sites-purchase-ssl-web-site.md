@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Kup i skonfiguruj certyfikat SSL dla usługi Azure App Service
 
-Ten samouczek pokazuje, jak zabezpieczyć aplikację sieci web po zakupie certyfikatu SSL dla Twojego  **[usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, bezpiecznie zapisanie jej w [usługi Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), i skojarzenie go z domeny niestandardowej.
+Ten samouczek pokazuje, jak zabezpieczyć aplikację sieci web po zakupie certyfikatu SSL dla Twojego  **[usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, bezpiecznie zapisanie jej w [usługi Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), i skojarzenie go z domeny niestandardowej.
 
 ## <a name="step-1---log-in-to-azure"></a>Krok 1 — Logowanie do platformy Azure
 
@@ -49,7 +49,7 @@ Wybierz użytkownika **subskrypcji**, **grupy zasobów**, i **certyfikatu jednos
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Krok 3 — magazyn certyfikatów w usłudze Azure Key Vault
 
 > [!NOTE]
-> [Magazyn kluczy](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) jest usługą platformy Azure, która pomaga w zabezpieczaniu kluczy kryptograficznych i kluczy tajnych używanych przez usługi i aplikacje w chmurze.
+> [Magazyn kluczy](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) jest usługą platformy Azure, która pomaga w zabezpieczaniu kluczy kryptograficznych i kluczy tajnych używanych przez usługi i aplikacje w chmurze.
 >
 
 Po zakończeniu zakupu certyfikatów SSL, należy otworzyć [certyfikaty usługi aplikacji](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) strony.

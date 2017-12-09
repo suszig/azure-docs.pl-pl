@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
@@ -25,8 +25,8 @@ Za pomocą zarządzania modelu uczenia Maszynowego Azure można efektywnego wdro
 Do końca tego dokumentu powinien mieć możliwość środowiska zarządzania modelu skonfigurowane i gotowe do wdrożenia z modeli uczenia maszynowego.
 
 ## <a name="what-you-need-to-get-started"></a>Wymagane do rozpoczęcia pracy
-Aby uzyskać wykorzystanie tego przewodnika, właściciela do subskrypcji platformy Azure, którą można wdrożyć do modeli do powinna mieć.
-Interfejsu wiersza polecenia jest wstępnie zainstalowane na Azure Machine Learning Workbench i na [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Lepsze wykorzystanie tego przewodnika, ma współautora dostępu do subskrypcji platformy Azure lub grupy zasobów, które można wdrożyć do modeli.
+Interfejsu wiersza polecenia jest wstępnie zainstalowane na Azure Machine Learning Workbench i na [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Przy użyciu interfejsu wiersza polecenia
 Aby używać interfejsów wiersza polecenia (CLIs) z Workbench, kliknij przycisk **pliku** -> **Otwórz okno wiersza polecenia**. 
@@ -128,7 +128,7 @@ Polecenie Ustawienia środowiska klastra tworzy następujące zasoby w Twojej su
 - Konto usługi insights aplikacji
 
 >[!IMPORTANT]
-> Aby można było pomyślnie utworzyć środowisko klastra, musisz być właścicielem subskrypcji Azure, a także mieć możliwość tworzenia nazwy głównej usługi. Aby sprawdzić, czy masz wystarczające uprawnienia, postępuj zgodnie z instrukcjami na tej stronie: [Tworzenie nazwy głównej usługi na platformie Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Aby można było pomyślnie utworzyć środowisko klastra, zostanie musi być współautora dostęp do subskrypcji platformy Azure lub grupy zasobów.
 
 Grupy zasobów konta magazynu i ACR są tworzone szybko. Wdrażanie usług ACS może zająć maksymalnie 20 minut. 
 

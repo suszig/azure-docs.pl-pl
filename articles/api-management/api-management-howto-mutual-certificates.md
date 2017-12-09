@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpieczyć za pomocą klienta usług zaplecza certyfikatów uwierzytelniania w usłudze Azure API Management
 Zarządzanie interfejsami API umożliwia bezpieczny dostęp do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta. Ten przewodnik zawiera sposobu zarządzania certyfikatami w portalu wydawcy interfejsu API i Konfigurowanie interfejsu API do używania certyfikatu dostęp do jej usługi zaplecza.
@@ -108,7 +108,7 @@ Kliknij przycisk **zapisać** można zapisać zmiany konfiguracji do interfejsu 
 
 ## <a name="self-signed-certificates"></a>Certyfikaty z podpisem własnym
 
-Jeśli używane są certyfikaty z podpisem własnym, musisz wyłączyć weryfikacji łańcucha certyfikatu w kolejności dla interfejsu API zarządzania do komunikacji z systemem zaplecza, w przeciwnym razie zwróci kod komunikatu o błędzie 500. Aby to skonfigurować, można użyć [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (dla nowego zaplecza) lub [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustaw `-SkipCertificateChainValidation` parametr `True`.
+Jeśli używane są certyfikaty z podpisem własnym, musisz wyłączyć weryfikacji łańcucha certyfikatu w kolejności dla interfejsu API zarządzania do komunikacji z systemem zaplecza, w przeciwnym razie zwróci kod komunikatu o błędzie 500. Aby to skonfigurować, można użyć [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (dla nowego zaplecza) lub [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustaw `-SkipCertificateChainValidation` parametr `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

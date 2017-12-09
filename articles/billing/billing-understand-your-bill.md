@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Opis zawartości rachunku za korzystanie z platformy Microsoft Azure
 Aby zrozumieć rachunku Azure, porównaj faktury z szczegółowe codzienne pliku użycia i kosztów zarządzania raportów w portalu Azure.
@@ -31,7 +31,7 @@ Aby uzyskać plik PDF faktury i kopię szczegółowe codziennego użycia pliku C
 
 Szczegółowe warunki i opisy faktury i szczegółowe pliku codziennego użycia, zobacz [zrozumieć warunki na fakturę Microsoft Azure](billing-understand-your-invoice.md) i [użycia szczegółowe omówienie warunki na platformy Microsoft Azure](billing-understand-your-usage.md). 
 
-Aby uzyskać więcej informacji dotyczących raportów zarządzania koszt, zobacz [portalu Azure koszt zarządzania](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Aby uzyskać więcej informacji dotyczących raportów zarządzania koszt, zobacz [portalu Azure koszt zarządzania](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Jak utworzyć się, że opłaty w fakturą są poprawne?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Jeśli Twoja faktura, który ma więcej szczegółów na jest opłat, istnieje k
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opcja 1: Fakturze i porównania użycia i kosztów z pliku CSV szczegółowe dane użycia
 
-Szczegółowe dane użycia pliku CSV zawiera Twoje opłat okresie rozliczeniowym i dziennego użycia. Aby uzyskać szczegółowe dane użycia pliku CSV, zobacz [uzyskać Azure rozliczeń faktury i dziennego użycia danych](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Szczegółowe dane użycia pliku CSV zawiera Twoje opłat okresie rozliczeniowym i dziennego użycia. Aby uzyskać szczegółowe dane użycia pliku CSV, zobacz [uzyskać Azure rozliczeń faktury i dziennego użycia danych](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Twoje opłaty za użycie są wyświetlane na poziomie miernika. Poniższe terminy oznaczają to samo w faktury i szczegółowe dane użycia pliku. Na przykład cyklu rozliczeniowego na fakturze jest odpowiednikiem okresie rozliczeniowym wyświetlane szczegółowe dane użycia pliku.
 

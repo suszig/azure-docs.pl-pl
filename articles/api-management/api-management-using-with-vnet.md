@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak używać usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualnych platformy Azure (sieci wirtualne) umożliwiają umieszczać zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci następnie mogą być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure Uruchom z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +99,7 @@ Poniżej znajduje się lista typowych problemów z błędem konfiguracji, które
 * **Niestandardowe ustawienia serwera DNS**: Usługa interfejsu API zarządzania zależy od wielu usług Azure. Zarządzanie interfejsami API znajduje się w sieci Wirtualnej przy użyciu niestandardowego serwera DNS, musi rozpoznać nazwy hostów tych usług Azure. Wykonaj [to](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) wytyczne dotyczące niestandardowych ustawień DNS. Znajdują się w poniższej tabeli portów i inne wymagania dotyczące sieci dla odwołania.
 
 > [!IMPORTANT]
-> Zaleca się, że jeśli używasz niestandardowych serwerów DNS dla sieci Wirtualnej, skonfigurowaniu który **przed** wdrażania usługi API Management do niego. W przeciwnym razie należy zaktualizować usługi Zarządzanie interfejsami API każdej zmianie serwerów DNS (s), uruchamiając [zastosować operacji konfiguracji sieciowej](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Zaleca się, że jeśli używasz niestandardowych serwerów DNS dla sieci Wirtualnej, skonfigurowaniu który **przed** wdrażania usługi API Management do niego. W przeciwnym razie należy zaktualizować usługi Zarządzanie interfejsami API każdej zmianie serwerów DNS (s), uruchamiając [zastosować operacji konfiguracji sieciowej](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Porty wymagane przez interfejs API zarządzania**: ruchu przychodzącego i wychodzącego do podsieci, w której jest wdrażane zarządzanie interfejsami API można kontrolować przy użyciu [sieciowej grupy zabezpieczeń][Network Security Group]. Jeśli którekolwiek z tych portów są niedostępne, interfejsu API zarządzania może nie działać prawidłowo i może stać się niedostępne. Co najmniej jeden z tych portów zablokowane jest posiadanie innego typowe problemy z błędem konfiguracji podczas korzystania z usługi API Management z sieci Wirtualnej.
 
@@ -108,7 +108,7 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 | Źródłowego / docelowego porty | Kierunek | Protokół transportu | Źródłowego / docelowego | Cel (*) | Typ sieci wirtualnej |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Zarządzanie interfejsami API komunikacji klienta|Zewnętrzne |
-| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzna |
+| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzne |
 | * / 80, 443 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależność od usługi Azure Storage, usługi Azure Service Bus i usługi Azure Active Directory (jeśli dotyczy).|Zewnętrzne i wewnętrzne | 
 | * / 1433 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do punktów końcowych Azure SQL** |Zewnętrzne i wewnętrzne |
 | * / 11000 - 11999 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do usługi Azure SQL w wersji 12** |Zewnętrzne i wewnętrzne |
@@ -148,7 +148,7 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
  > [!IMPORTANT]
  > Po zweryfikowaniu połączenia, upewnij się usunąć wszystkie zasoby, które są wdrożone w podsieci, przed wdrożeniem usługi API Management do podsieci.
 
-* **Aktualizacje przyrostowe**: podczas wprowadzania zmian w sieci, zapoznaj się [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), aby sprawdzić usługi API Management nie utracił dostęp do wszystkich kluczowych zasobów, których ona zależy. Stan powinien być aktualizowany co 15 minut.
+* **Aktualizacje przyrostowe**: podczas wprowadzania zmian w sieci, zapoznaj się [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), aby sprawdzić usługi API Management nie utracił dostęp do wszystkich kluczowych zasobów, których ona zależy. Stan powinien być aktualizowany co 15 minut.
 
 * **Linki nawigacji zasobu**: w przypadku wdrażania w podsieci sieci wirtualnej styl Menedżera zasobów, zarządzanie interfejsami API rezerwuje podsieci, tworząc łącza nawigacji zasobu. Jeśli podsieć zawiera już zasób od innego dostawcy, wdrożenie zostanie **niepowodzenie**. Podobnie podczas przenoszenia usługi API Management do innej podsieci lub usuń go, zostanie usunięty tego łącza nawigacji zasobu. 
 

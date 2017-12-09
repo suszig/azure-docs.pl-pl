@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: delhan
-ms.openlocfilehash: fae8ba81f925f53458133c8802b0766dd0f42684
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Sugerowana społeczności innych firm sieci VPN lub zapora ustawienia urządzenia bramy sieci VPN platformy Azure
 
@@ -47,7 +47,7 @@ W poniższej tabeli wymieniono kilka wspólnych urządzeń i powiązane pomocy:
 
 ## <a name="next-step"></a>Następny krok
 
-[Ustawienia bramy usługi Azure](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
+[Ustawienia bramy usługi Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
-[Znane zgodnych urządzeń](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
+[Znane zgodnych urządzeń](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
 

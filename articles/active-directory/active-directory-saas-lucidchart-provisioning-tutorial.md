@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 1f9344a5e750360e21ed7dc8e3ed013c2c2e1a45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7245ee95e53217872f0b01cf8951695c993a929c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie LucidChart dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -89,7 +89,7 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
 Ta operacja uruchamia wstępnej synchronizacji użytkowników i/lub grupy przypisane do LucidChart w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej.
 
-Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

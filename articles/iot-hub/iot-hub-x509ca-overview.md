@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Uwierzytelnianie urządzenia za pomocą certyfikatów X.509 urzędu certyfikacji
 
@@ -85,4 +85,4 @@ W tej części wyjaśniono sposób [ukończenia tego kroku połączenia urządze
 
 Dowiedz się więcej o [wartość uwierzytelniania urzędu certyfikacji X.509](iot-hub-x509ca-concept.md) w IoT.
 
-Rozpoczynanie pracy z Centrum IoT [usługi inicjowania obsługi urządzeń](https://docs.microsoft.com/en-us/azure/iot-dps/).
+Rozpoczynanie pracy z Centrum IoT [usługi inicjowania obsługi urządzeń](https://docs.microsoft.com/azure/iot-dps/).

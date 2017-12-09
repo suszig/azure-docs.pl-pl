@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Znajdź i diagnozowanie wyjątków środowiska wykonawczego z usługą Azure Application Insights
 
@@ -37,12 +37,12 @@ W celu ukończenia tego samouczka:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
 - Pobierz i zainstaluj [Visual Studio Debugger migawki](http://aka.ms/snapshotdebugger).
-- Włącz [programu Visual Studio migawki debugera](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
+- Włącz [programu Visual Studio migawki debugera](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 - Wdrażanie aplikacji .NET na platformie Azure i [włączyć zestaw SDK usługi Application Insights](app-insights-asp-net.md). 
 - Samouczek śledzi identyfikacji Wystąpił wyjątek w aplikacji, więc modyfikowanie kodu w środowisku deweloperskich lub testowania można wygenerować wyjątek. 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analizowanie błędów
@@ -51,7 +51,7 @@ Usługa Application Insights zbiera żadnych błędów w aplikacji i umożliwia 
 1. Wybierz **usługi Application Insights** , a następnie subskrypcja.  
 1. Aby otworzyć **błędów** panelu wybierz opcję **błędów** w obszarze **zbadaj** menu lub kliknij przycisk **żądań zakończonych niepowodzeniem** wykresu.
 
-    ![Żądań zakończonych niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
+    ![Żądania zakończone niepowodzeniem](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
 2. **Żądań zakończonych niepowodzeniem** panelu informuje o liczbie nieudanych żądań i liczbę użytkowników, dla każdej operacji dla aplikacji.  Sortując tych informacji przez użytkownika można zidentyfikować te błędy większość wpływ na użytkowników.  W tym przykładzie **UZYSKAĆ pracowników/Utwórz** i **UZYSKAĆ klientów, uzyskać szczegółowe informacje** prawdopodobnie nadają się do sprawdzania, czy z powodu dużej liczby błędów i wpływ na użytkowników.  Wybranie operacji zawiera dodatkowe informacje na temat tej operacji na prawym panelu.
 

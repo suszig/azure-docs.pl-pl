@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debugowanie zdefiniowane przez użytkownika kodu C#, dla zadań U-SQL nie powiodło się
 
-U-SQL zapewnia modelu rozszerzalności przy użyciu języka C#. W skryptów U-SQL jest łatwe wywoływać funkcje C# i wykonywać funkcje analityczne, które nie obsługują deklaratywne języka przypominającego SQL. Aby dowiedzieć się więcej na wprowadzenie U-SQL, zobacz [Podręcznik programowania U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL zapewnia modelu rozszerzalności przy użyciu języka C#. W skryptów U-SQL jest łatwe wywoływać funkcje C# i wykonywać funkcje analityczne, które nie obsługują deklaratywne języka przypominającego SQL. Aby dowiedzieć się więcej na wprowadzenie U-SQL, zobacz [Podręcznik programowania U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 W praktyce debugowanie kodu może być konieczne, ale jest trudne do debugowania rozproszonej zadania z kodu niestandardowego w chmurze z plików dziennika ograniczone. [Azure Data Lake Tools dla programu Visual Studio](http://aka.ms/adltoolsvs) udostępnia funkcję **nie można debugować wierzchołków**, co pomaga łatwiej debugowania błędów, które występują w niestandardowym kodem. Gdy zadanie U-SQL nie powiodło się, usługa śledzi stan niepowodzenia i narzędzie pomaga Pobierz środowisko chmury błąd na komputerze lokalnym do debugowania. Pobieranie lokalne przechwytuje środowiska chmury całego, w tym wszystkie dane wejściowe i kod użytkownika.
 

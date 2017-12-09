@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Narzędzia wprowadzanie danych maszyny wirtualnej nauki danych
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Importowanie wielu obiektów blob magazynu Azure do usługi Azure Data Lake Store.      |
 |  Jak używać / uruchom go?    |   Otwórz wiersz polecenia, wpisz `adlcopy` Aby uzyskać pomoc.    |
-| Łącza do próbek      | [Przy użyciu AdlCopy] https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Łącza do próbek      | [Przy użyciu AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Pokrewne narzędzia na DSVM      | Narzędzia AzCopy, wiersza polecenia platformy Azure     |
 
 ## <a name="azure-command-line"></a>Wiersza polecenia platformy Azure
@@ -58,7 +58,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Kopiowanie plików do magazynu obiektów blob, kopiowania obiektów blob między kontami.      |
 |  Jak używać / uruchom go?    |   Otwórz wiersz polecenia, wpisz `azcopy` Aby uzyskać pomoc.    |
-| Łącza do próbek      | [Narzędzie AzCopy w systemie Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Łącza do próbek      | [Narzędzie AzCopy w systemie Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Pokrewne narzędzia na DSVM      | AdlCopy     |
 
 
@@ -70,7 +70,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Importowanie plików z maszyny Wirtualnej do CosmosDB, importowanie danych z magazynu tabel platformy Azure do CosmosDB lub importowanie danych z bazy danych programu SQL Server do CosmosDB.     |
 |  Jak używać / uruchom go?    |   Aby użyć wiersza polecenia wersji, otwórz wiersz polecenia, wpisz `dt`. Aby użyć narzędzia graficznego interfejsu użytkownika, otwórz wiersz polecenia, wpisz `dtui`.    |
-| Łącza do próbek      | [Importowanie CosmosDB danych](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Łącza do próbek      | [Importowanie CosmosDB danych](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Pokrewne narzędzia na DSVM      | Narzędzia AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Importowanie pliku CSV do tabeli programu SQL Server, eksportowanie tabeli programu SQL Server do pliku.      |
 |  Jak używać / uruchom go?    |   Otwórz wiersz polecenia, wpisz `bcp` Aby uzyskać pomoc.    |
-| Łącza do próbek      | [Narzędzie do kopiowania zbiorczego](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Łącza do próbek      | [Narzędzie do kopiowania zbiorczego](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Pokrewne narzędzia na DSVM      | SQL Server, narzędzia sqlcmd      |
 
 

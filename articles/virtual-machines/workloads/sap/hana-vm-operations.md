@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ab609fe9e7b01d7087dd00c22c19e69a471f6599
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA w podręczniku obsługi platformy Azure
 Ten przewodnik zawiera wskazówki dotyczące systemów SAP HANA, które zostały wdrożone na maszynach wirtualnych platformy Azure. Ten dokument nie ma zastąpić dowolne standardowe dokumentacji SAP. Przewodniki programu SAP i informacje można znaleźć w następujących lokalizacjach:
@@ -93,7 +93,7 @@ Po zainstalowaniu maszyn wirtualnych, które należy uruchomić HANA powinny mie
 
 Omówienie różnych możliwości przypisywania adresów IP można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-Routing ruchu do bezpośrednio do wystąpienia SAP HANA lub jumpbox jest kierowany przez [grup zabezpieczeń sieci Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) skojarzonych podsieci HANA i podsieci zarządzania.
+Routing ruchu do bezpośrednio do wystąpienia SAP HANA lub jumpbox jest kierowany przez [grup zabezpieczeń sieci Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) skojarzonych podsieci HANA i podsieci zarządzania.
 
 Ogólny schemat nierównej wdrożenia wyglądałyby tak jak:
 
@@ -112,7 +112,7 @@ W tych dokumentach opisano możliwości SAP HANA tworzenia kopii zapasowej i prz
 
 - [Omówienie tworzenia kopii zapasowej SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Kopia zapasowa oprogramowania SAP HANA na poziomie plików](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Testu porównawczego migawki SAP HANA magazynu](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Testu porównawczego migawki SAP HANA magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 
@@ -132,7 +132,7 @@ Należy zainstalować SAPRouter w oddzielnych maszyny Wirtualnej, a nie w Jumpbo
 Aby uzyskać więcej informacji na temat sposobu Konfiguracja i konserwacja zdalnego obsługują połączenia za pośrednictwem SAPRouter Sprawdź [źródła SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Wysokiej dostępności z SAP HANA na maszynach wirtualnych Azure natywnego
-SUSE Linux 12 z dodatkiem SP1 i nowszej można utworzyć klastra rozrusznik z urządzeniami STONITH, aby ustawić konfigurację SAP HANA, korzystającego z replikacji synchronicznej replikacji systemu HANA i automatycznej pracy awaryjnej. Procedura instalacji została opisana w artykule [dostępności wysokiej programu SAP HANA na maszynach wirtualnych Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+SUSE Linux 12 z dodatkiem SP1 i nowszej można utworzyć klastra rozrusznik z urządzeniami STONITH, aby ustawić konfigurację SAP HANA, korzystającego z replikacji synchronicznej replikacji systemu HANA i automatycznej pracy awaryjnej. Procedura instalacji została opisana w artykule [dostępności wysokiej programu SAP HANA na maszynach wirtualnych Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
  
 

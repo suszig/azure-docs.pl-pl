@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 10cc1daf89212635243cbfe8f7b598a567d0f7c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczyć interfejsy API za pomocą klienta uwierzytelniania certyfikatów w usłudze API Management
 
 Zarządzanie interfejsami API oferuje możliwość bezpiecznego dostępu do interfejsów API (np. od klienta do usługi API Management) przy użyciu certyfikatów klienta. Obecnie można sprawdzić odcisk palca certyfikatu klienta na żądaną wartość. Można również sprawdzić odcisk palca z istniejących certyfikatów przekazanych do interfejsu API zarządzania.  
 
-Aby uzyskać informacji na temat zabezpieczania dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (np. interfejsu API Management do wewnętrznej), zobacz [zabezpieczania usług zaplecza za pomocą klienta uwierzytelnianie certyfikatu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Aby uzyskać informacji na temat zabezpieczania dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (np. interfejsu API Management do wewnętrznej), zobacz [zabezpieczania usług zaplecza za pomocą klienta uwierzytelnianie certyfikatu](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-the-expiration-date"></a>Sprawdzanie daty wygaśnięcia
 
@@ -84,6 +84,6 @@ Poniższy przykład przedstawia sposób Sprawdź odcisk palca certyfikatu klient
 
 ## <a name="next-step"></a>Następny krok
 
-*  [Jak zabezpieczyć za pomocą klienta usług zaplecza uwierzytelnianie certyfikatu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Jak zabezpieczyć za pomocą klienta usług zaplecza uwierzytelnianie certyfikatu](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 *  [Jak przekazywać certyfikatów](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu .NET SDK usługi Azure Media Services
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Począwszy od wersji 2.11, Media Services można zdefiniować filtry dla zasobów. Te filtry są reguły po stronie serwera, które umożliwi klientom wybierz można wykonywać następujące czynności: odtwarzanie tylko części klipu wideo (zamiast odtwarzanie całego), lub określ tylko podzestaw wersji audio i wideo, które urządzenia klienta może obsłużyć (zamiast tego wszystkie wersji skojarzonych z elementu zawartości). Ta filtrowania zasobów odbywa się za pośrednictwem **dynamiczne manifestu**, które są tworzone na żądanie klienta do strumienia wideo oparte na określonej filtry.
+Począwszy od wersji 2.17, Media Services można zdefiniować filtry dla zasobów. Te filtry są reguły po stronie serwera, które umożliwiają klientom wybierz można wykonywać następujące czynności: odtwarzanie tylko części klipu wideo (zamiast odtwarzanie całego), lub określ tylko podzestaw wersji audio i wideo, które urządzenia klienta może obsłużyć (zamiast elementu wszystkie wersje, które są skojarzone z elementu zawartości). Ta filtrowania zasobów odbywa się za pośrednictwem **dynamiczne manifestu**, które są tworzone na żądanie klienta do strumienia wideo oparte na określonej filtry.
 
 Aby uzyskać szczegółowe informacje dotyczące filtrów i dynamicznych manifestu, zobacz [dynamicznie manifesty omówienie](media-services-dynamic-manifest-overview.md).
 
-W tym temacie przedstawiono sposób .NET SDK usługi Media Services umożliwia tworzenie, aktualizowanie i usuwanie filtrów. 
+W tym artykule przedstawiono sposób .NET SDK usługi Media Services umożliwia tworzenie, aktualizowanie i usuwanie filtrów. 
 
-Należy zwrócić uwagę, jeśli zaktualizujesz filtru może potrwać maksymalnie 2 minuty dla punktu końcowego, aby odświeżyć zasady przesyłania strumieniowego. Jeśli zawartość zostało obsłużone przy użyciu tego filtru (i w pamięci podręcznej serwerów proxy i sieci CDN pamięci podręcznych), aktualizacja tego filtru może powodować błędy player. Jest zalecane, aby wyczyścić pamięć podręczną po zaktualizowaniu filtru. Jeśli ta opcja nie jest możliwe, należy rozważyć użycie inny filtr. 
+Należy zwrócić uwagę, jeśli zaktualizujesz filtru może potrwać maksymalnie dwie minuty dla punktu końcowego, aby odświeżyć zasady przesyłania strumieniowego. Jeśli zawartość zostało obsłużone przy użyciu tego filtru (i w pamięci podręcznej serwerów proxy i sieci CDN pamięci podręcznych), aktualizacja tego filtru może powodować błędy player. Zawsze należy wyczyścić pamięć podręczną po zaktualizowaniu filtru. Jeśli ta opcja nie jest możliwe, należy rozważyć użycie inny filtr. 
 
 ## <a name="types-used-to-create-filters"></a>Typy używane do tworzenia filtrów
 Następujące typy są używane podczas tworzenia filtrów: 

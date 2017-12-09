@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: dfb78106bc72aacee85f8412032165fdfcfc1ab3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd0128256e016a329b0940eec4be41426cdaf51a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Eksport/kopiowania zarządzane migawki jako dysk VHD do konta magazynu w innym regionie z interfejsu wiersza polecenia
 
@@ -43,7 +43,7 @@ Ten skrypt używa następujących poleceń, można wygenerować identyfikatora U
 | Polecenie | Uwagi |
 |---|---|
 | [AZ migawki Udziel dostępu](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | Generuje SAS tylko do odczytu, służący do skopiuj podstawowy plik VHD na konto magazynu lub pobrać go do lokalnego  |
-| [Uruchom kopiowania obiektu blob magazynu az](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Asynchronicznie kopiuje obiektu blob z jednego konta magazynu do innego |
+| [Uruchom kopiowania obiektu blob magazynu az](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Asynchronicznie kopiuje obiektu blob z jednego konta magazynu do innego |
 
 ## <a name="next-steps"></a>Następne kroki
 

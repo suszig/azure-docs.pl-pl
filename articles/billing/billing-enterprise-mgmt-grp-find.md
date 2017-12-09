@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Znajdź Azure subskrypcji lub zarządzania grupy
 
-Jeśli masz problem ze znalezieniem subskrypcji lub grupy zarządzania na platformie Azure, być może szukasz w niewłaściwego katalogu. Taka sytuacja może się zdarzyć, gdy Twoje konto istnieje w wielu Azure Active Directory. Każdy [usługi active directory jest niezależna](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) i dostępu nie jest dziedziczona przez katalogi.      
+Jeśli masz problem ze znalezieniem subskrypcji lub grupy zarządzania na platformie Azure, być może szukasz w niewłaściwego katalogu. Taka sytuacja może się zdarzyć, gdy Twoje konto istnieje w wielu Azure Active Directory. Każdy [usługi active directory jest niezależna](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) i dostępu nie jest dziedziczona przez katalogi.      
 
 ![Menu katalogu przełącznika](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Jeśli wyświetlany jest komunikat o błędzie "ten zasób jest niedostępny" po
 ![zasobów nie można odnaleźć](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Skontaktuj się z Administruj grup subskrypcji lub zarządzania, aby uzyskać dostęp.  
-* Subskrypcji, odwołanie [based kontroli dostępu (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) dokumentu, aby uzyskać pomoc, na którym rola jest wymagana.
+* Subskrypcji, odwołanie [based kontroli dostępu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokumentu, aby uzyskać pomoc, na którym rola jest wymagana.
 * Dla grupy zarządzania RBAC dostępu nie jest dostępny i będzie dostępna wkrótce. Skontaktuj się z portalem enterprise administrowania przypisany dostęp.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Udoskonalanie z grupy zarządzania i subskrypcje, w tym samym katalogu 

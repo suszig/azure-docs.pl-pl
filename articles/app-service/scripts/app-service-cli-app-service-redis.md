@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b8ae453ca73ae69c34ff785dc619433035257a6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Łączenie aplikacji sieci web z pamięci podręcznej redis
 
@@ -47,8 +47,8 @@ Ten skrypt używa następujących poleceń, aby utworzyć grupę zasobów, aplik
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
 | [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. Przypomina farmy serwerów aplikacji sieci web platformy Azure. |
 | [Tworzenie aplikacji sieci Web az](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Tworzenie aplikacji sieci web platformy Azure. |
-| [Tworzenie pamięci podręcznej redis az](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Utwórz nowe wystąpienie pamięci podręcznej Redis. Jest to, gdzie będą przechowywane dane. |
-| [klucze listy az redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Wyświetla klucze dostępu do wystąpienia pamięci podręcznej redis. |
+| [Tworzenie pamięci podręcznej redis az](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Utwórz nowe wystąpienie pamięci podręcznej Redis. Jest to, gdzie będą przechowywane dane. |
+| [klucze listy az redis](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Wyświetla klucze dostępu do wystąpienia pamięci podręcznej redis. |
 | [AZ aplikacji sieci Web config appsettings zestawu](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure. Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki

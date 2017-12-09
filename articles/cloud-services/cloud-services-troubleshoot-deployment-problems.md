@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem usługi chmury
 Podczas wdrażania pakietu aplikacji usług chmury Azure, można uzyskać informacji o wdrażaniu z **właściwości** okienku w portalu Azure. Szczegółowe informacje można użyć w tym okienku, ułatwiające rozwiązywanie problemów z usługą w chmurze, a następnie przekaż te informacje do obsługi Azure podczas otwierania nowe żądanie pomocy technicznej.
@@ -82,6 +82,6 @@ Aby uzyskać więcej informacji na temat rozwiązywania tego problemu, zobacz we
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Wyświetl więcej [Rozwiązywanie problemów z artykułów](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) dla usług w chmurze.
+Wyświetl więcej [Rozwiązywanie problemów z artykułów](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) dla usług w chmurze.
 
 Aby dowiedzieć się, jak rozwiązywać problemy roli usługi w chmurze przy użyciu danych diagnostycznych na komputerze Azure PaaS, zobacz [serii blogu Kevina Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

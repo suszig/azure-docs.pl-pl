@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Przeglądanie i zarządzanie zasobami magazynu za pomocą Eksploratora serwera
 
@@ -162,7 +162,7 @@ Na poniższej ilustracji przedstawiono kolejki, która zawiera dwa komunikaty:
 Aby uzyskać więcej informacji na temat magazynu usług kolejek, zobacz [Rozpoczynanie pracy z magazynem kolejek Azure przy użyciu platformy .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Aby uzyskać informacje na temat usługi sieci web uzyskać magazynu usług kolejek, zobacz [pojęcia dotyczące usługi kolejki](http://go.microsoft.com/fwlink/?LinkId=264788). Aby dowiedzieć się, jak wysyłać wiadomości do kolejki usługi magazynu przy użyciu programu Visual Studio, zobacz [wysyłania wiadomości do kolejki usługi magazynu](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Magazyn kolejek usługi różni się od kolejek usługi Azure Service Bus. Aby uzyskać więcej informacji na temat kolejek usługi Service Bus, zobacz [kolejek usługi Service Bus, tematy i subskrypcje](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Magazyn kolejek usługi różni się od kolejek usługi Azure Service Bus. Aby uzyskać więcej informacji na temat kolejek usługi Service Bus, zobacz [kolejek usługi Service Bus, tematy i subskrypcje](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Praca z tabeli zasobów
 

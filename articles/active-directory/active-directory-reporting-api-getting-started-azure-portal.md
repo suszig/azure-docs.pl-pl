@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5feaaa64a130e86f2016bcb6c1d01853a9a406a7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Wprowadzenie do korzystania z usługi Azure Active Directory raportowania interfejsu API
 
@@ -28,7 +28,7 @@ Usługa Azure Active Directory oferuje szerokiej gamy raportów. Dane z tych rap
 Ten artykuł zawiera informacje potrzebne do Rozpoczynanie pracy z usługą Azure AD, na zgłoszenie interfejsów API.
 W następnej sekcji możesz znaleźć szczegółowe informacje o użyciu inspekcji i logowania interfejsów API. 
 
-Często zadawane pytania, przeczytaj nasze [— często zadawane pytania](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). W przypadku problemów skontaktuj się z [pliku biletu pomocy technicznej](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
+Często zadawane pytania, przeczytaj nasze [— często zadawane pytania](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). W przypadku problemów skontaktuj się z [pliku biletu pomocy technicznej](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## <a name="learning-map"></a>Mapa uczenia się
 1. **Przygotowanie** — przed próbek interfejsu API można przetestować, należy wykonać [wymagania wstępne dotyczące raportowania interfejsu API usługi Azure AD dostęp](active-directory-reporting-api-prerequisites-azure-portal.md).

@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Przesyłanie zadań wycinka z funkcji tworzenia wycinków multimediów Azure
 Wymaga usługi Azure Media funkcji tworzenia wycinków **submitSubclipCallback** metody, które mają zostać wdrożone dla obsługi przesyłanie zadań wycinka. Ta funkcja jest wykonywania HTTP POST funkcji tworzenia wycinków danych wyjściowych z usługą sieci web. Ta usługa sieci web jest, gdzie można przesłać zadania kodowania. Dane wyjściowe funkcji tworzenia wycinków jest albo Media Encoder Standard kodowania ustawienie wstępne renderowanych zadań lub ładunek interfejsu API REST dla wywołania dynamicznego filtru manifestu. Ten model przekazujący jest niezbędne, ponieważ poświadczenia konta usługi media services nie jest bezpieczna w przeglądarce klienta.
@@ -151,7 +151,7 @@ Kontrakt danych wyjściowych zadania dla renderowanych wycinka jest obiektem JSO
 }
 ```
 
-Aby wykonać zadania kodowania, przesłać Media Encoder Standard zadania kodowania z skojarzony wstępnie. Zobacz, w tym artykule, aby uzyskać szczegółowe informacje dotyczące przesyłania kodowanie zadania przy użyciu [zestawu .NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) lub [interfejsu API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Aby wykonać zadania kodowania, przesłać Media Encoder Standard zadania kodowania z skojarzony wstępnie. Zobacz, w tym artykule, aby uzyskać szczegółowe informacje dotyczące przesyłania kodowanie zadania przy użyciu [zestawu .NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) lub [interfejsu API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Szybkie tworzenie klipów wideo bez kodowania
 Zamiast tworzenia zadania kodowania, można użyć funkcji tworzenia wycinków Azure Media do utworzenia filtrów dynamicznych manifestu. Filtry nie wymagają kodowania i można tworzyć szybko nie tworzenia nowego elementu zawartości. Kontrakt danych wyjściowych dla wycinka filtru jest obiektem JSON z następującymi właściwościami:
@@ -227,4 +227,4 @@ Zamiast tworzenia zadania kodowania, można użyć funkcji tworzenia wycinków A
 }
 ```
 
-Aby przesłać wywołania REST do tworzenia dynamicznych filtru manifestu, przesyłanie przy użyciu ładunku skojarzonego filtru [interfejsu API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Aby przesłać wywołania REST do tworzenia dynamicznych filtru manifestu, przesyłanie przy użyciu ładunku skojarzonego filtru [interfejsu API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).
