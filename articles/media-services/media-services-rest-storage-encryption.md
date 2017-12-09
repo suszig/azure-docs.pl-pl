@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu
 
-Zdecydowanie zaleca się do szyfrowania treści lokalnie przy użyciu standardu AES 256-bitowego i przekaż go do magazynu Azure którym będzie przechowywany szyfrowane, gdy.
+Zdecydowanie zaleca się do szyfrowania treści lokalnie przy użyciu standardu AES 256-bitowego i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy.
 
 Ten artykuł zawiera omówienie usług AMS szyfrowanie magazynu i pokazuje, jak przekazywać zawartość szyfrowany w magazynie:
 
@@ -31,7 +31,7 @@ Ten artykuł zawiera omówienie usług AMS szyfrowanie magazynu i pokazuje, jak 
   
      Zaszyfrowane zasoby ma zostać skojarzony z kluczy zawartości.
 * Połącz klucz zawartości do elementu zawartości.  
-* Szyfrowanie zestawu parametrów na jednostkach AssetFile dotyczących.
+* Ustaw parametry związane z szyfrowaniem na jednostkach AssetFile.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
 
@@ -43,13 +43,10 @@ Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ust
 
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
-
 ## <a name="storage-encryption-overview"></a>Omówienie szyfrowania magazynu
-Zastosowanie szyfrowania magazynu AMS **Ewidencyjne AES** tryb szyfrowanie całego pliku.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Działa on tak szyfrując z algorytmu AES, a następnie używać XOR dane wyjściowe AES z danymi można zaszyfrować lub odszyfrować bloku licznika.  Blok licznika używany jest tworzony przez skopiowanie wartości InitializationVector bajtów 0 do 7 wartość licznika i bajtów 8 do 15 wartość licznika jest ustawiana wartość zero. 16 bajtów bloku licznika bajtów 8 do 15 (tj. najmniej znaczący bajtów) są używane jako proste 64-bitowych unsigned liczba całkowita, która jest zwiększany o jeden dla każdego kolejnych bloków danych przetwarzane i jest przechowywany w kolejności bajtów sieci. Należy pamiętać, że jeśli ta liczba całkowita osiągnie wartość maksymalna (0xFFFFFFFFFFFFFFFF) zwiększanie go po Resetuje licznik bloku zero (bajtów 8 do 15) bez wpływu na inne 64-bitowy licznika (tj. w bajtach 0-7).   Aby zachować bezpieczeństwo szyfrowania tryb Ewidencyjne AES, wartość InitializationVector danym identyfikatorem klucza dla każdego klucza zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  To, aby upewnić się, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie kont Zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki używany jest termin "Nonce" zamiast "InitializationVector").
+Zastosowanie szyfrowania magazynu AMS **Ewidencyjne AES** tryb szyfrowanie całego pliku.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Działa on tak szyfrując z algorytmu AES, a następnie używać XOR dane wyjściowe AES z danymi można zaszyfrować lub odszyfrować bloku licznika.  Blok licznika używany jest tworzony przez skopiowanie wartości InitializationVector bajtów 0 do 7 wartość licznika i bajtów 8 do 15 wartość licznika jest ustawiana wartość zero. Bloku 16-bajtowych licznik bajtów 8 do 15 (to znaczy najmniej znaczący bajtów) są używane jako proste 64-bitowych unsigned liczba całkowita, która jest zwiększany o jeden dla każdego kolejnych bloków danych przetwarzane i jest przechowywany w sieci kolejności bajtów. Jeśli ta liczba całkowita osiągnie wartość maksymalna (0xFFFFFFFFFFFFFFFF), następnie zwiększenie jego Resetuje licznik bloku (w bajtach 8 do 15) bez wpływu na inne 64-bitowy licznika (to znaczy bajtów 0-7).   Aby zachować bezpieczeństwo szyfrowania tryb Ewidencyjne AES, wartość InitializationVector danym identyfikatorem klucza dla każdego klucza zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  To, aby upewnić się, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie kont Zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki używany jest termin "Nonce" zamiast "InitializationVector").
 
-Użyj **szyfrowanie magazynu** do zaszyfrowania zawartości lokalnie przy użyciu standardu AES 256-bitowy szyfrowania i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć z wysokiej jakości multimedialnych plików wejściowych pomocą silnego szyfrowania przechowywanych na dysku.
+Użyj **szyfrowanie magazynu** do zaszyfrowania zawartości lokalnie przy użyciu standardu AES 256-bitowy szyfrowania i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć Twoje wysokiej jakości multimedialnych plików wejściowych z silne szyfrowanie przechowywanych na dysku.
 
 Aby dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości będzie wówczas traktował Media Services sposób dostarczania zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości za pomocą zasad określonym dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
 
@@ -60,7 +57,7 @@ Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, kt�
 
 1. Do szyfrowania magazynu losowego generowania klucza AES 32 bajtów. 
    
-    Są to klucz zawartości dla zawartości, co oznacza, że wszystkie pliki skojarzone z tym zasobów będą musieli używać tego samego klucza zawartości podczas odszyfrowywania. 
+    Jest to klucz zawartości dla zawartości, co oznacza wszystkie pliki skojarzone z którym zasobów musi używać tego samego klucza zawartości podczas odszyfrowywania. 
 2. Wywołanie [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod, aby uzyskać poprawny certyfikat X.509 używany do szyfrowania klucza zawartości.
 3. Zaszyfrowanie klucza zawartości z kluczem publicznym certyfikatu X.509. 
    
@@ -101,7 +98,7 @@ Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, kt�
     ---|---
     Identyfikator | Identyfikator ContentKey, który mamy nad Generowanie w następującym formacie, "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Typ klucza zawartości jest liczbą całkowitą dla tego klucza zawartości. Wartość 1 dla szyfrowania magazynu jest przekazywana.
-    EncryptedContentKey | Utworzymy nową wartość klucza zawartości, która jest wartością 256-bitowego (32 bajtów). Klucz jest zaszyfrowany przy użyciu certyfikatu X.509 szyfrowania magazynu, którego możemy pobrać Microsoft Azure Media Services, wykonując żądanie HTTP GET dla GetProtectionKeyId i metod GetProtectionKey. Na przykład zobacz następujący kod .NET: **EncryptSymmetricKeyData** metody zdefiniowanej [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Możemy utworzyć nowego klucza wartość zawartości, która jest wartością 256-bitowego (32 bajtów). Klucz jest zaszyfrowany przy użyciu certyfikatu X.509 szyfrowania magazynu, który pobrać z usługi Microsoft Azure Media Services, wykonując żądanie HTTP GET dla GetProtectionKeyId i GetProtectionKey metod. Na przykład zobacz następujący kod .NET: **EncryptSymmetricKeyData** metody zdefiniowanej [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | To jest identyfikator klucza ochrony dla magazynu certyfikatu X.509 szyfrowania, który został użyty do zaszyfrowania naszych klucz zawartości.
     ProtectionKeyType | Jest to typ szyfrowania dla klucza ochrony, który był używany do szyfrowania klucza zawartości. Ta wartość jest StorageEncryption(1) w naszym przykładzie.
     Sumy kontrolnej |Obliczony sumy kontrolnej MD5 dla klucza zawartości. Jest ona obliczana przez szyfrowanie identyfikatora zawartości przy użyciu klucza zawartości. Przykład kodu pokazuje, jak można obliczyć sumy kontrolnej.
@@ -118,7 +115,7 @@ Poniższy przykład pokazuje, jak pobrać ProtectionKeyId, odcisk palca certyfik
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Odpowiedź:
@@ -149,7 +146,7 @@ Poniższy przykład pokazuje, jak można pobrać certyfikatu X.509 przy użyciu 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +186,7 @@ Poniższy przykład przedstawia sposób tworzenia **ContentKey** z **ContentKeyT
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,7 +235,7 @@ Poniższy przykład pokazuje, jak utworzyć element zawartości.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -285,7 +282,7 @@ Po utworzeniu ContentKey, skojarzyć ją z zawartości przy użyciu operacji $li
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -299,7 +296,7 @@ Odpowiedź:
 
 Należy pamiętać, że **AssetFile** wystąpienia oraz plik multimedialna są dwa różne obiekty. Wystąpienia AssetFile zawiera metadanych dotyczących pliku nośnika, a plik nośnika zawiera zawartość multimedialna.
 
-Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, którego użyjesz **scalania** żądania HTTP w celu zaktualizowania AssetFile informacje o pliku nośnika (niewidoczny w tym temacie). 
+Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, którego użyjesz **scalania** żądania HTTP w celu zaktualizowania AssetFile informacje o pliku nośnika (niewidoczny w tym artykule). 
 
 **Żądania HTTP**
 
@@ -310,7 +307,7 @@ Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, którego u�
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>AZ3166 zestaw deweloperski IoT nawiązać połączenia z Centrum IoT Azure w chmurze
 
@@ -186,7 +186,7 @@ Pobrany plik zip zawiera wszystkie niezbędne narzędzia i pakietów dla rozwoju
 Plik zip zawiera następujące narzędzia i pakietów. Jeśli masz już pewne składniki zainstalowane, skrypt wykryje i Pomiń nich.
 
 * Node.js i Yarn: program obsługi dla skryptu Instalatora i automatycznych zadań.
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): wieloplatformowych środowiska wiersza polecenia do zarządzania zasobami platformy Azure.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): wieloplatformowych środowiska wiersza polecenia do zarządzania zasobami platformy Azure.
 * [Visual Studio Code](https://code.visualstudio.com/) (kodzie VS): Edytor niewielki kod dla rozwoju zestaw deweloperski.
 * [Rozszerzenia programu Visual Studio Code Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): rozszerzenia umożliwiające Arduino Programowanie w Visual Studio Code.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): narzędzie, które wykorzystuje rozszerzenie Arduino.

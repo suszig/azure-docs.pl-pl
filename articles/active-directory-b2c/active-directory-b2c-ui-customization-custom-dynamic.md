@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 1e8b8359efb75246e40103ee8cbc2a786bfa6b46
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Usługa Azure Active Directory B2C: Konfigurowanie interfejsu użytkownika z dynamiczną zawartością za pomocą zasad niestandardowych
 Za pomocą usługi Azure Active Directory B2C zasad niestandardowych (Azure AD B2C), możesz wysłać parametr w ciągu zapytania. Przez przekazanie parametru do punktu końcowego HTML, można dynamicznie zmieniać zawartość strony. Na przykład można zmienić obraz tła w witrynie usługi Azure AD B2C zapisywania się lub zaloguj się na podstawie parametru, który jest przekazywany z sieci web lub aplikacji mobilnej. 
@@ -155,7 +155,7 @@ Zlokalizuj `<img>` element, który zawiera `ID` wartość *background_background
     **Tworzenie usługi App Service** zostanie otwarte okno. W nim można rozpocząć tworzenie wszystkich zasobów Azure niezbędne do uruchomienia aplikacji sieci web platformy ASP.NET na platformie Azure.
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji o publikowaniu, zobacz [tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Aby uzyskać więcej informacji o publikowaniu, zobacz [tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. W **Nazwa aplikacji sieci Web** wpisz unikatowej nazwy aplikacji (prawidłowe znaki to a-z, A-Z, 0-9 oraz łącznik (-). Adres URL aplikacji internetowej to `http://<app_name>.azurewebsites.NET`, gdzie `<app_name>` to nazwa aplikacji internetowej. Możesz zaakceptować automatycznie wygenerowaną nazwę, która jest unikatowa.
 

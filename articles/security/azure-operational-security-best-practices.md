@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Usługa Azure Operational najlepsze rozwiązania
 Azure bezpieczeństwa operacyjnego odwołuje się do usług, formanty i funkcje dostępne dla użytkowników do ochrony danych, aplikacji i innych zasobów na platformie Microsoft Azure. Operacyjne zabezpieczeń platformy Azure w oparciu o strukturę, która zawiera wiedzę za pośrednictwem różnych funkcji, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), program Microsoft Security Response Center i głębokie pogłębianie wiedzy na temat zagrożeń bezpieczeństwa.
@@ -156,7 +156,7 @@ Klienci kompilacji na trasie sieci na platformie Azure poprzez organizowanie i t
 Usługa Network Watcher umożliwia monitorowanie i diagnozowanie problemów z siecią bez konieczności logowania się na maszynach wirtualnych. Wyzwalacz [przechwytywania pakietów](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) przez ustawienia alertów i uzyskanie dostępu do informacji o wydajności w czasie rzeczywistym na poziomie pakietów. Możesz szczegółowo analizować problemy w celu lepszego ich diagnozowania.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Uzyskiwanie szczegółowych informacji dotyczących ruchu sieciowego przy użyciu dzienników przepływu
-Tworzenie lepiej zrozumieć sieci ruchu wzorzec przy użyciu [dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Informacje o dziennikach przepływu pomaga zbierania danych dotyczących zgodności, inspekcja i monitorowanie profilu zabezpieczeń sieci.
+Tworzenie lepiej zrozumieć sieci ruchu wzorzec przy użyciu [dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Informacje o dziennikach przepływu pomaga zbierania danych dotyczących zgodności, inspekcja i monitorowanie profilu zabezpieczeń sieci.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnozowanie problemów z połączeniem sieci VPN
 Obserwatora sieciowego zapewnia możliwość [diagnozowanie najbardziej typowe problemy bramy sieci VPN i połączeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Teraz możesz nie tylko aby zidentyfikować problem, ale również umożliwia szczegółowe dzienniki utworzone w celu ułatwienia dalszego badania.

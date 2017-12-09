@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric najlepszych rozwiązań dotyczących zabezpieczeń
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed przystąpieniem do wdrażania aplikacji w środowisku produkcyjnym chmury, przejrzyj naszej listy ważne i zalecane najlepsze rozwiązania dotyczące wdrażania bezpiecznych klastrów w aplikacji.
@@ -64,7 +64,7 @@ Musi być zabezpieczona klastrów, aby zapobiec nieautoryzowanemu połączenie, 
 Istnieją trzy [scenariusze](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) stosowania zabezpieczeń klastra przy użyciu różnych technologii:
 
 -   Zabezpieczenia węzła do węzła: w tym scenariuszu zabezpiecza komunikację między maszynami wirtualnymi i komputerów w klastrze. Ten formularz zabezpieczeń zapewnia, że tylko te komputery, które są autoryzowani do przyłączenia klaster może obsługiwać aplikacje i usługi w klastrze.
-W tym scenariuszu, klastrów działających na platformie Azure lub klastry autonomicznego, uruchomionych w systemie Windows, można użyć [certyfikatu zabezpieczeń](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) lub [zabezpieczenia systemu Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) dla komputerów z systemem Windows Server.
+W tym scenariuszu, klastrów działających na platformie Azure lub klastry autonomicznego, uruchomionych w systemie Windows, można użyć [certyfikatu zabezpieczeń](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) lub [zabezpieczenia systemu Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) dla komputerów z systemem Windows Server.
 -   Węzeł Klient zabezpieczeń: w tym scenariuszu zabezpieczania komunikacji między klientem sieci szkieletowej usług pojedynczych węzłów w klastrze.
 -   Oparta na rolach kontroli dostępu (RBAC): w tym scenariuszu oddzielne tożsamości (certyfikaty, usługi Azure AD i tak dalej) dla każdego administratora i klienta roli użytkownika uzyskującego dostęp do klastra. Po utworzeniu klastra można określić tożsamości roli.
 
@@ -125,7 +125,7 @@ Każdy aktora jest zdefiniowany jako wystąpienie typu aktora identyczny sposób
 Konfiguracje replikatora skonfiguruj replikatora odpowiedzialną za tworzenie wysoce niezawodne stanu dostawcy stanu aktora.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Konfigurowanie protokołu SSL dla usługi Azure Service Fabric
-Proces uwierzytelniania serwera [uwierzytelnia](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) punktów końcowych klastra zarządzania do klienta zarządzania. Klient zarządzania rozpoznaje, że rozmawia do rzeczywistego klastra. Ten certyfikat zawiera również [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) dla interfejsu API zarządzania HTTPS i Service Fabric Explorer za pośrednictwem protokołu HTTPS.
+Proces uwierzytelniania serwera [uwierzytelnia](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) punktów końcowych klastra zarządzania do klienta zarządzania. Klient zarządzania rozpoznaje, że rozmawia do rzeczywistego klastra. Ten certyfikat zawiera również [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) dla interfejsu API zarządzania HTTPS i Service Fabric Explorer za pośrednictwem protokołu HTTPS.
 Należy uzyskać niestandardowej nazwy domeny dla klastra. W przypadku żądania certyfikatu od urzędu certyfikacji, nazwa podmiotu certyfikatu musi odpowiadać nazwa domeny niestandardowej, której użyjesz dla klastra.
 
 Aby skonfigurować protokół SSL dla aplikacji, należy najpierw uzyskać certyfikat SSL, który został podpisany przez urząd certyfikacji. Urząd certyfikacji jest zaufany innej firmy, który wystawia certyfikaty dla protokołu SSL ze względów bezpieczeństwa. Jeśli nie masz już certyfikat SSL, należy uzyskać od firmy, która sprzedaje certyfikatów SSL.

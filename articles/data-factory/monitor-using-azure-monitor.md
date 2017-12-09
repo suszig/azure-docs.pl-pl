@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorowanie za pomocą monitora Azure fabryki danych  
 Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowanie zawiera danych, aby upewnić się, że aplikacja pozostaje w górę i działa w dobrej kondycji. Pomaga również umożliwia stave potencjalne problemy i rozwiązywanie problemów w przeszłości te. Ponadto można użyć danych monitorowania w celu uzyskania szczegółowych informacji o aplikacji. Wiedzy może pomóc zwiększyć wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
 
-Azure Monitor udostępnia na podstawowym poziomie infrastruktury metryki i dzienniki dla większości usług platformy Microsoft Azure. Aby uzyskać więcej informacji, zobacz [omówienie monitorowania](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure dzienników diagnostycznych są dzienniki emitowane przez zasób, które zawierają rozbudowane, często dane dotyczące operacji tego zasobu. Fabryka danych danych wyjściowych dzienników diagnostycznych w monitorze Azure. 
+Azure Monitor udostępnia na podstawowym poziomie infrastruktury metryki i dzienniki dla większości usług platformy Microsoft Azure. Aby uzyskać więcej informacji, zobacz [omówienie monitorowania](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure dzienników diagnostycznych są dzienniki emitowane przez zasób, które zawierają rozbudowane, często dane dotyczące operacji tego zasobu. Fabryka danych danych wyjściowych dzienników diagnostycznych w monitorze Azure. 
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [monitorowanie i zarządzanie nimi potoków w fabryce danych version1](v1/data-factory-monitor-manage-pipelines.md).
@@ -114,7 +114,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Ziarnem czasu | Ciąg | Poziom szczegółowości metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Musi być PT1M (jednej minuty)|
 | włączone| Wartość logiczna | Określa, czy kolekcja tej kategorii Metryka lub dziennika jest włączona dla tego zasobu|
 | retentionPolicy| Typ złożony| Opis zasad przechowywania dla kategorii Metryka lub dziennika. Używany tylko opcji konta magazynu.|
-| dni korzystania z| int| Liczba dni przechowywania metryki lub dzienniki. Wartość 0 zachowuje dzienniki w nieskończoność. Używany tylko opcji konta magazynu. |
+| dni| Int| Liczba dni przechowywania metryki lub dzienniki. Wartość 0 zachowuje dzienniki w nieskończoność. Używany tylko opcji konta magazynu. |
 
 **Odpowiedź**
 
@@ -396,7 +396,7 @@ ADFV2 emituje następujące metryki
 | TriggerSucceededRuns | Pomyślnie metryki uruchamia wyzwalacz  | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia zakończyło się pomyślnie w ciągu minuty okna   |
 | TriggerFailedRuns    | Nie powiodło się wyzwalacz uruchamia metryk     | Licznik    | Łącznie                | Całkowita wyzwalacz uruchamia nie powiodło się w ciągu minuty okna      |
 
-Aby uzyskać dostęp do metryk, postępuj zgodnie z instrukcjami w artykule - https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Dostęp do metryk, postępuj zgodnie z instrukcjami w artykule - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki, uruchamiając. 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Tworzenie kluczy zawartości z REST
 > [!div class="op_single_selector"]
@@ -39,14 +39,14 @@ Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, kt�
 
 1. Losowo Generuj 16-bajtowych klucz AES (na potrzeby szyfrowania wspólnej i koperty) lub 32-bajtowych klucz AES (w przypadku szyfrowania magazynu). 
    
-    Są to klucz zawartości dla zawartości, co oznacza, że wszystkie pliki skojarzone z tym zasobów będą musieli używać tego samego klucza zawartości podczas odszyfrowywania. 
+    Jest to klucz zawartości dla zawartości, co oznacza wszystkie pliki skojarzone z którym zasobów musi używać tego samego klucza zawartości podczas odszyfrowywania. 
 2. Wywołanie [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod, aby uzyskać poprawny certyfikat X.509 używany do szyfrowania klucza zawartości.
 3. Zaszyfrowanie klucza zawartości z kluczem publicznym certyfikatu X.509. 
    
    .NET SDK usługi Media Services używa algorytmu RSA z OAEP podczas operacji szyfrowania.  Można zobaczyć przykład w [funkcja EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Utwórz wartość sumy kontrolnej (oparte na algorytm klucza sumy kontrolnej PlayReady AES) obliczane przy użyciu klucza identyfikator i klucz zawartości. Aby uzyskać więcej informacji, zobacz sekcję "Algorytm sumy kontrolnej kluczy AES PlayReady" dokumentu PlayReady nagłówka obiektu znajdującego się [tutaj](http://www.microsoft.com/playready/documents/).
    
-   Poniżej przedstawiono przykład .NET, który oblicza sumę kontrolną, używając identyfikatora GUID części klucza identyfikator i klucz czyszczenie zawartości.
+   W poniższym przykładzie .NET oblicza sumę kontrolną, używając identyfikatora GUID części klucza identyfikator i klucz czyszczenie zawartości.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, kt�
 5. Utwórz klucz zawartości z **EncryptedContentKey** (konwertowana na ciąg kodowany w formacie base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
 6. Skojarz **ContentKey** jednostki o Twojej **zasobów** jednostki za pomocą operacji $links.
 
-Należy pamiętać, że w tym temacie nie przedstawiają sposób generowania klucza AES, szyfrowania klucza i obliczyć sumy kontrolnej. 
+W tym artykule nie opisano do wygenerowania klucza AES, szyfrowania klucza i obliczyć sumy kontrolnej. 
 
 >[!NOTE]
 
@@ -92,7 +92,7 @@ Poniższy przykład pokazuje, jak pobrać ProtectionKeyId, odcisk palca certyfik
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +124,7 @@ Poniższy przykład pokazuje, jak można pobrać certyfikatu X.509 przy użyciu 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +152,7 @@ Odpowiedź:
 ## <a name="create-the-contentkey"></a>Utwórz ContentKey
 Po pobrać certyfikat X.509 i używać swojego klucza publicznego do szyfrowania klucza zawartości należy utworzyć **ContentKey** jednostki i ustaw jej właściwość odpowiednio wartości.
 
-Jedna z wartości, że należy ustawić podczas tworzenia zawartości klucza jest typem. Wybierz jedną z następujących wartości.
+Jedna z wartości, że należy ustawić podczas tworzenia zawartości klucza jest typem. Wybierz jedną z następujących wartości:
 
     public enum ContentKeyType
     {
@@ -191,7 +191,7 @@ Poniższy przykład przedstawia sposób tworzenia **ContentKey** z **ContentKeyT
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +241,7 @@ Po utworzeniu ContentKey, skojarzyć ją z zawartości przy użyciu operacji $li
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

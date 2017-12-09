@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry i manifestów dynamiczne
-Począwszy od wersji 2.11, Media Services można zdefiniować filtry dla zasobów. Te filtry są reguły po stronie serwera, które umożliwi klientom wybierz można wykonywać następujące czynności: odtwarzanie tylko części klipu wideo (zamiast odtwarzanie całego), lub określ tylko podzestaw wersji audio i wideo, które urządzenia klienta może obsłużyć (zamiast tego wszystkie wersji skojarzonych z elementu zawartości). Filtrowania elementów zawartości zostaną zarchiwizowane za pośrednictwem **dynamiczne manifestu**, które są tworzone na żądanie klienta do strumienia wideo oparte na określonej filtry.
+Począwszy od wersji 2.17, Media Services można zdefiniować filtry dla zasobów. Te filtry są reguły po stronie serwera, które umożliwi klientom wybierz można wykonywać następujące czynności: odtwarzanie tylko części klipu wideo (zamiast odtwarzanie całego), lub określ tylko podzestaw wersji audio i wideo, które urządzenia klienta może obsłużyć (zamiast tego wszystkie wersji skojarzonych z elementu zawartości). Filtrowania elementów zawartości zostaną zarchiwizowane za pośrednictwem **dynamiczne manifestu**, które są tworzone na żądanie klienta do strumienia wideo oparte na określonej filtry.
 
 Tematy to omówiono typowe scenariusze, w którym za pomocą filtrów będą bardzo przydatne do klientów i linki do tematów, które przedstawiają sposób tworzyć filtry programowo (obecnie można tworzyć filtry z interfejsów API REST tylko).
 
@@ -124,12 +124,12 @@ Zasobów może zawierać wiele języków audio, takie jak angielski, hiszpański
 ![Filtrowanie wersji językowych][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Przycinanie początkowy środka trwałego
-W większości wydarzeń transmisji strumieniowej na żywo Operatorzy uruchomić niektórych testów przed rzeczywistego zdarzenia. Na przykład może obejmować łupków takie przed rozpoczęciem zdarzenia: "Program rozpocznie się na chwilę". Jeśli archiwizacji program test i danych łupków również zostaną zarchiwizowane i zostaną uwzględnione w prezentacji. Jednak te informacje nie powinny być wyświetlane na klientach. Z dynamicznego manifestu można utworzyć filtr czasu rozpoczęcia i usuwanie niepożądanych danych w manifeście.
+W większości wydarzeń transmisji strumieniowej na żywo Operatorzy uruchomić niektórych testów przed rzeczywistego zdarzenia. Na przykład może obejmować łupków takie przed rozpoczęciem zdarzenia: "Program rozpocznie się na chwilę". Jeśli archiwizacji program testu łupków dane są archiwizowane oraz w prezentacji. Jednak te informacje nie powinny być wyświetlane na klientach. Z dynamicznego manifestu można utworzyć filtr czasu rozpoczęcia i usuwanie niepożądanych danych w manifeście.
 
 ![Przycinanie start][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Tworzenie podrzędnego klipów (widoki) z archiwum na żywo
-Wiele wydarzeń na żywo są długotrwałe i na żywo archiwum może obejmować wiele zdarzeń. Po wydarzenia na żywo może być nadawców kończy się podzielić na żywo archiwum na uruchamianie programu logicznych i Zatrzymaj sekwencji. Następnie opublikować te programy wirtualnego oddzielnie bez post przetwarzania archiwum na żywo i nie są tworzone oddzielne zasobów (nie otrzyma korzyści z istniejącej pamięci podręcznej fragmentów w CDN). Przykładami takich wirtualnego programów (podrzędne klipy) są kwartałów football lub koszykówki grę, innings w baseball lub pojedynczych zdarzeń popołudnie Olimpiada program.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Tworzenie subclips (widoki) z archiwum na żywo
+Wiele wydarzeń na żywo są długotrwałe i na żywo archiwum może obejmować wiele zdarzeń. Po zakończeniu wydarzenia na żywo, nadawców można podzielić na żywo archiwum na uruchamianie programu logicznych i zatrzymanie sekwencji. Następnie opublikować te programy wirtualnego oddzielnie bez post przetwarzania archiwum na żywo i nie są tworzone oddzielne zasoby (który nie skorzystać z istniejącej pamięci podręcznej fragmentów w CDN). Przykładami takich programów wirtualnych są kwartałów football lub koszykówki grę, innings w baseball lub pojedynczych zdarzeń programu sportowych.
 
 Z manifestu dynamicznej można tworzyć filtry przy użyciu godziny rozpoczęcia i zakończenia i tworzyć widoki wirtualnego w górnej części archiwum na żywo. 
 
@@ -140,24 +140,24 @@ Filtrowane zasobów:
 ![Nart][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Dostosowywanie okna prezentacji (DVR)
-Obecnie usługi Azure Media Services udostępnia archiwum cykliczne, których czas trwania można skonfigurować między 5 minut - 25 godzin. Filtrowanie manifestu może służyć do tworzenia stopniowego okna DVR w górnej części archiwum, bez usuwania nośnika. Istnieje wiele scenariuszy, w którym chcesz zapewnić ograniczone okna DVR, które przenosi do krawędzi na żywo i jednocześnie przechowywać większe okien archiwizacji nadawców. Nadawca może wystąpić potrzeba użycia danych, która wykracza poza okno DVR, aby wyróżnić klipy lub he\she może być zapewnienie różnych DVR systemu windows dla różnych urządzeń. Na przykład większość urządzeń przenośnych nie obsługują big DVR systemu windows (dla klientów pulpitu może mieć okno DVR 2 minuty dla urządzeń przenośnych i 1 godzina).
+Obecnie usługi Azure Media Services udostępnia archiwum cykliczne, których czas trwania można skonfigurować między 5 minut - 25 godzin. Filtrowanie manifestu może służyć do tworzenia stopniowego okna DVR w górnej części archiwum, bez usuwania nośnika. Istnieje wiele scenariuszy, w którym chcesz zapewnić ograniczone okna DVR przenieść krawędzi na żywo i jednocześnie zachować większy okien archiwizacji nadawców. Nadawca może wystąpić potrzeba użycia danych, która wykracza poza okno DVR, aby wyróżnić klipy lub he\she może być zapewnienie różnych DVR systemu windows dla różnych urządzeń. Na przykład większość urządzeń przenośnych nie obsługują dużych DVR systemu windows (dla klientów pulpitu może mieć okno DVR 2-minutowy dla urządzeń przenośnych i godzinę).
 
 ![Okno DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Dopasowywanie LiveBackoff (pozycji na żywo)
-Filtrowanie manifestu może służyć do usunięcia kilka sekund od na żywo krawędzi program na żywo. Dzięki temu nadawców Obejrzyj prezentację w punkcie publikacji Podgląd i utworzyć anons punkty wstawienia przed widzów odbierania strumienia (zazwyczaj kopii — wyłączone przez 30 sekund). Nadawców można wypychania tych anonsów do ich struktur klienta w czasie ich odebrane i przetworzyć informacji przed możliwości anonsu.
+Filtrowanie manifestu może służyć do usunięcia kilka sekund od na żywo krawędzi program na żywo. Filtrowanie umożliwia nadawców Obejrzyj prezentację w punkcie publikacji Podgląd i utworzyć anons punkty wstawienia przed widzów odbierania strumienia (kopii — wyłączone przez 30 sekund). Nadawców można wypychania tych anonsów do ich struktur klienta w czasie ich odebrane i przetworzyć informacji przed możliwości anonsu.
 
-Oprócz obsługi anonsu LiveBackoff może służyć do dostosowania pozycji na żywo pobierania klienta, tak, kiedy klienci rozchodzenia i trafień na żywo krawędzi fragmenty nadal można uzyskać z serwera zamiast występują błędy HTTP 404 lub 412.
+Oprócz obsługi anonsu ustawienie LiveBackoff umożliwia dostosowania pozycji przeglądarki tak, kiedy klienci rozchodzenia i trafień na żywo krawędzi fragmenty nadal można uzyskać z serwera zamiast pobierania HTTP 404 lub 412 błędu.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Łączenie wielu reguł w jeden filtr
-Można połączyć wiele reguł filtrowania w jeden filtr. Na przykład można zdefiniować zasadę zakres, aby usunąć łupków z archiwum na żywo, a także filtrować dostępne szybkości transmisji bitów. Dla wielu reguł filtrowania wynik końcowy jest kompozycją (tylko część wspólną) tych zasad.
+Można połączyć wiele reguł filtrowania w jeden filtr. Na przykład można zdefiniować regułę"zakresu" do usunięcia typu z archiwum na żywo, a także filtrować dostępne szybkości transmisji bitów. Podczas stosowania wielu reguł filtrowania, wynik końcowy jest przecięcie wszystkie reguły.
 
 ![wiele reguł][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Programowe tworzenie filtrów
-Poniższy temat omówiono jednostek usługi Media Services, które są powiązane z filtrów. Temat zawiera również programowe tworzenie filtrów.  
+Omówiono następujące jednostek usługi Media Services, które są powiązane z filtrów. Artykuł opisuje również sposób programowego tworzenia filtrów.  
 
 [Tworzenie filtrów z interfejsów API REST](media-services-rest-dynamic-manifest.md).
 
@@ -166,15 +166,15 @@ Można także połączyć wiele filtrów w jeden adres URL.
 
 Poniższy scenariusz przedstawiono, dlaczego warto łączyć filtry:
 
-1. Należy filtrować Twojej jakości wideo dla urządzeń przenośnych, takich jak Android i iPAD (w celu ograniczenia jakości wideo). Aby usunąć niechciane właściwości, należy utworzyć filtr globalny, który jest odpowiedni dla profilów urządzeń. Jak wspomniano powyżej, można filtry globalne dla wszystkich zasobów dla tego samego konta usługi media bez żadnych późniejszych skojarzenia. 
+1. Należy filtrować Twojej jakości wideo dla urządzeń przenośnych, takich jak Android i iPAD (w celu ograniczenia jakości wideo). Aby usunąć niechciane właściwości, należy utworzyć filtr globalny odpowiedni w przypadku profilów urządzeń. Jak wspomniano wcześniej w tym artykule, można filtry globalne dla wszystkich zasobów dla tego samego konta usługi media bez żadnych późniejszych skojarzenia. 
 2. Należy przyciąć godzina rozpoczęcia i zakończenia środka trwałego. Można to osiągnąć, czy utworzyć filtr lokalnych i ustawić czas rozpoczęcia i zakończenia. 
-3. Chcesz połączyć oba te filtry (bez połączenia należy dodać filtrowania jakości filtru przycinanie, co spowoduje użycie filtru trudne).
+3. Aby połączyć oba te filtry (bez kombinacja, należy dodać filtr przycinanie, co utrudnia użycie filtru filtrowanie jakości).
 
 Aby połączyć filtrów, należy określić nazwy filtru do manifestu/odtwarzania adres URL z rozdzielanych średnikami. Załóżmy, że masz filtru o nazwie *MyMobileDevice* który filtry właściwości i inny o nazwie *MyStartTime* można ustawić określony czas rozpoczęcia. Można je połączyć następująco:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-Można połączyć się do 3 filtrów. 
+Maksymalnie trzy filtry można łączyć. 
 
 Aby uzyskać więcej informacji, zobacz [to](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
 

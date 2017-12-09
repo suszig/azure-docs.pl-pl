@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ca4066396f71865626f4034e490bb069a5f7ddf6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Sposób użycia procesora GPU w usłudze Azure Machine Learning
 Graficzny przetwarzania jednostka GPU jest powszechnie używany do przetworzenia w praktyce znacznym zadań, które zwykle mogą wystąpić w przypadku uczenie niektórych modeli sieci neuronowej głębokość. Przy użyciu GPU, można znacznie skrócić czas szkolenia modeli. W tym dokumencie zostanie przedstawiony sposób konfigurowania środowiska roboczego uczenia Maszynowego Azure do użycia [DSVM (danych maszyny wirtualnej nauki)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) wyposażone GPU jako cel wykonywania. 
@@ -67,7 +67,7 @@ Azure ML Workbench obsługują także wykonanie w Docker w maszynie Wirtualnej s
 Podczas wybierania lokalizacji dla maszyny Wirtualnej, należy pamiętać, że procesor GPU maszyny wirtualne są dostępne tylko w określonych regionach platformy Azure, na przykład **południowo-środkowe stany**. Zobacz [obliczeniowe produkty, które są dostępne w regionie](https://azure.microsoft.com/en-us/regions/services/).
 Kliknij przycisk OK, aby zapisać **podstawy** informacji.
 
-6. Wybierz rozmiar maszyny wirtualnej. Wybierz jeden z rozmiarów z prefiksem NC maszyn wirtualnych z mikroukłady NVidia GPU.  Kliknij przycisk **Wyświetl wszystko** Aby zapoznać się z pełną listą zgodnie z potrzebami. Dowiedz się więcej o [wyposażone w procesor GPU maszynach wirtualnych platformy Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Wybierz rozmiar maszyny wirtualnej. Wybierz jeden z rozmiarów z prefiksem NC maszyn wirtualnych z mikroukłady NVidia GPU.  Kliknij przycisk **Wyświetl wszystko** Aby zapoznać się z pełną listą zgodnie z potrzebami. Dowiedz się więcej o [wyposażone w procesor GPU maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Zakończ pozostałe ustawienia i przejrzyj informacje o zakupie. Kliknij przycisk zakupu, aby utworzyć maszynę Wirtualną. Zanotuj adres IP przydzielone do maszyny wirtualnej. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-Umożliwia także 1 wersja bit SGD Toolkit kognitywnych firmy Microsoft, co zapewnia poprawy wydajności na maszynach wirtualnych z wieloma procesorami GPU. Należy pamiętać, [wymaganie licencji 1 bit SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+Umożliwia także 1 wersja bit SGD Toolkit kognitywnych firmy Microsoft, co zapewnia poprawy wydajności na maszynach wirtualnych z wieloma procesorami GPU. Należy pamiętać, [wymaganie licencji 1 bit SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

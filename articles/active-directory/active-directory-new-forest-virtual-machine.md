@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
@@ -45,7 +45,7 @@ Nie jest znacznie różnica między instalowania kontrolera domeny na platformie
 | **Magazyn baz danych w usłudze Active Directory** |Opcjonalnie zmienić domyślną lokalizację przechowywania z C:\ |Aby zmienić domyślną lokalizację przechowywania z C:\ |
 
 ## <a name="create-an-azure-virtual-network"></a>Tworzenie sieci wirtualnej platformy Azure
-1. Zaloguj się do klasycznego portalu Azure.
+1. Zaloguj się do Portalu Azure.
 2. Utwórz sieć wirtualną. Kliknij przycisk **sieci** > **utworzyć sieć wirtualną**. Użyj wartości w tabeli poniżej, aby zakończyć pracę kreatora.
 
    | Na tej stronie kreatora... | Określ te wartości |
@@ -59,7 +59,7 @@ Powtórz następujące kroki, aby utworzyć maszyn wirtualnych do obsługi roli 
 
 Aby utworzyć maszyn wirtualnych przy użyciu programu Windows PowerShell zamiast interfejsu użytkownika, zobacz [użycia programu Azure PowerShell do tworzenia i wstępnie skonfigurować maszyn wirtualnych z systemem Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. W klasycznym portalu, kliknij przycisk **nowy** > **obliczeniowe** > **maszyny wirtualnej** > **z galerii**. Użyj następujących wartości, aby zakończyć pracę kreatora. Zaakceptuj wartość domyślną ustawienia, chyba że inną wartość jest sugerowane lub wymagane.
+1. W portalu Azure wybierz **nowy** > **obliczeniowe**, a następnie wybierz maszynę wirtualną. Użyj następujących wartości, aby zakończyć pracę kreatora. Zaakceptuj wartość domyślną ustawienia, chyba że inną wartość jest sugerowane lub wymagane.
 
    | Na tej stronie kreatora... | Określ te wartości |
    | --- | --- |

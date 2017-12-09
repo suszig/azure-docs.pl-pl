@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Ten artykuł zawiera wprowadzenie do używania kopia zapasowa Microsoft Azure w 
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) tworzy kopie zapasowe danych plików i aplikacji. Więcej informacji o obsługiwanych obciążeniach można znaleźć [tutaj](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Dane kopii zapasowej programu DPM można przechowywane na taśmie na dysku, lub kopię zapasową na platformie Azure w usłudze Kopia zapasowa Microsoft Azure. Program DPM współdziała z usługi Kopia zapasowa Azure w następujący sposób:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) tworzy kopie zapasowe danych plików i aplikacji. Więcej informacji o obsługiwanych obciążeniach można znaleźć [tutaj](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Dane kopii zapasowej programu DPM można przechowywane na taśmie na dysku, lub kopię zapasową na platformie Azure w usłudze Kopia zapasowa Microsoft Azure. Program DPM współdziała z usługi Kopia zapasowa Azure w następujący sposób:
 
 * **Program DPM wdrożony jako fizycznego serwera lub lokalnej maszyny wirtualnej** — Jeśli program DPM wdrożony jako serwera fizycznego lub lokalnej maszyny wirtualnej funkcji Hyper-V można tworzyć kopie zapasowe danych w magazynie usług odzyskiwania, oprócz dysków i taśm kopii zapasowych.
 * **Program DPM wdrożony jako maszyna wirtualna platformy Azure** — z programu System Center 2012 R2 z aktualizacją Update 3 programu DPM można wdrożyć jako maszynę wirtualną platformy Azure. Program DPM wdrożony jako maszyna wirtualna platformy Azure, które można tworzyć kopie zapasowe danych na dyskach platformy Azure dołączonych do maszyny wirtualnej platformy Azure programu DPM, czy można odciążyć magazyn danych dzięki tworzeniu kopii do magazynu usług odzyskiwania.
@@ -66,7 +66,7 @@ Oto niektóre kluczowe definicje dla kopii zapasowej Azure dla programu DPM:
 
 1. **Magazyn poświadczeń** — poświadczenia magazynu są potrzebne do uwierzytelnienia w celu wysyłania danych kopii zapasowej do określonych magazynu w usłudze Kopia zapasowa Azure maszyny. Można pobrać z magazynu, a jest nieprawidłowa dla 48hrs.
 2. **Hasło** — hasło jest używane do szyfrowania kopii zapasowych w chmurze. Zapisz plik w bezpiecznym miejscu, ponieważ jest on wymagany podczas operacji odzyskiwania.
-3. **Zabezpieczający numer PIN** — Jeśli włączono [ustawienia zabezpieczeń](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) magazynu, kod PIN zabezpieczeń jest potrzebne do wykonywania krytycznej operacji tworzenia kopii zapasowej. To uwierzytelnianie wieloskładnikowe dodawana jest kolejna warstwa zabezpieczeń. 
+3. **Zabezpieczający numer PIN** — Jeśli włączono [ustawienia zabezpieczeń](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) magazynu, kod PIN zabezpieczeń jest potrzebne do wykonywania krytycznej operacji tworzenia kopii zapasowej. To uwierzytelnianie wieloskładnikowe dodawana jest kolejna warstwa zabezpieczeń. 
 4. **Folder odzyskiwania** — jest fraza kopii zapasowych z chmury są tymczasowo pobrane podczas odzyskiwania chmury. Jego rozmiar około powinien być taki sam, jak rozmiar elementów kopii zapasowych, które chcesz odzyskać równolegle.
 
 

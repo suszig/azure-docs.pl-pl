@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitor kontenery systemu Windows w sieci szkieletowej usług za pomocą pakietu OMS
 
@@ -41,7 +41,7 @@ Przed rozpoczęciem tego samouczka, wykonaj następujące czynności:
 
 W przypadku gdy używasz [dostarczonego szablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) w pierwszej części tego samouczka, powinny zawierać następujące dodatki do ogólnego szablonu usługi sieć szkieletowa usługi Azure Resource Manager. W przypadku przypadku posiadania klastra własne tego chcesz skonfigurowanej na potrzeby monitorowania kontenerów OMS:
 * Wprowadź następujące zmiany w szablonie usługi Resource Manager.
-* Wdróż je za pomocą programu PowerShell do uaktualnienia klastra przez [wdrażanie szablonu](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Usługa Azure Resource Manager realizuje, czy zasób istnieje, więc będzie wprowadzana jego uaktualnienie.
+* Wdróż je za pomocą programu PowerShell do uaktualnienia klastra przez [wdrażanie szablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Usługa Azure Resource Manager realizuje, czy zasób istnieje, więc będzie wprowadzana jego uaktualnienie.
 
 ### <a name="adding-oms-to-your-cluster-template"></a>Dodawanie do szablonu klastra OMS
 

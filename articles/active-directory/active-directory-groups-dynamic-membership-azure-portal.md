@@ -4,23 +4,23 @@ description: "Tworzenie zaawansowanych reguł w tym członkostwa grupy dynamiczn
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4b3ef48fbec734d3aea1e04dc77b2ad329f637fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Utwórz zasady na podstawie atrybutów dynamiczne członkostwo w grupie w usłudze Azure Active Directory
 W usłudze Azure Active Directory (Azure AD) można utworzyć reguł zaawansowanych, aby włączyć złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach. W tym artykule szczegółowo atrybuty i składni, aby utworzyć reguły członkostwa dynamicznych dla użytkowników lub urządzeń.
@@ -28,13 +28,13 @@ W usłudze Azure Active Directory (Azure AD) można utworzyć reguł zaawansowan
 Po zmianie wszystkie atrybuty użytkowników lub urządzeń, system ocenia wszystkie reguły dynamicznej grupy w katalogu, aby sprawdzić, czy spowoduje zmianę żadnej grupy dodaje lub usuwa. Jeśli użytkownik lub urządzenie spełnia zasady grupy, zostaną dodane jako członkiem tej grupy. Jeśli nie spełniają reguły, zostaną usunięte.
 
 > [!NOTE]
-> - Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365.
+> Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365.
 >
-> - Ta funkcja wymaga licencji usługi Azure AD Premium P1 dla każdego użytkownika został dodany do co najmniej jednej grupy dynamicznej. Nie jest to konieczne, aby rzeczywiście przypisać licencje do użytkowników dla nich jako członków grup dynamicznych, ale musisz mieć minimalną liczbę licencji w dzierżawie dotyczyć wszystkich takich użytkowników. Na przykład: Jeśli masz łączną liczbę unikatowych użytkowników 1000 we wszystkich grupach dynamicznych w dzierżawie, musisz mieć co najmniej 1000 licencji dla programu Azure AD Premium P1 lub nowszej, do wersji spełniającej wymagania licencyjne.
+> Ta funkcja wymaga licencji usługi Azure AD Premium P1 dla każdego użytkownika został dodany do co najmniej jednej grupy dynamicznej. Nie jest to konieczne, aby rzeczywiście przypisać licencje do użytkowników dla nich jako członków grup dynamicznych, ale musisz mieć minimalną liczbę licencji w dzierżawie dotyczyć wszystkich takich użytkowników. Na przykład: Jeśli masz łączną liczbę unikatowych użytkowników 1000 we wszystkich grupach dynamicznych w dzierżawie, musisz mieć co najmniej 1000 licencji dla programu Azure AD Premium P1 lub nowszej, do wersji spełniającej wymagania licencyjne.
 >
-> - Można utworzyć grupy dynamicznej dla urządzeń lub użytkowników, ale nie można utworzyć regułę, która zawiera zarówno obiektów użytkowników i urządzeń.
-
-> - W tej chwili nie jest możliwe tworzenie grupy urządzeń w oparciu będącej właścicielem, jeśli atrybuty użytkownika. Reguły członkostwa urządzenie może odwoływać się tylko natychmiastowe atrybutów obiektów urządzeń w katalogu.
+> Można utworzyć grupy dynamicznej dla urządzeń lub użytkowników, ale nie można utworzyć regułę, która zawiera zarówno obiektów użytkowników i urządzeń.
+> 
+> W tej chwili nie jest możliwe tworzenie grupy urządzeń, na podstawie atrybutów użytkownika będący właścicielem. Reguły członkostwa urządzenie może odwoływać się tylko natychmiastowe atrybutów obiektów urządzeń w katalogu.
 
 ## <a name="to-create-an-advanced-rule"></a>Aby utworzyć regułę zaawansowane
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym lub administratorem konta użytkownika.
@@ -45,7 +45,7 @@ Po zmianie wszystkie atrybuty użytkowników lub urządzeń, system ocenia wszys
 
 4. Na **grupy** bloku, wprowadź nazwę i opis dla nowej grupy. Wybierz **Typ członkostwa** albo **dynamiki** lub **dynamiczne urządzenia**, w zależności od tego, czy chcesz utworzyć regułę dla użytkowników lub urządzeń, a następnie wybierz **Zapytania dynamiczne dodawanie**. Prosta reguła kompilacji za pomocą konstruktora reguły lub zapisać reguły zaawansowanej samodzielnie. Ten artykuł zawiera więcej informacji na temat dostępnych atrybutów użytkowników i urządzeń, a także przykłady reguł zaawansowanych.
 
-   ![Dodaj regułę członkostwo dynamiczne](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+   ![Dodaj dynamiczną regułę członkostwa](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 5. Po utworzeniu reguły, wybierz **kwerendy dodaj** w dolnej części bloku.
 6. Wybierz **Utwórz** na **grupy** bloku, aby utworzyć grupę.
@@ -293,7 +293,7 @@ Można również utworzyć regułę, która wybiera obiekty urządzeń do człon
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Zmiana członkostwo dynamiczne statyczne i na odwrót
 Użytkownik może zmienić sposób zarządzania członkostwa w grupie. Jest to przydatne, gdy chcesz zachować taką samą nazwę grupy i identyfikator w systemie, więc wszystkie istniejące odwołania do grupy są nadal ważne. Tworzenie nowej grupy wymagają aktualizacji tych odwołań.
 
-Trwa aktualizowanie portalu Azure do obsługi tej funkcji. Do tego czasu można użyć [klasycznego portalu Azure](https://manage.windowsazure.com) (postępuj zgodnie z instrukcjami [tutaj](active-directory-groups-dynamic-membership-azure-portal.md)) lub użyj polecenia cmdlet programu PowerShell, jak pokazano poniżej.
+Trwa aktualizowanie portalu Azure do obsługi tej funkcji. W międzyczasie można użyć poleceń cmdlet programu PowerShell, jak pokazano poniżej.
 
 > [!WARNING]
 > Podczas zmiany istniejącej grupy statyczne Dynamiczna grupa, wszystkie istniejące elementy członkowskie zostaną usunięte z grupy, a następnie przetworzenie reguły członkostwa można dodać nowe elementy członkowskie. Jeśli grupa jest używana do kontrolowania dostępu do aplikacji lub zasobów, oryginalnego elementy Członkowskie mogą stracić dostęp do momentu reguły członkostwa jest w pełni przetworzony.
@@ -303,7 +303,7 @@ Trwa aktualizowanie portalu Azure do obsługi tej funkcji. Do tego czasu można 
 **Przy użyciu programu PowerShell, aby zmienić zarządzanie członkostwem w grupie**
 
 > [!NOTE]
-> Aby zmienić właściwości dynamicznych grupy będą musieli używać poleceń cmdlet z **wersję zapoznawczą** [programu Azure AD PowerShell w wersji 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Można zainstalować podglądu [tutaj](https://www.powershellgallery.com/packages/AzureADPreview).
+> Aby zmienić właściwości dynamicznych grupy będą musieli używać poleceń cmdlet z **wersję zapoznawczą** [programu Azure AD PowerShell w wersji 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Można zainstalować podglądu [tutaj](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Oto przykład funkcji, które przełączają zarządzanie członkostwem w istniejącej grupy. Należy pamiętać, dokładnie dokumentowane poprawnie modyfikowania właściwości GroupTypes i zachowania wartości, które mogą wystąpić, niezwiązanych ze sobą członkostwo dynamiczne.
 

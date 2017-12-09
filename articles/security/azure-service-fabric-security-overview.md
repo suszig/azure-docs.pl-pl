@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Omówienie zabezpieczeń usługi Azure Service Fabric
 [Sieć szkieletowa usług Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) to platforma systemów rozproszonych, która ułatwia pakietów, wdrażanie i zarządzanie mikrousług skalowalne i niezawodne. Sieć szkieletowa usług adresów istotnych wyzwań rozwijania i zarządzanie aplikacjami w chmurze. Deweloperzy i administratorzy mogą uniknąć złożonych problemów związanych z infrastrukturą i skoncentrować się na implementowaniu wymagających obciążeń o znaczeniu strategicznym, które są skalowalne, niezawodne i łatwe w zarządzaniu.
@@ -50,7 +50,7 @@ Klastry działające w klastrach Azure lub autonomiczne, które są uruchomione 
 
 Sieć szkieletowa usług korzysta z certyfikatów X.509 określić podczas tworzenia klastra. Szybkie omówienie certyfikaty te są i jak uzyskać lub je utworzyć, zobacz [Praca z certyfikatami](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Certyfikat zabezpieczeń można skonfigurować podczas tworzenia klastra, albo za pośrednictwem portalu Azure, szablony usługi Azure Resource Manager lub szablonu JSON w autonomicznych. Można określić podstawowy certyfikat i opcjonalne dodatkowej certyfikat, który jest używany do najazdy certyfikatu. Certyfikatów głównych i dodatkowych, możesz określić powinien być inny niż administrator klienta i certyfikatów klienta tylko do odczytu, które określisz dla [zabezpieczeń węzeł klient](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Certyfikat zabezpieczeń można skonfigurować podczas tworzenia klastra, albo za pośrednictwem portalu Azure, szablony usługi Azure Resource Manager lub szablonu JSON w autonomicznych. Można określić podstawowy certyfikat i opcjonalne dodatkowej certyfikat, który jest używany do najazdy certyfikatu. Certyfikatów głównych i dodatkowych, możesz określić powinien być inny niż administrator klienta i certyfikatów klienta tylko do odczytu, które określisz dla [zabezpieczeń węzeł klient](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Węzeł klienta zabezpieczeń
 Konfigurowanie zabezpieczeń w węźle klienta przy użyciu tożsamości klienta. Aby ustanowić zaufanie między klientem klastrem, należy skonfigurować klaster, aby wiedzieć, który klient tożsamości, które on zaufany. Można to zrobić na dwa sposoby:

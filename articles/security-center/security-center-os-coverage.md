@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Obsługiwane platformy w Centrum zabezpieczeń Azure
 Monitorowanie stanu zabezpieczeń i zalecenia są dostępne dla maszyn wirtualnych (VM) utworzona przy użyciu zarówno klasycznego i modeli wdrażania Menedżera zasobów.
@@ -59,6 +59,6 @@ Maszyn wirtualnych uruchomionych w usłudze chmury są również obsługiwane. T
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przewodnik planowania Centrum zabezpieczeń Azure i obsługi](security-center-planning-and-operations-guide.md) — informacje o sposobie planowania i projektowania przyjęcie Centrum zabezpieczeń Azure
-- [Alerty zabezpieczeń według typu w Centrum zabezpieczeń Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) — Dowiedz się więcej na temat analizy behawioralnej maszyny wirtualnej i awarii zrzutu pamięci analizy w Centrum zabezpieczeń
+- [Alerty zabezpieczeń według typu w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) — Dowiedz się więcej na temat analizy behawioralnej maszyny wirtualnej i awarii zrzutu pamięci analizy w Centrum zabezpieczeń
 - [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń platformy Azure i zgodności

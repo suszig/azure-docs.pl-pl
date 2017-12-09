@@ -1,5 +1,5 @@
 ---
-title: Uruchom Cassandra z systemem Linux na platformie Azure | Dokumentacja firmy Microsoft
+title: Uruchom klaster Cassandra w systemie Linux na platformie Azure w oprogramowaniu Node.js
 description: "Jak uruchomić Cassandra klastra w systemie Linux w maszynach wirtualnych platformy Azure z poziomu aplikacji Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Uruchamianie rozwiązania Cassandra w systemie Linux na platformie Azure i uzyskiwanie do niej dostępu na platformie Node.js
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uruchom klaster Cassandra w systemie Linux na platformie Azure za pomocą języka Node.js
+
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Zobacz szablony Menedżera zasobów dla [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) i [Spark klastra i Cassandra na CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
@@ -309,7 +310,7 @@ To może zająć kilka sekund i obraz powinien być dostępny w sekcji Moje obra
 <tr><td>Nazwa</td><td>sieć wirtualna — przypadku zachód nam</td><td></td></tr>
 <tr><td>Region</td><td>Zachodnie stany USA</td><td></td></tr>
 <tr><td>Serwery DNS</td><td>Brak</td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
-<tr><td>Przestrzeń adresów</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>Przestrzeń adresowa</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Uruchamianie adresu IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -318,8 +319,8 @@ Dodaj następujące podsieci:
 
 <table>
 <tr><th>Nazwa</th><th>Uruchamianie adresu IP</th><th>CIDR</th><th>Uwagi</th></tr>
-<tr><td>sieci Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
-<tr><td>Dane</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsieć dla węzłów bazy danych</td></tr>
+<tr><td>Sieć Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
+<tr><td>dane</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
 
 Dane i podsieci w sieci Web mogą być chronione przy użyciu grup zabezpieczeń sieci zakres wykracza poza zakres tego artykułu.  
@@ -328,16 +329,16 @@ Dane i podsieci w sieci Web mogą być chronione przy użyciu grup zabezpieczeń
 
 <table>
 <tr><th>Nazwa komputera    </th><th>Podsieć    </th><th>Adres IP    </th><th>Zestaw dostępności</th><th>DC/Rack</th><th>Inicjatora?</th></tr>
-<tr><td>HK-c1-zachód us    </td><td>Dane    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Tak</td></tr>
-<tr><td>HK-c2-zachód us    </td><td>Dane    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1    </td><td>Nie </td></tr>
-<tr><td>HK-c3-zachód us    </td><td>Dane    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Tak</td></tr>
-<tr><td>HK-c4-zachód us    </td><td>Dane    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Nie </td></tr>
-<tr><td>HK-c5-zachód us    </td><td>Dane    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Tak</td></tr>
-<tr><td>HK-c6-zachód us    </td><td>Dane    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Nie </td></tr>
-<tr><td>HK-c7-zachód us    </td><td>Dane    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Tak</td></tr>
-<tr><td>HK-c8-zachód us    </td><td>Dane    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Nie </td></tr>
-<tr><td>HK-w1 — zachód us    </td><td>sieci Web    </td><td>10.1.1.4    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
-<tr><td>HK-w2 — zachód us    </td><td>sieci Web    </td><td>10.1.1.5    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
+<tr><td>HK-c1-zachód us    </td><td>dane    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Tak</td></tr>
+<tr><td>HK-c2-zachód us    </td><td>dane    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1    </td><td>Nie </td></tr>
+<tr><td>HK-c3-zachód us    </td><td>dane    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Tak</td></tr>
+<tr><td>HK-c4-zachód us    </td><td>dane    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Nie </td></tr>
+<tr><td>HK-c5-zachód us    </td><td>dane    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Tak</td></tr>
+<tr><td>HK-c6-zachód us    </td><td>dane    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Nie </td></tr>
+<tr><td>HK-c7-zachód us    </td><td>dane    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Tak</td></tr>
+<tr><td>HK-c8-zachód us    </td><td>dane    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Nie </td></tr>
+<tr><td>HK-w1 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.4    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
+<tr><td>HK-w2 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.5    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
 </table>
 
 Utworzenie powyższej listy maszyn wirtualnych wymaga następujący proces:
@@ -470,7 +471,7 @@ Zaloguj się do klasycznego portalu Azure i utworzyć sieć wirtualną z program
 <tr><td>Serwery DNS        </td><td></td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
 <tr><td>Konfigurowanie sieci VPN punkt lokacja</td><td></td><td>        Zignoruj ten komunikat</td></tr>
 <tr><td>Konfiguracja tunelu sieci VPN łączącego lokacje</td><td></td><td>        Zignoruj ten komunikat</td></tr>
-<tr><td>Przestrzeń adresów    </td><td>10.2.0.0/16</td><td></td></tr>
+<tr><td>Przestrzeń adresowa    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>Uruchamianie adresu IP    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -479,8 +480,8 @@ Dodaj następujące podsieci:
 
 <table>
 <tr><th>Nazwa    </th><th>Uruchamianie adresu IP    </th><th>CIDR    </th><th>Uwagi</th></tr>
-<tr><td>sieci Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
-<tr><td>Dane    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsieć dla węzłów bazy danych</td></tr>
+<tr><td>Sieć Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
+<tr><td>dane    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
 
 
@@ -489,7 +490,7 @@ Sieci lokalnej w sieci wirtualnej platformy Azure jest przestrzeń adresów serw
 
 Utwórz dwie sieci lokalne na następujące informacje:
 
-| Nazwa sieci | Adres bramy sieci VPN | Przestrzeń adresów | Uwagi |
+| Nazwa sieci | Adres bramy sieci VPN | Przestrzeń adresowa | Uwagi |
 | --- | --- | --- | --- |
 | HK-lnet-map-to-East-US |23.1.1.1 |10.2.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku w regionie wschodnie stany USA utworzona sieć wirtualna. |
 | HK-lnet-map-to-West-US |23.2.2.2 |10.1.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku utworzona sieć wirtualna regionu zachodnie stany USA. |
@@ -525,15 +526,15 @@ Utwórz obraz Ubuntu zgodnie z opisem w regionie #1 wdrożenia, wykonując kroki
 
 | Nazwa komputera | Podsieć | Adres IP | Zestaw dostępności | DC/Rack | Inicjatora? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-wschód us |Dane |10.2.2.4 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Tak |
-| HK-c2-wschód us |Dane |10.2.2.5 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Nie |
-| HK-c3-wschód us |Dane |10.2.2.6 |HK-c-aset-1 |DC = stojak EASTUS = szafa2 |Tak |
-| HK-c5-wschód us |Dane |10.2.2.8 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Tak |
-| HK-c6-wschód us |Dane |10.2.2.9 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Nie |
-| HK-c7-wschód us |Dane |10.2.2.10 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Tak |
-| HK-c8-wschód us |Dane |10.2.2.11 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Nie |
-| HK-w1 — wschód us |sieci Web |10.2.1.4 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
-| HK-w2 — wschód us |sieci Web |10.2.1.5 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
+| HK-c1-wschód us |dane |10.2.2.4 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Tak |
+| HK-c2-wschód us |dane |10.2.2.5 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Nie |
+| HK-c3-wschód us |dane |10.2.2.6 |HK-c-aset-1 |DC = stojak EASTUS = szafa2 |Tak |
+| HK-c5-wschód us |dane |10.2.2.8 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Tak |
+| HK-c6-wschód us |dane |10.2.2.9 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Nie |
+| HK-c7-wschód us |dane |10.2.2.10 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Tak |
+| HK-c8-wschód us |dane |10.2.2.11 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Nie |
+| HK-w1 — wschód us |Sieć Web |10.2.1.4 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
+| HK-w2 — wschód us |Sieć Web |10.2.1.5 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
 
 Postępuj zgodnie z instrukcjami region #1, ale użyj 10.2.xxx.xxx przestrzeni adresowej.
 

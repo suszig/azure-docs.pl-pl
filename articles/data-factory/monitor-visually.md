@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Wizualne monitorować fabryki danych Azure
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
@@ -45,7 +45,7 @@ Widok listy pokazujące każdego potoku uruchamiania dla Twojego potoków v2 fab
 | Akcje | Jednej akcji można wyświetlić uruchomień działania. |
 | Początek uruchomienia | Data i godzina rozpoczęcia działania w potoku (MM/DD/RRRR GG: mm: SS AM/PM) |
 | Czas trwania | Czas trwania zadania (GG) |
-| Wyzwalane przez | Ręczne wyzwalacza, wyzwalacz harmonogramu |
+| Wyzwolone przez | Ręczne wyzwalacza, wyzwalacz harmonogramu |
 | Stan | Nie można pomyślnie w toku |
 | Parametry | Potok Uruchom parametrów (nazwa, wartość pary) |
 | Błąd | Potok Uruchom błędu (jeśli/any) |
@@ -73,7 +73,7 @@ Widok listy pokazujące uruchomień działania odpowiadający każdej potoku uru
 > Musisz kliknąć przycisk **"Odśwież"** ikona u góry, aby odświeżyć listę uruchamia potoku i działania. Automatyczne odświeżanie nie jest obecnie obsługiwane.
 >
 
-![Odśwież](media/monitor-visually/refresh.png)
+![Odświeżanie](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Funkcje
 
@@ -92,15 +92,15 @@ Kolejność potoku jest uruchamiany w desc/asc przez uruchomienie Start i potoku
 #### <a name="addremove-columns-to-list-view"></a>Dodaj/Usuń kolumny do widoku listy
 Kliknij prawym przyciskiem myszy nagłówka widoku listy, a następnie wybierz kolumny, które mają być wyświetlane w widoku listy
 
-![kolumny](media/monitor-visually/columns.png)
+![Kolumny](media/monitor-visually/columns.png)
 
 #### <a name="reorder-column-widths-in-list-view"></a>Zmień kolejność szerokości kolumn w widoku listy
 Zwiększyć i zmniejszyć szerokości kolumn w widoku listy, po prostu ustawiając kursor nad nagłówek kolumny
 
-#### <a name="select-data-factory"></a>Wybierz usługi fabryka danych
+#### <a name="select-data-factory"></a>Wybieranie fabryki danych
 Umieść wskaźnik na ikonie "Fabryki danych" u góry po lewej. Kliknij ikonę "Strzałka", aby wyświetlić listę azure fabryki subskrypcji i danych, które można monitorować.
 
-![Wybierz usługi fabryka danych](media/monitor-visually/select-datafactory.png)
+![Wybieranie fabryki danych](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Przewodniki z przewodnikiem
 Kliknij ikonę"informacje" w lewym dolnym, a następnie kliknij przycisk "Z przewodnikiem przewodnikami", aby uzyskać instrukcje krok po kroku dotyczące monitorowania procesu i działania sekwencji.
@@ -114,4 +114,4 @@ Kliknij ikonę "Opinie", aby wysłać nam swoją opinię na różnych funkcji lu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [monitora i programowe zarządzanie potoki](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki
+Zobacz [monitora i programowe zarządzanie potoki](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki

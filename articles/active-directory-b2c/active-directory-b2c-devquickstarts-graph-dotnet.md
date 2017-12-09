@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 127159084fc99866881a93b16fd2b7faebeb3588
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Usługa Azure AD B2C: Użyj Azure interfejs API Graph usługi AD
 
@@ -71,7 +71,7 @@ Teraz masz aplikację, która ma uprawnienia do tworzenia, odczytu i aktualizacj
 ## <a name="configure-delete-permissions-for-your-application"></a>Skonfiguruj uprawnienia do usuwania aplikacji
 Obecnie *Odczyt i zapis danych katalogu* uprawnienie jest **nie** obejmują możliwość czy żadnych usunięć, takich jak usuwanie użytkowników. Jeśli chcesz nadać aplikacji możliwość usunięcia użytkowników, należy wykonać te dodatkowe kroki, które wymagają programu PowerShell, w przeciwnym razie możesz przejść do następnej sekcji.
 
-Po pierwsze, jeśli nie masz już zainstalowany, zainstaluj [modułu Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+Po pierwsze, jeśli nie masz już zainstalowany, zainstaluj [modułu Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

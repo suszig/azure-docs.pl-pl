@@ -10,17 +10,17 @@ ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 3ad9da6e990fbb2a099bd83627eb36cd5e8f94c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="password-writeback-overview"></a>Omówienie funkcji zapisywania zwrotnego haseł
 
@@ -160,7 +160,6 @@ Hasła są zapisywane w następujących sytuacjach:
   * Wszelkie dobrowolnej samoobsługi administratora Zmień operacji hasła
   * Wszelkie życie samoobsługi administratora Zmień operacji hasła, na przykład, datę wygaśnięcia hasła
   * Wszelkie administratora samoobsługowego resetowania hasła wynikająca z [portal resetowania hasła](https://passwordreset.microsoftonline.com)
-  * Wszystkie hasła przez użytkownika końcowego inicjowanych przez administratora zresetować z [klasycznego portalu Azure](https://manage.windowsazure.com)
   * Wszystkie hasła przez użytkownika końcowego inicjowanych przez administratora zresetować z [portalu Azure](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Operacje użytkownika i administratora, które nie są obsługiwane dla funkcji zapisywania zwrotnego haseł

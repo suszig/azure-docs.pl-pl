@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 61d384cfcfbbd0726faffe2e2ee09faf35c781e3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uaktualnianie z poprzedniej wersji do najnowszej wersji
 W tym temacie opisano różne metody, których można użyć, aby uaktualnić instalację Połącz usługi Azure Active Directory (Azure AD) do najnowszej wersji. Zaleca się pozostawienie samodzielnie bieżącego z wersjami programu Azure AD Connect. Możesz również użyć kroki opisane w [migracji w kierunku](#swing-migration) sekcji podczas wprowadzania istotne zmiany konfiguracji.
@@ -48,7 +48,7 @@ Jeśli wprowadzono zmiany do reguły synchronizacji out-of-box te reguły są us
 
 Podczas uaktualniania w miejscu, mogą występować zmian wprowadzonych, które wymagają działań określonych synchronizacji (w tym kroki pełny Import i pełną synchronizację) ma być wykonywana po zakończeniu uaktualniania. Odroczenie takich działań, zapoznaj się z rozdziałem [jak mają być odroczone pełną synchronizację po uaktualnieniu](#how-to-defer-full-synchronization-after-upgrade).
 
-Jeśli używasz usługi Azure AD Connect z niestandardowym łącznika (na przykład ogólny łącznik LDAP i rodzajowy Łącznik usług SQL), należy odświeżyć odpowiedniej konfiguracji łącznika w [Menedżera usługi synchronizacji](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) Po uaktualnieniu w miejscu. Aby uzyskać więcej informacji na temat sposobu Odśwież konfigurację łącznika, zapoznaj się z rozdziałem artykułu [Historia wersji łącznika — Rozwiązywanie problemów z](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Jeśli konfiguracja nie będą odświeżane, importowanie i eksportowanie wykonanie kroków nie będzie działać prawidłowo dla łącznika. Zostanie wyświetlony następujący błąd w dzienniku zdarzeń aplikacji z komunikatem *"wersja zestawu w konfiguracji łącznika usługi AAD ("X.X.XXX. "X") jest starsza niż wersja rzeczywista ("X.X.XXX. "X") elementu "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Jeśli używasz usługi Azure AD Connect z niestandardowym łącznika (na przykład ogólny łącznik LDAP i rodzajowy Łącznik usług SQL), należy odświeżyć odpowiedniej konfiguracji łącznika w [Menedżera usługi synchronizacji](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) Po uaktualnieniu w miejscu. Aby uzyskać więcej informacji na temat sposobu Odśwież konfigurację łącznika, zapoznaj się z rozdziałem artykułu [Historia wersji łącznika — Rozwiązywanie problemów z](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Jeśli konfiguracja nie będą odświeżane, importowanie i eksportowanie wykonanie kroków nie będzie działać prawidłowo dla łącznika. Zostanie wyświetlony następujący błąd w dzienniku zdarzeń aplikacji z komunikatem *"wersja zestawu w konfiguracji łącznika usługi AAD ("X.X.XXX. "X") jest starsza niż wersja rzeczywista ("X.X.XXX. "X") elementu "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Migracja typu swing
 Jeśli masz złożone wdrożenia lub wiele obiektów, może być niemożliwe do uaktualnienie w miejscu na żywo w systemie. W przypadku niektórych klientów ten proces może potrwać kilka dni — i w tym czasie nie zmiany różnicowe są przetwarzane. Tej metody można użyć również, gdy ma być istotne zmiany w konfiguracji i chcesz wypróbować je przed ich jest przypisany do chmury.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej OMS dla systemu Linux
 
@@ -182,7 +182,7 @@ Dane wyjściowe wykonania rozszerzenie jest zarejestrowane w następującym plik
 | 10 | Maszyna wirtualna jest już połączony z obszarem roboczym pakietu OMS | Aby połączyć maszynę Wirtualną do obszaru roboczego określonej w schemacie rozszerzenia, stopOnMultipleConnections ma wartość false w publicznych Ustawienia tej właściwości lub Usuń. Tej maszyny Wirtualnej pobiera rozliczane po dla każdego obszaru roboczego jest połączony. |
 | 11 | Nieprawidłowy konfiguracji do rozszerzenia | Postępuj zgodnie z powyższych przykładach można ustawić wartości wszystkich właściwości niezbędne do wdrożenia. |
 | 12 | Menedżer pakietów dpkg jest zablokowany. | Upewnij się, wszystkie dpkg operacje aktualizacji na komputerze zostało ukończone, a następnie spróbuj ponownie. |
-| 20 | Włącz o nazwie przedwcześnie | [Zaktualizuj agenta systemu Linux Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) do najnowszej dostępnej wersji. |
+| 20 | Włącz o nazwie przedwcześnie | [Zaktualizuj agenta systemu Linux Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) do najnowszej dostępnej wersji. |
 | 51 | To rozszerzenie nie jest obsługiwana w systemie operacyjnym maszyny Wirtualnej | |
 | 55 | Nie można nawiązać połączenia z usługą Microsoft Operations Management Suite | Sprawdź, czy system ma dostęp do Internetu lub że podano prawidłowy serwer proxy HTTP. Ponadto sprawdź poprawność identyfikator obszaru roboczego. |
 

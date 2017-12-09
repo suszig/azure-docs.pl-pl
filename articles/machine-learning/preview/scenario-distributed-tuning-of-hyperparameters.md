@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Rozproszone dostrojenie hyperparameters przy użyciu usługi Azure Machine Learning Workbench
 
@@ -36,8 +36,8 @@ Przy użyciu krzyżowego sprawdzania poprawności wyszukiwania siatki może być
 * [Konta Azure](https://azure.microsoft.com/free/) (bezpłatnych wersji próbnych są dostępne).
 * Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) następujące [zainstalować i utworzyć szybkiego startu](./quickstart-installation.md) zainstalować Workbench i tworzenia kont.
 * W tym scenariuszu przyjęto założenie, że Workbench uczenia Maszynowego Azure są uruchomione na systemu Windows 10 lub MacOS z aparatem platformy Docker zainstalowane lokalnie. 
-* Do uruchomienia w scenariuszu z kontenerem Docker zdalnego, należy udostępnić Ubuntu danych nauki maszyny wirtualnej (DSVM), postępując [instrukcje](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 28 Gb pamięci. D4 wystąpień maszyn wirtualnych ma takie wydajności. 
-* Aby uruchomić ten scenariusz z klastrem Spark, należy udostępnić klaster Azure HDInsight wykonując te [instrukcje](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Zalecamy skonfigurowanie klastra z co najmniej 
+* Do uruchomienia w scenariuszu z kontenerem Docker zdalnego, należy udostępnić Ubuntu danych nauki maszyny wirtualnej (DSVM), postępując [instrukcje](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 28 Gb pamięci. D4 wystąpień maszyn wirtualnych ma takie wydajności. 
+* Aby uruchomić ten scenariusz z klastrem Spark, należy udostępnić klaster Azure HDInsight wykonując te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Zalecamy skonfigurowanie klastra z co najmniej 
 - sześciu węzłów procesu roboczego
 - osiem rdzeni
 - 28 Gb pamięci w węzłach zarówno nagłówka i proces roboczy. D4 wystąpień maszyn wirtualnych ma takie wydajności. Firma Microsoft zaleca zmianę następujących parametrów, aby zmaksymalizować wydajność klastra.
@@ -45,11 +45,11 @@ Przy użyciu krzyżowego sprawdzania poprawności wyszukiwania siatki może być
 - Spark.Executor.cores
 - Spark.Executor.Memory 
 
-Możesz wykonać te [instrukcje](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) i edycję definicji w sekcji "spark niestandardowe ustawienia domyślne".
+Możesz wykonać te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) i edycję definicji w sekcji "spark niestandardowe ustawienia domyślne".
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Tworzenie konta magazynu Azure używanego do przechowywania zestawu danych. Postępuj zgodnie z [instrukcje](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) można utworzyć konta magazynu.
+* Tworzenie konta magazynu Azure używanego do przechowywania zestawu danych. Postępuj zgodnie z [instrukcje](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) można utworzyć konta magazynu.
 
 ## <a name="data-description"></a>Opis elementu danych
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Sieć szkieletowa usług i kontenerów
 > [!NOTE]
@@ -61,7 +61,7 @@ Na poniższej ilustracji przedstawiono różne typy dostępnych w systemie opera
 ## <a name="scenarios-for-using-containers"></a>Scenariusze korzystania z kontenerów
 Poniżej przedstawiono typowe przykłady gdzie jest dobrym rozwiązaniem, kontener:
 
-* **Usługi IIS Podnieś i przesunięcia**: Jeśli masz istniejące [ASP.NET MVC](https://www.asp.net/mvc) aplikacje, które mają w dalszym ciągu korzystać, umieść je w kontenerze zamiast migracji je do platformy ASP.NET Core. Te aplikacje ASP.NET MVC zależeć na Internet Information Services (IIS). Można spakować te aplikacje do kontenera obrazów z precreated obrazu usług IIS, a następnie wdrożyć je z sieci szkieletowej usług. Zobacz [kontener obrazów w systemie Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) informacji o kontenery systemu Windows.
+* **Usługi IIS Podnieś i przesunięcia**: Jeśli masz istniejące [ASP.NET MVC](https://www.asp.net/mvc) aplikacje, które mają w dalszym ciągu korzystać, umieść je w kontenerze zamiast migracji je do platformy ASP.NET Core. Te aplikacje ASP.NET MVC zależeć na Internet Information Services (IIS). Można spakować te aplikacje do kontenera obrazów z precreated obrazu usług IIS, a następnie wdrożyć je z sieci szkieletowej usług. Zobacz [kontener obrazów w systemie Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) informacji o kontenery systemu Windows.
 * **Mieszać kontenery i sieci szkieletowej usług mikrousług**: Użyj istniejącego obrazu kontenera części aplikacji. Na przykład może użyć [kontener NGINX](https://hub.docker.com/_/nginx/) dla frontonu sieci web, aplikacji i usług stanowych do bardziej intensywnie obliczeń zaplecza.
 * **Ograniczenia wpływu usług "zakłócenia sąsiadów"**: możliwości zarządzania zasób kontenerów służy do ograniczania zasobów używanych przez usługi na hoście. Jeśli usługi może korzystać z wielu zasobów i negatywnie wpłynąć na wydajność innych (na przykład operacji długotrwałych, typu kwerendy), należy rozważyć wprowadzenie tych usług do kontenerów, które mają ładu zasobów.
 
@@ -90,6 +90,6 @@ W tym artykule przedstawiono o kontenerów, sieć szkieletowa usług to kontener
 
 [Tworzenie pierwszej aplikacji kontenera sieci szkieletowej usług w systemie Linux](service-fabric-get-started-containers-linux.md)
 
-[Dowiedz się więcej o kontenery systemu Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Dowiedz się więcej o kontenery systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-the-azure-cli-on-windows"></a>W systemie Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Azure interfejsu wiersza polecenia (CLI) oferuje wiersza polecenia i skryptów środowiska do tworzenia i zarządzania zasobami platformy Azure. Interfejsu wiersza polecenia Azure jest dostępna dla macOS, Linux i systemów operacyjnych Windows. W tych systemach operacyjnych polecenia interfejsu wiersza polecenia są identyczne, jednak może się różnić składni skryptów systemu operacyjnego.
 
-Ten dokument zawiera szczegóły dotyczące sposobów, że można instalować i uruchamiać na zagadnienia syntaktycznych systemu Windows i szczegóły dla każdego wiersza polecenia platformy Azure. Aby uzyskać szczegółowe interfejsu wiersza polecenia Azure dokumentacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure]( https://docs.microsoft.com/en-us/cli/azure/overview).
+Ten dokument zawiera szczegóły dotyczące sposobów, że można instalować i uruchamiać na zagadnienia syntaktycznych systemu Windows i szczegóły dla każdego wiersza polecenia platformy Azure. Aby uzyskać szczegółowe interfejsu wiersza polecenia Azure dokumentacji, zobacz [dokumentacji interfejsu wiersza polecenia Azure]( https://docs.microsoft.com/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Podsystem systemu Windows dla systemu Linux
 
@@ -36,13 +36,13 @@ Aby użyć wiersza polecenia platformy Azure w WSL, wykonaj poniższe kroki.
 |Zadanie | Instrukcje |
 |---|---|
 | Włącz WSL | [Zainstaluj WSL dokumentacji](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Zainstaluj interfejs wiersza polecenia platformy Azure |[Instalowanie interfejsu wiersza polecenia na WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
+| Zainstaluj interfejs wiersza polecenia platformy Azure |[Instalowanie interfejsu wiersza polecenia na WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
 
 Interfejsu wiersza polecenia Azure może działać natywnie w systemie Windows. W tej konfiguracji pakietu wiersza polecenia platformy Azure jest zainstalowany w systemie operacyjnym Windows, a polecenia można uruchomić z programu PowerShell. W tej konfiguracji interfejsu wiersza polecenia Azure poleceń i skryptów może działać w dowolnej obsługiwanej wersji systemu Windows, jednak platforma składni skryptów jest wymagane. W związku z tym skrypty nie zawsze mogą współużytkować system macOS, Linux i Windows bez żadnych modyfikacji.
 
-Aby użyć wiersza polecenia platformy Azure w systemie Windows, należy zainstalować pakiet, korzystając z tych instrukcji [instalowanie interfejsu wiersza polecenia w systemie Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows).
+Aby użyć wiersza polecenia platformy Azure w systemie Windows, należy zainstalować pakiet, korzystając z tych instrukcji [instalowanie interfejsu wiersza polecenia w systemie Windows](https://docs.microsoft.com/cli/azure/install-az-cli2#windows).
 
 ## <a name="docker-image"></a>Obraz docker
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie usługi Azure operational zabezpieczeń
 Azure bezpieczeństwa operacyjnego odwołuje się do usług, formanty i funkcje dostępne dla użytkowników do ochrony danych, aplikacji i innych zasobów na platformie Microsoft Azure. [Azure bezpieczeństwa operacyjnego](https://docs.microsoft.com/azure/security/azure-operational-security) jest platforma, która zawiera informacje o wiedzy uzyskane przy użyciu różnych funkcji, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), program Microsoft Security Response Center i głębokie świadomości bezpieczeństwa przez zagrożeń.
@@ -158,5 +158,5 @@ Dojrzała lekarze DevOps przyjmuje kilka z następujących wskazówek. Praktyki 
 Aby dowiedzieć się więcej o rozwiązaniu OMS zabezpieczeń i inspekcji, zobacz następujące artykuły:
 
 - [Operations Management Suite | Bezpieczeństwo i zgodność](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitorowanie i reagowanie na alerty zabezpieczeń w Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Monitorowanie zasobów Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitorowanie i reagowanie na alerty zabezpieczeń w Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Monitorowanie zasobów Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

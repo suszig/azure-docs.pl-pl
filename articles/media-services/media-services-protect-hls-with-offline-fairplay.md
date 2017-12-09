@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>W trybie offline FairPlay przesyłania strumieniowego
 Microsoft Azure Media Services zawiera zestaw dobrze zaprojektowanego [zawartości usługi ochrony](https://azure.microsoft.com/services/media-services/content-protection/), pokrycie:
@@ -189,7 +189,7 @@ Niektóre często zadawane pytania dotyczące rozwiązywania problemów:
 - **Co to ostatni parametr oznaczać w następujący interfejs API na kl. / s w trybie offline?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-Można znaleźć w dokumentacji tego interfejsu API [tutaj](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr reprezentuje czas trwania dzierżawy w trybie offline o godzinę jako jednostki.
+Można znaleźć w dokumentacji tego interfejsu API [tutaj](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr reprezentuje czas trwania dzierżawy w trybie offline o godzinę jako jednostki.
 - **Co to jest struktura pliku pobrane offline na urządzeniach z systemem iOS?** Struktura pobrany plik na urządzeniu z systemem iOS wygląda jak poniżej (zrzut ekranu). `_keys`magazynów folderów pobrać licencji na kl. / s, jeden magazyn plików dla każdego hosta usługi licencji. `.movpkg`folder przechowuje zawartości audio i wideo. Pierwszy folder o nazwie z łącznikiem następuje liczbową zawartość wideo. Wartość liczbowa jest "PeakBandwidth" wideo wersji. Drugi folder o nazwie z łącznikiem następuje 0 zawartość audio. Trzeci folder o nazwie "Dane" zawiera wzorca listy odtwarzania zawartości klatek na Sekundę. Pełny opis zawiera Boot.XML `.movpkg` zawartość folderu (poniżej podano przykładowy plik boot.xml).
 
 ![W trybie offline iOS FairPlay struktury plików przykładowej aplikacji](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

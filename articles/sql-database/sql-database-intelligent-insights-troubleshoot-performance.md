@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Baza danych SQL Azure Rozwiązywanie problemów z wydajnością z informacjami dotyczącymi inteligentnego
 
@@ -52,7 +52,7 @@ Inteligentnego Insights automatycznie wykrywa problemy z wydajnością z bazą d
 | [Obniżenie warstwy cenowej](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Akcję obniżenia poziomu warstwy cenowej zmniejszyć dostępnych zasobów, co ma wpływ na wydajność bazy danych SQL. |
 
 > [!TIP]
-> Aby zoptymalizować wydajność ciągłego bazy danych SQL, należy włączyć [automatycznego dostrajania bazy danych SQL Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). To rozwiązanie wbudowane narzędzie analizy bazy danych SQL stale monitoruje bazę danych SQL, automatycznie Dostraja indeksy i stosuje poprawki planu wykonania zapytania.
+> Aby zoptymalizować wydajność ciągłego bazy danych SQL, należy włączyć [automatycznego dostrajania bazy danych SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). To rozwiązanie wbudowane narzędzie analizy bazy danych SQL stale monitoruje bazę danych SQL, automatycznie Dostraja indeksy i stosuje poprawki planu wykonania zapytania.
 >
 
 W poniższej sekcji opisano wzorce wymienione wcześniej wydajności wykrywalny bardziej szczegółowo.
@@ -63,7 +63,7 @@ W poniższej sekcji opisano wzorce wymienione wcześniej wydajności wykrywalny 
 
 Ten wzorzec wykrywalny wydajności łączy problemy z wydajnością, które odnoszą się do osiągnięcia limitów dostępnego zasobu, proces roboczy ograniczenia i limity sesji. Po wykryciu ten problem z wydajnością pola Opis dziennika diagnostyki wskazuje, czy problem z wydajnością powiązany zasobu, proces roboczy lub limity sesji.
 
-Zasoby w bazie danych SQL są zwykle nazywane [zasobów jednostek DTU](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Składają się z kombinacji miar: procesora CPU i we/wy zasobów (danych i dziennika transakcji we/wy). Wzorzec osiągnięcia limitów zasobów jest rozpoznawany w przypadku wykrycia obniżenia wydajności kwerendy jest spowodowany dotarcie do żadnego z limitami zasobów zmierzona.
+Zasoby w bazie danych SQL są zwykle nazywane [zasobów jednostek DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Składają się z kombinacji miar: procesora CPU i we/wy zasobów (danych i dziennika transakcji we/wy). Wzorzec osiągnięcia limitów zasobów jest rozpoznawany w przypadku wykrycia obniżenia wydajności kwerendy jest spowodowany dotarcie do żadnego z limitami zasobów zmierzona.
 
 Zasób limity sesji oznacza liczbę dostępnych równoczesnych logowania do bazy danych SQL. Ten wzorzec wydajności została rozpoznana, gdy aplikacje, które są podłączone do bazy danych SQL maksymalną liczbę dostępnych równoczesnych logowania do bazy danych. Jeśli aplikacje próbują używać sesji więcej niż jest dostępne w bazie danych, jest wpływ na wydajność kwerend.
 
@@ -75,7 +75,7 @@ Dziennik diagnostyki generuje skróty zapytania zapytań, na które miała wpły
 
 Czy osiągnięto limity dostępne sesji, aby zoptymalizować aplikacji dzięki zmniejszeniu liczby logowania wprowadzone w bazie danych. Jeśli nie możesz zmniejszyć liczbę logowania z aplikacji do bazy danych, należy rozważyć zwiększenie warstwy cenowej bazy danych. Lub możesz podzielić i przenieść bazę danych do wielu baz danych dla bardziej zrównoważony rozkład obciążenia.
 
-Aby uzyskać więcej sugestie dotyczące rozwiązywania ograniczeń sesji, zobacz [sposób postępowania z wartościami granicznymi maksymalną logowania do bazy danych SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Aby dowiedzieć się, limity zasobu dostępności dla warstwy Twojej subskrypcji, zobacz [limity zasobów bazy danych SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Aby uzyskać więcej sugestie dotyczące rozwiązywania ograniczeń sesji, zobacz [sposób postępowania z wartościami granicznymi maksymalną logowania do bazy danych SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Aby dowiedzieć się, limity zasobu dostępności dla warstwy Twojej subskrypcji, zobacz [limity zasobów bazy danych SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Zwiększenie obciążenia
 
@@ -145,7 +145,7 @@ Opcji konfiguracji serwera MAXDOP w bazie danych SQL służy do kontrolowania li
 
 Dziennik diagnostyki generuje skróty zapytania dotyczące zapytań, dla których czas realizacji podwyższony, ponieważ zostały one zarządzana przetwarzaniem więcej niż powinien być. Dziennik generuje również CXP czasy oczekiwania. Teraz reprezentuje czas oczekiwania dla wszystkich innych wątków zakończyć działanie przed scaleniem wyniki i realizowanie wątku pojedynczego organizatora/koordynatora (wątek 0). Ponadto dziennika diagnostyki danych wyjściowych wykonywania słaby zapytań oczekujących w ogólnej wykonywania czasy oczekiwania. Te informacje można użyć jako podstawy do rozwiązywania problemów.
 
-Po pierwsze Optymalizacja lub Uprość złożonych zapytań. Dobrym rozwiązaniem jest podzielić długie partii zadań na mniejsze. Ponadto upewnij się, że utworzono indeksów do obsługi zapytań. Można też ręcznie wymusić maksymalny stopień równoległości (MAXDOP) dla zapytania, który został oznaczony jako niska wykonywania. Aby skonfigurować tę operację za pomocą T-SQL, zobacz [Konfigurowanie opcji konfiguracji serwera MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Po pierwsze Optymalizacja lub Uprość złożonych zapytań. Dobrym rozwiązaniem jest podzielić długie partii zadań na mniejsze. Ponadto upewnij się, że utworzono indeksów do obsługi zapytań. Można też ręcznie wymusić maksymalny stopień równoległości (MAXDOP) dla zapytania, który został oznaczony jako niska wykonywania. Aby skonfigurować tę operację za pomocą T-SQL, zobacz [Konfigurowanie opcji konfiguracji serwera MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Ustawienie serwera MAXDOP opcji konfiguracji na zero (0), jako wartość domyślną oznacza bazy danych SQL za pomocą wszystkie dostępne rdzenie Procesora logicznego parallelize wątków wykonywania pojedynczego zapytania. Ustawienie MAXDOP do jednego (1) oznacza, że tylko jeden rdzeń może służyć do wykonywania pojedynczego zapytania. W praktyce oznacza to, że równoległości jest wyłączona. W zależności od przypadku na podstawie dostępne rdzenie do bazy danych i informacji diagnostycznych rejestrowania informacji, można dostosować w opcji MAXDOP liczby rdzeni używany do wykonywania zapytania równoległe, która może rozwiązać problem w Twoim przypadku.
 
@@ -231,7 +231,7 @@ Ten wzorzec wykrywalny wydajności wskazuje warunek wydajności bazy danych, w k
 
 Dziennik diagnostyki Wyświetla szczegóły rywalizacji bazy danych tempDB. Możesz skorzystać z informacji jako punktu wyjścia do rozwiązywania problemów. Istnieją dwie czynności można wykonywać rozwiązanie tego rodzaju rywalizacji i zwiększyć przepływność ogólną obciążenie: można wyłączyć przy użyciu tabel tymczasowych. Można też użyć tabel zoptymalizowanych pod kątem pamięci. 
 
-Aby uzyskać więcej informacji, zobacz [wprowadzenie do tabel zoptymalizowanych pod kątem pamięci](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Aby uzyskać więcej informacji, zobacz [wprowadzenie do tabel zoptymalizowanych pod kątem pamięci](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Brak jednostek DTU puli elastycznej
 
@@ -328,10 +328,10 @@ Insights inteligentnego dostęp za pośrednictwem portalu Azure, przechodząc do
 > [!TIP]
 > Wybierz schemat blokowy, aby pobrać wersję pliku PDF.
 
-Insights inteligentnego musi zazwyczaj jedna godzina czas na przeprowadzenie analiza głównych przyczyn problem z wydajnością. Jeśli nie można zlokalizować problem w usłudze inteligentnego Insights i jest bardzo istotne dla Ciebie, umożliwia ręcznie Określ przyczynę problemu z wydajnością magazynu zapytań. (Zwykle tych problemów są mniej niż co godzinę). Aby uzyskać więcej informacji, zobacz [monitorowania wydajności przy użyciu magazynu zapytań](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Insights inteligentnego musi zazwyczaj jedna godzina czas na przeprowadzenie analiza głównych przyczyn problem z wydajnością. Jeśli nie można zlokalizować problem w usłudze inteligentnego Insights i jest bardzo istotne dla Ciebie, umożliwia ręcznie Określ przyczynę problemu z wydajnością magazynu zapytań. (Zwykle tych problemów są mniej niż co godzinę). Aby uzyskać więcej informacji, zobacz [monitorowania wydajności przy użyciu magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się [Insights inteligentnego](sql-database-intelligent-insights.md) pojęcia.
 - Użyj [dziennika diagnostyki wydajności inteligentnego bazy danych SQL Azure Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitor [bazy danych SQL Azure za pomocą usługi Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitor [bazy danych SQL Azure za pomocą usługi Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Dowiedz się, jak [zbierania i wykorzystywania danych dziennika z zasobów platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

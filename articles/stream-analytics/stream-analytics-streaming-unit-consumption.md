@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informacje o i dostosować jednostek przesyłania strumieniowego
 
@@ -27,7 +27,7 @@ Usługa Azure Stream Analytics agreguje wydajności "waga" uruchamiania zadania 
 
 Aby osiągnąć małe opóźnienia przesyłania strumieniowego przetwarzania, zadania usługi analiza strumienia Azure wykonywać przetwarzania w pamięci. Gdy używany jest za mało pamięci, zadanie przesyłania strumieniowego nie powiedzie się. W związku z tym dla zadania produkcji, należy do monitorowania użycia zasobów zadanie przesyłania strumieniowego i upewnij się, że jest za mało zasobów przydzielonych w celu zachowania zadania uruchomione 24/7.
 
-Metryka jest liczbą wartość procentową z zakresu od 0 do 100%. Zadanie przesyłania strumieniowego z minimalnego rozmiaru SU % wykorzystania metryka jest zwykle od 10 do 20%. Najlepiej przechowywać Metryka poniżej 80% do konta okazjonalne maksymalnej.  Alert można ustawiać metryka (zobacz [tutaj, aby skonfigurować alerty metryki](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+Metryka jest liczbą wartość procentową z zakresu od 0 do 100%. Zadanie przesyłania strumieniowego z minimalnego rozmiaru SU % wykorzystania metryka jest zwykle od 10 do 20%. Najlepiej przechowywać Metryka poniżej 80% do konta okazjonalne maksymalnej.  Alert można ustawiać metryka (zobacz [tutaj, aby skonfigurować alerty metryki](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Aby można było rzecz poprawy funkcjonowania problemy spowodowane dużej kardyn
 
 Po podzieleniu na partycje zapytanie jest rozmieszczane w wielu węzłach. W związku z tym clusterid wchodzących w każdym węźle jest zmniejszyć liczbę zawężając Kardynalność grupy przez operatora. 
 
-Powinien być dzielony na partycje partycji Centrum zdarzeń za pomocą klucza grupowania, aby uniknąć konieczności krok Zmniejsz. Dodatkowe szczegółowe informacje znajdują się [tutaj](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Powinien być dzielony na partycje partycji Centrum zdarzeń za pomocą klucza grupowania, aby uniknąć konieczności krok Zmniejsz. Dodatkowe szczegółowe informacje znajdują się [tutaj](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Sprzężenia danych czasowych
 Rozmiar stanu sprzężenia danych czasowych jest proporcjonalna do liczby zdarzeń w pomieszczeniu danych czasowych poruszaj sprzężenia, czyli wejściowych występowania zdarzeń wielokrotnie rozmiarem poruszaj miejsca. 
 

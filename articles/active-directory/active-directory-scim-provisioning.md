@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84fe16f533db71207effa58b2b596600b4bcd27
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Przy użyciu systemu do innej domeny zarządzania tożsamościami do automatycznej aprowizacji użytkowników i grup z usługi Azure Active Directory do aplikacji
 
@@ -87,7 +87,7 @@ Aplikacje, które obsługują profilu SCIM opisane w tym artykule można podłą
 13. Kliknij przycisk **zapisać** można uruchomić usługi Azure AD, inicjowania obsługi usługi. 
 14. Jeśli synchronizacja przypisana tylko użytkownicy i grupy (zalecane), należy wybrać **użytkowników i grup** karcie i Przypisz użytkowników i/lub grup, które chcesz wykonać synchronizację.
 
-Po rozpoczęciu synchronizacji początkowej, można użyć **dzienniki inspekcji** kartę do monitorowania postępu, który pokazuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji. Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Po rozpoczęciu synchronizacji początkowej, można użyć **dzienniki inspekcji** kartę do monitorowania postępu, który pokazuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji. Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. 
@@ -159,7 +159,7 @@ Najprostszym sposobem wykonania SCIM punktu końcowego, który może zaakceptowa
 13. Kliknij przycisk **zapisać** można uruchomić usługi Azure AD, inicjowania obsługi usługi. 
 14. Jeśli synchronizacja przypisana tylko użytkownicy i grupy (zalecane), należy wybrać **użytkowników i grup** karcie i Przypisz użytkowników i/lub grup, które chcesz wykonać synchronizację.
 
-Po rozpoczęciu synchronizacji początkowej, można użyć **dzienniki inspekcji** kartę do monitorowania postępu, który pokazuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji. Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Po rozpoczęciu synchronizacji początkowej, można użyć **dzienniki inspekcji** kartę do monitorowania postępu, który pokazuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji. Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 Ostatnim krokiem podczas weryfikowania próbki jest można otworzyć pliku TargetFile.csv w folderze \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug na komputerze z systemem Windows. Po uruchomieniu procesu zastrzegania, ten plik zawiera szczegółowe informacje o całości przypisane i udostępnione użytkowników i grup.
 
@@ -359,7 +359,7 @@ Grupy zasobów są identyfikowane za pomocą identyfikatora schematu http://sche
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Domyślne mapowanie atrybutu użytkownika
 | Azure użytkownika usługi Active Directory | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Aktywne |
+| IsSoftDeleted |aktywne |
 | Nazwa wyświetlana |Nazwa wyświetlana |
 | TelephoneNumber faksu |.value phoneNumbers [eq typu "faks"] |
 | Imię |name.givenName |
@@ -378,12 +378,12 @@ Grupy zasobów są identyfikowane za pomocą identyfikatora schematu http://sche
 | PrincipalName użytkownika |Nazwa użytkownika |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Domyślne grupy atrybutów mapowanie
-| Grupa usługi Active Directory systemu Azure | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
+| Grupa usługi Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | Nazwa wyświetlana |externalId |
 | Poczty |.value wiadomości e-mail [eq typu "Praca"] |
 | mailNickname |Nazwa wyświetlana |
-| Elementy członkowskie |Elementy członkowskie |
+| członkowie |członkowie |
 | Identyfikator obiektu |id |
 | proxyAddresses |wiadomości e-mail [Wpisz eq "other"]. Wartość |
 

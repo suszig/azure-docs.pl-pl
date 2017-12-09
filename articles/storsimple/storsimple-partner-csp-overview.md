@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b9f4004eb69314ad9d4cdad0f7140b6f85af300b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 75d0bbc536c907e6530570b4d7568f39371cfced
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Co to jest StorSimple dla programu dostawców rozwiązań w chmurze?
 
@@ -29,7 +29,7 @@ Microsoft Azure StorSimple jest unikatowy podejście do magazynu przedsiębiorst
 
 Tablica wirtualnego StorSimple dla dostawcy rozwiązań chmury (CSP) umożliwia partnerom na wielką z tymi standardami. Partnerzy właścicielem cyklu życia end-to-end klienta z bezpośredniego inicjowania obsługi administracyjnej, rozliczeń i pomocy technicznej dla usługi w chmurze firmy Microsoft. Krótko mówiąc partnerzy mogą teraz transact StorSimple wraz z ich usług dla klientów.
 
-Aby uzyskać więcej informacji na temat StorSimple dla dostawcy usług Kryptograficznych, odwiedź stronę [dostawcy usług w Chmurze Azure — omówienie](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview) strony.
+Aby uzyskać więcej informacji na temat StorSimple dla dostawcy usług Kryptograficznych, odwiedź stronę [dostawcy usług w Chmurze Azure — omówienie](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) strony.
 
 Aby uzyskać więcej informacji dotyczących rozliczeń, ceny specjalne oferty promocyjne i uzyskiwania pomocy technicznej w dostawcy usług Kryptograficznych, przejdź do [StorSimple w dostawcy usług Kryptograficznych: często zadawane pytania dotyczące](storsimple-partner-csp-faq.md). 
 

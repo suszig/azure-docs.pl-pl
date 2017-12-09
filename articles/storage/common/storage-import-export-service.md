@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bf661e8970011aeb3b810056a11659d57258dde9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -250,11 +250,11 @@ Zobaczysz jednego z następujących stanów zadania, w zależności od tego, w k
 |:--- |:--- |
 | Tworzenie | Po utworzeniu zadania, jego stan jest ustawiony do tworzenia. Gdy zadanie jest w stanie tworzenie, usługa Import/Eksport przyjęto założenie, że dyski nie zostały wysłane do centrum danych. Zadania mogą pozostawać w stanie tworzenie do dwóch tygodni, po których zostanie on automatycznie usunięty przez usługę. |
 | Wysyłania | Po wysyłasz do pakietu, należy zaktualizować informacje o śledzeniu w portalu Azure.  To spowoduje wyłączenie zadania na "Wysyłki". Zadanie pozostanie w stanie wysyłania przez maksymalnie dwa tygodnie. 
-| Odebrano | Po otrzymaniu wszystkich dysków w centrum danych, stan zadania można ustawić odebrane. |
+| Odebrane | Po otrzymaniu wszystkich dysków w centrum danych, stan zadania można ustawić odebrane. |
 | Transferowanie | Po rozpoczęciu przetwarzania co najmniej jeden dysk transferowanie będzie można ustawić stan zadania. Zobacz poniższą sekcję stany stacji, aby uzyskać szczegółowe informacje. |
 | Tworzenie pakietów | Po zakończeniu wszystkich dysków przetwarzania, zadania zostaną umieszczone w stanie pakowania dopóki dyski są wysyłane z powrotem do. |
-| ukończone | Po wszystkie dyski zostały wysłane do klienta, jeśli zadanie zostało ukończone bez błędów, zadanie zostanie ustawiona do stanu ukończone. Zadania zostaną automatycznie usunięte po 90 dniach w stanie ukończone. |
-| zamknięte | Po wszystkie dyski zostały wysłane do klienta, jeśli pojawiły się błędy podczas przetwarzania zadania, zadanie zostanie ustawiona do stanie zamkniętym. Zadania zostaną automatycznie usunięte po 90 dniach w stanie zamkniętym. |
+| Ukończony | Po wszystkie dyski zostały wysłane do klienta, jeśli zadanie zostało ukończone bez błędów, zadanie zostanie ustawiona do stanu ukończone. Zadania zostaną automatycznie usunięte po 90 dniach w stanie ukończone. |
+| Zamknięte | Po wszystkie dyski zostały wysłane do klienta, jeśli pojawiły się błędy podczas przetwarzania zadania, zadanie zostanie ustawiona do stanie zamkniętym. Zadania zostaną automatycznie usunięte po 90 dniach w stanie zamkniętym. |
 
 W poniższej tabeli opisano cyklu życia poszczególnych dyskach, ponieważ przechodzi ona za pomocą zadania importu lub eksportu. Bieżący stan każdego dysku w ramach zadania jest teraz widoczne w portalu Azure.
 W poniższej tabeli opisano każdy stan każdego dysku w ramach zadania mogą przechodzić przez.
@@ -262,10 +262,10 @@ W poniższej tabeli opisano każdy stan każdego dysku w ramach zadania mogą pr
 | Stan stacji | Opis |
 |:--- |:--- |
 | Określona | Dla zadania importu po utworzeniu zadania w portalu Azure, stan początkowy dla dysku jest w stanie określona. Dla zadania eksportu ponieważ dysk nie zostanie wskazany po utworzeniu zadania stanu początkowego dysk jest w stanie odebrane. |
-| Odebrano | Dysk przejścia do stanu odebrane, gdy operator usługi Import/eksport został przetworzony dysków, które zostały odebrane od firmy wysyłania dla zadania importu. Dla zadania eksportu stan początkowy dysku jest w stanie Received. |
+| Odebrane | Dysk przejścia do stanu odebrane, gdy operator usługi Import/eksport został przetworzony dysków, które zostały odebrane od firmy wysyłania dla zadania importu. Dla zadania eksportu stan początkowy dysku jest w stanie Received. |
 | NeverReceived | Dysk zostanie przeniesione do stanu NeverReceived po odebraniu pakietu dla zadania, ale pakiet nie zawiera dysku. Dysku można również przenosić w tym stanie, jeśli został dwa tygodnie od momentu usługa odebrała informacji dotyczących wysyłki, ale pakiet nie ma jeszcze dotarły centrum danych. |
 | Transferowanie | Dysk zostanie przeniesione do stanu transferowanie, gdy usługa zaczyna się na przesyłanie danych z dysku do systemu Windows Azure Storage. |
-| ukończone | Dysku zostanie przejście do stanu ukończone, gdy usługa pomyślnie przeniósł wszystkich danych bez błędów.
+| Ukończony | Dysku zostanie przejście do stanu ukończone, gdy usługa pomyślnie przeniósł wszystkich danych bez błędów.
 | CompletedMoreInfo | Dysk będzie przejście do stanu CompletedMoreInfo, gdy usługa napotkał problemy podczas kopiowania danych z lub na dysku. Informacje mogą obejmować błędy, ostrzeżenia lub komunikaty informacyjne o zastępowaniu obiektów blob.
 | ShippedBack | Dysk spowoduje przejście do stanu ShippedBack, gdy zostały wydane z tyłu centrum danych na adres zwrotny. |
 
@@ -493,7 +493,7 @@ Nie. Należy wysłać dysków dla importu i eksportu zadania.
 
 ** Jak mają dostęp do danych zaimportowanych przez usługę **
 
-Dane na koncie magazynu Azure są dostępne za pośrednictwem portalu Azure lub za pomocą narzędzia Autonomiczny wywołana Eksploratora usługi Storage. https://docs.microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Dane na koncie magazynu Azure są dostępne za pośrednictwem portalu Azure lub za pomocą narzędzia Autonomiczny wywołana Eksploratora usługi Storage. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
 **Po zakończeniu zadania importu będzie moich danych jak wygląda na koncie magazynu? Zostaną zachowane Moje hierarchii katalogów?**
 

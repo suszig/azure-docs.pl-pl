@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
@@ -335,7 +335,7 @@ Standardowe usługi równoważenia obciążenia jest obecnie dostępny w tych ob
 
 ## <a name="sku-service-limits-and-abilities"></a>Ograniczenia usługi jednostki SKU i możliwości
 
-Azure [ograniczenia usługi dotyczące sieci](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) zastosować na region na subskrypcję. 
+Azure [ograniczenia usługi dotyczące sieci](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) zastosować na region na subskrypcję. 
 
 W poniższej tabeli porównano limity i możliwości usługi równoważenia obciążenia — podstawowe i standardowe jednostki SKU:
 
@@ -351,7 +351,7 @@ W poniższej tabeli porównano limity i możliwości usługi równoważenia obci
 |Scenariusze stref dostępności | Tylko Zonal | Zonal, Strefowo nadmiarowy, równoważenie obciążenia między strefy |
 | Algorytm SNAT ruchu wychodzącego | Na żądanie | Wstępnie przydzielonych |
 | Wychodzące SNAT frontonu zaznaczenia. | Nie można skonfigurować wiele kandydatów | Opcjonalna konfiguracja, aby zmniejszyć kandydatów |
-| Grupy zabezpieczeń sieci | Opcjonalnie w podsieci/karty Sieciowej | Wymagane |
+| Sieciowa grupa zabezpieczeń | Opcjonalnie w podsieci/karty Sieciowej | Wymagane |
 
 W poniższej tabeli porównano limity i możliwości publicznego adresu IP podstawowe i standardowe jednostki SKU:
 
@@ -361,7 +361,7 @@ W poniższej tabeli porównano limity i możliwości publicznego adresu IP podst
 | Szybkie IP mobilności | Nieobsługiwane | Dostępna |
 | Dostępność adresu VIP | Nieobsługiwane | Dostępna |
 | Liczniki | Nieobsługiwane | Dostępna |
-| Grupy zabezpieczeń sieci | Opcjonalnie na karcie interfejsu Sieciowego | Wymagane |
+| Sieciowa grupa zabezpieczeń | Opcjonalnie na karcie interfejsu Sieciowego | Wymagane |
 
 
 ## <a name="preview-sign-up"></a>Podgląd rejestracji

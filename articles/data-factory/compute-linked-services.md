@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Obliczenia bazy danych środowiskach obsługiwanych przez usługi fabryka danych Azure
 W tym artykule opisano różne środowiska obliczeniowe, w których można użyć do procesu lub przekształcenia danych. Podano również szczegółowe informacje o różnych konfiguracjach (na żądanie i użycie własnego) obsługiwane przez fabrykę danych podczas konfigurowania usług połączonych łączenia tych obliczeniowe środowisk do fabryki danych Azure.
@@ -106,7 +106,7 @@ Następujące JSON definiuje opartych na systemie Linux usługi HDInsight połą
 | clusterResourceGroup         | Klaster usługi HDInsight jest tworzony w tej grupie zasobów. | Tak      |
 | wartość TimeToLive                   | Limit czasu bezczynności klastra usługi HDInsight na żądanie. Określa, jak długo klastra usługi HDInsight na żądanie pozostaje aktywne po zakończeniu działania uruchamiania, jeśli w klastrze nie ma żadnych aktywnych działań. Minimalne dozwolone wartości to 5 minut (00: 05:00).<br/><br/>Na przykład jeśli uruchomienia działania trwa 6 minut i timetolive jest ustawiony na 5 minut, klaster pozostanie aktywności 5 minut po uruchomieniu 6 minut przetwarzania działania. Jeśli inny uruchamiania działania jest wykonywane z okna 6 minut, jednak jest przetwarzany przez tego samego klastra.<br/><br/>Tworzenie klastra usługi HDInsight na żądanie jest kosztowna operacja (może to potrwać pewien czas), użyj tak, to ustawienie jako potrzebne do zwiększenia wydajności fabryki danych przez ponowne użycie klastra usługi HDInsight na żądanie.<br/><br/>Jeśli wartość timetolive jest ustawiona na 0, klastra jest usuwany natychmiast po zakończeniu wykonywania działania. Natomiast jeśli ustawisz wysokiej wartości, klaster może pozostać bezczynny logowania na rozwiązywanie niektórych problemów z celem, ale może spowodować wysokich kosztów. Dlatego jest ważne, aby ustawić odpowiednią wartość, na podstawie Twoich potrzeb.<br/><br/>Jeśli skonfigurowana wartość timetolive właściwości wielu potoki można udostępniać wystąpienia klastra usługi HDInsight na żądanie. | Tak      |
 | clusterType                  | Typ klastra usługi HDInsight, który ma zostać utworzony. Dozwolone wartości to "hadoop" i "spark". Jeśli nie zostanie określony, wartością domyślną jest hadoop. | Nie       |
-| Wersja                      | Wersja klastra usługi HDInsight. Jeśli nie zostanie określony, jest przy użyciu bieżącej wersji usługi HDInsight w zdefiniowanej wartości domyślnej. | Nie       |
+| wersja                      | Wersja klastra usługi HDInsight. Jeśli nie zostanie określony, jest przy użyciu bieżącej wersji usługi HDInsight w zdefiniowanej wartości domyślnej. | Nie       |
 | hostSubscriptionId           | Identyfikator subskrypcji platformy Azure, używany do tworzenia klastra usługi HDInsight. Jeśli nie zostanie określony, używany identyfikator subskrypcji kontekst logowania do systemu Azure. | Nie       |
 | clusterNamePrefix           | Prefiks nazwy klastra HDI, sygnatura czasowa zostaną automatycznie dodane na końcu nazwy klastra| Nie       |
 | sparkVersion                 | Wersja platformy Spark, jeśli typ klastra jest "Spark" | Nie       |
@@ -136,7 +136,7 @@ Następujące JSON definiuje opartych na systemie Linux usługi HDInsight połą
 
 ### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
 
-Usługi HDInsight na żądanie połączone wymaga uwierzytelniania głównej usługi, do tworzenia klastrów usługi HDInsight w Twoim imieniu. Uwierzytelnianie głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej **współautora** roli subskrypcji lub grupy zasobów, w której jest tworzony klaster usługi HDInsight. Aby uzyskać szczegółowe instrukcje, zobacz [użycia portalu do tworzenia aplikacji i usług podmiot zabezpieczeń, który ma dostęp do zasobów usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
+Usługi HDInsight na żądanie połączone wymaga uwierzytelniania głównej usługi, do tworzenia klastrów usługi HDInsight w Twoim imieniu. Uwierzytelnianie głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej **współautora** roli subskrypcji lub grupy zasobów, w której jest tworzony klaster usługi HDInsight. Aby uzyskać szczegółowe instrukcje, zobacz [użycia portalu do tworzenia aplikacji i usług podmiot zabezpieczeń, który ma dostęp do zasobów usługi Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
 
 - Identyfikator aplikacji
 - Klucz aplikacji 

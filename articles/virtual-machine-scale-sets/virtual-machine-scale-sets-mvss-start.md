@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Więcej informacji na temat szablonów zestaw skali maszyny wirtualnej
 [Szablony usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) to doskonały sposób wdrażania grup powiązanych zasobów. Tej serii samouczek przedstawia sposób tworzenia szablonu zestaw minimalnej wielkości i sposobu modyfikowania ten szablon służy do potrzeb różnych scenariuszy. Wszystkie przykłady pochodzą od tego [repozytorium GitHub](https://github.com/gatneil/mvss). 
@@ -123,7 +123,7 @@ W takim przypadku istnieje tylko jeden element na liście sieci wirtualnej z pop
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Określ właściwości zestawu skali
-Zestawy skalowania ma wiele właściwości dostosowywania w zestawie skalowania maszyn wirtualnych. Aby uzyskać pełną listę tych właściwości, zobacz [dokumentacja interfejsu API REST zestawu skalowania](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). W tym samouczku będziemy ustawi tylko kilka właściwości często używane.
+Zestawy skalowania ma wiele właściwości dostosowywania w zestawie skalowania maszyn wirtualnych. Aby uzyskać pełną listę tych właściwości, zobacz [dokumentacja interfejsu API REST zestawu skalowania](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). W tym samouczku będziemy ustawi tylko kilka właściwości często używane.
 ### <a name="supply-vm-size-and-capacity"></a>Rozmiar maszyny Wirtualnej i pojemności
 Zestaw skalowania musi wiedzieć, jaki rozmiar maszyny Wirtualnej do utworzenia ("Nazwa jednostki sku") i jak wiele takich maszyn wirtualnych do utworzenia ("pojemność jednostki sku"). Aby wyświetlić rozmiarów maszyn wirtualnych, które są dostępne, zobacz [dokumentacji rozmiarów maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

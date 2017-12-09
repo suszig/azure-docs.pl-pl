@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 8ba153cf2775fe76c824e142ed9a181d0e956392
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Zabezpieczanie usługi RESTful przy użyciu certyfikatów klientów
 W artykule powiązane należy [tworzenia usługi RESTful](active-directory-b2c-custom-rest-api-netfw.md) który współdziała z usługi Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Szczegóły tego artykułu jak:
 Aby skonfigurować **usłudze Azure App Service** aby wymagać certyfikaty klienta, należy ustawić aplikacji sieci web `clientCertEnabled` lokacji ustawienie, aby *true*. Aby to zrobić, należy użyć interfejsu API REST. Ustawienie jest dostępne za pośrednictwem możliwości zarządzania w portalu Azure. Aby zlokalizować ustawienie, w aplikacji RESTful **ustawienia** menu, w obszarze **narzędzi programistycznych**, wybierz pozycję **Eksploratora zasobów**.
 
 >[!NOTE]
->Upewnij się, że planu usługi aplikacji Azure jest Standard lub większą. Aby uzyskać więcej informacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Upewnij się, że planu usługi aplikacji Azure jest Standard lub większą. Aby uzyskać więcej informacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Użyj [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure.com) można ustawić **clientCertEnabled** właściwości *true*, jak pokazano na poniższej ilustracji:
@@ -49,7 +49,7 @@ Użyj [Eksploratora zasobów Azure (wersja zapoznawcza)](https://resources.azure
 ![Ustawienie clientCertEnabled za pomocą Eksploratora zasobów Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Aby uzyskać więcej informacji o ustawieniu **clientCertEnabled** właściwości, zobacz [Konfigurowanie TLS wzajemnego uwierzytelniania dla aplikacji sieci web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Aby uzyskać więcej informacji o ustawieniu **clientCertEnabled** właściwości, zobacz [Konfigurowanie TLS wzajemnego uwierzytelniania dla aplikacji sieci web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Aby ułatwić spreparować wywołania interfejsu API REST, możesz też użyć [ARMClient](https://github.com/projectkudu/ARMClient) narzędzia.
@@ -165,7 +165,7 @@ Certyfikat klienta usługi Azure AD B2C wysyła do usługi RESTful nie podlegaj�
 W tej sekcji możesz dodać przykładowy kod platformy ASP.NET, która weryfikuje właściwości certyfikatu na potrzeby uwierzytelniania.
 
 > [!NOTE]
->Aby uzyskać więcej informacji dotyczących konfigurowania uwierzytelniania certyfikatu klienta usługi Azure App Service, zobacz [Konfigurowanie TLS wzajemnego uwierzytelniania dla aplikacji sieci web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Aby uzyskać więcej informacji dotyczących konfigurowania uwierzytelniania certyfikatu klienta usługi Azure App Service, zobacz [Konfigurowanie TLS wzajemnego uwierzytelniania dla aplikacji sieci web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 Dodaj ustawienia aplikacji do pliku web.config projektu
 W projekt programu Visual Studio, który został utworzony wcześniej, należy dodać następujące ustawienia aplikacji, aby *web.config* plików po `appSettings` elementu:

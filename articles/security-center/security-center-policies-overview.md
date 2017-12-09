@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Omówienie zasad zabezpieczeń
 Ten artykuł zawiera omówienie zasad zabezpieczeń w Centrum zabezpieczeń.
@@ -29,7 +29,7 @@ Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń ora
 Zasady usługi Security Center zawierają następujące składniki:
 
 - **Zbieranie danych**: Określa agenta inicjowania obsługi administracyjnej i [zbierania danych](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ustawienia.
-- **Zasady zabezpieczeń**: Określa, który kontroluje monitorów Centrum zabezpieczeń i zaleca. Można edytować [zasady zabezpieczeń](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) w Centrum zabezpieczeń. Można również użyć [zasadami Azure](security-center-azure-policy.md) (w wersji zapoznawczej ograniczone) do tworzenia nowych definicji, zdefiniuj dodatkowe zasady, a przypisanie zasad w grupach zarządzania.
+- **Zasady zabezpieczeń**: Określa, który kontroluje monitorów Centrum zabezpieczeń i zaleca. Można edytować [zasady zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-policies) w Centrum zabezpieczeń. Można również użyć [zasadami Azure](security-center-azure-policy.md) (w wersji zapoznawczej ograniczone) do tworzenia nowych definicji, zdefiniuj dodatkowe zasady, a przypisanie zasad w grupach zarządzania.
 - **Wiadomości e-mail z powiadomieniami**: Określa kontaktów zabezpieczeń i [powiadomień e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) ustawienia.
 - **Warstwa cenowa**: definiuje wolnego lub standard [cennik wybór](https://docs.microsoft.com/azure/security-center/security-center-pricing). Wybranej warstwie określa funkcji Centrum zabezpieczeń, które są dostępne dla zasobów w zakresie. Można określić warstwy dla subskrypcji, grupy zasobów i obszarów roboczych. 
 
@@ -46,11 +46,11 @@ W tym artykule przedstawiono informacje dotyczące zasad zabezpieczeń w Centrum
 
 * [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md): informacje o sposobie konfigurowania zasad zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
 * [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md): Dowiedz się, w jaki sposób zalecenia Centrum zabezpieczeń ułatwiają ochronę zasobów platformy Azure.
-* [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md): informacje o sposobie monitorowania kondycji zasobów platformy Azure.
+* [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 - [Bezpieczeństwo danych w Centrum zabezpieczeń Azure](security-center-data-security.md): Dowiedz się, jak zarządza i zabezpiecza dane w Centrum zabezpieczeń.
-* [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md): odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
+* [Azure Security Center — często zadawane pytania](security-center-faq.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/): Pobierz najnowsze zabezpieczeń platformy Azure i informacje.
 
 

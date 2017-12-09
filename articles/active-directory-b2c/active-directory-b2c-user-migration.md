@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 131e475a7f313d5844bb93332da183053f8e604c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Usługi Azure Active Directory B2C: Migracja użytkowników
 Podczas migracji dostawcy tożsamości do usługi Azure Active Directory B2C (Azure AD B2C), może być również konieczne migracji konta użytkownika. W tym artykule opisano sposób migracji istniejących kont użytkowników z dowolnego dostawcy tożsamości do usługi Azure AD B2C. Artykuł nie ma mieć charakter opisowy, ale raczej opisano dwa różne podejścia. Deweloper jest odpowiedzialny za przydatności każdego z podejść.
 
 ## <a name="user-migration-flows"></a>Przepływy migracji użytkownika
-Z usługi Azure AD B2C można migrować użytkowników za pomocą [interfejsu API programu Graph](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Proces migracji użytkownik należy do dwóch przepływów:
+Z usługi Azure AD B2C można migrować użytkowników za pomocą [interfejsu API programu Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Proces migracji użytkownik należy do dwóch przepływów:
 
 * **Przed migracją**: ten przepływ ma zastosowanie, gdy masz albo wyczyść dostęp do poświadczeń użytkownika (nazwy użytkownika i hasła) lub poświadczenia są szyfrowane, ale można je odszyfrować. Proces migracji wstępnej obejmuje odczytywanie użytkowników ze starego dostawcy tożsamości i tworzenia nowych kont w katalogu usługi Azure AD B2C.
 
@@ -61,7 +61,7 @@ Najpierw zarejestrować aplikację migracji w usłudze Azure AD. Utwórz klucz a
 
 5. Wybierz **nowej rejestracji aplikacji**.
 
-    ![Nowej rejestracji aplikacji](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+    ![Rejestrowanie nowej aplikacji](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
 
 6. Tworzenie nowej aplikacji, wykonując następujące czynności:
     * Dla **nazwa**, użyj **B2CUserMigration** lub inna nazwa ma.
@@ -100,7 +100,7 @@ Odczyt i zapis w katalogu danych uprawnienia *nie* mają prawo do usuwania użyt
 > Należy użyć konta administratora dzierżawy B2C, która jest *lokalnego* do dzierżawy B2C. Składnia nazwy konta jest  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> Poniższy skrypt programu PowerShell wymaga [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Poniższy skrypt programu PowerShell wymaga [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 Ten skrypt programu PowerShell wykonaj następujące czynności:
 1. Łączenie z usługą online. Aby to zrobić, uruchom `Connect-AzureAD` polecenia cmdlet w programie Windows PowerShell, wiersz polecenia i wprowadź swoje poświadczenia. 
@@ -148,7 +148,7 @@ Aby edytować plik JSON, otwórz `AADB2C.UserMigration.sln` rozwiązania Visual 
 ![Plik danych użytkownika](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Jak widać, plik zawiera listę jednostkami użytkownika. Każdy obiekt użytkownika ma następujące właściwości:
-* Adres e-mail
+* wyślij wiadomość e-mail
 * Nazwa wyświetlana
 * Imię
 * Nazwisko
@@ -278,7 +278,7 @@ Aby śledzić zmiany hasła, należy użyć tabeli platformy Azure. Po uruchomie
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Krok 4.2: Wdrażanie aplikacji sieci web w usłudze Azure App Service
-Opublikuj usługi interfejsu API w usłudze Azure App Service. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji w usłudze Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Opublikuj usługi interfejsu API w usłudze Azure App Service. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Krok 4.3: Dodawanie techniczne profilu i sprawdzania poprawności profilu techniczne do zasad 
 1. W katalogu roboczym, otwórz *TrustFrameworkExtensions.xml* rozszerzenia pliku zasad. 
@@ -384,7 +384,7 @@ Można wyświetlać i monitorować rejestrowanie informacji w czasie niemal rzec
 
 6. Sprawdź dane wyjściowe interfejsu API RESTful.
 
-Aby uzyskać więcej informacji, zobacz [przesyłania strumieniowego dzienników i konsoli](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Aby uzyskać więcej informacji, zobacz [przesyłania strumieniowego dzienników i konsoli](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Użyj dzienników diagnostycznych tylko w czasie projektowania i testowania. Interfejs API RESTful danych wyjściowych może zawierać informacje poufne, które nie powinny zostać ujawnione w środowisku produkcyjnym.

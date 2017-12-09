@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: 3ab858f98077149983ca12e97a621dac18bb580c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="my-first-python-runbook"></a>Moje pierwszego elementu runbook języka Python
 
@@ -213,5 +213,5 @@ Kliknij przycisk **OK** można uruchomić elementu runbook. Element runbook uruc
 * Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz artykuł [My first graphical runbook](automation-first-runbook-graphical.md) (Mój pierwszy graficzny element Runbook).
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).
 * Aby dowiedzieć się więcej na temat typów elementów Runbook, ich zalet i ograniczeń, zobacz [Azure Automation runbook types](automation-runbook-types.md) (Typy elementów Runbook usługi Azure Automation).
-* Aby dowiedzieć się więcej o tworzeniu aplikacji Azure z języka Python, zobacz [Azure dla deweloperów języka Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Aby wyświetlić przykładowe elementy runbook 2 języka Python, zobacz [GitHub automatyzacji Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Aby dowiedzieć się więcej o tworzeniu aplikacji Azure z języka Python, zobacz [Azure dla deweloperów języka Python](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Aby wyświetlić przykładowe elementy runbook 2 języka Python, zobacz [GitHub automatyzacji Azure](https://docs.microsoft.com/python/azure/?view=azure-python).

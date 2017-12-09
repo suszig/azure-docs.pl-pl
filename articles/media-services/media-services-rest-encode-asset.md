@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c7650fe4e10b9dcfe6068152398922723587a658
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodowanie elementu zawartości przy użyciu standardu Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -52,9 +52,6 @@ Przed rozpoczęciem odwołujące się do procesory multimediów, sprawdź, czy p
 
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Utwórz zadanie z jednego zadania kodowania
 > [!NOTE]
 > Podczas pracy z interfejsu API REST usług Media następujące kwestie:
@@ -63,7 +60,7 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API us�
 >
 > Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI. Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
-> Po użyciu JSON i określając do użycia **__metadata** — słowo kluczowe w żądaniu (na przykład aby odwołuje się do obiektu połączonego), należy ustawić **Zaakceptuj** nagłówka do [formatu JSON pełne](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Zaakceptuj: application/json; odata = pełne.
+> Po użyciu JSON i określając do użycia **__metadata** — słowo kluczowe w żądaniu (na przykład do odwołania obiektu połączonego), należy ustawić **Zaakceptuj** nagłówka do [formatu JSON pełne](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Zaakceptuj: application/json; odata = pełne.
 >
 >
 
@@ -76,7 +73,7 @@ Poniższy przykład przedstawia sposób tworzenia i post zadania z jednego zadan
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -95,7 +92,7 @@ Poniższy przykład przedstawia sposób ustawiania atrybutu assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
-* Aby określić ilość danych wejściowych lub wyjściowych zasoby, które są używane przez zadanie taskbody — właściwości należy użyć literału XML. Temat zadania zawiera definicję schematu XML dla pliku XML.
+* Aby określić ilość danych wejściowych lub wyjściowych zasoby, które są używane przez zadanie taskbody — właściwości należy użyć literału XML. Artykuł zadanie zawiera definicję schematu XML dla pliku XML.
 * W definicji taskbody — wartość każdego wewnętrzny <inputAsset> i <outputAsset> musi być ustawiona jako JobInputAsset(value) lub JobOutputAsset(value).
 * Zadanie może mieć wielu zasobów danych wyjściowych. Jako dane wyjściowe zadania w ramach zadania jeden JobOutputAsset(x) można można użyć tylko raz.
 * JobInputAsset lub JobOutputAsset można określić jako zasób wprowadzania zadania.
@@ -118,7 +115,7 @@ W wielu scenariuszach aplikacji deweloperzy chcą tworzyć serie przetwarzania z
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -162,7 +159,7 @@ Poniższy przykład pokazuje, jak tworzyć zadania i zadania przy użyciu przetw
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -182,7 +179,7 @@ Poniższy przykład pokazuje, jak tworzyć zadania i zadania przy użyciu przetw
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -199,7 +196,7 @@ Poniższy przykład pokazuje, jak tworzyć zadania i zadania przy użyciu przetw
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -223,7 +220,7 @@ Poniższy przykład pokazuje, jak utworzyć obiekt JobTemplate z TaskTemplate, k
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 
@@ -250,7 +247,7 @@ Poniższy przykład przedstawia sposób tworzenia zadania, który odwołuje się
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 

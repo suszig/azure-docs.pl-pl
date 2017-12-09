@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Przycinanie zabezpieczeń z usługi Azure Search
 
@@ -108,13 +108,13 @@ Jeśli musisz zaktualizować istniejący dokument z listy grup, można użyć `m
 }
 ```
 
-Aby uzyskać szczegółowe informacje dotyczące dodawania lub aktualizowania dokumentów, możesz przeczytać [edycji dokumentów](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Aby uzyskać szczegółowe informacje dotyczące dodawania lub aktualizowania dokumentów, możesz przeczytać [edycji dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Zastosuj filtr zabezpieczeń
 
 Aby przyciąć dokumentów na podstawie `group_ids` dostępu, powinien wystawiać zapytania wyszukiwania z `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtru, gdzie "group_id1 group_id2..." grup, do których należy wystawcy żądania wyszukiwania.
 Ten filtr dopasowuje wszystkie dokumenty dla którego `group_ids` pole zawiera jeden z danym identyfikatorów.
-Aby uzyskać szczegółowe informacje na wyszukiwanie dokumentów za pomocą usługi Azure Search, możesz przeczytać [dokumenty wyszukiwania](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Aby uzyskać szczegółowe informacje na wyszukiwanie dokumentów za pomocą usługi Azure Search, możesz przeczytać [dokumenty wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Należy pamiętać, że w tym przykładzie przedstawiono sposób wyszukiwania dokumentów za pomocą żądania POST.
 
 Problem żądanie HTTP POST:

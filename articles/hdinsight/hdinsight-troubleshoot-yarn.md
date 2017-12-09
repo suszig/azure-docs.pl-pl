@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z YARN za pomocą usługi Azure HDInsight
 
@@ -35,7 +35,7 @@ Wykonaj następujące kroki w Ambari, aby utworzyć nową kolejkę YARN, a nast�
 W tym przykładzie dwie istniejącej kolejki (**domyślne** i **thriftsvr**) zarówno są zmieniane przy użyciu pojemności 50% do 25% pojemności, zapewniający możliwości 50% kolejki (spark).
 | Kolejka | Pojemność | Maksymalna pojemność |
 | --- | --- | --- | --- |
-| Domyślne | 25% | 50% |
+| domyślnie | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Platforma Spark | 50% | 50% |
 
@@ -139,7 +139,7 @@ Te zmiany są widoczne natychmiast na Interfejsie użytkownika YARN harmonogramu
 
 ### <a name="additional-reading-2"></a>Dodatkowe materiały
 
-- [Nawiązać połączenia z usługą HDInsight (Hadoop) przy użyciu protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Nawiązać połączenia z usługą HDInsight (Hadoop) przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN pojęcia i aplikacji](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

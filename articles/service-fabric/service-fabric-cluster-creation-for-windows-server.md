@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie autonomicznych klastra w systemie Windows Server
 Sieć szkieletowa usług Azure służy do tworzenia klastrów sieci szkieletowej usług na dowolnym maszyn wirtualnych lub komputerach z systemem Windows Server. Oznacza to, można wdrażać i uruchamianie aplikacji platformy Service Fabric w dowolnym środowisku, które zawiera zestaw połączonych komputerów z systemem Windows Server, lokalnie i z każdego dostawcy chmury. Usługa Service Fabric realizuje pakietu instalacyjnego do tworzenia klastrów sieci szkieletowej usług o nazwie autonomicznych pakietu systemu Windows Server.
@@ -36,7 +36,7 @@ W tym artykule przedstawiono kroki tworzenia klastra usługi sieć szkieletowa a
 * Poproś społeczność o pakiecie autonomicznej usługi sieć szkieletowa usług dla systemu Windows Server w [forum usługi Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Otwórz bilet dla [Professional obsługę sieci szkieletowej usług](http://support.microsoft.com/oas/default.aspx?prid=16146).  Dowiedz się więcej na temat pomocy technicznej Professional firmy Microsoft [tutaj](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Można również uzyskać pomoc techniczną dla tego pakietu, jako część [pomocy technicznej Microsoft Premier](https://support.microsoft.com/en-us/premier).
-* Aby uzyskać więcej informacji, zobacz [opcje pomocy technicznej usługi Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Aby uzyskać więcej informacji, zobacz [opcje pomocy technicznej usługi Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Do zbierania dzienników dla celów pomocy technicznej, uruchom [logowania do usługi sieci szkieletowej autonomiczny moduł zbierający](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>

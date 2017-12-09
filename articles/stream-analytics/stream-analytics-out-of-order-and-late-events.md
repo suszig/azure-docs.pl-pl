@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics zdarzeń kolejności brany pod uwagę
 
 ## <a name="understand-arrival-time-and-application-time"></a>Dowiedz się, Godzina nadejścia i czas aplikacji.
 
-W strumieniu danych czasowych zdarzeń każdego zdarzenia jest przypisany sygnatury czasowej. Usługa Azure Stream Analytics przypisuje sygnatury czasowej każdego zdarzenia przy użyciu Godzina nadejścia lub czasu aplikacji. Kolumna "System.Timestamp" ma sygnaturę czasową przypisany do zdarzenia. Godzina nadejścia jest przypisywany w źródła danych wejściowych, gdy zdarzenie osiągnie źródła. Godzina nadejścia jest EventEnqueuedTime reakcję Centrum zdarzeń i [obiektu blob Data ostatniej modyfikacji](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) dla obiekt blob danych wejściowych. Czas aplikacji jest przypisany, gdy zostanie wygenerowane zdarzenie i jest częścią ładunku. Do przetworzenia zdarzenia według czasu aplikacji, użyj klauzuli "Sygnatury czasowej przez" w wykonywania zapytania select. Jeśli w klauzuli "Sygnatury czasowej przez" jest nieobecne, zdarzenia są przetwarzane przez Godzina nadejścia. Godzina nadejścia jest możliwy przy użyciu właściwości EventEnqueuedTime dla Centrum zdarzeń i właściwości BlobLastModified dla obiekt blob danych wejściowych. Usługa Azure Stream Analytics generuje dane wyjściowe w kolejności znaczników czasu i udostępnia kilka ustawień radzenia sobie z danych poza kolejnością.
+W strumieniu danych czasowych zdarzeń każdego zdarzenia jest przypisany sygnatury czasowej. Usługa Azure Stream Analytics przypisuje sygnatury czasowej każdego zdarzenia przy użyciu Godzina nadejścia lub czasu aplikacji. Kolumna "System.Timestamp" ma sygnaturę czasową przypisany do zdarzenia. Godzina nadejścia jest przypisywany w źródła danych wejściowych, gdy zdarzenie osiągnie źródła. Godzina nadejścia jest EventEnqueuedTime reakcję Centrum zdarzeń i [obiektu blob Data ostatniej modyfikacji](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) dla obiekt blob danych wejściowych. Czas aplikacji jest przypisany, gdy zostanie wygenerowane zdarzenie i jest częścią ładunku. Do przetworzenia zdarzenia według czasu aplikacji, użyj klauzuli "Sygnatury czasowej przez" w wykonywania zapytania select. Jeśli w klauzuli "Sygnatury czasowej przez" jest nieobecne, zdarzenia są przetwarzane przez Godzina nadejścia. Godzina nadejścia jest możliwy przy użyciu właściwości EventEnqueuedTime dla Centrum zdarzeń i właściwości BlobLastModified dla obiekt blob danych wejściowych. Usługa Azure Stream Analytics generuje dane wyjściowe w kolejności znaczników czasu i udostępnia kilka ustawień radzenia sobie z danych poza kolejnością.
 
 
 ## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics obsługę wielu strumieni

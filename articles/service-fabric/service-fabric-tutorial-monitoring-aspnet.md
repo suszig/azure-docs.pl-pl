@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorowanie i diagnozowanie aplikacji platformy ASP.NET Core w sieci szkieletowej usług
 W tym samouczku jest częścią czterech serii. Przechodzi ona przez proces konfigurowania monitorowania i diagnostyki dla aplikacji platformy ASP.NET Core w klastrze usługi sieć szkieletowa usług za pomocą usługi Application Insights. Firma Microsoft będzie zbierać dane telemetryczne z aplikacji, w pierwszej części samouczka [tworzenia aplikacji sieci szkieletowej usług .NET](service-fabric-tutorial-create-dotnet-app.md). 
@@ -235,4 +235,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Teraz, gdy zostaną zakończone konfigurowania, monitorowania i diagnostyki dla aplikacji ASP.NET, należy spróbować wykonać następujące czynności:
 - [Eksploruj monitorowania i diagnostyki w sieci szkieletowej usług](service-fabric-diagnostics-overview.md)
 - [Analiza zdarzeń usługi sieć szkieletowa z usługą Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Aby dowiedzieć się więcej na temat usługi Application Insights, zobacz [Application Insights dokumentacji](https://docs.microsoft.com/en-us/azure/application-insights/)
+- Aby dowiedzieć się więcej na temat usługi Application Insights, zobacz [Application Insights dokumentacji](https://docs.microsoft.com/azure/application-insights/)

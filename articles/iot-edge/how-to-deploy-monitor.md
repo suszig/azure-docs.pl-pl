@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c0a102cac9b5b7bd284de6f5f51b75386c2581fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Wdrażanie i monitorowanie krawędzi IoT modułów na dużą skalę — w wersji preview
 
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji na temat twins urządzenia i tagów, zobacz [opi
 
 ## <a name="create-a-deployment"></a>Tworzenie wdrożenia
 
-1. Zaloguj się do [portalu Azure] [ lnk-portal] i przejdź do Centrum IoT. 
+1. W [portalu Azure][lnk-portal], przejdź do Centrum IoT. 
 1. Wybierz **IoT krawędzi (wersja zapoznawcza)**.
 1. Wybierz **Dodaj wdrożenie krawędzi IoT**.
 
@@ -61,26 +61,25 @@ Po utworzeniu wdrożenia z modułów nie usuwa wszystkie istniejące moduły z u
 >[!NOTE]
 >Uczenie maszynowe Azure i usługi Azure Functions nie obsługuje jeszcze wdrożenie zautomatyzowane usługi Azure. Aby ręcznie dodać tych usług do wdrożenia przy użyciu wdrażania niestandardowego modułu. 
 
-Aby dodać moduł platformy Azure z usługi, wykonaj następujące kroki:
-1. Wybierz **moduł krawędzi IoT usługi Azure Dodaj**.
+Aby dodać moduł z usługi Azure Stream Analytics, wykonaj następujące kroki:
+1. Wybierz **modułu importu Azure Stream Analytics IoT krawędzi**.
 1. Użyj menu rozwijanego, aby wybrać wystąpienia usługi Azure, które mają zostać wdrożone.
-1. Wybierz **zapisać** Aby dodać moduły do wdrożenia. 
+1. Wybierz **zapisać** można dodać modułu do wdrożenia. 
 
 Aby dodać kod niestandardowy jako moduł lub ręcznie Dodaj moduł usługi Azure, wykonaj następujące kroki:
-1. Wybierz **Dodaj niestandardowego modułu krawędzi IoT**.
+1. Wybierz **modułu dodawanie krawędzi IoT**.
 1. Nadaj modułu **nazwa**.
-1. Aby uzyskać **obrazu** wprowadź obrazu kontenera Docker dla tego modułu: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Użyj menu rozwijanych w obszarze **OS** i **architektura** do identyfikowania właściwości kontenera Docker, reprezentujący ten moduł. 
-1. Określ dowolne **opcje tworzenia** powinien zostać przekazany do kontenera. Aby uzyskać więcej informacji, zobacz [docker Utwórz][lnk-docker-create].
+1. Aby uzyskać **identyfikatora URI obrazu** wprowadź obrazu kontenera Docker dla modułu. 
+1. Określ dowolne **opcje tworzenia kontenera** powinien zostać przekazany do kontenera. Aby uzyskać więcej informacji, zobacz [docker Utwórz][lnk-docker-create].
 1. Użyj menu rozwijanego, aby wybrać **ponowne uruchomienie zasad**. Wybierz spośród następujących opcji: 
    * **Zawsze** — moduł zawsze zostanie ponownie uruchomiony Jeśli zamykania różnych przyczyn.
    * **Nigdy nie** — moduł nigdy nie uruchamia ponownie Jeśli zamykania różnych przyczyn.
    * **Nie powiodło się** — moduł ponowne uruchomienie, jeśli awarii, ale nie Jeśli zostanie zamknięty prawidłowo. 
    * **Na zła** — moduł ponowne uruchomienie, jeśli jest on awarii lub zwraca stan złej kondycji. To poszczególnych modułów do implementowania funkcji stan kondycji. 
-1. Użyj menu rozwijanego, aby wybrać początkową **stan** dla modułu. Wybierz spośród następujących opcji:
+1. Użyj menu rozwijanego, aby wybrać **żądanego stanu** dla modułu. Wybierz spośród następujących opcji:
    * **Uruchomiona** — jest to opcja domyślna. Moduł zostanie uruchomione natychmiast po wdrożeniu.
    * **Zatrzymano** — po wdrożeniu, moduł może pozostawać bezczynny, aż do uruchomienia przez użytkownika lub innego modułu.
-1. Wybierz **edycji modułu dwie** Jeśli chcesz dodać znaczniki lub odpowiednie właściwości do modułu. 
+1. Wybierz **włączyć** Jeśli chcesz dodać do modułu dwie znaczniki lub odpowiednie właściwości. 
 1. Wybierz **zapisać** można dodać modułu do wdrożenia. 
 
 Po utworzeniu wszystkich modułów wdrożenia skonfigurowane, wybierz **dalej** aby przejść do kroku 3.
@@ -172,7 +171,7 @@ Po usunięciu wdrożenia żadnych urządzeń przełączyć na ich dalej wdrożen
 Dowiedz się więcej o [wdrożenie modułów urządzenia brzegowe][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

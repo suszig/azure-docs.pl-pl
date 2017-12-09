@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Do usługi uwierzytelniania usługi Azure Key Vault przy użyciu platformy .NET
 
@@ -28,7 +28,7 @@ Przy użyciu poświadczeń developer podczas tworzenia lokalnego jest bezpieczni
 
 `Microsoft.Azure.Services.AppAuthentication` Biblioteki zarządza uwierzytelniania automatycznie, co z kolei pozwala skupić się na rozwiązaniu, a nie poświadczenia.
 
-`Microsoft.Azure.Services.AppAuthentication` Biblioteki obsługuje tworzenie lokalnych za pomocą programu Microsoft Visual Studio, Azure CLI lub zintegrowane uwierzytelnianie usługi Azure AD. Po wdrożeniu usługi aplikacji Azure lub maszyny wirtualnej Azure (VM), biblioteka automatycznie używa [zarządzane tożsamość usługi](/azure/active-directory/msi-overview) (MSI). Zmiany nie kod lub konfiguracji są wymagane. Biblioteka obsługuje również bezpośredniego użycia usługi Azure AD [poświadczeń klienta](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) gdy MSI jest niedostępny lub gdy dewelopera kontekstu zabezpieczeń nie można określić podczas tworzenia lokalnego.
+`Microsoft.Azure.Services.AppAuthentication` Biblioteki obsługuje tworzenie lokalnych za pomocą programu Microsoft Visual Studio, Azure CLI lub zintegrowane uwierzytelnianie usługi Azure AD. Po wdrożeniu usługi aplikacji Azure lub maszyny wirtualnej Azure (VM), biblioteka automatycznie używa [zarządzane tożsamość usługi](/azure/active-directory/msi-overview) (MSI). Zmiany nie kod lub konfiguracji są wymagane. Biblioteka obsługuje również bezpośredniego użycia usługi Azure AD [poświadczeń klienta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) gdy MSI jest niedostępny lub gdy dewelopera kontekstu zabezpieczeń nie można określić podczas tworzenia lokalnego.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Za pomocą biblioteki
@@ -57,7 +57,7 @@ W przypadku aplikacji .NET Najprostszym sposobem, aby pracować z zarządzania u
 
 `AzureServiceTokenProvider` Klasy buforuje token w pamięci i przywraca je z usługi Azure AD tylko przed jego wygaśnięciem. W rezultacie nie można już do sprawdzenia wygaśnięcia przed wywołaniem `GetAccessTokenAsync` metody. Po prostu Wywołaj metodę umożliwia korzystanie z tokenu. 
 
-`GetAccessTokenAsync` Metoda wymaga identyfikatorem zasobu. Aby dowiedzieć się więcej, zobacz [usług Azure która obsługuje zarządzane tożsamość usługi](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+`GetAccessTokenAsync` Metoda wymaga identyfikatorem zasobu. Aby dowiedzieć się więcej, zobacz [usług Azure która obsługuje zarządzane tożsamość usługi](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Podręczniku rozwiązywania problemów z szyfrowania dysków Azure
 
@@ -36,7 +36,7 @@ Ten błąd jest najbardziej prawdopodobne, próba szyfrowania dysku systemu oper
 - Dysk systemu operacyjnego wykorzystuje schemat menedżera woluminu logicznego (LVM). Ograniczona obsługa dysku danych LVM jest dostępne, nie jest dysk systemu operacyjnego LVM.
 - Nie spełniono wymagania dotyczące minimalnej ilości pamięci (7 GB jest zalecane do szyfrowania dysku systemu operacyjnego).
 - Dyski danych są rekursywnie zainstalowanego w ramach katalogu /mnt/ lub każdego innego (na przykład /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Inne szyfrowania dysków Azure [wymagania wstępne](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) dla systemu Linux nie są spełnione.
+- Inne szyfrowania dysków Azure [wymagania wstępne](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) dla systemu Linux nie są spełnione.
 
 ## <a name="unable-to-encrypt"></a>Nie można zaszyfrować
 

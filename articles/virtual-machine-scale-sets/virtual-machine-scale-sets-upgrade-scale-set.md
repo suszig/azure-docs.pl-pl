@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Uaktualnij zestaw skali maszyny wirtualnej
 W tym artykule opisano, jak można wdrożeniem aktualizacji systemu operacyjnego do skali maszyny wirtualnej platformy Azure, bez żadnych przestojów. W tym kontekście aktualizacji systemu operacyjnego obejmuje zmiana wersji lub wersji systemu operacyjnego lub zmiana identyfikatora URI obrazu niestandardowego. Aktualizowanie bez przestojów aktualizowanie maszyn wirtualnych co pojedynczo lub w grupach (na przykład w jednej domenie błędów w czasie) zamiast jednocześnie. W ten sposób można zachować uruchomiona żadnych maszyn wirtualnych, które nie jest uaktualniany.
@@ -31,7 +31,7 @@ Aby uniknąć niejednoznaczności, ta funkcja pozwala odróżnić cztery typy ak
 * Zmiana odwołanie do obrazu zestawu skalowania, który został utworzony przy użyciu dysków zarządzanych platformy Azure.
 * Stosowanie poprawek systemu operacyjnego z poziomu maszyny wirtualnej (to przykłady instalowania poprawki zabezpieczeń i uruchamiania usługi Windows Update). Ten scenariusz jest obsługiwany, ale nie zostały omówione w tym artykule.
 
-Zestawy skalowania maszyn wirtualnych, które są wdrażane w ramach [sieć szkieletowa usług Azure](https://azure.microsoft.com/services/service-fabric/) klastra nie zostały omówione w tym miejscu. Zobacz [poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) Aby uzyskać więcej informacji na temat stosowania poprawek sieci szkieletowej usług.
+Zestawy skalowania maszyn wirtualnych, które są wdrażane w ramach [sieć szkieletowa usług Azure](https://azure.microsoft.com/services/service-fabric/) klastra nie zostały omówione w tym miejscu. Zobacz [poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) Aby uzyskać więcej informacji na temat stosowania poprawek sieci szkieletowej usług.
 
 Zmiana wersji systemu operacyjnego/SKU obrazu platformy lub identyfikator URI niestandardowego obrazu podstawowego sekwencji wygląda następująco:
 

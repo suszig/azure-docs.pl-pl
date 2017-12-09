@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Użyj usługi Azure Key Vault z aplikacji sieci Web
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Obecnie najprostszym sposobem uwierzytelniania jest użycie nowej funkcji Tożsamość usługi zarządzanej (MSI, Managed Service Identity). Więcej szczegółowych informacji można znaleźć za pomocą następującego linku prowadzącego do przykładu demonstrującego użycie [usługi Key Vault z tożsamością usługi zarządzanej w aplikacji w środowisku .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/). Pomocny będzie też pokrewny [samouczek dotyczący używania tożsamości usługi zarządzanej z usługami App Service i Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Obecnie najprostszym sposobem uwierzytelniania jest użycie nowej funkcji Tożsamość usługi zarządzanej (MSI, Managed Service Identity). Więcej szczegółowych informacji można znaleźć za pomocą następującego linku prowadzącego do przykładu demonstrującego użycie [usługi Key Vault z tożsamością usługi zarządzanej w aplikacji w środowisku .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/). Pomocny będzie też pokrewny [samouczek dotyczący używania tożsamości usługi zarządzanej z usługami App Service i Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Przy użyciu Identyfikatora klienta i klucz tajny klienta jest innym sposobem uwierzytelniania aplikacji usługi Azure AD. I używania go w aplikacji sieci web umożliwia rozdzielenie obowiązków i większą kontrolę nad zarządzania infrastrukturą kluczy. Jednak zależne umieszczanie klucz tajny klienta w ustawieniach konfiguracji, które może być ryzykowne jako jako wprowadzanie hasła, które mają być chronione w ustawieniach konfiguracji dla niektórych. Zobacz poniżej, aby uzyskać informacje na temat korzystania z Identyfikatorem klienta i certyfikat zamiast identyfikator klienta i klucz tajny klienta do uwierzytelniania aplikacji usługi Azure AD.
 
 ## <a id="appstart"></a>Pobierz klucz tajny aplikacji Start

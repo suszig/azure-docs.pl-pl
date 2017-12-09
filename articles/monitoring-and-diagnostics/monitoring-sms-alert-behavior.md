@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Zachowanie w grupach akcji alertów programu SMS
 ## <a name="overview"></a>Omówienie ##
@@ -37,15 +37,15 @@ Odbiornik programu SMS, który jest skonfigurowany jako część grupy akcji, ot
 - Nazwa alertu
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Anulowanie subskrypcji alertów programu SMS dla jednej grupy akcji
-Użytkownik może zrezygnować z SMS alertów dla grupy jedną akcję odpowiedzi do kodu 20873 ze słowami kluczowymi: "Wyłączanie &lt;nazwa_skrócona grupy akcji&gt;".
+Użytkownik może zrezygnować z SMS alertów dla grupy jedną akcję odpowiedzi na krótki kod 29873 ze słowami kluczowymi: "Wyłączanie &lt;nazwa_skrócona grupy akcji&gt;".
 
-Przykład. Użytkownika nie chcesz otrzymywać alerty dotyczące grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS do kodu 20873 mówi "Wyłącz Azure"
+Przykład. Użytkownika nie chcesz otrzymywać alerty dotyczące grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS krótki kod 29873 mówi "Wyłącz Azure"
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Anulowanie subskrypcji alertów programu SMS dla wszystkich grup, akcja
-Użytkownik może zrezygnować z wszystkie alerty programu SMS dla wszystkich grup akcji odpowiedzi do kodu 20873 za pomocą dowolnego z następujących słów kluczowych:
+Użytkownik może zrezygnować z wszystkie alerty programu SMS dla wszystkich grup akcji odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
 * ZATRZYMAJ
 
-Przykład. Użytkownika subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS do kodu 20873 mówi stop (Zatrzymaj)"
+Przykład. Użytkownik pragnący subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS krótki kod 29873 mówi stop (Zatrzymaj)"
 
 >[!NOTE]
 >Jeśli użytkownik anulował z alertów programu SMS, ale jest następnie dodawana do nowej grupy akcji; BĘDĄ one otrzymywać alerty programu SMS dla tej nowej grupy akcji, ale pozostaje anulować ze wszystkich grup poprzedniej akcji.
@@ -53,19 +53,19 @@ Przykład. Użytkownika subskrypcję wszystkie alerty programu SMS dla wszystkic
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Resubscribing do alertów programu SMS dla jednej grupy akcji
-Użytkownika można dokonać ponownej subskrypcji programu SMS dla alertów dla grupy jedną akcję odpowiedzi do kodu 20873 ze słowami kluczowymi: "Włącz &lt;nazwa_skrócona grupy akcji&gt;".
+Użytkownika można dokonać ponownej subskrypcji programu SMS dla alertów dla grupy jedną akcję odpowiedzi na krótki kod 29873 ze słowami kluczowymi: "Włącz &lt;nazwa_skrócona grupy akcji&gt;".
 
-Przykład. Użytkownik pragnący dokonać ponownej subskrypcji do alertów dla grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS do kodu 20873 mówi "Włącz Azure"
+Przykład. Użytkownik pragnący dokonać ponownej subskrypcji do alertów dla grupy akcji z nazwa_skrócona "Azure" wyśle wiadomość SMS krótki kod 29873 mówi "Włącz Azure"
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Resubscribing do alertów programu SMS dla wszystkich grup, akcja
-Użytkownik może dokonać ponownej subskrypcji programu SMS wszystkich alertów dla wszystkich grup akcji odpowiedzi do kodu 20873 za pomocą dowolnego z następujących słów kluczowych:
+Użytkownik może dokonać ponownej subskrypcji programu SMS wszystkich alertów dla wszystkich grup akcji odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
 
 * POCZĄTEK
 
-Przykład. Użytkownik pragnący subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS do kodu 20873 mówi "START"
+Przykład. Użytkownik pragnący subskrypcję wszystkie alerty programu SMS dla wszystkich grup akcji, wyśle wiadomość SMS krótki kod 29873 mówi "START"
 
 ### <a name="requesting-help-via-sms"></a>Żądanie pomocy przy użyciu usługi SMS
-Użytkownik może uzyskać więcej informacji na temat SMS się, że otrzymali odpowiedzi do kodu 20873 za pomocą dowolnego z następujących słów kluczowych:
+Użytkownik może uzyskać więcej informacji na temat SMS się, że po otrzymaniu odpowiedzi na krótki kod 29873 za pomocą dowolnego z następujących słów kluczowych:
 * POMOC
 
 Odpowiedzi będą wysyłane do użytkownika z łączem do tego artykułu.

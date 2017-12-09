@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Ochrona serwera plików przy użyciu usługi Azure Site Recovery 
 
@@ -145,7 +145,7 @@ Sugerowane rozwiązania integracji Azure plik synchronizacji z usługą Azure Si
 
 Poniżej szczegółów czynności przy użyciu usługi Azure synchronizacji plików:
 
-1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli wybrano magazyn geograficznie nadmiarowy dostęp do odczytu (RA-GRS) (zalecane) w przypadku kont magazynu, masz dostęp do odczytu do danych z regionu pomocniczego w przypadku awarii. Zapoznaj się [strategii odzyskiwania danych udział plików Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) uzyskać dalsze informacje.
+1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli wybrano magazyn geograficznie nadmiarowy dostęp do odczytu (RA-GRS) (zalecane) w przypadku kont magazynu, masz dostęp do odczytu do danych z regionu pomocniczego w przypadku awarii. Zapoznaj się [strategii odzyskiwania danych udział plików Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) uzyskać dalsze informacje.
 2. [Tworzenie udziału plików](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Wdrażanie synchronizacji plików Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) w lokalnej serwera plików.
 4. Utwórz grupę synchronizacji: punkty końcowe w ramach grupy synchronizacji będą utrzymywane w synchronizacji ze sobą. Grupy synchronizacji musi zawierać co najmniej jednej chmurze punktu końcowego, który reprezentuje udział plików Azure, i co serwer punktu końcowego, który reprezentuje ścieżkę, w systemie Windows Server lokalnymi.

@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 9c35410ee1bb67c8ee96eeea6e51601bc29f39aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Wdrażanie funkcji platformy Azure jako moduł krawędzi IoT — w wersji preview
 Aby wdrożyć kod, który implementuje logiki biznesowej bezpośrednio do urządzenia IoT krawędzi, możesz użyć funkcji Azure. W tym samouczku przedstawiono sposób tworzenia i wdrażania funkcji Azure filtrujące dane czujników na symulowane urządzenie brzegowe IoT utworzoną w programie IoT Edge Azure wdrożenia symulowanego urządzenia na [Windows] [ lnk-tutorial1-win]lub [Linux] [ lnk-tutorial1-lin] samouczki. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:     
@@ -42,7 +42,7 @@ W tym samouczku umożliwia rozszerzenie Azure IoT krawędzi kodzie VS Tworzenie 
 
 W tym samouczku, można użyć dowolnego rejestru zgodnego Docker. Są dwa popularne Docker rejestru usług dostępnych w chmurze **rejestru kontenera Azure** i **Centrum Docker**:
 
-- [Azure rejestru kontenera](https://docs.microsoft.com/en-us/azure/container-registry/) jest dostępna w programie [płatnej subskrypcji](https://azure.microsoft.com/en-us/pricing/details/container-registry/). W tym samouczku **podstawowe** subskrypcji jest wystarczająca. 
+- [Azure rejestru kontenera](https://docs.microsoft.com/azure/container-registry/) jest dostępna w programie [płatnej subskrypcji](https://azure.microsoft.com/en-us/pricing/details/container-registry/). W tym samouczku **podstawowe** subskrypcji jest wystarczająca. 
 
 - [Centrum docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) oferuje jedną wolnego prywatnym repozytorium, jeśli utworzysz konto dla identyfikatora (bezpłatnie) Docker 
     1. Aby utworzyć konto dla Identyfikatora Docker, postępuj zgodnie z instrukcjami w [zarejestrować dla Identyfikatora Docker](https://docs.docker.com/docker-id/#register-for-a-docker-id) w witrynie Docker. 

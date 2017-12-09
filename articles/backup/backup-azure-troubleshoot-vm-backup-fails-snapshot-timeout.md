@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Rozwiązywanie problemów z usługi Kopia zapasowa Azure awarii: problemy z agenta i/lub rozszerzenie
 
@@ -34,6 +34,7 @@ Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Az
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Przyczyny 3: [agent zainstalowany na maszynie wirtualnej są nieaktualne (dla maszyn wirtualnych systemu Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Przyczyna 4: [nie można pobrać stanu migawki lub migawka nie można pobrać](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Przyczyny 5: [zapasowy numer wewnętrzny nie może zaktualizować lub załadować](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Przyczyna 6: [Azure klasycznych maszyn wirtualnych może wymagać dodatkowych czynności, aby ukończyć rejestrację](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Operacja migawki nie powiodła się ze względu na brak łączności sieciowej na maszynie wirtualnej
 Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Azure kopii zapasowej inicjuje zadania komunikując się z rozszerzenia kopii zapasowej maszyny Wirtualnej do tworzenia migawki punktu w czasie. Jeden z następujących warunków mogą uniemożliwić migawki z inicjowane, co z kolei może prowadzić do awarii kopii zapasowej. Postępuj zgodnie z poniższych czynności w podanej kolejności i ponów operację.
@@ -115,7 +116,7 @@ Agent maszyny Wirtualnej może być uszkodzony lub może być zatrzymana usługa
 6. Następnie powinien mieć możliwość wyświetlania usługi agenta gościa z systemem Windows w usługach
 7. Spróbuj uruchomić na — żądanie/kopię zapasową adhoc, klikając przycisk "Utwórz kopię zapasową teraz" w portalu.
 
-Sprawdź również, Twoja maszyna wirtualna ma  **[.NET 4.5 zainstalowane w systemie](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Jest to wymagane do komunikacji z usługą agenta maszyny Wirtualnej
+Sprawdź również, Twoja maszyna wirtualna ma  **[.NET 4.5 zainstalowane w systemie](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Jest to wymagane do komunikacji z usługą agenta maszyny Wirtualnej
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Agent zainstalowany na maszynie wirtualnej są nieaktualne (dla maszyn wirtualnych systemu Linux)
 
@@ -183,4 +184,23 @@ Aby odinstalować rozszerzenia, wykonaj następujące czynności:
 6. Kliknij przycisk **odinstalować**.
 
 Ta procedura powoduje, że rozszerzenie, należy zainstalować ponownie podczas następnej kopii zapasowej.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Maszyny wirtualne platformy Azure Classic może wymagać dodatkowych czynności, aby ukończyć rejestrację
+Agent w klasycznej maszyny wirtualne platformy Azure powinien być zarejestrowany do nawiązania połączenia z usługą kopii zapasowej i Rozpocznij wykonywanie kopii zapasowej
+
+#### <a name="solution"></a>Rozwiązanie
+
+Po zainstalowaniu agenta gościa maszyny Wirtualnej, uruchom program Azure PowerShell <br>
+1. Danych logowania na konto platformy Azure przy użyciu <br>
+       `Login-AzureAsAccount`<br>
+2. Sprawdź, czy właściwość agenta gościa na potrzeby maszyny Wirtualnej jest wartość True, za pomocą następujących poleceń <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Jeśli właściwość jest ustawiona na wartość FALSE, postępuj zgodnie z poniższych poleceń, aby ustawić ją na wartość TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Następnie uruchom następujące polecenie, aby zaktualizować maszyny Wirtualnej <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Spróbuj inicjowanie kopii zapasowej. <br>
+
 

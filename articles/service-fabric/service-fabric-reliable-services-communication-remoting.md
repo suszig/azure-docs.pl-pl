@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a91d676a4513e5e96f3ac8a224666f3eacec16f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Komunikacji zdalnej usługi z usługami Reliable Services
 Dla usług, które nie są związane z protokołu komunikacyjnego konkretnego lub stosu, takie jak WebAPI, Windows Communication Foundation (WCF) lub innych osób, w ramach niezawodnej usługi udostępnia mechanizm komunikacji zdalnej szybkie i łatwe Konfigurowanie zdalnego wywołania procedury dla usługi.
@@ -85,18 +85,18 @@ W ramach usług zdalnych propaguje wyjątki zgłaszane przez usługę do klienta
 Tworzenie ServiceProxy jest lekkie operacji, aby użytkownicy mogli tworzyć dowolną liczbę potrzebnych im. Tak długo, jak użytkownicy muszą ją można ponownie użyć wystąpienia serwera Proxy usługi. Jeśli zdalne wywołanie procedury zgłasza wyjątek, użytkownicy mogą nadal ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera komunikacji klienta używany do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych, firma Microsoft wewnętrznie Sprawdź, czy klient komunikacji jest prawidłowy. Na podstawie tego wyniku, możemy ponownie utworzyć klienta komunikacji w razie potrzeby. Dlatego jeśli wystąpi wyjątek, użytkownicy nie muszą utworzyć ponownie `ServiceProxy` ponieważ go to zrobione przezroczysty.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Okres istnienia ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) jest fabrykę tworzącą wystąpień serwera proxy dla różnych usług zdalnych interfejsów. Jeśli używasz interfejsu api `ServiceProxy.Create` tworzenia serwera proxy, framework utworzy pojedynczą ServiceProxy.
-Warto utworzyć jedną ręcznie, gdy trzeba zastąpić [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) właściwości.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) jest fabrykę tworzącą wystąpień serwera proxy dla różnych usług zdalnych interfejsów. Jeśli używasz interfejsu api `ServiceProxy.Create` tworzenia serwera proxy, framework utworzy pojedynczą ServiceProxy.
+Warto utworzyć jedną ręcznie, gdy trzeba zastąpić [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) właściwości.
 Tworzenie fabryki jest kosztowna operacja. ServiceProxyFactory przechowuje wewnętrznej pamięci podręcznej klienta komunikacji.
 Najlepszym rozwiązaniem jest pamięci podręcznej ServiceProxyFactory tak długo, jak to możliwe.
 
 ## <a name="remoting-exception-handling"></a>Obsługa wyjątków komunikacji zdalnej
-Wszystkie wyjątki zdalnego zgłoszony przez interfejs API usługi są wysyłane do klienta jako AggregateException. RemoteExceptions powinien być możliwy do serializacji; DataContract Jeśli nie są one proxy interfejsu API zgłasza [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) z powodu błędu serializacji w nim.
+Wszystkie wyjątki zdalnego zgłoszony przez interfejs API usługi są wysyłane do klienta jako AggregateException. RemoteExceptions powinien być możliwy do serializacji; DataContract Jeśli nie są one proxy interfejsu API zgłasza [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) z powodu błędu serializacji w nim.
 
 ServiceProxy obsługiwać wszystkie wyjątki trybu failover jest tworzony dla partycji usługi. Go ponownie usuwa punkty końcowe, jeśli istnieją wyjątki trybu failover (z systemem innym niż przejściowy wyjątkami) i ponowi próbę połączenia z właściwego punktu końcowego. Liczba ponownych prób dla trybu failover wyjątki są nieokreślony.
 Jeśli wystąpią wyjątki przejściowy, serwera proxy ponowi próbę połączenia.
 
-Domyślne parametry ponawiania są zachowywane przez [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Domyślne parametry ponawiania są zachowywane przez [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 Użytkownik może skonfigurować te wartości przez przekazanie obiektu OperationRetrySettings ServiceProxyFactory konstruktora.
 ## <a name="how-to-use-remoting-v2-stack"></a>Jak używać usług zdalnych V2 stosu
 Przy użyciu pakietu NuGet usługi zdalne 2,8 masz możliwość użycia stosu V2 komunikacji zdalnej. Stos V2 komunikacji zdalnej jest więcej wydajności i zapewnia bardziej podłączany interfejsów Api i funkcje, takie jak niestandardowe, które można serializować.
@@ -146,7 +146,7 @@ Poniżej przedstawiono kroki do wykonania.
   </Resources>
   ```
 
-2. Użyj [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Domyślna nazwa zasobu punktu końcowego usługi używany jest "ServiceEndpointV2" i musi być zdefiniowana w elemencie Service Manifest.
+2. Użyj [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Domyślna nazwa zasobu punktu końcowego usługi używany jest "ServiceEndpointV2" i musi być zdefiniowana w elemencie Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -162,7 +162,7 @@ Poniżej przedstawiono kroki do wykonania.
     }
   ```
 
-3. Użyj V2 [fabryka klientów](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Użyj V2 [fabryka klientów](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

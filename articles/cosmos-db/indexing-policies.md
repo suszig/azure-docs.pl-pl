@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: c079e9c02041cbc1b61f135038fba634a45c574d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak dane indeksu bazy danych rozwiązania Cosmos Azure?
 
@@ -229,7 +229,7 @@ Można wybrać, czy ma kolekcję do automatycznego indeksowania wszystkie dokume
 
 Z automatycznego indeksowania wyłączone, nadal selektywnie można dodać tylko dokumenty do indeksu. Z drugiej strony można pozostawić automatycznego indeksowania na i selektywnie wykluczyć wybrany tylko określonych dokumentów. Indeksowanie lub wyłącza konfiguracje są przydatne, jeśli masz tylko podzbiór dokumentów, które trzeba można wykonać zapytania.
 
-Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API usługi DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
+Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API usługi DocumentDB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

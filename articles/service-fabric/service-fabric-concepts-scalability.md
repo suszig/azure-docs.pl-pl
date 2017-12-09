@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Skalowanie w sieci szkieletowej usług
 Sieć szkieletowa usług Azure ułatwia tworzenie skalowalnych aplikacji dzięki zarządzaniu usług, partycji i replik w węzłach klastra. Uruchamianie wielu obciążeń na tym samym sprzęcie umożliwia wykorzystanie zasobów maksymalna, ale również zapewnia elastyczność pod względem sposobu wybranego skalowania obciążeń. 
@@ -69,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalowanie przez tworzenia lub usuwania nowych o nazwie usługi
 Wystąpienie usługi o nazwie jest określonego wystąpienia typu usługi (zobacz [cyklu życia aplikacji w sieci szkieletowej usług](service-fabric-application-lifecycle.md)) w ramach niektóre wystąpienia nazwanego aplikacji w klastrze. 
 
-Nowe wystąpienia usługi o nazwie można utworzyć (lub usunięte) jako usługi staną się bardziej lub mniej zajęty. Dzięki temu żądań było ich rozmieszczenie więcej wystąpień usługi, zwykle zwiększając istniejących usług na zmniejszenie obciążenia. Podczas tworzenia usługi, Menedżer zasobów klastra sieci szkieletowej usług umieszcza usługi klastra w sposób rozproszonych. Dokładne decyzje są regulowane przez [metryki](service-fabric-cluster-resource-manager-metrics.md) w klastrze i inne zasady umieszczania. Usługi mogą być tworzone na kilka różnych sposobów, ale są najczęściej używane przez działania administracyjne, takie jak ktoś wywoływania [ `New-ServiceFabricService` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), lub przez wywołanie kodu [ `CreateServiceAsync` ](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`Można nawet można wywoływać z wewnątrz innych usług uruchomionych w klastrze.
+Nowe wystąpienia usługi o nazwie można utworzyć (lub usunięte) jako usługi staną się bardziej lub mniej zajęty. Dzięki temu żądań było ich rozmieszczenie więcej wystąpień usługi, zwykle zwiększając istniejących usług na zmniejszenie obciążenia. Podczas tworzenia usługi, Menedżer zasobów klastra sieci szkieletowej usług umieszcza usługi klastra w sposób rozproszonych. Dokładne decyzje są regulowane przez [metryki](service-fabric-cluster-resource-manager-metrics.md) w klastrze i inne zasady umieszczania. Usługi mogą być tworzone na kilka różnych sposobów, ale są najczęściej używane przez działania administracyjne, takie jak ktoś wywoływania [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), lub przez wywołanie kodu [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`Można nawet można wywoływać z wewnątrz innych usług uruchomionych w klastrze.
 
 Dynamicznie tworzenie usług mogą być używane w szerokiej gamy scenariuszy i jest wspólnym wzorcem. Rozważmy na przykład usługi stanowej, która reprezentuje określonego przepływu pracy. Połączenia reprezentującą pracy mają być wyświetlane do tej usługi, a ta usługa ma wykonać kroki tego przepływu pracy i rejestrowanie postępu. 
 

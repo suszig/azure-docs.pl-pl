@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a87f1c6ba82edc0a762d9e02542a7756383ed82
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Debugowanie aplikacji Spark zdalnie w usłudze HDInsight za pośrednictwem sieci VPN przy użyciu zestawu narzędzi Azure for IntelliJ
 
-Firma Microsoft zaleca debugowanie aplikacji spark zdalnie za pośrednictwem protokołu SSH. Aby uzyskać instrukcje, zobacz [zdalne debugowanie aplikacji Spark w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Firma Microsoft zaleca debugowanie aplikacji spark zdalnie za pośrednictwem protokołu SSH. Aby uzyskać instrukcje, zobacz [zdalne debugowanie aplikacji Spark w klastrze usługi HDInsight narzędzi Azure for IntelliJ za pośrednictwem protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 Ten artykuł zawiera wskazówki krok po kroku dotyczące sposobu używania narzędzi HDInsight Tools w zestawie narzędzi Azure for IntelliJ, aby przesłać zadanie Spark w klastrze Spark w usłudze HDInsight, a następnie Debuguj go zdalnie z komputera stacjonarnego. Aby wykonać te zadania, należy wykonać następujące ogólne kroki:
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń maszyny Wirtualnej Azure
 
-W większości infrastruktury jako scenariuszy usługa (IaaS) [Azure maszynach wirtualnych (VM)](https://docs.microsoft.com/en-us/azure/virtual-machines/) są główne obciążenia dla organizacji korzystających z chmury obliczeniowej. Ten fakt jest szczególnie widoczne w [scenariuszy hybrydowych](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) miejscu organizacje powoli migracji obciążeń do chmury. W takich sytuacjach należy wykonać [zabezpieczeń Ogólne zagadnienia dotyczące IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)i stosowania najlepszych rozwiązań dotyczących zabezpieczeń na wszystkich maszynach wirtualnych.
+W większości infrastruktury jako scenariuszy usługa (IaaS) [Azure maszynach wirtualnych (VM)](https://docs.microsoft.com/azure/virtual-machines/) są główne obciążenia dla organizacji korzystających z chmury obliczeniowej. Ten fakt jest szczególnie widoczne w [scenariuszy hybrydowych](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) miejscu organizacje powoli migracji obciążeń do chmury. W takich sytuacjach należy wykonać [zabezpieczeń Ogólne zagadnienia dotyczące IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)i stosowania najlepszych rozwiązań dotyczących zabezpieczeń na wszystkich maszynach wirtualnych.
 
 W tym artykule opisano różne wirtualna najlepszych rozwiązań dotyczących zabezpieczeń, każdy pochodzące z naszych klientów i własnej bezpośrednio z maszyną wirtualną.
 

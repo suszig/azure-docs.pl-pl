@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metryki bazy danych SQL Azure i rejestrowanie danych diagnostycznych 
 Baza danych SQL Azure może emitować metryki i informacji diagnostycznych dzienników łatwiejsze monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
@@ -184,7 +184,7 @@ Monitorowanie floty bazy danych SQL jest proste — analizy dzienników. Wymagan
 
 2. Wybierz **monitorowania i zarządzania**.
 
-3. Wybierz **dziennika analizy**.
+3. Wybierz pozycję **Log Analytics**.
 
 4. Wypełnij formularz analizy dzienników z dodatkowymi informacjami, która jest wymagana: Nazwa obszaru roboczego, subskrypcji, grupy zasobów, lokalizacji i warstwę cenową.
 
@@ -266,7 +266,7 @@ Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z maga
 |**Zasób**|**Metryki**|
 |---|---|
 |Database (Baza danych)|Procent użycia jednostek DTU, używane jednostek dtu w warstwie, limit jednostek dtu w warstwie, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, Powodzenie/nie powiodło się/zablokowane przez połączeń zapory, wartość procentowa sesji, procent pracowników, magazynu, procent użycia magazynu, XTP procent użycia magazynu, i Zakleszczenie |
-|Pula elastyczna|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
+|Puli elastycznej|procent liczby jednostek eDTU używany eDTU, limit liczby jednostek eDTU, procent użycia procesora CPU i procent odczytu danych fizycznych, dziennika zapisu procent, procent sesji, procent pracowników, magazynu, procent użycia magazynu, limit magazynu, XTP procent użycia magazynu |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Magazyn zapytań statystyk czasu wykonywania
@@ -318,7 +318,7 @@ Dowiedz się, jak [pobrać dzienniki metryki i informacji diagnostycznych z maga
 |query_id_d|Identyfikator zapytania w magazynie zapytań.|
 |plan_id_d|Identyfikator planu w magazynie zapytań.|
 
-Dowiedz się więcej o [dane statystyk czasu wykonywania magazynu zapytań](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Dowiedz się więcej o [dane statystyk czasu wykonywania magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Magazyn zapytań oczekiwania statystyki
 
@@ -356,7 +356,7 @@ Dowiedz się więcej o [dane statystyk czasu wykonywania magazynu zapytań](http
 |query_id_d|Identyfikator zapytania w magazynie zapytań.|
 |plan_id_d|Identyfikator planu w magazynie zapytań.|
 
-Dowiedz się więcej o [magazyn zapytań oczekiwania statystyki danych](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Dowiedz się więcej o [magazyn zapytań oczekiwania statystyki danych](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Błędy zestawu danych
 
@@ -414,7 +414,7 @@ Dowiedz się więcej o [komunikaty o błędach programu SQL Server](https://msdn
 |delta_wait_time_ms_d|Czas oczekiwania całkowita w okresie.|
 |delta_waiting_tasks_count_d|Liczba oczekujących zadań.|
 
-Dowiedz się więcej o [bazy danych statystyki oczekiwania](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Dowiedz się więcej o [bazy danych statystyki oczekiwania](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Limity czasu zestawu danych
 

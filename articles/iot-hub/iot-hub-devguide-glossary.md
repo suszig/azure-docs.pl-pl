@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7e6590b97470bb00c5967f232e3ae134ce20a347
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik terminów Centrum IoT
 W tym artykule wymieniono niektóre typowe terminy używane w artykułach Centrum IoT.
@@ -162,16 +162,16 @@ Brama umożliwia łączność w przypadku urządzeń, które nie może połączy
 Interakcyjne komunikat [chmury do urządzenia](#cloud-to-device) komunikat, który wyzwala natychmiastowych akcji w zaplecza rozwiązania. Na przykład urządzenie może wysyłać alarmu o niepowodzeniu, które powinny być automatycznie zalogowany do systemu CRM.
 
 ## <a name="iot-edge"></a>IoT Edge
-Krawędź IoT Azure umożliwia wdrożenie usług platformy Azure i kod określonego rozwiązania do lokalnego urządzenia oparte na chmurze. Urządzenia brzegowe IoT agregować dane z innych urządzeń do wykonywania przetwarzania danych i analiza przed wysłaniem danych do chmury. Aby uzyskać więcej informacji zobacz [Azure IoT krawędzi](https://docs.microsoft.com/en-us/azure/iot-edge/).
+Krawędź IoT Azure umożliwia wdrożenie usług platformy Azure i kod określonego rozwiązania do lokalnego urządzenia oparte na chmurze. Urządzenia brzegowe IoT agregować dane z innych urządzeń do wykonywania przetwarzania danych i analiza przed wysłaniem danych do chmury. Aby uzyskać więcej informacji zobacz [Azure IoT krawędzi](https://docs.microsoft.com/azure/iot-edge/).
 
 ## <a name="iot-edge-agent"></a>Agent krawędzi IoT
 Część odpowiedzialnych za wdrażanie i monitorowanie modułów środowiska uruchomieniowego IoT krawędzi.
 
 ## <a name="iot-edge-device"></a>Urządzenie usługi IoT Edge
-Urządzenia brzegowe IoT ma krawędzi IoT środowiska uruchomieniowego zainstalowany i są oznaczone jako "Urządzenie brzegowe IoT" w szczegółowych informacji o urządzeniu. Dowiedz się, jak [wdrażanie Azure IoT Edge na urządzeniu symulowane w systemie Linux — Podgląd](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
+Urządzenia brzegowe IoT ma krawędzi IoT środowiska uruchomieniowego zainstalowany i są oznaczone jako "Urządzenie brzegowe IoT" w szczegółowych informacji o urządzeniu. Dowiedz się, jak [wdrażanie Azure IoT Edge na urządzeniu symulowane w systemie Linux — Podgląd](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
 ## <a name="iot-edge-deployment"></a>Krawędź IoT wdrożenia
-Wdrożenie krawędzi IoT konfiguruje zestaw docelowy urządzenia IoT brzegowe do uruchomienia zestawu krawędzi IoT modułów. Dla każdego wdrożenia stale zapewnia wszystkie urządzenia spełniające warunek jego docelowym są uruchomione określony zestaw modułów, nawet jeśli jest to nowe urządzenia są tworzone lub warunek docelowy są modyfikowane. Poszczególne urządzenia IoT krawędzi odbiera tylko najwyższy priorytet wdrożenia którego warunku docelowy spełnia. Dowiedz się więcej o [wdrożenia krawędzi IoT](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+Wdrożenie krawędzi IoT konfiguruje zestaw docelowy urządzenia IoT brzegowe do uruchomienia zestawu krawędzi IoT modułów. Dla każdego wdrożenia stale zapewnia wszystkie urządzenia spełniające warunek jego docelowym są uruchomione określony zestaw modułów, nawet jeśli jest to nowe urządzenia są tworzone lub warunek docelowy są modyfikowane. Poszczególne urządzenia IoT krawędzi odbiera tylko najwyższy priorytet wdrożenia którego warunku docelowy spełnia. Dowiedz się więcej o [wdrożenia krawędzi IoT](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>Manifest rozmieszczenia krawędzi IoT
 Dokument Json zawierający informacje do skopiowania w co najmniej jeden IoT urządzenia brzegowe twin(s) modułu wdrażania zestaw modułów, tras i skojarzone modułu żądana właściwości.
@@ -186,7 +186,7 @@ Część odpowiedzialny za moduł do komunikacji, nadrzędne (kierunku Centrum I
 Urządzenie brzegowe IoT z żadnego urządzenia podrzędne. 
 
 ## <a name="iot-edge-module"></a>Moduł krawędzi IoT
-Moduł krawędzi IoT to kontener Docker, który można wdrożyć na urządzenia brzegowe IoT. Wykonywania określonych zadań, takich jak wprowadzania komunikatu z urządzenia, przekształcanie wiadomości lub wysyłania komunikatu do Centrum IoT. Komunikuje się z innymi modułami, a wysyła dane do środowiska wykonawczego IoT krawędzi. [Zrozumieć wymagania i narzędzi do tworzenia modułów krawędzi IoT](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
+Moduł krawędzi IoT to kontener Docker, który można wdrożyć na urządzenia brzegowe IoT. Wykonywania określonych zadań, takich jak wprowadzania komunikatu z urządzenia, przekształcanie wiadomości lub wysyłania komunikatu do Centrum IoT. Komunikuje się z innymi modułami, a wysyła dane do środowiska wykonawczego IoT krawędzi. [Zrozumieć wymagania i narzędzi do tworzenia modułów krawędzi IoT](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## <a name="iot-edge-module-identity"></a>Krawędź IoT modułu tożsamości
 Rekord w rejestrze tożsamości modułu Centrum IoT wyszczególnieniem istnienia i zabezpieczeń poświadczenia do użycia przez moduł uwierzytelniania za pomocą Centrum edge lub Centrum IoT.
@@ -241,7 +241,7 @@ Urządzenie fizyczne jest prawdziwe urządzeniami, takimi jak Pi malina, w któr
 Po podłączeniu urządzenia uwzględniającym lub połączonej usługi punktu końcowego w Centrum IoT z [ciąg połączenia](#connection-string) zawiera klucz, aby przyznać dostęp. Po dodaniu urządzenia do [rejestru tożsamości](#identity-registry) lub Dodaj [udostępnionych zasad dostępu](#shared-access-policy) do Centrum, Usługa generuje klucza podstawowego i pomocniczego. Mając dwa klucze umożliwia przerzucane z jednego klucza do innego, po zaktualizowaniu klucza bez utraty dostępu do Centrum IoT.
 
 ## <a name="priority"></a>Priorytet
-Gdy dwa wdrożenia krawędzi IoT tego samego urządzenia, zostanie zastosowany wdrożenie o wyższym priorytecie. Jeśli dwa wdrożenia mają ten sam priorytet, wdrożenie z nowszej Data utworzenia zostanie zastosowany. Dowiedz się więcej o [priorytet](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
+Gdy dwa wdrożenia krawędzi IoT tego samego urządzenia, zostanie zastosowany wdrożenie o wyższym priorytecie. Jeśli dwa wdrożenia mają ten sam priorytet, wdrożenie z nowszej Data utworzenia zostanie zastosowany. Dowiedz się więcej o [priorytet](#https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Brama protokołu
 Brama protokołu jest zwykle wdrażana w chmurze i zapewnia protokół tłumaczeń urządzeń nawiązujących połączenie z [Centrum IoT](#iot-hub). Aby uzyskać więcej informacji, zobacz [co to jest Centrum IoT Azure?](iot-hub-what-is-iot-hub.md)
@@ -289,7 +289,7 @@ W kontekście [dwie urządzenia](iot-hub-devguide-device-twins.md), system wła�
 W kontekście [dwie urządzenia](iot-hub-devguide-device-twins.md), tagi są metadane urządzenia przechowywane i pobierane przez zaplecza rozwiązania w formie dokumentu JSON. Tagi nie są widoczne dla aplikacji na urządzeniu.
 
 ## <a name="target-condition"></a>Warunek docelowy
-We wdrożeniu krawędzi IoT warunek docelowy jest żadnych warunek typu Boolean na tagów twins urządzeń wybierz urządzenia, wdrażania, np. "tag.environment = prod". Warunek docelowy jest stale obliczenia obejmują nowe urządzenia, które spełniają wymagania lub usuwać urządzenia, które nie. Dowiedz się więcej o [target warunku](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
+We wdrożeniu krawędzi IoT warunek docelowy jest żadnych warunek typu Boolean na tagów twins urządzeń wybierz urządzenia, wdrażania, np. "tag.environment = prod". Warunek docelowy jest stale obliczenia obejmują nowe urządzenia, które spełniają wymagania lub usuwać urządzenia, które nie. Dowiedz się więcej o [target warunku](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetria
 Urządzenia zbierania danych telemetrycznych, takich jak szybkości knie lub temperatury i użyj [punktu danych wiadomości](#data-point-messages) do wysyłania danych telemetrycznych do Centrum IoT.
