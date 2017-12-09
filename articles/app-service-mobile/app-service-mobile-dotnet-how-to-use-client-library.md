@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Jak używać zarządzanego klienta usługi Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,7 +651,7 @@ Active Directory Authentication Library (ADAL) do uwierzytelniania użytkownikó
 2. W programie Visual Studio lub Xamarin Studio Otwórz projekt i Dodaj odwołanie do `Microsoft.IdentityModel.CLients.ActiveDirectory` pakietu NuGet. Podczas wyszukiwania, obejmują wersje wstępne.
 3. Dodaj następujący kod do aplikacji, zależnie od używanej platformy. W każdej wprowadź następujące elementy zastępcze:
 
-   * Zastąp **INSERT urzędu tutaj** o nazwie dzierżawy, w którym są udostępniane aplikacji. Format powinien być https://login.microsoftonline.com/contoso.onmicrosoft.com. Tę wartość można skopiować na karcie domeny w usłudze Azure Active Directory w [klasycznego portalu Azure].
+   * Zastąp **INSERT urzędu tutaj** o nazwie dzierżawy, w którym są udostępniane aplikacji. Format powinien być https://login.microsoftonline.com/contoso.onmicrosoft.com. Tę wartość można skopiować na karcie domeny w usłudze Azure Active Directory w [portalu Azure].
    * Zastąp **Wstaw zasób — identyfikator-tutaj** z Identyfikatorem klienta dla zaplecza aplikacji mobilnej. Możesz uzyskać identyfikator klienta z **zaawansowane** w obszarze **ustawień usługi Azure Active Directory** w portalu.
    * Zastąp **INSERT klienta-ID-tutaj** z Identyfikatorem klienta, którego skopiowano aplikację native client.
    * Zastąp **INSERT PRZEKIEROWANIA-URI-tutaj** z witryny */.auth/login/done* punktu końcowego, za pomocą schematu HTTPS. Ta wartość powinna być podobna do *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -1122,7 +1122,6 @@ public class MyHandler : DelegatingHandler
 [Nazwa użytkownika]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Gdzie]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portalu Azure]: https://portal.azure.com/
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

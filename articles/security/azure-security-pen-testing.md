@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Testowanie pióra
 Jest jedną z korzyści wynikające ze stosowania Azure do testowania aplikacji i wdrażania, można szybko uzyskać środowisk utworzony.  Nie trzeba martwić tworzenia zapotrzebowania, pobierania, a "rozlania i układania" sprzętu lokalnymi.
@@ -29,11 +29,12 @@ Może już wiedzieć, że Microsoft wykonuje [penetracji testowania naszym środ
 
 Nie możemy pióra przetestować aplikację dla Ciebie, ale Rozumiemy będzie mają i konieczne jest wykonanie pióra testowania na własnych aplikacji. Że jest to przydatne, ponieważ po podniesieniu bezpieczeństwa aplikacji, należy zabezpieczyć cały ekosystem platformy Azure.
 
-Gdy pióro należy przetestować aplikacje, może wyglądać jak atak z nami. Firma Microsoft [na stałe monitorowanie](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) dla wzorców ataków i zainicjuje proces odpowiedzi na zdarzenia, jeśli chcemy. Go nie będą pomocne, a nie pomoże nam, jeśli wyzwalana odpowiedzi na zdarzenia z powodu powodu pióra starannością testowania.
-
 Co można zrobić w takiej sytuacji?
 
-Gdy wszystko jest gotowe do pióra Przetestuj aplikacje hostowanymi na platformie Azure, masz możliwość [Daj nam znać](https://portal.msrc.microsoft.com/en-us/engage/pentest). Po powiadomieniu Microsoft nie mogą przypadkowo zamknie możesz (na przykład blokowanie adres IP, który w przypadku testowania z). Testy muszą być zgodne z Azure pióra testowania warunki i warunki opisane w [Microsoft Cloud Unified penetracji testowania zasad zaangażowania](https://technet.microsoft.com/en-us/mt784683).
+Począwszy od 15 czerwca 2017 Microsoft nie wymaga już wstępne zatwierdzenie przeprowadzenie penetracji testy względem zasobów platformy Azure. Zachęcamy klientów, którzy chcą formalnie dokumentu nadchodzących penetracji testowania promujących zaangażowanie przed Microsoft Azure, aby wypełnić [formularza powiadomienia testowania penetracji usługi Azure](https://portal.msrc.microsoft.com/engage/pentest). Ten proces dotyczy tylko Microsoft Azure i nie ma zastosowania do inne usługi w chmurze firmy Microsoft. 
+
+>[!IMPORTANT] 
+>Podczas wysyłania powiadomień Microsoft pióra testowania czynności nie jest już wymagane klienci nadal muszą być zgodne z [Microsoft Cloud Unified penetracji testowania zasad zaangażowania](https://technet.microsoft.com/en-us/mt784683). 
 
 Standardowych testów, które można wykonać obejmują:
 

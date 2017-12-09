@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: 0e3a2f511d7f573c9591d1bc68fceffccc93526c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 093042da6f7d51cec3111f073da0ce3a66f2cddc
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Zarządzanie klastrami Hadoop w HDInsight przy użyciu wiersza polecenia platformy Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -40,7 +40,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
     azure login
     ```
   
-    Więcej informacji na temat uwierzytelniania za pomocą konta służbowego lub szkolnego znajdziesz w temacie [Połączenie z subskrypcją platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](../xplat-cli-connect.md).
+    Więcej informacji na temat uwierzytelniania za pomocą konta służbowego lub szkolnego znajdziesz w temacie [Połączenie z subskrypcją platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 * **Przełączenie w tryb usługi Azure Resource Manager** przy użyciu następującego polecenia:
   
     ```cli

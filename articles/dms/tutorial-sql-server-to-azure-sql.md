@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrowanie serwera SQL z bazą danych Azure SQL
 Usługa Azure bazy danych migracji umożliwia migrację bazy danych z lokalnego wystąpienia programu SQL Server do bazy danych SQL Azure. W tym samouczku, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 (lub nowszym) z bazą danych SQL Azure za pomocą usługi Azure migracji bazy danych w bazie danych.
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka, musisz:
 
-- Pobieranie i instanll [programu SQL Server 2016 lub nowszego](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja).
+- Pobierz i zainstaluj [programu SQL Server 2016 lub nowszego](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja).
 - Włącz protokół TCP/IP, które jest domyślnie wyłączone podczas instalacji programu SQL Server Express przez postępując zgodnie z instrukcjami w artykule [włączyć lub wyłączyć protokół sieciowy serwera](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Konfigurowanie sieci [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Utwórz wystąpienie wystąpienia bazy danych SQL Azure, co zrobić, wykonując szczegółowo w artykule [tworzenie bazy danych Azure SQL w portalu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
@@ -108,7 +108,7 @@ Aby przeprowadzić migrację **AdventureWorks2012** schematu z bazą danych SQL 
  
    ![Pokaż portalu subskrypcji](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
        
-2. Wybierz subskrypcję, w którym chcesz utworzyć wystąpienia usługi migracji bazy danych Azure, a następnie wybierz **dostawców zasobów**.
+2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie usługi Azure Database Migration Service, a następnie wybierz pozycję **Dostawcy zasobów**.
  
     ![Pokaż dostawców zasobów](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
 3.  Wyszukiwanie do migracji, a następnie po prawej stronie **Microsoft.DataMigration**, wybierz pozycję **zarejestrować**.

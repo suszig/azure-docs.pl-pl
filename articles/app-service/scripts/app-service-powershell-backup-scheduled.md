@@ -15,15 +15,15 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Tworzenie zaplanowanego tworzenia kopii zapasowej dla aplikacji sieci web
 
-Ten przykładowy skrypt tworzy aplikację sieci web w usłudze App Service z powiązane zasoby, a następnie tworzy jednorazowej kopii zapasowej dla niego. 
+Ten przykładowy skrypt tworzy aplikację sieci web w usłudze App Service z powiązane zasoby, a następnie tworzy zaplanowanego tworzenia kopii zapasowej dla niego. 
 
 W razie potrzeby zainstalować program Azure PowerShell przy użyciu instrukcji w [Przewodnik programu Azure PowerShell](/powershell/azure/overview), a następnie uruchom `Login-AzureRmAccount` można utworzyć połączenia z platformą Azure. 
 
@@ -48,7 +48,7 @@ Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do
 | [Nowe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
 | [Nowe AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Tworzy konto magazynu. |
 | [Nowe AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Tworzy kontener magazynu Azure. |
-| [Nowe AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
+| [Nowe AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Generuje token SAS dla kontenera magazynu systemu Azure. |
 | [Nowe AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Tworzy plan usługi App Service. |
 | [Nowe AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Tworzy aplikację sieci web. |
 | [Edytuj AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Edytuje konfiguracji kopii zapasowej dla aplikacji sieci web. |

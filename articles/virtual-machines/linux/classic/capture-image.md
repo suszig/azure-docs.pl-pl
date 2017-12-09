@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Jak przechwycić klasyczną maszynę wirtualną z systemem Linux jako obraz
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Tych krokach przyjęto założenie, że już utworzone przy użyciu klasycznego 
    > [!NOTE]
    > Pozostałe kroki założono, że masz już [zainstalowane interfejsu wiersza polecenia Azure](../../../cli-install-nodejs.md) na komputerze klienckim. Można również wykonać następujące kroki [portalu Azure](http://portal.azure.com).
 
-5. Na komputerze klienckim otwórz wiersza polecenia platformy Azure i zaloguj się do subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj [połączenie z subskrypcją platformy Azure z wiersza polecenia platformy Azure](../../../xplat-cli-connect.md).
+5. Na komputerze klienckim otwórz wiersza polecenia platformy Azure i zaloguj się do subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj [połączenie z subskrypcją platformy Azure z wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > W portalu Azure należy zalogować się do portalu.

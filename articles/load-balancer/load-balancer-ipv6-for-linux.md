@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 84558cb6e3a5524969f590eb0272a64ad8839ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="configuring-dhcpv6-for-linux-vms"></a>Konfigurowanie protokołu DHCPv6 dla maszyn wirtualnych systemu Linux
+# <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurowanie protokołu DHCPv6 dla maszyn wirtualnych systemu Linux
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Niektóre obrazy maszyny wirtualnej systemu Linux w portalu Azure Marketplace nie mają domyślnie skonfigurowany tak, protokołu DHCPv6. Aby obsługiwać protokół IPv6, DHCPv6 muszą być skonfigurowane w w dystrybucji systemu operacyjnego Linux, którego używasz. Różne dystrybucje systemu Linux mają różne sposoby konfigurowania protokołu DHCPv6, ponieważ korzystają z różnych pakietów.
+Niektóre obrazy maszyn wirtualnych systemu Linux w portalu Azure Marketplace nie mają Dynamic Host Configuration Protocol w wersji 6 (DHCPv6) konfiguracja domyślna. Aby obsługiwać protokół IPv6, DHCPv6 musi być skonfigurowany w dystrybucji systemu operacyjnego Linux, którego używasz. Różne dystrybucje systemu Linux skonfigurować DHCPv6 na różne sposoby, ponieważ korzystają z różnych pakietów.
 
 > [!NOTE]
 > Ostatnie SUSE Linux i CoreOS obrazów w portalu Azure Marketplace zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany.
@@ -33,18 +33,18 @@ Niektóre obrazy maszyny wirtualnej systemu Linux w portalu Azure Marketplace ni
 Ten dokument zawiera opis sposobu zapewniają DHCPv6, dzięki czemu maszyny wirtualnej systemu Linux uzyskuje adres IPv6.
 
 > [!WARNING]
-> Nieprawidłowo edycję plików konfiguracyjnych sieci może spowodować utratę dostępu do sieci do maszyny Wirtualnej. Zaleca się przetestowanie zmiany konfiguracji w systemach nieprodukcyjnych. Instrukcje w tym artykule zostały przetestowane na najnowsze wersje obrazów systemu Linux w portalu Azure Marketplace. Dokumentacja konkretnej wersji systemu Linux bardziej szczegółowe informacje.
+> Nieprawidłowo edycję plików konfiguracyjnych sieci, można utratę dostępu do sieci do maszyny Wirtualnej. Zaleca się przetestowanie zmiany konfiguracji w systemach nieprodukcyjnych. Instrukcje w tym artykule zostały przetestowane na najnowsze wersje obrazów systemu Linux w portalu Azure Marketplace. Aby uzyskać bardziej szczegółowe instrukcje zajrzyj do dokumentacji dla wersji systemu Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Edytuj plik `/etc/dhcp/dhclient6.conf` i Dodaj następujący wiersz:
+1. Edytuj */etc/dhcp/dhclient6.conf* pliku i Dodaj następujący wiersz:
 
         timeout 10;
 
 2. Zmień konfigurację sieci dla interfejsu eth0 przy użyciu następującej konfiguracji:
 
-   * Na **Ubuntu 12.04 i 14.04**, przeprowadź edycję pliku`/etc/network/interfaces.d/eth0.cfg`
-   * Na **Ubuntu 16.04**, przeprowadź edycję pliku`/etc/network/interfaces.d/50-cloud-init.cfg`
+   * Na **Ubuntu 12.04 i 14.04**, Edytuj */etc/network/interfaces.d/eth0.cfg* pliku. 
+   * Na **Ubuntu 16.04**, Edytuj */etc/network/interfaces.d/50-cloud-init.cfg* pliku.
 
          iface eth0 inet6 auto
              up sleep 5
@@ -58,11 +58,11 @@ Ten dokument zawiera opis sposobu zapewniają DHCPv6, dzięki czemu maszyny wirt
 
 ## <a name="debian"></a>Debian
 
-1. Edytuj plik `/etc/dhcp/dhclient6.conf` i Dodaj następujący wiersz:
+1. Edytuj */etc/dhcp/dhclient6.conf* pliku i Dodaj następujący wiersz:
 
         timeout 10;
 
-2. Edytuj plik `/etc/network/interfaces` i dodaj następującą konfigurację:
+2. Edytuj */etc/network/interfaces* pliku i dodaj następującą konfigurację:
 
         iface eth0 inet6 auto
             up sleep 5
@@ -74,13 +74,13 @@ Ten dokument zawiera opis sposobu zapewniają DHCPv6, dzięki czemu maszyny wirt
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel--centos--oracle-linux"></a>RHEL / CentOS / Oracle Linux
+## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS i Oracle Linux
 
-1. Edytuj plik `/etc/sysconfig/network` i Dodaj następujący parametr:
+1. Edytuj */etc/sysconfig/network* pliku i Dodaj następujący parametr:
 
         NETWORKING_IPV6=yes
 
-2. Edytuj plik `/etc/sysconfig/network-scripts/ifcfg-eth0` i dodaj następujące dwa parametry:
+2. Edytuj */etc/sysconfig/network-scripts/ifcfg-eth0* pliku, a następnie dodaj następujące dwa parametry:
 
         IPV6INIT=yes
         DHCPV6C=yes
@@ -91,9 +91,9 @@ Ten dokument zawiera opis sposobu zapewniają DHCPv6, dzięki czemu maszyny wirt
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11--opensuse-13"></a>SLES 11 & openSUSE 13
+## <a name="sles-11-and-opensuse-13"></a>SLES 11 i openSUSE 13
 
-Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszyny Wirtualnej na podstawie obrazu SUSE starszych lub niestandardowego, wykonaj następujące kroki:
+Ostatnie SUSE Linux Enterprise Server (SLES) i openSUSE obrazów na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszynę Wirtualną, która jest oparta na starszej lub niestandardowy obraz SUSE, wykonaj następujące czynności:
 
 1. Zainstaluj `dhcp-client` pakietu, w razie potrzeby:
 
@@ -101,7 +101,7 @@ Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfig
     sudo zypper install dhcp-client
     ```
 
-2. Edytuj plik `/etc/sysconfig/network/ifcfg-eth0` i Dodaj następujący parametr:
+2. Edytuj */etc/sysconfig/network/ifcfg-eth0* pliku i Dodaj następujący parametr:
 
         DHCLIENT6_MODE='managed'
 
@@ -113,17 +113,13 @@ Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfig
 
 ## <a name="sles-12-and-opensuse-leap"></a>SLES 12 i openSUSE przestępnego
 
-Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszyny Wirtualnej na podstawie obrazu SUSE starszych lub niestandardowego, wykonaj następujące kroki:
+Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszynę Wirtualną, która jest oparta na starszej lub niestandardowy obraz SUSE, wykonaj następujące czynności:
 
-1. Edytuj plik `/etc/sysconfig/network/ifcfg-eth0` i Zastąp ten parametr
-
-        #BOOTPROTO='dhcp4'
-
-    przy użyciu następującej wartości:
+1. Edytuj */etc/sysconfig/network/ifcfg-eth0* plików i Zastąp `#BOOTPROTO='dhcp4'` parametr przy użyciu następującej wartości:
 
         BOOTPROTO='dhcp'
 
-2. Dodaj następujący parametr do `/etc/sysconfig/network/ifcfg-eth0`:
+2. Aby */etc/sysconfig/network/ifcfg-eth0* pliku, Dodaj następujący parametr:
 
         DHCLIENT6_MODE='managed'
 
@@ -135,9 +131,9 @@ Ostatnie SLES i openSUSE obrazów na platformie Azure zostały wstępnie skonfig
 
 ## <a name="coreos"></a>CoreOS
 
-Ostatnie obrazy CoreOS na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszyny Wirtualnej na podstawie obrazu CoreOS starszych lub niestandardowego, wykonaj następujące kroki:
+Ostatnie obrazy CoreOS na platformie Azure zostały wstępnie skonfigurowany z użyciem protokołu DHCPv6. Korzystając z tych obrazów są wymagane nie dodatkowe zmiany. Jeśli masz maszyny Wirtualnej na podstawie obrazu CoreOS starszych lub niestandardowego, wykonaj następujące czynności:
 
-1. Przeprowadź edycję pliku`/etc/systemd/network/10_dhcp.network`
+1. Edytuj */etc/systemd/network/10_dhcp.network* pliku:
 
         [Match]
         eth0

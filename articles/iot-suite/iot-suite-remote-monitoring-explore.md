@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Poznaj możliwości zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -43,7 +43,7 @@ Jeśli jeszcze tego nie wdrożono rozwiązanie monitorowania zdalnego jeszcze, n
 Umożliwia wdrożenie IoT przykładowej firmy Contoso zrozumieć podstawowe scenariusze zdalnego monitorowania rozwiązanie zapewnia poza pole. Te scenariusze są oparte na rzeczywistych wdrożeń IoT. Prawdopodobnie wybierzesz opcję Dostosuj zdalnego rozwiązanie monitorowania do własnych wymagań, ale przykładowej firmy Contoso pomaga Poznaj podstawy.
 
 > [!NOTE]
-> Jeśli użyto interfejsu wiersza polecenia do wdrożenia wstępnie skonfigurowanego rozwiązania, plik `deployment-{your deployment name}-output.json` zawiera informacje dotyczące wdrażania, takie jak adres URL, który accss próbki wdrożone.
+> Jeśli użyto interfejsu wiersza polecenia do wdrożenia wstępnie skonfigurowanego rozwiązania, plik `deployment-{your deployment name}-output.json` zawiera informacje dotyczące wdrażania, takie jak adres URL wdrożonej przykładu.
 
 Przykładowe firmy Contoso inicjuje zestaw symulowanego urządzenia i reguł, które działają na nich. Po zrozumieniu podstawowe scenariusze można kontynuować eksploracji więcej funkcji rozwiązania w [wykonaj zaawansowanego monitorowania urządzeń przy użyciu zdalnego rozwiązanie monitorowania](iot-suite-remote-monitoring-monitor.md).
 

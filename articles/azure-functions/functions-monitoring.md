@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitoruj usługę Azure Functions
 
@@ -38,7 +38,7 @@ Dla aplikacji funkcja do wysyłania danych do usługi Application Insights nale�
 * [Utwórz połączony wystąpienie usługi Application Insights, podczas tworzenia aplikacji funkcji](#new-function-app).
 * [Połącz wystąpienie usługi Application Insights do istniejącej aplikacji funkcji](#existing-function-app).
  
-### <a name="new-function-app"></a>Nowa aplikacja — funkcja
+### <a name="new-function-app"></a>Nowa aplikacja funkcji
 
 Włącz usługę Application Insights w aplikacji funkcji **Utwórz** strony:
 
@@ -78,7 +78,7 @@ W [Eksploratora metryk](../application-insights/app-insights-metrics-explorer.md
 
 Na [błędów](../application-insights/app-insights-asp-net-exceptions.md) kartę, można utworzyć wykresów i alerty na podstawie błędy funkcji i serwera wyjątki. **Nazwy operacji** jest nazwą funkcji. Błędy w zależności nie są wyświetlane, chyba że zaimplementowaniem [telemetria niestandardowa](#custom-telemetry-in-c-functions) zależności.
 
-![błędy](media/functions-monitoring/failures.png)
+![Błędy](media/functions-monitoring/failures.png)
 
 Na [wydajności](../application-insights/app-insights-performance-counters.md) kartę, można analizować problemy z wydajnością.
 
@@ -152,7 +152,7 @@ Zawiera również usługę Azure functions rejestratora *poziom dziennika* przy 
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczny    | 5 |
+|Krytyczne    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` znajduje się w następnej sekcji. 
@@ -486,7 +486,7 @@ Można przesłać strumieniowo pliki dziennika do sesji wiersza polecenia na lok
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorowanie plików dziennika aplikacji funkcji z interfejsu wiersza polecenia platformy Azure w wersji 1.0
 
-Aby rozpocząć, [zainstalować 1.0 interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i [logowanie do platformy Azure](../xplat-cli-connect.md).
+Aby rozpocząć, [zainstalować 1.0 interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i [logowanie do platformy Azure](/cli/azure/authenticate-azure-cli).
 
 Aby włączyć klasycznym trybie zarządzania usługami, wybierz subskrypcję i przesyłanie strumieniowe plików dziennika, użyj następujących poleceń:
 

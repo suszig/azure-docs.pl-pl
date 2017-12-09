@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Szkieletu Azure enterprise — ładu przetestowanego subskrypcji
 Przedsiębiorstwa są coraz bardziej przyjmowanie chmury publicznej, elastyczność i elastyczność. Są one przy użyciu sile z chmury do generowania przychodu lub optymalizacji zasobów w firmie. Microsoft Azure udostępnia wiele różnych usług czy przedsiębiorstwa można grupować jak bloków konstrukcyjnych w celu rozwiązania szerokiej gamy obciążeń i aplikacji. 
@@ -59,7 +59,7 @@ Poniższa ilustracja opisano składniki szkieletu. Podstawę polega na stałe pl
 ## <a name="define-your-hierarchy"></a>Zdefiniuj hierarchii
 Podstawę szkieletu jest rejestracja Enterprise Azure (i Enterprise Portal). Rejestracja enterprise definiuje kształt i korzystają z usług Azure w obrębie firmy i jest strukturę zarządu core. W ramach umowy enterprise agreement klienci mogą dodatkowo podzielić środowiska do działów, kont, a na końcu subskrypcji. Subskrypcji platformy Azure to podstawowa jednostka, w którym znajdują się wszystkie zasoby. Definiuje również kilka ograniczeń w obrębie platformy Azure, takich jak liczba rdzeni, zasoby itd.
 
-![Hierarchii](./media/resource-manager-subscription-governance/agreement.png)
+![hierarchia](./media/resource-manager-subscription-governance/agreement.png)
 
 Różni się co przedsiębiorstwa i umożliwia hierarchii na poprzedniej ilustracji dużą swobodę w sposób organizowania Azure w firmie. Przed wdrożeniem wskazówki zawarte w tym dokumencie, możesz modelu hierarchii i zrozumienie wpływu na rozliczenia, dostęp do zasobów i złożoności.
 
@@ -168,7 +168,7 @@ Więcej przykładów tagów, zobacz [konwencje nazewnictwa dla zasobów platform
 ## <a name="resource-group"></a>Grupa zasobów
 Menedżer zasobów pozwala na poddane zasobów znaczący grup zarządzania, koligacji rozliczeń lub fizycznych. Jak wspomniano wcześniej, platforma Azure ma dwa modele wdrażania. W starszych klasycznego modelu podstawową jednostką zarządzania było subskrypcji. Było trudne do podziału zasobów w ramach subskrypcji, które doprowadziło do utworzenia dużą liczbę subskrypcji. Z modelu Resource Manager widzieliśmy wprowadzenie grup zasobów. Grupy zasobów to kontenery zasoby, które mają wspólne cykl lub udostępnić atrybut, taki jak "wszystkie serwery SQL" lub "Aplikacja A".
 
-Grupy zasobów nie może być zawarty w sobie nawzajem i zasoby mogą należeć tylko do jednej grupy zasobów. Pewne akcje można stosować na wszystkie zasoby w grupie zasobów. Na przykład usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w grupie zasobów. Zazwyczaj umieszczeniu całej aplikacji lub systemu pokrewne w tej samej grupie zasobów. Na przykład aplikacji trzy warstwy o nazwie aplikacji sieci Web firmy Contoso zawierałoby serwera sieci web, serwera aplikacji i programu SQL server w tej samej grupie zasobów.
+Grupy zasobów nie może być zawarty w sobie nawzajem i zasoby mogą należeć tylko do jednej grupy zasobów. Pewne akcje można stosować na wszystkie zasoby w grupie zasobów. Na przykład usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w grupie zasobów. Zazwyczaj umieszczeniu całej aplikacji lub systemu pokrewne w tej samej grupie zasobów. Na przykład trójwarstwowa aplikacja o nazwie aplikacji sieci Web firmy Contoso zawierałoby serwera sieci web, serwera aplikacji i programu SQL server w tej samej grupie zasobów.
 
 > [!TIP]
 > Sposób organizowania grup zasobów mogą się różnić od obciążeń "Tradycyjnych IT" w przypadku obciążeń "Agile IT":

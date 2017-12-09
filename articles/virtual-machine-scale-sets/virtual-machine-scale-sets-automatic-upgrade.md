@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatycznych uaktualnień systemu operacyjnego zestawu skalowania maszyny wirtualnej platformy Azure
 
@@ -39,10 +39,10 @@ Automatyczne uaktualnienie systemu operacyjnego ma następującą charakterystyk
 ## <a name="preview-notes"></a>Informacje o wersji zapoznawczej 
 W wersji zapoznawczej, stosuje się następujące ograniczenia i ograniczenia:
 
-- Automatyczne OS uaktualnia obsługują tylko [trzy jednostki magazynowe systemu operacyjnego](#supported-os-images). Brak umowy dotyczącej poziomu usług i gwarancji. Firma Microsoft zaleca się, że nie używasz automatycznych uaktualnień na krytycznych obciążeń produkcyjnych wersji zapoznawczej.
+- Automatyczne OS uaktualnia obsługują tylko [cztery jednostki magazynowe systemu operacyjnego](#supported-os-images). Brak umowy dotyczącej poziomu usług i gwarancji. Firma Microsoft zaleca się, że nie używasz automatycznych uaktualnień na krytycznych obciążeń produkcyjnych wersji zapoznawczej.
 - Obsługa zestawy skalowania w klastrach usługi sieć szkieletowa będzie dostępna wkrótce.
 - Szyfrowanie dysków Azure (obecnie w wersji zapoznawczej) jest **nie** można obecnie używać z maszyny wirtualnej skali zestaw automatycznego uaktualnienia systemu operacyjnego.
-- Środowisko portalu wkrótce.
+- Środowisko portalu będzie dostępna wkrótce.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Zarejestruj, aby użyć automatyczne uaktualnienie systemu operacyjnego
@@ -78,9 +78,11 @@ Obecnie obsługiwane są następujące wersje produktu (więcej zostanie dodany)
     
 | Wydawca               | Oferta         |  SKU               | Wersja  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04 LTS          | najnowsza   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | najnowsza   |
 | MicrosoftWindowsServer  | WindowsServer | Centrum danych 2016    | najnowsza   |
-| Canonical               | UbuntuServer  | 16.04 LTS          | najnowsza   |
+| MicrosoftWindowsServer  | WindowsServer | Smalldisk-2016-centrum danych | najnowsza   |
+
 
 
 ## <a name="application-health"></a>Kondycja aplikacji
@@ -90,6 +92,15 @@ Opcjonalnie można skonfigurować zestaw skalowania za pomocą aplikacji sondy k
 
 Jeśli zestaw skalowania jest skonfigurowany do używania wielu grup umieszczania, sond, za pomocą [standardowego modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) będzie używane.
 
+### <a name="important-keep-credentials-up-to-date"></a>Ważne: Aktualne poświadczenia
+Jeśli zestaw skalowania używa wszystkie poświadczenia dostępu do zasobów zewnętrznych, na przykład jeśli skonfigurowano rozszerzenie maszyny Wirtualnej, który używa tokenu sygnatury dostępu Współdzielonego dla konta magazynu, konieczne będzie upewnij się, że poświadczenia są zawsze aktualne. Jeśli wygasły wszystkie poświadczenia, tym certyfikaty i tokenów, uaktualnienie zakończy się niepowodzeniem, a pierwsza partia maszyn wirtualnych zostanie pozostawiony w stanie niepowodzenia.
+
+Zalecane kroki, aby odzyskać maszyn wirtualnych i ponowne włączenie automatycznego uaktualniania systemu operacyjnego w przypadku niepowodzenia uwierzytelniania zasobów są:
+
+* Token (lub innych poświadczeń) przekazany do rozszerzenia Twojej regenerate.
+* Upewnij się, że wszystkie poświadczenia użyte z wewnątrz maszyny Wirtualnej do komunikowania się do jednostek zewnętrznych jest aktualny.
+* Wszystkie nowe tokeny zaktualizować rozszerzenia w modelu zestawu skali.
+* Wdrażanie zestawu skali zaktualizowane, który zaktualizuje wszystkie wystąpienia maszyny Wirtualnej, w tym te nie powiodło się. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Konfigurowanie sondy modułu równoważenia obciążenia niestandardowe jako sondy kondycji aplikacji w skali ustawić
 Najlepszym rozwiązaniem należy jawnie Utwórz sondę modułu równoważenia obciążenia, dla zestawu skalowania kondycji. Tego samego punktu końcowego dla istniejących badanie HTTP lub TCP sondowania mogą być używane, ale sondy kondycji mogą wymagać różnych zachowania sondowania tradycyjnego równoważenia obciążenia. Na przykład sondę modułu równoważenia obciążenia tradycyjnych może zwrócić zła, jeśli obciążenie wystąpienia jest zbyt wysoka, które mogą nie być odpowiednie dla ustalanie kondycji wystąpienia podczas automatycznego uaktualniania systemu operacyjnego. Skonfiguruj sondowania mają wysokie tempo sondowania niespełna dwie minuty.

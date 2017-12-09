@@ -4,7 +4,7 @@ description: "Wyjaśniono, jak dodawać, modyfikować, monitorowania i Usuń wol
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Zarządzanie woluminami (Update 3 lub nowszej) przy użyciu usługi Menedżer StorSimple urządzenia
 
@@ -119,11 +119,7 @@ Możesz [utworzony wolumin](storsimple-8000-deployment-walkthrough-u2.md#step-6-
       
        W przypadku alokowania woluminu przypiętego lokalnie o rozmiarze 8,5 TB (maksymalny dozwolony rozmiar) na urządzeniu 8100 całe lokalne miejsce dostępne na urządzeniu zostanie wyczerpane. Od tego momentu nie można tworzyć woluminów warstwowych, ponieważ w urządzeniu nie ma już miejsca lokalnego do hostowania roboczego zestawu woluminu warstwowego. Istniejące woluminy warstwowe również wpływają na dostępne miejsce. Jeśli na przykład masz urządzenie 8100 z woluminami warstwowymi o wielkości około 106 TB, tylko 4 TB są dostępne dla woluminów przypiętych lokalnie.
 
-    6. W polu **Połączone hosty** kliknij strzałkę. 
-
-        ![Połączone hosty](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. W **połączone hosty** bloku, wybierz istniejący ACR lub Dodaj nowe ACR. Jeśli nowy ACR, następnie podaj **nazwa** dla rekordu ACR, podaj **iSCSI Qualified Name** (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host). Kliknij przycisk **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
+    6. W polu **Połączone hosty** kliknij strzałkę. W **połączone hosty** bloku, wybierz istniejący ACR lub Dodaj nowe ACR. Jeśli nowy ACR, następnie podaj **nazwa** dla rekordu ACR, podaj **iSCSI Qualified Name** (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host). Kliknij przycisk **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
         ![Kliknięcie pozycji Utwórz](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

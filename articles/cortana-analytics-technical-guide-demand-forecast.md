@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Podręcznik techniczny do szablonu Cortana analizy rozwiązania dla Prognoza energii
 ## <a name="overview"></a>**Omówienie**
@@ -82,7 +82,7 @@ Ten dokument nie opisuje sposobu pozyskiwania danych, ale jeden łatwe wysyłani
 
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) można znaleźć zapytania według:
 
-* Logowanie do [portalu Azure](https://manage.windowsazure.com/)
+* Logowanie do [portalu Azure](https://portal.azure.com/)
 * Lokalizowanie zadania usługi analiza strumienia ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) które zostały wygenerowane, gdy rozwiązanie zostało wdrożone. Jeden jest przekazywanie danych do magazynu obiektów blob (na przykład mytest1streaming432822asablob) i jeden z nich ma przekazywanie danych do usługi Power BI (na przykład mytest1streaming432822asapbi).
 * Wybieranie
 

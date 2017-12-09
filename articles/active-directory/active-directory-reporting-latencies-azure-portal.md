@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: f060ddc958a7b266464bd28cee774f6ce065088d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Usługa Azure Active Directory opóźnienia raportowania
 
@@ -37,10 +37,10 @@ Istnieją dwa obszary działania raportowania:
 
 Poniższa tabela zawiera informacje opóźnienia raporty aktywności.
 
-| Raport | Minimalne | Średnia | Maksymalna |
+| Raport | Minimalne | Średni | Maksimum |
 | :-- | --- | --- | --- |
-| Dzienniki inspekcji             | 30 minut  | 45 minut | 1 godzina     |
-| Logowania               | 15 minut  | 15 minut | 2 godziny *   |
+| Dzienniki inspekcji             | 30 minut  | 1 godzina | 2 godziny     |
+| Logowania               | 15 minut  | 2 godziny * | 24 godziny  |
 
 >[!NOTE]
 > W przypadku niektórych danych operacji logowania pochodzących ze starszych wersji aplikacji pakietu Office dane raportowania mogą pojawić się po 8 godzinach. 
@@ -55,18 +55,18 @@ Istnieją dwa obszary raportowania zabezpieczeń:
 
 Poniższa tabela zawiera informacje opóźnienia raporty dotyczące zabezpieczeń.
 
-| Raport | Minimalne | Średnia | Maksymalna |
+| Raport | Minimalne | Średni | Maksimum |
 | :-- | --- | --- | --- |
 | Narażeni użytkownicy          | 5 minut   | 15 minut  | 2 godziny  |
 | Ryzykowne logowania         | 5 minut   | 15 minut  | 2 godziny  |
 
-## <a name="risk-events"></a>Zdarzenia ryzyka
+## <a name="risk-events"></a>Zdarzenia o podwyższonym ryzyku
 
 Usługi Azure Active Directory korzysta z algorytmów uczenia maszynowego adaptacyjną i heurystyki do wykrycia podejrzanych działań, które są związane z kontami użytkowników. Każdy wykryty podejrzane działania są przechowywane w zdarzenia o nazwie ryzyko rekordu.
 
 W poniższej tabeli wymieniono informacje opóźnienie dla zdarzeń o podwyższonym ryzyku.
 
-| Raport | Minimalne | Średnia | Maksymalna |
+| Raport | Minimalne | Średni | Maksimum |
 | :-- | --- | --- | --- |
 | Logowania z anonimowych adresów IP |5 minut |15 minut |2 godziny |
 | Logowania z nieznanych lokalizacji |5 minut |15 minut |2 godziny |

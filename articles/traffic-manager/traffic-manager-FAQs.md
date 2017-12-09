@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Często zadawane pytania (FAQ) Menedżera ruchu
 
@@ -368,7 +368,7 @@ Liczba kondycji usługi Traffic Manager sprawdza, czy osiągnięciu punktu końc
 
 ### <a name="how-do-i-configure-nested-profiles"></a>Jak skonfigurować zagnieżdżonych profilów?
 
-Zagnieżdżonych profilów usługi Traffic Manager można skonfigurować przy użyciu zarówno usługi Azure Resource Manager i klasycznym Azure interfejsów API REST, poleceń cmdlet programu Azure PowerShell i polecenia wiersza polecenia platformy Azure i platform. Są one również obsługiwane za pośrednictwem portalu Azure. Nie są obsługiwane w klasycznym portalu.
+Zagnieżdżonych profilów usługi Traffic Manager można skonfigurować przy użyciu zarówno usługi Azure Resource Manager i klasycznym Azure interfejsów API REST, poleceń cmdlet programu Azure PowerShell i polecenia wiersza polecenia platformy Azure i platform. Są one również obsługiwane za pośrednictwem portalu Azure.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Obsługuje liczbę warstw zagnieżdżenia wykonuje Menedżera ruchu?
 

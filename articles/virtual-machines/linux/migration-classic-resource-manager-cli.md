@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migracja zasobów IaaS ze środowiska klasycznego do usługi Azure Resource Manager przy użyciu wiersza polecenia platformy Azure
 Te kroki pokazują, jak używać poleceń Azure interfejsu wiersza polecenia (CLI), aby migrować infrastruktury jako zasoby usługi (IaaS) z klasycznym modelu wdrażania modelu wdrażania usługi Azure Resource Manager. Wymaga artykułu [Azure CLI 1.0](../../cli-install-nodejs.md). Ponieważ 2.0 interfejsu wiersza polecenia Azure ma zastosowanie tylko dla zasobów usługi Azure Resource Manager, nie można użyć dla tej migracji.
@@ -48,7 +48,7 @@ Poniżej przedstawiono kilka najlepsze rozwiązania, które są zalecane jako oc
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Krok 2: Ustaw swoją subskrypcję i zarejestrować dostawcę
-Scenariusze migracji należy skonfigurować środowisko dla obu classic i Menedżera zasobów. [Zainstaluj interfejs wiersza polecenia Azure](../../cli-install-nodejs.md) i [Wybierz subskrypcję](../../xplat-cli-connect.md).
+Scenariusze migracji należy skonfigurować środowisko dla obu classic i Menedżera zasobów. [Zainstaluj interfejs wiersza polecenia Azure](../../cli-install-nodejs.md) i [Wybierz subskrypcję](/cli/azure/authenticate-azure-cli).
 
 Zaloguj się do swojego konta.
 

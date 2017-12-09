@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Jak używać elastycznej zapytania z usługą Magazyn danych SQL
 
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji na elastyczne zapytania z bazy danych SQL, zobac
 
 ### <a name="elastic-querying"></a>Elastyczne zapytań
 
-- Tabelę zewnętrzną i interally tabeli pamięci podręcznej istnieje jako różnych obiektów w wystąpieniu bazy danych SQL. Należy wziąć pod uwagę tworzenia widoku w górnej części pamięci podręcznej tabeli i tabeli zewnętrznej które unie zarówno tabele i zastosowanie filtrów w punkcie granic w każdej tabeli.
+- W wielu przypadkach przydatne może być zarządzanie typu rozciąganej tabeli, gdzie część tabeli znajduje się w bazie danych SQL jako buforowanych danych dotyczących wydajności z resztą danych przechowywanych w usłudze SQL Data Warehouse. Konieczne będzie mieć dwa obiekty w bazie danych SQL: tabeli zewnętrznej w bazie danych SQL, który odwołuje się do tabeli podstawowej w magazynie danych programu SQL i "pamięci podręcznej" część tabeli w bazie danych SQL. Należy wziąć pod uwagę tworzenia widoku w górnej części pamięci podręcznej tabeli i tabeli zewnętrznej które unie zarówno tabele i stosuje filtry, których dane zmaterializowany w ramach bazy danych SQL i usługi SQL Data Warehouse danych za pośrednictwem tabel zewnętrznych.
 
   Załóżmy, że chcemy zachować roku najnowszych danych w wystąpieniu bazy danych SQL. Mamy dwie tabele **zewnętrznego Zamówienia**, który odwołuje się do magazynu danych porządkuje tabel, i **dbo. Zamówienia** reprezentuje najbardziej aktualną wartość lat danych w wystąpieniu bazy danych SQL. Zamiast prosząc użytkowników o podjęcie decyzji o zapytanie jednej tabeli lub innego, utworzymy widoku w górnej części obu tabel na punkcie partycji w ostatnim roku.
 
@@ -135,13 +135,17 @@ Aby uzyskać więcej informacji na elastyczne zapytania z bazy danych SQL, zobac
 
 ## <a name="faq"></a>Często zadawane pytania
 
-Pytanie: czy można użyć bazy danych w puli elastycznej bazy danych z zapytaniem elastycznej?
+Pytanie: czy w puli elastycznej zapytania o elastycznej można używać baz danych?
 
 Odpowiedź: tak. Baz danych w puli elastycznej za pomocą elastycznych kwerendy. 
 
 Pytanie: czy istnieje limit liczby baz danych I można użyć dla elastycznej zapytania?
 
-A: serwery logiczne mają limitów jednostek DTU w miejscu, aby zapobiec przypadkowemu przekroczenia wydatków klientów. Jeśli włączasz szereg baz danych dla elastycznej zapytania równolegle z wystąpieniem usługi SQL Data Warehouse można napotkać zakończenie nieoczekiwanie. W takim przypadku przesłać żądanie, aby zwiększyć limit jednostek dtu w warstwie na serwerze w sieci logicznej. Może spowodować zwiększenie limitu przydziału przez [tworzenie biletu pomocy technicznej](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) i wybierając *przydziału* jako typ żądania
+A: w nie mają żadnych twardych zakończenia liczbę baz danych może służyć do elastycznej zapytania. Jednak każdego zapytania elastycznej (zapytań, które trafień SQL Data Warehouse) będą uwzględniane limity normalne współbieżności.
+
+Pytanie: czy istnieją limitów jednostek DTU związanego z zapytaniem elastycznej?
+
+A: limitów jednostek DTU nie są narzucone żadnego inaczej z zapytaniem elastycznej. Standardowych zasad jest taka, że serwery logiczne mają limitów jednostek DTU w miejscu, aby zapobiec przypadkowemu przekroczenia wydatków klientów. Jeśli włączasz szereg baz danych dla elastycznej zapytania równolegle z wystąpieniem usługi SQL Data Warehouse można napotkać zakończenie nieoczekiwanie. W takim przypadku przesłać żądanie, aby zwiększyć limit jednostek dtu w warstwie na serwerze w sieci logicznej. Może spowodować zwiększenie limitu przydziału przez [tworzenie biletu pomocy technicznej](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) i wybierając *przydziału* jako typ żądania
 
 Pytanie: czy można użyć wiersza poziomu zabezpieczeń/dynamicznych danych maskowania elastycznej zapytania?
 

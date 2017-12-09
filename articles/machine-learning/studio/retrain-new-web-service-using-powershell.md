@@ -3,7 +3,7 @@ title: "Ponownie ucz nowej usługi Azure Machine Learning usługi sieci web przy
 description: "Dowiedz się, jak programowo retrain modelu i usługi sieci web do korzystania z nowo uczonego modelu w usłudze Azure Machine Learning przy użyciu poleceń cmdlet programu PowerShell do zarządzania Machine Learning aktualizacji."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 77bc78e7ed27f1566e5e5f6a3539c93c9aa73e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630e9958d5083300fdf7910c5fdd47989b0376ad
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ponownie ucz usługi sieci web na podstawie nowego Menedżera zasobów za pomocą poleceń cmdlet programu PowerShell do zarządzania Machine Learning
 Gdy retrain nową usługę sieci web, należy zaktualizować definicji usługi predykcyjnej sieci web do odwołania do nowego uczonego modelu.  

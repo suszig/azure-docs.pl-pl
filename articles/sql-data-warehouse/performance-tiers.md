@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Warstwy wydajności w usłudze Azure SQL Data Warehouse (wersja zapoznawcza)
 Magazyn danych SQL oferuje dwie warstwy wydajności, które są zoptymalizowane pod kątem obciążeń analitycznych. W tym artykule opisano pojęcia związane z warstwy wydajności, aby ułatwić możesz wybrać najodpowiedniejszy warstwę wydajności dla obciążenia. 
 
-
 ## <a name="what-is-a-performance-tier"></a>Co to jest warstwę wydajności?
 Warstwę wydajności to opcja, która określa konfigurację magazynu danych. Ta opcja jest jedną z opcji pierwszy wprowadzone podczas tworzenia magazynu danych.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - **Warstwa wydajności zoptymalizowana pod kątem elastyczności** oddziela warstwy obliczeń i magazynu w architekturze. Ta opcja najlepiej działa dla obciążeń, które mogą w pełni korzystać z rozdzielenia obliczeń i magazynu dzięki częstemu skalowaniu w celu obsługi krótkich okresów szczytowej aktywności. Ta warstwa obliczeń ma najniższą cenę wejściową i możliwość skalowania do obsługi większości obciążeń klientów.
 
@@ -74,7 +75,7 @@ Poziomy usług dla zoptymalizowany pod kątem elastyczność wydajności warstwy
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
-### <a name="optimized-for-compute"></a>Zoptymalizowana pod kątem obliczeń
+### <a name="optimized-for-compute"></a>Zoptymalizowane pod kątem obliczeń
 
 Poziomy usług dla zoptymalizowany pod kątem obliczeń wydajności warstwy należą do zakresu od DW1000c do DW30000c. 
 
@@ -112,7 +113,7 @@ Każde zapytanie zużyje zero, jeden lub więcej miejsc współbieżności. Syst
  
 Tylko zapytań dotyczących zasobów postanowieniom zużywać miejsc współbieżności. Dokładna liczba zużywane gniazd współbieżności jest określany przez zapytanie [klasy zasobów](resource-classes-for-workload-management.md).
 
-### <a name="optimized-for-compute"></a>Zoptymalizowana pod kątem obliczeń
+### <a name="optimized-for-compute"></a>Zoptymalizowane pod kątem obliczeń
 W poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gniazda współbieżności dla każdego [klasy zasobu dynamicznego](resource-classes-for-workload-management.md).  Te dotyczą zoptymalizowane dla warstwy wydajności obliczeniowej.
 
 **Klasy zasobu dynamicznego**

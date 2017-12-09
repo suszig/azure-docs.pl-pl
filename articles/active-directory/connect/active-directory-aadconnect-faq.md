@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Często zadawane pytania dotyczące usługi Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Z kompilacji w lutym 2016 r. jest to obsługiwane.
 Tak. Po zainstalowaniu agenta, można ukończyć procesu rejestracji, za pomocą następującego polecenia cmdlet programu PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Pytanie: czy programu AADConnect obsługuje synchronizowane z obiema domenami do na usługi Azure AD?**</br>
+Tak, takie rozwiązanie jest obsługiwane. Zapoznaj się [wielu domen](active-directory-aadconnect-multiple-domains.md)
+ 
+**Pytanie: czy obsługujemy mających wiele łączników dla tej samej domeny usługi Active Directory w usłudze Azure AD connect?**</br> Nie, to nie jest obsługiwane 
 
 ## <a name="network"></a>Sieć
 **Pytanie: czy mam zapory, urządzenia sieciowego lub czegoś innego, która ogranicza maksymalny czas połączenia pozostają otwarte w sieci. Jak długo Moje próg limitu czasu po stronie klienta należy przy użyciu usługi Azure AD Connect?**  
@@ -78,8 +83,6 @@ Nie jest to obecnie nieobsługiwane.
 **Pytanie: czy jest ona obsługiwana na ręczne ustawienie atrybutu nazwę ImmutableId w istniejących obiektach Azure AD grupy/skontaktuj się z twardego dopasowanie do obiektów grupy AD skontaktuj się z lokalnymi?**  
 Nie jest to obecnie nieobsługiwane.
 
-
-
 ## <a name="custom-configuration"></a>Konfiguracja niestandardowa
 **Pytanie: gdzie są udokumentowane poleceń cmdlet programu PowerShell dla usługi Azure AD Connect**  
 Z wyjątkiem poleceń cmdlet opisane w tej lokacji innych poleceń cmdlet programu PowerShell znaleziono w programie Azure AD Connect nie są obsługiwane przez klienta.
@@ -95,8 +98,6 @@ Obecnie nie obsługujemy modyfikowania atrybutów HTML strony logowania. Obecnie
 
 **Pytanie: czy istnieje sposób, aby zapobiec równoczesnych sesji?**</br>
 Nie.
-
-
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 **Pytanie: jak uzyskać pomoc dotyczącą usługi Azure AD Connect?**

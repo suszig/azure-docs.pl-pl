@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Dotyczy: Azure stosu Development Kit*
 
@@ -28,7 +28,7 @@ Po [wdrażanie Azure stosu Development Kit](azure-stack-run-powershell-script.md
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Tworzenie konta dzierżawy Azure stosu przy użyciu portalu Azure
 Musi mieć subskrypcję platformy Azure za pomocą portalu Azure.
 
-1. Zaloguj się do [Azure](http://manage.windowsazure.com).
+1. Zaloguj się do [Azure](https://portal.azure.com).
 2. Na pasku nawigacyjnym po lewej stronie Microsoft Azure, kliknij przycisk **usługi Active Directory**.
 3. Na liście katalogu kliknij katalog, który ma być używany dla stosu Azure lub Utwórz nową.
 4. Na tej stronie katalogu kliknij **użytkowników**.

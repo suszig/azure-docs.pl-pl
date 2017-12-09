@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ebc6b758221d61793dbbd21ca02050d8402dbe71
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Innej roli administracyjnej w usłudze Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 Można przypisywać użytkowników w organizacji, aby różne role administracyjne w usłudze Azure AD. Te przypisania ról kontrolować, które zadania, takie jak dodawanie lub usuwanie użytkowników i zmiana ustawień usługi użytkownicy będą mogli wykonać w usłudze Azure AD, Office 365 i innych usług Microsoft Online Services i połączonych aplikacji.  
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule.
+> Firma Microsoft zaleca, które są zarządzane przy użyciu usługi Azure AD [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w portalu Azure.
 
-Administrator globalny może aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD przy użyciu poleceń cmdlet programu PowerShell, takich jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`, lub za pośrednictwem klasycznego portalu zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Administrator globalny może aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD przy użyciu poleceń cmdlet programu PowerShell, takich jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`, lub za pośrednictwem portalu zgodnie z opisem w [przypisywanie Role administratora w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) zarządza zasadami uprzywilejowanego dostępu dla użytkowników w usłudze Azure AD. PIM przypisuje użytkowników do co najmniej jedną rolę w usłudze Azure AD i można przypisać komuś trwale do roli lub kwalifikuje się do roli. Jeśli użytkownik jest trwale przypisana do roli lub aktywuje przypisania roli kwalifikujących się, a następnie ich zarządzania usługi Azure Active Directory, usługi Office 365 i innych aplikacji z uprawnienia przypisane do ich ról.
 
@@ -75,15 +75,14 @@ Subskrypcje platformy Azure i grup zasobów również nie są reprezentowane w u
 ## <a name="user-roles-and-signing-in"></a>Role użytkownika i logowanie
 Przypadku pewnych usług firmy Microsoft i aplikacji przypisanie użytkownika do roli może nie być wystarczające, aby umożliwić użytkownikowi mieć uprawnienia administratora.
 
-Dostęp do klasycznego portalu Azure wymaga się, że użytkownik jest administratorem usługi ani współadministratorem subskrypcji platformy Azure, nawet jeśli użytkownik nie musi zarządzać subskrypcjami platformy Azure.  Na przykład do zarządzania ustawieniami konfiguracji dla usługi Azure AD w klasycznym portalu, użytkownik musi być zarówno w usłudze Azure AD administratora globalnego, jak i subskrypcji współadministratorem subskrypcji platformy Azure.  Aby dowiedzieć się, jak dodać użytkowników do subskrypcji platformy Azure, zobacz [jak dodać lub zmienić role administratora platformy Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Dostęp do portalu Azure wymaga się, że użytkownik jest administratorem usługi ani współadministratorem subskrypcji platformy Azure, nawet jeśli użytkownik nie musi zarządzać subskrypcjami platformy Azure.  Na przykład do zarządzania ustawieniami konfiguracji dla usługi Azure AD, użytkownik musi być zarówno w usłudze Azure AD administratora globalnego, jak i subskrypcji współadministratorem subskrypcji platformy Azure.  Aby dowiedzieć się, jak dodać użytkowników do subskrypcji platformy Azure, zobacz [jak dodać lub zmienić role administratora platformy Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Dostęp do usług Online firmy Microsoft mogą wymagać użytkownika również należy przypisać im licencję przed ich Otwórz portal usługi lub wykonywać zadania administracyjne.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Przypisywanie licencji do użytkownika w usłudze Azure AD
-1. Zaloguj się do [klasycznego portalu Azure](http://manage.windowsazure.com) z konta administratora globalnego lub konto administratora współpracującego.
-2. Wybierz **wszystkie elementy** z poziomu menu głównego.
-3. Wybierz katalog, który chcesz używać, i ma licencje powiązane z nim.
-4. Wybierz **licencji**. Zostanie wyświetlona lista dostępnych licencji.
+1. Zaloguj się do [portalu Azure](http://portal.azure.com) z konta administratora globalnego lub konto administratora współpracującego.
+3. Wybierz usługi Azure AD i katalogu, w którym ma pracować z, a ma licencji skojarzonych z nim.
+4. Wybierz **licencji** po lewej stronie. Zostanie wyświetlona lista dostępnych licencji.
 5. Wybierz planu licencjonowania, który zawiera licencji, które chcesz dystrybuować.
 6. Wybierz **przypisywać użytkowników**.
 7. Wybierz użytkownika, którego chcesz przypisać licencję.

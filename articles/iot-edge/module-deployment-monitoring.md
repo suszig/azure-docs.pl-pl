@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Zrozumienie wdrożeń IoT Edge dla urządzeń z jednego lub na dużą skalę - preview
 
@@ -57,7 +57,23 @@ Metadane konfiguracji dla każdego modułu obejmują:
 
 ### <a name="target-condition"></a>Warunek docelowy
 
-Warunki docelowych określają, czy urządzenia IoT powinny znajdować się w zakresie wdrożenia. Warunki określania wartości docelowej są oparte na urządzenie dwie tagów. 
+Warunek docelowy jest stale obliczenia obejmują nowe urządzenia, które spełniają wymagania lub usuń urządzenia, które nie może wykonywać za pomocą czasu życia wdrożenia. Wdrożenie zostanie ponownie uaktywnić, jeśli usługa wykrywa zmiany stanu docelowego. Na przykład masz wdrożenie A mającej tags.environment warunek docelowy = "produkcyjnego". Gdy należy rozpocząć poza wdrożenia istnieją 10 urządzeń produkcyjną. Moduły pomyślnie zostały zainstalowane w tych 10 urządzeń. Stan agenta krawędzi IoT jest wyświetlany jako 10 łączna liczba urządzeń, 10 pomyślnie odpowiedzi, 0 odpowiedzi i 0 oczekujące odpowiedzi. Teraz Dodaj 5 więcej urządzeń z tags.environment = "produkcyjnego". Usługa wykryje zmianę i stan agenta krawędzi IoT pomyślnie staje się 15 łączna liczba urządzeń, 10 odpowiedzi, 0 odpowiedzi i 5 oczekujące odpowiedzi przy próbie wdrożyć pięć nowych urządzeń.
+
+Wszelkie warunek typu Boolean na urządzeniu twins znaczników lub deviceId można użyć do wybrania urządzeń docelowych. Jeśli chcesz użyć warunku tagów, należy dodać "tagi" :{} sekcji dwie urządzenia, w tym samym poziomie jako właściwości. [Dowiedz się więcej na temat tagów w dwie urządzenia](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Przykłady warunków docelowych:
+* deviceId = "linuxprod1
+* Tags.Environment = "produkcyjnego"
+* Tags.Environment = prod tags.location i = "westus"
+* Tags.Environment = prod tags.location lub = "westus"
+* Tags.operator = 'John' i tags.environment = prod deviceId nie = "linuxprod1"
+
+Poniżej przedstawiono niektóre ogranicza podczas tworzenia warunku docelowych:
+
+* W dwie urządzenia można utworzyć tylko przy użyciu znaczników lub deviceId warunek docelowy.
+* Podwójny cudzysłów nie jest dozwolone w jakiejkolwiek jego części warunek docelowy. Użyj pojedynczych cudzysłowów.
+* Apostrofy reprezentują wartości stanu docelowego. W związku z tym musi escape z innego pojedynczy cudzysłów pojedynczy cudzysłów, jeśli jest ona częścią nazwy urządzenia. Na przykład warunek docelowy: operator'sDevice musi mieć postać deviceId = "operator" sDevice ".
+* Cyfry, litery i następujące znaki są dozwolone w docelowej values:-:.+%_#* warunek? (),=@;$
 
 ### <a name="priority"></a>Priorytet
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -46,9 +46,11 @@ W tym scenariuszu można skupić się na prognozowania obciążenia dla każdego
 Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 
 * [Konta Azure](https://azure.microsoft.com/free/) (bezpłatnych wersji próbnych są dostępne).
-* Zainstalowana kopia programu [Machine Learning Workbench](./overview-what-is-azure-ml.md). Aby zainstalować ten program i utworzyć obszaru roboczego, zobacz [Przewodnik Szybki Start instalacji](./quickstart-installation.md).
+* Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Aby zainstalować ten program i utworzyć obszaru roboczego, zobacz [Przewodnik Szybki Start instalacji](./quickstart-installation.md). Jeśli masz wiele subskrypcji, możesz [ustaw odpowiednią subskrypcję można bieżącej subskrypcji active](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (instrukcje w tym przykładzie są generalnie takie same dla systemów macOS).
-* Dane nauki maszyny wirtualnej (DSVM) dla systemu Linux (Ubuntu). Ubuntu DSVM można udostępnić, wykonując [tych instrukcji](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Możesz również sprawdzić [tego przewodnika Szybki Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 32 GB pamięci. Należy adres DSVM IP, nazwę użytkownika i hasło, aby wypróbować usługę w tym przykładzie. Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
+* Dane nauki maszyny wirtualnej (DSVM) dla systemu Linux (Ubuntu), najlepiej w regionie wschodnie stany USA, gdzie znajduje się dane. Ubuntu DSVM można udostępnić, wykonując [tych instrukcji](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Możesz również sprawdzić [tego przewodnika Szybki Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 32 GB pamięci. 
+
+Postępuj zgodnie z [instrukcji](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) Aby włączyć dostęp bez hasła sudoer na maszynie Wirtualnej do AML Workbench.  Możesz użyć [uwierzytelniania opartego na kluczach SSH dotyczące tworzenia i używania maszyny Wirtualnej w AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). W tym przykładzie używamy hasła do maszyny Wirtualnej.  Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
 
  Nazwa pola| Wartość |  
  |------------|------|
@@ -56,9 +58,10 @@ Adres DSVM IP | xxx|
  Nazwa użytkownika  | xxx|
  Hasło   | xxx|
 
+
  Można użyć żadnej maszyny Wirtualnej z [aparatem platformy Docker](https://docs.docker.com/engine/) zainstalowane.
 
-* Klaster usługi HDInsight Spark o platformie Hortonworks Data Platform 3,6 i wersja Spark 2.1.x. Odwiedź stronę [utworzyć klaster Apache Spark w usłudze Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) szczegółowe informacje o sposobie tworzenia klastrów usługi HDInsight. Zalecamy używanie klastrze proces roboczy trzy z każdy pracownik mający 16 rdzeni i 112 GB pamięci. Można też tylko typu maszyny Wirtualnej `D12 V2` dla węzła głównego i `D14 V2` węzła procesu roboczego. Wdrożenie klastra trwa około 20 minut. Należy nazwa klastra, nazwa użytkownika SSH i hasło, aby wypróbować usługę w tym przykładzie. Zapisz Poniższa tabela z informacjami o klaster Azure HDInsight do wykonania kolejnych kroków:
+* Klaster usługi HDInsight Spark o platformie Hortonworks Data Platform 3,6 i wersja Spark 2.1.x, najlepiej w regionie wschodnie stany USA, gdzie znajduje się dane. Odwiedź stronę [utworzyć klaster Apache Spark w usłudze Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) szczegółowe informacje o sposobie tworzenia klastrów usługi HDInsight. Zalecamy używanie klastrze proces roboczy trzy z każdy pracownik mający 16 rdzeni i 112 GB pamięci. Można też tylko typu maszyny Wirtualnej `D12 V2` dla węzła głównego i `D14 V2` węzła procesu roboczego. Wdrożenie klastra trwa około 20 minut. Należy nazwa klastra, nazwa użytkownika SSH i hasło, aby wypróbować usługę w tym przykładzie. Zapisz Poniższa tabela z informacjami o klaster Azure HDInsight do wykonania kolejnych kroków:
 
  Nazwa pola| Wartość |  
  |------------|------|
@@ -91,7 +94,7 @@ Uruchom `git status` Aby sprawdzić stan plików dla wersji śledzenia.
 
 ## <a name="data-description"></a>Opis elementu danych
 
-Dane używane w tym przykładzie jest danych obciążenia syntezatora serwera. Jest obsługiwany na koncie magazynu obiektów Blob platformy Azure, który jest dostępny publicznie. Informacje o koncie magazynu określonym znajdują się w `dataFile` pole [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). Można użyć danych bezpośrednio z magazynu obiektów Blob. Jeśli magazyn jest używany przez wielu użytkowników równocześnie, możesz użyć [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) można pobrać danych do własnych magazynu. 
+Dane używane w tym przykładzie jest danych obciążenia syntezatora serwera. Jest obsługiwany na koncie magazynu obiektów Blob platformy Azure, który jest publicznie dostępna w regionie wschodnie stany USA Informacje o koncie magazynu określonym znajdują się w `dataFile` pole [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) w formacie "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Można użyć danych bezpośrednio z magazynu obiektów Blob. Jeśli magazyn jest używany przez wielu użytkowników równocześnie, możesz użyć [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) można pobrać danych w magazynie na lepsze środowisko eksperymenty. 
 
 Rozmiar całkowitą danych jest około 1 TB. Każdego pliku wynosi około 1 – 3 GB, a w formacie pliku CSV, bez nagłówka. Każdy wiersz danych reprezentuje obciążenia transakcji na określonym serwerze. Szczegółowe informacje o schemat danych przebiega następująco:
 
@@ -270,7 +273,7 @@ Po pomyślnym zakończeniu eksperymenty na małych danych, można nadal uruchami
 
 Następujące dwa pliki są tworzone w folderze aml_config:
     
--  myhdo.COMPUTE: ten plik zawiera połączenia i informacje konfiguracyjne dla elementu docelowego zdalne wykonywanie kodu.
+-  myhdi.COMPUTE: ten plik zawiera połączenia i informacje konfiguracyjne dla elementu docelowego zdalne wykonywanie kodu.
 -  myhdi.runconfig: ten plik jest ustawiony używanych aplikacji Workbench opcji uruchamiania.
 
 

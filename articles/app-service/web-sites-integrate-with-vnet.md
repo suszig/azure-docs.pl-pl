@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integracja aplikacji z sieci wirtualnej platformy Azure
 Ten dokument zawiera opis funkcji integracji sieci wirtualnej Azure App Service i pokazuje, jak je skonfigurować przy użyciu aplikacji w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Jeśli znasz sieci wirtualnych Azure (sieci wirtualne), jest możliwość, która pozwala umieszczać wiele zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci mogą być następnie połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, należy uruchomić z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure][VNETOverview]. 
@@ -39,7 +39,7 @@ Funkcja integracji sieci wirtualnej:
 * wymaga Standard, Premium lub izolowany cenową planu 
 * działa z klasycznym lub Menedżera zasobów w sieci wirtualnej 
 * obsługuje TCP i UDP
-* współpracuje z aplikacjami sieci Web, mobilnych i interfejsu API
+* współpracuje z sieci Web, urządzeń przenośnych, aplikacje interfejsu API i aplikacje — funkcja
 * umożliwia aplikacji łączenie się tylko 1 sieci wirtualnej w czasie
 * Włącza do pięciu sieci wirtualnych do zintegrowane z planu usługi App Service 
 * zezwala na tej samej sieci wirtualnej, który będzie używany przez wiele aplikacji w planie usługi aplikacji
@@ -93,7 +93,7 @@ Jeśli nie ma bramy sieci wirtualnej, ani ma punkt do lokacji, następnie należ
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Włączanie punkt do lokacji w sieci wirtualnej usługi Resource Manager
-Aby skonfigurować sieć wirtualną Resource Manager z bramy oraz punkt do lokacji, można albo PowerShell zgodnie z opisem w tym miejscu [skonfigurowano połączenia punkt-lokacja z sieci wirtualnej przy użyciu programu PowerShell] [ V2VNETP2S] lub użyj portalu Azure, zgodnie z opisem w tym miejscu [skonfigurowano połączenia punkt-lokacja z sieci wirtualnej przy użyciu portalu Azure][V2VNETPortal]. Interfejs użytkownika do wykonania tej funkcji nie jest jeszcze dostępna. Uwaga: należy utworzyć certyfikaty dla wskaż konfigurację witryny. To jest automatycznie konfigurowany po podłączeniu Twojej aplikacji sieci Web do sieci wirtualnej. 
+Aby skonfigurować sieć wirtualną Resource Manager z bramy oraz punkt do lokacji, można albo PowerShell zgodnie z opisem w tym miejscu [skonfigurowano połączenia punkt-lokacja z sieci wirtualnej przy użyciu programu PowerShell] [ V2VNETP2S] lub użyj portalu Azure, zgodnie z opisem w tym miejscu [skonfigurowano połączenia punkt-lokacja z sieci wirtualnej przy użyciu portalu Azure][V2VNETPortal]. Interfejs użytkownika do wykonania tej funkcji nie jest jeszcze dostępna. Należy pamiętać, że nie trzeba tworzyć certyfikaty dla wskaż konfigurację witryny. To jest automatycznie konfigurowany po podłączeniu Twojej aplikacji sieci Web do sieci wirtualnej. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Tworzenie wstępnie skonfigurowane sieci wirtualnej
 Jeśli chcesz tworzyć nowej sieci wirtualnej, który jest skonfigurowany dla bramy i punkt-lokacja usługi App Service sieci interfejsu użytkownika ma możliwość to zrobić, ale tylko dla sieci wirtualnej Menedżera zasobów. Jeśli chcesz utworzyć sieć wirtualną klasycznego bramy i punkt-lokacja, należy to zrobić ręcznie za pomocą interfejsu użytkownika sieci. 
@@ -105,7 +105,7 @@ Aby utworzyć sieć wirtualną Resource Manager za pośrednictwem interfejsu uż
 * Nazwa podsieci
 * Blok adresów podsieci
 * Blok adresów bramy
-* Blok adresów punkt lokacja
+* Blok adresów połączeń punkt-lokacja
 
 Jeśli chcesz, aby ta sieć wirtualna łączenie się z innymi sieciami, następnie należy unikać pobrania przestrzeń adresów IP, który pokrywa się z tych sieci. 
 

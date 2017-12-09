@@ -11,9 +11,9 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/08/2017
 ---
@@ -36,7 +36,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Aplikacja sieci web. Firma Microsoft będzie wyświetlane kroki dla aplikacji platformy ASP.NET MVC wdrożona na platformie Azure jako aplikacji sieci Web.
 
 >[!IMPORTANT]
->* Ten przykład jest zależna od starszych sposób ręcznego inicjowania obsługi administracyjnej tożsamości usługi AAD. Obecnie jest nowa funkcja w wersji zapoznawczej o nazwie [zarządzane tożsamości usługi (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), mogą automatycznie obsługiwać tożsamości usługi AAD. Zapoznaj się z następującym przykładem na [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) uzyskać więcej szczegółowych informacji.
+>* Ten przykład jest zależna od starszych sposób ręcznego inicjowania obsługi administracyjnej tożsamości usługi AAD. Obecnie jest nowa funkcja w wersji zapoznawczej o nazwie [zarządzane tożsamości usługi (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), mogą automatycznie obsługiwać tożsamości usługi AAD. Zapoznaj się z następującym przykładem na [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) uzyskać więcej szczegółowych informacji.
 
 > [!NOTE]
 >* Jest to, że zostały wykonane wszystkie czynności opisane w [wprowadzenie do usługi Azure Key Vault](key-vault-get-started.md) w tym samouczku, aby mieć identyfikatora URI, klucz tajny i identyfikator klienta i klucz tajny klienta dla aplikacji sieci web.
@@ -46,7 +46,7 @@ Aplikacja sieci web, które będą uzyskiwać dostęp do magazynu kluczy jest te
 
 Ten samouczek jest przeznaczony dla deweloperów sieci web, które podstawy tworzenia aplikacji sieci web na platformie Azure. Aby uzyskać więcej informacji dotyczących aplikacji sieci Web platformy Azure, zobacz [Omówienie aplikacji sieci Web](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Dodawanie pakietów Nuget
+## <a id="packages"></a>Dodawanie pakietów NuGet
 
 Istnieją dwa pakiety, które aplikacji sieci web musi mieć zainstalowany.
 
@@ -147,11 +147,11 @@ Innym sposobem uwierzytelniania aplikacji usługi Azure AD jest przy użyciu Ide
 Dla naszych celów firma Microsoft będzie wprowadzać certyfikatu testowego. Oto kilka poleceń, których można użyć w wierszu polecenia dewelopera, można utworzyć certyfikatu. Zmień katalog, w którym ma zostać utworzone pliki certyfikatu.  Ponadto do rozpoczęcia i zakończenia Data certyfikatu, użyj data bieżąca plus 1 rok.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Zwróć uwagę na hasło pliku PFX i Data zakończenia (w tym przykładzie: 2016-07-31 i test123). Należy je poniżej.
+Zwróć uwagę na hasło pliku PFX i Data zakończenia (w tym przykładzie: 07/31/2017 i test123). Należy je poniżej.
 
 Aby uzyskać więcej informacji na temat tworzenia certyfikatu testowego, zobacz [porady: tworzenie swój własny testu certyfikatu](https://msdn.microsoft.com/library/ff699202.aspx)
 

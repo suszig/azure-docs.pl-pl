@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure rozwiązania Cosmos bazy danych: Narzędzie migracji danych
 
@@ -29,7 +29,7 @@ W tym samouczku instrukcje na temat używania narzędzia migracji danych DB rozw
 API, które będą korzystać z bazy danych rozwiązania Cosmos Azure? 
 * **[Interfejs API usługi DocumentDB](documentdb-introduction.md)**  — można użyć opcji źródła w narzędzia migracji danych do importowania danych.
 * **[Tabela interfejsu API](table-introduction.md)**  — narzędzia do migracji danych lub narzędzia AzCopy można użyć do importowania danych. Zobacz [importowania danych do użycia z interfejsu API Azure rozwiązania Cosmos DB tabeli](table-import.md) Aby uzyskać więcej informacji.
-* **[Interfejs API bazy danych MongoDB](mongodb-introduction.md)**  — narzędzia do migracji danych eksportowanie danych bazy danych MongoDB do bazy danych Azure rozwiązania Cosmos do użycia przy użyciu interfejsu API usługi DocumentDB. Jednak jeśli chcesz nadal używać interfejsów API bazy danych MongoDB będzie stosowana interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB i powinna być używana mongoimport.exe lub mongorestore.exe do importowania danych. Zobacz [bazy danych Azure rozwiązania Cosmos: jak przeprowadzić migrację danych dla bazy danych MongoDB interfejsu API?](mongodb-migrate.md), aby uzyskać więcej informacji.
+* **[Interfejs API bazy danych MongoDB](mongodb-introduction.md)**  — narzędzia do migracji danych aktualnie nie obsługuje interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB jako źródło lub jako element docelowy. Jeśli chcesz przeprowadzić migrację danych do lub z kolekcji bazy danych MongoDB interfejsu API w usłudze Azure DB rozwiązania Cosmos odwołują się do [bazy danych Azure rozwiązania Cosmos: jak przeprowadzić migrację danych dla bazy danych MongoDB interfejsu API](mongodb-migrate.md) instrukcje. Do eksportowania danych z bazy danych MongoDB do interfejsu API Azure rozwiązania Cosmos bazy danych SQL kolekcji do użycia przy użyciu interfejsu API SQL, można nadal używać narzędzia migracji danych. 
 * **[Interfejs API programu Graph](graph-introduction.md)**  — narzędzia do migracji danych nie jest narzędziem obsługiwanych importu dla interfejsu API programu Graph kont w tym momencie. 
 
 Ten samouczek obejmuje następujące zadania:
@@ -231,7 +231,7 @@ Opcja importera źródła magazynu tabel Azure ma następujące dodatkowe opcje:
    1. -Obejmują wszystkie pola wewnętrzne (PartitionKey RowKey i sygnatura czasowa)
    2. Brak — Wyklucz wszystkie pola wewnętrznego
    3. RowKey - zawierać tylko pola RowKey
-2. Wybierz kolumny
+2. Wybieranie kolumn
    1. Filtrów magazynu tabel Azure nie obsługuje prognoz. Jeśli chcesz importować tylko określonych właściwości jednostki tabel Azure, dodaj je do listy wybierz kolumny. Wszystkie właściwości obiektu są ignorowane.
 
 Oto przykład wiersza polecenia do importowania z magazynem tabel Azure:

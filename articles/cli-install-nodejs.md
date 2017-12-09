@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Zainstaluj Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Szybko zainstalować interfejs wiersza polecenia platformy Azure (Azure CLI 1.0)
 
 Aby uzyskać więcej opcji i tło, zobacz repozytorium projektu w [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Po zainstalowaniu programu Azure CLI 1.0 [połącz go z subskrypcją platformy Azure](xplat-cli-connect.md) i uruchom **azure** poleceń z interfejsu wiersza polecenia (Bash, Terminal wiersza polecenia i tak dalej) do pracy z zasobami platformy Azure.
+Po zainstalowaniu programu Azure CLI 1.0 [połącz go z subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli) i uruchom **azure** poleceń z interfejsu wiersza polecenia (Bash, Terminal wiersza polecenia i tak dalej) do pracy z zasobami platformy Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Opcja 1: Zainstaluj pakiet npm
 Aby zainstalować interfejsu wiersza polecenia z pakietu npm, upewnij się, zostały pobrane i zainstalowane [najnowsze Node.js i npm](https://nodejs.org/en/download/package-manager/). Następnie uruchom **instalacji narzędzia npm** do zainstalowania pakietu wiersza polecenia platformy azure:
@@ -99,7 +99,7 @@ Aby wyświetlić wersję 1.0 interfejsu wiersza polecenia platformy Azure zosta�
 azure --version
 ```
 
-Teraz wszystko jest gotowe! Wszystkie polecenia interfejsu wiersza polecenia do pracy z własnych zasobów, dostęp do [nawiązać połączenia z subskrypcją platformy Azure z wiersza polecenia platformy Azure](xplat-cli-connect.md).
+Teraz wszystko jest gotowe! Wszystkie polecenia interfejsu wiersza polecenia do pracy z własnych zasobów, dostęp do [nawiązać połączenia z subskrypcją platformy Azure z wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Przy pierwszym użyciu interfejsu wiersza polecenia Azure, zostanie wyświetlony komunikat z pytaniem, jeśli chcesz zezwolić firmie Microsoft na zbieranie informacji o użyciu. Uczestnictwo jest dobrowolne. Jeśli zdecydujesz się uczestniczyć, można zatrzymać w dowolnym momencie, uruchamiając `azure telemetry --disable`. Aby włączyć udział w dowolnym momencie, uruchom polecenie `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Połącz z poziomu interfejsu wiersza polecenia do subskrypcji platformy Azure](xplat-cli-connect.md) do tworzenia i zarządzania zasobami Azure.
+* [Połącz z poziomu interfejsu wiersza polecenia do subskrypcji platformy Azure](/cli/azure/authenticate-azure-cli) do tworzenia i zarządzania zasobami Azure.
 * Aby dowiedzieć się więcej o Azure CLI, pobierania kodu źródłowego, zgłaszanie problemów lub przyczyniają się do projektu, odwiedź stronę [repozytorium GitHub dla interfejsu wiersza polecenia Azure](https://github.com/azure/azure-xplat-cli).
 * Jeśli masz pytania dotyczące używania interfejsu wiersza polecenia Azure lub usługi Azure, odwiedź stronę [fora Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure polecenia interfejsu wiersza polecenia w trybie Menedżera zasobów
 Ten artykuł zawiera składnię i opcje dla poleceń Azure interfejsu wiersza polecenia (CLI), który jest powszechnie stosowany do tworzenia i zarządzania zasobami Azure w modelu wdrażania usługi Azure Resource Manager. Możesz uzyskać dostępu do tych poleceń za pomocą interfejsu wiersza polecenia w trybie usługi Resource Manager (arm). To nie jest pełną dokumentację i wersji interfejsu wiersza polecenia mogą być wyświetlane nieco inne polecenia lub parametrów. Ogólne omówienie zasobów platformy Azure i grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Ten artykuł zawiera składnię i opcje dla poleceń Azure interfejsu wiersza po
 >Dowiedz się więcej o [CLIs Azure stary i nowy](/cli/azure/old-and-new-clis).
 >
 
-Aby rozpocząć, najpierw [instalowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i [nawiązać połączenia z subskrypcją platformy Azure](../xplat-cli-connect.md).
+Aby rozpocząć, najpierw [instalowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i [nawiązać połączenia z subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli).
 
 Dla bieżącego składni poleceń i opcji wiersza polecenia w trybie Menedżera zasobów, wpisz `azure help` lub, aby wyświetlić Pomoc dotyczącą danego polecenia, `azure help [command]`. Również znaleźć przykłady interfejsu wiersza polecenia w dokumentacji do tworzenia i zarządzania określonych usług platformy Azure.
 

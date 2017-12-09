@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be9f3a21ab685c20924df965559bc93138317e6c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Zbierania dzienników
 
@@ -52,7 +52,7 @@ Usługa Azure AD B2C obsługuje funkcję wysyłania danych do usługi Applicatio
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Jeśli nie istnieje już, Dodaj węzeł podrzędny `<UserJourneyBehaviors>` do `<RelyingParty>` węzła. Znajdować się natychmiast po`<DefaultUserJourney ReferenceId="YourPolicyName" />`
+1. Jeśli nie istnieje już, Dodaj węzeł podrzędny `<UserJourneyBehaviors>` do `<RelyingParty>` węzła. Znajdować się natychmiast po`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Dodaj następujący węzeł jako element podrzędny `<UserJourneyBehaviors>` elementu. Upewnij się zastąpić `{Your Application Insights Key}` z **klucza Instrumentacji** uzyskane z usługi Application Insights w poprzedniej sekcji.
 
   ```XML

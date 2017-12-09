@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Raporty w uwierzytelnianie wieloskładnikowe platformy Azure
 
@@ -36,22 +36,20 @@ Usługa Azure Multi-Factor Authentication udostępnia kilka raportów, które mo
 
 ## <a name="view-reports"></a>Wyświetlanie raportów
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie wybierz pozycję Active Directory.
-3. Wykonaj jedną z następujących dwóch opcji, w zależności od tego, czy używać dostawcy usługi MFA:
-   * **Opcja 1**: kliknij kartę dostawców uwierzytelniania wieloskładnikowego. Wybierz dostawcę uwierzytelniania MFA i kliknij przycisk **Zarządzaj** znajdujący się u dołu.
-   * **Opcja 2**: Wybierz swój katalog, a następnie przejdź do **Konfiguruj** kartę. W sekcji uwierzytelniania wieloskładnikowego wybierz pozycję **Zarządzaj ustawieniami usługi**. Na dole strony Ustawienia usługi MFA, kliknij polecenie Przejdź do portalu łącza.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Po lewej stronie, wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy** > **Multi-Factor Uwierzytelnianie**.
+3. W obszarze **uwierzytelnianie wieloskładnikowe**, wybierz pozycję **ustawienia usługi**. W dolnej części w obszarze **Zarządzaj zaawansowanymi ustawieniami i wyświetlanie raportów**, wybierz pozycję **przejdź do portalu**.
 4. W portalu zarządzania Azure Multi-Factor Authentication należy wybrać typ raportu z **wyświetlić raport** sekcji na lewym pasku nawigacyjnym.
 
 <center>![Chmura](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>Raportowanie programu PowerShell
 
-Określenie użytkowników, którzy zarejestrowany dla usługi MFA za pomocą programu Powershell, który jest zgodny.
+Określenie użytkowników, którzy zarejestrowany dla usługi MFA za pomocą programu PowerShell, który jest zgodny.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Określ użytkowników, którzy nie została zarejestrowana dla usługi MFA za pomocą programu Powershell, który jest zgodny.
+Określ użytkowników, którzy nie została zarejestrowana dla usługi MFA za pomocą programu PowerShell, który jest zgodny.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

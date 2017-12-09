@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wielodostępne SaaS bazy danych dzierżawców wzorców
 
@@ -165,7 +165,7 @@ W modelu hybrydowych wszystkie bazy danych ma identyfikator dzierżawy w ich sch
 
 W dowolnym momencie można przenieść określonego dzierżawy do własną bazę danych z wieloma dzierżawcami.  I w dowolnym momencie możesz zmienić zdanie i przenieść dzierżawcy z powrotem do bazy danych zawierającej wiele dzierżaw.  Można także przypisać dzierżawcy nowej dzierżawy pojedynczej bazy danych podczas obsługi administracyjnej nowej bazy danych.
 
-Modelu hybrydowych możliwości, gdy istnieją duże różnice między zapotrzebowania na zasoby do zidentyfikowania grup dzierżawców.  Załóżmy na przykład, dzierżaw uczestniczących w ramach bezpłatnej wersji próbnej nie ma gwarancji poziomu wysokiej wydajności, które subskrypcji dzierżawcy są.  Zasady mogą być dla dzierżawców w bezpłatnej wersji próbnej fazy do zapisania w bazie danych wielodostępne współużytkowany bezpłatnej wersji próbnej dzierżaw.  Gdy bezpłatnej wersji próbnej dzierżawca subskrybuje poziomu usług podstawowa, dzierżawcy można przenieść do innej bazy danych wielu dzierżawców, która może być mniej dzierżaw.  Subskrybent płaci poziomu usług premium można jej przenieść do jego wykorzystanej nową bazę danych jednego dzierżawcy.
+Modelu hybrydowych możliwości, gdy istnieją duże różnice między zapotrzebowania na zasoby do zidentyfikowania grup dzierżawców.  Załóżmy na przykład, dzierżaw uczestniczących w ramach bezpłatnej wersji próbnej nie ma gwarancji poziomu wysokiej wydajności, które subskrypcji dzierżawcy są.  Zasady mogą być dla dzierżawców w bezpłatnej wersji próbnej fazy do zapisania w bazie danych wielodostępne współużytkowany bezpłatnej wersji próbnej dzierżaw.  Gdy bezpłatnej wersji próbnej dzierżawca subskrybuje poziomu usług podstawowa, dzierżawcy można przenieść do innej bazy danych wielu dzierżawców, która może być mniej dzierżaw.  Subskrybent płaci poziomu usług premium można jej przenieść do jego własnej nową bazę danych pojedynczej dzierżawy.
 
 #### <a name="pools"></a>Pule
 

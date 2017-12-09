@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Jak utworzyć i zarządzać pamięcią podręczną Redis Azure za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Tworzenie i zarządzanie nimi wystąpień pamięci podręcznej Redis Azure za po
 
 * Musi mieć konto platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) za kilka minut.
 * [Instalowanie interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md).
-* Połącz instalacji wiersza polecenia platformy Azure z osobistego konta Azure lub z firmowego lub szkolnego konta platformy Azure i zaloguj z wiersza polecenia platformy Azure przy użyciu `azure login` polecenia. Aby poznać różnice, a następnie wybierz pozycję, zobacz [Połącz z subskrypcją platformy Azure z interfejsu wiersza polecenia platformy Azure (Azure CLI)](../xplat-cli-connect.md).
+* Połącz instalacji wiersza polecenia platformy Azure z osobistego konta Azure lub z firmowego lub szkolnego konta platformy Azure i zaloguj z wiersza polecenia platformy Azure przy użyciu `azure login` polecenia. Aby poznać różnice, a następnie wybierz pozycję, zobacz [Połącz z subskrypcją platformy Azure z interfejsu wiersza polecenia platformy Azure (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Przed uruchomieniem dowolne z poniższych poleceń, przełącznik wiersza polecenia platformy Azure w trybie Menedżera zasobów, uruchamiając `azure config mode arm` polecenia. Aby uzyskać więcej informacji, zobacz [użyć wiersza polecenia platformy Azure do zarządzania zasobami Azure i grup zasobów](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Właściwości pamięci podręcznej redis
@@ -50,7 +50,7 @@ Następujące właściwości są używane podczas tworzenia i aktualizowania wys
 | name |-n, — nazwa |Nazwa pamięci podręcznej Redis. |
 | grupa zasobów |-g,--grupy zasobów |Nazwa grupy zasobów. |
 | location |-l, — lokalizacja |Lokalizacja, w celu tworzenia pamięci podręcznej. |
-| Rozmiar |-z, — rozmiar |Rozmiar pamięci podręcznej Redis. Prawidłowe wartości: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| rozmiar |-z, — rozmiar |Rozmiar pamięci podręcznej Redis. Prawidłowe wartości: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | Jednostka SKU |-x - sku |W pamięci podręcznej redis jednostki SKU. Powinien być jednym z: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e, - enable bez protokołu ssl portu |Właściwość EnableNonSslPort pamięci podręcznej Redis. Dodaj tę flagę, aby włączyć Port bez protokołu SSL dla pamięci podręcznej |
 | Redis konfiguracji |-c,--konfiguracja pamięci podręcznej redis |W pamięci podręcznej redis konfiguracji. Wprowadź ciąg w formacie JSON konfiguracji kluczy i wartości w tym miejscu. Format: "{" ":""," ":" "}" |

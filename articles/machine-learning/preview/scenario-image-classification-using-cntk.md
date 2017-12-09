@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Za pomocą usługi Azure Machine Learning Workbench klasyfikacji obrazu
 
@@ -51,7 +51,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 3. Komputer z systemem Windows. System operacyjny Windows jest niezbędne, ponieważ Workbench obsługuje tylko systemu Windows i MacOS podczas kognitywnych zestawu narzędzi firmy Microsoft (który używamy jako biblioteki learning głębokie) obsługuje tylko systemu Windows i Linux.
 4. Dedykowanego procesora GPU nie jest wymagana do wykonania w część 1, szkolenia SVM, jednak wymagana jest uściślenie z DNN opisanych w części 2. Jeśli brakuje silne procesora GPU, aby uczenia na wiele procesorów graficznych lub nie masz komputera z systemem Windows należy rozważyć przy użyciu platformy Azure głębokie Learning maszyny wirtualnej z systemem operacyjnym Windows. Zobacz [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) Przewodnik wdrożenia kliknij 1. Po wdrożeniu, połączenie z maszyną Wirtualną za pomocą Podłączania pulpitu zdalnego, zainstaluj istnieje Workbench i wykonywania kodu lokalnie z maszyny Wirtualnej.
 5. Różne bibliotek języka Python, takie jak OpenCV muszą być zainstalowane. Kliknij przycisk *Otwórz okno wiersza polecenia* z *pliku* menu Narzędzia Workbench i uruchom następujące polecenia, aby zainstalować te zależności:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po pobraniu koło OpenCV z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (dokładnej nazwy pliku i wersja zmienić)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +61,11 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 ### <a name="troubleshooting--known-bugs"></a>Rozwiązywania problemów / znanych błędów
 - Procesora GPU jest wymagany dla część 2, a w przeciwnym razie "Partii normalizacji szkolenia na Procesorze nie została jeszcze zaimplementowana", jest zgłaszany błąd podczas próby zaktualizowania DNN.
 - Błędy braku pamięci podczas uczenia DNN można uniknąć przez zmniejszenie rozmiaru minibatch (zmiennej `cntk_mb_size` w `PARAMETERS.py`).
-- Ten kod został przetestowany przy użyciu CNTK 2.0 i 2.1 i powinny również w nowszych wersjach bez żadnej (lub wykonywania tylko drobne) zmiany.
+- Kod został przetestowany przy użyciu CNTK 2.2 i powinny również wykonywania na starszą (maksymalnie v2.0) i nowszych wersji bez żadnej lub tylko drobne zmiany.
 - W momencie pisania Azure Machine Learning Workbench wystąpiły problemy z wyświetlanie notesów większych niż 5 MB. Notesów to duży rozmiar może nastąpić, jeśli notesu zostanie zapisany pod wszystkie komórki wyświetlany w danych wyjściowych. Jeśli ten błąd wystąpi, należy otworzyć wiersz polecenia z menu Plik wewnątrz Workbench wykonania `jupyter notebook`Otwórz notesu, wyczyść wszystkie dane wyjściowe i Zapisz notesu. Po wykonaniu tych kroków, notesu zostanie prawidłowo wewnątrz Azure Machine Learning Workbench ponownie otworzyć.
+- Wszystkie skrypty znajdujące się w tym przykładzie muszą być wykonywane lokalnie, a nie na przykład środowiska zdalnego docker. Wszystkie notesy muszą zostać wykonane z jądra ustawioną jądra lokalnego projektu o nazwie "<projectname> lokalne" (np. "myImgClassUsingCNTK lokalnego").
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt workbench
 
 Aby utworzyć nowy projekt za pomocą tego przykładu jako szablon:
@@ -91,7 +92,7 @@ Wykonanie tych czynności tworzy struktury projektu, pokazano poniżej. Katalog 
 
 W tym samouczku używana jako uruchamianie przykładu górny treści zestawu danych tekstury odzieży składające się z maksymalnie 428 obrazów. Każdego obrazu ma adnotacje w postaci jednego z trzech różnych tekstury (leopard kropkami, rozłożone,). Firma Microsoft przechowywane liczbę obrazów mała, aby szybko mogą być wykonywane w tym samouczku. Jednak kod jest dobrze przetestowane i działa z dziesiątkami tysięcy obrazów lub więcej. Wszystkie obrazy zostały oskrobane za pomocą wyszukiwania usługi Bing obrazu i ręcznie adnotacji opisane w [część 3](#using-a-custom-dataset). Obraz adresy URL z ich odpowiednich atrybutów są wymienione w */resources/fashionTextureUrls.tsv* pliku.
 
-Skrypt `0_downloadData.py` pobierze wszystkie obrazy do *DATA_DIR/obrazów/fashionTexture/* katalogu. Niektóre 428 adresy URL są prawdopodobnie uszkodzone. Nie stanowi to problemu, a tylko oznacza, że mamy nieco mniejsze obrazy do celów szkoleniowych i testów.
+Skrypt `0_downloadData.py` pobierze wszystkie obrazy do *DATA_DIR/obrazów/fashionTexture/* katalogu. Niektóre 428 adresy URL są prawdopodobnie uszkodzone. Nie stanowi to problemu, a tylko oznacza, że mamy nieco mniejsze obrazy do celów szkoleniowych i testów. Wszystkie skrypty znajdujące się w tym przykładzie muszą być wykonywane lokalnie, a nie na przykład środowiska zdalnego docker.
 
 Na poniższej ilustracji przedstawiono przykłady dla atrybutów z kropkami (po lewej), rozłożone (na środku) i leopard (po prawej). Adnotacje zostały wykonane zgodnie z elementu odzieży górny treści.
 
@@ -114,7 +115,7 @@ Wszystkie parametry ważne są określone, a podana krótkie objaśnienie, w jed
 ### <a name="step-1-data-preparation"></a>Krok 1: Przygotowanie danych
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Notesu `showImages.ipynb` może służyć do wizualizacji obrazów i popraw ich adnotacji, zgodnie z potrzebami. Aby uruchomić notesu, otwórz go w konsoli usługi Azure Machine Learning Workbench, kliknij przycisk "Rozpocznij notesu Server", jeśli ta opcja jest wyświetlana i wykonujących wszystkie komórki w notesie. Zobacz sekcję dotyczącą rozwiązywania problemów w tym dokumencie, jeśli wystąpi błąd, strona skarżąca czy notesu jest zbyt duży do wyświetlenia.
+Notesu `showImages.ipynb` może służyć do wizualizacji obrazów i popraw ich adnotacji, zgodnie z potrzebami. Aby uruchomić notesu, otwórz go w Azure Machine Learning Workbench, kliknij na "Start notesu Server" Jeśli ta opcja jest wyświetlana, zmień jądra lokalnego projektu o nazwie "<projectname> lokalne" (np. "myImgClassUsingCNTK lokalny"), a następnie wykonaj wszystkie komórki w notesu. Zobacz sekcję dotyczącą rozwiązywania problemów w tym dokumencie, jeśli wystąpi błąd, strona skarżąca czy notesu jest zbyt duży do wyświetlenia.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +179,7 @@ Oprócz dokładność krzywą ROC jest kreślony z odpowiedniego obszaru — w o
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizować wyniki odpowiednich klasyfikacji:
+Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizować wyniki odpowiednich klasyfikacji. Zgodnie z objaśnieniem w krok 1, co notesu w tym przykładzie musi używać jądra lokalnego projektu o nazwie "<projectname> lokalnego":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +191,7 @@ Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizow
 ### <a name="step-6-deployment"></a>Krok 6: wdrożenia
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Można teraz system przeszkolone opublikować go jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning. W sekcji także doskonała wdrożenia [samouczek IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Teraz można opublikować przeszkolone systemu jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning (należy pamiętać ustawić jako jądra jądra lokalnego projektu o nazwie "<projectname> lokalnego"). W sekcji także doskonała wdrożenia [samouczek IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) wdrożenia więcej powiązane informacje.
 
 Po wdrożeniu można wywołać usługę sieci web przy użyciu skryptu `6_callWebservice.py`. Należy pamiętać, że adres IP (lokalnej lub w chmurze) usługa sieci web musi najpierw należy ustawić w skrypcie. Notesu `deploy.ipynb` wyjaśniono, jak znaleźć ten adres IP.
 

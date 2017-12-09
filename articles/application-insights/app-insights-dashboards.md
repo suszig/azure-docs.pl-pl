@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Nawigacji i pulpitów nawigacyjnych w portalu usługi Application Insights
 Po utworzeniu [skonfiguruj usługę Application Insights w projekcie](app-insights-overview.md), dane telemetryczne dotyczące wydajności i użycia aplikacji będą wyświetlane w projektu zasobu usługi Application Insights w [portalu Azure](https://portal.azure.com).
@@ -98,6 +98,9 @@ Po utworzeniu pulpitu nawigacyjnego, można go udostępniać innym użytkownikom
 
 Dowiedz się więcej o [ról i kontroli dostępu](app-insights-resources-roles-access-control.md).
 
+## <a name="create-dashboards-programmatically"></a>Programowe tworzenie pulpitów nawigacyjnych
+Można zautomatyzować za pomocą tworzenia pulpitu nawigacyjnego [usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) i proste edytora JSON.
+
 ## <a name="app-navigation"></a>Aplikacja nawigacji
 Omówienie bloku jest bramy, aby uzyskać więcej informacji o aplikacji.
 
@@ -136,7 +139,7 @@ ZBADAJ
 * **Przeglądarka** — strona widoku i wydajności AJAX. Jeśli dostępne możesz [Instrumentacja stron sieci web](app-insights-javascript.md).
 * **Użycie** — strona widoku, użytkownika i sesji liczby. Jeśli dostępne możesz [Instrumentacja stron sieci web](app-insights-javascript.md).
 
-KONFIGUROWANIE
+KONFIGURUJ
 
 * **Wprowadzenie** — samouczek wbudowanego.
 * **Właściwości** -klucza instrumentacji, subskrypcji i identyfikator zasobu.

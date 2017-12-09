@@ -1,6 +1,6 @@
 ---
-title: "Ukryj aplikacji innych producentów, od środowiska użytkownika w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak ukryć aplikacji innych producentów, od środowiska użytkownika w usłudze Azure Active Directory"
+title: "Ukryj aplikację za pomocą środowiska użytkownika w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak ukryć aplikację za pomocą środowiska użytkownika w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 58e3dd23805ada39e77194ddb4ebf507c24fd1f2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Ukryj aplikacji innych producentów, od środowiska użytkownika w usłudze Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ukryj aplikację za pomocą środowiska użytkownika w usłudze Azure Active Directory
 
-Jeśli masz aplikacji innych firm (aplikacji opublikowanych przez inne niż firmy Microsoft) nie chcesz widoczne na paneli dostępu użytkowników lub przyciski Uruchom usługi Office 365, ma opcji, aby ukryć ten Kafelek aplikacji. Ukrywanie użytkownicy aplikacji nadal mieć uprawnienia do aplikacji lecz nie będzie mógł przeglądać je na ich przyciski Uruchom aplikację. Musi mieć odpowiednie uprawnienia do zarządzania aplikacjami przedsiębiorstwa, a musi być administratorem globalnym katalogu.
+Jeśli masz aplikację, której nie można wyświetlić na paneli dostępu użytkowników lub przyciski Uruchom usługi Office 365, ma opcji, aby ukryć ten Kafelek aplikacji. Ta opcja jest dostępna tylko dla aplikacji innej firmy (aplikacje nie opublikowane przez firmę Microsoft). Ukrywanie użytkownicy aplikacji nadal mieć uprawnienia do aplikacji lecz nie będzie mógł przeglądać je na ich przyciski Uruchom aplikację. Musi mieć odpowiednie uprawnienia do zarządzania aplikacjami przedsiębiorstwa, a musi być administratorem globalnym katalogu. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Ukrywanie aplikacji innych firm, z komputera przez użytkownika
-Wykonaj następujące kroki, aby ukryć aplikacji innych firm, z panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Ukrywanie aplikacji za pomocą środowiska użytkownika końcowego użytkownika
+Wykonaj następujące kroki, aby ukryć aplikację za pomocą panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Jak ukryć aplikacji innych firm, z panelu dostępu użytkownika i przyciski Uruchom aplikację usługi Office 365?
 
