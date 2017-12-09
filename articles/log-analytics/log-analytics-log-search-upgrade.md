@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: f3bb92335ec8d7d6edc0f10346b9b3a26adf65af
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Analiza dzienników Azure uaktualnienia do nowego wyszukiwania dziennika
 
@@ -52,7 +52,7 @@ Obszar roboczy zostaje automatycznie uaktualnione, będą widzieć transparent w
 Po przekonwertowaniu z obszaru roboczego zostały wprowadzone następujące zmiany:
 
 - Wszystkie zapisane wyszukiwania, reguły alertów i widoków, które zostały utworzone za pomocą projektanta widoku są automatycznie konwertowane na nowym języku.  Uwzględnione w rozwiązaniach wyszukiwania nie są konwertowane automatycznie, ale one jest natomiast przekonwertowane na bieżąco po ich otwarciu.  
-- [Mój pulpit nawigacyjny](log-analytics-dashboards.md) jest przestarzałe uzyskać [Widok projektanta](log-analytics-view-designer.md) i [pulpity nawigacyjne Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Kafelki, które zostały dodane do Mój pulpit nawigacyjny są nadal dostępne, ale ich jest tylko do odczytu.
+- [Mój pulpit nawigacyjny](log-analytics-dashboards.md) jest przestarzałe uzyskać [Widok projektanta](log-analytics-view-designer.md) i [pulpity nawigacyjne Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Kafelki, które zostały dodane do Mój pulpit nawigacyjny są nadal dostępne, ale ich jest tylko do odczytu.
 - [Power BI integracji](log-analytics-powerbi.md) jest zastępowany odciskiem nowego procesu.  Żadnych istniejących harmonogramów usługi Power BI, które zostały utworzone zostanie wyłączone i należy je zastąpić nowy proces.
 - Odpowiedzi z [alertów akcje](log-analytics-alerts-actions.md) za pomocą elementów webhook i elementów runbook mają nowy format i konieczne może być odpowiednio zaktualizować regułami alertów.
 - Obejrzyj [dziennik wyszukiwania — często zadawane pytania](log-analytics-log-search-faq.md) dla często zadawane pytania dotyczące uaktualnienia.

@@ -1,24 +1,22 @@
 ---
-title: "Tworzenie obszaru roboczego usługi Machine Learning | Dokumentacja firmy Microsoft"
+title: Tworzenie obszaru roboczego Studio uczenia maszynowego | Dokumentacja firmy Microsoft
 description: "Tworzenie obszaru roboczego dla usługi Azure Machine Learning Studio"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Tworzenie obszaru roboczego usługi Azure Machine Learning i zarządzanie nim
 To menu łącza do tematów opisujących sposób konfigurowania różnych środowiskach nauki danych używany przez proces Analytics Cortana (CAP).
@@ -39,16 +37,16 @@ Aby korzystać z usługi Azure Machine Learning Studio, musisz mieć obszaru rob
 
 2. Kliknij przycisk **+ nowy**
 
-3. Wybierz **analizy i analiza**, kliknij przycisk **obszaru roboczego uczenia maszyny**, następnie kliknij przycisk **Utwórz**
+3. W polu wyszukiwania wpisz **obszaru roboczego Machine Learning Studio** i wybierz pasujący element. Następnie kliknij przycisk Wybierz **Utwórz** w dolnej części strony.
 
-4. Wprowadź informacje obszaru roboczego
+4. Wprowadź informacje obszaru roboczego:
 
     - *Nazwa obszaru roboczego* może mieć maksymalnie 260 znaków, nie kończy się spacją. Nazwa nie może zawierać następujących znaków:`< > * % & : \ ? + /`
     - *Plan usługi sieci web* możesz wybrać (lub Utwórz), oraz skojarzone *warstwy cenowej* wybrać, jest używany w przypadku wdrożenia usługi sieci web z obszaru roboczego.
 
     ![Tworzenie nowego obszaru roboczego](./media/create-workspace/create-new-workspace.png)
 
-5. Kliknij przycisk **Utwórz**
+5. Kliknij przycisk **Utwórz**.
 
 Po wdrożeniu obszaru roboczego, możesz otworzyć go w usłudze Machine Learning Studio.
 

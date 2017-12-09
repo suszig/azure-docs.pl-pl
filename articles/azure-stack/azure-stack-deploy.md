@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
@@ -176,7 +176,7 @@ Aby skonfigurować dane telemetryczne programu SQL Server, zobacz [sposób konfi
 
 Za pomocą rejestracji stosu Azure skonfigurowano również informacje o użyciu do przodu na platformie Azure. Raportowanie użycia jest kontrolowany niezależnie od telemetrii. Można wyłączyć raportowanie podczas użycia [rejestrowanie](azure-stack-register.md) za pomocą skryptu w witrynie Github. Ustaw wartość **$reportUsage** parametr **$false**.
 
-Dane użycia są sformatowane jako szczegółowe w [stosu Azure raport danych użycia do platformy Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure użytkowników stosu Development Kit faktycznie nie pobiera. Ta funkcja znajduje się w zestawie, aby przeprowadzić test, aby zobaczyć, jak działa raportowanie użycia. 
+Dane użycia są sformatowane jako szczegółowe w [stosu Azure raport danych użycia do platformy Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Azure użytkowników stosu Development Kit faktycznie nie pobiera. Ta funkcja znajduje się w zestawie, aby przeprowadzić test, aby zobaczyć, jak działa raportowanie użycia. 
 
 
 ## <a name="next-steps"></a>Następne kroki

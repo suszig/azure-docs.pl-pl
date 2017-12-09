@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Omówienie usługi App Service w usłudze Azure Stack
 
@@ -37,8 +37,8 @@ Poniżej przedstawiono niektóre najważniejszych funkcji i możliwości usługi
 
 Usługa App Service oferuje kilka typów aplikacji, z których każdy jest przeznaczony do obsługi określonego obciążenia:
 
-- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) do obsługi aplikacji sieci web i witryn sieci Web.
-- [Aplikacje interfejsu API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) do hostowania interfejsów API RESTful.
+- [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) do obsługi aplikacji sieci web i witryn sieci Web.
+- [Aplikacje interfejsu API](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) do hostowania interfejsów API RESTful.
 - Środowisko Azure Functions do hostowania zdarzeniami, niekorzystającą obciążeń.
 
 W tym miejscu aplikacji word odwołuje się do zasobów hostowania przeznaczonych do obsługi obciążenia. Na przykład wyrażenie „aplikacja sieci Web” kojarzy się prawdopodobnie z zasobami obliczeniowymi i kodem aplikacji, które łącznie realizują funkcje używane w przeglądarce. Jednak w usłudze App Service aplikacji sieci web jest zasoby obliczeniowe, które udostępnia stosu Azure do hostowania kodu aplikacji.

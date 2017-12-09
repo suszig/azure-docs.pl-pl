@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Wdrażanie OpenShift platformy kontenera na platformie Azure
 
@@ -138,7 +138,7 @@ Zastąp w nawiasach z informacjami o określonych elementów.
 ### <a name="deploy-by-using-azure-cli"></a>Wdrażanie przy użyciu wiersza polecenia platformy Azure
 
 > [!NOTE] 
-> Polecenie wymaga interfejsu wiersza polecenia Azure 2.0.8 lub nowszym. Możesz sprawdzić wersję interfejsu wiersza polecenia z `az --version` polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Polecenie wymaga interfejsu wiersza polecenia Azure 2.0.8 lub nowszym. Możesz sprawdzić wersję interfejsu wiersza polecenia z `az --version` polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 Poniższy przykład wdraża klaster OpenShift i wszystkie powiązane zasoby w grupie zasobów o nazwie myResourceGroup, o nazwie myOpenShiftCluster wdrożenia. Szablon odwołuje się bezpośrednio z repozytorium GitHub i lokalne parametry, których jest używany plik o nazwie pliku azuredeploy.parameters.json.
 

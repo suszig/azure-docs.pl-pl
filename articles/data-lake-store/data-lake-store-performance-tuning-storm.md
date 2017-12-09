@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Wskazówki dotyczące Storm w usłudze HDInsight i usługi Azure Data Lake Store dostrajania wydajności
 
@@ -29,8 +29,8 @@ Zrozumienie czynników, które należy uwzględnić podczas dostrajania wydajno�
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Data Lake Store**. Aby uzyskać instrukcje na temat go utworzyć, zobacz [wprowadzenie do usługi Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **Klaster Azure HDInsight** z dostępem do konta usługi Data Lake Store. Zobacz [tworzenia klastra usługi HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Upewnij się, że włączenie pulpitu zdalnego dla klastra.
-* **Uruchomiony klaster Storm w usłudze Data Lake Store**. Aby uzyskać więcej informacji, zobacz [Storm w usłudze HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
-* **Wytyczne dotyczące usługi Data Lake Store dostrajania wydajności**.  Koncepcje ogólne wydajności dla [wskazówki dostrajania wydajności magazynu Lake danych](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Uruchomiony klaster Storm w usłudze Data Lake Store**. Aby uzyskać więcej informacji, zobacz [Storm w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Wytyczne dotyczące usługi Data Lake Store dostrajania wydajności**.  Koncepcje ogólne wydajności dla [wskazówki dostrajania wydajności magazynu Lake danych](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Dostosować równoległość topologii
 

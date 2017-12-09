@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Przed rozpoczęciem pracy z usługi aplikacji Azure stosu
 
@@ -250,7 +250,7 @@ Usługi aplikacji Azure na zliczania baz danych i hostingu Azure stosu należy p
 
 Do użytku z Development Kit stosu Azure, można użyć programu SQL Express 2014 z dodatkiem SP2 lub nowszym.
 
-Produkcji i wysoką dostępność, należy użyć pełną wersję programu SQL 2014 SP2 lub później, Włącz uwierzytelnianie w trybie mieszanym oraz wdrożyć w [konfiguracji wysokiej dostępności](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Produkcji i wysoką dostępność, należy użyć pełną wersję programu SQL 2014 SP2 lub później, Włącz uwierzytelnianie w trybie mieszanym oraz wdrożyć w [konfiguracji wysokiej dostępności](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 Usługi Azure App Service na serwerze SQL Azure stos musi być dostępny ze wszystkich ról usługi aplikacji. SQL Server można wdrożyć w ramach subskrypcji domyślny dostawca w stosie Azure. Można też użyć istniejącej infrastruktury, w ramach organizacji (o ile istnieje łączność stos Azure). Jeśli używasz portalu Azure Marketplace obrazu, należy odpowiednio skonfigurować zaporę. 
 

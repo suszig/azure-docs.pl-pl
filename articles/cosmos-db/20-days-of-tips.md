@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 39fd3e0df9a9d86272fb94afc9397ff61dd049f0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dni porady bazy danych Azure rozwiązania Cosmos
 
@@ -103,7 +103,7 @@ Porada 10: Dowiedz się, jak skopiować dane z bazy danych MongoDB do bazy danyc
 
 Wskazówka 11: Tworzenie bohater śledzenia aplikacji przy użyciu platformy React, Node.js i bazy danych Azure rozwiązania Cosmos.
 
-Artykuł: [tworzenie aplikacji bazy danych MongoDB z bazy danych platformy React i Azure rozwiązania Cosmos](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Artykuł: [tworzenie aplikacji bazy danych MongoDB z bazy danych platformy React i Azure rozwiązania Cosmos](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet w serwisie twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![udziału w LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Porada 12: Przejdź niekorzystającą z Azure #CosmosDB i @AzureFunctions! Pełn
 
 Porada 13: od 0 do bohater z @John_Papa i bazy danych Azure rozwiązania Cosmos. Dowiedz się, jak średnia aplikacji od początku kompilacji
 
-Artykuł: [tworzenie aplikacji bazy danych MongoDB z rozwiązania Cosmos kątowego i Azure DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Artykuł: [tworzenie aplikacji bazy danych MongoDB z rozwiązania Cosmos kątowego i Azure DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweet w serwisie twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![udziału w LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 

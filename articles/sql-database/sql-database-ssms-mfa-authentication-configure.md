@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Skonfiguruj usługę Multi-Factor authentication dla programu SQL Server Management Studio i Azure AD
 
@@ -67,7 +67,7 @@ Po zakończeniu weryfikacji SSMS łączy zwykle przy założeniu dostępu zapory
 - Omówienie uwierzytelniania wieloskładnikowego bazy danych SQL Azure, zobacz uniwersalnych uwierzytelniania za pomocą [bazy danych SQL i magazyn danych SQL (Obsługa SSMS MFA)](sql-database-ssms-mfa-authentication.md).  
 - Udostępnić innym bazy danych: [SQL bazy danych uwierzytelnianie i autoryzacja: udzielanie dostępu](sql-database-manage-logins.md)  
 - Upewnij się, że inne mogły nawiązywać połączenia przez zaporę: [skonfigurować regułę zapory poziomu serwera bazy danych SQL Azure przy użyciu portalu Azure](sql-database-configure-firewall-settings.md)  
-- Korzystając z **Active Directory - Universal za pomocą usługi MFA** uwierzytelniania ADAL śledzenia jest dostępnych w programie [17,3 SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Wyłącz domyślnie można włączyć śledzenie ADAL przy użyciu **narzędzia**, **opcje** menu, w obszarze **usług Azure**, **chmury Azure**,  **ADAL poziom śledzenia okno danych wyjściowych**, a następnie włączenie **dane wyjściowe** w **widoku** menu. Dane śledzenia są dostępne w oknie danych wyjściowych podczas wybierania **usługi Azure Active Directory**.   
+- Korzystając z **Active Directory - Universal za pomocą usługi MFA** uwierzytelniania ADAL śledzenia jest dostępnych w programie [17,3 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Wyłącz domyślnie można włączyć śledzenie ADAL przy użyciu **narzędzia**, **opcje** menu, w obszarze **usług Azure**, **chmury Azure**,  **ADAL poziom śledzenia okno danych wyjściowych**, a następnie włączenie **dane wyjściowe** w **widoku** menu. Dane śledzenia są dostępne w oknie danych wyjściowych podczas wybierania **usługi Azure Active Directory**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

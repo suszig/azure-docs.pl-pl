@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Lista kontrolna zabezpieczeń platformy Azure operacyjne
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed wdrożeniem aplikacji w chmurze w środowisku produkcyjnym warto mieć listę kontrolną pomoc w ocenie aplikacja z listą bezpieczeństwa operacyjnego ważne i zalecane akcje należy wziąć pod uwagę.
@@ -52,6 +52,6 @@ Wiele organizacji zostały pomyślnie wdrożone i obsługiwane swoje aplikacje w
 ## <a name="next-steps"></a>Następne kroki
 Ten dokument przedstawia wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
 
-- [Operations Management Suite (OMS) omówienie](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Operations Management Suite (OMS) omówienie](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Projektowanie i bezpieczeństwa operacyjnego](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Planowanie Centrum zabezpieczeń Azure i operacje](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

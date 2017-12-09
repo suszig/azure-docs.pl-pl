@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpiecznie zapisać ustawienia tajne aplikacji dla aplikacji sieci web
 
@@ -32,7 +32,7 @@ Aby upewnij się, że proces tworzenia jest bezpieczne, biblioteki narzędzi i f
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET i .NET core aplikacji
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Zapisz ustawienia tajnego w magazynie użytkownika klucz tajny, który znajduje się poza folderu kontroli źródła
-Jeśli przeprowadzasz szybkie prototypu lub nie masz dostępu do Internetu, rozpoczynać przenoszenie ustawień tajny poza folderu kontroli źródła do magazynu klucz tajny użytkownika. Magazyn tajny użytkownika jest plik zapisany w folderze profilera użytkownika, więc klucze tajne nie są sprawdzane celu kontroli źródła. Poniższy diagram ilustruje sposób [hasło użytkownika](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) działa.
+Jeśli przeprowadzasz szybkie prototypu lub nie masz dostępu do Internetu, rozpoczynać przenoszenie ustawień tajny poza folderu kontroli źródła do magazynu klucz tajny użytkownika. Magazyn tajny użytkownika jest plik zapisany w folderze profilera użytkownika, więc klucze tajne nie są sprawdzane celu kontroli źródła. Poniższy diagram ilustruje sposób [hasło użytkownika](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) działa.
 
 ![Hasło użytkownika przechowuje ustawienia tajny poza kontrolą źródła](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Jeśli opracowujesz projektu zespołowego i bezpieczne udostępnianie kodu źró
 
     ![Tworzenie usługi Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Udziel użytkownik i członkowie zespołu dostępu do magazynu kluczy. Jeśli masz dużą zespołu, możesz utworzyć [grupy usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) i dodać tej grupy zabezpieczeń dostęp do magazynu kluczy. W *uprawnienia klucza tajnego* listy rozwijanej wyboru *uzyskać* i *listy* w obszarze *operacji zarządzania klucz tajny*.
+2. Udziel użytkownik i członkowie zespołu dostępu do magazynu kluczy. Jeśli masz dużą zespołu, możesz utworzyć [grupy usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) i dodać tej grupy zabezpieczeń dostęp do magazynu kluczy. W *uprawnienia klucza tajnego* listy rozwijanej wyboru *uzyskać* i *listy* w obszarze *operacji zarządzania klucz tajny*.
 
     ![Dodaj zasady dostępu do magazynu kluczy](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

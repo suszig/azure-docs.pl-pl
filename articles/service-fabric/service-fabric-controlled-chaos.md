@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: 9a205d1b8e088b7007bb8c3a64139732d8858267
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9475774b99ee6bc01fb43ffc6fcddea025779c05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Wywołać kontrolowane Chaos w klastrach sieci szkieletowej usług
 Dużych systemów rozproszonych jak infrastruktury chmury jest z założenia gwarantowane. Sieć szkieletowa usług Azure umożliwia deweloperom zapisu niezawodnej usługi rozproszone zawodnych infrastrukturze. Można zapisać niezawodne usługi rozproszone zawodnych infrastrukturze, deweloperzy muszą być możliwe przetestowanie stabilność swoich usług, podczas gdy podstawowej infrastruktury zawodnych przechodzi przez przejść skomplikowane stanu z powodu błędów.
 
-[Iniekcji błędów i usługi klastrowania analizy](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (znaną również jako usługa analiza błędów) umożliwia deweloperom powodować błędy, aby przetestować swoich usług. Tak samo, jak te docelowe symulowane błędów, [ponowne uruchomienie partycji](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), ułatwiają wykonywanie typowych przejścia stanu. Jednak docelowe symulowane błędów są ukierunkowane zgodnie z definicją i w związku z tym może nie usterek przedstawiające się tylko w twardych prognozowania, długich i skomplikowane sekwencji przejścia stanu. Nieobciążonej testowania, możesz użyć Chaos.
+[Iniekcji błędów i usługi klastrowania analizy](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (znaną również jako usługa analiza błędów) umożliwia deweloperom powodować błędy, aby przetestować swoich usług. Tak samo, jak te docelowe symulowane błędów, [ponowne uruchomienie partycji](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), ułatwiają wykonywanie typowych przejścia stanu. Jednak docelowe symulowane błędów są ukierunkowane zgodnie z definicją i w związku z tym może nie usterek przedstawiające się tylko w twardych prognozowania, długich i skomplikowane sekwencji przejścia stanu. Nieobciążonej testowania, możesz użyć Chaos.
 
 Chaos symuluje błędów okresowych, przeplotem (bezpieczne i nieprawidłowego) w całym klastrze przez dłuższy czas. Bezpieczne błędów zawiera zestaw wywołań interfejsu API usługi sieci szkieletowej, na przykład błędów repliki ponowne uruchomienie jest bezpieczne błędów, ponieważ jest zamknięty, a następnie otwórz w replice. Usuń replikę, Przenieś repliki podstawowej i repliki pomocniczej przenoszenia są inne błędy bezpiecznie wykonywane przez Chaos. Nieprawidłowego błędów są wyjścia procesu, takie jak ponowne uruchomienie węzła i restrat pacakge kodu. 
 
@@ -33,7 +33,7 @@ Po skonfigurowaniu Chaos częstotliwość i rodzaju błędów, można uruchomić
 > W postaci bieżącego Chaos wywołuje tylko bezpiecznych błędy, co oznacza, że w przypadku braku błędów zewnętrznych utrata kworum, lub utraty danych nigdy nie występuje.
 >
 
-Po uruchomieniu Chaos tworzy różnych zdarzeń, których przechwycony stan w momencie uruchomienia. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które Chaos podjęto decyzję o wykonanie w tym iteracji. ValidationFailedEvent zawiera szczegóły niepowodzenia weryfikacji (problemów kondycji lub stabilności) został znaleziony podczas sprawdzania poprawności klastra. Można wywołać GetChaosReport interfejsu API (C#, programu Powershell lub REST) w celu uzyskania raportu Chaos działa. Te zdarzenia uzyskać utrwalone w [niezawodnej słownika](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), której obowiązują zasady obcięcie ustawieniem dwie konfiguracje: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Co *StoredActionCleanupIntervalInSeconds* Chaos kontroli i wszystkie, ale najnowszej *MaxStoredChaosEventCount* zdarzenia, zostaną usunięte ze słownika wiarygodne.
+Po uruchomieniu Chaos tworzy różnych zdarzeń, których przechwycony stan w momencie uruchomienia. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które Chaos podjęto decyzję o wykonanie w tym iteracji. ValidationFailedEvent zawiera szczegóły niepowodzenia weryfikacji (problemów kondycji lub stabilności) został znaleziony podczas sprawdzania poprawności klastra. Można wywołać GetChaosReport interfejsu API (C#, programu Powershell lub REST) w celu uzyskania raportu Chaos działa. Te zdarzenia uzyskać utrwalone w [niezawodnej słownika](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), której obowiązują zasady obcięcie ustawieniem dwie konfiguracje: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Co *StoredActionCleanupIntervalInSeconds* Chaos kontroli i wszystkie, ale najnowszej *MaxStoredChaosEventCount* zdarzenia, zostaną usunięte ze słownika wiarygodne.
 
 ## <a name="faults-induced-in-chaos"></a>Błędy powstaniu w Chaos
 Chaos generuje błędy w ramach całego klastra sieci szkieletowej usług i kompresuje błędów, które są widoczne w miesięcy lub lat do kilku godzin. Kombinacja przeplotem błędów ze wskaźnikiem wysoką odporność znajduje sytuacjach wyjątkowych, które w przeciwnym razie mogą zostać pominięci. Tego ćwiczenia Chaos prowadzi do znacznej poprawy jakości kodu usługi.

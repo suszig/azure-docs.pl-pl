@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fdbe3c3f2ac7bd6ccb98ef5c1346444ca34e5ac3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych Azure
 
@@ -27,7 +27,7 @@ Ten dokument przeprowadzi Cię przez proces programowe tworzenie i publikowanie 
 
 ## <a name="overview"></a>Omówienie
 
-Udostępnionych pulpitów nawigacyjnych w Azure czy [zasobów](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) podobnie jak konta magazynu i maszyn wirtualnych.  W związku z tym będą one zarządzane programowo przy użyciu [interfejsów API REST usługi Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/overview), [poleceń programu PowerShell Azure](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0)i wiele [ Azure portal](https://portal.azure.com) funkcje bazując na te interfejsy API, aby ułatwić zarządzanie zasobami.  
+Udostępnionych pulpitów nawigacyjnych w Azure czy [zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) podobnie jak konta magazynu i maszyn wirtualnych.  W związku z tym będą one zarządzane programowo przy użyciu [interfejsów API REST usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview), [poleceń programu PowerShell Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)i wiele [ Azure portal](https://portal.azure.com) funkcje bazując na te interfejsy API, aby ułatwić zarządzanie zasobami.  
 
 Każdy z tych interfejsów API i narzędzia oferuje sposoby tworzenia, wyświetlania list, pobrać, modyfikowanie i usuwanie zasobów.  Ponieważ pulpity nawigacyjne są zasoby, można wybrać ulubiony interfejsu API / narzędzia do użycia.
 
@@ -55,7 +55,7 @@ Po skonfigurowaniu pulpitu nawigacyjnego do potrzeb, Twoje następne kroki są p
 
 ![polecenie udziału](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Polecenie udziału Pokazuje okno dialogowe z prośbą o wybierz grupę subskrypcji i zasobu do publikowania. Należy pamiętać, że [musi mieć dostęp do zapisu](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) do wybranej grupy subskrypcji i zasobu.
+Polecenie udziału Pokazuje okno dialogowe z prośbą o wybierz grupę subskrypcji i zasobu do publikowania. Należy pamiętać, że [musi mieć dostęp do zapisu](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) do wybranej grupy subskrypcji i zasobu.
 
 ![Udostępnianie i dostęp](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Nie jest konieczne w pełni zrozumieć strukturze JSON pulpitu nawigacyjnego, ab
 
 Aby opublikować ten pulpit nawigacyjny dla żadnej maszyny wirtualnej należy w przyszłości parametryzacja każde wystąpienie tego ciągu w formacie JSON. 
 
-Istnieją dwa odmian interfejsów API, które tworzenie zasobów na platformie Azure. [Konieczne interfejsów API](https://docs.microsoft.com/en-us/rest/api/resources/resources) w czasie, aby tworzenia jeden zasób i [wdrożenia na podstawie szablonu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) system, który można organizować tworzenie wielu zależnych zasobów z jednego wywołania interfejsu API. Drugie natywnie obsługuje parametryzacja i tworzenia szablonów tak używamy w naszym przykładzie.
+Istnieją dwa odmian interfejsów API, które tworzenie zasobów na platformie Azure. [Konieczne interfejsów API](https://docs.microsoft.com/rest/api/resources/resources) w czasie, aby tworzenia jeden zasób i [wdrożenia na podstawie szablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system, który można organizować tworzenie wielu zależnych zasobów z jednego wywołania interfejsu API. Drugie natywnie obsługuje parametryzacja i tworzenia szablonów tak używamy w naszym przykładzie.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Programowe tworzenie pulpitu nawigacyjnego z szablonu, za pomocą wdrażania szablonu
 
-System Azure oferuje możliwość organizowania wdrożenie wielu zasobów. Tworzenie szablonu wdrażania, określającym zestaw zasobów w celu wdrożenia oraz relacje między nimi.  Formatu JSON każdego zasobu jest taka sama, jak gdyby zostały one tworzone po kolei. Różnica jest to, że [język szablonu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) dodaje kilka pojęć, takie jak zmienne, parametry, funkcje podstawowe i. Rozszerzenia składni jest obsługiwane tylko w kontekście wdrażania szablonu i nie działa, jeśli jest używany z interfejsami API imperatywnych wcześniejszym opisem.
+System Azure oferuje możliwość organizowania wdrożenie wielu zasobów. Tworzenie szablonu wdrażania, określającym zestaw zasobów w celu wdrożenia oraz relacje między nimi.  Formatu JSON każdego zasobu jest taka sama, jak gdyby zostały one tworzone po kolei. Różnica jest to, że [język szablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) dodaje kilka pojęć, takie jak zmienne, parametry, funkcje podstawowe i. Rozszerzenia składni jest obsługiwane tylko w kontekście wdrażania szablonu i nie działa, jeśli jest używany z interfejsami API imperatywnych wcześniejszym opisem.
 
 Jeśli chcesz zacząć tej trasy, a następnie parametryzacja ma się odbywać za pomocą składni parametru szablonu.  Musisz zastąpić wszystkie wystąpienia identyfikatora zasobu, który znajduje się wcześniej w sposób pokazany poniżej.
 
@@ -119,7 +119,7 @@ Należy zadeklarować niektóre metadane wymagany szablon oraz parametrów w gó
 
 __Pełne, szablon pracy na końcu niniejszego dokumentu jest widoczny.__
 
-Gdy mają co szablonu można wdrożyć za pomocą [interfejsów API REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), lub [strony wdrażania szablonu portalu ](https://portal.azure.com/#create/Microsoft.Template).
+Gdy mają co szablonu można wdrożyć za pomocą [interfejsów API REST](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), lub [strony wdrażania szablonu portalu ](https://portal.azure.com/#create/Microsoft.Template).
 
 Poniżej przedstawiono są dwie wersje w naszym przykładzie pulpitu nawigacyjnego JSON. Pierwsza to wersja wyeksportowany z portalu, który został już powiązana z zasobem. Drugim jest wersji szablonu, który może być programowane powiązana z żadnej maszyny Wirtualnej i wdrażane za pomocą usługi Azure Resource Manager.
 

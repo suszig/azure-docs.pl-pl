@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publikowanie zawartości usługi Azure Media Services za pomocą usługi REST
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Omówienie
-Można strumienia o adaptacyjnej szybkości bitowej MP4 ustawione przez utworzenie lokalizatora OnDemand przesyłania strumieniowego i tworzenia adresu URL przesyłania strumieniowego. [Kodowanie zasób](media-services-rest-encode-asset.md) temacie przedstawiono sposób kodowania w adaptacyjnej szybkości bitowej MP4 zestawu. Jeśli zawartość jest zaszyfrowany, należy skonfigurować zasady dostarczania elementu zawartości (zgodnie z opisem w [to](media-services-rest-configure-asset-delivery-policy.md) tematu) przed utworzeniem lokalizatora. 
+Można strumienia o adaptacyjnej szybkości bitowej MP4 ustawione przez utworzenie lokalizatora OnDemand przesyłania strumieniowego i tworzenia adresu URL przesyłania strumieniowego. [Kodowanie zasób](media-services-rest-encode-asset.md) artykule przedstawiono sposób kodowania w adaptacyjnej szybkości bitowej MP4 zestawu. Jeśli zawartość jest zaszyfrowany, należy skonfigurować zasady dostarczania elementu zawartości (zgodnie z opisem w [to](media-services-rest-configure-asset-delivery-policy.md) artykułu) przed utworzeniem lokalizatora. 
 
 Lokalizator OnDemand przesyłania strumieniowego umożliwia również tworzenie adresów URL wskazujących na pliki MP4, które można pobrać progresywnie.  
 
-W tym temacie pokazano, jak utworzyć Lokalizator OnDemand przesyłania strumieniowego w celu publikowania zawartości i tworzenie Smooth, MPEG DASH i HLS adresów URL przesyłania strumieniowego. Zawiera także gorących do tworzenia adresów URL pobierania progresywnego.
+W tym artykule pokazano, jak utworzyć Lokalizator OnDemand przesyłania strumieniowego w celu publikowania zawartości i tworzenie Smooth, MPEG DASH i HLS adresów URL przesyłania strumieniowego. Zawiera także gorących do tworzenia adresów URL pobierania progresywnego.
 
 [Następujące](#types) sekcji przedstawiono typów wyliczenia, których wartości są używane w wywołaniach REST.   
 
@@ -49,7 +49,7 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API us�
 >Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Utwórz Lokalizator OnDemand przesyłania strumieniowego
-Aby utworzyć Lokalizator OnDemand przesyłania strumieniowego i uzyskiwanie adresów URL należy wykonać następujące czynności:
+Aby utworzyć Lokalizator OnDemand przesyłania strumieniowego i uzyskiwanie adresów URL, należy wykonać następujące czynności:
 
 1. Jeśli zawartość jest zaszyfrowany, należy zdefiniować zasadę dostępu.
 2. Utwórz Lokalizator OnDemand przesyłania strumieniowego.
@@ -57,12 +57,12 @@ Aby utworzyć Lokalizator OnDemand przesyłania strumieniowego i uzyskiwanie adr
    
    Jeśli planujesz ma być pobierana progresywnie, Pobierz nazwy plików MP4 w elemencie zawartości. 
 4. Tworzenie adresów URL do pliku manifestu lub plików MP4. 
-5. Należy pamiętać, że nie można utworzyć Lokalizator przesyłania strumieniowego przy użyciu AccessPolicy, który zawiera zapisu albo usuwania uprawnień.
+5. Nie można utworzyć Lokalizator przesyłania strumieniowego przy użyciu AccessPolicy, który zawiera zapisu lub usunąć uprawnienia.
 
 ### <a name="create-an-access-policy"></a>Tworzenie zasad dostępu
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego Identyfikatora zasad, jeśli zawsze korzystają z tej samej dni / dostęp uprawnień, na przykład zasady dla lokalizatorów, które powinny pozostać w miejscu przez długi czas (— przekazywanie zasady). Aby uzyskać więcej informacji, zobacz [to](media-services-dotnet-manage-entities.md#limit-access-policies) artykułu.
 
 Żądanie:
 
@@ -73,7 +73,7 @@ Aby utworzyć Lokalizator OnDemand przesyłania strumieniowego i uzyskiwanie adr
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -111,7 +111,7 @@ Utwórz Lokalizator określonym zasobie i zasad zasobów.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Podręcznik sprzedawcy w witrynie Azure Marketplace
 
 Witamy w podręczniku sprzedawcy portalu Azure Marketplace. Ten przewodnik jest przeznaczony dla użytkowników biznesowych i menedżerów produktu w niezależnym dostawcom oprogramowania (ISV) zainteresowanych sprzedaży ich certyfikowane Azure obrazy maszyny wirtualnej i zarządzane aplikacje dla informatyków i deweloperów. Z klientów platformy Azure na całym świecie [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/) zapewniają dużą reach i zagrożeń produktów.
 
 > [!NOTE]
-> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/en-us/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produktów _informatykom i deweloperom_, mogą dotrzeć do saas-on-amp@microsoft.com Aby uzyskać więcej informacji na temat opcji.
@@ -100,7 +100,7 @@ Rysunek 1: Proces sprzedaży w portalu Azure Marketplace
 W zależności od obciążenia (maszyny wirtualnej lub zarządzanych aplikacji) planowanie publikowania, zastosują się inny proces publikowania ofertę. Następująca zawartość koncentruje się na publikowanie _oferty maszyny wirtualnej_.
 
 > [!NOTE]
-> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/en-us/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Jeśli interesuje Cię sprzedaży z [zarządzanych aplikacji](https://docs.microsoft.com/azure/managed-applications/overview), należy wykonać instrukcje, aby wyświetlić je w portalu Azure Marketplace [tutaj](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Jeśli interesuje Cię sprzedaży Zakończono oprogramowanie jako usługa (SaaS) produktów _informatykom i deweloperom_, mogą dotrzeć do saas-on-amp@microsoft.com Aby uzyskać więcej informacji na temat opcji.

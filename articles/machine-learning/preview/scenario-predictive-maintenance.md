@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5a5893df8b734acc2d16f149505ed65c288c9306
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Konserwacji predykcyjnej rzeczywistych scenariuszy.
 
@@ -30,7 +30,7 @@ Poniżej znajduje się łącze do publicznego repozytorium GitHub: [https://gith
 
 ## <a name="use-case-overview"></a>Omówienie przypadków użycia
 
-Poważny problem, napotykają firmy w branży ciężki zasobów jest znacznych kosztów, skojarzonych z opóźnienia mechaniczne problemów. Większość firm są zainteresowani przewidywania, gdy te problemy, aby aktywnie zapobiec, przed ich wystąpieniem. Celem jest zmniejszenie kosztów, zmniejszając czas przestoju i możliwego zwiększania bezpieczeństwa. Zapoznaj się [podręcznikowym do konserwacji predykcyjnej](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) szczegółowy opis wspólnych można używać w przypadkach, a także metoda modelowania używany do konserwacji predykcyjnej.
+Poważny problem, napotykają firmy w branży ciężki zasobów jest znacznych kosztów, skojarzonych z opóźnienia mechaniczne problemów. Większość firm są zainteresowani przewidywania, gdy te problemy, aby aktywnie zapobiec, przed ich wystąpieniem. Celem jest zmniejszenie kosztów, zmniejszając czas przestoju i możliwego zwiększania bezpieczeństwa. Zapoznaj się [podręcznikowym do konserwacji predykcyjnej](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) szczegółowy opis wspólnych można używać w przypadkach, a także metoda modelowania używany do konserwacji predykcyjnej.
 
 W tym scenariuszu wykorzystuje pomysły z podręcznika dotyczącego w celu zapewnienia kroki implementacji model predykcyjny dla scenariusza, opiera się na syntezy wiele problemów biznesowych rzeczywistych. W tym przykładzie łączy się, że typowe elementy danych obserwowanych wśród wielu konserwacji predykcyjnej przypadki użycia.
 
@@ -40,7 +40,7 @@ Problem biznesowy symulowane danych jest do prognozowania problemy spowodowane p
 
 * [Konta Azure](https://azure.microsoft.com/en-us/free/) (bezpłatnych wersji próbnych są dostępne).
 * Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) następujące [Przewodnik Szybki start instalacji](./quickstart-installation.md) Aby zainstalować ten program i utworzyć obszaru roboczego.
-* Azure Machine Learning Operationalization wymaga środowiska lokalnego wdrożenia i [modelu konto zarządzania](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization wymaga środowiska lokalnego wdrożenia i [modelu konto zarządzania](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
 W tym przykładzie może działać w dowolnym kontekście obliczeń AML Workbench. Jednak zaleca się uruchomić go z co najmniej 16 GB pamięci. W tym scenariuszu została zbudowana i przetestowany na maszynie z systemem Windows 10 z systemem zdalnym standard DS4_V2 [danych maszyny wirtualnej nauki dla systemu Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -112,7 +112,7 @@ W tym scenariuszu zestawienie czytnik jak zbudować rozwiązanie do konserwacji 
 
 Ten przypadek użycia zostały wcześniej przygotowane na wielu platformach:
 
-* [Szablon rozwiązania konserwacji predykcyjnej](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Szablon rozwiązania konserwacji predykcyjnej](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Podręcznik modelowania konserwacji predykcyjnej](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Predykcyjnej konserwacji modelowania przewodnik przy użyciu usług R SQL](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Konserwacji predykcyjnej notesu Python Podręcznik modelowania](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)

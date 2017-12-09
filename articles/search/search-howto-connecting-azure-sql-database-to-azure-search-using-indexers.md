@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Połączenie bazy danych SQL Azure do usługi Azure Search przy użyciu indeksatorów
 
@@ -44,7 +44,7 @@ Można skonfigurować i skonfigurować indeksator Azure SQL za pomocą:
 
 * Kreator importu danych w [portalu Azure](https://portal.azure.com)
 * Usługa Azure Search [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Usługa Azure Search [interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Usługa Azure Search [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 W tym artykule, użyjemy interfejsu API REST, aby utworzyć **indeksatory** i **źródeł danych**.
 
@@ -302,8 +302,8 @@ Indeksator SQL udostępnia kilka ustawień konfiguracji:
 
 | Ustawienie | Typ danych | Przeznaczenie | Wartość domyślna |
 | --- | --- | --- | --- |
-| queryTimeout |Ciąg |Ustawia limit czasu wykonywania zapytań SQL |5 minut ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |wartość logiczna |Powoduje, że zapytanie SQL używanego przez zasady znacznik limitu górnego, aby pominąć klauzuli ORDER BY. Zobacz [zasad znacznik limitu górnego](#HighWaterMarkPolicy) |wartość false |
+| queryTimeout |ciąg |Ustawia limit czasu wykonywania zapytań SQL |5 minut ("00: 05:00") |
+| disableOrderByHighWaterMarkColumn |wartość logiczna |Powoduje, że zapytanie SQL używanego przez zasady znacznik limitu górnego, aby pominąć klauzuli ORDER BY. Zobacz [zasad znacznik limitu górnego](#HighWaterMarkPolicy) |fałsz |
 
 Te ustawienia są używane w `parameters.configuration` obiektu w definicji indeksatora. Na przykład aby ustawić limit czasu zapytania do 10 minut, utworzyć lub zaktualizować indeksatora przy użyciu następującej konfiguracji:
 

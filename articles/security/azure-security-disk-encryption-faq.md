@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Szyfrowanie dysków Azure — często zadawane pytania
 
@@ -119,7 +119,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące Azu
 * Szyfrowanie (może zająć wiele godzin lub nawet przez kilka dni w zależności od właściwości maszyny wirtualnej i rozmiar wszystkich dysków dołączonych danych)
 * Dostosowywanie, a w razie potrzeby dodaj oprogramowania do obrazu.
 
-Jeśli ten przepływ pracy nie jest możliwe, opierając się na [szyfrowanie usługi Magazyn](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) w magazynie platformy warstwy konto może być zamiast pełne szyfrowanie dysków za pomocą dm-crypt.
+Jeśli ten przepływ pracy nie jest możliwe, opierając się na [szyfrowanie usługi Magazyn](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) w magazynie platformy warstwy konto może być zamiast pełne szyfrowanie dysków za pomocą dm-crypt.
 
 **Pytanie:** co to jest dysk "Wolumin Bek" lub "/ mnt/azure_bek_disk"?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Niezawodne usługi cyklu życia — omówienie
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Sieć szkieletowa usług zmienia podstawowej usługi stanowej z różnych przycz
 
 Usług, które nie obsługują anulowania prawidłowo może wystąpić pewne problemy. Te operacje są wolne, ponieważ usługi sieć szkieletowa czeka bezpiecznie zatrzymania usługi. Ostatecznie to prowadzić do uaktualnienia nie powiodło się tego limitu czasu i wycofać. Nie można uwzględnić token anulowania powodują imbalanced klastrów. Klastry stać się równowagi, ponieważ węzły uzyskać gorących, ale nie można rebalanced usługi, ponieważ trwa zbyt długo, aby przenieść je w innym miejscu. 
 
-Ponieważ usługi są stanowe, również jest prawdopodobne, że używają one [niezawodnej kolekcje](service-fabric-reliable-services-reliable-collections.md). W sieci szkieletowej usług podczas obniżania poziomu podstawowego jedną pierwszy co się stanie, jest odebraniu podstawowy stan do zapisu. Prowadzi to do drugiego zestawu problemy, które mogą wpłynąć na cyklem życia usługi. Kolekcje zwracany wyjątki oparte na czas i czy jest przenoszony repliki lub zamykania. Te wyjątki powinny być traktowane jako poprawnie. Wyjątki generowane przez sieć szkieletowa usług można podzielić na stałe [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) i przejściowych [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorii. Stałe wyjątki powinny być rejestrowane i zgłoszony podczas przejściowej wyjątków można ponowić opartych na logice niektórych ponów próbę.
+Ponieważ usługi są stanowe, również jest prawdopodobne, że używają one [niezawodnej kolekcje](service-fabric-reliable-services-reliable-collections.md). W sieci szkieletowej usług podczas obniżania poziomu podstawowego jedną pierwszy co się stanie, jest odebraniu podstawowy stan do zapisu. Prowadzi to do drugiego zestawu problemy, które mogą wpłynąć na cyklem życia usługi. Kolekcje zwracany wyjątki oparte na czas i czy jest przenoszony repliki lub zamykania. Te wyjątki powinny być traktowane jako poprawnie. Wyjątki generowane przez sieć szkieletowa usług można podzielić na stałe [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) i przejściowych [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorii. Stałe wyjątki powinny być rejestrowane i zgłoszony podczas przejściowej wyjątków można ponowić opartych na logice niektórych ponów próbę.
 
 Obsługa wyjątków, które pochodzą od stosowania `ReliableCollections` w połączeniu z zdarzenia cyklu życia usługi jest ważnym elementem przetestowaniu i zweryfikowaniu niezawodnej usługi. Zaleca się zawsze uruchamiaj usługi Obciążenie podczas wykonywania uaktualnienia i [testowania chaos](service-fabric-controlled-chaos.md) przed wdrożeniem w środowisku produkcyjnym. Te podstawowe kroki pomoc, sprawdź, czy usługa jest poprawnie zaimplementowana i poprawnie obsługuje zdarzenia cyklu życia.
 

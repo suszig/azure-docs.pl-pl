@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Storm przy użyciu usługi Azure HDInsight
 
@@ -28,7 +28,7 @@ Więcej informacji na temat Najważniejsze problemy i ich rozwiązania do pracy 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak uzyskać dostęp do interfejsu użytkownika platformy Storm w klastrze?
 Masz dwie opcje do uzyskiwania dostępu do interfejsu użytkownika platformy Storm w przeglądarce:
 
-### <a name="ambari-ui"></a>Interfejs użytkownika narzędzia Ambari
+### <a name="ambari-ui"></a>interfejsu użytkownika usługi Ambari
 1. Przejdź do pulpitu nawigacyjnego narzędzia Ambari.
 2. Na liście usług wybierz **Storm**.
 3. W **szybkie linki** menu, wybierz opcję **interfejsu użytkownika platformy Storm**.
@@ -91,7 +91,7 @@ Pliki binarne STORM dla bieżącego stosu HDP znajdują się w /usr/hdp/current/
  
 Może istnieć wiele plików binarnych dla określonej wersji HDP w /usr/hdp (na przykład /usr/hdp/2.5.0.1233/storm). /Usr/hdp/current/storm-client folder jest symlinked do najnowszej wersji, która działa w klastrze.
 
-Aby uzyskać więcej informacji, zobacz [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Storm](http://storm.apache.org/).
+Aby uzyskać więcej informacji, zobacz [Połącz z klastrem usługi HDInsight przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Określanie topologii wdrożenia klastra Storm?
 Ustalenie wszystkie składniki, które są instalowane z HDInsight Storm. Klaster Storm składa się z czterech węzłów kategorii:
@@ -127,10 +127,10 @@ STORM węzłów procesu roboczego uruchomienia następujących usług:
 Aby uzyskać więcej informacji o korzystaniu z topologii Storm — pliki JAR spout Centrum zdarzeń zobacz następujące zasoby.
  
 ### <a name="java-based-topology"></a>Topologia opartych na języku Java
-[Zdarzenia procesu z usługi Azure Event Hubs z systemu Storm w usłudze HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology) (Przetwarzanie zdarzeń usługi Azure Event Hubs przy użyciu systemu Storm w usłudze HDInsight — Java)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# — na podstawie topologii (Mono w klastrach HDInsight 3.4 + Linux Storm)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Przetwarzanie zdarzeń usługi Azure Event Hubs przy użyciu systemu Storm w usłudze HDInsight — C#)
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Przetwarzanie zdarzeń usługi Azure Event Hubs przy użyciu systemu Storm w usłudze HDInsight — C#)
  
 ### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Pliki binarne w przypadku klastrów Linux Storm HDInsight 3.5 + elementów spout Centrum zdarzeń Storm najnowsze
 Aby dowiedzieć się, jak używać najnowszej współpracujące z klastrami HDInsight 3.5 + Linux Storm spout Centrum zdarzeń Storm, zobacz repozytorium mvn [plik readme](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

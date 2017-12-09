@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Zmiana subskrypcji Azure płatność za rzeczywiste użycie do innej oferty
 
@@ -29,7 +29,7 @@ Jako [płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-
 
 ## <a name="whats-supported"></a>Co to jest obsługiwana:
 
-| Z | Do |
+| Od | Do |
 | --- | --- |
 | Płatność zgodnie z rzeczywistym użyciem |[Płatność za rzeczywiste użycie: tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Płatność zgodnie z rzeczywistym użyciem |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
@@ -63,7 +63,7 @@ Jako [płatność za rzeczywiste użycie](https://azure.microsoft.com/offers/ms-
 1. Można zmienić nazwę subskrypcji. Domyślnie możemy ustawić go na nową nazwę oferty. Kliknij przycisk **oferują przełącznika** aby ukończyć proces.
 
    ![Kliknij zielony przycisk](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. Powodzenie! Subskrypcję teraz jest włączane do nowej oferty.
+1. Powodzenie Subskrypcję teraz jest włączane do nowej oferty.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -105,7 +105,7 @@ W dniu przełączania faktury jest generowany dla wszystkich zaległych opłat. 
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Można migrować z płatność za rzeczywiste użycie do [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) lub [umowy Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Aby przeprowadzić migrację do dostawcy usług Kryptograficznych, zobacz [Azure migracji subskrypcji adresy dostawcy — jako — użytkownik-przejdź do dostawcy usług Kryptograficznych](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Aby przeprowadzić migrację do dostawcy usług Kryptograficznych, zobacz [Azure migracji subskrypcji adresy dostawcy — jako — użytkownik-przejdź do dostawcy usług Kryptograficznych](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Aby migrować do EA, mieć administratora rejestracji, Dodaj konto do Umowa EA. Postępuj zgodnie z instrukcjami w wiadomości e-mail z zaproszeniem zostały przeniesione w obszarze EA rejestracji subskrypcji. Aby dowiedzieć się więcej, zobacz [skojarzyć konto](https://ea.azure.com/helpdocs/associateExistingAccount) w portalu EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Można przeprowadzić migrację danych i usług nową subskrypcję?

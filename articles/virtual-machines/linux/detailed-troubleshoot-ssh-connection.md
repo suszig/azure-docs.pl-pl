@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH szczegółowe kroki rozwiązywania problemów dotyczących problemów, połączenie z maszyną wirtualną systemu Linux na platformie Azure
 Istnieje wiele przyczyn, które klient SSH mogą nie być możliwe nawiązanie łączności usługi SSH na maszynie Wirtualnej. Jeśli wykonano za pomocą bardziej [SSH ogólne kroki rozwiązywania problemów](troubleshoot-ssh-connection.md), należy rozwiązać problem z połączeniem. W tym artykule przedstawiono szczegółowe kroki rozwiązywania problemów, aby określić, gdzie kończy się niepowodzeniem połączenia SSH i sposobu rozwiązania go.
@@ -113,7 +113,7 @@ Aby usunąć punkt końcowy jako źródło problemu, Usuń bieżący punkt końc
 Sieciowe grupy zabezpieczeń umożliwiają mieć większą kontrolę nad dozwolonego ruchu przychodzącego i wychodzącego. Można utworzyć reguły, które obejmują podsieci oraz usług w sieci wirtualnej platformy Azure w chmurze. Sprawdź reguły grupy zabezpieczeń sieci, tak aby upewnić się, że może SSH ruch do i z Internetu.
 Aby uzyskać więcej informacji, zobacz [dotyczące grup zabezpieczeń sieci](../../virtual-network/virtual-networks-nsg.md).
 
-Umożliwia także sprawdzić IP do sprawdzania poprawności konfiguracji grupy NSG. Aby uzyskać więcej informacji, zobacz [omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Umożliwia także sprawdzić IP do sprawdzania poprawności konfiguracji grupy NSG. Aby uzyskać więcej informacji, zobacz [omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Źródło 5: Opartych na systemie Linux maszyny wirtualnej platformy Azure
 Źródło ostatniej możliwych problemów jest samej maszyny wirtualnej platformy Azure.

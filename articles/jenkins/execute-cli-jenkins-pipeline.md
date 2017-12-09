@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Wdrażanie usługi Azure App Service z Wpięć i interfejsu wiersza polecenia platformy Azure
 Aby wdrożyć aplikację sieci web Java na platformie Azure, można użyć wiersza polecenia platformy Azure w [potoku Wpięć](https://jenkins.io/doc/book/pipeline/). W tym samouczku, możesz utworzyć potok CI/CD na maszynie Wirtualnej platformy Azure w tym jak:
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 Poświadczenia platformy Azure jest wymagany do wykonania wiersza polecenia platformy Azure.
 
 * W pulpicie nawigacyjnym Wpięć kliknij **poświadczeń -> System ->**. Kliknij przycisk **credentials(unrestricted) globalne**.
-* Kliknij przycisk **dodać poświadczenia** można dodać [nazwy głównej usługi Microsoft Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) wypełniając identyfikator subskrypcji, Identyfikatora klienta, klucz tajny klienta i końcowym tokenów OAuth 2.0. Podaj identyfikator do użycia w kolejnym kroku.
+* Kliknij przycisk **dodać poświadczenia** można dodać [nazwy głównej usługi Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) wypełniając identyfikator subskrypcji, Identyfikatora klienta, klucz tajny klienta i końcowym tokenów OAuth 2.0. Podaj identyfikator do użycia w kolejnym kroku.
 
 ![Dodawanie poświadczeń](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 

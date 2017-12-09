@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Technologii szyfrowania Azure: ochrony danych osobowych w stanie spoczynku z szyfrowaniem
 
@@ -57,7 +57,7 @@ Usługi Azure zapewniają wiele narzędzia i technologie, aby pomóc w ochronie 
 
 ### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 
-[Usługa Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) zapewnia bezpieczny magazyn kluczy, używany do szyfrowania danych przechowywanych w usługach Azure i jest zalecanym klucza magazynu i zarządzania rozwiązaniem. Zarządzanie kluczami szyfrowania jest niezbędne do zabezpieczania przechowywanych danych.
+[Usługa Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) zapewnia bezpieczny magazyn kluczy, używany do szyfrowania danych przechowywanych w usługach Azure i jest zalecanym klucza magazynu i zarządzania rozwiązaniem. Zarządzanie kluczami szyfrowania jest niezbędne do zabezpieczania przechowywanych danych.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Jak używać usługi Azure Key Vault do ochrony kluczy szyfrowania danych osobowych?
 
@@ -79,13 +79,13 @@ Usługa Azure Key Vault zapewniają klucza chronionego przez oprogramowanie dla 
 
 Można również wygenerowanie klucza w lokalnym module HSM i przeniesienie go do modułów HSM w usłudze Key Vault bez opuszczania granic modułu HSM klucz.
 
-Aby uzyskać szczegółowe instrukcje na temat używania usługi Azure Key Vault, postępuj zgodnie z instrukcjami [wprowadzenie do usługi Azure Key Vault.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Aby uzyskać szczegółowe instrukcje na temat używania usługi Azure Key Vault, postępuj zgodnie z instrukcjami [wprowadzenie do usługi Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Aby uzyskać listę poleceń cmdlet programu PowerShell używane z usługą Azure Key Vault, zobacz [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Aby uzyskać listę poleceń cmdlet programu PowerShell używane z usługą Azure Key Vault, zobacz [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Szyfrowanie dysków Azure dla systemu Windows
 
-[Azure szyfrowania dysku dla systemu Windows i maszyn wirtualnych systemu Linux IaaS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) chroni dane osobowe magazynowane na maszynach wirtualnych Azure i integruje się z usługą Azure Key Vault. Używa szyfrowania dysków Azure [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) w systemie Windows i [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) w systemie Linux można zaszyfrować zarówno systemu operacyjnego i dysków z danymi. Szyfrowanie dysków Azure jest obsługiwana na Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 i na klientach z systemem Windows 8 i Windows 10.
+[Azure szyfrowania dysku dla systemu Windows i maszyn wirtualnych systemu Linux IaaS](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) chroni dane osobowe magazynowane na maszynach wirtualnych Azure i integruje się z usługą Azure Key Vault. Używa szyfrowania dysków Azure [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) w systemie Windows i [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) w systemie Linux można zaszyfrować zarówno systemu operacyjnego i dysków z danymi. Szyfrowanie dysków Azure jest obsługiwana na Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 i na klientach z systemem Windows 8 i Windows 10.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Jak używać szyfrowania dysków Azure do ochrony danych osobowych?
 
@@ -103,11 +103,11 @@ Po skonfigurowaniu magazynu kluczy do obsługi szyfrowania dysków Azure można 
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Szczegółowe instrukcje dotyczące scenariuszy wdrażania i możliwości użytkowników znajdują się w [Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Szczegółowe instrukcje dotyczące scenariuszy wdrażania i możliwości użytkowników znajdują się w [Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Szyfrowanie usługi Azure Storage
 
-[Azure magazynu usługi szyfrowania (SSE) dla danych magazynowanych](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) pomaga chronić i ochrony danych w celu spełnienia Twojej organizacji zobowiązań zabezpieczeń i zgodności. Magazynu Azure szyfruje dane przy użyciu szyfrowania AES 256-bitowego przed wprowadzeniem trwałych do magazynu i automatycznie odszyfrowuje je przed pobierania. Ta usługa jest dostępna dla obiektów blob Azure i plików.
+[Azure magazynu usługi szyfrowania (SSE) dla danych magazynowanych](https://docs.microsoft.com/azure/storage/storage-service-encryption) pomaga chronić i ochrony danych w celu spełnienia Twojej organizacji zobowiązań zabezpieczeń i zgodności. Magazynu Azure szyfruje dane przy użyciu szyfrowania AES 256-bitowego przed wprowadzeniem trwałych do magazynu i automatycznie odszyfrowuje je przed pobierania. Ta usługa jest dostępna dla obiektów blob Azure i plików.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Jak używać szyfrowanie usługi magazynu do ochrony danych osobowych?
 
@@ -129,13 +129,13 @@ Nowe dane będą szyfrowane. Dane w istniejących plików z tego konta magazynu 
 
 Po włączeniu szyfrowania, skopiuj dane do konta magazynu przy użyciu jednej z następujących metod:
 
-1. Kopiowanie obiektów blob lub pliki z [narzędzia wiersza polecenia AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Kopiowanie obiektów blob lub pliki z [narzędzia wiersza polecenia AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Instalowanie udziału plików, za pomocą protokołu SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) dzięki czemu można użyć narzędzia, takiego jak Robocopy do kopiowania plików.
+2. [Instalowanie udziału plików, za pomocą protokołu SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) dzięki czemu można użyć narzędzia, takiego jak Robocopy do kopiowania plików.
 
-3. Kopiowanie obiektów blob lub pliku danych do i z magazynu obiektów blob lub między magazynu kont przy użyciu narzędzia [biblioteki klienta magazynu, takich jak .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Kopiowanie obiektów blob lub pliku danych do i z magazynu obiektów blob lub między magazynu kont przy użyciu narzędzia [biblioteki klienta magazynu, takich jak .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Użyj [Eksploratora usługi Storage](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) przekazać obiekty BLOB na koncie magazynu z włączone szyfrowanie.
+4.  Użyj [Eksploratora usługi Storage](https://docs.microsoft.com/azure/storage/storage-explorers) przekazać obiekty BLOB na koncie magazynu z włączone szyfrowanie.
 
 ### <a name="transparent-data-encryption"></a>Przezroczyste szyfrowanie danych
 
@@ -159,7 +159,7 @@ Za pomocą interfejsu API REST lub przy użyciu programu PowerShell, można skon
 
 ![Włączanie szyfrowania danych](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Instrukcje dotyczące włączania funkcji TDE i odszyfrowywania chronionych funkcji TDE baz danych i innych informacji można znaleźć w artykule [przezroczystego szyfrowania danych z bazy danych SQL Azure.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Instrukcje dotyczące włączania funkcji TDE i odszyfrowywania chronionych funkcji TDE baz danych i innych informacji można znaleźć w artykule [przezroczystego szyfrowania danych z bazy danych SQL Azure.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -169,10 +169,10 @@ Do ochrony kluczy, które są używane do szyfrowania danych na platformie Azure
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przewodnik rozwiązywania problemów szyfrowania dysków Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Przewodnik rozwiązywania problemów szyfrowania dysków Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Szyfrowanie maszyny wirtualnej platformy Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Szyfrowanie maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Szyfrowanie danych w usłudze Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Szyfrowanie danych w usłudze Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Azure DB rozwiązania Cosmos szyfrowania bazy danych w stanie spoczynku](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Azure DB rozwiązania Cosmos szyfrowania bazy danych w stanie spoczynku](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

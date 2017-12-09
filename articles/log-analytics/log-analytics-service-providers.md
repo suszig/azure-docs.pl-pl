@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funkcje analizy dziennika dla dostawców usług
 Analiza dzienników może pomóc dostawców usługi zarządzane (MSPs), dużych przedsiębiorstw niezależnym dostawcom oprogramowania (ISV) i dostawcy usług hostingowych zarządzanie i monitorowanie serwerów w lokalnym przez klienta lub infrastruktury chmury. 
@@ -26,7 +26,7 @@ Analiza dzienników może pomóc dostawców usługi zarządzane (MSPs), dużych 
 Duże przedsiębiorstwa udostępniać wiele podobieństw dostawców usług, zwłaszcza w przypadku scentralizowane zespół IT, który jest odpowiedzialny za zarządzanie IT dla wielu różnych jednostek biznesowych. Dla uproszczenia tego dokumentu, używany jest termin *dostawcy usług* , ale te same funkcje jest również dostępny do przedsiębiorstwa i innych klientów.
 
 ## <a name="cloud-solution-provider"></a>Cloud Solution Provider
-Dla partnerów i dostawców usług, którzy należą do elementu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, analizy dzienników jest jednym z usług Azure, która jest dostępna w [subskrypcji Azure dostawcy usług Kryptograficznych](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Dla partnerów i dostawców usług, którzy należą do elementu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, analizy dzienników jest jednym z usług Azure, która jest dostępna w [subskrypcji Azure dostawcy usług Kryptograficznych](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Dla analizy dzienników, następujące funkcje są włączone w *Cloud Solution Provider* subskrypcji.
 

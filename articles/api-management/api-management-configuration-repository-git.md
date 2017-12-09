@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Zapisz i konfigurowaniu konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git
 > 
@@ -159,7 +159,7 @@ Po lokalne zmiany są zatwierdzone i do repozytorium serwera, można je wdroży�
 
 ![Wdrażanie][api-management-configuration-deploy]
 
-Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie Git zmiany w konfiguracji bazy danych przy użyciu interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie Git zmiany w konfiguracji bazy danych przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Odwołanie struktury plików i folderów z lokalnego repozytorium Git
 Pliki i foldery w repozytorium git lokalne zawierają informacje o konfiguracji dotyczące wystąpienia usługi.

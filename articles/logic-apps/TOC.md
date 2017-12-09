@@ -50,6 +50,7 @@
 ### [Walidacja danych XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Dodawanie schematów na potrzeby weryfikacji kodu XML](logic-apps-enterprise-integration-schemas.md)
 ### [Przekształcanie kodu XML](logic-apps-enterprise-integration-transform.md)
+### [Przekształcanie kodu JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Dodawanie map na potrzeby przekształceń kodu XML](logic-apps-enterprise-integration-maps.md)
 ### [Dodawanie certyfikatów zabezpieczeń B2B](logic-apps-enterprise-integration-certificates.md)
 ### [Przechowywanie metadanych artefaktów](logic-apps-enterprise-integration-metadata.md)

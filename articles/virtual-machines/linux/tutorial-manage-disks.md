@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Zarządzanie dyskami Azure z wiersza polecenia platformy Azure
 
@@ -50,7 +50,7 @@ Po utworzeniu maszyny wirtualnej platformy Azure, dwa dyski są automatycznie do
 
 ### <a name="temporary-disk-sizes"></a>Rozmiary dysku tymczasowym
 
-| Typ | Rozmiar maszyny Wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
+| Typ | Rozmiar maszyny wirtualnej | Maksymalny rozmiar dysku tymczasowego (GB) |
 |----|----|----|
 | [Zastosowania ogólne](sizes-general.md) | A i serii D | 800 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 800 |
@@ -65,7 +65,7 @@ Instalowanie aplikacji i przechowywania danych można dodać dodatkowego dysku z
 
 ### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi dla maszyny Wirtualnej
 
-| Typ | Rozmiar maszyny Wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
+| Typ | Rozmiar maszyny wirtualnej | Maksymalna liczba dysków z danymi dla maszyny Wirtualnej |
 |----|----|----|
 | [Zastosowania ogólne](sizes-general.md) | A i serii D | 32 |
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | Seria F | 32 |
@@ -233,7 +233,7 @@ Tworzenie migawki dysku tworzy odczytu tylko, w momencie kopii dysku. Migawki ma
 
 ### <a name="create-snapshot"></a>Tworzenie migawki
 
-Przed utworzeniem migawek dysków maszyny wirtualnej, wymagany jest identyfikator lub nazwę dysku. Użyj [az maszyny wirtualnej pokazu](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) poleceniu, aby uzyskać identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywana w zmiennej, dzięki czemu mogą być używane w kolejnym kroku.
+Przed utworzeniem migawek dysków maszyny wirtualnej, wymagany jest identyfikator lub nazwę dysku. Użyj [az maszyny wirtualnej pokazu](https://docs.microsoft.com/cli/azure/vm#az_vm_show) poleceniu, aby uzyskać identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywana w zmiennej, dzięki czemu mogą być używane w kolejnym kroku.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

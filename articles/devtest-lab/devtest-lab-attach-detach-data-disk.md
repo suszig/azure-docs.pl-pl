@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Dołączanie lub odłączanie dysku danych do maszyny wirtualnej w usłudze Azure DevTest Labs
-[Azure dysków zarządzanych](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) zarządza konta magazynu skojarzone z dysków danych maszyny wirtualnej. Dołącza użytkownika, nowe dane na dysku do maszyny Wirtualnej, określa typ i rozmiar dysku, które ma potrzebne, a Azure tworzy i automatycznie zarządza dysku. Dysk z danymi można następnie można odłączyć od maszyny Wirtualnej i ponownie albo nałożona do tej samej maszyny Wirtualnej lub dołączone do innej maszyny Wirtualnej, który należy do tego samego użytkownika.
+[Azure dysków zarządzanych](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) zarządza konta magazynu skojarzone z dysków danych maszyny wirtualnej. Dołącza użytkownika, nowe dane na dysku do maszyny Wirtualnej, określa typ i rozmiar dysku, które ma potrzebne, a Azure tworzy i automatycznie zarządza dysku. Dysk z danymi można następnie można odłączyć od maszyny Wirtualnej i ponownie albo nałożona do tej samej maszyny Wirtualnej lub dołączone do innej maszyny Wirtualnej, który należy do tego samego użytkownika.
 
 Ta funkcja jest przydatna do zarządzania magazynu lub oprogramowania poza poszczególnych maszyn wirtualnych. Jeśli magazynu lub oprogramowania już istnieje wewnątrz dysku danych, jej można można łatwo dołączony, odłączyć i ponownie nałożona do żadnej maszyny Wirtualnej należącej do użytkownika, który jest właścicielem tego dysku danych.
 
 ## <a name="attach-a-data-disk"></a>Dołączanie dysku danych
 Przed dołączenie dysku danych do maszyny Wirtualnej, przejrzyj następujące wskazówki:
 
-- Rozmiar maszyny wirtualnej Określa, ile można dołączać dysków z danymi. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- Rozmiar maszyny wirtualnej Określa, ile można dołączać dysków z danymi. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Możesz jeszcze dołączyć dysku danych do maszyny Wirtualnej, w którym jest uruchomiony. Upewnij się, że maszyna wirtualna działa, przed podjęciem próby dołączenie dysku danych.
 
 ### <a name="attach-a-new-disk"></a>Dołączanie nowego dysku

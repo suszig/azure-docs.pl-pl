@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Jak znaleźć adres przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza)
 Usługa wyszukiwania jest RESTful zestaw interfejsów API przeznaczone dla deweloperów wyszukać adresy, miejsca, punkty zainteresowań, listy biznesowych i innych informacji geograficznych. Usługa wyszukiwania przypisuje szerokości geograficznej/długości określonego adresu, krzyżowego ulicy, geograficzne funkcji lub z interesujących (POI). Współrzędne geograficzne wartości zwracane przez usługę wyszukiwania interfejsów API mogą być używane jako parametry w innych Azure lokalizacji na podstawie usług takich jak API przepływ ruchu i trasy.
@@ -44,7 +44,7 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
     | Adres URL żądania | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Autoryzacja | Nie autoryzacji |
 
-    **Json** atrybut ścieżki adresu URL określa format odpowiedzi. Łatwość użycia i czytelność używasz json w tym artykule. Możesz znaleźć odpowiedzi dostępnych formatów **uzyskać wyszukiwania rozmytego** definicji [odwołania do lokalizacji na podstawie funkcjonalności interfejsu API usług] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    **Json** atrybut ścieżki adresu URL określa format odpowiedzi. Łatwość użycia i czytelność używasz json w tym artykule. Możesz znaleźć odpowiedzi dostępnych formatów **uzyskać wyszukiwania rozmytego** definicji [odwołania do lokalizacji na podstawie funkcjonalności interfejsu API usług] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Kliknij przycisk **Params**i wprowadź następujący klucz / wartość pary do użycia jako parametry zapytania lub ścieżki w adresie URL żądania:
 
@@ -154,9 +154,9 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | numer | prawda |
+    | Numer | prawda |
 
-    Jeśli [numer](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania są wysyłane z żądania, odpowiedzi może zawierać części ulicy (prawej/lewej strony), a także przesunięcia pozycji dla tego numeru.
+    Jeśli [numer](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania są wysyłane z żądania, odpowiedzi może zawierać części ulicy (prawej/lewej strony), a także przesunięcia pozycji dla tego numeru.
     
 5. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
 
@@ -164,7 +164,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     |-----|------------|
     | spatialKeys | prawda |
 
-    Gdy [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, odpowiedź zawiera zastrzeżonych przestrzennych geograficznie najważniejsze informacje dla określonej lokalizacji.
+    Gdy [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, odpowiedź zawiera zastrzeżonych przestrzennych geograficznie najważniejsze informacje dla określonej lokalizacji.
 
 6. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
 
@@ -172,7 +172,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     |-----|------------|
     | returnSpeedLimit | prawda |
     
-    Gdy [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, zwracają oczekujących na opublikowanie limit szybkości odpowiedzi.
+    Gdy [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, zwracają oczekujących na opublikowanie limit szybkości odpowiedzi.
 
 7. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
 
@@ -180,7 +180,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     |-----|------------|
     | returnRoadUse | prawda |
 
-    Gdy [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, użyj tablicy array drogowej dla reversegeocodes na poziomie ulicy zwraca odpowiedź.
+    Gdy [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania jest ustawiona, użyj tablicy array drogowej dla reversegeocodes na poziomie ulicy zwraca odpowiedź.
 
 8. Dodaj następujący klucz / wartość pary **Params** sekcji, a następnie kliknij przycisk **wysyłania**:
 
@@ -188,7 +188,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     |-----|------------|
     | roadUse | prawda |
 
-    Zapytanie wsteczne geocode można ograniczyć do określonego typu drogowej użycia za pomocą [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr zapytania.
+    Zapytanie wsteczne geocode można ograniczyć do określonego typu drogowej użycia za pomocą [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr zapytania.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Wyszukaj krzyżowego ulicy przy użyciu wstecznego wyszukiwania ulicy między adresu
 
@@ -215,4 +215,4 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 4. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 
 
 ## <a name="next-steps"></a>Następne kroki
-- Eksploruj [usługi wyszukiwania Serices na podstawie lokalizacji Azure](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) dokumentacji interfejsu API 
+- Eksploruj [usługi wyszukiwania Serices na podstawie lokalizacji Azure](https://docs.microsoft.com/rest/api/location-based-services/search) dokumentacji interfejsu API 

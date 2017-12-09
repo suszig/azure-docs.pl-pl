@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Tworzenie środowisk wielu maszyn wirtualnych i PaaS zasobów przy użyciu szablonów usługi Azure Resource Manager
 
-[Portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) umożliwia łatwe [Utwórz i Dodaj Maszynę wirtualną w laboratorium](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). To działa dobrze w przypadku tworzenia jednej maszyny Wirtualnej w czasie. Jednak jeśli środowisko zawiera wiele maszyn wirtualnych, każda maszyna wirtualna musi być indywidualnie utworzony. W takich scenariuszach wielowarstwową aplikację sieci Web lub farmy programu SharePoint mechanizm jest potrzebna, aby umożliwić tworzenie wielu maszyn wirtualnych w ramach jednego kroku. Przy użyciu szablonów usługi Azure Resource Manager, można definiować infrastrukturze i konfiguracji rozwiązania Azure i wielokrotnie wdrażać wiele maszyn wirtualnych w spójnym stanie. Ta funkcja zapewnia następujące korzyści:
+[Portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) umożliwia łatwe [Utwórz i Dodaj Maszynę wirtualną w laboratorium](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). To działa dobrze w przypadku tworzenia jednej maszyny Wirtualnej w czasie. Jednak jeśli środowisko zawiera wiele maszyn wirtualnych, każda maszyna wirtualna musi być indywidualnie utworzony. W takich scenariuszach wielowarstwową aplikację sieci Web lub farmy programu SharePoint mechanizm jest potrzebna, aby umożliwić tworzenie wielu maszyn wirtualnych w ramach jednego kroku. Przy użyciu szablonów usługi Azure Resource Manager, można definiować infrastrukturze i konfiguracji rozwiązania Azure i wielokrotnie wdrażać wiele maszyn wirtualnych w spójnym stanie. Ta funkcja zapewnia następujące korzyści:
 
 - Szablony usługi Azure Resource Manager są ładowane bezpośrednio z Twoim repozytorium kontroli źródła (GitHub lub zespołu usługi Git).
 - Po skonfigurowaniu użytkowników można utworzyć środowisko, wybierając szablon usługi Azure Resource Manager z portalu Azure jako współpracujemy z innych typów [maszyny Wirtualnej podstawy](./devtest-lab-comparing-vm-base-image-types.md).

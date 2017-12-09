@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Wskazówki dotyczące zabezpieczeń platformy Azure i wzorce
 Obecnie istnieją następujące Azure najlepsze rozwiązania i wzorce artykułów. Upewnij się, że można znaleźć w witrynie okresowo, aby wyświetlić aktualizacje z naszej listy rosnącym wzorców i najlepszych rozwiązań dotyczących zabezpieczeń platformy Azure:  
@@ -30,7 +30,7 @@ Obecnie istnieją następujące Azure najlepsze rozwiązania i wzorce artykułó
 * [IaaS platformy azure najlepsze rozwiązania] (azure-security-iaas.md)
 * [Najlepsze rozwiązania Azure granic](../best-practices-network-security.md)
 * [Implementowanie bezpiecznej architektury sieci hybrydowej na platformie Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS najlepszych rozwiązań] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS najlepszych rozwiązań] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Platforma Azure udostępnia bezpieczne platformy, na którym można tworzyć rozwiązań. Firma Microsoft udostępnia również usług i technologii do zwiększania bezpieczeństwa rozwiązań na platformie Azure. Ze względu na wiele opcji dostępnych dla użytkownika ma wiele osób Głoska zainteresowanie co firma Microsoft zaleca jako najlepsze rozwiązania i wzorce dotyczące poprawy zabezpieczeń.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Ochrona danych osobowych dokumentu przy użyciu narzędzi do raportowania platformy Azure
 
@@ -90,7 +90,7 @@ Odwiedź stronę [inspekcji usługi Azure Active Directory dokumentacja interfej
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Dziennika analizy](https://azure.microsoft.com/services/log-analytics/) można [zbierania danych z monitora Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) do skorelowania go z innymi danymi i udostępnia dodatkowe analizy. Azure Monitor zbiera i analizuje dane monitorowania środowiska platformy Azure. 
+[Dziennika analizy](https://azure.microsoft.com/services/log-analytics/) można [zbierania danych z monitora Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) do skorelowania go z innymi danymi i udostępnia dodatkowe analizy. Azure Monitor zbiera i analizuje dane monitorowania środowiska platformy Azure. 
 
 Narzędzia analizy w analizy dzienników takie jak dziennik wyszukiwania, widoków i rozwiązań działać względem wszystkich zebranych danych, zapewniając scentralizowane analizy całego środowiska. Analiza dzienników można agregować i analizować dzienniki zdarzeń systemu Windows, dzienniki programu IIS i audyt dzienników systemowych, co pomaga wykrywać potencjalnych naruszeń dane osobowe, które można ujawniać dane osobowe nieautoryzowanym użytkownikom.
 

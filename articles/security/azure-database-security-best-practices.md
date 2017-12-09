@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Najlepsze rozwiązania Azure bazy danych
 
@@ -137,7 +137,7 @@ Jeśli użytkownik korzysta z usługi Azure Storage za pośrednictwem portalu Az
 
 Organizacje, które się nie powieść, aby chronić przesyłane dane są bardziej narażony na [ataków man-in--middle](https://technet.microsoft.com/library/gg195821.aspx), [podsłuchiwaniu](https://technet.microsoft.com/library/gg195641.aspx) i przejęcie kontroli sesji. Tego rodzaju ataki może być pierwszym krokiem w uzyskiwaniu dostępu do poufnych danych.
 
-Aby dowiedzieć się więcej o opcji sieci VPN platformy Azure, przeczytaj artykuł [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Aby dowiedzieć się więcej o opcji sieci VPN platformy Azure, przeczytaj artykuł [planowania i projektowania dla bramy sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Włączanie inspekcji bazy danych
 Inspekcja wystąpienia aparatu bazy danych programu SQL Server lub jedna baza danych obejmuje śledzenie i rejestrowanie zdarzeń dotyczących aparatu bazy danych. SQL Server audit umożliwia tworzenie inspekcji serwera, które może zawierać specyfikacji inspekcji serwera dla zdarzenia na poziomie serwera i specyfikacji inspekcji bazy danych dla zdarzenia na poziomie bazy danych. Zdarzenia inspekcji mogą być zapisywane w dziennikach zdarzeń lub plików inspekcji.

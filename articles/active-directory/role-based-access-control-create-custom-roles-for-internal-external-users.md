@@ -1,24 +1,26 @@
 ---
-title: "Tworzenie niestandardowych ról kontroli dostępu opartej na rolach i przypisać do użytkowników wewnętrznych i zewnętrznych na platformie Azure | Dokumentacja firmy Microsoft"
+title: "Tworzenie niestandardowych dostępu opartej na rolach ról kontroli i przypisać do użytkowników wewnętrznych i zewnętrznych na platformie Azure | Dokumentacja firmy Microsoft"
 description: "Przypisz role RBAC niestandardowe utworzone przy użyciu programu PowerShell i interfejsu wiersza polecenia dla użytkowników wewnętrznych i zewnętrznych"
 services: active-directory
 documentationcenter: 
 author: andreicradu
 manager: catadinu
-editor: kgremban
+editor: 
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: 595d9de5c3a6e9943f158ae1f21c57ea6e1e81e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Wprowadzenie dotyczących kontroli dostępu opartej na rolach
 
@@ -35,7 +37,7 @@ W środowisku platformy Azure przy użyciu funkcji RBAC wymaga:
 * Upewnij się, że ma następujących dostawców zasobów w zarejestrowany dla subskrypcji użytkownika: **Microsoft.Authorization**. Aby uzyskać więcej informacji na temat rejestrowania dostawców zasobów, zobacz [dostawców usługi Resource Manager, regiony, wersje interfejsu API i schematów](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Licencje usługi Azure Active Directory lub subskrypcji usługi Office 365 (na przykład: dostęp do usługi Azure Active Directory) z usługi Office 365, portal nie kwalifikuje się do przy użyciu funkcji RBAC.
+> Licencje usługi Azure Active Directory lub subskrypcji usługi Office 365 (na przykład: dostęp do usługi Azure Active Directory) pobranego z Centrum nie kwalifikuje się do przy użyciu funkcji RBAC Office 365 Admin.
 
 ## <a name="how-can-rbac-be-used"></a>Jak można użyć RBAC
 RBAC można zastosować na trzy różne zakresy na platformie Azure. Z najwyższą zakresu na najniższym jeden są następujące:
@@ -102,7 +104,7 @@ Trwa spoza organizacji, nowy użytkownik nie ma żadnych istniejących atrybutó
 
 ![wiadomość e-mail zaproszenia dla roli RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Pokazuje użytkownika zewnętrznego w dzierżawcy usługi Azure Active Directory od teraz jako użytkownik zewnętrzny i to można wyświetlić zarówno w portalu Azure, jak i w klasycznym portalu.
+Pokazuje użytkownika zewnętrznego w dzierżawcy usługi Azure Active Directory od teraz jako użytkownik zewnętrzny i to można wyświetlić w portalu Azure.
 
 
 
@@ -112,14 +114,7 @@ Pokazuje użytkownika zewnętrznego w dzierżawcy usługi Azure Active Directory
 
 
 
-
-
-![Użytkownicy bloku usługi azure active directory klasycznego portalu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-W **użytkowników** widoku w obu portalach użytkownicy zewnętrzni mogą być rozpoznawane przez:
-
-* Typ inną ikonę w portalu Azure
-* Inny punkt źródeł w klasycznym portalu
+W **użytkowników** widoku, użytkownicy zewnętrzni mogą być rozpoznawane przez typ inną ikonę w portalu Azure.
 
 Jednak udzielanie **właściciela** lub **współautora** dostępu do użytkownika zewnętrznego w **subskrypcji** zakresu, nie zezwala na dostęp do katalogu dla użytkownika administracyjnego, chyba że **administratora globalnego** pozwala. W ich właściwości użytkownika **typ użytkownika** mającego dwóch parametrów typowych, **elementu członkowskiego** i **gościa** mogą zostać zidentyfikowane. Element członkowski jest użytkownik, który jest zarejestrowany w katalogu, gdy Gość jest użytkownikiem zaproszenie do katalogu z zewnętrznego źródła. Aby uzyskać więcej informacji, zobacz [jak Administratorzy usługi Azure Active Directory dodać użytkowników współpracy B2B](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ Przypisywanie roli RBAC wbudowanych **Współautor·maszyny·wirtualnej** na poz
 * Nie można wyświetlić inne typy zasobów w subskrypcji
 * Nie można wykonać operacji zmiany z punktu widzenia rozliczeń
 
-> [!NOTE]
-> RBAC jest funkcją Azure tylko portalu, nie udziela dostępu do klasycznego portalu.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Przypisywanie roli RBAC wbudowanych do użytkownika zewnętrznego
 Dla innego scenariusza, w tym teście użytkownika zewnętrznego "alflanigan@gmail.com" zostanie dodany jako **Współautor·maszyny·wirtualnej**.
 
@@ -156,9 +148,7 @@ Dla innego scenariusza, w tym teście użytkownika zewnętrznego "alflanigan@gma
 
 ![wbudowana Rola współautora maszyny wirtualnej](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normalne zachowanie dla tego użytkownika zewnętrznego z tą rolą wbudowanych jest wyświetlanie i zarządzanie nimi tylko maszyny wirtualne i ich sąsiadujących ze sobą Menedżer zasobów tylko zasoby niezbędne podczas wdrażania. Zgodnie z projektem, te role ograniczone oferują dostęp tylko do ich zasobów odpowiedniego utworzone w portalu Azure, niezależnie od tego niektóre nadal można wdrożyć w portalu klasycznym (na przykład: maszyn wirtualnych).
-
-
+Normalne zachowanie dla tego użytkownika zewnętrznego z tą rolą wbudowanych jest wyświetlanie i zarządzanie nimi tylko maszyny wirtualne i ich sąsiadujących ze sobą Menedżer zasobów tylko zasoby niezbędne podczas wdrażania. Zgodnie z projektem te role ograniczone zapewniają dostęp tylko do ich zasobów odpowiedniego utworzone w portalu Azure.
 
 
 

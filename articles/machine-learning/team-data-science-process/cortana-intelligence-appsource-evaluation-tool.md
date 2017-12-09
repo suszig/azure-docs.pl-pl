@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Narzędzie oceny rozwiązania Cortana Intelligence
 ## <a name="overview"></a>Omówienie
@@ -46,7 +46,7 @@ Połącz z subskrypcją platformy Azure i podaj grupę zasobów, zawierającą a
 Po załadowaniu grupy zasobów wybierz zasoby, które znajdują się w rozwiązaniu i zidentyfikować dostępność zasobów danych jako:
 - Wprowadzanie
 - Zużycie
-- wewnętrzny
+- Wewnętrzne
 
 Używamy tych informacji, aby lepiej zrozumieć sposób rozwiązania jest przy użyciu różnych składników i zapewnienie składników dla użytkownika są zgodne z najlepszymi rozwiązaniami.
 
@@ -61,7 +61,7 @@ Użycie w takim przypadku oznacza, że wszystkie zestawy danych, które są uży
 >[!NOTE]
 Użycie zasobów specyficznych dla wprowadzanie i zużycia wybierz **zużycie**.
 
-### <a name="internal"></a>wewnętrzny
+### <a name="internal"></a>Wewnętrzne
 Użyj wewnętrznego dla wszystkich zasobów danych, które są używane tylko podczas przetwarzania aplikacji wewnętrznych.
 
 Następnie możesz wyświetli monit o podanie prawidłowych poświadczeń żadnych baz danych określonej w poprzednich kroku:
@@ -95,17 +95,17 @@ Wszystkie zasoby w sloution bazy danych Azure SQL lub magazynu danych SQL Azure 
 
 | Aby uzyskać więcej informacji o | Znajduje się w artykule |
 | --- | --- |
-| Usługi AAD z bazy danych SQL i magazyn danych SQL | [Użyj uwierzytelniania usługi Azure Active Directory do uwierzytelniania przy użyciu bazy danych SQL lub SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
-| Konfigurowanie i zarządzanie nimi w usłudze AAD | [Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazą danych SQL lub SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
-| Azure używanie uwierzytelniania | [Uwierzytelnianie i autoryzację w usłudze Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Skonfigurować używanie przy użyciu usługi AAD | [Jak skonfigurować aplikację usługi aplikacji do użycia usługi Azure Active Directory logowania](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Usługi AAD z bazy danych SQL i magazyn danych SQL | [Użyj uwierzytelniania usługi Azure Active Directory do uwierzytelniania przy użyciu bazy danych SQL lub SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) |
+| Konfigurowanie i zarządzanie nimi w usłudze AAD | [Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazą danych SQL lub SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) |
+| Azure używanie uwierzytelniania | [Uwierzytelnianie i autoryzację w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) |
+| Skonfigurować używanie przy użyciu usługi AAD | [Jak skonfigurować aplikację usługi aplikacji do użycia usługi Azure Active Directory logowania](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Zestaw danych dostępnych dla użytkowników końcowych powinna obsługiwać kontroli dostępu opartej na rolach
 Podczas wykonywania narzędzia oceny, użytkownik jest proszony o określ wszelkie raportowania lub publikowanie zasobów. Zakłada się, że te zasoby są przeznaczone dla dostępu przez użytkowników końcowych, deweloperzy nie. Te zasoby powinien podać kontroli dostępu opartej na rolach (RBAC) w celu zapewnienia, że użytkownicy końcowi są tylko dane autoryzowany dostęp do.
 
 W szczególności żadnego z następujących zasobów platformy Azure można skonfigurować za pomocą RBAC i są uważane za akceptowalne:
-- Zabezpieczanie usługi HDInsight, zobacz [wprowadzenie do zabezpieczeń Hadoop z klastrami HDInsight przyłączonych do domeny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)
-- Azure SQL, zobacz [uwierzytelniania w usłudze AAD z usługi Azure SQL]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- Zabezpieczanie usługi HDInsight, zobacz [wprowadzenie do zabezpieczeń Hadoop z klastrami HDInsight przyłączonych do domeny](https://docs.microsoft.com/azure/hdinsight/hdinsight-domain-joined-introduction)
+- Azure SQL, zobacz [uwierzytelniania w usłudze AAD z usługi Azure SQL]( https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 - Azure Analysis Services, zobacz [Zarządzanie ról bazy danych i użytkowników dla usług Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users)
 - Usługa Azure SQL Data Warehouse (należy pamiętać, że ponieważ magazynu danych SQL obsługuje RBAC, nie jest zalecane dla użytkownika końcowego bezpośredniego dostępu).
 
@@ -114,17 +114,17 @@ Jeśli używasz inny typ zasobu, który obsługuje RBAC Określ który w uzasadn
 ### <a name="azure-data-lake-store-should-use-at-rest-encryption"></a>Azure Data Lake Store należy używać szyfrowania na rest
 Azure Data Lake — magazyn (ADLS) obsługuje szyfrowanie na rest domyślnie przy użyciu kluczy szyfrowania zarządzane ADLS. Można również skonfigurować szyfrowanie przy użyciu usługi Azure Key Vault.
 
-Informacje dotyczące określania ustawień szyfrowania ADLS [Tworzenie konta usługi Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
+Informacje dotyczące określania ustawień szyfrowania ADLS [Tworzenie konta usługi Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
 
 ### <a name="azure-sql-and-azure-sql-data-warehouse-should-use-encryption"></a>Azure SQL i magazyn danych SQL Azure należy korzystać z szyfrowania
 Azure SQL i magazynu danych SQL Azure obsługują przezroczysty danych szyfrowania (funkcji TDE), która zapewnia w czasie rzeczywistym szyfrowania i odszyfrowywania plików dziennika i danych.
 
 | Aby uzyskać więcej informacji o | Znajduje się w artykule |
 | --- | --- |
-| Przezroczystego szyfrowania danych (funkcji TDE) | [Przezroczystego szyfrowania danych](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Azure SQL Data Warehouse przy użyciu funkcji TDE | [Encrption funkcji TDE TSQL magazyn danych SQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
-| Konfigurowanie usługi Azure SQL przy użyciu funkcji TDE | [Przezroczystego szyfrowania danych z bazy danych Azure SQL](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
-| Konfigurowanie usługi Azure SQL z zawsze zaszyfrowane | [Baza danych SQL zawsze zaszyfrowane usługi Azure Key Vault](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
+| Przezroczystego szyfrowania danych (funkcji TDE) | [Przezroczystego szyfrowania danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
+| Azure SQL Data Warehouse przy użyciu funkcji TDE | [Encrption funkcji TDE TSQL magazyn danych SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
+| Konfigurowanie usługi Azure SQL przy użyciu funkcji TDE | [Przezroczystego szyfrowania danych z bazy danych Azure SQL](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
+| Konfigurowanie usługi Azure SQL z zawsze zaszyfrowane | [Baza danych SQL zawsze zaszyfrowane usługi Azure Key Vault](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
 
 Oprócz funkcji TDE Azure SQL obsługuje również zawsze zaszyfrowane, nowej technologii szyfrowania danych, które zapewnia, że dane są szyfrowane, nie tylko na rest i podczas przenoszenia między klientem a serwerem, ale również podczas danych jest używany podczas wykonywania polecenia na serwerze.
 
@@ -133,7 +133,7 @@ W celu zapewnienia spójności poziom zabezpieczeń całej AppSource, firma Micr
 
 Aby przeprowadzić wyszukiwanie bieżącej listy obrazów w portalu Azure Marketplace, zobacz [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
 
-Aby uzyskać informacje o publikowaniu obraz maszyny wirtualnej do portalu Azure Marketplace, zobacz [przewodniku, aby utworzyć obraz maszyny wirtualnej dla portalu Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
+Aby uzyskać informacje o publikowaniu obraz maszyny wirtualnej do portalu Azure Marketplace, zobacz [przewodniku, aby utworzyć obraz maszyny wirtualnej dla portalu Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
 ## <a name="scalability-evaluation-considerations"></a>Zagadnienia dotyczące skalowalności oceny
 ### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Rozwiązania Cortana Intelligence powinna zawierać platformy skalowalne danych big data
@@ -145,14 +145,14 @@ Jeśli rozwiązania nie wymaga obsługi rozmiary danych lub jeśli używasz plat
 ### <a name="cortana-intelligence-solutions-should-include-dedicated-ingestion-data-environments"></a>Rozwiązania Cortana Intelligence powinna zawierać dedykowanych wprowadzanie danych środowiska
 Rozwiązania Cortana Intelligence ogólnie należy unikać bezpośrednio Wstawianie danych do źródła danych relacyjnych. Zamiast tego nieprzetworzone dane powinny być przechowywane w środowisku bez struktury z idempotentności wstawiania/aktualizacji do wszystkich sklepów relacyjne przy użyciu fabryki danych Azure.
 
-Aby uzyskać więcej informacji o kopiowaniu danych z fabryką danych Azure [samouczek: tworzenie potoku z działania kopiowania za pomocą programu Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
+Aby uzyskać więcej informacji o kopiowaniu danych z fabryką danych Azure [samouczek: tworzenie potoku z działania kopiowania za pomocą programu Visual Studio](https://docs.microsoft.com/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
 
 ### <a name="azure-sql-data-warehouse-should-use-polybase-for-data-ingestion"></a>Usługa Azure SQL Data Warehouse PolyBase musi być używane na wprowadzanie danych
 Azure SQL DW obsługuje PolyBase wprowadzanie danych wysoce skalowalną, równoległe. Program PolyBase pozwala na potrzeby magazynu danych SQL Azure problem zapytań dotyczących zewnętrznych zestawów danych przechowywanych w magazynie obiektów Blob Azure lub usługi Azure Data Lake Store. Zapewnia to lepszą wydajność, aby alternatywnej metody aktualizacji zbiorczej.
 
-Aby uzyskać instrukcje na wprowadzenie PolyBase i magazynu danych SQL Azure, zobacz [ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
+Aby uzyskać instrukcje na wprowadzenie PolyBase i magazynu danych SQL Azure, zobacz [ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
 
-Aby uzyskać więcej informacji na temat najlepszych rozwiązań z PolyBase i magazynu danych SQL Azure, zobacz [przewodnik przy użyciu programu PolyBase w usłudze SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
+Aby uzyskać więcej informacji na temat najlepszych rozwiązań z PolyBase i magazynu danych SQL Azure, zobacz [przewodnik przy użyciu programu PolyBase w usłudze SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
 
 ## <a name="availability-evaluation-considerations"></a>Zagadnienia dotyczące obliczania dostępności
 
@@ -161,38 +161,38 @@ Podczas wykonywania narzędzia oceny, użytkownik jest proszony o określ wszelk
 
 W szczególności magazyn danych SQL Azure nie może być źródło danych wyłącznie dostępne dla użytkowników końcowych. Jeśli magazynu danych SQL Azure jest dostarczany jako zasób użytkownicy zaawansowani, usług Azure Analysis Services powinny być udostępnione typowych użytkowników.
 
-Aby uzyskać więcej informacji na temat limitów współbieżności Azure SQL DW, zobacz [zarządzania współbieżności i obciążenia w usłudze SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
+Aby uzyskać więcej informacji na temat limitów współbieżności Azure SQL DW, zobacz [zarządzania współbieżności i obciążenia w usłudze SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
 
 Aby uzyskać więcej informacji na temat usług Azure Analysis Services, zobacz [Omówienie usług Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview).
 
 ### <a name="azure-sql-resources-should-have-a-read-only-replica-for-failover"></a>Zasoby usługi Azure SQL powinien mieć tylko do odczytu repliki do trybu failover
 Bazy danych SQL Azure obsługuje replikację geograficzną do dodatkowej wystąpienia. To wystąpienie może być następnie używane jako wystąpienie trybu failover zapewniające wysoką dostępność aplikacji.
 
-Aby uzyskać więcej informacji na temat — replikacja geograficzna baz danych Azure SQL, zobacz [omówienie replikacja geograficzna bazy danych SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview).
+Aby uzyskać więcej informacji na temat — replikacja geograficzna baz danych Azure SQL, zobacz [omówienie replikacja geograficzna bazy danych SQL](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 
-Aby uzyskać instrukcje dotyczące sposobu konfigurowania — replikacja geograficzna dla bazy danych SQL Azure, zobacz [skonfigurować aktywna replikacja geograficzna bazy danych SQL Azure z Transact-SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
+Aby uzyskać instrukcje dotyczące sposobu konfigurowania — replikacja geograficzna dla bazy danych SQL Azure, zobacz [skonfigurować aktywna replikacja geograficzna bazy danych SQL Azure z Transact-SQL](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-transact-sql).
 
 ### <a name="azure-sql-data-warehouse-should-have-geo-redundant-backups-enabled"></a>Usługa Azure SQL Data Warehouse powinny mieć geograficznie nadmiarowego kopie zapasowe włączone
 Azure SQL DW obsługuje codziennych kopii zapasowych do magazynu geograficznie nadmiarowego. Replikacja geograficzna gwarantuje, że można przywrócić w magazynie danych, nawet w sytuacjach, w których nie można uzyskać dostępu migawek przechowywanych w Twoim regionie podstawowym. Ta funkcja jest domyślnie włączona i nie należy wyłączyć dla rozwiązań Cortana Intelligence.
 
-Aby uzyskać więcej informacji na temat Azure SQL DW kopie zapasowe i przywracanie widoczną w tym miejscu [kopii zapasowych magazynu danych SQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
+Aby uzyskać więcej informacji na temat Azure SQL DW kopie zapasowe i przywracanie widoczną w tym miejscu [kopii zapasowych magazynu danych SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-backups).
 
 ### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>Maszyny wirtualne należy skonfigurować zestawy dostępności
 Maszyny wirtualne platformy Azure powinna być skonfigurowana w zestawów dostępności, aby zminimalizować wpływ zdarzeń planowanych lub nieplanowanych konserwacji.
 
-Aby uzyskać więcej informacji na temat dostępności maszyny wirtualnej platformy Azure, zobacz [Zarządzaj dostępnością maszyn wirtualnych systemu Windows na platformie Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+Aby uzyskać więcej informacji na temat dostępności maszyny wirtualnej platformy Azure, zobacz [Zarządzaj dostępnością maszyn wirtualnych systemu Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 ## <a name="other-evaluation-considerations"></a>Inne zagadnienia oceny
 ### <a name="cortana-intelligence-apps-should-use-a-centralized-tool-for-data-orchestration"></a>Aplikacje Cortana Intelligence powinny używać scentralizowane narzędzia dla danych aranżacji
-Za pomocą jednego narzędzia do zarządzania i planowania przenoszenia danych i transformacja zapewnia spójność wokół kluczowych danych. Zapewnia on wyczyść logiki wokół logika ponowień, zarządzania zależności, alert/rejestrowania itp. Firma Microsoft zaleca użycie [fabryki danych Azure](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction) do aranżacji danych na platformie Azure.
+Za pomocą jednego narzędzia do zarządzania i planowania przenoszenia danych i transformacja zapewnia spójność wokół kluczowych danych. Zapewnia on wyczyść logiki wokół logika ponowień, zarządzania zależności, alert/rejestrowania itp. Firma Microsoft zaleca użycie [fabryki danych Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-introduction) do aranżacji danych na platformie Azure.
 
 Jeśli używasz narzędzia innego niż fabryki danych Azure dla danych aranżacji, opisz które narzędzie lub korzystasz z narzędzia.
 ### <a name="azure-machine-learning-models-should-be-retrained-using-azure-data-factory"></a>Modele uczenia maszynowego Azure powinna być retrained przy użyciu fabryki danych Azure
 Azure Machine Learning (uczenie maszynowe Azure) zapewnia łatwy w użyciu narzędzia do tworzenia i wdrażania modelowania predykcyjnego i potoki uczenia maszynowego. Jednak ważne jest wdrożeń produkcyjnych tych modeli uczenie maszynowe Azure nie jest oparty na jednym stałego zestawu danych, ale zamiast tego dostosowuje się do shifting dynamics zjawiska rzeczywistych.
 
-Aby uzyskać więcej informacji na temat tworzenia usług sieci web ponownego trenowania w uczenie maszynowe Azure, zobacz [Retrain Machine Learning programowo modele](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+Aby uzyskać więcej informacji na temat tworzenia usług sieci web ponownego trenowania w uczenie maszynowe Azure, zobacz [Retrain Machine Learning programowo modele](https://docs.microsoft.com/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-Aby uzyskać więcej informacji na temat automatyzacji procesu uczenia modelu przy użyciu fabryki danych Azure, zobacz [modeli aktualizowanie uczenia maszynowego Azure przy użyciu działanie aktualizacji zasobu](https://docs.microsoft.com/en-us/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
+Aby uzyskać więcej informacji na temat automatyzacji procesu uczenia modelu przy użyciu fabryki danych Azure, zobacz [modeli aktualizowanie uczenia maszynowego Azure przy użyciu działanie aktualizacji zasobu](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Istniejąca dokumentacja
 [Microsoft Azure certyfikowane do rozwoju firmy chmury](https://azure.microsoft.com/en-us/marketplace/programs/certified/)

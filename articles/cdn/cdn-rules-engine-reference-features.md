@@ -14,188 +14,205 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 35bae19deb6d4a79367c171aea5d74b6698e023b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
-Ten temat zawiera szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
+W tym artykule przedstawiono szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
 
-Trzeci część reguły jest funkcja. Funkcja definiuje typ akcji, które zostaną zastosowane do typu żądanie poprzez z zestawem warunków dopasowania.
+Trzeci część reguły jest funkcja. Funkcja definiuje typ akcji, która jest stosowana do typu żądania identyfikowane przez zestaw warunków dopasowania.
 
-## <a name="access"></a>Dostęp
+## <a name="access-features"></a>Funkcje dostępu
 
 Te funkcje są przeznaczone do kontrolowania dostępu do zawartości.
 
 
 Nazwa | Przeznaczenie
 -----|--------
-Odmowa dostępu | Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
-Token uwierzytelniania | Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
-Kod odmowa tokenu uwierzytelniania | Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
-Token uwierzytelniania Ignoruj wielkość liter adresu URL | Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL będzie uwzględniana wielkość liter.
-Parametr tokenu uwierzytelniania | Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
+[Odmowa dostępu (403)](#deny-access-403) | Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
+[Token uwierzytelniania](#token-auth) | Określa, czy uwierzytelnianie na podstawie tokenu jest stosowany na żądanie.
+[Kod odmowa tokenu uwierzytelniania](#token-auth-denial-code) | Określa typ odpowiedzi, który jest zwracany do użytkownika, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
+[Token uwierzytelniania Ignoruj wielkość liter adresu URL](#token-auth-ignore-url-case) | Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL jest rozróżniana wielkość liter.
+[Parametr tokenu uwierzytelniania](#token-auth-parameter) | Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
 
-### <a name="deny-access"></a>Odmowa dostępu
-**Cel**: Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
 
-Wartość | Wynik
-------|-------
-Enabled (Włączony)| Powoduje, że wszystkie żądania, które spełniają kryteria dopasowywania procesów odrzucona z odpowiedź 403 Zabroniony.
-Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie do serwera pochodzenia, aby ustalić typ odpowiedzi, który zostanie zwrócony.
-
-**Domyślne zachowanie**: wyłączone
-
-> [!TIP]
-   > Jedno możliwe użycie tej funkcji jest aby skojarzyć ją z warunkiem dopasowania nagłówek żądania, aby zablokować dostęp do odwołań HTTP, korzystających z wbudowanym łącza do zawartości.
-
-### <a name="token-auth"></a>Token uwierzytelniania
-**Cel:** Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
-
-Włączenie uwierzytelniania opartego na tokenie tylko żądania, które zapewniają zaszyfrowany token i są zgodne z wymogami określone przez token będą honorowane.
-
-Klucz szyfrowania używany do szyfrowania i odszyfrowywania tokenów wartości jest określana przez klucz podstawowy i opcje tworzenia kopii zapasowej klucza na stronie tokenu uwierzytelniania. Należy pamiętać, że klucze szyfrowania są specyficzne dla platformy.
-
-Wartość | Wynik
-------|---------
-Enabled (Włączony) | Chroni żądanej zawartości przy użyciu uwierzytelniania opartego na tokenie. Tylko żądania od klientów, podaj prawidłowy token, które spełniają jej wymagań dotyczących będą honorowane. Transakcje FTP są wykluczone z uwierzytelniania opartego na tokenie.
-Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie konfiguracji uwierzytelniania opartego na tokenie, aby ustalić, czy żądanie zostanie zabezpieczone.
-
-**Domyślne zachowanie:** wyłączone.
-
-###<a name="token-auth-denial-code"></a>Kod odmowa tokenu uwierzytelniania
-**Cel:** Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
-
-Kody odpowiedzi dostępne są wymienione poniżej.
-
-Kod odpowiedzi|Nazwa odpowiedzi|Opis
-----------------|-----------|--------
-301|Trwale przeniesiona|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
-302|Znaleziono|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji. Ten kod stanu jest branży standardową metodą wykonania przekierowania.
-307|Przekierowanie tymczasowe|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
-401|Brak autoryzacji|Łączenie z nagłówka WWW-Authenticate odpowiedzi ten kod stanu umożliwia Monituj użytkownika do uwierzytelniania.
-403|Zabroniony|Jest to standardowy 403 Zabroniony komunikat o stanie nieautoryzowany użytkownik zostanie wyświetlony podczas próby dostępu do chronionej zawartości.
-404|Nie znaleziono pliku|Ten kod stanu wskazuje, że klient HTTP był w stanie komunikować się z serwerem, ale nie można odnaleźć żądanej zawartości.
-
-#### <a name="url-redirection"></a>Adres URL przekierowania
-
-Ta funkcja obsługuje adres URL przekierowania do adresu URL zdefiniowane przez użytkownika, gdy jest on skonfigurowany do zwrócenia 3xx kod stanu. Ten adres URL zdefiniowany przez użytkownika, można określić, wykonując następujące czynności:
-
-1. Wybierz kod odpowiedzi 3xx dla funkcji kodu odmowa tokenu uwierzytelniania.
-2. Wybierz "Lokalizacja" z opcją opcjonalna nazwa nagłówka.
-3. Ustaw opcję opcjonalna wartość nagłówka do żądanego adresu URL.
-
-Jeśli adres URL nie jest zdefiniowany dla kodu stanu 3xx, strony standardowe odpowiedzi dla kodu stanu 3xx będzie zwrócił dla użytkownika.
-
-Adres URL przekierowania dotyczy tylko 3xx kody odpowiedzi.
-
-Opcja opcjonalna wartość nagłówka obsługuje znaki alfanumeryczne, znaki cudzysłowu i spacje.
-
-#### <a name="authentication"></a>Authentication
-
-Ta funkcja obsługuje możliwość dołączyć nagłówka WWW-Authenticate wysyłanej do nieautoryzowanego żądania dla zawartości chronionej przez uwierzytelniania opartego na tokenie. Jeśli nagłówka WWW-Authenticate została ustawiona na "basic" w konfiguracji, nieautoryzowany użytkownik zostanie monit o poświadczenia konta.
-
-Powyższej konfiguracji można osiągnąć, wykonując następujące czynności:
-
-1. Wybierz "401" jako kod odpowiedzi dla funkcji kodu odmowa tokenu uwierzytelniania.
-2. Wybierz "WWW-Authenticate" z opcją opcjonalna nazwa nagłówka.
-3. Ustaw opcję opcjonalna wartość nagłówka "podstawowy".
-
-Nagłówek WWW-Authenticate dotyczy tylko kodów odpowiedzi 401.
-
-### <a name="token-auth-ignore-url-case"></a>Token uwierzytelniania Ignoruj wielkość liter adresu URL
-**Cel:** Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL będzie uwzględniana wielkość liter.
-
-Parametry wpływ tej funkcji są:
-
-- ec_url_allow
-- ec_ref_allow
-- ec_ref_deny
-
-Prawidłowe wartości to:
-
-Wartość|Wynik
----|----
-Enabled (Włączony)|Powoduje, że nasze serwer graniczny ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
-
-**Domyślne zachowanie:** wyłączone.
- 
-### <a name="token-auth-parameter"></a>Parametr tokenu uwierzytelniania
-**Cel:** Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
-
-Informacje o kluczu:
-
-- Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą których można określić token.
-- Nie można ustawić opcji wartość "ec_token."
-- Upewnij się, że z nazwą zdefiniowaną w opcji wartość zawiera tylko prawidłowe znaki adresu URL.
-
-Wartość|Wynik
-----|----
-Enabled (Włączony)|Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą którego można zdefiniować tokenów.
-Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
-
-**Domyślne zachowanie:** wyłączone. Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
-
-## <a name="caching"></a>Buforowanie
+## <a name="caching-features"></a>Buforowanie funkcji
 
 Te funkcje są przeznaczone do dostosowania, kiedy i jak zawartość jest buforowana.
 
 Nazwa | Przeznaczenie
 -----|--------
-Parametry przepustowości | Określa, czy przepustowości parametrów (na przykład ec_rate i ec_prebuf) będzie aktywny.
-Ograniczanie przepustowości | Ogranicza przepustowość dla odpowiedzi dostarczonych przez nasze serwery krawędzi.
-Pomiń pamięć podręczną | Określa, czy żądania mogą korzystać z naszych technologię buforowania.
-Traktowanie nagłówek Cache-Control | Kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
-Ciąg zapytania klucz pamięci podręcznej | Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
-Napisz ponownie klucz pamięci podręcznej | Ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
-Zakończenie wypełnienie pamięci podręcznej | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na serwer graniczny.
-Kompresuj typów plików | Definiuje formatów plików, które będą kompresowane na serwerze.
-Max-Age wewnętrzny domyślne | Określa domyślny interwał maksymalny wiek serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-Wygasa traktowania nagłówka | Kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
-Max-Age zewnętrznych | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi.
-Wymuszanie wewnętrznych Max-Age. | Określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-Obsługa H.264 (pobierania progresywnego HTTP) | Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
-Honoruj No-Cache żądania | Określa, czy klient HTTP żądań pamięci podręcznej nie zostaną przekazane do serwera pochodzenia.
-Ignoruj pochodzenia No-Cache | Określa, czy naszych CDN zignoruje niektórych dyrektyw z serwera pochodzenia.
-Ignoruj Unsatisfiable zakresów | Określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje kod stanu żądany zakres nie niewłaściwego 416.
-Wewnętrzny odświeżona maksymalna | Określa, jak długo późniejsza niż godzina wygaśnięcia normalne, który zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
-Udostępnianie częściowe pamięci podręcznej | Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
-Prevalidate zawartości w pamięci podręcznej | Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
-Odśwież Zero bajtów pamięci podręcznej plików | Określa sposób obsługi żądania klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
-Kody stanu Buforowalnej zestawu | Definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
-Stałe dostarczanie zawartości w przypadku błędu | Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
-Nieaktualne podczas Revalidate | Zwiększa wydajność, umożliwiając nasze serwery krawędzi do obsługi starych klienta do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
-Komentarz | Funkcja komentarz umożliwia Uwaga do dodania w regule.
+[Parametry przepustowości](#bandwidth-parameters) | Określa, czy parametry ograniczania przepustowości (na przykład ec_rate i ec_prebuf) są aktywne.
+[Ograniczanie przepustowości](#bandwidth-throttling) | Ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
+[Pomiń pamięć podręczną](#bypass-cache) | Określa, czy żądanie należy pominąć buforowanie.
+[Traktowanie nagłówek Cache-Control](#cache-control-header-treatment) | Kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
+[Ciąg zapytania klucz pamięci podręcznej](#cache-key-query-string) | Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
+[Napisz ponownie klucz pamięci podręcznej](#cache-key-rewrite) | Ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
+[Zakończenie wypełnienie pamięci podręcznej](#complete-cache-fill) | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na serwer graniczny.
+[Kompresuj typów plików](#compress-file-types) | Definiuje formatów plików, które będą kompresowane na serwerze.
+[Max-Age wewnętrzny domyślne](#default-internal-max-age) | Określa domyślny interwał maksymalny wiek serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
+[Wygasa traktowania nagłówka](#expires-header-treatment) | Kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
+[Max-Age zewnętrznych](#external-max-age) | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi.
+[Wymuszanie wewnętrznych Max-Age.](#force-internal-max-age) | Określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
+[Obsługa H.264 (pobierania progresywnego HTTP)](#h264-support-http-progressive-download) | Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
+[Honoruj No-Cache żądania](#honor-no-cache-request) | Określa, czy klient HTTP żądań pamięci podręcznej nie zostaną przekazane do serwera pochodzenia.
+[Ignoruj pochodzenia No-Cache](#ignore-origin-no-cache) | Określa, czy usługa CDN ignoruje niektórych dyrektyw z serwera pochodzenia.
+[Ignoruj Unsatisfiable zakresów](#ignore-unsatisfiable-ranges) | Określa odpowiedź, które są zwracane do klientów, gdy żądanie generuje kod stanu żądany zakres nie niewłaściwego 416.
+[Wewnętrzny odświeżona maksymalna](#internal-max-stale) | Określa, jak długo późniejsza niż godzina wygaśnięcia normalne, który zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
+[Udostępnianie częściowe pamięci podręcznej](#partial-cache-sharing) | Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
+[Prevalidate zawartości w pamięci podręcznej](#prevalidate-cached-content) | Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
+[Odśwież Zero bajtów pamięci podręcznej plików](#refresh-zero-byte-cache-files) | Określa, jak żądania klienta HTTP dla zawartości pamięci podręcznej 0 bajtów jest obsługiwany przez serwery krawędzi.
+[Kody stanu Buforowalnej zestawu](#set-cacheable-status-codes) | Definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
+[Stałe dostarczanie zawartości w przypadku błędu](#stale-content-delivery-on-error) | Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
+[Nieaktualne podczas Revalidate](#stale-while-revalidate) | Zwiększa wydajność, umożliwiając serwery krawędzi do obsługi starych klienta do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
 
-###<a name="bandwidth-parameters"></a>Parametry przepustowości
+## <a name="comment-feature"></a>Funkcja komentarza
+
+Ta funkcja pozwala uzyskać dodatkowe informacje w regule.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Komentarz](#comment) | Umożliwia Uwaga do dodania w regule.
+ 
+## <a name="header-features"></a>Funkcje nagłówka
+
+Te funkcje zostały zaprojektowane tak, aby dodać, zmodyfikować lub usunąć nagłówków z żądania lub odpowiedzi.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Nagłówek odpowiedzi wieku](#age-response-header) | Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
+[Debugowanie nagłówki odpowiedzi pamięci podręcznej](#debug-cache-response-headers) | Określa, czy odpowiedź może zawierać nagłówek odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
+[Modyfikowanie nagłówek żądania klienta](#modify-client-request-header) | Zastępowanie, dołącza lub usuwa nagłówek z żądania.
+[Modyfikowanie nagłówka odpowiedzi klienta](#modify-client-response-header) | Zastępowanie, dołącza lub usuwa nagłówek z odpowiedzi.
+[Wartość niestandardowego nagłówka adresu IP klienta](#set-client-ip-custom-header) | Zezwala na adres IP klienta mają zostać dodane do żądania jako nagłówek żądania niestandardowych.
+
+
+## <a name="logging-features"></a>Funkcje rejestrowania
+
+Te funkcje są przeznaczone do dostosowania dane przechowywane w plikach dziennika raw.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Pole niestandardowe dziennika 1](#custom-log-field-1) | Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
+[Ciąg zapytania dziennika](#log-query-string) | Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
+
+
+<!---
+## Optimize
+
+These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
+
+Name | Purpose
+-----|--------
+Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
+Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
+
+###Edge Optimizer
+**Purpose:** Determines whether Edge Optimizer can be applied to a request.
+
+If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
+
+- The requested content must use an edge CNAME URL.
+- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
+
+This feature requires the ADN platform and the Edge Optimizer feature.
+
+Value|Result
+-|-
+Enabled|Indicates that the request is eligible for Edge Optimizer processing.
+Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
+
+**Default Behavior:** Disabled
+ 
+
+###Edge Optimizer - Instantiate Configuration
+**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
+
+This feature requires the ADN platform and the Edge Optimizer feature.
+
+Key information:
+
+- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
+- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
+- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
+
+If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
+
+**Default Behavior:** Site configurations are inactive by default.
+--->
+
+## <a name="origin-features"></a>Funkcje źródła
+
+Te funkcje zostały zaprojektowane do kontrolowania sposobu CDN komunikuje się z serwerem pochodzenia.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Maksymalna liczba żądań Keep-Alive](#maximum-keep-alive-requests) | Określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
+[Serwer proxy specjalnych nagłówków](#proxy-special-headers) | Definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
+
+
+## <a name="specialty-features"></a>Funkcje specjalne
+
+Funkcje te zapewniają zaawansowane funkcje dla użytkowników zaawansowanych.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Metody HTTP buforowalnej](#cacheable-http-methods) | Określa zestaw dodatkowych metod HTTP, które mogą być buforowane w sieci.
+[Rozmiar treści żądania buforowalnej](#cacheable-request-body-size) | Określa próg do określenia, czy odpowiedź POST mogą być buforowane.
+
+ 
+## <a name="url-features"></a>Adres URL funkcji
+
+Te funkcje umożliwiają żądanie jest przekierowywane lub ulegną do innego adresu URL.
+
+Nazwa | Przeznaczenie
+-----|--------
+[Wykonaj przekierowania](#follow-redirects) | Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
+[Adres URL przekierowania](#url-redirect) | Przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
+[Ponowne zapisywanie adresów URL](#url-rewrite)  | Ponownie zapisuje adresu URL żądania.
+
+
+
+## <a name="azure-cdn-rules-engine-features-reference"></a>Odwołanie do funkcji aparatu reguły Azure CDN
+
+### <a name="age-response-header"></a>Nagłówek odpowiedzi wieku
+**Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
+Wartość|Wynik
+--|--
+Enabled (Włączony) | Nagłówek odpowiedzi wieku znajduje się w odpowiedzi wysyłane do zleceniodawcy.
+Disabled (Wyłączony) | Nagłówek odpowiedzi wieku został wykluczony z odpowiedzi wysyłane do zleceniodawcy.
+
+**Domyślne zachowanie**: wyłączone.
+
+### <a name="bandwidth-parameters"></a>Parametry przepustowości
 **Cel:** Określa, czy przepustowości parametrów (na przykład ec_rate i ec_prebuf) będzie aktywny.
 
 Parametry ograniczania przepustowości określają, czy szybkość transferu danych dla żądania klienta będzie ograniczony do niestandardowych szybkości.
 
 Wartość|Wynik
 --|--
-Enabled (Włączony)|Umożliwia serwerom krawędzi naszych honoruje żądań ograniczania przepustowości.
-Disabled (Wyłączony)|Powoduje, że nasze serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość zostanie obsłużona zwykle (czyli bez ograniczania przepustowości).
+Enabled (Włączony)|Umożliwia serwerom krawędzi uwzględnić żądania ograniczania przepustowości.
+Disabled (Wyłączony)|Powoduje, że serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość zostanie obsłużona zwykle (czyli bez ograniczania przepustowości).
 
 **Domyślne zachowanie:** włączone.
 
-###<a name="bandwidth-throttling"></a>Ograniczanie przepustowości
-**Cel:** ogranicza przepustowość dla odpowiedzi dostarczonych przez nasze serwery krawędzi.
+### <a name="bandwidth-throttling"></a>Ograniczanie przepustowości
+**Cel:** ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
 
 Obie z poniższych opcji, należy zdefiniować Aby poprawnie skonfigurować ograniczanie przepustowości.
 
 Opcja|Opis
 --|--
 KB na sekundę|Ustaw tę opcję, aby maksymalnej przepustowości (Kb na sekundę), które mogą być używane w celu dostarczenia odpowiedzi.
-Prebuf sekund|Ustaw tę opcję, aby liczbę sekund oczekiwania nasze serwery krawędzi do ograniczania przepustowości. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
+Prebuf sekund|Ustaw tę opcję, aby liczbę sekund, które serwery krawędzi będzie czekać do ograniczania przepustowości. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
 
 **Domyślne zachowanie:** wyłączone.
 
-###<a name="bypass-cache"></a>Pomiń pamięć podręczną
-**Cel:** Określa, czy żądania mogą korzystać z naszych technologię buforowania.
+### <a name="bypass-cache"></a>Pomiń pamięć podręczną
+**Cel:** Określa, czy żądanie należy pominąć buforowanie.
 
 Wartość|Wynik
 --|--
@@ -210,21 +227,50 @@ Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej z
 - **ADN:** Enabled
 --->
 
-###<a name="cache-control-header-treatment"></a>Traktowanie nagłówka kontroli pamięci podręcznej
-**Cel:** kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja maksymalny wiek zewnętrznych jest aktywna.
+### <a name="cacheable-http-methods"></a>Metody HTTP buforowalnej
+**Cel:** określa zestaw dodatkowych metod HTTP, które mogą być buforowane w sieci.
+
+Informacje o kluczu:
+
+- Ta funkcja przyjęto założenie, że zawsze mają być buforowane odpowiedzi GET. W związku z tym metodę GET HTTP nie należy włączyć podczas ustawiania tej funkcji.
+- Ta funkcja obsługuje tylko metodę POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji: POST 
+- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb będą buforowane. Użyj funkcji Buforowalnej rozmiar treści żądania, aby ustawić żądania maksymalny rozmiar treści.
+
+**Domyślne zachowanie:** tylko GET odpowiedzi będą buforowane.
+
+### <a name="cacheable-request-body-size"></a>Rozmiar treści żądania buforowalnej
+
+**Cel:** określa próg do określenia, czy odpowiedź POST mogą być buforowane.
+
+Wartość progu jest określana przez określania rozmiaru treści żądania maksymalna. Żądań zawierających większą treści żądania nie będą buforowane.
+
+Informacje o kluczu:
+
+- Ta funkcja ma zastosowanie tylko w przypadku, gdy odpowiedzi POST kwalifikują się do buforowania. Funkcja Buforowalnej HTTP metod Aby włączyć buforowanie żądania POST.
+- Treść żądania jest brana pod uwagę dla:
+    - wartości x--www-form-urlencoded
+    - Zapewnienie Unikatowy klucz pamięci podręcznej
+- Definiowanie dużego żądania maksymalny rozmiar treści może mieć wpływ na wydajność dostarczania danych.
+    - **Zalecana wartość:** 14 Kb
+    - **Wartość minimalna:** 1 Kb
+
+**Domyślne zachowanie:** 14 Kb
+
+### <a name="cache-control-header-treatment"></a>Traktowanie nagłówek Cache-Control
+**Cel:** kontroluje Generowanie `Cache-Control` nagłówki przez serwer graniczny, gdy zewnętrzne funkcji Max-Age jest aktywny.
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w tej samej instrukcji zewnętrznych maksymalny wiek i funkcji do przetwarzania nagłówek Cache-Control.
 
 Wartość|Wynik
 --|--
-Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazywanie|Zapewnia, że nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Cache-Control, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie generuje nagłówek Cache-Control, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Cache-Control.
-Jeśli brakuje dodać|Jeśli z serwera pochodzenia nie odebrano nagłówek Cache-Control, ta opcja dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Cache-Control.
-Remove| Tej opcji zapewnia, że nagłówek Cache-Control nie jest dołączony do odpowiedzi nagłówek. Jeśli już zostało przypisane nagłówek Cache-Control, a następnie go zostanie usunięta z nagłówka odpowiedzi.
+Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
+Przekazuj|Zapewnia, że `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age nigdy nie zostanie dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia `Cache-Control` nagłówka, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie tworzy `Cache-Control` nagłówek, a następnie ta opcja może spowodować nagłówek odpowiedzi nie będzie zawierał `Cache-Control` nagłówka.
+Jeśli brakuje dodać|Jeśli `Cache-Control` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane `Cache-Control` nagłówka.
+Remove| Tej opcji zapewnia, że `Cache-Control` nagłówka nie jest dołączony do odpowiedzi nagłówek. Jeśli `Cache-Control` nagłówka została już przypisana, a następnie go zostanie usunięta z nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastąpić.
 
-###<a name="cache-key-query-string"></a>Ciąg zapytania klucz pamięci podręcznej
+### <a name="cache-key-query-string"></a>Ciąg zapytania klucz pamięci podręcznej
 **Cel:** Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
 
 Informacje o kluczu:
@@ -292,10 +338,10 @@ Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru 
 
     /800001/Origin/folder/asset.htm
 
-###<a name="cache-key-rewrite"></a>Napisz ponownie klucz pamięci podręcznej
+### <a name="cache-key-rewrite"></a>Napisz ponownie klucz pamięci podręcznej
 **Cel:** ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
 
-Klucz pamięci podręcznej jest ścieżką względną identyfikujący zasób na potrzeby buforowania. Innymi słowy nasze serwery będą sprawdzać dostępności buforowanej wersji zasobów zgodnie z jego ścieżki zgodnie z definicją w jej klucz pamięci podręcznej.
+Klucz pamięci podręcznej jest ścieżką względną identyfikujący zasób na potrzeby buforowania. Innymi słowy serwery będą sprawdzać dostępności buforowanej wersji zasobów zgodnie z jego ścieżki zgodnie z definicją w jej klucz pamięci podręcznej.
 
 Tej funkcji można skonfigurować, definiując obu z następujących opcji:
 
@@ -305,7 +351,18 @@ Oryginalna ścieżka| Zdefiniuj ścieżkę względną do typów żądań, który
 Nowa ścieżka|Zdefiniuj ścieżkę względną nowy klucz pamięci podręcznej. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego. Ta ścieżka względna można dynamicznie utworzyć przy użyciu protokołu HTTP, zmiennych
 **Domyślne zachowanie:** klucz pamięci podręcznej żądania jest określana przez identyfikator URI żądania.
 
-###<a name="complete-cache-fill"></a>Zakończenie wypełnienie pamięci podręcznej
+### <a name="comment"></a>Komentarz
+**Cel:** umożliwia Uwaga do dodania w regule.
+
+Jedno użycie tej funkcji jest zawierają dodatkowe informacje o ogólnego przeznaczenia, reguły lub dlaczego określonego zgodne z warunkiem lub funkcja została dodana do reguły.
+
+Informacje o kluczu:
+
+- Można określić maksymalnie 150 znaków.
+- Używaj tylko znaków alfanumerycznych.
+- Ta funkcja nie ma wpływu na zachowanie reguły. Go jedynie ma zapewnić obszaru, w którym można podać informacje do przyszłego wykorzystania lub które mogą ułatwić podczas rozwiązywania problemów reguły.
+
+### <a name="complete-cache-fill"></a>Zakończenie wypełnienie pamięci podręcznej
 **Cel:** Określa, co się dzieje, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe, na serwerze granicznym.
 
 Chybienia pamięci podręcznej częściowe opisuje stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrana do serwer graniczny. W przypadku zasobów są tylko częściowo buforowane na serwerze granicznym, następnie następnego żądania dla tego zasobu zostanie przekazany ponownie do serwera pochodzenia.
@@ -325,10 +382,10 @@ Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w t
 
 **Domyślne zachowanie:** włączone.
 
-###<a name="compress-file-types"></a>Kompresuj typów plików
+### <a name="compress-file-types"></a>Kompresuj typów plików
 **Cel:** definiuje formatów plików, które będą kompresowane na serwerze.
 
-Format pliku można określić za pomocą jego typ nośnika Internet (na przykład Content-Type). Typ nośnika Internet jest metadanych niezależne od platformy, które umożliwia nasze serwery zidentyfikować format pliku określonego zasobu. Listę typowych nośnika Internet podano poniżej.
+Format pliku można określić za pomocą jego typ nośnika Internet (na przykład Content-Type). Typ nośnika Internet jest metadanych niezależne od platformy, które umożliwia serwerom zidentyfikować format pliku określonego zasobu. Listę typowych nośnika Internet podano poniżej.
 
 Typ nośnika Internet|Opis
 --|--
@@ -345,7 +402,54 @@ Informacje o kluczu:
 - Symbole wieloznaczne, takie jak gwiazdek, nie są obsługiwane.
 - Przed dodaniem tej funkcji do reguły upewnij się, że ustawieniu opcji kompresji wyłączone na stronie kompresji dla platformy, do której zostanie zastosowana ta reguła.
 
-###<a name="default-internal-max-age"></a>Max-Age wewnętrzny domyślne
+### <a name="custom-log-field-1"></a>Pole niestandardowe dziennika 1
+**Cel:** Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
+
+Głównym celem za to pole niestandardowe jest pozwala określić, które żądania i wartości nagłówka odpowiedzi będą przechowywane w plikach dziennika.
+
+Domyślnie pole dziennik niestandardowy jest nazywany "x-ec_custom-1." Jednak można dostosować nazwę tego pola z [strony pierwotnych ustawień dziennika]().
+
+Formatowanie, że należy używać do określania nagłówki żądań i odpowiedzi jest zdefiniowana poniżej.
+
+Header — typ|Format|Przykłady
+-|-|-
+Nagłówek żądania|%{[RequestHeader]()}[i]() | % {Zaakceptować kodowania} i <br/> {Odnośnik} i <br/> % {Autoryzacji} i
+Nagłówek odpowiedzi|%{[ResponseHeader]()}[o]()| O % {wieku} <br/> O % {content-Type} <br/> O % {cookie}
+
+Informacje o kluczu:
+
+- Pola niestandardowe dziennika może zawierać dowolną kombinację pola nagłówka i zwykły tekst.
+- Prawidłowe znaki dla tego pola są następujące: alfanumeryczne (0-9, a-z, a A-Z), łączniki, dwukropki średnikami, apostrofów, przecinkami, kropki, podkreślenia, znaku równości, nawiasy, nawiasy i spacje. Symbol procentu i nawiasy klamrowe są dozwolone tylko po używany do określenia pola nagłówka.
+- Pisownia dla każdego pola określony nagłówek musi odpowiadać nazwie nagłówka odpowiednie żądanie/odpowiedź.
+- Jeśli chcesz określić wiele nagłówków, następnie zalecane jest używane separator w celu wskazania każdy nagłówek. Na przykład można użyć skrótu każdy nagłówek. Poniżej znajduje się przykład składni.
+    - AE: % {zaakceptować kodowania} i odpowiedź: % {autoryzacji} i IERZ: % {Content-Type} o 
+
+**Wartość domyślna:** -
+
+### <a name="debug-cache-response-headers"></a>Debugowanie nagłówki odpowiedzi pamięci podręcznej
+**Cel:** Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
+
+Debugowanie odpowiedzi pamięci podręcznej, który nagłówki mają być uwzględnieni w odpowiedzi, gdy są spełnione oba poniższe:
+
+- Funkcja debugowania nagłówki odpowiedzi pamięci podręcznej został włączony na odpowiednie żądania.
+- Żądanie powyżej definiuje zestaw debugowania nagłówki odpowiedzi pamięci podręcznej, które zostaną uwzględnione w odpowiedzi.
+
+Debugowanie nagłówki może wystąpić przy tym następujący nagłówek i odpowiednie dyrektywy w żądaniu odpowiedzi pamięci podręcznej:
+
+X-WE Debug: _Directive1_,_Directive2_,_DirectiveN_
+
+**Przykład:**
+
+WE-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
+
+Wartość|Wynik
+-|-
+Enabled (Włączony)|Żądania dla strony nagłówki odpowiedzi pamięci podręcznej debugowania będzie zwracać odpowiedzi, który zawiera nagłówek X-WE-Debug.
+Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z odpowiedzi.
+
+**Domyślne zachowanie:** wyłączone.
+
+### <a name="default-internal-max-age"></a>Max-Age wewnętrzny domyślne
 **Cel:** określa maksymalny wiek domyślny interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny sprawdzi, czy buforowanych zasobów zgodny zasobów przechowywanych na serwerze źródłowym.
 
 Informacje o kluczu:
@@ -370,7 +474,20 @@ Informacje o kluczu:
 
 **Wartość domyślna:** 7 dni
 
-###<a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
+### <a name="deny-access-403"></a>Odmowa dostępu (403)
+**Cel**: Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
+
+Wartość | Wynik
+------|-------
+Enabled (Włączony)| Powoduje, że wszystkie żądania, które spełniają kryteria dopasowywania procesów odrzucona z odpowiedź 403 Zabroniony.
+Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie do serwera pochodzenia, aby ustalić typ odpowiedzi, który zostanie zwrócony.
+
+**Domyślne zachowanie**: wyłączone
+
+> [!TIP]
+   > Jedno możliwe użycie tej funkcji jest aby skojarzyć ją z warunkiem dopasowania nagłówek żądania, aby zablokować dostęp do odwołań HTTP, korzystających z wbudowanym łącza do zawartości.
+
+### <a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
 **Cel:** kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrznych maksymalny wiek i funkcje wygasa traktowania nagłówka w tej samej instrukcji.
@@ -378,34 +495,48 @@ Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrz
 Wartość|Wynik
 --|--
 Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/>-Zastępuje nagłówek Expires generowane przez serwer pochodzenia.<br/>-Dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazywanie|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
+Przekazuj|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
 Jeśli brakuje dodać| Jeśli nie odebrano nagłówek Expires z serwera pochodzenia, ta opcja dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Expires.
 Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nagłówek. Jeśli już przypisano nagłówek Expires, następnie go będzie być usunięte z nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastępowania
 
-###<a name="external-max-age"></a>Max-Age zewnętrznych
+### <a name="external-max-age"></a>Max-Age zewnętrznych
 **Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi. Innymi słowy nowej wersji zasób z serwer graniczny sprawdzić ilość czasu, jaki upłynie przed przeglądarki.
 
-Włączenie tej funkcji spowoduje wygenerowanie pamięci podręcznej — kontroli: max-wieku i wygasa nagłówków z naszych serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
+Włączenie tej funkcji spowoduje wygenerowanie pamięci podręcznej-kontrolki: Maksymalna liczba-okres ważności wygasa nagłówków z serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
 
 Informacje o kluczu:
 
 - Ta akcja nie wpływa na serwer graniczny do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane na podstawie nagłówków pamięci podręcznej-formant/Expires otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
 - Tej funkcji można skonfigurować, określając wartość całkowitą i wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.).
-- Ustawienie tej funkcji na wartość ujemna powoduje nasze serwery krawędzi wysłać pamięci podręcznej-Control: no-pamięci podręcznej i czas wygaśnięcia ustawioną w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na możliwość nasze serwery krawędzi buforować odpowiedzi z serwera pochodzenia.
+- Ustawienie ujemnej wartości tej funkcji powoduje, że serwery krawędzi do wysyłania pamięci podręcznej-Control: no-pamięci podręcznej i czas wygaśnięcia ustawioną w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na serwery krawędzi możliwość buforowania odpowiedzi z serwera pochodzenia.
 - Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. Nagłówki Expires-formant/pamięci podręcznej w pamięci podręcznej z odpowiedzią serwera pochodzenia mają być przekazywane do przeglądarki.
 
 **Domyślne zachowanie:** wyłączone
 
-###<a name="force-internal-max-age"></a>Wymuszanie wewnętrznych Max-Age.
+### <a name="follow-redirects"></a>Wykonaj przekierowania
+**Cel:** Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
+
+Informacje o kluczu:
+
+- Tylko można przekierować żądania do krawędzi rekordów CNAME, które odpowiadają tej samej platformy.
+
+Wartość|Wynik
+-|-
+Enabled (Włączony)|Można przekierować żądania.
+Disabled (Wyłączony)|Nie będzie można przekierować żądania.
+
+**Domyślne zachowanie:** wyłączone.
+
+### <a name="force-internal-max-age"></a>Wymuszanie wewnętrznych Max-Age.
 **Cel:** określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny można sprawdzić, czy zasób pamięci podręcznej odpowiada zasobów przechowywanych na serwerze źródłowym.
 
 Informacje o kluczu:
 
-- Ta funkcja spowoduje zastąpienie interwału maksymalny wiek zdefiniowanej w Cache-Control lub Expires nagłówki wygenerowane z serwera pochodzenia.
-- Ta funkcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez Cache-Control lub Expires headers wysyłany do przeglądarki.
-- Ta funkcja nie ma efektu zauważalne w odpowiedzi dostarczonych przez serwer graniczny do zleceniodawcy. Jednak może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z naszych serwerów krawędzi, z serwerem źródłowym.
+- Ta funkcja spowoduje zastąpienie interwału maksymalny wiek zdefiniowane w `Cache-Control` lub `Expires` nagłówki wygenerowane z serwera pochodzenia.
+- Ta funkcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki.
+- Ta funkcja nie ma efektu zauważalne w odpowiedzi dostarczonych przez serwer graniczny do zleceniodawcy. Jednak może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z serwerów krawędzi, z serwerem źródłowym.
 - Konfigurowanie tej funkcji przez:
     - Wybieranie kod stanu, dla których zostaną zastosowane wewnętrzny wieku max.
     - Określanie całkowitą i wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.). Ta wartość Określa interwał maksymalny wiek żądania.
@@ -422,7 +553,7 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** wyłączone
 
-###<a name="h264-support-http-progressive-download"></a>Obsługa H.264 (pobierania progresywnego HTTP)
+### <a name="h264-support-http-progressive-download"></a>Obsługa H.264 (pobierania progresywnego HTTP)
 **Cel:** Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
 
 Informacje o kluczu:
@@ -432,7 +563,7 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** pobierania progresywnego HTTP obsługuje nośników MP4 i F4V domyślnie.
 
-###<a name="honor-no-cache-request"></a>Honoruj nie-cache żądania
+### <a name="honor-no-cache-request"></a>Honoruj No-Cache żądania
 **Cel:** Określa, czy klient HTTP przez nie pamięci podręcznej żądań zostaną przekazane do serwera pochodzenia.
 
 Żądania pamięci podręcznej nie występuje, gdy klient HTTP wysyła pamięci podręcznej-Control: no-pamięci podręcznej i/lub Pragma:no — pamięci podręcznej nagłówka w żądaniu HTTP.
@@ -448,13 +579,13 @@ Stan pamięci podręcznej, która będzie zgłaszana dla żądania, który może
 
 **Domyślne zachowanie:** wyłączone.
 
-###<a name="ignore-origin-no-cache"></a>Ignoruj pochodzenia no-cache
-**Cel:** Określa, czy naszych CDN zignoruje następujące dyrektywy udostępniane przez serwer pochodzenia:
+### <a name="ignore-origin-no-cache"></a>Ignoruj pochodzenia No-Cache
+**Cel:** Określa, czy sieć CDN będzie ignorować następujące dyrektywy udostępniane przez serwer pochodzenia:
 
-- Cache-Control: prywatne
-- Cache-Control: no-store
-- Cache-Control: no-cache
-- Pragma: nie-cache
+- `Cache-Control: private`
+- `Cache-Control: no-store`
+- `Cache-Control: no-cache`
+- `Pragma: no-cache`
 
 Informacje o kluczu:
 
@@ -472,28 +603,28 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** domyślne zachowanie to uwzględnić dyrektywy powyżej.
 
-###<a name="ignore-unsatisfiable-ranges"></a>Ignoruj Unsatisfiable zakresów 
+### <a name="ignore-unsatisfiable-ranges"></a>Ignoruj Unsatisfiable zakresów 
 **Cel:** określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
 
 Domyślnie ten kod stanu jest zwracany podczas żądania zakresu bajtów nie mogą być spełnione przez serwer graniczny i nie określono pola nagłówka żądania If-Range.
 
 Wartość|Wynik
 -|-
-Enabled (Włączony)|Nasze serwery krawędzi zapobiega odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
+Enabled (Włączony)|Serwery krawędzi zapobiega odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest uwzględnić 416 żądany zakres nie niewłaściwego kod stanu.
 
 **Domyślne zachowanie:** wyłączone.
 
-###<a name="internal-max-stale"></a>Wewnętrzny odświeżona maksymalna
+### <a name="internal-max-stale"></a>Wewnętrzny odświeżona maksymalna
 **Cel:** kontroli, jak długo późniejsza niż godzina wygaśnięcia normalne, zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
 
 Zwykle po upływie czasu maksymalny wiek zasobów, serwer graniczny wyśle żądanie ponownego sprawdzania poprawności do serwera pochodzenia. Ze źródła — wersja serwera zostanie następnie odpowiedź z obu 304 niezmodyfikowane umożliwiają serwer graniczny świeża dzierżawy w pamięci podręcznej zasobów lub z 200 OK zapewnienie serwer graniczny zaktualizowaną wersję elementu zawartości pamięci podręcznej.
 
 Jeśli serwer graniczny nie może nawiązać połączenia z serwerem pochodzenia Podczas próby ponowna Walidacja, tej funkcji wewnętrznej odświeżona Max kontroluje, czy i jak długo Edge serwera mogą nadal służyć zasobów obecnie przestarzały.
 
-Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max elementu zawartości, nie, jeśli nie powiodło się ponowna Walidacja występuje. Dlatego maksymalny okres, w którym mogą być przekazywane zasób bez pomyślnego ponownego sprawdzania poprawności jest określone przez kombinację maksymalny wiek plus odświeżona maksymalny czas. Na przykład, jeśli zasób był buforowany 9:00 z maksymalny wiek 30 min i max przestarzały 15 minut, następnie ponowna Walidacja nie powiodło się próba 9:44 spowodowałoby użytkownika końcowego odbieranie starych zasobów pamięci podręcznej, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 spowodowałoby użytkownika końcowego odbieranie 504 upływu limitu czasu bramy.
+Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max elementu zawartości, nie, jeśli nie powiodło się ponowna Walidacja występuje. Dlatego maksymalny okres, w którym mogą być przekazywane zasób bez pomyślnego ponownego sprawdzania poprawności jest określone przez kombinację maksymalny wiek plus odświeżona maksymalny czas. Na przykład jeśli zasób był buforowany 9:00, maksymalny wiek 30 minut i max przestarzały 15 minut, następnie ponowna Walidacja nie powiodło się próba 9:44 w rezultacie użytkownik końcowy odbieranie starych zasobów pamięci podręcznej, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 spowodowałoby en Użytkownik d odbieranie 504 Limit czasu bramy.
 
-Wartości skonfigurowane dla tej funkcji są zastępowane przez pamięć podręczną-kontrolki: musi — Sprawdź poprawność ponownie, lub buforować —: serwer proxy kontroli-ponownie sprawdź poprawność nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie mógł ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek elementu zawartości, to serwer graniczny zwróci 504 Limit czasu bramy.
+Dowolna wartość skonfigurowane dla tej funkcji są zastępowane przez `Cache-Control:must-revalidate` lub `Cache-Control:proxy-revalidate` nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie może ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek zasobów, serwer graniczny zwraca 504 błąd upływu limitu czasu bramy.
 
 Informacje o kluczu:
 
@@ -513,139 +644,30 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** dwie minuty
 
-###<a name="partial-cache-sharing"></a>Udostępnianie częściowe pamięci podręcznej
-**Cel:** Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
-
-Ta częściowa pamięć podręczna może następnie służyć do spełnienia nowych żądań dla tej zawartości do momentu żądanej zawartości jest w pełni pamięci podręcznej.
+### <a name="log-query-string"></a>Ciąg zapytania dziennika
+**Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
 
 Wartość|Wynik
 -|-
-Enabled (Włączony)|Żądania mogą generować częściowo buforowaną zawartość.
-Disabled (Wyłączony)|Żądania można generować tylko pełni buforowanej wersji żądanej zawartości.
+Enabled (Włączony)|Umożliwia przechowywanie ciągów zapytania podczas rejestrowania w dzienniku dostępu do adresów URL. Jeśli adres URL zawiera ciąg zapytania, następnie ta opcja nie będzie miało wpływu.
+Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest zignorowanie ciągi zapytań podczas rejestrowania w dzienniku dostępu do adresów URL.
 
 **Domyślne zachowanie:** wyłączone.
 
-###<a name="prevalidate-cached-content"></a>Prevalidate zawartości w pamięci podręcznej
-**Cel:** Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
+### <a name="maximum-keep-alive-requests"></a>Maksymalna liczba żądań Keep-Alive
+**Cel:** określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
 
-Zdefiniuj czas przed wygaśnięciem TTL żądanej zawartości, w którym będzie kwalifikuje się do wcześniejszego ponownego sprawdzania poprawności.
-
-Informacje o kluczu:
-
-- Wybieranie "Off" jako jednostka czasu wymaga ponownego sprawdzania poprawności została wykonana po zawartości pamięci podręcznej TTL utracił ważność. Nie należy określać czas i zostaną zignorowane.
-
-**Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce tylko, po upływie czas wygaśnięcia zawartości pamięci podręcznej.
-
-###<a name="refresh-zero-byte-cache-files"></a>Odśwież Zero bajtów pamięci podręcznej plików
-**Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
-
-Prawidłowe wartości to:
-
-Wartość|Wynik
---|--
-Enabled (Włączony)|Powoduje, że nasze serwer krawędzi refetch zasobów z serwera pochodzenia.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest do obsługi się zasoby prawidłowy pamięci podręcznej na żądanie.
-Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi są wysyłane do serwerów krawędzi. Tych typów odpowiedzi, zazwyczaj są buforowane przez serwery krawędzi. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
-
-takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów jest obsługiwane dla klientów.
-
-**Domyślne zachowanie:** wyłączone.
-
-###<a name="set-cacheable-status-codes"></a>Kody stanu Buforowalnej zestawu
-**Cel:** definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
-
-Domyślnie buforowanie jest włączona tylko 200 OK odpowiedzi.
-
-Zdefiniuj zestaw rozdzielonych spacjami kodów żądany stan.
+Maksymalna liczba żądań niskiej wartości jest zalecane i może spowodować obniżenie wydajności.
 
 Informacje o kluczu:
 
-- Włącz funkcję Ignoruj pochodzenia No-Cache. Jeśli ta funkcja nie jest włączona, następnie odpowiedzi z systemem innym niż 200 OK może nie być pamięci podręcznej.
-- Zestaw kodów stanu prawidłowy dla tej funkcji: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
-- Nie można użyć tej funkcji można wyłączyć buforowanie odpowiedzi, które generują kod 200 OK stanu.
+- Tę wartość można określić jako liczbą całkowitą.
+- Nie należy dołączać kropki i przecinki w określonej wartości.
 
-**Domyślne zachowanie:** buforowanie jest włączone tylko w przypadku odpowiedzi generujących kod 200 OK stanu.
-###<a name="stale-content-delivery-on-error"></a>Stałe dostarczanie zawartości w przypadku błędu
-**Cel:** 
+**Wartość domyślna:** 10000 żądań
 
-Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
-
-Wartość|Wynik
--|-
-Enabled (Włączony)|Zawartość zostanie obsłużona do zleceniodawcy, gdy wystąpi błąd podczas łączenia się z serwerem pochodzenia.
-Disabled (Wyłączony)|Błąd na serwerze źródłowym zostaną przekazane do zleceniodawcy.
-
-**Domyślne zachowanie:** wyłączone
-
-###<a name="stale-while-revalidate"></a>Nieaktualne podczas Revalidate
-**Cel:** zwiększa wydajność, zezwalając nasze serwery krawędzi do obsługi zawartość do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
-
-Informacje o kluczu:
-
-- Zachowanie tej funkcji zależy od jednostki wybrana wartość czasu.
-    - **Jednostka czasu:** określ długość czasu, a następnie wybierz jednostki czasu (na przykład sekundy, minuty, godziny, itp.) umożliwia starych dostarczania zawartości. Ten typ Instalatora umożliwia CDN rozszerzenie czas, który może zostać zawartości przed wymaganiem weryfikacji według następującego wzoru:**TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
-    - **OFF:** wybierz pozycję "wyłączone" Aby wymagać ponownego sprawdzania poprawności, zanim żądanie dla może zostać wyświetlona zawartość.
-        - Nie określaj długość czasu, ponieważ nie ma zastosowania i zostaną zignorowane.
-
-**Domyślne zachowanie:** Off. Ponowna Walidacja musi odbywać się przed żądanej zawartości mogą być udostępniane.
-
-###<a name="comment"></a>Komentarz
-**Cel:** umożliwia Uwaga do dodania w regule.
-
-Jedno użycie tej funkcji jest zawierają dodatkowe informacje o ogólnego przeznaczenia, reguły lub dlaczego określonego zgodne z warunkiem lub funkcja została dodana do reguły.
-
-Informacje o kluczu:
-
-- Można określić maksymalnie 150 znaków.
-- Używaj tylko znaków alfanumerycznych.
-- Ta funkcja nie ma wpływu na zachowanie reguły. Go jedynie ma zapewnić obszaru, w którym można podać informacje do przyszłego wykorzystania lub które mogą ułatwić podczas rozwiązywania problemów reguły.
- 
-## <a name="headers"></a>Nagłówki
-
-Te funkcje zostały zaprojektowane tak, aby dodać, zmodyfikować lub usunąć nagłówków z żądania lub odpowiedzi.
-
-Nazwa | Przeznaczenie
------|--------
-Nagłówek odpowiedzi wieku | Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
-Debugowanie nagłówki odpowiedzi pamięci podręcznej | Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
-Modyfikowanie nagłówek żądania klienta | Zastępowanie, dołącza lub usuwa nagłówek z żądania.
-Modyfikowanie nagłówka odpowiedzi klienta | Zastępowanie, dołącza lub usuwa nagłówek z odpowiedzi.
-Wartość niestandardowego nagłówka adresu IP klienta | Zezwala na adres IP klienta mają zostać dodane do żądania jako nagłówek żądania niestandardowych.
-
-###<a name="age-response-header"></a>Nagłówek odpowiedzi wieku
-**Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
-Wartość|Wynik
---|--
-Enabled (Włączony) | Nagłówek odpowiedzi wieku będą uwzględniane w odpowiedzi wysyłane do zleceniodawcy.
-Disabled (Wyłączony) | Nagłówek odpowiedzi wieku zostaną wykluczone z odpowiedzi wysyłane do zleceniodawcy.
-
-**Domyślne zachowanie**: wyłączone.
-
-###<a name="debug-cache-response-headers"></a>Debugowanie nagłówki odpowiedzi pamięci podręcznej
-**Cel:** Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
-
-Debugowanie odpowiedzi pamięci podręcznej, który nagłówki mają być uwzględnieni w odpowiedzi, gdy są spełnione oba poniższe:
-
-- Funkcja debugowania nagłówki odpowiedzi pamięci podręcznej został włączony na odpowiednie żądania.
-- Żądanie powyżej definiuje zestaw debugowania nagłówki odpowiedzi pamięci podręcznej, które zostaną uwzględnione w odpowiedzi.
-
-Debugowanie nagłówki może wystąpić przy tym następujący nagłówek i odpowiednie dyrektywy w żądaniu odpowiedzi pamięci podręcznej:
-
-X-WE Debug: _Directive1_,_Directive2_,_DirectiveN_
-
-**Przykład:**
-
-WE-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
-
-Wartość|Wynik
--|-
-Enabled (Włączony)|Żądania dla strony nagłówki odpowiedzi pamięci podręcznej debugowania będzie zwracać odpowiedzi, który zawiera nagłówek X-WE-Debug.
-Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z odpowiedzi.
-
-**Domyślne zachowanie:** wyłączone.
-
-###<a name="modify-client-request-header"></a>Modyfikowanie nagłówek żądania klienta
-**Cel:** każdego żądania zawiera zestaw [nagłówki żądań]() opisują go. Ta funkcja może być:
+### <a name="modify-client-request-header"></a>Modyfikowanie nagłówek żądania klienta
+**Cel:** każdego żądania zawiera zestaw nagłówków żądań, które zawiera jego opis. Ta funkcja może być:
 
 - Dołącz lub zastąpić wartość przypisana do nagłówka żądania. Jeśli określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane do żądania.
 - Usuń nagłówek żądania z żądania.
@@ -671,14 +693,14 @@ Informacje o kluczu:
 - Usuwanie nagłówka będą zapobiegać jej przekazywane do serwera pochodzenia przez serwery krawędzi.
 - Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - przekazany
-    - host
+    - Host
     - za pomocą
     - ostrzeżenie
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
-###<a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
-Każda odpowiedź zawiera zbiór [nagłówki odpowiedzi]() opisują go. Ta funkcja może być:
+### <a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
+Każda odpowiedź zawiera zestaw opisujące go nagłówków odpowiedzi. Ta funkcja może być:
 
 - Dołącz lub zastąpić wartość przypisana do nagłówka odpowiedzi. Jeśli określonego nagłówka odpowiedzi nie istnieje, następnie ta funkcja zostanie dodane do odpowiedzi.
 - Usuń nagłówek odpowiedzi z odpowiedzi.
@@ -700,7 +722,7 @@ Informacje o kluczu:
     - Kontrola pamięci podręcznej
     - CACHE-CONTROL
     - cachE-Control
-- Usuwanie nagłówka będą zapobiegać jej przesyłane dalej do zleceniodawcy.
+- Usuwanie nagłówka uniemożliwia jego przesyłane dalej do zleceniodawcy.
 - Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - Zaakceptuj kodowania
     - okres ważności
@@ -708,7 +730,7 @@ Informacje o kluczu:
     - kodowanie zawartości
     - Długość zawartości
     - zakres zawartości
-    - data
+    - Data
     - serwer
     - przyczepy
     - Transfer-encoding
@@ -718,10 +740,73 @@ Informacje o kluczu:
     - ostrzeżenie
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
-###<a name="set-client-ip-custom-header"></a>Wartość niestandardowego nagłówka adresu IP klienta
+### <a name="partial-cache-sharing"></a>Udostępnianie częściowe pamięci podręcznej
+**Cel:** Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
+
+Ta częściowa pamięć podręczna może następnie służyć do spełnienia nowych żądań dla tej zawartości do momentu żądanej zawartości jest w pełni pamięci podręcznej.
+
+Wartość|Wynik
+-|-
+Enabled (Włączony)|Żądania mogą generować częściowo buforowaną zawartość.
+Disabled (Wyłączony)|Żądania można generować tylko pełni buforowanej wersji żądanej zawartości.
+
+**Domyślne zachowanie:** wyłączone.
+
+### <a name="prevalidate-cached-content"></a>Prevalidate zawartości w pamięci podręcznej
+**Cel:** Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
+
+Zdefiniuj czas przed wygaśnięciem TTL żądanej zawartości, w którym będzie kwalifikuje się do wcześniejszego ponownego sprawdzania poprawności.
+
+Informacje o kluczu:
+
+- Wybieranie "Off" jako jednostka czasu wymaga ponownego sprawdzania poprawności została wykonana po zawartości pamięci podręcznej TTL utracił ważność. Nie należy określać czas i zostaną zignorowane.
+
+**Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce tylko, po upływie czas wygaśnięcia zawartości pamięci podręcznej.
+
+### <a name="proxy-special-headers"></a>Serwer proxy specjalnych nagłówków
+**Cel:** definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
+
+Informacje o kluczu:
+
+- Każdy nagłówek żądania specyficzne dla usługi CDN zdefiniowany w tej funkcji zostanie przekazany do serwera pochodzenia.
+- Nagłówek żądania specyficzne dla usługi CDN uniemożliwić są przekazywane do serwera pochodzenia przez usunięcie go z tej listy.
+
+**Domyślne zachowanie:** wszystkie nagłówki żądania specyficzne dla usługi CDN zostaną przekazane do serwera pochodzenia.
+
+### <a name="refresh-zero-byte-cache-files"></a>Odśwież Zero bajtów pamięci podręcznej plików
+**Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
+
+Prawidłowe wartości to:
+
+Wartość|Wynik
+--|--
+Enabled (Włączony)|Powoduje, że serwer krawędzi refetch zasobów z serwera pochodzenia.
+Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest do obsługi się zasoby prawidłowy pamięci podręcznej na żądanie.
+Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi są wysyłane do serwerów krawędzi. Tych typów odpowiedzi, zazwyczaj są buforowane przez serwery krawędzi. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
+
+takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów jest obsługiwane dla klientów.
+
+**Domyślne zachowanie:** wyłączone.
+
+### <a name="set-cacheable-status-codes"></a>Kody stanu Buforowalnej zestawu
+**Cel:** definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
+
+Domyślnie buforowanie jest włączona tylko 200 OK odpowiedzi.
+
+Zdefiniuj zestaw rozdzielonych spacjami kodów żądany stan.
+
+Informacje o kluczu:
+
+- Włącz funkcję Ignoruj pochodzenia No-Cache. Jeśli ta funkcja nie jest włączona, następnie odpowiedzi z systemem innym niż 200 OK może nie być pamięci podręcznej.
+- Zestaw kodów stanu prawidłowy dla tej funkcji: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
+- Nie można użyć tej funkcji można wyłączyć buforowanie odpowiedzi, które generują kod 200 OK stanu.
+
+**Domyślne zachowanie:** buforowanie jest włączone tylko w przypadku odpowiedzi generujących kod 200 OK stanu.
+
+### <a name="set-client-ip-custom-header"></a>Wartość niestandardowego nagłówka adresu IP klienta
 **Cel:** dodaje niestandardowy nagłówek, który identyfikuje klienta za pomocą adresu IP na żądanie.
 
-Opcja nazwy nagłówka definiuje nazwę nagłówka żądania niestandardowe przechowywania adres IP klienta.
+Opcja nazwy nagłówka definiuje nazwę nagłówka żądania niestandardowe, gdzie znajduje się adres IP klienta.
 
 Ta funkcja umożliwia klienta adresy serwera źródłowego, aby dowiedzieć się, IP klienta za pośrednictwem nagłówków żądań niestandardowych. Jeśli żądanie jest podawana z pamięci podręcznej, serwer pochodzenia nie wyświetli się informacja o adres IP klienta. W związku z tym zaleca się, że można użyć tej funkcji w sieci ADN lub zasobów, które nie będą buforowane.
 
@@ -730,194 +815,124 @@ Upewnij się, że nazwa określonego nagłówka nie pasuje do żadnego z następ
 - Nazwy nagłówków żądań standardowych. Lista nazw standardowy nagłówek znajdują się w [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nazwy nagłówków zastrzeżone:
     - przekazywane do
-    - host
+    - Host
     - różnią się
     - za pomocą
     - ostrzeżenie
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
- 
-## <a name="logs"></a>Dzienniki
 
-Te funkcje są przeznaczone do dostosowania dane przechowywane w plikach dziennika raw.
-
-Nazwa | Przeznaczenie
------|--------
-Pole niestandardowe dziennika 1 | Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
-Ciąg zapytania dziennika | Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
-
-###<a name="custom-log-field-1"></a>Pole niestandardowe dziennika 1
-**Cel:** Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
-
-Głównym celem za to pole niestandardowe jest pozwala określić, które żądania i wartości nagłówka odpowiedzi będą przechowywane w plikach dziennika.
-
-Domyślnie pole dziennik niestandardowy jest nazywany "x-ec_custom-1." Jednak można dostosować nazwę tego pola z [strony pierwotnych ustawień dziennika]().
-
-Formatowanie, że należy używać do określania nagłówki żądań i odpowiedzi jest zdefiniowana poniżej.
-
-Header — typ|Format|Przykłady
--|-|-
-Nagłówek żądania|%{[RequestHeader]()}[i]() | % {Zaakceptować kodowania} i <br/> {Odnośnik} i <br/> % {Autoryzacji} i
-Nagłówek odpowiedzi|%{[ResponseHeader]()}[o]()| O % {wieku} <br/> O % {content-Type} <br/> O % {cookie}
-
-Informacje o kluczu:
-
-- Pola niestandardowe dziennika może zawierać dowolną kombinację pola nagłówka i zwykły tekst.
-- Prawidłowe znaki dla tego pola są następujące: alfanumeryczne (0-9, a-z, a A-Z), łączniki, dwukropki średnikami, apostrofów, przecinkami, kropki, podkreślenia, znaku równości, nawiasy, nawiasy i spacje. Symbol procentu i nawiasy klamrowe są dozwolone tylko po używany do określenia pola nagłówka.
-- Pisownia dla każdego pola określony nagłówek musi odpowiadać nazwie nagłówka odpowiednie żądanie/odpowiedź.
-- Jeśli chcesz określić wiele nagłówków, następnie zalecane jest używane separator w celu wskazania każdy nagłówek. Na przykład można użyć skrótu każdy nagłówek. Poniżej znajduje się przykład składni.
-    - AE: % {zaakceptować kodowania} i odpowiedź: % {autoryzacji} i IERZ: % {Content-Type} o 
-
-**Wartość domyślna:** -
-
-###<a name="log-query-string"></a>Ciąg zapytania dziennika
-**Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
+### <a name="stale-content-delivery-on-error"></a>Stałe dostarczanie zawartości w przypadku błędu
+**Cel:** Określa, czy po wystąpieniu błędu podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia odbiorcy będą dostarczane wygasłej zawartości pamięci podręcznej.
 
 Wartość|Wynik
 -|-
-Enabled (Włączony)|Umożliwia przechowywanie ciągów zapytania podczas rejestrowania w dzienniku dostępu do adresów URL. Jeśli adres URL zawiera ciąg zapytania, następnie ta opcja nie będzie miało wpływu.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest zignorowanie ciągi zapytań podczas rejestrowania w dzienniku dostępu do adresów URL.
+Enabled (Włączony)|Zawartość jest udostępniany żądający po wystąpieniu błędu podczas połączenia z serwerem pochodzenia.
+Disabled (Wyłączony)|Błąd na serwerze źródłowym jest przekazywany do zleceniodawcy.
+
+**Domyślne zachowanie:** wyłączone
+
+### <a name="stale-while-revalidate"></a>Nieaktualne podczas Revalidate
+**Cel:** zwiększa wydajność, zezwalając serwerów krawędzi, z obsługą starych zawartości do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
+
+Informacje o kluczu:
+
+- Zachowanie tej funkcji zależy od jednostki wybrana wartość czasu.
+    - **Jednostka czasu:** określ długość czasu, a następnie wybierz jednostki czasu (na przykład sekundy, minuty, godziny, itp.) umożliwia starych dostarczania zawartości. Ten typ Instalatora umożliwia CDN rozszerzenie czas, który może zostać zawartości przed wymaganiem weryfikacji według następującego wzoru:**TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
+    - **OFF:** wybierz pozycję "wyłączone" Aby wymagać ponownego sprawdzania poprawności, zanim żądanie dla może zostać wyświetlona zawartość.
+        - Nie określaj długość czasu, ponieważ nie ma zastosowania i zostaną zignorowane.
+
+**Domyślne zachowanie:** Off. Ponowna Walidacja musi odbywać się przed żądanej zawartości mogą być udostępniane.
+
+### <a name="token-auth"></a>Token uwierzytelniania
+**Cel:** Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
+
+Włączenie uwierzytelniania opartego na tokenie tylko żądania, które zapewniają zaszyfrowany token i są zgodne z wymogami określone przez token będą honorowane.
+
+Klucz szyfrowania, który jest używany do szyfrowania i odszyfrowywania tokenów wartości jest określana przez klucz podstawowy i opcje tworzenia kopii zapasowej klucza na stronie tokenu uwierzytelniania. Należy pamiętać, że klucze szyfrowania są specyficzne dla platformy.
+
+Wartość | Wynik
+------|---------
+Enabled (Włączony) | Chroni żądanej zawartości przy użyciu uwierzytelniania opartego na tokenie. Tylko żądania od klientów, podaj prawidłowy token, które spełniają jej wymagań dotyczących będą honorowane. Transakcje FTP są wykluczone z uwierzytelniania opartego na tokenie.
+Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie konfiguracji uwierzytelniania opartego na tokenie, aby ustalić, czy żądanie zostanie zabezpieczone.
 
 **Domyślne zachowanie:** wyłączone.
 
-<!---
-## Optimize
+### <a name="token-auth-denial-code"></a>Kod odmowa tokenu uwierzytelniania
+**Cel:** Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
 
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
+Kody odpowiedzi dostępne są wymienione poniżej.
 
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
+Kod odpowiedzi|Nazwa odpowiedzi|Opis
+----------------|-----------|--------
+301|Trwale przeniesiona|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
+302|Znaleziono|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji. Ten kod stanu jest branży standardową metodą wykonania przekierowania.
+307|Przekierowanie tymczasowe|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
+401|Brak autoryzacji|Łączenie z nagłówka WWW-Authenticate odpowiedzi ten kod stanu umożliwia Monituj użytkownika do uwierzytelniania.
+403|Zabroniony|Jest to standardowy 403 Zabroniony komunikat o stanie nieautoryzowany użytkownik zostanie wyświetlony podczas próby dostępu do chronionej zawartości.
+404|Nie można odnaleźć pliku|Ten kod stanu wskazuje, że klient HTTP był w stanie komunikować się z serwerem, ale nie można odnaleźć żądanej zawartości.
 
-###Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
+#### <a name="url-redirection"></a>Adres URL przekierowania
 
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
+Ta funkcja obsługuje adres URL przekierowania do adresu URL zdefiniowane przez użytkownika, gdy jest on skonfigurowany do zwrócenia 3xx kod stanu. Ten adres URL zdefiniowany przez użytkownika, można określić, wykonując następujące czynności:
 
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
+1. Wybierz kod odpowiedzi 3xx dla funkcji kodu odmowa tokenu uwierzytelniania.
+2. Wybierz "Lokalizacja" z opcją opcjonalna nazwa nagłówka.
+3. Ustaw opcję opcjonalna wartość nagłówka do żądanego adresu URL.
 
-This feature requires the ADN platform and the Edge Optimizer feature.
+Jeśli adres URL nie jest zdefiniowany dla kodu stanu 3xx, strony standardowe odpowiedzi dla kodu stanu 3xx będzie zwrócił dla użytkownika.
 
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
+Adres URL przekierowania dotyczy tylko 3xx kody odpowiedzi.
 
-**Default Behavior:** Disabled
- 
+Opcja opcjonalna wartość nagłówka obsługuje znaki alfanumeryczne, znaki cudzysłowu i spacje.
 
-###Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
+#### <a name="authentication"></a>Authentication
 
-This feature requires the ADN platform and the Edge Optimizer feature.
+Ta funkcja obsługuje możliwość dołączyć nagłówka WWW-Authenticate wysyłanej do nieautoryzowanego żądania dla zawartości chronionej przez uwierzytelniania opartego na tokenie. Jeśli nagłówka WWW-Authenticate została ustawiona na "basic" w konfiguracji, nieautoryzowany użytkownik zostanie monit o poświadczenia konta.
 
-Key information:
+Powyższej konfiguracji można osiągnąć, wykonując następujące czynności:
 
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
+1. Wybierz "401" jako kod odpowiedzi dla funkcji kodu odmowa tokenu uwierzytelniania.
+2. Wybierz "WWW-Authenticate" z opcją opcjonalna nazwa nagłówka.
+3. Ustaw opcję opcjonalna wartość nagłówka "podstawowy".
 
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
+Nagłówek WWW-Authenticate dotyczy tylko kodów odpowiedzi 401.
 
-**Default Behavior:** Site configurations are inactive by default.
---->
+### <a name="token-auth-ignore-url-case"></a>Token uwierzytelniania Ignoruj wielkość liter adresu URL
+**Cel:** Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL jest rozróżniana wielkość liter.
 
-## <a name="origin"></a>Origin
+Parametry wpływ tej funkcji są:
 
-Te funkcje zostały zaprojektowane do kontrolowania sposobu CDN komunikuje się z serwerem pochodzenia.
+- ec_url_allow
+- ec_ref_allow
+- ec_ref_deny
 
-Nazwa | Przeznaczenie
------|--------
-Maksymalna liczba żądań Keep-Alive | Określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
-Serwer proxy specjalnych nagłówków | Definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
-
-
-###<a name="maximum-keep-alive-requests"></a>Maksymalna liczba żądań Keep-Alive
-**Cel:** określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
-
-Maksymalna liczba żądań niskiej wartości jest zalecane i może spowodować obniżenie wydajności.
-
-Informacje o kluczu:
-
-- Tę wartość można określić jako liczbą całkowitą.
-- Nie należy dołączać kropki i przecinki w określonej wartości.
-
-**Wartość domyślna:** 10000 żądań
-
-###<a name="proxy-special-headers"></a>Serwer proxy specjalnych nagłówków
-**Cel:** definiuje zestaw [nagłówki żądania specyficzne dla usługi CDN]() który są przesyłane dalej z serwer graniczny do serwera pochodzenia.
-
-Informacje o kluczu:
-
-- Każdy nagłówek żądania specyficzne dla usługi CDN zdefiniowany w tej funkcji zostanie przekazany do serwera pochodzenia.
-- Nagłówek żądania specyficzne dla usługi CDN uniemożliwić są przekazywane do serwera pochodzenia przez usunięcie go z tej listy.
-
-**Domyślne zachowanie:** wszystkie [nagłówki żądania specyficzne dla usługi CDN]() zostaną przekazane do serwera pochodzenia.
-
-## <a name="specialty"></a>Specjalne
-
-Funkcje te zapewniają zaawansowane funkcje, które mają być używane tylko przez użytkowników zaawansowanych.
-
-Nazwa | Przeznaczenie
------|--------
-Metody HTTP buforowalnej | Określa zestaw dodatkowych metod HTTP, które mogą być buforowane w naszej sieci.
-Rozmiar treści żądania buforowalnej | Określa próg do określenia, czy odpowiedź POST mogą być buforowane.
-
-###<a name="cacheable-http-methods"></a>Metody HTTP buforowalnej
-**Cel:** określa zestaw dodatkowych metod HTTP, które mogą być buforowane w naszej sieci.
-
-Informacje o kluczu:
-
-- Ta funkcja przyjęto założenie, że zawsze mają być buforowane odpowiedzi GET. W związku z tym metodę GET HTTP nie należy włączyć podczas ustawiania tej funkcji.
-- Ta funkcja obsługuje tylko metodę POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji: POST 
-- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb będą buforowane. Użyj funkcji Buforowalnej rozmiar treści żądania, aby ustawić żądania maksymalny rozmiar treści.
-
-**Domyślne zachowanie:** tylko GET odpowiedzi będą buforowane.
-
-###<a name="cacheable-request-body-size"></a>Rozmiar treści żądania buforowalnej
-
-**Cel:** określa próg do określenia, czy odpowiedź POST mogą być buforowane.
-
-Wartość progu jest określana przez określania rozmiaru treści żądania maksymalna. Żądań zawierających większą treści żądania nie będą buforowane.
-
-Informacje o kluczu:
-
-- Ta funkcja ma zastosowanie tylko w przypadku, gdy odpowiedzi POST kwalifikują się do buforowania. Funkcja Buforowalnej HTTP metod Aby włączyć buforowanie żądania POST.
-- Treść żądania jest brana pod uwagę dla:
-    - wartości x--www-form-urlencoded
-    - Zapewnienie Unikatowy klucz pamięci podręcznej
-- Definiowanie dużego żądania maksymalny rozmiar treści może mieć wpływ na wydajność dostarczania danych.
-    - **Zalecana wartość:** 14 Kb
-    - **Wartość minimalna:** 1 Kb
-
-**Domyślne zachowanie:** 14 Kb
- 
-## <a name="url"></a>Adres URL
-
-Te funkcje umożliwiają żądanie jest przekierowywane lub ulegną do innego adresu URL.
-
-Nazwa | Przeznaczenie
------|--------
-Wykonaj przekierowania | Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
-Adres URL przekierowania | Przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
-Ponowne zapisywanie adresów URL  | Ponownie zapisuje adresu URL żądania.
-
-###<a name="follow-redirects"></a>Wykonaj przekierowania
-**Cel:** Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
-
-Informacje o kluczu:
-
-- Tylko można przekierować żądania do krawędzi rekordów CNAME, które odpowiadają tej samej platformy.
+Prawidłowe wartości to:
 
 Wartość|Wynik
--|-
-Enabled (Włączony)|Można przekierować żądania.
-Disabled (Wyłączony)|Nie będzie można przekierować żądania.
+---|----
+Enabled (Włączony)|Powoduje, że serwer graniczny ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
+Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
 
 **Domyślne zachowanie:** wyłączone.
-###<a name="url-redirect"></a>Adres URL przekierowania
+ 
+### <a name="token-auth-parameter"></a>Parametr tokenu uwierzytelniania
+**Cel:** Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
+
+Informacje o kluczu:
+
+- Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą których można określić token.
+- Nie można ustawić opcji wartość "ec_token."
+- Upewnij się, że z nazwą zdefiniowaną w opcji wartość zawiera tylko prawidłowe znaki adresu URL.
+
+Wartość|Wynik
+----|----
+Enabled (Włączony)|Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą którego można zdefiniować tokenów.
+Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
+
+**Domyślne zachowanie:** wyłączone. Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
+
+### <a name="url-redirect"></a>Adres URL przekierowania
 **Cel:** przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
 
 Konfiguracja ta funkcja wymaga ustawienia następujących opcji:
@@ -931,7 +946,7 @@ Zdecydowanie zaleca się używania bezwzględnego adresu URL. Użycie względny 
 
 **Przykładowy scenariusz**
 
-W tym przykładzie przedstawiono sposób przekierowania krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures
+W tym przykładzie pokazano, jak przekierować krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures
 
 Kwalifikowanie żądania nastąpi przekierowanie do tej krawędzi podstawowy adres URL CNAME: http://cdn.mydomain.com/resources
 
@@ -953,7 +968,7 @@ Ten adres URL przekierowania można osiągnąć za pomocą następującej konfig
 - Zmienna żądania schematu (% {schemat}) była wykorzystywana w opcji docelowej. Dzięki temu, że schemat żądania nie jest zmieniany po przekierowaniu.
 - Segmenty adresu URL, które są przechwytywane żądania są dołączane do nowego adresu URL za pośrednictwem "$1."
  
-###<a name="url-rewrite"></a>Ponowne zapisywanie adresów URL
+### <a name="url-rewrite"></a>Ponowne zapisywanie adresów URL
 **Cel:** ponownie zapisuje adresu URL żądania.
 
 Informacje o kluczu:
@@ -964,11 +979,11 @@ Opcja|Opis
 -|-
  Wzorzec & źródła | Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ żądania, które mogą być napisany od nowa. Zostanie ponownego napisania tylko żądania, którego adres URL spełnia oba następujące kryteria: <br/>     - **Źródło (lub punktu dostępu do zawartości):** wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" i nazwa punktu końcowego. <br/> - **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżki, która rozpoczyna się bezpośrednio po poprzednio wybranego dostępu do zawartości punktu (zobacz powyżej). <br/> Sprawdź, czy żądanie identyfikatora URI kryteria (to znaczy źródła & wzorzec) wcześniej zdefiniowane nie koliduje to z jednego z warunków dopasowania zdefiniowane dla tej funkcji. Określ wzorzec; Jeśli wartość pusta jest używany jako wzorzec, wszystkie ciągi są dopasowywane. 
  Element docelowy  |Określ względny adres URL, do którego powyżej żądania będą ulegną przez: <br/>    1. Wybieranie punktu dostępu do zawartości, który identyfikuje serwer pochodzenia. <br/>    2. Definiowanie za pomocą ścieżki względnej: <br/>        -Wzorzec wyrażenia regularnego <br/>        -Zmienne HTTP <br/> <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. 
- Ta funkcja umożliwia ponowne zapisywanie adresów URL bez wykonywania przekierowania tradycyjnych naszych serwerów krawędzi. Oznacza to, osoby żądającej otrzyma ten sam kod odpowiedzi tak, jakby zażąda ponownie zapisane adresu URL.
+ Ta funkcja umożliwia serwerom krawędzi ponowne zapisywanie adresów URL bez wykonywania tradycyjnych przekierowania. Oznacza to, osoby żądającej otrzyma ten sam kod odpowiedzi tak, jakby zażąda ponownie zapisane adresu URL.
 
 **Przykładowy scenariusz 1**
 
-W tym przykładzie przedstawiono sposób przekierowania krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures/
+W tym przykładzie pokazano, jak przekierować krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures/
 
 Kwalifikowanie żądania nastąpi przekierowanie do tej krawędzi podstawowy adres URL CNAME: http://MyOrigin.azureedge.net/resources/
 
@@ -976,7 +991,7 @@ Ten adres URL przekierowania można osiągnąć za pomocą następującej konfig
 
 **Przykładowy scenariusz 2**
 
-W tym przykładzie zostanie przedstawiony sposób przekierowania krawędzi adresu URL CNAME z wielkimi literami na małe litery, za pomocą wyrażeń regularnych.
+W tym przykładzie pokazano, jak przekierowywanie adresu URL CNAME z wielkimi literami na małe litery, za pomocą wyrażeń regularnych krawędzi.
 
 Ten adres URL przekierowania można osiągnąć za pomocą następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
@@ -987,9 +1002,7 @@ Ten adres URL przekierowania można osiągnąć za pomocą następującej konfig
 
 - Segmenty adresu URL, które są przechwytywane żądania są dołączane do nowego adresu URL za pośrednictwem "$1."
 
-
-
-###<a name="compatibility"></a>Zgodność
+#### <a name="compatibility"></a>Zgodność
 
 Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, aby można było zastosować na żądanie. Aby uniknąć konfigurowania kryteriów powodujących konflikt, ta funkcja jest niezgodny z następujące warunki dopasowania:
 

@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Zagadnienia dotyczące sieci Azure stosu
 
@@ -34,7 +34,7 @@ Ten artykuł zawiera omówienie unikatowy zagadnienia dotyczące sieci i jej fun
 | |Zestawy rekordów DNS dla strefy|5000 (ustawienie domyślne)<br>Można zwiększyć na żądanie.|5000|
 ||Serwery nazw dla delegowania strefy|Azure Podaj cztery serwery nazw dla każdej strefy użytkownika (dzierżawcy), która jest tworzona.|Stos Azure udostępnia dwa serwery nazw dla każdej strefy użytkownika (dzierżawcy), która jest tworzona.|
 | Sieć wirtualna|Wirtualne sieci równorzędne|Połącz dwie sieci wirtualne w tym samym regionie za pośrednictwem sieci Azure sieci szkieletowej.|Nie jest jeszcze obsługiwane|
-| |Adresy IPv6|Można przypisać adres IPv6 w ramach [Konfiguracja interfejsu sieciowego](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Obsługiwany jest tylko protokół IPv4.|
+| |Adresy IPv6|Można przypisać adres IPv6 w ramach [Konfiguracja interfejsu sieciowego](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Obsługiwany jest tylko protokół IPv4.|
 |Bramy sieci VPN|Brama sieci VPN typu punkt lokacja|Obsługiwane|Nie jest jeszcze obsługiwane|
 | |Brama sieci wirtualnej do sieci wirtualnej|Obsługiwane|Nie jest jeszcze obsługiwane|
 | |Jednostki SKU bramy sieci VPN|Obsługa Basic, GW1, GW2, GW3, standardowe wysokiej wydajności, niezwykle wydajny. |Obsługa podstawowa, standardowa i jednostki SKU wysokiej wydajności.|

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc77fe59fdb128d28389c43d41c43ca1d393d83c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurowanie zapór magazynu Azure i sieciami wirtualnymi (wersja zapoznawcza)
 Magazyn Azure oferuje model zabezpieczeń warstwowych, co umożliwia Zabezpieczanie kont magazynu do określonego zestawu dozwolonych sieci.  Gdy zasady sieci są skonfigurowane, tylko aplikacje z dozwolonych sieci można uzyskać dostęp do konta magazynu.  Podczas wywoływania metody z dozwolonych sieci, aplikacje będą nadal będą musieli właściwą autoryzację (prawidłowy dostęp do klucza lub tokenu sygnatury dostępu Współdzielonego) do uzyskania dostępu do konta magazynu.
@@ -293,13 +293,13 @@ Po włączeniu wyjątek "Zaufanych usług firmy Microsoft" następujących usłu
 
 |Usługa|Nazwa dostawcy zasobów|Przeznaczenie|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Tworzenie i artefaktu instalacji obrazu niestandardowego.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Włączanie publikowania zdarzenia magazynu obiektów Blob.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
-|Azure Event Hubs|Microsoft.EventHub|Archiwizowanie danych z przechwytywania centrów zdarzeń.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
-|Usługa Azure HDInsight|Microsoft.HDInsight|Inicjowania obsługi klastra i instalacji.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Sieci systemu Azure|Microsoft.Networking|Przechowywanie i analizowanie dzienników ruchu sieciowego.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Importowanie i eksportowanie danych.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
-|Azure Backup|Microsoft.RecoveryServices|Kopia zapasowa i przywracanie niezarządzane dysków.  [Dowiedz się więcej](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Tworzenie i artefaktu instalacji obrazu niestandardowego.  [Dowiedz się więcej](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Włączanie publikowania zdarzenia magazynu obiektów Blob.  [Dowiedz się więcej](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure Event Hubs|Microsoft.EventHub|Archiwizowanie danych z przechwytywania centrów zdarzeń.  [Dowiedz się więcej](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
+|Usługa Azure HDInsight|Microsoft.HDInsight|Inicjowania obsługi klastra i instalacji.  [Dowiedz się więcej](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Sieci systemu Azure|Microsoft.Networking|Przechowywanie i analizowanie dzienników ruchu sieciowego.  [Dowiedz się więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Importowanie i eksportowanie danych.  [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Kopia zapasowa i przywracanie niezarządzane dysków.  [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Dostęp do danych analizy magazynu

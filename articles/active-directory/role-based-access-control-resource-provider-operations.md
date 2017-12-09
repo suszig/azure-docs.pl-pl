@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje Menedżera zasobów dostawcy zasobów platformy Azure
 
-Ten dokument zawiera listę czynności dla każdego dostawcy zasobów programu Microsoft Azure Resource Manager. Mogą one używane w niestandardowych ról do zapewniają szczegółowe uprawnienia kontroli dostępu opartej na rolach (RBAC) do zasobów na platformie Azure. Należy pamiętać, nie jest to kompleksowe i operacje może dodać lub usunąć każdy dostawca jest aktualizowana. Operacja ciągów wykonaj format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Lista bieżących i wszechstronne użyj `Get-AzureRmProviderOperation` (w programie PowerShell) lub `azure provider operations show` (w Azure CLI) do operacji listy dostawców zasobów platformy Azure.
+Ten dokument zawiera listę czynności dla każdego dostawcy zasobów programu Microsoft Azure Resource Manager. Mogą one używane w niestandardowych ról do zapewniają szczegółowe uprawnienia kontroli dostępu opartej na rolach (RBAC) do zasobów na platformie Azure. Należy pamiętać, nie jest to kompleksowe i operacje może dodać lub usunąć każdy dostawca jest aktualizowana. Operacja ciągów wykonaj format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Lista bieżących i wszechstronne użyj `Get-AzureRmProviderOperation` (w programie PowerShell) lub `az provider operation list` (w wiersza polecenia platformy Azure w wersji 2) do operacji listy dostawców zasobów platformy Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -87,7 +90,7 @@ Ten dokument zawiera listę czynności dla każdego dostawcy zasobów programu M
 |/Service/loggers/DELETE|Usuń istniejące rejestratora|
 |/Service/Users/Read|Pobierz listę zarejestrowanych użytkowników lub pobrać szczegółów konta użytkownika|
 |/Service/Users/Write|Zarejestrować nowego użytkownika lub szczegóły konta aktualizacji istniejącego użytkownika|
-|/Service/Users/DELETE|Usuwanie konta użytkownika|
+|/Service/Users/DELETE|Usuń konto użytkownika|
 |/Service/Users/generateSsoUrl/Action|Generowania adresu URL logowania jednokrotnego. Adres URL można uzyskać dostęp do portalu administratora|
 |/Service/Users/Subscriptions/Read|Pobierz listę subskrypcji użytkownika|
 |/Service/Users/keys/Read|Pobierz listę kluczy użytkownika|
@@ -188,7 +191,7 @@ Ten dokument zawiera listę czynności dla każdego dostawcy zasobów programu M
 |/roleDefinitions/DELETE|Usuwa określoną niestandardową definicję roli.|
 |/providerOperations/Read|Pobiera operacje dla wszystkich dostawców zasobów do użycia w definicjach ról.|
 |/policyDefinitions/Read|Pobierz informacje o definicji zasad.|
-|/ policyDefinitions/zapisu|Utwórz definicję zasad niestandardowych.|
+|/ policyDefinitions/zapisu|Utwórz niestandardową definicję zasad.|
 |/policyDefinitions/DELETE|Usuń definicję zasad.|
 |/roleAssignments/Read|Pobiera informacje o przypisaniu roli.|
 |/ roleAssignments/zapisu|Tworzy przypisanie roli w podanym zakresie.|
@@ -309,7 +312,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ checknameavailability/działania|Sprawdza, czy nazwa jest dostępna do użycia z nowej pamięci podręcznej Redis|
 |/ register/działania|Rejestruje subskrypcję dostawcy zasobów "Microsoft.Cache"|
 |/ unregister/działania|Wyrejestrowuje "Microsoft.Cache" dostawcy zasobów z subskrypcją|
-|/ redis/zapisu|Zmodyfikuj ustawienia i konfigurację pamięci podręcznej Redis w portalu zarządzania|
+|/ redis/zapisu|Zmodyfikuj ustawienia i konfigurację w portalu zarządzania pamięci podręcznej Redis|
 |/redis/Read|Wyświetl ustawienia i konfigurację pamięci podręcznej Redis w portalu zarządzania|
 |/redis/DELETE|Usuń całą pamięć podręczną Redis|
 |/redis/listKeys/Action|Wyświetl wartości kluczy dostępu pamięci podręcznej Redis w portalu zarządzania|
@@ -357,71 +360,71 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/ register/działania|Zarejestruj się w usłudze Classic Compute|
+|/ register/działania|Zarejestruj się w klasycznym obliczeń|
 |/ checkDomainNameAvailability/działania|Sprawdza dostępność danej nazwy domeny.|
 |/ moveSubscriptionResources/działania|Przenieś wszystkie zasoby klasyczne do innej subskrypcji.|
-|/ validateSubscriptionMoveAvailability/działania|Weryfikuj dostępność subskrypcji dla klasycznej operacji przenoszenia.|
+|/ validateSubscriptionMoveAvailability/działania|Sprawdź dostępność subskrypcji dla operacji przenoszenia klasycznego.|
 |/operatingSystemFamilies/Read|Zawiera listę rodzin systemu operacyjnego gościa dostępnych w Microsoft Azure, a także wymieniono wersje systemu operacyjnego, dostępne dla każdego f
 |/Capabilities/Read|Pokazuje możliwości|
-|/operatingSystems/Read|Generuje listę wersji systemów operacyjnych gościa dostępnych obecnie na platformie Microsoft Azure.|
+|/operatingSystems/Read|Wyświetla listę wersji systemu operacyjnego gościa, które są obecnie dostępne w systemie Microsoft Azure.|
 |/resourceTypes/skus/Read|Pobiera listę jednostek Sku dla obsługiwanych typów zasobów.|
 |/domainNames/Read|Zwraca nazwy domen dla zasobów.|
 |/ domainNames/zapisu|Dodaje lub modyfikuje nazwy domen dla zasobów.|
 |/domainNames/DELETE|Usuwa nazwy domen dla zasobów.|
-|/domainNames/swap/Action|Zamienia miejsce wystawiania z miejscem produkcyjnym.|
+|/domainNames/swap/Action|Zamienia miejsce przejściowe z miejscem produkcyjnym.|
 |/domainNames/serviceCertificates/Read|Zwraca używane certyfikaty usługi.|
 |/domainNames/serviceCertificates/Write|Dodaje lub modyfikuje używane certyfikaty usługi.|
-|/domainNames/serviceCertificates/DELETE|Usuwa używane certyfikaty usługi.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Odczytuje stan operacji dla certyfikatów usługi nazw domen.|
+|/domainNames/serviceCertificates/DELETE|Usuń używane certyfikaty usługi.|
+|/domainNames/serviceCertificates/operationStatuses/Read|Odczytuje stan operacji dla domeny certyfikatów usługi nazw.|
 |/domainNames/Capabilities/Read|Pokazuje możliwości nazwy domeny|
 |/domainNames/Extensions/Read|Zwraca rozszerzenia nazwy domeny.|
-|/domainNames/Extensions/Write|Dodaje rozszerzenia nazwy domeny.|
-|/domainNames/Extensions/DELETE|Usuwa rozszerzenia nazwy domeny.|
-|/domainNames/Extensions/operationStatuses/Read|Odczytuje stan operacji dla rozszerzeń nazw domen.|
+|/domainNames/Extensions/Write|Dodanie rozszerzenia nazwy domeny.|
+|/domainNames/Extensions/DELETE|Usuń rozszerzenia nazwy domeny.|
+|/domainNames/Extensions/operationStatuses/Read|Odczytuje stan operacji dla domeny rozszerzenia nazw.|
 |/domainNames/Active/Write|Ustawia nazwę aktywnej domeny.|
-|/domainNames/Slots/Read|Pokazuje miejsca wdrożenia.|
+|/domainNames/Slots/Read|Pokazuje miejsc wdrożenia.|
 |/domainNames/Slots/Write|Tworzy lub aktualizuje wdrożenie.|
-|/domainNames/Slots/DELETE|Usuwa dane miejsce wdrożenia.|
-|/domainNames/Slots/Start/Action|Uruchamia miejsce wdrożenia.|
-|/domainNames/Slots/Stop/Action|Wstrzymuje miejsce wdrożenia.|
-|/domainNames/Slots/operationStatuses/Read|Odczytuje stan operacji dla gniazd nazw domen.|
+|/domainNames/Slots/DELETE|Usuwa miejsce danego wdrożenia.|
+|/domainNames/Slots/Start/Action|Uruchamia miejsca wdrożenia.|
+|/domainNames/Slots/Stop/Action|Wstrzymuje miejsca wdrożenia.|
+|/domainNames/Slots/operationStatuses/Read|Odczytuje stan operacji dla domeny gniazd nazw.|
 |/domainNames/Slots/Roles/Read|Pobiera rolę dla miejsca wdrożenia.|
 |/domainNames/Slots/Roles/extensionReferences/Read|Zwraca odwołanie do rozszerzenia dla roli miejsca wdrożenia.|
 |/domainNames/Slots/Roles/extensionReferences/Write|Dodaje lub modyfikuje odwołanie do rozszerzenia dla roli miejsca wdrożenia.|
-|/domainNames/Slots/Roles/extensionReferences/DELETE|Usuwa odwołanie do rozszerzenia dla roli miejsca wdrożenia.|
-|/domainNames/Slots/Roles/extensionReferences/operationStatuses/Read|Odczytuje stan operacji dla odwołań rozszerzenia ról w ramach gniazd nazw domen.|
-|/domainNames/Slots/Roles/roleInstances/Read|Pobiera wystąpienie roli.|
+|/domainNames/Slots/Roles/extensionReferences/DELETE|Usuń odwołanie do rozszerzenia dla roli miejsca wdrożenia.|
+|/domainNames/Slots/Roles/extensionReferences/operationStatuses/Read|Odczytuje stan operacji dla odwołań rozszerzenia ról miejsc nazwy domeny.|
+|/domainNames/Slots/Roles/roleInstances/Read|Pobierz wystąpienia roli.|
 |/domainNames/Slots/Roles/roleInstances/restart/Action|Ponowne uruchomienie wystąpienia roli.|
-|/domainNames/Slots/Roles/roleInstances/reimage/Action|Odtwarza z obrazu wystąpienie roli.|
-|/domainNames/Slots/Roles/roleInstances/operationStatuses/Read|Odczytuje stan operacji dla wystąpień roli w ramach ról gniazd nazw domen.|
-|/domainNames/Slots/State/Start/Write|Zmienia stan miejsca wdrożenia na Zatrzymane.|
-|/domainNames/Slots/State/Stop/Write|Zmienia stan miejsca wdrożenia na Uruchomione.|
-|/domainNames/Slots/upgradeDomain/Write|Uaktualnia domenę (z przeszukaniem).|
+|/domainNames/Slots/Roles/roleInstances/reimage/Action|Reimages wystąpienia roli.|
+|/domainNames/Slots/Roles/roleInstances/operationStatuses/Read|Odczytuje stan operacji dla wystąpień roli ról gniazd nazw domeny.|
+|/domainNames/Slots/State/Start/Write|Zmienia stan miejsca wdrożenia na zatrzymane.|
+|/domainNames/Slots/State/Stop/Write|Zmienia stan miejsca wdrożenia na uruchomione.|
+|/domainNames/Slots/upgradeDomain/Write|Uaktualnianie jest pomijane domeny.|
 |/domainNames/internalLoadBalancers/Read|Pobiera wewnętrzne usługi równoważenia obciążenia.|
-|/domainNames/internalLoadBalancers/Write|Tworzy nową wewnętrzną usługę równoważenia obciążenia.|
-|/domainNames/internalLoadBalancers/DELETE|Usuwa nową wewnętrzną usługę równoważenia obciążenia.|
-|/domainNames/internalLoadBalancers/operationStatuses/Read|Odczytuje stan operacji dla wewnętrznych modułów równoważenia obciążenia nazw domen.|
+|/domainNames/internalLoadBalancers/Write|Tworzy nową usługę równoważenia obciążenia wewnętrznego.|
+|/domainNames/internalLoadBalancers/DELETE|Usuń nową usługę równoważenia obciążenia wewnętrznego.|
+|/domainNames/internalLoadBalancers/operationStatuses/Read|Odczytuje stan operacji dla wewnętrzne moduły równoważenia obciążenia nazw domen.|
 |/domainNames/loadBalancedEndpointSets/Read|Pokazuje zestawy punktów końcowych ze zrównoważonym obciążeniem|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Odczytuje stan operacji dla zestawów punktów końcowych z równoważeniem obciążenia nazw domen.|
-|/domainNames/availabilitySets/Read|Pokazuje zestaw dostępności dla zasobu.|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Odczytuje stan operacji dla nazw domen zestawy punktów końcowych ze zrównoważonym obciążeniem.|
+|/domainNames/availabilitySets/Read|Pokaż zbiór dostępności dla zasobu.|
 |/Quotas/Read|Pobiera przydział dla subskrypcji.|
 |/virtualMachines/Read|Pobiera listę maszyn wirtualnych.|
 |/ virtualMachines/zapisu|Dodaje lub modyfikuje maszyny wirtualne.|
 |/virtualMachines/DELETE|Usuwa maszyn wirtualnych.|
-|/virtualMachines/Start/Action|Uruchamia maszynę wirtualną.|
+|/virtualMachines/Start/Action|Uruchom maszynę wirtualną.|
 |/virtualMachines/redeploy/Action|Wdraża ponownie maszyny wirtualnej.|
 |/virtualMachines/restart/Action|Ponowne uruchomienie maszyn wirtualnych.|
 |/virtualMachines/Stop/Action|Zatrzymuje maszynę wirtualną.|
-|/virtualMachines/shutdown/Action|Zamyka maszynę wirtualną.|
-|/virtualMachines/attachDisk/Action|Dołącza dysk z danymi do maszyny wirtualnej.|
+|/virtualMachines/shutdown/Action|Zamknij maszynę wirtualną.|
+|/virtualMachines/attachDisk/Action|Dołączenie dysku danych do maszyny wirtualnej.|
 |/virtualMachines/detachDisk/Action|Odłącza dysk z danymi od maszyny wirtualnej.|
 |/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Pobiera plik RDP dla maszyny wirtualnej.|
-|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/Odczyt|Pobiera sieciową grupę zabezpieczeń skojarzoną z interfejsem sieciowym.|
-|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/zapisu|Dodaje sieciową grupę zabezpieczeń skojarzoną z interfejsem sieciowym.|
-|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/usuwania|Usuwa sieciową grupę zabezpieczeń skojarzoną z interfejsem sieciowym.|
-|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups operationStatuses/odczytu|Odczytuje stan operacji dla grup zabezpieczeń sieci skojarzonych z maszyną wirtualną.|
+|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/Odczyt|Pobiera sieciową grupę zabezpieczeń skojarzoną z interfejsu sieciowego.|
+|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/zapisu|Dodaje grupę zabezpieczeń sieci skojarzonych z interfejsem sieciowym.|
+|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups/usuwania|Usuwa sieciową grupę zabezpieczeń skojarzoną z interfejsu sieciowego.|
+|/virtualMachines/Networkinterface /<br>associatedNetworkSecurityGroups operationStatuses/odczytu|Odczytuje stan operacji dla maszyn wirtualnych skojarzonych grup zabezpieczeń sieci.|
 |/virtualMachines/Providers/Microsoft.Insights/metricDefinitions/Read|Pobiera definicje metryk.|
-|/virtualMachines/Providers/Microsoft.Insights/diagnosticSettings/Read|Pobiera ustawienia diagnostyczne.|
+|/virtualMachines/Providers/Microsoft.Insights/diagnosticSettings/Read|Pobierz ustawienia diagnostyki.|
 |/virtualMachines/Providers/Microsoft.Insights/diagnosticSettings/Write|Dodaje lub modyfikuje ustawienia diagnostyczne.|
 |/virtualMachines/Metrics/Read|Pobiera metryki.|
 |/virtualMachines/operationStatuses/Read|Odczytuje stan operacji dla maszyn wirtualnych.|
@@ -433,60 +436,60 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/virtualMachines/associatedNetworkSecurityGroups/Read|Pobiera sieciową grupę zabezpieczeń skojarzoną z maszyną wirtualną.|
 |/virtualMachines/associatedNetworkSecurityGroups/Write|Dodaje sieciową grupę zabezpieczeń skojarzoną z maszyną wirtualną.|
 |/virtualMachines/associatedNetworkSecurityGroups/DELETE|Usuwa sieciową grupę zabezpieczeń skojarzoną z maszyną wirtualną.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Odczytuje stan operacji dla grup zabezpieczeń sieci skojarzonych z maszyną wirtualną.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Odczytuje stan operacji dla maszyn wirtualnych skojarzonych grup zabezpieczeń sieci.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | Operacja | Opis |
 |---|---|
-|/ register/działania|Zarejestruj się w usłudze Classic Network|
+|/ register/działania|Zarejestruj się w klasycznej sieci|
 |/gatewaySupportedDevices/Read|Pobiera listę obsługiwanych urządzeń.|
-|/reservedIps/Read|Pobiera zastrzeżone adresy IP|
-|/ zastrzeżonych adresów IP/zapisu|Dodaje nowy zastrzeżony adres IP|
-|/reservedIps/DELETE|Usuwa zastrzeżony adres IP.|
-|/reservedIps/Link/Action|Połącz zarezerwowany adres IP|
-|/reservedIps/JOIN/Action|Dołącz zarezerwowany adres IP|
+|/reservedIps/Read|Pobiera zastrzeżonych adresów IP|
+|/ zastrzeżonych adresów IP/zapisu|Dodaj nowy zastrzeżony adres Ip|
+|/reservedIps/DELETE|Usuwanie zastrzeżonego adresu Ip.|
+|/reservedIps/Link/Action|Link zastrzeżonego adresu Ip|
+|/reservedIps/JOIN/Action|Dołącz do zastrzeżonego adresu Ip|
 |/reservedIps/operationStatuses/Read|Odczytuje stan operacji dla zarezerwowanych adresów IP.|
-|/virtualNetworks/Read|Pobiera sieć wirtualną.|
-|/ virtualNetworks/zapisu|Dodaje nową sieć wirtualną.|
-|/virtualNetworks/DELETE|Usuwa sieć wirtualną.|
-|/virtualNetworks/peer/Action|Łączy równorzędnie sieć wirtualną z inną siecią wirtualną.|
-|/virtualNetworks/JOIN/Action|Umożliwia dołączenie do sieci wirtualnej.|
+|/virtualNetworks/Read|Pobierz sieci wirtualnej.|
+|/ virtualNetworks/zapisu|Dodaj nową sieć wirtualną.|
+|/virtualNetworks/DELETE|Usuwa sieci wirtualnej.|
+|/virtualNetworks/peer/Action|Równorzędnymi użytkownikami sieci wirtualnej z inną siecią wirtualną.|
+|/virtualNetworks/JOIN/Action|Tworzy sprzężenie sieci wirtualnej.|
 |/virtualNetworks/checkIPAddressAvailability/Action|Sprawdza dostępność danego adresu IP w sieci wirtualnej.|
 |/virtualNetworks/Capabilities/Read|Pokazuje możliwości|
 |/virtualNetworks/podsieci /<br>associatedNetworkSecurityGroups/Odczyt|Pobiera sieciową grupę zabezpieczeń skojarzoną z podsiecią.|
 |/virtualNetworks/podsieci /<br>associatedNetworkSecurityGroups/zapisu|Dodaje sieciową grupę zabezpieczeń skojarzoną z podsiecią.|
 |/virtualNetworks/podsieci /<br>associatedNetworkSecurityGroups/usuwania|Usuwa sieciową grupę zabezpieczeń skojarzoną z podsiecią.|
-|/virtualNetworks/podsieci /<br>associatedNetworkSecurityGroups operationStatuses/odczytu|Odczytuje stan operacji dla grupy zabezpieczeń sieci skojarzonej z podsiecią sieci wirtualnej.|
+|/virtualNetworks/podsieci /<br>associatedNetworkSecurityGroups operationStatuses/odczytu|Odczytuje stan operacji dla grupy zabezpieczeń sieci skojarzonej z podsiecią podsieci sieci wirtualnej.|
 |/virtualNetworks/operationStatuses/Read|Odczytuje stan operacji dla sieci wirtualnych.|
 |/virtualNetworks/Gateways/Read|Pobiera bramy sieci wirtualnej.|
-|/virtualNetworks/Gateways/Write|Dodaje bramę sieci wirtualnej.|
+|/virtualNetworks/Gateways/Write|Dodaje bramy sieci wirtualnej.|
 |/virtualNetworks/Gateways/DELETE|Usuwa bramę sieci wirtualnej.|
 |/virtualNetworks/Gateways/startDiagnostics/Action|Uruchamia diagnostykę bramy sieci wirtualnej.|
 |/virtualNetworks/Gateways/stopDiagnostics/Action|Zatrzymuje diagnostykę bramy sieci wirtualnej.|
-|/virtualNetworks/Gateways/downloadDiagnostics/Action|Pobiera dane diagnostyczne bramy.|
+|/virtualNetworks/Gateways/downloadDiagnostics/Action|Pobiera diagnostyki bramy.|
 |/virtualNetworks/Gateways/listCircuitServiceKey/Action|Pobiera klucz usługi obwodu.|
 |/virtualNetworks/Gateways/downloadDeviceConfigurationScript/Action|Pobiera skrypt konfiguracji urządzenia.|
 |/virtualNetworks/Gateways/listPackage/Action|Wyświetla pakiet bramy sieci wirtualnej.|
 |/virtualNetworks/Gateways/operationStatuses/Read|Odczytuje stan operacji dla bram sieci wirtualnych.|
 |/virtualNetworks/Gateways/Packages/Read|Pobiera pakiet bramy sieci wirtualnej.|
 |/virtualNetworks/Gateways/Connections/Read|Pobiera listę połączeń.|
-|/virtualNetworks/Gateways/Connections/Connect/Action|Tworzy połączenie bramy między lokacjami.|
-|/virtualNetworks/Gateways/Connections/Disconnect/Action|Rozłącza połączenie bramy między lokacjami.|
-|/virtualNetworks/Gateways/Connections/test/Action|Testuje połączenie bramy między lokacjami.|
-|/virtualNetworks/Gateways/clientRevokedCertificates/Read|Odczytuje cofnięte certyfikaty klienta.|
-|/virtualNetworks/Gateways/clientRevokedCertificates/Write|Cofa certyfikat klienta.|
-|/virtualNetworks/Gateways/clientRevokedCertificates/DELETE|Odwołuje cofnięcie certyfikatu klienta.|
-|/virtualNetworks/Gateways/clientRootCertificates/Read|Znajduje certyfikaty główne klienta.|
+|/virtualNetworks/Gateways/Connections/Connect/Action|Umożliwia nawiązanie połączenia bramy do lokacji.|
+|/virtualNetworks/Gateways/Connections/Disconnect/Action|Rozłącza połączenie bramy do lokacji.|
+|/virtualNetworks/Gateways/Connections/test/Action|Testuje połączenie bramy do lokacji.|
+|/virtualNetworks/Gateways/clientRevokedCertificates/Read|Przeczytaj cofnięte certyfikaty klienta.|
+|/virtualNetworks/Gateways/clientRevokedCertificates/Write|Odwołuje certyfikatu klienta.|
+|/virtualNetworks/Gateways/clientRevokedCertificates/DELETE|Unrevokes certyfikat klienta.|
+|/virtualNetworks/Gateways/clientRootCertificates/Read|Znajdź certyfikaty główne klienta.|
 |/virtualNetworks/Gateways/clientRootCertificates/Write|Przekazuje nowy certyfikat główny klienta.|
 |/virtualNetworks/Gateways/clientRootCertificates/DELETE|Usuwa certyfikat klienta bramy sieci wirtualnej.|
-|/virtualNetworks/Gateways/clientRootCertificates/Download/Action|Pobiera certyfikat na podstawie odcisku palca.|
+|/virtualNetworks/Gateways/clientRootCertificates/Download/Action|Pobiera certyfikat przez odcisk palca.|
 |/virtualNetworks/Gateways/clientRootCertificates/listPackage/Action|Wyświetla pakiet certyfikatu bramy sieci wirtualnej.|
 |/networkSecurityGroups/Read|Pobiera sieciową grupę zabezpieczeń.|
 |/ Networksecuritygroup/zapisu|Dodaje nową sieciową grupę zabezpieczeń.|
 |/networkSecurityGroups/DELETE|Usuwa sieciową grupę zabezpieczeń.|
 |/networkSecurityGroups/operationStatuses/Read|Odczytuje stan operacji dla grupy zabezpieczeń sieci.|
-|/networkSecurityGroups/securityRules/Read|Pobiera regułę zabezpieczeń.|
+|/networkSecurityGroups/securityRules/Read|Pobiera reguły zabezpieczeń.|
 |/networkSecurityGroups/securityRules/Write|Dodaje lub aktualizuje regułę zabezpieczeń.|
 |/networkSecurityGroups/securityRules/DELETE|Usuwa regułę zabezpieczeń.|
 |/networkSecurityGroups/securityRules/operationStatuses/Read|Odczytuje stan operacji dla reguł zabezpieczeń grupy zabezpieczeń sieci.|
@@ -496,31 +499,31 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/ register/działania|Zarejestruj w magazynie klasycznym|
+|/ register/działania|Zarejestruj się w klasycznym magazynu|
 |/ checkStorageAccountAvailability/działania|Sprawdza dostępność konta magazynu.|
 |/Capabilities/Read|Pokazuje możliwości|
-|/publicImages/Read|Pobiera publiczny obraz maszyny wirtualnej|
+|/publicImages/Read|Pobiera obraz publicznego maszyny wirtualnej.|
 |/images/Read|Zwraca obraz.|
 |/storageAccounts/Read|Zwraca konto magazynu z podanym kontem.|
 |/ storageAccounts/zapisu|Dodaje nowe konto magazynu.|
-|/storageAccounts/DELETE|Usuwa konto magazynu.|
-|/storageAccounts/listKeys/Action|Wyświetla klucze dostępu dla kont magazynu.|
+|/storageAccounts/DELETE|Usunięcie konta magazynu.|
+|/storageAccounts/listKeys/Action|Wyświetla klucze dostępu dla konta magazynu.|
 |/storageAccounts/regenerateKey/Action|Generuje ponownie istniejące klucze dostępu dla konta magazynu.|
 |/storageAccounts/operationStatuses/Read|Odczytuje stan operacji dla zasobu.|
 |/storageAccounts/images/Read|Zwraca obraz konta magazynu.|
 |/storageAccounts/images/DELETE|Usuwa określony obraz konta magazynu.|
-|/storageAccounts/Disks/Read|Zwraca dysk konta magazynu.|
+|/storageAccounts/Disks/Read|Zwraca dysku konta magazynu.|
 |/storageAccounts/Disks/Write|Dodaje dysk konta magazynu.|
-|/storageAccounts/Disks/DELETE|Usuwa dany dysk konta magazynu.|
+|/storageAccounts/Disks/DELETE|Usuwa dysk magazynu danego konta.|
 |/storageAccounts/Disks/operationStatuses/Read|Odczytuje stan operacji dla zasobu.|
 |/storageAccounts/osImages/Read|Zwraca obraz systemu operacyjnego konta magazynu.|
-|/storageAccounts/osImages/DELETE|Usuwa określony obraz systemu operacyjnego konta magazynu.|
-|/storageAccounts/Services/Read|Pobiera dostępne usługi.|
+|/storageAccounts/osImages/DELETE|Usuwa określony obraz konta magazynu systemu operacyjnego.|
+|/storageAccounts/Services/Read|Pobierz dostępne usługi.|
 |/storageAccounts/Services/metricDefinitions/Read|Pobiera definicje metryk.|
 |/storageAccounts/Services/Metrics/Read|Pobiera metryki.|
-|/storageAccounts/Services/diagnosticSettings/Read|Pobiera ustawienia diagnostyczne.|
+|/storageAccounts/Services/diagnosticSettings/Read|Pobierz ustawienia diagnostyki.|
 |/storageAccounts/Services/diagnosticSettings/Write|Dodaje lub modyfikuje ustawienia diagnostyczne.|
-|/Disks/Read|Zwraca dysk konta magazynu.|
+|/Disks/Read|Zwraca dysku konta magazynu.|
 |/osImages/Read|Zwraca obraz systemu operacyjnego.|
 |/Quotas/Read|Pobiera przydział dla subskrypcji.|
 
@@ -528,12 +531,12 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/accounts/Read|Odczytuje kont interfejsu API.|
-|/ kont/zapisu|Zapisuje kont interfejsu API.|
-|/accounts/DELETE|Usuwa konta interfejsu API|
-|/accounts/listKeys/Action|Lista kluczy|
-|/accounts/regenerateKey/Action|Ponowne generowanie klucza|
-|/accounts/skus/Read|Odczytuje dostępne jednostki SKU dla istniejącego zasobu.|
+|/accounts/Read|Odczytuje konta interfejsów API.|
+|/ kont/zapisu|Zapisuje konta interfejsów API.|
+|/accounts/DELETE|Usuwa konta interfejsów API|
+|/accounts/listKeys/Action|Wylicz klucze|
+|/accounts/regenerateKey/Action|Wygeneruj ponownie klucz|
+|/accounts/skus/Read|Odczytuje jednostki SKU dostępne dla istniejącego zasobu.|
 |/accounts/Usages/Read|Pobierz użycie przydziału dla istniejącego zasobu.|
 |Operacje/odczytu|Opis operacji.|
 
@@ -595,7 +598,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/virtualMachines/DELETE|Usuwa maszynę wirtualną|
 |/virtualMachines/Start/Action|Uruchamia maszynę wirtualną|
 |/virtualMachines/powerOff/Action|Wyłącza maszynę wirtualną. Należy pamiętać, że maszyna wirtualna nadal będą naliczane opłaty.|
-|/virtualMachines/redeploy/Action|Wdraża ponownie maszyny wirtualnej|
+|/virtualMachines/redeploy/Action|Ponownie wdraża maszynę wirtualną|
 |/virtualMachines/restart/Action|Uruchamia ponownie maszynę wirtualną|
 |/virtualMachines/deallocate/Action|Wyłącza maszynę wirtualną i zwalnia zasoby obliczeniowe|
 |/virtualMachines/generalize/Action|Ustawia stan maszyny wirtualnej „Uogólniono” i przygotowuje maszynę wirtualną do przechwycenia|
@@ -642,7 +645,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ applications/zapisu|Operacja zapisu|
 |/ applications/zapisu|Operacja zapisu|
 |/Applications/DELETE|Operacja usuwania|
-|/Applications/listSecrets/Action|Utwórz listę kluczy tajnych|
+|/Applications/listSecrets/Action|Wyświetl klucze tajne|
 |/Applications/listSingleSignOnToken/Action|Odczyt jednokrotnego tokenów|
 |/Operations/Read|operacje odczytu|
 
@@ -909,11 +912,11 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/ checkNameAvailability/działania|Sprawdza dostępność przestrzeni nazw w ramach danej subskrypcji.|
+|/ checkNameAvailability/działania|Sprawdzanie dostępności przestrzeni nazw w podanej subskrypcji.|
 |/ register/działania|Rejestruje subskrypcję dostawcy zasobów usługi EventHub i włącza funkcję tworzenia zasobów usługi EventHub|
 |/ przestrzenie nazw/zapisu|Utwórz zasób Namespace i zaktualizuj jego właściwości. Znaczniki i stan Namespace są właściwości, które mogą być aktualizowane.|
 |/Namespaces/Read|Pobierz listę opisów zasobów przestrzeni nazw|
-|przestrzenie nazw/Delete|Usuń zasób Namespace|
+|przestrzenie nazw/Delete|Usuń zasób przestrzeni nazw|
 |/Namespaces/metricDefinitions/Read|Pobierz listę metryki Namespace opisów zasobów|
 |/Namespaces/authorizationRules/Read|Pobierz listę opisów reguł autoryzacji przestrzeni nazw.|
 |/Namespaces/authorizationRules/Write|Tworzenie reguł autoryzacji z poziomu Namespace i aktualizowanie jej właściwości. Można zaktualizować reguły autoryzacji uprawnienia, serwer podstawowy i klucze pomocnicze.|
@@ -940,7 +943,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 | Operacja | Opis |
 |---|---|
 |/Providers/Features/Read|Pobiera funkcję subskrypcji danego dostawcy zasobów.|
-|/Providers/Features/Register/Action|Rejestruje funkcję subskrypcji danego dostawcy zasobów.|
+|/Providers/Features/Register/Action|Rejestruje funkcję subskrypcji w danego dostawcy zasobów.|
 |/Features/Read|Pobiera funkcje subskrypcji.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -968,7 +971,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/Jobs/DELETE|Usuwa istniejące zadanie.|
 |/Locations/Read|Pobiera właściwości dla określonej lokalizacji lub zwraca listę lokalizacji.|
 
-## <a name="microsoftinsights"></a>Elemencie Microsoft.Insights
+## <a name="microsoftinsights"></a>Microsoft.Insights
 
 | Operacja | Opis |
 |---|---|
@@ -976,14 +979,14 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ AlertRules/zapisu|Zapisywanie w konfiguracji reguły alertu|
 |/ AlertRules/usuwania|Usuwanie konfiguracji reguły alertu|
 |AlertRules/odczytu|Odczytywanie konfiguracji reguły alertu|
-|/ AlertRules/aktywowany/działania|Reguła alertu aktywowany|
-|/ AlertRules/rozpoznać/działania|Reguła alertu rozwiązany|
-|/ AlertRules/ograniczany/działania|Reguła alertu jest ograniczany.|
+|/ AlertRules/aktywowany/działania|Aktywowana reguła alertu|
+|/ AlertRules/rozpoznać/działania|Rozwiązana reguła alertu|
+|/ AlertRules/ograniczany/działania|Reguła alertu jest ograniczana|
 |AlertRules/zdarzenia/odczytu|Odczytywanie konfiguracji zdarzenia reguły alertu|
-|MetricDefinitions/odczytu|Odczyt definicji metryk|
+|MetricDefinitions/odczytu|Przeczytaj definicje metryk|
 |/eventtypes/VALUES/Read|Typ zdarzeń zarządzania — odczytaj wartości|
 |/eventtypes/digestevents/Read|Typ zdarzeń zarządzania — odczytaj podsumowanie|
-|Metryki/odczytu|Odczytać metryki|
+|Metryki/odczytu|Odczytaj metryki|
 |/ LogProfiles/zapisu|Zapisywanie w konfiguracji profilu dziennika|
 |/ LogProfiles/usuwania|Usuń konfigurację profilów dziennika|
 |LogProfiles/odczytu|Profile dziennika odczytu|
@@ -991,13 +994,13 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ AutoscaleSettings/usuwania|Usuwanie konfiguracji ustawienia autoskalowania|
 |AutoscaleSettings/odczytu|Odczytywanie konfiguracji ustawienia autoskalowania|
 |/ AutoscaleSettings/Scaleup/działania|Autoskalowanie — operacja skalowania w górę|
-|/ AutoscaleSettings/Scaledown/działania|Skalowania automatycznego skalowania dół operacji|
-|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Odczyt definicji metryk|
+|/ AutoscaleSettings/Scaledown/działania|Autoskalowanie — operacja skalowania w dół|
+|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Przeczytaj definicje metryk|
 |/ ActivityLogAlerts/aktywowany/działania|Wyzwolony Alert dziennika aktywności|
 |/ DiagnosticSettings/zapisu|Zapisywanie w konfiguracji ustawień diagnostycznych|
 |/ DiagnosticSettings/usuwania|Usuwanie konfiguracji ustawień diagnostycznych|
 |DiagnosticSettings/odczytu|Odczytywanie konfiguracji ustawień diagnostycznych|
-|LogDefinitions/odczytu|Odczytaj definicje dzienników|
+|LogDefinitions/odczytu|Przeczytaj definicje dzienników|
 |/ ExtendedDiagnosticSettings/zapisu|Zapisywanie ustawień diagnostycznych rozszerzonej konfiguracji|
 |/ ExtendedDiagnosticSettings/usuwania|Usuwanie konfiguracji rozszerzonej ustawień diagnostycznych|
 |ExtendedDiagnosticSettings/odczytu|Odczytywanie konfiguracji rozszerzonej ustawień diagnostycznych|
@@ -1007,14 +1010,14 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 | Operacja | Opis |
 |---|---|
 |/ register/działania|Rejestruje subskrypcję|
-|/checkNameAvailability/Read|Sprawdza, czy nazwa magazynu kluczy jest prawidłowa oraz czy została już użyta|
-|/vaults/Read|Wyświetl właściwości magazynu kluczy|
-|/ Magazyny/zapisu|Utwórz nowy magazyn kluczy lub zaktualizuj właściwości istniejącego magazynu kluczy|
+|/checkNameAvailability/Read|Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i nie jest w użyciu|
+|/vaults/Read|Wyświetlanie właściwości magazynu kluczy|
+|/ Magazyny/zapisu|Utwórz nowy magazyn kluczy lub zaktualizować właściwości istniejący magazyn kluczy|
 |/vaults/DELETE|Usuń magazyn kluczy|
 |/vaults/Deploy/Action|Zapewnia dostęp do kluczy tajnych w magazynie kluczy, podczas wdrażania zasobów platformy Azure|
-|/vaults/secrets/Read|Wyświetl właściwości wpisu tajnego, ale nie jego wartość|
-|/vaults/secrets/Write|Utwórz nowy wpis tajny lub zaktualizuj wartość istniejącego wpisu tajnego|
-|/vaults/accessPolicies/Write|Aktualizowanie istniejących zasad dostępu przez scalanie lub zastępowanie albo dodawanie nowych zasad dostępu do magazynu.|
+|/vaults/secrets/Read|Wyświetlanie właściwości klucz tajny, ale nie jej wartość|
+|/vaults/secrets/Write|Utwórz nowy klucz tajny lub zaktualizuj tę wartość z istniejącym kluczem tajnym|
+|/vaults/accessPolicies/Write|Zaktualizuj istniejących zasad dostępu przez scalanie lub wymiana lub Dodaj nowe zasady dostępu do magazynu.|
 |/deletedVaults/Read|Wyświetlanie właściwości nietrwałego usunięto magazynów kluczy|
 |/Locations/operationResults/Read|Sprawdź wynik operacji długoterminowym|
 |/Locations/deletedVaults/Read|Wyświetlanie właściwości nietrwałego usunięto magazyn kluczy|
@@ -1033,7 +1036,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/Workflows/Validate/Action|Sprawdza poprawność przepływu pracy.|
 |/Workflows/Move/Action|Przenosi przepływ pracy z jego obecnego identyfikatora subskrypcji, grupy zasobów i/lub nazwy do innego identyfikatora subskrypcji, grupy zasobów i/lub nazwy.|
 |/Workflows/listSwagger/Action|Pobiera struktury swagger definicji przepływu pracy.|
-|/Workflows/regenerateAccessKey/Action|Generuje ponownie dane tajne klucza dostępu.|
+|/Workflows/regenerateAccessKey/Action|Generuje ponownie wpisy tajne klucza dostępu.|
 |/Workflows/listCallbackUrl/Action|Pobiera adres URL wywołania zwrotnego dla przepływu pracy.|
 |/Workflows/Versions/Read|Odczytuje wersję przepływu pracy.|
 |/Workflows/Versions/Triggers/listCallbackUrl/Action|Pobiera adres URL wywołania zwrotnego dla wyzwalacza.|
@@ -1049,8 +1052,8 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/Workflows/accessKeys/Read|Odczytuje klucz dostępu.|
 |/Workflows/accessKeys/Write|Tworzy lub aktualizuje klucz dostępu.|
 |/Workflows/accessKeys/DELETE|Usuwa klucz dostępu.|
-|/Workflows/accessKeys/list/Action|Wyświetla dane tajne klucza dostępu.|
-|/Workflows/accessKeys/regenerate/Action|Generuje ponownie dane tajne klucza dostępu.|
+|/Workflows/accessKeys/list/Action|Wyświetla wpisy tajne klucza dostępu.|
+|/Workflows/accessKeys/regenerate/Action|Generuje ponownie wpisy tajne klucza dostępu.|
 |/Locations/Workflows/Validate/Action|Sprawdza poprawność przepływu pracy.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1264,7 +1267,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ CheckNamespaceAvailability/działania|Sprawdza, czy dana nazwa zasobu przestrzeni nazw jest dostępna w usłudze NotificationHub.|
 |Przestrzenie nazw/zapisu|Utwórz zasób Namespace i zaktualizuj jego właściwości. Znaczniki i stan Namespace są właściwości, które mogą być aktualizowane.|
 |Przestrzenie nazw/odczytu|Pobierz listę opisów zasobów przestrzeni nazw|
-|/ Przestrzenie nazw/usuwania|Usuń zasób Namespace|
+|/ Przestrzenie nazw/usuwania|Usuń zasób przestrzeni nazw|
 |/ Przestrzenie nazw/authorizationRules/działania|Pobierz listę opisów reguł autoryzacji przestrzeni nazw.|
 |/ Przestrzenie nazw/CheckNotificationHubAvailability/działania|Sprawdza, czy dana nazwa usługi NotificationHub jest dostępna w przestrzeni nazw.|
 |Przestrzenie nazw/authorizationRules/zapisu|Tworzenie reguł autoryzacji z poziomu Namespace i aktualizowanie jej właściwości. Można zaktualizować reguły autoryzacji uprawnienia, serwer podstawowy i klucze pomocnicze.|
@@ -1274,7 +1277,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ Przestrzenie nazw/authorizationRules/regenerateKeys/działania|Reguła autoryzacji przestrzeni nazw: wygeneruj ponownie klucz podstawowy/pomocniczy. Określ klucz do ponownego wygenerowania|
 |Przestrzenie nazw/NotificationHubs/zapisu|Tworzenie Centrum powiadomień i aktualizowanie jej właściwości. Jego właściwości obejmują głównie poświadczeń systemu powiadomień platformy. Reguły autoryzacji i czas wygaśnięcia|
 |Przestrzenie nazw/NotificationHubs/odczytu|Pobierz listę opisów zasobów centrum powiadomień|
-|/ Przestrzenie nazw/NotificationHubs/usuwania|Usuń zasób Centrum powiadomień|
+|/ Przestrzenie nazw/NotificationHubs/usuwania|Usuń zasób centrum powiadomień|
 |/ Przestrzenie nazw/NotificationHubs/authorizationRules/działania|Pobierz listę reguł autoryzacji centrum powiadomień|
 |/ Przestrzenie nazw/NotificationHubs/pnsCredentials/działania|Pobierz wszystkie poświadczenia systemu powiadomień platformy Centrum powiadomień. Obejmuje to poświadczenia usługi WNS, MPNS, APNS, usługi GCM i Baidu|
 |/ Przestrzenie nazw/NotificationHubs/debugSend/działania|Wyślij testowe powiadomienie wypychane.|
@@ -1350,9 +1353,9 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|Wdróż obraz serwera przetwarzania|
 |/vaults/replicationFabrics/reassociateGateway/Action|Ponownie Skojarz bramy|
-|/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>Odczyt|Przeczytaj wszystkich dostawców usług odzyskiwania|
+|/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>odczytywanie|Przeczytaj wszystkich dostawców usług odzyskiwania|
 |/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>Usuń/działania|Usuń dostawcę usług odzyskiwania|
-|/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>Usuń|Usuwanie wszystkich dostawców usług odzyskiwania|
+|/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>usuń|Usuwanie wszystkich dostawców usług odzyskiwania|
 |/ Magazyny/replicationFabrics/replicationRecoveryServicesProviders /<br>refreshProvider/działania|Odśwież dostawcę|
 |/vaults/replicationFabrics/replicationStorageClassifications/Read|Przeczytaj wszystkie klasyfikacje magazynu|
 |/ Magazyny/replicationFabrics/replicationStorageClassifications /<br>replicationStorageClassificationMappings/Odczyt|Wszelkie mapowania klasyfikacji magazynu do odczytu|
@@ -1365,7 +1368,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ Magazyny/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/Odczyt|Przeczytaj wszelkie mapowania sieci|
 |/ Magazyny/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/zapisu|Utwórz lub zaktualizuj wszystkie mapowania sieci|
 |/ Magazyny/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/usuwania|Usuń wszelkie mapowania sieci|
-|/ Magazyny/replicationFabrics/replicationProtectionContainers /<br>Odczyt|Wszystkie kontenery ochrony|
+|/ Magazyny/replicationFabrics/replicationProtectionContainers /<br>odczytywanie|Wszystkie kontenery ochrony|
 |/ Magazyny/replicationFabrics/replicationProtectionContainers /<br>discoverProtectableItem/działania|Odkryj element chronione|
 |/ Magazyny/replicationFabrics/replicationProtectionContainers /<br>zapisu|Utwórz lub zaktualizuj kontenerach ochrony|
 |/ Magazyny/replicationFabrics/replicationProtectionContainers /<br>Usuń/działania|Usunięcie kontenera ochrony|
@@ -1437,7 +1440,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/ Magazyny/registeredIdentities/usuwania|Operacja wyrejestrować kontenera można wyrejestrować kontenera.|
 |Magazyny/registeredIdentities/operationResults/odczytu|Wyniki operacji Get operacji można używać Pobierz stan operacji i wynik operacji asynchronicznie przesłane|
 |/vaults/replicationJobs/Read|Wszystkie zadania do odczytu|
-|/vaults/replicationJobs/Cancel/Action|Anulowanie zadania|
+|/vaults/replicationJobs/Cancel/Action|Anuluj zadanie|
 |/vaults/replicationJobs/restart/Action|Uruchom ponownie zadanie|
 |/vaults/replicationJobs/resume/Action|Wznów zadanie|
 |Magazyny/backupPolicies/odczytu|Zwraca wszystkie zasady ochrony|
@@ -1457,11 +1460,11 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/ checkNamespaceAvailability/działania|Sprawdza dostępność przestrzeni nazw w ramach danej subskrypcji.|
+|/ checkNamespaceAvailability/działania|Sprawdzanie dostępności przestrzeni nazw w podanej subskrypcji.|
 |/ register/działania|Rejestruje subskrypcję dostawcy zasobów usługi Relay i włącza funkcję tworzenia zasobów usługi Relay|
 |/ przestrzenie nazw/zapisu|Utwórz zasób Namespace i zaktualizuj jego właściwości. Znaczniki i stan Namespace są właściwości, które mogą być aktualizowane.|
 |/Namespaces/Read|Pobierz listę opisów zasobów przestrzeni nazw|
-|przestrzenie nazw/Delete|Usuń zasób Namespace|
+|przestrzenie nazw/Delete|Usuń zasób przestrzeni nazw|
 |/Namespaces/authorizationRules/Write|Tworzenie reguł autoryzacji z poziomu Namespace i aktualizowanie jej właściwości. Można zaktualizować reguły autoryzacji uprawnienia, serwer podstawowy i klucze pomocnicze.|
 |/Namespaces/authorizationRules/DELETE|Usuń regułę autoryzacji Namespace. Nie można usunąć reguły autoryzacji Namespace domyślnej. |
 |/Namespaces/authorizationRules/listkeys/Action|Pobierz parametry połączenia z przestrzenią nazw|
@@ -1490,39 +1493,39 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 | Operacja | Opis |
 |---|---|
 |/ checkResourceName/działania|Sprawdź poprawność nazwy zasobu.|
-|/Providers/Read|Pobiera listę dostawców.|
+|/Providers/Read|Pobierz listę dostawców.|
 |/Subscriptions/Read|Pobiera listę subskrypcji.|
-|/Subscriptions/operationresults/Read|Pobiera wyniki operacji subskrypcji.|
-|/Subscriptions/Providers/Read|Pobiera dostawców zasobów lub wyświetla ich listę.|
-|/Subscriptions/tagNames/Read|Pobiera tagi subskrypcji lub wyświetla ich listę.|
+|/Subscriptions/operationresults/Read|Pobierz wyniki operacji subskrypcji.|
+|/Subscriptions/Providers/Read|Pobiera lub wyświetla ich listę dostawców zasobów.|
+|/Subscriptions/tagNames/Read|Pobiera lub wyświetla ich listę tagi subskrypcji.|
 |/Subscriptions/tagNames/Write|Dodaje tag subskrypcji.|
-|/Subscriptions/tagNames/DELETE|Usuwa tag subskrypcji.|
-|/Subscriptions/tagNames/tagValues/Read|Pobiera wartości tagów lub wyświetla ich listę.|
-|/Subscriptions/tagNames/tagValues/Write|Dodaje wartość tagu subskrypcji.|
+|/Subscriptions/tagNames/DELETE|Usuwa tagu subskrypcji.|
+|/Subscriptions/tagNames/tagValues/Read|Pobiera lub wyświetla ich listę wartości tagów subskrypcji.|
+|/Subscriptions/tagNames/tagValues/Write|Dodaje wartości tagów subskrypcji.|
 |/Subscriptions/tagNames/tagValues/DELETE|Usuwa wartość tagu subskrypcji.|
 |/Subscriptions/Resources/Read|Pobiera zasoby subskrypcji.|
-|/Subscriptions/resourceGroups/Read|Pobiera grupy zasobów lub wyświetla ich listę.|
+|/Subscriptions/resourceGroups/Read|Pobiera lub wyświetla listę grup zasobów.|
 |/Subscriptions/resourceGroups/Write|Tworzy lub aktualizuje grupę zasobów.|
-|/Subscriptions/resourceGroups/DELETE|Usuwa grupę zasobów i wszystkie zasoby w tej grupie.|
-|/Subscriptions/resourceGroups/moveResources/Action|Przenosi zasoby z jednej grupy zasobów do innej.|
-|/Subscriptions/resourceGroups/validateMoveResources/Action|Waliduj przeniesienie zasobów między grupami zasobów.|
+|/Subscriptions/resourceGroups/DELETE|Usuwa grupę zasobów i wszystkie jego zasoby.|
+|/Subscriptions/resourceGroups/moveResources/Action|Przenosi zasoby z jednej grupy zasobów.|
+|/Subscriptions/resourceGroups/validateMoveResources/Action|Waliduj przeniesienie zasobów między grupami zasobów do innego.|
 |/Subscriptions/resourcegroups/Resources/Read|Pobiera zasoby grupy zasobów.|
-|/Subscriptions/resourcegroups/Deployments/Read|Pobiera wdrożenia lub wyświetla ich listę.|
+|/Subscriptions/resourcegroups/Deployments/Read|Pobiera lub wyświetla listę wdrożeń.|
 |/Subscriptions/resourcegroups/Deployments/Write|Tworzy lub aktualizuje wdrożenie.|
 |/Subscriptions/resourcegroups/Deployments/operationstatuses/Read|Pobiera lub wyświetla stany operacji wdrażania.|
-|/Subscriptions/resourcegroups/Deployments/Operations/Read|Pobiera operacje wdrażania lub wyświetla ich listę.|
+|/Subscriptions/resourcegroups/Deployments/Operations/Read|Pobiera lub wyświetla ich listę operacji wdrażania.|
 |/Subscriptions/Locations/Read|Pobiera listę obsługiwanych lokalizacji.|
-|/Links/Read|Pobiera linki do zasobów lub wyświetla ich listę.|
+|/Links/Read|Pobiera lub zawiera linki do zasobów.|
 |/ łącza/zapisu|Tworzy lub aktualizuje link do zasobu.|
 |/Links/DELETE|Usuwa link do zasobu.|
 |/tenants/Read|Pobiera listę dzierżawców.|
-|/Resources/Read|Pobiera listę zasobów zgodnie z filtrami.|
-|/Deployments/Read|Pobiera wdrożenia lub wyświetla ich listę.|
+|/Resources/Read|Pobierz listę zasobów zgodnie z filtrami.|
+|/Deployments/Read|Pobiera lub wyświetla listę wdrożeń.|
 |/ wdrożeń/zapisu|Tworzy lub aktualizuje wdrożenie.|
-|/Deployments/DELETE|Usuwa wdrożenie.|
-|/Deployments/Cancel/Action|Anuluje wdrożenie.|
-|/Deployments/Validate/Action|Weryfikuje wdrożenie.|
-|/Deployments/Operations/Read|Pobiera operacje wdrażania lub wyświetla ich listę.|
+|/Deployments/DELETE|Usuwa wdrożenia.|
+|/Deployments/Cancel/Action|Anuluje wdrożenia.|
+|/Deployments/Validate/Action|Weryfikuje wdrożenia.|
+|/Deployments/Operations/Read|Pobiera lub wyświetla ich listę operacji wdrażania.|
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
@@ -1530,15 +1533,15 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |---|---|
 |/jobcollections/Read|Pobierz kolekcję zadań|
 |/ kolekcjach zadań/zapisu|Tworzy lub aktualizuje kolekcję zadań.|
-|/jobcollections/DELETE|Usuwa zadania kolekcji.|
-|/jobcollections/enable/Action|Włącza zadanie kolekcji.|
-|/jobcollections/disable/Action|Wyłącza zadanie kolekcji.|
+|/jobcollections/DELETE|Usuwa kolekcję zadań.|
+|/jobcollections/enable/Action|Włącza kolekcję zadań.|
+|/jobcollections/disable/Action|Wyłącza kolekcję zadań.|
 |/jobcollections/Jobs/Read|Pobiera zadanie.|
 |/jobcollections/Jobs/Write|Tworzy lub aktualizuje zadanie.|
 |/jobcollections/Jobs/DELETE|Usuwa zadanie.|
 |/jobcollections/Jobs/Run/Action|Uruchamia zadanie.|
 |/jobcollections/Jobs/generateLogicAppDefinition/Action|Generuje definicję aplikacji logiki na podstawie zadania usługi Scheduler.|
-|/jobcollections/Jobs/jobhistories/Read|Pobiera Historia zadania.|
+|/jobcollections/Jobs/jobhistories/Read|Pobiera historię zadania.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1601,11 +1604,11 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 
 | Operacja | Opis |
 |---|---|
-|/ checkNameAvailability/działania|Sprawdza dostępność przestrzeni nazw w ramach danej subskrypcji.|
+|/ checkNameAvailability/działania|Sprawdzanie dostępności przestrzeni nazw w podanej subskrypcji.|
 |/ register/działania|Rejestruje subskrypcję dostawcy zasobów usługi ServiceBus i włącza funkcję tworzenia zasobów usługi ServiceBus|
 |/ przestrzenie nazw/zapisu|Utwórz zasób Namespace i zaktualizuj jego właściwości. Znaczniki i stan Namespace są właściwości, które mogą być aktualizowane.|
 |/Namespaces/Read|Pobierz listę opisów zasobów przestrzeni nazw|
-|przestrzenie nazw/Delete|Usuń zasób Namespace|
+|przestrzenie nazw/Delete|Usuń zasób przestrzeni nazw|
 |/Namespaces/metricDefinitions/Read|Pobierz listę metryki Namespace opisów zasobów|
 |/Namespaces/authorizationRules/Write|Tworzenie reguł autoryzacji z poziomu Namespace i aktualizowanie jej właściwości. Można zaktualizować reguły autoryzacji uprawnienia, serwer podstawowy i klucze pomocnicze.|
 |/Namespaces/authorizationRules/Read|Pobierz listę opisów reguł autoryzacji przestrzeni nazw.|
@@ -1764,13 +1767,13 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/storageAccounts/listkeys/Action|Zwraca klucze dostępu dla podanego konta magazynu.|
 |/storageAccounts/regeneratekey/Action|Generuje ponownie klucze dostępu dla podanego konta magazynu.|
 |/storageAccounts/Read|Zwraca listę kont magazynu bądź pobiera właściwości dla podanego konta magazynu.|
-|/storageAccounts/listAccountSas/Action|Zwraca token SAS konta dla określonego konta magazynu.|
-|/storageAccounts/listServiceSas/Action|Token sygnatury dostępu Współdzielonego usługi magazynu|
+|/storageAccounts/listAccountSas/Action|Zwraca token sygnatury dostępu współdzielonego konta dla określonego konta magazynu.|
+|/storageAccounts/listServiceSas/Action|Token sygnatury dostępu współdzielonego usługi Storage|
 |/storageAccounts/Services/diagnosticSettings/Write|Tworzenie/aktualizowanie ustawień diagnostycznych na konto magazynu.|
 |/skus/Read|Wyświetla listę SKU obsługiwana przez Microsoft.Storage.|
 |/Usages/Read|Zwraca limit i bieżącą liczbę użyć dla zasobów w określonej subskrypcji|
 |/Operations/Read|Sonduje stan operacji asynchronicznej.|
-|/Locations/deleteVirtualNetworkOrSubnets/Action|Powiadamia Microsoft.Storage, że trwa usuwanie wirtualnej sieci lub podsieci|
+|/Locations/deleteVirtualNetworkOrSubnets/Action|Powiadamia element Microsoft.Storage o usuwaniu sieci wirtualnej lub podsieci|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1824,7 +1827,7 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/managers/Devices/listFailoverSets/Action|Lista zestawów trybu failover do istniejącego urządzenia.|
 |/managers/Devices/listFailoverTargets/Action|Cele trybu failover listy urządzeń|
 |/managers/Devices/publicEncryptionKey/Action|Lista publicznego klucza szyfrowania Menedżera urządzeń|
-|/ Menedżera urządzeń/hardwareComponentGroups /<br>Odczyt|Lista grup składników sprzętowych|
+|/ Menedżera urządzeń/hardwareComponentGroups /<br>odczytywanie|Lista grup składników sprzętowych|
 |/ Menedżera urządzeń/hardwareComponentGroups /<br>changeControllerPowerState/działania|Zmiany stanu zasilania kontrolera grup składników sprzętowych|
 |/managers/Devices/Metrics/Read|Wyświetla listę lub pobiera metryki|
 |/managers/Devices/chapSettings/Write|Utwórz lub zaktualizuj ustawienia protokołu Chap|
@@ -2194,7 +2197,6 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak [utworzyć niestandardową rolę](role-based-access-control-custom-roles.md).
-
 - Przegląd [wbudowane role RBAC](role-based-access-built-in-roles.md).
-
 - Informacje o sposobie zarządzania przypisywaniem dostępu [przez użytkownika](role-based-access-control-manage-assignments.md) lub [przez zasób](role-based-access-control-configure.md) 
+- Dowiedz się, jak [wyświetlać dzienniki aktywności inspekcji akcje zasobów](~/articles/azure-resource-manager/resource-group-audit.md)

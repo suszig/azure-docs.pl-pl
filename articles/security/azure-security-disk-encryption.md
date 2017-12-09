@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS
 Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suwerenności danych i umożliwia sterowanie platformy Azure hostowanej danych za pomocą wielu zaawansowanych technologii szyfrowania, sterowania i zarządzania kluczami szyfrowania, inspekcji i kontroli dostępu do danych. Klienci Azure zapewnia elastyczność wyboru rozwiązania, które będzie najlepiej odpowiadać ich potrzeb biznesowych. W tym dokumencie firma Microsoft podstawowe informacje na temat nowego rozwiązania technologii "Szyfrowania dysków Azure dla systemu Windows i Linux IaaS maszyny Wirtualnej na" Aby chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Papieru zapewnia napotka szczegółowe wskazówki dotyczące sposobu używania funkcji szyfrowania dysków Azure w tym obsługiwane scenariusze i użytkownika.
@@ -26,7 +26,7 @@ Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suw
 > [!NOTE]
 > Zastosowanie niektórych zaleceń zamieszczonych może zwiększyć danych, sieci i użycia zasobów obliczeniowych, co powoduje dodatkowych kosztów licencji lub subskrypcji.
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 Szyfrowanie dysków Azure jest nową możliwość, która pomaga szyfrowania dysków maszyny wirtualnej systemu Windows i Linux IaaS. Szyfrowanie dysków Azure korzysta ze standardu branżowego [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funkcji systemu Windows i [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funkcji systemu Linux w celu zapewnienia szyfrowania woluminów systemu operacyjnego i dysków z danymi. Rozwiązanie jest zintegrowany z [usługi Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) ułatwiają kontrolowanie i zarządzanie nimi klucze szyfrowania dysku i kluczy tajnych w magazynie kluczy subskrypcji. Rozwiązanie zapewnia również, że wszystkie dane na dyskach maszyny wirtualnej są szyfrowane, gdy w magazynie Azure.
 
 Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS, jest teraz w **ogólnej dostępności** we wszystkich regionach publicznej platformy Azure i regiony AzureGov standardowe maszyn wirtualnych i maszyn wirtualnych z magazyn w warstwie premium.
@@ -199,7 +199,7 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
   > [!NOTE]
   > Jeśli zasady zabezpieczeń ogranicza dostęp do Internetu z maszyn wirtualnych platformy Azure, można rozwiązać poprzedni identyfikator URI i skonfigurować określona Reguła zezwalająca na łączności wychodzącego adresy IP.
   >
-  >Konfigurowanie i dostępu do usługi Azure Key Vault za zaporą (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >Konfigurowanie i dostępu do usługi Azure Key Vault za zaporą (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Użyj najnowszej wersji zestawu SDK programu PowerShell Azure w wersji, aby skonfigurować szyfrowanie dysków Azure. Pobierz najnowszą wersję [wersji programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +218,9 @@ Przed włączeniem szyfrowania dysków Azure na maszynach wirtualnych Azure IaaS
 * Zasady funkcji BitLocker na maszynach wirtualnych przyłączony do domeny z zasad grupy niestandardowe musi zawierać następujące ustawienie: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` szyfrowania dysków Azure zakończy się niepowodzeniem, jeśli ustawienia zasad niestandardowych grup do używania funkcji Bitlocker są niezgodne. Na komputerach, które nie ma prawidłowe zasady może być wymagane ustawienia, stosowanie nowych zasad, wymuszanie nowych zasad w celu aktualizacji (gpupdate.exe/Force) i ponowne uruchomienie.  
 * Aby utworzyć aplikację usługi Azure AD, utworzyć magazyn kluczy, lub skonfigurować istniejący magazyn kluczy i włączenia szyfrowania, zobacz [skrypt programu PowerShell wymagań wstępnych szyfrowania dysków Azure](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Aby skonfigurować wymagań wstępnych szyfrowania dysków za pomocą interfejsu wiersza polecenia Azure, zobacz [ten skrypt Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Aby korzystać z usługi Kopia zapasowa Azure kopii zapasowej i przywracanie zaszyfrowanych maszyn wirtualnych, po włączeniu szyfrowania z szyfrowania dysków Azure, szyfrowania maszyn wirtualnych przy użyciu konfiguracji klucza szyfrowania dysków Azure. Usługa kopii zapasowej obsługuje maszyny wirtualne, które są szyfrowane za pomocą KEK nie lub KEK konfiguracji. Zobacz [jak wykonać kopię zapasową i przywrócić szyfrowane maszyn wirtualnych przy użyciu szyfrowania usługi Kopia zapasowa Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Aby korzystać z usługi Kopia zapasowa Azure kopii zapasowej i przywracanie zaszyfrowanych maszyn wirtualnych, po włączeniu szyfrowania z szyfrowania dysków Azure, szyfrowania maszyn wirtualnych przy użyciu konfiguracji klucza szyfrowania dysków Azure. Usługa kopii zapasowej obsługuje maszyny wirtualne, które są szyfrowane za pomocą KEK nie lub KEK konfiguracji. Zobacz [jak wykonać kopię zapasową i przywrócić szyfrowane maszyn wirtualnych przy użyciu szyfrowania usługi Kopia zapasowa Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Podczas szyfrowania woluminu systemu operacyjnego Linux, należy pamiętać, że ponowne uruchomienie maszyny Wirtualnej jest obecnie wymagane na koniec procesu. Można to zrobić za pomocą portalu, programu powershell lub interfejsu wiersza polecenia.   Aby śledzić postęp szyfrowania, okresowo sondować komunikatu o stanie zwracanych przez https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus Get AzureRmVMDiskEncryptionStatus.  Po zakończeniu szyfrowania komunikatu o stanie zwracanych przez to polecenie będzie tę informację.  Na przykład "postępu: dysk systemu operacyjnego zostały pomyślnie zaszyfrowane, wykonaj ponowny rozruch maszyny Wirtualnej" w tym punkcie maszyny Wirtualnej może być uruchomiona ponownie oraz używane.  
+* Podczas szyfrowania woluminu systemu operacyjnego Linux, należy pamiętać, że ponowne uruchomienie maszyny Wirtualnej jest obecnie wymagane na koniec procesu. Można to zrobić za pomocą portalu, programu powershell lub interfejsu wiersza polecenia.   Aby śledzić postęp szyfrowania, okresowo sondować komunikatu o stanie zwracanych przez https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus Get AzureRmVMDiskEncryptionStatus.  Po zakończeniu szyfrowania komunikatu o stanie zwracanych przez to polecenie będzie tę informację.  Na przykład "postępu: dysk systemu operacyjnego zostały pomyślnie zaszyfrowane, wykonaj ponowny rozruch maszyny Wirtualnej" w tym punkcie maszyny Wirtualnej może być uruchomiona ponownie oraz używane.  
 
 * Azure szyfrowanie dysku dla systemu Linux wymaga dysków z danymi ma zainstalowany system plików w systemie Linux przed szyfrowania
 
@@ -396,7 +396,7 @@ Aby utworzyć magazyn kluczy, użyj jednej z następujących opcji:
 * ["101-klucza-magazynu-Create" Szablon usługi Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Polecenia cmdlet magazynu kluczy Azure programu PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* Jak [bezpiecznego magazynu kluczy](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* Jak [bezpiecznego magazynu kluczy](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Jeśli magazyn kluczy zostały już skonfigurowane dla Twojej subskrypcji, przejdź do następnej sekcji.
@@ -1103,7 +1103,7 @@ I zmień wszystkich wystąpień:
 ```
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
-do
+na
 ```
     if [ 1 ]; then
 ```

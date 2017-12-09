@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Użyj usługi Azure Stream Analytics tools dla programu Visual Studio
 Azure Stream Analytics tools dla programu Visual Studio są teraz ogólnie dostępna. Te narzędzia Włącz rozbudowanej Stream Analytics użytkownikom Rozwiązywanie problemów, a także zapisać złożonych kwerend i nawet pisać zapytania lokalnie. Zadanie usługi Stream Analytics można również wyeksportować do projektu programu Visual Studio.
@@ -40,7 +40,7 @@ Potrzebne są następujące wymagania wstępne do ukończenia tego samouczka:
 
 * Zakończ kroki do "Utwórz zadanie usługi analiza strumienia" samouczka [tworzenia rozwiązania IoT przy użyciu usługi Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Zainstaluj program Visual Studio 2017, programu Visual Studio 2015 lub Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional i społeczności wersje są obsługiwane. Express edition nie jest obsługiwane. 
-* Postępuj zgodnie z [instrukcje dotyczące instalacji](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) do zainstalowania narzędzia do analizy strumienia dla programu Visual Studio.
+* Postępuj zgodnie z [instrukcje dotyczące instalacji](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) do zainstalowania narzędzia do analizy strumienia dla programu Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Tworzenie projektu usługi analiza strumienia
 W programie Visual Studio, wybierz **pliku** > **nowy projekt**. Na liście szablonów po lewej stronie wybierz **Stream Analytics**, a następnie wybierz **Azure Stream Analytics aplikacji**.
@@ -137,7 +137,7 @@ Aby uzyskać więcej informacji, przeczytaj o [czas zarządzania](https://msdn.m
 
 Teraz, pierwszego zapytania Stream Analytics, musieli napisać, przetestować go przy użyciu przykładowych plików danych znajdujących się w folderze TollApp w następującej ścieżce:
 
-**..\TollApp\TollApp\Data**
+**.. \TollApp\TollApp\Data**
 
 Ten folder zawiera następujące pliki:
 
@@ -155,11 +155,11 @@ Najpierw można kompilować zapytanie, aby sprawdzić, czy wszystkie błąd skł
 
 1. Aby zweryfikować tego zapytania dotyczącego przykładowych danych, użyj lokalnej przykładowych danych prawym przyciskiem myszy dane wejściowe i wybierając **dodać lokalne dane wejściowe**.
    
-   ![Dodaj lokalne dane wejściowe](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
+   ![Dodawanie lokalnych danych wejściowych](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 2. W oknie podręcznym wybierz przykładowych danych z ścieżki lokalnej. Wybierz pozycję **Zapisz**.
    
-   ![Dodaj lokalne dane wejściowe](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
+   ![Dodawanie lokalnych danych wejściowych](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
    Plik o nazwie **local_EntryStream.json** jest automatycznie dodawany do folderu danych wejściowych.
    
@@ -198,7 +198,7 @@ Można wyświetlić postęp w **dane wyjściowe** okna.
  
 2. Wybierz **utworzyć nowego zadania usługi analiza strumienia Azure**. Aby uzyskać **Nazwa zadania**, wprowadź **TollApp**. Wybierz poprawny **subskrypcji** na liście rozwijanej. Wybierz **przesłać**.
 
-   ![Przesłać zadania](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+   ![Prześlij zadanie](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
 ### <a name="start-the-job"></a>Uruchom zadanie
@@ -209,7 +209,7 @@ Utworzono zadanie, a w widoku zadania otwierany automatycznie.
  
 2. Wybierz ustawienie domyślne, a następnie wybierz **Start**.
  
-   ![Uruchomienie zadania](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
+   ![Uruchamianie zadania](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
 
    Można wyświetlić stan zadania został zmieniony na **systemem**, i występują zdarzenia wejścia/wyjścia.
 
@@ -238,14 +238,14 @@ W **Eksploratora serwera**, wybierz pozycję **zadania usługi analiza strumieni
 ## <a name="open-the-job-view"></a>Otwórz widok zadania
 Rozwiń węzeł zadania, a następnie kliknij dwukrotnie **widoku zadania** węzeł, aby otworzyć widok zadania.
 
-![Zadania widoku](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
+![Widok zadania](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
 
 
 ## <a name="export-an-existing-job-to-a-project"></a>Eksportuj istniejące zadanie do projektu
 Istnieją dwa sposoby istniejącego zadania można wyeksportować do projektu.
 * W **Eksploratora serwera**w obszarze **zadania usługi analiza strumienia** węzła, kliknij prawym przyciskiem myszy węzeł zadania. Wybierz **wyeksportować do nowego projektu usługi analiza strumienia**.
    
-   ![Eksportowanie do nowego projektu usługi analiza strumienia](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
+   ![Eksportuj do nowego projektu usługi Stream Analytics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
    Wygenerowany projekt jest wyświetlany w **Eksploratora rozwiązań**.
    
@@ -253,7 +253,7 @@ Istnieją dwa sposoby istniejącego zadania można wyeksportować do projektu.
    
 * W widoku zadania, wybierz **Generowanie projektu**.
    
-   ![Generowanie projektu](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
+   ![Generuj projekt](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
    
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
  

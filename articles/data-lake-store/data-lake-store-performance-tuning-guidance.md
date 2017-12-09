@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Dostrajanie wydajności usługi Azure Data Lake Store
 
@@ -46,13 +46,13 @@ Połączenie sieciowe między źródła danych i usługi Azure Data Lake store m
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurowanie narzędzia wprowadzanie danych do maksymalnego paralelizacja
 
-Po usunąć sprzętu źródła i wąskich gardeł łączności powyżej sieci, możesz przystąpić do konfigurowania narzędziami wprowadzanie. Poniższa tabela zawiera podsumowanie ustawień klucza dla kilku popularnych wprowadzanie narzędzi oraz zapewnia szczegółowe wydajność dostrajanie artykułów dla nich.  Aby dowiedzieć się więcej na temat które narzędzie do użycia na potrzeby danego scenariusza, odwiedź [artykułu](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
+Po usunąć sprzętu źródła i wąskich gardeł łączności powyżej sieci, możesz przystąpić do konfigurowania narzędziami wprowadzanie. Poniższa tabela zawiera podsumowanie ustawień klucza dla kilku popularnych wprowadzanie narzędzi oraz zapewnia szczegółowe wydajność dostrajanie artykułów dla nich.  Aby dowiedzieć się więcej na temat które narzędzie do użycia na potrzeby danego scenariusza, odwiedź [artykułu](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
 | Narzędzie               | Ustawienia     | Więcej informacji                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
-| AdlCopy    | Usługa Azure Data Lake Analytics jednostki  |   [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| Narzędzia DistCp            | -m (mapowanie)   | [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Usługa Azure Data Lake Analytics jednostki  |   [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| Narzędzia DistCp            | -m (mapowanie)   | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Link](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | FS.Azure.Block.size, -m (mapowanie)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 

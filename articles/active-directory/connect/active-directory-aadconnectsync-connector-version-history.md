@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6699f19f0dbd20ca4bafba16b16b006bb03ec405
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connector-version-release-history"></a>Historia wersji łącznika
 Łączników programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM) są często aktualizowane.
@@ -44,7 +44,7 @@ Linki pokrewne:
 
 * Program Lotus Notes:
   * Niestandardowe wydających świadectwa opcji filtrowania
-  * Importuj klasy ImportOperations został rozwiązany definicji jakie operacje może działać w trybie "Widoki" i które w trybie "Wyszukaj".
+  * Importuj klasy ImportOperations stałej definicji jakie operacje może działać w trybie "Widoki" i które w trybie "Wyszukaj".
 * Ogólny LDAP:
   * Katalog OpenLDAP używa nazwy domeny jako zakotwiczenia zamiast entryUUI. Nowa opcja do łącznika GLDAP, dzięki czemu można zmodyfikować zakotwiczenia
 * Ogólny SQL:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence rozwiązania szablonu Podręcznikowym do konserwacji predykcyjnej aerospace i innych firm
 ## <a name="executive-summary"></a>Streszczenie
@@ -97,7 +97,7 @@ Aparaty powietrznego są bardzo poufne i kosztowne części urządzeń i zamiany
 ##### <a name="business-value-of-the-predictive-model"></a>Wartość biznesowa model predykcyjny
 Model klasyfikacji wielu klas został utworzony, który prognozuje prawdopodobieństwo wystąpienia awarii z powodu niektórych składnika w następnym miesiącu. Zastosowanie tych rozwiązań, airlines pozwala zmniejszyć koszty napraw składnika, zwiększyć dostępność podstawowych składników, obniżenie poziomu spisu zasobów powiązanych i skrócić planowanie konserwacji.
 
-### <a name="utilities"></a>Narzędzia
+### <a name="utilities"></a>Usługi użyteczności publicznej
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Przypadek użycia 1: Niepowodzenie zwolnienie gotówkowych ATM
 ##### <a name="business-problem-and-data-sources"></a>*Źródła problemu i danych biznesowych*
 Członkowie kadry kierowniczej w branży znacznym zasobów często stanu to podstawowy ryzyko operacyjne ich firm nieoczekiwanych awarii ich zasobów. Na przykład awaria maszyna przykład bankomatami w branży bankowości jest bardzo powszechny problem, który często występuje. Tego rodzaju problemów tworzenie rozwiązań konserwacji predykcyjnej pożądana dla operatorów takich maszyn. W tym przypadku użycia prognozowania problem jest obliczyć prawdopodobieństwo, że ATM gotówkowych wycofanie transakcji zostanie przerwane z powodu błędu rozdzielacz gotówkowych, takie jak papier lub awaria części. Główne źródła danych dla tego przypadku są odczyty czujników, które zbierają pomiarów podczas uwagi gotówkowych są są zbędne, a także konserwacji rekordów zbierane wraz z upływem czasu. Dane czujników uwzględnione odczyty czujników za każdą transakcję ukończone, a także odczyty czujników na każdym Uwaga pominięte. Pomiary odczyty podane czujnik takich jak luki pomiędzy uwagi, grubość, należy pamiętać, odległość przyjęcia itp. Dane konserwacji uwzględniane informacje naprawy i kody błędów. Zostały one używane do identyfikowania przypadków awarii.
@@ -165,7 +165,7 @@ Jest to możliwe i zazwyczaj przypadek, że Historia błąd znajduje się w hist
 
 Przykładowe powyżej elementy danych z przypadki użycia to:
 
-Błąd historii: zwalczania opóźnienie daty, dat błąd składnika powietrznego i typy, ATM gotówkowych wycofanie transakcji błędów, train/krótka drzwi błędów, hamulca dysk zastępczy kolejność daty, knie turbiny awarii dat i niepowodzenia polecenia wyłącznika.
+Błąd historii: lotu opóźnienie daty, dat błąd składnika powietrznego i typy, ATM gotówkowych wycofanie transakcji błędów, błędów drzwi train/krótka, hamulca dysk zastępczy kolejność daty, knie turbiny awarii dat i niepowodzenia polecenia wyłącznika.
 
 Historia obsługi: transmitowane dzienniki błędów, dzienniki błędów transakcji ATM, uczenia rekordów konserwacji, w tym typ obsługi, krótki opis itp. i wyłącznika konserwacji rekordów.
 
@@ -230,7 +230,7 @@ Podczas generowania funkcji można wykonać niektóre inne ważne czynności, ta
 
 W tabeli funkcji końcowego po funkcji kroków opisanych w sekcji starszych technicznych powinien wyglądać następujący przykład schemat danych, gdy dzień jest jednostka czasu:
 
-| Identyfikator zasobu | Time | Funkcja kolumn | Etykieta |
+| Identyfikator elementu zawartości | Time | Funkcja kolumn | Etykieta |
 | --- | --- | --- | --- |
 | 1 |1 dzień | | |
 | 1 |Dzień 2 | | |

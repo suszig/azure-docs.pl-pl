@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Klasyfikacja satelitarnej obrazu
 
@@ -67,7 +67,7 @@ Poniższe instrukcje pomagają konfigurowania środowiska wykonawczego w tym prz
         - "Instalowanie Azure Python SDK"
     - Rekord Identyfikatora klienta, klucz tajny i identyfikator dzierżawcy aplikacji usługi Azure Active Directory, które są kierowane do utworzenia. Te poświadczenia zostaną użyte w dalszej części tego samouczka.
     - Opracowywania tego tekstu usługi Azure Machine Learning Workbench i AI usługi partia zadań Azure używają oddzielnych rozwidlenia 2.0 interfejsu wiersza polecenia platformy Azure. Dla jasności nazywamy Workbench wersji interfejsu CLI jako "infrastruktury CLI uruchamiana z usługi Azure Machine Learning Workbench" i (w tym partii AI) ogólne wersji "Azure CLI 2.0".
-- [Narzędzie AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), narzędzie do koordynowania transferu plików między kontami magazynu Azure w warstwie bezpłatna
+- [Narzędzie AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), narzędzie do koordynowania transferu plików między kontami magazynu Azure w warstwie bezpłatna
     - Upewnij się, że folder zawierający plik wykonywalny AzCopy znajduje się w zmiennej środowiskowej PATH w systemie. (Dostępne są instrukcje na temat modyfikowania zmiennych środowiskowych [tutaj](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klient SSH; Firma Microsoft zaleca [PuTTY](http://www.putty.org/).
 

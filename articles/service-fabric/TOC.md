@@ -101,7 +101,6 @@
 
 ## Zarządzanie aplikacjami
 ### [Omówienie](service-fabric-application-lifecycle.md)
-### [The ImageStoreConnectionString setting (Ustawienie ImageStoreConnectionString)](service-fabric-image-store-connection-string.md)
 ### Uaktualnienie aplikacji
 #### [Omówienie](service-fabric-application-upgrade.md)
 #### [Konfiguracja](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Serializacja danych podczas uaktualniania aplikacji](service-fabric-application-upgrade-data-serialization.md)
 #### [Uaktualnianie aplikacji: tematy zaawansowane](service-fabric-application-upgrade-advanced.md)
 ### [Omówienie analizy błędów](service-fabric-testability-overview.md)
+### [The ImageStoreConnectionString setting (Ustawienie ImageStoreConnectionString)](service-fabric-image-store-connection-string.md)
 
 ## Tworzenie klastrów i zarządzanie nimi
 ### [Omówienie](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Ograniczanie przepływności](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Przenoszenie usług](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrowanie z usługą API Management](service-fabric-api-management-overview.md)
-
 ## Monitorowanie i diagnozowanie
 ### [Monitorowanie i diagnozowanie aplikacji](service-fabric-diagnostics-overview.md)
 ### Generowanie zdarzeń
@@ -164,13 +162,14 @@
 #### [Analizowanie zdarzeń za pomocą pakietu OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Rozwiązywanie problemów z klastrem lokalnym](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrowanie z usługą API Management](service-fabric-api-management-overview.md)
+
 # Przewodniki z instrukcjami
 ## Konfigurowanie środowiska projektowego
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
+### [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 
 ## Tworzenie aplikacji
 ### [Tworzenie pierwszej aplikacji w języku C# w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -194,7 +193,7 @@
 ##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Rozpoczynanie pracy
+#### Rozpoczęcie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
 ##### [Create C# application on Linux (Tworzenie aplikacji w języku C# w systemie Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)

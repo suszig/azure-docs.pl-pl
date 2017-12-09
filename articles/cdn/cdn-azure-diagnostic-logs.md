@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
 
@@ -162,7 +162,7 @@ Przed uzyskujesz dostęp do podstawowych danych analytics z konta magazynu Azure
 |Zasób |Nazwa grupy Nazwa grupy zasobów, do której należą zasoby sieci CDN.|
 |Nazwa profilu |Nazwa profilu CDN|
 |Nazwa punktu końcowego |Nazwa punktu końcowego CDN|
-|Roku|  Reprezentacja 4-cyfrowego roku, na przykład 2017 r.|
+|Rok|  Reprezentacja 4-cyfrowego roku, na przykład 2017 r.|
 |Miesiąc| Reprezentacja 2-cyfrowy numer miesiąca. 01 stycznia =... 12 grudnia =|
 |Dzień|   2-cyfrowy reprezentację dnia miesiąca|
 |PT1H.JSON| Rzeczywisty plik JSON, gdzie są przechowywane dane analityczne|
@@ -261,7 +261,7 @@ Wykonaj następujące kroki, aby dodać rozwiązanie do zarządzania:
 
 ### <a name="offers-and-pricing-tiers"></a>Oferty i warstw cenowych
 
-Możesz wyświetlać oferty i warstw cenowych dla rozwiązań do zarządzania OMS [tutaj](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Możesz wyświetlać oferty i warstw cenowych dla rozwiązań do zarządzania OMS [tutaj](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Dostosowywanie widoków
 
@@ -410,8 +410,8 @@ Przykład właściwości:
 
 * [Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Podstawowa analiza uzupełniające portalu usługi Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Analiza dzienników Azure OMS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Analiza dzienników Azure interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Analiza dzienników Azure OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Analiza dzienników Azure interfejsu API REST](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

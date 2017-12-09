@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure DevTest Labs.
@@ -226,11 +226,11 @@ Jedną z możliwości to, że nazwy sieci wirtualnej zawiera kropki. Jeśli tak,
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Dlaczego, kiedy I udostępnić Maszynę wirtualną z programu PowerShell, jest zgłaszany błąd "Nie znaleziono zasobu nadrzędnego"?
 Jeśli jeden zasób jest nadrzędny do innego zasobu, zasobu nadrzędnego musi istnieć przed utworzeniem zasobu podrzędnego. Jeśli zasobu nadrzędnego nie istnieje, zostanie wyświetlony **ParentResourceNotFound** wiadomości. Jeśli nie określisz zależność od zasobu nadrzędnego zasobu podrzędnego może wdrożyć przed nadrzędnego.
 
-Maszyny wirtualne są zasoby podrzędne w laboratorium w grupie zasobów. Korzystając z szablonów usługi Resource Manager do wdrażania maszyn wirtualnych przy użyciu programu PowerShell, nazwa grupy zasobów, które są udostępniane w skrypcie programu PowerShell powinna być nazwa grupy zasobów w laboratorium. Aby uzyskać więcej informacji, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Maszyny wirtualne są zasoby podrzędne w laboratorium w grupie zasobów. Korzystając z szablonów usługi Resource Manager do wdrażania maszyn wirtualnych przy użyciu programu PowerShell, nazwa grupy zasobów, które są udostępniane w skrypcie programu PowerShell powinna być nazwa grupy zasobów w laboratorium. Aby uzyskać więcej informacji, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Gdzie można znaleźć więcej informacji o błędzie w przypadku wdrożenia maszyny Wirtualnej nie powiedzie się?
 Błędy wdrożenia maszyny Wirtualnej są przechwytywane Dzienniki aktywności. Możesz znaleźć laboratorium Dzienniki aktywności maszyny Wirtualnej w obszarze **dzienniki inspekcji** lub **diagnostyki maszyny wirtualnej** menu zasobów w bloku maszyny Wirtualnej laboratorium (bloku pojawia się po wybraniu maszyny Wirtualnej z **Moje wirtualnego maszyny** listy).
 
-Czasami błąd wdrażania występuje przed rozpoczęciem wdrażania maszyny Wirtualnej. Przykładem jest po przekroczeniu limitu subskrypcji dla zasobu, który został utworzony z maszyny Wirtualnej. W takim przypadku szczegóły błędu są przechwytywane Dzienniki aktywności poziom laboratorium. Dzienniki aktywności znajdują się w dolnej części **konfiguracji i zasadach** ustawienia. Aby uzyskać więcej informacji na temat używania działania logowania na platformie Azure, zobacz [wyświetlać dzienniki aktywności inspekcji akcje na zasoby](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Czasami błąd wdrażania występuje przed rozpoczęciem wdrażania maszyny Wirtualnej. Przykładem jest po przekroczeniu limitu subskrypcji dla zasobu, który został utworzony z maszyny Wirtualnej. W takim przypadku szczegóły błędu są przechwytywane Dzienniki aktywności poziom laboratorium. Dzienniki aktywności znajdują się w dolnej części **konfiguracji i zasadach** ustawienia. Aby uzyskać więcej informacji na temat używania działania logowania na platformie Azure, zobacz [wyświetlać dzienniki aktywności inspekcji akcje na zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

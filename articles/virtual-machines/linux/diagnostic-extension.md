@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Rozszerzenie diagnostycznych Linux służy do monitorowania, metryki i dzienniki
 
@@ -52,7 +52,7 @@ Do pobrania konfiguracji jest tylko przykładowe; Zmodyfikuj go do własnych pot
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* **Agenta systemu Linux platformy Azure w wersji 2.2.0 lub nowszym**. Większość obrazów Galeria Linux maszyny Wirtualnej Azure zawierają wersję 2.2.7 lub nowszym. Uruchom `/usr/sbin/waagent -version` o potwierdzenie wersja zainstalowana na maszynie Wirtualnej. Jeśli maszyna wirtualna działa starszą wersję agenta gościa, należy wykonać [tych instrukcji](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) go zaktualizować.
+* **Agenta systemu Linux platformy Azure w wersji 2.2.0 lub nowszym**. Większość obrazów Galeria Linux maszyny Wirtualnej Azure zawierają wersję 2.2.7 lub nowszym. Uruchom `/usr/sbin/waagent -version` o potwierdzenie wersja zainstalowana na maszynie Wirtualnej. Jeśli maszyna wirtualna działa starszą wersję agenta gościa, należy wykonać [tych instrukcji](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) go zaktualizować.
 * **Interfejs wiersza polecenia platformy Azure**. [Konfigurowanie programu Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) środowiska na tym komputerze.
 * Polecenie wget, jeśli nie masz jeszcze go: Uruchom `sudo apt-get install wget`.
 * Istniejącą subskrypcję platformy Azure i istniejące konto magazynu w niej do przechowywania danych.
@@ -127,7 +127,7 @@ Ten zestaw informacji o konfiguracji zawiera poufne informacje, które powinny b
 }
 ```
 
-name | Wartość
+Nazwa | Wartość
 ---- | -----
 storageAccountName | Nazwa konta magazynu, w którym dane są zapisywane przez rozszerzenie.
 storageAccountEndPoint | (opcjonalnie) Punkt końcowy identyfikowanie chmury, w której istnieje konto magazynu. Jeśli to ustawienie jest nieobecne, LAD domyślnie chmurze publicznej Azure `https://core.windows.net`. Aby korzystać z konta magazynu platformy Azure w Niemczech, Azure dla instytucji rządowych lub chińskiej wersji platformy Azure, w związku z tym Ustaw tę wartość.
@@ -227,7 +227,7 @@ Ta struktura zawiera bloki różnych ustawień kontrolujących informacje zebran
 
 Element | Wartość
 ------- | -----
-Konto magazynu | Nazwa konta magazynu, w którym dane są zapisywane przez rozszerzenie. Muszą być tej samej nazwie, jak określono w [chronionych ustawień](#protected-settings).
+StorageAccount | Nazwa konta magazynu, w którym dane są zapisywane przez rozszerzenie. Muszą być tej samej nazwie, jak określono w [chronionych ustawień](#protected-settings).
 mdsdHttpProxy | (opcjonalnie) Sam jak w [chronionych ustawień](#protected-settings). Wartość publicznego jest zastępowany przez wartość prywatne, jeśli ustawiona. Umieść ustawienia serwera proxy, które zawierają klucz tajny, takie jak hasła, w [chronionych ustawień](#protected-settings).
 
 Wszystkie pozostałe elementy zostały szczegółowo opisane w kolejnych sekcjach.
@@ -300,8 +300,8 @@ Przykłady metryk określone w sekcji liczniki wydajności są zbierane co 15 se
 Ta sekcja opcjonalna kontrolę nad zbieraniem metryki. Przykłady pierwotnych są agregowane dla wszystkich [scheduledTransferPeriod](#metrics) do tworzenia tych wartości:
 
 * Średnia
-* Minimalna
-* Maksymalna
+* minimalnie
+* maksymalnie
 * wartości zbierane przez ostatnie
 * Liczba próbek raw, używany do obliczania wartości zagregowanej
 
@@ -309,10 +309,10 @@ Element | Wartość
 ------- | -----
 sink — obiekty | (opcjonalnie) Rozdzielana przecinkami lista nazw wychwytywanie, do których LAD wysyła zagregowane metryki wyników. Wszystkie metryki zagregowane są publikowane do każdej z wymienionych ujścia. Zobacz [sinksConfig](#sinksconfig). Przykład: `"EHsink1, myjsonsink"`.
 type | Określa dostawcę rzeczywiste metryki.
-Klasy | Wraz z "licznika" identyfikuje określonej metryki w obszarze nazw dostawcy.
+klasa | Wraz z "licznika" identyfikuje określonej metryki w obszarze nazw dostawcy.
 Licznik | Wraz z "class" identyfikuje określonej metryki w obszarze nazw dostawcy.
 counterSpecifier | Identyfikuje określonej metryki w obszarze nazw metryki Azure.
-Warunek | (opcjonalnie) Wybiera konkretne wystąpienie obiektu do którego Metryka stosuje lub wybiera agregacji we wszystkich wystąpieniach tego obiektu. Aby uzyskać więcej informacji, zobacz [ `builtin` definicji metryk](#metrics-supported-by-builtin).
+warunek | (opcjonalnie) Wybiera konkretne wystąpienie obiektu do którego Metryka stosuje lub wybiera agregacji we wszystkich wystąpieniach tego obiektu. Aby uzyskać więcej informacji, zobacz [ `builtin` definicji metryk](#metrics-supported-by-builtin).
 sampleRate | JEST interwałem 8601, która ustawia współczynnik pobierane pierwotnych próbek ta metryka. Jeśli nie jest ustawiona, kolekcji interwał jest ustawiany przez wartość [sampleRateInSeconds](#ladcfg). Najkrótszy częstotliwość próbkowania obsługiwanych wynosi 15 sekund (PT15S).
 jednostki | Powinien być jednym z tych ciągów: "Count", "B", "Seconds", "%", "CountPerSecond", "BytesPerSecond", "Milisekund". Definiuje jednostkę metryki. Konsumenci danych zebranych oczekuje wartości zebrane dane do tej jednostki. LAD są ignorowane w tym polu.
 Nazwa wyświetlana | Etykieta (w języku określonym przez ustawienie skojarzone ustawienia regionalne) jest dołączony do tych danych w Azure metryki. LAD są ignorowane w tym polu.
@@ -384,7 +384,7 @@ Element | Wartość
 ------- | -----
 przestrzeń nazw | (opcjonalnie) Przestrzeń nazw OMI, w którym można wykonać zapytania. Jeśli zostanie określona, wartością domyślną jest "główny/scx", implementowane przez [programu System Center i platform dostawców](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | Zapytanie OMI do wykonania.
-Tabela | (opcjonalnie) W tabeli magazynu systemu Azure w ramach konta magazynu wyznaczonego (zobacz [chronionych ustawień](#protected-settings)).
+tabela | (opcjonalnie) W tabeli magazynu systemu Azure w ramach konta magazynu wyznaczonego (zobacz [chronionych ustawień](#protected-settings)).
 frequency | (opcjonalnie) Liczba sekund między wykonywania zapytania. Wartość domyślna to 300 (5 minut); wartość minimalna wynosi 15 sekund.
 sink — obiekty | (opcjonalnie) Rozdzielana przecinkami lista nazw wychwytywanie dodatkowe, do których powinien zostać opublikowany, przykładowe nieprzetworzone wyniki metryki. Bez agregacji te przykłady pierwotnych jest obliczana przez rozszerzenie lub metryk usługi Azure.
 
@@ -406,8 +406,8 @@ Steruje przechwytywania plików dziennika. LAD przechwytuje nowych wierszy tekst
 
 Element | Wartość
 ------- | -----
-Plik | Pełna nazwa ścieżki pliku dziennika, aby być obserwowane i przechwycone. Nazwa ścieżki musi nazwę jednego pliku; Nie można jej nazwę katalogu lub zawierać symbole wieloznaczne.
-Tabela | (opcjonalnie) Tabela magazynu Azure w ramach konta magazynu wyznaczonego (określone w konfiguracji chronionym), w którym są zapisywane nowe wiersze z "fragmentu" w pliku.
+plik | Pełna nazwa ścieżki pliku dziennika, aby być obserwowane i przechwycone. Nazwa ścieżki musi nazwę jednego pliku; Nie można jej nazwę katalogu lub zawierać symbole wieloznaczne.
+tabela | (opcjonalnie) Tabela magazynu Azure w ramach konta magazynu wyznaczonego (określone w konfiguracji chronionym), w którym są zapisywane nowe wiersze z "fragmentu" w pliku.
 sink — obiekty | (opcjonalnie) Rozdzielana przecinkami lista nazw dodatkowe wychwytywanie do wierszy dziennika, które wysyłane.
 
 Należy określić albo "Tabela" lub "sink" i/lub.

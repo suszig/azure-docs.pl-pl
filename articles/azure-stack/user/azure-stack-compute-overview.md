@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Wprowadzenie do maszyn wirtualnych Azure stosu
 
@@ -121,8 +121,8 @@ W poniższej tabeli przedstawiono możesz niektóre sposoby, które można pobra
 |Metoda|Opis|
 |---------|---------|
 |Portal Azure stosu|W menu centralnym kliknij maszyn wirtualnych, a następnie wybierz maszynę Wirtualną z listy. Na stronie dla maszyny Wirtualnej masz dostęp do informacji, ustawienie wartości, monitorowanie i metryki.|
-|Azure PowerShell|Zarządzanie maszyn wirtualnych jest podobny w stosie Azure i usługi Azure. Aby uzyskać więcej informacji o korzystaniu z programu PowerShell zobacz następujący temat Azure:<br>[Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Zestawy SDK klienta|Zarządzanie za pomocą języka C# maszyn wirtualnych jest podobny w stosie Azure i usługi Azure. Aby uzyskać więcej informacji zobacz następujący temat Azure:<br>[Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows na platformie Azure przy użyciu języka C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Zarządzanie maszyn wirtualnych jest podobny w stosie Azure i usługi Azure. Aby uzyskać więcej informacji o korzystaniu z programu PowerShell zobacz następujący temat Azure:<br>[Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows z modułu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Zestawy SDK klienta|Zarządzanie za pomocą języka C# maszyn wirtualnych jest podobny w stosie Azure i usługi Azure. Aby uzyskać więcej informacji zobacz następujący temat Azure:<br>[Tworzenie i zarządzanie maszynami wirtualnymi systemu Windows na platformie Azure przy użyciu języka C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 

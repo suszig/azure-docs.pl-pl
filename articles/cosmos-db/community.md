@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b59630d9aa8d1adf2f56cde6f8039d6bfe6718
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="community-portal"></a>Portal społeczności
 ## <a name="community-spotlight"></a>Spotlight społeczności
@@ -167,6 +167,7 @@ Możesz można bieżąco z najnowszymi informacjami bazy danych Azure rozwiązan
 ### <a name="videos-and-podcasts"></a>Filmy wideo i podcasty
 | Show | Prelegent | Date | Odcinek |
 | --- | --- | --- | --- |
+| Podkastów bazy danych NoSQL | Kirill Gavrylyuk | 16 maja 2017 r. | [Microsoft DocumentDB dla NoSQL w chmurze](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Piątek z Azure |Kirill Gavrylyuk |31 października 2016 r. |[What's new in Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: Firma Microsoft + typu Open Source |Blog Jose Miguel Parrella |14 kwietnia 2016 r. |[Od średniej do DEAN na platformie Azure przy użyciu Bitnami, zestawy skalowania maszyny Wirtualnej i usługi DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |9 marca 2016 r. |[Tworzenie rozwiązania z usługą Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) |

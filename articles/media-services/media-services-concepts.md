@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services pojęcia
 Ten temat zawiera omówienie koncepcji usługi Media Services.
@@ -83,7 +83,7 @@ Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemand
 Dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Konto usługi Media można skojarzyć z co najmniej jedno konto magazynu. Konto może zawierać nieograniczoną liczbę kontenerów, dopóki ich łączny rozmiar jest w obszarze 500TB na konto magazynu.  Usługa Media Services udostępnia poziomu narzędzia zestawu SDK pozwala zarządzać wieloma kontami magazynu i dystrybucji zasobów podczas przekazywania do tych kont na podstawie metryk lub dystrybucji losowe równoważenia obciążenia. Aby uzyskać więcej informacji, zapoznaj się z praca [usługi Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Zadań i zadań
-A [zadania](https://docs.microsoft.com/en-us/rest/api/media/operations/job) jest zwykle używana do procesu (na przykład indeksu lub zakodować) prezentacji audio i wideo. W przypadku przetwarzania wiele plików wideo, należy utworzyć zadanie dla każdego wideo do zakodowania.
+A [zadania](https://docs.microsoft.com/rest/api/media/operations/job) jest zwykle używana do procesu (na przykład indeksu lub zakodować) prezentacji audio i wideo. W przypadku przetwarzania wiele plików wideo, należy utworzyć zadanie dla każdego wideo do zakodowania.
 
 Zadanie zawiera metadane dotyczące przetwarzania do wykonania. Każde zadanie zawiera co najmniej jeden [zadań](https://docs.microsoft.com/rest/api/media/operations/task), które Określ zadanie przetwarzania atomic, jego zasobów wejściowych, wyjściowych zasoby, procesor multimediów i jej powiązane ustawienia. Zadania w ramach danego zadania można je połączyć ze sobą, gdzie elementu zawartości wyjściowej jednego zadania jest podawana jako zasobów wejściowych do następnego zadania. W ten sposób jedno zadanie może zawierać wszystkie niezbędne do przedstawienia nośnika przetwarzania.
 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 
 ## <a name="protecting-content"></a>Ochrona zawartości
-### <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
+### <a name="dynamic-encryption"></a>Szyfrowania dynamicznego
 Usługa Azure Media Services umożliwia zabezpieczenie od momentu, gdy opuszczą komputera za pośrednictwem przechowywania, przetwarzania i dostarczania multimediów. Usługa Media Services umożliwia dostarczanie zawartości dynamicznie szyfrowany za pomocą Standard AES (Advanced Encryption) (przy użyciu kluczy szyfrowania 128-bitowe) i szyfrowania common encryption (CENC) za pomocą PlayReady i Widevine DRM. Usługi Media Services udostępnia usługę dostarczania kluczy AES i licencje PlayReady do autoryzowanych klientów.
 
 Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.

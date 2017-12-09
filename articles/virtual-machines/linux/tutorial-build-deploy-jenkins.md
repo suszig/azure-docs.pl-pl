@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Wdrażanie aplikacji do maszyn wirtualnych systemu Linux przy użyciu Wpięć i usługi Team Services
 
@@ -40,7 +40,7 @@ Wykonasz następujące zadania:
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Wymagany jest dostęp do serwera Wpięć. Jeśli jeszcze nie utworzono serwera Wpięć, zobacz [Tworzenie wzorca Wpięć na maszynie wirtualnej platformy Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Wymagany jest dostęp do serwera Wpięć. Jeśli jeszcze nie utworzono serwera Wpięć, zobacz [Tworzenie wzorca Wpięć na maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Zaloguj się do konta usługi Team Services (**https://{youraccount}.visualstudio.com**). 
   Możesz uzyskać [bezpłatnego konta usługi Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Wykonasz następujące zadania:
   > [!NOTE]
   > Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  Należy maszyny wirtualnej systemu Linux dla celu wdrożenia.  Aby uzyskać więcej informacji, zobacz [tworzenie i zarządzanie nimi maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Należy maszyny wirtualnej systemu Linux dla celu wdrożenia.  Aby uzyskać więcej informacji, zobacz [tworzenie i zarządzanie nimi maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Otwórz port wejściowy 80 dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Utwórz grupy zabezpieczeń sieci przy użyciu portalu Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Otwórz port wejściowy 80 dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Utwórz grupy zabezpieczeń sieci przy użyciu portalu Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Pobierz przykładową aplikację
 
@@ -132,7 +132,7 @@ Należy [grupę wdrożenia](https://www.visualstudio.com/docs/build/concepts/def
    > W poniższej procedurze należy zainstalować wymagania wstępne i *nie Uruchom skrypt z uprawnieniami sudo.*
 
 1. Otwórz **wersje** karcie **kompilacji &amp; wersji** koncentratora, otwórz **grupy wdrożenia**i wybierz **+ nowy**.
-2. Wprowadź nazwę grupy wdrożenia i opcjonalny opis. Następnie wybierz **Utwórz**.
+2. Wprowadź nazwę grupy wdrożenia i opcjonalny opis. Następnie wybierz przycisk **Utwórz**.
 3. Wybierz system operacyjny dla maszyny wirtualnej docelowej wdrożenia. Na przykład wybierz **Ubuntu 16.04 +**.
 4. Wybierz **do uwierzytelniania należy używać osobisty token dostępu w skrypcie**.
 5. Wybierz **wymagania wstępne systemu** łącza. Zainstaluj wymagania wstępne dotyczące systemu operacyjnego.

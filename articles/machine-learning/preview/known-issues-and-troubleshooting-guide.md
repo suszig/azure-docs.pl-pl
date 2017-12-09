@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -198,9 +198,9 @@ Aby usunąć wszystkie obrazy Docker, które nie są już używane jest poprawka
 $ docker system prune -a
 ```
 
-Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod kątem używania dysku danych do przechowywania obrazów. Oto [sposób dodawania dysku danych](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Następnie możesz [zmiany, w którym Docker są przechowywane obrazy](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod kątem używania dysku danych do przechowywania obrazów. Oto [sposób dodawania dysku danych](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Następnie możesz [zmiany, w którym Docker są przechowywane obrazy](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## <a name="sharing-c-drive-on-windows"></a>Udostępnianie dysku C w systemie Windows
 Jeśli wykonujesz kompilację w kontenerze Docker lokalnego w systemie Windows ustawienia `sharedVolumes` do `true` w `docker.compute` plików w obszarze `aml_config` może poprawić wydajność wykonywania. To wymaga jednak udostępnić dysk C w _Docker — narzędzie Windows_. Jeśli nie jest możliwe udostępnić dysk C, spróbuj następujących wskazówek:
