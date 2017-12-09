@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 5444e9d54bd9a2f7250ce590c3b6ced6b8b7bc51
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 31105c3529c8551cec84650689deb2d42a218074
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Zarządzane tożsamości usługi (MSI) dla zasobów platformy Azure
 
@@ -77,6 +77,7 @@ Następujących usług platformy Azure obsługuje zarządzane tożsamości usłu
 | Azure Virtual Machines | Wersja zapoznawcza | 2017 września | [Witryna Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Interfejs wiersza polecenia platformy Azure](msi-qs-configure-cli-windows-vm.md)<br>[Szablony usługi Azure Resource Manager](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Przejdź](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Wersja zapoznawcza | 2017 września | [Witryna Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Szablon usługi Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Stan usługi Funkcje Azure | Wersja zapoznawcza | 2017 września | [Witryna Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Szablon usługi Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Data Factory V2 | Wersja zapoznawcza | 2017 listopada | [Witryna Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure usługi uwierzytelniania pomocy technicznej usługi Azure AD
 
@@ -88,6 +89,8 @@ Następujące usługi obsługi uwierzytelniania usługi Azure AD i zostały prze
 | W usłudze Azure Key Vault | https://Vault.Azure.NET/ | Dostępna | 2017 września | |
 | Azure Data Lake | https://datalake.Azure.NET/ | Dostępna | 2017 września | |
 | Azure SQL | https://Database.Windows.NET/ | Dostępna | 2017 października | |
+| Azure Event Hubs | https://eventhubs.Azure.NET/ | Dostępna | 2017 grudnia | |
+| Azure Service Bus | https://servicebus.Azure.NET/ | Dostępna | 2017 grudnia | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Ile kosztuje zarządzane tożsamości usługi
 

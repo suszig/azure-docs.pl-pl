@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu certyfikatów X.509
 W tym artykule opisano, jak zabezpieczyć komunikację między różnych węzłów w klastrze Windows autonomicznych. On również opis do uwierzytelniania klientów nawiązujących połączenie z tym klastrem za pomocą certyfikatów X.509. Uwierzytelniania gwarantuje, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożone aplikacje i wykonywanie zadań zarządzania. Certyfikat zabezpieczeń powinien być włączony w klastrze, podczas tworzenia klastra.  
@@ -255,7 +255,7 @@ Teraz można wyeksportować certyfikat do pliku .pfx chroniony hasłem. Najpierw
    Write-Host $cert.ToString($true)
    ```
 
-Alternatywnie, jeśli masz subskrypcję platformy Azure, wykonaj czynności opisane w sekcji [Dodaj certyfikaty do magazynu kluczy](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Alternatywnie, jeśli masz subskrypcję platformy Azure, postępuj zgodnie z instrukcjami [tworzenia klastra usługi sieć szkieletowa usług za pomocą usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Instalowanie certyfikatów
 Po mają certyfikaty, można je zainstalować w węzłach klastra. Węzły muszą mieć najnowsze środowiska Windows PowerShell 3.x na nich zainstalowany. Powtórz te czynności na każdym węźle klastra i certyfikaty serwera oraz wszystkie pomocnicze certyfikaty.

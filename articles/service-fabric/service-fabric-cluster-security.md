@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra sieci szkieletowej usług
-Klastra usługi sieć szkieletowa usług Azure jest zasobem, którego jesteś właścicielem. Należy zabezpieczyć klastrów w celu zapobiegania nieautoryzowanemu połączyć się z nimi. Bezpieczne klastra jest szczególnie ważne w przypadku obciążeń produkcyjnych są uruchomione w klastrze. Chociaż można utworzyć klastra niezabezpieczoną, jeśli klaster przedstawia punkty końcowe zarządzania do publicznej sieci internet, użytkowników anonimowych można się z nim połączyć. 
+Klastra usługi sieć szkieletowa usług Azure jest zasobem, którego jesteś właścicielem. Jest obowiązek Zabezpieczanie klastrów w celu zapobiegania nieautoryzowanemu połączyć się z nimi. Bezpieczne klastra jest szczególnie ważne w przypadku obciążeń produkcyjnych są uruchomione w klastrze. Chociaż można utworzyć klastra niezabezpieczoną, jeśli klaster przedstawia punkty końcowe zarządzania do publicznej sieci internet, użytkowników anonimowych można się z nim połączyć. Niezabezpieczona klastrów nie są obsługiwane w przypadku obciążeń produkcyjnych. 
 
 W tym artykule przedstawiono scenariusze zabezpieczeń platformy Azure i autonomicznych klastrów i różnych technologii, używanych do ich wdrażania:
 
@@ -58,7 +58,7 @@ Klastry z systemem Azure i autonomicznych klastrów z systemem Windows zarówno 
 ### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatów klienta do węzła
 Ustaw zabezpieczenia certyfikat klienta do węzła podczas tworzenia klastra, w portalu Azure za pomocą szablonu usługi Resource Manager lub za pomocą szablonu JSON autonomicznych. Aby utworzyć certyfikat, Określ certyfikat klienta administratora lub certyfikatu klienta użytkownika. Najlepszym rozwiązaniem powinna się różnić od certyfikatów głównych i dodatkowych, określ dla klientów i użytkowników certyfikatów klienta administracyjnego można określić [zabezpieczeń węzła do węzła](#node-to-node-security). Domyślnie certyfikaty zabezpieczeń węzła do węzła klastra są dodawane do listy dozwolonych klienta administrator certyfikatów.
 
-Klienci łączący się do klastra przy użyciu certyfikatu admin mają pełny dostęp do możliwości zarządzania. Klienci łączący się z klastrem przy użyciu certyfikatu klienta użytkownika tylko do odczytu mają dostęp tylko do odczytu do możliwości zarządzania. Te certyfikaty służą do RBAC, opisana w dalszej części tego artykułu.
+Klienci łączący się do klastra przy użyciu certyfikatu admin mają pełny dostęp do możliwości zarządzania. Klienci łączący się z klastrem przy użyciu certyfikatu klienta użytkownika tylko do odczytu mają dostęp tylko do odczytu do możliwości zarządzania. Te certyfikaty służą do RBAC, które jest opisane w dalszej części tego artykułu.
 
 Aby dowiedzieć się, jak skonfigurować certyfikat zabezpieczeń w klastrze platformy Azure, zobacz [Konfigurowanie klastra za pomocą szablonu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 

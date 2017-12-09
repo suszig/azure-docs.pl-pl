@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Jak można zresetować hasła maszyny Wirtualnej systemu Linux lub klucza SSH, popraw konfigurację SSH i sprawdzanie spójności dysku przy użyciu rozszerzenia VMAccess
 Nie można połączyć z maszyną wirtualną systemu Linux na platformie Azure z powodu zapomniane hasło, nieprawidłowy klucz Secure Shell (SSH), lub na problem z konfiguracją SSH za pomocą rozszerzenia VMAccessForLinux z wiersza polecenia platformy Azure można zresetować hasła lub klucza SSH, napraw SSH Konfiguracja i sprawdzania spójności dysku. 
@@ -44,7 +44,7 @@ Z wiersza polecenia platformy Azure możesz wykonać następujące zadania:
 ## <a name="prerequisites"></a>Wymagania wstępne
 Należy wykonać następujące czynności:
 
-* Konieczne będzie [instalowanie interfejsu wiersza polecenia Azure](../../../cli-install-nodejs.md) i [nawiązać połączenia z subskrypcją](../../../xplat-cli-connect.md) korzystać z zasobów platformy Azure skojarzonych z Twoim kontem.
+* Konieczne będzie [instalowanie interfejsu wiersza polecenia Azure](../../../cli-install-nodejs.md) i [nawiązać połączenia z subskrypcją](/cli/azure/authenticate-azure-cli) korzystać z zasobów platformy Azure skojarzonych z Twoim kontem.
 * Ustaw tryb dla klasycznym modelu wdrażania, wpisując następujące polecenie w wierszu polecenia:
     ``` 
         azure config mode asm

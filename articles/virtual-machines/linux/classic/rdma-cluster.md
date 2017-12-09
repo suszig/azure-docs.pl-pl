@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurowanie klastra RDMA systemu Linux na potrzeby uruchamiania aplikacji MPI
 Dowiedz się, jak skonfigurować klaster RDMA systemu Linux na platformie Azure z [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na uruchamianie równoległe aplikacji komunikat interfejsu (Passing Interface). Ten artykuł zawiera kroki, aby przygotować obraz HPC systemu Linux, aby uruchomić Intel MPI w klastrze. Po przygotowaniu można wdrożyć klaster maszyn wirtualnych przy użyciu tego obrazu i jeden rozmiary maszyny Wirtualnej platformy Azure z funkcją RDMA (obecnie H16r H16mr, A8 i A9). Klaster umożliwia uruchamianie aplikacji MPI wydajne komunikowanie się przez sieć małym opóźnieniu i dużej przepustowości oparte na technologii dostępu (do pamięci RDMA) zdalnego pamięci.
@@ -47,7 +47,7 @@ Poniższe kroki pokazują, jak wdrożyć maszynę Wirtualną HPC z dodatkiem SP1
 * **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut. W przypadku dużych klastrów rozważ z subskrypcji lub inne opcje zakupu.
 * **Dostępność rozmiar maszyny Wirtualnej**: następujące rozmiary wystąpienia są funkcją RDMA: H16r, H16mr A8 i A9. Sprawdź [produkty, które są dostępne w regionie](https://azure.microsoft.com/regions/services/) dostępności w regionach platformy Azure.
 * **Limit przydziału rdzeni**: może być konieczne zwiększyć limit przydziału rdzeni do wdrożenia klastrów obliczeniowych maszyn wirtualnych. Na przykład należy co najmniej 128 rdzeni. Jeśli chcesz wdrożyć 8 A9 maszyn wirtualnych, jak pokazano w tym artykule. Subskrypcją również może ograniczyć liczbę rdzeni, którą można wdrożyć w niektórych rodzin rozmiar maszyny Wirtualnej, w tym serię H. Aby zażądać zwiększenia limitu przydziału [otwarcia żądania pomocy technicznej online klienta](../../../azure-supportability/how-to-create-azure-support-request.md) bez dodatkowych opłat.
-* **Azure CLI**: [zainstalować](../../../cli-install-nodejs.md) wiersza polecenia platformy Azure i [nawiązać połączenia z subskrypcją platformy Azure](../../../xplat-cli-connect.md) z komputera klienckiego.
+* **Azure CLI**: [zainstalować](../../../cli-install-nodejs.md) wiersza polecenia platformy Azure i [nawiązać połączenia z subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli) z komputera klienckiego.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Zapewnij SLES 12 SP1 HPC maszyny Wirtualnej
 Po zalogowaniu się na platformie Azure przy użyciu wiersza polecenia platformy Azure, uruchom `azure config list` aby upewnić się, że dane wyjściowe zawierają tryb usługi zarządzania. Jeśli nie, należy ustawić tryb uruchamiając poniższe polecenie:

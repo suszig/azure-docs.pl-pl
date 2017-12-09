@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API dla bazy danych MongoDB
 
@@ -45,9 +45,9 @@ Azure DB rozwiązania Cosmos baz danych może służyć do przechowywania danych
 
 **Klasy Enterprise**: bazy danych rozwiązania Cosmos Azure obsługuje wiele replik lokalnych do dostarczania 99,99% dostępności i ochrony danych w wypadku niepowodzenia lokalne i regionalne. Azure DB rozwiązania Cosmos ma klasy enterprise [certyfikaty zgodności](https://www.microsoft.com/trustcenter) i funkcje zabezpieczeń. 
 
-Dowiedz się więcej, w tym Azure piątek wideo z Scott Hanselman i Azure rozwiązania Cosmos DB główny Engineering Menedżer Kirill Gavrylyuk.
+Dowiedz się więcej na ten film z Azure rozwiązania Cosmos DB starszy Menedżer programu, Aleksey Savateyev.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
 
 ## <a name="how-to-get-started"></a>Jak zacząć

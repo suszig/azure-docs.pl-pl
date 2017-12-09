@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c10374adf9b1438e087aa5fdba670f6d0234ee6f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Jak zażądać weryfikacji dwuetapowej dla użytkownika lub grupy
 
@@ -40,11 +40,11 @@ Obie te opcje monitować użytkowników o zarejestrować uwierzytelnianie wielos
 
 Konta użytkowników w usłudze Azure Multi-Factor Authentication mają następujące trzy różne stany:
 
-| Stan | Opis | Aplikacje korzystające z przeglądarki, których to dotyczy | Aplikacje przeglądarki i nowoczesnego uwierzytelniania, których to dotyczy |
-|:---:|:---:|:---:|:--:|
-| Disabled (Wyłączony) |Stan domyślny dla nowych użytkowników niezarejestrowanych Azure Multi-Factor Authentication (MFA). |Nie |Nie |
-| Enabled (Włączony) |Użytkownik został zarejestrowany w usłudze Azure MFA, ale nie został zarejestrowany. Aby zarejestrować przy następnym zalogowaniu zostanie wyświetlony monit. |Nie.  One nadal działać do czasu ukończenia procesu rejestracji. | Tak. Po wygaśnięciu tokenu odświeżania dla sesji rejestracji usługi MFA będzie wymagane.|
-| Enforced (Wymuszony) |Użytkownik został zarejestrowany i ukończył proces rejestracji dla usługi Azure MFA. |Tak.  Aplikacje wymagają hasła aplikacji. |Tak. Uwierzytelnianie wieloskładnikowe wymagane podczas logowania. |
+| Stan | Opis | Aplikacje korzystające z przeglądarki, których to dotyczy | Aplikacje przeglądarki, których to dotyczy | Nowoczesnego uwierzytelniania, których to dotyczy |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled (Wyłączony) |Stan domyślny dla nowych użytkowników niezarejestrowanych Azure Multi-Factor Authentication (MFA). |Nie |Nie |Nie |
+| Enabled (Włączony) |Użytkownik został zarejestrowany w usłudze Azure MFA, ale nie został zarejestrowany. Aby zarejestrować przy następnym zalogowaniu zostanie wyświetlony monit. |Nie.  One nadal działać do czasu ukończenia procesu rejestracji. | Tak. Po wygaśnięciu sesji, rejestracja MFA będzie wymagana.| Tak. Po wygaśnięciu tokenu dostępu, rejestracja MFA będzie wymagana. |
+| Enforced (Wymuszony) |Użytkownik został zarejestrowany i ukończył proces rejestracji dla usługi Azure MFA. |Tak.  Aplikacje wymagają hasła aplikacji. |Tak. Uwierzytelnianie wieloskładnikowe wymagane podczas logowania. | Tak. Uwierzytelnianie wieloskładnikowe wymagane podczas logowania. |
 
 Stan użytkownika odzwierciedla czy administrator zarejestrował je w usłudze Azure MFA i czy zostały ukończone w procesie rejestracji.
 

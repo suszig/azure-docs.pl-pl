@@ -1,8 +1,8 @@
 ---
-title: "Oceń ograniczanie dla programu SMS, wiadomości e-mail i elementów webhook | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak Azure ogranicza liczbę możliwe powiadomień programu SMS, wiadomości e-mail lub elementu webhook z grupy akcji."
-author: anirudhcavale
-manager: orenr
+title: "Oceń ograniczanie dla programu SMS, wiadomości e-mail, powiadomień wypychanych w aplikacji platformy Azure i elementów webhook | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak Azure ogranicza liczbę możliwych programu SMS, wiadomości e-mail, powiadomień wypychanych lub elementu webhook aplikacji Azure z grupy akcji."
+author: dukek
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/8/2017
+ms.author: dukek
+ms.openlocfilehash: c76bf5cf51f18a32b33060d528c64d119e31dbbd
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Oceń ograniczenie dla elementu webhook, wiadomości e-mail i wiadomości SMS wpisów
-Limitów szybkości jest zawieszenie powiadomienia, gdy zbyt wiele powiadomienia są wysyłane na adres telefonu komórkowego lub adresu e-mail. Limitów szybkości zapewnia, że alerty są łatwe w zarządzaniu i możliwością wykonania akcji.
+# <a name="rate-limiting-for-sms-messages-emails-azure-app-push-notifications-and-webhook-posts"></a>Oceń ograniczanie dla wiadomości SMS, wiadomości e-mail, powiadomień wypychanych w aplikacji platformy Azure i elementu webhook wpisów
+Limitów szybkości jest zawieszenie powiadomienia, gdy zbyt wiele powiadomienia są wysyłane do konkretny numer telefonu, adres e-mail lub urządzenia. Limitów szybkości zapewnia, że alerty są łatwe w zarządzaniu i możliwością wykonania akcji.
 
-Zasady programu SMS i wiadomości e-mail są takie same. Próg limitu szybkości jest:
+Progi limit szybkości są:
 
- - **SMS**: 10 wiadomości w ciągu godziny.
+ - **SMS**: nie więcej niż 1 SMS co 5 minut.
  - **Wiadomości e-mail**: 100 wiadomości w ciągu godziny.
+ - **Powiadomienia wypychane aplikacji dla platformy Azure**: Brak nie szybkość ograniczanie dla powiadomień wypychanych.
+ - **Elementów Webhook**: Brak nie szybkość ograniczanie dla elementów webhook.
 
 ## <a name="rate-limit-rules"></a>Reguły limit szybkości
 - Numer telefonu lub adres e-mail jest szybkość ograniczone, gdy odbiera komunikaty więcej niż próg.
 - Numer telefonu lub adres e-mail może być częścią grupy akcji na wiele subskrypcji. Stosuje limitów szybkości dla wszystkich subskrypcji. Ma to zastosowanie zaraz po osiągnięciu progu, nawet jeśli komunikaty są wysyłane z wieloma subskrypcjami.  
-- Jeśli numer telefonu lub adres e-mail jest szybkość ograniczone, dodatkowe powiadomienie jest wysyłane do komunikowania się limitów szybkości. Stany powiadomienie po wygaśnięciu limitów szybkości.
-
-## <a name="rate-limit-of-webhooks"></a>Limit szybkości elementów webhook ##
-Brak nie szybkość ograniczenia w przypadku elementów webhook.
+- Jeśli adres e-mail jest ograniczona, dodatkowe powiadomienie jest wysyłane do komunikowania się limitów szybkości. Stany powiadomienie po wygaśnięciu limitów szybkości.
 
 ## <a name="next-steps"></a>Następne kroki ##
 * Dowiedz się więcej o [SMS alertów zachowanie](monitoring-sms-alert-behavior.md).

@@ -3,7 +3,7 @@ title: "Usługi sieci Web uczenie Azure maszyny: Wdrażanie i zużycia | Dokumen
 description: "Zasoby umożliwiające wdrażanie i korzystanie z usług sieci web."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: b0afbd54ddad4cc4be2b35c85d81abe90c717692
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Usługi sieci Web Azure Machine Learning: wdrażanie i korzystanie
 Azure Machine Learning umożliwia wdrażanie przepływów pracy i modele jako usługi sieci web usługi machine learning. Wywoływanie modeli uczenia maszynowego z aplikacji przez Internet w celu prognoz w czasie rzeczywistym lub w trybie wsadowym można następnie te usługi sieci web. Ponieważ usługi sieci web RESTful, można ich wywołać z różnych języków programowania i platform, takich jak .NET i Java i z aplikacji, takich jak program Excel.

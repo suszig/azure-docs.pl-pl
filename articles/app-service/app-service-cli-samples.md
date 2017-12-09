@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Przykłady Azure CLI
 
@@ -45,6 +45,10 @@ Poniższa tabela zawiera linki do bash skrypty utworzone przy użyciu wiersza po
 | [Łączenie aplikacji sieci Web z kontem magazynu](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację sieci web platformy Azure i konto magazynu, a następnie dodaje parametry połączenia magazynu do ustawień aplikacji. |
 | [Łączenie aplikacji sieci web z pamięci podręcznej redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację sieci web platformy Azure i pamięci podręcznej redis, a następnie dodaje szczegóły połączenia redis do ustawień aplikacji.) |
 | [Łączenie aplikacji sieci web do bazy danych rozwiązania Cosmos](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację sieci web platformy Azure i DB rozwiązania Cosmos, a następnie dodaje informacje dotyczące połączenia rozwiązania Cosmos DB ustawień aplikacji. |
+|**Kopie zapasowe i przywracanie aplikacji**||
+| [Tworzenie kopii zapasowej aplikacji sieci web](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację sieci web platformy Azure oraz jednorazowej kopii zapasowej dla niego. |
+| [Tworzenie zaplanowanego tworzenia kopii zapasowej dla aplikacji sieci web](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację sieci web platformy Azure oraz zaplanowanego tworzenia kopii zapasowej dla niego. |
+| [Przywrócenie z kopii zapasowej aplikacji sieci web](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Przywraca aplikację sieci web platformy Azure z kopii zapasowej. |
 |**Monitoruj aplikację**||
 | [Monitorowanie aplikacji sieci Web za pomocą dzienników serwera sieci Web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzenie aplikacji sieci web platformy Azure, włączenie rejestrowania dla niego i pobiera dzienniki na komputerze lokalnym. |
 | | |

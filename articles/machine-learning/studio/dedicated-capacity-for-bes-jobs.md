@@ -3,7 +3,7 @@ title: "Pojemność Machine Learning partii wykonywania usługi zadań w wersji 
 description: "Omówienie usług partii zadań Azure Machine Learning zadań."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.service: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure usługa partia zadań dla zadania uczenia maszynowego
 
@@ -110,4 +110,4 @@ Zaleca się, że sondowania stan zadania, aby określić, po zakończeniu zadani
 
 | **Korzystanie z puli partii podczas przetwarzania**    | **Użyj klasycznego partii podczas przetwarzania**  |
 |---|---|
-|Musisz uruchomić dużej liczby zadań<br>Lub<br/>Musisz wiedzieć, że Twoje zadania będą uruchamiane natychmiast<br/>Lub<br/>Należy gwarantowanej przepustowości. Na przykład trzeba uruchomić liczba zadań w określonym przedziale czasu i chcesz skalować w poziomie zasoby obliczeniowe do własnych potrzeb.    | Użytkownicy korzystający z kilku zadań<br/>I<br/> Nie ma potrzeby zadania, aby natychmiast uruchomić |
+|Musisz uruchomić dużej liczby zadań<br>Lub<br/>Musisz wiedzieć, że Twoje zadania będą uruchamiane natychmiast<br/>Lub<br/>Należy gwarantowanej przepustowości. Na przykład trzeba uruchomić liczba zadań w określonym przedziale czasu i chcesz skalować w poziomie zasoby obliczeniowe do własnych potrzeb.    | Użytkownicy korzystający z kilku zadań<br/>And<br/> Nie ma potrzeby zadania, aby natychmiast uruchomić |

@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 336c8b3b607c9a6ba7a2fe9686ab835f015c1adf
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication — publicznej wersji zapoznawczej
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
 Ten artykuł ułatwia zarządzanie Azure Multi-Factor Authentication, skoro masz działa prawidłowo.  Obejmuje ona różnych tematów, które ułatwiają maksymalne wykorzystanie usługi Azure Multi-Factor Authentication.  Nie wszystkie te funkcje są dostępne w każdym [wersja Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Te ustawienia są w publicznej wersji zapoznawczej w portalu Azure. Dokumentacja na temat zarządzania ustawieniami Azure Multi-Factor Authentication w portalu pfweb, zobacz [ustawienia skonfigurować uwierzytelnianie wieloskładnikowe Azure](multi-factor-authentication-whats-next-pfweb.md).
 
 | Funkcja | Opis | 
 |:--- |:--- |

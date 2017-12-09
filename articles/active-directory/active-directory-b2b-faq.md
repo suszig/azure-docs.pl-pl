@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9f0ee9174c925f9338dc69bc5560255d66b30493
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure współpracy B2B usługi Active Directory — często zadawane pytania
 
@@ -115,7 +115,7 @@ Firma Microsoft zaleca, aby zaprosić jeden użytkownik z organizacji partnerski
 Jeśli partner jest dzierżawa usługi Azure AD, która jest federacyjnego do lokalnej infrastruktury uwierzytelniania, lokalne logowanie jednokrotne (SSO) jest automatycznie osiągnięta. Jeśli partner nie jest dzierżawa usługi Azure AD, konto usługi Azure AD jest tworzone dla nowych użytkowników. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Po próbie B2B usługi Azure AD nie zaakceptował gmail.com i outlook.com adresy e-mail i że B2C był używany przez te typy kont?
-Różnice między B2B i współpracę (B2C) biznesowych do firmy, zgodnie z którą są obsługiwane tożsamości zostaną usunięte. Tożsamość użyta nie jest potrzeba wybór między używaniem B2B przy użyciu usługi B2C. Informacje o wybieraniu opcjach współpracy, zobacz [współpracy B2B porównania i B2C w usłudze Azure Active Directory](active-directory-b2b-compare-b2c.md).
+Różnice między B2B i współpracę (B2C) biznesowych do konsumenta, zgodnie z którą są obsługiwane tożsamości zostaną usunięte. Tożsamość użyta nie jest potrzeba wybór między używaniem B2B przy użyciu usługi B2C. Informacje o wybieraniu opcjach współpracy, zobacz [współpracy B2B porównania i B2C w usłudze Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Jakie aplikacje i usługi obsługują gości B2B usługi Azure?
 Wszystkie aplikacje Azure zintegrowanej z usługą AD obsługuje gości B2B usługi Azure. 

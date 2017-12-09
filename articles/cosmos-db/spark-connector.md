@@ -13,17 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 1a551615d0ffbbc036d3052cc552fbf4c1098ff7
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie w czasie rzeczywistym analizy danych big data w usłudze Spark do łącznika usługi Azure DB rozwiązania Cosmos
 
 Spark do bazy danych Azure rozwiązania Cosmos łącznika umożliwia Azure DB rozwiązania Cosmos do działania jako źródło danych wejściowych lub ujście danych wyjściowych zadań Apache Spark. Łączenie [Spark](http://spark.apache.org/) do [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) przyspiesza możliwości rozwiązania szybko problemów analizy danych, których można użyć bazy danych Azure rozwiązania Cosmos szybkie utrwalić i zapytania na danych. Spark do bazy danych Azure rozwiązania Cosmos łącznika wydajnie korzysta natywnych indeksy bazy danych rozwiązania Cosmos Azure zarządzanych. Indeksy włączyć można aktualizować kolumny wykonywać analizy i rozwijana wypychania predykatu filtrowania pod kątem fast zmiany globalnie rozproszone dane, które należeć do zakresu od Internetu rzeczy (IoT) do scenariuszy nauki i analiza danych.
+
+Dowiedz się więcej na ten film z Lewandowski Denny rozwiązania Cosmos DB główny menedżer programu Azure. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 Do pracy z Spark, GraphX i wykres Gremlin interfejsów API Azure DB rozwiązania Cosmos, zobacz [wykonywać analizy wykresu przy użyciu platformy Spark i Apache TinkerPop Gremlin](spark-connector-graph.md).
 

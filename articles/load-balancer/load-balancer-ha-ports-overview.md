@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -74,7 +74,7 @@ Aby wziąć udział w wersji zapoznawczej funkcji porty wysokiej dostępności w
 
 Poniżej przedstawiono obsługiwane konfiguracje lub wyjątki dla portów funkcji wysokiej dostępności:
 
-- Z jednej konfiguracji IP frontonu może mieć pojedynczy DSR reguły modułu równoważenia obciążenia z portami wysokiej dostępności, lub może być reguły modułu równoważenia obciążenia w jednej z systemem innym niż DSR z portami wysokiej dostępności. Nie może mieć jednocześnie.
+- Z jednej konfiguracji IP frontonu może mieć pojedynczy bezpośredniego zwrotu serwera (DSR - pływającego adresu IP na platformie Azure) reguła modułu równoważenia z portami HA obciążenia, lub może być reguły modułu równoważenia obciążenia w jednej z systemem innym niż DSR z portami wysokiej dostępności. Nie może mieć jednocześnie.
 - Konfiguracja IP interfejsu sieciowego pojedynczego może mieć tylko jeden z systemem innym niż — DSR załadować reguły modułu równoważenia z portami wysokiej dostępności. Nie można skonfigurować inne zasady dla tego polecenia ipconfig.
 - Konfiguracja IP interfejsu sieciowego pojedynczego mogą mieć jeden lub więcej DSR reguły modułu równoważenia z portami HA obciążenia, pod warunkiem wszystkich ich odpowiednich konfiguracji IP frontonu są unikatowe.
 - Jeśli wszystkie reguły równoważenia obciążenia HA portów DSR (tylko), mogą współistnieć wskazuje do tej samej puli zaplecza (co najmniej dwa) reguła moduł równoważenia obciążenia. Jest taka sama wartość true, jeśli są wszystkie reguły z systemem innym niż — HA portów (DSR i z systemem innym niż DSR). W przypadku kombinację portów wysokiej dostępności i reguł portów bez wysokiej dostępności, jednak dwóch takich reguł równoważenia obciążenia nie mogą współistnieć.

@@ -3,7 +3,7 @@ title: "Jak wdrożyć usługę sieci Web w wielu regionach | Dokumentacja firmy 
 description: "Kroki wdrażania (Kopiuj) nową usługę sieci Web do innych regionów."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Wdrażanie usługi sieci Web do wielu regionów
 Usługi sieci Web platformy Azure umożliwiają łatwe wdrażanie usługi sieci web do wielu regionach, bez konieczności wielu subskrypcji lub obszarów roboczych. 

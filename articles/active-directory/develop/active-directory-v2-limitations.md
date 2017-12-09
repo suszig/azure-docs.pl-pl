@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Należy użyć punktu końcowego v2.0?
 Podczas tworzenia aplikacji, które integrują się z usługą Azure Active Directory, należy zdecydować, czy protokołów uwierzytelniania i punktu końcowego v2.0 odpowiadają Twoim potrzebom. Oryginalny punktu końcowego usługi Azure Active Directory firmy jest nadal w pełni obsługiwane i pod pewnymi względami jest więcej zaawansowanej funkcji niż wersja 2.0. Jednak punktu końcowego v2.0 [wprowadzono znaczące korzyści](active-directory-v2-compare.md) dla deweloperów.
@@ -110,7 +110,7 @@ Punktu końcowego v2.0 nie obsługuje SAML lub WS-Federation; obsługuje tylko O
 * Punktu końcowego v2.0 nie obsługuje wystawiającego oświadczeń roli lub grupy w tokenach identyfikator.
 * [2.0 właściciela zasobów hasło poświadczeń OAuth](https://tools.ietf.org/html/rfc6749#section-4.3) nie jest obsługiwany przez punktu końcowego v2.0.
 
-Addtion punktu końcowego v2.0 nie obsługuje żadnych formularza protokołów języka SAML lub WS-Federation.
+Ponadto punktu końcowego v2.0 nie obsługuje żadnych formularza protokołów języka SAML lub WS-Federation.
 
 Aby lepiej zrozumieć zakres protokołu funkcje obsługiwane w punkcie końcowym v2.0, zapoznaj się z artykułem naszych [referencyjne protokołu OpenID Connect i OAuth 2.0](active-directory-v2-protocols.md).
 

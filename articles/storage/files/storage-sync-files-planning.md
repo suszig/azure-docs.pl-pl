@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -46,7 +46,7 @@ Agent synchronizacji plików Azure jest pobrania pakietu, który umożliwia syst
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Punkt końcowy serwera
-Punkt końcowy serwera reprezentuje konkretnej lokalizacji na zarejestrowanego serwera, takie jak folder na wolumin serwera lub w katalogu głównym woluminu. Wiele punktów końcowych serwera może istnieć na tym samym woluminie, jeśli ich przestrzenie nazw nie nakładają się (na przykład F:\sync1 i F:\sync2). Można skonfigurować zasady warstw chmury indywidualnie dla każdego punktu końcowego serwera. Jeśli dodasz lokalizacji serwera, która ma istniejącego zestawu plików jako punktu końcowego serwera do grupy synchronizacji te pliki są łączone z innymi plikami, które znajdują się już na innych punktów końcowych w grupie synchronizacji.
+Punkt końcowy serwera reprezentuje konkretnej lokalizacji na zarejestrowanego serwera, takie jak folder na serwerze woluminu.  Uwaga: w chwili obecnej w określonej lokalizacji nie może być katalogu głównego woluminu (na przykład f:\) Jeśli będzie to możliwe w przyszłości Podgląd aktualizacji. Wiele punktów końcowych serwera może istnieć na tym samym woluminie, jeśli ich przestrzenie nazw nie nakładają się (na przykład F:\sync1 i F:\sync2). Można skonfigurować zasady warstw chmury indywidualnie dla każdego punktu końcowego serwera. Jeśli dodasz lokalizacji serwera, która ma istniejącego zestawu plików jako punktu końcowego serwera do grupy synchronizacji te pliki są łączone z innymi plikami, które znajdują się już na innych punktów końcowych w grupie synchronizacji.
 
 > [!Note]  
 > Punkt końcowy serwera może znajdować się na woluminie systemu Windows. Chmura obsługi nie jest obsługiwana w woluminie systemowym.
@@ -83,11 +83,11 @@ Przyszłych wersji systemu Windows Server zostanie dodana po ich wydaniu. Wcześ
 | Funkcja | Obsługuje stanu | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Listy ACL systemu Windows są zachowywane przez synchronizacji plików Azure i są wymuszane przez system Windows Server na serwerze punktów końcowych. Listy ACL systemu Windows nie są (jeszcze) obsługiwany przez pliki Azure, jeśli pliki są udostępniane bezpośrednio w chmurze. |
-| Twarde linki | Pominięto | |
-| Łącza symbolicznego | Pominięto | |
+| Twarde linki | Pominięty | |
+| Łącza symbolicznego | Pominięty | |
 | Punkty instalacji | Częściowo obsługiwanej | Punkty instalacji może być katalogiem głównym serwera punktu końcowego, ale są one pomijane, jeśli są one w przestrzeni nazw punktu końcowego serwera. |
-| Skrzyżowania | Pominięto | Na przykład rozproszonych DfrsrPrivate System plików i DFSRoots folderów. |
-| Punkty ponownej analizy | Pominięto | |
+| Skrzyżowania | Pominięty | Na przykład rozproszonych DfrsrPrivate System plików i DFSRoots folderów. |
+| Punkty ponownej analizy | Pominięty | |
 | Kompresja NTFS | W pełni obsługiwane | |
 | Plików rozrzedzonych | W pełni obsługiwane | Synchronizacja plików rozrzedzonych (nie są blokowane), ale synchronizacji w chmurze jako całego pliku. Zawartość pliku zmiany w chmurze (lub na innym serwerze), plik nie jest już rozrzedzony, gdy zmiana zostały pobrane. |
 | Alternatywne strumienie danych (AD) | Zachowane, ale nie zsynchronizowano | |

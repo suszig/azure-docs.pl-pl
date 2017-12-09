@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9be43e6dd8ce2c8ba8326b06923677eb897765b
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Wdrażanie synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -33,7 +33,7 @@ Zdecydowanie zaleca się przeczytanie [planowania wdrożenia usługi pliki Azure
 * Co najmniej jedno wystąpienie obsługiwanych systemu Windows Server lub klastra systemu Windows Server do synchronizacji z usługą Azure synchronizacji plików. Aby uzyskać więcej informacji o obsługiwanych wersjach systemu Windows Server, zobacz [współdziałanie z systemem Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## <a name="deploy-the-storage-sync-service"></a>Wdrażanie usługi synchronizacji magazynu 
-Usługa synchronizacji magazynu jest najwyższego poziomu zasobów platformy Azure dla synchronizacji plików Azure. Aby wdrożyć usługę synchronizacji magazynu, przejdź do [portalu Azure](https://portal.azure.com/), a następnie wyszukaj synchronizacji plików Azure. W wynikach wyszukiwania wybierz **synchronizacji plików Azure (wersja zapoznawcza)**, a następnie wybierz **Utwórz** otworzyć **Wdrażanie synchronizacji magazynu** kartę.
+Usługa synchronizacji magazynu jest najwyższego poziomu zasobów platformy Azure dla synchronizacji plików Azure. Aby wdrożyć usługę synchronizacji magazynu, przejdź do [portalu Azure](https://portal.azure.com/), kliknij przycisk Nowy, a następnie wyszukaj synchronizacji plików Azure. W wynikach wyszukiwania wybierz **synchronizacji plików Azure (wersja zapoznawcza)**, a następnie wybierz **Utwórz** otworzyć **Wdrażanie synchronizacji magazynu** kartę.
 
 W okienku otwartym wprowadź następujące informacje:
 

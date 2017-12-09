@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Zapobiegaj nieoczekiwany opłat rozliczenia Azure i kosztów zarządzania
 
@@ -28,6 +28,8 @@ Podczas tworzenia konta platformy Azure, istnieje kilka kwestii, które można w
 - Jeśli Twoja subskrypcja jest Enterprise Agreement (EA), dostępna jest publicznej wersji zapoznawczej przy przeglądaniu kosztów w portalu Azure. Jeśli Twoja subskrypcja jest za pośrednictwem Cloud Solution Provider (CSP) lub dostęp sponsorowany Azure, następnie niektóre z następujących funkcji mogą nie dotyczyć użytkownika. Zobacz [dodatkowe zasoby dla przedsiębiorstw, dostawca usług Kryptograficznych i dostęp sponsorowany](#other-offers) Aby uzyskać więcej informacji.
 
 - Jeśli Twoja subskrypcja jest bezpłatna wersja próbna [programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure Otwórz (AIO) lub BizSpark, subskrypcja jest automatycznie wyłączana, gdy środki zostaną są używane. Dowiedz się więcej o [limitów wydatków](#spending-limit) Aby uniknąć subskrypcją unexpectantly wyłączone.
+
+- Jeśli użytkownik utworzył konto na [bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/free/), [można korzystać z niektórych najbardziej popularnych usług Azure bezpłatnie przez 12 miesięcy](billing-create-free-services-included-free-account.md). Wraz z zaleceniami wymienione poniżej, zobacz [uniknąć pobieranie opłaty łączone zgodnie z bezpłatne konto](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Pobierz szacowane koszty przed dodaniem usług platformy Azure
 

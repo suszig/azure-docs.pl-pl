@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker za pomocą interfejsu wiersza polecenia platformy (Azure CLI)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Aby zainstalować i skonfigurować interfejs wiersza polecenia Azure, zobacz [ja
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI do nawiązania połączenia konta platformy Azure
-Przed użyciem wiersza polecenia platformy Azure poświadczenia konta Azure należy skojarzyć z wiersza polecenia platformy Azure na platformie. Sekcja [sposób nawiązywania połączenia z subskrypcją platformy Azure](../../../xplat-cli-connect.md) wyjaśniono, jak pobrać i zaimportować Twojej **.publishsettings** plików lub kojarzenie z wiersza polecenia platformy Azure przy użyciu identyfikatora organizacyjnego.
+Przed użyciem wiersza polecenia platformy Azure poświadczenia konta Azure należy skojarzyć z wiersza polecenia platformy Azure na platformie. Sekcja [sposób nawiązywania połączenia z subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli) wyjaśniono, jak pobrać i zaimportować Twojej **.publishsettings** plików lub kojarzenie z wiersza polecenia platformy Azure przy użyciu identyfikatora organizacyjnego.
 
 > [!NOTE]
 > Istnieją pewne różnice w zachowaniu, korzystając z jednego lub innych metod uwierzytelniania, dlatego zaleca się przeczytanie dokumentu powyżej, aby poznać różne funkcje.

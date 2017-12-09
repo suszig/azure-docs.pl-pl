@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Jak utworzyć filtr aspektu w usłudze Azure Search 
 
@@ -48,7 +48,7 @@ Wszelkie [typ pola](https://docs.microsoft.com/rest/api/searchservice/supported-
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (zobacz [aspektu złożone typy danych jak](#facet-complex-fields) dalszej części tego artykułu.)
++ Edm.Collections
 + Typy pól liczbowych: Edm.Double typem Edm.Int32, Edm.Int64,
 
 Nie można użyć Edm.GeographyPoint w nawigacji aspektowej. Aspekty są tworzone na podstawie tekst czytelny dla człowieka lub liczby. Tak aspektów nie są obsługiwane dla współrzędnych geo. Będzie potrzebny miasta lub regionu pola do aspektu według lokalizacji.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 79ca33c7b1cf55782911cbe9a27fd47547c41c0e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0d25b77ab6202a255060de3988a599a124c22884
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych systemu Linux na platformie Azure
 W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platformy Azure, który służy do uruchamiania aplikacji dla systemu Linux i obciążeń. Umożliwia także zagadnienia dotyczące wdrażania pod uwagę podczas planowania korzystać z tych zasobów. W tym artykule jest również dostępny do [maszyn wirtualnych Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -39,7 +39,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 - Aby uzyskać informacje o cenach o różnych rozmiarach, zobacz [cennik maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - Dostępność rozmiarów maszyn wirtualnych w regionach platformy Azure, zobacz [produkty, które są dostępne w regionie](https://azure.microsoft.com/regions/services/).
 - Aby wyświetlić ogólne limity na maszynach wirtualnych Azure, zobacz [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../../azure-subscription-service-limits.md).
-- Dowiedz się więcej na temat [jednostki (ACU) rozwiązań usługi obliczenia Azure](../windows/acu.md) ułatwia porównanie wydajności obliczeniowej różnych jednostki SKU Azure.
+- Dowiedz się więcej na temat [jednostki (ACU) rozwiązań usługi obliczenia Azure](acu.md) ułatwia porównanie wydajności obliczeniowej różnych jednostki SKU Azure.
 
 
 ## <a name="rest-api"></a>Interfejs API REST

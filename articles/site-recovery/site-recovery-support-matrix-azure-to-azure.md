@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z platformy Azure na platformie Azure
 
@@ -94,7 +94,7 @@ Poniżej Obsługa dotyczy dowolne obciążenia uruchomione na wymienione systemu
 
 >[!NOTE]
 >
-> Serwery Ubuntu przy użyciu hasła uwierzytelniania i logowania przy użyciu pakietu init chmury można skonfigurować maszyn wirtualnych w chmurze, mogą mieć hasło systemem i logowania wyłączone podczas pracy awaryjnej (w zależności od konfiguracji cloudinit.) Logowanie oparte na hasłach, można ponownie włączyć na maszynie wirtualnej poprzez zresetowanie hasła z menu ustawień (w pomocy technicznej i rozwiązywania problemów sekcja) z nieudane przez maszynę wirtualną w portalu Azure.
+> Serwery systemu Ubuntu przy użyciu uwierzytelniania opartego na hasłach i logowania i konfigurowanie maszyn wirtualnych w chmurze, za pomocą pakietu init chmury mogą mieć logowania opartego na hasłach wyłączone podczas pracy awaryjnej (w zależności od konfiguracji cloudinit.) Logowanie oparte na hasłach, można ponownie włączyć na maszynie wirtualnej poprzez zresetowanie hasła z menu ustawień (w pomocy technicznej i rozwiązywania problemów sekcja) z nieudane przez maszynę wirtualną w portalu Azure.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane wersje jądra Ubuntu maszyn wirtualnych platformy Azure
 
@@ -122,10 +122,13 @@ Ameryka | Kanada Wschodnia, środkowe stany USA Kanada centralnej, Południowej,
 Europa | Wielka Brytania Zachodnia, Wielka Brytania Południowa, Europa Północna, Europa Zachodnia
 Azja | Indie Południowa, Indie środkowe, Azja południowo-wschodnia, Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowe, Korea południe
 Australia   | Australia Wschodnia, Australia południowo-wschodnia
+Azure Government    | Virginia wersji dla instytucji rządowych USA, Iowa wersji dla instytucji rządowych USA, Arizona wersji dla instytucji rządowych USA, Texas wersji dla instytucji rządowych USA, wschód DOD USA, środkowe stany USA DOD
+Niemcy | Niemcy środkowe, Niemcy północno-wschodnie
+Chiny | Wschodnia Chin, Chiny Północna
 
 >[!NOTE]
 >
-> W regionie Brazylia Południowa można tylko replikacji i trybu failover z południowo-środkowe stany, zachodnie centralnej nam, wschodnie stany USA, wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2 i regionów północno-środkowe Stany i powrotu po awarii.
+> W regionie Brazylia Południowa można tylko replikacji i pracy awaryjnej do jednego z południowo-środkowe stany, zachodnie centralnej nam wschodnie stany USA, wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2 i regiony północno-środkowe Stany i wykonaj powrót po awarii.
 
 
 ## <a name="support-for-compute-configuration"></a>Obsługa konfiguracji obliczeniowej

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -308,14 +308,30 @@ Jeśli chcesz korzystać z zawartości stdout.txt działania podrzędne, można 
 
   Zmiany wprowadzone w działania niestandardowego V2 fabryki danych Azure są należy zająć się zapisanie logiki niestandardowego kodu w języku preferowanym i wykonać ich w systemach Windows i systemy operacyjne Linux obsługiwane przez partii zadań Azure. 
 
+  W poniższej tabeli opisano różnice między działania niestandardowe V2 fabryki danych i V1 fabryki danych (niestandardowy) DotNet działania: 
+
+
+|Różnice      |ADFv2 niestandardowego działania      |ADFv1 działania DotNet (niestandardowy)      |
+| ---- | ---- | ---- |
+|Jak zdefiniowano niestandardowej logiki      |Uruchamiając każdego pliku wykonywalnego (istniejące lub wdrażanie własnego pliku wykonywalnego)      |Zaimplementowanie .net biblioteki DLL      |
+|Enviornment wykonania niestandardowej logiki      |Systemu Windows lub Linux      |Systemu Windows (.Net Framework 4.5.2)      |
+|Wykonywanie skryptów      |Obsługuje bezpośrednio wykonywanie skryptów (na przykład "cmd /c echo hello world" na maszynie Wirtualnej z systemem Windows)      |Wymaga wdrożenia w środowisku .net biblioteki DLL      |
+|Zestaw danych jest wymagane      |Optional (Opcjonalność)      |Wymagane do łańcucha działań i przekazywania informacji      |
+|Przekazywania informacji z działania do niestandardowej logiki      |Za pomocą ReferenceObjects (LinkedServices i zbiory danych) i właściwości rozszerzone (właściwości niestandardowych) i      |Za pomocą właściwości rozszerzone (właściwości niestandardowych), dane wejściowe i wyjściowe zestawy danych      |
+|Pobieranie informacji w niestandardowej logiki      |Przeanalizować activity.json, linkedServices.json i datasets.json przechowywane w folderze tego samego pliku wykonywalnego      |Za pomocą .net SDK (ramki 4.5.2 .net)      |
+|Rejestrowanie      |Zapisuje dane bezpośrednio na STDOUT      |Rejestrator Implemeting w .net biblioteki DLL      |
+
+
   Jeśli masz istniejący kod .net napisane dla V1 działania DotNet (niestandardowy), należy zmodyfikować kod ich do pracy z V2 niestandardowe działanie z następującymi wytycznymi wysokiego poziomu:  
 
-  > - Zmień projekt z .net biblioteki klas w aplikacji konsoli. 
-  > - Uruchom aplikację za pomocą metody Main, metody Execute interfejsu IDotNetActivity nie jest już wymagane. 
-  > - Przeczytaj i analizy połączone usługi, zestawy danych i działania z serializator JSON, a nie jako silne obiektów określonego typu, a przekazania wartości właściwości wymaganych do logiki główny kodu niestandardowego. Zapoznaj się z powyższymi kodu SampleApp.exe jako próbka. 
-  > - Obiekt rejestratora nie jest już obsługiwana, executeable wyniki mogą być wydruku do konsoli i jest zapisywany w stdout.txt. 
-  > - Pakiet Microsoft.Azure.Management.DataFactories NuGet nie jest już wymagane. 
-  > - Kompilowanie kodu, Przekaż plik wykonywalny i zależności do magazynu Azure i określenia ścieżki we właściwości folderPath. 
+   - Zmień projekt z .net biblioteki klas w aplikacji konsoli. 
+   - Uruchom aplikację za pomocą metody Main, metody Execute interfejsu IDotNetActivity nie jest już wymagane. 
+   - Przeczytaj i analizy połączone usługi, zestawy danych i działania z serializator JSON, a nie jako silne obiektów określonego typu, a przekazania wartości właściwości wymaganych do logiki główny kodu niestandardowego. Zapoznaj się z powyższymi kodu SampleApp.exe jako próbka. 
+   - Obiekt rejestratora nie jest już obsługiwana, executeable wyniki mogą być wydruku do konsoli i jest zapisywany w stdout.txt. 
+   - Pakiet Microsoft.Azure.Management.DataFactories NuGet nie jest już wymagane. 
+   - Kompilowanie kodu, Przekaż plik wykonywalny i zależności do magazynu Azure i określenia ścieżki we właściwości folderPath. 
+
+Dla kompletnego przykładu sposób pełnego biblioteki DLL i potoku próbka opisanych w dokumencie V1 fabryki danych [skorzystać z działań niestandardowych w potoku fabryki danych Azure](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) można zmodyfikować w stylu działania niestandardowego V2 fabryki danych. Zapoznaj się [działania niestandardowe V2 fabryki danych przykładowych](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatyczne skalowanie partii zadań Azure
 Można również utworzyć puli partii zadań Azure z **skalowania automatycznego** funkcji. Na przykład można utworzyć puli partii zadań azure 0 dedykowanych maszyn wirtualnych i formuły skalowania automatycznego na podstawie liczby oczekujących zadań. 

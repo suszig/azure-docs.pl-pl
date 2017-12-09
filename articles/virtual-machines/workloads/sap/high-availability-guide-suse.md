@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Wysoka dostępność dla programu SAP NetWeaver na maszynach wirtualnych Azure w systemie SUSE Linux Enterprise Server dla programu SAP aplikacji
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 
 W tym artykule opisano sposób wdrażania maszyn wirtualnych, konfigurowanie maszyn wirtualnych, zainstalować w ramach klastra i instalowania systemu SAP NetWeaver 7.50 wysokiej dostępności.
-W konfiguracji przykład polecenia instalacji itp. Liczby wystąpień ASCS 00, liczby wystąpień Wywołujących 02 i NWS identyfikator systemu SAP jest używany. Nazw zasobów (na przykład maszyn wirtualnych, sieci wirtualne), w tym przykładzie założono, że użyto [zbieżność szablonu] [ template-converged] systemie SAP NWS identyfikator na tworzenie zasobów.
+W konfiguracji przykład polecenia instalacji itp. Liczby wystąpień ASCS 00 Wywołujących wystąpienia numer 02 oraz NWS identyfikator systemu SAP jest używany. Nazw zasobów (na przykład maszyn wirtualnych, sieci wirtualne), w tym przykładzie założono, że użyto [zbieżność szablonu] [ template-converged] systemie SAP NWS identyfikator na tworzenie zasobów.
 
 Przeczytaj następujące uwagi SAP i dokumenty najpierw
 
@@ -142,7 +142,7 @@ Serwer systemu plików NFS, SAP NetWeaver ASCS SAP NetWeaver SCS, SAP NetWeaver 
 ### <a name="deploying-linux"></a>Wdrażanie systemu Linux
 
 W portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla 12 aplikacje SAP, który służy do wdrażania nowych maszyn wirtualnych.
-Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
+Umożliwia jednego z szablonów Szybki Start w serwisie github wdrażanie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
 
 1. Otwórz [szablon serwera SAP pliku] [ template-file-server] w portalu Azure   
 1. Wprowadź następujące parametry
@@ -153,7 +153,7 @@ Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszyst
    3. Nazwa użytkownika i hasło administratora  
       Tworzony jest nowy użytkownik, który może służyć do logowania się do komputera.
    4. Identyfikator podsieci  
-      Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do. Pozostaw pole puste, jeśli chcesz utworzyć nową sieć wirtualną lub wybierz podsieć sieci VPN lub usługi Express Route wirtualnej sieci lokalnej nawiązać połączenia z maszyną wirtualną. Identyfikator zwykle wygląda /subscriptions/**&lt;identyfikator subskrypcji&gt;**/resourceGroups/**&lt;Nazwa grupy zasobów&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;wirtualnej nazwy sieciowej&gt;**/subnets/**&lt;nazwy podsieci&gt;**
+      Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do. Pozostaw pole puste, jeśli chcesz utworzyć nową sieć wirtualną lub wybierz podsieć sieci VPN lub usługi Express Route wirtualnej sieci lokalnej nawiązać połączenia z maszyną wirtualną. Identyfikator zwykle wygląda /subscriptions/**&lt;identyfikator subskrypcji&gt;**/resourceGroups/**&lt;Nazwa grupy zasobów&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;wirtualnej nazwy sieciowej&gt;**/subnets/**&lt;nazwy podsieci&gt;**
 
 ### <a name="installation"></a>Instalacja
 
@@ -254,7 +254,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Skonfigurować corosync Użyj innego transportu, a następnie dodaj wstawienia. Klaster nie będą działać inaczej.
+1. **[A]**  Skonfigurować corosync Użyj innego transportu, a następnie dodaj wstawienia. Klaster nie działa, w przeciwnym razie wartość.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 1. Przejdź do <https://portal.azure.com>
 1. Otwarcie bloku usługi Azure Active Directory  
-   Przejdź do właściwości i Zanotuj identyfikator katalogu. Jest to **identyfikator dzierżawcy**.
+   Przejdź do właściwości i zanotuj nazwę katalogu. Jest to **Identyfikatorem dzierżawy**.
 1. Kliknij przycisk rejestracji aplikacji
 1. Kliknij pozycję Dodaj.
 1. Wprowadź nazwę, wybierz typ aplikacji "Aplikacja/interfejs API sieci Web", wprowadź adres URL logowania (np. http://localhost) i kliknij przycisk Utwórz
@@ -503,7 +503,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Wybierz nową aplikację i kliknij na karcie Ustawienia
 1. Wprowadź opis nowego klucza, wybierz pozycję "Nigdy nie wygasa" i kliknij przycisk Zapisz
 1. Zanotuj wartość. Jest on używany jako **hasło** główną usługi
-1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**identyfikatora** w poniższych krokach) główną usługi
+1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**Identyfikatora** w poniższych krokach) główną usługi
 
 Nazwy głównej usługi nie ma uprawnień do domyślnie dostęp do zasobów platformy Azure. Należy podać nazwę główną usługi uprawnień do uruchamiania i zatrzymywania (deallocate) wszystkich maszyn wirtualnych klastra.
 
@@ -523,13 +523,13 @@ Po można edytowane uprawnienia dla maszyn wirtualnych, możesz skonfigurować u
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,14 +549,14 @@ sudo crm configure property stonith-enabled=true
 
 W portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla 12 aplikacje SAP, który służy do wdrażania nowych maszyn wirtualnych. Obrazu z witryny marketplace zawiera agenta zasobów dla programu SAP NetWeaver.
 
-Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
+Umożliwia jednego z szablonów Szybki Start w serwisie github wdrażanie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
 
 1. Otwórz [szablon identyfikatora SID Multi ASCS/SCS] [ template-multisid-xscs] lub [zbieżność szablonu] [ template-converged] na platformie Azure portalu ASCS/SCS szablon tylko tworzy reguły równoważenia obciążenia dla programu SAP NetWeaver ASCS/SCS i wystąpień Wywołujących (tylko w systemie Linux) należy konwergentnej szablon tworzy również reguły równoważenia obciążenia dla bazy danych (na przykład Microsoft SQL Server lub SAP HANA). Jeśli planujesz zainstalowanie systemu SAP NetWeaver na podstawie i również chcesz zainstalować bazy danych na tej samej maszyny, użyj [zbieżność szablonu][template-converged].
 1. Wprowadź następujące parametry
    1. Prefiks zasobów (tylko szablon identyfikatora SID Multi ASCS/SCS)  
       Wprowadź prefiks, który ma być używany. Wartość jest używana jako prefiksu dla zasobów, które zostały wdrożone.
    3. Identyfikator systemu SAP (tylko szablon konwergentnej)  
-      Wprowadź systemu SAP identyfikator systemu SAP, które chcesz zainstalować. Ten identyfikator jest używany jako prefiksu dla zasobów, które zostały wdrożone.
+      Wprowadź identyfikator systemu SAP systemu SAP, które chcesz zainstalować. Ten identyfikator jest używany jako prefiksu dla zasobów, które zostały wdrożone.
    4. Typ stosu  
       Wybierz typ SAP NetWeaver stosu
    5. Typ systemu operacyjnego  
@@ -564,13 +564,13 @@ Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszyst
    6. Typ bazy danych  
       Wybierz HANA
    7. Rozmiar systemu SAP  
-      Ilość protokoły SAP zapewnia nowy system. Jeśli nie wiadomo jak wiele protokoły SAP wymaga systemu, należy skontaktować się z partnerem technologii SAP lub Integrator systemu
+      Ilość protokoły SAP zapewnia nowy system. Jeśli nie wiadomo jak wiele protokoły SAP wymaga systemu, skontaktuj się z partnerem technologii SAP lub Integrator systemu
    8. Dostępność systemu  
       Wybierz opcję wysokiej dostępności
    9. Nazwa użytkownika i hasło administratora  
       Tworzony jest nowy użytkownik, który może służyć do logowania się do komputera.
    10. Identyfikator podsieci  
-   Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do.  Pozostaw pole puste, jeśli chcesz utworzyć nową sieć wirtualną lub wybierz tej samej podsieci, która użycia lub utworzenia jako część wdrożenia serwera systemu plików NFS. Identyfikator zwykle wygląda /subscriptions/**&lt;identyfikator subskrypcji&gt;**/resourceGroups/**&lt;Nazwa grupy zasobów&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;wirtualnej nazwy sieciowej&gt;**/subnets/**&lt;nazwy podsieci&gt;**
+   Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do.  Pozostaw pole puste, jeśli chcesz utworzyć nową sieć wirtualną lub wybierz tej samej podsieci, która użycia lub utworzenia jako część wdrożenia serwera systemu plików NFS. Identyfikator zwykle wygląda /subscriptions/**&lt;identyfikator subskrypcji&gt;**/resourceGroups/**&lt;Nazwa grupy zasobów&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;wirtualnej nazwy sieciowej&gt;**/subnets/**&lt;nazwy podsieci&gt;**
 
 ### <a name="installation"></a>Instalacja
 
@@ -700,7 +700,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Skonfigurować corosync Użyj innego transportu, a następnie dodaj wstawienia. Klaster nie będą działać inaczej.
+1. **[A]**  Skonfigurować corosync Użyj innego transportu, a następnie dodaj wstawienia. Klaster nie działa, w przeciwnym razie wartość.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -967,7 +967,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
 
 1. **[1]**  Zainstalować SAP NetWeaver ASCS  
 
-   Instalowanie programu SAP NetWeaver ASCS jako katalog główny na pierwszym węźle, za pomocą wirtualnej nazwy hosta, który jest mapowany na adres IP frontonu modułu równoważenia obciążenia konfiguracji ASCS, na przykład <b>nws ascs</b>, <b>10.0.0.10</b> i numer wystąpienia, który był używany przez sondę modułu równoważenia obciążenia na przykład <b>00</b>.
+   Instalowanie programu SAP NetWeaver ASCS jako katalog główny na pierwszym węźle, za pomocą wirtualnej nazwy hosta, który jest mapowany na adres IP frontonu modułu równoważenia obciążenia konfiguracji ASCS, na przykład <b>nws ascs</b>, <b>10.0.0.10</b> i wystąpienie numer, który był używany przez sondę modułu równoważenia obciążenia, na przykład <b>00</b>.
 
    Można użyć parametru sapinst SAPINST_REMOTE_ACCESS_USER, aby zezwolić użytkownikowi inny niż główny nawiązać sapinst.
 
@@ -1041,7 +1041,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
 
 1. **[2]**  Zainstalować SAP NetWeaver Wywołujących  
 
-   Instalowanie programu SAP NetWeaver Wywołujących jako główny na drugi węzeł, za pomocą wirtualnej nazwy hosta, który jest mapowany na adres IP frontonu modułu równoważenia obciążenia konfiguracji Wywołujących na przykład <b>wywołujących nws</b>, <b>10.0.0.11</b> i numer wystąpienia, który był używany przez sondę modułu równoważenia obciążenia na przykład <b>02</b>.
+   Instalowanie programu SAP NetWeaver Wywołujących jako główny na drugi węzeł, za pomocą wirtualnej nazwy hosta, który jest mapowany na adres IP frontonu modułu równoważenia obciążenia konfiguracji Wywołujących, na przykład <b>wywołujących nws</b>, <b>10.0.0.11</b> i wystąpienie numer, który był używany przez sondę modułu równoważenia obciążenia, na przykład <b>02</b>.
 
    Można użyć parametru sapinst SAPINST_REMOTE_ACCESS_USER, aby zezwolić użytkownikowi inny niż główny nawiązać sapinst.
 
@@ -1136,7 +1136,7 @@ Następujące elementy są poprzedzane prefiksem albo **[A]** — mające zastos
 
 1. **[A]**  Skonfigurować podtrzymanie aktywności
 
-   Komunikacja między serwerem SAP NetWeaver aplikacji i ASCS/SCS jest kierowany przez programowy moduł równoważenia obciążenia. Moduł równoważenia obciążenia rozłącza nieaktywne połączenia po upływie limitu czasu w można konfigurować. Aby zapobiec takiej sytuacji należy ustawić parametr w profilu SAP NetWeaver ASCS/SCS i zmienić ustawienia systemu Linux. Przeczytaj [1410736 Uwaga SAP] [ 1410736] Aby uzyskać więcej informacji.
+   Komunikacja między serwerem SAP NetWeaver aplikacji i ASCS/SCS jest kierowany przez programowy moduł równoważenia obciążenia. Moduł równoważenia obciążenia rozłącza nieaktywne połączenia po upływie limitu czasu w można konfigurować. Aby zapobiec takiej sytuacji należy ustawić parametr w profilu SAP NetWeaver ASCS/SCS i zmienić ustawienia systemu Linux. Odczyt [1410736 Uwaga SAP] [ 1410736] Aby uzyskać więcej informacji.
    
    ASCS/SCS profilu parametru umieścić/encni/set_so_keepalive został już dodany w ostatnim kroku.
 
@@ -1228,7 +1228,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 1. Przejdź do <https://portal.azure.com>
 1. Otwarcie bloku usługi Azure Active Directory  
-   Przejdź do właściwości i Zanotuj identyfikator katalogu. Jest to **identyfikator dzierżawcy**.
+   Przejdź do właściwości i zanotuj nazwę katalogu. Jest to **Identyfikatorem dzierżawy**.
 1. Kliknij przycisk rejestracji aplikacji
 1. Kliknij pozycję Dodaj.
 1. Wprowadź nazwę, wybierz typ aplikacji "Aplikacja/interfejs API sieci Web", wprowadź adres URL logowania (np. http://localhost) i kliknij przycisk Utwórz
@@ -1236,7 +1236,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Wybierz nową aplikację i kliknij na karcie Ustawienia
 1. Wprowadź opis nowego klucza, wybierz pozycję "Nigdy nie wygasa" i kliknij przycisk Zapisz
 1. Zanotuj wartość. Jest on używany jako **hasło** główną usługi
-1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**identyfikatora** w poniższych krokach) główną usługi
+1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**Identyfikatora** w poniższych krokach) główną usługi
 
 Nazwy głównej usługi nie ma uprawnień do domyślnie dostęp do zasobów platformy Azure. Należy podać nazwę główną usługi uprawnień do uruchamiania i zatrzymywania (deallocate) wszystkich maszyn wirtualnych klastra.
 
@@ -1256,13 +1256,13 @@ Po można edytowane uprawnienia dla maszyn wirtualnych, możesz skonfigurować u
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Instalowanie bazy danych
 
-W tym przykładzie replikacji systemu SAP HANA jest zainstalowana i skonfigurowana. W tym samym klastrze SAP NetWeaver ASCS/SCS i Wywołujących uruchomi się SAP HANA. W dedykowanym klastrze, można także zainstalować SAP HANA. Zobacz [dostępności wysokiej programu SAP HANA na maszynach wirtualnych Azure (VM)] [ sap-hana-ha] Aby uzyskać więcej informacji.
+W tym przykładzie replikacji systemu SAP HANA jest zainstalowane i skonfigurowane. SAP HANA działa w tym samym klastrze SAP NetWeaver ASCS/SCS i Wywołujących. W dedykowanym klastrze, można także zainstalować SAP HANA. Aby uzyskać więcej informacji, zobacz [dostępności wysokiej programu SAP HANA na maszynach wirtualnych Azure (VM)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Przygotowanie do instalacji SAP HANA
 
@@ -1326,7 +1326,7 @@ Ogólnie zaleca LVM dla woluminów, które przechowują dane i pliki dziennika. 
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ Poniższe kroki są oparte na rozdziału 4 [przewodnik SAP HANA SR wydajności z
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ Poniższe kroki są oparte na rozdziału 4 [przewodnik SAP HANA SR wydajności z
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

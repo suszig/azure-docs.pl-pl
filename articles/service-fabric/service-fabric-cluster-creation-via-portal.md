@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra sieci szkieletowej usług na platformie Azure przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ Jest to przewodnik krok po kroku, który przeprowadzi Cię przez kolejne kroki k
 
 Bezpieczne klaster jest klastrem, który uniemożliwia nieautoryzowany dostęp do operacji zarządzania, w tym wdrażanie, uaktualnianie i usuwanie aplikacji, usług i danych, które zawierają. Niezabezpieczone klastra oznacza, że każdy użytkownik w dowolnym momencie połączyć się i wykonywać operacje zarządzania. Chociaż można utworzyć klaster niezabezpieczone, jest **zdecydowanie zaleca się utworzenie klastra bezpiecznego**. Niezabezpieczone klastra **nie można zabezpieczyć później** — należy utworzyć nowy klaster.
 
-Pojęcia są takie same dla tworzenia bezpiecznych klastrów, czy są klastry z systemem Windows lub Linux klastry. Aby uzyskać więcej informacji i pomocnika skryptów tworzenia bezpiecznych klastrów systemu Linux, zobacz [tworzenia bezpiecznych klastrów w systemie Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Parametry uzyskany przez pomocnika skryptów można wprowadzić bezpośrednio w portalu, zgodnie z opisem w sekcji [tworzenia klastra w portalu Azure](#create-cluster-portal).
+Pojęcia są takie same dla tworzenia bezpiecznych klastrów, czy są klastry z systemem Windows lub Linux klastry. Aby uzyskać więcej informacji i pomocnika skryptów tworzenia bezpiecznych klastrów systemu Linux, zobacz [tworzenia bezpiecznych klastrów](service-fabric-cluster-creation-via-arm.md). Parametry uzyskany przez pomocnika skryptów można wprowadzić bezpośrednio w portalu, zgodnie z opisem w sekcji [tworzenia klastra w portalu Azure](#create-cluster-portal).
 
-## <a name="configure-key-vault"></a>Skonfiguruj magazyn kluczy 
+## <a name="configure-key-vault"></a>Konfiguruj usługę Key Vault 
 ### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 Ten przewodnik po używa [programu Azure PowerShell][azure-powershell]. Przy uruchamianiu nowej sesji programu PowerShell, zaloguj się do konta platformy Azure i wyboru subskrypcji przed wykonaniem polecenia platformy Azure.
 
@@ -84,7 +84,7 @@ Pierwszym krokiem jest aby utworzyć nową grupę zasobów dla usługi Key Vault
 
 ```
 
-#### <a name="create-key-vault"></a>Utwórz magazyn kluczy
+#### <a name="create-key-vault"></a>Tworzenie usługi Key Vault
 Utwórz magazyn kluczy w nowej grupy zasobów. Magazyn kluczy **musi być włączona dla wdrożenia** umożliwia dostawcy zasobów usługi sieć szkieletowa uzyskanie certyfikatów i zainstalować na węzłach klastra:
 
 ```powershell

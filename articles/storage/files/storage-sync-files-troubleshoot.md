@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -102,10 +102,8 @@ Aby określić, czy rola konto użytkownika ma wymagane uprawnienia:
     * **Przypisanie roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
     * **Definicja roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Usuwanie punktu końcowego chmury nie powiedzie się, z powodu następującego błędu: "MgmtInternalError"**  
-Ten problem może wystąpić, jeśli konto udziału lub magazyn plików Azure zostanie usunięte przed usunięciem punktu końcowego w chmurze. Ten problem zostanie rozwiązany w przyszłej aktualizacji. W tym czasie można usunąć punktu końcowego w chmurze, po usunięciu konta udziału lub magazyn plików Azure.
-
-W tym samym czasie aby zapobiec wystąpieniu tego problemu, Usuń punktu końcowego w chmurze przed usunięciem konta udziału lub magazyn plików Azure.
+<a id="server-endpoint-deletejobexpired"></a>**Usuwanie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobExpired"**                
+Ten problem występuje, gdy serwer działa w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępna, należy wyrejestrować serwera w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w [Wyrejestruj serwer z funkcją synchronizacji plików Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Jeśli utworzono plik bezpośrednio w mojej udziału plików na platformę Azure przy użyciu protokołu SMB lub za pośrednictwem portalu, jak długo trwa pliku do synchronizacji serwerów w grupie synchronizacji?**  

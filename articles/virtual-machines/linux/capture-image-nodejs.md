@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Przechwytywanie maszyny wirtualnej systemu Linux działających na platformie Azure
 Wykonaj kroki opisane w tym artykule, aby Uogólnij i Przechwyć maszyny wirtualnej systemu Linux platformy Azure (VM) w modelu wdrażania Menedżera zasobów. Uogólnienie maszynę Wirtualną, Usuń konto osobiste informacje i przygotowanie wirtualna do użycia jako obraz. Można następnie przechwytywania obrazu uogólniony wirtualny dysk twardy (VHD) dla systemu operacyjnego, dysków VHD dla dysków dołączonych danych i [szablonu usługi Resource Manager](../../azure-resource-manager/resource-group-overview.md) o nowych wdrożeniach maszyny Wirtualnej. Ten artykuł zawiera szczegóły dotyczące sposobu przechwytywania obrazu maszyny Wirtualnej z interfejsu wiersza polecenia platformy Azure w wersji 1.0 za pomocą niezarządzanych dysków maszyny wirtualnej. Możesz również [Przechwytywanie maszyny Wirtualnej za pomocą dysków zarządzanych Azure 2.0 interfejsu wiersza polecenia Azure](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Dyski zarządzane są obsługiwane przez platformę Azure i nie wymagają wszystkie lub lokalizację do przechowywania ich. Aby uzyskać więcej informacji, zobacz temat [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -61,7 +61,7 @@ Najpierw uruchom **agenta waagent** z **deprovision** parametru na Maszynie wirt
 ## <a name="step-2-capture-the-vm"></a>Krok 2: Przechwytywanie maszyny Wirtualnej
 Użyj interfejsu wiersza polecenia Azure, aby Uogólnij i Przechwyć maszyny Wirtualnej. W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają **myResourceGroup**, **myVnet**, i **myVM**.
 
-1. Na komputerze lokalnym, Otwórz wiersza polecenia platformy Azure i [logowania do subskrypcji platformy Azure](../../xplat-cli-connect.md). 
+1. Na komputerze lokalnym, Otwórz wiersza polecenia platformy Azure i [logowania do subskrypcji platformy Azure](/cli/azure/authenticate-azure-cli). 
 2. Upewnij się, że jesteś w trybie Menedżera zasobów.
    
     ```azurecli

@@ -16,24 +16,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c6b190c3ddc8e474175693229d2e043196eac92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Dlaczego Moja subskrypcja platformy Azure jest wyłączona i jak go uaktywnić?
 
-Może mieć Twojej subskrypcji platformy Azure, które zostały wyłączone, ponieważ osiągnięto limit wydatków, ma zaległe rachunku, osiągnęła limit karty kredytowej, lub ponieważ subskrypcja została anulowana przez administratora konta. Zobacz, jaki problem dotyczy to Ciebie i wykonaj kroki opisane w tym artykule można pobrać subskrypcji ponownej aktywacji.
+Może być wyłączona, ponieważ wygasł środków subskrypcji Azure, osiągnięto limit wydatków, ma zaległe rachunku, osiągnęła limit karty kredytowej, lub ponieważ subskrypcja została anulowana przez administratora konta. Zobacz, jaki problem dotyczy to Ciebie i wykonaj kroki opisane w tym artykule można pobrać subskrypcji ponownej aktywacji.
+
+## <a name="your-credit-is-expired"></a>Środków wygasł
+
+Gdy zarejestrujesz się uzyskać bezpłatne konto platformy Azure, możesz uzyskać subskrypcji bezpłatnej wersji próbnej, która udostępnia 200 USD w kredytów systemu Azure dla 30 dni i 12 miesięcy od bezpłatnych usług. Po zakończeniu 30 dni Azure wyłącza subskrypcji. Twoja subskrypcja jest wyłączona w celu zabezpieczenia przed przypadkowym są naliczane opłaty za użycie poza środki i bezpłatnych usług uwzględnionych w subskrypcji. Aby kontynuować korzystanie z usług Azure, musisz [uaktualnienia subskrypcji z subskrypcją płatność za rzeczywiste użycie](billing-upgrade-azure-subscription.md). Po zakończeniu uaktualnienia subskrypcji nadal ma dostęp do zwolnienia usług przez 12 miesięcy. Możesz tylko zostały naliczone opłaty za użycie poza bezpłatnych usług i ilości.
 
 ## <a name="you-reached-your-spending-limit"></a>Osiągnięto limit wydatków
 
-Użycie zmagazynowane miesięcznej kwoty uwzględnionych w subskrypcji, możemy wyłączyć usługi dla pozostałej części tego okresu rozliczeniowego. Usługa jest wyłączona w celu zabezpieczenia przed przypadkowym są naliczane opłaty za użycie poza kwota uwzględnionych w subskrypcji. Aby usunąć limit wydatków, zobacz [usunąć limit wydatków w Centrum konta](billing-spending-limit.md#remove).
+Subskrypcje platformy Azure z kredytowej, takie jak bezpłatna wersja próbna i Visual Studio Enterprise ma limitami wydatków na nich. Oznacza to, że można używać tylko usługi do dołączone środków. Gdy użycie osiągnie limit wydatków, Azure wyłącza subskrypcji dla pozostałych tego okresu rozliczeniowego. Twoja subskrypcja jest wyłączona w celu zabezpieczenia przed przypadkowym są naliczane opłaty za użycie poza środków uwzględnionych w subskrypcji. Aby usunąć limit wydatków, zobacz [usunąć limit wydatków w Centrum konta](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Jeśli masz subskrypcji bezpłatnej wersji próbnej i usunąć limit wydatków, subskrypcja konwertuje płatność za rzeczywiste użycie w końcu bezpłatnej wersji próbnej.
+> Jeśli masz subskrypcji bezpłatnej wersji próbnej i usunąć limit wydatków, subskrypcja konwertuje płatność za rzeczywiste użycie w końcu bezpłatnej wersji próbnej. Należy dysponować swojego pozostałego kredytu jeszcze przez pełne 30 dni, po utworzeniu subskrypcji. Masz również dostęp do zwolnienia usług przez 12 miesięcy.
 
 Aby monitorować i zarządzać nimi działania rozliczeń dla platformy Azure, zobacz [uniknąć kosztów nieoczekiwany rozliczenia Azure i kosztów zarządzania](billing-getting-started.md) i [skonfigurować alerty dotyczące subskrypcji platformy Microsoft Azure billing](billing-set-up-alerts.md).
+
 
 ## <a name="your-bill-is-past-due"></a>Rachunek jest zaległa
 
