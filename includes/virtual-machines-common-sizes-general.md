@@ -4,7 +4,7 @@ Rozmiary maszyn wirtualnych ogólnego przeznaczenia Podaj zrównoważonym stosun
 
 - Maszyny wirtualne serii D są zaprojektowane do uruchamiania aplikacji wymagających większej mocy obliczeniowej i wydajności dysków tymczasowych. Maszyny wirtualne serii D zapewniają szybsze procesory, większą ilość pamięci na procesor wirtualny vCPU i dyski półprzewodnikowe (SSD) dla dysków tymczasowych. Szczegółowe informacje zawiera ogłoszenie [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nowe rozmiary maszyn wirtualnych serii D) w blogu platformy Azure.
 
-- Seria Dv2, kontynuacja oryginalnej serii D, jest wyposażona w procesor CPU o większych możliwościach. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Seria Dv2 jest oparta na procesorze najnowszej generacji Intel Xeon® E5-2673 v3 (Haswell) z zegarem 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć częstotliwość 3,1 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
+- Dv3-series, Dv2 serii kontynuacja do oryginalnego D-series, funkcje większe możliwości procesora CPU. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Seria Dv2 jest oparta na procesorze najnowszej generacji Intel Xeon® E5-2673 v3 (Haswell) z zegarem 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć częstotliwość 3,1 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 
 - Rozmiary warstwy Podstawowa są przeznaczone głównie dla obciążeń związanych z tworzeniem aplikacji i innych aplikacji, które nie wymagają równoważenia obciążenia, automatycznego skalowania ani maszyn wirtualnych korzystających z dużej ilości pamięci. Aby uzyskać informacje na temat rozmiarów maszyn wirtualnych, które są bardziej odpowiednie dla aplikacji produkcyjnych, zobacz (Rozmiary maszyn wirtualnych) [virtual-machines-size-specs.md]. Aby uzyskać informacje o cenach maszyn wirtualnych, zobacz [Cennik maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ Maszyny wirtualne burstable B serii idealnie nadają się do obciążeń, które
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-serii *
+## <a name="dsv3-series-sup1sup"></a>Seria Dsv3 <sup>1</sup>
 
 ACU: 160–190
 
-Rozmiary serii Dsv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell) z zegarem 2,3 GHz, które dzięki technologii Intel Turbo Boost 2.0 mogą osiągnąć częstotliwość 3,5 GHz i korzystają z magazynu Premium Storage. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dsv3 są oparte na 2.4 v3® GHz Intel Xeon E5-2673 (Haswell) procesora lub najnowsze 2.3 v4® GHz Intel XEON E5-2673 procesora (Broadwell), który można osiągnąć wersji 3.5GHz z Intel Turbo zwiększanie wyniku technologii 2.0 i korzystać z magazyn w warstwie premium. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) |
@@ -38,13 +38,14 @@ Rozmiary serii Dsv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell
 | Standardowa_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / wysoka                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / bardzo wysoka                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / bardzo wysoka                                       |
-* Dsv3 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
-## <a name="dv3-series"></a>Dv3-serii * 
+<sup>1</sup> serii Dsv3 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
+
+## <a name="dv3-series-sup1sup"></a>Seria Dv3 <sup>1</sup>
 
 ACU: 160–190
 
-Rozmiary serii Dv3 są oparte na procesorach Intel XEON® E5-2673 v4 (Broadwell) 2,3 GHz i technologią Intel Turbo Boost 2.0, dzięki której mogą osiągnąć częstotliwość 3,5 GHz. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dv3 są oparte na 2.4 v3® GHz Intel Xeon E5-2673 (Haswell) procesora lub 2.3 v4® GHz Intel XEON E5-2673 procesora (Broadwell), które pozwalają osiągnąć 3.5GHz z Intel Turbo zwiększanie wyniku technologii 2.0. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Dsv3. Liczniki cen i rozliczeń dla rozmiarów Dsv3 są takie same jak dla serii Dv3. 
 
@@ -57,7 +58,8 @@ Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny 
 | Standardowa_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / wysoka                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / bardzo wysoka                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / bardzo wysoka                     |
-* Dv3 serii maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
+
+<sup>1</sup> serii Dv3 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
 
 ## <a name="dsv2-series"></a>Seria DSv2
 
@@ -137,7 +139,7 @@ ACU: 50–100
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (HDD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standardowa_A0* |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
 | Standardowa_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
 | Standardowa_A2 |2 |3,5 |135 |4 |4 x 500 |2 / 500 |
 | Standardowa_A3 |4 |7 |285 |8 |8 x 500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU: 50–100
 | Standardowa_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
 <br>
 
-*Rozmiar A0 jest nadmiernie subskrybowany na sprzęcie fizycznym. Tylko w przypadku tego konkretnego rozmiaru inne wdrożenia klienta mogą mieć wpływ na wydajność uruchomionego obciążenia. Wydajność względna jest przedstawiona poniżej jako oczekiwana linia bazowa, podlegająca przybliżonej zmienności w granicach 15 procent.
+<sup>1</sup> A0 rozmiar jest nadmiernie subskrybowanego na sprzęcie fizycznym. Tylko w przypadku tego konkretnego rozmiaru inne wdrożenia klienta mogą mieć wpływ na wydajność uruchomionego obciążenia. Wydajność względna jest przedstawiona poniżej jako oczekiwana linia bazowa, podlegająca przybliżonej zmienności w granicach 15 procent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standardowa_A0–A4 w przypadku używania interfejsu wiersza polecenia i programu PowerShell
 W klasycznym modelu wdrażania niektóre nazwy rozmiarów maszyny wirtualnej są nieco inne w interfejsie wiersza polecenia i programie PowerShell:

@@ -6,7 +6,7 @@ Gdy już nie potrzebujesz dysku danych dołączonego do maszyny wirtualnej, moż
 ## <a name="find-the-disk"></a>Wyszukiwanie dysku
 Przed odłączeniem dysku od maszyny wirtualnej należy określić numer LUN, który jest identyfikatorem dysku do odłączenia. W tym celu wykonaj następujące kroki:
 
-1. Otwórz interfejs wiersza polecenia platformy Azure i [połącz się ze swoją subskrypcją platformy Azure](../articles/xplat-cli-connect.md). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
+1. Otwórz interfejs wiersza polecenia platformy Azure i [połącz się ze swoją subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
 2. Dowiedz się, które dyski są dołączone do maszyny wirtualnej. Następujący przykład umożliwia wyświetlenie dysków maszyny wirtualnej o nazwie `myVM`:
 
     ```azurecli

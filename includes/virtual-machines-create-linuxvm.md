@@ -1,5 +1,5 @@
 
-1. Zaloguj się do subskrypcji platformy Azure, wykonując kroki opisane w temacie [Connect to Azure from the Azure CLI 1.0](../articles/xplat-cli-connect.md) (Łączenie z platformą Azure z interfejsu wiersza polecenia platformy Azure w wersji 1.0).
+1. Zaloguj się do subskrypcji platformy Azure, wykonując kroki opisane w temacie [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Łączenie z platformą Azure z interfejsu wiersza polecenia platformy Azure w wersji 1.0).
 
 2. Upewnij się, że pracujesz w trybie klasycznym wdrożenia, w następujący sposób:
 
