@@ -18,14 +18,14 @@
 | Domena niestandardowa [Obsługa protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Nieograniczone połączeń SNI SSL |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |Nieograniczone SSL SNI i 1 połączeń IP SSL włączone |
 | Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |
 | [Zawsze włączone](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Zaplanowane kopie zapasowe](../articles/app-service/web-sites-backup.md) | | | |12 na dzień |Co 5 minut<sup>8</sup> |
+| [Zaplanowane kopie zapasowe](../articles/app-service/web-sites-backup.md) | | | | Zaplanowane tworzenie kopii zapasowych co 2 godziny, maksymalnie 12 kopii zapasowych dziennie (Ręczne + zaplanowane) | Zaplanowane tworzenie kopii zapasowych co godzinę, maksymalnie 50 kopii zapasowych dziennie (Ręczne + zaplanowane) |
 | [Automatyczne skalowanie](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [Zadania Webjob](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [Zadania Webjob](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Harmonogram systemu Azure](https://azure.microsoft.com/services/scheduler/) obsługuje | |X |X |X |X |
 | [Monitorowanie punktu końcowego](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Miejsc przejściowych](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domeny niestandardowe dla aplikacji</a> | |500 |500 |500 |500 |
-| Umowa SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| Umowa SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>aplikacji i przydziały pamięci masowej są na plan usługi aplikacji, o ile nie zaznaczono inaczej.  
 <sup>2</sup>rzeczywista liczba aplikacji, które mogą być hostowane na tych komputerach zależy działanie aplikacji, rozmiar wystąpień maszyn i odpowiednie wykorzystania zasobów.  
@@ -34,7 +34,6 @@
 <sup>5</sup>limit magazynu jest łączny rozmiar zawartości przez wszystkie aplikacje w tym samym planie usługi aplikacji. Więcej opcji magazynu są dostępne w [środowiska usługi aplikacji](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>te zasoby są ograniczone przez fizyczne zasoby dedykowanego wystąpienia (rozmiar wystąpienia i liczba wystąpień).  
 <sup>7</sup>Skala aplikacji w warstwie podstawowa na dwa wystąpienia, masz 350 równoczesnych połączeń dla każdego z dwóch wystąpień.  
-<sup>8</sup>warstwy premium umożliwia interwał tworzenia kopii zapasowych w dół do co 5 minut, za pomocą środowiska usługi App Service, a 50 razy dziennie w inny sposób.  
-<sup>9</sup>uruchomić niestandardowe pliki wykonywalne lub skrypty na żądanie, zgodnie z harmonogramem lub wystąpienie stale jako zadania w tle w usłudze App Service. Do ciągłego wykonywania zadań w sieci Web jest wymagana opcja Zawsze włączona. Do wykonywania zadań w sieci Web według harmonogramu jest wymagana usługa Azure Scheduler w warstwie Bezpłatna lub Standardowa. Nie ma żadnego wstępnie zdefiniowanego limitu liczby zadań Webjob, które może być uruchamiane w wystąpieniu usługi App Service, ale istnieją praktycznych limitów, które są zależne od kodu aplikacja próbuje zrobić.   
-<sup>10</sup>poziomie 99,95% podane w przypadku wdrożeń, które użycia wielu wystąpień z usługi Azure Traffic Manager skonfigurowany dla trybu failover.  
+<sup>8</sup>uruchomić niestandardowe pliki wykonywalne lub skrypty na żądanie, zgodnie z harmonogramem lub wystąpienie stale jako zadania w tle w usłudze App Service. Do ciągłego wykonywania zadań w sieci Web jest wymagana opcja Zawsze włączona. Do wykonywania zadań w sieci Web według harmonogramu jest wymagana usługa Azure Scheduler w warstwie Bezpłatna lub Standardowa. Nie ma żadnego wstępnie zdefiniowanego limitu liczby zadań Webjob, które może być uruchamiane w wystąpieniu usługi App Service, ale istnieją praktycznych limitów, które są zależne od kodu aplikacja próbuje zrobić.   
+<sup>9</sup>poziomie 99,95% podane w przypadku wdrożeń, które użycia wielu wystąpień z usługi Azure Traffic Manager skonfigurowany dla trybu failover.  
 
