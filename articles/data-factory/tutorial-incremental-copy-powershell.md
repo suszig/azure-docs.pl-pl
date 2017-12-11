@@ -1,5 +1,5 @@
 ---
-title: "Przyrostowe kopiowanie danych przy użyciu usługi Azure Data Factory | Microsoft Docs"
+title: "Przyrostowe kopiowanie tabeli przy użyciu usługi Azure Data Factory | Microsoft Docs"
 description: "W tym samouczku utworzysz potok usługi Azure Data Factory, który przyrostowo kopiuje dane z bazy danych Azure SQL Database do magazynu Azure Blob Storage."
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage
+W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem, który ładuje dane różnicowe z tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Ten samouczek
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [dokumentację dotyczącą usługi Data Factory w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Podczas procedury integracji danych jednym z powszechnie używanych scenariuszy jest okresowe przyrostowe ładowanie danych w celu odświeżenia uaktualnionego wyniku analizy po początkowym załadowaniu i analizie danych. W tym samouczku skupisz się na ładowaniu tylko nowych lub zaktualizowanych rekordów ze źródeł danych do ujść danych. Jest to procedura bardziej efektywna niż pełne ładowanie, zwłaszcza w przypadku dużych zestawów danych.    
-
-Usługa Data Factory umożliwia tworzenie rozwiązań z górnym limitem w celu osiągnięcia przyrostowego ładowania danych przy użyciu działań procedur wyszukiwania, kopiowania i składowania w potoku.  
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -46,7 +41,7 @@ Ten samouczek obejmuje następujące procedury:
 ## <a name="overview"></a>Omówienie
 Diagram ogólny rozwiązania wygląda następująco: 
 
-![Przyrostowe ładowanie danych](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Przyrostowe ładowanie danych](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązania: 
 
@@ -71,7 +66,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 * Zainstalowanie programu **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL
-1. Otwórz program **SQL Server Management Studio**, w **Eksploratorze serwera** kliknij bazę danych prawym przyciskiem myszy i wybierz pozycję **Nowe zapytanie**.
+1. Otwórz program **SQL Server Management Studio**. W **Eksploratorze serwera** kliknij prawym przyciskiem myszy bazę danych i wybierz pozycję **Nowe zapytanie**.
 2. Uruchom poniższe polecenie SQL dla bazy danych Azure SQL, aby utworzyć tabelę o nazwie `data_source_table` jako magazyn danych źródłowych.  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
-
-1. Uruchom program **PowerShell**. Nie zamykaj programu Azure PowerShell, zanim nie wykonasz wszystkich instrukcji z tego samouczka. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.
-
-    Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal:
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp parametr **SubscriptionId** identyfikatorem Twojej subskrypcji platformy Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Uruchom polecenie cmdlet **Set-AzureRmDataFactoryV2**, aby utworzyć fabrykę danych. Przed uruchomieniem polecenia zastąp symbol zastępczy własnymi wartościami.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. Zdefiniuj zmienną nazwy grupy zasobów, której użyjesz później w poleceniach programu PowerShell. Skopiuj poniższy tekst polecenia do programu PowerShell, podaj nazwę [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) w podwójnych cudzysłowach, a następnie uruchom polecenie. Na przykład: `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Pamiętaj o następujących kwestiach:
+    Jeśli grupa zasobów już istnieje, możesz zrezygnować z jej zastąpienia. Przypisz inną wartość do zmiennej `$resourceGroupName` i ponownie uruchom polecenie.
+2. Zdefiniuj zmienną lokalizacji fabryki danych: 
 
-    * Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zostanie wyświetlony następujący błąd, zmień nazwę i spróbuj ponownie.
+    ```powershell
+    $location = "East US"
+    ```
+3. Aby utworzyć grupę zasobów platformy Azure, uruchom następujące polecenie: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Jeśli grupa zasobów już istnieje, możesz zrezygnować z jej zastąpienia. Przypisz inną wartość do zmiennej `$resourceGroupName` i ponownie uruchom polecenie. 
+3. Zdefiniuj zmienną nazwy fabryki danych. 
 
-    * Aby tworzyć wystąpienia usługi Data Factory, musisz być współautorem lub administratorem subskrypcji platformy Azure.
-    * Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+    > [!IMPORTANT]
+    >  Zaktualizuj nazwę fabryki danych, aby była unikatowa w skali globalnej, na przykład ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Aby utworzyć fabrykę danych, uruchom następujące polecenie cmdlet **Set-AzureRmDataFactoryV2**: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Pamiętaj o następujących kwestiach:
+
+* Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zostanie wyświetlony następujący błąd, zmień nazwę i spróbuj ponownie.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli **współautora** lub **właściciela** albo **administratorem** subskrypcji platformy Azure.
+* Obecnie usługa Data Factory w wersji 2 umożliwia tworzenie fabryk danych tylko w regionach Wschodnie stany USA, Wschodnie stany USA 2 i Europa Zachodnia. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
@@ -224,7 +226,7 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Utwórz połączoną usługę Azure SQL Database.
-1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService.json** w folderze **C:\ADF** o następującej zawartości: (utwórz folder ADF, jeśli jeszcze nie istnieje). Zastąp parametry **&lt;server&gt;, &lt;user id&gt; i &lt;password&gt;** nazwą swojego serwera Azure SQL, identyfikatorem użytkownika i hasłem przed zapisaniem pliku. 
+1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService.json** w folderze **C:\ADF** o następującej zawartości: (utwórz folder ADF, jeśli jeszcze nie istnieje). Zamień parametry **&lt;server&gt;, &lt;database&gt;, &lt;user id&gt; i &lt;password&gt;** na nazwę swojego serwera Azure SQL, nazwę bazy danych, identyfikator użytkownika i hasło przed zapisaniem pliku. 
 
     ```json
     {
@@ -233,15 +235,15 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. W programie **Azure PowerShell** przejdź do folderu **ADF**.
-3. Uruchom polecenie cmdlet **Set-AzureRmDataFactoryV2LinkedService**, aby utworzyć połączoną usługę: **AzureSQLDatabaseLinkedService**. 
+1. W programie **Azure PowerShell** przejdź do folderu **ADF**.
+2. Uruchom polecenie cmdlet **Set-AzureRmDataFactoryV2LinkedService**, aby utworzyć połączoną usługę: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ W tym kroku utworzysz zestawy danych reprezentujące dane źródłowe i ujścia.
     }
    
     ```
-    W tym samouczku używamy nazwy tabeli **data_source_table**. Zastąp ją, jeśli używasz tabeli o innej nazwie. 
+    W tym samouczku użyto nazwy tabeli **data_source_table**. Zastąp ją, jeśli używasz tabeli o innej nazwie. 
 2.  Uruchom polecenie cmdlet Set-AzureRmDataFactoryV2Dataset, aby utworzyć zestaw danych: SourceDataset
     
     ```powershell
@@ -379,7 +381,7 @@ W tym kroku utworzysz zestaw danych do przechowywania wartości górnego limitu.
 W tym samouczku utworzysz potok z dwoma działaniami wyszukiwania, jednym działaniem kopiowania i jednym działaniem procedury składowanej, połączonymi w jednym potoku. 
 
 
-1. Utwórz plik JSON: IncrementalCopyPipeline.json w tym samym folderze o następującej zawartości. 
+1. Utwórz plik JSON IncrementalCopyPipeline.json w tym samym folderze o następującej zawartości: 
 
     ```json
     {
@@ -512,7 +514,7 @@ W tym samouczku utworzysz potok z dwoma działaniami wyszukiwania, jednym dział
 1. Uruchom potok: **IncrementalCopyPipeline** za pomocą polecenia cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Zastąp symbole zastępcze własną nazwą grupy zasobów i fabryki danych.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
 2. Sprawdź stan potoku, uruchamiając polecenie cmdlet Get-AzureRmDataFactoryV2ActivityRun, aż do wyświetlenia wszystkich uruchomionych pomyślnie działań. Zastąp symbole zastępcze własnym odpowiednim czasem dla parametrów RunStartedAfter i RunStartedBefore.  W tym samouczku użyto parametrów -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
@@ -616,7 +618,7 @@ W tym samouczku utworzysz potok z dwoma działaniami wyszukiwania, jednym dział
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Zaktualizowane dane w bazie danych Azure SQL są następujące:
+    Zaktualizowane dane w bazie danych Azure SQL Database są następujące:
 
     ```
     PersonID | Name | LastModifytime
@@ -632,7 +634,7 @@ W tym samouczku utworzysz potok z dwoma działaniami wyszukiwania, jednym dział
 2. Uruchom potok **IncrementalCopyPipeline** ponownie za pomocą polecenia cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Zastąp symbole zastępcze własną nazwą grupy zasobów i fabryki danych.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
 3. Sprawdź stan potoku, uruchamiając polecenie cmdlet **Get-AzureRmDataFactoryV2ActivityRun**, aż do wyświetlenia wszystkich uruchomionych pomyślnie działań. Zastąp symbole zastępcze własnym odpowiednim czasem dla parametrów RunStartedAfter i RunStartedBefore.  W tym samouczku użyto parametrów -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
@@ -700,7 +702,7 @@ W tym samouczku utworzysz potok z dwoma działaniami wyszukiwania, jednym dział
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  W magazynie Azure Blob Storage powinien być widoczny kolejny plik utworzony w magazynie. W tym samouczku nazwa nowego pliku to `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Otwórz ten plik, zobaczysz w nim 2 wiersze rekordów:
+4.  W magazynie Azure Blob Storage powinien być widoczny kolejny plik utworzony w magazynie. W tym samouczku nazwa nowego pliku to `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Otwórz ten plik — zobaczysz w nim 2 wiersze rekordów:
 5.  Sprawdź najnowszą wartość z `watermarktable`, zobaczysz, że wartość limitu została ponownie zaktualizowana
 
     ```sql
@@ -725,10 +727,10 @@ W ramach tego samouczka wykonano następujące procedury:
 > * Uruchamianie potoku.
 > * Monitorowanie uruchomienia potoku. 
 
-Przejdź do następującego samouczka, aby dowiedzieć się więcej o przekształcaniu danych za pomocą klastra Spark na platformie Azure:
+W tym samouczku potok skopiował dane z **jednej tabeli** w bazie danych Azure SQL Database do magazynu Azure Blob Storage. Przejdź do poniższego samouczka, aby uzyskać informacje na temat kopiowania danych z **wielu tabel** w lokalnej bazie danych programu SQL Server do bazy danych Azure SQL Database. 
 
 > [!div class="nextstepaction"]
->[Przekształcanie danych przy użyciu klastra Spark w chmurze](tutorial-transform-data-spark-powershell.md)
+>[Incrementally load data from multiple tables in SQL Server to Azure SQL Database (Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database)](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

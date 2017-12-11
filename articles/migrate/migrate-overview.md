@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -32,15 +32,17 @@ Usługa Azure Migrate ocenia obciążenia lokalne pod kątem migracji na platfor
 Usługa Azure Migrate ułatwia wykonywanie następujących działań:
 
 - **Ocena gotowości na platformę Azure**: czy maszyny lokalne mogą działać na platformie Azure. 
-- **Uzyskiwanie zaleceń dotyczących rozmiarów**: zalecane rozmiary maszyn wirtualnych platformy Azure po migracji są oparte na historii wydajności lokalnych maszyn wirtualnych. 
-- **Szacowanie miesięcznych kosztów**: szacowane koszty uruchamiania maszyn lokalnych na platformie Azure.
-- **Migracja godna zaufania**: podczas grupowania maszyn lokalnych, które mają być oceniane, można wizualizować zależności, aby zwiększyć wiarygodność oceny. Można wyświetlić szczegóły tych zależności dla konkretnej maszyny lub wszystkich maszyn w grupie.
+- **Uzyskiwanie zaleceń dotyczących rozmiarów**: uzyskaj zalecenia dotyczące rozmiarów maszyn wirtualnych platformy Azure na podstawie historii wydajności lokalnych maszyn wirtualnych. 
+- **Szacowanie miesięcznych kosztów**: uzyskaj szacowane koszty uruchamiania maszyn lokalnych na platformie Azure.  
+- **Migrowanie z poczuciem pewności**: wizualizuj zależności maszyn lokalnych, aby tworzyć grupy maszyn, które będą oceniane i migrowane wspólnie. Można wyświetlić szczegóły tych zależności dla konkretnej maszyny lub wszystkich maszyn w grupie.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
 - Aktualnie można oceniać gotowość lokalnych maszyn wirtualnych VMware do migracji na maszyny wirtualne platformy Azure.
+
 > [!NOTE]
 > Harmonogram działania obejmuje obsługę funkcji Hyper-V, która zostanie włączona za kilka miesięcy. Na razie zaleca się planowanie migracji obciążeń funkcji Hyper-V przy użyciu narzędzia Planista wdrażania usługi Azure Site Recovery. 
+
 - Można oceniać maksymalnie 1000 maszyn wirtualnych naraz, a pojedynczy projekt usługi Azure Migrate może obejmować do 1500 maszyn. Jeśli masz więcej maszyn, możesz zwiększyć liczbę projektów lub ocen. [Dowiedz się więcej](how-to-scale-assessment.md).
 - Oceniana maszyna wirtualna musi być zarządzana przez oprogramowanie vCenter Server w wersji 5.5, 6.0 lub 6.5.
 - Projekty usługi Azure Migrate można tworzyć tylko w regionie Zachodnio-środkowe stany USA. Nie ma to jednak wpływu na możliwość planowania migracji w innej docelowej lokalizacji platformy Azure. Lokalizacja projektu migracji służy tylko do przechowywania metadanych wykrytych w środowisku lokalnym.
@@ -54,11 +56,11 @@ Usługa Azure Migrate jest dostępna bez dodatkowych opłat. Jednak w okresie we
 
 ## <a name="whats-in-an-assessment"></a>Co obejmuje ocena?
 
-Oceny usługi Azure Migrate są oparte na ustawieniach opisanych w poniższej tabeli.
+Ocena pomaga określić, czy maszyny lokalne są odpowiednie dla platformy Azure, oraz uzyskać zalecenia dotyczące odpowiedniego rozmiaru i szacunkowy koszt działania maszyn wirtualnych na platformie Azure. Oceny są oparte na właściwościach opisanych w poniższej tabeli. Te właściwości można modyfikować w portalu usługi Azure Migrate. 
 
-**Ustawienie** | **Szczegóły**
+**Właściwość** | **Szczegóły**
 --- | ---
-**Lokalizacja docelowa** | Lokalizacja platformy Azure, do której chcesz przeprowadzić migrację. Domyślnie jest to lokalizacja utworzonego projektu usługi Azure Migrate. Ustawienie to można zmodyfikować.   
+**Lokalizacja docelowa** | Lokalizacja platformy Azure, do której chcesz przeprowadzić migrację. Domyślna lokalizacja docelowa to Zachodnie stany USA 2. 
 **Nadmiarowość magazynu** | Typ magazynu, który będzie używany przez maszyny wirtualne platformy Azure po zakończeniu migracji. Opcja domyślna to magazyn LRS.
 **Plany cenowe** | Na wynik oceny ma wpływ rejestracja w programie Software Assurance. Można również zastosować [korzyści z używania hybrydowej platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Uwzględniane są również obowiązujące oferty platformy Azure. Można też wskazać procentowe zniżki skojarzone z daną subskrypcją, stosowane do całej oferty. 
 **Warstwa cenowa** | Można wskazać [warstwę cenową (Podstawowa/Standardowa)](../virtual-machines/windows/sizes-general.md) dla maszyn wirtualnych platformy Azure. Ułatwia to migrację do odpowiedniej rodziny maszyn wirtualnych platformy Azure w zależności od używanego środowiska produkcyjnego. Domyślnie jest używana warstwa [Standardowa](../virtual-machines/windows/sizes-general.md).
@@ -69,12 +71,12 @@ Oceny usługi Azure Migrate są oparte na ustawieniach opisanych w poniższej ta
 ## <a name="how-does-azure-migrate-work"></a>Jak działa usługa Azure Migrate?
 
 1.  Musisz utworzyć projekt usługi Azure Migrate.
-2.  Za pomocą lokalnej maszyny wirtualnej, nazywanej urządzeniem modułu zbierającego, usługa Azure Migrate wyszukuje informacje o maszynach lokalnych. Aby utworzyć to urządzenie, pobierz plik instalacyjny w formacie Open Virtualization Appliance (ova) i zaimportuj go jako maszynę wirtualną na lokalnym serwerze vCenter.
-3.  Połącz się z maszyną wirtualną przy użyciu poświadczeń umożliwiających dostęp tylko do odczytu do serwera vCenter, a następnie uruchom moduł zbierający.
+2.  Za pomocą lokalnej maszyny wirtualnej, nazywanej urządzeniem modułu zbierającego, usługa Azure Migrate wyszukuje informacje o maszynach lokalnych. Aby utworzyć to urządzenie, pobierz plik instalacyjny w formacie Open Virtualization Appliance (ova) i zaimportuj go jako maszynę wirtualną w lokalnym programie vCenter Server.
+3.  Nawiąż połączenie z maszyną wirtualną przy użyciu połączenia konsoli w programie vCenter Server, określ nowe hasło dla maszyny wirtualnej podczas nawiązywania połączenia, a następnie uruchom aplikację modułu zbierającego na maszynie wirtualnej, aby zainicjować odnajdywanie.
 4.  Moduł zbierający gromadzi metadane maszyny wirtualnej przy użyciu poleceń cmdlet programu VMware PowerCLI. Odnajdywanie odbywa się bez użycia agenta ani instalowania żadnych narzędzi na hostach VMware lub maszynach wirtualnych. Zebrane metadane zawierają informacje o maszynach wirtualnych (rdzenie, pamięć, dyski, rozmiary dysków i karty sieciowe). Gromadzone są również dane dotyczące wydajności maszyn wirtualnych, w tym użycia procesora i pamięci, liczby operacji we/wy na sekundę na dysku, przepływności dysku (MB/s) i przepustowości sieci (MB/s).
 5.  Metadane te są wypychane do projektu usługi Azure Migrate. Można je wyświetlić w witrynie Azure Portal.
-6.  Aby ułatwić ocenę, pogrupuj maszyny wirtualne. Możesz na przykład pogrupować maszyny wirtualne, na których jest uruchamiana ta sama aplikacja. Pomocna może być funkcja tagowania w oprogramowaniu vCenter lub w portalu oprogramowania vCenter. Aby zweryfikować zależności dla konkretnej maszyny lub wszystkich maszyn w grupie, skorzystaj z wizualizacji.
-7.  Utwórz ocenę dla grupy.
+6.  Na potrzeby oceny odnalezione maszyny wirtualne należy umieścić w grupach. Na przykład możesz pogrupować maszyny wirtualne, na których jest uruchamiana ta sama aplikacja. Do grupowania maszyn wirtualnych można użyć portalu usługi Azure Migrate lub tagów w programie vCenter Server. Ponadto możesz użyć wizualizacji zależności, aby wyświetlić zależności określonej maszyny lub wszystkich maszyn w grupie i dostosować grupę.
+7.  Po utworzeniu grupy możesz utworzyć ocenę grupy. 
 8.  Utworzoną ocenę możesz wyświetlić w portalu lub pobrać w formacie programu Excel.
 
 
@@ -89,7 +91,7 @@ Poniższa tabela zawiera podsumowanie portów wymaganych do komunikacji usługi 
 |-------------------|------------------------|---------------|---------|
 |Moduł zbierający          |Usługa Azure Migrate   |TCP 443        |Moduł zbierający łączy się z usługą za pośrednictwem protokołu SSL przez port 443|
 |Moduł zbierający          |Program vCenter Server          |Domyślnie: 9443   | Domyślnie moduł zbierający łączy się z oprogramowaniem vCenter Server przez port 9443. Jeśli serwer nasłuchuje na innym porcie, powinien on zostać skonfigurowany jako port wychodzący na maszynie wirtualnej modułu zbierającego. |
-|Lokalna maszyna wirtualna     | Obszar roboczy OMS          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |Agent MMA łączy się z usługą Log Analytics za pośrednictwem portu TCP 443. Ten port jest potrzebny tylko wtedy, gdy używasz funkcji wizualizacji zależności i masz zainstalowanego agenta MMA. |
+|Lokalna maszyna wirtualna     | Obszar roboczy pakietu Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |Agent MMA łączy się z usługą Log Analytics za pośrednictwem portu TCP 443. Ten port jest potrzebny tylko wtedy, gdy używasz funkcji wizualizacji zależności i instalujesz agenta MMA (Microsoft Monitoring Agent). |
 
 
   

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
@@ -56,10 +56,8 @@ Niektóre z poniższych zasobów — konta, węzły obliczeniowe, pule, zadania 
 * [Węzeł obliczeniowy](#compute-node)
 * [Pula](#pool)
 * [Zadanie](#job)
-
   * [Harmonogramy zadań](#scheduled-jobs)
 * [Zadanie podrzędne](#task)
-
   * [Zadanie podrzędne uruchamiania](#start-task)
   * [Zadanie podrzędne Menedżera zadań](#job-manager-task)
   * [Zadania podrzędne przygotowania i zwolnienia zadań](#job-preparation-and-release-tasks)
@@ -263,6 +261,9 @@ Podczas tworzenia zadania podrzędnego można określić:
 * **Ograniczenia**, zgodnie z którymi powinno działać zadanie podrzędne. Na przykład ograniczenia obejmują maksymalny czas działania zadania podrzędnego, maksymalna liczba prób ponownego wykonania zadania podrzędnego zakończonego niepowodzeniem i maksymalny czas przechowywania plików w katalogu roboczym zadania podrzędnego.
 * **Pakiety aplikacji** do wdrożenia w obrębie węzła obliczeniowego, w których zgodnie z harmonogramem będzie uruchamiane zadanie podrzędne. [Pakiety aplikacji](#application-packages) umożliwiają uproszczone wdrażanie aplikacji uruchamianych w ramach zadań podrzędnych oraz zarządzanie ich wersjami. Pakiety aplikacji na poziomie zadania podrzędnego są szczególnie użyteczne w środowiskach z udostępnioną pulą, w których różne zadania są uruchamiane w jednej puli, a pula nie jest usuwana po ukończeniu zadania. Jeśli liczba zadań podrzędnych w zadaniu jest mniejsza niż liczba węzłów w puli, pakiety aplikacji zadania podrzędnego mogą minimalizować ilość transferowanych danych, ponieważ aplikacja jest wdrażana tylko dla węzłów, w których odbywa się uruchamianie zadań podrzędnych.
 * Odwołanie do **obrazu kontenera** w usłudze Docker Hub lub prywatny rejestr i dodatkowe ustawienia do tworzenia kontenera platformy Docker, w którym zadanie jest uruchamiane w węźle. Te informacje musisz podać tylko wtedy, gdy pula została skonfigurowana za pomocą konfiguracji kontenera.
+
+> [!NOTE]
+> Maksymalny okres istnienia zadania podrzędnego od momentu dodania go do zadania do jego ukończenia wynosi 7 dni. Ukończone zadania podrzędne są utrwalone przez czas nieokreślony. Dane dla zadań podrzędnych nieukończonych w ciągu maksymalnego okresu istnienia nie są dostępne.
 
 Oprócz zadań podrzędnych zdefiniowanych do wykonywania obliczeń w węźle w usłudze Batch dostępne są również następujące specjalne zadania podrzędne:
 

@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET i biblioteki WindowsAzure.Storage
+# <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-W tym samouczku przedstawiono podstawy korzystania z platformy .NET oraz interfejsu API `WindowsAzure.Storage` do tworzenia aplikacji, które korzystają z usługi [Azure Files](storage-files-introduction.md) do przechowywania danych plików. Ten samouczek umożliwia utworzenie prostej aplikacji konsolowej w celu wykonywania podstawowych działań za pomocą platformy .NET i usługi Azure Files:
+W tym samouczku przedstawiono podstawy korzystania z platformy .NET do tworzenia aplikacji, które korzystają z usługi [Azure Files](storage-files-introduction.md) do przechowywania danych plików. Ten samouczek umożliwia utworzenie prostej aplikacji konsolowej w celu wykonywania podstawowych działań za pomocą platformy .NET i usługi Azure Files:
 
 * Pobieranie zawartości pliku
 * Ustawienie limitu przydziału (maksymalnego rozmiaru) udziału plików.
@@ -45,9 +45,6 @@ Interfejs API | Kiedy stosować | Uwagi
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Twoja aplikacja: <ul><li>Musi odczytywać/zapisywać pliki za pośrednictwem protokołu SMB</li><li>Działa na urządzeniu, które ma dostęp do konta usługi Azure Files za pośrednictwem portu 445</li><li>Nie musi zarządzać żadnymi ustawieniami administracyjnymi udziału plików</li></ul> | Kodowanie operacji We/Wy pliku usługi Azure Files za pośrednictwem protokołu SMB jest ogólnie takie samo, jak kodowanie operacji We/Wy za pomocą dowolnego sieciowego udziału plików lub lokalnego urządzenia magazynującego. Zobacz [ten samouczek](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter), aby zapoznać się z wprowadzeniem do wielu funkcji platformy .NET, w tym do operacji We/Wy pliku.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Twoja aplikacja: <ul><li>Nie może uzyskiwać dostępu do usługi Azure Files za pośrednictwem protokołu SMB na porcie 445 z powodu ograniczeń zapory lub usługodawcy internetowego</li><li>Wymaga funkcji administracyjnych, takich jak możliwość ustawiania przydziału udziału plików lub tworzenia sygnatury dostępu współdzielonego</li></ul> | W tym artykule przedstawiono użycie biblioteki `WindowsAzure.Storage` dla operacji We/Wy pliku przy użyciu interfejsu REST (zamiast protokołu SMB) oraz zarządzania udziałem plików.
-
-> [!TIP]
-> W zależności od wymagań aplikacji obiekty blob platformy Azure mogą okazać się bardziej odpowiednim wyborem na potrzeby magazynowania. Aby uzyskać więcej informacji o wybieraniu usługi Azure Files i obiektów blob platformy Azure, zobacz [Kiedy używać obiektów blob platformy Azure, usługi Azure Files i dysków platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Tworzenie aplikacji konsolowej i uzyskiwanie zestawu
 W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Poniższe kroki pokazują, jak utworzyć aplikację konsoli w programie Visual Studio 2017, jednak kroki w innych wersjach programu Visual Studio są podobne.

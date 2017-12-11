@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
 
@@ -57,7 +57,7 @@ Aktualizacje oprogramowania można wdrożyć i zainstalować na komputerach, kt�
 W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe wykonują równolegle wdrożenie.  Najpierw jest wykonywane skanowanie, aby sprawdzić, czy aktualizacje są ciągle wymagane. Dopiero wtedy są one instalowane.  Należy zauważyć, że w przypadku komputerów klienckich usługi WSUS wdrażanie aktualizacji niezatwierdzonych w usłudze WSUS nie powiedzie się.  Wyniki zastosowania aktualizacji są przekazywane do usługi OMS do przetworzenia i podsumowania na pulpitach nawigacyjnych lub przez wyszukiwanie zdarzeń.     
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Rozwiązanie obsługuje przeprowadzanie ocen aktualizacji dla systemu Windows Server 2008 lub nowszych i wdrożeń aktualizacji systemu Windows Server 2008 R2 SP1 lub nowszych.  Opcje instalacji Server Core i Nano Server nie są obsługiwane.
+* Rozwiązanie obsługuje przeprowadzanie ocen aktualizacji dla systemu Windows Server 2008 lub nowszych i wdrożeń aktualizacji systemu Windows Server 2008 R2 SP1 lub nowszych.  System Nano Server nie jest obsługiwany.
 
     > [!NOTE]
     > Obsługa wdrażania aktualizacji dla systemu Windows Server 2008 R2 SP1 wymaga programu .NET Framework 4.5 i programu WMF 5.0 lub nowszego.
