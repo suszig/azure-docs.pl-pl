@@ -41,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Utrwalanie danych za pomocą usługi Azure Files
       href: azure-files.md
+    - name: Integracja z platformą Azure za pomocą usługi OSBA
+      href: integrate-azure.md
     - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
       href: kubernetes-dashboard.md
     - name: Tworzenie jednostki usługi

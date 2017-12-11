@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Rozwiązywanie problemów](active-directory-application-proxy-troubleshoot.md)
-#### Korzystanie z portalu klasycznego
-##### [Pobieranie łączników](application-proxy-enable-classic-portal.md)
-##### [Publikowanie aplikacji](active-directory-application-proxy-publish.md)
-##### [Korzystanie z łączników](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Dostęp warunkowy](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Zarządzanie aplikacjami w przedsiębiorstwie
 #### [Przypisywanie użytkowników](active-directory-coreapps-assign-user-azure-portal.md)
