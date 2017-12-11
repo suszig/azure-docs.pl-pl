@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning — często zadawane pytania: rozliczenia, możliwości, ograniczenia i pomoc techniczna
 Przedstawione tutaj często zadawane pytania i odpowiedzi dotyczą usługi Azure Machine Learning, która jest usługą w chmurze przeznaczoną do tworzenia modeli predykcyjnych i rozwiązań operacyjnych za pośrednictwem usług sieci Web. Wśród często zadawanych pytań znajdują się pytania dotyczące korzystania z samej usługi, w tym między innymi na temat modelu rozliczeń, możliwości, ograniczeń i pomocy technicznej.
@@ -230,7 +230,7 @@ Aby uzyskać więcej informacji, zobacz temat [Retrain Machine Learning models p
 
 **Jak mogę monitorować moją usługę sieci Web wdrożoną w środowisku produkcyjnym?**
 
-Po wdrożeniu modelu predykcyjnego można go monitorować z poziomu klasycznej witryny Azure Portal (tylko klasyczne usługi sieci Web) lub portalu usług sieci Web Azure Machine Learning. Dla każdej wdrożonej usługi istnieje osobny pulpit nawigacyjny, w którym dostępne są informacje pozwalające na monitorowanie tej usługi. Więcej informacji o zarządzaniu wdrożonymi usługami sieci Web można znaleźć w tematach [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) (Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning) oraz [Manage an Azure Machine Learning workspace](manage-workspace.md) (Zarządzanie obszarem roboczym usługi Azure Machine Learning).
+Po wdrożeniu modelu predykcyjnego można go monitorować z poziomu portalu usług sieci Web Azure Machine Learning. Dla każdej wdrożonej usługi istnieje osobny pulpit nawigacyjny, w którym dostępne są informacje pozwalające na monitorowanie tej usługi. Więcej informacji o zarządzaniu wdrożonymi usługami sieci Web można znaleźć w tematach [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) (Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning) oraz [Manage an Azure Machine Learning workspace](manage-workspace.md) (Zarządzanie obszarem roboczym usługi Azure Machine Learning).
 
 **Czy jest jakieś miejsce, w którym mogę zobaczyć dane wyjściowe moich usług RRS/BES?**
 
@@ -285,7 +285,7 @@ Nie.
 ## <a name="security-and-availability"></a>Bezpieczeństwo i dostępność
 **Kto domyślnie ma dostęp do punktu końcowego HTTP usługi sieci Web? Jak ograniczyć dostęp do tego punktu końcowego?**
 
-Po wdrożeniu usługi sieci Web dla tej usługi tworzony jest domyślny punkt końcowy. Domyślny punkt końcowy może być wywoływany przy użyciu właściwego dla niego klucza interfejsu API. Możesz dodać dodatkowe punkty końcowe z właściwymi dla nich kluczami z poziomu klasycznej witryny Azure Portal albo programowo z użyciem interfejsów API zarządzania usługami sieci Web. W celu wykonywania wywołań do usługi sieci Web potrzebne są klucze dostępu. Aby uzyskać więcej informacji, zobacz [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Jak korzystać z usługi internetowej Azure Machine Learning).
+Po wdrożeniu usługi sieci Web dla tej usługi tworzony jest domyślny punkt końcowy. Domyślny punkt końcowy może być wywoływany przy użyciu właściwego dla niego klucza interfejsu API. Możesz dodać dodatkowe punkty końcowe z właściwymi dla nich kluczami z poziomu portalu usług sieci Web albo programowo z użyciem interfejsów API zarządzania usługami sieci Web. W celu wykonywania wywołań do usługi sieci Web potrzebne są klucze dostępu. Aby uzyskać więcej informacji, zobacz [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Jak korzystać z usługi internetowej Azure Machine Learning).
 
 **Co się stanie, jeśli nie można odnaleźć konta magazynu platformy Azure?**
 
@@ -297,7 +297,7 @@ Jeśli konto magazynu zostanie przypadkowo usunięte, konieczne będzie odtworze
 
 Usługa Machine Learning Studio jest oparta na udostępnionym przez użytkownika koncie magazynu platformy Azure, w którym przechowywane są dane pośrednie podczas wykonywania przepływu pracy. To konto magazynu jest udostępniane na rzecz środowiska usługi Machine Learning Studio w momencie utworzenia obszaru roboczego, a klucz dostępu jest skojarzony z tym obszarem roboczym. Jeśli po utworzeniu obszaru roboczego klucze dostępu zostaną zmienione, obszar roboczy nie będzie mógł uzyskać dostępu do konta magazynu. W rezultacie przestanie działać, a wszystkie eksperymenty w tym obszarze roboczym zakończą się niepowodzeniem.
 
-Jeśli doszło do zmiany kluczy dostępu do konta magazynu, należy ponownie zsynchronizować klucze dostępu w obszarze roboczym, korzystając z klasycznej witryny Azure Portal.  
+Jeśli doszło do zmiany kluczy dostępu do konta magazynu, należy ponownie zsynchronizować klucze dostępu w obszarze roboczym, korzystając z witryny Azure Portal.  
 
 ## <a name="support-and-training"></a>Pomoc techniczna i szkolenia
 **Gdzie można znaleźć szkolenia dotyczące usługi Azure Machine Learning?**
@@ -509,7 +509,7 @@ Do korzystania z tej usługi wystarczy konto Microsoft. Przejdź do [strony gł�
 
 **Jak zasubskrybować usługę Azure Machine Learning w warstwie Standardowa?**
 
-Aby utworzyć obszar roboczy usługi Machine Learning w warstwie standardowej, musisz mieć dostęp do subskrypcji platformy Azure. Możesz utworzyć konto umożliwiające subskrypcję 30-dniowej bezpłatnej wersji próbnej platformy Azure i później wykonać uaktualnienie do płatnej subskrypcji lub od razu wykupić płatną subskrypcję platformy Azure. Po uzyskaniu dostępu do subskrypcji będzie można utworzyć obszar roboczy usługi Machine Learning w klasycznej witrynie Microsoft Azure Portal. Zobacz [szczegółowe instrukcje](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Aby utworzyć obszar roboczy usługi Machine Learning w warstwie standardowej, musisz mieć dostęp do subskrypcji platformy Azure. Możesz utworzyć konto umożliwiające subskrypcję 30-dniowej bezpłatnej wersji próbnej platformy Azure i później wykonać uaktualnienie do płatnej subskrypcji lub od razu wykupić płatną subskrypcję platformy Azure. Po uzyskaniu dostępu do subskrypcji będzie można utworzyć obszar roboczy usługi Machine Learning w witrynie Microsoft Azure Portal. Zobacz [szczegółowe instrukcje](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Dostęp do obszaru roboczego usługi Machine Learning w warstwie standardowej możesz też uzyskać za pomocą zaproszenia od właściciela tego obszaru roboczego.
 

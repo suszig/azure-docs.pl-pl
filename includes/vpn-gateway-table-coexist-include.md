@@ -1,1 +1,4 @@
-|**Model/metoda wdrażania** | **Azure Portal** | **PowerShell** | |---|---|---| | Menedżer zasobów | **Nieobsługiwane** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)| | Klasyczny | **Nieobsługiwane** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| **Model/metoda wdrażania** | **Azure Portal** | **PowerShell** | 
+| --- | --- | --- |
+| Resource Manager | **Nieobsługiwane** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| Wdrożenie klasyczne | **Nieobsługiwane** | [Artykuł](../articles/expressroute/expressroute-howto-coexist-classic.md) |

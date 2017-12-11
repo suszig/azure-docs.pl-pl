@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -96,7 +96,7 @@ Zadania zarządzania zasobami serwerowymi, takie jak tworzenie serwerów, zawies
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-secure.png)
 
 #### <a name="authentication"></a>Uwierzytelnianie
-Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwane przez [usługi Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Podczas próby logowania do bazy danych usług Azure Analysis Services użytkownicy używają tożsamości konta organizacji z dostępem do bazy danych, z którą chcą uzyskać połączenie. Te tożsamości użytkowników muszą być elementami członkowskimi domyślnej usługi Azure Active Directory dla subskrypcji, w których znajduje się serwer usług Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
+Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwane przez [usługi Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Podczas próby logowania do bazy danych usług Azure Analysis Services użytkownicy używają tożsamości konta organizacji z dostępem do bazy danych, z którą chcą uzyskać połączenie. Te tożsamości użytkowników muszą być członkami domyślnej usługi Azure Active Directory dla subskrypcji, w których znajduje się serwer usług Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Bezpieczeństwo danych
 Usługi Azure Analysis Services używają magazynu obiektów Blob Azure jako trwałego magazynu przechowania danych i metadanych dla baz danych usług Analysis Services. Pliki danych w ramach obiektu Blob są szyfrowane za pomocą szyfrowania po stronie serwera (SSE) Azure Blob. W trybie zapytania bezpośredniego przechowywane są tylko metadane. Dostęp do danych rzeczywistych ze źródła danych następuje podczas przeszukiwania.
@@ -124,7 +124,7 @@ Do łączenia się z serwerami Analysis Services klienci używają [bibliotek kl
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 
 #### <a name="documentation"></a>Dokumentacja
-Usługi Azure Analysis Services są łatwe w konfiguracji i zarządzaniu. Tutaj możesz znaleźć wszystkie informacje potrzebne do tworzenia usług serwera i zarządzania nimi. Tworzenie modelu danych w celu jego wdrożenia na serwerze w znacznym stopniu przypomina tworzenie modelu przeznaczonego do wdrożenia na serwerze lokalnym. W witrynie [usług Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) jest dostępna szeroka gama artykułów dotyczących koncepcji, procedur, szkoleń i samouczków.
+Usługi Azure Analysis Services są łatwe w konfiguracji i zarządzaniu. Tutaj możesz znaleźć wszystkie informacje potrzebne do tworzenia usług serwera i zarządzania nimi. Tworzenie modelu danych w celu jego wdrożenia na serwerze w znacznym stopniu przypomina tworzenie modelu przeznaczonego do wdrożenia na serwerze lokalnym. W [witrynie pomocy usług SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) jest dostępna szeroka gama artykułów dotyczących koncepcji, procedur, szkoleń i samouczków.
 
 #### <a name="videos"></a>Filmy wideo
 Zapoznaj się z pomocnymi wideo, odwiedzając dział [usług Azure Analysis Services w witrynie Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

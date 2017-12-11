@@ -14,130 +14,69 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Dodawanie buforowania w celu poprawy wydajności usługi Azure API Management
 Operacje w usłudze API Management można skonfigurować do buforowania odpowiedzi. Buforowanie odpowiedzi może znacznie zmniejszyć opóźnienie interfejsu API, zużycie przepustowości i obciążenie usługi sieci Web w przypadku danych, które nie zmieniają się często.
+ 
+Aby uzyskać bardziej szczegółowe informacje na temat buforowania, zobacz [API Management caching policies](api-management-caching-policies.md) (Zasady buforowania w usłudze API Management) i [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Buforowanie niestandardowe w usłudze Azure API Management).
 
-Ten przewodnik pokazuje, jak dodać buforowanie odpowiedzi do interfejsu API oraz skonfigurować zasady dla przykładowych operacji interfejsu Echo API. Następnie możesz wywołać operację z portalu dla deweloperów, aby sprawdzić działanie buforowania.
+![zasady buforowania](media/api-management-howto-cache/cache-policies.png)
 
-> [!NOTE]
-> Aby poznać informacje na temat buforowania elementów według kluczy przy użyciu wyrażeń zasad, zobacz artykuł [Custom caching in Azure API Management](api-management-sample-cache-by-key.md) (Niestandardowe buforowanie w usłudze Azure API Management).
-> 
-> 
+Zawartość:
+
+> [!div class="checklist"]
+> * Dodawanie buforowania odpowiedzi do interfejsu API
+> * Sprawdzanie działania buforowania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wykonaniem kroków w tym przewodniku potrzebne jest wystąpienie usługi API Management ze skonfigurowanymi interfejsem API i produktem. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 
-## <a name="configure-caching"> </a>Konfigurowanie operacji do buforowania
-W tym kroku należy przejrzeć ustawienia buforowania operacji **GET Resource (cached)** (Buforowane pobieranie zasobu) przykładowego interfejsu Echo API.
+W celu ukończenia tego samouczka:
 
-> [!NOTE]
-> Każde wystąpienie usługi API Management ma wstępnie skonfigurowany interfejs Echo API, który może służyć do eksperymentów oraz poznawania usługi API Management. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
-> 
-> 
++ [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md)
++ [Zaimportuj i opublikuj interfejs API](import-and-publish.md)
 
-Na początku kliknij opcję **Portal wydawcy** w klasycznej witrynie Azure Portal dla usługi API Management. Spowoduje to przejście do portalu wydawcy usługi API Management.
+## <a name="caching-policies"> </a>Dodawanie zasad buforowania
 
-![Portal wydawcy][api-management-management-console]
+W zasadach buforowania pokazanych w tym przykładzie pierwsze żądanie operacji **GetSpeakers** zwraca odpowiedź z usługi zaplecza. Ta odpowiedź jest zbuforowana z kluczem uwzględniającym określone nagłówki i parametry ciągu zapytania. Dla kolejnych wywołań operacji z pasującymi parametrami będą zwracana buforowaną odpowiedź do czasu wygaśnięcia interwału czasu trwania pamięci podręcznej.
 
-Aby zaimportować, kliknij opcję **Interfejsy API** z menu **API Management** po lewej stronie, a następnie kliknij pozycję **Echo API**.
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+2. Przejdź do swojego wystąpienia usługi APIM.
+3. Wybierz kartę **API**.
+4. Kliknij pozycję **Demo Conference API** (Pokazowy interfejs API konferencji) na liście interfejsów API.
+5. Wybierz operację **GetSpeakers**.
+6. W górnej części ekranu wybierz kartę **Projektowanie**.
+7. W oknie **Przychodzące przetwarzanie** kliknij trójkąt (obok ołówka).
 
-![Interfejs Echo API][api-management-echo-api]
+    ![edytor kodu](media/api-management-howto-cache/code-editor.png)
+8. Wybierz pozycję **Edytor kodu**.
+9. W elemencie **inbound** (przychodzące) dodaj następujące zasady:
 
-Kliknij kartę **Operacje**, a następnie kliknij operację **GET Resource (cached)** z listy **Operacje**.
-
-![Operacje interfejsu Echo API][api-management-echo-api-operations]
-
-Kliknij kartę **Buforowanie**, aby wyświetlić ustawienia buforowania dla tej operacji.
-
-![Karta Buforowanie][api-management-caching-tab]
-
-Aby włączyć buforowanie operacji, zaznacz pole wyboru **Włącz**. W tym przykładzie buforowanie jest włączone.
-
-Każda odpowiedź operacji zawiera klucz generowany na podstawie wartości w polach **Zróżnicuj według parametrów ciągu kwerendy** i **Zróżnicuj na podstawie nagłówków**. Jeśli chcesz buforować wiele odpowiedzi na podstawie parametrów ciągu zapytania lub nagłówków, możesz je skonfigurować w tych dwóch polach.
-
-**Czas trwania** określa interwał wygasania buforowanych odpowiedzi. W tym przykładzie interwał wynosi **3600** sekund, czyli godzinę.
-
-Jeśli użyjemy konfiguracji buforowania w tym przykładzie, pierwsze żądanie operacji **GET Resource (cached)** zwraca odpowiedź z usługi zaplecza. Ta odpowiedź zostanie zbuforowana z kluczem uwzględniającym określone nagłówki i parametry ciągu zapytania. Dla kolejnych wywołań operacji z pasującymi parametrami będą zwracana buforowaną odpowiedź do czasu wygaśnięcia interwału czasu trwania pamięci podręcznej.
-
-## <a name="caching-policies"> </a>Przeglądanie zasad buforowania
-W tym kroku przejrzysz ustawienia buforowania operacji **GET Resource (cached)** przykładowego interfejsu Echo API.
-
-Jeśli ustawienia buforowania są skonfigurowane dla operacji na karcie **Buforowanie**, zasady buforowania są dodawane dla operacji. Te zasady te można wyświetlać i edytować w edytorze zasad.
-
-Kliknij opcję **Zasady** z menu **API Management** po lewej stronie, a następnie wybierz pozycje **Echo API / GET Resource (cached)** z listy rozwijanej **Operacja**.
-
-![Operacja zakresu zasad][api-management-operation-dropdown]
-
-Powoduje to wyświetlenie zasad dla tej operacji w edytorze zasad.
-
-![Edytor zasad usługi API Management][api-management-policy-editor]
-
-Definicja zasad dla tej operacji obejmuje zasady definiujące konfigurację buforowania wyświetloną na karcie **Buforowanie** w poprzednim kroku.
-
-```xml
-<policies>
-    <inbound>
-        <base />
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
             <vary-by-header>Accept-Charset</vary-by-header>
+            <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
-        <rewrite-uri template="/resource" />
-    </inbound>
-    <outbound>
-        <base />
-        <cache-store caching-mode="cache-on" duration="3600" />
-    </outbound>
-</policies>
-```
 
-> [!NOTE]
-> Zmiany wprowadzone w zasadach buforowania w edytorze zasad zostaną odzwierciedlone na karcie **Buforowanie** i na odwrót.
-> 
-> 
+10. W elemencie **outbound** (wychodzące) dodaj następujące zasady:
+
+        <cache-store caching-mode="cache-on" duration="20" />
+
+    **Czas trwania** określa interwał wygasania buforowanych odpowiedzi. W tym przykładzie interwał to **20** sekund.
 
 ## <a name="test-operation"> </a>Wywoływanie operacji i testowanie buforowania
-Możemy wywołać operację z portalu dla deweloperów, aby sprawdzić działanie buforowania. Kliknij przycisk **Portal dla deweloperów** w prawym górnym menu.
+Wywołaj operację z portalu dla deweloperów, aby sprawdzić działanie buforowania.
 
-![Portal dla deweloperów][api-management-developer-portal-menu]
-
-Kliknij opcję **Interfejsy API** w górnym menu, a następnie wybierz pozycję **Echo API**.
-
-![Interfejs Echo API][api-management-apis-echo-api]
-
-> Jeśli istnieje tylko jeden interfejs API skonfigurowany lub widoczny dla Twojego konta, kliknięcie opcji Interfejsy API powoduje przejście bezpośrednio do operacji dla tego interfejsu API.
-> 
-> 
-
-Wybierz operację **GET Resource (cached)**, a następnie kliknij przycisk **Otwórz konsolę**.
-
-![Otwarta konsola][api-management-open-console]
-
-Konsola umożliwia wywoływanie operacji bezpośrednio z portalu dla deweloperów.
-
-![Konsola][api-management-console]
-
-Zachowaj wartości domyślne parametrów **param1** i **param2**.
-
-Wybierz żądany klucz subskrypcji z listy rozwijanej **subscription-key**. Jeśli Twoje konto ma tylko jedną subskrypcję, zostanie ona od razu wybrana.
-
-Wprowadź wartość **sampleheader:value1** w polu tekstowym **Nagłówki żądań**.
-
-Kliknij przycisk **HTTP Get** i zanotuj nagłówki odpowiedzi.
-
-Wprowadź wartość **sampleheader:value2** w polu tekstowym **Nagłówki żądań**, a następnie kliknij przycisk **HTTP Get**.
-
-Zauważ, że wartość **sampleheader** jest nadal równa **value1** w odpowiedzi. Wypróbuj kilka różnych wartości i zauważ, że zwracana jest buforowana odpowiedź z pierwszego wywołania.
-
-Wprowadź wartość **25** w polu **param2**, a następnie kliknij przycisk **HTTP Get**.
-
-Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2**. Ponieważ wyniki operacji są oznaczanie kluczami na podstawie ciągu zapytania, poprzednio zbuforowana odpowiedź nie została zwrócona.
+1. W portalu Azure przejdź do swojego wystąpienia usługi APIM.
+2. Wybierz kartę **Interfejsy API**.
+3. Wybierz interfejs API, do którego dodano zasady buforowania.
+4. Wybierz operację **GetSpeakers**.
+5. Kliknij kartę **Test** w prawym górnym menu.
+6. Kliknij pozycję **Wyślij**.
 
 ## <a name="next-steps"> </a>Następne kroki
 * Aby uzyskać więcej informacji na temat zasad buforowania, zobacz [Caching policies][Caching policies] (Zasady buforowania) w artykule [API Management policy reference][API Management policy reference] (Dokumentacja zasad usługi API Management).
@@ -160,12 +99,12 @@ Zauważ, że wartość **sampleheader** w odpowiedzi jest teraz równa **value2*
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies

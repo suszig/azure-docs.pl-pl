@@ -1,29 +1,29 @@
 ---
-title: "Indeks, zapytania i filtrowanie na stronach portalu usługi Azure Search | Microsoft Docs"
-description: "W witrynie Azure Portal do wygenerowania indeksu można użyć wstępnie zdefiniowanych danych przykładowych. Dowiedz się więcej o wyszukiwaniu pełnotekstowym, filtrach, aspektach, wyszukiwaniu rozmytym, wyszukiwaniu geograficznym i innych funkcjach."
+title: "Samouczek usługi Azure Search dotyczący indeksowania, wykonywania zapytań i filtrowania przy użyciu portalu | Microsoft Docs"
+description: "W witrynie Azure Portal do wygenerowania indeksu w usłudze Azure Search można użyć wstępnie zdefiniowanych danych przykładowych. Dowiedz się więcej o wyszukiwaniu pełnotekstowym, filtrach, aspektach, wyszukiwaniu rozmytym, wyszukiwaniu geograficznym i innych funkcjach."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Tworzenie, przeszukiwanie i filtrowanie indeksu usługi Azure Search w portalu
 
-W witrynie Azure Portal rozpocznij pracę od wstępnie zdefiniowanego przykładowego zestawu danych, aby szybko wygenerować indeks za pomocą kreatora **importu danych**. Zapoznaj się z wyszukiwaniem pełnotekstowym, filtrami, aspektami, wyszukiwaniem rozmytym i wyszukiwaniem geograficznym, korzystając z **Eksploratora wyszukiwania**.  
+W witrynie Azure Portal rozpocznij pracę od wstępnie zdefiniowanego przykładowego zestawu danych, aby szybko wygenerować indeks usługi Azure Search za pomocą kreatora **importu danych**. Zapoznaj się z wyszukiwaniem pełnotekstowym, filtrami, aspektami, wyszukiwaniem rozmytym i wyszukiwaniem geograficznym, korzystając z **Eksploratora wyszukiwania**.  
 
 To wprowadzenie bez użycia kodu pozwala rozpocząć pracę ze wstępnie zdefiniowanymi danymi i umożliwia szybkie pisanie potrzebnych zapytań. Choć narzędzia portalu nie zastępują kodu, mogą one być użyteczne w przypadku następujących zadań:
 

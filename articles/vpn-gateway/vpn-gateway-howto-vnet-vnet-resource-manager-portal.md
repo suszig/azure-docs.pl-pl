@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -41,15 +41,23 @@ Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu
 
 ## <a name="about"></a>Łączenie sieci wirtualnych — informacje
 
-Proces łączenia dwóch sieci wirtualnych przy użyciu typu połączenia sieć wirtualna-sieć wirtualna przebiega podobnie do procesu tworzenia połączenia IPsec z lokacją lokalną. Oba typy połączeń używają bramy sieci VPN, aby zapewnić bezpieczny tunel korzystający z protokołu IPsec/IKE, oraz działają tak samo pod względem komunikacji. Różnica między nimi dotyczy konfiguracji bramy sieci lokalnej. Podczas tworzenia połączenia sieć wirtualna-sieć wirtualna przestrzeń adresowa bramy sieci lokalnej nie jest widoczna. Jest ona tworzona i wypełniana automatycznie. Po zaktualizowaniu przestrzeni adresowej dla jednej sieci wirtualnej druga sieć wirtualna będzie automatycznie kierować ruch do zaktualizowanej przestrzeni adresowej.
+Z sieciami wirtualnymi można łączyć się na wiele sposobów. W poniższych sekcjach opisano różne metody łączenia się z sieciami wirtualnymi.
 
-W przypadku pracy ze złożoną konfiguracją warto korzystać z typu połączenia IPsec zamiast połączenia sieć wirtualna-sieć wirtualna. Dzięki temu można określić dodatkową przestrzeń adresową dla bramy sieci lokalnej w celu kierowania ruchu. Jeśli łączysz sieci wirtualne przy użyciu typu połączenia IPsec, musisz ręcznie utworzyć i skonfigurować bramę sieci lokalnej. Aby uzyskać więcej informacji, zobacz [Konfiguracje lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+### <a name="vnet-to-vnet"></a>Połączenia między sieciami wirtualnymi
 
-Ponadto jeśli sieci wirtualne znajdują się w tym samym regionie, warto rozważyć utworzenie wirtualnych sieci równorzędnych. Wirtualne sieci równorzędne nie używają bramy sieci VPN, a ich funkcje i model cenowy są nieco inne. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+Skonfigurowanie połączenia sieci wirtualnej z siecią wirtualną jest dobrym sposobem łatwego połączenia sieci wirtualnych. Proces łączenia dwóch sieci wirtualnych przy użyciu typu połączenia sieć wirtualna-sieć wirtualna (VNet2VNet) przebiega podobnie do procesu tworzenia połączenia IPsec typu lokacja-lokacja z lokacją lokalną. Oba typy połączeń używają bramy sieci VPN, aby zapewnić bezpieczny tunel korzystający z protokołu IPsec/IKE, oraz działają tak samo pod względem komunikacji. Różnica między nimi dotyczy konfiguracji bramy sieci lokalnej. Podczas tworzenia połączenia sieć wirtualna-sieć wirtualna przestrzeń adresowa bramy sieci lokalnej nie jest widoczna. Jest ona tworzona i wypełniana automatycznie. Po zaktualizowaniu przestrzeni adresowej dla jednej sieci wirtualnej druga sieć wirtualna automatycznie kieruje ruch do zaktualizowanej przestrzeni adresowej. Utworzenie połączenia sieć wirtualna-sieć wirtualna jest zwykle szybsze i łatwiejsze niż utworzenie połączenia lokacja-lokacja między sieciami wirtualnymi.
 
-### <a name="why"></a>Dlaczego warto utworzyć połączenie sieć wirtualna-sieć wirtualna?
+### <a name="site-to-site-ipsec"></a>Lokacja-lokacja (IPsec)
 
-Sieci wirtualne można łączyć z następujących powodów:
+W przypadku pracy ze złożoną konfiguracją sieci lepszym rozwiązaniem może być połączenie sieci wirtualnych za pomocą procedury tworzenia połączenia [lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md). W przypadku korzystania z procedury tworzenia połączenia IPsec typu lokacja-lokacja bramy sieci lokalnej są tworzone i konfigurowane ręcznie. Każda z bram sieci lokalnej sieci wirtualnej traktuje drugą sieć wirtualną jako lokację lokalną. Dzięki temu można określić dodatkową przestrzeń adresową dla bramy sieci lokalnej w celu kierowania ruchu. W przypadku zmiany przestrzeni adresowej sieci wirtualnej należy zaktualizować odpowiednią bramę sieci lokalnej w celu odzwierciedlenia zmiany. Nie jest to aktualizowane automatycznie.
+
+### <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
+
+Warto rozważyć połączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN i są z nią związane inne ograniczenia. Ponadto [ceny dotyczące komunikacji równorzędnej sieci wirtualnych](https://azure.microsoft.com/pricing/details/virtual-network) są obliczane inaczej niż [ceny dotyczące usługi VPN Gateway połączenia sieć wirtualna-sieć wirtualna](https://azure.microsoft.com/pricing/details/vpn-gateway). Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Dlaczego warto utworzyć połączenie sieć wirtualna-sieć wirtualna?
+
+Sieci wirtualne można łączyć za pomocą połączenia sieć wirtualna-sieć wirtualna z następujących powodów:
 
 * **Niezależna od regionu nadmiarowość i obecność geograficzna**
 

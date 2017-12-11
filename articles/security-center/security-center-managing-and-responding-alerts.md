@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure
 Ten dokument ułatwia zarządzanie alertami zabezpieczeń i reagowanie na nie przy użyciu usługi Azure Security Center.
@@ -57,6 +57,10 @@ W dolnej części tej strony znajdują się szczegółowe informacje o każdym a
 * **Stan**: bieżący stan alertu. Istnieją dwa typy stanów:
   * **Aktywny**: alert zabezpieczeń został wykryty.
 * **Ważność**: poziom ważności (wysoki, średni lub niski).
+
+> [!NOTE]
+> Alerty zabezpieczeń wygenerowane przez usługę Security Center pojawią się również w dzienniku aktywności platformy Azure. Aby uzyskać więcej informacji o tym, jak uzyskać dostęp do dziennika aktywności platformy Azure, zobacz [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) (Wyświetlanie dzienników aktywności w celu inspekcji akcji wykonywanych na zasobach).
+>
 
 ### <a name="filtering-alerts"></a>Filtrowanie alertów
 Alerty można filtrować na podstawie daty, stanu i ważności. Filtrowanie alertów może być przydatne w przypadku scenariuszy, w których należy zawęzić zakres wyświetlanych alertów zabezpieczeń. Możesz na przykład sprawdzić alerty zabezpieczeń, które wystąpiły w ciągu ostatnich 24 godzin, ponieważ badasz potencjalne naruszenie zabezpieczeń systemu.

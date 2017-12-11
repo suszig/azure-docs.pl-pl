@@ -1,26 +1,19 @@
 ---
-title: "Nazwa główna usługi klastra Azure Kubernetes | Dokumentacja firmy Microsoft"
+title: "Jednostka usługi klastra Azure Kubernetes"
 description: "Tworzenie jednostki usługi Azure Active Directory dla klastra Kubernetes w usłudze Azure Container Service i zarządzanie nią"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurowanie jednostki usługi Azure AD dla klastra Kubernetes w usłudze Azure Container Service
 
@@ -36,11 +29,11 @@ W tym artykule przedstawiono różne sposoby konfigurowania jednostki usługi dl
 
 Możesz użyć istniejącej jednostki usługi Azure AD, która spełnia następujące wymagania, albo utworzyć nową.
 
-* **Zakres**: grupa zasobów używana do wdrożenia klastra.
+* **Zakres**: grupa zasobów
 
-* **Rola**: **Współautor**
+* **Rola**: współautor
 
-* **Wpis tajny klienta**: musi to być hasło. Obecnie nie można używać nazwy głównej usługi do uwierzytelniania certyfikatu.
+* **Klucz tajny klienta**: musi to być hasło. Obecnie nie można używać nazwy głównej usługi do uwierzytelniania certyfikatu.
 
 > [!IMPORTANT]
 > Aby utworzyć jednostkę usługi, musisz mieć uprawnienia do zarejestrowania aplikacji w swojej dzierżawie usługi Azure AD i przypisania aplikacji do roli w swojej subskrypcji. Aby sprawdzić, czy masz wymagane uprawnienia, [zajrzyj do portalu](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Dane wyjściowe są zbliżone do następujących (pokazane tutaj zostały zredagowane):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Podczas określania **identyfikatora klienta** jednostki usługi można użyć wartości `appId` (jak pokazano w tym artykule) lub odpowiedniej jednostki usługi `name` (na przykład `https://www.contoso.org/example`).
 
-* Na głównej maszynie wirtualnej i maszynach wirtualnych agentów w klastrze Kubernetes poświadczenia jednostki usługi są przechowywane w pliku /etc/kubernetes/azure.json.
+* Na głównej maszynie wirtualnej i maszynach wirtualnych agentów w klastrze Kubernetes poświadczenia jednostki usługi są przechowywane w pliku `/etc/kubernetes/azure.json`.
 
-* Gdy używasz polecenia `az acs create`, aby automatycznie wygenerować jednostkę usługi, poświadczenia jednostki usługi są zapisywane w pliku ~/.azure/acsServicePrincipal.json na maszynie użytej do uruchomienia polecenia.
+* Gdy używasz polecenia `az acs create`, aby automatycznie wygenerować jednostkę usługi, poświadczenia jednostki usługi są zapisywane w pliku `~/.azure/acsServicePrincipal.json` na maszynie użytej do uruchomienia polecenia.
 
 * Kiedy używasz polecenia `az acs create` do automatycznego wygenerowania jednostki usługi, jednostka usługi może także uwierzytelnić się za pomocą [rejestru kontenera platformy Azure](../../container-registry/container-registry-intro.md) utworzonego w tej samej subskrypcji.
+
+* Poświadczenia jednostki usługi mogą wygasnąć, powodując przejście węzłów klastra w stan **Niegotowe**. Informacje o radzeniu sobie z tym problemem podano w sekcji [Wygaśnięcie poświadczeń](#credential-expiration).
+
+## <a name="credential-expiration"></a>Wygaśnięcie poświadczeń
+
+O ile podczas tworzenia jednostki usługi nie zostanie określone niestandardowe okno ważności za pomocą parametru `--years`, jej poświadczenia są ważne przez rok od momentu utworzenia. Gdy poświadczenia wygasną, węzły klastra mogą przejść w stan **Niegotowe**.
+
+Aby sprawdzić datę wygaśnięcia jednostki usługi, wykonaj polecenie [az ad app show](/cli/azure/ad/app#az_ad_app_show) z parametrem `--debug`, a następnie sprawdź wartość `endDate` pozycji `passwordCredentials` w dolnej części danych wyjściowych:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Dane wyjściowe (przedstawione tu w postaci obciętej):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Jeśli poświadczenia jednostki usługi wygasły, zaktualizuj je za pomocą polecenia [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials):
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Dane wyjściowe:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Następnie zaktualizuj plik `/etc/kubernetes/azure.json` o nowe poświadczenia we wszystkich węzłach klastra i ponownie uruchom te węzły.
 
 ## <a name="next-steps"></a>Następne kroki
 

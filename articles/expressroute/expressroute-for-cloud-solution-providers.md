@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
-Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko inicjować obsługę nowych usług i rozwiązań dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. Usługa ExpressRoute jest prywatnym łączem komunikacyjnym o dużej szybkości do usług w ramach platformy Azure. 
+Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko aprowizować nowe usługi i rozwiązania dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. Usługa ExpressRoute jest prywatnym łączem komunikacyjnym o dużej szybkości do usług w ramach platformy Azure. 
 
-Usługa ExpresRoute obejmuje parę obwodów o wysokiej dostępności dołączonych do pojedynczej subskrypcji klienta, których nie można współdzielić między wieloma klientami. Aby zachować wysoką dostępność, każdy obwód powinien kończyć się na innym routerze.
+Usługa ExpressRoute obejmuje parę obwodów o wysokiej dostępności dołączonych do subskrypcji pojedynczego klienta, których nie można udostępniać między wieloma klientami. Aby zachować wysoką dostępność, każdy obwód powinien kończyć się na innym routerze.
 
 > [!NOTE]
 > Usługa ExpressRoute obejmuje przepustowość i zakończenia połączenia, co oznacza, że duże/złożone wdrożenia będą wymagały wielu obwodów usługi ExpressRoute dla jednego klienta.
 > 
 > 
 
-Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować klientom.  Aby jak najlepiej korzystać z tych usług, trzeba użyć połączeń usługi ExpressRoute w celu zapewnienia szybkiego dostępu z krótkim czasem oczekiwania do środowiska Microsoft Azure.
+Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować klientom. Usługa ExpressRoute ułatwia Tobie i Twoim klientom korzystanie z zalet tych usług, oferując szybki dostęp z krótkim czasem oczekiwania do środowiska platformy Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Zarządzanie na platformie Microsoft Azure
 Firma Microsoft udostępnia dostawcom CSP interfejsy API do zarządzania subskrypcjami klientów Azure przez umożliwienie programowej integracji z ich systemami zarządzania usługami. Obsługiwane funkcje zarządzania można znaleźć [tutaj](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Zarządzanie zasobami Microsoft Azure
-W zależności od umowy z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach swojej subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: modelu typu „połącz przez” lub modelu typu „bezpośrednio do”. Te modele zostały szczegółowo opisane w poniższych sekcjach.  
+Umowa z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach swojej subskrypcji platformy Microsoft Azure, użyje jednego z dwóch modeli: modelu typu „*połącz przez*” lub modelu typu „*bezpośrednio do*”. Te modele zostały szczegółowo opisane w poniższych sekcjach.  
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
 ![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ Wybór między tymi dwoma opcjami zależy od potrzeb klienta i bieżącej potrze
 
 * **Kontrola dostępu na podstawie ról (RBAC)** — RBAC opiera się na usłudze Azure Active Directory.  Więcej informacji na temat funkcji Azure RBAC znajduje się [tutaj](../active-directory/role-based-access-control-configure.md).
 * **Sieć** — obejmuje różne tematy dotyczące sieci na platformie Microsoft Azure.
-* **Azure Active Directory (AAD)** — usługa AAD zapewnia zarządzanie tożsamościami dla platformy Microsoft Azure i aplikacji SaaS innych firm. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** — usługa Azure AD zapewnia zarządzanie tożsamościami dla platformy Microsoft Azure i aplikacji SaaS innych firm. Więcej informacji na temat usługi Azure AD znajduje się [tutaj](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Szybkość sieci
 Usługa ExpressRoute obsługuje szybkość sieci od 50 Mb/s do 10 Gb/s. Dzięki temu klienci mogą wykupić przepustowość odpowiadającą konkretnym potrzebom ich środowiska.
