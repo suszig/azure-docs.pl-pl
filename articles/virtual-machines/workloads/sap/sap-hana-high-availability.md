@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure (VM)
 
@@ -85,12 +85,12 @@ Portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla
 1. Tworzenie modułu równoważenia obciążenia (wewnętrzny)  
    Wybierz sieć Wirtualną w kroku powyżej
 1. Utwórz maszynę wirtualną 1  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Użyj co najmniej z dodatkiem SP1 z 12 SLES4SAP, w tym przykładzie używamy SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 obrazu  
    SLES 12 aplikacje SAP z dodatkiem SP1 (BYOS)  
    Wybierz konto magazynu 1  
    Wybierz zestaw dostępności  
 1. Tworzenie maszyny wirtualnej 2  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Użyj co najmniej z dodatkiem SP1 z 12 SLES4SAP, w tym przykładzie używamy SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 obrazu  
    SLES 12 aplikacje SAP z dodatkiem SP1 (BYOS)  
    Wybierz konto magazynu 2   
    Wybierz zestaw dostępności  
@@ -99,7 +99,7 @@ Portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla
     1. Utwórz pulę IP frontonu
         1. Otwórz moduł równoważenia obciążenia, wybierz puli adresów IP frontonu i kliknij przycisk Dodaj
         1. Wprowadź nazwę puli adresów IP nowego serwera sieci Web (na przykład frontonu hana)
-       1. Kliknij przycisk OK
+        1. Kliknij przycisk OK
         1. Po utworzeniu puli adresów IP frontonu, zanotuj jego adresu IP
     1. Tworzenie puli wewnętrznej bazy danych
         1. Otwórz moduł równoważenia obciążenia, wybierz pul zaplecza i kliknij przycisk Dodaj
@@ -109,7 +109,7 @@ Portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla
         1. Wybierz maszyny wirtualne klastra SAP HANA
         1. Kliknij przycisk OK
     1. Utworzyć sondy kondycji
-       1. Otwórz moduł równoważenia obciążenia, wybierz sond kondycji i kliknij przycisk Dodaj
+        1. Otwórz moduł równoważenia obciążenia, wybierz sond kondycji i kliknij przycisk Dodaj
         1. Wprowadź nazwę nowego sondy kondycji (na przykład hp hana)
         1. Wybierz protokół, port 625 TCP**03**, interwał 5 i próg złej kondycji 2
         1. Kliknij przycisk OK
@@ -119,17 +119,17 @@ Portalu Azure Marketplace zawiera obraz systemu SUSE Linux Enterprise Server dla
         1. Wybierz adres IP frontonu, puli wewnętrznej bazy danych i kondycji sondowania utworzonego wcześniej (na przykład frontonu hana)
         1. Zachowaj protokołu TCP, wprowadź port 3**03**15
         1. Zwiększ limit czasu bezczynności do 30 minut
-       1. **Upewnij się, że można włączyć pływającego adresu IP**
+        1. **Upewnij się, że można włączyć pływającego adresu IP**
         1. Kliknij przycisk OK
         1. Powtórz powyższe kroki dla portu 3**03**17
 
 ### <a name="deploy-with-template"></a>Wdrażanie za pomocą szablonu
-Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
+Umożliwia jednego z szablonów Szybki Start w serwisie github wdrażanie wszystkich wymaganych zasobów. Szablon wdraża maszyny wirtualne, usługi równoważenia obciążenia, dostępność ustawić itd. Wykonaj następujące kroki, aby wdrożyć szablon:
 
 1. Otwórz [szablonu bazy danych] [ template-multisid-db] lub [zbieżność szablonu] [ template-converged] w portalu Azure, jedynie tworzy szablon bazy danych Równoważenie obciążenia zasady dla bazy danych, natomiast konwergentnej szablon tworzy także reguły równoważenia obciążenia ASCS/SCS i wystąpienia Wywołujących (tylko w systemie Linux). Jeśli planujesz zainstalowanie systemu SAP NetWeaver na podstawie i również chcesz zainstalować wystąpienie ASCS/SCS na tej samej maszyny, użyj [zbieżność szablonu][template-converged].
 1. Wprowadź następujące parametry
     1. Identyfikator systemu SAP  
-       Wprowadź systemu SAP identyfikator systemu SAP, które chcesz zainstalować. Identyfikator będzie służyć jako prefiks dla zasobów, które zostały wdrożone.
+       Wprowadź identyfikator systemu SAP systemu SAP, które chcesz zainstalować. Identyfikator będzie służyć jako prefiks dla zasobów, które zostały wdrożone.
     1. Typ stosu (dotyczy tylko jeśli używasz szablonu konwergentnej)  
        Wybierz typ SAP NetWeaver stosu
     1. Typ systemu operacyjnego  
@@ -145,7 +145,7 @@ Umożliwia jednego z szablonów szybki start w serwisie github wdrożenie wszyst
     1. Nowy lub istniejący podsieci  
        Określa, czy należy utworzyć nową sieć wirtualną i podsieć lub istniejącą podsieć powinna być używana. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz istniejącą.
     1. Identyfikator podsieci  
-    Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do. Wybierz podsieć sieci VPN lub usługi Express Route wirtualnej sieci lokalnej nawiązać połączenia z maszyną wirtualną. Identyfikator zwykle wygląda /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    Identyfikator podsieci, do której maszyny wirtualne powinny być podłączone do. Wybierz podsieć sieci VPN lub usługi Express Route wirtualnej sieci lokalnej nawiązać połączenia z maszyną wirtualną. Identyfikator zwykle wygląda /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Konfigurowanie HA systemu Linux
 
@@ -201,7 +201,7 @@ Następujące elementy są poprzedzane prefiksem [A] - mają zastosowanie do wsz
 
 1. [A] układ dysku instalacji
     1. LVM  
-    Ogólnie zaleca się używania LVM dla woluminów, które przechowują dane i pliki dziennika. W poniższym przykładzie założenia, że maszyny wirtualne czterech dyskach danych dołączonych, które powinny być używane do tworzenia dwa woluminy.
+    Ogólnie zaleca LVM dla woluminów, które przechowują dane i pliki dziennika. W poniższym przykładzie założenia, że maszyny wirtualne czterech dyskach danych dołączonych, które powinny być używane do tworzenia dwa woluminy.
         * Utwórz woluminy fizyczne dla wszystkich dysków, które chcesz użyć.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -229,7 +229,7 @@ Następujące elementy są poprzedzane prefiksem [A] - mają zastosowanie do wsz
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Tworzenie wpisów fstab trzy logiczne woluminów
@@ -359,7 +359,7 @@ Wykonaj rozdziału 4 [przewodnik SAP HANA SR wydajności zoptymalizowanych pod k
     * 1 -> Wybierz dodatkowe składniki do instalacji
     * Wprowadź ścieżkę instalacji [/ hana/udostępnione]: -> ENTER
     * Wprowadź nazwę hosta lokalnego [.]: -> ENTER
-    * Czy chcesz dodać dodatkowe hosty systemu? (t/n) [[n]: -> ENTER
+    * Czy chcesz dodać dodatkowe hosty systemu? (t/n) [n]: -> ENTER
     * Wprowadź identyfikator systemu SAP HANA:<SID of HANA e.g. HDB>
     * Wprowadź liczby wystąpień [00]:   
   Liczby wystąpień HANA. Użyj 03, jeśli używany szablon Azure i stosować w powyższym przykładzie
@@ -368,7 +368,7 @@ Wykonaj rozdziału 4 [przewodnik SAP HANA SR wydajności zoptymalizowanych pod k
   Wybierz system użycia
     * Wprowadź lokalizację woluminów danych [/ hana/data/HDB]: -> ENTER
     * Wprowadź lokalizację woluminy dziennika [/ HDB-hana/dziennika]: -> ENTER
-    * Ogranicz maksymalną wielkość pamięci alokacji? [[n]: -> ENTER
+    * Ogranicz maksymalną wielkość pamięci alokacji? [n]: -> ENTER
     * Wprowadź nazwę hosta certyfikat dla hosta "..." [...]: -> ENTER
     * Wprowadź nazwę użytkownika agenta hosta SAP (sapadm) hasło:
     * Upewnij się, SAP hosta Agent użytkownika (sapadm) hasło:
@@ -380,7 +380,7 @@ Wykonaj rozdziału 4 [przewodnik SAP HANA SR wydajności zoptymalizowanych pod k
     * Wprowadź identyfikator użytkownika grupy (sapsys) [79]: -> ENTER
     * Wprowadź hasło użytkownika (SYSTEM) bazy danych:
     * Potwierdź hasło użytkownika (SYSTEM) bazy danych:
-    * Uruchom ponownie system po ponownym uruchomieniu komputera? [[n]: -> ENTER
+    * Uruchom ponownie system po ponownym uruchomieniu komputera? [n]: -> ENTER
     * Czy chcesz kontynuować? (t/n):  
   Sprawdź poprawność podsumowania, a następnie wprowadź t, aby kontynuować
 1. [A] Agent hosta uaktualnienia SAP  
@@ -450,7 +450,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 1. Przejdź do <https://portal.azure.com>
 1. Otwarcie bloku usługi Azure Active Directory  
-   Przejdź do właściwości i Zanotuj identyfikator katalogu. Jest to **identyfikator dzierżawcy**.
+   Przejdź do właściwości i zanotuj nazwę katalogu. Jest to **Identyfikatorem dzierżawy**.
 1. Kliknij przycisk rejestracji aplikacji
 1. Kliknij pozycję Dodaj.
 1. Wprowadź nazwę, wybierz typ aplikacji "Aplikacja/interfejs API sieci Web", wprowadź adres URL logowania (np. http://localhost) i kliknij przycisk Utwórz
@@ -458,7 +458,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Wybierz nową aplikację i kliknij na karcie Ustawienia
 1. Wprowadź opis nowego klucza, wybierz pozycję "Nigdy nie wygasa" i kliknij przycisk Zapisz
 1. Zanotuj wartość. Jest on używany jako **hasło** główną usługi
-1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**identyfikatora** w poniższych krokach) główną usługi
+1. Zanotuj identyfikator aplikacji. Jest on używany jako nazwa użytkownika (**Identyfikatora** w poniższych krokach) główną usługi
 
 Nazwy głównej usługi nie ma uprawnień do domyślnie dostęp do zasobów platformy Azure. Należy podać nazwę główną usługi uprawnień do uruchamiania i zatrzymywania (deallocate) wszystkich maszyn wirtualnych klastra.
 
@@ -476,13 +476,13 @@ Po można edytowane uprawnienia dla maszyn wirtualnych, możesz skonfigurować u
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm Konfigurowanie aktualizacji obciążenia crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm Konfigurowanie aktualizacji obciążenia crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -627,11 +627,11 @@ Migracja tworzy ograniczenia lokalizacji, które muszą zostać usunięte ponown
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-Należy również oczyszczania stanu zasobu węzła pomocniczego
+Należy wyczyścić stanu zasobu węzła pomocniczego
 
 <pre><code>
 # switch back to root and cleanup the failed state
