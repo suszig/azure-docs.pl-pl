@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, usługa cloud app discovery, zarządzanie aplikacjami, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń, słownik"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Słownik ochrony tożsamości usługi Azure Active Directory
 ### <a name="at-risk-user"></a>Zagrożone (użytkownika)
@@ -91,7 +91,7 @@ Wykrywanie anomalii i oceny ryzyka zdarzenia, takie jak prób logowania przed zd
 ### <a name="remediated-risk-event"></a>Skorygowane (ryzyka zdarzenie)
 Stan zdarzenia ryzyka ustawione automatycznie ochrony tożsamości i wskazujący, że zdarzenia ryzyka korygowania przy użyciu akcji korygowania standardowe dla tego typu zdarzenia ryzyka. Na przykład po zresetowaniu hasła użytkownika wielu zdarzeń ryzyka, które wskazują, że zostało naruszone poprzednich haseł są rozwiązywane automatycznie.
 
-### <a name="remediation"></a>Korygowania
+### <a name="remediation"></a>Korygowanie
 Akcja do zabezpieczania tożsamości lub urządzeń, które zostały wcześniej podejrzanych lub znane naruszenia. Akcja korygowania przywraca tożsamości lub urządzenie to bezpieczne i usuwa poprzednie zdarzenia ryzyko związane z tożsamości lub urządzenia.
 
 ### <a name="resolved-risk-event"></a>Rozwiązany (ryzyka zdarzenie)
@@ -142,7 +142,7 @@ Zdarzenie ryzyka, wyzwalane, gdy użytkownik pomyślnie loguje się z nowej loka
 ### <a name="sign-in-risk"></a>Ryzyko logowania
 Zobacz ryzyka poziom (logowanie)
 
-### <a name="sign-in-risk-policy"></a>Zasady logowania ryzyka
+### <a name="sign-in-risk-policy"></a>Zasady dotyczące ryzyka związanego z logowaniem
 Zasady dostępu warunkowego, która ocenia ryzyko dla określonych logowanie i stosuje środki zaradcze, na podstawie wstępnie zdefiniowane warunki i zasady.
 
 ### <a name="user-compromise-risk"></a>Ryzyko naruszenia zabezpieczeń użytkownika
@@ -151,13 +151,13 @@ Zobacz ryzyka poziom (naruszenia zabezpieczeń użytkownika)
 ### <a name="user-risk"></a>Ryzyko użytkownika
 Zobacz ryzyka poziom (naruszenia zabezpieczeń użytkownika).
 
-### <a name="user-risk-policy"></a>Zasady użytkownika ryzyka
+### <a name="user-risk-policy"></a>Zasady dotyczące ryzyka związanego z użytkownikiem
 Zasady dostępu warunkowego, która uwzględnia przy logowaniu i stosuje środki zaradcze, na podstawie wstępnie zdefiniowane warunki i zasady.
 
 ### <a name="users-flagged-for-risk"></a>Użytkownicy oflagowani w związku z ryzykiem
 Użytkownicy, którzy mają zdarzenia ryzyka, które są aktywne lub skorygowanych
 
-### <a name="vulnerability"></a>Luki w zabezpieczeniach
+### <a name="vulnerability"></a>Luka w zabezpieczeniach
 Konfiguracja lub warunku w usłudze Azure Active Directory, co sprawia, że katalog jest podatna na luki w zabezpieczeniach i zagrożeń.
 
 ## <a name="see-also"></a>Zobacz też

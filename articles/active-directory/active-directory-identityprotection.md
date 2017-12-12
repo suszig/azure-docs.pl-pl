@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, usługa cloud app discovery, zarządzanie aplikacjami, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b3aaf2b717937fdf62de423f5d9219be5ce0ad60
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Ochrona tożsamości w usłudze Azure Active Directory
 
@@ -96,7 +96,7 @@ Aby uzyskać więcej informacji, zobacz [przypisywanie ról administratorów w u
 
 Azure Active Directory Identity Protection analizy konfiguracji i wykrywa luk w zabezpieczeniach, które mogą mieć wpływ na tożsamości użytkownika. Aby uzyskać więcej informacji, zobacz [luk w zabezpieczeniach wykrywanych przez usługę Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
-### <a name="risk-events"></a>Zdarzenia ryzyka
+### <a name="risk-events"></a>Zdarzenia o podwyższonym ryzyku
 
 Usługi Azure Active Directory korzysta z algorytmów uczenia maszynowego adaptacyjną i heurystyki do wykrycia podejrzanych działań, które są związane z tożsamości użytkownika. System tworzy rekord dla każdego wykrytego podejrzane działania. Te rekordy są także nazywane zdarzenia ryzyka.  
 Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md).
@@ -359,7 +359,7 @@ Blokowanie logowania:
 
 
 
-## <a name="multi-factor-authentication-registration-policy"></a>Zasady rejestracji usługi Multi-Factor authentication
+## <a name="multi-factor-authentication-registration-policy"></a>Zasady rejestracji uwierzytelniania wieloskładnikowego
 Uwierzytelnianie wieloskładnikowe platformy Azure jest metodę weryfikacji tożsamości, która wymaga użycia więcej niż tylko nazwę użytkownika i hasło. Zapewnia drugą warstwę zabezpieczeń do logowania użytkowników i transakcji.  
 Firma Microsoft zaleca wymagane uwierzytelnianie wieloskładnikowe platformy Azure logowania użytkownika, ponieważ jego:
 

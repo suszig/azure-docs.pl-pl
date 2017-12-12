@@ -3,7 +3,7 @@ title: "Wybierz rozwiązania z tożsamością hybrydową Azure | Dokumentacja fi
 description: "Uzyskaj podstawową wiedzę na temat dostępnych hybrydowych rozwiązań tożsamości i zalecenia dotyczące najlepszych decyzji ładu tożsamości dla Twojej organizacji."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/5/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrydowych rozwiązań tożsamości
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrydowych rozwiązań tożsamości umożliwiają do synchronizowania obiektów katalogu lokalnego z usługą Azure AD nadal użytkowników lokalnej i zarządzania nimi. Pierwsza decyzja, aby podczas planowania do synchronizowania lokalnej systemu Windows serwer usługi Active Directory z usługą Azure AD jest Określa, czy ma być używany do synchronizacji tożsamości lub tożsamości federacyjnych. Tożsamości synchronizowane i opcjonalnie skrótów haseł, użytkownicy będą używać tego samego hasła dostępu do zarówno lokalnie, jak i oparte na chmurze zasobów organizacji. Bardziej zaawansowane wymagań scenariusza, takich jak-jednokrotnej (SSO) lub lokalnej usługi MFA należy wdrożyć usługi Active Directory Federation Services (AD FS), możliwości utworzenia federacji tożsamości. 
@@ -39,10 +39,10 @@ W przypadku większości organizacji, potrzebują tylko umożliwienie użytkowni
 > [!TIP]
 > Hasła użytkowników są przechowywane w lokalnych Windows Server Active Directory w formie wartość skrótu, która reprezentuje rzeczywiste hasło. Wartość skrótu jest wynikiem jednokierunkowej funkcji matematycznych (algorytmu wyznaczania wartości skrótu). Nie istnieje metoda można przywrócić wynik jednokierunkowa funkcja wersji tekstowego hasła. Nie można użyć skrótu hasła do logowania się w sieci lokalnej. Jeśli wybierzesz opcję synchronizacji haseł, Azure AD Connect wyodrębnia skrótów haseł z lokalnej usługi Active Directory i zastosowanie dodatkowych zabezpieczeń przetwarzania do wyznaczania wartości skrótu hasła przed jest zsynchronizowany z usługą Azure AD. Synchronizację haseł można również wraz z zapisywania zwrotnego haseł włączyć własnym resetowania haseł w usłudze Azure AD. Ponadto umożliwia logowanie jednokrotne (SSO) dla użytkowników na komputerach przyłączonych do domeny, które są podłączone do sieci firmowej. Z logowania jednokrotnego włączonych użytkowników tylko trzeba wprowadzić nazwę użytkownika do bezpiecznego dostępu do zasobów w chmurze. 
 
-## <a name="pass-through-authentication"></a>Przekazywanego uwierzytelniania
+## <a name="pass-through-authentication"></a>Uwierzytelnianie przekazywane
 [Uwierzytelnianie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) zapewnia rozwiązanie weryfikacji proste hasło do usług platformy Azure na podstawie usługi AD przy użyciu lokalnej usługi Active Directory. Jeśli zasady zabezpieczeń i zgodności w firmie nie zezwalają na wysyłanie hasła użytkowników, nawet w formie skrótu i wymaganych do obsługi pulpitów logowania jednokrotnego dla urządzeń przyłączonych do domeny, zaleca się przy użyciu uwierzytelniania przekazywanego oceny. Uwierzytelniania przekazywanego nie wymaga żadnych wdrożenia w strefie DMZ, co upraszcza infrastruktura wdrażania w porównaniu z usługami AD FS. Podczas logowania przy użyciu usługi Azure AD, ta metoda uwierzytelniania sprawdza poprawność haseł użytkowników bezpośrednio z lokalnej usługi Active Directory.
 
-![Przekazywanego uwierzytelniania](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
+![Uwierzytelnianie przekazywane](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
 
 Przy użyciu przekazywanego uwierzytelniania nie istnieje potrzeba złożoną siecią infrastruktury, a nie ma potrzeby przechowywania haseł lokalnych w chmurze. Połączone z logowania jednokrotnego, uwierzytelnianie przekazywane zapewnia integrację naprawdę podczas logowania do usługi Azure AD lub innych usług w chmurze.
 

@@ -4,7 +4,7 @@ description: "Podręcznik rozwiązywania problemów dotyczących usług domenowy
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Usługi domenowe usługi Azure AD — przewodnik rozwiązywania problemów
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które można napotkać podczas konfigurowania lub administrowanie usług domenowych w usłudze Azure Active Directory (AD).
@@ -57,13 +57,10 @@ Sprawdź, czy istnieje aplikacja o nazwie "Sync usług domenowych Azure AD" w ka
 
 Wykonaj następujące kroki, aby sprawdzić obecność aplikacji i go usunąć, jeśli aplikacja istnieje:
 
-1. Przejdź do **klasycznego portalu Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. W lewym okienku wybierz węzeł **Active Directory**.
-3. Wybierz dzierżawę (katalog) usługi Azure AD, dla której chcesz włączyć Usługi domenowe Azure AD.
-4. Przejdź do **aplikacji** kartę.
-5. Wybierz **aplikacji Moja firma jest właścicielem** opcji na liście rozwijanej.
-6. Sprawdź, czy aplikacji o nazwie **synchronizacji usług domenowych Azure AD**. Jeśli aplikacja istnieje, przejdź do go usunąć.
-7. Po usunięciu aplikacji, spróbuj ponownie włączyć usługi domenowe Azure AD.
+1. Przejdź do **aplikacji** sekcji katalogu usługi Azure AD w [portalu Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Wybierz **wszystkie aplikacje** w **Pokaż** listy rozwijanej. Wybierz **żadnych** w **stan aplikacji** listy rozwijanej. Wybierz **żadnych** w **widoczność aplikacji** listy rozwijanej.
+3. Typ **synchronizacji usług domenowych Azure AD** w polu wyszukiwania. Jeśli aplikacja, kliknij go i kliknij przycisk **usunąć** przycisku w pasku narzędzi, aby go usunąć.
+4. Po usunięciu aplikacji, spróbuj ponownie włączyć usługi domenowe Azure AD.
 
 ### <a name="invalid-configuration"></a>Nieprawidłowa konfiguracja
 **Komunikat o błędzie:**
@@ -153,7 +150,7 @@ Usługa Azure AD zapewnia ochronę przed przypadkowym usunięciem obiektów uży
 
 Konto użytkownika pozostaje w stanie wyłączenia, w domenie zarządzanej, nawet jeśli ponownie utworzyć konto użytkownika z tej samej nazwy UPN w katalogu usługi Azure AD. Aby usunąć konto użytkownika z domeny zarządzanej, należy wymusić usunięcie go z dzierżawy usługi Azure AD.
 
-Aby usunąć konto użytkownika w pełni z domeny zarządzanej, należy trwale usunąć użytkownika z dzierżawy usługi Azure AD. Użyj polecenia cmdlet programu PowerShell Remove-MsolUser z opcją „-RemoveFromRecycleBin” w sposób opisany w tym [artykule MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Aby usunąć konto użytkownika w pełni z domeny zarządzanej, należy trwale usunąć użytkownika z dzierżawy usługi Azure AD. Użyj `Remove-MsolUser` polecenia cmdlet programu PowerShell z `-RemoveFromRecycleBin` opcji, zgodnie z opisem w tym [artykuł w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 Skontaktuj się z zespołem produktu usługi Azure Active Directory Domain Services, aby [udostępnić opinię lub pomocy technicznej](active-directory-ds-contact-us.md).

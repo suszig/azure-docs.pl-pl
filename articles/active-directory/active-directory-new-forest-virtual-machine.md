@@ -5,7 +5,7 @@ services: active-directory, virtual-network
 keywords: "Maszyna wirtualna usługi Active directory, instalacja lasu usługi active directory, filmy wideo z usługi azure active directory "
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
@@ -27,7 +27,7 @@ W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active
 Być może zainteresuje te pokrewne artykuły:
 
 * Film przedstawiający tych kroków, zobacz [sposobu instalowania nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* Można opcjonalnie [skonfigurowania sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-site-to-site-create.md) , a następnie zainstalować nowy las lub rozszerzyć lasu lokalnego do sieci wirtualnej platformy Azure. Te kroki opisane w artykule [Instalowanie repliki kontrolera domeny Active Directory w sieci wirtualnej platformy Azure](active-directory-install-replica-active-directory-domain-controller.md).
+* Można opcjonalnie [skonfigurowania sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) , a następnie zainstalować nowy las lub rozszerzyć lasu lokalnego do sieci wirtualnej platformy Azure. Te kroki opisane w artykule [Instalowanie repliki kontrolera domeny Active Directory w sieci wirtualnej platformy Azure](active-directory-install-replica-active-directory-domain-controller.md).
 * Aby uzyskać ogólne wskazówki dotyczące instalowania usług domenowych w usłudze Active Directory (AD DS) w sieci wirtualnej platformy Azure, zobacz [wskazówki dotyczące wdrażania systemu Windows Server Active Directory na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Diagram scenariusza
@@ -108,7 +108,7 @@ Aby uzyskać więcej informacji o korzystaniu z programu Windows PowerShell, zob
 ## <a name="see-also"></a>Zobacz też
 * [Jak zainstalować nowy las usługi Active Directory w sieci wirtualnej platformy Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Wskazówki dotyczące wdrażania systemu Windows serwer usługi Active Directory na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Konfigurowanie sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Konfigurowanie sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Instalowanie repliki kontrolera domeny Active Directory w sieci wirtualnej platformy Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS specjalista IT: (01) maszyny wirtualnej podstawy](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS specjalista IT: (05) tworzenie sieci wirtualnych i łączności między lokalizacjami](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

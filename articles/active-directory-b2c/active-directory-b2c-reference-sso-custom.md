@@ -4,7 +4,7 @@ description: "Informacje o sposobie zarządzania sesjami logowania jednokrotnego
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: parja
-ms.openlocfilehash: ff767993eaf0305168176d0ad6e15c068b8c85eb
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Usługa Azure AD B2C: Pojedynczego logowania jednokrotnego (SSO) sesji zarządzania
 
@@ -98,8 +98,8 @@ Istnieją dwa elementy metadanych w profilu techniczne:
 
 | Element | Wartość domyślna | Możliwe wartości | Opis
 | --- | --- | --- | --- |
-| IncludeSessionIndex | Wartość true | wartość true, false | Wskazuje, aby dostawca indeksu sesji powinny być przechowywane. |
-| RegisterServiceProviders | Wartość true | wartość true, false | Wskazuje, czy dostawca należy zarejestrować wszyscy dostawcy usług SAML, które zostały wydane potwierdzenia. |
+| IncludeSessionIndex | prawda | wartość true, false | Wskazuje, aby dostawca indeksu sesji powinny być przechowywane. |
+| RegisterServiceProviders | prawda | wartość true, false | Wskazuje, czy dostawca należy zarejestrować wszyscy dostawcy usług SAML, które zostały wydane potwierdzenia. |
 
 Przy użyciu dostawcy do przechowywania sesji SAML dostawcy tożsamości, powyższych elementów powinny mieć wartość false. Korzystając z dostawcy do przechowywania sesji B2C SAML, powyższych elementów powinien być PRAWDA lub został pominięty wartości domyślne są spełnione.
 

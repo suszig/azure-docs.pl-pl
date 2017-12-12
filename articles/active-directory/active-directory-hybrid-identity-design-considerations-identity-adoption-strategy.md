@@ -4,7 +4,7 @@ description: "Z kontroli dostępu warunkowego usługi Azure Active Directory spr
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie strategii wdrażania tożsamości hybrydowej
 W tym zadaniu będziesz definiować strategii wdrażania tożsamości hybrydowej dla hybrydowych rozwiązań tożsamości do spełnienia wymagań biznesowych, które zostały omówione w:
@@ -59,7 +59,7 @@ Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Po
 
 **Aplikacje przyłączone domena, jak i prywatnych sieci**:
 
-|  | Tożsamości synchronizowane | Tożsamości federacyjnych |
+|  | Tożsamości synchronizowane | Tożsamość federacyjna |
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |pojedynczy znak na, a czasami trzeba podać identyfikator organizacji |
 | Outlook |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
@@ -69,7 +69,7 @@ Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Po
 
 **Zewnętrznych lub niezaufanych źródeł**:
 
-|  | Tożsamości synchronizowane | Tożsamości federacyjnych |
+|  | Tożsamości synchronizowane | Tożsamość federacyjna |
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Uwierzytelnianie oparte na formularzach |
 | Outlook i Skype dla firm (Lync), Skydrive Pro subskrypcji pakietu Office |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
@@ -189,9 +189,9 @@ Nawet jeśli użytkownik może mieć rozliczenia na rozwiązanie dla strategii, 
 | Lokalizacja użytkownika | Opcja preferowane rozwiązanie |
 | --- | --- |
 | Usługa Azure Active Directory |Multi-FactorAuthentication w chmurze |
-| Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Zarówno |
-| Usługi Azure AD i lokalnymi AD za pomocą usługi Azure AD Connect nie synchronizacji haseł |Zarówno |
-| Usługi Azure AD i lokalnymi za pomocą usługi Azure AD Connect z synchronizacją haseł |Zarówno |
+| Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Oba |
+| Usługi Azure AD i lokalnymi AD za pomocą usługi Azure AD Connect nie synchronizacji haseł |Oba |
+| Usługi Azure AD i lokalnymi za pomocą usługi Azure AD Connect z synchronizacją haseł |Oba |
 | Lokalne usługi AD |Serwer Multi-Factor Authentication |
 
 > [!NOTE]

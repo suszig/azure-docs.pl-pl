@@ -4,7 +4,7 @@ description: "Uwzględniono również sposób Użyj serwera Proxy aplikacji usł
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ca7c7919f6cfcece38073520162dc44bbfd748e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Jak zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych
 
@@ -81,7 +81,7 @@ Aby uzyskać więcej informacji o protokole Kerberos, zobacz [wszystkich chcesz 
 ### <a name="managing-apps"></a>Zarządzanie aplikacjami
 Po opublikowaniu aplikacji za pomocą serwera Proxy aplikacji można zarządzać nim jak każda inna aplikacja przedsiębiorstwa w portalu Azure. Można za pomocą funkcji zabezpieczeń usługi Azure Active Directory, takie jak warunkowego dostępu i dwuetapowej weryfikacji, kontrolować uprawnienia użytkowników i Dostosuj znakowanie dla aplikacji. 
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przed skonfigurowaniem serwera Proxy aplikacji upewnij się, że masz obsługiwaną [edition usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) i katalog usługi Azure AD, dla którego jesteś administratorem globalnym.
 

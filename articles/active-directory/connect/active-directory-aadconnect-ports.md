@@ -4,7 +4,7 @@ description: "Ta strona jest stroną informacje techniczne dotyczące portów, k
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
-ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Wymagane porty i protokoły dotyczące tożsamości hybrydowej
 Ten dokument jest techniczne wymagane porty i protokoły dotyczące implementowania rozwiązania z tożsamością hybrydową. Użyj poniższej ilustracji i odwoływać się do tej tabeli.
@@ -31,7 +31,7 @@ Ta tabela opisuje porty i protokoły, które są wymagane do komunikacji między
 | Protokół | Porty | Opis |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Wyszukiwania DNS lasu docelowego. |
-| Protokół Kerberos |88 (TCP/UDP) |Uwierzytelnianie Kerberos do lasu usługi AD. |
+| Kerberos |88 (TCP/UDP) |Uwierzytelnianie Kerberos do lasu usługi AD. |
 | MS-RPC |135 (TCP/UDP) |Używane podczas wstępnej konfiguracji Kreator Azure AD Connect, gdy jest on powiązany z lasem usługi AD, a także podczas synchronizacji haseł. |
 | LDAP |389 (TCP/UDP) |Używany do importowania danych z usługi Active Directory. Dane są szyfrowane z protokołu Kerberos i zamknięcia. |
 | RPC | 445 (TCP/UDP) |Używany przez bezproblemowe logowania jednokrotnego do tworzenia konta komputera w lesie usługi AD. |

@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Samouczek: Integracji Azure Active Directory z Ceridian Dayforce HCM
 
@@ -110,23 +110,23 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji Ceridian Dayforce HCM.
     
-    | Środowisko | ADRES URL |
+    | Środowisko | Adres URL |
     | :-- | :-- |
-    | W środowisku produkcyjnym | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | W zastosowaniach produkcyjnych | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Dla testu | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
     b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:
     
-    | Środowisko | ADRES URL |
+    | Środowisko | Adres URL |
     | :-- | :-- |
-    | W środowisku produkcyjnym | `https://ncpingfederate.dayforcehcm.com/sp` |
+    | W zastosowaniach produkcyjnych | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Dla testu | `https://fs-test.dayforcehcm.com/sp` |
     
     c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL używany przez usługę Azure AD można opublikować odpowiedzi.
     
-    | Środowisko | ADRES URL |
+    | Środowisko | Adres URL |
     | :-- | :-- |
-    | W środowisku produkcyjnym | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+    | W zastosowaniach produkcyjnych | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Dla testu | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
     
     > [!NOTE] 

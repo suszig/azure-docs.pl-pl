@@ -5,7 +5,7 @@ services: active-directory
 keywords: "dostęp warunkowy do aplikacji, dostęp warunkowy przy użyciu usługi Azure AD, bezpieczny dostęp do zasobów firmy, zasady dostępu warunkowego"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Dostęp warunkowy w usłudze Azure Active Directory
 
@@ -163,7 +163,7 @@ Aby uzyskać więcej informacji, zobacz [o nazwie lokalizacjach w usłudze Azure
 
 W zasadach dostępu warunkowego można:
 
-- Obejmują
+- Dołącz
     - Dowolnego miejsca.
     - Wszystkie zaufane lokalizacje
     - Wybranej lokalizacji

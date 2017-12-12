@@ -4,7 +4,7 @@ description: "Porównanie usług domenowych Azure Active Directory do kontroler�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Jak stwierdzić, czy usługi domenowe Azure AD jest odpowiednia dla przypadek użycia
 Z usług domenowych Azure AD można wdrażać obciążeń w usługi infrastruktury platformy Azure, nie martwiąc się o zachowaniu infrastruktury tożsamości na platformie Azure. Ta usługa zarządzanych różni się od typowe wdrożenie usługi Active Directory systemu Windows Server, wdrażania i administrowania samodzielnie. Usługa jest łatwa do wdrożenia i zapewnia monitorowanie kondycji automatycznych i korygowania. Firma Microsoft stale ewoluuje usługę, aby dodać obsługę typowych scenariuszy wdrożeń.
@@ -86,7 +86,7 @@ Nie można skonfigurować domen zarządzanych do skonfigurowania (przychodząceg
 #### <a name="ldap-read"></a>Odczyt LDAP
 Domeny zarządzanej obsługuje LDAP odczytu obciążeń. W związku z tym można wdrażać aplikacje, które wykonują operacje odczytu LDAP względem domeny zarządzanej.
 
-#### <a name="secure-ldap"></a>Bezpieczny protokół LDAP
+#### <a name="secure-ldap"></a>Secure LDAP
 Można skonfigurować usługi domenowe Azure AD, aby zapewnić bezpieczny dostęp LDAP do domeny zarządzanej, łącznie z Internetem.
 [Więcej informacji](active-directory-ds-admin-guide-configure-secure-ldap.md)
 

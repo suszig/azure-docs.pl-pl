@@ -4,7 +4,7 @@ description: "Wyjaśniono, jak rozwiązywać problemy z łącznością z program
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Rozwiązywanie problemów z łącznością z programem Azure AD Connect
 W tym artykule opisano, jak działa połączenie między Azure AD Connect i Azure AD i jak rozwiązywać problemy z połączeniem. Te problemy najprawdopodobniej będzie można przejrzeć w środowisku z serwerem proxy.
@@ -148,7 +148,7 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 W tej sekcji omówiono błędów, które mogą zostać zwrócone z biblioteki ADAL (Biblioteka uwierzytelniania używany przez program Azure AD Connect) i programu PowerShell. Błąd wyjaśniono powinny pomóc w zrozumieć innej.
 
 ### <a name="invalid-grant"></a>Nieprawidłowy Grant
-Nieprawidłowa nazwa użytkownika lub hasło. Aby uzyskać więcej informacji, zobacz [nie można zweryfikować hasło](#the-password-cannot-be-verified).
+Nieprawidłowa nazwa użytkownika lub nieprawidłowe hasło. Aby uzyskać więcej informacji, zobacz [nie można zweryfikować hasło](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Typ nieznanego użytkownika
 Katalog usługi Azure AD nie można odnaleźć lub rozwiązany. Może być spróbuj zalogować się za pomocą nazwy użytkownika w niezweryfikowanej domeny?

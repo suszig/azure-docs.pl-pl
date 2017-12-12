@@ -4,7 +4,7 @@ description: "Dowiedz się, jak tworzyć aplikacje sieci web przy użyciu protok
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99a292c6be66016264e528525a5920667207b605
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: Przepływu kodu autoryzacji protokołu OAuth 2.0
 Udzielania kodu autoryzacji protokołu OAuth 2.0 w aplikacjach na urządzeniu służy do uzyskiwania dostępu do chronionych zasobów, takich jak interfejsów API sieci web. Za pomocą usługi Azure Active Directory B2C (Azure AD B2C) implementacji protokołu OAuth 2.0, można dodać rejestrację, logowanie i innych Zarządzanie tożsamościami zadań do aplikacji mobilnych i klasycznych. W tym artykule jest niezależny od języka. W artykule możemy opisują sposób wysyłania i odbierania wiadomości HTTP bez korzystania z żadnych bibliotek open source.

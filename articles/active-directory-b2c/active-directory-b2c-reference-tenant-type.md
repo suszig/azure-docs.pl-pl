@@ -4,7 +4,7 @@ description: "Temat dotyczący typów dzierżaw usługi Azure Active Directory B
 services: active-directory-b2c
 documentationcenter: 
 author: gsacavdm
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: gsacavdm
-ms.openlocfilehash: facd66f0324e382ea7609a035de8129ba433846f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Siedziby dostępności & dane regionu
 Dostępność w danym regionie i siedziby danych są dwa bardzo różnych zagadnienia dotyczące inaczej usługi Azure AD B2C od pozostałej części Azure. W tym artykule wyjaśniono różnice między tych dwóch pojęć, a następnie porównaj sposobów ich zastosowania do platformy Azure i usługi Azure AD B2C.
@@ -54,7 +54,7 @@ Pozostałe krajach/regionach są właśnie dodawany do listy.  Obecnie można na
 
 > Afganistanu, Argentyny, Australii, Brazylia, podrzędnej lokacji, Kolumbii, Ekwadoru, Hongkong SAR, Indie, Indonezji, Iraku, Japonii, Korei, Malezji, Nowa Zelandia, Paragwaju, Peru, Filipiny, Singapur, Sri Lanka, Tajwan, Tajlandii, Urugwaju i Wenezueli.
 
-## <a name="preview-tenant"></a>Dzierżawy w wersji zapoznawczej
+## <a name="preview-tenant"></a>Podgląd dzierżawy
 Jeśli dzierżawy B2C została utworzona w okresie wersji zapoznawczej usługi Azure AD B2C, istnieje duże prawdopodobieństwo, że Twoje **dzierżawy typu** mówi **dzierżawy w wersji zapoznawczej**. Jeśli jest to możliwe, musi użyć dzierżawy tylko w przypadku projektowania i testowania, a nie dla aplikacji w środowisku produkcyjnym.
 
 > [!IMPORTANT]

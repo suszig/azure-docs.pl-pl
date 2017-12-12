@@ -4,7 +4,7 @@ description: "Zrozumienie synchronizacji w domenie zarządzanej usług domenowyc
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronizacja w domenie zarządzanej usług domenowych Azure AD
 Na poniższym diagramie przedstawiono, jak działa synchronizacji w w usługach domenowych Azure AD w domenach zarządzanych.
@@ -60,7 +60,7 @@ Poniższa tabela zawiera niektóre typowe atrybuty oraz w tym artykule opisano, 
 
 | Atrybut w domeny zarządzanej | Element źródłowy | Uwagi |
 |:--- |:--- |:--- |
-| NAZWY UPN |Atrybut nazwy UPN użytkownika w dzierżawie usługi Azure AD |Atrybut nazwy głównej użytkownika z dzierżawy usługi Azure AD są synchronizowane, ponieważ jest do domeny zarządzanej. W związku z tym najbardziej niezawodnym sposobem Zaloguj się do domeny zarządzanej korzysta z głównej nazwy użytkownika. |
+| Nazwa UPN |Atrybut nazwy UPN użytkownika w dzierżawie usługi Azure AD |Atrybut nazwy głównej użytkownika z dzierżawy usługi Azure AD są synchronizowane, ponieważ jest do domeny zarządzanej. W związku z tym najbardziej niezawodnym sposobem Zaloguj się do domeny zarządzanej korzysta z głównej nazwy użytkownika. |
 | sAMAccountName |MailNickname użytkownika atrybut w dzierżawie usługi Azure AD lub generowane automatycznie |Atrybut SAMAccountName pochodzi z atrybutem mailNickname w dzierżawie usługi Azure AD. Jeśli wiele kont użytkowników mają taki sam atrybut mailNickname, SAMAccountName został wygenerowany automatycznie. Jeśli mailNickname lub prefiks nazwy UPN użytkownika jest dłuższa niż 20 znaków, SAMAccountName został wygenerowany automatycznie do zaspokojenia atrybuty SAMAccountName limit 20 znaków. |
 | Hasła |Hasło użytkownika z dzierżawy usługi Azure AD |Skrótów poświadczeń wymaganych do uwierzytelniania NTLM lub Kerberos (nazywanych również dodatkowe poświadczenia) są synchronizowane z dzierżawy usługi Azure AD. Jeśli dzierżawy usługi Azure AD jest zsynchronizowanej dzierżawy, te poświadczenia pochodzą z domeny lokalnej. |
 | Podstawowy użytkownik/identyfikator SID grupy |Wygenerowany automatycznie |Podstawowy identyfikator SID dla konta użytkownika/grupy jest generowany automatycznie domeny zarządzanej. Ten atrybut jest niezgodna z podstawowy identyfikator SID obiektu w katalogu lokalnym użytkownika/grupy domeny AD. Ta niezgodność jest ponieważ domeny zarządzanej ma inną przestrzeń nazw identyfikatora SID niż domeny lokalnej. |

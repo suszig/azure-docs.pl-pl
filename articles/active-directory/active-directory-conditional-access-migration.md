@@ -5,7 +5,7 @@ services: active-directory
 keywords: "dostęp warunkowy do aplikacji, dostęp warunkowy przy użyciu usługi Azure AD, bezpieczny dostęp do zasobów firmy, zasady dostępu warunkowego"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migracja zasad klasycznego w portalu Azure 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/24/2017
 Ten temat pomaga w migracji istniejących zasad klasycznego do nowego nowej usługi Azure AD, zasady dostępu warunkowego.
 
 
-## <a name="classic-policies"></a>Zasady klasycznego
+## <a name="classic-policies"></a>Zasady klasyczne
 
 Zasady dostępu warunkowego dla usługi Azure AD i usługi Intune nie zostały utworzone w portalu Azure są również znane jako **klasycznego zasady**. Aby migrować klasyczny zasad, nie trzeba mieć dostęp do klasycznego portalu Azure. Azure portal udostępnia [ **zasady klasyczny (wersja zapoznawcza)** widoku](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) umożliwiająca Przejrzyj zasady klasycznego.
 
@@ -80,7 +80,7 @@ Zobacz:
 
 ## <a name="multi-factor-authentication-policy"></a>Zasady uwierzytelniania wieloskładnikowego 
 
-W tym przykładzie pokazano, jak przeprowadzić migrację klasycznego zasadę, która wymaga usługi Multi-Factor authentication ** dla aplikacji w chmurze. 
+W tym przykładzie pokazano, jak migrować klasyczny zasadę, która wymaga **uwierzytelnianie wieloskładnikowe** dla aplikacji w chmurze. 
 
 ![Usługa Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 

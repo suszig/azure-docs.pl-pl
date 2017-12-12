@@ -4,7 +4,7 @@ description: "Azure Active Directory B2B współpracy zaproszenia szablon wiadom
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementy współpracy B2B zaproszenie
 
@@ -36,7 +36,7 @@ Temat wiadomości e-mail jest zgodny ze wzorcem następujące: Zapraszamy &lt;te
 ### <a name="from-address"></a>Adres nadawcy
 Używamy wzorzec przypominającej LinkedIn dla adres nadawcy.  Powinien być Wyczyść, który jest zapraszającej i adres e-mail od firmy oraz wyjaśnić, że wiadomość e-mail pochodzi od firmy Microsoft. Format: &lt;nazwę wyświetlaną zapraszającej&gt; z &lt;tenantname&gt; (za pośrednictwem firmy Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Udzielenie odpowiedzi na
+### <a name="reply-to"></a>Odpowiedz
 Odpowiedz na wiadomość e-mail ma ustawioną zapraszającej poczty e-mail, jeśli jest dostępna, tak, aby podczas odpowiadania na wiadomości e-mail wysyła wiadomość e-mail z powrotem do zapraszającej.
 
 ### <a name="branding"></a>Znakowania.

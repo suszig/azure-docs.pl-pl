@@ -4,7 +4,7 @@ description: "Azure AD Connect logowania użytkownika dla ustawień niestandardo
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect użytkownika opcje logowania
 Azure Active Directory (Azure AD) Connect umożliwia użytkownikom logowania się do zasobów w chmurze, jak i dla lokalnego przy użyciu takich samych haseł. W tym artykule opisano podstawowe pojęcia dla każdego modelu tożsamości pomaga wybrać tożsamości, która ma być używany dla logowania do usługi Azure AD.
@@ -47,12 +47,12 @@ Włącz lokalnymi rozwiązaniami usługi Multi-Factor authentication.|||x|
 
 * Za pomocą uproszczonego agenta.
 
-### <a name="password-hash-synchronization"></a>Synchronizacji skrótu hasła
+### <a name="password-hash-synchronization"></a>Synchronizacja skrótów haseł
 Synchronizacja skrótów haseł skrótów haseł użytkowników są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD. Hasła są zmieniane lub zresetować lokalnymi, nowych skrótów haseł są synchronizowane z usługą Azure AD natychmiast, aby użytkownicy zawsze można używać tego samego hasła dla zasobów w chmurze i zasobów lokalnych. Hasła nigdy nie są wysyłane do usługi Azure AD lub przechowywane w usłudze Azure AD w postaci zwykłego tekstu. Aby umożliwić własnym resetowania haseł w usłudze Azure AD służy synchronizacji skrótu hasła oraz zapisywania zwrotnego haseł.
 
 Ponadto można włączyć [bezproblemowe logowanie Jednokrotne](active-directory-aadconnect-sso.md) dla użytkowników na komputerach przyłączonych do domeny, które znajdują się w sieci firmowej. Z logowania jednokrotnego włączonych użytkowników tylko trzeba wprowadzić nazwę użytkownika, aby ułatwić im bezpiecznego dostępu do zasobów w chmurze.
 
-![Synchronizacji skrótu hasła](./media/active-directory-aadconnect-user-signin/passwordhash.png)
+![Synchronizacja skrótów haseł](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 Aby uzyskać więcej informacji, zobacz [synchronizacji skrótu hasła](active-directory-aadconnectsync-implement-password-synchronization.md) artykułu.
 

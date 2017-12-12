@@ -5,7 +5,7 @@ keywords: "Azure AD, Azure Active Directory, programu PowerShell, grup, grupy za
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Usługi Active Directory w wersji 2 poleceń cmdlet systemu Azure dla grupy zarządzania
 > [!div class="op_single_selector"]
@@ -252,7 +252,7 @@ Jeśli chcesz usunąć właściciela z grupy, należy użyć polecenia cmdlet Re
 Po utworzeniu grupy pewność, że punkty końcowe umożliwiają użytkownikom końcowym Określ mailNickname lub alias ma być używany jako część adresu e-mail grupy. Grupy z następujących aliasów e-mail wysoko uprzywilejowane można tworzyć tylko przez administratora globalnego usługi Azure AD. 
   
 * nadużyć 
-* administrator 
+* Administrator 
 * Administrator 
 * hostmaster 
 * majordomo 

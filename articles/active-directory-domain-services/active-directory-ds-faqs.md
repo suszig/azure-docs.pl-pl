@@ -4,7 +4,7 @@ description: "Często zadawane pytania dotyczące usług domenowych Azure Active
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Często zadawane pytania (FAQ)
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory Domain Services. Sprawdzanie wstecz do aktualizacji.
 
 ### <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
-Zobacz nasze [przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md) rozwiązania typowych problemów napotykanych podczas konfigurowania lub administrowania usługami domenowymi Azure AD.
+Zapoznaj się [przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md) rozwiązania typowych problemów napotykanych podczas konfigurowania lub administrowania usługami domenowymi Azure AD.
 
 ### <a name="configuration"></a>Konfiguracja
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Można utworzyć wiele domen zarządzanych w jednym katalogu usługi Azure AD?
@@ -37,7 +37,7 @@ Tak. Można włączyć usługi domenowe Azure AD w sieci wirtualnej platformy Az
 Nie można obecnie. Firma Microsoft będzie dostarczać mechanizm do migracji istniejącej domeny zarządzanej z klasycznej sieci wirtualnej do sieci wirtualnej Resource Manager w przyszłości.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Można włączyć usługi domenowe Azure AD w subskrypcji platformy Azure dostawcy usług Kryptograficznych (Cloud Solution Provider)?
-Nie. Pracujemy nad dodanie obsługi subskrypcji dostawcy usług Kryptograficznych.
+Nie. Zespół pracujący nad produktem pracuje nad dodanie obsługi subskrypcji dostawcy usług Kryptograficznych.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Można włączyć usługi domenowe Azure AD w federacyjnych Azure AD directory? I używać usług AD FS do uwierzytelniania użytkowników w celu uzyskania dostępu do usługi Office 365 i nie synchronizacji skrótów haseł do usługi Azure AD. Można włączyć usługi domenowe Azure AD dla katalogu?
 Nie. Usługi domenowe Azure AD musi mieć dostęp do wartości skrótów haseł kont użytkowników, do uwierzytelniania użytkowników za pomocą protokołu NTLM lub Kerberos. W katalogu federacyjnych skrótów haseł nie są przechowywane w katalogu usługi Azure AD. W związku z tym usługi domenowe Azure AD nie działa z tych katalogów usługi Azure AD.
@@ -46,13 +46,13 @@ Nie. Usługi domenowe Azure AD musi mieć dostęp do wartości skrótów haseł 
 Sama usługa nie obsługuje bezpośrednio w tym scenariuszu. Domeny zarządzanej, jest dostępna w tylko jedną sieć wirtualną w czasie. Jednak należy skonfigurować połączenie między wieloma sieciami wirtualnymi do udostępnienia usług domenowych Azure AD do innych sieci wirtualnych. Zobacz, jak można [połączyć sieci wirtualnych na platformie Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Można włączyć usługi domenowe Azure AD przy użyciu programu PowerShell?
-PowerShell/automatycznego wdrażania usług domenowych Azure AD nie jest obecnie dostępna.
+Tak. Zobacz [sposób, aby włączyć domenowych Azure AD usług przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Usługi domenowe Azure AD jest dostępne w portalu Azure?
 Tak. Usługi domenowe Azure AD można skonfigurować za pomocą [portalu Azure](https://portal.azure.com). [Klasycznego portalu Azure](https://manage.windowsazure.com) nie jest już obsługiwana.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Można włączyć usługi domenowe Azure AD przy użyciu szablonu usługi Resource Manager?
-Nie. Niektóre zadania należy wykonać jako część procesu włączania usług domenowych Azure AD. Te zadania nie są możliwe za pomocą szablonu usługi Resource Manager. Użyj nowego portalu Azure, aby włączyć usługi domenowe Azure AD dla katalogu.
+Tak. Zobacz [sposób, aby włączyć domenowych Azure AD usług przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kontrolery domeny można dodać do domeny zarządzanej usług domenowych Azure AD?
 Nie. Domena udostępniane przez usługi domenowe Azure AD jest domeną zarządzaną. Nie trzeba było możliwe, konfigurowania i inaczej Zarządzanie kontrolerami domeny dla tej domeny — te działania zarządzania są obsługiwane jako usługa przez firmę Microsoft. W związku z tym nie można dodać dodatkowe kontrolery domeny (odczytu i zapisu lub tylko do odczytu) dla domeny zarządzanej.

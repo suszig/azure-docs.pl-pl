@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: c29d218dbca581f102caf8070fa40894e7006e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3edc8f6825af956cf57b8385697dcc206405baa1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Samouczek: Integracji Azure Active Directory z YouEarnedIt
 
@@ -109,15 +109,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     ![Adresy URL i domeny YouEarnedIt pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_url.png)
 
     a. W **adres URL logowania** tekstowym, wpisz adres URL za pomocą następujących wzorców: 
-    | Środowisko  | wzorzec  |
+    | Środowisko  | Wzorce  |
     |:--- |:--- |
-    | Produkcji | `https://<company name>.youearnedit.com/users/sign_in` |
+    | Produkcja | `https://<company name>.youearnedit.com/users/sign_in` |
     | Piaskownica  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. W **identyfikator** tekstowym, wpisz adres URL za pomocą następujących wzorców:
-    | Środowisko  | wzorzec  |
+    | Środowisko  | Wzorce  |
     |:--- |:--- |
-    | Produkcji | `https://<company name>.youearnedit.com` |
+    | Produkcja | `https://<company name>.youearnedit.com` |
     | Piaskownica  |`https://<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE] 

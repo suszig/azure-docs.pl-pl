@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Licencjonowanie usługi Azure AD"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa16cf14def7c6b4555d6624b25e267ef01d5adb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów przypisania licencji dla grupy w usłudze Azure Active Directory
 
@@ -62,7 +62,7 @@ Aby zobaczyć, którzy użytkownicy i grupy zużywają licencji, wybierz produkt
 
 **Środowiska PowerShell:** poleceń cmdlet programu PowerShell, zgłoś ten błąd jako _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Plany usługi powodujące konflikt
+## <a name="conflicting-service-plans"></a>Plany usług powodujące konflikty
 
 **Problem:** zawiera jeden z nich, które jest określone w grupie usługi plan, który powoduje konflikt z innego planu usługi, która jest już przypisana do użytkownika za pośrednictwem innego produktu. Niektóre plany usługi są skonfigurowane w taki sposób, że nie można przypisać do tego samego użytkownika planu, pokrewne usługi.
 

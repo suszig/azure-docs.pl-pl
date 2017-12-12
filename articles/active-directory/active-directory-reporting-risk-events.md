@@ -4,7 +4,7 @@ description: "Ten temat zawiera szczegółowe omówienie są zdarzenia o podwyż
 services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Zdarzenia o podwyższonym ryzyku Azure Active Directory
 
@@ -93,7 +93,7 @@ W poniższej tabeli wymieniono ilość czasu potrzebnego dla typu wykrywania wy�
 
 | Typ wykrywania | Opóźnienie raportowania |
 | --- | --- |
-| Czas rzeczywisty | 5 – 10 minut |
+| W czasie rzeczywistym | 5 – 10 minut |
 | Offline | 2-4 godziny |
 
 
@@ -102,9 +102,9 @@ Typy zdarzeń ryzyka, które wykrywa usługi Azure Active Directory dostępne s�
 | Typ zdarzenia ryzyka | Typ wykrywania |
 | :-- | --- | 
 | [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Czas rzeczywisty |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | W czasie rzeczywistym |
 | [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Czas rzeczywisty |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | W czasie rzeczywistym |
 | [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Offline |
 | [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
@@ -170,9 +170,9 @@ Zdarzenia o podwyższonym ryzyku są foundation ochrony tożsamości usługi Azu
 | Typ zdarzenia ryzyka | Poziom ryzyka | Typ wykrywania |
 | :-- | --- | --- |
 | [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Wysoka | Offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | Czas rzeczywisty |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | W czasie rzeczywistym |
 | [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Medium | Offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | Czas rzeczywisty |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | W czasie rzeczywistym |
 | [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Niska | Offline |
 | [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | Offline|
 

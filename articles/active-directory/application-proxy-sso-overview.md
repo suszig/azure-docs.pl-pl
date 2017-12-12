@@ -4,7 +4,7 @@ description: Poznaj podstawy rejestracji jednokrotnej z serwerem Proxy aplikacji
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>W jaki sposób serwera Proxy aplikacji usługi Azure AD zapewnia rejestrację jednokrotną
 
@@ -38,13 +38,13 @@ Aby wyświetlić jednej opcji logowania jednokrotnego, wykonaj następujące kro
 
 Menu rozwijane zawiera pięć opcji rejestracji jednokrotnej do aplikacji:
 
-* Azure AD rejestracji jednokrotnej wyłączone
+* Logowanie jednokrotne usługi Azure AD jest wyłączone
 * Na podstawie hasła logowania jednokrotnego
 * Połączonego logowania jednokrotnego
 * Zintegrowane uwierzytelnianie systemu Windows
 * Na podstawie nagłówka logowania jednokrotnego
 
-## <a name="azure-ad-single-sign-on-disabled"></a>Azure AD rejestracji jednokrotnej wyłączone
+## <a name="azure-ad-single-sign-on-disabled"></a>Logowanie jednokrotne usługi Azure AD jest wyłączone
 
 Jeśli nie chcesz korzystać z integracji usługi Azure Active Directory dla rejestracji jednokrotnej do aplikacji, wybierz **usługi Azure AD rejestracji jednokrotnej wyłączone**. W przypadku wybrania tej opcji użytkownicy mogą uwierzytelniać dwa razy. Po pierwsze uwierzytelnianie w usłudze Azure Active Directory i następnie zaloguj się do samej aplikacji. 
 
