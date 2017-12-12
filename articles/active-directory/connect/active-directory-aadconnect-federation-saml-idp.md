@@ -3,7 +3,7 @@ title: "Azure AD Connect: Należy użyć dostawcy SAML 2.0 tożsamości na logow
 description: "W tym temacie opisano, za pomocą protokołu SAML 2.0 zgodne Idp na logowanie jednokrotne na."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>W systemie dostawcy SAML 2.0 tożsamości (IdP) dla funkcji logowania jednokrotnego
 
@@ -78,7 +78,7 @@ W tej tabeli przedstawiono wymagania dla określonych atrybutów w komunikacie S
 | ----- | ----- |
 |NameID|Wartość ta asercja musi być taka sama jak nazwę ImmutableID użytkownika usługi Azure AD. Może być maksymalnie 64 znaki alfanumeryczne. Musi być zakodowany bezpieczne znaków innych niż HTML, na przykład znak "+" jest wyświetlany jako ".2B".|
 |IDPEmail|Nazwa główna użytkownika (UPN) jest wymieniony w odpowiedzi SAML jako elementu o nazwie IDPEmail to UserPrincipalName użytkownika (UPN) w usłudze Azure AD/Office 365. Nazwa UPN jest format adresu e-mail. Wartość nazwy UPN w usłudze Office 365 (Azure Active Directory) dla systemu Windows.|
-|Wystawcy|To musi być identyfikatorem URI dostawcy tożsamości. Nie należy używać ponownie wystawcy z przykładowej wiadomości. Jeśli masz wiele domen najwyższego poziomu w dzierżawcy usługi Azure AD Wystawca musi być zgodna z określonego identyfikatora URI ustawienia skonfigurowane w każdej domenie.|
+|Wystawca|To musi być identyfikatorem URI dostawcy tożsamości. Nie należy używać ponownie wystawcy z przykładowej wiadomości. Jeśli masz wiele domen najwyższego poziomu w dzierżawcy usługi Azure AD Wystawca musi być zgodna z określonego identyfikatora URI ustawienia skonfigurowane w każdej domenie.|
 
 >[!IMPORTANT]
 >Obecnie usługa Azure AD obsługuje następujący identyfikator URI Format NameID SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid — format: trwałych.

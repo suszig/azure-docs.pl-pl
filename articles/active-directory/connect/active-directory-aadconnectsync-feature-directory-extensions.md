@@ -4,7 +4,7 @@ description: "W tym temacie opisano funkcję rozszerzeń katalogu w programie Az
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 16ce7da9321a4a36e892bad75819d1c30ab5197a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3ab8b02ad30315de23e5d8e7370cc385a53ecf3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronizacja programu Azure AD Connect: rozszerzenia katalogów
 Rozszerzenia katalogów umożliwia rozszerzanie schematu w usłudze Azure AD przy użyciu własnego atrybutów z lokalnej usługi Active Directory. Ta funkcja umożliwia tworzenie aplikacji biznesowych, korzystanie z atrybutów, można nadal zarządzać lokalnymi. Te atrybuty mogą być używane za pośrednictwem [rozszerzeń katalogu Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) lub [Microsoft Graph](https://graph.microsoft.io/). Widać atrybuty dostępne przy użyciu [explorer Azure AD Graph](https://graphexplorer.azurewebsites.net/) i [Eksplorator Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) odpowiednio.

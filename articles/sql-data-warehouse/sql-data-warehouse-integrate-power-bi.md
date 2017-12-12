@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Użyj usługi Power BI z usługą Magazyn danych SQL
 Jako z bazy danych SQL Azure SQL danych magazynu bezpośrednie połączenie umożliwia użytkownikom korzystać z zaawansowanych przekazywanie logicznej obok możliwości analityczne usługi Power BI.  Za pomocą bezpośrednich Connect zapytania są wysyłane do usługi Azure SQL Data Warehouse w czasie rzeczywistym Ci poznać platformę danych.  Połączone, skali usługi SQL Data Warehouse umożliwia użytkownikom tworzenie dynamicznych raportów w minutach przed terabajtów danych.  Ponadto wprowadzenie przycisku Otwórz w usłudze Power BI umożliwia użytkownikom bezpośrednio z usługi Power BI bez zbierania informacji z innych części Azure ich SQL Data Warehouse.
@@ -39,7 +39,7 @@ Te ograniczenia i uwagi może zmienić będziemy kontynuować proces ulepszania 
 ## <a name="using-the-open-in-power-bi-button"></a>Przy użyciu przycisku "Otwórz w usłudze Power BI"
 Najprostszym sposobem przenoszenia między magazyn danych SQL i usługi Power BI jest otwarty w usłudze Power BI przycisku. Ten przycisk pozwala na łatwe rozpocząć tworzenie nowych pulpitów nawigacyjnych w usłudze Power BI.  
 
-1. Aby rozpocząć przejdź do Twojego wystąpienia usługi SQL Data Warehouse w klasycznym portalu Azure.
+1. Aby rozpocząć przejdź do Twojego wystąpienia usługi SQL Data Warehouse w portalu Azure.
 2. Kliknij przycisk „Otwórz w usłudze Power BI”.
 3. Jeśli nie możemy zalogować Cię bezpośrednio lub jeśli nie masz konta usługi Power BI, należy się zalogować.  
 4. Nastąpi przekierowanie do strony połączenie SQL Data Warehouse przy użyciu informacji z usługą SQL Data Warehouse wstępnie wypełnione.

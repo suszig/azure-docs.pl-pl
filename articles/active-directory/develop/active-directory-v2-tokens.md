@@ -4,7 +4,7 @@ description: "Typy tokenów i oświadczeń emitowane przez punktu końcowego v2.
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory w wersji 2.0 tokeny odwołania
 Punktu końcowego v2.0 usługi Azure Active Directory (Azure AD) emituje kilka typów tokenów zabezpieczających w każdym [przepływ uwierzytelniania](active-directory-v2-flows.md). To odwołanie opisuje format właściwości zabezpieczeń i zawartości każdego typu tokenu.
@@ -61,13 +61,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | wystawiony w |`iat` |`1452285331` |Czas, w którym token został wystawiony, reprezentowane w czasie epoki. |
 | czas wygaśnięcia |`exp` |`1452289231` |Czas, w którym token staje się nieprawidłowy, reprezentowane w czasie epoki. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
 | nie wcześniej niż |`nbf` |`1452285331` |Czas, w którym token staje się nieprawidłowy, reprezentowane w czasie epoki. Zazwyczaj jest taka sama jak godzina wystawienia. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
-| Wersja |`ver` |`2.0` |Wersja token Identyfikatora, zgodnie z definicją w usłudze Azure AD. Wartość dla punktu końcowego v2.0 jest `2.0`. |
+| wersja |`ver` |`2.0` |Wersja token Identyfikatora, zgodnie z definicją w usłudze Azure AD. Wartość dla punktu końcowego v2.0 jest `2.0`. |
 | Identyfikator dzierżawy |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Identyfikator GUID reprezentujący dzierżawy usługi Azure AD, do której należy użytkownik z. Dla kont służbowych identyfikator GUID jest Identyfikatorem niezmienne dzierżawy organizacji, do której należy użytkownik. Dla konta osobiste, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Zakres jest wymagany w celu odbierania tego oświadczenia. |
 | Kod skrótu |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Skrót kod znajduje się w tokeny Identyfikatora tylko wtedy, gdy wystawiony token Identyfikatora z kodu autoryzacji protokołu OAuth 2.0. Może służyć do zweryfikowania autentyczności kod autoryzacji. Aby uzyskać szczegółowe informacje o wykonywaniu tej weryfikacji, zobacz [OpenID Connect specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Skrót token dostępu |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Tokeny dostępu, których token wyznaczania wartości skrótu jest uwzględniona w identyfikatorze, tylko gdy wydano tokenu identyfikator z tokenem dostępu protokołu OAuth 2.0. Może służyć do zweryfikowania autentyczności tokenu dostępu. Aby uzyskać szczegółowe informacje o wykonywaniu tej weryfikacji, zobacz [OpenID Connect specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Identyfikator jednorazowy |`nonce` |`12345` |Identyfikator jednorazowy jest strategii łagodzenia ataków powtórzeń tokenów. Aplikację można określić identyfikatora jednorazowego w żądaniu autoryzacji przy użyciu `nonce` parametr zapytania. Wartości podane w żądaniu jest emitowany w tokenie identyfikator `nonce` oświadczenia, nie mają być modyfikowane. Aplikację można sprawdzić wartość względem wartości określone dla żądania, który kojarzy z określonym tokenem identyfikator sesji aplikacji. Aplikację należy wykonać tej weryfikacji w procesie weryfikacji tokenu identyfikator. |
 | name |`name` |`Babe Ruth` |Oświadczenia nazwy zawiera wartość zrozumiałą dla użytkownika, która identyfikuje podmiotu tokenu. Wartość nie musi być unikatowy, jest modyfikowalna, i został zaprojektowany tak, aby można używać tylko do wyświetlania. `profile` Zakres jest wymagany w celu odbierania tego oświadczenia. |
-| Adres e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Podstawowego adresu e-mail skojarzonego z konta użytkownika, jeśli taka istnieje. Jego wartość jest modyfikowalna i może ulec zmianie. `email` Zakres jest wymagany w celu odbierania tego oświadczenia. |
+| wyślij wiadomość e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Podstawowego adresu e-mail skojarzonego z konta użytkownika, jeśli taka istnieje. Jego wartość jest modyfikowalna i może ulec zmianie. `email` Zakres jest wymagany w celu odbierania tego oświadczenia. |
 | Preferowany nazwy użytkownika |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nazwa głównej reprezentuje użytkownika w punkcie końcowym v2.0. Może to być adres e-mail, numer telefonu lub ogólny nazwy użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie. Ponieważ jest modyfikowalna, ta wartość nie należy używana do podejmowania decyzji dotyczących autoryzacji. `profile` Zakres jest wymagany w celu odbierania tego oświadczenia. |
 | Temat |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Podmiot zabezpieczeń o tym, które token deklaracji rozkazujących informacje, takie jak użytkownika aplikacji. Ta wartość jest niezmienne i nie można ponownie przypisać lub ponownie. Może służyć do wykonywania sprawdzeń autoryzacji bezpiecznie, np. gdy jest używany do uzyskania dostępu do zasobu, a może być używany jako klucz w tabelach bazy danych. Ponieważ podmiot jest zawsze znajdujących się w tokeny problemów z usługą Azure AD, zaleca się korzystanie z tej wartości w systemie autoryzacji ogólnego przeznaczenia. Podmiot jest jednak parowania identyfikator — unikatowy identyfikator aplikacji.  W związku z tym jeśli jeden użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch identyfikatorów innego klienta, tych aplikacji zostanie wyświetlony dwóch różnych wartości oświadczeń podmiotu.  To może lub nie może być wskazane w zależności od wymagań architektury i ochrony prywatności. |
 | Identyfikator obiektu: |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Niezmienne identyfikator obiektu programu Microsoft identity system, w tym przypadku konta użytkownika.  Można go również używane do wykonywania sprawdzeń autoryzacji i bezpiecznie jako klucz w tabelach bazy danych. Ten identyfikator unikatowo identyfikuje użytkownika w aplikacjach — dwóch różnych aplikacji podpisywania w ten sam użytkownik otrzyma tę samą wartość w `oid` oświadczeń.  Oznacza to, że mogą być używane podczas wykonywania kwerend do usług online firmy Microsoft, takich jak Microsoft Graph.  Program Microsoft Graph, którą będzie zwracać ten identyfikator jako `id` właściwości dla danego konta użytkownika.  Ponieważ `oid` umożliwia wielu aplikacjom do skorelowania użytkowników, `profile` zakres jest wymagany w celu odbierania tego oświadczenia. Należy pamiętać, że jeden użytkownik istnieje w wielu dzierżawców, użytkownik będzie zawierać identyfikator inny obiekt, w każdej dzierżawy — są traktowane jako różne konta, nawet jeśli użytkownik loguje się do wszystkich kont z tymi samymi poświadczeniami. |

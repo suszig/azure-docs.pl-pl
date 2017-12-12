@@ -12,7 +12,7 @@
 # Instrukcje
 ## Konfigurowanie wysokiej dostępności
 ### [Opcje wysokiej dostępności](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Konfigurowanie zawsze włączonej grupy dostępności w portalu klasycznym](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Konfigurowanie zawsze włączonej grupy dostępności w portalu](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Konfigurowanie zawsze włączonej grupy dostępności przy użyciu programu PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Konfigurowanie wewnętrznego odbiornika grupy dostępności](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Konfigurowanie zewnętrznego odbiornika grupy dostępności](virtual-machines-windows-classic-ps-sql-ext-listener.md)

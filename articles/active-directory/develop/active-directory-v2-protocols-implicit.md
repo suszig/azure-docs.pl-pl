@@ -4,7 +4,7 @@ description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD w wers
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protokoły - źródła przy użyciu niejawnego przepływu w wersji 2.0
 Z punktem końcowym v2.0 można zalogować się użytkowników do aplikacji jednej strony z konta osobiste oraz pracy/służbowego firmy Microsoft.  Jednej strony i innych aplikacji JavaScript, które działają głównie w kilka interesujące będzie wymagał uwierzytelniania w przypadku krój przeglądarki:
@@ -76,9 +76,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |Zalecane |Określa metodę, które mają być używane do wysyłania wynikowy token wstecz do aplikacji.  Powinien być `fragment` dla niejawnego przepływu. |
 | state |Zalecane |Wartość zawarte w żądaniu zwracana w odpowiedzi tokenu.  Można go ciągiem zawartość, która ma.  Losowo generowany unikatową wartość jest zazwyczaj używana w przypadku [zapobieganie fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12).  Stan służy także do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
 | Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu wygenerowany przez aplikację, która zostanie uwzględniona w wynikowej żądaniu jako oświadczenia.  Aplikacja może zweryfikować tę wartość, aby ograniczyć ataków powtórzeń tokenów.  Wartość jest zazwyczaj losowego, unikatowy ciąg, który może służyć do identyfikowania pochodzenia żądania. |
-| wiersz |Opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  W tej chwili jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Spowoduje to wymuszenie użytkownika o wprowadzenie poświadczeń w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - zapewni, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punktu końcowego v2.0 spowoduje zwrócenie błędu.  `prompt=consent`wyzwoli okna dialogowego zgoda OAuth, po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
-| login_hint |Opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika konta na stronie dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
-| domain_hint |Opcjonalne |Może być jednym z `consumers` lub `organizations`.  Jeśli uwzględniona, pominie proces odnajdowania opartych na poczcie e-mail tego użytkownika odbywa się przez na stronie rejestracji v2.0, co może prowadzić do wymaga nieco więcej udoskonalone środowisko użytkownika.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania, wyodrębniając `tid` oświadczeń w żądaniu.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, należy użyć `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
+| wiersz |opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  W tej chwili jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Spowoduje to wymuszenie użytkownika o wprowadzenie poświadczeń w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - zapewni, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punktu końcowego v2.0 spowoduje zwrócenie błędu.  `prompt=consent`wyzwoli okna dialogowego zgoda OAuth, po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
+| login_hint |opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika konta na stronie dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
+| domain_hint |opcjonalne |Może być jednym z `consumers` lub `organizations`.  Jeśli uwzględniona, pominie proces odnajdowania opartych na poczcie e-mail tego użytkownika odbywa się przez na stronie rejestracji v2.0, co może prowadzić do wymaga nieco więcej udoskonalone środowisko użytkownika.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania, wyodrębniając `tid` oświadczeń w żądaniu.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, należy użyć `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
 
 W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wykonania uwierzytelnienia.  Punktu końcowego v2.0 będzie również upewnij się, że użytkownik zgodził się na uprawnienia wskazanych w `scope` parametr zapytania.  Jeśli użytkownik zgodził się nie do dowolnego z tych uprawnień, poprosi użytkownika o zgodę na wymagane uprawnienia.  Szczegóły [uprawnień, zgody i aplikacje wielodostępne znajdują się w tym miejscu](active-directory-v2-scopes.md).
 

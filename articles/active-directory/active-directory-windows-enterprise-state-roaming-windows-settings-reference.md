@@ -5,7 +5,7 @@ services: active-directory
 keywords: "roaming stanu przedsiębiorstwa chmury systemu windows"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
 Poniżej znajduje się pełna lista wszystkich ustawień, które będą przekazywane lub kopii zapasowej w systemie Windows 10. 
@@ -27,7 +27,7 @@ Poniżej znajduje się pełna lista wszystkich ustawień, które będą przekazy
 ## <a name="devices-and-endpoints"></a>Punktów końcowych i urządzeń
 Poniższej tabeli przedstawiono podsumowanie urządzeń i typy kont, które są obsługiwane przez synchronizacji, kopia zapasowa i przywracanie framework w systemie Windows 10.
 
-| Typ konta i działania | Pulpitu | Komórkowy |
+| Typ konta i działania | Pulpit | Komórkowy |
 | --- | --- | --- |
 | Usługa Azure Active Directory: synchronizacja |Tak |Nie |
 | Azure Active Directory: przywracania kopii zapasowej |Nie |Nie |
@@ -59,7 +59,7 @@ W poniższej tabeli, innych pozycji w kolumnie Grupa ustawienia odwołuje się d
 Wewnętrzny pozycje w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko synchronizowanie w aplikacji lub wyłączenie synchronizacji dla wszystkich danych z urządzenia przy użyciu zarządzania urządzeniami przenośnymi (MDM) lub ustawień zasad grupy.
 Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć do grupy.
 
-| Ustawienia | Pulpitu | Komórkowy | Grupa |
+| Ustawienia | Pulpit | Komórkowy | Grupa |
 | --- | --- | --- | --- |
 | **Konta**: obraz konta |Synchronizacji |X |Motyw |
 | **Konta**: inne ustawienia konta |X |X | |
@@ -103,14 +103,14 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Przeglądarka Edge**: czytnik ustawienie <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Duży kontrast**: Włączanie/wyłączanie |Synchronizacji |X |łatwość dostępu |
 | **Duży kontrast**: ustawienia motywu |Synchronizacji |X |łatwość dostępu |
-| **Program Internet Explorer**: Otwórz karty (adres URL i tytuł) |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: odczytywanie listy |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: wpisane adresy URL |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: Historia przeglądania |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: Ulubione |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: wykluczone adresy URL |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: strony głównej |Synchronizacji |Synchronizacji |Program Internet Explorer |
-| **Program Internet Explorer**: sugestie domeny |Synchronizacji |Synchronizacji |Program Internet Explorer |
+| **Program Internet Explorer**: Otwórz karty (adres URL i tytuł) |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: odczytywanie listy |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: wpisane adresy URL |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: Historia przeglądania |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: Ulubione |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: wykluczone adresy URL |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: strony głównej |Synchronizacji |Synchronizacji |Internet Explorer |
+| **Program Internet Explorer**: sugestie domeny |Synchronizacji |Synchronizacji |Internet Explorer |
 | **Klawiatura**: użytkownicy mogą włączyć/wyłączyć program Klawiatura ekranowa |Synchronizacji |X |łatwość dostępu |
 | **Klawiatura**: Włącz trwałe tak (domyślnie wyłączone) |Synchronizacji |X |łatwość dostępu |
 | **Klawiatura**: Włącz klawisze filtru (domyślnie wyłączone) |Synchronizacji |X |łatwość dostępu |

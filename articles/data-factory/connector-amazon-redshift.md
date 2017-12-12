@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Obsługiwane są następujące właściwości usługi Amazon Redshift połączon
 | type | Właściwość type musi mieć ustawioną: **AmazonRedshift** | Tak |
 | serwer |IP adres lub nazwę hosta serwera Amazon Redshift. |Tak |
 | port |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwania dla połączeń klienta. |Nie, domyślnie jest 5439 |
-| Bazy danych |Nazwa bazy danych Amazon Redshift. |Tak |
+| baza danych |Nazwa bazy danych Amazon Redshift. |Tak |
 | nazwa użytkownika |Nazwa użytkownika, który ma dostęp do bazy danych. |Tak |
 | hasło |Hasło dla konta użytkownika. Zaznacz to pole jako SecureString. |Tak |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -207,21 +207,21 @@ Dla tego przykładu przypadek użycia, skopiuj działania zwalnia dane z Amazon 
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Mapowanie typu danych dla Amazon Redshift
 
-Podczas kopiowania danych z programu Teradata, następujące mapowania są używane z typów danych programu Teradata do typów danych tymczasowych fabryki danych Azure. Zobacz [schemat i dane typu mapowania](copy-activity-schema-and-type-mapping.md) Aby poznać sposób działania kopiowania mapowania typu źródłowego: schemat i dane sink.
+Podczas kopiowania danych z Amazon Redshift, następujące mapowania są używane z Amazon Redshift typów danych do typów danych tymczasowych fabryki danych Azure. Zobacz [schemat i dane typu mapowania](copy-activity-schema-and-type-mapping.md) Aby poznać sposób działania kopiowania mapowania typu źródłowego: schemat i dane sink.
 
 | Typ danych Amazon Redshift | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | BIGINT |Int64 |
 | WARTOŚĆ LOGICZNA |Ciąg |
 | CHAR |Ciąg |
-| DATA |Data i godzina |
+| DATA |Data/godzina |
 | DECIMAL |Decimal |
 | PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
 | LICZBA CAŁKOWITA |Int32 |
-| RZECZYWISTE |Pojedynczy |
+| RZECZYWISTE |Kawaler/panna |
 | SMALLINT |Int16 |
 | TEKST |Ciąg |
-| ZNACZNIK CZASU |Data i godzina |
+| ZNACZNIK CZASU |Data/godzina |
 | VARCHAR |Ciąg |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Dokumentacja programu Terraform na platformie Azure
 metadata:
-  title: Dokumentacja programu Terraform na platformie Azure — samouczki i dokumentacja
+  title: "Dokumentacja programu Terraform na platformie Azure — samouczki i dokumentacja"
   meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
   author: rloutlaw
@@ -13,8 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
+  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/11/2017
 abstract:
-  description: 'Program Terraform służy do niezawodnego śledzenia wersji i tworzenia infrastruktury na platformie Azure. Dowiedz się z przewodników Szybki start i samouczków, jak tworzyć zasoby, używać modułów Azure Terraform i utrzymywać infrastrukturę za pomocą kodu.'
+  description: "Program Terraform służy do niezawodnego śledzenia wersji i tworzenia infrastruktury na platformie Azure. Dowiedz się z przewodników Szybki start i samouczków, jak tworzyć zasoby, używać modułów Azure Terraform i utrzymywać infrastrukturę za pomocą kodu."
   aside:
     image:
       alt: Terraform logo.
@@ -22,45 +27,46 @@ abstract:
       src: media/Terraform_VerticalLogo_FullColor.svg
       width: 250
 sections:
-  - title: Przewodniki Szybki start
+- title: Przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Skonfiguruj program Terraform i za jego pomocą utwórz maszynę wirtualną z systemem Linux."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Skonfiguruj program Terraform i za jego pomocą utwórz maszynę wirtualną z systemem Linux.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg'
-            text: Instalowanie i konfigurowanie programu Terraform
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg'
-            text: Tworzenie maszyny wirtualnej z systemem Linux
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
-  - title: Samouczki krok po kroku
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+      text: Instalowanie i konfigurowanie programu Terraform
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+      text: Tworzenie maszyny wirtualnej z systemem Linux
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak za pomocą programu Terraform utworzyć infrastrukturę obliczeniową i sieciową platformy Azure na podstawie kodu."
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak za pomocą programu Terraform utworzyć infrastrukturę obliczeniową i sieciową platformy Azure na podstawie kodu.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Utwórz klaster maszyn wirtualnych z równoważeniem obciążenia przy użyciu modułów Azure Terraform</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Utwórz klaster maszyn wirtualnych z równoważeniem obciążenia w usłudze Azure Cloud Shell</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Skonfiguruj zestaw skalowania maszyn wirtualnych z siecią i magazynem.</a>
-  - title: Przykłady
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Utwórz klaster maszyn wirtualnych z równoważeniem obciążenia przy użyciu modułów Azure Terraform</a>."
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">Utwórz klaster maszyn wirtualnych z równoważeniem obciążenia w usłudze Azure Cloud Shell</a>."
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">Skonfiguruj zestaw skalowania maszyn wirtualnych z siecią i magazynem.</a>"
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl\">Utwórz zestaw skalowania maszyn wirtualnych na podstawie niestandardowego obrazu usługi Packer.</a>"
+- title: "Przykłady"
+  items:
+  - type: paragraph
+    text: "Przykładowe szablony konfiguracji dla typowych zadań związanych z wdrażaniem."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Przykładowe szablony konfiguracji dla typowych zadań związanych z wdrażaniem.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
-  - title: Dokumentacja
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: Dokumentacja
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Moduły Azure Terraform
-            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Usługa Azure RM dla bazy danych</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Usługa Azure RM dla modułu równoważenia obciążenia</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Grupa obliczeń usługi Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Sieć usługi Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Obliczenia usługi Azure RM</a></p>'
+    - title: "Moduły Azure Terraform"
+      html: "<p><a href=\"https://registry.terraform.io/modules/Azure/database/azurerm\">Usługa Azure RM dla bazy danych</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/loadbalancer\">Usługa Azure RM dla modułu równoważenia obciążenia</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/computegroup\">Grupa obliczeń usługi Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/network\">Sieć usługi Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/compute\">Obliczenia usługi Azure RM</a></p>"

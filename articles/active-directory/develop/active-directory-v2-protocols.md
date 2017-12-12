@@ -4,7 +4,7 @@ description: "Przewodnik dotyczący protokołów obsługiwanych przez punktu ko�
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>w wersji 2.0 protokołów - OAuth 2.0 & OpenID Connect
 Punktu końcowego v2.0 można używać usługi Azure AD identity jako — usługa z branży standardowe protokoły OpenID Connect i OAuth 2.0.  Gdy usługa jest zgodny ze standardami, może to mieć niewielkie różnice między dwoma implementacjami tych protokołów.  Informacje w tym miejscu będzie przydatna, jeśli użytkownik chce wpisz swój kod, wysyłając bezpośrednio & obsługiwanie żądań HTTP lub użyj 3rd strona Otwórz źródło biblioteki, a nie przy użyciu jednej z naszych biblioteki typu open source.

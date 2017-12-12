@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Użyj biblioteki uwierzytelniania firmy Microsoft (MSAL), aby uzyskać token dla interfejsu API programu Microsoft Graph
 
 Otwórz `ViewController.swift` i Zastąp kod:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorowanie Azure rozwiązania Cosmos bazy danych
 Można monitorować swoje konta bazy danych Azure rozwiązania Cosmos w [portalu Azure](https://portal.azure.com/). Dla każdego konta bazy danych Azure rozwiązania Cosmos pełny pakiet metryki jest dostępna do monitorowania przepływności, magazynu, dostępności, opóźnienia i spójności.
@@ -69,7 +69,7 @@ Metryki można przeglądać na stronie konta Nowa strona metryki, lub w monitorz
      ![Zrzut ekranu: Dodaj stronę reguły alertu](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorowanie bazy danych Azure rozwiązania Cosmos programowo
-Metryki poziomu konta dostępne w portalu, takich jak żądania użycia i całkowitej konta magazynu, nie są dostępne za pośrednictwem interfejsów API usługi DocumentDB. Jednak przy użyciu interfejsów API usługi DocumentDB można pobrać dane użycia na poziomie kolekcji. Aby pobrać danych kolekcji na poziomie, wykonaj następujące czynności:
+Metryki poziomu konta dostępne w portalu, takich jak żądania użycia i całkowitej konta magazynu, nie są dostępne za pośrednictwem interfejsów API SQL. Jednak można pobrać dane użycia na poziomie kolekcji za pomocą interfejsów API SQL. Aby pobrać danych kolekcji na poziomie, wykonaj następujące czynności:
 
 * Aby użyć interfejsu API REST, [wykonać operację pobierania na kolekcji](https://msdn.microsoft.com/library/mt489073.aspx). Limit przydziału i użycie informacji dla kolekcji, jest zwracana w nagłówkach x-ms-resource przydziału i x-ms-resource użycia w odpowiedzi.
 * Aby użyć zestawu .NET SDK, użyj [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) metody, która zwraca [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) takich jak zawiera wiele właściwości użycia **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**itd.

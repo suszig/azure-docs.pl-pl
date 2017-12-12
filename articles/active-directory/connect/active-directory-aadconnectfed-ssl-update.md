@@ -4,7 +4,7 @@ description: "Szczegóły tego dokumentu kroki, aby zaktualizować certyfikat SS
 services: active-directory
 keywords: "programu Azure ad connect, aktualizacji ssl usług AD FS, aktualizacja certyfikatu usług AD FS, zmienianie certyfikatu usług AD FS, nowego certyfikatu usług AD FS, certyfikat usług AD FS aktualizacji usług AD FS certyfikat ssl, aktualizacja AD FS certyfikat ssl, skonfigurować certyfikat ssl usług AD FS, usługi AD FS, ssl, certyfikatu, certyfikat komunikacji usługi AD FS, federation aktualizacji, konfigurowanie Federacji, aad connect"
 authors: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aktualizuj certyfikat protokołu SSL dla farmę serwerów usługi Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 W tym artykule opisano, jak Azure AD Connect umożliwia zaktualizowanie certyfikatu SSL dla farmę serwerów usługi Active Directory Federation Services (AD FS). Narzędzie Azure AD Connect pozwalają łatwo aktualizować certyfikat SSL do farmy usług AD FS, nawet jeśli nie jest użytkownik logowania wybrano metodę usług AD FS.
 
 Można wykonać całą operację aktualizowania certyfikat protokołu SSL dla farmy usług AD FS we wszystkich federacyjnych i serwerach Proxy aplikacji sieci Web (WAP) w trzy proste kroki:
