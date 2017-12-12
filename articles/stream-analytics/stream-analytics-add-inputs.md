@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Dodaj dane przesyłane strumieniowo danych wejściowych lub odwołanie do zadania usługi analiza strumienia
 Dowiedz się, jak podłączenie do zadania usługi analiza strumienia jako dane wejściowe z usługi Event Hubs lub odwołanie do danych z magazynu obiektów Blob strumieniowe źródła danych.
@@ -38,7 +38,7 @@ Aby dodać dane wejściowe do zadania usługi analiza strumienia:
 
 1. W portalu Azure kliknij **dane wejściowe** , a następnie kliknij przycisk **dodać dane wejściowe** w zadania usługi analiza strumienia.
    
-    ![Klasyczny portal Azure — Dodawanie danych wejściowych.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Portal Azure — Dodawanie danych wejściowych.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     W portalu Azure kliknij **dane wejściowe** kafelka w zadania usługi analiza strumienia.  
    

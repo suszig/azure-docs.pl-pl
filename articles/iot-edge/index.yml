@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  document_id: null
-  title: 'Azure IoT Edge — samouczki, dokumentacja interfejsu API'
+  document_id: 
+  title: "Azure IoT Edge — samouczki, dokumentacja interfejsu API"
   meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   services: iot-edge
   author: kgremban
@@ -12,35 +12,41 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
+  ms.openlocfilehash: d49e1647db25023cefd59d667f87396827b7ca27
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/11/2017
 abstract:
-  description: 'Azure IoT Edge jest usługą Internetu rzeczy (IoT) opartą na usłudze IoT Hub. Ta usługa jest przeznaczona dla klientów, którzy chcą analizować dane na urządzeniach, czyli „na brzegu”, a nie w chmurze. Dzięki przeniesieniu części obciążenia na brzeg urządzenia poświęcają mniej czasu na wysyłanie komunikatów do chmury i szybciej reagują na zmiany stanu.'
+  description: "Azure IoT Edge jest usługą Internetu rzeczy (IoT) opartą na usłudze IoT Hub. Ta usługa jest przeznaczona dla klientów, którzy chcą analizować dane na urządzeniach, czyli „na brzegu”, a nie w chmurze. Dzięki przeniesieniu części obciążenia na brzeg urządzenia poświęcają mniej czasu na wysyłanie komunikatów do chmury i szybciej reagują na zmiany stanu."
 sections:
-  - title: 5-minutowe przewodniki Szybki start
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Wdróż pierwszy moduł usługi IoT Edge i przetwarzaj dane na symulowanym urządzeniu:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Wdróż pierwszy moduł usługi IoT Edge i przetwarzaj dane na symulowanym urządzeniu:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Windows
-            href: /azure/iot-edge/quickstart
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Linux
-            href: /azure/iot-edge/quickstart-linux
-  - title: Samouczki krok po kroku
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Windows
+      href: /azure/iot-edge/quickstart
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Linux
+      href: /azure/iot-edge/quickstart-linux
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak zainstalować i skonfigurować usługę IoT Edge, wdrażać moduły oraz korzystać z usług platformy Azure, takich jak Stream Analytics, na brzegu."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak zainstalować i skonfigurować usługę IoT Edge, wdrażać moduły oraz korzystać z usług platformy Azure, takich jak Stream Analytics, na brzegu.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Symulowanie urządzenia usługi IoT Edge w systemie Windows</a>
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Symulowanie urządzenia usługi IoT Edge w systemie Linux</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Tworzenie i wdrażanie modułu C#</a>'
-          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Wdrażanie usługi Azure Stream Analytics jako modułu</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Wdrażanie usługi Azure Functions jako modułu</a>
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-windows\">Symulowanie urządzenia usługi IoT Edge w systemie Windows</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-simulate-device-Linux\">Symulowanie urządzenia usługi IoT Edge w systemie Linux</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-csharp-module\">Tworzenie i wdrażanie modułu C#</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-stream-analytics\">Wdrażanie usługi Azure Stream Analytics jako modułu</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-machine-learning\">Wdrażanie usługi Azure Machine Learning jako modułu</a>"
+    - html: "<a href=\"/azure/iot-edge/tutorial-deploy-function\">Wdrażanie usługi Azure Functions jako modułu</a>"

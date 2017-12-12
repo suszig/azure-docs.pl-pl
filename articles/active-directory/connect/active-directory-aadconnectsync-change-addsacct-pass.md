@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Usługi AD DS konta, konto usługi Active Directory, hasło"
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 14e16a238e60ecfeeb3cbf88c3922a79349dcc75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd2970a723aa6b9073e25fd19493232af50e7985
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Zmiana hasła do konta usług AD DS
 Konta usług AD DS odnosi się do konta użytkownika, używany przez program Azure AD Connect do komunikowania się z lokalną usługą Active Directory. Jeśli zmienisz hasło do konta usług AD DS, należy zaktualizować Azure AD Connect usługi synchronizacji przy użyciu nowego hasła. W przeciwnym razie synchronizacja nie będzie można poprawnie synchronizowane z lokalnej usługi Active Directory i można napotkać następujące błędy:

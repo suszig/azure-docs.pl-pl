@@ -4,7 +4,7 @@ description: "Wyjaśniono, użytkowników, grup i kontakty synchronizacji Azure 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a08e3f3593e1ec04ebf65fef2880c965e02775d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Synchronizacja programu Azure AD Connect: opis użytkowników, grup i kontaktów
 Istnieje kilka przyczyn dlaczego może mieć wiele lasów usługi Active Directory i istnieje kilka topologii rozmieszczania. Typowe modele zawierają wdrażania konta zasobów i lasów sync'ed usługi GAL po połączeniu & nabycia. Ale nawet w przypadku modeli czystego, modele hybrydowe wspólnej również. Domyślna konfiguracja synchronizacji Azure AD Connect nie przyjmuje żadnego określonego modelu, ale w zależności od tego, jak dopasowywaniu użytkowników zostało wybrane w podręczniku instalacji, można zaobserwować różne zachowania.
@@ -52,7 +52,7 @@ Ważne informacje, które należy zwrócić uwagę podczas synchronizowania grup
       
       * Grupy usługi Active Directory, w których atrybut proxyAddress zawiera wartości *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* będzie także włączoną obsługą poczty w usłudze Azure AD.
 
-## <a name="contacts"></a>Osoby kontaktowe
+## <a name="contacts"></a>Kontakty
 Kontakty reprezentujący użytkownika w innym lesie jest posiadanie wspólnej po połączeniu & nabycia gdzie rozwiązania usługi GALSync jest mostkowanie co najmniej dwa lasy usługi programu Exchange. Skontaktuj się z pomocą obiektów jest zawsze przyłączania z obszaru łącznika do metaverse przy użyciu atrybutu poczty. Jeśli istnieje już kontaktu obiektu lub użytkownika z tym samym adresem poczty, obiekty są połączone ze sobą. Te ustawienia zostaną skonfigurowane w regule **w z usługi Active Directory — kontakt Join**. Istnieje również reguły o nazwie **w z usługi Active Directory — skontaktuj się z wspólnej** przepływu atrybutu z atrybutem metaverse **sourceObjectType** o stałej **skontaktuj się z**. Ta reguła ma pierwszeństwo bardzo niskich tak więc jeśli dowolny obiekt użytkownika jest dołączony do tego samego obiektu metaverse, a następnie reguły **w z usługi Active Directory — typowe użytkownika** przyczyniają się wartość użytkownika z tym atrybutem. Z tą regułą tego atrybutu będzie mieć wartość kontaktu, jeśli żaden użytkownik nie został dołączony i wartość użytkownika, jeśli znaleziono co najmniej jednego użytkownika.
 
 Do obsługi obiektu do usługi Azure AD, wychodzącą regułę **Out do usługi AAD — skontaktuj się z Join** spowoduje utworzenie obiektu kontaktu, jeśli atrybut metaverse **sourceObjectType** ma ustawioną wartość **skontaktuj się z**. Jeśli ten atrybut ma ustawioną **użytkownika**, następnie reguły **Out do usługi AAD — użytkownik przyłączyć** zamiast tego utworzyć obiektu user.

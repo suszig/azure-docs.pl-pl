@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03000679ef7fc36842b1f55d4d98131dfe400c87
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Wzorzec wielu globalnie zreplikowany architektury bazy danych z bazy danych Azure rozwiązania Cosmos
 Azure DB rozwiązania Cosmos obsługuje gotowe [globalnej replikacji](distribute-data-globally.md), który umożliwia dystrybucję danych do wielu regionów o małych opóźnieniach dostępu w dowolnym miejscu obciążenie. Ten model jest najczęściej używany w przypadku obciążeń wydawcy/konsumenta przypadku zapisywania w jednym regionie geograficznym i czytników globalnie rozproszone w różnych regionach (odczytu). 
@@ -318,6 +318,6 @@ W tym artykule opisano możemy wykorzystania wzorce globalnie rozproszone w przy
 * Dowiedz się więcej o sposobie obsługi bazy danych Azure rozwiązania Cosmos [dystrybucji globalne](distribute-data-globally.md)
 * Dowiedz się więcej o [automatycznej i ręcznej pracy awaryjnej w usłudze Azure DB rozwiązania Cosmos](regional-failover.md)
 * Dowiedz się więcej o [globalne spójności z bazy danych Azure rozwiązania Cosmos](consistency-levels.md)
-* Tworzenie z wielu regionach, przy użyciu [DB rozwiązania Cosmos Azure - DocumentDB interfejsu API](tutorial-global-distribution-documentdb.md)
+* Tworzenie z wielu regionach, przy użyciu [Azure DB rozwiązania Cosmos - interfejsu API SQL](tutorial-global-distribution-documentdb.md)
 * Tworzenie z wielu regionach, przy użyciu [Azure DB rozwiązania Cosmos - API bazy danych MongoDB](tutorial-global-distribution-MongoDB.md)
 * Tworzenie z wielu regionach, przy użyciu [Azure DB rozwiązania Cosmos - API tabeli](tutorial-global-distribution-table.md)

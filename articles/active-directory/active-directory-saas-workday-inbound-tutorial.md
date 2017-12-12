@@ -4,7 +4,7 @@ description: "Informacje o sposobie użycia produktu Workday jako źródło dany
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Samouczek: Konfigurowanie produktu Workday dla użytkownika automatycznego inicjowania obsługi administracyjnej z lokalnej usługi Active Directory i Azure Active Directory
 Celem tego samouczka jest opisano czynności, które należy wykonać, aby zaimportować osób z produktu Workday do usługi Active Directory i Azure Active Directory, z opcjonalne zapisu pewnych atrybutów do produktu Workday. 
@@ -93,9 +93,9 @@ Jednak podczas pracy z produktu Workday i usługi Active Directory, istnieje wie
 
 | Systemu źródłowego | System docelowy | Uwagi |
 | ---------- | ---------- | ---------- |
-| Dzień roboczy | Lasu usługi Active Directory | Każdy las jest traktowany jako system docelowy różne |
+| Dzień roboczy | Las usługi Active Directory | Każdy las jest traktowany jako system docelowy różne |
 | Dzień roboczy | Dzierżawy usługi Azure AD | Co jest wymagane dla użytkowników tylko w chmurze |
-| Lasu usługi Active Directory | Dzierżawy usługi Azure AD | Ten przepływ jest obecnie obsługiwany przez AAD Connect |
+| Las usługi Active Directory | Dzierżawy usługi Azure AD | Ten przepływ jest obecnie obsługiwany przez AAD Connect |
 | Dzierżawy usługi Azure AD | Dzień roboczy | Dla zapisu zwrotnego adresów e-mail |
 
 W celu ułatwienia tych wiele przepływów pracy w wielu systemach źródłowych i docelowych, usługa Azure AD zapewnia wielu inicjowania obsługi administracyjnej aplikacji łącznika, które można dodać z galerii aplikacji Azure AD:

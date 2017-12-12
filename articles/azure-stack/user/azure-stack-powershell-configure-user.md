@@ -3,26 +3,26 @@ title: "Konfigurowanie środowiska PowerShell użytkownika stosu Azure | Dokumen
 description: "Konfigurowanie środowiska PowerShell użytkownika Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Konfigurowanie środowiska PowerShell użytkownika Azure stosu
 
-Jako użytkownik stosu Azure można skonfigurować sieci Azure stosu Development Kit dla środowiska PowerShell. Po skonfigurowaniu, służy programu PowerShell do zarządzania stosu Azure zasobów takich jak subskrybować oferty, Tworzenie maszyn wirtualnych, wdrażanie szablonów usługi Azure Resource Manager itp. Ten temat obejmuje środowisk, jeśli chcesz skonfigurować środowiska PowerShell dla operatora środowiska chmury, odwoływać się tylko do użytkownika za pomocą [konfigurowania środowiska PowerShell operator stosu Azure](../azure-stack-powershell-configure-admin.md) tematu. 
+Jako użytkownik stosu Azure można skonfigurować sieci Azure stosu Development Kit dla środowiska PowerShell. Po skonfigurowaniu, służy programu PowerShell do zarządzania stosu Azure zasobów takich jak subskrybować oferty, Tworzenie maszyn wirtualnych, wdrażanie szablonów usługi Azure Resource Manager itp. Ten temat obejmuje środowisk, jeśli chcesz skonfigurować środowiska PowerShell dla operatora środowiska chmury, odwoływać się tylko do użytkownika za pomocą [konfigurowania środowiska PowerShell operator stosu Azure](../azure-stack-powershell-configure-admin.md) artykułu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -33,7 +33,7 @@ Uruchom następujące wymagania wstępne, albo z [zestaw deweloperski](azure-sta
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Konfigurowanie środowiska użytkownika i zaloguj się do stosu Azure
 
-Na podstawie typu wdrożenia (Azure AD lub AD FS), uruchom następujący skrypt, aby skonfigurować program PowerShell Azure stosu (Upewnij się, że w celu zastąpienia AAD tenantName, GraphAudience punktu końcowego i wartości ArmEndpoint zgodnie z konfiguracją środowiska):
+Na podstawie typu wdrożenia (Azure AD lub AD FS), uruchom jedno z poniższych skryptów można skonfigurować programu PowerShell dla usługi Azure stosu (Upewnij się, że zastąpienie AAD tenantName, GraphAudience punktu końcowego i wartości ArmEndpoint zgodnie z konfiguracją środowiska):
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) na podstawie wdrożenia
        
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Testowanie łączności
 
-Teraz, gdy mamy wszystko Konfigurowanie Użyjmy programu PowerShell do tworzenia zasobów w stosie Azure. Można na przykład utworzyć grupę zasobów dla aplikacji i Dodaj maszynę wirtualną. Aby utworzyć grupę zasobów o nazwie "MyResourceGroup", użyj następującego polecenia:
+Teraz, gdy mamy wszystkie elementy konfiguracji, umożliwia tworzenie zasobów w stosie Azure przy użyciu programu PowerShell. Można na przykład utworzyć grupę zasobów dla aplikacji i Dodaj maszynę wirtualną. Aby utworzyć grupę zasobów o nazwie "MyResourceGroup", użyj następującego polecenia:
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

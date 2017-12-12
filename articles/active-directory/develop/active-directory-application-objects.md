@@ -3,7 +3,7 @@ title: "Aplikacja usługi Azure Active Directory i obiektów nazwy głównej us�
 description: "Omówienie relacja między aplikacją i obiekty główne usługi w usłudze Azure Active Directory"
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 services: active-directory
 editor: 
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 85731afd18304e848f8577d8a6665dca3f9ee5d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Aplikacji i usług obiektów principal w usłudze Azure Active Directory (Azure AD)
 Czasami znaczenie "aplikacja" może być błędnie interpretowane w kontekście usługi Azure AD. Celem tego artykułu jest wyjaśnienia dotyczące pojęć i konkretnych aspektów integracji aplikacji usługi Azure AD, z ilustracja rejestracji i zgoda na [wielodostępnych aplikacji](active-directory-dev-glossary.md#multi-tenant-application).

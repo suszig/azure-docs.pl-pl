@@ -5,7 +5,7 @@ keywords: "Kreator instalacji Azure AD Connect umożliwia skonfigurowanie ustawi
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Synchronizacja programu Azure AD Connect: uruchomienie Kreatora instalacji po raz drugi
 Podczas pierwszego uruchomienia Kreatora instalacji usługi Azure AD Connect przeprowadza użytkownika przez konfigurowanie instalacji. Jeśli ponownie uruchom Kreatora instalacji, oferuje opcje konserwacji.
@@ -41,7 +41,7 @@ Wybierz jedno z zadań, a następnie kliknij przycisk **dalej** aby kontynuować
 >
 >
 
-## <a name="view-current-configuration"></a>Wyświetl bieżącą konfigurację
+## <a name="view-current-configuration"></a>Wyświetlanie bieżącej konfiguracji
 Ta opcja umożliwia szybki przegląd aktualnie skonfigurowanych opcji.
 
 ![Strona z listą wszystkich opcji i ich stan](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
@@ -78,7 +78,7 @@ Opcja pokazuje, czy przemieszczania jest obecnie włączona lub wyłączona:
 Aby zmienić stan, wybierz tę opcję i zaznacz lub usuń zaznaczenie pola wyboru.  
 ![Opcja, która również jest wyświetlany bieżący stan trybu przejściowego](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Zmień logowanie użytkowników
+## <a name="change-user-sign-in"></a>Zmień dane logowania użytkownika
 Ta opcja umożliwia zmianę z synchronizacji haseł do Federacji lub odwrotnie. Nie można zmienić **nieskonfigurowane**.
 
 Aby uzyskać więcej informacji na temat tej opcji, zobacz [logowania użytkownika](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).

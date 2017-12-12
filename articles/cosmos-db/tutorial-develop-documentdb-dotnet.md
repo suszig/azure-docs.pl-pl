@@ -1,6 +1,6 @@
 ---
-title: "Azure rozwiązania Cosmos bazy danych: Tworzenie za pomocą usługi DocumentDB interfejsu API programu .NET | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć aplikacje za pomocą interfejsu API usługi DocumentDB DB rozwiązania Cosmos Azure przy użyciu platformy .NET"
+title: "Azure rozwiązania Cosmos bazy danych: Tworzenie przy użyciu interfejsu API SQL w programie .NET | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tworzyć aplikacje za pomocą interfejsu API SQL Azure rozwiązania Cosmos DB przy użyciu platformy .NET"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,19 +16,21 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f019ae72e380f1c8e5b1ec67bd5177144ce1b345
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Tworzenie za pomocą interfejsu API usługi DocumentDB w .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Tworzenie przy użyciu interfejsu API SQL w .NET
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
-Ten samouczek pokazuje, jak utworzyć konto bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure, a następnie utwórz bazą danych dokumentów i kolekcji z [klucza partycji](documentdb-partition-data.md#partition-keys) przy użyciu [interfejsu API platformy .NET usługi DocumentDB](documentdb-introduction.md). Definiując klucza partycji podczas tworzenia kolekcji, aplikacja jest przygotowana do łatwego skalowania wraz z rozwojem danych. 
+Ten samouczek pokazuje, jak utworzyć konto bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure, a następnie utwórz bazą danych dokumentów i kolekcji z [klucza partycji](documentdb-partition-data.md#partition-keys) przy użyciu [interfejs API .NET SQL](documentdb-introduction.md). Definiując klucza partycji podczas tworzenia kolekcji, aplikacja jest przygotowana do łatwego skalowania wraz z rozwojem danych. 
 
-Ten samouczek obejmuje następujące zadania za pomocą [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md):
+Ten samouczek obejmuje następujące zadania za pomocą [interfejs API .NET SQL](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Cosmos DB
@@ -79,7 +81,7 @@ Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.
     Jeśli zostanie wyświetlony komunikat dotyczący przejrzenia zmian wprowadzonych w rozwiązaniu, kliknij przycisk **OK**. Jeśli wyświetlany jest komunikat o akceptacji licencji, kliknij pozycję **Akceptuję**.
 
 ## <a id="Connect"></a>Dodaj odwołania do projektu
-Pozostałe kroki w tym samouczku Podaj wstawki kodu interfejsu API usługi DocumentDB, które są wymagane do tworzenia i aktualizacji bazy danych Azure rozwiązania Cosmos zasobów w projekcie.
+Pozostałe kroki w tym samouczku Podaj wstawki kodu interfejsu API SQL, które są wymagane do tworzenia i aktualizacji bazy danych Azure rozwiązania Cosmos zasobów w projekcie.
 
 Najpierw dodaj te odwołania do aplikacji.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Tworzenie bazy danych
 
-Następnie należy utworzyć bazy danych Azure rozwiązania Cosmos [bazy danych](documentdb-resources.md#databases) za pomocą [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody  **DocumentClient** klasę z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md). Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
+Następnie należy utworzyć bazy danych Azure rozwiązania Cosmos [bazy danych](documentdb-resources.md#databases) za pomocą [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody  **DocumentClient** klasę z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md). Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Równoległego wykonywania zapytań
-Zestawów DocumentDB SDK DB rozwiązania Cosmos Azure 1.9.0 i powyżej opcje wykonywania zapytania równoległe pomocy technicznej, które umożliwiają wykonywanie zapytań o małych opóźnieniach dotyczących kolekcji partycjonowanych nawet wtedy, gdy konieczne jest touch dużą liczbę partycji. Na przykład następujące zapytanie jest skonfigurowany do uruchomienia równoległego na partycje.
+Azure rozwiązania Cosmos bazy danych SQL SDK 1.9.0 i powyżej opcje wykonywania zapytania równoległe pomocy technicznej, które umożliwiają wykonywanie zapytań o małych opóźnieniach dotyczących kolekcji partycjonowanych nawet wtedy, gdy konieczne jest touch dużą liczbę partycji. Na przykład następujące zapytanie jest skonfigurowany do uruchomienia równoległego na partycje.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ Możesz zarządzać równoległego wykonywania zapytań przez dostrajanie nastę
 * Przez ustawienie `MaxDegreeOfParallelism`, można kontrolować stopień równoległości tj., maksymalną liczbę równoczesnych połączeń sieciowych do partycji w kolekcji. Jeśli ustawisz to-1, stopień równoległości jest zarządzany przez zestaw SDK. Jeśli `MaxDegreeOfParallelism` nie jest określony lub ustawiona na 0, co jest to wartość domyślna, będzie jednego połączenia sieciowego z partycjami kolekcji.
 * Przez ustawienie `MaxBufferedItemCount`, można kompromis wykorzystanie pamięci zapytania opóźnienia i po stronie klienta. Jeśli ten parametr lub ustaw tę wartość-1, liczba elementów buforowane podczas równoległego wykonywania zapytań jest zarządzany przez zestaw SDK.
 
-Podana takim samym stanie kolekcji, zapytań równoległych zwróci wyniki w tej samej kolejności jak wykonanie szeregowego. Podczas wykonywania kwerendy między partycji zawierającej, sortowanie (ORDER BY i/lub góry), zestaw SDK usługi DocumentDB wystawia zapytania równolegle na partycje i scala częściowo sortowane wyniki w po stronie klienta, aby wygenerować globalnie uporządkowanych wyników.
+Podana takim samym stanie kolekcji, zapytań równoległych zwróci wyniki w tej samej kolejności jak wykonanie szeregowego. Podczas wykonywania kwerendy między partycji zawierającej, sortowanie (ORDER BY i/lub góry), zestawu SDK SQL wystawia zapytania równolegle na partycje i scala częściowo sortowane wyniki w po stronie klienta, aby wygenerować globalnie uporządkowanych wyników.
 
 ## <a name="execute-stored-procedures"></a>Wykonanie procedury składowane
 Ponadto można wykonywać transakcje atomic względem dokumentów mających taki sam identyfikator urządzenia, np. Jeśli wartości zagregowanych lub najnowszy stan urządzeń w jednym dokumencie jest obsługa przez dodanie poniższego kodu do projektu.

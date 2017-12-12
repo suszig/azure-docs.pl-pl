@@ -4,7 +4,7 @@ description: "W tym artykule wyjaśniono deklaratywne inicjowania obsługi admin
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronizacja programu Azure AD Connect: opis Aprowizacją deklaratywną
 W tym temacie opisano model konfiguracji w programie Azure AD Connect. Model jest nazywany Aprowizacją deklaratywną i pozwala na zapewnienie zmiany z łatwością konfiguracji. Wiele czynności opisanych w tym temacie są zaawansowane i nie jest wymagane dla większości scenariuszy.
@@ -132,7 +132,7 @@ Zazwyczaj podczas synchronizacji wartość oczekiwana używa atrybutu, nawet je�
 Przykładem tej funkcji można znaleźć w reguły synchronizacji out-of-box *w z usługi Active Directory — typowe użytkownika z programu Exchange*. W programie Exchange hybrydowego wartości dodanej przez program Exchange online tylko mają być synchronizowane po potwierdzeniu, że wartość została pomyślnie wyeksportowano:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
-## <a name="precedence"></a>Priorytet
+## <a name="precedence"></a>Pierwszeństwo
 Gdy kilka reguł synchronizacji próbuje przyczyniają się taką samą wartość atrybutu do obiektu docelowego, wartość pierwszeństwa służy do określenia wygrał użytkownik. Reguła o najwyższym priorytecie, najmniejsza wartość liczbowa będzie współtworzenia atrybutu w konflikt.
 
 ![Scal typów](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  

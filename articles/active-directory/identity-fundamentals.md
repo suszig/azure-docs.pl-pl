@@ -3,7 +3,7 @@ title: "Podstawowe informacje na temat zarządzania tożsamość platformy Azure
 description: "Tożsamości w chmurze są teraz najlepszy sposób, aby zachować kontrolę nad i widoczność, jak i kiedy użytkownicy uzyskują dostęp do danych i aplikacji firmy."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Podstawowe informacje na temat zarządzania tożsamość platformy Azure
 Jak coraz więcej zasobów cyfrowych firmy na żywo poza siecią firmową w chmurze i na urządzeniach, doskonałe oparte na chmurze tożsamościami i dostępem rozwiązania do zarządzania staje się to konieczne. Tożsamości w chmurze są teraz najlepszy sposób, aby zachować kontrolę nad i widoczność, jak i kiedy użytkownicy uzyskują dostęp do danych i aplikacji firmy.

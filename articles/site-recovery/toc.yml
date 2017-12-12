@@ -139,24 +139,24 @@
           items:
             - name: Przegląd i wymagania wstępne
               href: site-recovery-deployment-planner.md
-            - name: Uruchamianie planisty wdrożenia
+            - name: Uruchamianie narzędzia Planista wdrażania
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Analizowanie wygenerowanego raportu
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Analizowanie raportu szacowania kosztów odzyskiwania po awarii
+            - name: Analizowanie raportu szacowania kosztów
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Skalowanie serwerów przetwarzania do wewnątrz na potrzeby replikacji oprogramowania VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Planowanie wdrożenia i narzędzie na potrzeby replikacji funkcji Hyper-V do platformy Azure
+        - name: Narzędzie Planista wdrażania na potrzeby replikacji funkcji Hyper-V do platformy Azure
           href: null
           items:
             - name: Przegląd i wymagania wstępne
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Uruchamianie planisty wdrożenia
+            - name: Uruchamianie narzędzia Planista wdrażania
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Analizowanie wygenerowanego raportu
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Analizowanie raportu szacowania kosztów odzyskiwania po awarii
+            - name: Analizowanie raportu szacowania kosztów
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Testy skalowania wydajności na potrzeby replikacji funkcji Hyper-V między lokacjami lokalnymi
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

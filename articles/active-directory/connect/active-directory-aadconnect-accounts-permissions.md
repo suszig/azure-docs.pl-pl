@@ -4,7 +4,7 @@ description: "W tym temacie opisuje konta używane i utworzyć i wymagane uprawn
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 Kreator instalacji Azure AD Connect oferuje dwa różne ścieżki:
@@ -76,7 +76,7 @@ Azure AD Connect wersji 1.1.524.0 i później ma opcję umożliwiającą program
 | Podłączanie katalogów |Lokalnych poświadczeń usługi Active Directory dla każdego lasu, która jest połączona z usługą Azure AD |Uprawnienia zależą od funkcji, które można włączyć i znajdują się w [Tworzenie konta usług AD DS](#create-the-ad-ds-account) |To konto jest używane do odczytywania i zapisywania informacji o katalogu podczas synchronizacji. |
 | Serwery usług AD FS |Dla każdego serwera na liście Kreator służy do zbierania poświadczeń podczas logowania użytkownika, uruchom kreatora są niewystarczające do połączenia |Administrator domeny |Instalowanie i konfigurowanie roli serwera usług AD FS. |
 | Serwery proxy aplikacji sieci Web |Dla każdego serwera na liście Kreator służy do zbierania poświadczeń podczas logowania użytkownika, uruchom kreatora są niewystarczające do połączenia |Administratora lokalnego na komputerze docelowym |Instalowanie i konfigurowanie roli serwera proxy. |
-| Poświadczenia zaufania serwera proxy |Poświadczenia zaufania usługi federacyjnej (poświadczenia serwera proxy używane do rejestrowania certyfikatu relacji zaufania z FS |Konta domeny, które ma uprawnienia administratora lokalnego serwera usług AD FS |Wstępnej rejestracji certyfikatu zaufania FS WAP. |
+| Poświadczenia relacji zaufania serwera proxy |Poświadczenia zaufania usługi federacyjnej (poświadczenia serwera proxy używane do rejestrowania certyfikatu relacji zaufania z FS |Konta domeny, które ma uprawnienia administratora lokalnego serwera usług AD FS |Wstępnej rejestracji certyfikatu zaufania FS WAP. |
 | Strona usług AD FS konta usługi, "Użyć opcji konta użytkownika domeny" |Poświadczenia konta użytkownika AD |Użytkownik domeny |AD konto użytkownika, którego poświadczenia są udostępniane jest używane jako konto logowania usługi AD FS. |
 
 ### <a name="create-the-ad-ds-account"></a>Tworzenie konta usług AD DS
@@ -88,7 +88,7 @@ Uprawnienia wymagane jest zależny od funkcji opcjonalnych można włączyć. Je
 | --- | --- |
 | Funkcja msDS-ConsistencyGuid |Uprawnienia do zapisu do atrybutu msDS-ConsistencyGuid udokumentowane w [zagadnienia dotyczące projektowania — przy użyciu msDS-ConsistencyGuid jako sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja haseł |<li>Replikować zmiany katalogu</li>  <li>Replikowanie katalogu zmienia wszystkie |
-| Wdrożenia hybrydowego programu Exchange |Uprawnienia do zapisu w atrybutach w [zapisywania zwrotnego hybrydowego programu Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) dla użytkowników, grup i kontakty. |
+| Wdrożenie hybrydowe programu Exchange |Uprawnienia do zapisu w atrybutach w [zapisywania zwrotnego hybrydowego programu Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) dla użytkowników, grup i kontakty. |
 | Folder publiczny poczty programu Exchange |Uprawnienia odczytu do atrybutów w [folderu publicznego poczty programu Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) dla folderów publicznych. | 
 | Zapisywanie zwrotne haseł |Uprawnienia do zapisu w atrybutach w [wprowadzenie do zarządzania hasłami](../active-directory-passwords-writeback.md) dla użytkowników. |
 | Zapisywanie zwrotne urządzeń |Uprawnienia przyznane przy użyciu skryptu programu PowerShell, zgodnie z opisem w [zapisu zwrotnego urządzeń](active-directory-aadconnect-feature-device-writeback.md). |
@@ -101,7 +101,7 @@ Po uaktualnieniu z jednej wersji programu Azure AD Connect do nowej wersji, potr
 >Począwszy od kompilacji 1.1.484, Azure AD Connect wprowadzono usterki regresji, który wymaga uprawnień administratora systemu do uaktualnienia bazy danych SQL.  Ten błąd jest nadal znajdują się w ostatniej kompilacji 1.1.614.  W przypadku uaktualniania do tej kompilacji, należy najpierw uprawnienia administratora systemu.  Uprawnienia dbo nie są wystarczające.  Próba uaktualnienia bez uprawnień administratora systemu Azure AD Connect uaktualnienie zakończy się niepowodzeniem i Azure AD Connect nie będzie już działać poprawnie później.  Firma Microsoft o tym pamiętać i działa, aby rozwiązać ten problem.
 
 
-| Główna | Wymagane uprawnienia | Używany do |
+| Podmiot zabezpieczeń | Wymagane uprawnienia | Używany do |
 | --- | --- | --- |
 | Użytkownik uruchamiający Kreatora instalacji |Administrator serwera lokalnego |Aktualizowanie plików binarnych. |
 | Użytkownik uruchamiający Kreatora instalacji |Element członkowski ADSyncAdmins |Zmiany reguły synchronizacji i innych konfiguracji. |
